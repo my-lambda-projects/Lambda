@@ -1,0 +1,343 @@
+###################################
+Data Structures: JS Built-in Functions
+###################################
+
+########## Add Items to an Array with push() and unshift() - takes unlimited arguments
+
+function mixedNumbers(arr) {
+// use .unshift to add three items to front and .push to add three items to the back
+  arr.unshift('I', 2, 'three');
+  arr.push(7, 'VIII', 9);
+// change code above this line
+  return arr;
+}
+
+console.log(mixedNumbers(['IV', 5, 'six']));
+
+########## Remove Items from an Array with pop() and shift() - does NOT take in arguments
+
+function popShift(arr) {
+  let popped = arr.pop(); 
+  let shifted = arr.shift(); 
+  return [shifted, popped];
+}
+
+
+console.log(popShift(['challenge', 'is', 'not', 'complete']));
+
+########## Remove Items Using splice() - - returns an array
+
+function sumOfTen(arr) {
+  arr.splice(3,1);                      // at index[3], take 1 items out;
+  arr.splice(4,1);                      // then at index[4], take another 1 item out
+  return arr.reduce((a, b) => a + b);   // change code above this line
+}
+
+
+console.log(sumOfTen([2, 5, 1, 5, 2, 1]));
+
+########## Remove AND Replace Items using .splice() - - takes in 3 arguments: starting index, # items removed, new items
+
+function htmlColorNames(arr) {
+  // change code below this line
+    arr.splice(0, 2, 'DarkSalmon', 'BlanchedAlmond');
+  // change code above this line
+    return arr;
+} 
+ 
+console.log(htmlColorNames(['DarkGoldenRod', 'WhiteSmoke', 'LavenderBlush', 'PaleTurqoise', 'FireBrick']));
+
+########### Extract items from array using .slice - 2 arguments, beginning and end of extraction
+
+function forecast(arr) {
+// start extraction at index 2 till 4, store in 'newarr'
+  let newarr = arr.slice(2,4);
+  return newarr;
+}
+
+// original array
+console.log(forecast(['cold', 'rainy', 'warm', 'sunny', 'cool', 'thunderstorms']));
+// newarr = ['warm', 'sunny']
+
+########### Copy an Array with the Spread Operator
+//return a new array made up of num copies of arr
+
+function copyMachine(arr, num) {
+    let newArr = [];
+    while (num >= 1) {                          
+ //.push copy of arr into newArr;  
+    newArr.push([...arr]);                    //apply .push([...arr]) into newArr, until while loop breaks
+    num--;
+  }
+  return newArr;
+}
+
+//test different cases
+console.log(copyMachine([true, false, true], 2));
+
+############# Combine Array with Spread Operator
+
+function spreadOut() {
+  let fragment = ['to', 'code'];
+  let sentence = ['learning', ...fragment, 'is', 'fun'];        
+  return sentence;
+}
+
+// returns ['learning', 'to', 'code', 'is', 'fun']
+console.log(spreadOut());
+
+############ indexOf()
+// a function, quickCheck, that takes an array and an element as arguments
+// it returns true if the passed element exists on the array, and false if it does not
+
+
+function quickCheck(arr, elem) {
+  if (arr.indexOf(elem) === -1) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+// example: false
+console.log(quickCheck(['squash', 'onions', 'shallots'], 'mushrooms'));
+
+############ Use for-loop to check if nested arrays contain an element
+function filteredArray(arr, elem) {
+  let newArr = [];
+// change code below this line
+    for (let i = 0; i < arr.length; i++){
+//check if elem inside nested array using indexOf()
+      if (arr[i].indexOf(elem) === -1) {       // -1 if not containining 
+        newArr.push(arr[i]);                  //push nested array into newArr
+      }
+    }
+  return newArr;
+}
+
+// every nested array contains '3' so newArr will be []
+console.log(filteredArray([[3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9]], 3));
+
+############# Nested Array - 5 levels deep
+
+let myNestedArray = [
+//top-level
+  ['unshift', false, 1, 2, 3, 'complex', 'nested'], //2-levels
+  [
+    ['deep'],[             //3-levels
+      ['deeper'], [     //4-levels
+        ['deepest']   //5-levels
+      ]
+    ],  
+  ],
+  ['loop', 'shift', 6, 7, 1000, 'method'],
+  ['concat', false, true, 'spread', 'array'],
+  ['mutate', 1327.98, 'splice', 'slice', 'push'],
+  ['iterate', 1.3849, 7, '8.4876', 'arbitrary', 'depth']
+];
+
+myNestedArray;
+
+############# Adding Key-Value Pairs to Objects
+// existing foods object
+  let foods = {
+    apples: 25,
+    oranges: 32,
+    plums: 28
+};
+
+// add three fruits with corresponding count
+foods['bananas'] = 13;         //alternative   foods.bananas = 13;
+foods['grapes'] = 35;          //alternative   foods.grapes = 35;
+foods['strawberries'] = 27;    //alternative   foods.strawberries = 27;
+
+console.log(foods);
+
+############# Modify Objects nested within an Object
+// change online value to 45
+let userActivity = {
+  id: 23894201352,
+  date: 'January 1, 2017',
+  data: {
+    totalUsers: 51,
+    online: 42
+  }
+};
+
+// go into data, then into online, set to 45
+userActivity.data['online'] = 45
+
+console.log(userActivity);
+
+############## Access Property with Bracket Notation
+// foods object with multiple key:value pairs
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+  bananas: 13,
+  grapes: 35,
+  strawberries: 27
+};
+
+// function takes any scannedItem as argument
+function checkInventory(scannedItem) {
+  // access value of any key in foods object, set to inventory
+  let inventory = foods[scannedItem];
+  return inventory;
+}
+
+// should return 25
+console.log(checkInventory("apples"));
+
+############### REMOVE Property from Objects with Delete key word
+// foods object with multiple key:value pairs
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+  bananas: 13,
+  grapes: 35,
+  strawberries: 27
+};
+
+// use delete key word to remove oranges, plums, strawberries from foods object
+delete foods.oranges;
+delete foods.plums;
+delete foods.strawberries;
+
+console.log(foods);
+
+############### Check if an Object has a Property using .hasOwnProperty() method // alternative 'Alan' in users
+// users nested object 
+let users = {
+  Alan: {
+    age: 27,
+    online: true
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: true
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};
+
+//function takes an object argument
+function isEveryoneHere(obj) {
+// return true if users object has using .hasOwnProperty() method, only returns boolean
+  if (users.hasOwnProperty('Alan' && 'Jeff' && 'Sarah' && 'Ryan')){
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(isEveryoneHere(users));
+
+
+############### Iterate Through the Keys of an Object with a for...in Statement
+// users object, has nested object
+let users = {
+  Alan: {
+    age: 27,
+    online: false
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: false
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};
+
+//create a function that loops through users in the users object and return the number of users whose online property is true
+// countOnline takes obj object as argument
+
+function countOnline(obj) {                                      
+  let count = 0;                         // let variable count equal 0                                           
+  for (let user in obj){                 // loops through user in obj (referencing Alan, Jeff, Sarah, Ryan)
+    if (obj[user]['online'] === true){   // double-bracket notation 
+      count++;                           // increase count
+    }
+  }
+  return count;
+}
+
+console.log(countOnline(users));
+
+################ Generate an Array of All Object Keys with Object.keys()
+let users = {
+  Alan: {
+    age: 27,
+    online: false
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: false
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};
+
+function getArrayOfUsers(obj) {
+  // use Object.keys() to retrieve all keys from obj object, set to array
+  let array = Object.keys(obj);
+  return array;
+}
+
+console.log(getArrayOfUsers(users));
+
+################# Modify an Array stored within an Object
+let user = {
+  name: 'Kenneth',
+  age: 28,
+  data: {
+    username: 'kennethCodesAllDay',
+    joinDate: 'March 26, 2016',
+    organization: 'freeCodeCamp',
+    friends: [
+      'Sam',
+      'Kira',
+      'Tomo'
+    ],
+    location: {
+      city: 'San Francisco',
+      state: 'CA',
+      country: 'USA'
+    }
+  }
+};
+
+// addFriend function takes a user object and adds the name of the friend argument to the array stored in user.data.friends
+
+function addFriend(userObj, friend) {
+// retrieve existing user.data.friends array and set to array
+    let array = user.data.friends;
+// add friend to array using array method .push()
+    array.push(friend);
+// return that array
+    return array;
+
+}
+
+console.log(addFriend(user, 'Pete'));
+

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="common-usage">Common usage</h2>
+<p>{: .-three-column}</p>
+<h3 id="tables">Tables</h3>
+<pre><code>:Tab /|</code></pre>
+<p>{: .-setup}</p>
+<pre><code>| Fruit  | Color  |
+| -----  | -----  |
+| Apple  | Red    |
+| Banana | Yellow |
+| Kiwi   | Green  |</code></pre>
+<h3 id="variables">Variables</h3>
+<pre><code>:Tab /=</code></pre>
+<p>{: .-setup}</p>
+<pre><code>title = &quot;Hello&quot;
+src   = &quot;image.jpg&quot;
+width = 640</code></pre>
+<h3 id="colons">Colons</h3>
+<pre><code>:Tab /:\zs/l0l1</code></pre>
+<p>{: .-setup}</p>
+<pre><code>title:       &quot;Hello world&quot;
+description: &quot;This is a description&quot;
+src:         &quot;image.jpg&quot;
+height:      320
+width:       640</code></pre>
+<h2 id="tab-command">Tab command</h2>
+<p>{: .-three-column}</p>
+<h3 id="basic-example">Basic example</h3>
+<pre><code>:Tab /:</code></pre>
+<p>{: .-setup}</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" title="1"><span class="ex">title</span> : My picture</a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="ex">src</span>   : img.jpg</a></code></pre></div>
+<h3 id="right-align">Right align</h3>
+<pre><code>:Tab /:/r0</code></pre>
+<p>{: .-setup}</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" title="1"><span class="ex">title</span>:My picture</a>
+<a class="sourceLine" id="cb10-2" title="2">  <span class="ex">src</span>:   img.jpg</a></code></pre></div>
+<h3 id="the-atom">The atom</h3>
+<pre><code>:Tab /:\zs</code></pre>
+<p>{: .-setup}</p>
+<pre><code>title:  My picture
+src:    img.jpg</code></pre>
+<p>The <code>\zs</code> atom will exclude the <code>:</code> from the search match.</p>
+<h3 id="specifier">Specifier</h3>
+<pre><code>:Tab /:/r1c1l0</code></pre>
+<p>{: .-setup}</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb14-1" title="1"><span class="ex">title</span> : My picture</a>
+<a class="sourceLine" id="cb14-2" title="2">  <span class="ex">src</span> : img.jpg</a></code></pre></div>
+<h4 id="explanation">Explanation</h4>
+<ul>
+<li><code>r1</code> - Right align with 1 space</li>
+<li><code>c1</code> - Center align the comma with 1 space</li>
+<li><code>l0</code> - Left align with 0 spaces</li>
+</ul>
+<h3 id="regexp">Regexp</h3>
+<pre><code>:Tab /^[^,]*\zs,/r0</code></pre>
+<p>{: .-setup}</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb16-1" title="1"><span class="ex">abc</span>,hello</a>
+<a class="sourceLine" id="cb16-2" title="2">  <span class="ex">c</span>,hi there</a>
+<a class="sourceLine" id="cb16-3" title="3">  <span class="ex">a</span>,yo</a></code></pre></div>
+<h3 id="specifiers">Specifiers</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Specifier</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>r1c1l0</code></td>
+<td>multiple specifiers, one per column<br>(the separator counts as a column)</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>lN</code></td>
+<td>Left-align (with N spaces padding)</td>
+</tr>
+<tr class="even">
+<td><code>rN</code></td>
+<td>Right-align (with N spaces padding)</td>
+</tr>
+<tr class="odd">
+<td><code>cN</code></td>
+<td>Center-align (with N spaces padding)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="also-see">Also see</h2>
+<ul>
+<li><a href="https://github.com/godlygeek/tabular">godlygeek/tabular</a> <em>(github.com)</em></li>
+<li><a href="http://vimcasts.org/episodes/aligning-text-with-tabular-vim/">Aligning text with Tabular.vim</a> <em>(vimcasts.org)</em></li>
+</ul>
+</body></html>

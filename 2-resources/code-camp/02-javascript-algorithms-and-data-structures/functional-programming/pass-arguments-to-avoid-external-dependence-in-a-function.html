@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>The last challenge was a step closer to functional programming principles, but there is still something missing.</p>
+<p>We didn’t alter the global variable value, but the function <code>incrementer</code> would not work without the global variable <code>fixedValue</code> being there.</p>
+<p>Another principle of functional programming is to always declare your dependencies explicitly. This means if a function depends on a variable or object being present, then pass that variable or object directly into the function as an argument.</p>
+<p>There are several good consequences from this principle. The function is easier to test, you know exactly what input it takes, and it won’t depend on anything else in your program.</p>
+<p>This can give you more confidence when you alter, remove, or add new code. You would know what you can or cannot change and you can see where the potential traps are.</p>
+<p>Finally, the function would always produce the same output for the same set of inputs, no matter what part of the code executes it.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>Let’s update the <code>incrementer</code> function to clearly declare its dependencies.</p>
+<p>Write the <code>incrementer</code> function so it takes an argument, and then returns a result after increasing the value by one.</p>
+<h1 id="hints">–hints–</h1>
+<p>Your function <code>incrementer</code> should not change the value of <code>fixedValue</code> (which is <code>4</code>).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="at">assert</span>(fixedValue <span class="op">===</span> <span class="dv">4</span>)<span class="op">;</span></a></code></pre></div>
+<p>Your <code>incrementer</code> function should take an argument.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(<span class="va">incrementer</span>.<span class="at">length</span> <span class="op">===</span> <span class="dv">1</span>)<span class="op">;</span></a></code></pre></div>
+<p>Your <code>incrementer</code> function should return a value that is one larger than the <code>fixedValue</code> value.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">const</span> __newValue <span class="op">=</span> <span class="at">incrementer</span>(fixedValue)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="at">assert</span>(__newValue <span class="op">===</span> <span class="dv">5</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="co">// The global variable</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw">var</span> fixedValue <span class="op">=</span> <span class="dv">4</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-3" title="3"></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="kw">function</span> <span class="at">incrementer</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-6" title="6"></a>
+<a class="sourceLine" id="cb4-7" title="7"></a>
+<a class="sourceLine" id="cb4-8" title="8">  <span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="op">}</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="co">// The global variable</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw">var</span> fixedValue <span class="op">=</span> <span class="dv">4</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-3" title="3"></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="kw">function</span> <span class="at">incrementer</span> (fixedValue) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-6" title="6">  <span class="cf">return</span> fixedValue <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-7" title="7"></a>
+<a class="sourceLine" id="cb5-8" title="8">  <span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb5-9" title="9"><span class="op">}</span></a>
+<a class="sourceLine" id="cb5-10" title="10"></a>
+<a class="sourceLine" id="cb5-11" title="11">  </a></code></pre></div>
+</body></html>

@@ -1,0 +1,14 @@
+{
+  "name": "@bgoonz/spacetime",
+  "main": "f14d6c2ae275e918@472.js",
+  "version": "472.0.0",
+  "homepage": "https://observablehq.com/@bgoonz/spacetime",
+  "author": {
+    "name": "Bryan C Guner",
+    "url": "https://observablehq.com/@bgoonz"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}

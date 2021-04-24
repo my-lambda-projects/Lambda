@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>Check if a string (first argument, <code>str</code>) ends with the given target string (second argument, <code>target</code>).</p>
+<p>This challenge <em>can</em> be solved with the <code>.endsWith()</code> method, which was introduced in ES2015. But for the purpose of this challenge, we would like you to use one of the JavaScript substring methods instead.</p>
+<h1 id="hints">–hints–</h1>
+<p><code>confirmEnding("Bastian", "n")</code> should return <code>true</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="at">assert</span>(<span class="at">confirmEnding</span>(<span class="st">&#39;Bastian&#39;</span><span class="op">,</span> <span class="st">&#39;n&#39;</span>) <span class="op">===</span> <span class="kw">true</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>confirmEnding("Congratulation", "on")</code> should return <code>true</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(<span class="at">confirmEnding</span>(<span class="st">&#39;Congratulation&#39;</span><span class="op">,</span> <span class="st">&#39;on&#39;</span>) <span class="op">===</span> <span class="kw">true</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>confirmEnding("Connor", "n")</code> should return <code>false</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(<span class="at">confirmEnding</span>(<span class="st">&#39;Connor&#39;</span><span class="op">,</span> <span class="st">&#39;n&#39;</span>) <span class="op">===</span> <span class="kw">false</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>confirmEnding("Walking on water and developing software from a specification are easy if both are frozen", "specification")</code> should return <code>false</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="at">confirmEnding</span>(</a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="st">&#39;Walking on water and developing software from a specification are easy if both are frozen&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-4" title="4">    <span class="st">&#39;specification&#39;</span></a>
+<a class="sourceLine" id="cb4-5" title="5">  ) <span class="op">===</span> <span class="kw">false</span></a>
+<a class="sourceLine" id="cb4-6" title="6">)<span class="op">;</span></a></code></pre></div>
+<p><code>confirmEnding("He has to give me a new name", "name")</code> should return <code>true</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">assert</span>(<span class="at">confirmEnding</span>(<span class="st">&#39;He has to give me a new name&#39;</span><span class="op">,</span> <span class="st">&#39;name&#39;</span>) <span class="op">===</span> <span class="kw">true</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>confirmEnding("Open sesame", "same")</code> should return <code>true</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="at">assert</span>(<span class="at">confirmEnding</span>(<span class="st">&#39;Open sesame&#39;</span><span class="op">,</span> <span class="st">&#39;same&#39;</span>) <span class="op">===</span> <span class="kw">true</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>confirmEnding("Open sesame", "sage")</code> should return <code>false</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="at">assert</span>(<span class="at">confirmEnding</span>(<span class="st">&#39;Open sesame&#39;</span><span class="op">,</span> <span class="st">&#39;sage&#39;</span>) <span class="op">===</span> <span class="kw">false</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>confirmEnding("Open sesame", "game")</code> should return <code>false</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="at">assert</span>(<span class="at">confirmEnding</span>(<span class="st">&#39;Open sesame&#39;</span><span class="op">,</span> <span class="st">&#39;game&#39;</span>) <span class="op">===</span> <span class="kw">false</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>confirmEnding("If you want to save our world, you must hurry. We dont know how much longer we can withstand the nothing", "mountain")</code> should return <code>false</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="at">confirmEnding</span>(</a>
+<a class="sourceLine" id="cb9-3" title="3">    <span class="st">&#39;If you want to save our world, you must hurry. We dont know how much longer we can withstand the nothing&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb9-4" title="4">    <span class="st">&#39;mountain&#39;</span></a>
+<a class="sourceLine" id="cb9-5" title="5">  ) <span class="op">===</span> <span class="kw">false</span></a>
+<a class="sourceLine" id="cb9-6" title="6">)<span class="op">;</span></a></code></pre></div>
+<p><code>confirmEnding("Abstraction", "action")</code> should return <code>true</code>.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="at">assert</span>(<span class="at">confirmEnding</span>(<span class="st">&#39;Abstraction&#39;</span><span class="op">,</span> <span class="st">&#39;action&#39;</span>) <span class="op">===</span> <span class="kw">true</span>)<span class="op">;</span></a></code></pre></div>
+<p>Your code should not use the built-in method <code>.endsWith()</code> to solve the challenge.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="at">assert</span>(<span class="op">!</span><span class="ss">/</span><span class="sc">\.</span><span class="ss">endsWith</span><span class="sc">\(</span><span class="ss">.</span><span class="sc">*?\)\s*?</span><span class="ss">;</span><span class="sc">?</span><span class="ss">/</span>.<span class="at">test</span>(code) <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="ss">/</span><span class="sc">\[</span><span class="ss">&#39;endsWith&#39;</span><span class="sc">\]</span><span class="ss">/</span>.<span class="at">test</span>(code))<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">function</span> <span class="at">confirmEnding</span>(str<span class="op">,</span> target) <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-2" title="2">  <span class="cf">return</span> str<span class="op">;</span></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb12-4" title="4"></a>
+<a class="sourceLine" id="cb12-5" title="5"><span class="at">confirmEnding</span>(<span class="st">&quot;Bastian&quot;</span><span class="op">,</span> <span class="st">&quot;n&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">function</span> <span class="at">confirmEnding</span>(str<span class="op">,</span> target) <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-2" title="2">  <span class="cf">return</span> <span class="va">str</span>.<span class="at">substring</span>(<span class="va">str</span>.<span class="at">length</span> <span class="op">-</span> <span class="va">target</span>.<span class="at">length</span>) <span class="op">===</span> target<span class="op">;</span></a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb13-4" title="4"></a>
+<a class="sourceLine" id="cb13-5" title="5"><span class="at">confirmEnding</span>(<span class="st">&quot;Bastian&quot;</span><span class="op">,</span> <span class="st">&quot;n&quot;</span>)<span class="op">;</span></a></code></pre></div>
+</body></html>

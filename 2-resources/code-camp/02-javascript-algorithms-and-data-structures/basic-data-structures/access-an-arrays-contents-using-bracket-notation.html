@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>The fundamental feature of any data structure is, of course, the ability to not only store data, but to be able to retrieve that data on command. So, now that we’ve learned how to create an array, let’s begin to think about how we can access that array’s information.</p>
+<p>When we define a simple array as seen below, there are 3 items in it:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> ourArray <span class="op">=</span> [<span class="st">&quot;a&quot;</span><span class="op">,</span> <span class="st">&quot;b&quot;</span><span class="op">,</span> <span class="st">&quot;c&quot;</span>]<span class="op">;</span></a></code></pre></div>
+<p>In an array, each array item has an <dfn>index</dfn>. This index doubles as the position of that item in the array, and how you reference it. However, it is important to note, that JavaScript arrays are <dfn>zero-indexed</dfn>, meaning that the first element of an array is actually at the <strong><em>zeroth</em></strong> position, not the first. In order to retrieve an element from an array we can enclose an index in brackets and append it to the end of an array, or more commonly, to a variable which references an array object. This is known as <dfn>bracket notation</dfn>. For example, if we want to retrieve the <code>a</code> from <code>ourArray</code> and assign it to a variable, we can do so with the following code:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> ourVariable <span class="op">=</span> ourArray[<span class="dv">0</span>]<span class="op">;</span></a></code></pre></div>
+<p>Now <code>ourVariable</code> has the value of <code>a</code>.</p>
+<p>In addition to accessing the value associated with an index, you can also <em>set</em> an index to a value using the same notation:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">ourArray[<span class="dv">1</span>] <span class="op">=</span> <span class="st">&quot;not b anymore&quot;</span><span class="op">;</span></a></code></pre></div>
+<p>Using bracket notation, we have now reset the item at index 1 from the string <code>b</code>, to <code>not b anymore</code>. Now <code>ourArray</code> is <code>["a", "not b anymore", "c"]</code>.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>In order to complete this challenge, set the 2nd position (index <code>1</code>) of <code>myArray</code> to anything you want, besides the letter <code>b</code>.</p>
+<h1 id="hints">–hints–</h1>
+<p><code>myArray[0]</code> should be equal to the letter <code>a</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">assert</span>.<span class="at">strictEqual</span>(myArray[<span class="dv">0</span>]<span class="op">,</span> <span class="st">&#39;a&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>myArray[1]</code> should not be equal to the letter <code>b</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">assert</span>.<span class="at">notStrictEqual</span>(myArray[<span class="dv">1</span>]<span class="op">,</span> <span class="st">&#39;b&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>myArray[2]</code> should be equal to the letter <code>c</code></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="va">assert</span>.<span class="at">strictEqual</span>(myArray[<span class="dv">2</span>]<span class="op">,</span> <span class="st">&#39;c&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>myArray[3]</code> should be equal to the letter <code>d</code></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="va">assert</span>.<span class="at">strictEqual</span>(myArray[<span class="dv">3</span>]<span class="op">,</span> <span class="st">&#39;d&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">let</span> myArray <span class="op">=</span> [<span class="st">&quot;a&quot;</span><span class="op">,</span> <span class="st">&quot;b&quot;</span><span class="op">,</span> <span class="st">&quot;c&quot;</span><span class="op">,</span> <span class="st">&quot;d&quot;</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb8-3" title="3"></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="va">console</span>.<span class="at">log</span>(myArray)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">let</span> myArray <span class="op">=</span> [<span class="st">&quot;a&quot;</span><span class="op">,</span> <span class="st">&quot;b&quot;</span><span class="op">,</span> <span class="st">&quot;c&quot;</span><span class="op">,</span> <span class="st">&quot;d&quot;</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-2" title="2">myArray[<span class="dv">1</span>] <span class="op">=</span> <span class="st">&quot;e&quot;</span><span class="op">;</span></a></code></pre></div>
+</body></html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>When an object inherits its <code>prototype</code> from another object, it also inherits the supertype’s constructor property.</p>
+<p>Here’s an example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">Bird</span>() <span class="op">{</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="va">Bird</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="va">Object</span>.<span class="at">create</span>(<span class="va">Animal</span>.<span class="at">prototype</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">let</span> duck <span class="op">=</span> <span class="kw">new</span> <span class="at">Bird</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="va">duck</span>.<span class="at">constructor</span></a></code></pre></div>
+<p>But <code>duck</code> and all instances of <code>Bird</code> should show that they were constructed by <code>Bird</code> and not <code>Animal</code>. To do so, you can manually set <code>Bird's</code> constructor property to the <code>Bird</code> object:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">Bird</span>.<span class="va">prototype</span>.<span class="at">constructor</span> <span class="op">=</span> Bird<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="va">duck</span>.<span class="at">constructor</span></a></code></pre></div>
+<h1 id="instructions">–instructions–</h1>
+<p>Fix the code so <code>duck.constructor</code> and <code>beagle.constructor</code> return their respective constructors.</p>
+<h1 id="hints">–hints–</h1>
+<p><code>Bird.prototype</code> should be an instance of <code>Animal</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(<span class="va">Animal</span>.<span class="va">prototype</span>.<span class="at">isPrototypeOf</span>(<span class="va">Bird</span>.<span class="at">prototype</span>))<span class="op">;</span></a></code></pre></div>
+<p><code>duck.constructor</code> should return <code>Bird</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(<span class="va">duck</span>.<span class="at">constructor</span> <span class="op">===</span> Bird)<span class="op">;</span></a></code></pre></div>
+<p><code>Dog.prototype</code> should be an instance of <code>Animal</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">assert</span>(<span class="va">Animal</span>.<span class="va">prototype</span>.<span class="at">isPrototypeOf</span>(<span class="va">Dog</span>.<span class="at">prototype</span>))<span class="op">;</span></a></code></pre></div>
+<p><code>beagle.constructor</code> should return <code>Dog</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="at">assert</span>(<span class="va">beagle</span>.<span class="at">constructor</span> <span class="op">===</span> Dog)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">function</span> <span class="at">Animal</span>() <span class="op">{</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="kw">function</span> <span class="at">Bird</span>() <span class="op">{</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="kw">function</span> <span class="at">Dog</span>() <span class="op">{</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-4" title="4"></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="va">Bird</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="va">Object</span>.<span class="at">create</span>(<span class="va">Animal</span>.<span class="at">prototype</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="va">Dog</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="va">Object</span>.<span class="at">create</span>(<span class="va">Animal</span>.<span class="at">prototype</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-7" title="7"></a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb7-9" title="9"></a>
+<a class="sourceLine" id="cb7-10" title="10"></a>
+<a class="sourceLine" id="cb7-11" title="11"></a>
+<a class="sourceLine" id="cb7-12" title="12"><span class="kw">let</span> duck <span class="op">=</span> <span class="kw">new</span> <span class="at">Bird</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-13" title="13"><span class="kw">let</span> beagle <span class="op">=</span> <span class="kw">new</span> <span class="at">Dog</span>()<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">function</span> <span class="at">Animal</span>() <span class="op">{</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="kw">function</span> <span class="at">Bird</span>() <span class="op">{</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="kw">function</span> <span class="at">Dog</span>() <span class="op">{</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="va">Bird</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="va">Object</span>.<span class="at">create</span>(<span class="va">Animal</span>.<span class="at">prototype</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="va">Dog</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="va">Object</span>.<span class="at">create</span>(<span class="va">Animal</span>.<span class="at">prototype</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="va">Dog</span>.<span class="va">prototype</span>.<span class="at">constructor</span> <span class="op">=</span> Dog<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="va">Bird</span>.<span class="va">prototype</span>.<span class="at">constructor</span> <span class="op">=</span> Bird<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-8" title="8"><span class="kw">let</span> duck <span class="op">=</span> <span class="kw">new</span> <span class="at">Bird</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="kw">let</span> beagle <span class="op">=</span> <span class="kw">new</span> <span class="at">Dog</span>()<span class="op">;</span></a></code></pre></div>
+</body></html>

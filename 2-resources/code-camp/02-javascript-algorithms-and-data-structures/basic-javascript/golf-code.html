@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>In the game of <a href="https://en.wikipedia.org/wiki/Golf">golf</a>, each hole has a <code>par</code>, meaning, the average number of <code>strokes</code> a golfer is expected to make in order to sink the ball in the hole to complete the play. Depending on how far above or below <code>par</code> your <code>strokes</code> are, there is a different nickname.</p>
+<p>Your function will be passed <code>par</code> and <code>strokes</code> arguments. Return the correct string according to this table which lists the strokes in order of priority; top (highest) to bottom (lowest):</p>
+<table class='table table-striped'>
+<thead>
+<tr>
+<th>
+Strokes
+</th>
+<th>
+Return
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+1
+</td>
+<td>
+“Hole-in-one!”
+</td>
+</tr>
+<tr>
+<td>
+&lt;= par - 2
+</td>
+<td>
+“Eagle”
+</td>
+</tr>
+<tr>
+<td>
+par - 1
+</td>
+<td>
+“Birdie”
+</td>
+</tr>
+<tr>
+<td>
+par
+</td>
+<td>
+“Par”
+</td>
+</tr>
+<tr>
+<td>
+par + 1
+</td>
+<td>
+“Bogey”
+</td>
+</tr>
+<tr>
+<td>
+par + 2
+</td>
+<td>
+“Double Bogey”
+</td>
+</tr>
+<tr>
+<td>
+<blockquote>
+= par + 3
+</td>
+<td>
+“Go Home!”
+</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p><code>par</code> and <code>strokes</code> will always be numeric and positive. We have added an array of all the names for your convenience.</p>
+<h1 id="hints">–hints–</h1>
+<p><code>golfScore(4, 1)</code> should return the string <code>Hole-in-one!</code></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="at">assert</span>(<span class="at">golfScore</span>(<span class="dv">4</span><span class="op">,</span> <span class="dv">1</span>) <span class="op">===</span> <span class="st">&#39;Hole-in-one!&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>golfScore(4, 2)</code> should return the string <code>Eagle</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(<span class="at">golfScore</span>(<span class="dv">4</span><span class="op">,</span> <span class="dv">2</span>) <span class="op">===</span> <span class="st">&#39;Eagle&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>golfScore(5, 2)</code> should return the string <code>Eagle</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(<span class="at">golfScore</span>(<span class="dv">5</span><span class="op">,</span> <span class="dv">2</span>) <span class="op">===</span> <span class="st">&#39;Eagle&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>golfScore(4, 3)</code> should return the string <code>Birdie</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(<span class="at">golfScore</span>(<span class="dv">4</span><span class="op">,</span> <span class="dv">3</span>) <span class="op">===</span> <span class="st">&#39;Birdie&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>golfScore(4, 4)</code> should return the string <code>Par</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">assert</span>(<span class="at">golfScore</span>(<span class="dv">4</span><span class="op">,</span> <span class="dv">4</span>) <span class="op">===</span> <span class="st">&#39;Par&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>golfScore(1, 1)</code> should return the string <code>Hole-in-one!</code></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="at">assert</span>(<span class="at">golfScore</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">1</span>) <span class="op">===</span> <span class="st">&#39;Hole-in-one!&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>golfScore(5, 5)</code> should return the string <code>Par</code></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="at">assert</span>(<span class="at">golfScore</span>(<span class="dv">5</span><span class="op">,</span> <span class="dv">5</span>) <span class="op">===</span> <span class="st">&#39;Par&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>golfScore(4, 5)</code> should return the string <code>Bogey</code></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="at">assert</span>(<span class="at">golfScore</span>(<span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>) <span class="op">===</span> <span class="st">&#39;Bogey&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>golfScore(4, 6)</code> should return the string <code>Double Bogey</code></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="at">assert</span>(<span class="at">golfScore</span>(<span class="dv">4</span><span class="op">,</span> <span class="dv">6</span>) <span class="op">===</span> <span class="st">&#39;Double Bogey&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>golfScore(4, 7)</code> should return the string <code>Go Home!</code></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="at">assert</span>(<span class="at">golfScore</span>(<span class="dv">4</span><span class="op">,</span> <span class="dv">7</span>) <span class="op">===</span> <span class="st">&#39;Go Home!&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>golfScore(5, 9)</code> should return the string <code>Go Home!</code></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="at">assert</span>(<span class="at">golfScore</span>(<span class="dv">5</span><span class="op">,</span> <span class="dv">9</span>) <span class="op">===</span> <span class="st">&#39;Go Home!&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">var</span> names <span class="op">=</span> [<span class="st">&quot;Hole-in-one!&quot;</span><span class="op">,</span> <span class="st">&quot;Eagle&quot;</span><span class="op">,</span> <span class="st">&quot;Birdie&quot;</span><span class="op">,</span> <span class="st">&quot;Par&quot;</span><span class="op">,</span> <span class="st">&quot;Bogey&quot;</span><span class="op">,</span> <span class="st">&quot;Double Bogey&quot;</span><span class="op">,</span> <span class="st">&quot;Go Home!&quot;</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="kw">function</span> <span class="at">golfScore</span>(par<span class="op">,</span> strokes) <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-3" title="3">  <span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb12-4" title="4"></a>
+<a class="sourceLine" id="cb12-5" title="5"></a>
+<a class="sourceLine" id="cb12-6" title="6">  <span class="cf">return</span> <span class="st">&quot;Change Me&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb12-7" title="7">  <span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb12-8" title="8"><span class="op">}</span></a>
+<a class="sourceLine" id="cb12-9" title="9"></a>
+<a class="sourceLine" id="cb12-10" title="10"><span class="at">golfScore</span>(<span class="dv">5</span><span class="op">,</span> <span class="dv">4</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">function</span> <span class="at">golfScore</span>(par<span class="op">,</span> strokes) <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-2" title="2">  <span class="cf">if</span> (strokes <span class="op">===</span> <span class="dv">1</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-3" title="3">    <span class="cf">return</span> <span class="st">&quot;Hole-in-one!&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb13-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb13-5" title="5"></a>
+<a class="sourceLine" id="cb13-6" title="6">  <span class="cf">if</span> (strokes <span class="op">&lt;=</span> par <span class="op">-</span> <span class="dv">2</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-7" title="7">    <span class="cf">return</span> <span class="st">&quot;Eagle&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb13-8" title="8">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb13-9" title="9"></a>
+<a class="sourceLine" id="cb13-10" title="10">  <span class="cf">if</span> (strokes <span class="op">===</span> par <span class="op">-</span> <span class="dv">1</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-11" title="11">    <span class="cf">return</span> <span class="st">&quot;Birdie&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb13-12" title="12">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb13-13" title="13"></a>
+<a class="sourceLine" id="cb13-14" title="14">  <span class="cf">if</span> (strokes <span class="op">===</span> par) <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-15" title="15">    <span class="cf">return</span> <span class="st">&quot;Par&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb13-16" title="16">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb13-17" title="17"></a>
+<a class="sourceLine" id="cb13-18" title="18">  <span class="cf">if</span> (strokes <span class="op">===</span> par <span class="op">+</span> <span class="dv">1</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-19" title="19">    <span class="cf">return</span> <span class="st">&quot;Bogey&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb13-20" title="20">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb13-21" title="21"></a>
+<a class="sourceLine" id="cb13-22" title="22">  <span class="cf">if</span>(strokes <span class="op">===</span> par <span class="op">+</span> <span class="dv">2</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-23" title="23">    <span class="cf">return</span> <span class="st">&quot;Double Bogey&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb13-24" title="24">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb13-25" title="25"></a>
+<a class="sourceLine" id="cb13-26" title="26">  <span class="cf">return</span> <span class="st">&quot;Go Home!&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb13-27" title="27"><span class="op">}</span></a></code></pre></div>
+</body></html>

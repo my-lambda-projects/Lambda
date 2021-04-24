@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>Now let’s take a look at a slightly more complex object. Object properties can be nested to an arbitrary depth, and their values can be any type of data supported by JavaScript, including arrays and even other objects. Consider the following:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> nestedObject <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="dt">id</span><span class="op">:</span> <span class="dv">28802695164</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="dt">date</span><span class="op">:</span> <span class="st">&#39;December 31, 2016&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="dt">data</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="dt">totalUsers</span><span class="op">:</span> <span class="dv">99</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="dt">online</span><span class="op">:</span> <span class="dv">80</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="dt">onlineStatus</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-8" title="8">      <span class="dt">active</span><span class="op">:</span> <span class="dv">67</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-9" title="9">      <span class="dt">away</span><span class="op">:</span> <span class="dv">13</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-10" title="10">      <span class="dt">busy</span><span class="op">:</span> <span class="dv">8</span></a>
+<a class="sourceLine" id="cb1-11" title="11">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-12" title="12">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="op">};</span></a></code></pre></div>
+<p><code>nestedObject</code> has three properties: <code>id</code> (value is a number), <code>date</code> (value is a string), and <code>data</code> (value is an object with its nested structure). While structures can quickly become complex, we can still use the same notations to access the information we need. To assign the value <code>10</code> to the <code>busy</code> property of the nested <code>onlineStatus</code> object, we use dot notation to reference the property:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">nestedObject</span>.<span class="va">data</span>.<span class="va">onlineStatus</span>.<span class="at">busy</span> <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></a></code></pre></div>
+<h1 id="instructions">–instructions–</h1>
+<p>Here we’ve defined an object <code>userActivity</code>, which includes another object nested within it. Set the value of the <code>online</code> key to <code>45</code>.</p>
+<h1 id="hints">–hints–</h1>
+<p><code>userActivity</code> should have <code>id</code>, <code>date</code> and <code>data</code> properties.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="st">&#39;id&#39;</span> <span class="kw">in</span> userActivity <span class="op">&amp;&amp;</span> <span class="st">&#39;date&#39;</span> <span class="kw">in</span> userActivity <span class="op">&amp;&amp;</span> <span class="st">&#39;data&#39;</span> <span class="kw">in</span> userActivity</a>
+<a class="sourceLine" id="cb3-3" title="3">)<span class="op">;</span></a></code></pre></div>
+<p><code>userActivity</code> should have a <code>data</code> key set to an object with keys <code>totalUsers</code> and <code>online</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(<span class="st">&#39;totalUsers&#39;</span> <span class="kw">in</span> <span class="va">userActivity</span>.<span class="at">data</span> <span class="op">&amp;&amp;</span> <span class="st">&#39;online&#39;</span> <span class="kw">in</span> <span class="va">userActivity</span>.<span class="at">data</span>)<span class="op">;</span></a></code></pre></div>
+<p>The <code>online</code> property nested in the <code>data</code> key of <code>userActivity</code> should be set to <code>45</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">assert</span>(<span class="va">userActivity</span>.<span class="va">data</span>.<span class="at">online</span> <span class="op">===</span> <span class="dv">45</span>)<span class="op">;</span></a></code></pre></div>
+<p>The <code>online</code> property should be set using dot or bracket notation.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="va">assert</span>.<span class="at">strictEqual</span>(<span class="va">code</span>.<span class="at">search</span>(<span class="ss">/online: 45/</span>)<span class="op">,</span> <span class="dv">-1</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">let</span> userActivity <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="dt">id</span><span class="op">:</span> <span class="dv">23894201352</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="dt">date</span><span class="op">:</span> <span class="st">&#39;January 1, 2017&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  <span class="dt">data</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-5" title="5">    <span class="dt">totalUsers</span><span class="op">:</span> <span class="dv">51</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-6" title="6">    <span class="dt">online</span><span class="op">:</span> <span class="dv">42</span></a>
+<a class="sourceLine" id="cb7-7" title="7">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="op">};</span></a>
+<a class="sourceLine" id="cb7-9" title="9"></a>
+<a class="sourceLine" id="cb7-10" title="10"><span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb7-11" title="11"></a>
+<a class="sourceLine" id="cb7-12" title="12"><span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb7-13" title="13"></a>
+<a class="sourceLine" id="cb7-14" title="14"><span class="va">console</span>.<span class="at">log</span>(userActivity)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">let</span> userActivity <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2">  <span class="dt">id</span><span class="op">:</span> <span class="dv">23894201352</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb8-3" title="3">  <span class="dt">date</span><span class="op">:</span> <span class="st">&#39;January 1, 2017&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb8-4" title="4">  <span class="dt">data</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-5" title="5">    <span class="dt">totalUsers</span><span class="op">:</span> <span class="dv">51</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb8-6" title="6">    <span class="dt">online</span><span class="op">:</span> <span class="dv">42</span></a>
+<a class="sourceLine" id="cb8-7" title="7">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb8-8" title="8"><span class="op">};</span></a>
+<a class="sourceLine" id="cb8-9" title="9"></a>
+<a class="sourceLine" id="cb8-10" title="10"><span class="va">userActivity</span>.<span class="va">data</span>.<span class="at">online</span> <span class="op">=</span> <span class="dv">45</span><span class="op">;</span></a></code></pre></div>
+</body></html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>JavaScript started with a small role to play on an otherwise mostly HTML web. Today, it’s huge, and some websites are built almost entirely with JavaScript. In order to make JavaScript more modular, clean, and maintainable; ES6 introduced a way to easily share code among JavaScript files. This involves exporting parts of a file for use in one or more other files, and importing the parts you need, where you need them. In order to take advantage of this functionality, you need to create a script in your HTML document with a <code>type</code> of <code>module</code>. Here’s an example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;module&quot;</span><span class="ot"> src=</span><span class="st">&quot;filename.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a></code></pre></div>
+<p>A script that uses this <code>module</code> type can now use the <code>import</code> and <code>export</code> features you will learn about in the upcoming challenges.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>Add a script to the HTML document of type <code>module</code> and give it the source file of <code>index.js</code></p>
+<h1 id="hints">–hints–</h1>
+<p>You should create a <code>script</code> tag.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(<span class="va">code</span>.<span class="at">match</span>(<span class="ss">/&lt;</span><span class="sc">\s*</span><span class="ss">script</span><span class="sc">[^&gt;]*</span><span class="ss">&gt;</span><span class="sc">\s*</span><span class="ss">&lt;</span><span class="sc">\/\s*</span><span class="ss">script</span><span class="sc">\s*</span><span class="ss">&gt;/g</span>))<span class="op">;</span></a></code></pre></div>
+<p>Your <code>script</code> tag should have the <code>type</code> attribute with a value of <code>module</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="va">code</span>.<span class="at">match</span>(</a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="ss">/&lt;</span><span class="sc">\s*</span><span class="ss">script</span><span class="sc">\s+[^t]*</span><span class="ss">type</span><span class="sc">\s*</span><span class="ss">=</span><span class="sc">\s*(</span><span class="ss">&#39;</span><span class="sc">|</span><span class="ss">&quot;</span><span class="sc">)</span><span class="ss">module</span><span class="sc">\1[^&gt;]*</span><span class="ss">&gt;</span><span class="sc">\s*</span><span class="ss">&lt;</span><span class="sc">\/\s*</span><span class="ss">script</span><span class="sc">\s*</span><span class="ss">&gt;/g</span></a>
+<a class="sourceLine" id="cb3-4" title="4">  )</a>
+<a class="sourceLine" id="cb3-5" title="5">)<span class="op">;</span></a></code></pre></div>
+<p>Your <code>script</code> tag should have a <code>src</code> of <code>index.js</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="va">code</span>.<span class="at">match</span>(</a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="ss">/&lt;</span><span class="sc">\s*</span><span class="ss">script</span><span class="sc">\s+[^s]*</span><span class="ss">src</span><span class="sc">\s*</span><span class="ss">=</span><span class="sc">\s*(</span><span class="ss">&#39;</span><span class="sc">|</span><span class="ss">&quot;</span><span class="sc">)</span><span class="ss">index</span><span class="sc">\.</span><span class="ss">js</span><span class="sc">\1[^&gt;]*</span><span class="ss">&gt;</span><span class="sc">\s*</span><span class="ss">&lt;</span><span class="sc">\/\s*</span><span class="ss">script</span><span class="sc">\s*</span><span class="ss">&gt;/g</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  )</a>
+<a class="sourceLine" id="cb4-5" title="5">)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">&lt;html&gt;</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="kw">&lt;body&gt;</span></a>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="co">&lt;!-- Only change code below this line --&gt;</span></a>
+<a class="sourceLine" id="cb5-4" title="4"></a>
+<a class="sourceLine" id="cb5-5" title="5">    <span class="co">&lt;!-- Only change code above this line --&gt;</span></a>
+<a class="sourceLine" id="cb5-6" title="6">  <span class="kw">&lt;/body&gt;</span></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="kw">&lt;/html&gt;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb6"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">&lt;html&gt;</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="kw">&lt;body&gt;</span></a>
+<a class="sourceLine" id="cb6-3" title="3">    <span class="kw">&lt;script</span><span class="ot"> type=</span><span class="st">&quot;module&quot;</span><span class="ot"> src=</span><span class="st">&quot;index.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a>
+<a class="sourceLine" id="cb6-4" title="4">  <span class="kw">&lt;/body&gt;</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="kw">&lt;/html&gt;</span></a></code></pre></div>
+</body></html>

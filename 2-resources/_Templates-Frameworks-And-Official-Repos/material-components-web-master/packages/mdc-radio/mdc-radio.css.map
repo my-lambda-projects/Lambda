@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAsBA,QAAQ,CAAR,UAAQ",
+    "sources": [
+        "mdc-radio.scss"
+    ],
+    "names": [],
+    "file": "mdc-radio.css"
+}

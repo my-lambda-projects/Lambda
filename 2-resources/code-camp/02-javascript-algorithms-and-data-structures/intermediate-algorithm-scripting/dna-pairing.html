@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>The DNA strand is missing the pairing element. Take each character, get its pair, and return the results as a 2d array.</p>
+<p><a href="http://en.wikipedia.org/wiki/Base_pair">Base pairs</a> are a pair of AT and CG. Match the missing element to the provided character.</p>
+<p>Return the provided character as the first element in each array.</p>
+<p>For example, for the input <code>GCG</code>, return <code>[["G", "C"], ["C","G"], ["G", "C"]]</code></p>
+<p>The character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating array.</p>
+<h1 id="hints">–hints–</h1>
+<p><code>pairElement("ATCGA")</code> should return <code>[["A","T"],["T","A"],["C","G"],["G","C"],["A","T"]]</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">assert</span>.<span class="at">deepEqual</span>(<span class="at">pairElement</span>(<span class="st">&#39;ATCGA&#39;</span>)<span class="op">,</span> [</a>
+<a class="sourceLine" id="cb1-2" title="2">  [<span class="st">&#39;A&#39;</span><span class="op">,</span> <span class="st">&#39;T&#39;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  [<span class="st">&#39;T&#39;</span><span class="op">,</span> <span class="st">&#39;A&#39;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  [<span class="st">&#39;C&#39;</span><span class="op">,</span> <span class="st">&#39;G&#39;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  [<span class="st">&#39;G&#39;</span><span class="op">,</span> <span class="st">&#39;C&#39;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-6" title="6">  [<span class="st">&#39;A&#39;</span><span class="op">,</span> <span class="st">&#39;T&#39;</span>]</a>
+<a class="sourceLine" id="cb1-7" title="7">])<span class="op">;</span></a></code></pre></div>
+<p><code>pairElement("TTGAG")</code> should return <code>[["T","A"],["T","A"],["G","C"],["A","T"],["G","C"]]</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">assert</span>.<span class="at">deepEqual</span>(<span class="at">pairElement</span>(<span class="st">&#39;TTGAG&#39;</span>)<span class="op">,</span> [</a>
+<a class="sourceLine" id="cb2-2" title="2">  [<span class="st">&#39;T&#39;</span><span class="op">,</span> <span class="st">&#39;A&#39;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  [<span class="st">&#39;T&#39;</span><span class="op">,</span> <span class="st">&#39;A&#39;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  [<span class="st">&#39;G&#39;</span><span class="op">,</span> <span class="st">&#39;C&#39;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb2-5" title="5">  [<span class="st">&#39;A&#39;</span><span class="op">,</span> <span class="st">&#39;T&#39;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb2-6" title="6">  [<span class="st">&#39;G&#39;</span><span class="op">,</span> <span class="st">&#39;C&#39;</span>]</a>
+<a class="sourceLine" id="cb2-7" title="7">])<span class="op">;</span></a></code></pre></div>
+<p><code>pairElement("CTCTA")</code> should return <code>[["C","G"],["T","A"],["C","G"],["T","A"],["A","T"]]</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">assert</span>.<span class="at">deepEqual</span>(<span class="at">pairElement</span>(<span class="st">&#39;CTCTA&#39;</span>)<span class="op">,</span> [</a>
+<a class="sourceLine" id="cb3-2" title="2">  [<span class="st">&#39;C&#39;</span><span class="op">,</span> <span class="st">&#39;G&#39;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  [<span class="st">&#39;T&#39;</span><span class="op">,</span> <span class="st">&#39;A&#39;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb3-4" title="4">  [<span class="st">&#39;C&#39;</span><span class="op">,</span> <span class="st">&#39;G&#39;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb3-5" title="5">  [<span class="st">&#39;T&#39;</span><span class="op">,</span> <span class="st">&#39;A&#39;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb3-6" title="6">  [<span class="st">&#39;A&#39;</span><span class="op">,</span> <span class="st">&#39;T&#39;</span>]</a>
+<a class="sourceLine" id="cb3-7" title="7">])<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">function</span> <span class="at">pairElement</span>(str) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="cf">return</span> str<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb4-4" title="4"></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="at">pairElement</span>(<span class="st">&quot;GCG&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">var</span> lookup <span class="op">=</span> <span class="va">Object</span>.<span class="at">create</span>(<span class="kw">null</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="va">lookup</span>.<span class="at">A</span> <span class="op">=</span> <span class="st">&#39;T&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="va">lookup</span>.<span class="at">T</span> <span class="op">=</span> <span class="st">&#39;A&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="va">lookup</span>.<span class="at">C</span> <span class="op">=</span> <span class="st">&#39;G&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="va">lookup</span>.<span class="at">G</span> <span class="op">=</span> <span class="st">&#39;C&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-6" title="6"></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="kw">function</span> <span class="at">pairElement</span>(str) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-8" title="8"> <span class="cf">return</span> <span class="va">str</span>.<span class="at">split</span>(<span class="st">&#39;&#39;</span>).<span class="at">map</span>(<span class="kw">function</span>(p) <span class="op">{</span><span class="cf">return</span> [p<span class="op">,</span> lookup[p]]<span class="op">;}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-9" title="9"><span class="op">}</span></a></code></pre></div>
+</body></html>

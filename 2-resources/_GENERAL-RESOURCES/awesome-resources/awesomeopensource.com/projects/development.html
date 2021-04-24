@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVRh1eWQddSw==","queueTime":2,"applicationTime":76,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>The Top 175 Development Open Source Projects</title>
+<meta name="description" content="Browse The Most Popular 175 Development Open Source Projects">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/projects/development">
+<link rel="next" href="https://awesomeopensource.com/projects/development?projectPage=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="tupTOKLNtjg9GSiEoHTaZwgjKfCrQUv3MWqCMi7p7kEH1mC7KcDGq/sun3oIZPPuxiciUspBPyKBdhu49a+kBA==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/projects/development","location":"/projects/development","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/projects/development","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-cf21b133-15d7-462f-81f4-b1ca423cd31f"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"><div class="aos_selected_topics_text_container">Combined Topics</div><a href="https://awesomeopensource.com" style="color:black" class="AOS_Pill"><div title="Remove development" class="aos_pill_box" id="development_pill">development<!-- --> <span id="development_pillclosebutton" style="background-color:#0366d6;color:#f4e062;width:15px;height:15px;margin-left:5px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:12px">x</span></div></a></div></div><div><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:none;box-shadow:1px 1px 5px lightgray"></div></div></div></div><div class="aos_app_container"><div class="aos_projects_container display_flex margin_bottom_15"><div class="projects_category_explorer_left_column"><div class="aos_topics_sidebar" style="margin:0;width:100%"><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div></div><div class="projects_list_right_column"><h2 style="margin-top:0px;margin-bottom:10px">The Top 175 Development Open Source Projects</h2><div style="margin-bottom:10px;display:flex;flex-wrap:wrap"><a href="https://awesomeopensource.com">Categories</a> &gt; <a href="https://awesomeopensource.com/categories/software-development">Software Development</a> &gt; <b>Development</b></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/donnemartin/system-design-primer" rel="canonical" class="aos_no_underline">System <!-- -->Design <!-- -->Primer<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">118,537</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/donnemartin/system-design-primer" rel="canonical">Learn how to design large-scale systems. Prep for the system design interview.  Includes Anki flashcards.</a></div></div><div class="projects_list_ad_slot_1" data-nosnippet="true"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gf-2q-4-u+jk" data-ad-client="ca-pub-1878397330895234" data-ad-slot="4549039979"></ins></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/httpie/httpie" rel="canonical" class="aos_no_underline">Httpie<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">49,436</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/httpie/httpie" rel="canonical">As easy as /aitch-tee-tee-pie/ 🥧 Modern, user-friendly command-line HTTP client for the API era. JSON support, colors, sessions, downloads, plugins &amp; more. https://twitter.com/httpie</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/codepath/android_guides" rel="canonical" class="aos_no_underline">Android_guides<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">27,198</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/codepath/android_guides" rel="canonical">Extensive Open-Source Guides for Android Developers</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/standard/standard" rel="canonical" class="aos_no_underline">Standard<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">24,922</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/standard/standard" rel="canonical">🌟 JavaScript Style Guide, with linter &amp; automatic code fixer</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/donnemartin/interactive-coding-challenges" rel="canonical" class="aos_no_underline">Interactive <!-- -->Coding <!-- -->Challenges<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">21,691</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/donnemartin/interactive-coding-challenges" rel="canonical">120+ interactive Python coding interview challenges (algorithms and data structures).  Includes Anki flashcards.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/n8n-io/n8n" rel="canonical" class="aos_no_underline">N8n<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">11,954</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/n8n-io/n8n" rel="canonical">Free and open fair-code licensed node based Workflow Automation Tool. Easily automate tasks across different services.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/xtermjs/xterm.js" rel="canonical" class="aos_no_underline">Xterm.js<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">9,687</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/xtermjs/xterm.js" rel="canonical">A terminal for the web</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/httpie/http-prompt" rel="canonical" class="aos_no_underline">Http <!-- -->Prompt<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">8,022</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/httpie/http-prompt" rel="canonical">An interactive command-line HTTP and API testing client built on top of HTTPie featuring autocomplete, syntax highlighting, and more. https://twitter.com/httpie</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/donnemartin/gitsome" rel="canonical" class="aos_no_underline">Gitsome<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">6,977</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/donnemartin/gitsome" rel="canonical">A supercharged Git/GitHub command line interface (CLI).  An official integration for GitHub and GitHub Enterprise: https://github.com/works-with/category/desktop-tools</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/yannickcr/eslint-plugin-react" rel="canonical" class="aos_no_underline">Eslint <!-- -->Plugin <!-- -->React<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">6,820</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/yannickcr/eslint-plugin-react" rel="canonical">React specific linting rules for ESLint</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/JaeYeopHan/Interview_Question_for_Beginner" rel="canonical" class="aos_no_underline">Interview_question_for_beginner<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">6,678</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/JaeYeopHan/Interview_Question_for_Beginner" rel="canonical">👦 👧 Technical-Interview guidelines written for those who started studying programming. I wish you all the best. 👾</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/sj26/mailcatcher" rel="canonical" class="aos_no_underline">Mailcatcher<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">5,178</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/sj26/mailcatcher" rel="canonical">Catches mail and serves it through a dream.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/donnemartin/saws" rel="canonical" class="aos_no_underline">Saws<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">4,682</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/donnemartin/saws" rel="canonical">A supercharged AWS command line interface (CLI).</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/gchaincl/httplab" rel="canonical" class="aos_no_underline">Httplab<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">3,644</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/gchaincl/httplab" rel="canonical">The interactive web server</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/twhite96/js-dev-reads" rel="canonical" class="aos_no_underline">Js <!-- -->Dev <!-- -->Reads<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">3,502</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/twhite96/js-dev-reads" rel="canonical">A list of books 📚and articles 📝 for the discerning web developer to read.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/mobile-roadmap/android-developer-roadmap" rel="canonical" class="aos_no_underline">Android <!-- -->Developer <!-- -->Roadmap<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">3,253</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/mobile-roadmap/android-developer-roadmap" rel="canonical">Android Developer Roadmap 2020</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/lando/lando" rel="canonical" class="aos_no_underline">Lando<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,663</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/lando/lando" rel="canonical">A development tool for all your projects that is fast, easy, powerful and liberating</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/maildev/maildev" rel="canonical" class="aos_no_underline">Maildev<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,536</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/maildev/maildev" rel="canonical">📫 SMTP Server + Web Interface for viewing and testing emails during development.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/trufflesuite/ganache" rel="canonical" class="aos_no_underline">Ganache<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,432</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/trufflesuite/ganache" rel="canonical">Personal blockchain for Ethereum development</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/ligurio/awesome-ci" rel="canonical" class="aos_no_underline">Awesome <!-- -->Ci<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,378</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/ligurio/awesome-ci" rel="canonical">List of Continuous Integration services</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/luruke/awesome-casestudy" rel="canonical" class="aos_no_underline">Awesome <!-- -->Casestudy<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,224</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/luruke/awesome-casestudy" rel="canonical">📕  Curated list of technical case studies on WebGL and creative development</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/minishift/minishift" rel="canonical" class="aos_no_underline">Minishift<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,117</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/minishift/minishift" rel="canonical">Run OpenShift 3.x locally</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/standard/eslint-config-standard" rel="canonical" class="aos_no_underline">Eslint <!-- -->Config <!-- -->Standard<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">2,034</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/standard/eslint-config-standard" rel="canonical">ESLint Config for JavaScript Standard Style</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/indy256/Full-stack-Developer-Interview-Questions-and-Answers" rel="canonical" class="aos_no_underline">Full <!-- -->Stack <!-- -->Developer <!-- -->Interview <!-- -->Questions <!-- -->And <!-- -->Answers<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,978</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/indy256/Full-stack-Developer-Interview-Questions-and-Answers" rel="canonical">❔Full-stack developer interview questions and answers</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/devspace-cloud/devspace" rel="canonical" class="aos_no_underline">Devspace<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,856</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/devspace-cloud/devspace" rel="canonical">DevSpace - The Fastest Developer Tool for Kubernetes ⚡ Automate your deployment workflow with DevSpace and develop software directly inside Kubernetes.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/zualex/devmap" rel="canonical" class="aos_no_underline">Devmap<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,855</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/zualex/devmap" rel="canonical">Карта развития веб-разработчика</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/koding/koding" rel="canonical" class="aos_no_underline">Koding<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,841</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/koding/koding" rel="canonical">The Simplest Way to Manage Your Entire Dev Infrastructure!</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/NARKOZ/guides" rel="canonical" class="aos_no_underline">Guides<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,808</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/NARKOZ/guides" rel="canonical">Design and development guides</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/ChangemakerStudios/Papercut-SMTP" rel="canonical" class="aos_no_underline">Papercut <!-- -->Smtp<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,701</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/ChangemakerStudios/Papercut-SMTP" rel="canonical">Papercut SMTP -- The Simple Desktop Email Server</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/minamarkham/formation" rel="canonical" class="aos_no_underline">Formation<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,609</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/minamarkham/formation" rel="canonical">💻 macOS setup script for front-end development</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/notepadqq/notepadqq" rel="canonical" class="aos_no_underline">Notepadqq<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,537</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/notepadqq/notepadqq" rel="canonical">A simple, general-purpose editor for Linux</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/okteto/okteto" rel="canonical" class="aos_no_underline">Okteto<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,423</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/okteto/okteto" rel="canonical">Develop your applications directly in your Kubernetes Cluster</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/prasadgujar/low-level-design-primer" rel="canonical" class="aos_no_underline">Low <!-- -->Level <!-- -->Design <!-- -->Primer<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,364</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/prasadgujar/low-level-design-primer" rel="canonical">Dedicated Resources for the Low-Level System Design. Learn how to design and implement large-scale systems. Prep for the system design interview.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/welaika/wordless" rel="canonical" class="aos_no_underline">Wordless<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,363</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/welaika/wordless" rel="canonical">All the power of Pug, Sass, Coffeescript and WebPack in your WordPress theme. Stop writing themes like it&#x27;s 1998.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/geerlingguy/drupal-vm" rel="canonical" class="aos_no_underline">Drupal <!-- -->Vm<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,335</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/geerlingguy/drupal-vm" rel="canonical">A VM for Drupal development</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/eko/monday" rel="canonical" class="aos_no_underline">Monday<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,239</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/eko/monday" rel="canonical">⚡️ A dev tool for microservice developers to run local applications and/or forward others from/to Kubernetes SSH or TCP</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/c8r/kit" rel="canonical" class="aos_no_underline">Kit<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,199</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/c8r/kit" rel="canonical">Tools for developing, documenting, and testing React component libraries</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/webpack-contrib/webpack-serve" rel="canonical" class="aos_no_underline">Webpack <!-- -->Serve<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,127</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/webpack-contrib/webpack-serve" rel="canonical">Repository has moved:</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/alinebastos/dev-practice" rel="canonical" class="aos_no_underline">Dev <!-- -->Practice<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,028</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/alinebastos/dev-practice" rel="canonical">Practice your skills with these ideas.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/Jeroen-G/laravel-packager" rel="canonical" class="aos_no_underline">Laravel <!-- -->Packager<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">1,017</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/Jeroen-G/laravel-packager" rel="canonical">A cli tool for creating Laravel packages</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/jondot/ReactNativeKatas" rel="canonical" class="aos_no_underline">Reactnativekatas<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">916</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/jondot/ReactNativeKatas" rel="canonical">This is a project that lets you participate in a fully-immersive, hands-on, and fun learning experience for React Native.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/switchbrew/libnx" rel="canonical" class="aos_no_underline">Libnx<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">884</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/switchbrew/libnx" rel="canonical">Library for Switch Homebrew</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/ccampbell/chromelogger" rel="canonical" class="aos_no_underline">Chromelogger<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">880</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/ccampbell/chromelogger" rel="canonical">chrome extension for server side console logging</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/drud/ddev" rel="canonical" class="aos_no_underline">Ddev<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">862</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/drud/ddev" rel="canonical">DDEV-Local: a local PHP development environment system</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/puncsky/system-design-and-architecture" rel="canonical" class="aos_no_underline">System <!-- -->Design <!-- -->And <!-- -->Architecture<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">846</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/puncsky/system-design-and-architecture" rel="canonical">Learn how to design large-scale systems. Prep for the system design interview.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/WooVictory/Ready-For-Tech-Interview" rel="canonical" class="aos_no_underline">Ready <!-- -->For <!-- -->Tech <!-- -->Interview<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">822</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/WooVictory/Ready-For-Tech-Interview" rel="canonical">💻 신입 개발자로서 준비를 하기 위해 지식을 정리하는 공간 👨‍💻</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/r8/vagrant-lamp" rel="canonical" class="aos_no_underline">Vagrant <!-- -->Lamp<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">764</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/r8/vagrant-lamp" rel="canonical">My default LAMP development stack for Vagrant</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/woliveiras/front-end-career" rel="canonical" class="aos_no_underline">Front <!-- -->End <!-- -->Career<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">761</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/woliveiras/front-end-career" rel="canonical">A career guide to Front End Developers</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/miguelmota/ethereum-development-with-go-book" rel="canonical" class="aos_no_underline">Ethereum <!-- -->Development <!-- -->With <!-- -->Go <!-- -->Book<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">717</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/miguelmota/ethereum-development-with-go-book" rel="canonical">📖 A little book on Ethereum Development with Go (golang)</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/jxnblk/ok-mdx" rel="canonical" class="aos_no_underline">Ok <!-- -->Mdx<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">680</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/jxnblk/ok-mdx" rel="canonical">Browser-based MDX editor</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/vercel/micro-dev" rel="canonical" class="aos_no_underline">Micro <!-- -->Dev<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">623</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/vercel/micro-dev" rel="canonical">The development environment for `micro`</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/lukejacksonn/servor" rel="canonical" class="aos_no_underline">Servor<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">621</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/lukejacksonn/servor" rel="canonical">Dependency free file server for single page app development</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/SpaceMadness/lunar-unity-console" rel="canonical" class="aos_no_underline">Lunar <!-- -->Unity <!-- -->Console<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">611</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/SpaceMadness/lunar-unity-console" rel="canonical">High-performance Unity iOS/Android logger built with native platform UI</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/jxnblk/ram" rel="canonical" class="aos_no_underline">Ram<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">586</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/jxnblk/ram" rel="canonical">⚛️ React Application Manager: create and run React (and other) applications – no command line or build setup required</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/storybook-eol/react-cdk" rel="canonical" class="aos_no_underline">React <!-- -->Cdk<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">583</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/storybook-eol/react-cdk" rel="canonical">under development - React Component Development Kit with Storybook</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/dadadel/pyment" rel="canonical" class="aos_no_underline">Pyment<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">547</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/dadadel/pyment" rel="canonical">Format and convert Python docstrings and generates patches</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/Nick233333/phper-linux-gitbook" rel="canonical" class="aos_no_underline">Phper <!-- -->Linux <!-- -->Gitbook<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">541</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/Nick233333/phper-linux-gitbook" rel="canonical">💡PHPer 必知必会的 Linux 命令</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/globocom/secDevLabs" rel="canonical" class="aos_no_underline">Secdevlabs<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">537</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/globocom/secDevLabs" rel="canonical">A laboratory for learning secure web and mobile development in a practical manner.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/kerimdzhanov/dotenv-flow" rel="canonical" class="aos_no_underline">Dotenv <!-- -->Flow<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">515</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/kerimdzhanov/dotenv-flow" rel="canonical">Loads environment variables from .env.[development|test|production][.local] files for Node.js® projects.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/fgrehm/letter_opener_web" rel="canonical" class="aos_no_underline">Letter_opener_web<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">502</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/fgrehm/letter_opener_web" rel="canonical">A web interface for browsing Ruby on Rails sent emails</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/dirkaholic/vagrant-php-dev-box" rel="canonical" class="aos_no_underline">Vagrant <!-- -->Php <!-- -->Dev <!-- -->Box<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">471</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/dirkaholic/vagrant-php-dev-box" rel="canonical">PHP 7 vagrant development box with nginx, php-fpm, MySQL, Symfony, Laravel, ... on Ubuntu 16.04</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/cristianoliveira/ergo" rel="canonical" class="aos_no_underline">Ergo<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">439</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/cristianoliveira/ergo" rel="canonical">The management of multiple apps running over different ports made easy</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/Coding-Coach/coding-coach" rel="canonical" class="aos_no_underline">Coding <!-- -->Coach<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">436</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/Coding-Coach/coding-coach" rel="canonical">This is the landing page :)</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/pierre-lecocq/emacs4developers" rel="canonical" class="aos_no_underline">Emacs4developers<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">429</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/pierre-lecocq/emacs4developers" rel="canonical">A document to help developers to use Emacs as a developer</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/nystudio107/annotated-webpack-config" rel="canonical" class="aos_no_underline">Annotated <!-- -->Webpack <!-- -->Config<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">420</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/nystudio107/annotated-webpack-config" rel="canonical">This is the companion github repo for the &quot;An Annotated webpack 4 Config for Frontend Web Development&quot; article.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/standard/eslint-config-standard-react" rel="canonical" class="aos_no_underline">Eslint <!-- -->Config <!-- -->Standard <!-- -->React<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">411</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/standard/eslint-config-standard-react" rel="canonical">ESLint Shareable Config for React/JSX support in JavaScript Standard Style</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/a7ul/esbuild-node-tsc" rel="canonical" class="aos_no_underline">Esbuild <!-- -->Node <!-- -->Tsc<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">397</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/a7ul/esbuild-node-tsc" rel="canonical">Build your Typescript Node.js projects using blazing fast esbuild</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/glayzzle/php-parser" rel="canonical" class="aos_no_underline">Php <!-- -->Parser<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">381</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/glayzzle/php-parser" rel="canonical">🌿 NodeJS PHP Parser - extract AST or tokens (PHP5 and PHP7)</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/standard/snazzy" rel="canonical" class="aos_no_underline">Snazzy<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">381</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/standard/snazzy" rel="canonical">Format JavaScript Standard Style as Stylish (i.e. snazzy) output</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/second-state/buidl" rel="canonical" class="aos_no_underline">Buidl<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">374</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/second-state/buidl" rel="canonical">A browser-based IDE for creating, deploying, and sharing blockchain apps (DApps, or decentralized apps). Publish your first blockchain DApps in 5 minutes! Here is how: https://docs.secondstate.io/buidl-developer-tool/getting-started</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/c8r/lab" rel="canonical" class="aos_no_underline">Lab<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">352</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/c8r/lab" rel="canonical">React UI component design tool</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/testing-library/eslint-plugin-testing-library" rel="canonical" class="aos_no_underline">Eslint <!-- -->Plugin <!-- -->Testing <!-- -->Library<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">346</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/testing-library/eslint-plugin-testing-library" rel="canonical">ESLint plugin to follow best practices and anticipate common mistakes when writing tests with Testing Library</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/preciousokwu/developer-roadmap-guide-2018" rel="canonical" class="aos_no_underline">Developer <!-- -->Roadmap <!-- -->Guide <!-- -->2018<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">343</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/preciousokwu/developer-roadmap-guide-2018" rel="canonical"></a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/jxnblk/mdx-go" rel="canonical" class="aos_no_underline">Mdx <!-- -->Go<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">340</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/jxnblk/mdx-go" rel="canonical">⚡️ Lightning fast MDX-based dev server for progressive documentation</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/dhilipsiva/webapp-checklist" rel="canonical" class="aos_no_underline">Webapp <!-- -->Checklist<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">317</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/dhilipsiva/webapp-checklist" rel="canonical">Technical details that a programmer of a web application should consider before making the site public.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/liquidz/vim-iced" rel="canonical" class="aos_no_underline">Vim <!-- -->Iced<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">303</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/liquidz/vim-iced" rel="canonical">Clojure Interactive Development Environment for Vim8/Neovim</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/atheme/atheme" rel="canonical" class="aos_no_underline">Atheme<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">296</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/atheme/atheme" rel="canonical">Atheme IRC Services</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/standard/awesome-standard" rel="canonical" class="aos_no_underline">Awesome <!-- -->Standard<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">293</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/standard/awesome-standard" rel="canonical">Documenting the explosion of packages in the standard ecosystem!</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/IcaliaLabs/guides" rel="canonical" class="aos_no_underline">Guides<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">281</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/IcaliaLabs/guides" rel="canonical">A set of rules we use at @icalialabs to build better software</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/edx/devstack" rel="canonical" class="aos_no_underline">Devstack<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">271</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/edx/devstack" rel="canonical">Get up and running quickly to develop or extend Open edX services</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/takeoff-env/takeoff" rel="canonical" class="aos_no_underline">Takeoff<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">271</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/takeoff-env/takeoff" rel="canonical">A rapid development environment using docker for convenience.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/putaindecode/putaindecode.io" rel="canonical" class="aos_no_underline">Putaindecode.io<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">270</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/putaindecode/putaindecode.io" rel="canonical">Blog participatif de la communauté dev</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/DarkByte7/VisualPlus" rel="canonical" class="aos_no_underline">Visualplus<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">268</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/DarkByte7/VisualPlus" rel="canonical">🎨 The VisualPlus Framework (VPF) for WinForms allows you to rapidly deploy professional .NET applications with customizable components and controls.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/azl397985856/daily-featured" rel="canonical" class="aos_no_underline">Daily <!-- -->Featured<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">265</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/azl397985856/daily-featured" rel="canonical">每天给你推荐一个新奇，好玩，高品质的开源库，好文，观点或言论等。</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/cedalo/streamsheets" rel="canonical" class="aos_no_underline">Streamsheets<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">262</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/cedalo/streamsheets" rel="canonical">An open-source tool for processing stream data using a spreadsheet-like interface.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/waylau/spring-boot-enterprise-application-development" rel="canonical" class="aos_no_underline">Spring <!-- -->Boot <!-- -->Enterprise <!-- -->Application <!-- -->Development<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">261</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/waylau/spring-boot-enterprise-application-development" rel="canonical">Spring Boot Enterprise Application Development.《Spring Boot 企业级应用开发实战》</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/YarnSpinnerTool/YarnEditor" rel="canonical" class="aos_no_underline">Yarneditor<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">258</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/YarnSpinnerTool/YarnEditor" rel="canonical">A tool for writing interactive dialogue in games!</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/danilop/ServerlessByDesign" rel="canonical" class="aos_no_underline">Serverlessbydesign<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">253</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/danilop/ServerlessByDesign" rel="canonical">A visual approach to serverless development. Think. Build. Repeat.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/gaerae/awesome-algorithms-education" rel="canonical" class="aos_no_underline">Awesome <!-- -->Algorithms <!-- -->Education<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">253</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/gaerae/awesome-algorithms-education" rel="canonical">A curated list to learning and practicing about algorithm.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/Kooboo/Kooboo" rel="canonical" class="aos_no_underline">Kooboo<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">252</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/Kooboo/Kooboo" rel="canonical">A new web development methodology for JavaScript &amp; C# developers.  A super fast and very easy to use CMS.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/perifacode/comunidade" rel="canonical" class="aos_no_underline">Comunidade<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">250</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/perifacode/comunidade" rel="canonical">✊🏽 A comunidade de programação da periferia</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/spatie/laravel-demo-mode" rel="canonical" class="aos_no_underline">Laravel <!-- -->Demo <!-- -->Mode<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">246</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/spatie/laravel-demo-mode" rel="canonical">A package to protect your work in progress from prying eyes</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/eslint/eslint-plugin-markdown" rel="canonical" class="aos_no_underline">Eslint <!-- -->Plugin <!-- -->Markdown<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">235</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/eslint/eslint-plugin-markdown" rel="canonical">Lint JavaScript code blocks in Markdown documents</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/medcl/book-elastic-search-in-action" rel="canonical" class="aos_no_underline">Book <!-- -->Elastic <!-- -->Search <!-- -->In <!-- -->Action<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">203</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/medcl/book-elastic-search-in-action" rel="canonical">Elastic 搜索开发实战</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/tmdh/laravel-kit" rel="canonical" class="aos_no_underline">Laravel <!-- -->Kit<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">201</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/tmdh/laravel-kit" rel="canonical">A desktop app for executing Laravel artisan commands</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/aio-libs/aiohttp-devtools" rel="canonical" class="aos_no_underline">Aiohttp <!-- -->Devtools<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">200</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/aio-libs/aiohttp-devtools" rel="canonical">dev tools for aiohttp</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/tjwalch/django-livereload-server" rel="canonical" class="aos_no_underline">Django <!-- -->Livereload <!-- -->Server<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">196</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/tjwalch/django-livereload-server" rel="canonical">Livereload functionality integrated with your Django development environment.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/QuasarApp/CQtDeployer" rel="canonical" class="aos_no_underline">Cqtdeployer<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">191</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/QuasarApp/CQtDeployer" rel="canonical">This project is used to deploy applications written using QML, qt or other С / С++ frameworks.</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/training-center/forum" rel="canonical" class="aos_no_underline">Forum<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">190</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/training-center/forum" rel="canonical">Dúvidas, dicas e sugestões gerais sobre carreira na área de desenvolvimento de software</a></div></div><div class="aos_project_container"><div class="aos_project_title"><a href="https://awesomeopensource.com/project/pbnj/awesome-podcasts" rel="canonical" class="aos_no_underline">Awesome <!-- -->Podcasts<!-- --> <span class="aos_project_star">⭐ </span><span class="aos_project_count">182</span></a></div><div class="aos_project_description"><a href="https://awesomeopensource.com/project/pbnj/awesome-podcasts" rel="canonical">🎙 A collection of awesome engineering podcasts! ARCHIVED in favor of https://github.com/rShetty/awesome-podcasts</a></div></div><div><div><div class="aos_pagenavigator_container">1<!-- -->-<!-- -->100<!-- --> of <!-- -->175<!-- --> <!-- -->projects</div><div class="aos_pagenavigator_links_container"><div><a href="https://awesomeopensource.com/projects/development?projectPage=2" title="Next 100 open source projects">Next &gt;</a></div></div></div><div class="show_on_phones twenty_px_padding_top"><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div></div></div></div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-cf21b133-15d7-462f-81f4-b1ca423cd31f">{"selectedTopics":["development"],"currentUrl":"https://awesomeopensource.com/projects/development","projects":[{"id":null,"project_id":83222441,"name":"system-design-primer","owner_login":"donnemartin","description":"Learn how to design large-scale systems. Prep for the system design interview.  Includes Anki flashcards.","stargazers_count":118537},{"id":null,"project_id":3544424,"name":"httpie","owner_login":"httpie","description":"As easy as /aitch-tee-tee-pie/ 🥧 Modern, user-friendly command-line HTTP client for the API era. JSON support, colors, sessions, downloads, plugins \u0026 more. https://twitter.com/httpie","stargazers_count":49436},{"id":null,"project_id":10788737,"name":"android_guides","owner_login":"codepath","description":"Extensive Open-Source Guides for Android Developers","stargazers_count":27198},{"id":null,"project_id":29891188,"name":"standard","owner_login":"standard","description":"🌟 JavaScript Style Guide, with linter \u0026 automatic code fixer","stargazers_count":24922},{"id":null,"project_id":34757182,"name":"interactive-coding-challenges","owner_login":"donnemartin","description":"120+ interactive Python coding interview challenges (algorithms and data structures).  Includes Anki flashcards.","stargazers_count":21691},{"id":null,"project_id":193215554,"name":"n8n","owner_login":"n8n-io","description":"Free and open fair-code licensed node based Workflow Automation Tool. Easily automate tasks across different services.","stargazers_count":11954},{"id":null,"project_id":18068542,"name":"xterm.js","owner_login":"xtermjs","description":"A terminal for the web","stargazers_count":9687},{"id":null,"project_id":55584626,"name":"http-prompt","owner_login":"httpie","description":"An interactive command-line HTTP and API testing client built on top of HTTPie featuring autocomplete, syntax highlighting, and more. https://twitter.com/httpie","stargazers_count":8022},{"id":null,"project_id":56897766,"name":"gitsome","owner_login":"donnemartin","description":"A supercharged Git/GitHub command line interface (CLI).  An official integration for GitHub and GitHub Enterprise: https://github.com/works-with/category/desktop-tools","stargazers_count":6977},{"id":null,"project_id":28061676,"name":"eslint-plugin-react","owner_login":"yannickcr","description":"React specific linting rules for ESLint","stargazers_count":6820},{"id":null,"project_id":93291681,"name":"Interview_Question_for_Beginner","owner_login":"JaeYeopHan","description":"👦 👧 Technical-Interview guidelines written for those who started studying programming. I wish you all the best. 👾","stargazers_count":6678},{"id":null,"project_id":1021040,"name":"mailcatcher","owner_login":"sj26","description":"Catches mail and serves it through a dream.","stargazers_count":5178},{"id":null,"project_id":41296876,"name":"saws","owner_login":"donnemartin","description":"A supercharged AWS command line interface (CLI).","stargazers_count":4682},{"id":null,"project_id":81354891,"name":"httplab","owner_login":"gchaincl","description":"The interactive web server","stargazers_count":3644},{"id":null,"project_id":147130632,"name":"js-dev-reads","owner_login":"twhite96","description":"A list of books 📚and articles 📝 for the discerning web developer to read.","stargazers_count":3502},{"id":null,"project_id":182548408,"name":"android-developer-roadmap","owner_login":"mobile-roadmap","description":"Android Developer Roadmap 2020","stargazers_count":3253},{"id":null,"project_id":78498440,"name":"lando","owner_login":"lando","description":"A development tool for all your projects that is fast, easy, powerful and liberating","stargazers_count":2663},{"id":null,"project_id":9135204,"name":"maildev","owner_login":"maildev","description":"📫 SMTP Server + Web Interface for viewing and testing emails during development.","stargazers_count":2536},{"id":null,"project_id":79269625,"name":"ganache","owner_login":"trufflesuite","description":"Personal blockchain for Ethereum development","stargazers_count":2432},{"id":null,"project_id":25857175,"name":"awesome-ci","owner_login":"ligurio","description":"List of Continuous Integration services","stargazers_count":2378},{"id":null,"project_id":76936983,"name":"awesome-casestudy","owner_login":"luruke","description":"📕  Curated list of technical case studies on WebGL and creative development","stargazers_count":2224},{"id":null,"project_id":62728051,"name":"minishift","owner_login":"minishift","description":"Run OpenShift 3.x locally","stargazers_count":2117},{"id":null,"project_id":35520634,"name":"eslint-config-standard","owner_login":"standard","description":"ESLint Config for JavaScript Standard Style","stargazers_count":2034},{"id":null,"project_id":28566672,"name":"Full-stack-Developer-Interview-Questions-and-Answers","owner_login":"indy256","description":"❔Full-stack developer interview questions and answers","stargazers_count":1978},{"id":null,"project_id":145153231,"name":"devspace","owner_login":"devspace-cloud","description":"DevSpace - The Fastest Developer Tool for Kubernetes ⚡ Automate your deployment workflow with DevSpace and develop software directly inside Kubernetes.","stargazers_count":1856},{"id":null,"project_id":53468654,"name":"devmap","owner_login":"zualex","description":"Карта развития веб-разработчика","stargazers_count":1855},{"id":null,"project_id":21317360,"name":"koding","owner_login":"koding","description":"The Simplest Way to Manage Your Entire Dev Infrastructure!","stargazers_count":1841},{"id":null,"project_id":29089818,"name":"guides","owner_login":"NARKOZ","description":"Design and development guides","stargazers_count":1808},{"id":null,"project_id":41457044,"name":"Papercut-SMTP","owner_login":"ChangemakerStudios","description":"Papercut SMTP -- The Simple Desktop Email Server","stargazers_count":1701},{"id":null,"project_id":141380542,"name":"formation","owner_login":"minamarkham","description":"💻 macOS setup script for front-end development","stargazers_count":1609},{"id":null,"project_id":3536442,"name":"notepadqq","owner_login":"notepadqq","description":"A simple, general-purpose editor for Linux","stargazers_count":1537},{"id":null,"project_id":143846881,"name":"okteto","owner_login":"okteto","description":"Develop your applications directly in your Kubernetes Cluster","stargazers_count":1423},{"id":null,"project_id":284794744,"name":"low-level-design-primer","owner_login":"prasadgujar","description":"Dedicated Resources for the Low-Level System Design. Learn how to design and implement large-scale systems. Prep for the system design interview.","stargazers_count":1364},{"id":null,"project_id":2772718,"name":"wordless","owner_login":"welaika","description":"All the power of Pug, Sass, Coffeescript and WebPack in your WordPress theme. Stop writing themes like it's 1998.","stargazers_count":1363},{"id":null,"project_id":16246536,"name":"drupal-vm","owner_login":"geerlingguy","description":"A VM for Drupal development","stargazers_count":1335},{"id":null,"project_id":196212778,"name":"monday","owner_login":"eko","description":"⚡️ A dev tool for microservice developers to run local applications and/or forward others from/to Kubernetes SSH or TCP","stargazers_count":1239},{"id":null,"project_id":111834349,"name":"kit","owner_login":"c8r","description":"Tools for developing, documenting, and testing React component libraries","stargazers_count":1199},{"id":null,"project_id":115440393,"name":"webpack-serve","owner_login":"webpack-contrib","description":"Repository has moved:","stargazers_count":1127},{"id":null,"project_id":102664411,"name":"dev-practice","owner_login":"alinebastos","description":"Practice your skills with these ideas.","stargazers_count":1028},{"id":null,"project_id":37218114,"name":"laravel-packager","owner_login":"Jeroen-G","description":"A cli tool for creating Laravel packages","stargazers_count":1017},{"id":null,"project_id":61232006,"name":"ReactNativeKatas","owner_login":"jondot","description":"This is a project that lets you participate in a fully-immersive, hands-on, and fun learning experience for React Native.","stargazers_count":916},{"id":null,"project_id":103794142,"name":"libnx","owner_login":"switchbrew","description":"Library for Switch Homebrew","stargazers_count":884},{"id":null,"project_id":1100841,"name":"chromelogger","owner_login":"ccampbell","description":"chrome extension for server side console logging","stargazers_count":880},{"id":null,"project_id":80669528,"name":"ddev","owner_login":"drud","description":"DDEV-Local: a local PHP development environment system","stargazers_count":862},{"id":null,"project_id":210796618,"name":"system-design-and-architecture","owner_login":"puncsky","description":"Learn how to design large-scale systems. Prep for the system design interview.","stargazers_count":846},{"id":null,"project_id":236273988,"name":"Ready-For-Tech-Interview","owner_login":"WooVictory","description":"💻 신입 개발자로서 준비를 하기 위해 지식을 정리하는 공간 👨‍💻","stargazers_count":822},{"id":null,"project_id":3703773,"name":"vagrant-lamp","owner_login":"r8","description":"My default LAMP development stack for Vagrant","stargazers_count":764},{"id":null,"project_id":56981511,"name":"front-end-career","owner_login":"woliveiras","description":"A career guide to Front End Developers","stargazers_count":761},{"id":null,"project_id":133641473,"name":"ethereum-development-with-go-book","owner_login":"miguelmota","description":"📖 A little book on Ethereum Development with Go (golang)","stargazers_count":717},{"id":null,"project_id":141325802,"name":"ok-mdx","owner_login":"jxnblk","description":"Browser-based MDX editor","stargazers_count":680},{"id":null,"project_id":97933800,"name":"micro-dev","owner_login":"vercel","description":"The development environment for `micro`","stargazers_count":623},{"id":null,"project_id":74576329,"name":"servor","owner_login":"lukejacksonn","description":"Dependency free file server for single page app development","stargazers_count":621},{"id":null,"project_id":40583917,"name":"lunar-unity-console","owner_login":"SpaceMadness","description":"High-performance Unity iOS/Android logger built with native platform UI","stargazers_count":611},{"id":null,"project_id":135911565,"name":"ram","owner_login":"jxnblk","description":"⚛️ React Application Manager: create and run React (and other) applications – no command line or build setup required","stargazers_count":586},{"id":null,"project_id":56032752,"name":"react-cdk","owner_login":"storybook-eol","description":"under development - React Component Development Kit with Storybook","stargazers_count":583},{"id":null,"project_id":15688938,"name":"pyment","owner_login":"dadadel","description":"Format and convert Python docstrings and generates patches","stargazers_count":547},{"id":null,"project_id":123694597,"name":"phper-linux-gitbook","owner_login":"Nick233333","description":"💡PHPer 必知必会的 Linux 命令","stargazers_count":541},{"id":null,"project_id":159996500,"name":"secDevLabs","owner_login":"globocom","description":"A laboratory for learning secure web and mobile development in a practical manner.","stargazers_count":537},{"id":null,"project_id":133871478,"name":"dotenv-flow","owner_login":"kerimdzhanov","description":"Loads environment variables from .env.[development|test|production][.local] files for Node.js® projects.","stargazers_count":515},{"id":null,"project_id":7440432,"name":"letter_opener_web","owner_login":"fgrehm","description":"A web interface for browsing Ruby on Rails sent emails","stargazers_count":502},{"id":null,"project_id":4572283,"name":"vagrant-php-dev-box","owner_login":"dirkaholic","description":"PHP 7 vagrant development box with nginx, php-fpm, MySQL, Symfony, Laravel, ... on Ubuntu 16.04","stargazers_count":471},{"id":null,"project_id":100814404,"name":"ergo","owner_login":"cristianoliveira","description":"The management of multiple apps running over different ports made easy","stargazers_count":439},{"id":null,"project_id":148172621,"name":"coding-coach","owner_login":"Coding-Coach","description":"This is the landing page :)","stargazers_count":436},{"id":null,"project_id":18144385,"name":"emacs4developers","owner_login":"pierre-lecocq","description":"A document to help developers to use Emacs as a developer","stargazers_count":429},{"id":null,"project_id":154250322,"name":"annotated-webpack-config","owner_login":"nystudio107","description":"This is the companion github repo for the \"An Annotated webpack 4 Config for Frontend Web Development\" article.","stargazers_count":420},{"id":null,"project_id":37218400,"name":"eslint-config-standard-react","owner_login":"standard","description":"ESLint Shareable Config for React/JSX support in JavaScript Standard Style","stargazers_count":411},{"id":null,"project_id":298861293,"name":"esbuild-node-tsc","owner_login":"a7ul","description":"Build your Typescript Node.js projects using blazing fast esbuild","stargazers_count":397},{"id":null,"project_id":27666196,"name":"php-parser","owner_login":"glayzzle","description":"🌿 NodeJS PHP Parser - extract AST or tokens (PHP5 and PHP7)","stargazers_count":381},{"id":null,"project_id":39526043,"name":"snazzy","owner_login":"standard","description":"Format JavaScript Standard Style as Stylish (i.e. snazzy) output","stargazers_count":381},{"id":null,"project_id":185583721,"name":"buidl","owner_login":"second-state","description":"A browser-based IDE for creating, deploying, and sharing blockchain apps (DApps, or decentralized apps). Publish your first blockchain DApps in 5 minutes! Here is how: https://docs.secondstate.io/buidl-developer-tool/getting-started","stargazers_count":374},{"id":null,"project_id":102980762,"name":"lab","owner_login":"c8r","description":"React UI component design tool","stargazers_count":352},{"id":null,"project_id":205714673,"name":"eslint-plugin-testing-library","owner_login":"testing-library","description":"ESLint plugin to follow best practices and anticipate common mistakes when writing tests with Testing Library","stargazers_count":346},{"id":null,"project_id":106185353,"name":"developer-roadmap-guide-2018","owner_login":"preciousokwu","description":null,"stargazers_count":343},{"id":null,"project_id":146111022,"name":"mdx-go","owner_login":"jxnblk","description":"⚡️ Lightning fast MDX-based dev server for progressive documentation","stargazers_count":340},{"id":null,"project_id":32247464,"name":"webapp-checklist","owner_login":"dhilipsiva","description":"Technical details that a programmer of a web application should consider before making the site public.","stargazers_count":317},{"id":null,"project_id":142630573,"name":"vim-iced","owner_login":"liquidz","description":"Clojure Interactive Development Environment for Vim8/Neovim","stargazers_count":303},{"id":null,"project_id":2111095,"name":"atheme","owner_login":"atheme","description":"Atheme IRC Services","stargazers_count":296},{"id":null,"project_id":40442978,"name":"awesome-standard","owner_login":"standard","description":"Documenting the explosion of packages in the standard ecosystem!","stargazers_count":293},{"id":null,"project_id":28376416,"name":"guides","owner_login":"IcaliaLabs","description":"A set of rules we use at @icalialabs to build better software","stargazers_count":281},{"id":null,"project_id":75956000,"name":"devstack","owner_login":"edx","description":"Get up and running quickly to develop or extend Open edX services","stargazers_count":271},{"id":null,"project_id":102410158,"name":"takeoff","owner_login":"takeoff-env","description":"A rapid development environment using docker for convenience.","stargazers_count":271},{"id":null,"project_id":10319056,"name":"putaindecode.io","owner_login":"putaindecode","description":"Blog participatif de la communauté dev","stargazers_count":270},{"id":null,"project_id":79752771,"name":"VisualPlus","owner_login":"DarkByte7","description":"🎨 The VisualPlus Framework (VPF) for WinForms allows you to rapidly deploy professional .NET applications with customizable components and controls.","stargazers_count":268},{"id":null,"project_id":207702644,"name":"daily-featured","owner_login":"azl397985856","description":"每天给你推荐一个新奇，好玩，高品质的开源库，好文，观点或言论等。","stargazers_count":265},{"id":null,"project_id":212782392,"name":"streamsheets","owner_login":"cedalo","description":"An open-source tool for processing stream data using a spreadsheet-like interface.","stargazers_count":262},{"id":null,"project_id":95795706,"name":"spring-boot-enterprise-application-development","owner_login":"waylau","description":"Spring Boot Enterprise Application Development.《Spring Boot 企业级应用开发实战》","stargazers_count":261},{"id":null,"project_id":209198646,"name":"YarnEditor","owner_login":"YarnSpinnerTool","description":"A tool for writing interactive dialogue in games!","stargazers_count":258},{"id":null,"project_id":102003598,"name":"ServerlessByDesign","owner_login":"danilop","description":"A visual approach to serverless development. Think. Build. Repeat.","stargazers_count":253},{"id":null,"project_id":122154390,"name":"awesome-algorithms-education","owner_login":"gaerae","description":"A curated list to learning and practicing about algorithm.","stargazers_count":253},{"id":null,"project_id":150668850,"name":"Kooboo","owner_login":"Kooboo","description":"A new web development methodology for JavaScript \u0026 C# developers.  A super fast and very easy to use CMS.","stargazers_count":252},{"id":null,"project_id":176090381,"name":"comunidade","owner_login":"perifacode","description":"✊🏽 A comunidade de programação da periferia","stargazers_count":250},{"id":null,"project_id":54675475,"name":"laravel-demo-mode","owner_login":"spatie","description":"A package to protect your work in progress from prying eyes","stargazers_count":246},{"id":null,"project_id":38386462,"name":"eslint-plugin-markdown","owner_login":"eslint","description":"Lint JavaScript code blocks in Markdown documents","stargazers_count":235},{"id":null,"project_id":136359097,"name":"book-elastic-search-in-action","owner_login":"medcl","description":"Elastic 搜索开发实战","stargazers_count":203},{"id":null,"project_id":116255128,"name":"laravel-kit","owner_login":"tmdh","description":"A desktop app for executing Laravel artisan commands","stargazers_count":201},{"id":null,"project_id":68917117,"name":"aiohttp-devtools","owner_login":"aio-libs","description":"dev tools for aiohttp","stargazers_count":200},{"id":null,"project_id":47680782,"name":"django-livereload-server","owner_login":"tjwalch","description":"Livereload functionality integrated with your Django development environment.","stargazers_count":196},{"id":null,"project_id":145127925,"name":"CQtDeployer","owner_login":"QuasarApp","description":"This project is used to deploy applications written using QML, qt or other С / С++ frameworks.","stargazers_count":191},{"id":null,"project_id":107474607,"name":"forum","owner_login":"training-center","description":"Dúvidas, dicas e sugestões gerais sobre carreira na área de desenvolvimento de software","stargazers_count":190},{"id":null,"project_id":73521805,"name":"awesome-podcasts","owner_login":"pbnj","description":"🎙 A collection of awesome engineering podcasts! ARCHIVED in favor of https://github.com/rShetty/awesome-podcasts","stargazers_count":182}],"projectPage":1,"totalProjectsCount":175,"categoryTopics":[{"categoryName":"Software Development","topicName":"development"}],"pageTitle":"The Top 175 Development Open Source Projects","categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}]}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  <script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120b687dfb1f041',m:'1cd62243674f483b174ec7b1d13d209ceecf5bb7-1610725413-1800-AXUtK17H0uwu9Z75lqh7uYV1qh7HWxJ35rDallbxgyblERtty/bghoaNUgUg20n3qHiFoGr9Uli2t0u563WFnFGaj13wtwJO66zXN3O0LS4LY6WeJ+zT6UeXeQ6snWO+SOjMRbeqxoT9SAoRyfEW4ww=',s:[0x3b79538649,0x68f6dc0feb],}})();</script></body>
+</html>

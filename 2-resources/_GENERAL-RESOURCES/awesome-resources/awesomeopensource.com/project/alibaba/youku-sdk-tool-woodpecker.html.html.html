@@ -1,0 +1,2008 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":6,"applicationTime":123,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Youku Sdk Tool Woodpecker</title>
+<meta name="description" content="In-app-debug tool for iOS">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/alibaba/youku-sdk-tool-woodpecker">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "alibaba/youku-sdk-tool-woodpecker",
+  "description": "In-app-debug tool for iOS",
+  "url": "https://awesomeopensource.com/project/alibaba/youku-sdk-tool-woodpecker",
+  "sku": "project/alibaba/youku-sdk-tool-woodpecker",
+  "mpn": "project/alibaba/youku-sdk-tool-woodpecker",
+  "image": "https://github.com/alibaba.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "alibaba/youku-sdk-tool-woodpecker",
+    "logo": "https://github.com/alibaba.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.63",
+    "ratingCount": "580"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="qR3jDXdXB0IKDbeGkFElXBYGmj9anVmbsKGTTNol1dprjy8ciG1Nu5WBHNSHIV1/kRNkg0PBT5H7uqr+efAHQQ==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/alibaba/youku-sdk-tool-woodpecker","location":"/project/alibaba/youku-sdk-tool-woodpecker","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/alibaba/youku-sdk-tool-woodpecker","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-4560a793-a4c1-423d-ae7b-ae26c819d9fa"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Youku <!-- -->Sdk <!-- -->Tool <!-- -->Woodpecker</div><div class="aos_project_metadata_description">In-app-debug tool for iOS</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">580</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content">mit</span><div class="aos_project_metadata_header"><a href="https://github.com/alibaba/youku-sdk-tool-woodpecker" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/alibaba/youku-sdk-tool-woodpecker" target="_blank">https://github.com/alibaba/youku-sdk-tool-woodpecker</a></span><div class="aos_project_metadata_header"><a href="https://github.com/alibaba/youku-sdk-tool-woodpecker/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/alibaba/youku-sdk-tool-woodpecker/issues" target="_blank">1</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">16 days ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/objective-c"><div style="display:block;text-decoration:none;padding-bottom:10px">objective-c<span> (<!-- -->10,769<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/ios"><div style="display:block;text-decoration:none;padding-bottom:10px">ios<span> (<!-- -->3,431<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/ui"><div style="display:block;text-decoration:none;padding-bottom:10px">ui<span> (<!-- -->960<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/performance"><div style="display:block;text-decoration:none;padding-bottom:10px">performance<span> (<!-- -->582<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/tools"><div style="display:block;text-decoration:none;padding-bottom:10px">tools<span> (<!-- -->318<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/ui-design"><div style="display:block;text-decoration:none;padding-bottom:10px">ui-design<span> (<!-- -->95<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/performance-testing"><div style="display:block;text-decoration:none;padding-bottom:10px">performance-testing<span> (<!-- -->54<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/ui-testing"><div style="display:block;text-decoration:none;padding-bottom:10px">ui-testing<span> (<!-- -->22<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<p align="center">
+<a href="https://raw.githubusercontent.com/alibaba/youku-sdk-tool-woodpecker/master/woodpecker_logo.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/alibaba/youku-sdk-tool-woodpecker/master/woodpecker_logo.png" width="400" style="max-width:100%;"></a>
+</p>
+<p>啄幕鸟，即手机屏幕上的啄木鸟，专抓App里的Bug。啄幕鸟集合了UI检查、对象查看、方法监听等多种开发工具，通过拾取UI控件、查看对象属性、监听方法调用、App内抓包等，不依赖电脑联调，直接获取运行时数据，快速定位Bug，提高开发效率。啄幕鸟提供了插件化的工具平台，简便易用，零侵入、零依赖、易接入、易扩展。</p>
+<h1>
+<a id="功能简介" class="anchor" href="#%E5%8A%9F%E8%83%BD%E7%AE%80%E4%BB%8B" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>功能简介</h1>
+<p>1.UI检查：快速查看页面布局、UI控件间距、字体颜色、UI控件类名、对象属性/成员变量、图片URL等。<br>
+2.JSON抓包：便捷JSON抓包工具，通过监听系统json解析抓包。<br>
+3.方法监听：Bug听诊器，可监听App中任意OC方法的调用，输出调用参数、返回值等信息，可以通过屏幕日志输入监听、KVC取值等命令，支持后台配置命令。<br>
+4.po命令：执行类似LLDB的po命令，在App运行时执行po命令，调用任意方法。<br>
+5.系统信息：查看各种系统名称、版本、屏幕、UA等信息，支持外部添加信息。<br>
+6.SandBox：查看沙盒文件，导出文件等。<br>
+7.Bundle：查看、导出Bundle目录中的内容。<br>
+8.Crash：查看Crash日志，需先打开一次Crash插件以开启Crash监控。<br>
+9.Defaults：查看、新增、删除User Defaults。<br>
+10.清除数据：清除所有沙盒数据、User Default。<br>
+11.触点显示：显示手指触控。<br>
+12.UI对比：支持将设计图导入到App中进行对比，并可画线、标注需修改的地方，方便UI走查。<br>
+13.查看图片资源：查看、导出App中的资源图片。<br>
+14.CPU：查看CPU占用。<br>
+15.内存：查看内存占用。<br>
+16.FPS：查看App帧率。<br>
+17.网络流量：查看发送、接收网络流量。</p>
+<p align="center">
+<a href="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_all_plugins.PNG" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_all_plugins.PNG" height="500" style="max-width:100%;"></a>
+<br>啄幕鸟插件
+</p>
+<h1>
+<a id="接入" class="anchor" href="#%E6%8E%A5%E5%85%A5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>接入</h1>
+<h2>
+<a id="版本要求" class="anchor" href="#%E7%89%88%E6%9C%AC%E8%A6%81%E6%B1%82" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>版本要求</h2>
+<p>iOS 8.0及以上。</p>
+<h2>
+<a id="pod接入" class="anchor" href="#pod%E6%8E%A5%E5%85%A5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pod接入</h2>
+<blockquote>
+<pre><code>pod  'YKWoodpecker'   
+</code></pre>
+</blockquote>
+<p>推荐更新使用最新版本啄幕鸟，现最新版本：1.2.9。</p>
+<h2>
+<a id="get-started" class="anchor" href="#get-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get Started</h2>
+<h5>
+<a id="打开啄幕鸟" class="anchor" href="#%E6%89%93%E5%BC%80%E5%95%84%E5%B9%95%E9%B8%9F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>打开啄幕鸟</h5>
+<blockquote>
+<p>#import "YKWoodpecker.h"</p>
+<pre><code>   // 方法监听命令配置JSON地址 * 可选，如无单独配置，可使用 https://github.com/ZimWoodpecker/WoodpeckerCmdSource 上的配置
+   [YKWoodpeckerManager sharedInstance].cmdSourceUrl = @"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerCmdSource/master/cmdSource/default/cmds_cn.json";
+   
+   // Release 下可开启安全模式，只支持打开安全插件 * 可选
+#ifndef DEBUG
+   [YKWoodpeckerManager sharedInstance].safePluginMode = YES;
+#endif
+
+   // 设置 parseDelegate，可通过 YKWCmdCoreCmdParseDelegate 协议实现自定义命令 * 可选
+   [YKWoodpeckerManager sharedInstance].cmdCore.parseDelegate = self;
+   
+   // 显示啄幕鸟
+   [[YKWoodpeckerManager sharedInstance] show];
+   
+   // 启动时可直接打开某一插件 * 可选
+//    [[YKWoodpeckerManager sharedInstance] openPluginNamed:@"xxx"];
+
+</code></pre>
+</blockquote>
+<p>更多参见Demo工程。</p>
+<h2>
+<a id="运行demo" class="anchor" href="#%E8%BF%90%E8%A1%8Cdemo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>运行Demo</h2>
+<p>clone后在工程目录'pod update'，完成后即可打开demo workspace运行。</p>
+<h2>
+<a id="安全说明" class="anchor" href="#%E5%AE%89%E5%85%A8%E8%AF%B4%E6%98%8E" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>安全说明</h2>
+<p>啄幕鸟不依赖任何第三方库或数据。啄幕鸟代码中没有使用任何+load、+initialize等方法，啄幕鸟入口不显示则不会执行任何代码。如需线上使用啄幕鸟，应保护好开启入口，啄幕鸟支持安全模式，可在Release下开启安全模式，只支持打开安全插件，现有安全插件：UI检查、系统信息、触点显示。扩展插件注册时设置isSafePlugin=YES即可声明为安全插件，详见插件开发。</p>
+<blockquote>
+<pre><code>   // Release 下可开启安全模式，只支持打开安全插件 * 可选
+#ifndef DEBUG
+   [YKWoodpeckerManager sharedInstance].safePluginMode = YES;
+#endif
+</code></pre>
+</blockquote>
+<h1>
+<a id="插件功能介绍" class="anchor" href="#%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>插件功能介绍</h1>
+<h2>
+<a id="1-ui检查插件" class="anchor" href="#1-ui%E6%A3%80%E6%9F%A5%E6%8F%92%E4%BB%B6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1. UI检查插件</h2>
+<p>UI检查插件包含控件拾取和测距条两个工具，在屏幕上点一点即可获取布局、颜色、字体、圆角、图片URL等信息。</p>
+<p align="center">
+<a href="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_ui_check_demo.gif" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_ui_check_demo.gif" height="500" style="max-width:100%;"></a>
+<br>UI检查插件
+</p>
+<h3>
+<a id="11-控件拾取" class="anchor" href="#11-%E6%8E%A7%E4%BB%B6%E6%8B%BE%E5%8F%96" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.1 控件拾取</h3>
+<p>控件拾取根据手指在屏幕上的点击坐标，递归遍历View层级，获取包含触点坐标的最靠前的UI元素，在屏幕上直观显示相关信息，也可帮助了解UI布局、定位UI代码。</p>
+<h4>
+<a id="控件拾取功能" class="anchor" href="#%E6%8E%A7%E4%BB%B6%E6%8B%BE%E5%8F%96%E5%8A%9F%E8%83%BD" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>控件拾取功能</h4>
+<p>◆ 单击拾取当前点击的view，双击可跳过当前view，以拾取下层view，以防止view被同级view挡住拾取不到。<br>
+◆ 三个手指同时点击可切换拾取模式，只拾取响应链上的view，以防止屏幕上盖了一层view，影响拾取。<br>
+◆ 拾取后用线条和标注显示被拾取view的大小、位置，或与之前选中view的间距，简单直观，无需计算。<br>
+◆ 控件拾取信息区显示控件的类名、大小、透明度、圆角、hidden、文本、字体、颜色、图片尺寸、图片URL等信息，方便地获取运行时数据。<br>
+◆ 信息区提供父层按钮，点击拾取superview，层层拾取，即可了解UI布局，并根据view类名快速定位代码。<br>
+◆ 信息区根据选中元素的不同，提供文本、图片等按钮，以复制文本，查看、导出图片。<br>
+◆ 单击信息区可打开分享面板导出信息。<br>
+◆ 双击信息区可查看对象全部属性、成员变量。</p>
+<p align="center">
+<a href="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_ui_check.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_ui_check.png" height="500" style="max-width:100%;"></a>
+<br>UI检查-拾取控件
+</p>
+<h4>
+<a id="控件拾取功能扩展" class="anchor" href="#%E6%8E%A7%E4%BB%B6%E6%8B%BE%E5%8F%96%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>控件拾取功能扩展</h4>
+<p>可以通过系统通知获得拾取到的控件并在信息区域显示自定义信息，格式如下：</p>
+<blockquote>
+<pre><code>extern NSString *const YKWPluginSendMessageNotification;       /**&lt; 插件发送信息通知 = @"YKWPluginSendMessageNotification" &gt; */
+extern NSString *const YKWPluginReceiveMessageNotification;    /**&lt; 插件接收信息通知 = @"YKWPluginReceiveMessageNotification" &gt; */
+/*
+控件拾取插件：
+   发送格式：
+   notification.object = @"ProbePluginNotification";
+   notification.userInfo[@"view"] = 拾取到的UIView;
+   接收格式：
+   notification.object = @"ProbePluginNotification";
+   notification.userInfo[@"msg"] = 需要显示的信息;
+*/
+
+</code></pre>
+</blockquote>
+<h3>
+<a id="12-对象查看" class="anchor" href="#12-%E5%AF%B9%E8%B1%A1%E6%9F%A5%E7%9C%8B" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.2 对象查看</h3>
+<p>App中所有的对象通过继承、代理、属性等关系，可以看作一个或多个连通图，从一个对象开始，可以查看到连通图里任一个对象的属性、成员变量，获取运行时数据，以定位问题。</p>
+<h4>
+<a id="对象查看功能" class="anchor" href="#%E5%AF%B9%E8%B1%A1%E6%9F%A5%E7%9C%8B%E5%8A%9F%E8%83%BD" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>对象查看功能</h4>
+<p>◆ 双击控件拾取的信息区即可打开对象查看，对象查看会显示拾取对象的属性、成员变量列表。<br>
+◆ 一个对象的属性、成员变量一般声明在不同的类中，一个列表只显示对象在某一类中声明的属性、成员变量，点击superclass即可查看父类中的声明。<br>
+◆ 在属性、成员变量列表中单击查看下一对象，双击打印对象description。<br>
+◆ KVC取值：在日志控制台中输入 k key.path 格式即可对最右侧列表对象KVC取值，如输入 k layer.cornerRadius 即可读取圆角大小。<br>
+◆ 点击“屏显控件”可将UIView及其子类对象在控件拾取中显示。<br>
+◆ 可在对象查看中使用po命令，详见po命令介绍。</p>
+<p align="center">
+<a href="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_object_check.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_object_check.png" height="500" style="max-width:100%;"></a>
+<br>查看对象全部属性
+</p>
+<h3>
+<a id="13-测距条" class="anchor" href="#13-%E6%B5%8B%E8%B7%9D%E6%9D%A1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>1.3 测距条</h3>
+<p>对于某些不能通过控件拾取查看的大小间距，如行间距等，啄幕鸟提供了测距条工具，在屏幕上添加大小、位置可控的View作为标尺测量间距。</p>
+<h4>
+<a id="测距条功能" class="anchor" href="#%E6%B5%8B%E8%B7%9D%E6%9D%A1%E5%8A%9F%E8%83%BD" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>测距条功能</h4>
+<p>◆ 点击“+”添加一个测距条，可添加任意多个测距条。<br>
+◆ 双击一个测距条可以将其删除。<br>
+◆ 单击一个测距条可将其选中，以改变其位置大小。<br>
+◆ 可在输入框按宽高输入测距条大小。<br>
+◆ 可通过按钮控制测距条的位置大小，按钮支持长按。<br>
+◆ 点击“Dp”可改变控制精度为dp或像素。</p>
+<p align="center">
+<a href="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_ruler.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_ruler.png" height="500" style="max-width:100%;"></a>
+<br>UI检查-测距条
+</p>
+<h2>
+<a id="2-json抓包插件" class="anchor" href="#2-json%E6%8A%93%E5%8C%85%E6%8F%92%E4%BB%B6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>2 JSON抓包插件</h2>
+<p>JSON抓包插件通过监听[NSJSONSerialization JSONObjectWithData:options:error:]方法抓取数据，对于不使用此方法解析的JSON则无法抓包。</p>
+<h4>
+<a id="json抓包功能" class="anchor" href="#json%E6%8A%93%E5%8C%85%E5%8A%9F%E8%83%BD" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>JSON抓包功能</h4>
+<p>◆ 打开插件自动开始监听JSON解析，抓取数据。
+◆ 可能会抓取多条数据，可通过数据长度区分。
+◆ 单击可查看、检索抓取到的JSON数据。
+◆ 长按数据可通过Airdrop等分享JSON数据。</p>
+<p align="center">
+  <a href="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_json_grab.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_json_grab.png" title="Woodpecker" height="600" style="max-width:100%;"></a>
+  <br>
+</p>
+<h2>
+<a id="3-方法监听插件" class="anchor" href="#3-%E6%96%B9%E6%B3%95%E7%9B%91%E5%90%AC%E6%8F%92%E4%BB%B6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3 方法监听插件</h2>
+<h3>
+<a id="31-屏幕日志" class="anchor" href="#31-%E5%B1%8F%E5%B9%95%E6%97%A5%E5%BF%97" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.1 屏幕日志</h3>
+<p>为方便各插件在App内显示日志、接受用户输入，啄幕鸟中添加了屏幕日志模块。</p>
+<h4>
+<a id="屏幕日志功能" class="anchor" href="#%E5%B1%8F%E5%B9%95%E6%97%A5%E5%BF%97%E5%8A%9F%E8%83%BD" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>屏幕日志功能</h4>
+<p>◆ 拖动空白处可调整屏幕日志位置，拖动“◢”按钮可调整界面大小。<br>
+◆ 日志颜色可定制，以区分日志类型。<br>
+◆ 屏幕日志支持正则表达式和目标字符串过滤不想要的日志，正则表达式过滤只会显示正则匹配到的日志，目标字符串会过滤掉不包含目标字符串的日志。<br>
+◆ 屏幕日志支持日志搜索，点击ⓢ按钮可以打开/关闭日志搜索框，搜索支持正则表达式。<br>
+◆ 日志可通过分享面板导出。<br>
+◆ 屏幕日志支持界面扩展，可在屏幕日志下方添加自定义View，展示自定义功能，自定义View会跟随屏幕日志移动及改变宽度。</p>
+<p align="center">
+<a href="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_sysinfo.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_sysinfo.png" height="500" style="max-width:100%;"></a>
+<br>系统信息插件中直接使用了屏幕日志显示信息
+</p>
+<h3>
+<a id="32-方法监听" class="anchor" href="#32-%E6%96%B9%E6%B3%95%E7%9B%91%E5%90%AC" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.2 方法监听</h3>
+<p>方法监听利用OC的运行时机制，Hook被监听方法，输出方法调用参数、返回值、调用栈等信息，动态获取运行时数据，辅助Debug。监听网络方法即可实现App内抓包功能。</p>
+<h4>
+<a id="方法监听功能" class="anchor" href="#%E6%96%B9%E6%B3%95%E7%9B%91%E5%90%AC%E5%8A%9F%E8%83%BD" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>方法监听功能</h4>
+<p>◆ 使用命令行交互，扩展性强，功能多样。<br>
+◆ 命令支持后台配置，方便快速输入命令。<br>
+◆ 可监听实例方法、类方法，支持同时监听多个对象、多个方法。<br>
+◆ 通过屏幕日志输出监听到的参数、返回值，JSON格式化显示。<br>
+◆ 保存监听到的对象、返回值，可使用命令对其KVC取值。<br>
+◆ 保存监听到方法的调用栈，可使用相关命令查看。</p>
+<p align="center">
+<a href="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_listen_in_demo.gif" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_listen_in_demo.gif" height="500" style="max-width:100%;"></a>
+<br>方法监听
+</p>
+<h3>
+<a id="33-方法监听命令" class="anchor" href="#33-%E6%96%B9%E6%B3%95%E7%9B%91%E5%90%AC%E5%91%BD%E4%BB%A4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.3 方法监听命令</h3>
+<p>方法监听需要输入类名、方法名、keypath等参数，故使用命令行交互，扩展性好，配合命令配置，输入也较方便。</p>
+<h4>
+<a id="命令简介" class="anchor" href="#%E5%91%BD%E4%BB%A4%E7%AE%80%E4%BB%8B" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>命令简介</h4>
+<p>◆ 命令使用同一格式，&lt;命令名缩写&gt;&lt;空格&gt;&lt;命名参数&gt;&lt;空格&gt;&lt;命名参数&gt;，如监听命令 L className methodName，KVC取值命令 k keyPath，调用栈查看命令k callStack。<br>
+◆ 命令名缩写不区分大小写，方便输入。<br>
+◆ 命令可通过后台配置，一键输入，多条命令以分号分隔。<br>
+◆ 命令支持扩展。</p>
+<h4>
+<a id="命令说明" class="anchor" href="#%E5%91%BD%E4%BB%A4%E8%AF%B4%E6%98%8E" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>命令说明</h4>
+<h5>
+<a id="查看输入历史" class="anchor" href="#%E6%9F%A5%E7%9C%8B%E8%BE%93%E5%85%A5%E5%8E%86%E5%8F%B2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>查看输入历史</h5>
+<p>命令格式： h/H<br>
+输入h或H回车后会显示输入历史记录，输入记录前面的数字回车可实现快速输入命令，也可在任意状态输入1回车，快速输入上次输入的命令。</p>
+<p align="center">
+<a href="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_history.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_history.png" height="500" style="max-width:100%;"></a>
+<br>输入历史命令
+</p>
+<h5>
+<a id="方法监听" class="anchor" href="#%E6%96%B9%E6%B3%95%E7%9B%91%E5%90%AC" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>方法监听</h5>
+<p>添加实例方法监听命令格式： l/L ClassName Method:Name:<br>
+按上述格式输入回车后会Hook相应类的类方法或实例方法，并显示监听成功，下次对应方法被调用时会按OC语法格式显示方法调用时传入的参数及返回值的description。<br>
+注意方法监听可能会产生风险，例如同时监听子类和父类的同名方法会导致崩溃，监听基础类的常用方法也可能会导致崩溃，如监听UIView的setFrame:方法时，由于显示日志也需要调用setFrame:方法，会导致循环调用；监听调用频繁的方法需要显示大量日志，可能造成程序卡死等。暂未对方法监听做限制，此功能可能会使App变得不稳定，应谨慎使用方法监听功能。</p>
+<p align="center">
+<a href="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_listen_in.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_listen_in.png" height="500" style="max-width:100%;"></a>
+<br>点击AF请求按钮后，监听到NSJSONSerialization方法被调用，显示日志
+</p>
+<p>查看正在监听的方法列表命令： l/L<br>
+可同时添加多个方法监听，输入l或L可显示所有正在监听的类及方法名。</p>
+<p>清除所有监听命令格式： l/L clr<br>
+按上述格式输入会移除所有方法监听。（clr: clear的缩写）</p>
+<h5>
+<a id="查看监听到的对象" class="anchor" href="#%E6%9F%A5%E7%9C%8B%E7%9B%91%E5%90%AC%E5%88%B0%E7%9A%84%E5%AF%B9%E8%B1%A1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>查看监听到的对象</h5>
+<p>查看监听到的对象命令格式： k/K<br>
+方法监听命令会将监听到的对象参数保存在一个数组中（非对象参数不保存），每次监听到某个方法调用都会更新数组，输入k或K回车可查看数组内容。数组中第一个对象为self，即被监听类的实例，之后按参数传递顺序排列，如有返回对象则保存在最后。<br>
+输入k callStack可以查看监听到的调用栈。</p>
+<p>对监听到的第N个对象KeyPath取值： k/K N Key.Path<br>
+可以对监听到的对象进行KeyPath取值，例如监听到UIView addSubview:方法后（当然不建议监听这个方法），监听数组中会存放对应的(superview，subview)，输入k 2 layer.cornerRadius可读取subview的圆角大小。</p>
+<p align="center">
+<a href="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_k_cmd.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_k_cmd.png" height="500" style="max-width:100%;"></a>
+<br>监听到AFJSONResponseSerializer相关方法后，输入"k 2 URL"读取参数列表第二个对象的URL属性，获取URL。输入"k"即可查看监听到的参数、返回值列表。
+</p>
+<h5>
+<a id="添加监听后命令" class="anchor" href="#%E6%B7%BB%E5%8A%A0%E7%9B%91%E5%90%AC%E5%90%8E%E5%91%BD%E4%BB%A4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>添加监听后命令</h5>
+<p>添加监听后命令格式：p/P<br>
+监听后命令会在监听到任意方法调用之后执行，现仅支持k命令，例如输入"p k"添加监听后命令k之后，每次监听到方法调用后会执行k命令输出监听到的参数和返回值。</p>
+<h5>
+<a id="目标字符串日志过滤" class="anchor" href="#%E7%9B%AE%E6%A0%87%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%A5%E5%BF%97%E8%BF%87%E6%BB%A4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>目标字符串日志过滤</h5>
+<p>添加目标字符串命令格式： f/F ToFindString<br>
+目标字符串：可以在日志控制台添加目标字符串，添加后，只会输出包含目标字符串的日志，其他日志会显示&lt;日志不包含目标字符串&gt;，用以过滤日志（基本信息输出不过滤）。</p>
+<p align="center">
+<a href="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_listen_in.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_listen_in.png" height="500" style="max-width:100%;"></a>
+<br>执行"f {"命令，添加"{"为目标字符串，由于只有返回值包含目标字符串"{"，故只显示了返回值的日志，其他日志被过滤。
+</p>
+<p>查看目标字符串列表： f/F<br>
+可添加多条目标字符串，一条日志必须包含列表中所有目标字符串才会被显示，输入f或F可查看当前目标字符串列表。</p>
+<p>清空目标字符串列表： f/F clr</p>
+<h5>
+<a id="正则表达式日志过滤" class="anchor" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%97%A5%E5%BF%97%E8%BF%87%E6%BB%A4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>正则表达式日志过滤</h5>
+<p>添加过滤正则表达式： r/R RegExpression<br>
+正则表达式过滤：添加过滤正则后，只会输出正则匹配到的字符串，其他日志会显示&lt;日志不匹配正则&gt;，用以过滤日志（基本信息输出不过滤）。</p>
+<p align="center">
+<a href="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_filter.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_filter.png" height="500" style="max-width:100%;"></a>
+<br>执行"r ("cmdName" : ".+")"命令，添加"("cmdName" : ".+")"为过滤正则，则只会显示正则匹配出的日志。
+</p>
+<p>查看正则列表： r/R<br>
+可添加多个正则表达式，每一个匹配都会输出，输入r或R可查看当前正则列表。</p>
+<p>清空过滤正则列表： r/R clr</p>
+<h3>
+<a id="34-自定义命令" class="anchor" href="#34-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.4 自定义命令</h3>
+<p>方法监听支持命令扩展，通过 YKWCmdCoreCmdParseDelegate 协议可以获取命令并解析执行自定义操作。</p>
+<blockquote>
+<p>#import "YKWoodpecker.h"</p>
+<pre><code>// 设置命令解析代理
+[YKWoodpeckerManager sharedInstance].cmdCore.parseDelegate = self;
+</code></pre>
+<p>#pragma mark - YKWCmdCoreCmdParseDelegate
+// 实现命令解析协议，</p>
+<ul>
+<li>(BOOL)cmdCore:(YKWCmdCore *)core shouldParseCmd:(NSString *)cmdStr {
+// 判断是否为自定义命令
+if ([cmdStr hasPrefix:@"MyCmd"]) {
+// 处理自定义命令
+// -----------
+// 显示日志
+[[YKWoodpeckerManager sharedInstance].screenLog log:@"Calling my cmd"];
+return NO;
+}
+return YES;
+}</li>
+</ul>
+<pre><code>
+</code></pre>
+</blockquote>
+<h3>
+<a id="35-后台命令配置" class="anchor" href="#35-%E5%90%8E%E5%8F%B0%E5%91%BD%E4%BB%A4%E9%85%8D%E7%BD%AE" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3.5 后台命令配置</h3>
+<p>后台命令配置会显示在屏幕日志下方，方便命令输入，使用如下格式的JSON提供命令配置。</p>
+<p align="center">
+<a href="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_cmds.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_cmds.png" height="200" style="max-width:100%;"></a>
+<br>命令配置JSON格式
+</p>
+<p>可在啄幕鸟初始化时指定配置JSON的获取地址，否则使用默认配置。推荐在 <a href="https://github.com/ZimWoodpecker/WoodpeckerCmdSource" rel="nofollow">https://github.com/ZimWoodpecker/WoodpeckerCmdSource</a> 工程中建立配置，方便命令共享。</p>
+<h2>
+<a id="4-po命令插件" class="anchor" href="#4-po%E5%91%BD%E4%BB%A4%E6%8F%92%E4%BB%B6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>4 po命令插件</h2>
+<p>po命令是iOS开发中最常用Debug命令，啄幕鸟让你在App运行时也可以随时随地执行po命令，随时随地Debug。</p>
+<h4>
+<a id="po命令功能" class="anchor" href="#po%E5%91%BD%E4%BB%A4%E5%8A%9F%E8%83%BD" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>po命令功能</h4>
+<p>◆ 输入h可查看输入历史记录。<br>
+◆ 其他几乎和LLDB po命令一样。<br>
+◆ 输入po [N ...]即可对列表中第N个对象执行po命令。</p>
+<p align="center">
+<a href="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_po_cmd.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_po_cmd.png" height="500" style="max-width:100%;"></a>
+<br>po命令
+</p>
+<p>⚠ 当前po命令仅支持入参为int、long、BOOL、float、double、NSString、NSNumber，返回值为空、int、long、BOOL、float、double、id类型的方法，且参数不超过3个，嵌套不超过两层调用，po命令还在进一步优化中，欢迎共建，敬请期待。</p>
+<h2>
+<a id="5-系统信息插件" class="anchor" href="#5-%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E6%8F%92%E4%BB%B6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>5 系统信息插件</h2>
+<p>系统信息插件可以方便的查看系统、版本、UA等信息。</p>
+<p align="center">
+<a href="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_sysinfo.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_sysinfo.png" height="500" style="max-width:100%;"></a>
+<br>系统信息插件
+</p>
+<h3>
+<a id="系统信息插件功能扩展" class="anchor" href="#%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>系统信息插件功能扩展</h3>
+<p>可以通过通知添加自定义信息显示，格式如下：</p>
+<blockquote>
+<pre><code>extern NSString *const YKWPluginSendMessageNotification;       /**&lt; 插件发送信息通知 = @"YKWPluginSendMessageNotification" &gt; */
+extern NSString *const YKWPluginReceiveMessageNotification;    /**&lt; 插件接收信息通知 = @"YKWPluginReceiveMessageNotification" &gt; */
+/*
+系统信息插件：
+   发送格式：
+   notification.object = @"SysInfoNotification";
+   接收格式：
+   notification.object = @"SysInfoNotification";
+   notification.userInfo[@"msg"] = 需要显示的信息;
+*/
+
+</code></pre>
+</blockquote>
+<h2>
+<a id="6-sandbox插件bundle插件" class="anchor" href="#6-sandbox%E6%8F%92%E4%BB%B6bundle%E6%8F%92%E4%BB%B6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>6 SandBox插件、Bundle插件</h2>
+<p>SandBox插件用以查看App沙盒文件，Bundle插件用以查看Bundle目录，支持打开文本、图片类文件，或通过AirDrop等方式导出文件。</p>
+<h2>
+<a id="7-crash插件" class="anchor" href="#7-crash%E6%8F%92%E4%BB%B6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>7 Crash插件</h2>
+<p>查看crash日志需要预先打开一次crash插件以开启crash监控，在crash发生后即可再次打开查看crash日志，可以通过AirDrop等方式分享日志。</p>
+<h2>
+<a id="8-defaults插件" class="anchor" href="#8-defaults%E6%8F%92%E4%BB%B6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>8 Defaults插件</h2>
+<p>Defaults插件支持搜索、查看、删除User Defaults，新增、修改字符串类型或数字类型的User Defaults，</p>
+<h2>
+<a id="9-清除数据插件" class="anchor" href="#9-%E6%B8%85%E9%99%A4%E6%95%B0%E6%8D%AE%E6%8F%92%E4%BB%B6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>9 清除数据插件</h2>
+<p>清除数据插件会将App沙盒目录下各文件夹清空，清除所有相关数据以及user defaults。</p>
+<h2>
+<a id="10-触点显示插件" class="anchor" href="#10-%E8%A7%A6%E7%82%B9%E6%98%BE%E7%A4%BA%E6%8F%92%E4%BB%B6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>10 触点显示插件</h2>
+<p>打开触点插件会交换UIWindow的sendEvent:方法，在每个点击处显示水波动画，方便录屏等场景显示触点。</p>
+<h2>
+<a id="11-ui对比插件" class="anchor" href="#11-ui%E5%AF%B9%E6%AF%94%E6%8F%92%E4%BB%B6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>11 UI对比插件</h2>
+<p>UI对比可以从系统相册中导入设计图片以与App对比设计还原度。</p>
+<h3>
+<a id="ui对比功能" class="anchor" href="#ui%E5%AF%B9%E6%AF%94%E5%8A%9F%E8%83%BD" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>UI对比功能</h3>
+<p>◆ 点击“+”按钮导入图片，支持多张图片，图片可移动，如果图片大小与屏幕大小相同则图片不能移动。<br>
+◆ 点击图片可以选中，滑动控制条可以调整图片透明度。<br>
+◆ 点击“-”按钮删除图片。<br>
+◆ 点击“✎”按钮打开/关闭画线功能。<br>
+◆ 点击“↺”按钮回退一次画线。</p>
+<p align="center">
+<a href="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_ui_compare.png" target="_blank" rel="nofollow"><img src="https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_ui_compare.png" height="600" style="max-width:100%;"></a>
+<br>UI对比插件
+</p>
+<h2>
+<a id="12-查看图片资源插件" class="anchor" href="#12-%E6%9F%A5%E7%9C%8B%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E6%8F%92%E4%BB%B6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>12 查看图片资源插件</h2>
+<p>查看App中所有自带图片，Assets图片被加密压缩，暂不支持查看。</p>
+<h2>
+<a id="13-性能插件" class="anchor" href="#13-%E6%80%A7%E8%83%BD%E6%8F%92%E4%BB%B6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>13 性能插件</h2>
+<p>性能插件主要有CPU、内存、FPS、网络流量插件，可以实时查看App的相关性能。</p>
+<h1>
+<a id="插件开发" class="anchor" href="#%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>插件开发</h1>
+<h2>
+<a id="插件协议" class="anchor" href="#%E6%8F%92%E4%BB%B6%E5%8D%8F%E8%AE%AE" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>插件协议</h2>
+<p>啄幕鸟使用插件式开发，所有插件须符合YKWPluginProtocol协议，实现runWithParameters: 方法，在点击插件时会执行此方法以开启插件。不会强制检查是否遵守YKWPluginProtocol，实现协议方法即可。</p>
+<blockquote>
+<p>#import "YKWPluginProtocol.h"</p>
+<pre><code>@protocol YKWPluginProtocol &lt;NSObject&gt;
+
+- (void)runWithParameters:(NSDictionary *)paraDic;
+
+@end
+</code></pre>
+</blockquote>
+<h2>
+<a id="内部插件" class="anchor" href="#%E5%86%85%E9%83%A8%E6%8F%92%E4%BB%B6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>内部插件</h2>
+<p>内部插件会随啄幕鸟开源，新插件需实现YKWPluginProtocol协议中的方法，并在插件列表plist中添加相关插件信息，测试无bug后即可提交pull request合并到项目中。</p>
+<h2>
+<a id="外部插件" class="anchor" href="#%E5%A4%96%E9%83%A8%E6%8F%92%E4%BB%B6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>外部插件</h2>
+<p>可以注册任意符合插件协议的第三方类为插件在啄幕鸟中打开，使用如下方法注册插件：</p>
+<blockquote>
+<p>#import "YKWoodpecker.h"</p>
+<pre><code>/**
+注册插件
+
+@param parasDic 格式参见 YKWPluginModel
+@{
+@"isSafePlugin" : @(NO),
+@"pluginName" : @"",
+@"pluginIconName" : @"",
+@"pluginCharIconText" : @"",
+@"pluginCharIconColorHex" : @"",
+@"pluginCategoryName" : @"",
+@"pluginClassName" : @"",
+@"pluginParameters" : @{}
+}
+@param position 插件显示位置，0...N-1, -1显示在最后
+
+*/
+- (void)registerPluginWithParameters:(NSDictionary *)parasDic atIndex:(NSInteger)position;
+- (void)registerPluginWithParameters:(NSDictionary *)parasDic;
+- (void)registerPluginCategory:(NSString *)pluginCategoryName atIndex:(NSInteger)index;
+
+</code></pre>
+</blockquote>
+<p>推荐使用pluginCharIconText指定一个字符作为插件图标，以节省包大小。</p>
+<blockquote>
+<pre><code>// Demo for registering a plugin
+[[YKWoodpeckerManager sharedInstance] registerPluginWithParameters:@{@"pluginName" : @"XXX",
+                                                                    @"isSafePlugin" : @(NO),
+                                                                    @"pluginInfo" : @"by user_XX",
+                                                                    @"pluginCharIconText" : @"x",
+                                                                    @"pluginCategoryName" : @"自定义",
+                                                                    @"pluginClassName" : @"ClassName"}];
+
+</code></pre>
+</blockquote>
+<p>可以使用registerPluginCategory:atIndex:方法添加一个工具类别，并定制显示位置。</p>
+<blockquote>
+<pre><code> /**
+Register a plugin category or change the position of a plugin category.
+
+@param pluginCategoryName Plugin category name.
+@param index Position to show the category, 0...N-1, or -1 for the last.
+*/
+- (void)registerPluginCategory:(NSString *)pluginCategoryName atIndex:(NSInteger)index;
+</code></pre>
+</blockquote>
+<h2>
+<a id="安全插件" class="anchor" href="#%E5%AE%89%E5%85%A8%E6%8F%92%E4%BB%B6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>安全插件</h2>
+<p>在安全模式下只能打开安全插件，注册安全插件时需设置isSafePlugin=YES。</p>
+<h1>
+<a id="author" class="anchor" href="#author" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Author</h1>
+<ul>
+<li><a href="https://github.com/ZimWoodpecker" rel="nofollow">Zim</a></li>
+</ul>
+<h1>
+<a id="collaborators" class="anchor" href="#collaborators" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Collaborators</h1>
+<ul>
+<li>
+<p><a href="https://github.com/betterjbp" rel="nofollow">Betterjbp</a></p>
+</li>
+<li>
+<p><a href="https://github.com/crossPQW" rel="nofollow">CrossPQW</a></p>
+</li>
+<li>
+<p><a href="https://github.com/dylanlai" rel="nofollow">Dylanlai</a></p>
+</li>
+<li>
+<p>Special thanks to Mining for the UI design.</p>
+</li>
+</ul>
+<h1>
+<a id="licenses" class="anchor" href="#licenses" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Licenses</h1>
+<p>All source code is licensed under the <a href="https://github.com/alibaba/youku-sdk-tool-woodpecker/blob/master/LICENSE" rel="nofollow">MIT License</a>.</p>
+<h1>
+<a id="architecture" class="anchor" href="#architecture" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Architecture</h1>
+<p align="center">
+<a href="https://github.com/ZimWoodpecker/WoodpeckerResources/blob/master/woodpecker_arch.png" target="_blank" rel="nofollow"><img src="https://github.com/ZimWoodpecker/WoodpeckerResources/blob/master/woodpecker_arch.png" height="500" style="max-width:100%;"></a>
+</p>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120bc74eecce738',m:'848821521a89c1e254cfb90e653f1e0ddbc68eb1-1610725656-1800-AYUD11g59JRJtJ9/w7JDD596kvWD8lU4+B70yRNzr70atbv76HOsG3H++SROmZT4SHg2czPXbYu7HWUmr2Ofad+lgU2NuC51MhJYbpM2CtDUMRFs6VEQGElE63gjxV/zjg1Gt1hnwUw0hqCool4+p6IpAUCTNdQPeDWWrf6JUfCc',s:[0x1a5b105c01,0x076a9a063a],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="objective-c"/> <!-- -->objective-c<!-- --> (<!-- -->10,769<!-- -->) </div><div><input type="checkbox" name="topics" value="ios"/> <!-- -->ios<!-- --> (<!-- -->3,431<!-- -->) </div><div><input type="checkbox" name="topics" value="ui"/> <!-- -->ui<!-- --> (<!-- -->960<!-- -->) </div><div><input type="checkbox" name="topics" value="performance"/> <!-- -->performance<!-- --> (<!-- -->582<!-- -->) </div><div><input type="checkbox" name="topics" value="tools"/> <!-- -->tools<!-- --> (<!-- -->318<!-- -->) </div><div><input type="checkbox" name="topics" value="ui-design"/> <!-- -->ui-design<!-- --> (<!-- -->95<!-- -->) </div><div><input type="checkbox" name="topics" value="performance-testing"/> <!-- -->performance-testing<!-- --> (<!-- -->54<!-- -->) </div><div><input type="checkbox" name="topics" value="ui-testing"/> <!-- -->ui-testing<!-- --> (<!-- -->22<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Youku <!-- -->Sdk <!-- -->Tool <!-- -->Woodpecker<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/alibaba" target="_blank">Alibaba</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/alibaba" target="_blank">Alibaba</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-4560a793-a4c1-423d-ae7b-ae26c819d9fa">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"ios","count":3431},{"id":null,"name":"objective-c","count":10769},{"id":null,"name":"performance","count":582},{"id":null,"name":"performance-testing","count":54},{"id":null,"name":"tools","count":318},{"id":null,"name":"ui","count":960},{"id":null,"name":"ui-design","count":95},{"id":null,"name":"ui-testing","count":22}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/alibaba/youku-sdk-tool-woodpecker","projects":[],"project":{"id":310759,"created_at":"2020-04-22T06:26:17.988Z","updated_at":"2021-01-13T22:22:37.365Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://raw.githubusercontent.com/alibaba/youku-sdk-tool-woodpecker/master/woodpecker_logo.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/alibaba/youku-sdk-tool-woodpecker/master/woodpecker_logo.png\" width=\"400\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/p\u003e\n\u003cp\u003e啄幕鸟，即手机屏幕上的啄木鸟，专抓App里的Bug。啄幕鸟集合了UI检查、对象查看、方法监听等多种开发工具，通过拾取UI控件、查看对象属性、监听方法调用、App内抓包等，不依赖电脑联调，直接获取运行时数据，快速定位Bug，提高开发效率。啄幕鸟提供了插件化的工具平台，简便易用，零侵入、零依赖、易接入、易扩展。\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"功能简介\" class=\"anchor\" href=\"#%E5%8A%9F%E8%83%BD%E7%AE%80%E4%BB%8B\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e功能简介\u003c/h1\u003e\n\u003cp\u003e1.UI检查：快速查看页面布局、UI控件间距、字体颜色、UI控件类名、对象属性/成员变量、图片URL等。\u003cbr\u003e\n2.JSON抓包：便捷JSON抓包工具，通过监听系统json解析抓包。\u003cbr\u003e\n3.方法监听：Bug听诊器，可监听App中任意OC方法的调用，输出调用参数、返回值等信息，可以通过屏幕日志输入监听、KVC取值等命令，支持后台配置命令。\u003cbr\u003e\n4.po命令：执行类似LLDB的po命令，在App运行时执行po命令，调用任意方法。\u003cbr\u003e\n5.系统信息：查看各种系统名称、版本、屏幕、UA等信息，支持外部添加信息。\u003cbr\u003e\n6.SandBox：查看沙盒文件，导出文件等。\u003cbr\u003e\n7.Bundle：查看、导出Bundle目录中的内容。\u003cbr\u003e\n8.Crash：查看Crash日志，需先打开一次Crash插件以开启Crash监控。\u003cbr\u003e\n9.Defaults：查看、新增、删除User Defaults。\u003cbr\u003e\n10.清除数据：清除所有沙盒数据、User Default。\u003cbr\u003e\n11.触点显示：显示手指触控。\u003cbr\u003e\n12.UI对比：支持将设计图导入到App中进行对比，并可画线、标注需修改的地方，方便UI走查。\u003cbr\u003e\n13.查看图片资源：查看、导出App中的资源图片。\u003cbr\u003e\n14.CPU：查看CPU占用。\u003cbr\u003e\n15.内存：查看内存占用。\u003cbr\u003e\n16.FPS：查看App帧率。\u003cbr\u003e\n17.网络流量：查看发送、接收网络流量。\u003c/p\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_all_plugins.PNG\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_all_plugins.PNG\" height=\"500\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003cbr\u003e啄幕鸟插件\n\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"接入\" class=\"anchor\" href=\"#%E6%8E%A5%E5%85%A5\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e接入\u003c/h1\u003e\n\u003ch2\u003e\n\u003ca id=\"版本要求\" class=\"anchor\" href=\"#%E7%89%88%E6%9C%AC%E8%A6%81%E6%B1%82\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e版本要求\u003c/h2\u003e\n\u003cp\u003eiOS 8.0及以上。\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"pod接入\" class=\"anchor\" href=\"#pod%E6%8E%A5%E5%85%A5\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePod接入\u003c/h2\u003e\n\u003cblockquote\u003e\n\u003cpre\u003e\u003ccode\u003epod  'YKWoodpecker'   \n\u003c/code\u003e\u003c/pre\u003e\n\u003c/blockquote\u003e\n\u003cp\u003e推荐更新使用最新版本啄幕鸟，现最新版本：1.2.9。\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"get-started\" class=\"anchor\" href=\"#get-started\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGet Started\u003c/h2\u003e\n\u003ch5\u003e\n\u003ca id=\"打开啄幕鸟\" class=\"anchor\" href=\"#%E6%89%93%E5%BC%80%E5%95%84%E5%B9%95%E9%B8%9F\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e打开啄幕鸟\u003c/h5\u003e\n\u003cblockquote\u003e\n\u003cp\u003e#import \"YKWoodpecker.h\"\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e   // 方法监听命令配置JSON地址 * 可选，如无单独配置，可使用 https://github.com/ZimWoodpecker/WoodpeckerCmdSource 上的配置\n   [YKWoodpeckerManager sharedInstance].cmdSourceUrl = @\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerCmdSource/master/cmdSource/default/cmds_cn.json\";\n   \n   // Release 下可开启安全模式，只支持打开安全插件 * 可选\n#ifndef DEBUG\n   [YKWoodpeckerManager sharedInstance].safePluginMode = YES;\n#endif\n\n   // 设置 parseDelegate，可通过 YKWCmdCoreCmdParseDelegate 协议实现自定义命令 * 可选\n   [YKWoodpeckerManager sharedInstance].cmdCore.parseDelegate = self;\n   \n   // 显示啄幕鸟\n   [[YKWoodpeckerManager sharedInstance] show];\n   \n   // 启动时可直接打开某一插件 * 可选\n//    [[YKWoodpeckerManager sharedInstance] openPluginNamed:@\"xxx\"];\n\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/blockquote\u003e\n\u003cp\u003e更多参见Demo工程。\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"运行demo\" class=\"anchor\" href=\"#%E8%BF%90%E8%A1%8Cdemo\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e运行Demo\u003c/h2\u003e\n\u003cp\u003eclone后在工程目录'pod update'，完成后即可打开demo workspace运行。\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"安全说明\" class=\"anchor\" href=\"#%E5%AE%89%E5%85%A8%E8%AF%B4%E6%98%8E\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e安全说明\u003c/h2\u003e\n\u003cp\u003e啄幕鸟不依赖任何第三方库或数据。啄幕鸟代码中没有使用任何+load、+initialize等方法，啄幕鸟入口不显示则不会执行任何代码。如需线上使用啄幕鸟，应保护好开启入口，啄幕鸟支持安全模式，可在Release下开启安全模式，只支持打开安全插件，现有安全插件：UI检查、系统信息、触点显示。扩展插件注册时设置isSafePlugin=YES即可声明为安全插件，详见插件开发。\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cpre\u003e\u003ccode\u003e   // Release 下可开启安全模式，只支持打开安全插件 * 可选\n#ifndef DEBUG\n   [YKWoodpeckerManager sharedInstance].safePluginMode = YES;\n#endif\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/blockquote\u003e\n\u003ch1\u003e\n\u003ca id=\"插件功能介绍\" class=\"anchor\" href=\"#%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e插件功能介绍\u003c/h1\u003e\n\u003ch2\u003e\n\u003ca id=\"1-ui检查插件\" class=\"anchor\" href=\"#1-ui%E6%A3%80%E6%9F%A5%E6%8F%92%E4%BB%B6\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e1. UI检查插件\u003c/h2\u003e\n\u003cp\u003eUI检查插件包含控件拾取和测距条两个工具，在屏幕上点一点即可获取布局、颜色、字体、圆角、图片URL等信息。\u003c/p\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_ui_check_demo.gif\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_ui_check_demo.gif\" height=\"500\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003cbr\u003eUI检查插件\n\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"11-控件拾取\" class=\"anchor\" href=\"#11-%E6%8E%A7%E4%BB%B6%E6%8B%BE%E5%8F%96\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e1.1 控件拾取\u003c/h3\u003e\n\u003cp\u003e控件拾取根据手指在屏幕上的点击坐标，递归遍历View层级，获取包含触点坐标的最靠前的UI元素，在屏幕上直观显示相关信息，也可帮助了解UI布局、定位UI代码。\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"控件拾取功能\" class=\"anchor\" href=\"#%E6%8E%A7%E4%BB%B6%E6%8B%BE%E5%8F%96%E5%8A%9F%E8%83%BD\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e控件拾取功能\u003c/h4\u003e\n\u003cp\u003e◆ 单击拾取当前点击的view，双击可跳过当前view，以拾取下层view，以防止view被同级view挡住拾取不到。\u003cbr\u003e\n◆ 三个手指同时点击可切换拾取模式，只拾取响应链上的view，以防止屏幕上盖了一层view，影响拾取。\u003cbr\u003e\n◆ 拾取后用线条和标注显示被拾取view的大小、位置，或与之前选中view的间距，简单直观，无需计算。\u003cbr\u003e\n◆ 控件拾取信息区显示控件的类名、大小、透明度、圆角、hidden、文本、字体、颜色、图片尺寸、图片URL等信息，方便地获取运行时数据。\u003cbr\u003e\n◆ 信息区提供父层按钮，点击拾取superview，层层拾取，即可了解UI布局，并根据view类名快速定位代码。\u003cbr\u003e\n◆ 信息区根据选中元素的不同，提供文本、图片等按钮，以复制文本，查看、导出图片。\u003cbr\u003e\n◆ 单击信息区可打开分享面板导出信息。\u003cbr\u003e\n◆ 双击信息区可查看对象全部属性、成员变量。\u003c/p\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_ui_check.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_ui_check.png\" height=\"500\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003cbr\u003eUI检查-拾取控件\n\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"控件拾取功能扩展\" class=\"anchor\" href=\"#%E6%8E%A7%E4%BB%B6%E6%8B%BE%E5%8F%96%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e控件拾取功能扩展\u003c/h4\u003e\n\u003cp\u003e可以通过系统通知获得拾取到的控件并在信息区域显示自定义信息，格式如下：\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cpre\u003e\u003ccode\u003eextern NSString *const YKWPluginSendMessageNotification;       /**\u0026lt; 插件发送信息通知 = @\"YKWPluginSendMessageNotification\" \u0026gt; */\nextern NSString *const YKWPluginReceiveMessageNotification;    /**\u0026lt; 插件接收信息通知 = @\"YKWPluginReceiveMessageNotification\" \u0026gt; */\n/*\n控件拾取插件：\n   发送格式：\n   notification.object = @\"ProbePluginNotification\";\n   notification.userInfo[@\"view\"] = 拾取到的UIView;\n   接收格式：\n   notification.object = @\"ProbePluginNotification\";\n   notification.userInfo[@\"msg\"] = 需要显示的信息;\n*/\n\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/blockquote\u003e\n\u003ch3\u003e\n\u003ca id=\"12-对象查看\" class=\"anchor\" href=\"#12-%E5%AF%B9%E8%B1%A1%E6%9F%A5%E7%9C%8B\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e1.2 对象查看\u003c/h3\u003e\n\u003cp\u003eApp中所有的对象通过继承、代理、属性等关系，可以看作一个或多个连通图，从一个对象开始，可以查看到连通图里任一个对象的属性、成员变量，获取运行时数据，以定位问题。\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"对象查看功能\" class=\"anchor\" href=\"#%E5%AF%B9%E8%B1%A1%E6%9F%A5%E7%9C%8B%E5%8A%9F%E8%83%BD\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e对象查看功能\u003c/h4\u003e\n\u003cp\u003e◆ 双击控件拾取的信息区即可打开对象查看，对象查看会显示拾取对象的属性、成员变量列表。\u003cbr\u003e\n◆ 一个对象的属性、成员变量一般声明在不同的类中，一个列表只显示对象在某一类中声明的属性、成员变量，点击superclass即可查看父类中的声明。\u003cbr\u003e\n◆ 在属性、成员变量列表中单击查看下一对象，双击打印对象description。\u003cbr\u003e\n◆ KVC取值：在日志控制台中输入 k key.path 格式即可对最右侧列表对象KVC取值，如输入 k layer.cornerRadius 即可读取圆角大小。\u003cbr\u003e\n◆ 点击“屏显控件”可将UIView及其子类对象在控件拾取中显示。\u003cbr\u003e\n◆ 可在对象查看中使用po命令，详见po命令介绍。\u003c/p\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_object_check.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_object_check.png\" height=\"500\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003cbr\u003e查看对象全部属性\n\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"13-测距条\" class=\"anchor\" href=\"#13-%E6%B5%8B%E8%B7%9D%E6%9D%A1\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e1.3 测距条\u003c/h3\u003e\n\u003cp\u003e对于某些不能通过控件拾取查看的大小间距，如行间距等，啄幕鸟提供了测距条工具，在屏幕上添加大小、位置可控的View作为标尺测量间距。\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"测距条功能\" class=\"anchor\" href=\"#%E6%B5%8B%E8%B7%9D%E6%9D%A1%E5%8A%9F%E8%83%BD\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e测距条功能\u003c/h4\u003e\n\u003cp\u003e◆ 点击“+”添加一个测距条，可添加任意多个测距条。\u003cbr\u003e\n◆ 双击一个测距条可以将其删除。\u003cbr\u003e\n◆ 单击一个测距条可将其选中，以改变其位置大小。\u003cbr\u003e\n◆ 可在输入框按宽高输入测距条大小。\u003cbr\u003e\n◆ 可通过按钮控制测距条的位置大小，按钮支持长按。\u003cbr\u003e\n◆ 点击“Dp”可改变控制精度为dp或像素。\u003c/p\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_ruler.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_ruler.png\" height=\"500\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003cbr\u003eUI检查-测距条\n\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"2-json抓包插件\" class=\"anchor\" href=\"#2-json%E6%8A%93%E5%8C%85%E6%8F%92%E4%BB%B6\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e2 JSON抓包插件\u003c/h2\u003e\n\u003cp\u003eJSON抓包插件通过监听[NSJSONSerialization JSONObjectWithData:options:error:]方法抓取数据，对于不使用此方法解析的JSON则无法抓包。\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"json抓包功能\" class=\"anchor\" href=\"#json%E6%8A%93%E5%8C%85%E5%8A%9F%E8%83%BD\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eJSON抓包功能\u003c/h4\u003e\n\u003cp\u003e◆ 打开插件自动开始监听JSON解析，抓取数据。\n◆ 可能会抓取多条数据，可通过数据长度区分。\n◆ 单击可查看、检索抓取到的JSON数据。\n◆ 长按数据可通过Airdrop等分享JSON数据。\u003c/p\u003e\n\u003cp align=\"center\"\u003e\n  \u003ca href=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_json_grab.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_json_grab.png\" title=\"Woodpecker\" height=\"600\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n  \u003cbr\u003e\n\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"3-方法监听插件\" class=\"anchor\" href=\"#3-%E6%96%B9%E6%B3%95%E7%9B%91%E5%90%AC%E6%8F%92%E4%BB%B6\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e3 方法监听插件\u003c/h2\u003e\n\u003ch3\u003e\n\u003ca id=\"31-屏幕日志\" class=\"anchor\" href=\"#31-%E5%B1%8F%E5%B9%95%E6%97%A5%E5%BF%97\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e3.1 屏幕日志\u003c/h3\u003e\n\u003cp\u003e为方便各插件在App内显示日志、接受用户输入，啄幕鸟中添加了屏幕日志模块。\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"屏幕日志功能\" class=\"anchor\" href=\"#%E5%B1%8F%E5%B9%95%E6%97%A5%E5%BF%97%E5%8A%9F%E8%83%BD\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e屏幕日志功能\u003c/h4\u003e\n\u003cp\u003e◆ 拖动空白处可调整屏幕日志位置，拖动“◢”按钮可调整界面大小。\u003cbr\u003e\n◆ 日志颜色可定制，以区分日志类型。\u003cbr\u003e\n◆ 屏幕日志支持正则表达式和目标字符串过滤不想要的日志，正则表达式过滤只会显示正则匹配到的日志，目标字符串会过滤掉不包含目标字符串的日志。\u003cbr\u003e\n◆ 屏幕日志支持日志搜索，点击ⓢ按钮可以打开/关闭日志搜索框，搜索支持正则表达式。\u003cbr\u003e\n◆ 日志可通过分享面板导出。\u003cbr\u003e\n◆ 屏幕日志支持界面扩展，可在屏幕日志下方添加自定义View，展示自定义功能，自定义View会跟随屏幕日志移动及改变宽度。\u003c/p\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_sysinfo.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_sysinfo.png\" height=\"500\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003cbr\u003e系统信息插件中直接使用了屏幕日志显示信息\n\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"32-方法监听\" class=\"anchor\" href=\"#32-%E6%96%B9%E6%B3%95%E7%9B%91%E5%90%AC\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e3.2 方法监听\u003c/h3\u003e\n\u003cp\u003e方法监听利用OC的运行时机制，Hook被监听方法，输出方法调用参数、返回值、调用栈等信息，动态获取运行时数据，辅助Debug。监听网络方法即可实现App内抓包功能。\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"方法监听功能\" class=\"anchor\" href=\"#%E6%96%B9%E6%B3%95%E7%9B%91%E5%90%AC%E5%8A%9F%E8%83%BD\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e方法监听功能\u003c/h4\u003e\n\u003cp\u003e◆ 使用命令行交互，扩展性强，功能多样。\u003cbr\u003e\n◆ 命令支持后台配置，方便快速输入命令。\u003cbr\u003e\n◆ 可监听实例方法、类方法，支持同时监听多个对象、多个方法。\u003cbr\u003e\n◆ 通过屏幕日志输出监听到的参数、返回值，JSON格式化显示。\u003cbr\u003e\n◆ 保存监听到的对象、返回值，可使用命令对其KVC取值。\u003cbr\u003e\n◆ 保存监听到方法的调用栈，可使用相关命令查看。\u003c/p\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_listen_in_demo.gif\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_listen_in_demo.gif\" height=\"500\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003cbr\u003e方法监听\n\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"33-方法监听命令\" class=\"anchor\" href=\"#33-%E6%96%B9%E6%B3%95%E7%9B%91%E5%90%AC%E5%91%BD%E4%BB%A4\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e3.3 方法监听命令\u003c/h3\u003e\n\u003cp\u003e方法监听需要输入类名、方法名、keypath等参数，故使用命令行交互，扩展性好，配合命令配置，输入也较方便。\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"命令简介\" class=\"anchor\" href=\"#%E5%91%BD%E4%BB%A4%E7%AE%80%E4%BB%8B\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e命令简介\u003c/h4\u003e\n\u003cp\u003e◆ 命令使用同一格式，\u0026lt;命令名缩写\u0026gt;\u0026lt;空格\u0026gt;\u0026lt;命名参数\u0026gt;\u0026lt;空格\u0026gt;\u0026lt;命名参数\u0026gt;，如监听命令 L className methodName，KVC取值命令 k keyPath，调用栈查看命令k callStack。\u003cbr\u003e\n◆ 命令名缩写不区分大小写，方便输入。\u003cbr\u003e\n◆ 命令可通过后台配置，一键输入，多条命令以分号分隔。\u003cbr\u003e\n◆ 命令支持扩展。\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"命令说明\" class=\"anchor\" href=\"#%E5%91%BD%E4%BB%A4%E8%AF%B4%E6%98%8E\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e命令说明\u003c/h4\u003e\n\u003ch5\u003e\n\u003ca id=\"查看输入历史\" class=\"anchor\" href=\"#%E6%9F%A5%E7%9C%8B%E8%BE%93%E5%85%A5%E5%8E%86%E5%8F%B2\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e查看输入历史\u003c/h5\u003e\n\u003cp\u003e命令格式： h/H\u003cbr\u003e\n输入h或H回车后会显示输入历史记录，输入记录前面的数字回车可实现快速输入命令，也可在任意状态输入1回车，快速输入上次输入的命令。\u003c/p\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_history.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_history.png\" height=\"500\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003cbr\u003e输入历史命令\n\u003c/p\u003e\n\u003ch5\u003e\n\u003ca id=\"方法监听\" class=\"anchor\" href=\"#%E6%96%B9%E6%B3%95%E7%9B%91%E5%90%AC\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e方法监听\u003c/h5\u003e\n\u003cp\u003e添加实例方法监听命令格式： l/L ClassName Method:Name:\u003cbr\u003e\n按上述格式输入回车后会Hook相应类的类方法或实例方法，并显示监听成功，下次对应方法被调用时会按OC语法格式显示方法调用时传入的参数及返回值的description。\u003cbr\u003e\n注意方法监听可能会产生风险，例如同时监听子类和父类的同名方法会导致崩溃，监听基础类的常用方法也可能会导致崩溃，如监听UIView的setFrame:方法时，由于显示日志也需要调用setFrame:方法，会导致循环调用；监听调用频繁的方法需要显示大量日志，可能造成程序卡死等。暂未对方法监听做限制，此功能可能会使App变得不稳定，应谨慎使用方法监听功能。\u003c/p\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_listen_in.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_listen_in.png\" height=\"500\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003cbr\u003e点击AF请求按钮后，监听到NSJSONSerialization方法被调用，显示日志\n\u003c/p\u003e\n\u003cp\u003e查看正在监听的方法列表命令： l/L\u003cbr\u003e\n可同时添加多个方法监听，输入l或L可显示所有正在监听的类及方法名。\u003c/p\u003e\n\u003cp\u003e清除所有监听命令格式： l/L clr\u003cbr\u003e\n按上述格式输入会移除所有方法监听。（clr: clear的缩写）\u003c/p\u003e\n\u003ch5\u003e\n\u003ca id=\"查看监听到的对象\" class=\"anchor\" href=\"#%E6%9F%A5%E7%9C%8B%E7%9B%91%E5%90%AC%E5%88%B0%E7%9A%84%E5%AF%B9%E8%B1%A1\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e查看监听到的对象\u003c/h5\u003e\n\u003cp\u003e查看监听到的对象命令格式： k/K\u003cbr\u003e\n方法监听命令会将监听到的对象参数保存在一个数组中（非对象参数不保存），每次监听到某个方法调用都会更新数组，输入k或K回车可查看数组内容。数组中第一个对象为self，即被监听类的实例，之后按参数传递顺序排列，如有返回对象则保存在最后。\u003cbr\u003e\n输入k callStack可以查看监听到的调用栈。\u003c/p\u003e\n\u003cp\u003e对监听到的第N个对象KeyPath取值： k/K N Key.Path\u003cbr\u003e\n可以对监听到的对象进行KeyPath取值，例如监听到UIView addSubview:方法后（当然不建议监听这个方法），监听数组中会存放对应的(superview，subview)，输入k 2 layer.cornerRadius可读取subview的圆角大小。\u003c/p\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_k_cmd.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_k_cmd.png\" height=\"500\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003cbr\u003e监听到AFJSONResponseSerializer相关方法后，输入\"k 2 URL\"读取参数列表第二个对象的URL属性，获取URL。输入\"k\"即可查看监听到的参数、返回值列表。\n\u003c/p\u003e\n\u003ch5\u003e\n\u003ca id=\"添加监听后命令\" class=\"anchor\" href=\"#%E6%B7%BB%E5%8A%A0%E7%9B%91%E5%90%AC%E5%90%8E%E5%91%BD%E4%BB%A4\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e添加监听后命令\u003c/h5\u003e\n\u003cp\u003e添加监听后命令格式：p/P\u003cbr\u003e\n监听后命令会在监听到任意方法调用之后执行，现仅支持k命令，例如输入\"p k\"添加监听后命令k之后，每次监听到方法调用后会执行k命令输出监听到的参数和返回值。\u003c/p\u003e\n\u003ch5\u003e\n\u003ca id=\"目标字符串日志过滤\" class=\"anchor\" href=\"#%E7%9B%AE%E6%A0%87%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%A5%E5%BF%97%E8%BF%87%E6%BB%A4\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e目标字符串日志过滤\u003c/h5\u003e\n\u003cp\u003e添加目标字符串命令格式： f/F ToFindString\u003cbr\u003e\n目标字符串：可以在日志控制台添加目标字符串，添加后，只会输出包含目标字符串的日志，其他日志会显示\u0026lt;日志不包含目标字符串\u0026gt;，用以过滤日志（基本信息输出不过滤）。\u003c/p\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_listen_in.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_listen_in.png\" height=\"500\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003cbr\u003e执行\"f {\"命令，添加\"{\"为目标字符串，由于只有返回值包含目标字符串\"{\"，故只显示了返回值的日志，其他日志被过滤。\n\u003c/p\u003e\n\u003cp\u003e查看目标字符串列表： f/F\u003cbr\u003e\n可添加多条目标字符串，一条日志必须包含列表中所有目标字符串才会被显示，输入f或F可查看当前目标字符串列表。\u003c/p\u003e\n\u003cp\u003e清空目标字符串列表： f/F clr\u003c/p\u003e\n\u003ch5\u003e\n\u003ca id=\"正则表达式日志过滤\" class=\"anchor\" href=\"#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%97%A5%E5%BF%97%E8%BF%87%E6%BB%A4\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e正则表达式日志过滤\u003c/h5\u003e\n\u003cp\u003e添加过滤正则表达式： r/R RegExpression\u003cbr\u003e\n正则表达式过滤：添加过滤正则后，只会输出正则匹配到的字符串，其他日志会显示\u0026lt;日志不匹配正则\u0026gt;，用以过滤日志（基本信息输出不过滤）。\u003c/p\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_filter.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_filter.png\" height=\"500\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003cbr\u003e执行\"r (\"cmdName\" : \".+\")\"命令，添加\"(\"cmdName\" : \".+\")\"为过滤正则，则只会显示正则匹配出的日志。\n\u003c/p\u003e\n\u003cp\u003e查看正则列表： r/R\u003cbr\u003e\n可添加多个正则表达式，每一个匹配都会输出，输入r或R可查看当前正则列表。\u003c/p\u003e\n\u003cp\u003e清空过滤正则列表： r/R clr\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"34-自定义命令\" class=\"anchor\" href=\"#34-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e3.4 自定义命令\u003c/h3\u003e\n\u003cp\u003e方法监听支持命令扩展，通过 YKWCmdCoreCmdParseDelegate 协议可以获取命令并解析执行自定义操作。\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e#import \"YKWoodpecker.h\"\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e// 设置命令解析代理\n[YKWoodpeckerManager sharedInstance].cmdCore.parseDelegate = self;\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e#pragma mark - YKWCmdCoreCmdParseDelegate\n// 实现命令解析协议，\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e(BOOL)cmdCore:(YKWCmdCore *)core shouldParseCmd:(NSString *)cmdStr {\n// 判断是否为自定义命令\nif ([cmdStr hasPrefix:@\"MyCmd\"]) {\n// 处理自定义命令\n// -----------\n// 显示日志\n[[YKWoodpeckerManager sharedInstance].screenLog log:@\"Calling my cmd\"];\nreturn NO;\n}\nreturn YES;\n}\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/blockquote\u003e\n\u003ch3\u003e\n\u003ca id=\"35-后台命令配置\" class=\"anchor\" href=\"#35-%E5%90%8E%E5%8F%B0%E5%91%BD%E4%BB%A4%E9%85%8D%E7%BD%AE\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e3.5 后台命令配置\u003c/h3\u003e\n\u003cp\u003e后台命令配置会显示在屏幕日志下方，方便命令输入，使用如下格式的JSON提供命令配置。\u003c/p\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_cmds.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_cmds.png\" height=\"200\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003cbr\u003e命令配置JSON格式\n\u003c/p\u003e\n\u003cp\u003e可在啄幕鸟初始化时指定配置JSON的获取地址，否则使用默认配置。推荐在 \u003ca href=\"https://github.com/ZimWoodpecker/WoodpeckerCmdSource\" rel=\"nofollow\"\u003ehttps://github.com/ZimWoodpecker/WoodpeckerCmdSource\u003c/a\u003e 工程中建立配置，方便命令共享。\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"4-po命令插件\" class=\"anchor\" href=\"#4-po%E5%91%BD%E4%BB%A4%E6%8F%92%E4%BB%B6\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e4 po命令插件\u003c/h2\u003e\n\u003cp\u003epo命令是iOS开发中最常用Debug命令，啄幕鸟让你在App运行时也可以随时随地执行po命令，随时随地Debug。\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"po命令功能\" class=\"anchor\" href=\"#po%E5%91%BD%E4%BB%A4%E5%8A%9F%E8%83%BD\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003epo命令功能\u003c/h4\u003e\n\u003cp\u003e◆ 输入h可查看输入历史记录。\u003cbr\u003e\n◆ 其他几乎和LLDB po命令一样。\u003cbr\u003e\n◆ 输入po [N ...]即可对列表中第N个对象执行po命令。\u003c/p\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_po_cmd.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_po_cmd.png\" height=\"500\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003cbr\u003epo命令\n\u003c/p\u003e\n\u003cp\u003e⚠ 当前po命令仅支持入参为int、long、BOOL、float、double、NSString、NSNumber，返回值为空、int、long、BOOL、float、double、id类型的方法，且参数不超过3个，嵌套不超过两层调用，po命令还在进一步优化中，欢迎共建，敬请期待。\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"5-系统信息插件\" class=\"anchor\" href=\"#5-%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E6%8F%92%E4%BB%B6\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e5 系统信息插件\u003c/h2\u003e\n\u003cp\u003e系统信息插件可以方便的查看系统、版本、UA等信息。\u003c/p\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_sysinfo.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_sysinfo.png\" height=\"500\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003cbr\u003e系统信息插件\n\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"系统信息插件功能扩展\" class=\"anchor\" href=\"#%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E6%8F%92%E4%BB%B6%E5%8A%9F%E8%83%BD%E6%89%A9%E5%B1%95\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e系统信息插件功能扩展\u003c/h3\u003e\n\u003cp\u003e可以通过通知添加自定义信息显示，格式如下：\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cpre\u003e\u003ccode\u003eextern NSString *const YKWPluginSendMessageNotification;       /**\u0026lt; 插件发送信息通知 = @\"YKWPluginSendMessageNotification\" \u0026gt; */\nextern NSString *const YKWPluginReceiveMessageNotification;    /**\u0026lt; 插件接收信息通知 = @\"YKWPluginReceiveMessageNotification\" \u0026gt; */\n/*\n系统信息插件：\n   发送格式：\n   notification.object = @\"SysInfoNotification\";\n   接收格式：\n   notification.object = @\"SysInfoNotification\";\n   notification.userInfo[@\"msg\"] = 需要显示的信息;\n*/\n\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/blockquote\u003e\n\u003ch2\u003e\n\u003ca id=\"6-sandbox插件bundle插件\" class=\"anchor\" href=\"#6-sandbox%E6%8F%92%E4%BB%B6bundle%E6%8F%92%E4%BB%B6\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e6 SandBox插件、Bundle插件\u003c/h2\u003e\n\u003cp\u003eSandBox插件用以查看App沙盒文件，Bundle插件用以查看Bundle目录，支持打开文本、图片类文件，或通过AirDrop等方式导出文件。\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"7-crash插件\" class=\"anchor\" href=\"#7-crash%E6%8F%92%E4%BB%B6\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e7 Crash插件\u003c/h2\u003e\n\u003cp\u003e查看crash日志需要预先打开一次crash插件以开启crash监控，在crash发生后即可再次打开查看crash日志，可以通过AirDrop等方式分享日志。\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"8-defaults插件\" class=\"anchor\" href=\"#8-defaults%E6%8F%92%E4%BB%B6\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e8 Defaults插件\u003c/h2\u003e\n\u003cp\u003eDefaults插件支持搜索、查看、删除User Defaults，新增、修改字符串类型或数字类型的User Defaults，\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"9-清除数据插件\" class=\"anchor\" href=\"#9-%E6%B8%85%E9%99%A4%E6%95%B0%E6%8D%AE%E6%8F%92%E4%BB%B6\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e9 清除数据插件\u003c/h2\u003e\n\u003cp\u003e清除数据插件会将App沙盒目录下各文件夹清空，清除所有相关数据以及user defaults。\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"10-触点显示插件\" class=\"anchor\" href=\"#10-%E8%A7%A6%E7%82%B9%E6%98%BE%E7%A4%BA%E6%8F%92%E4%BB%B6\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e10 触点显示插件\u003c/h2\u003e\n\u003cp\u003e打开触点插件会交换UIWindow的sendEvent:方法，在每个点击处显示水波动画，方便录屏等场景显示触点。\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"11-ui对比插件\" class=\"anchor\" href=\"#11-ui%E5%AF%B9%E6%AF%94%E6%8F%92%E4%BB%B6\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e11 UI对比插件\u003c/h2\u003e\n\u003cp\u003eUI对比可以从系统相册中导入设计图片以与App对比设计还原度。\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"ui对比功能\" class=\"anchor\" href=\"#ui%E5%AF%B9%E6%AF%94%E5%8A%9F%E8%83%BD\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eUI对比功能\u003c/h3\u003e\n\u003cp\u003e◆ 点击“+”按钮导入图片，支持多张图片，图片可移动，如果图片大小与屏幕大小相同则图片不能移动。\u003cbr\u003e\n◆ 点击图片可以选中，滑动控制条可以调整图片透明度。\u003cbr\u003e\n◆ 点击“-”按钮删除图片。\u003cbr\u003e\n◆ 点击“✎”按钮打开/关闭画线功能。\u003cbr\u003e\n◆ 点击“↺”按钮回退一次画线。\u003c/p\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_ui_compare.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://raw.githubusercontent.com/ZimWoodpecker/WoodpeckerResources/master/woodpecker_demo_ui_compare.png\" height=\"600\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003cbr\u003eUI对比插件\n\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"12-查看图片资源插件\" class=\"anchor\" href=\"#12-%E6%9F%A5%E7%9C%8B%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90%E6%8F%92%E4%BB%B6\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e12 查看图片资源插件\u003c/h2\u003e\n\u003cp\u003e查看App中所有自带图片，Assets图片被加密压缩，暂不支持查看。\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"13-性能插件\" class=\"anchor\" href=\"#13-%E6%80%A7%E8%83%BD%E6%8F%92%E4%BB%B6\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e13 性能插件\u003c/h2\u003e\n\u003cp\u003e性能插件主要有CPU、内存、FPS、网络流量插件，可以实时查看App的相关性能。\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"插件开发\" class=\"anchor\" href=\"#%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e插件开发\u003c/h1\u003e\n\u003ch2\u003e\n\u003ca id=\"插件协议\" class=\"anchor\" href=\"#%E6%8F%92%E4%BB%B6%E5%8D%8F%E8%AE%AE\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e插件协议\u003c/h2\u003e\n\u003cp\u003e啄幕鸟使用插件式开发，所有插件须符合YKWPluginProtocol协议，实现runWithParameters: 方法，在点击插件时会执行此方法以开启插件。不会强制检查是否遵守YKWPluginProtocol，实现协议方法即可。\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e#import \"YKWPluginProtocol.h\"\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e@protocol YKWPluginProtocol \u0026lt;NSObject\u0026gt;\n\n- (void)runWithParameters:(NSDictionary *)paraDic;\n\n@end\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/blockquote\u003e\n\u003ch2\u003e\n\u003ca id=\"内部插件\" class=\"anchor\" href=\"#%E5%86%85%E9%83%A8%E6%8F%92%E4%BB%B6\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e内部插件\u003c/h2\u003e\n\u003cp\u003e内部插件会随啄幕鸟开源，新插件需实现YKWPluginProtocol协议中的方法，并在插件列表plist中添加相关插件信息，测试无bug后即可提交pull request合并到项目中。\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"外部插件\" class=\"anchor\" href=\"#%E5%A4%96%E9%83%A8%E6%8F%92%E4%BB%B6\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e外部插件\u003c/h2\u003e\n\u003cp\u003e可以注册任意符合插件协议的第三方类为插件在啄幕鸟中打开，使用如下方法注册插件：\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cp\u003e#import \"YKWoodpecker.h\"\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e/**\n注册插件\n\n@param parasDic 格式参见 YKWPluginModel\n@{\n@\"isSafePlugin\" : @(NO),\n@\"pluginName\" : @\"\",\n@\"pluginIconName\" : @\"\",\n@\"pluginCharIconText\" : @\"\",\n@\"pluginCharIconColorHex\" : @\"\",\n@\"pluginCategoryName\" : @\"\",\n@\"pluginClassName\" : @\"\",\n@\"pluginParameters\" : @{}\n}\n@param position 插件显示位置，0...N-1, -1显示在最后\n\n*/\n- (void)registerPluginWithParameters:(NSDictionary *)parasDic atIndex:(NSInteger)position;\n- (void)registerPluginWithParameters:(NSDictionary *)parasDic;\n- (void)registerPluginCategory:(NSString *)pluginCategoryName atIndex:(NSInteger)index;\n\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/blockquote\u003e\n\u003cp\u003e推荐使用pluginCharIconText指定一个字符作为插件图标，以节省包大小。\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cpre\u003e\u003ccode\u003e// Demo for registering a plugin\n[[YKWoodpeckerManager sharedInstance] registerPluginWithParameters:@{@\"pluginName\" : @\"XXX\",\n                                                                    @\"isSafePlugin\" : @(NO),\n                                                                    @\"pluginInfo\" : @\"by user_XX\",\n                                                                    @\"pluginCharIconText\" : @\"x\",\n                                                                    @\"pluginCategoryName\" : @\"自定义\",\n                                                                    @\"pluginClassName\" : @\"ClassName\"}];\n\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/blockquote\u003e\n\u003cp\u003e可以使用registerPluginCategory:atIndex:方法添加一个工具类别，并定制显示位置。\u003c/p\u003e\n\u003cblockquote\u003e\n\u003cpre\u003e\u003ccode\u003e /**\nRegister a plugin category or change the position of a plugin category.\n\n@param pluginCategoryName Plugin category name.\n@param index Position to show the category, 0...N-1, or -1 for the last.\n*/\n- (void)registerPluginCategory:(NSString *)pluginCategoryName atIndex:(NSInteger)index;\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/blockquote\u003e\n\u003ch2\u003e\n\u003ca id=\"安全插件\" class=\"anchor\" href=\"#%E5%AE%89%E5%85%A8%E6%8F%92%E4%BB%B6\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e安全插件\u003c/h2\u003e\n\u003cp\u003e在安全模式下只能打开安全插件，注册安全插件时需设置isSafePlugin=YES。\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"author\" class=\"anchor\" href=\"#author\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAuthor\u003c/h1\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/ZimWoodpecker\" rel=\"nofollow\"\u003eZim\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\n\u003ca id=\"collaborators\" class=\"anchor\" href=\"#collaborators\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCollaborators\u003c/h1\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/betterjbp\" rel=\"nofollow\"\u003eBetterjbp\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/crossPQW\" rel=\"nofollow\"\u003eCrossPQW\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/dylanlai\" rel=\"nofollow\"\u003eDylanlai\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSpecial thanks to Mining for the UI design.\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch1\u003e\n\u003ca id=\"licenses\" class=\"anchor\" href=\"#licenses\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicenses\u003c/h1\u003e\n\u003cp\u003eAll source code is licensed under the \u003ca href=\"https://github.com/alibaba/youku-sdk-tool-woodpecker/blob/master/LICENSE\" rel=\"nofollow\"\u003eMIT License\u003c/a\u003e.\u003c/p\u003e\n\u003ch1\u003e\n\u003ca id=\"architecture\" class=\"anchor\" href=\"#architecture\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eArchitecture\u003c/h1\u003e\n\u003cp align=\"center\"\u003e\n\u003ca href=\"https://github.com/ZimWoodpecker/WoodpeckerResources/blob/master/woodpecker_arch.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://github.com/ZimWoodpecker/WoodpeckerResources/blob/master/woodpecker_arch.png\" height=\"500\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003c/p\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":204690313,"name":"youku-sdk-tool-woodpecker","owner_login":"alibaba","description":"In-app-debug tool for iOS","pushed_at":"2020-12-31T12:14:45.000Z","stargazers_count":580,"open_issues_count":1,"has_downloads":true,"archived":false,"license_key":"mit","homepage":"","private":false,"project_created_at":"2019-08-27T11:39:29.000Z","project_updated_at":"2021-01-12T09:30:33.000Z","language":null,"added_language_topic":false},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

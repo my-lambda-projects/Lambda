@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://gist.githubusercontent.com/bgoonz/37bca66ce8441c688900b6f082f10560/raw/2e9a5966431d89b8ce6355e7b8039ba42554978b/CSS-Styling-for-Pandoc-generated-html.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://raw.githubusercontent.com/bgoonz/styling-templates/master/bootstrap3/assets/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js" integrity="sha512-YBk7HhgDZvBxmtOfUdvX0z8IH2d10Hp3aEygaMNhtF8fSOvBZ16D/1bXZTJV6ndk/L/DlXxYStP8jrF77v2MIg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-css.min.js" integrity="sha512-1qYok2x2Rsm2y+mrdyrp00iH7xYSgVyIQ1egDAoT7CBZ3kSzlaJK+NhWAh746NeL3gnH6dnP8FGS+3xOdwO7ig==" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" />
+
+</head>
+<body>;
+<p>Creates a new <code>MutationObserver</code> and runs the provided callback for each mutation on the specified element.</p>
+<ul>
+<li>Use a <a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver"><code>MutationObserver</code></a> to observe mutations on the given element.</li>
+<li>Use <code>Array.prototype.forEach()</code> to run the callback for each mutation that is observed.</li>
+<li>Omit the third argument, <code>options</code>, to use the default <a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver#MutationObserverInit">options</a> (all <code>true</code>).</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> observeMutations <span class="op">=</span> (element<span class="op">,</span> callback<span class="op">,</span> options) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">const</span> observer <span class="op">=</span> <span class="kw">new</span> <span class="at">MutationObserver</span>(mutations <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="va">mutations</span>.<span class="at">forEach</span>(m <span class="kw">=&gt;</span> <span class="at">callback</span>(m))</a>
+<a class="sourceLine" id="cb1-4" title="4">  )<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="va">observer</span>.<span class="at">observe</span>(</a>
+<a class="sourceLine" id="cb1-6" title="6">    element<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="va">Object</span>.<span class="at">assign</span>(</a>
+<a class="sourceLine" id="cb1-8" title="8">      <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-9" title="9">        <span class="dt">childList</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-10" title="10">        <span class="dt">attributes</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-11" title="11">        <span class="dt">attributeOldValue</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-12" title="12">        <span class="dt">characterData</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-13" title="13">        <span class="dt">characterDataOldValue</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-14" title="14">        <span class="dt">subtree</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-15" title="15">      <span class="op">},</span></a>
+<a class="sourceLine" id="cb1-16" title="16">      options</a>
+<a class="sourceLine" id="cb1-17" title="17">    )</a>
+<a class="sourceLine" id="cb1-18" title="18">  )<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-19" title="19">  <span class="cf">return</span> observer<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-20" title="20"><span class="op">};</span></a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="language-js sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> obs <span class="op">=</span> <span class="at">observeMutations</span>(document<span class="op">,</span> <span class="va">console</span>.<span class="at">log</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="co">// Logs all mutations that happen on the page</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="va">obs</span>.<span class="at">disconnect</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co">// Disconnects the observer and stops logging mutations on the page</span></a></code></pre></div>
+</body></html>

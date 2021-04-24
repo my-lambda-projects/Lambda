@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>In a <a href="/learn/javascript-algorithms-and-data-structures/basic-javascript/replace-loops-using-recursion">previous challenge</a>, you learned how to use recursion to replace a <code>for</code> loop. Now, let’s look at a more complex function that returns an array of consecutive integers starting with <code>1</code> through the number passed to the function.</p>
+<p>As mentioned in the previous challenge, there will be a <dfn>base case</dfn>. The base case tells the recursive function when it no longer needs to call itself. It is a simple case where the return value is already known. There will also be a <dfn>recursive call</dfn> which executes the original function with different arguments. If the function is written correctly, eventually the base case will be reached.</p>
+<p>For example, say you want to write a recursive function that returns an array containing the numbers <code>1</code> through <code>n</code>. This function will need to accept an argument, <code>n</code>, representing the final number. Then it will need to call itself with progressively smaller values of <code>n</code> until it reaches <code>1</code>. You could write the function as follows:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">countup</span>(n) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="cf">if</span> (n <span class="op">&lt;</span> <span class="dv">1</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="cf">return</span> []<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="kw">const</span> countArray <span class="op">=</span> <span class="at">countup</span>(n <span class="op">-</span> <span class="dv">1</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="va">countArray</span>.<span class="at">push</span>(n)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="cf">return</span> countArray<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-8" title="8">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="va">console</span>.<span class="at">log</span>(<span class="at">countup</span>(<span class="dv">5</span>))<span class="op">;</span></a></code></pre></div>
+<p>The value <code>[1, 2, 3, 4, 5]</code> will be displayed in the console.</p>
+<p>At first, this seems counterintuitive since the value of <code>n</code> <em>decreases</em>, but the values in the final array are <em>increasing</em>. This happens because the push happens last, after the recursive call has returned. At the point where <code>n</code> is pushed into the array, <code>countup(n - 1)</code> has already been evaluated and returned <code>[1, 2, ..., n - 1]</code>.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>We have defined a function called <code>countdown</code> with one parameter (<code>n</code>). The function should use recursion to return an array containing the integers <code>n</code> through <code>1</code> based on the <code>n</code> parameter. If the function is called with a number less than 1, the function should return an empty array. For example, calling this function with <code>n = 5</code> should return the array <code>[5, 4, 3, 2, 1]</code>. Your function must use recursion by calling itself and must not use loops of any kind.</p>
+<h1 id="hints">–hints–</h1>
+<p><code>countdown(-1)</code> should return an empty array.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">assert</span>.<span class="at">isEmpty</span>(<span class="at">countdown</span>(<span class="op">-</span><span class="dv">1</span>))<span class="op">;</span></a></code></pre></div>
+<p><code>countdown(10)</code> should return <code>[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">assert</span>.<span class="at">deepStrictEqual</span>(<span class="at">countdown</span>(<span class="dv">10</span>)<span class="op">,</span> [<span class="dv">10</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span>])<span class="op">;</span></a></code></pre></div>
+<p><code>countdown(5)</code> should return <code>[5, 4, 3, 2, 1]</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">assert</span>.<span class="at">deepStrictEqual</span>(<span class="at">countdown</span>(<span class="dv">5</span>)<span class="op">,</span> [<span class="dv">5</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">1</span>])<span class="op">;</span></a></code></pre></div>
+<p>Your code should not rely on any kind of loops (<code>for</code>, <code>while</code> or higher order functions such as <code>forEach</code>, <code>map</code>, <code>filter</code>, and <code>reduce</code>).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="op">!</span>__helpers</a>
+<a class="sourceLine" id="cb5-3" title="3">    .<span class="at">removeJSComments</span>(code)</a>
+<a class="sourceLine" id="cb5-4" title="4">    .<span class="at">match</span>(<span class="ss">/for</span><span class="sc">|</span><span class="ss">while</span><span class="sc">|</span><span class="ss">forEach</span><span class="sc">|</span><span class="ss">map</span><span class="sc">|</span><span class="ss">filter</span><span class="sc">|</span><span class="ss">reduce/g</span>)</a>
+<a class="sourceLine" id="cb5-5" title="5">)<span class="op">;</span></a></code></pre></div>
+<p>You should use recursion to solve this problem.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="va">__helpers</span>.<span class="at">removeJSComments</span>(<span class="va">countdown</span>.<span class="at">toString</span>()).<span class="at">match</span>(<span class="ss">/countdown</span><span class="sc">\s*\(</span><span class="ss">.</span><span class="sc">+\)</span><span class="ss">/</span>)</a>
+<a class="sourceLine" id="cb6-3" title="3">)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="kw">function</span> <span class="at">countdown</span>(n)<span class="op">{</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="cf">return</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="op">}</span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="co">// Only change code above this line</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">function</span> <span class="at">countdown</span>(n)<span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2">   <span class="cf">return</span> n <span class="op">&lt;</span> <span class="dv">1</span> <span class="op">?</span> [] : [n].<span class="at">concat</span>(<span class="at">countdown</span>(n <span class="op">-</span> <span class="dv">1</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="op">}</span></a></code></pre></div>
+</body></html>

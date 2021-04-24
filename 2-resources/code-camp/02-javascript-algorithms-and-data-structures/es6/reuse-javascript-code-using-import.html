@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p><code>import</code> allows you to choose which parts of a file or module to load. In the previous lesson, the examples exported <code>add</code> from the <code>math_functions.js</code> file. Here’s how you can import it to use in another file:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="im">import</span> <span class="op">{</span> add <span class="op">}</span> <span class="im">from</span> <span class="st">&#39;./math_functions.js&#39;</span><span class="op">;</span></a></code></pre></div>
+<p>Here, <code>import</code> will find <code>add</code> in <code>math_functions.js</code>, import just that function for you to use, and ignore the rest. The <code>./</code> tells the import to look for the <code>math_functions.js</code> file in the same folder as the current file. The relative file path (<code>./</code>) and file extension (<code>.js</code>) are required when using import in this way.</p>
+<p>You can import more than one item from the file by adding them in the <code>import</code> statement like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="im">import</span> <span class="op">{</span> add<span class="op">,</span> subtract <span class="op">}</span> <span class="im">from</span> <span class="st">&#39;./math_functions.js&#39;</span><span class="op">;</span></a></code></pre></div>
+<h1 id="instructions">–instructions–</h1>
+<p>Add the appropriate <code>import</code> statement that will allow the current file to use the <code>uppercaseString</code> and <code>lowercaseString</code> functions you exported in the previous lesson. These functions are in a file called <code>string_functions.js</code>, which is in the same directory as the current file.</p>
+<h1 id="hints">–hints–</h1>
+<p>You should properly import <code>uppercaseString</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="va">code</span>.<span class="at">match</span>(</a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="ss">/import</span><span class="sc">\s*</span><span class="ss">{</span><span class="sc">\s*(</span><span class="ss">uppercaseString</span><span class="sc">[^}]*|[^,]*</span><span class="ss">,</span><span class="sc">\s*</span><span class="ss">uppercaseString</span><span class="sc">\s*)</span><span class="ss">}</span><span class="sc">\s+</span><span class="ss">from</span><span class="sc">\s+(</span><span class="ss">&#39;</span><span class="sc">|</span><span class="ss">&quot;</span><span class="sc">)\.\/</span><span class="ss">string_functions</span><span class="sc">\.</span><span class="ss">js</span><span class="sc">\2</span><span class="ss">/g</span></a>
+<a class="sourceLine" id="cb3-4" title="4">  )</a>
+<a class="sourceLine" id="cb3-5" title="5">)<span class="op">;</span></a></code></pre></div>
+<p>You should properly import <code>lowercaseString</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="va">code</span>.<span class="at">match</span>(</a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="ss">/import</span><span class="sc">\s*</span><span class="ss">{</span><span class="sc">\s*(</span><span class="ss">lowercaseString</span><span class="sc">[^}]*|[^,]*</span><span class="ss">,</span><span class="sc">\s*</span><span class="ss">lowercaseString</span><span class="sc">\s*)</span><span class="ss">}</span><span class="sc">\s+</span><span class="ss">from</span><span class="sc">\s+(</span><span class="ss">&#39;</span><span class="sc">|</span><span class="ss">&quot;</span><span class="sc">)\.\/</span><span class="ss">string_functions</span><span class="sc">\.</span><span class="ss">js</span><span class="sc">\2</span><span class="ss">/g</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  )</a>
+<a class="sourceLine" id="cb4-5" title="5">)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1">  </a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb5-3" title="3"></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="at">uppercaseString</span>(<span class="st">&quot;hello&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="at">lowercaseString</span>(<span class="st">&quot;WORLD!&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="im">import</span> <span class="op">{</span> uppercaseString<span class="op">,</span> lowercaseString <span class="op">}</span> <span class="im">from</span> <span class="st">&#39;./string_functions.js&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-2" title="2"></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="at">uppercaseString</span>(<span class="st">&quot;hello&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="at">lowercaseString</span>(<span class="st">&quot;WORLD!&quot;</span>)<span class="op">;</span></a></code></pre></div>
+</body></html>

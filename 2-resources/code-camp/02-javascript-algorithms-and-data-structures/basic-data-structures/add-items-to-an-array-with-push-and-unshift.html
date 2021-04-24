@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>An array’s length, like the data types it can contain, is not fixed. Arrays can be defined with a length of any number of elements, and elements can be added or removed over time; in other words, arrays are <dfn>mutable</dfn>. In this challenge, we will look at two methods with which we can programmatically modify an array: <code>Array.push()</code> and <code>Array.unshift()</code>.</p>
+<p>Both methods take one or more elements as parameters and add those elements to the array the method is being called on; the <code>push()</code> method adds elements to the end of an array, and <code>unshift()</code> adds elements to the beginning. Consider the following:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> twentyThree <span class="op">=</span> <span class="st">&#39;XXIII&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">let</span> romanNumerals <span class="op">=</span> [<span class="st">&#39;XXI&#39;</span><span class="op">,</span> <span class="st">&#39;XXII&#39;</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="va">romanNumerals</span>.<span class="at">unshift</span>(<span class="st">&#39;XIX&#39;</span><span class="op">,</span> <span class="st">&#39;XX&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>romanNumerals</code> would have the value <code>['XIX', 'XX', 'XXI', 'XXII']</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">romanNumerals</span>.<span class="at">push</span>(twentyThree)<span class="op">;</span></a></code></pre></div>
+<p><code>romanNumerals</code> would have the value <code>['XIX', 'XX', 'XXI', 'XXII', 'XXIII']</code>. Notice that we can also pass variables, which allows us even greater flexibility in dynamically modifying our array’s data.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>We have defined a function, <code>mixedNumbers</code>, which we are passing an array as an argument. Modify the function by using <code>push()</code> and <code>unshift()</code> to add <code>'I', 2, 'three'</code> to the beginning of the array and <code>7, 'VIII', 9</code> to the end so that the returned array contains representations of the numbers 1-9 in order.</p>
+<h1 id="hints">–hints–</h1>
+<p><code>mixedNumbers(["IV", 5, "six"])</code> should now return <code>["I", 2, "three", "IV", 5, "six", 7, "VIII", 9]</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">assert</span>.<span class="at">deepEqual</span>(<span class="at">mixedNumbers</span>([<span class="st">&#39;IV&#39;</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="st">&#39;six&#39;</span>])<span class="op">,</span> [</a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="st">&#39;I&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="dv">2</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="st">&#39;three&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-5" title="5">  <span class="st">&#39;IV&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-6" title="6">  <span class="dv">5</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-7" title="7">  <span class="st">&#39;six&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-8" title="8">  <span class="dv">7</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-9" title="9">  <span class="st">&#39;VIII&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-10" title="10">  <span class="dv">9</span></a>
+<a class="sourceLine" id="cb3-11" title="11">])<span class="op">;</span></a></code></pre></div>
+<p>The <code>mixedNumbers</code> function should utilize the <code>push()</code> method</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(<span class="va">mixedNumbers</span>.<span class="at">toString</span>().<span class="at">match</span>(<span class="ss">/</span><span class="sc">\.</span><span class="ss">push/</span>))<span class="op">;</span></a></code></pre></div>
+<p>The <code>mixedNumbers</code> function should utilize the <code>unshift()</code> method</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">assert</span>(<span class="va">mixedNumbers</span>.<span class="at">toString</span>().<span class="at">match</span>(<span class="ss">/</span><span class="sc">\.</span><span class="ss">unshift/</span>))<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">function</span> <span class="at">mixedNumbers</span>(arr) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb6-3" title="3"></a>
+<a class="sourceLine" id="cb6-4" title="4">  <span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb6-5" title="5">  <span class="cf">return</span> arr<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="op">}</span></a>
+<a class="sourceLine" id="cb6-7" title="7"></a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="va">console</span>.<span class="at">log</span>(<span class="at">mixedNumbers</span>([<span class="st">&#39;IV&#39;</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="st">&#39;six&#39;</span>]))<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">function</span> <span class="at">mixedNumbers</span>(arr) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="va">arr</span>.<span class="at">push</span>(<span class="dv">7</span><span class="op">,</span><span class="st">&#39;VIII&#39;</span><span class="op">,</span><span class="dv">9</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="va">arr</span>.<span class="at">unshift</span>(<span class="st">&#39;I&#39;</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="st">&#39;three&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  <span class="cf">return</span> arr<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="op">}</span></a></code></pre></div>
+</body></html>

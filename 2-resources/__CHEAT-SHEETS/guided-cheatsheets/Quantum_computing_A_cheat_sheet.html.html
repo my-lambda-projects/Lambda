@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="./prism.css">
+  <script async defer src="./prism.js"></script>
+</head>
+
+<body>;
+  <h1 id="quantum-computing-a-cheat-sheet">Quantum computing: A cheat sheet</h1>
+  <blockquote>
+    <p>IBM, Honeywell, and Intel are just three companies leading the way in building quantum machines as well as the
+      algorithms and controls to run them. Learn about possible business use cases for quantum.</p>
+  </blockquote>
+  <p>IBM, Honeywell, and Intel are just three companies leading the way in building quantum machines as well as the
+    algorithms and controls to run them. Learn about possible business use cases for quantum.</p>
+  <p><img
+      src="https://www.techrepublic.com/a/hub/i/r/2017/05/24/6322f441-9b1b-4844-80a5-5d88b6168578/thumbnail/768x432/f765248c18727a99dcc3582583fddc9c/05-24-17top5quantumtom.jpg" />
+  </p>
+  <p>Quantum computing-considered to be the next generation of high-performance computing-is a rapidly-changing field
+    that receives equal parts attention in academia and in enterprise research labs. Honeywell, IBM, and Intel are
+    independently developing their own implementations of quantum systems, as are startups such as D-Wave Systems. In
+    late 2018, President Donald Trump signed the National Quantum Initiative Act that provides $1.2 billion for quantum
+    research and development. </p>
+  <p>TechRepublic's cheat sheet for quantum computing is positioned both as an easily digestible introduction to a new
+    paradigm of computing, as well as a living guide that will be updated periodically to keep IT leaders informed on
+    advances in the science and commercialization of quantum computing.</p>
+  <p><strong>SEE:</strong> <a href="https://www.zdnet.com/topic/the-cios-guide-to-quantum-computing"><strong>The CIO's
+        guide to quantum computing</strong></a> <strong>(ZDNet/TechRepublic special feature) |</strong> <a
+      href="https://www.techrepublic.com/resource-library/whitepapers/the-cio-s-guide-to-quantum-computing-free-pdf/"><strong>Download
+        the free PDF version</strong></a> <strong>(TechRepublic)</strong></p>
+  <h2 id="executive-summary"><strong>Executive summary</strong></h2>
+  <ul>
+    <li><strong>What is quantum computing?</strong> Quantum computing is a developing technology that scientists
+      anticipate will provide faster computational solutions to problems currently handled by supercomputers.</li>
+    <li><strong>Why does quantum computing matter?</strong> Theoretically, quantum computers could be used to crack RSA
+      cryptography, which is commonly used across the internet. Quantum computing also has the potential to solve
+      problems that were previously considered unsolvable. </li>
+    <li><strong>Who does quantum computing affect?</strong> Primarily researchers working in quantum physics, though
+      advances in quantum computing are anticipated to influence other “fuzzy logic” disciplines, such as <a
+        href="https://www.techrepublic.com/article/artificial-intelligence-cheat-sheet/">artificial intelligence</a>
+      (AI) and <a href="https://www.techrepublic.com/article/machine-learning-the-smart-persons-guide/">machine
+        learning</a> (ML).</li>
+    <li><strong>What are the business opportunities related to quantum computing?</strong> All industries will benefit
+      through different use cases because quantum computing allows data to be consumed and processed faster while using
+      less energy. </li>
+    <li><strong>Which companies are leading the quantum computing race?</strong> AWS, Google, Honeywell, IBM, and
+      Microsoft are developing quantum computing capabilities and services. Intel is building quantum processors.
+      Smaller companies including 1QBit, D-Wave, IonQ, and Rigetti Computing are also working on quantum computing,
+      including quantum devices and quantum services.  </li>
+    <li><strong>What is quantum computing as a service?</strong> Both large tech companies and startups working in the
+      quantum world have turned to the “as a service” model to make this new compute power available to a broader
+      audience. </li>
+    <li><strong>When will quantum computers be released?</strong> Systems limited to a specific type of quantum
+      computation called digital annealing are commercially available, though there is not yet a clear benefit compared
+      to traditional computers.</li>
+    <li><strong>How do I get a quantum computer?</strong> Several vendors offer cloud-based access to quantum computers.
+      Even though purchasing a system outright is possible, it is likely cost prohibitive, as current systems are only
+      useful for specialized workloads.</li>
+  </ul>
+  <p><strong>SEE: <a href="https://www.techrepublic.com/topic/smart-persons-guides/">All of TechRepublic's cheat sheets
+        and smart person's guides</a></strong></p>
+  <h2 id="what-is-quantum-computing">What is quantum computing?</h2>
+  <p>Quantum computing is an emerging technology that attempts to overcome limitations inherent to traditional,
+    transistor-based computers. Transistor-based computers rely on the encoding of data in binary bits-either 0 or 1.
+    Quantum computers utilize <a href="https://en.wikipedia.org/wiki/Qubit">qubits</a>, which have different operational
+    properties. While it is possible to encode binary data in a qubit, the natural state of a qubit is essentially <a
+      href="https://en.wikipedia.org/wiki/Quantum_superposition">superposition</a>. This property allows qubits to have
+    values of 0 and 1 (or values between 0 and 1) simultaneously. Likewise, because of the properties of quantum
+    physics, multiple measurements of qubits in identical states will not return identical results. Qubits can also
+    contain up to two bits of binary data as part of a process called <a
+      href="https://en.wikipedia.org/wiki/Superdense_coding">superdense coding</a>.</p>
+  <p>Using quantum computation, mathematically complex tasks that are at present typically handled by supercomputers-<a
+      href="https://en.wikipedia.org/wiki/Protein_folding">protein folding</a>, for example-can theoretically be
+    performed by quantum computers at a lower energy cost than transistor-based supercomputers. While current quantum
+    machines are essentially proof-of-concept devices, the algorithms which would be used on production-ready machines
+    are being tested presently, to ensure that the results are predictable and reproducible. At the current stage of
+    development, a given problem can be solved by both quantum and traditional (binary) computers. As manufacturing
+    processes used to build quantum computers is refined, it is anticipated that they will become faster at
+    computational tasks than traditional, binary computers.</p>
+  <p>Further, <em>quantum supremacy</em> is the threshold at which quantum computers are theorized to be capable of
+    solving problems, which traditional computers would not (practically) be able to solve. Practically speaking,
+    quantum supremacy would provide a <a
+      href="https://en.wikipedia.org/wiki/Time_complexity#Superpolynomial_time">superpolynomial</a> speed increase over
+    the best known (or possible) algorithm designed for traditional computers. Theoretically, this can be demonstrated
+    using <a href="https://en.wikipedia.org/wiki/Shor%27s_algorithm">Shor's algorithm</a> for prime factorization, which
+    would provide such a speed increase when performed on a quantum computer, as factoring is thought to be generally
+    hard with traditional computers (though, this is not <em>proven</em>, in the scientific sense of “proof”).</p>
+  <p><strong>SEE:</strong> <a
+      href="https://www.techrepublic.com/resource-library/whitepapers/quantum-computing-will-impact-the-enterprise-we-just-don-t-know-how/"><strong>Research:
+        Quantum computing in the enterprise; key vendors, anticipated benefits, and impact</strong></a>
+    <strong>(TechRepublic Premium)</strong></p>
+  <p>Researchers use the NISQ (Noisy Intermediate-Scale Quantum Computing) label to describe all the quantum machines
+    operating currently; this means the machines don't have full-blown error correction. Researchers can submit their
+    quantum queries to cloud-based services to gain experience with what quantum computers can do.</p>
+  <p>A research paper published in Science in October 2018 titled “<a
+      href="https://arxiv.org/pdf/1704.00690.pdf">Quantum advantage with shallow circuits</a>” tested a variant of the
+    <a href="https://grove-docs.readthedocs.io/en/latest/bernstein_vazirani.html">Bernstein-Vazirani problem</a>, in
+    which researchers proved that a quantum computer with a fixed circuit depth will outperform a classical computer
+    used to compute the same problem. While this does not itself establish quantum supremacy, it does demonstrate the
+    potential of quantum computers as refined designs increase the number of qubits, and the length of <a
+      href="https://en.wikipedia.org/wiki/Coherence_(physics)#Quantum_coherence">quantum coherence</a>, allowing for
+    more complex calculations to be performed.</p>
+  <p>Quantum volume is another way to measure the progress of the industry, as <a
+      href="https://www.forbes.com/sites/moorinsights/2019/11/23/quantum-volume-a-yardstick-to-measure-the-power-of-quantum-computers/?sh=61665ad65bf4">Paul
+      Smith-Goodson explained for Forbes</a>. Quantum volume measures several components of a quantum computer's
+    performance, including coherence, calibration errors, crosstalk, spectator errors, gate fidelity, measurement, and
+    fidelity. The calculation also takes into account design elements of each machine. A quantum volume score indicates
+    the complexity of a problem that the computer can solve. </p>
+  <p><a href="https://www.zdnet.com/article/ibm-hits-new-quantum-computing-milestone/">IBM announced in August 2020</a>
+    that it has achieved a quantum volume of 64 with a 27-qubit client-deployed system. <a
+      href="https://www.zdnet.com/article/honeywell-claims-to-have-worlds-highest-performing-quantum-computer-according-to-ibms-benchmark/">Honeywell
+      reported in June 2020</a> that it had reached a quantum volume of 64 with a 6-qubit system. </p>
+  <p>The next milestone that is still some years in the future is quantum advantage. When quantum computers hit that
+    milestone, the machines will be able to solve real-world problems that classical computers can't crack. </p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a
+        href="https://www.techrepublic.com/article/what-classic-software-developers-need-to-know-about-quantum-computing/">What
+        classic software developers need to know about quantum computing</a>  (TechRepublic)</li>
+    <li>
+      <p><a
+          href="https://www.zdnet.com/article/what-is-quantum-computing-understanding-the-how-why-and-when-of-quantum-computers/">What
+          is quantum computing today? The how, why, and when of a paradigm shift</a> (ZDNet)</p>
+    </li>
+    <li>
+      <p><a
+          href="https://www.techrepublic.com/article/get-your-quantum-computing-questions-answered-during-7-free-online-classes/">Quantum
+          computing: Here's a free online course on the basics for business pros</a> (TechRepublic)</p>
+    </li>
+    <li><a
+        href="https://www.techrepublic.com/article/author-of-physics-for-babies-takes-on-the-challenge-of-explaining-quantum-computing/">Author
+        of “Physics for Babies” takes on the challenge of explaining quantum computing</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/quantum-computers-now-have-a-new-universal-language/">Quantum
+        computers now have a new universal language</a> (TechRepublic)</li>
+    <li>
+      <p><a
+          href="https://www.zdnet.com/article/never-mind-quantum-supremacy-this-quantum-computing-milestone-could-be-just-as-important/">Forget
+          quantum supremacy: This quantum-computing milestone could be just as important</a> (ZDNet)</p>
+    </li>
+  </ul>
+  <h2 id="why-does-quantum-computing-matter">Why does quantum computing matter?</h2>
+  <p>Theoretically, advancements in quantum computing would lead to a breakthrough in <a
+      href="https://en.wikipedia.org/wiki/Integer_factorization">integer factorization</a>. If integer factorization
+    became trivial to perform, the integrity of commonly used encryption systems would be shattered, allowing any
+    individual, organization, or government with access to quantum computers the ability to brute-force decryption keys,
+    with which locked devices or encrypted archives can be made accessible. Because of concerns in the cybersecurity
+    community about the viability of quantum computers in breaking encryption, research into <a
+      href="https://en.wikipedia.org/wiki/Lattice-based_cryptography">lattice-based cryptography</a>--which is thought
+    to not be susceptible to being broken by quantum computers-has increased.</p>
+  <p>To that end, in January 2014, <a
+      href="http://www.cnet.com/news/nsa-working-on-quantum-computer-to-break-any-encryption/">reports indicated that
+      the NSA has spent $79.7 million</a> on a program titled “Penetrating Hard Targets.” As part of this program,
+    research was conducted to build “a cryptologically useful quantum computer.” The documents cited in this report
+    indicate that the NSA has not been appreciably more successful than other researchers. Likewise, the National
+    Institute of Standards and Technology (NIST) published a request in December 2016 asking for public input on <a
+      href="https://www.cnet.com/news/quantum-computer-encryption-hacking-us-government-protect/">how to protect
+      computers from the threat of quantum computers being used to crack encryption</a>.</p>
+  <p>There is no consensus on when quantum computers will be capable of cracking encryption. In a May 2018 interview
+    with TechRepublic, Bob Sutor, IBM Research's vice president of cognitive, blockchain, and quantum solutions,
+    estimated that quantum computers are 30-40 years away from breaking traditional cryptographic algorithms. The same
+    month, IBM's then research director and current chief executive officer Arvind Krishna <a
+      href="https://www.zdnet.com/article/ibm-warns-of-instant-breaking-of-encryption-by-quantum-computers-move-your-data-today/">warned</a>
+    that “Anyone that wants to make sure that their data is protected for longer than 10 years should move to alternate
+    forms of encryption now.”</p>
+  <p><strong>SEE:</strong> <a
+      href="https://www.techrepublic.com/article/quantum-encryption-how-it-works/"><strong>Quantum encryption: How it
+        works</strong></a> <strong>(TechRepublic)</strong></p>
+  <p>Quantum computing is also anticipated to have other meaningful impacts outside of the field of cryptography.
+    Because of the nature of quantum computation, they are uniquely well suited to so-called “optimization problems,”
+    where an exponential number of permutations to evaluate exist. In <a
+      href="https://www.techrepublic.com/article/quantum-computing-seven-truths-you-need-to-know/">an interview with
+      TechRepublic</a>, Andy Stanford Clark, IBM CTO for UK and Ireland provided an example: “If… you're optimizing the
+    lengths of aircraft routes, or optimizing the layout of spare parts for a rail network, something where there's 2n
+    possibilities and you've got to try each out in order to find the optimal solution. If you had a 2100 problem, which
+    would be basically impossible to solve on a classical computer, with a 100-qubit quantum computer, you'd be able to
+    solve it in one operation.”</p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a
+        href="https://www.techrepublic.com/article/quantum-computing-roadmap-for-solving-scientific-challenges/">Quantum
+        computing roadmap for solving scientific challenges</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.zdnet.com/article/quantum-computers-are-coming-get-ready-for-them-to-change-everything/">Quantum
+        computers are coming. Get ready for them to change everything</a> (ZDNet)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/the-future-of-encryption-getting-ready-for-the-quantum-computer-attack/">The
+        future of encryption: Getting ready for the quantum computer attack</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/consider-putting-quantum-computing-analytics-on-your-it-roadmap/">Quantum
+        computing analytics: Put this on your IT roadmap</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/videos/video-how-quantum-computing-will-better-simulate-the-real-world/">Video:
+        How quantum computing will better simulate the real world</a> (TechRepublic)</li>
+    <li><a href="https://www.zdnet.com/article/photon-juggling-one-big-quantum-processor-from-100-little-ones/">Photon
+        juggling: One big quantum processor from 100 little ones</a> (ZDNet)</li>
+  </ul>
+  <h2 id="who-does-quantum-computing-affect">Who does quantum computing affect?</h2>
+  <p>Research into quantum computing is driving a great deal of investment from universities, IT companies, and venture
+    capital. Multiple public-private partnerships have sprung up as businesses work with research departments in
+    universities to find use cases where quantum computing can be applied to existing business operations.</p>
+  <p>The <a href="https://www.research.ibm.com/ibm-q/network/">IBM Q Network</a> is the largest of these, with
+    participating universities including North Carolina State University, Melbourne University, Oxford University, and
+    <a
+      href="https://www.techrepublic.com/article/ibm-opens-q-network-hub-in-tokyo-to-help-businesses-explore-quantum-computing/">Keio
+      University</a>, and participating companies including Samsung, JPMorgan Chase, Mitsubishi UFJ Financial Group,
+    Mizuho Financial Group, and Mitsubishi Chemical.</p>
+  <p>Others include <a href="https://www.zdnet.com/article/australia-and-france-strike-quantum-deal/">a
+      collaboration</a> between the Australian firm Silicon Quantum Computing, and France's national research and
+    development (R&amp;D) organization, the <em>Commissariat à l'Energie Atomique et aux Energies Alternatives</em>
+    (CEA).</p>
+  <p>In December 2018, Trump signed into law the <a
+      href="https://www.congress.gov/bill/115th-congress/house-bill/6227">National Quantum Initiative Act</a>. This
+    established the National Quantum Initiative Program, which will devise a 10-year plan to speed up the development of
+    quantum information science and technology. The act also directed the National Science and Technology Council, the
+    National Institute of Standards and Technology, the National Science Foundation, and the Department of Energy to
+    support the effort with related initiatives. The White House announced the <a
+      href="https://www.energy.gov/articles/white-house-office-science-and-technology-policy-and-us-department-energy-announces">National
+      Quantum Initiative Advisory Committee</a> in August 2020, which includes individuals from the University of
+    Chicago, Intel, Google, Sandia National Laboratories, Microsoft Research, Harvard University, Duke University, and
+    other universities and research institutes.</p>
+  <p>Also in August 2020, the White House Office of Science and Technology Policy (OSTP) and the Department of Energy
+    announced funding up to $625 million over five years to support <a
+      href="https://science.osti.gov/Initiatives/QIS/QIS-Centers">five quantum research centers</a> at national labs
+    around the country. </p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a href="https://www.techrepublic.com/article/a-more-quantum-literate-workforce-is-needed/">A more
+        quantum-literate workforce is needed</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/china-sends-unbreakable-code-from-quantum-satellite-to-earth/">China
+        sends ‘unbreakable code' from quantum satellite to Earth</a> (TechRepublic)</li>
+  </ul>
+  <h2 id="what-are-the-business-opportunities-related-to-quantum-computing"><strong>What are the business opportunities
+      related to quantum computing?</strong></h2>
+  <p>Quantum computing has the potential to solve complex problems in every industry-some of the first use cases will be
+    in finance, chemistry, pharmaceutical research, and logistics. Quantum computers will be able to analyze an almost
+    infinite number of possible solutions to find the most promising ones. With logistics, for example, a quantum
+    algorithm could analyze delivery routes or transportation schedules to identify the most efficient or fastest
+    routes. An airline that used a quantum computer for route planning could develop a strategic advantage over another
+    that didn't. Denise Ruffner, the head of business development at IonQ, said that the industry is nearing the end of
+    the early adopter phase. Now is the time to understand the potential of quantum computing and its business
+    applications.</p>
+  <p>JPMorgan Chase has been doing just that-the banking company was one of the early customers for IBM's quantum
+    computer. The company also has been exploring the “quantum culture” and giving senior engineer Constantin Gonciulea
+    time to <a href="https://www.jpmorganchase.com/news-stories/jpmc-prepares-fintech-quantum-leap">prepare the company
+      for the quantum future</a>. He expects quantum computing to be fully commercialized in five to 10 years and is
+    laying the groundwork for JPMorgan Chase to be ready to take advantage of that computing power-this means reading
+    research papers and meeting with other engineers to discuss the possibilities. The financial services company is
+    planning a <a
+      href="https://careers.jpmorgan.com/us/en/students/programs/quantum-computing-summer-associate-program/">Quantum
+      Computing Summer Associates program for 2021</a> to build a pipeline of employees familiar with the technology.
+  </p>
+  <p>IBM's research director Dario Gil said at CES 2020 that the promise of quantum computing is <a
+      href="https://www.techrepublic.com/article/ibm-research-director-at-ces-2020-we-will-hit-the-quantum-advantage-this-decade/">the
+      power to model natural processes and understand how they work</a>. “Quantum is the only technology we know that
+    alters the equation of what is possible to solve versus impossible to solve,” he said.</p>
+  <p>Jeannette Garcia, senior manager for quantum applications algorithms and theory at IBM Research, shared some of the
+    real-world problems that the company is working on: </p>
+  <ul>
+    <li>Improved nitrogen-fixation process for creating ammonia-based fertilizer</li>
+    <li>New classes of antibiotics to counter multidrug-resistant bacteria</li>
+    <li>New polymers that could replace steel-based component</li>
+  </ul>
+  <p>Garcia's focus is battery research, which is also the topic of a new IBM partnership with Daimler. She said
+    researchers are using quantum computing to figure out quantum chemistry.</p>
+  <p>Gil said that the “quantum ready” era started in 2016 and the next phase will start when the technology improves
+    enough to achieve “quantum advantage.” </p>
+  <p>“First, a whole generation of developers is going to need to learn how to program these computers,” he said. “Then
+    when we hit quantum advantage, we'll be able to solve real-world problems, and it's absolutely going to happen this
+    decade.”</p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a href="https://www.zdnet.com/article/cio-jury-how-quantum-computing-will-affect-the-enterprise/">CIO Jury: How
+        quantum computing will affect the enterprise</a> (ZDNet)</li>
+    <li><a href="https://www.zdnet.com/article/quantum-computing-five-ways-you-can-get-involved/">Quantum computing:
+        Five ways you can get involved</a> (ZDNet)</li>
+  </ul>
+  <h2 id="which-companies-are-leading-the-quantum-computing-race"><strong>Which companies are leading the quantum
+      computing race?</strong></h2>
+  <p>IBM gets the most attention for its work in the sector to build quantum machines and to create a community around
+    quantum computing. IBM's quantum work has three focus areas: Accelerate research, develop commercial applications,
+    and <a href="https://www.techrepublic.com/article/ibm-launching-quantum-computing-challenge/">educate and
+      prepare</a>. <a
+      href="https://www.techrepublic.com/article/delta-anthem-and-los-alamos-lab-join-the-ibm-quantum-computing-network/">The
+      company's Q Network</a> includes Fortune 500 companies, national research labs, universities, and startups. IBM
+    set out a quantum roadmap in September 2020 with <a
+      href="https://www.zdnet.com/article/ibm-plots-quantum-computing-roadmap-eyes-1121-qubit-system-in-2023/">plans for
+      a 1,121-qubit system in 2023</a>.</p>
+  <p>Microsoft is developing a full-stack quantum ecosystem as well as a quantum network with partners that include
+    businesses, researchers, academics, and developers. The company's quantum development kit includes an open-source
+    toolkit, development environments, and an open-source community.</p>
+  <p>Honeywell has applied <a
+      href="https://www.techrepublic.com/article/honeywell-ready-to-take-the-lead-with-64-qubit-quantum-computer/">its
+      deep experience with systems control</a> to develop a quantum computer. The company uses <a
+      href="https://www.nature.com/articles/s42254-020-0189-1">a trapped ion model</a> for its quantum computing
+    service. This model uses atomic ions trapped in a vacuum and cooled with lasers as qubits. IBM and Google use
+    superconducting qubits in their quantum computers.</p>
+  <p>Intel's work in quantum computing covers the full stack from qubits and algorithms development to control
+    electronics and interconnects. Jim Clarke is the director of the quantum hardware research group within Intel and a
+    member of the National Quantum Advisory Committee. In late 2019, Intel released <a
+      href="https://newsroom.intel.com/news/intel-introduces-horse-ridge-enable-commercially-viable-quantum-computers/#gs.lb8e23">a
+      cryogenic control chip called “Horse Ridge,”</a> after one of the coldest regions in Oregon; the company claimed
+    this will speed up development of full-stack quantum systems in part by making it easier to control multiple qubits
+    at once. Clarke wrote at the time that a <a
+      href="https://newsroom.intel.com/editorials/what-it-will-take-make-quantum-computers-practical/#gs.lb5uyy">lack of
+      research and development focused on controls technology</a> is going to limit progress toward a large-scale
+    quantum system. Simplifying the control cabling required to work with thousands of qubits at a time “could take
+    quantum practicality to the finish line much faster than is currently possible,” as Clarke wrote. Intel is working
+    with researchers in the Netherlands to build these controls.</p>
+  <p>Google is developing quantum processors and algorithms to solve theoretical and practical problems-the focus areas
+    are <a href="https://research.google/teams/applied-science/quantum/">superconducting qubit processors, qubit
+      meteorology, quantum simulation, quantum assisted optimization, and quantum neural networks</a>. Google has built
+    two open-source frameworks to support quantum computing: Cirq and OpenFermion. In October 2019, <a
+      href="https://www.techrepublic.com/article/industry-reaction-to-googles-quiet-claim-of-quantum-supremacy/">Google
+      announced that its 53-qubit Sycamore quantum computer</a> completed a calculation that couldn't be done with a
+    classical computer. Other scientists said the calculation was chosen to build on the strengths of a quantum computer
+    and the weaknesses of a traditional computer. In September 2020, Google announced that a 12-qubit version of its
+    Sycamore computer had simulated a simple chemical reaction. </p>
+  <p>In 2018, IBM held an event for quantum computing startups. Denise Ruffner was working there at the time and said it
+    was a struggle to find 10 companies-now there are more than 650 young companies working in the sector, she said.</p>
+  <p>D-Wave, 1Qbit, IonQ, Q-CTRL, Strangeworks, Xanadu, and <a
+      href="https://www.zdnet.com/article/quantum-computing-now-is-a-bit-like-sql-was-in-the-late-80s-wild-and-wooly-and-full-of-promise-says-zapatas-ceo/">Zapata
+      Computing</a> are all taking on a different challenge in quantum computing. On ZDNet, <a
+      href="https://www.zdnet.com/article/eight-leading-quantum-computing-companies-in-2020/">Esther Shein rounded up
+      eight leading quantum computing companies to watch</a>.</p>
+  <p>Cambridge Quantum Computing is another member of the quantum ecosystem. With IBM, the company announced in
+    September 2020 that <a
+      href="https://www.techrepublic.com/article/ibm-and-cambridge-quantum-computing-announce-random-number-generator-service/">it
+      had built a random number generator that uses quantum computing</a>.</p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a
+        href="https://www.techrepublic.com/videos/why-honeywell-is-partnering-with-microsoft-for-their-quantum-computing-initatives/">Why
+        Honeywell is partnering with Microsoft for their quantum computing initiatives</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/inside-azure-quantum-microsofts-plan-to-deliver-quantum-resources-to-developers/">Inside
+        Azure Quantum: Microsoft's plan to deliver quantum resources to developers</a> (TechRepublic)</li>
+  </ul>
+  <h2 id="what-is-quantum-computing-as-a-service"><strong>What is quantum computing as a service?</strong></h2>
+  <p>Both large tech companies and startups working in the quantum world have turned to the “as a service” model to make
+    this new compute power available to a broader audience.  </p>
+  <p>As of April 2020, IBM reported that 225,000 people are using the company's Quantum Experience cloud service. More
+    than 100 companies are paying for its IBM Q premium service to have access to the company's subject matter experts
+    in addition to its hardware.</p>
+  <p>Rigetti launched its Quantum Cloud Services in 2018. The company uses a hybrid quantum-classical approach with its
+    cloud services to support ultra-low latency connectivity between a customer's hardware and Rigetti's quantum
+    computers. Rigetti's network APIs  provide access to core quantum operating system functions such as user
+    authentication, system service authorization, circuit submission, circuit scheduling, memory management, and
+    concurrency.</p>
+  <p>Microsoft also offers access to quantum computing via the cloud and Azure.</p>
+  <p>Amazon launched its quantum service, Braket, in August 2020. Amazon Braket lets customers experiment with quantum
+    computing hardware to gain hands-on experience with the technology. It's is a single development environment for
+    building quantum algorithms, testing them on simulated quantum computers, and trying them on several quantum
+    hardware architectures. The platform includes systems from D-Wave, IonQ, and Rigetti. Amazon also is exploring
+    mass-produced quantum computers through its new Center for Quantum Computing.</p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a
+        href="https://www.techrepublic.com/article/heres-when-we-can-expect-the-next-major-leap-in-quantum-computing/">Quantum
+        computing: When to expect the next major leap</a> (TechRepublic)</li>
+    <li><a href="https://www.techrepublic.com/article/quantum-computing-myths-vs-realities/">Quantum computing: Myths v.
+        Realities</a> (TechRepublic)</li>
+  </ul>
+  <h2 id="when-will-quantum-computers-be-available"><strong>When will quantum computers be available?</strong></h2>
+  <p>There are two answers to this question: Now, and substantially far in the future. The Canadian company D-Wave
+    Systems sells a <a
+      href="https://www.cnet.com/news/nuclear-weapons-lab-buys-d-wave-next-gen-quantum-computer/">5,000-qubit Advantage
+      system</a>, which Los Alamos National Laboratory planned to install this year. D-Wave's machine is a quantum
+    annealer. <a href="https://en.wikipedia.org/wiki/Quantum_annealing">Quantum annealing</a> is the best approach for
+    problems that have multiple “good enough solutions,” as opposed to problems that have one ideal answer. D-Wave's
+    approach will not be able to break modern cryptology but it will be able to find ways to make planes fly faster.</p>
+  <p>Fujitsu offers a “quantum inspired” digital annealer, which is a traditional transistor-based computer designed for
+    quantum annealing tasks. However, Fujitsu does not market this system as a true quantum computer, as the traditional
+    transistor-based design allows it to operate at room temperature without requiring helium-based cooling solutions,
+    as well as making it resistant to noise and environmental conditions which impact performance in quantum computers.
+  </p>
+  <p>In a general sense, it is possible that quantum computing may be a viable alternative in the future to current
+    transistor-based solutions, though non-trivial encumbrances in fabrication and mass-manufacturing must be addressed
+    for this to become a viable technology for mass industry adoption. Among these encumbrances are the difficulty of
+    building computers which scale to multiple qubits, the ability to initialize qubits to a predictable value, and
+    easing the means by which qubits can be read.</p>
+  <p><strong>Additional resources:</strong></p>
+  <ul>
+    <li><a
+        href="https://www.techrepublic.com/article/honeywell-advances-quantum-computing-with-release-of-system-model-h1/">Honeywell
+        advances quantum computing with release of System Model H1</a>  (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/google-expands-work-in-quantum-computing-with-72-qubit-bristlecone-processor/">Google
+        expands work in quantum computing with 72-qubit Bristlecone processor</a> (TechRepublic)</li>
+    <li><a
+        href="https://www.techrepublic.com/article/aws-announces-general-availability-of-amazon-braket-quantum-computing-service/">AWS
+        announces general availability of Amazon Braket quantum computing service</a> (TechRepublic)</li>
+  </ul>
+  <h2 id="how-do-i-get-a-quantum-computer"><strong>How do I get a quantum computer?</strong></h2>
+  <p>A quantum computer is not something you will find at your local big-box store. Quantum computing resources are
+    widely available via cloud services with vendor-specific frameworks. Offerings are available from <a
+      href="https://www.research.ibm.com/ibm-q/">IBM Q</a> (via Qiskit), while Google has introduced the <a
+      href="https://ai.googleblog.com/2018/07/announcing-cirq-open-source-framework.html">Cirq framework</a>, though it
+    does not presently have a cloud offering in general availability. <a
+      href="https://cloud.dwavesys.com/leap/signup/">D-Wave Leap</a> allows approved developers to conduct quantum
+    experiments for free on its Leap Quantum Development Environment. Similarly, <a
+      href="http://www.fujitsu.com/global/digitalannealer/">Fujitsu offers cloud access</a> to its digital annealer
+    system.</p>
+  <p>For buying systems outright, D-Wave's 2000Q system costs $15 million (notable buyers include Volkswagen Group and
+    Virginia Tech). If your workloads are more general, building and buying a POWER9 deployment is likely a better
+    value. Oak Ridge National Laboratory's <a href="https://www.olcf.ornl.gov/summit/">SUMMIT supercomputer</a> is a
+    POWER9 and NVIDIA Volta-driven system planned at 4600 nodes, with a computational performance in excess of 40
+    teraflops per node.</p>
+  <p><em><strong>Editor's note</strong>: This article was updated by Veronica Combs.</em></p>
+  <p><img src="https://www.techrepublic.com/a/fly/bundles/techrepubliccss/images/article-NLSthumb.jpg" /></p>
+  <h3 id="innovation-newsletter">Innovation Newsletter</h3>
+  <p>Be in the know about smart cities, AI, Internet of Things, VR, AR, robotics, drones, autonomous driving, and more
+    of the coolest tech innovations. Delivered Wednesdays and Fridays</p>
+  <p>Sign up today</p>
+  <figure>
+    <img
+      src="https://www.techrepublic.com/a/hub/i/r/2020/05/14/af5c660f-337c-4167-a8bb-07ecad9e7a24/resize/770x/c04a9f15f0338ce81b5c3c697d6bf650/istock-1131590650.jpg"
+      alt="Vibrant glowing qubit" />
+    <figcaption>Vibrant glowing qubit</figcaption>
+  </figure>
+  <p>Image: sakkmesterke, Getty Images/iStockphoto</p>
+  <p><a href="https://www.techrepublic.com/article/quantum-computing-the-smart-persons-guide/">Source</a></p>
+</body>
+
+</html>

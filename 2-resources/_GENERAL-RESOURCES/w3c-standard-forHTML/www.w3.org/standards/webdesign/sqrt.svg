@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 4 78 52">
+
+  <title>Square Root</title>
+
+  <metadata>
+    <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msqrt> 
+        <mi> x </mi> 
+        <mo> + </mo>
+        <mfrac>
+          <mi> a </mi> 
+          <mi> b </mi>
+        </mfrac> 
+      </msqrt>
+    </math>
+  </metadata>
+  
+  <g>
+     <g id="equation">
+        <text font-family="Times New Roman, serif" font-size="22">
+          <tspan x="0" y="53" font-size="53" font-family="Arial">&#x221a;</tspan> 
+          <tspan x="32" y="36" font-style="italic">x</tspan> 
+          <tspan y="36">+</tspan> 
+          <tspan x="66" y="20" font-style="italic">a</tspan> 
+          <tspan x="66" y="50" font-style="italic">b</tspan>
+       </text>
+     </g>
+     
+     <line id="radical-bar" x1="27.4" y1="5.12" x2="77" y2="5.12" stroke="black"/>
+     <line id="division-bar" x1="66" y1="29" x2="77" y2="29" stroke="black"/>
+  </g>
+  
+</svg>

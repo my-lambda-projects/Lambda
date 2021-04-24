@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>In JavaScript, we often don’t need to name our functions, especially when passing a function as an argument to another function. Instead, we create inline functions. We don’t need to name these functions because we do not reuse them anywhere else.</p>
+<p>To achieve this, we often use the following syntax:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> myFunc <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">const</span> myVar <span class="op">=</span> <span class="st">&quot;value&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="cf">return</span> myVar<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="op">}</span></a></code></pre></div>
+<p>ES6 provides us with the syntactic sugar to not have to write anonymous functions this way. Instead, you can use <strong>arrow function syntax</strong>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> myFunc <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="kw">const</span> myVar <span class="op">=</span> <span class="st">&quot;value&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="cf">return</span> myVar<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="op">}</span></a></code></pre></div>
+<p>When there is no function body, and only a return value, arrow function syntax allows you to omit the keyword <code>return</code> as well as the brackets surrounding the code. This helps simplify smaller functions into one-line statements:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">const</span> myFunc <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="st">&quot;value&quot;</span><span class="op">;</span></a></code></pre></div>
+<p>This code will still return the string <code>value</code> by default.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>Rewrite the function assigned to the variable <code>magic</code> which returns a <code>new Date()</code> to use arrow function syntax. Also, make sure nothing is defined using the keyword <code>var</code>.</p>
+<h1 id="hints">–hints–</h1>
+<p>You should replace the <code>var</code> keyword.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1">(getUserInput) <span class="kw">=&gt;</span> <span class="at">assert</span>(<span class="op">!</span><span class="at">getUserInput</span>(<span class="st">&#39;index&#39;</span>).<span class="at">match</span>(<span class="ss">/var/g</span>))<span class="op">;</span></a></code></pre></div>
+<p><code>magic</code> should be a constant variable (by using <code>const</code>).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1">(getUserInput) <span class="kw">=&gt;</span> <span class="at">assert</span>(<span class="at">getUserInput</span>(<span class="st">&#39;index&#39;</span>).<span class="at">match</span>(<span class="ss">/const</span><span class="sc">\s+</span><span class="ss">magic/g</span>))<span class="op">;</span></a></code></pre></div>
+<p><code>magic</code> should be a <code>function</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="at">assert</span>(<span class="kw">typeof</span> magic <span class="op">===</span> <span class="st">&#39;function&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>magic()</code> should return the correct date.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="at">assert</span>(<span class="at">magic</span>().<span class="at">setHours</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span>) <span class="op">===</span> <span class="kw">new</span> <span class="at">Date</span>().<span class="at">setHours</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span>))<span class="op">;</span></a></code></pre></div>
+<p>The <code>function</code> keyword should not be used.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1">(getUserInput) <span class="kw">=&gt;</span> <span class="at">assert</span>(<span class="op">!</span><span class="at">getUserInput</span>(<span class="st">&#39;index&#39;</span>).<span class="at">match</span>(<span class="ss">/function/g</span>))<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">var</span> magic <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="cf">return</span> <span class="kw">new</span> <span class="at">Date</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="op">};</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">const</span> magic <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-2" title="2">  <span class="cf">return</span> <span class="kw">new</span> <span class="at">Date</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="op">};</span></a></code></pre></div>
+</body></html>

@@ -1,0 +1,34 @@
+{
+  "name": "@material/floating-label",
+  "description": "The Material Components for the web floating-label component",
+  "version": "10.0.0",
+  "license": "MIT",
+  "keywords": [
+    "material components",
+    "material design",
+    "floatinglabel",
+    "floating label"
+  ],
+  "main": "dist/mdc.floatingLabel.js",
+  "module": "index.js",
+  "sideEffects": false,
+  "types": "dist/mdc.floatingLabel.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/material-components/material-components-web.git",
+    "directory": "packages/mdc-floating-label"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@material/animation": "^10.0.0",
+    "@material/base": "^10.0.0",
+    "@material/dom": "^10.0.0",
+    "@material/feature-targeting": "^10.0.0",
+    "@material/rtl": "^10.0.0",
+    "@material/theme": "^10.0.0",
+    "@material/typography": "^10.0.0",
+    "tslib": "^2.1.0"
+  }
+}

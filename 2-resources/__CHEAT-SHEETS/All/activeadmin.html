@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="./prism.css">
+    <script async defer src="./prism.js"></script>
+  </head>
+
+  <body>;
+    <h3 id="listing-scopes">Listing scopes</h3>
+    <p>Allows you to filter listings by a certain scope. {: .-setup}</p>
+    <div class="sourceCode" id="cb1">
+      <pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb1-1" title="1">scope <span class="st">:draft</span></a>
+<a class="sourceLine" id="cb1-2" title="2">scope <span class="st">:for_approval</span></a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb2">
+      <pre
+        class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb2-1" title="1">scope <span class="st">:public</span>, <span class="kw">if</span>: -&gt;{ current_admin_user.can?(...) }</a>
+<a class="sourceLine" id="cb2-2" title="2">scope <span class="st">&quot;Unapproved&quot;</span>, <span class="st">:pending</span></a>
+<a class="sourceLine" id="cb2-3" title="3">scope(<span class="st">&quot;Published&quot;</span>) { |books| books.where(<span class="st">:published</span>: <span class="dv">true</span>) }</a></code></pre>
+    </div>
+    <h3 id="sidebar-filters">Sidebar filters</h3>
+    <div class="sourceCode" id="cb3">
+      <pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb3-1" title="1">filter <span class="st">:email</span></a>
+<a class="sourceLine" id="cb3-2" title="2">filter <span class="st">:username</span></a></code></pre>
+    </div>
+    <h3 id="custom-actions">Custom actions</h3>
+    <p>You can define custom actions for models. {: .-setup}</p>
+    <div class="sourceCode" id="cb4">
+      <pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb4-1" title="1">before_filter <span class="st">only: </span>[<span class="st">:show</span>, <span class="st">:edit</span>, <span class="st">:publish</span>] <span class="kw">do</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="ot">@post</span> = <span class="dt">Post</span>.find(params[<span class="st">:id</span>])</a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="kw">end</span></a></code></pre>
+    </div>
+    <h4 id="make-the-route">Make the route</h4>
+    <div class="sourceCode" id="cb5">
+      <pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb5-1" title="1">member_action <span class="st">:publish</span>, <span class="st">method: :put</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="ot">@post</span>.publish!</a>
+<a class="sourceLine" id="cb5-3" title="3">  redirect_to admin_posts_path, <span class="st">notice: &quot;The post &#39;</span><span class="ot">#{@post}</span><span class="st">&#39; has been published!&quot;</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="kw">end</span></a></code></pre>
+    </div>
+    <h4 id="link-it-in-the-index">Link it in the index</h4>
+    <div class="sourceCode" id="cb6">
+      <pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb6-1" title="1">index <span class="kw">do</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  column <span class="kw">do</span> |post|</a>
+<a class="sourceLine" id="cb6-3" title="3">    link_to <span class="st">&#39;Publish&#39;</span>, publish_admin_post_path(post), <span class="st">method: :put</span></a>
+<a class="sourceLine" id="cb6-4" title="4">  <span class="kw">end</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="kw">end</span></a></code></pre>
+    </div>
+    <h4 id="and-link-it-in-showedit">And link it in show/edit</h4>
+    <div class="sourceCode" id="cb7">
+      <pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb7-1" title="1">action_item <span class="st">only: </span>[<span class="st">:edit</span>, <span class="st">:show</span>] <span class="kw">do</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="ot">@post</span> = <span class="dt">Post</span>.find(params[<span class="st">:id</span>])</a>
+<a class="sourceLine" id="cb7-3" title="3">  link_to <span class="st">&#39;Publish&#39;</span>, publish_admin_post_path(post), <span class="st">method: :put</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="kw">end</span></a></code></pre>
+    </div>
+    <h3 id="columns">Columns</h3>
+    <div class="sourceCode" id="cb8">
+      <pre
+        class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb8-1" title="1">column <span class="st">:foo</span></a></code></pre>
+    </div>
+    <div class="sourceCode" id="cb9">
+      <pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb9-1" title="1">column <span class="st">:title</span>, <span class="st">sortable: :name</span> <span class="kw">do</span> |post|</a>
+<a class="sourceLine" id="cb9-2" title="2">  strong post.title</a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="kw">end</span></a></code></pre>
+    </div>
+    <h3 id="other-helpers">Other helpers</h3>
+    <div class="sourceCode" id="cb10">
+      <pre
+        class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb10-1" title="1">status_tag <span class="st">&quot;Done&quot;</span>           <span class="co"># Gray</span></a>
+<a class="sourceLine" id="cb10-2" title="2">status_tag <span class="st">&quot;Finished&quot;</span>, <span class="st">:ok</span>  <span class="co"># Green</span></a>
+<a class="sourceLine" id="cb10-3" title="3">status_tag <span class="st">&quot;You&quot;</span>, <span class="st">:warn</span>     <span class="co"># Orange</span></a>
+<a class="sourceLine" id="cb10-4" title="4">status_tag <span class="st">&quot;Failed&quot;</span>, <span class="st">:error</span> <span class="co"># Red</span></a></code></pre>
+    </div>
+    <h3 id="disabling-new-post">Disabling ‘new post'</h3>
+    <div class="sourceCode" id="cb11">
+      <pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb11-1" title="1"><span class="dt">ActiveAdmin</span>.register <span class="dt">Post</span> <span class="kw">do</span></a>
+<a class="sourceLine" id="cb11-2" title="2">  actions <span class="st">:index</span>, <span class="st">:edit</span></a>
+<a class="sourceLine" id="cb11-3" title="3">  <span class="co"># or: config.clear_action_items!</span></a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="kw">end</span></a></code></pre>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,143 @@
+<h2 id="spring-framework">Spring Framework</h2>
+<h4 id="q1.-how-filters-are-used-in-spring-web">Q1. How filters are used in Spring Web?</h4>
+<ul>
+<li>[ ] Filters are called before a request hits the DispatcherServlet.They allow for interception-style, chained processing of web requests for security, timeouts, and other purposes.</li>
+<li>[ ] Filters are used with a checksum algorithm that will filter invalid bytes out of a byte stream request body and allow for processing of HTTP requests from the DispatcherRequestServlet.</li>
+<li>[ ] Filters are used with a checksum algorithm that will filter invalid bytes out of an octet stream a multipart upload and allow for chained processing of WebDispatcherServlet requests.</li>
+<li>[x] Filters are used to validate request parameters out of the byte stream request body and allow for processing of requests from the DispatcherRequestServlet.</li>
+</ul>
+<h4 id="q2.-how-is-a-resource-defined-in-the-context-of-a-rest-service">Q2. How is a resource defined in the context of a REST service?</h4>
+<ul>
+<li>[ ] A resource is the actual String literal that composes a URI that is accessed on a RESTful web service.</li>
+<li>[x] It is an abstract concept that represents a typed object, data, relationships, and a set of methods that operate on it that is accessed via a URI.</li>
+<li>[ ] A REST service has a pool of resources composed of allocations of memory that allow a request to be processed.</li>
+<li>[ ] A resource for a REST service is an explicit allocation of a thread or CPU cycles to allow a request to be processed.</li>
+</ul>
+<h4 id="q3.-which-of-these-is-a-valid-advice-annotation">Q3. Which of these is a valid Advice annotation?</h4>
+<ul>
+<li>[ ] <span class="citation" data-cites="AfterError">@AfterError</span></li>
+<li>[x] <span class="citation" data-cites="AfterReturning">@AfterReturning</span></li>
+<li>[ ] <span class="citation" data-cites="AfterException">@AfterException</span></li>
+<li>[ ] <span class="citation" data-cites="AfterExecution">@AfterExecution</span></li>
+</ul>
+<h4 id="q4.-what-does-a-viewresolver-do">Q4. What does a ViewResolver do?</h4>
+<ul>
+<li>[ ] It supports internationalization of web applications by detecting a user's locale.</li>
+<li>[x] It generates a view by mapping a logical view name returned by a controller method to a view technology.</li>
+<li>[ ] It creates a unique view determined by the uers's browser type,supporting cross-browser compatibility.</li>
+<li>[ ] It maps custom parameters to SQL views in the database, allowing for dynamic content to be created in the response.</li>
+</ul>
+<h4 id="q5.-how-are-spring-data-repositories-implemented-by-spring-at-runtime">Q5. How are Spring Data repositories implemented by Spring at runtime?</h4>
+<ul>
+<li>[ ] Spring automatically generated code for you based on your YAML config that defined a MethodInterceptor chain that intercept calls to the instance and computed SQL on the fly.</li>
+<li>[x] A JDK proxy instance is created, which backs the repository interface, and a MethodInterceptor intercepts calls to the instance and routes as required.</li>
+<li>[ ] The Spring JDK proxy creates a separate runtime process that acts as an intermediary between the database and the Web server, and intercepts calls to the instance and handles requests.</li>
+<li>[ ] Spring automatically generated code for you based on your XML config files that define a SpringMethodAutoGeneration factory that intercepts calls to the instance and creates dynamic method that computer SQL on the fly.</li>
+</ul>
+<h4 id="q6.-what-is-spel-and-how-is-it-used-in-spring">Q6. What is SpEL and how is it used in Spring?</h4>
+<ul>
+<li>[ ] SpEL(Spring Expression Language) runs in the JVM and can act as a drop-in replacement for Groovy or other languages.</li>
+<li>[x] SpEL(Spring Expression Language) supports boolean and relational operators and regular expressions, and is used for querying a graph of objects at runtime.</li>
+<li>[ ] SpEL(Spring Expression Language) allows you to build, configure,and execute tasks such as building artifacts and downloading object dependencies.</li>
+<li>[ ] SpEL(Spring Expression Language) natively transpiles one JVM language to another, allowing for greater flexibility.</li>
+</ul>
+<h4 id="q7.-the-process-of-linking-aspects-with-other-objects-to-create-an-advised-object-is-called">Q7. The process of linking aspects with other objects to create an advised object is called</h4>
+<ul>
+<li>[ ] dynamic chaining</li>
+<li>[ ] banding</li>
+<li>[x] weaving</li>
+<li>[ ] interleaving</li>
+</ul>
+<h4 id="q8.-how-are-jdk-dynamic-proxies-and-cglib-proxies-used-in-spring">Q8. How are JDK Dynamic proxies and CGLIB proxies used in Spring?</h4>
+<ul>
+<li>[x] JDK Dynamic proxy can proxy only interface, so it is used if the target implements at least one interface. A CGLIB proxy can create a proxy by subclassing and is used if the target does not implement an interface.</li>
+<li>[ ] Only JDK Dynamic proxies are used in the Spring Bean Lifecycle. CGLIB proxies are used only for integrating with other frameworks.</li>
+<li>[ ] Only CGLIB proxies are used in the Spring Bean Lifecycle. JDK Dynamic proxies are used only for integrating with other frameworks.</li>
+<li>[ ] JDK Dynamic proxy can only using an abstract class extended by a target. A CGLIB proxy can create a proxy through bytecode interweaving and is used if the target does not extend an abstract class.</li>
+</ul>
+<h4 id="q9.-which-of-these-is-not-a-valid-method-on-the-joinpoint-interface">Q9. Which of these is not a valid method on the JoinPoint interface?</h4>
+<ul>
+<li>[ ] getArgs()</li>
+<li>[x] getExceptions()</li>
+<li>[ ] getSignature()</li>
+<li>[ ] getTarget()</li>
+</ul>
+<h4 id="q10.-in-what-order-do-the-postconstruct-annotated-method-the-init-method-parameter-method-on-beans-and-the-afterpropertiesset-method-execute">Q10. In what order do the <span class="citation" data-cites="PostConstruct">@PostConstruct</span> annotated method, the init-method parameter method on beans and the afterPropertiesSet() method execute?</h4>
+<ul>
+<li>[ ] 1. afterPropertiesSet() 2. init-method 3. <span class="citation" data-cites="PostConstruct">@PostConstruct</span></li>
+<li>[x] 1. <span class="citation" data-cites="PostConstruct">@PostConstruct</span> 2. afterPropertiesSet() 3. init-method</li>
+<li>[ ] 1. init-method 2. afterPropertiesSet() 3. <span class="citation" data-cites="PostConstruct">@PostConstruct</span></li>
+<li>[ ] You cannot use these methods together-you must choose only one.</li>
+</ul>
+<h4 id="q11.-what-is-the-function-of-the-transactional-annotation-at-the-class-level">Q11. What is the function of the <span class="citation" data-cites="Transactional">@Transactional</span> annotation at the class level?</h4>
+<ul>
+<li>[ ] It's a transaction attribute configured by spring.security.transactions.xml config file that uses Spring's transaction implementation and validation code.</li>
+<li>[ ] It's a transaction must actively validate by the bytecode of a transaction using Spring's TransactionBytecodeValidator class. Default Transaction behavior rolls back on validation exception but commits on proper validation</li>
+<li>[x] It creates a proxy that implements the same interface(s) as the annotated class, allowing Spring to inject behaviors before, after, or around method calls into the object being proxied.</li>
+<li>[ ] It's a transaction that must be actively validated by Spring's TransactionValidator class using Spring's transaction validation code. Default Transaction behavior rolls back on validation exception.</li>
+</ul>
+<h4 id="q12.-which-is-a-valid-example-of-the-output-from-this-code-ignoring-logging-statements">Q12. Which is a valid example of the output from this code (ignoring logging statements) ?</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1"><span class="at">@SpringBootApplication</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">public</span> <span class="kw">class</span> App {</a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">void</span> <span class="fu">main</span>(<span class="bu">String</span> args[]) {</a>
+<a class="sourceLine" id="cb1-4" title="4">        SpringApplication.<span class="fu">run</span>(App.<span class="fu">class</span>, args);</a>
+<a class="sourceLine" id="cb1-5" title="5">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;startup&quot;</span>);</a>
+<a class="sourceLine" id="cb1-6" title="6">    }</a>
+<a class="sourceLine" id="cb1-7" title="7">}</a>
+<a class="sourceLine" id="cb1-8" title="8"></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="kw">public</span> <span class="kw">class</span> Print <span class="kw">implements</span> InitializingBean {</a>
+<a class="sourceLine" id="cb1-10" title="10">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb1-11" title="11">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">afterPropertiesSet</span>() <span class="kw">throws</span> <span class="bu">Exception</span> {</a>
+<a class="sourceLine" id="cb1-12" title="12">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(<span class="st">&quot;init&quot;</span>);</a>
+<a class="sourceLine" id="cb1-13" title="13">    }</a>
+<a class="sourceLine" id="cb1-14" title="14">}</a></code></pre></div>
+<ul>
+<li>[x] Nothing will print</li>
+<li>[ ] startup init</li>
+<li>[ ] init</li>
+<li>[ ] startup</li>
+</ul>
+<h4 id="q13.-which-println-statement-would-you-remove-to-stop-this-code-throwing-a-null-pointer-exception">Q13. Which println statement would you remove to stop this code throwing a null pointer exception?</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb2-1" title="1"><span class="at">@Component</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">public</span> <span class="kw">class</span> Test <span class="kw">implements</span> InitializingBean {</a>
+<a class="sourceLine" id="cb2-3" title="3">    <span class="at">@Autowired</span></a>
+<a class="sourceLine" id="cb2-4" title="4">    ApplicationContext context;</a>
+<a class="sourceLine" id="cb2-5" title="5">    <span class="at">@Autowired</span></a>
+<a class="sourceLine" id="cb2-6" title="6">    <span class="dt">static</span> SimpleDateFormt formatter;</a>
+<a class="sourceLine" id="cb2-7" title="7">    </a>
+<a class="sourceLine" id="cb2-8" title="8">    <span class="at">@Override</span></a>
+<a class="sourceLine" id="cb2-9" title="9">    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">afterPropertiesSet</span>() <span class="kw">throws</span> <span class="bu">Exception</span> {</a>
+<a class="sourceLine" id="cb2-10" title="10">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(context.<span class="fu">containsBean</span>(<span class="st">&quot;formatter&quot;</span>) + <span class="st">&quot; &quot;</span>);</a>
+<a class="sourceLine" id="cb2-11" title="11">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(context.<span class="fu">getBean</span>(<span class="st">&quot;formatter&quot;</span>).<span class="fu">getClass</span>());</a>
+<a class="sourceLine" id="cb2-12" title="12">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(formatter.<span class="fu">getClass</span>());</a>
+<a class="sourceLine" id="cb2-13" title="13">        <span class="bu">System</span>.<span class="fu">out</span>.<span class="fu">println</span>(context.<span class="fu">getClass</span>());</a>
+<a class="sourceLine" id="cb2-14" title="14">    }</a>
+<a class="sourceLine" id="cb2-15" title="15">}</a>
+<a class="sourceLine" id="cb2-16" title="16"></a>
+<a class="sourceLine" id="cb2-17" title="17"><span class="at">@Configuration</span></a>
+<a class="sourceLine" id="cb2-18" title="18"><span class="kw">class</span> TestConfig {</a>
+<a class="sourceLine" id="cb2-19" title="19">    <span class="at">@Bean</span></a>
+<a class="sourceLine" id="cb2-20" title="20">    <span class="kw">public</span> <span class="bu">SimpleDateFormat</span> <span class="fu">formatter</span>() {</a>
+<a class="sourceLine" id="cb2-21" title="21">        <span class="kw">return</span> <span class="kw">new</span> <span class="bu">SimpleDateFormat</span>();</a>
+<a class="sourceLine" id="cb2-22" title="22">    }</a>
+<a class="sourceLine" id="cb2-23" title="23">}</a></code></pre></div>
+<ul>
+<li>[x] formatter.getClass()</li>
+<li>[ ] context.getClass()</li>
+<li>[ ] context.getBean("formatter").getClass()</li>
+<li>[ ] context.containsBean("formatter")</li>
+</ul>
+<h4 id="q14.-what-is-the-root-interface-for-accessing-a-spring-bean-container">Q14. What is the root interface for accessing a Spring bean container?</h4>
+<ul>
+<li>[ ] SpringInitContainer</li>
+<li>[ ] ResourceLoader</li>
+<li>[ ] ApplicationEventPublisher</li>
+<li>[x] BeanFactory</li>
+</ul>
+<h4 id="q15.-which-annotation-can-be-used-within-spring-security-to-apply-method-level-security">Q15. Which annotation can be used within Spring Security to apply method level security?</h4>
+<ul>
+<li>[x] <span class="citation" data-cites="Secured">@Secured</span></li>
+<li>[ ] <span class="citation" data-cites="RequiresRole">@RequiresRole</span></li>
+<li>[ ] <span class="citation" data-cites="RestrictedTo">@RestrictedTo</span></li>
+<li>[ ] <span class="citation" data-cites="SecurePath">@SecurePath</span></li>
+</ul>

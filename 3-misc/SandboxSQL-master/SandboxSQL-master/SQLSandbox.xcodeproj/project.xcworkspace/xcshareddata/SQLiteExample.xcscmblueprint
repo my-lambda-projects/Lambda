@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "964A6BB251D24EB2A7BF4C7099E960EF2377C442",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "43D4496BCEABC764DF53F957D4B9B13FB2A2C980" : 0,
+    "964A6BB251D24EB2A7BF4C7099E960EF2377C442" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "1A2BED6F-1230-4642-913A-459F49A1437D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "43D4496BCEABC764DF53F957D4B9B13FB2A2C980" : "react-native-sqlite",
+    "964A6BB251D24EB2A7BF4C7099E960EF2377C442" : "SQLiteExample"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SQLiteExample",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SQLiteExample.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:almost\/react-native-sqlite.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "43D4496BCEABC764DF53F957D4B9B13FB2A2C980"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:almost\/SQLiteExample.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "964A6BB251D24EB2A7BF4C7099E960EF2377C442"
+    }
+  ]
+}

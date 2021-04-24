@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>One of the simplest and most widely known <dfn>ciphers</dfn> is a <dfn>Caesar cipher</dfn>, also known as a <dfn>shift cipher</dfn>. In a shift cipher the meanings of the letters are shifted by some set amount.</p>
+<p>A common modern use is the <a href="https://en.wikipedia.org/wiki/ROT13">ROT13</a> cipher, where the values of the letters are shifted by 13 places. Thus <code>A ↔ N</code>, <code>B ↔ O</code> and so on.</p>
+<p>Write a function which takes a <a href="https://en.wikipedia.org/wiki/ROT13">ROT13</a> encoded string as input and returns a decoded string.</p>
+<p>All letters will be uppercase. Do not transform any non-alphabetic character (i.e. spaces, punctuation), but do pass them on.</p>
+<h1 id="hints">–hints–</h1>
+<p><code>rot13("SERR PBQR PNZC")</code> should decode to the string <code>FREE CODE CAMP</code></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="at">assert</span>(<span class="at">rot13</span>(<span class="st">&#39;SERR PBQR PNZC&#39;</span>) <span class="op">===</span> <span class="st">&#39;FREE CODE CAMP&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>rot13("SERR CVMMN!")</code> should decode to the string <code>FREE PIZZA!</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(<span class="at">rot13</span>(<span class="st">&#39;SERR CVMMN!&#39;</span>) <span class="op">===</span> <span class="st">&#39;FREE PIZZA!&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>rot13("SERR YBIR?")</code> should decode to the string <code>FREE LOVE?</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(<span class="at">rot13</span>(<span class="st">&#39;SERR YBIR?&#39;</span>) <span class="op">===</span> <span class="st">&#39;FREE LOVE?&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT.")</code> should decode to the string <code>THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="at">rot13</span>(<span class="st">&#39;GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT.&#39;</span>) <span class="op">===</span></a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="st">&#39;THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.&#39;</span></a>
+<a class="sourceLine" id="cb4-4" title="4">)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">function</span> <span class="at">rot13</span>(str) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2"></a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="cf">return</span> str<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="op">}</span></a>
+<a class="sourceLine" id="cb5-5" title="5"></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="at">rot13</span>(<span class="st">&quot;SERR PBQR PNZC&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">var</span> lookup <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="st">&#39;A&#39;</span><span class="op">:</span> <span class="st">&#39;N&#39;</span><span class="op">,</span><span class="st">&#39;B&#39;</span><span class="op">:</span> <span class="st">&#39;O&#39;</span><span class="op">,</span><span class="st">&#39;C&#39;</span><span class="op">:</span> <span class="st">&#39;P&#39;</span><span class="op">,</span><span class="st">&#39;D&#39;</span><span class="op">:</span> <span class="st">&#39;Q&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  <span class="st">&#39;E&#39;</span><span class="op">:</span> <span class="st">&#39;R&#39;</span><span class="op">,</span><span class="st">&#39;F&#39;</span><span class="op">:</span> <span class="st">&#39;S&#39;</span><span class="op">,</span><span class="st">&#39;G&#39;</span><span class="op">:</span> <span class="st">&#39;T&#39;</span><span class="op">,</span><span class="st">&#39;H&#39;</span><span class="op">:</span> <span class="st">&#39;U&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-4" title="4">  <span class="st">&#39;I&#39;</span><span class="op">:</span> <span class="st">&#39;V&#39;</span><span class="op">,</span><span class="st">&#39;J&#39;</span><span class="op">:</span> <span class="st">&#39;W&#39;</span><span class="op">,</span><span class="st">&#39;K&#39;</span><span class="op">:</span> <span class="st">&#39;X&#39;</span><span class="op">,</span><span class="st">&#39;L&#39;</span><span class="op">:</span> <span class="st">&#39;Y&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-5" title="5">  <span class="st">&#39;M&#39;</span><span class="op">:</span> <span class="st">&#39;Z&#39;</span><span class="op">,</span><span class="st">&#39;N&#39;</span><span class="op">:</span> <span class="st">&#39;A&#39;</span><span class="op">,</span><span class="st">&#39;O&#39;</span><span class="op">:</span> <span class="st">&#39;B&#39;</span><span class="op">,</span><span class="st">&#39;P&#39;</span><span class="op">:</span> <span class="st">&#39;C&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-6" title="6">  <span class="st">&#39;Q&#39;</span><span class="op">:</span> <span class="st">&#39;D&#39;</span><span class="op">,</span><span class="st">&#39;R&#39;</span><span class="op">:</span> <span class="st">&#39;E&#39;</span><span class="op">,</span><span class="st">&#39;S&#39;</span><span class="op">:</span> <span class="st">&#39;F&#39;</span><span class="op">,</span><span class="st">&#39;T&#39;</span><span class="op">:</span> <span class="st">&#39;G&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-7" title="7">  <span class="st">&#39;U&#39;</span><span class="op">:</span> <span class="st">&#39;H&#39;</span><span class="op">,</span><span class="st">&#39;V&#39;</span><span class="op">:</span> <span class="st">&#39;I&#39;</span><span class="op">,</span><span class="st">&#39;W&#39;</span><span class="op">:</span> <span class="st">&#39;J&#39;</span><span class="op">,</span><span class="st">&#39;X&#39;</span><span class="op">:</span> <span class="st">&#39;K&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-8" title="8">  <span class="st">&#39;Y&#39;</span><span class="op">:</span> <span class="st">&#39;L&#39;</span><span class="op">,</span><span class="st">&#39;Z&#39;</span><span class="op">:</span> <span class="st">&#39;M&#39;</span></a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="op">};</span></a>
+<a class="sourceLine" id="cb6-10" title="10"></a>
+<a class="sourceLine" id="cb6-11" title="11"><span class="kw">function</span> <span class="at">rot13</span>(encodedStr) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-12" title="12">  <span class="kw">var</span> codeArr <span class="op">=</span> <span class="va">encodedStr</span>.<span class="at">split</span>(<span class="st">&quot;&quot;</span>)<span class="op">;</span>  <span class="co">// String to Array</span></a>
+<a class="sourceLine" id="cb6-13" title="13">  <span class="kw">var</span> decodedArr <span class="op">=</span> []<span class="op">;</span> <span class="co">// Your Result goes here</span></a>
+<a class="sourceLine" id="cb6-14" title="14">  <span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb6-15" title="15"></a>
+<a class="sourceLine" id="cb6-16" title="16">  decodedArr <span class="op">=</span> <span class="va">codeArr</span>.<span class="at">map</span>(<span class="kw">function</span>(letter) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-17" title="17">    <span class="cf">if</span>(<span class="va">lookup</span>.<span class="at">hasOwnProperty</span>(letter)) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-18" title="18">      letter <span class="op">=</span> lookup[letter]<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-19" title="19">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-20" title="20">    <span class="cf">return</span> letter<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-21" title="21">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-22" title="22"></a>
+<a class="sourceLine" id="cb6-23" title="23">  <span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb6-24" title="24">  <span class="cf">return</span> <span class="va">decodedArr</span>.<span class="at">join</span>(<span class="st">&quot;&quot;</span>)<span class="op">;</span> <span class="co">// Array to String</span></a>
+<a class="sourceLine" id="cb6-25" title="25"><span class="op">}</span></a></code></pre></div>
+</body></html>

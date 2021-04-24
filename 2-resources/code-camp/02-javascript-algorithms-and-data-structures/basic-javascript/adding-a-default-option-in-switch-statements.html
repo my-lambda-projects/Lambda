@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>In a <code>switch</code> statement you may not be able to specify all possible values as <code>case</code> statements. Instead, you can add the <code>default</code> statement which will be executed if no matching <code>case</code> statements are found. Think of it like the final <code>else</code> statement in an <code>if/else</code> chain.</p>
+<p>A <code>default</code> statement should be the last case.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="cf">switch</span> (num) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="cf">case</span> <span class="dt">value1</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    statement1<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="cf">break</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="cf">case</span> <span class="dt">value2</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    statement2<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="cf">break</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-8" title="8">...</a>
+<a class="sourceLine" id="cb1-9" title="9">  <span class="cf">default</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb1-10" title="10">    defaultStatement<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-11" title="11">    <span class="cf">break</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="op">}</span></a></code></pre></div>
+<h1 id="instructions">–instructions–</h1>
+<p>Write a switch statement to set <code>answer</code> for the following conditions:<br />
+<code>a</code> - <code>apple</code><br />
+<code>b</code> - <code>bird</code><br />
+<code>c</code> - <code>cat</code><br />
+<code>default</code> - <code>stuff</code></p>
+<h1 id="hints">–hints–</h1>
+<p><code>switchOfStuff("a")</code> should return the string <code>apple</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(<span class="at">switchOfStuff</span>(<span class="st">&#39;a&#39;</span>) <span class="op">===</span> <span class="st">&#39;apple&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>switchOfStuff("b")</code> should return the string <code>bird</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(<span class="at">switchOfStuff</span>(<span class="st">&#39;b&#39;</span>) <span class="op">===</span> <span class="st">&#39;bird&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>switchOfStuff("c")</code> should return the string <code>cat</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(<span class="at">switchOfStuff</span>(<span class="st">&#39;c&#39;</span>) <span class="op">===</span> <span class="st">&#39;cat&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>switchOfStuff("d")</code> should return the string <code>stuff</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">assert</span>(<span class="at">switchOfStuff</span>(<span class="st">&#39;d&#39;</span>) <span class="op">===</span> <span class="st">&#39;stuff&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>switchOfStuff(4)</code> should return the string <code>stuff</code></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="at">assert</span>(<span class="at">switchOfStuff</span>(<span class="dv">4</span>) <span class="op">===</span> <span class="st">&#39;stuff&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p>You should not use any <code>if</code> or <code>else</code> statements</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="at">assert</span>(<span class="op">!</span><span class="ss">/else/g</span>.<span class="at">test</span>(code) <span class="op">||</span> <span class="op">!</span><span class="ss">/if/g</span>.<span class="at">test</span>(code))<span class="op">;</span></a></code></pre></div>
+<p>You should use a <code>default</code> statement</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="at">assert</span>(<span class="at">switchOfStuff</span>(<span class="st">&#39;string-to-trigger-default-case&#39;</span>) <span class="op">===</span> <span class="st">&#39;stuff&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p>You should have at least 3 <code>break</code> statements</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="at">assert</span>(<span class="va">code</span>.<span class="at">match</span>(<span class="ss">/break/g</span>).<span class="at">length</span> <span class="op">&gt;</span> <span class="dv">2</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">function</span> <span class="at">switchOfStuff</span>(val) <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-2" title="2">  <span class="kw">var</span> answer <span class="op">=</span> <span class="st">&quot;&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb10-3" title="3">  <span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb10-4" title="4"></a>
+<a class="sourceLine" id="cb10-5" title="5"></a>
+<a class="sourceLine" id="cb10-6" title="6"></a>
+<a class="sourceLine" id="cb10-7" title="7">  <span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb10-8" title="8">  <span class="cf">return</span> answer<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-9" title="9"><span class="op">}</span></a>
+<a class="sourceLine" id="cb10-10" title="10"></a>
+<a class="sourceLine" id="cb10-11" title="11"><span class="at">switchOfStuff</span>(<span class="dv">1</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">function</span> <span class="at">switchOfStuff</span>(val) <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-2" title="2">  <span class="kw">var</span> answer <span class="op">=</span> <span class="st">&quot;&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb11-3" title="3"></a>
+<a class="sourceLine" id="cb11-4" title="4">  <span class="cf">switch</span>(val) <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-5" title="5">    <span class="cf">case</span> <span class="st">&quot;a&quot;</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb11-6" title="6">      answer <span class="op">=</span> <span class="st">&quot;apple&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb11-7" title="7">      <span class="cf">break</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb11-8" title="8">    <span class="cf">case</span> <span class="st">&quot;b&quot;</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb11-9" title="9">      answer <span class="op">=</span> <span class="st">&quot;bird&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb11-10" title="10">      <span class="cf">break</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb11-11" title="11">    <span class="cf">case</span> <span class="st">&quot;c&quot;</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb11-12" title="12">      answer <span class="op">=</span> <span class="st">&quot;cat&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb11-13" title="13">      <span class="cf">break</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb11-14" title="14">    <span class="cf">default</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb11-15" title="15">      answer <span class="op">=</span> <span class="st">&quot;stuff&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb11-16" title="16">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb11-17" title="17">  <span class="cf">return</span> answer<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-18" title="18"><span class="op">}</span></a></code></pre></div>
+</body></html>

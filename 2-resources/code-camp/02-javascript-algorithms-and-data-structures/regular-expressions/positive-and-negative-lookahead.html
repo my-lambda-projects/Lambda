@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p><dfn>Lookaheads</dfn> are patterns that tell JavaScript to look-ahead in your string to check for patterns further along. This can be useful when you want to search for multiple patterns over the same string.</p>
+<p>There are two kinds of lookaheads: <dfn>positive lookahead</dfn> and <dfn>negative lookahead</dfn>.</p>
+<p>A positive lookahead will look to make sure the element in the search pattern is there, but won’t actually match it. A positive lookahead is used as <code>(?=...)</code> where the <code>...</code> is the required part that is not matched.</p>
+<p>On the other hand, a negative lookahead will look to make sure the element in the search pattern is not there. A negative lookahead is used as <code>(?!...)</code> where the <code>...</code> is the pattern that you do not want to be there. The rest of the pattern is returned if the negative lookahead part is not present.</p>
+<p>Lookaheads are a bit confusing but some examples will help.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> quit <span class="op">=</span> <span class="st">&quot;qu&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">let</span> noquit <span class="op">=</span> <span class="st">&quot;qt&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">let</span> quRegex<span class="op">=</span> <span class="ss">/q</span><span class="sc">(?</span><span class="ss">=u</span><span class="sc">)</span><span class="ss">/</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">let</span> qRegex <span class="op">=</span> <span class="ss">/q</span><span class="sc">(?</span><span class="ss">!u</span><span class="sc">)</span><span class="ss">/</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="va">quit</span>.<span class="at">match</span>(quRegex)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="va">noquit</span>.<span class="at">match</span>(qRegex)<span class="op">;</span></a></code></pre></div>
+<p>Both of these <code>match</code> calls would return <code>["q"]</code>.</p>
+<p>A more practical use of lookaheads is to check two or more patterns in one string. Here is a (naively) simple password checker that looks for between 3 and 6 characters and at least one number:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> password <span class="op">=</span> <span class="st">&quot;abc123&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">let</span> checkPass <span class="op">=</span> <span class="ss">/</span><span class="sc">(?</span><span class="ss">=</span><span class="sc">\w{3,6})(?</span><span class="ss">=</span><span class="sc">\D*\d)</span><span class="ss">/</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="va">checkPass</span>.<span class="at">test</span>(password)<span class="op">;</span></a></code></pre></div>
+<h1 id="instructions">–instructions–</h1>
+<p>Use lookaheads in the <code>pwRegex</code> to match passwords that are greater than 5 characters long, and have two consecutive digits.</p>
+<h1 id="hints">–hints–</h1>
+<p>Your regex should use two positive <code>lookaheads</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(<span class="va">pwRegex</span>.<span class="va">source</span>.<span class="at">match</span>(<span class="ss">/</span><span class="sc">\(\?</span><span class="ss">=.</span><span class="sc">*?\)\(\?</span><span class="ss">=.</span><span class="sc">*?\)</span><span class="ss">/</span>) <span class="op">!==</span> <span class="kw">null</span>)<span class="op">;</span></a></code></pre></div>
+<p>Your regex should not match the string <code>astronaut</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(<span class="op">!</span><span class="va">pwRegex</span>.<span class="at">test</span>(<span class="st">&#39;astronaut&#39;</span>))<span class="op">;</span></a></code></pre></div>
+<p>Your regex should not match the string <code>banan1</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">assert</span>(<span class="op">!</span><span class="va">pwRegex</span>.<span class="at">test</span>(<span class="st">&#39;banan1&#39;</span>))<span class="op">;</span></a></code></pre></div>
+<p>Your regex should match the string <code>bana12</code></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="at">assert</span>(<span class="va">pwRegex</span>.<span class="at">test</span>(<span class="st">&#39;bana12&#39;</span>))<span class="op">;</span></a></code></pre></div>
+<p>Your regex should match the string <code>abc123</code></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="at">assert</span>(<span class="va">pwRegex</span>.<span class="at">test</span>(<span class="st">&#39;abc123&#39;</span>))<span class="op">;</span></a></code></pre></div>
+<p>Your regex should not match the string <code>12345</code></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="at">assert</span>(<span class="op">!</span><span class="va">pwRegex</span>.<span class="at">test</span>(<span class="st">&#39;12345&#39;</span>))<span class="op">;</span></a></code></pre></div>
+<p>Your regex should match the string <code>8pass99</code></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="at">assert</span>(<span class="va">pwRegex</span>.<span class="at">test</span>(<span class="st">&#39;8pass99&#39;</span>))<span class="op">;</span></a></code></pre></div>
+<p>Your regex should not match the string <code>1a2bcde</code></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="at">assert</span>(<span class="op">!</span><span class="va">pwRegex</span>.<span class="at">test</span>(<span class="st">&#39;1a2bcde&#39;</span>))<span class="op">;</span></a></code></pre></div>
+<p>Your regex should match the string <code>astr1on11aut</code></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="at">assert</span>(<span class="va">pwRegex</span>.<span class="at">test</span>(<span class="st">&#39;astr1on11aut&#39;</span>))<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">let</span> sampleWord <span class="op">=</span> <span class="st">&quot;astronaut&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="kw">let</span> pwRegex <span class="op">=</span> <span class="ss">/change/</span><span class="op">;</span> <span class="co">// Change this line</span></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="kw">let</span> result <span class="op">=</span> <span class="va">pwRegex</span>.<span class="at">test</span>(sampleWord)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">let</span> pwRegex <span class="op">=</span>  <span class="ss">/</span><span class="sc">(?</span><span class="ss">=</span><span class="sc">\w{6})(?</span><span class="ss">=</span><span class="sc">\w*\d{2})</span><span class="ss">/</span><span class="op">;</span></a></code></pre></div>
+</body></html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>Sometimes you won’t (or don’t need to) know the exact characters in your patterns. Thinking of all words that match, say, a misspelling would take a long time. Luckily, you can save time using the wildcard character: <code>.</code></p>
+<p>The wildcard character <code>.</code> will match any one character. The wildcard is also called <code>dot</code> and <code>period</code>. You can use the wildcard character just like any other character in the regex. For example, if you wanted to match <code>hug</code>, <code>huh</code>, <code>hut</code>, and <code>hum</code>, you can use the regex <code>/hu./</code> to match all four words.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> humStr <span class="op">=</span> <span class="st">&quot;I&#39;ll hum a song&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">let</span> hugStr <span class="op">=</span> <span class="st">&quot;Bear hug&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">let</span> huRegex <span class="op">=</span> <span class="ss">/hu./</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="va">huRegex</span>.<span class="at">test</span>(humStr)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="va">huRegex</span>.<span class="at">test</span>(hugStr)<span class="op">;</span></a></code></pre></div>
+<p>Both of these <code>test</code> calls would return <code>true</code>.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>Complete the regex <code>unRegex</code> so that it matches the strings <code>run</code>, <code>sun</code>, <code>fun</code>, <code>pun</code>, <code>nun</code>, and <code>bun</code>. Your regex should use the wildcard character.</p>
+<h1 id="hints">–hints–</h1>
+<p>You should use the <code>.test()</code> method.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(<span class="va">code</span>.<span class="at">match</span>(<span class="ss">/</span><span class="sc">\.</span><span class="ss">test</span><span class="sc">\(</span><span class="ss">.</span><span class="sc">*\)</span><span class="ss">/</span>))<span class="op">;</span></a></code></pre></div>
+<p>You should use the wildcard character in your regex <code>unRegex</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(<span class="ss">/</span><span class="sc">\.</span><span class="ss">/</span>.<span class="at">test</span>(<span class="va">unRegex</span>.<span class="at">source</span>))<span class="op">;</span></a></code></pre></div>
+<p>Your regex <code>unRegex</code> should match <code>run</code> in the string <code>Let us go on a run.</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">unRegex</span>.<span class="at">lastIndex</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="at">assert</span>(<span class="va">unRegex</span>.<span class="at">test</span>(<span class="st">&#39;Let us go on a run.&#39;</span>))<span class="op">;</span></a></code></pre></div>
+<p>Your regex <code>unRegex</code> should match <code>sun</code> in the string <code>The sun is out today.</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">unRegex</span>.<span class="at">lastIndex</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="at">assert</span>(<span class="va">unRegex</span>.<span class="at">test</span>(<span class="st">&#39;The sun is out today.&#39;</span>))<span class="op">;</span></a></code></pre></div>
+<p>Your regex <code>unRegex</code> should match <code>fun</code> in the string <code>Coding is a lot of fun.</code></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="va">unRegex</span>.<span class="at">lastIndex</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="at">assert</span>(<span class="va">unRegex</span>.<span class="at">test</span>(<span class="st">&#39;Coding is a lot of fun.&#39;</span>))<span class="op">;</span></a></code></pre></div>
+<p>Your regex <code>unRegex</code> should match <code>pun</code> in the string <code>Seven days without a pun makes one weak.</code></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="va">unRegex</span>.<span class="at">lastIndex</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="at">assert</span>(<span class="va">unRegex</span>.<span class="at">test</span>(<span class="st">&#39;Seven days without a pun makes one weak.&#39;</span>))<span class="op">;</span></a></code></pre></div>
+<p>Your regex <code>unRegex</code> should match <code>nun</code> in the string <code>One takes a vow to be a nun.</code></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="va">unRegex</span>.<span class="at">lastIndex</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="at">assert</span>(<span class="va">unRegex</span>.<span class="at">test</span>(<span class="st">&#39;One takes a vow to be a nun.&#39;</span>))<span class="op">;</span></a></code></pre></div>
+<p>Your regex <code>unRegex</code> should match <code>bun</code> in the string <code>She got fired from the hot dog stand for putting her hair in a bun.</code></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="va">unRegex</span>.<span class="at">lastIndex</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb9-3" title="3">  <span class="va">unRegex</span>.<span class="at">test</span>(</a>
+<a class="sourceLine" id="cb9-4" title="4">    <span class="st">&#39;She got fired from the hot dog stand for putting her hair in a bun.&#39;</span></a>
+<a class="sourceLine" id="cb9-5" title="5">  )</a>
+<a class="sourceLine" id="cb9-6" title="6">)<span class="op">;</span></a></code></pre></div>
+<p>Your regex <code>unRegex</code> should not match the string <code>There is a bug in my code.</code></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="va">unRegex</span>.<span class="at">lastIndex</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="at">assert</span>(<span class="op">!</span><span class="va">unRegex</span>.<span class="at">test</span>(<span class="st">&#39;There is a bug in my code.&#39;</span>))<span class="op">;</span></a></code></pre></div>
+<p>Your regex <code>unRegex</code> should not match the string <code>Catch me if you can.</code></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="va">unRegex</span>.<span class="at">lastIndex</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="at">assert</span>(<span class="op">!</span><span class="va">unRegex</span>.<span class="at">test</span>(<span class="st">&#39;Catch me if you can.&#39;</span>))<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">let</span> exampleStr <span class="op">=</span> <span class="st">&quot;Let&#39;s have fun with regular expressions!&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="kw">let</span> unRegex <span class="op">=</span> <span class="ss">/change/</span><span class="op">;</span> <span class="co">// Change this line</span></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="kw">let</span> result <span class="op">=</span> <span class="va">unRegex</span>.<span class="at">test</span>(exampleStr)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">let</span> exampleStr <span class="op">=</span> <span class="st">&quot;Let&#39;s have fun with regular expressions!&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb13-2" title="2"><span class="kw">let</span> unRegex <span class="op">=</span> <span class="ss">/.un/</span><span class="op">;</span> <span class="co">// Change this line</span></a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="kw">let</span> result <span class="op">=</span> <span class="va">unRegex</span>.<span class="at">test</span>(exampleStr)<span class="op">;</span></a></code></pre></div>
+</body></html>

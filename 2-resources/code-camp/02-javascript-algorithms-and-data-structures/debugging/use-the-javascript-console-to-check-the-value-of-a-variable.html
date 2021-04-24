@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>Both Chrome and Firefox have excellent JavaScript consoles, also known as DevTools, for debugging your JavaScript.</p>
+<p>You can find Developer tools in your Chrome’s menu or Web Console in Firefox’s menu. If you’re using a different browser, or a mobile phone, we strongly recommend switching to desktop Firefox or Chrome.</p>
+<p>The <code>console.log()</code> method, which “prints” the output of what’s within its parentheses to the console, will likely be the most helpful debugging tool. Placing it at strategic points in your code can show you the intermediate values of variables. It’s good practice to have an idea of what the output should be before looking at what it is. Having check points to see the status of your calculations throughout your code will help narrow down where the problem is.</p>
+<p>Here’s an example to print the string <code>Hello world!</code> to the console:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;Hello world!&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="instructions">–instructions–</h1>
+<p>Use the <code>console.log()</code> method to print the value of the variable <code>a</code> where noted in the code.</p>
+<h1 id="hints">–hints–</h1>
+<p>Your code should use <code>console.log()</code> to check the value of the variable <code>a</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(<span class="va">code</span>.<span class="at">match</span>(<span class="ss">/console</span><span class="sc">\.</span><span class="ss">log</span><span class="sc">\(</span><span class="ss">a</span><span class="sc">\)</span><span class="ss">/g</span>))<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> a <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">let</span> b <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-3" title="3">a<span class="op">++;</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6"></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="kw">let</span> sumAB <span class="op">=</span> a <span class="op">+</span> b<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="va">console</span>.<span class="at">log</span>(sumAB)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">var</span> a <span class="op">=</span> <span class="dv">5</span><span class="op">;</span> <span class="va">console</span>.<span class="at">log</span>(a)<span class="op">;</span></a></code></pre></div>
+</body></html>

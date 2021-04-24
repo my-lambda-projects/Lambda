@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="enabling-phusion-passenger">Enabling Phusion passenger</h3>
+<pre><code>server {
+   listen 80;
+   server_name www.yourhost.com;
+   root /somewhere/public;   # &lt;--- be sure to point to &#39;public&#39;!
+   passenger_enabled on;
+   autoindex on; # Show directory listings
+}</code></pre>
+<p>This is an example nginx configuration.</p>
+</body></html>

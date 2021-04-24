@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>{% raw %}</p>
+<h2 id="jekyll">Jekyll</h2>
+<p>{: .-one-column}</p>
+<ul>
+<li>jekyll-avatar</li>
+<li>jekyll-coffeescript</li>
+<li>jekyll-default-layout</li>
+<li>jekyll-feed</li>
+<li>jekyll-gist</li>
+<li>jekyll-github-metadata</li>
+<li>jekyll-mentions</li>
+<li>jekyll-optional-front-matter</li>
+<li>jekyll-paginate</li>
+<li>jekyll-readme-index</li>
+<li>jekyll-redirect-from</li>
+<li>jekyll-relative-links</li>
+<li>jekyll-sass-converter</li>
+<li>jekyll-seo-tag</li>
+<li>jekyll-sitemap {: .-four-column}</li>
+</ul>
+<p>As of github-pages v156. For an updated list, see: <a href="https://pages.github.com/versions/">Dependency versions</a> <em>(pages.github.com)</em></p>
+<h2 id="github-metadata">GitHub Metadata</h2>
+<h3 id="configuration">Configuration</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">plugins:</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">-</span> jekyll-github-metadata</a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="fu">repository:</span><span class="at"> username/project</span></a></code></pre></div>
+<p>Put this in your <code>_config.yml</code>. See: <a href="https://help.github.com/articles/repository-metadata-on-github-pages/">Repository metadata on GitHub pages</a></p>
+<h3 id="listing-repos">Listing repos</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" title="1">{% for repository in site.github.public_repositories %}</a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&#39;{{ repository.html_url }}&#39;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb2-3" title="3">    {{ repository.name }}</a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="kw">&lt;/a&gt;</span></a>
+<a class="sourceLine" id="cb2-5" title="5">{% endfor %}</a></code></pre></div>
+<h3 id="link-to-repo">Link to repo</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&#39;{{ site.github.repository_url }}&#39;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  {{ site.github.project_title }}</a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="kw">&lt;/a&gt;</span></a></code></pre></div>
+<h2 id="gists">Gists</h2>
+<h3 id="configuration-1">Configuration</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb4-1" title="1"><span class="fu">plugins:</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="kw">-</span> jekyll-gist</a></code></pre></div>
+<p>See: <a href="https://github.com/jekyll/jekyll-gist">jekyll-gist</a></p>
+<h3 id="usage">Usage</h3>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="op">{%</span> gist parkr/c08ee0f2726fd0e3909d <span class="op">%}</span></a></code></pre></div>
+<p>This places a Gist in your page.</p>
+<h2 id="mentions">Mentions</h2>
+<h3 id="configuration-2">Configuration</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb6-1" title="1"><span class="fu">plugins:</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="kw">-</span> jekyll-mentions</a></code></pre></div>
+<p>See: <a href="https://github.com/jekyll/jekyll-mentions">jekyll-mentions</a></p>
+<h3 id="usage-1">Usage</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1">Hey @rstacruz<span class="op">,</span> what <span class="cf">do</span> you think <span class="kw">of</span> <span class="kw">this</span><span class="op">?</span></a></code></pre></div>
+<p>Just mention anyone in any page. Their names will be turned into links.</p>
+<h2 id="redirects">Redirects</h2>
+<p>{: .-three-column}</p>
+<h3 id="configuration-3">Configuration</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb8-1" title="1"><span class="fu">plugins:</span></a>
+<a class="sourceLine" id="cb8-2" title="2">    <span class="kw">-</span> jekyll-redirect-from</a></code></pre></div>
+<p>See: <a href="https://rubygems.org/gems/jekyll-redirect-from">jekyll-redirect-from</a></p>
+<h3 id="usage-2">Usage</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb9-1" title="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="fu">redirect_from:</span></a>
+<a class="sourceLine" id="cb9-3" title="3">  <span class="kw">-</span> /foo</a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="ot">---</span></a></code></pre></div>
+<p>Place on any page.</p>
+<h3 id="redirecting">Redirecting</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb10-1" title="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="fu">redirect_to:</span></a>
+<a class="sourceLine" id="cb10-3" title="3">  <span class="kw">-</span> /foo</a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="ot">---</span></a></code></pre></div>
+<p>Place on any page. See: <a href="https://github.com/jekyll/jekyll-redirect-from#redirect-to">redirect to</a></p>
+<p>{% endraw %}</p>
+</body></html>

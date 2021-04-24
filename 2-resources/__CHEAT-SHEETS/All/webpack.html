@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="basic-config">Basic config</h3>
+<h4 id="webpack.config.js">webpack.config.js</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="dt">context</span><span class="op">:</span> __dirname<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="dt">entry</span><span class="op">:</span> <span class="st">&#39;src/app.js&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="dt">output</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="dt">path</span><span class="op">:</span> __dirname <span class="op">+</span> <span class="st">&#39;/public&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="dt">filename</span><span class="op">:</span> <span class="st">&#39;app.js&#39;</span></a>
+<a class="sourceLine" id="cb1-7" title="7">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="op">}</span></a></code></pre></div>
+<h4 id="terminal">Terminal</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">npm</span> install --save-dev webpack</a></code></pre></div>
+<div class="line-block"><code>webpack</code> | build<br />
+<code>webpack -- -p</code> | build production<br />
+<code>webpack -- --watch</code> | compile continuously</div>
+<p>This compiles <code>src/app.js</code> into <code>public/app.js</code>. (Note: you may need to use <code>./node_modules/.bin/webpack</code> as a command if you're not invoking Webpack via npm scripts.)</p>
+<h3 id="multiple-files">Multiple files</h3>
+<h4 id="webpack.config.js-1">webpack.config.js</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="dt">entry</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="dt">app</span><span class="op">:</span> <span class="st">&#39;src/app.js&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="dt">vendor</span><span class="op">:</span> <span class="st">&#39;src/vendor.js&#39;</span></a>
+<a class="sourceLine" id="cb3-5" title="5">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb3-6" title="6">  <span class="dt">output</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-7" title="7">    <span class="dt">path</span><span class="op">:</span> __dirname <span class="op">+</span> <span class="st">&#39;/public&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-8" title="8">    <span class="dt">filename</span><span class="op">:</span> <span class="st">&#39;[name].js&#39;</span></a>
+<a class="sourceLine" id="cb3-9" title="9">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="op">}</span></a></code></pre></div>
+<p>{: data-line=“2,3,4,8”}</p>
+<p>This creates <code>app.js</code> and <code>vendor.js</code>.</p>
+<h2 id="loaders">Loaders</h2>
+<h3 id="babel">Babel</h3>
+<h4 id="terminal-1">Terminal</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="ex">npm</span> install --save-dev \</a>
+<a class="sourceLine" id="cb4-2" title="2">  babel-loader \</a>
+<a class="sourceLine" id="cb4-3" title="3">  babel-preset-env \</a>
+<a class="sourceLine" id="cb4-4" title="4">  babel-preset-react</a></code></pre></div>
+<h4 id="webpack.config.js-2">webpack.config.js</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  ···</a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="dt">module</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-4" title="4">    <span class="dt">rules</span><span class="op">:</span> [</a>
+<a class="sourceLine" id="cb5-5" title="5">      <span class="op">{</span> <span class="dt">test</span><span class="op">:</span> <span class="ss">/</span><span class="sc">\.</span><span class="ss">js</span><span class="sc">$</span><span class="ss">/</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-6" title="6">        <span class="dt">exclude</span><span class="op">:</span> <span class="ss">/node_modules/</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-7" title="7">        <span class="dt">use</span><span class="op">:</span> [</a>
+<a class="sourceLine" id="cb5-8" title="8">          <span class="op">{</span> <span class="dt">loader</span><span class="op">:</span> <span class="st">&#39;babel-loader&#39;</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-9" title="9">        ]</a>
+<a class="sourceLine" id="cb5-10" title="10">      <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-11" title="11">    ]</a>
+<a class="sourceLine" id="cb5-12" title="12">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-13" title="13"><span class="op">}</span></a></code></pre></div>
+<p>{: data-line=“3,4,5,6,7,8”}</p>
+<h4 id="babelrc">.babelrc</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="st">&quot;presets&quot;</span><span class="op">:</span> [ <span class="st">&quot;env&quot;</span><span class="op">,</span> <span class="st">&quot;react&quot;</span> ]</a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>Adds support for <a href="http://babeljs.io">Babel</a>.</p>
+<h3 id="css">CSS</h3>
+<h4 id="terminal-2">Terminal</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" title="1"><span class="ex">npm</span> install --save-dev \</a>
+<a class="sourceLine" id="cb7-2" title="2">  css-loader \</a>
+<a class="sourceLine" id="cb7-3" title="3">  style-loader</a></code></pre></div>
+<h4 id="webpack.config.js-3">webpack.config.js</h4>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2">  ···</a>
+<a class="sourceLine" id="cb8-3" title="3">  <span class="dt">module</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-4" title="4">    <span class="dt">rules</span><span class="op">:</span> [</a>
+<a class="sourceLine" id="cb8-5" title="5">     <span class="op">{</span> <span class="dt">test</span><span class="op">:</span> <span class="ss">/</span><span class="sc">\.</span><span class="ss">css</span><span class="sc">$</span><span class="ss">/</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb8-6" title="6">       <span class="dt">exclude</span><span class="op">:</span> <span class="ss">/node_modules/</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb8-7" title="7">       <span class="dt">use</span><span class="op">:</span> [</a>
+<a class="sourceLine" id="cb8-8" title="8">         <span class="op">{</span> <span class="dt">loader</span><span class="op">:</span> <span class="st">&#39;style-loader&#39;</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb8-9" title="9">         <span class="op">{</span> <span class="dt">loader</span><span class="op">:</span> <span class="st">&#39;css-loader&#39;</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb8-10" title="10">       ]</a>
+<a class="sourceLine" id="cb8-11" title="11">      <span class="op">}</span></a>
+<a class="sourceLine" id="cb8-12" title="12">    ]</a>
+<a class="sourceLine" id="cb8-13" title="13">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb8-14" title="14"><span class="op">}</span></a></code></pre></div>
+<p>{: data-line=“3,4,5,6,7,8,9”}</p>
+<h4 id="your-javascript">Your JavaScript</h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="im">import</span> <span class="st">&#39;./styles.css&#39;</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="co">// or:</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="at">require</span>(<span class="st">&#39;./styles.css&#39;</span>)</a></code></pre></div>
+<p>This allows you to use CSS inside your JavaScript. This packages your CSS inside your JavaScript bundle.</p>
+<h3 id="postcss">PostCSS</h3>
+<h4 id="terminal-3">Terminal</h4>
+<pre><code>npm install --save-dev \
+  postcss-loader \
+  postcss-cssnext</code></pre>
+<h4 id="webpack.config.js-4">webpack.config.js</h4>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1">···</a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="co">// Inside module.rules[]:</span></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="op">{</span> <span class="dt">test</span><span class="op">:</span> <span class="ss">/</span><span class="sc">\.</span><span class="ss">css</span><span class="sc">$</span><span class="ss">/</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb11-4" title="4">  <span class="dt">exclude</span><span class="op">:</span> <span class="ss">/node_modules/</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb11-5" title="5">  <span class="dt">use</span><span class="op">:</span> [</a>
+<a class="sourceLine" id="cb11-6" title="6">    <span class="op">{</span> <span class="dt">loader</span><span class="op">:</span> <span class="st">&#39;style-loader&#39;</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb11-7" title="7">    <span class="op">{</span> <span class="dt">loader</span><span class="op">:</span> <span class="st">&#39;css-loader&#39;</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb11-8" title="8">    <span class="op">{</span> <span class="dt">loader</span><span class="op">:</span> <span class="st">&#39;postcss-loader&#39;</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb11-9" title="9">···</a></code></pre></div>
+<p>{: data-line=“8”}</p>
+<h4 id="postcss.config.js">postcss.config.js</h4>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-2" title="2">  <span class="dt">plugins</span><span class="op">:</span> [</a>
+<a class="sourceLine" id="cb12-3" title="3">    <span class="at">require</span>(<span class="st">&#39;postcss-cssnext&#39;</span>)()</a>
+<a class="sourceLine" id="cb12-4" title="4">  ]</a>
+<a class="sourceLine" id="cb12-5" title="5"><span class="op">}</span></a></code></pre></div>
+<p>{: data-line=“3”}</p>
+<p>This example adds <a href="https://www.npmjs.com/package/postcss-cssnext">postcss-cssnext</a> support to your CSS files.</p>
+<h2 id="other-features">Other features</h2>
+<h3 id="dev-server">Dev server</h3>
+<h4 id="package.json">package.json</h4>
+<div class="sourceCode" id="cb13"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb13-1" title="1"><span class="fu">{</span> <span class="er">···</span></a>
+<a class="sourceLine" id="cb13-2" title="2">  <span class="dt">&quot;scripts&quot;</span><span class="fu">:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb13-3" title="3">    <span class="dt">&quot;dev&quot;</span><span class="fu">:</span> <span class="st">&quot;webpack-dev-server&quot;</span></a>
+<a class="sourceLine" id="cb13-4" title="4">  <span class="fu">}</span></a>
+<a class="sourceLine" id="cb13-5" title="5"><span class="fu">}</span></a></code></pre></div>
+<p>{: data-line=“3”}</p>
+<h4 id="terminal-4">Terminal</h4>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb14-1" title="1"><span class="ex">npm</span> install --save-dev \</a>
+<a class="sourceLine" id="cb14-2" title="2">  webpack-dev-server</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb15-1" title="1"><span class="ex">npm</span> run dev</a></code></pre></div>
+<p>This starts an HTTP server for development (port 8080 by default).</p>
+</body></html>

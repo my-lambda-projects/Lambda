@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>The final topic is the dreaded infinite loop. Loops are great tools when you need your program to run a code block a certain number of times or until a condition is met, but they need a terminal condition that ends the looping. Infinite loops are likely to freeze or crash the browser, and cause general program execution mayhem, which no one wants.</p>
+<p>There was an example of an infinite loop in the introduction to this section - it had no terminal condition to break out of the <code>while</code> loop inside <code>loopy()</code>. Do NOT call this function!</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">loopy</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="cf">while</span>(<span class="kw">true</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;Hello, world!&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="op">}</span></a></code></pre></div>
+<p>It’s the programmer’s job to ensure that the terminal condition, which tells the program when to break out of the loop code, is eventually reached. One error is incrementing or decrementing a counter variable in the wrong direction from the terminal condition. Another one is accidentally resetting a counter or index variable within the loop code, instead of incrementing or decrementing it.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>The <code>myFunc()</code> function contains an infinite loop because the terminal condition <code>i != 4</code> will never evaluate to <code>false</code> (and break the looping) - <code>i</code> will increment by 2 each pass, and jump right over 4 since <code>i</code> is odd to start. Fix the comparison operator in the terminal condition so the loop only runs for <code>i</code> less than or equal to 4.</p>
+<h1 id="hints">–hints–</h1>
+<p>Your code should change the comparison operator in the terminal condition (the middle part) of the <code>for</code> loop.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(<span class="va">code</span>.<span class="at">match</span>(<span class="ss">/i</span><span class="sc">\s*?</span><span class="ss">&lt;=</span><span class="sc">\s*?</span><span class="ss">4;/g</span>).<span class="at">length</span> <span class="op">==</span> <span class="dv">1</span>)<span class="op">;</span></a></code></pre></div>
+<p>Your code should fix the comparison operator in the terminal condition of the loop.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(<span class="op">!</span><span class="va">code</span>.<span class="at">match</span>(<span class="ss">/i</span><span class="sc">\s*?</span><span class="ss">!=</span><span class="sc">\s*?</span><span class="ss">4;/g</span>))<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">function</span> <span class="at">myFunc</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">!=</span> <span class="dv">4</span><span class="op">;</span> i <span class="op">+=</span> <span class="dv">2</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;Still going!&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="op">}</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">function</span> <span class="at">myFunc</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2"> <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="dv">4</span><span class="op">;</span> i <span class="op">+=</span> <span class="dv">2</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-3" title="3">   <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;Still going!&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-4" title="4"> <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="op">}</span></a></code></pre></div>
+</body></html>

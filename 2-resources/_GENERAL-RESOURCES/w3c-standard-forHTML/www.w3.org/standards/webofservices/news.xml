@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+	<title>Web of Services - W3C</title>
+	<link rel="self" href=""/>
+	<link href="http://www.w3.org/standards/webofservices/"/>
+	<id></id>
+	<generator uri="http://www.planetplanet.org/">Planet/2.0 +http://www.planetplanet.org</generator>
+
+</feed>

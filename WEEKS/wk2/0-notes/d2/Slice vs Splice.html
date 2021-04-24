@@ -1,0 +1,1042 @@
+<html>
+
+  <head>
+    <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+    <meta name=Generator content="Microsoft Word 15 (filtered)">
+    <style>
+      <!--
+      /* Font Definitions */
+      @font-face {
+        font-family: "Cambria Math";
+        panose-1: 2 4 5 3 5 4 6 3 2 4;
+      }
+
+      @font-face {
+        font-family: Calibri;
+        panose-1: 2 15 5 2 2 2 4 3 2 4;
+      }
+
+      @font-face {
+        font-family: Tahoma;
+        panose-1: 2 11 6 4 3 5 4 4 2 4;
+      }
+
+      @font-face {
+        font-family: Consolas;
+        panose-1: 2 11 6 9 2 2 4 3 2 4;
+      }
+
+      /* Style Definitions */
+      p.MsoNormal,
+      li.MsoNormal,
+      div.MsoNormal {
+        margin-top: 0in;
+        margin-right: 0in;
+        margin-bottom: 10.0pt;
+        margin-left: 0in;
+        line-height: 115%;
+        font-size: 11.0pt;
+        font-family: "Calibri", sans-serif;
+      }
+
+      .MsoChpDefault {
+        font-family: "Calibri", sans-serif;
+      }
+
+      .MsoPapDefault {
+        margin-bottom: 10.0pt;
+        line-height: 115%;
+      }
+
+      @page WordSection1 {
+        size: 11.0in 8.5in;
+        margin: .2in .2in .2in .2in;
+      }
+
+      div.WordSection1 {
+        page: WordSection1;
+      }
+
+      -->
+    </style>
+
+  </head>
+
+  <body lang=EN-US style='word-wrap:break-word'>
+
+    <div class=WordSection1>
+
+      <p class=MsoNormal>&nbsp;</p>
+
+      <p class=MsoNormal>&nbsp;</p>
+
+      <p class=MsoNormal align=center style='text-align:center'><img width=718 height=434 id="Picture 1"
+          src="Slice%20vs%20Splice_files/image001.jpg"></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>/*</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>Syntax:</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>slice():</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>array_name.slice(s,&nbsp;e)</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>/------------------------------------------------------</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>splice():</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>array_name.splice(i,&nbsp;n,&nbsp;item&nbsp;1,&nbsp;item&nbsp;2,&nbsp;.....item&nbsp;n)</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>*/</span></p>
+
+      <p class=MsoNormal style='margin-bottom:12.0pt;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>/*1.&nbsp;The&nbsp;splice()&nbsp;method&nbsp;returns&nbsp;the&nbsp;removed&nbsp;item(s)&nbsp;in&nbsp;an&nbsp;array&nbsp;and&nbsp;slice()&nbsp;method&nbsp;returns&nbsp;the&nbsp;selected&nbsp;element(s)&nbsp;in&nbsp;an&nbsp;array,&nbsp;as&nbsp;a&nbsp;new&nbsp;array&nbsp;object.</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>2.&nbsp;The&nbsp;splice()&nbsp;method&nbsp;changes&nbsp;the&nbsp;original&nbsp;array&nbsp;and&nbsp;slice()&nbsp;method&nbsp;doesn�t&nbsp;change&nbsp;the&nbsp;original&nbsp;array.&nbsp;(splice&nbsp;mutates,&nbsp;slice&nbsp;does&nbsp;not)</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>3.&nbsp;The&nbsp;splice()&nbsp;method&nbsp;can&nbsp;take&nbsp;an&nbsp;unlimited&nbsp;(n)&nbsp;number&nbsp;&nbsp;of&nbsp;arguments:</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>Argument&nbsp;1:&nbsp;Index,&nbsp;Required.An&nbsp;integer&nbsp;that&nbsp;specifies&nbsp;at&nbsp;what&nbsp;position&nbsp;to&nbsp;add&nbsp;/&nbsp;remove&nbsp;items,&nbsp;Use&nbsp;negative&nbsp;values&nbsp;to&nbsp;specify&nbsp;the&nbsp;position&nbsp;from&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;array.</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>&nbsp;&nbsp;&nbsp;&nbsp;Argument&nbsp;2:&nbsp;Optional.The&nbsp;number&nbsp;of&nbsp;items&nbsp;to&nbsp;be&nbsp;removed.If&nbsp;set&nbsp;to&nbsp;0(zero),&nbsp;no&nbsp;items&nbsp;will&nbsp;be&nbsp;removed.And&nbsp;if&nbsp;not&nbsp;passed,&nbsp;all&nbsp;item(s)&nbsp;from&nbsp;provided&nbsp;index&nbsp;will&nbsp;be&nbsp;removed.</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Argument&nbsp;3�n:&nbsp;Optional.The&nbsp;new&nbsp;item(s)&nbsp;to&nbsp;be&nbsp;added&nbsp;to&nbsp;the&nbsp;array.</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>*/</span></p>
+
+      <p class=MsoNormal style='margin-bottom:12.0pt;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:blue'>let</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;=&nbsp;[</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>1</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>3</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>4</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>5</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>];</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#001080'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>splice</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>));</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[3,&nbsp;4,&nbsp;5],&nbsp;returned&nbsp;removed&nbsp;item(s)&nbsp;as&nbsp;a&nbsp;new&nbsp;array&nbsp;object.</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#001080'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>);</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[1,&nbsp;2],&nbsp;original&nbsp;array&nbsp;altered.</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:blue'>let</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;=&nbsp;[</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>6</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>7</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>8</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>9</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>0</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>];</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#001080'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>splice</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>1</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>));</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[8]</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#001080'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>splice</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>0</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>));</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>//shows&nbsp;[]&nbsp;,&nbsp;as&nbsp;no&nbsp;item(s)&nbsp;removed.</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#001080'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>);</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[6,7,9,0]</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:blue'>let</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array3</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;=&nbsp;[</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>11</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>12</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>13</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>14</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>15</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>];</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#267F99'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array3</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>splice</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>1</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#A31515'>&quot;Hello&quot;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#A31515'>&quot;World&quot;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>));</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[13]</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#267F99'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array3</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>);</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[11,&nbsp;12,&nbsp;&quot;Hello&quot;,&nbsp;&quot;World&quot;,&nbsp;14,&nbsp;15]</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>/*</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>Negative&nbsp;indexing&nbsp;illustration:</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>����������������
+          -5&nbsp;-&nbsp;4&nbsp;-&nbsp;3&nbsp;-&nbsp;2&nbsp;-&nbsp;1</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>&nbsp;&nbsp;&nbsp;&nbsp;������� �����
+          |�� |&nbsp;&nbsp; |&nbsp;� |&nbsp;&nbsp; |&nbsp;&nbsp; </span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>&nbsp;&nbsp;&nbsp;&nbsp;let&nbsp;array4&nbsp;=&nbsp;[16,&nbsp;17,&nbsp;18,&nbsp;19,&nbsp;20];</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;��������
+          |&nbsp;&nbsp;&nbsp;|&nbsp;
+          &nbsp;|&nbsp;&nbsp; |&nbsp;&nbsp; |&nbsp;&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>&nbsp;&nbsp;&nbsp;&nbsp;�������������
+          0&nbsp;&nbsp;
+          1 &nbsp;&nbsp;2&nbsp;&nbsp; 3&nbsp;&nbsp; 4</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>*/</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#267F99'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array4</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>splice</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>-2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>1</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#A31515'>&quot;me&quot;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>));</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;&nbsp;[19]</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#267F99'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array4</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>);</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[16,&nbsp;17,&nbsp;18,&nbsp;&quot;me&quot;,&nbsp;20]</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:12.0pt;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>//If&nbsp;Argument(1)&nbsp;is&nbsp;NaN,&nbsp;it&nbsp;is&nbsp;treated&nbsp;as&nbsp;if&nbsp;it&nbsp;were&nbsp;0.</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:12.0pt;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:blue'>let</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array5</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;=&nbsp;[</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>21</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>22</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>23</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>24</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>25</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>];</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#267F99'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array5</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>splice</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#267F99'>NaN</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>4</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#A31515'>&quot;NaN&nbsp;is&nbsp;Treated&nbsp;as&nbsp;0&quot;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>));</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[21,22,23,24]</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#267F99'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array5</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>);</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[&quot;NaN&nbsp;is&nbsp;Treated&nbsp;as&nbsp;0&quot;,25]</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>//If&nbsp;Argument(2)&nbsp;is&nbsp;less&nbsp;than&nbsp;0&nbsp;or&nbsp;equal&nbsp;to&nbsp;NaN,&nbsp;it&nbsp;is&nbsp;treated&nbsp;as&nbsp;if&nbsp;it&nbsp;were&nbsp;0.</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:12.0pt;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:blue'>let</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array6</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;=&nbsp;[</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>26</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>27</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>28</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>29</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>30</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>];</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#267F99'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array6</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>splice</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>-5</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#A31515'>&quot;Hello&quot;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>));</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[]</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#267F99'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array6</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>);</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[26,27,&quot;Hello&quot;,28,29,30]</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#267F99'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array6</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>splice</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>3</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#267F99'>NaN</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#A31515'>&quot;World&quot;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>));</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[]</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#267F99'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array6</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>);</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[26,27,&quot;Hello&quot;,&quot;World&quot;,28,29,30]</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:12.0pt;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'><br>
+          <br>
+        </span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>//If&nbsp;Argument(1)&nbsp;or&nbsp;Argument(2)&nbsp;is&nbsp;greater&nbsp;than&nbsp;Array�s&nbsp;length,&nbsp;either&nbsp;argument&nbsp;will&nbsp;use&nbsp;the&nbsp;Array�s&nbsp;length.</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:12.0pt;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:blue'>let</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array7</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;=&nbsp;[</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>31</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>32</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>33</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>34</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>35</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>];</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#267F99'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array7</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>splice</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>23</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>3</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#A31515'>&quot;Add&nbsp;Me&quot;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>));</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[]</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#267F99'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array7</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>);</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[31,32,33,34,35,&quot;Add&nbsp;Me&quot;]</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#267F99'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array7</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>splice</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>34</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#A31515'>&quot;Add&nbsp;Me&nbsp;Too&quot;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>));</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[33,34,35,&quot;Add&nbsp;Me&quot;]</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#267F99'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array7</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>);</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[31,32,&quot;Add&nbsp;Me&nbsp;Too&quot;]</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>//4.&nbsp;The&nbsp;slice()&nbsp;method&nbsp;can&nbsp;take&nbsp;2&nbsp;arguments:</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>/*</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>Argument&nbsp;1:&nbsp;Required.An&nbsp;integer&nbsp;that&nbsp;specifies&nbsp;where&nbsp;to&nbsp;start&nbsp;the&nbsp;selection(The&nbsp;first&nbsp;element&nbsp;has&nbsp;an&nbsp;index&nbsp;of&nbsp;0).Use&nbsp;negative&nbsp;numbers&nbsp;to&nbsp;select&nbsp;from&nbsp;the&nbsp;end&nbsp;of&nbsp;an&nbsp;array.</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>&nbsp;&nbsp;&nbsp;&nbsp;Argument&nbsp;2:&nbsp;Optional.An&nbsp;integer&nbsp;that&nbsp;specifies&nbsp;where&nbsp;to&nbsp;end&nbsp;the&nbsp;selection.If&nbsp;omitted,&nbsp;all&nbsp;elements&nbsp;from&nbsp;the&nbsp;start&nbsp;position&nbsp;and&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;array&nbsp;will&nbsp;be&nbsp;selected.Use&nbsp;negative&nbsp;numbers&nbsp;to&nbsp;select&nbsp;from&nbsp;the&nbsp;end&nbsp;of&nbsp;an&nbsp;array.</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>*/</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:blue'>let</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;=&nbsp;[</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>1</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>3</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>4</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>5</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>]</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#267F99'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>slice</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>));</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[3,&nbsp;4,&nbsp;5],&nbsp;returned&nbsp;selected&nbsp;element(s).</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#267F99'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>slice</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>-2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>));</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[4,&nbsp;5],&nbsp;returned&nbsp;selected&nbsp;element(s).</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#001080'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>);</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[1,&nbsp;2,&nbsp;3,&nbsp;4,&nbsp;5],&nbsp;original&nbsp;array&nbsp;remains&nbsp;intact.</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:blue'>let</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;=&nbsp;[</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>6</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>7</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>8</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>9</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>0</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>];</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#001080'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>slice</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>4</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>));</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[8,&nbsp;9]</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#001080'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>slice</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>-2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>4</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>));</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[9]</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#001080'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>slice</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>-3</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>-1</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>));</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[8,&nbsp;9]</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#001080'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>);</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[6,&nbsp;7,&nbsp;8,&nbsp;9,&nbsp;0]</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>//If&nbsp;either&nbsp;argument&nbsp;is&nbsp;NaN,&nbsp;it&nbsp;is&nbsp;treated&nbsp;as&nbsp;if&nbsp;it&nbsp;were&nbsp;0.</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:blue'>let</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array3</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;=&nbsp;[</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>11</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>12</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>13</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>14</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>15</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>];</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#001080'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array3</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>slice</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>NaN</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>NaN</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>));</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[]</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#001080'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array3</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>slice</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>NaN</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>4</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>));</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[11,12,13,14]</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#001080'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array3</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>);</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[11,12,13,14,15]</span></p>
+
+      <p class=MsoNormal style='margin-bottom:12.0pt;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'><br>
+          <br>
+        </span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span
+          style='font-size:10.5pt;font-family:Consolas;color:green'>//If&nbsp;either&nbsp;argument&nbsp;is&nbsp;greater&nbsp;than&nbsp;the&nbsp;Array�s&nbsp;length,&nbsp;either&nbsp;argument&nbsp;will&nbsp;use&nbsp;the&nbsp;Array�s&nbsp;length</span>
+      </p>
+
+      <p class=MsoNormal style='margin-bottom:12.0pt;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:blue'>let</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array4</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;=&nbsp;[</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>16</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>17</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>18</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>19</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>20</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>];</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#001080'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array4</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>slice</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>23</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>24</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>));</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[]</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#001080'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array4</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>slice</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>23</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>));</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[]</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#001080'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array4</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>slice</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>2</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>,&nbsp;</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#098658'>23</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>));</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[18,19,20]</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:#001080'>console</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>.</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#795E26'>log</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>(</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:#001080'>array4</span><span
+          style='font-size:10.5pt;font-family:Consolas;color:black'>);</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:green'>//&nbsp;shows&nbsp;[16,17,18,19,20]</span></p>
+
+      <p class=MsoNormal style='margin-bottom:0in;line-height:14.25pt;background:
+white'><span style='font-size:10.5pt;font-family:Consolas;color:black'>&nbsp;</span></p>
+
+      <p class=MsoNormal>&nbsp;</p>
+
+    </div>
+
+  </body>
+
+</html>

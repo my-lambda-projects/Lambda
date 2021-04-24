@@ -1,0 +1,13 @@
+.Link {
+  display: block;
+  margin: 30px;
+  padding: 15px;
+  border: 0.25px solid black;
+  width: 300px;
+  font-size: 30px;
+}
+
+.Link::after {
+  content: ">";
+  margin-left: 15px;
+}

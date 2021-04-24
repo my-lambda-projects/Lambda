@@ -1,0 +1,2055 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":2,"applicationTime":146,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Builderbook</title>
+<meta name="description" content="Open source web application to learn JS stack: React, Material-UI, Next.js, Node.js, Express.js, Mongoose, MongoDB database.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/builderbook/builderbook">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "builderbook/builderbook",
+  "description": "Open source web application to learn JS stack: React, Material-UI, Next.js, Node.js, Express.js, Mongoose, MongoDB database.",
+  "url": "https://awesomeopensource.com/project/builderbook/builderbook",
+  "sku": "project/builderbook/builderbook",
+  "mpn": "project/builderbook/builderbook",
+  "image": "https://github.com/builderbook.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "builderbook/builderbook",
+    "logo": "https://github.com/builderbook.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.94",
+    "ratingCount": "2549"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="YfClK+C4+wmVqcGCbmD4ABsJR0O9tzEmebN3+PDTssJpufGHmxiavmm2kI8FYVO9BGilfFptGNNNETqAHw/xdQ==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/builderbook/builderbook","location":"/project/builderbook/builderbook","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/builderbook/builderbook","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-86b2bd66-e0a4-47e4-8b33-8acd0a973c44"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Builderbook</div><div class="aos_project_metadata_description">Open source web application to learn JS stack: React, Material-UI, Next.js, Node.js, Express.js, Mongoose, MongoDB database.</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">2,549</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content">other</span><span><div class="aos_project_metadata_header"><a href="https://builderbook.org" target="_blank" class="aos_grey_link" rel="nofollow">Homepage</a></div> <span class="aos_project_metadata_content"><a href="https://builderbook.org" target="_blank">https://builderbook.org</a></span></span><div class="aos_project_metadata_header"><a href="https://github.com/builderbook/builderbook" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/builderbook/builderbook" target="_blank">https://github.com/builderbook/builderbook</a></span><div class="aos_project_metadata_header"><a href="https://github.com/builderbook/builderbook/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/builderbook/builderbook/issues" target="_blank">67</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">13 days ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/javascript"><div style="display:block;text-decoration:none;padding-bottom:10px">javascript<span> (<!-- -->67,310<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/react"><div style="display:block;text-decoration:none;padding-bottom:10px">react<span> (<!-- -->5,029<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/nodejs"><div style="display:block;text-decoration:none;padding-bottom:10px">nodejs<span> (<!-- -->3,563<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/mongodb"><div style="display:block;text-decoration:none;padding-bottom:10px">mongodb<span> (<!-- -->751<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/boilerplate"><div style="display:block;text-decoration:none;padding-bottom:10px">boilerplate<span> (<!-- -->590<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/nextjs"><div style="display:block;text-decoration:none;padding-bottom:10px">nextjs<span> (<!-- -->242<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/material-ui"><div style="display:block;text-decoration:none;padding-bottom:10px">material-ui<span> (<!-- -->202<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/expressjs"><div style="display:block;text-decoration:none;padding-bottom:10px">expressjs<span> (<!-- -->188<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/mongoose"><div style="display:block;text-decoration:none;padding-bottom:10px">mongoose<span> (<!-- -->161<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/github-api"><div style="display:block;text-decoration:none;padding-bottom:10px">github-api<span> (<!-- -->123<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/stripe"><div style="display:block;text-decoration:none;padding-bottom:10px">stripe<span> (<!-- -->92<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/apis"><div style="display:block;text-decoration:none;padding-bottom:10px">apis<span> (<!-- -->59<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/passport"><div style="display:block;text-decoration:none;padding-bottom:10px">passport<span> (<!-- -->56<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/google-api"><div style="display:block;text-decoration:none;padding-bottom:10px">google-api<span> (<!-- -->33<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/mailchimp"><div style="display:block;text-decoration:none;padding-bottom:10px">mailchimp<span> (<!-- -->25<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h2>
+<a id="builder-book" class="anchor" href="#builder-book" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Builder Book</h2>
+<p>Open source web app to self-publish and sell books or other online content (<code>builderbook</code> directory of this repository). If you are book's reader, you will work <code>book</code> directory.</p>
+<p>We've used this <code>builderbook</code> project to build:</p>
+<ul>
+<li>
+<a href="https://builderbook.org" rel="nofollow">Builder Book</a> - learn how to build full-stack web apps from scratch</li>
+<li>
+<a href="https://github.com/async-labs/saas" rel="nofollow">SaaS Boilerplate</a> - open source web app to build your own SaaS product</li>
+<li>
+<a href="https://async-await.com" rel="nofollow">Async</a> - team communication tool for software developers</li>
+</ul>
+<h2>
+<a id="live-app" class="anchor" href="#live-app" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Live app:</h2>
+<ul>
+<li>
+<a href="https://builderbook.org/books/builder-book/introduction" rel="nofollow">https://builderbook.org/books/builder-book/introduction</a>.</li>
+</ul>
+<h2>
+<a id="what-can-i-learn-from-this-project" class="anchor" href="#what-can-i-learn-from-this-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What can I learn from this project?</h2>
+<p>You will learn how to structure your project and build many intetnal and external API infrastructures.</p>
+<p>On the browser, the main technologies you will learn are: Next.js, React.js, Material-UI.
+On the server, the main technologies you will learn are: Next.js, Node.js, Express.js, Mongoose.js, MongoDB database.</p>
+<p>In addition to the above technologies, you can learn how to integrate your web application with the following external API services:</p>
+<ul>
+<li>Google OAuth API</li>
+<li>Github API</li>
+<li>Stripe API</li>
+<li>AWS SES API</li>
+<li>Mailchimp API</li>
+</ul>
+<p>Plus, you can learn many concepts such as <code>session</code> and <code>cookie</code>, headers, HTTP request-response, Express middleware, <code>Promise</code>, <code>async/await</code>, and more. You have to know these concepts to be a confident web developer, no matter what language you use.</p>
+<p>The main use cases for this project, besides learning, are:</p>
+<ul>
+<li>To write and host free documentation with Github being a source of truth for content.</li>
+<li>To sell online content, such as books.</li>
+<li>To extend it (see our second book, SaaS Boilerplate Book) to start software business.</li>
+</ul>
+<h2>
+<a id="contents" class="anchor" href="#contents" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contents</h2>
+<ul>
+<li><a href="#showcase">Showcase</a></li>
+<li><a href="#run-locally">Run locally</a></li>
+<li><a href="#add-a-new-book">Add a new book</a></li>
+<li><a href="#add-your-own-styles">Add your own styles</a></li>
+<li><a href="#deploy-to-heroku">Deploy to Heroku</a></li>
+<li><a href="#scaling">Scaling</a></li>
+<li><a href="#screenshots">Screenshots</a></li>
+<li>
+<a href="#built-with">Built with</a>
+<ul>
+<li><a href="#core-stack">Core stack</a></li>
+<li><a href="#third-party-apis">Third party APIs</a></li>
+</ul>
+</li>
+<li><a href="#docker">Docker</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#team">Team</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#project-structure">Project structure</a></li>
+</ul>
+<h2>
+<a id="showcase" class="anchor" href="#showcase" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Showcase</h2>
+<p>Check out projects built with the help of this open source app. Feel free to add your own project by creating a pull request.</p>
+<ul>
+<li>
+<a href="https://github.com/async-labs/saas-by-async" rel="nofollow">SaaS boilerplate app</a>: Open source web app that saves you weeks of work when building your own SaaS product.</li>
+<li>
+<a href="https://async-await.com/" rel="nofollow">Async</a>: asynchronous communication and project management tool for small teams of software engineers.</li>
+<li>
+<a href="https://retaino.com" rel="nofollow">Retaino</a> by <a href="https://github.com/earllee" rel="nofollow">Earl Lee</a> : Save, annotate, review, and share great web content. Receive smart email digests to retain key information.</li>
+<li>
+<a href="https://michaelstromer.nyc" rel="nofollow">https://michaelstromer.nyc</a> by <a href="https://github.com/Maelstroms38" rel="nofollow">Michael Stromer</a>: Books and articles by Michael Stromer.</li>
+<li>Email us to be added here!</li>
+</ul>
+<h2>
+<a id="run-locally" class="anchor" href="#run-locally" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Run locally</h2>
+<ul>
+<li>Clone the project and run <code>yarn</code> to add packages.</li>
+<li>Before you start the app, create a <code>.env</code> file at the app's root. This file must have values for some env variables specified below.
+<ul>
+<li>
+<p>To get <code>MONGO_URL_TEST</code>, we recommend a <a href="https://docs.mongodb.com/manual/tutorial/atlas-free-tier-setup/" rel="nofollow">free MongoDB at MongoDB Atlas</a> (to be updated soon with MongoDB Atlas, see <a href="https://github.com/builderbook/builderbook/issues/138" rel="nofollow">issue</a>).</p>
+</li>
+<li>
+<p>Get <code>GOOGLE_CLIENTID</code> and <code>GOOGLE_CLIENTSECRET</code> by following <a href="https://developers.google.com/identity/sign-in/web/sign-in#before_you_begin" rel="nofollow">official OAuth tutorial</a>.</p>
+<p>Important: For Google OAuth app, callback URL is: <a href="http://localhost:8000/oauth2callback" rel="nofollow">http://localhost:8000/oauth2callback</a> <br>
+Important: You have to enable Google+ API in your Google Cloud Platform account.</p>
+</li>
+<li>
+<p>Specify your own secret key for Express session <code>SESSION_SECRET</code>: <a href="https://github.com/expressjs/session#secret" rel="nofollow">https://github.com/expressjs/session#secret</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>To use all features and third-party integrations (such as Stripe, Google OAuth, Mailchimp), add values for all of the following env variables in your <code>.env</code> file:</p>
+<p><code>.env</code> :</p>
+<pre><code># Used in server/server.js
+MONGO_URL=
+MONGO_URL_TEST=
+SESSION_SECRET=
+
+# Used in lib/getRootUrl.js
+URL_APP=
+PRODUCTION_URL_APP=
+
+# Used in server/google.js
+GOOGLE_CLIENTID=
+GOOGLE_CLIENTSECRET=
+
+# Used in server/aws.js
+AWS_ACCESSKEYID=
+AWS_SECRETACCESSKEY=
+AWS_REGION=
+
+# Used in server/models/User.js
+EMAIL_ADDRESS_FROM=
+
+----------
+# All environmental variables above this line are required for successful sign up
+
+# Used in server/github.js
+GITHUB_TEST_CLIENTID=
+GITHUB_LIVE_CLIENTID=
+GITHUB_TEST_SECRETKEY=
+GITHUB_LIVE_SECRETKEY=
+
+# Used in server/stripe.js
+STRIPE_TEST_PUBLISHABLEKEY=
+STRIPE_LIVE_PUBLISHABLEKEY=
+STRIPE_TEST_SECRETKEY=
+STRIPE_LIVE_SECRETKEY=
+STRIPE_TEST_DEMO_BOOK_PRICE_ID=
+STRIPE_LIVE_DEMO_BOOK_PRICE_ID=
+STRIPE_TEST_SECOND_BOOK_PRICE_ID=
+STRIPE_LIVE_SECOND_BOOK_PRICE_ID=
+
+# Used in server/mailchimp.js
+MAILCHIMP_API_KEY=
+MAILCHIMP_REGION=
+MAILCHIMP_PURCHASED_LIST_ID=
+MAILCHIMP_SIGNEDUP_LIST_ID=
+
+# Used in pages/_document.js and pages/_app.js
+GA_MEASUREMENT_ID=
+COOKIE_DOMAIN=
+
+</code></pre>
+<ul>
+<li>Start the app with <code>yarn dev</code>.
+<ul>
+<li>To get <code>GA_MEASUREMENT_ID</code>, set up Google Analytics and follow <a href="https://support.google.com/analytics/answer/1008080?hl=en" rel="nofollow">these instructions</a> to find your tracking ID.</li>
+<li>To get Stripe-related API keys, set up or log into your Stripe account and find your key <a href="https://dashboard.stripe.com/account/apikeys" rel="nofollow">here</a>.</li>
+</ul>
+</li>
+<li>Env keys <code>GA_MEASUREMENT_ID</code> and <code>STRIPE_TEST_PUBLISHABLEKEY</code>/<code>STRIPE_LIVE_PUBLISHABLEKEY</code> are universally available (client and server). Env keys inside <code>.env</code> file are used in server code only. To make env vars universally available, add them to <code>next.config.js</code> file.</li>
+<li>To make user a book's owner, set <code>"isAdmin": true</code> on corresponding MongoDB document in your database (default value is <code>false</code> for any new user).</li>
+</ul>
+<p><strong>Important: if you don't add values for environmental variables to <code>.env</code> file, corresponding functionality will not work. For example, login with Google account, purchasing book, getting repo information via GitHub API and other third-party API infrastructures.</strong></p>
+<h2>
+<a id="add-a-new-book" class="anchor" href="#add-a-new-book" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add a new book</h2>
+<ul>
+<li>
+<p>Create a new Github repo (public or private).</p>
+</li>
+<li>
+<p>In that repo, create an <code>introduction.md</code> file and write some content.</p>
+</li>
+<li>
+<p>At the top of your <code>introduction.md</code> file, add metadata in the format shown below. See <a href="https://github.com/builderbook/demo-book/blob/master/introduction.md" rel="nofollow">this file</a> as an example.</p>
+<pre><code>---
+title: Introduction
+seoTitle: title for search engines
+seoDescription: description for search engines
+isFree: true
+---
+</code></pre>
+</li>
+<li>
+<p>Go to the app, click "Connect Github".</p>
+</li>
+<li>
+<p>Click "Add Book". Enter details and select the Github repo you created.</p>
+</li>
+<li>
+<p>Click "Save".</p>
+</li>
+</ul>
+<p>When you add new <code>.md</code> files or update content, go to the <code>BookDetail</code> page of your app and click <code>Sync with Github</code>.</p>
+<p>Important: All <code>.md</code> files in your Github repo <em>must</em> have metadata in the format shown above.</p>
+<p>Important: All <code>.md</code> files in your Github repo <em>must</em> have name <code>introduction.md</code> or <code>chapter-N.md</code>.</p>
+<p>To make the content of a <code>.md</code> file <em>private</em> (meaning a person must purchase the content to see it), remove <code>isFree:true</code>  and add <code>excerpt:""</code>. Add some excerpt content - this content is public and serves as a free preview.</p>
+<h2>
+<a id="add-your-own-styles" class="anchor" href="#add-your-own-styles" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add your own styles</h2>
+<p>To change the color scheme of this app, modify the <code>primary</code> and <code>secondary</code> theme colors inside <code>lib/context.js</code>. Select any colors from Material UI's official <a href="https://material-ui-next.com/style/color/#color" rel="nofollow">color palette</a>.</p>
+<p>Recommended ways to add your own styles to this app:</p>
+<ol>
+<li><a href="#inline-style-for-a-single-element">Inline style for a single element</a></li>
+<li><a href="#reusable-style-for-multiple-elements-within-single-page-or-component">Reusable style for multiple elements within single page or component</a></li>
+<li><a href="#reusableimportable-style-for-multiple-pages-or-components">Reusable/importable style for multiple pages or components</a></li>
+<li><a href="#global-style-for-all-pages-in-application">Global style for all pages in application</a></li>
+</ol>
+<h3>
+<a id="inline-style-for-a-single-element" class="anchor" href="#inline-style-for-a-single-element" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Inline style for a single element</h3>
+<p>USE CASE: apply a style to <em>one element</em> on a single page/component <br>
+For example, in our <code>book</code> page, we wrote this single inline style:</p>
+<pre><code>&lt;p style={{ textAlign: 'center' }}&gt;
+  ...
+&lt;/p&gt;
+</code></pre>
+<p><a href="https://github.com/builderbook/builderbook/blob/49116676e0894fcf00c33d208a284359b30f12bb/pages/book.js#L48" rel="nofollow">See usage</a></p>
+<h3>
+<a id="reusable-style-for-multiple-elements-within-single-page-or-component" class="anchor" href="#reusable-style-for-multiple-elements-within-single-page-or-component" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Reusable style for multiple elements within single page or component</h3>
+<p>USE CASE: apply the same style to <em>multiple elements</em> on a single page/component.<br>
+For example, in our <code>tutorials</code> page, we created <code>styleExcerpt</code> and applied it to a <code>&lt;p&gt;</code> element within the page:</p>
+<pre><code>const styleExcerpt = {
+  margin: '0px 20px',
+  opacity: '0.75',
+  fontSize: '13px',
+};
+
+&lt;p style={styleExcerpt}&gt;
+  ...
+&lt;/p&gt;
+
+</code></pre>
+<p><a href="https://github.com/builderbook/builderbook/blob/49116676e0894fcf00c33d208a284359b30f12bb/pages/tutorials.js#L14" rel="nofollow">See usage</a></p>
+<h3>
+<a id="reusableimportable-style-for-multiple-pages-or-components" class="anchor" href="#reusableimportable-style-for-multiple-pages-or-components" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Reusable/importable style for multiple pages or components</h3>
+<p>USE CASE: apply the same style to elements on <em>multiple pages/components</em>.<br>
+For example, we created <code>styleH1</code> inside <code>components/SharedStyles.js</code> and exported the style at the bottom of the file:</p>
+<pre><code>const styleH1 = {
+  textAlign: 'center',
+  fontWeight: '400',
+  lineHeight: '45px',
+};
+
+module.exports = {
+  styleH1,
+};
+</code></pre>
+<p><a href="https://github.com/builderbook/builderbook/blob/04c6cf78bee42455d48ef3466d868f2196381a57/components/SharedStyles.js#L48" rel="nofollow">See usage</a></p>
+<p>We then imported <code>styleH1</code> into our <code>book</code> page, as well as our <code>index</code> page, and applied the style to a <code>&lt;h1&gt;</code> element:</p>
+<pre><code>import {
+  styleH1,
+} from '../components/SharedStyles';
+
+&lt;h1 style={styleH1}&gt;
+  ...
+&lt;/h1&gt;
+</code></pre>
+<p><a href="https://github.com/builderbook/builderbook/blob/49116676e0894fcf00c33d208a284359b30f12bb/pages/book.js#L13" rel="nofollow">See usage</a></p>
+<h3>
+<a id="global-style-for-all-pages-in-application" class="anchor" href="#global-style-for-all-pages-in-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Global style for all pages in application</h3>
+<p>USE CASE: apply the same style to elements on <em>all pages</em> of your app.<br>
+Create your style in <code>pages/_document.js</code>. For example, we specified a style for all hyperlinks that use the <code>&lt;a&gt;</code> element:</p>
+<pre><code>&lt;style&gt;
+  {`
+    a, a:focus {
+      font-weight: 400;
+      color: #1565C0;
+      text-decoration: none;
+      outline: none
+    }
+  `}
+&lt;/style&gt;
+</code></pre>
+<p><a href="https://github.com/builderbook/builderbook/blob/49116676e0894fcf00c33d208a284359b30f12bb/pages/_document.js#L51" rel="nofollow">See usage</a></p>
+<p>We also specified styles for all content inside a <code>&lt;body&gt;</code> element:</p>
+<pre><code>&lt;body
+  style={{
+    font: '16px Muli',
+    color: '#222',
+    margin: '0px auto',
+    fontWeight: '400',
+    lineHeight: '1.5em',
+    backgroundColor: '#F7F9FC',
+  }}
+&gt;
+&lt;/body&gt;
+</code></pre>
+<p><a href="https://github.com/builderbook/builderbook/blob/49116676e0894fcf00c33d208a284359b30f12bb/pages/_document.js#L96" rel="nofollow">See usage</a></p>
+<h2>
+<a id="deploy-to-heroku" class="anchor" href="#deploy-to-heroku" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Deploy to Heroku</h2>
+<p>In this section we will learn how to deploy our app to <a href="https://www.heroku.com/home" rel="nofollow">Heroku cloud</a>. We will deploy our React-Next-Express app to lightweight Heroku container called <a href="https://www.heroku.com/dynos" rel="nofollow">dyno</a>.</p>
+<p>Instructions are for app located at <code>/book/8-end</code>.
+Adjust route if you are deploying app from the root of this public repo.</p>
+<p>We will discuss the following topics in this section:</p>
+<ol>
+<li>installing Heroku on Linux-based OS</li>
+<li>creating app on Heroku dashboard</li>
+<li>preparing app for deployment</li>
+<li>configuring env variables</li>
+<li>deploying app</li>
+<li>checking logs</li>
+<li>adding custom domain</li>
+</ol>
+<p>Let's go step by step.</p>
+<ol>
+<li>Install Heroku CLI (command-line interface) on your OS. Follow the <a href="https://devcenter.heroku.com/articles/heroku-cli" rel="nofollow">official guide</a>. In this book we provide instructions for Linux-based systems, in particular, a Ubuntu OS. For Ubuntu OS, run in your terminal:</li>
+</ol>
+  <pre>sudo snap install --classic heroku</pre>
+<p>To confirm a successful installation, run:</p>
+  <pre>heroku --version</pre>
+<p>As example, my output that confirms successful installation, looks like:</p>
+  <pre>heroku/7.22.7 linux-x64 node-v11.10.1</pre>
+<ol start="2">
+<li>
+<p><a href="https://signup.heroku.com/" rel="nofollow">Sign up</a> for Heroku, go to your Heroku dashboard and click purple <b>New</b> button on the right:
+<a href="https://user-images.githubusercontent.com/10218864/54558094-12b1f100-497a-11e9-94dd-d36399052931.png" target="_blank" rel="nofollow"><img src="https://user-images.githubusercontent.com/10218864/54558094-12b1f100-497a-11e9-94dd-d36399052931.png" alt="image" style="max-width:100%;"></a></p>
+<p>On the next screen, give a name to your app and select a region. Click purple <b>Create app</b> button at the bottom:
+<a href="https://user-images.githubusercontent.com/10218864/54558276-8eac3900-497a-11e9-9026-25aa5047af87.png" target="_blank" rel="nofollow"><img src="https://user-images.githubusercontent.com/10218864/54558276-8eac3900-497a-11e9-9026-25aa5047af87.png" alt="image" style="max-width:100%;"></a></p>
+<p>You will be redirected to <code>Deploy</code> tab of your newly created Heroku app:
+<a href="https://user-images.githubusercontent.com/10218864/54558544-417c9700-497b-11e9-8885-6fdfde21c747.png" target="_blank" rel="nofollow"><img src="https://user-images.githubusercontent.com/10218864/54558544-417c9700-497b-11e9-8885-6fdfde21c747.png" alt="image" style="max-width:100%;"></a></p>
+</li>
+<li>
+<p>As you can see from the above screenshot, you have two options. You can deploy the app directly from your local machine using Heroku CLI or directly from GitHub.
+In this tutorial, we will deploy a <code>builderbook/builderbook/book/8-end</code> app from our public <a href="https://github.com/builderbook/builderbook" rel="nofollow">builderbook/builderbook</a> repo hosted on GitHub. Deploying from a private repo will be a similar process.</p>
+<p>Deploying from GitHub has a few advantages. Heroku uses git to track changes in a codebase. It's possible to deploy app from the local machine using Heroku CLI, however you have to create a <a href="https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository" rel="nofollow">Git repo</a> for <code>builderbook/builderbook/book/8-end</code> with <code>package.json</code> file at the root level. A first advantage is that we can deploy from a non-root folder using GitHub instead of Heroku CLI.</p>
+<p>A second advantage is automation, later on you can create a branch that automatically deploy every new commit to Heroku. For example, we have a <a href="https://github.com/async-labs/saas/tree/deploy" rel="nofollow">deploy branch</a> for our demo for <a href="https://github.com/async-labs/saas/" rel="nofollow">SaaS boilerplate</a>. When we commit to <code>master</code> branch - there is no new deployment, when we commit to <code>deploy</code> branch - new change is automatically deployed to Heroku app.</p>
+<p>Let's set up deploying from GitHub. On <code>Deploy</code> tab of your Heroku app at Heroku dashboard, click <b>Connect to GitHub</b>, then search for your repo, then click <b>Connect</b> next to the name of the proper repo:
+<a href="https://user-images.githubusercontent.com/10218864/54560210-09775300-497f-11e9-9027-2e3850ec7ff1.png" target="_blank" rel="nofollow"><img src="https://user-images.githubusercontent.com/10218864/54560210-09775300-497f-11e9-9027-2e3850ec7ff1.png" alt="image" style="max-width:100%;"></a></p>
+<p>If successful, you will see green text <code>Connected</code> and be offered to select a branch and deploy app automatically or manually. Automatic deployment will deploy every new commit, manual deployment requires you to manually click on <b>Deploy Branch</b> button. For simplicity, we will deploy manually from <code>master</code> branch of our <code>builderbook/builderbook</code> repo.</p>
+<p>Before we perform a manual deployment via GitHub, we need Heroku to run some additional code while app is being deploying. Firstly, we need to tell Heroku that <code>8-end</code> app in the <code>builderbook/builderbook</code> repo is not at the root level, it's actually nested at <code>/book/8-end</code>. Secondly, Heroku needs to know that our app is Node.js app so Heroku finds <code>package.json</code> file, properly installs dependencies and runs proper scripts (such as <code>build</code> and <code>start</code> scripts from <code>package.json</code>). To achieve this, we need to add so called <code>buildpacks</code> to our Heroku app. Click <code>Settings</code> tab, scroll to <code>Buildpacks</code> section and click purple <b>Add buildpack</b> button:
+<a href="https://user-images.githubusercontent.com/10218864/54561192-50fede80-4981-11e9-976a-c3d7c88527ec.png" target="_blank" rel="nofollow"><img src="https://user-images.githubusercontent.com/10218864/54561192-50fede80-4981-11e9-976a-c3d7c88527ec.png" alt="image" style="max-width:100%;"></a></p>
+<p>Add two buildpacks, first is <code>https://github.com/timanovsky/subdir-heroku-buildpack</code> and second is <code>heroku/nodejs</code>:
+<a href="https://user-images.githubusercontent.com/10218864/54561577-30835400-4982-11e9-997f-4711d999808e.png" target="_blank" rel="nofollow"><img src="https://user-images.githubusercontent.com/10218864/54561577-30835400-4982-11e9-997f-4711d999808e.png" alt="image" style="max-width:100%;"></a></p>
+<p>Next, scroll up while on <code>Settings</code> tab and click purple <b>Reveal Config Vars</b> button, create a new environmental variable <code>PROJECT_PATH</code> with value <code>book/8-end</code>:
+<a href="https://user-images.githubusercontent.com/10218864/54561775-a5568e00-4982-11e9-9561-2e5827873779.png" target="_blank" rel="nofollow"><img src="https://user-images.githubusercontent.com/10218864/54561775-a5568e00-4982-11e9-9561-2e5827873779.png" alt="image" style="max-width:100%;"></a></p>
+<p>The above variable will be used by the first buildpack <code>subdir-heroku-buildpack</code> to deploy app from repo's subdirectory.</p>
+</li>
+<li>
+<p>If we deploy app at this point, our app will deploy with errors since we did not add environmental variables. Similar to how you added <code>PROJECT_PATH</code> variable, add all environmental variables from <code>book/8-end/.env</code> file to your Heroku app. Remember to add the rest of env variables for all features to work, including signup event.</p>
+</li>
+<li>
+<p>While on <code>Settings</code> tab, scroll to <code>Domains and certificates</code> section and note your app's URL. My app's URL is: <a href="https://builderbook-8-end.herokuapp.com" rel="nofollow">https://builderbook-8-end.herokuapp.com</a>
+Let's deploy, go to <code>Deploy</code> tab, scroll to <code>Manual deploy</code> section and click <b>Deploy branch</b> button.
+After deployment process is complete , navigate to your app's URL:
+<a href="https://user-images.githubusercontent.com/10218864/54564053-10569380-4988-11e9-87dd-f81a28dd6406.png" target="_blank" rel="nofollow"><img src="https://user-images.githubusercontent.com/10218864/54564053-10569380-4988-11e9-87dd-f81a28dd6406.png" alt="image" style="max-width:100%;"></a></p>
+</li>
+<li>
+<p>Server logs are not available on Heroku dashboard. To see logs, you have to use Heroku CLI.
+In your terminal, run:</p>
+ <pre>heroku login</pre>
+<p>Follow instructions to log in to Heroku CLI.</p>
+<p>After successful login, terminal will print:</p>
+ <pre>Logged in as <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c5a0a8a4aca985a1aaa8a4acabeba6aaa8">[email&#160;protected]</a></pre>
+<p>Where <code><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="452028242c2905212a28242c2b6b262a28">[email&#160;protected]</a></code> is an email address that you used to create your Heroku account.</p>
+<p>To see logs, in your terminal run:</p>
+ <pre>heroku logs --app builderbook-8-end --tail</pre>
+<p>In your terminal, you will see your most recent logs and be able to see a real-time logs.</p>
+<p>You can output certain number of lines (N) for retrieved logs by adding <code>--num N</code> to the <code>heroku logs</code> command.
+You can print only app's logs by adding <code>--source app</code> or system's logs by adding <code>--source heroku</code>.</p>
+</li>
+<li>
+<p>Time to add a custom domain. The Heroku app that we created is deployed on <code>free dyno</code>. Free dyno plan does not let you to add a custom domain to your app. To add custom domain, go to <code>Resources</code> tab and click purple <b>Change Dyno Type</b> button:
+<a href="https://user-images.githubusercontent.com/10218864/54622849-983faa80-4a27-11e9-957f-54fe5aa742ca.png" target="_blank" rel="nofollow"><img src="https://user-images.githubusercontent.com/10218864/54622849-983faa80-4a27-11e9-957f-54fe5aa742ca.png" alt="image" style="max-width:100%;"></a></p>
+<p>Select a <code>Hobby</code> plan and click <b>Save</b> button.</p>
+<p>Navigate to <code>Settings</code> tab and scroll to the <code>Domains and certificates</code> and click purple <b>Add domain</b> button:
+<a href="https://user-images.githubusercontent.com/10218864/54623152-36cc0b80-4a28-11e9-974b-8a14fb56a86a.png" target="_blank" rel="nofollow"><img src="https://user-images.githubusercontent.com/10218864/54623152-36cc0b80-4a28-11e9-974b-8a14fb56a86a.png" alt="image" style="max-width:100%;"></a></p>
+<p>Type your custom domain name, I added <code>heroku.builderbook.org</code> as a custom domain, click <b>Save changes</b> button.</p>
+<p>Heroku will display you a value for CNAME record that you have to create for your custom domain. For me, custom domain is `heroku.builderbook.org and I manage DNS records at Now by Zeit.</p>
+<p>After you create a CNAME, ACM status on Heroku's dashboard will change to <code>Ok</code>:
+<a href="https://user-images.githubusercontent.com/10218864/54624195-2452d180-4a2a-11e9-999d-a6a771cde73c.png" target="_blank" rel="nofollow"><img src="https://user-images.githubusercontent.com/10218864/54624195-2452d180-4a2a-11e9-999d-a6a771cde73c.png" alt="image" style="max-width:100%;"></a></p>
+</li>
+</ol>
+<p>It's important that you remember to manually add your custom domain to the settings of your Google OAuth app (Chapter 3) and GitHub OAuth app (Chapter 6). If you forget to do it, you will see errors when you try to log in to your app or when you try to connect GitHub to your app.</p>
+<h2>
+<a id="scaling" class="anchor" href="#scaling" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scaling</h2>
+<p>You may want to consider splitting single Next/Express server into two servers:</p>
+<ul>
+<li>Next server for serving pages, server-side caching, sitemap and robots</li>
+<li>Express server for internal and external APIs</li>
+</ul>
+<p>Here is an example of web application with split servers:
+<a href="https://github.com/async-labs/saas" rel="nofollow">https://github.com/async-labs/saas</a></p>
+<p>Splitting servers will get you:</p>
+<ul>
+<li>faster page loads since Next rendering does not block internal and external APIs,</li>
+<li>faster code reload times during development,</li>
+<li>faster deployment and more flexible scaling of individual apps.</li>
+</ul>
+<h2>
+<a id="screenshots" class="anchor" href="#screenshots" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Screenshots</h2>
+<p>Chapter excerpt with Buy Button for Public/Guest visitor:
+<a href="https://user-images.githubusercontent.com/26158226/38517453-e84a7566-3bee-11e8-82cd-14b4dfbe6a78.png" target="_blank" rel="nofollow"><img src="https://user-images.githubusercontent.com/26158226/38517453-e84a7566-3bee-11e8-82cd-14b4dfbe6a78.png" alt="builderbook-public-readchapter" style="max-width:100%;"></a></p>
+<p>Chapter content and Table of Contents for book Customer:
+<a href="https://user-images.githubusercontent.com/26158226/38518394-9ee97306-3bf1-11e8-8df2-8c05fb75249a.png" target="_blank" rel="nofollow"><img src="https://user-images.githubusercontent.com/26158226/38518394-9ee97306-3bf1-11e8-8df2-8c05fb75249a.png" alt="builderbook-customer-readchapter" style="max-width:100%;"></a></p>
+<p>Add-book/Edit-book page for Admin user:
+<a href="https://user-images.githubusercontent.com/26158226/38517449-e5faaa38-3bee-11e8-9c02-740096dc860e.png" target="_blank" rel="nofollow"><img src="https://user-images.githubusercontent.com/26158226/38517449-e5faaa38-3bee-11e8-9c02-740096dc860e.png" alt="builderbook-admin-editbook" style="max-width:100%;"></a></p>
+<p>Book-detail page for Admin user:
+<a href="https://user-images.githubusercontent.com/26158226/38517450-e7005bd0-3bee-11e8-9916-81f32d3d1827.png" target="_blank" rel="nofollow"><img src="https://user-images.githubusercontent.com/26158226/38517450-e7005bd0-3bee-11e8-9916-81f32d3d1827.png" alt="builderbook-admin-bookdetails" style="max-width:100%;"></a></p>
+<h2>
+<a id="built-with" class="anchor" href="#built-with" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Built with</h2>
+<h4>
+<a id="core-stack" class="anchor" href="#core-stack" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Core stack</h4>
+<ul>
+<li><a href="https://github.com/facebook/react" rel="nofollow">React</a></li>
+<li><a href="https://github.com/mui-org/material-ui" rel="nofollow">Material-UI</a></li>
+<li><a href="https://github.com/zeit/next.js" rel="nofollow">Next</a></li>
+<li><a href="https://github.com/expressjs/express" rel="nofollow">Express</a></li>
+<li><a href="https://github.com/Automattic/mongoose" rel="nofollow">Mongoose</a></li>
+<li><a href="https://github.com/mongodb/mongo" rel="nofollow">MongoDB</a></li>
+</ul>
+<h4>
+<a id="third-party-apis" class="anchor" href="#third-party-apis" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Third party APIs</h4>
+<ul>
+<li>Google OAuth</li>
+<li>Github</li>
+<li>AWS SES</li>
+<li>Stripe</li>
+<li>MailChimp</li>
+</ul>
+<p>Check out <a href="https://github.com/builderbook/builderbook/builderbook/blob/master/package.json" rel="nofollow">package.json</a>.</p>
+<h2>
+<a id="docker" class="anchor" href="#docker" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Docker</h2>
+<ul>
+<li>Install Docker and Docker Compose</li>
+<li>Modify <code>docker-compose-dev.yml</code> file</li>
+<li>If using Ubuntu, follow these steps: <a href="https://stackoverflow.com/questions/38775954/sudo-docker-compose-command-not-found" rel="nofollow">https://stackoverflow.com/questions/38775954/sudo-docker-compose-command-not-found</a>
+</li>
+<li>Start app with <code>docker-compose -f docker-compose-dev.yml up</code>
+</li>
+</ul>
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
+<p>We welcome suggestions and bug reports via issues and and pull requests.</p>
+<p>By participating in this project, you are expected to uphold Builder Book's <a href="https://github.com/builderbook/builderbook/blob/master/CODE-OF-CONDUCT.md" rel="nofollow">Code of Conduct</a>.</p>
+<p>Want to support this project? Sign up at <a href="https://async-await.com" rel="nofollow">async</a> and/or buy our <a href="https://builderbook.org" rel="nofollow">books</a>, which teach you how to build web apps from scratch. Also check out our open source <a href="https://github.com/async-labs/saas" rel="nofollow">SaaS boilerplate</a>.</p>
+<h2>
+<a id="team" class="anchor" href="#team" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Team</h2>
+<ul>
+<li><a href="https://github.com/klyburke" rel="nofollow">Kelly Burke</a></li>
+<li><a href="https://github.com/delgermurun" rel="nofollow">Delgermurun Purevkhuu</a></li>
+<li><a href="https://github.com/tima101" rel="nofollow">Timur Zhiyentayev</a></li>
+</ul>
+<p>You can contact us at <a href="/cdn-cgi/l/email-protection#fe8a9b9f93be9c8b97929a9b8c9c919195d0918c99" rel="nofollow"><span class="__cf_email__" data-cfemail="cdb9a8aca08dafb8a4a1a9a8bfafa2a2a6e3a2bfaa">[email&#160;protected]</span></a></p>
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+<p>All code in this repository is provided under the <a href="https://github.com/builderbook/builderbook/blob/master/LICENSE.md" rel="nofollow">MIT License</a>.</p>
+<h2>
+<a id="project-structure" class="anchor" href="#project-structure" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Project structure</h2>
+<pre><code>.
+├── .vscode
+│   ├── extensions.json
+│   ├── settings.json
+├── book
+├── builderbook
+│   ├── .ebextensions
+│   │   ├── environment.config
+│   │   ├── git.config
+│   ├── .elasticbeanstalk
+│   │   ├── config.yml
+│   ├── components
+│   │   ├── admin
+│   │   │   ├── EditBook.jsx
+│   │   ├── customer
+│   │   │   ├── BuyButton.jsx
+│   │   ├── Header.jsx
+│   │   ├── MenuWithAvatar.jsx                   
+│   │   ├── Notifier.jsx
+│   │   ├── SharedStyles.js
+├── lib
+│   ├── api
+│   │   ├── admin.js
+│   │   ├── customer.js
+│   │   ├── getRootURL.js
+│   │   ├── public.js
+│   │   ├── sendRequest.js
+│   ├── notify.js
+│   ├── theme.js
+│   ├── withAuth.jsx
+├── pages
+│   ├── admin
+│   │   ├── add-book.jsx
+│   │   ├── book-detail.jsx
+│   │   ├── edit-book.jsx
+│   │   ├── index.jsx
+│   ├── customer
+│   │   ├── my-books.jsx
+│   ├── public
+│   │   ├── login.jsx
+│   │   ├── read-chapter.jsx
+│   ├── _app.jsx
+│   ├── _document.jsx
+│   ├── index.jsx
+├── public
+│   ├── robots.txt
+├── server
+│   ├── api
+│   │   ├── admin.js
+│   │   ├── customer.js
+│   │   ├── index.js
+│   │   ├── public.js
+│   ├── models
+│   │   ├── Book.js
+│   │   ├── Chapter.js
+│   │   ├── EmailTemplate.js
+│   │   ├── Purchase.js
+│   │   ├── User.js
+│   ├── utils
+│   │   ├──slugify.js
+│   ├── app.js
+│   ├── aws.js
+│   ├── github.js
+│   ├── google.js
+│   ├── logger.js
+│   ├── mailchimp.js
+│   ├── routesWithSlug.js
+│   ├── sitemapAndRobots.js
+│   ├── stripe.js
+├── test/server/utils
+│   ├── slugify.test.js
+├── .eslintrc.js
+├── .gitignore
+├── package.json
+├── yarn.lock
+
+</code></pre>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120b78d0ec0e738',m:'bcd6e7aa7e286a1b7565998a6ed85d932c48a066-1610725455-1800-ARoYQxsCsDj3t3gXiLt3H0V5XXzdH5p6WN2h2o+ocp05WUg9CmGBE5ujmVgsT8H6tDh06TlZ+QtvmhvcoQR8p41dG4J+50WbOwJD+Liq1ApFSZ/GZWI74yUXreZa8K7KmnTF+XgpREzpNWFixHaxVP5dQT6m8/SSRlU1Eg3qJ+ZX',s:[0x7067029a21,0x2dfe16b9aa],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="javascript"/> <!-- -->javascript<!-- --> (<!-- -->67,310<!-- -->) </div><div><input type="checkbox" name="topics" value="react"/> <!-- -->react<!-- --> (<!-- -->5,029<!-- -->) </div><div><input type="checkbox" name="topics" value="nodejs"/> <!-- -->nodejs<!-- --> (<!-- -->3,563<!-- -->) </div><div><input type="checkbox" name="topics" value="mongodb"/> <!-- -->mongodb<!-- --> (<!-- -->751<!-- -->) </div><div><input type="checkbox" name="topics" value="boilerplate"/> <!-- -->boilerplate<!-- --> (<!-- -->590<!-- -->) </div><div><input type="checkbox" name="topics" value="nextjs"/> <!-- -->nextjs<!-- --> (<!-- -->242<!-- -->) </div><div><input type="checkbox" name="topics" value="material-ui"/> <!-- -->material-ui<!-- --> (<!-- -->202<!-- -->) </div><div><input type="checkbox" name="topics" value="expressjs"/> <!-- -->expressjs<!-- --> (<!-- -->188<!-- -->) </div><div><input type="checkbox" name="topics" value="mongoose"/> <!-- -->mongoose<!-- --> (<!-- -->161<!-- -->) </div><div><input type="checkbox" name="topics" value="github-api"/> <!-- -->github-api<!-- --> (<!-- -->123<!-- -->) </div><div><input type="checkbox" name="topics" value="stripe"/> <!-- -->stripe<!-- --> (<!-- -->92<!-- -->) </div><div><input type="checkbox" name="topics" value="apis"/> <!-- -->apis<!-- --> (<!-- -->59<!-- -->) </div><div><input type="checkbox" name="topics" value="passport"/> <!-- -->passport<!-- --> (<!-- -->56<!-- -->) </div><div><input type="checkbox" name="topics" value="google-api"/> <!-- -->google-api<!-- --> (<!-- -->33<!-- -->) </div><div><input type="checkbox" name="topics" value="mailchimp"/> <!-- -->mailchimp<!-- --> (<!-- -->25<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Builderbook<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/builderbook" target="_blank">Builderbook</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/builderbook" target="_blank">Builderbook</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-86b2bd66-e0a4-47e4-8b33-8acd0a973c44">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"apis","count":59},{"id":null,"name":"boilerplate","count":590},{"id":null,"name":"expressjs","count":188},{"id":null,"name":"github-api","count":123},{"id":null,"name":"google-api","count":33},{"id":null,"name":"javascript","count":67310},{"id":null,"name":"mailchimp","count":25},{"id":null,"name":"material-ui","count":202},{"id":null,"name":"mongodb","count":751},{"id":null,"name":"mongoose","count":161},{"id":null,"name":"nextjs","count":242},{"id":null,"name":"nodejs","count":3563},{"id":null,"name":"passport","count":56},{"id":null,"name":"react","count":5029},{"id":null,"name":"stripe","count":92}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/builderbook/builderbook","projects":[],"project":{"id":96295,"created_at":"2018-08-21T01:40:00.858Z","updated_at":"2021-01-14T05:27:44.456Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003ch2\u003e\n\u003ca id=\"builder-book\" class=\"anchor\" href=\"#builder-book\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilder Book\u003c/h2\u003e\n\u003cp\u003eOpen source web app to self-publish and sell books or other online content (\u003ccode\u003ebuilderbook\u003c/code\u003e directory of this repository). If you are book's reader, you will work \u003ccode\u003ebook\u003c/code\u003e directory.\u003c/p\u003e\n\u003cp\u003eWe've used this \u003ccode\u003ebuilderbook\u003c/code\u003e project to build:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://builderbook.org\" rel=\"nofollow\"\u003eBuilder Book\u003c/a\u003e - learn how to build full-stack web apps from scratch\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/async-labs/saas\" rel=\"nofollow\"\u003eSaaS Boilerplate\u003c/a\u003e - open source web app to build your own SaaS product\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://async-await.com\" rel=\"nofollow\"\u003eAsync\u003c/a\u003e - team communication tool for software developers\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"live-app\" class=\"anchor\" href=\"#live-app\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLive app:\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://builderbook.org/books/builder-book/introduction\" rel=\"nofollow\"\u003ehttps://builderbook.org/books/builder-book/introduction\u003c/a\u003e.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"what-can-i-learn-from-this-project\" class=\"anchor\" href=\"#what-can-i-learn-from-this-project\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWhat can I learn from this project?\u003c/h2\u003e\n\u003cp\u003eYou will learn how to structure your project and build many intetnal and external API infrastructures.\u003c/p\u003e\n\u003cp\u003eOn the browser, the main technologies you will learn are: Next.js, React.js, Material-UI.\nOn the server, the main technologies you will learn are: Next.js, Node.js, Express.js, Mongoose.js, MongoDB database.\u003c/p\u003e\n\u003cp\u003eIn addition to the above technologies, you can learn how to integrate your web application with the following external API services:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eGoogle OAuth API\u003c/li\u003e\n\u003cli\u003eGithub API\u003c/li\u003e\n\u003cli\u003eStripe API\u003c/li\u003e\n\u003cli\u003eAWS SES API\u003c/li\u003e\n\u003cli\u003eMailchimp API\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003ePlus, you can learn many concepts such as \u003ccode\u003esession\u003c/code\u003e and \u003ccode\u003ecookie\u003c/code\u003e, headers, HTTP request-response, Express middleware, \u003ccode\u003ePromise\u003c/code\u003e, \u003ccode\u003easync/await\u003c/code\u003e, and more. You have to know these concepts to be a confident web developer, no matter what language you use.\u003c/p\u003e\n\u003cp\u003eThe main use cases for this project, besides learning, are:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eTo write and host free documentation with Github being a source of truth for content.\u003c/li\u003e\n\u003cli\u003eTo sell online content, such as books.\u003c/li\u003e\n\u003cli\u003eTo extend it (see our second book, SaaS Boilerplate Book) to start software business.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"contents\" class=\"anchor\" href=\"#contents\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContents\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#showcase\"\u003eShowcase\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#run-locally\"\u003eRun locally\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#add-a-new-book\"\u003eAdd a new book\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#add-your-own-styles\"\u003eAdd your own styles\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#deploy-to-heroku\"\u003eDeploy to Heroku\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#scaling\"\u003eScaling\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#screenshots\"\u003eScreenshots\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"#built-with\"\u003eBuilt with\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"#core-stack\"\u003eCore stack\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#third-party-apis\"\u003eThird party APIs\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#docker\"\u003eDocker\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#contributing\"\u003eContributing\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#team\"\u003eTeam\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#license\"\u003eLicense\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#project-structure\"\u003eProject structure\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"showcase\" class=\"anchor\" href=\"#showcase\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eShowcase\u003c/h2\u003e\n\u003cp\u003eCheck out projects built with the help of this open source app. Feel free to add your own project by creating a pull request.\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/async-labs/saas-by-async\" rel=\"nofollow\"\u003eSaaS boilerplate app\u003c/a\u003e: Open source web app that saves you weeks of work when building your own SaaS product.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://async-await.com/\" rel=\"nofollow\"\u003eAsync\u003c/a\u003e: asynchronous communication and project management tool for small teams of software engineers.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://retaino.com\" rel=\"nofollow\"\u003eRetaino\u003c/a\u003e by \u003ca href=\"https://github.com/earllee\" rel=\"nofollow\"\u003eEarl Lee\u003c/a\u003e : Save, annotate, review, and share great web content. Receive smart email digests to retain key information.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://michaelstromer.nyc\" rel=\"nofollow\"\u003ehttps://michaelstromer.nyc\u003c/a\u003e by \u003ca href=\"https://github.com/Maelstroms38\" rel=\"nofollow\"\u003eMichael Stromer\u003c/a\u003e: Books and articles by Michael Stromer.\u003c/li\u003e\n\u003cli\u003eEmail us to be added here!\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"run-locally\" class=\"anchor\" href=\"#run-locally\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eRun locally\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eClone the project and run \u003ccode\u003eyarn\u003c/code\u003e to add packages.\u003c/li\u003e\n\u003cli\u003eBefore you start the app, create a \u003ccode\u003e.env\u003c/code\u003e file at the app's root. This file must have values for some env variables specified below.\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eTo get \u003ccode\u003eMONGO_URL_TEST\u003c/code\u003e, we recommend a \u003ca href=\"https://docs.mongodb.com/manual/tutorial/atlas-free-tier-setup/\" rel=\"nofollow\"\u003efree MongoDB at MongoDB Atlas\u003c/a\u003e (to be updated soon with MongoDB Atlas, see \u003ca href=\"https://github.com/builderbook/builderbook/issues/138\" rel=\"nofollow\"\u003eissue\u003c/a\u003e).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eGet \u003ccode\u003eGOOGLE_CLIENTID\u003c/code\u003e and \u003ccode\u003eGOOGLE_CLIENTSECRET\u003c/code\u003e by following \u003ca href=\"https://developers.google.com/identity/sign-in/web/sign-in#before_you_begin\" rel=\"nofollow\"\u003eofficial OAuth tutorial\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eImportant: For Google OAuth app, callback URL is: \u003ca href=\"http://localhost:8000/oauth2callback\" rel=\"nofollow\"\u003ehttp://localhost:8000/oauth2callback\u003c/a\u003e \u003cbr\u003e\nImportant: You have to enable Google+ API in your Google Cloud Platform account.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eSpecify your own secret key for Express session \u003ccode\u003eSESSION_SECRET\u003c/code\u003e: \u003ca href=\"https://github.com/expressjs/session#secret\" rel=\"nofollow\"\u003ehttps://github.com/expressjs/session#secret\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eTo use all features and third-party integrations (such as Stripe, Google OAuth, Mailchimp), add values for all of the following env variables in your \u003ccode\u003e.env\u003c/code\u003e file:\u003c/p\u003e\n\u003cp\u003e\u003ccode\u003e.env\u003c/code\u003e :\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e# Used in server/server.js\nMONGO_URL=\nMONGO_URL_TEST=\nSESSION_SECRET=\n\n# Used in lib/getRootUrl.js\nURL_APP=\nPRODUCTION_URL_APP=\n\n# Used in server/google.js\nGOOGLE_CLIENTID=\nGOOGLE_CLIENTSECRET=\n\n# Used in server/aws.js\nAWS_ACCESSKEYID=\nAWS_SECRETACCESSKEY=\nAWS_REGION=\n\n# Used in server/models/User.js\nEMAIL_ADDRESS_FROM=\n\n----------\n# All environmental variables above this line are required for successful sign up\n\n# Used in server/github.js\nGITHUB_TEST_CLIENTID=\nGITHUB_LIVE_CLIENTID=\nGITHUB_TEST_SECRETKEY=\nGITHUB_LIVE_SECRETKEY=\n\n# Used in server/stripe.js\nSTRIPE_TEST_PUBLISHABLEKEY=\nSTRIPE_LIVE_PUBLISHABLEKEY=\nSTRIPE_TEST_SECRETKEY=\nSTRIPE_LIVE_SECRETKEY=\nSTRIPE_TEST_DEMO_BOOK_PRICE_ID=\nSTRIPE_LIVE_DEMO_BOOK_PRICE_ID=\nSTRIPE_TEST_SECOND_BOOK_PRICE_ID=\nSTRIPE_LIVE_SECOND_BOOK_PRICE_ID=\n\n# Used in server/mailchimp.js\nMAILCHIMP_API_KEY=\nMAILCHIMP_REGION=\nMAILCHIMP_PURCHASED_LIST_ID=\nMAILCHIMP_SIGNEDUP_LIST_ID=\n\n# Used in pages/_document.js and pages/_app.js\nGA_MEASUREMENT_ID=\nCOOKIE_DOMAIN=\n\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003eStart the app with \u003ccode\u003eyarn dev\u003c/code\u003e.\n\u003cul\u003e\n\u003cli\u003eTo get \u003ccode\u003eGA_MEASUREMENT_ID\u003c/code\u003e, set up Google Analytics and follow \u003ca href=\"https://support.google.com/analytics/answer/1008080?hl=en\" rel=\"nofollow\"\u003ethese instructions\u003c/a\u003e to find your tracking ID.\u003c/li\u003e\n\u003cli\u003eTo get Stripe-related API keys, set up or log into your Stripe account and find your key \u003ca href=\"https://dashboard.stripe.com/account/apikeys\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eEnv keys \u003ccode\u003eGA_MEASUREMENT_ID\u003c/code\u003e and \u003ccode\u003eSTRIPE_TEST_PUBLISHABLEKEY\u003c/code\u003e/\u003ccode\u003eSTRIPE_LIVE_PUBLISHABLEKEY\u003c/code\u003e are universally available (client and server). Env keys inside \u003ccode\u003e.env\u003c/code\u003e file are used in server code only. To make env vars universally available, add them to \u003ccode\u003enext.config.js\u003c/code\u003e file.\u003c/li\u003e\n\u003cli\u003eTo make user a book's owner, set \u003ccode\u003e\"isAdmin\": true\u003c/code\u003e on corresponding MongoDB document in your database (default value is \u003ccode\u003efalse\u003c/code\u003e for any new user).\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eImportant: if you don't add values for environmental variables to \u003ccode\u003e.env\u003c/code\u003e file, corresponding functionality will not work. For example, login with Google account, purchasing book, getting repo information via GitHub API and other third-party API infrastructures.\u003c/strong\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"add-a-new-book\" class=\"anchor\" href=\"#add-a-new-book\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAdd a new book\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003eCreate a new Github repo (public or private).\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIn that repo, create an \u003ccode\u003eintroduction.md\u003c/code\u003e file and write some content.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAt the top of your \u003ccode\u003eintroduction.md\u003c/code\u003e file, add metadata in the format shown below. See \u003ca href=\"https://github.com/builderbook/demo-book/blob/master/introduction.md\" rel=\"nofollow\"\u003ethis file\u003c/a\u003e as an example.\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e---\ntitle: Introduction\nseoTitle: title for search engines\nseoDescription: description for search engines\nisFree: true\n---\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eGo to the app, click \"Connect Github\".\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eClick \"Add Book\". Enter details and select the Github repo you created.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eClick \"Save\".\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eWhen you add new \u003ccode\u003e.md\u003c/code\u003e files or update content, go to the \u003ccode\u003eBookDetail\u003c/code\u003e page of your app and click \u003ccode\u003eSync with Github\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eImportant: All \u003ccode\u003e.md\u003c/code\u003e files in your Github repo \u003cem\u003emust\u003c/em\u003e have metadata in the format shown above.\u003c/p\u003e\n\u003cp\u003eImportant: All \u003ccode\u003e.md\u003c/code\u003e files in your Github repo \u003cem\u003emust\u003c/em\u003e have name \u003ccode\u003eintroduction.md\u003c/code\u003e or \u003ccode\u003echapter-N.md\u003c/code\u003e.\u003c/p\u003e\n\u003cp\u003eTo make the content of a \u003ccode\u003e.md\u003c/code\u003e file \u003cem\u003eprivate\u003c/em\u003e (meaning a person must purchase the content to see it), remove \u003ccode\u003eisFree:true\u003c/code\u003e  and add \u003ccode\u003eexcerpt:\"\"\u003c/code\u003e. Add some excerpt content - this content is public and serves as a free preview.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"add-your-own-styles\" class=\"anchor\" href=\"#add-your-own-styles\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAdd your own styles\u003c/h2\u003e\n\u003cp\u003eTo change the color scheme of this app, modify the \u003ccode\u003eprimary\u003c/code\u003e and \u003ccode\u003esecondary\u003c/code\u003e theme colors inside \u003ccode\u003elib/context.js\u003c/code\u003e. Select any colors from Material UI's official \u003ca href=\"https://material-ui-next.com/style/color/#color\" rel=\"nofollow\"\u003ecolor palette\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eRecommended ways to add your own styles to this app:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\u003ca href=\"#inline-style-for-a-single-element\"\u003eInline style for a single element\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#reusable-style-for-multiple-elements-within-single-page-or-component\"\u003eReusable style for multiple elements within single page or component\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#reusableimportable-style-for-multiple-pages-or-components\"\u003eReusable/importable style for multiple pages or components\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#global-style-for-all-pages-in-application\"\u003eGlobal style for all pages in application\u003c/a\u003e\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch3\u003e\n\u003ca id=\"inline-style-for-a-single-element\" class=\"anchor\" href=\"#inline-style-for-a-single-element\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eInline style for a single element\u003c/h3\u003e\n\u003cp\u003eUSE CASE: apply a style to \u003cem\u003eone element\u003c/em\u003e on a single page/component \u003cbr\u003e\nFor example, in our \u003ccode\u003ebook\u003c/code\u003e page, we wrote this single inline style:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026lt;p style={{ textAlign: 'center' }}\u0026gt;\n  ...\n\u0026lt;/p\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/builderbook/builderbook/blob/49116676e0894fcf00c33d208a284359b30f12bb/pages/book.js#L48\" rel=\"nofollow\"\u003eSee usage\u003c/a\u003e\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"reusable-style-for-multiple-elements-within-single-page-or-component\" class=\"anchor\" href=\"#reusable-style-for-multiple-elements-within-single-page-or-component\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eReusable style for multiple elements within single page or component\u003c/h3\u003e\n\u003cp\u003eUSE CASE: apply the same style to \u003cem\u003emultiple elements\u003c/em\u003e on a single page/component.\u003cbr\u003e\nFor example, in our \u003ccode\u003etutorials\u003c/code\u003e page, we created \u003ccode\u003estyleExcerpt\u003c/code\u003e and applied it to a \u003ccode\u003e\u0026lt;p\u0026gt;\u003c/code\u003e element within the page:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003econst styleExcerpt = {\n  margin: '0px 20px',\n  opacity: '0.75',\n  fontSize: '13px',\n};\n\n\u0026lt;p style={styleExcerpt}\u0026gt;\n  ...\n\u0026lt;/p\u0026gt;\n\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/builderbook/builderbook/blob/49116676e0894fcf00c33d208a284359b30f12bb/pages/tutorials.js#L14\" rel=\"nofollow\"\u003eSee usage\u003c/a\u003e\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"reusableimportable-style-for-multiple-pages-or-components\" class=\"anchor\" href=\"#reusableimportable-style-for-multiple-pages-or-components\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eReusable/importable style for multiple pages or components\u003c/h3\u003e\n\u003cp\u003eUSE CASE: apply the same style to elements on \u003cem\u003emultiple pages/components\u003c/em\u003e.\u003cbr\u003e\nFor example, we created \u003ccode\u003estyleH1\u003c/code\u003e inside \u003ccode\u003ecomponents/SharedStyles.js\u003c/code\u003e and exported the style at the bottom of the file:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003econst styleH1 = {\n  textAlign: 'center',\n  fontWeight: '400',\n  lineHeight: '45px',\n};\n\nmodule.exports = {\n  styleH1,\n};\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/builderbook/builderbook/blob/04c6cf78bee42455d48ef3466d868f2196381a57/components/SharedStyles.js#L48\" rel=\"nofollow\"\u003eSee usage\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eWe then imported \u003ccode\u003estyleH1\u003c/code\u003e into our \u003ccode\u003ebook\u003c/code\u003e page, as well as our \u003ccode\u003eindex\u003c/code\u003e page, and applied the style to a \u003ccode\u003e\u0026lt;h1\u0026gt;\u003c/code\u003e element:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eimport {\n  styleH1,\n} from '../components/SharedStyles';\n\n\u0026lt;h1 style={styleH1}\u0026gt;\n  ...\n\u0026lt;/h1\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/builderbook/builderbook/blob/49116676e0894fcf00c33d208a284359b30f12bb/pages/book.js#L13\" rel=\"nofollow\"\u003eSee usage\u003c/a\u003e\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"global-style-for-all-pages-in-application\" class=\"anchor\" href=\"#global-style-for-all-pages-in-application\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGlobal style for all pages in application\u003c/h3\u003e\n\u003cp\u003eUSE CASE: apply the same style to elements on \u003cem\u003eall pages\u003c/em\u003e of your app.\u003cbr\u003e\nCreate your style in \u003ccode\u003epages/_document.js\u003c/code\u003e. For example, we specified a style for all hyperlinks that use the \u003ccode\u003e\u0026lt;a\u0026gt;\u003c/code\u003e element:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026lt;style\u0026gt;\n  {`\n    a, a:focus {\n      font-weight: 400;\n      color: #1565C0;\n      text-decoration: none;\n      outline: none\n    }\n  `}\n\u0026lt;/style\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/builderbook/builderbook/blob/49116676e0894fcf00c33d208a284359b30f12bb/pages/_document.js#L51\" rel=\"nofollow\"\u003eSee usage\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eWe also specified styles for all content inside a \u003ccode\u003e\u0026lt;body\u0026gt;\u003c/code\u003e element:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026lt;body\n  style={{\n    font: '16px Muli',\n    color: '#222',\n    margin: '0px auto',\n    fontWeight: '400',\n    lineHeight: '1.5em',\n    backgroundColor: '#F7F9FC',\n  }}\n\u0026gt;\n\u0026lt;/body\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/builderbook/builderbook/blob/49116676e0894fcf00c33d208a284359b30f12bb/pages/_document.js#L96\" rel=\"nofollow\"\u003eSee usage\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"deploy-to-heroku\" class=\"anchor\" href=\"#deploy-to-heroku\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDeploy to Heroku\u003c/h2\u003e\n\u003cp\u003eIn this section we will learn how to deploy our app to \u003ca href=\"https://www.heroku.com/home\" rel=\"nofollow\"\u003eHeroku cloud\u003c/a\u003e. We will deploy our React-Next-Express app to lightweight Heroku container called \u003ca href=\"https://www.heroku.com/dynos\" rel=\"nofollow\"\u003edyno\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eInstructions are for app located at \u003ccode\u003e/book/8-end\u003c/code\u003e.\nAdjust route if you are deploying app from the root of this public repo.\u003c/p\u003e\n\u003cp\u003eWe will discuss the following topics in this section:\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003einstalling Heroku on Linux-based OS\u003c/li\u003e\n\u003cli\u003ecreating app on Heroku dashboard\u003c/li\u003e\n\u003cli\u003epreparing app for deployment\u003c/li\u003e\n\u003cli\u003econfiguring env variables\u003c/li\u003e\n\u003cli\u003edeploying app\u003c/li\u003e\n\u003cli\u003echecking logs\u003c/li\u003e\n\u003cli\u003eadding custom domain\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eLet's go step by step.\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003eInstall Heroku CLI (command-line interface) on your OS. Follow the \u003ca href=\"https://devcenter.heroku.com/articles/heroku-cli\" rel=\"nofollow\"\u003eofficial guide\u003c/a\u003e. In this book we provide instructions for Linux-based systems, in particular, a Ubuntu OS. For Ubuntu OS, run in your terminal:\u003c/li\u003e\n\u003c/ol\u003e\n  \u003cpre\u003esudo snap install --classic heroku\u003c/pre\u003e\n\u003cp\u003eTo confirm a successful installation, run:\u003c/p\u003e\n  \u003cpre\u003eheroku --version\u003c/pre\u003e\n\u003cp\u003eAs example, my output that confirms successful installation, looks like:\u003c/p\u003e\n  \u003cpre\u003eheroku/7.22.7 linux-x64 node-v11.10.1\u003c/pre\u003e\n\u003col start=\"2\"\u003e\n\u003cli\u003e\n\u003cp\u003e\u003ca href=\"https://signup.heroku.com/\" rel=\"nofollow\"\u003eSign up\u003c/a\u003e for Heroku, go to your Heroku dashboard and click purple \u003cb\u003eNew\u003c/b\u003e button on the right:\n\u003ca href=\"https://user-images.githubusercontent.com/10218864/54558094-12b1f100-497a-11e9-94dd-d36399052931.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://user-images.githubusercontent.com/10218864/54558094-12b1f100-497a-11e9-94dd-d36399052931.png\" alt=\"image\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eOn the next screen, give a name to your app and select a region. Click purple \u003cb\u003eCreate app\u003c/b\u003e button at the bottom:\n\u003ca href=\"https://user-images.githubusercontent.com/10218864/54558276-8eac3900-497a-11e9-9026-25aa5047af87.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://user-images.githubusercontent.com/10218864/54558276-8eac3900-497a-11e9-9026-25aa5047af87.png\" alt=\"image\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eYou will be redirected to \u003ccode\u003eDeploy\u003c/code\u003e tab of your newly created Heroku app:\n\u003ca href=\"https://user-images.githubusercontent.com/10218864/54558544-417c9700-497b-11e9-8885-6fdfde21c747.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://user-images.githubusercontent.com/10218864/54558544-417c9700-497b-11e9-8885-6fdfde21c747.png\" alt=\"image\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eAs you can see from the above screenshot, you have two options. You can deploy the app directly from your local machine using Heroku CLI or directly from GitHub.\nIn this tutorial, we will deploy a \u003ccode\u003ebuilderbook/builderbook/book/8-end\u003c/code\u003e app from our public \u003ca href=\"https://github.com/builderbook/builderbook\" rel=\"nofollow\"\u003ebuilderbook/builderbook\u003c/a\u003e repo hosted on GitHub. Deploying from a private repo will be a similar process.\u003c/p\u003e\n\u003cp\u003eDeploying from GitHub has a few advantages. Heroku uses git to track changes in a codebase. It's possible to deploy app from the local machine using Heroku CLI, however you have to create a \u003ca href=\"https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository\" rel=\"nofollow\"\u003eGit repo\u003c/a\u003e for \u003ccode\u003ebuilderbook/builderbook/book/8-end\u003c/code\u003e with \u003ccode\u003epackage.json\u003c/code\u003e file at the root level. A first advantage is that we can deploy from a non-root folder using GitHub instead of Heroku CLI.\u003c/p\u003e\n\u003cp\u003eA second advantage is automation, later on you can create a branch that automatically deploy every new commit to Heroku. For example, we have a \u003ca href=\"https://github.com/async-labs/saas/tree/deploy\" rel=\"nofollow\"\u003edeploy branch\u003c/a\u003e for our demo for \u003ca href=\"https://github.com/async-labs/saas/\" rel=\"nofollow\"\u003eSaaS boilerplate\u003c/a\u003e. When we commit to \u003ccode\u003emaster\u003c/code\u003e branch - there is no new deployment, when we commit to \u003ccode\u003edeploy\u003c/code\u003e branch - new change is automatically deployed to Heroku app.\u003c/p\u003e\n\u003cp\u003eLet's set up deploying from GitHub. On \u003ccode\u003eDeploy\u003c/code\u003e tab of your Heroku app at Heroku dashboard, click \u003cb\u003eConnect to GitHub\u003c/b\u003e, then search for your repo, then click \u003cb\u003eConnect\u003c/b\u003e next to the name of the proper repo:\n\u003ca href=\"https://user-images.githubusercontent.com/10218864/54560210-09775300-497f-11e9-9027-2e3850ec7ff1.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://user-images.githubusercontent.com/10218864/54560210-09775300-497f-11e9-9027-2e3850ec7ff1.png\" alt=\"image\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eIf successful, you will see green text \u003ccode\u003eConnected\u003c/code\u003e and be offered to select a branch and deploy app automatically or manually. Automatic deployment will deploy every new commit, manual deployment requires you to manually click on \u003cb\u003eDeploy Branch\u003c/b\u003e button. For simplicity, we will deploy manually from \u003ccode\u003emaster\u003c/code\u003e branch of our \u003ccode\u003ebuilderbook/builderbook\u003c/code\u003e repo.\u003c/p\u003e\n\u003cp\u003eBefore we perform a manual deployment via GitHub, we need Heroku to run some additional code while app is being deploying. Firstly, we need to tell Heroku that \u003ccode\u003e8-end\u003c/code\u003e app in the \u003ccode\u003ebuilderbook/builderbook\u003c/code\u003e repo is not at the root level, it's actually nested at \u003ccode\u003e/book/8-end\u003c/code\u003e. Secondly, Heroku needs to know that our app is Node.js app so Heroku finds \u003ccode\u003epackage.json\u003c/code\u003e file, properly installs dependencies and runs proper scripts (such as \u003ccode\u003ebuild\u003c/code\u003e and \u003ccode\u003estart\u003c/code\u003e scripts from \u003ccode\u003epackage.json\u003c/code\u003e). To achieve this, we need to add so called \u003ccode\u003ebuildpacks\u003c/code\u003e to our Heroku app. Click \u003ccode\u003eSettings\u003c/code\u003e tab, scroll to \u003ccode\u003eBuildpacks\u003c/code\u003e section and click purple \u003cb\u003eAdd buildpack\u003c/b\u003e button:\n\u003ca href=\"https://user-images.githubusercontent.com/10218864/54561192-50fede80-4981-11e9-976a-c3d7c88527ec.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://user-images.githubusercontent.com/10218864/54561192-50fede80-4981-11e9-976a-c3d7c88527ec.png\" alt=\"image\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eAdd two buildpacks, first is \u003ccode\u003ehttps://github.com/timanovsky/subdir-heroku-buildpack\u003c/code\u003e and second is \u003ccode\u003eheroku/nodejs\u003c/code\u003e:\n\u003ca href=\"https://user-images.githubusercontent.com/10218864/54561577-30835400-4982-11e9-997f-4711d999808e.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://user-images.githubusercontent.com/10218864/54561577-30835400-4982-11e9-997f-4711d999808e.png\" alt=\"image\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eNext, scroll up while on \u003ccode\u003eSettings\u003c/code\u003e tab and click purple \u003cb\u003eReveal Config Vars\u003c/b\u003e button, create a new environmental variable \u003ccode\u003ePROJECT_PATH\u003c/code\u003e with value \u003ccode\u003ebook/8-end\u003c/code\u003e:\n\u003ca href=\"https://user-images.githubusercontent.com/10218864/54561775-a5568e00-4982-11e9-9561-2e5827873779.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://user-images.githubusercontent.com/10218864/54561775-a5568e00-4982-11e9-9561-2e5827873779.png\" alt=\"image\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eThe above variable will be used by the first buildpack \u003ccode\u003esubdir-heroku-buildpack\u003c/code\u003e to deploy app from repo's subdirectory.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eIf we deploy app at this point, our app will deploy with errors since we did not add environmental variables. Similar to how you added \u003ccode\u003ePROJECT_PATH\u003c/code\u003e variable, add all environmental variables from \u003ccode\u003ebook/8-end/.env\u003c/code\u003e file to your Heroku app. Remember to add the rest of env variables for all features to work, including signup event.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eWhile on \u003ccode\u003eSettings\u003c/code\u003e tab, scroll to \u003ccode\u003eDomains and certificates\u003c/code\u003e section and note your app's URL. My app's URL is: \u003ca href=\"https://builderbook-8-end.herokuapp.com\" rel=\"nofollow\"\u003ehttps://builderbook-8-end.herokuapp.com\u003c/a\u003e\nLet's deploy, go to \u003ccode\u003eDeploy\u003c/code\u003e tab, scroll to \u003ccode\u003eManual deploy\u003c/code\u003e section and click \u003cb\u003eDeploy branch\u003c/b\u003e button.\nAfter deployment process is complete , navigate to your app's URL:\n\u003ca href=\"https://user-images.githubusercontent.com/10218864/54564053-10569380-4988-11e9-87dd-f81a28dd6406.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://user-images.githubusercontent.com/10218864/54564053-10569380-4988-11e9-87dd-f81a28dd6406.png\" alt=\"image\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eServer logs are not available on Heroku dashboard. To see logs, you have to use Heroku CLI.\nIn your terminal, run:\u003c/p\u003e\n \u003cpre\u003eheroku login\u003c/pre\u003e\n\u003cp\u003eFollow instructions to log in to Heroku CLI.\u003c/p\u003e\n\u003cp\u003eAfter successful login, terminal will print:\u003c/p\u003e\n \u003cpre\u003eLogged in as email@domain.com\u003c/pre\u003e\n\u003cp\u003eWhere \u003ccode\u003eemail@domain.com\u003c/code\u003e is an email address that you used to create your Heroku account.\u003c/p\u003e\n\u003cp\u003eTo see logs, in your terminal run:\u003c/p\u003e\n \u003cpre\u003eheroku logs --app builderbook-8-end --tail\u003c/pre\u003e\n\u003cp\u003eIn your terminal, you will see your most recent logs and be able to see a real-time logs.\u003c/p\u003e\n\u003cp\u003eYou can output certain number of lines (N) for retrieved logs by adding \u003ccode\u003e--num N\u003c/code\u003e to the \u003ccode\u003eheroku logs\u003c/code\u003e command.\nYou can print only app's logs by adding \u003ccode\u003e--source app\u003c/code\u003e or system's logs by adding \u003ccode\u003e--source heroku\u003c/code\u003e.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003eTime to add a custom domain. The Heroku app that we created is deployed on \u003ccode\u003efree dyno\u003c/code\u003e. Free dyno plan does not let you to add a custom domain to your app. To add custom domain, go to \u003ccode\u003eResources\u003c/code\u003e tab and click purple \u003cb\u003eChange Dyno Type\u003c/b\u003e button:\n\u003ca href=\"https://user-images.githubusercontent.com/10218864/54622849-983faa80-4a27-11e9-957f-54fe5aa742ca.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://user-images.githubusercontent.com/10218864/54622849-983faa80-4a27-11e9-957f-54fe5aa742ca.png\" alt=\"image\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eSelect a \u003ccode\u003eHobby\u003c/code\u003e plan and click \u003cb\u003eSave\u003c/b\u003e button.\u003c/p\u003e\n\u003cp\u003eNavigate to \u003ccode\u003eSettings\u003c/code\u003e tab and scroll to the \u003ccode\u003eDomains and certificates\u003c/code\u003e and click purple \u003cb\u003eAdd domain\u003c/b\u003e button:\n\u003ca href=\"https://user-images.githubusercontent.com/10218864/54623152-36cc0b80-4a28-11e9-974b-8a14fb56a86a.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://user-images.githubusercontent.com/10218864/54623152-36cc0b80-4a28-11e9-974b-8a14fb56a86a.png\" alt=\"image\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eType your custom domain name, I added \u003ccode\u003eheroku.builderbook.org\u003c/code\u003e as a custom domain, click \u003cb\u003eSave changes\u003c/b\u003e button.\u003c/p\u003e\n\u003cp\u003eHeroku will display you a value for CNAME record that you have to create for your custom domain. For me, custom domain is `heroku.builderbook.org and I manage DNS records at Now by Zeit.\u003c/p\u003e\n\u003cp\u003eAfter you create a CNAME, ACM status on Heroku's dashboard will change to \u003ccode\u003eOk\u003c/code\u003e:\n\u003ca href=\"https://user-images.githubusercontent.com/10218864/54624195-2452d180-4a2a-11e9-999d-a6a771cde73c.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://user-images.githubusercontent.com/10218864/54624195-2452d180-4a2a-11e9-999d-a6a771cde73c.png\" alt=\"image\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003eIt's important that you remember to manually add your custom domain to the settings of your Google OAuth app (Chapter 3) and GitHub OAuth app (Chapter 6). If you forget to do it, you will see errors when you try to log in to your app or when you try to connect GitHub to your app.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"scaling\" class=\"anchor\" href=\"#scaling\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eScaling\u003c/h2\u003e\n\u003cp\u003eYou may want to consider splitting single Next/Express server into two servers:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eNext server for serving pages, server-side caching, sitemap and robots\u003c/li\u003e\n\u003cli\u003eExpress server for internal and external APIs\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eHere is an example of web application with split servers:\n\u003ca href=\"https://github.com/async-labs/saas\" rel=\"nofollow\"\u003ehttps://github.com/async-labs/saas\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eSplitting servers will get you:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003efaster page loads since Next rendering does not block internal and external APIs,\u003c/li\u003e\n\u003cli\u003efaster code reload times during development,\u003c/li\u003e\n\u003cli\u003efaster deployment and more flexible scaling of individual apps.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"screenshots\" class=\"anchor\" href=\"#screenshots\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eScreenshots\u003c/h2\u003e\n\u003cp\u003eChapter excerpt with Buy Button for Public/Guest visitor:\n\u003ca href=\"https://user-images.githubusercontent.com/26158226/38517453-e84a7566-3bee-11e8-82cd-14b4dfbe6a78.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://user-images.githubusercontent.com/26158226/38517453-e84a7566-3bee-11e8-82cd-14b4dfbe6a78.png\" alt=\"builderbook-public-readchapter\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eChapter content and Table of Contents for book Customer:\n\u003ca href=\"https://user-images.githubusercontent.com/26158226/38518394-9ee97306-3bf1-11e8-8df2-8c05fb75249a.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://user-images.githubusercontent.com/26158226/38518394-9ee97306-3bf1-11e8-8df2-8c05fb75249a.png\" alt=\"builderbook-customer-readchapter\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eAdd-book/Edit-book page for Admin user:\n\u003ca href=\"https://user-images.githubusercontent.com/26158226/38517449-e5faaa38-3bee-11e8-9c02-740096dc860e.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://user-images.githubusercontent.com/26158226/38517449-e5faaa38-3bee-11e8-9c02-740096dc860e.png\" alt=\"builderbook-admin-editbook\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eBook-detail page for Admin user:\n\u003ca href=\"https://user-images.githubusercontent.com/26158226/38517450-e7005bd0-3bee-11e8-9916-81f32d3d1827.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://user-images.githubusercontent.com/26158226/38517450-e7005bd0-3bee-11e8-9916-81f32d3d1827.png\" alt=\"builderbook-admin-bookdetails\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"built-with\" class=\"anchor\" href=\"#built-with\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eBuilt with\u003c/h2\u003e\n\u003ch4\u003e\n\u003ca id=\"core-stack\" class=\"anchor\" href=\"#core-stack\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCore stack\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/facebook/react\" rel=\"nofollow\"\u003eReact\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/mui-org/material-ui\" rel=\"nofollow\"\u003eMaterial-UI\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/zeit/next.js\" rel=\"nofollow\"\u003eNext\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/expressjs/express\" rel=\"nofollow\"\u003eExpress\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/Automattic/mongoose\" rel=\"nofollow\"\u003eMongoose\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/mongodb/mongo\" rel=\"nofollow\"\u003eMongoDB\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4\u003e\n\u003ca id=\"third-party-apis\" class=\"anchor\" href=\"#third-party-apis\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eThird party APIs\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eGoogle OAuth\u003c/li\u003e\n\u003cli\u003eGithub\u003c/li\u003e\n\u003cli\u003eAWS SES\u003c/li\u003e\n\u003cli\u003eStripe\u003c/li\u003e\n\u003cli\u003eMailChimp\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eCheck out \u003ca href=\"https://github.com/builderbook/builderbook/builderbook/blob/master/package.json\" rel=\"nofollow\"\u003epackage.json\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"docker\" class=\"anchor\" href=\"#docker\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDocker\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eInstall Docker and Docker Compose\u003c/li\u003e\n\u003cli\u003eModify \u003ccode\u003edocker-compose-dev.yml\u003c/code\u003e file\u003c/li\u003e\n\u003cli\u003eIf using Ubuntu, follow these steps: \u003ca href=\"https://stackoverflow.com/questions/38775954/sudo-docker-compose-command-not-found\" rel=\"nofollow\"\u003ehttps://stackoverflow.com/questions/38775954/sudo-docker-compose-command-not-found\u003c/a\u003e\n\u003c/li\u003e\n\u003cli\u003eStart app with \u003ccode\u003edocker-compose -f docker-compose-dev.yml up\u003c/code\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"contributing\" class=\"anchor\" href=\"#contributing\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eContributing\u003c/h2\u003e\n\u003cp\u003eWe welcome suggestions and bug reports via issues and and pull requests.\u003c/p\u003e\n\u003cp\u003eBy participating in this project, you are expected to uphold Builder Book's \u003ca href=\"https://github.com/builderbook/builderbook/blob/master/CODE-OF-CONDUCT.md\" rel=\"nofollow\"\u003eCode of Conduct\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eWant to support this project? Sign up at \u003ca href=\"https://async-await.com\" rel=\"nofollow\"\u003easync\u003c/a\u003e and/or buy our \u003ca href=\"https://builderbook.org\" rel=\"nofollow\"\u003ebooks\u003c/a\u003e, which teach you how to build web apps from scratch. Also check out our open source \u003ca href=\"https://github.com/async-labs/saas\" rel=\"nofollow\"\u003eSaaS boilerplate\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"team\" class=\"anchor\" href=\"#team\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTeam\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/klyburke\" rel=\"nofollow\"\u003eKelly Burke\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/delgermurun\" rel=\"nofollow\"\u003eDelgermurun Purevkhuu\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/tima101\" rel=\"nofollow\"\u003eTimur Zhiyentayev\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eYou can contact us at \u003ca href=\"mailto:team@builderbook.org\" rel=\"nofollow\"\u003eteam@builderbook.org\u003c/a\u003e\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cp\u003eAll code in this repository is provided under the \u003ca href=\"https://github.com/builderbook/builderbook/blob/master/LICENSE.md\" rel=\"nofollow\"\u003eMIT License\u003c/a\u003e.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"project-structure\" class=\"anchor\" href=\"#project-structure\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eProject structure\u003c/h2\u003e\n\u003cpre\u003e\u003ccode\u003e.\n├── .vscode\n│   ├── extensions.json\n│   ├── settings.json\n├── book\n├── builderbook\n│   ├── .ebextensions\n│   │   ├── environment.config\n│   │   ├── git.config\n│   ├── .elasticbeanstalk\n│   │   ├── config.yml\n│   ├── components\n│   │   ├── admin\n│   │   │   ├── EditBook.jsx\n│   │   ├── customer\n│   │   │   ├── BuyButton.jsx\n│   │   ├── Header.jsx\n│   │   ├── MenuWithAvatar.jsx                   \n│   │   ├── Notifier.jsx\n│   │   ├── SharedStyles.js\n├── lib\n│   ├── api\n│   │   ├── admin.js\n│   │   ├── customer.js\n│   │   ├── getRootURL.js\n│   │   ├── public.js\n│   │   ├── sendRequest.js\n│   ├── notify.js\n│   ├── theme.js\n│   ├── withAuth.jsx\n├── pages\n│   ├── admin\n│   │   ├── add-book.jsx\n│   │   ├── book-detail.jsx\n│   │   ├── edit-book.jsx\n│   │   ├── index.jsx\n│   ├── customer\n│   │   ├── my-books.jsx\n│   ├── public\n│   │   ├── login.jsx\n│   │   ├── read-chapter.jsx\n│   ├── _app.jsx\n│   ├── _document.jsx\n│   ├── index.jsx\n├── public\n│   ├── robots.txt\n├── server\n│   ├── api\n│   │   ├── admin.js\n│   │   ├── customer.js\n│   │   ├── index.js\n│   │   ├── public.js\n│   ├── models\n│   │   ├── Book.js\n│   │   ├── Chapter.js\n│   │   ├── EmailTemplate.js\n│   │   ├── Purchase.js\n│   │   ├── User.js\n│   ├── utils\n│   │   ├──slugify.js\n│   ├── app.js\n│   ├── aws.js\n│   ├── github.js\n│   ├── google.js\n│   ├── logger.js\n│   ├── mailchimp.js\n│   ├── routesWithSlug.js\n│   ├── sitemapAndRobots.js\n│   ├── stripe.js\n├── test/server/utils\n│   ├── slugify.test.js\n├── .eslintrc.js\n├── .gitignore\n├── package.json\n├── yarn.lock\n\n\u003c/code\u003e\u003c/pre\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":112898455,"name":"builderbook","owner_login":"builderbook","description":"Open source web application to learn JS stack: React, Material-UI, Next.js, Node.js, Express.js, Mongoose, MongoDB database.","pushed_at":"2021-01-03T17:09:51.000Z","stargazers_count":2549,"open_issues_count":67,"has_downloads":true,"archived":false,"license_key":"other","homepage":"https://builderbook.org","private":false,"project_created_at":"2017-12-03T03:57:52.000Z","project_updated_at":"2021-01-14T04:09:56.000Z","language":null,"added_language_topic":false},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

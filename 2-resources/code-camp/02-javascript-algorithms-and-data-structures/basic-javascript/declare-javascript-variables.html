@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>In computer science, <dfn>data</dfn> is anything that is meaningful to the computer. JavaScript provides eight different <dfn>data types</dfn> which are <code>undefined</code>, <code>null</code>, <code>boolean</code>, <code>string</code>, <code>symbol</code>, <code>bigint</code>, <code>number</code>, and <code>object</code>.</p>
+<p>For example, computers distinguish between numbers, such as the number <code>12</code>, and <code>strings</code>, such as <code>"12"</code>, <code>"dog"</code>, or <code>"123 cats"</code>, which are collections of characters. Computers can perform mathematical operations on a number, but not on a string.</p>
+<p><dfn>Variables</dfn> allow computers to store and manipulate data in a dynamic fashion. They do this by using a “label” to point to the data rather than using the data itself. Any of the eight data types may be stored in a variable.</p>
+<p>Variables are similar to the x and y variables you use in mathematics, which means they’re a simple name to represent the data we want to refer to. Computer variables differ from mathematical variables in that they can store different values at different times.</p>
+<p>We tell JavaScript to create or <dfn>declare</dfn> a variable by putting the keyword <code>var</code> in front of it, like so:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">var</span> ourName<span class="op">;</span></a></code></pre></div>
+<p>creates a variable called <code>ourName</code>. In JavaScript we end statements with semicolons. Variable names can be made up of numbers, letters, and <code>$</code> or <code>_</code>, but may not contain spaces or start with a number.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>Use the <code>var</code> keyword to create a variable called <code>myName</code>.</p>
+<p><strong>Hint</strong><br />
+Look at the <code>ourName</code> example above if you get stuck.</p>
+<h1 id="hints">–hints–</h1>
+<p>You should declare <code>myName</code> with the <code>var</code> keyword, ending with a semicolon</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(<span class="ss">/var</span><span class="sc">\s+</span><span class="ss">myName</span><span class="sc">\s*</span><span class="ss">;/</span>.<span class="at">test</span>(code))<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="after-user-code">–after-user-code–</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="cf">if</span>(<span class="kw">typeof</span> myName <span class="op">!==</span> <span class="st">&quot;undefined&quot;</span>)<span class="op">{</span>(<span class="kw">function</span>(v)<span class="op">{</span><span class="cf">return</span> v<span class="op">;}</span>)(myName)<span class="op">;}</span></a></code></pre></div>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">var</span> myName<span class="op">;</span></a></code></pre></div>
+</body></html>

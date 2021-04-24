@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>You can use the same principles from the previous two lessons to destructure values from nested objects.</p>
+<p>Using an object similar to previous examples:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> user <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="dt">johnDoe</span><span class="op">:</span> <span class="op">{</span> </a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="dt">age</span><span class="op">:</span> <span class="dv">34</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="dt">email</span><span class="op">:</span> <span class="st">&#39;johnDoe@freeCodeCamp.com&#39;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="op">};</span></a></code></pre></div>
+<p>Here’s how to extract the values of object properties and assign them to variables with the same name:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> <span class="op">{</span> <span class="dt">johnDoe</span><span class="op">:</span> <span class="op">{</span> age<span class="op">,</span> email <span class="op">}}</span> <span class="op">=</span> user<span class="op">;</span></a></code></pre></div>
+<p>And here’s how you can assign an object properties’ values to variables with different names:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">const</span> <span class="op">{</span> <span class="dt">johnDoe</span><span class="op">:</span> <span class="op">{</span> <span class="dt">age</span><span class="op">:</span> userAge<span class="op">,</span> <span class="dt">email</span><span class="op">:</span> userEmail <span class="op">}}</span> <span class="op">=</span> user<span class="op">;</span></a></code></pre></div>
+<h1 id="instructions">–instructions–</h1>
+<p>Replace the two assignments with an equivalent destructuring assignment. It should still assign the variables <code>lowToday</code> and <code>highToday</code> the values of <code>today.low</code> and <code>today.high</code> from the <code>LOCAL_FORECAST</code> object.</p>
+<h1 id="hints">–hints–</h1>
+<p>You should remove the ES5 assignment syntax.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="op">!</span><span class="va">code</span>.<span class="at">match</span>(<span class="ss">/lowToday = LOCAL_FORECAST</span><span class="sc">\.</span><span class="ss">today</span><span class="sc">\.</span><span class="ss">low/g</span>) <span class="op">&amp;&amp;</span></a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="op">!</span><span class="va">code</span>.<span class="at">match</span>(<span class="ss">/highToday = LOCAL_FORECAST</span><span class="sc">\.</span><span class="ss">today.high/g</span>)</a>
+<a class="sourceLine" id="cb4-4" title="4">)<span class="op">;</span></a></code></pre></div>
+<p>You should use destructuring to create the <code>lowToday</code> variable.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="va">code</span>.<span class="at">match</span>(</a>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="ss">/</span><span class="sc">(</span><span class="ss">var</span><span class="sc">|</span><span class="ss">const</span><span class="sc">|</span><span class="ss">let</span><span class="sc">)\s*</span><span class="ss">{</span><span class="sc">\s*</span><span class="ss">today</span><span class="sc">\s*</span><span class="ss">:</span><span class="sc">\s*</span><span class="ss">{</span><span class="sc">\s*(</span><span class="ss">low</span><span class="sc">\s*</span><span class="ss">:</span><span class="sc">\s*</span><span class="ss">lowToday</span><span class="sc">[^}]*|[^,]*</span><span class="ss">,</span><span class="sc">\s*</span><span class="ss">low</span><span class="sc">\s*</span><span class="ss">:</span><span class="sc">\s*</span><span class="ss">lowToday</span><span class="sc">\s*)</span><span class="ss">}</span><span class="sc">\s*</span><span class="ss">}</span><span class="sc">\s*</span><span class="ss">=</span><span class="sc">\s*</span><span class="ss">LOCAL_FORECAST</span><span class="sc">(</span><span class="ss">;</span><span class="sc">|\s+|\/\/)</span><span class="ss">/g</span></a>
+<a class="sourceLine" id="cb5-4" title="4">  )</a>
+<a class="sourceLine" id="cb5-5" title="5">)<span class="op">;</span></a></code></pre></div>
+<p>You should use destructuring to create the <code>highToday</code> variable.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="va">code</span>.<span class="at">match</span>(</a>
+<a class="sourceLine" id="cb6-3" title="3">    <span class="ss">/</span><span class="sc">(</span><span class="ss">var</span><span class="sc">|</span><span class="ss">const</span><span class="sc">|</span><span class="ss">let</span><span class="sc">)\s*</span><span class="ss">{</span><span class="sc">\s*</span><span class="ss">today</span><span class="sc">\s*</span><span class="ss">:</span><span class="sc">\s*</span><span class="ss">{</span><span class="sc">\s*(</span><span class="ss">high</span><span class="sc">\s*</span><span class="ss">:</span><span class="sc">\s*</span><span class="ss">highToday</span><span class="sc">[^}]*|[^,]*</span><span class="ss">,</span><span class="sc">\s*</span><span class="ss">high</span><span class="sc">\s*</span><span class="ss">:</span><span class="sc">\s*</span><span class="ss">highToday</span><span class="sc">\s*)</span><span class="ss">}</span><span class="sc">\s*</span><span class="ss">}</span><span class="sc">\s*</span><span class="ss">=</span><span class="sc">\s*</span><span class="ss">LOCAL_FORECAST</span><span class="sc">(</span><span class="ss">;</span><span class="sc">|\s+|\/\/)</span><span class="ss">/g</span></a>
+<a class="sourceLine" id="cb6-4" title="4">  )</a>
+<a class="sourceLine" id="cb6-5" title="5">)<span class="op">;</span></a></code></pre></div>
+<p><code>lowToday</code> should be equal to <code>64</code> and <code>highToday</code> should be equal to <code>77</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="at">assert</span>(lowToday <span class="op">===</span> <span class="dv">64</span> <span class="op">&amp;&amp;</span> highToday <span class="op">===</span> <span class="dv">77</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">const</span> LOCAL_FORECAST <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2">  <span class="dt">yesterday</span><span class="op">:</span> <span class="op">{</span> <span class="dt">low</span><span class="op">:</span> <span class="dv">61</span><span class="op">,</span> <span class="dt">high</span><span class="op">:</span> <span class="dv">75</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb8-3" title="3">  <span class="dt">today</span><span class="op">:</span> <span class="op">{</span> <span class="dt">low</span><span class="op">:</span> <span class="dv">64</span><span class="op">,</span> <span class="dt">high</span><span class="op">:</span> <span class="dv">77</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb8-4" title="4">  <span class="dt">tomorrow</span><span class="op">:</span> <span class="op">{</span> <span class="dt">low</span><span class="op">:</span> <span class="dv">68</span><span class="op">,</span> <span class="dt">high</span><span class="op">:</span> <span class="dv">80</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="op">};</span></a>
+<a class="sourceLine" id="cb8-6" title="6"></a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb8-8" title="8">  </a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="kw">const</span> lowToday <span class="op">=</span> <span class="va">LOCAL_FORECAST</span>.<span class="va">today</span>.<span class="at">low</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb8-10" title="10"><span class="kw">const</span> highToday <span class="op">=</span> <span class="va">LOCAL_FORECAST</span>.<span class="va">today</span>.<span class="at">high</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb8-11" title="11"></a>
+<a class="sourceLine" id="cb8-12" title="12"><span class="co">// Only change code above this line</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">const</span> LOCAL_FORECAST <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="dt">yesterday</span><span class="op">:</span> <span class="op">{</span> <span class="dt">low</span><span class="op">:</span> <span class="dv">61</span><span class="op">,</span> <span class="dt">high</span><span class="op">:</span> <span class="dv">75</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb9-3" title="3">  <span class="dt">today</span><span class="op">:</span> <span class="op">{</span> <span class="dt">low</span><span class="op">:</span> <span class="dv">64</span><span class="op">,</span> <span class="dt">high</span><span class="op">:</span> <span class="dv">77</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb9-4" title="4">  <span class="dt">tomorrow</span><span class="op">:</span> <span class="op">{</span> <span class="dt">low</span><span class="op">:</span> <span class="dv">68</span><span class="op">,</span> <span class="dt">high</span><span class="op">:</span> <span class="dv">80</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="op">};</span></a>
+<a class="sourceLine" id="cb9-6" title="6"> </a>
+<a class="sourceLine" id="cb9-7" title="7"><span class="kw">const</span> <span class="op">{</span> <span class="dt">today</span><span class="op">:</span> <span class="op">{</span> <span class="dt">low</span><span class="op">:</span> lowToday<span class="op">,</span> <span class="dt">high</span><span class="op">:</span> highToday <span class="op">}}</span> <span class="op">=</span> LOCAL_FORECAST<span class="op">;</span></a></code></pre></div>
+</body></html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>So far we have learned to use pure functions to avoid side effects in a program. Also, we have seen the value in having a function only depend on its input arguments.</p>
+<p>This is only the beginning. As its name suggests, functional programming is centered around a theory of functions.</p>
+<p>It would make sense to be able to pass them as arguments to other functions, and return a function from another function. Functions are considered <dfn>first class objects</dfn> in JavaScript, which means they can be used like any other object. They can be saved in variables, stored in an object, or passed as function arguments.</p>
+<p>Let’s start with some simple array functions, which are methods on the array object prototype. In this exercise we are looking at <code>Array.prototype.map()</code>, or more simply <code>map</code>.</p>
+<p>The <code>map</code> method iterates over each item in an array and returns a new array containing the results of calling the callback function on each element. It does this without mutating the original array.</p>
+<p>When the callback is used, it is passed three arguments. The first argument is the current element being processed. The second is the index of that element and the third is the array upon which the <code>map</code> method was called.</p>
+<p>See below for an example using the <code>map</code> method on the <code>users</code> array to return a new array containing only the names of the users as elements. For simplicity, the example only uses the first argument of the callback.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> users <span class="op">=</span> [</a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="op">{</span> <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;John&#39;</span><span class="op">,</span> <span class="dt">age</span><span class="op">:</span> <span class="dv">34</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="op">{</span> <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;Amy&#39;</span><span class="op">,</span> <span class="dt">age</span><span class="op">:</span> <span class="dv">20</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="op">{</span> <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;camperCat&#39;</span><span class="op">,</span> <span class="dt">age</span><span class="op">:</span> <span class="dv">10</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-5" title="5">]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="kw">const</span> names <span class="op">=</span> <span class="va">users</span>.<span class="at">map</span>(user <span class="kw">=&gt;</span> <span class="va">user</span>.<span class="at">name</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="va">console</span>.<span class="at">log</span>(names)<span class="op">;</span></a></code></pre></div>
+<p>The console would display the value <code>[ 'John', 'Amy', 'camperCat' ]</code>.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>The <code>watchList</code> array holds objects with information on several movies. Use <code>map</code> on <code>watchList</code> to assign a new array of objects with only <code>title</code> and <code>rating</code> keys to the <code>ratings</code> variable. The code in the editor currently uses a <code>for</code> loop to do this, so you should replace the loop functionality with your <code>map</code> expression.</p>
+<h1 id="hints">–hints–</h1>
+<p>The <code>watchList</code> variable should not change.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb2-2" title="2">  watchList[<span class="dv">0</span>].<span class="at">Title</span> <span class="op">===</span> <span class="st">&#39;Inception&#39;</span> <span class="op">&amp;&amp;</span> watchList[<span class="dv">4</span>].<span class="at">Director</span> <span class="op">==</span> <span class="st">&#39;James Cameron&#39;</span></a>
+<a class="sourceLine" id="cb2-3" title="3">)<span class="op">;</span></a></code></pre></div>
+<p>Your code should not use a <code>for</code> loop.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(<span class="op">!</span><span class="va">__helpers</span>.<span class="at">removeJSComments</span>(code).<span class="at">match</span>(<span class="ss">/for</span><span class="sc">\s*?\([\s\S]*?\)</span><span class="ss">/</span>))<span class="op">;</span></a></code></pre></div>
+<p>Your code should use the <code>map</code> method.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(<span class="va">code</span>.<span class="at">match</span>(<span class="ss">/</span><span class="sc">\.</span><span class="ss">map/g</span>))<span class="op">;</span></a></code></pre></div>
+<p><code>ratings</code> should equal <code>[{"title":"Inception","rating":"8.8"},{"title":"Interstellar","rating":"8.6"},{"title":"The Dark Knight","rating":"9.0"},{"title":"Batman Begins","rating":"8.3"},{"title":"Avatar","rating":"7.9"}]</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">assert</span>.<span class="at">deepEqual</span>(ratings<span class="op">,</span> [</a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="op">{</span> <span class="dt">title</span><span class="op">:</span> <span class="st">&#39;Inception&#39;</span><span class="op">,</span> <span class="dt">rating</span><span class="op">:</span> <span class="st">&#39;8.8&#39;</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="op">{</span> <span class="dt">title</span><span class="op">:</span> <span class="st">&#39;Interstellar&#39;</span><span class="op">,</span> <span class="dt">rating</span><span class="op">:</span> <span class="st">&#39;8.6&#39;</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb5-4" title="4">  <span class="op">{</span> <span class="dt">title</span><span class="op">:</span> <span class="st">&#39;The Dark Knight&#39;</span><span class="op">,</span> <span class="dt">rating</span><span class="op">:</span> <span class="st">&#39;9.0&#39;</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb5-5" title="5">  <span class="op">{</span> <span class="dt">title</span><span class="op">:</span> <span class="st">&#39;Batman Begins&#39;</span><span class="op">,</span> <span class="dt">rating</span><span class="op">:</span> <span class="st">&#39;8.3&#39;</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb5-6" title="6">  <span class="op">{</span> <span class="dt">title</span><span class="op">:</span> <span class="st">&#39;Avatar&#39;</span><span class="op">,</span> <span class="dt">rating</span><span class="op">:</span> <span class="st">&#39;7.9&#39;</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-7" title="7">])<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="co">// The global variable</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">var</span> watchList <span class="op">=</span> [</a>
+<a class="sourceLine" id="cb6-3" title="3">  <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-4" title="4">    <span class="st">&quot;Title&quot;</span><span class="op">:</span> <span class="st">&quot;Inception&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-5" title="5">    <span class="st">&quot;Year&quot;</span><span class="op">:</span> <span class="st">&quot;2010&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-6" title="6">    <span class="st">&quot;Rated&quot;</span><span class="op">:</span> <span class="st">&quot;PG-13&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-7" title="7">    <span class="st">&quot;Released&quot;</span><span class="op">:</span> <span class="st">&quot;16 Jul 2010&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-8" title="8">    <span class="st">&quot;Runtime&quot;</span><span class="op">:</span> <span class="st">&quot;148 min&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-9" title="9">    <span class="st">&quot;Genre&quot;</span><span class="op">:</span> <span class="st">&quot;Action, Adventure, Crime&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-10" title="10">    <span class="st">&quot;Director&quot;</span><span class="op">:</span> <span class="st">&quot;Christopher Nolan&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-11" title="11">    <span class="st">&quot;Writer&quot;</span><span class="op">:</span> <span class="st">&quot;Christopher Nolan&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-12" title="12">    <span class="st">&quot;Actors&quot;</span><span class="op">:</span> <span class="st">&quot;Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page, Tom Hardy&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-13" title="13">    <span class="st">&quot;Plot&quot;</span><span class="op">:</span> <span class="st">&quot;A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-14" title="14">    <span class="st">&quot;Language&quot;</span><span class="op">:</span> <span class="st">&quot;English, Japanese, French&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-15" title="15">    <span class="st">&quot;Country&quot;</span><span class="op">:</span> <span class="st">&quot;USA, UK&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-16" title="16">    <span class="st">&quot;Awards&quot;</span><span class="op">:</span> <span class="st">&quot;Won 4 Oscars. Another 143 wins &amp; 198 nominations.&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-17" title="17">    <span class="st">&quot;Poster&quot;</span><span class="op">:</span> <span class="st">&quot;http://ia.media-imdb.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-18" title="18">    <span class="st">&quot;Metascore&quot;</span><span class="op">:</span> <span class="st">&quot;74&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-19" title="19">    <span class="st">&quot;imdbRating&quot;</span><span class="op">:</span> <span class="st">&quot;8.8&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-20" title="20">    <span class="st">&quot;imdbVotes&quot;</span><span class="op">:</span> <span class="st">&quot;1,446,708&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-21" title="21">    <span class="st">&quot;imdbID&quot;</span><span class="op">:</span> <span class="st">&quot;tt1375666&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-22" title="22">    <span class="st">&quot;Type&quot;</span><span class="op">:</span> <span class="st">&quot;movie&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-23" title="23">    <span class="st">&quot;Response&quot;</span><span class="op">:</span> <span class="st">&quot;True&quot;</span></a>
+<a class="sourceLine" id="cb6-24" title="24">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb6-25" title="25">  <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-26" title="26">    <span class="st">&quot;Title&quot;</span><span class="op">:</span> <span class="st">&quot;Interstellar&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-27" title="27">    <span class="st">&quot;Year&quot;</span><span class="op">:</span> <span class="st">&quot;2014&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-28" title="28">    <span class="st">&quot;Rated&quot;</span><span class="op">:</span> <span class="st">&quot;PG-13&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-29" title="29">    <span class="st">&quot;Released&quot;</span><span class="op">:</span> <span class="st">&quot;07 Nov 2014&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-30" title="30">    <span class="st">&quot;Runtime&quot;</span><span class="op">:</span> <span class="st">&quot;169 min&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-31" title="31">    <span class="st">&quot;Genre&quot;</span><span class="op">:</span> <span class="st">&quot;Adventure, Drama, Sci-Fi&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-32" title="32">    <span class="st">&quot;Director&quot;</span><span class="op">:</span> <span class="st">&quot;Christopher Nolan&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-33" title="33">    <span class="st">&quot;Writer&quot;</span><span class="op">:</span> <span class="st">&quot;Jonathan Nolan, Christopher Nolan&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-34" title="34">    <span class="st">&quot;Actors&quot;</span><span class="op">:</span> <span class="st">&quot;Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-35" title="35">    <span class="st">&quot;Plot&quot;</span><span class="op">:</span> <span class="st">&quot;A team of explorers travel through a wormhole in space in an attempt to ensure humanity&#39;s survival.&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-36" title="36">    <span class="st">&quot;Language&quot;</span><span class="op">:</span> <span class="st">&quot;English&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-37" title="37">    <span class="st">&quot;Country&quot;</span><span class="op">:</span> <span class="st">&quot;USA, UK&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-38" title="38">    <span class="st">&quot;Awards&quot;</span><span class="op">:</span> <span class="st">&quot;Won 1 Oscar. Another 39 wins &amp; 132 nominations.&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-39" title="39">    <span class="st">&quot;Poster&quot;</span><span class="op">:</span> <span class="st">&quot;http://ia.media-imdb.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SX300.jpg&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-40" title="40">    <span class="st">&quot;Metascore&quot;</span><span class="op">:</span> <span class="st">&quot;74&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-41" title="41">    <span class="st">&quot;imdbRating&quot;</span><span class="op">:</span> <span class="st">&quot;8.6&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-42" title="42">    <span class="st">&quot;imdbVotes&quot;</span><span class="op">:</span> <span class="st">&quot;910,366&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-43" title="43">    <span class="st">&quot;imdbID&quot;</span><span class="op">:</span> <span class="st">&quot;tt0816692&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-44" title="44">    <span class="st">&quot;Type&quot;</span><span class="op">:</span> <span class="st">&quot;movie&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-45" title="45">    <span class="st">&quot;Response&quot;</span><span class="op">:</span> <span class="st">&quot;True&quot;</span></a>
+<a class="sourceLine" id="cb6-46" title="46">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb6-47" title="47">  <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-48" title="48">    <span class="st">&quot;Title&quot;</span><span class="op">:</span> <span class="st">&quot;The Dark Knight&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-49" title="49">    <span class="st">&quot;Year&quot;</span><span class="op">:</span> <span class="st">&quot;2008&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-50" title="50">    <span class="st">&quot;Rated&quot;</span><span class="op">:</span> <span class="st">&quot;PG-13&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-51" title="51">    <span class="st">&quot;Released&quot;</span><span class="op">:</span> <span class="st">&quot;18 Jul 2008&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-52" title="52">    <span class="st">&quot;Runtime&quot;</span><span class="op">:</span> <span class="st">&quot;152 min&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-53" title="53">    <span class="st">&quot;Genre&quot;</span><span class="op">:</span> <span class="st">&quot;Action, Adventure, Crime&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-54" title="54">    <span class="st">&quot;Director&quot;</span><span class="op">:</span> <span class="st">&quot;Christopher Nolan&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-55" title="55">    <span class="st">&quot;Writer&quot;</span><span class="op">:</span> <span class="st">&quot;Jonathan Nolan (screenplay), Christopher Nolan (screenplay), Christopher Nolan (story), David S. Goyer (story), Bob Kane (characters)&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-56" title="56">    <span class="st">&quot;Actors&quot;</span><span class="op">:</span> <span class="st">&quot;Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-57" title="57">    <span class="st">&quot;Plot&quot;</span><span class="op">:</span> <span class="st">&quot;When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-58" title="58">    <span class="st">&quot;Language&quot;</span><span class="op">:</span> <span class="st">&quot;English, Mandarin&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-59" title="59">    <span class="st">&quot;Country&quot;</span><span class="op">:</span> <span class="st">&quot;USA, UK&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-60" title="60">    <span class="st">&quot;Awards&quot;</span><span class="op">:</span> <span class="st">&quot;Won 2 Oscars. Another 146 wins &amp; 142 nominations.&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-61" title="61">    <span class="st">&quot;Poster&quot;</span><span class="op">:</span> <span class="st">&quot;http://ia.media-imdb.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-62" title="62">    <span class="st">&quot;Metascore&quot;</span><span class="op">:</span> <span class="st">&quot;82&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-63" title="63">    <span class="st">&quot;imdbRating&quot;</span><span class="op">:</span> <span class="st">&quot;9.0&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-64" title="64">    <span class="st">&quot;imdbVotes&quot;</span><span class="op">:</span> <span class="st">&quot;1,652,832&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-65" title="65">    <span class="st">&quot;imdbID&quot;</span><span class="op">:</span> <span class="st">&quot;tt0468569&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-66" title="66">    <span class="st">&quot;Type&quot;</span><span class="op">:</span> <span class="st">&quot;movie&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-67" title="67">    <span class="st">&quot;Response&quot;</span><span class="op">:</span> <span class="st">&quot;True&quot;</span></a>
+<a class="sourceLine" id="cb6-68" title="68">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb6-69" title="69">  <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-70" title="70">    <span class="st">&quot;Title&quot;</span><span class="op">:</span> <span class="st">&quot;Batman Begins&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-71" title="71">    <span class="st">&quot;Year&quot;</span><span class="op">:</span> <span class="st">&quot;2005&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-72" title="72">    <span class="st">&quot;Rated&quot;</span><span class="op">:</span> <span class="st">&quot;PG-13&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-73" title="73">    <span class="st">&quot;Released&quot;</span><span class="op">:</span> <span class="st">&quot;15 Jun 2005&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-74" title="74">    <span class="st">&quot;Runtime&quot;</span><span class="op">:</span> <span class="st">&quot;140 min&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-75" title="75">    <span class="st">&quot;Genre&quot;</span><span class="op">:</span> <span class="st">&quot;Action, Adventure&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-76" title="76">    <span class="st">&quot;Director&quot;</span><span class="op">:</span> <span class="st">&quot;Christopher Nolan&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-77" title="77">    <span class="st">&quot;Writer&quot;</span><span class="op">:</span> <span class="st">&quot;Bob Kane (characters), David S. Goyer (story), Christopher Nolan (screenplay), David S. Goyer (screenplay)&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-78" title="78">    <span class="st">&quot;Actors&quot;</span><span class="op">:</span> <span class="st">&quot;Christian Bale, Michael Caine, Liam Neeson, Katie Holmes&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-79" title="79">    <span class="st">&quot;Plot&quot;</span><span class="op">:</span> <span class="st">&quot;After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from the corruption that Scarecrow and the League of Shadows have cast upon it.&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-80" title="80">    <span class="st">&quot;Language&quot;</span><span class="op">:</span> <span class="st">&quot;English, Urdu, Mandarin&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-81" title="81">    <span class="st">&quot;Country&quot;</span><span class="op">:</span> <span class="st">&quot;USA, UK&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-82" title="82">    <span class="st">&quot;Awards&quot;</span><span class="op">:</span> <span class="st">&quot;Nominated for 1 Oscar. Another 15 wins &amp; 66 nominations.&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-83" title="83">    <span class="st">&quot;Poster&quot;</span><span class="op">:</span> <span class="st">&quot;http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-84" title="84">    <span class="st">&quot;Metascore&quot;</span><span class="op">:</span> <span class="st">&quot;70&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-85" title="85">    <span class="st">&quot;imdbRating&quot;</span><span class="op">:</span> <span class="st">&quot;8.3&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-86" title="86">    <span class="st">&quot;imdbVotes&quot;</span><span class="op">:</span> <span class="st">&quot;972,584&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-87" title="87">    <span class="st">&quot;imdbID&quot;</span><span class="op">:</span> <span class="st">&quot;tt0372784&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-88" title="88">    <span class="st">&quot;Type&quot;</span><span class="op">:</span> <span class="st">&quot;movie&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-89" title="89">    <span class="st">&quot;Response&quot;</span><span class="op">:</span> <span class="st">&quot;True&quot;</span></a>
+<a class="sourceLine" id="cb6-90" title="90">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb6-91" title="91">  <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-92" title="92">    <span class="st">&quot;Title&quot;</span><span class="op">:</span> <span class="st">&quot;Avatar&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-93" title="93">    <span class="st">&quot;Year&quot;</span><span class="op">:</span> <span class="st">&quot;2009&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-94" title="94">    <span class="st">&quot;Rated&quot;</span><span class="op">:</span> <span class="st">&quot;PG-13&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-95" title="95">    <span class="st">&quot;Released&quot;</span><span class="op">:</span> <span class="st">&quot;18 Dec 2009&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-96" title="96">    <span class="st">&quot;Runtime&quot;</span><span class="op">:</span> <span class="st">&quot;162 min&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-97" title="97">    <span class="st">&quot;Genre&quot;</span><span class="op">:</span> <span class="st">&quot;Action, Adventure, Fantasy&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-98" title="98">    <span class="st">&quot;Director&quot;</span><span class="op">:</span> <span class="st">&quot;James Cameron&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-99" title="99">    <span class="st">&quot;Writer&quot;</span><span class="op">:</span> <span class="st">&quot;James Cameron&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-100" title="100">    <span class="st">&quot;Actors&quot;</span><span class="op">:</span> <span class="st">&quot;Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-101" title="101">    <span class="st">&quot;Plot&quot;</span><span class="op">:</span> <span class="st">&quot;A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-102" title="102">    <span class="st">&quot;Language&quot;</span><span class="op">:</span> <span class="st">&quot;English, Spanish&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-103" title="103">    <span class="st">&quot;Country&quot;</span><span class="op">:</span> <span class="st">&quot;USA, UK&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-104" title="104">    <span class="st">&quot;Awards&quot;</span><span class="op">:</span> <span class="st">&quot;Won 3 Oscars. Another 80 wins &amp; 121 nominations.&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-105" title="105">    <span class="st">&quot;Poster&quot;</span><span class="op">:</span> <span class="st">&quot;http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-106" title="106">    <span class="st">&quot;Metascore&quot;</span><span class="op">:</span> <span class="st">&quot;83&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-107" title="107">    <span class="st">&quot;imdbRating&quot;</span><span class="op">:</span> <span class="st">&quot;7.9&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-108" title="108">    <span class="st">&quot;imdbVotes&quot;</span><span class="op">:</span> <span class="st">&quot;876,575&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-109" title="109">    <span class="st">&quot;imdbID&quot;</span><span class="op">:</span> <span class="st">&quot;tt0499549&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-110" title="110">    <span class="st">&quot;Type&quot;</span><span class="op">:</span> <span class="st">&quot;movie&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-111" title="111">    <span class="st">&quot;Response&quot;</span><span class="op">:</span> <span class="st">&quot;True&quot;</span></a>
+<a class="sourceLine" id="cb6-112" title="112">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-113" title="113">]<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-114" title="114"></a>
+<a class="sourceLine" id="cb6-115" title="115"><span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb6-116" title="116"></a>
+<a class="sourceLine" id="cb6-117" title="117"><span class="kw">var</span> ratings <span class="op">=</span> []<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-118" title="118"><span class="cf">for</span>(<span class="kw">var</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="va">watchList</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">++</span>)<span class="op">{</span></a>
+<a class="sourceLine" id="cb6-119" title="119">  <span class="va">ratings</span>.<span class="at">push</span>(<span class="op">{</span><span class="dt">title</span><span class="op">:</span> watchList[i][<span class="st">&quot;Title&quot;</span>]<span class="op">,</span>  <span class="dt">rating</span><span class="op">:</span> watchList[i][<span class="st">&quot;imdbRating&quot;</span>]<span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-120" title="120"><span class="op">}</span></a>
+<a class="sourceLine" id="cb6-121" title="121"></a>
+<a class="sourceLine" id="cb6-122" title="122"><span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb6-123" title="123"></a>
+<a class="sourceLine" id="cb6-124" title="124"><span class="va">console</span>.<span class="at">log</span>(<span class="va">JSON</span>.<span class="at">stringify</span>(ratings))<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="co">// The global variable</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="kw">var</span> watchList <span class="op">=</span> [</a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-4" title="4">    <span class="st">&quot;Title&quot;</span><span class="op">:</span> <span class="st">&quot;Inception&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-5" title="5">    <span class="st">&quot;Year&quot;</span><span class="op">:</span> <span class="st">&quot;2010&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-6" title="6">    <span class="st">&quot;Rated&quot;</span><span class="op">:</span> <span class="st">&quot;PG-13&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-7" title="7">    <span class="st">&quot;Released&quot;</span><span class="op">:</span> <span class="st">&quot;16 Jul 2010&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-8" title="8">    <span class="st">&quot;Runtime&quot;</span><span class="op">:</span> <span class="st">&quot;148 min&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-9" title="9">    <span class="st">&quot;Genre&quot;</span><span class="op">:</span> <span class="st">&quot;Action, Adventure, Crime&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-10" title="10">    <span class="st">&quot;Director&quot;</span><span class="op">:</span> <span class="st">&quot;Christopher Nolan&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-11" title="11">    <span class="st">&quot;Writer&quot;</span><span class="op">:</span> <span class="st">&quot;Christopher Nolan&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-12" title="12">    <span class="st">&quot;Actors&quot;</span><span class="op">:</span> <span class="st">&quot;Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page, Tom Hardy&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-13" title="13">    <span class="st">&quot;Plot&quot;</span><span class="op">:</span> <span class="st">&quot;A thief, who steals corporate secrets through use of dream-sharing technology, is given the inverse task of planting an idea into the mind of a CEO.&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-14" title="14">    <span class="st">&quot;Language&quot;</span><span class="op">:</span> <span class="st">&quot;English, Japanese, French&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-15" title="15">    <span class="st">&quot;Country&quot;</span><span class="op">:</span> <span class="st">&quot;USA, UK&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-16" title="16">    <span class="st">&quot;Awards&quot;</span><span class="op">:</span> <span class="st">&quot;Won 4 Oscars. Another 143 wins &amp; 198 nominations.&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-17" title="17">    <span class="st">&quot;Poster&quot;</span><span class="op">:</span> <span class="st">&quot;http://ia.media-imdb.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-18" title="18">    <span class="st">&quot;Metascore&quot;</span><span class="op">:</span> <span class="st">&quot;74&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-19" title="19">    <span class="st">&quot;imdbRating&quot;</span><span class="op">:</span> <span class="st">&quot;8.8&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-20" title="20">    <span class="st">&quot;imdbVotes&quot;</span><span class="op">:</span> <span class="st">&quot;1,446,708&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-21" title="21">    <span class="st">&quot;imdbID&quot;</span><span class="op">:</span> <span class="st">&quot;tt1375666&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-22" title="22">    <span class="st">&quot;Type&quot;</span><span class="op">:</span> <span class="st">&quot;movie&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-23" title="23">    <span class="st">&quot;Response&quot;</span><span class="op">:</span> <span class="st">&quot;True&quot;</span></a>
+<a class="sourceLine" id="cb7-24" title="24">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb7-25" title="25">  <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-26" title="26">    <span class="st">&quot;Title&quot;</span><span class="op">:</span> <span class="st">&quot;Interstellar&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-27" title="27">    <span class="st">&quot;Year&quot;</span><span class="op">:</span> <span class="st">&quot;2014&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-28" title="28">    <span class="st">&quot;Rated&quot;</span><span class="op">:</span> <span class="st">&quot;PG-13&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-29" title="29">    <span class="st">&quot;Released&quot;</span><span class="op">:</span> <span class="st">&quot;07 Nov 2014&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-30" title="30">    <span class="st">&quot;Runtime&quot;</span><span class="op">:</span> <span class="st">&quot;169 min&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-31" title="31">    <span class="st">&quot;Genre&quot;</span><span class="op">:</span> <span class="st">&quot;Adventure, Drama, Sci-Fi&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-32" title="32">    <span class="st">&quot;Director&quot;</span><span class="op">:</span> <span class="st">&quot;Christopher Nolan&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-33" title="33">    <span class="st">&quot;Writer&quot;</span><span class="op">:</span> <span class="st">&quot;Jonathan Nolan, Christopher Nolan&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-34" title="34">    <span class="st">&quot;Actors&quot;</span><span class="op">:</span> <span class="st">&quot;Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-35" title="35">    <span class="st">&quot;Plot&quot;</span><span class="op">:</span> <span class="st">&quot;A team of explorers travel through a wormhole in space in an attempt to ensure humanity&#39;s survival.&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-36" title="36">    <span class="st">&quot;Language&quot;</span><span class="op">:</span> <span class="st">&quot;English&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-37" title="37">    <span class="st">&quot;Country&quot;</span><span class="op">:</span> <span class="st">&quot;USA, UK&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-38" title="38">    <span class="st">&quot;Awards&quot;</span><span class="op">:</span> <span class="st">&quot;Won 1 Oscar. Another 39 wins &amp; 132 nominations.&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-39" title="39">    <span class="st">&quot;Poster&quot;</span><span class="op">:</span> <span class="st">&quot;http://ia.media-imdb.com/images/M/MV5BMjIxNTU4MzY4MF5BMl5BanBnXkFtZTgwMzM4ODI3MjE@._V1_SX300.jpg&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-40" title="40">    <span class="st">&quot;Metascore&quot;</span><span class="op">:</span> <span class="st">&quot;74&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-41" title="41">    <span class="st">&quot;imdbRating&quot;</span><span class="op">:</span> <span class="st">&quot;8.6&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-42" title="42">    <span class="st">&quot;imdbVotes&quot;</span><span class="op">:</span> <span class="st">&quot;910,366&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-43" title="43">    <span class="st">&quot;imdbID&quot;</span><span class="op">:</span> <span class="st">&quot;tt0816692&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-44" title="44">    <span class="st">&quot;Type&quot;</span><span class="op">:</span> <span class="st">&quot;movie&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-45" title="45">    <span class="st">&quot;Response&quot;</span><span class="op">:</span> <span class="st">&quot;True&quot;</span></a>
+<a class="sourceLine" id="cb7-46" title="46">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb7-47" title="47">  <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-48" title="48">    <span class="st">&quot;Title&quot;</span><span class="op">:</span> <span class="st">&quot;The Dark Knight&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-49" title="49">    <span class="st">&quot;Year&quot;</span><span class="op">:</span> <span class="st">&quot;2008&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-50" title="50">    <span class="st">&quot;Rated&quot;</span><span class="op">:</span> <span class="st">&quot;PG-13&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-51" title="51">    <span class="st">&quot;Released&quot;</span><span class="op">:</span> <span class="st">&quot;18 Jul 2008&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-52" title="52">    <span class="st">&quot;Runtime&quot;</span><span class="op">:</span> <span class="st">&quot;152 min&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-53" title="53">    <span class="st">&quot;Genre&quot;</span><span class="op">:</span> <span class="st">&quot;Action, Adventure, Crime&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-54" title="54">    <span class="st">&quot;Director&quot;</span><span class="op">:</span> <span class="st">&quot;Christopher Nolan&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-55" title="55">    <span class="st">&quot;Writer&quot;</span><span class="op">:</span> <span class="st">&quot;Jonathan Nolan (screenplay), Christopher Nolan (screenplay), Christopher Nolan (story), David S. Goyer (story), Bob Kane (characters)&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-56" title="56">    <span class="st">&quot;Actors&quot;</span><span class="op">:</span> <span class="st">&quot;Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-57" title="57">    <span class="st">&quot;Plot&quot;</span><span class="op">:</span> <span class="st">&quot;When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-58" title="58">    <span class="st">&quot;Language&quot;</span><span class="op">:</span> <span class="st">&quot;English, Mandarin&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-59" title="59">    <span class="st">&quot;Country&quot;</span><span class="op">:</span> <span class="st">&quot;USA, UK&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-60" title="60">    <span class="st">&quot;Awards&quot;</span><span class="op">:</span> <span class="st">&quot;Won 2 Oscars. Another 146 wins &amp; 142 nominations.&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-61" title="61">    <span class="st">&quot;Poster&quot;</span><span class="op">:</span> <span class="st">&quot;http://ia.media-imdb.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-62" title="62">    <span class="st">&quot;Metascore&quot;</span><span class="op">:</span> <span class="st">&quot;82&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-63" title="63">    <span class="st">&quot;imdbRating&quot;</span><span class="op">:</span> <span class="st">&quot;9.0&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-64" title="64">    <span class="st">&quot;imdbVotes&quot;</span><span class="op">:</span> <span class="st">&quot;1,652,832&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-65" title="65">    <span class="st">&quot;imdbID&quot;</span><span class="op">:</span> <span class="st">&quot;tt0468569&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-66" title="66">    <span class="st">&quot;Type&quot;</span><span class="op">:</span> <span class="st">&quot;movie&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-67" title="67">    <span class="st">&quot;Response&quot;</span><span class="op">:</span> <span class="st">&quot;True&quot;</span></a>
+<a class="sourceLine" id="cb7-68" title="68">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb7-69" title="69">  <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-70" title="70">    <span class="st">&quot;Title&quot;</span><span class="op">:</span> <span class="st">&quot;Batman Begins&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-71" title="71">    <span class="st">&quot;Year&quot;</span><span class="op">:</span> <span class="st">&quot;2005&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-72" title="72">    <span class="st">&quot;Rated&quot;</span><span class="op">:</span> <span class="st">&quot;PG-13&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-73" title="73">    <span class="st">&quot;Released&quot;</span><span class="op">:</span> <span class="st">&quot;15 Jun 2005&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-74" title="74">    <span class="st">&quot;Runtime&quot;</span><span class="op">:</span> <span class="st">&quot;140 min&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-75" title="75">    <span class="st">&quot;Genre&quot;</span><span class="op">:</span> <span class="st">&quot;Action, Adventure&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-76" title="76">    <span class="st">&quot;Director&quot;</span><span class="op">:</span> <span class="st">&quot;Christopher Nolan&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-77" title="77">    <span class="st">&quot;Writer&quot;</span><span class="op">:</span> <span class="st">&quot;Bob Kane (characters), David S. Goyer (story), Christopher Nolan (screenplay), David S. Goyer (screenplay)&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-78" title="78">    <span class="st">&quot;Actors&quot;</span><span class="op">:</span> <span class="st">&quot;Christian Bale, Michael Caine, Liam Neeson, Katie Holmes&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-79" title="79">    <span class="st">&quot;Plot&quot;</span><span class="op">:</span> <span class="st">&quot;After training with his mentor, Batman begins his fight to free crime-ridden Gotham City from the corruption that Scarecrow and the League of Shadows have cast upon it.&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-80" title="80">    <span class="st">&quot;Language&quot;</span><span class="op">:</span> <span class="st">&quot;English, Urdu, Mandarin&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-81" title="81">    <span class="st">&quot;Country&quot;</span><span class="op">:</span> <span class="st">&quot;USA, UK&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-82" title="82">    <span class="st">&quot;Awards&quot;</span><span class="op">:</span> <span class="st">&quot;Nominated for 1 Oscar. Another 15 wins &amp; 66 nominations.&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-83" title="83">    <span class="st">&quot;Poster&quot;</span><span class="op">:</span> <span class="st">&quot;http://ia.media-imdb.com/images/M/MV5BNTM3OTc0MzM2OV5BMl5BanBnXkFtZTYwNzUwMTI3._V1_SX300.jpg&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-84" title="84">    <span class="st">&quot;Metascore&quot;</span><span class="op">:</span> <span class="st">&quot;70&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-85" title="85">    <span class="st">&quot;imdbRating&quot;</span><span class="op">:</span> <span class="st">&quot;8.3&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-86" title="86">    <span class="st">&quot;imdbVotes&quot;</span><span class="op">:</span> <span class="st">&quot;972,584&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-87" title="87">    <span class="st">&quot;imdbID&quot;</span><span class="op">:</span> <span class="st">&quot;tt0372784&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-88" title="88">    <span class="st">&quot;Type&quot;</span><span class="op">:</span> <span class="st">&quot;movie&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-89" title="89">    <span class="st">&quot;Response&quot;</span><span class="op">:</span> <span class="st">&quot;True&quot;</span></a>
+<a class="sourceLine" id="cb7-90" title="90">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb7-91" title="91">  <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-92" title="92">    <span class="st">&quot;Title&quot;</span><span class="op">:</span> <span class="st">&quot;Avatar&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-93" title="93">    <span class="st">&quot;Year&quot;</span><span class="op">:</span> <span class="st">&quot;2009&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-94" title="94">    <span class="st">&quot;Rated&quot;</span><span class="op">:</span> <span class="st">&quot;PG-13&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-95" title="95">    <span class="st">&quot;Released&quot;</span><span class="op">:</span> <span class="st">&quot;18 Dec 2009&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-96" title="96">    <span class="st">&quot;Runtime&quot;</span><span class="op">:</span> <span class="st">&quot;162 min&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-97" title="97">    <span class="st">&quot;Genre&quot;</span><span class="op">:</span> <span class="st">&quot;Action, Adventure, Fantasy&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-98" title="98">    <span class="st">&quot;Director&quot;</span><span class="op">:</span> <span class="st">&quot;James Cameron&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-99" title="99">    <span class="st">&quot;Writer&quot;</span><span class="op">:</span> <span class="st">&quot;James Cameron&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-100" title="100">    <span class="st">&quot;Actors&quot;</span><span class="op">:</span> <span class="st">&quot;Sam Worthington, Zoe Saldana, Sigourney Weaver, Stephen Lang&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-101" title="101">    <span class="st">&quot;Plot&quot;</span><span class="op">:</span> <span class="st">&quot;A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-102" title="102">    <span class="st">&quot;Language&quot;</span><span class="op">:</span> <span class="st">&quot;English, Spanish&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-103" title="103">    <span class="st">&quot;Country&quot;</span><span class="op">:</span> <span class="st">&quot;USA, UK&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-104" title="104">    <span class="st">&quot;Awards&quot;</span><span class="op">:</span> <span class="st">&quot;Won 3 Oscars. Another 80 wins &amp; 121 nominations.&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-105" title="105">    <span class="st">&quot;Poster&quot;</span><span class="op">:</span> <span class="st">&quot;http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_SX300.jpg&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-106" title="106">    <span class="st">&quot;Metascore&quot;</span><span class="op">:</span> <span class="st">&quot;83&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-107" title="107">    <span class="st">&quot;imdbRating&quot;</span><span class="op">:</span> <span class="st">&quot;7.9&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-108" title="108">    <span class="st">&quot;imdbVotes&quot;</span><span class="op">:</span> <span class="st">&quot;876,575&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-109" title="109">    <span class="st">&quot;imdbID&quot;</span><span class="op">:</span> <span class="st">&quot;tt0499549&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-110" title="110">    <span class="st">&quot;Type&quot;</span><span class="op">:</span> <span class="st">&quot;movie&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-111" title="111">    <span class="st">&quot;Response&quot;</span><span class="op">:</span> <span class="st">&quot;True&quot;</span></a>
+<a class="sourceLine" id="cb7-112" title="112">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-113" title="113">]<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-114" title="114"></a>
+<a class="sourceLine" id="cb7-115" title="115"><span class="kw">var</span> ratings <span class="op">=</span> <span class="va">watchList</span>.<span class="at">map</span>(<span class="kw">function</span>(movie) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-116" title="116">  <span class="cf">return</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-117" title="117">    <span class="dt">title</span><span class="op">:</span> movie[<span class="st">&quot;Title&quot;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb7-118" title="118">    <span class="dt">rating</span><span class="op">:</span> movie[<span class="st">&quot;imdbRating&quot;</span>]</a>
+<a class="sourceLine" id="cb7-119" title="119">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-120" title="120"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+</body></html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>There are many <dfn>comparison operators</dfn> in JavaScript. All of these operators return a boolean <code>true</code> or <code>false</code> value.</p>
+<p>The most basic operator is the equality operator <code>==</code>. The equality operator compares two values and returns <code>true</code> if they’re equivalent or <code>false</code> if they are not. Note that equality is different from assignment (<code>=</code>), which assigns the value on the right of the operator to a variable on the left.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">equalityTest</span>(myVal) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="cf">if</span> (myVal <span class="op">==</span> <span class="dv">10</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">     <span class="cf">return</span> <span class="st">&quot;Equal&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="cf">return</span> <span class="st">&quot;Not Equal&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="op">}</span></a></code></pre></div>
+<p>If <code>myVal</code> is equal to <code>10</code>, the equality operator returns <code>true</code>, so the code in the curly braces will execute, and the function will return <code>Equal</code>. Otherwise, the function will return <code>Not Equal</code>. In order for JavaScript to compare two different <dfn>data types</dfn> (for example, <code>numbers</code> and <code>strings</code>), it must convert one type to another. This is known as Type Coercion. Once it does, however, it can compare terms as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="dv">1</span>   <span class="op">==</span>  <span class="dv">1</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="dv">1</span>   <span class="op">==</span>  <span class="dv">2</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="dv">1</span>   <span class="op">==</span> <span class="st">&#39;1&#39;</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="st">&quot;3&quot;</span> <span class="op">==</span>  <span class="dv">3</span></a></code></pre></div>
+<p>In order, these expressions would evaluate to <code>true</code>, <code>false</code>, <code>true</code>, and <code>true</code>.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>Add the equality operator to the indicated line so that the function will return the string <code>Equal</code> when <code>val</code> is equivalent to <code>12</code>.</p>
+<h1 id="hints">–hints–</h1>
+<p><code>testEqual(10)</code> should return the string <code>Not Equal</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(<span class="at">testEqual</span>(<span class="dv">10</span>) <span class="op">===</span> <span class="st">&#39;Not Equal&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>testEqual(12)</code> should return the string <code>Equal</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(<span class="at">testEqual</span>(<span class="dv">12</span>) <span class="op">===</span> <span class="st">&#39;Equal&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>testEqual("12")</code> should return the string <code>Equal</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">assert</span>(<span class="at">testEqual</span>(<span class="st">&#39;12&#39;</span>) <span class="op">===</span> <span class="st">&#39;Equal&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p>You should use the <code>==</code> operator</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="at">assert</span>(<span class="va">code</span>.<span class="at">match</span>(<span class="ss">/==/g</span>) <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="va">code</span>.<span class="at">match</span>(<span class="ss">/===/g</span>))<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="co">// Setup</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="kw">function</span> <span class="at">testEqual</span>(val) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="cf">if</span> (val) <span class="op">{</span> <span class="co">// Change this line</span></a>
+<a class="sourceLine" id="cb7-4" title="4">    <span class="cf">return</span> <span class="st">&quot;Equal&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-5" title="5">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-6" title="6">  <span class="cf">return</span> <span class="st">&quot;Not Equal&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="op">}</span></a>
+<a class="sourceLine" id="cb7-8" title="8"></a>
+<a class="sourceLine" id="cb7-9" title="9"><span class="at">testEqual</span>(<span class="dv">10</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">function</span> <span class="at">testEqual</span>(val) <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2">  <span class="cf">if</span> (val <span class="op">==</span> <span class="dv">12</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-3" title="3">    <span class="cf">return</span> <span class="st">&quot;Equal&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb8-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb8-5" title="5">  <span class="cf">return</span> <span class="st">&quot;Not Equal&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="op">}</span></a></code></pre></div>
+</body></html>

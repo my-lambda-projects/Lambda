@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="installation">Installation</h3>
+<h4 id="install-rbenv-and-ruby-build">Install rbenv and ruby-build</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">git</span> clone https://github.com/sstephenson/rbenv.git ~/.rbenv</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="fu">git</span> clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build</a></code></pre></div>
+<h4 id="add-to-.bash_profile">Add to ~/.bash_profile</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="bu">echo</span> <span class="st">&#39;export PATH=&quot;$HOME/.rbenv/bin:$PATH&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.bash_profile</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="bu">echo</span> <span class="st">&#39;eval &quot;$(rbenv init -)&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.bash_profile</a></code></pre></div>
+<h4 id="verify-installation">Verify installation</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="bu">type</span> rbenv   <span class="co"># → &quot;rbenv is a function&quot;</span></a></code></pre></div>
+<p>These are generic instructions; there may be rbenv packages available for your OS.</p>
+<p>See: <a href="https://github.com/rbenv/rbenv#installation">Installation</a></p>
+<h3 id="managing-versions">Managing versions</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>rbenv install -l</code></td>
+<td>List all available versions</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>rbenv install 2.2.1</code></td>
+<td>Install Ruby <em>2.2.1</em></td>
+</tr>
+<tr class="even">
+<td><code>rbenv uninstall 2.2.1</code></td>
+<td>Uninstall Ruby <em>2.2.1</em></td>
+</tr>
+<tr class="odd">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="even">
+<td><code>rbenv versions</code></td>
+<td>See installed versions</td>
+</tr>
+<tr class="odd">
+<td><code>rbenv version</code></td>
+<td>See current version</td>
+</tr>
+<tr class="even">
+<td>—</td>
+<td>—</td>
+</tr>
+<tr class="odd">
+<td><code>rbenv which &lt;NAME&gt;</code></td>
+<td>Display path to executable</td>
+</tr>
+<tr class="even">
+<td><code>rbenv rehash</code></td>
+<td>Re-write binstubs</td>
+</tr>
+</tbody>
+</table>
+<h2 id="using-versions">Using versions</h2>
+<p>{: .-three-column}</p>
+<h3 id="locally">Locally</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>rbenv local 2.2.2</code></td>
+<td>Use Ruby <em>2.2.2</em> in project</td>
+</tr>
+<tr class="even">
+<td><code>rbenv local --unset</code></td>
+<td>Undo above</td>
+</tr>
+</tbody>
+</table>
+<p>Application-specific version numbers are stored in <code>.ruby-version</code>.</p>
+<h3 id="globally">Globally</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>rbenv global 2.2.2</code></td>
+<td>Use Ruby <em>2.2.2</em> globally</td>
+</tr>
+<tr class="even">
+<td><code>rbenv global --unset</code></td>
+<td>Undo above</td>
+</tr>
+</tbody>
+</table>
+<p>Global version numbers are stored in <code>~/.rbenv/version</code>.</p>
+<h3 id="shell">Shell</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>rbenv shell 2.2.2</code></td>
+<td>Use Ruby <em>2.2.2</em> in shell</td>
+</tr>
+<tr class="even">
+<td><code>rbenv shell --unset</code></td>
+<td>Undo above</td>
+</tr>
+</tbody>
+</table>
+<p>Shell-local version numbers are stored as environment variables.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/rbenv/rbenv">rbenv project page</a> <em>(github.com)</em></li>
+<li><a href="https://gist.github.com/rahul286/7160839f4425a3b7e718">rbenv ubuntu server cheatsheet</a> <em>(gist.github.com)</em></li>
+</ul>
+</body></html>

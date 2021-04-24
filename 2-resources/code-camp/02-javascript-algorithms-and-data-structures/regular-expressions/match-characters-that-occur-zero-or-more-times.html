@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>The last challenge used the plus <code>+</code> sign to look for characters that occur one or more times. There’s also an option that matches characters that occur zero or more times.</p>
+<p>The character to do this is the asterisk or star: <code>*</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> soccerWord <span class="op">=</span> <span class="st">&quot;gooooooooal!&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">let</span> gPhrase <span class="op">=</span> <span class="st">&quot;gut feeling&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">let</span> oPhrase <span class="op">=</span> <span class="st">&quot;over the moon&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">let</span> goRegex <span class="op">=</span> <span class="ss">/go</span><span class="sc">*</span><span class="ss">/</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="va">soccerWord</span>.<span class="at">match</span>(goRegex)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="va">gPhrase</span>.<span class="at">match</span>(goRegex)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="va">oPhrase</span>.<span class="at">match</span>(goRegex)<span class="op">;</span></a></code></pre></div>
+<p>In order, the three <code>match</code> calls would return the values <code>["goooooooo"]</code>, <code>["g"]</code>, and <code>null</code>.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>For this challenge, <code>chewieQuote</code> has been initialized as the string <code>Aaaaaaaaaaaaaaaarrrgh!</code> behind the scenes. Create a regex <code>chewieRegex</code> that uses the <code>*</code> character to match an uppercase <code>A</code> character immediately followed by zero or more lowercase <code>a</code> characters in <code>chewieQuote</code>. Your regex does not need flags or character classes, and it should not match any of the other quotes.</p>
+<h1 id="hints">–hints–</h1>
+<p>Your regex <code>chewieRegex</code> should use the <code>*</code> character to match zero or more <code>a</code> characters.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(<span class="ss">/</span><span class="sc">\*</span><span class="ss">/</span>.<span class="at">test</span>(<span class="va">chewieRegex</span>.<span class="at">source</span>))<span class="op">;</span></a></code></pre></div>
+<p>Your regex should match the string <code>A</code> in <code>chewieQuote</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(result[<span class="dv">0</span>][<span class="dv">0</span>] <span class="op">===</span> <span class="st">&#39;A&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p>Your regex should match the string <code>Aaaaaaaaaaaaaaaa</code> in <code>chewieQuote</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(result[<span class="dv">0</span>] <span class="op">===</span> <span class="st">&#39;Aaaaaaaaaaaaaaaa&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p>Your regex <code>chewieRegex</code> should match 16 characters in <code>chewieQuote</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">assert</span>(result[<span class="dv">0</span>].<span class="at">length</span> <span class="op">===</span> <span class="dv">16</span>)<span class="op">;</span></a></code></pre></div>
+<p>Your regex should not match any characters in the string <code>He made a fair move. Screaming about it can't help you.</code></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="op">!</span><span class="st">&quot;He made a fair move. Screaming about it can&#39;t help you.&quot;</span>.<span class="at">match</span>(chewieRegex)</a>
+<a class="sourceLine" id="cb6-3" title="3">)<span class="op">;</span></a></code></pre></div>
+<p>Your regex should not match any characters in the string <code>Let him have it. It's not wise to upset a Wookiee.</code></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="op">!</span><span class="st">&quot;Let him have it. It&#39;s not wise to upset a Wookiee.&quot;</span>.<span class="at">match</span>(chewieRegex)</a>
+<a class="sourceLine" id="cb7-3" title="3">)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="before-user-code">–before-user-code–</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">const</span> chewieQuote <span class="op">=</span> <span class="st">&quot;Aaaaaaaaaaaaaaaarrrgh!&quot;</span><span class="op">;</span></a></code></pre></div>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="kw">let</span> chewieRegex <span class="op">=</span> <span class="ss">/change/</span><span class="op">;</span> <span class="co">// Change this line</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb9-4" title="4"></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="kw">let</span> result <span class="op">=</span> <span class="va">chewieQuote</span>.<span class="at">match</span>(chewieRegex)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1">  <span class="kw">let</span> chewieRegex <span class="op">=</span> <span class="ss">/Aa</span><span class="sc">*</span><span class="ss">/</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb10-2" title="2">  <span class="kw">let</span> result <span class="op">=</span> <span class="va">chewieQuote</span>.<span class="at">match</span>(chewieRegex)<span class="op">;</span></a></code></pre></div>
+</body></html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>Functional programming is all about creating and using non-mutating functions.</p>
+<p>The last challenge introduced the <code>concat</code> method as a way to combine arrays into a new one without mutating the original arrays. Compare <code>concat</code> to the <code>push</code> method. <code>push</code> adds an item to the end of the same array it is called on, which mutates that array. Here’s an example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">var</span> arr <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="va">arr</span>.<span class="at">push</span>([<span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">6</span>])<span class="op">;</span></a></code></pre></div>
+<p><code>arr</code> would have a modified value of <code>[1, 2, 3, [4, 5, 6]]</code>, which is not the functional programming way.</p>
+<p><code>concat</code> offers a way to add new items to the end of an array without any mutating side effects.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>Change the <code>nonMutatingPush</code> function so it uses <code>concat</code> to add <code>newItem</code> to the end of <code>original</code> instead of <code>push</code>. The function should return an array.</p>
+<h1 id="hints">–hints–</h1>
+<p>Your code should use the <code>concat</code> method.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(<span class="va">code</span>.<span class="at">match</span>(<span class="ss">/</span><span class="sc">\.</span><span class="ss">concat/g</span>))<span class="op">;</span></a></code></pre></div>
+<p>Your code should not use the <code>push</code> method.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(<span class="op">!</span><span class="va">code</span>.<span class="at">match</span>(<span class="ss">/</span><span class="sc">\.?[\s\S]*?</span><span class="ss">push/g</span>))<span class="op">;</span></a></code></pre></div>
+<p>The <code>first</code> array should not change.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(<span class="va">JSON</span>.<span class="at">stringify</span>(first) <span class="op">===</span> <span class="va">JSON</span>.<span class="at">stringify</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]))<span class="op">;</span></a></code></pre></div>
+<p>The <code>second</code> array should not change.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">assert</span>(<span class="va">JSON</span>.<span class="at">stringify</span>(second) <span class="op">===</span> <span class="va">JSON</span>.<span class="at">stringify</span>([<span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>]))<span class="op">;</span></a></code></pre></div>
+<p><code>nonMutatingPush([1, 2, 3], [4, 5])</code> should return <code>[1, 2, 3, 4, 5]</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="va">JSON</span>.<span class="at">stringify</span>(<span class="at">nonMutatingPush</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">,</span> [<span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>])) <span class="op">===</span></a>
+<a class="sourceLine" id="cb6-3" title="3">    <span class="va">JSON</span>.<span class="at">stringify</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>])</a>
+<a class="sourceLine" id="cb6-4" title="4">)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">function</span> <span class="at">nonMutatingPush</span>(original<span class="op">,</span> newItem) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="cf">return</span> <span class="va">original</span>.<span class="at">push</span>(newItem)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-4" title="4"></a>
+<a class="sourceLine" id="cb7-5" title="5">  <span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="op">}</span></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="kw">var</span> first <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="kw">var</span> second <span class="op">=</span> [<span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-9" title="9"><span class="at">nonMutatingPush</span>(first<span class="op">,</span> second)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">function</span> <span class="at">nonMutatingPush</span>(original<span class="op">,</span> newItem) <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2">  <span class="cf">return</span> <span class="va">original</span>.<span class="at">concat</span>(newItem)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="kw">var</span> first <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="kw">var</span> second <span class="op">=</span> [<span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="at">nonMutatingPush</span>(first<span class="op">,</span> second)<span class="op">;</span></a></code></pre></div>
+</body></html>

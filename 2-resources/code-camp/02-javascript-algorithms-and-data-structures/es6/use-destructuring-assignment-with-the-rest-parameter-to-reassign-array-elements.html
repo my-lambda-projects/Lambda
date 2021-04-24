@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>In some situations involving array destructuring, we might want to collect the rest of the elements into a separate array.</p>
+<p>The result is similar to <code>Array.prototype.slice()</code>, as shown below:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> [a<span class="op">,</span> b<span class="op">,</span> ...<span class="at">arr</span>] <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">7</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="va">console</span>.<span class="at">log</span>(a<span class="op">,</span> b)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="va">console</span>.<span class="at">log</span>(arr)<span class="op">;</span></a></code></pre></div>
+<p>The console would display the values <code>1, 2</code> and <code>[3, 4, 5, 7]</code>.</p>
+<p>Variables <code>a</code> and <code>b</code> take the first and second values from the array. After that, because of the rest parameter’s presence, <code>arr</code> gets the rest of the values in the form of an array. The rest element only works correctly as the last variable in the list. As in, you cannot use the rest parameter to catch a subarray that leaves out the last element of the original array.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>Use destructuring assignment with the rest parameter to perform an effective <code>Array.prototype.slice()</code> so that <code>arr</code> is a sub-array of the original array <code>source</code> with the first two elements omitted.</p>
+<h1 id="hints">–hints–</h1>
+<p><code>arr</code> should be <code>[3,4,5,6,7,8,9,10]</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(<span class="va">arr</span>.<span class="at">every</span>((v<span class="op">,</span> i) <span class="kw">=&gt;</span> v <span class="op">===</span> i <span class="op">+</span> <span class="dv">3</span>) <span class="op">&amp;&amp;</span> <span class="va">arr</span>.<span class="at">length</span> <span class="op">===</span> <span class="dv">8</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>source</code> should be <code>[1,2,3,4,5,6,7,8,9,10]</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(<span class="va">source</span>.<span class="at">every</span>((v<span class="op">,</span> i) <span class="kw">=&gt;</span> v <span class="op">===</span> i <span class="op">+</span> <span class="dv">1</span>) <span class="op">&amp;&amp;</span> <span class="va">source</span>.<span class="at">length</span> <span class="op">===</span> <span class="dv">10</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>Array.slice()</code> should not be used.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1">(getUserInput) <span class="kw">=&gt;</span> <span class="at">assert</span>(<span class="op">!</span><span class="at">getUserInput</span>(<span class="st">&#39;index&#39;</span>).<span class="at">match</span>(<span class="ss">/slice/g</span>))<span class="op">;</span></a></code></pre></div>
+<p>Destructuring on <code>list</code> should be used.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb5-2" title="2">  __helpers</a>
+<a class="sourceLine" id="cb5-3" title="3">    .<span class="at">removeWhiteSpace</span>(code)</a>
+<a class="sourceLine" id="cb5-4" title="4">    .<span class="at">match</span>(<span class="ss">/</span><span class="sc">\[(([_$a-z]\w*)?</span><span class="ss">,</span><span class="sc">){1,}\.\.\.</span><span class="ss">arr</span><span class="sc">\]</span><span class="ss">=list/i</span>)</a>
+<a class="sourceLine" id="cb5-5" title="5">)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">const</span> source <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">5</span><span class="op">,</span><span class="dv">6</span><span class="op">,</span><span class="dv">7</span><span class="op">,</span><span class="dv">8</span><span class="op">,</span><span class="dv">9</span><span class="op">,</span><span class="dv">10</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">function</span> <span class="at">removeFirstTwo</span>(list) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  <span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb6-4" title="4">  <span class="kw">const</span> arr <span class="op">=</span> list<span class="op">;</span> <span class="co">// Change this line</span></a>
+<a class="sourceLine" id="cb6-5" title="5">  <span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb6-6" title="6">  <span class="cf">return</span> arr<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="op">}</span></a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="kw">const</span> arr <span class="op">=</span> <span class="at">removeFirstTwo</span>(source)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">const</span> source <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">4</span><span class="op">,</span><span class="dv">5</span><span class="op">,</span><span class="dv">6</span><span class="op">,</span><span class="dv">7</span><span class="op">,</span><span class="dv">8</span><span class="op">,</span><span class="dv">9</span><span class="op">,</span><span class="dv">10</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="kw">function</span> <span class="at">removeFirstTwo</span>(list) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="kw">const</span> [<span class="op">,</span> <span class="op">,</span> ...<span class="at">arr</span>] <span class="op">=</span> list<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  <span class="cf">return</span> arr<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="op">}</span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="kw">const</span> arr <span class="op">=</span> <span class="at">removeFirstTwo</span>(source)<span class="op">;</span></a></code></pre></div>
+</body></html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>Sometimes you will need to build a string, <a href="https://en.wikipedia.org/wiki/Mad_Libs">Mad Libs</a> style. By using the concatenation operator (<code>+</code>), you can insert one or more variables into a string you’re building.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">var</span> ourName <span class="op">=</span> <span class="st">&quot;freeCodeCamp&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">var</span> ourStr <span class="op">=</span> <span class="st">&quot;Hello, our name is &quot;</span> <span class="op">+</span> ourName <span class="op">+</span> <span class="st">&quot;, how are you?&quot;</span><span class="op">;</span></a></code></pre></div>
+<p><code>ourStr</code> would have a value of the string <code>Hello, our name is freeCodeCamp, how are you?</code>.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>Set <code>myName</code> to a string equal to your name and build <code>myStr</code> with <code>myName</code> between the strings <code>My name is</code> and <code>and I am well!</code></p>
+<h1 id="hints">–hints–</h1>
+<p><code>myName</code> should be set to a string at least 3 characters long.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(<span class="kw">typeof</span> myName <span class="op">!==</span> <span class="st">&#39;undefined&#39;</span> <span class="op">&amp;&amp;</span> <span class="va">myName</span>.<span class="at">length</span> <span class="op">&gt;</span> <span class="dv">2</span>)<span class="op">;</span></a></code></pre></div>
+<p>You should use two <code>+</code> operators to build <code>myStr</code> with <code>myName</code> inside it.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(<span class="va">code</span>.<span class="at">match</span>(<span class="ss">/</span><span class="sc">[&quot;&#39;]\s*\+\s*</span><span class="ss">myName</span><span class="sc">\s*\+\s*[&quot;&#39;]</span><span class="ss">/g</span>).<span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="after-user-code">–after-user-code–</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1">(<span class="kw">function</span>()<span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="kw">var</span> output <span class="op">=</span> []<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="cf">if</span>(<span class="kw">typeof</span> myName <span class="op">===</span> <span class="st">&#39;string&#39;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-4" title="4">    <span class="va">output</span>.<span class="at">push</span>(<span class="st">&#39;myName = &quot;&#39;</span> <span class="op">+</span> myName <span class="op">+</span> <span class="st">&#39;&quot;&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-5" title="5">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-6" title="6">    <span class="va">output</span>.<span class="at">push</span>(<span class="st">&#39;myName is not a string&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-7" title="7">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-8" title="8">  <span class="cf">if</span>(<span class="kw">typeof</span> myStr <span class="op">===</span> <span class="st">&#39;string&#39;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-9" title="9">    <span class="va">output</span>.<span class="at">push</span>(<span class="st">&#39;myStr = &quot;&#39;</span> <span class="op">+</span> myStr <span class="op">+</span> <span class="st">&#39;&quot;&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-10" title="10">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-11" title="11">    <span class="va">output</span>.<span class="at">push</span>(<span class="st">&#39;myStr is not a string&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-12" title="12">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-13" title="13">  <span class="cf">return</span> <span class="va">output</span>.<span class="at">join</span>(<span class="st">&#39;</span><span class="sc">\n</span><span class="st">&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-14" title="14"><span class="op">}</span>)()<span class="op">;</span></a></code></pre></div>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw">var</span> myName<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="kw">var</span> myStr<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">var</span> myName <span class="op">=</span> <span class="st">&quot;Bob&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">var</span> myStr <span class="op">=</span> <span class="st">&quot;My name is &quot;</span> <span class="op">+</span> myName <span class="op">+</span> <span class="st">&quot; and I am well!&quot;</span><span class="op">;</span></a></code></pre></div>
+</body></html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>So far, you have only been checking if a pattern exists or not within a string. You can also extract the actual matches you found with the <code>.match()</code> method.</p>
+<p>To use the <code>.match()</code> method, apply the method on a string and pass in the regex inside the parentheses.</p>
+<p>Here’s an example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="st">&quot;Hello, World!&quot;</span>.<span class="at">match</span>(<span class="ss">/Hello/</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">let</span> ourStr <span class="op">=</span> <span class="st">&quot;Regular expressions&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">let</span> ourRegex <span class="op">=</span> <span class="ss">/expressions/</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="va">ourStr</span>.<span class="at">match</span>(ourRegex)<span class="op">;</span></a></code></pre></div>
+<p>Here the first <code>match</code> would return <code>["Hello"]</code> and the second would return <code>["expressions"]</code>.</p>
+<p>Note that the <code>.match</code> syntax is the “opposite” of the <code>.test</code> method you have been using thus far:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="st">&#39;string&#39;</span>.<span class="at">match</span>(<span class="ss">/regex/</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="ss">/regex/</span>.<span class="at">test</span>(<span class="st">&#39;string&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="instructions">–instructions–</h1>
+<p>Apply the <code>.match()</code> method to extract the string <code>coding</code>.</p>
+<h1 id="hints">–hints–</h1>
+<p>The <code>result</code> should have the string <code>coding</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(<span class="va">result</span>.<span class="at">join</span>() <span class="op">===</span> <span class="st">&#39;coding&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p>Your regex <code>codingRegex</code> should search for the string <code>coding</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(<span class="va">codingRegex</span>.<span class="at">source</span> <span class="op">===</span> <span class="st">&#39;coding&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p>You should use the <code>.match()</code> method.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">assert</span>(<span class="va">code</span>.<span class="at">match</span>(<span class="ss">/</span><span class="sc">\.</span><span class="ss">match</span><span class="sc">\(</span><span class="ss">.</span><span class="sc">*\)</span><span class="ss">/</span>))<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">let</span> extractStr <span class="op">=</span> <span class="st">&quot;Extract the word &#39;coding&#39; from this string.&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">let</span> codingRegex <span class="op">=</span> <span class="ss">/change/</span><span class="op">;</span> <span class="co">// Change this line</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="kw">let</span> result <span class="op">=</span> extractStr<span class="op">;</span> <span class="co">// Change this line</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">let</span> extractStr <span class="op">=</span> <span class="st">&quot;Extract the word &#39;coding&#39; from this string.&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="kw">let</span> codingRegex <span class="op">=</span> <span class="ss">/coding/</span><span class="op">;</span> <span class="co">// Change this line</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="kw">let</span> result <span class="op">=</span> <span class="va">extractStr</span>.<span class="at">match</span>(codingRegex)<span class="op">;</span> <span class="co">// Change this line</span></a></code></pre></div>
+</body></html>

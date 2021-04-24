@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>In the last challenge, you learned about <code>export default</code> and its uses. To import a default export, you need to use a different <code>import</code> syntax. In the following example, <code>add</code> is the default export of the <code>math_functions.js</code> file. Here is how to import it:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="im">import</span> add <span class="im">from</span> <span class="st">&quot;./math_functions.js&quot;</span><span class="op">;</span></a></code></pre></div>
+<p>The syntax differs in one key place. The imported value, <code>add</code>, is not surrounded by curly braces (<code>{}</code>). <code>add</code> here is simply a variable name for whatever the default export of the <code>math_functions.js</code> file is. You can use any name here when importing a default.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>In the following code, import the default export from the <code>math_functions.js</code> file, found in the same directory as this file. Give the import the name <code>subtract</code>.</p>
+<h1 id="hints">–hints–</h1>
+<p>You should properly import <code>subtract</code> from <code>math_functions.js</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(<span class="va">code</span>.<span class="at">match</span>(<span class="ss">/import</span><span class="sc">\s+</span><span class="ss">subtract</span><span class="sc">\s+</span><span class="ss">from</span><span class="sc">\s+(</span><span class="ss">&#39;</span><span class="sc">|</span><span class="ss">&quot;</span><span class="sc">)\.\/</span><span class="ss">math_functions</span><span class="sc">\.</span><span class="ss">js</span><span class="sc">\1</span><span class="ss">/g</span>))<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">  </a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb3-3" title="3"></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="at">subtract</span>(<span class="dv">7</span><span class="op">,</span><span class="dv">4</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="im">import</span> subtract <span class="im">from</span> <span class="st">&quot;./math_functions.js&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="at">subtract</span>(<span class="dv">7</span><span class="op">,</span><span class="dv">4</span>)<span class="op">;</span></a></code></pre></div>
+</body></html>

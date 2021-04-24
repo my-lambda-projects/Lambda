@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>Sometimes the patterns you want to search for may have parts of it that may or may not exist. However, it may be important to check for them nonetheless.</p>
+<p>You can specify the possible existence of an element with a question mark, <code>?</code>. This checks for zero or one of the preceding element. You can think of this symbol as saying the previous element is optional.</p>
+<p>For example, there are slight differences in American and British English and you can use the question mark to match both spellings.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> american <span class="op">=</span> <span class="st">&quot;color&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">let</span> british <span class="op">=</span> <span class="st">&quot;colour&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">let</span> rainbowRegex<span class="op">=</span> <span class="ss">/colou</span><span class="sc">?</span><span class="ss">r/</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="va">rainbowRegex</span>.<span class="at">test</span>(american)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="va">rainbowRegex</span>.<span class="at">test</span>(british)<span class="op">;</span></a></code></pre></div>
+<p>Both uses of the <code>test</code> method would return <code>true</code>.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>Change the regex <code>favRegex</code> to match both the American English (<code>favorite</code>) and the British English (<code>favourite</code>) version of the word.</p>
+<h1 id="hints">–hints–</h1>
+<p>Your regex should use the optional symbol, <code>?</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">favRegex</span>.<span class="at">lastIndex</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">assert</span>(<span class="va">favRegex</span>.<span class="va">source</span>.<span class="at">match</span>(<span class="ss">/</span><span class="sc">\?</span><span class="ss">/</span>).<span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span>)<span class="op">;</span></a></code></pre></div>
+<p>Your regex should match the string <code>favorite</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">favRegex</span>.<span class="at">lastIndex</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="at">assert</span>(<span class="va">favRegex</span>.<span class="at">test</span>(<span class="st">&#39;favorite&#39;</span>))<span class="op">;</span></a></code></pre></div>
+<p>Your regex should match the string <code>favourite</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">favRegex</span>.<span class="at">lastIndex</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="at">assert</span>(<span class="va">favRegex</span>.<span class="at">test</span>(<span class="st">&#39;favourite&#39;</span>))<span class="op">;</span></a></code></pre></div>
+<p>Your regex should not match the string <code>fav</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">favRegex</span>.<span class="at">lastIndex</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="at">assert</span>(<span class="op">!</span><span class="va">favRegex</span>.<span class="at">test</span>(<span class="st">&#39;fav&#39;</span>))<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">let</span> favWord <span class="op">=</span> <span class="st">&quot;favorite&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">let</span> favRegex <span class="op">=</span> <span class="ss">/change/</span><span class="op">;</span> <span class="co">// Change this line</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="kw">let</span> result <span class="op">=</span> <span class="va">favRegex</span>.<span class="at">test</span>(favWord)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">let</span> favWord <span class="op">=</span> <span class="st">&quot;favorite&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="kw">let</span> favRegex <span class="op">=</span> <span class="ss">/favou</span><span class="sc">?</span><span class="ss">r/</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="kw">let</span> result <span class="op">=</span> <span class="va">favRegex</span>.<span class="at">test</span>(favWord)<span class="op">;</span></a></code></pre></div>
+</body></html>

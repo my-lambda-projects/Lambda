@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>You saw how you can use <dfn>character sets</dfn> to specify a group of characters to match, but that’s a lot of typing when you need to match a large range of characters (for example, every letter in the alphabet). Fortunately, there is a built-in feature that makes this short and simple.</p>
+<p>Inside a character set, you can define a range of characters to match using a hyphen character: <code>-</code>.</p>
+<p>For example, to match lowercase letters <code>a</code> through <code>e</code> you would use <code>[a-e]</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> catStr <span class="op">=</span> <span class="st">&quot;cat&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">let</span> batStr <span class="op">=</span> <span class="st">&quot;bat&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">let</span> matStr <span class="op">=</span> <span class="st">&quot;mat&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">let</span> bgRegex <span class="op">=</span> <span class="ss">/</span><span class="sc">[a-e]</span><span class="ss">at/</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="va">catStr</span>.<span class="at">match</span>(bgRegex)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="va">batStr</span>.<span class="at">match</span>(bgRegex)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="va">matStr</span>.<span class="at">match</span>(bgRegex)<span class="op">;</span></a></code></pre></div>
+<p>In order, the three <code>match</code> calls would return the values <code>["cat"]</code>, <code>["bat"]</code>, and <code>null</code>.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>Match all the letters in the string <code>quoteSample</code>.</p>
+<p><strong>Note</strong>: Be sure to match both uppercase and lowercase letters.</p>
+<h1 id="hints">–hints–</h1>
+<p>Your regex <code>alphabetRegex</code> should match 35 items.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(<span class="va">result</span>.<span class="at">length</span> <span class="op">==</span> <span class="dv">35</span>)<span class="op">;</span></a></code></pre></div>
+<p>Your regex <code>alphabetRegex</code> should use the global flag.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(<span class="va">alphabetRegex</span>.<span class="va">flags</span>.<span class="at">match</span>(<span class="ss">/g/</span>).<span class="at">length</span> <span class="op">==</span> <span class="dv">1</span>)<span class="op">;</span></a></code></pre></div>
+<p>Your regex <code>alphabetRegex</code> should use the case insensitive flag.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(<span class="va">alphabetRegex</span>.<span class="va">flags</span>.<span class="at">match</span>(<span class="ss">/i/</span>).<span class="at">length</span> <span class="op">==</span> <span class="dv">1</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">let</span> quoteSample <span class="op">=</span> <span class="st">&quot;The quick brown fox jumps over the lazy dog.&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw">let</span> alphabetRegex <span class="op">=</span> <span class="ss">/change/</span><span class="op">;</span> <span class="co">// Change this line</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="kw">let</span> result <span class="op">=</span> alphabetRegex<span class="op">;</span> <span class="co">// Change this line</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">let</span> quoteSample <span class="op">=</span> <span class="st">&quot;The quick brown fox jumps over the lazy dog.&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">let</span> alphabetRegex <span class="op">=</span> <span class="ss">/</span><span class="sc">[a-z]</span><span class="ss">/gi</span><span class="op">;</span> <span class="co">// Change this line</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="kw">let</span> result <span class="op">=</span> <span class="va">quoteSample</span>.<span class="at">match</span>(alphabetRegex)<span class="op">;</span> <span class="co">// Change this line</span></a></code></pre></div>
+</body></html>

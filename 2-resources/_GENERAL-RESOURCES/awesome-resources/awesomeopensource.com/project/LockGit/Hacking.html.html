@@ -1,0 +1,2181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":2,"applicationTime":106,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Hacking</title>
+<meta name="description" content="hacker, ready for more of our story ! 🚀">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/LockGit/Hacking">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "LockGit/Hacking",
+  "description": "hacker, ready for more of our story ! 🚀 ",
+  "url": "https://awesomeopensource.com/project/LockGit/Hacking",
+  "sku": "project/LockGit/Hacking",
+  "mpn": "project/LockGit/Hacking",
+  "image": "https://github.com/LockGit.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "LockGit/Hacking",
+    "logo": "https://github.com/LockGit.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.57",
+    "ratingCount": "409"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="ax7mev6B7Jt1qGh3ASRCbUStk/Abayu14o5l4ptTL4kMm2uNCuZuATqT0Oja9shsrDvoPBxI/YwSfnzRJ51Xyg==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/LockGit/Hacking","location":"/project/LockGit/Hacking","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/LockGit/Hacking","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-09f66708-67f7-40dc-8e6a-1240388c2c9d"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Hacking</div><div class="aos_project_metadata_description">hacker, ready for more of our story ! 🚀 </div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">409</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content"></span><div class="aos_project_metadata_header"><a href="https://github.com/LockGit/Hacking" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/LockGit/Hacking" target="_blank">https://github.com/LockGit/Hacking</a></span><div class="aos_project_metadata_header"><a href="https://github.com/LockGit/Hacking/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/LockGit/Hacking/issues" target="_blank">3</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">6 months ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/python"><div style="display:block;text-decoration:none;padding-bottom:10px">python<span> (<!-- -->49,729<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/security"><div style="display:block;text-decoration:none;padding-bottom:10px">security<span> (<!-- -->1,760<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/hacking"><div style="display:block;text-decoration:none;padding-bottom:10px">hacking<span> (<!-- -->493<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/tool"><div style="display:block;text-decoration:none;padding-bottom:10px">tool<span> (<!-- -->382<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/tools"><div style="display:block;text-decoration:none;padding-bottom:10px">tools<span> (<!-- -->318<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/scanner"><div style="display:block;text-decoration:none;padding-bottom:10px">scanner<span> (<!-- -->209<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/hack"><div style="display:block;text-decoration:none;padding-bottom:10px">hack<span> (<!-- -->163<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/hacking-tool"><div style="display:block;text-decoration:none;padding-bottom:10px">hacking-tool<span> (<!-- -->140<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/vulnerability"><div style="display:block;text-decoration:none;padding-bottom:10px">vulnerability<span> (<!-- -->119<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/vulnerabilities"><div style="display:block;text-decoration:none;padding-bottom:10px">vulnerabilities<span> (<!-- -->88<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/vulnerability-scanners"><div style="display:block;text-decoration:none;padding-bottom:10px">vulnerability-scanners<span> (<!-- -->82<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/poc"><div style="display:block;text-decoration:none;padding-bottom:10px">poc<span> (<!-- -->75<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/attack"><div style="display:block;text-decoration:none;padding-bottom:10px">attack<span> (<!-- -->60<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/hacker"><div style="display:block;text-decoration:none;padding-bottom:10px">hacker<span> (<!-- -->52<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/security-vulnerability"><div style="display:block;text-decoration:none;padding-bottom:10px">security-vulnerability<span> (<!-- -->42<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h1>
+<a id="hacking-tools-demo" class="anchor" href="#hacking-tools-demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hacking Tools Demo</h1>
+<p><a href="https://github.com/LockGit/Hacking/blob/master/README.en.md" rel="nofollow">English version(英文版本)</a></p>
+<p><strong>Menu</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">Topic</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C" rel="nofollow">远程命令执行(RCE)</a></td>
+<td align="left">远程命令执行(RCE)</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#attackwifipy-%E4%B8%80%E4%B8%AA%E8%8E%B7%E5%8F%96wifi%E5%AF%86%E7%A0%81%E7%9A%84%E5%B7%A5%E5%85%B7" rel="nofollow">attackWiFi.py</a></td>
+<td align="left">一个获取wifi密码的工具</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#%E5%9B%BE%E8%A7%A3https" rel="nofollow">图解https</a></td>
+<td align="left">图解https</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#%E5%9B%BE%E8%A7%A3hsts" rel="nofollow">图解HSTS</a></td>
+<td align="left">图解HSTS</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#tcpportforwardpy-%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91tool" rel="nofollow">TcpPortForward.py</a></td>
+<td align="left">端口转发tool</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#typeecho-get-shell--typeecho%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8" rel="nofollow">typeEchoShell.py</a></td>
+<td align="left">typeEchoShell.php</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%9A%84wifi%E5%AF%86%E7%A0%81win%E5%B9%B3%E5%8F%B0" rel="nofollow">wifi密码</a></td>
+<td align="left">获取所有连接过的wifi密码(Win平台)</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#zipattackpy--zakpy-zip%E5%8A%A0%E5%AF%86%E6%96%87%E4%BB%B6%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3" rel="nofollow">zipattack.py</a></td>
+<td align="left">zak.py</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#createDictpy-%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3%E5%AD%97%E5%85%B8" rel="nofollow">createDict.py</a></td>
+<td align="left">生成一个简单的密码破解字典</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#portscanpy-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E5%99%A8" rel="nofollow">PortScan.py</a></td>
+<td align="left">多线程端口扫描器</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#sshattackpy-%E5%A4%9A%E7%BA%BF%E7%A8%8Bssh%E5%AF%86%E7%A0%81%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3" rel="nofollow">sshAttack.py</a></td>
+<td align="left">多线程ssh密码暴力破解</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#ftpattackpy-%E5%A4%9A%E7%BA%BF%E7%A8%8Bftp%E5%AF%86%E7%A0%81%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3" rel="nofollow">ftpAttack.py</a></td>
+<td align="left">多线程ftp密码暴力破解</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#synfloodpy-%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84-tcp-syn-%E6%B4%AA%E6%B0%B4%E6%94%BB%E5%87%BB-python%E7%89%88" rel="nofollow">synFlood.py</a></td>
+<td align="left">synFlood TCP SYN 洪水攻击</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#ntpdenialservicepy-%E4%B8%80%E4%B8%AA%E4%BD%BFntp%E6%8B%92%E7%BB%9D%E6%9C%8D%E5%8A%A1%E7%9A%84poc%E4%BB%A3%E7%A0%81" rel="nofollow">ntpdenialservice.py</a></td>
+<td align="left">一个使ntp拒绝服务的poc代码</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#%E5%88%86%E4%BA%AB%E4%B8%80%E4%B8%AAsql%E6%B3%A8%E5%85%A5%E7%9A%84%E6%8A%80%E5%B7%A7" rel="nofollow">SQL Inject</a></td>
+<td align="left">分享一个SQL注入的技巧</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#attacksmbwin10py-%E4%B8%80%E4%B8%AAsmb%E6%BC%8F%E6%B4%9E%E7%9A%84poc%E4%BB%A3%E7%A0%81" rel="nofollow">attackSmb/win10.py</a></td>
+<td align="left">一个SMB漏洞的Poc</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#badtunnel-pocrb-badtunnel-%E8%B7%A8%E7%BD%91%E6%AE%B5%E5%8A%AB%E6%8C%81" rel="nofollow">badtunnel-poc.rb</a></td>
+<td align="left">badtunnel 跨网段劫持</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#sqlinjetctpy-%E4%B8%80%E4%B8%AA%E5%BB%B6%E6%97%B6%E6%B3%A8%E5%85%A5%E7%9A%84%E9%AA%8C%E8%AF%81" rel="nofollow">sqlInjetct.py</a></td>
+<td align="left">一个延时注入的验证</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#%E5%85%B3%E4%BA%8Essrf%E6%BC%8F%E6%B4%9E-%E4%B8%8E-dns%E5%9F%9F%E4%BC%A0%E9%80%81%E6%BC%8F%E6%B4%9E" rel="nofollow">SSRF &amp; DNS</a></td>
+<td align="left">SSRF漏洞 &amp; DNS域传送漏洞</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#%E4%BD%BF%E7%94%A8python%E6%9E%84%E9%80%A0%E4%B8%80%E4%B8%AAfastcgi%E5%8D%8F%E8%AE%AE%E8%AF%B7%E6%B1%82%E5%86%85%E5%AE%B9%E5%8F%91%E9%80%81%E7%BB%99php-fpm--nginxiis7%E8%A7%A3%E6%9E%90%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86" rel="nofollow">fpm.py</a></td>
+<td align="left">Nginx（IIS7）解析漏洞原理</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#morsepy-%E6%91%A9%E6%96%AF%E5%AF%86%E7%A0%81%E5%8A%A0%E8%A7%A3%E5%AF%86" rel="nofollow">morse.py</a></td>
+<td align="left">摩斯密码加解密</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#crawlpy-%E8%BD%BB%E9%87%8F%E7%BA%A7%E5%9B%BE%E7%89%87%E7%88%AC%E8%99%AB" rel="nofollow">crawl.py</a></td>
+<td align="left">轻量级图片爬虫</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#wooyun_indexpy-1000%E4%B8%AAphp%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E6%A1%88%E4%BE%8B20167%E4%BB%A5%E5%89%8D%E4%B9%8C%E4%BA%91%E5%85%AC%E5%BC%80%E6%BC%8F%E6%B4%9E---%E5%A2%9E%E5%8A%A0%E7%B4%A2%E5%BC%95" rel="nofollow">wooyun_index.py</a></td>
+<td align="left">1000个PHP代码审计案例(2016.7以前乌云公开漏洞)---增加索引</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#proxy_crawlget_proxypy--ocr_imgpy-%E5%8F%8D%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8A%93%E5%8F%96%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F" rel="nofollow">proxy_crawl/get_proxy.py &amp; proxy_crawl/ocr_img.py </a></td>
+<td align="left">反爬虫代理服务器抓取实现</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%ABv1http%E5%8D%8F%E8%AE%AErange%E7%89%B9%E6%80%A7%E5%88%86%E6%9E%90" rel="nofollow">验证码识别v1+HTTP协议Range特性分析.pdf</a></td>
+<td align="left">验证码识别v1+HTTP协议Range特性分析</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking#%E5%9F%BA%E4%BA%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0tensorflow%E7%9A%84%E5%A4%8D%E6%9D%82%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%AB" rel="nofollow">基于机器学习(TensorFlow)的复杂验证码识别.pdf</a></td>
+<td align="left">基于机器学习(TensorFlow)的复杂验证码识别</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Py#scrapy-%E7%88%AC%E8%99%AB%E6%B5%8B%E8%AF%95%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E5%9C%A8%E4%BB%93%E5%BA%93crawl_360%E7%9B%AE%E5%BD%95%E4%B8%8B" rel="nofollow">Scrapy爬取站点数据</a></td>
+<td align="left">Scrapy爬取漏洞列表</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking/raw/master/pdf/ip%E5%9C%B0%E5%9D%80%E4%B9%9F%E5%8F%AF%E4%BB%A5%E8%BF%99%E4%B9%88%E8%A1%A8%E7%A4%BA.pdf" rel="nofollow">ip地址也可以这么表示.pdf</a></td>
+<td align="left">ip地址也可以这么表示.pdf</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking/raw/master/pdf/%E4%BB%8E2.5w%E7%BE%8E%E5%88%80%E6%BC%8F%E6%B4%9E%E8%B5%8F%E9%87%91%EF%BC%8C%E9%92%88%E5%AF%B9%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E7%9A%84%E5%88%86%E6%9E%90.pdf" rel="nofollow">针对跨域问题的分析.pdf</a></td>
+<td align="left">从2.5w美刀漏洞赏金，针对跨域问题的分析.pdf</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking/raw/master/pdf/%E5%85%B3%E4%BA%8ETTL%E7%94%9F%E5%AD%98%E6%97%B6%E9%97%B4.pdf" rel="nofollow">关于TTL生存时间.pdf</a></td>
+<td align="left">关于TTL生存时间.pdf</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking/raw/master/pdf/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E7%A1%AE%E7%9A%84SQL%E4%B8%8D%E8%83%BD%E6%89%A7%E8%A1%8C.pdf" rel="nofollow">为什么正确的SQL不能执行.pdf</a></td>
+<td align="left">为什么正确的SQL不能执行.pdf</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking/raw/master/pdf/%E4%BB%8E%E7%BF%BB%E5%A2%99%E5%88%B0%E4%BD%BF%E7%94%A8cloudflare%E4%BD%9C%E4%B8%BA%E8%B7%B3%E6%9D%BF%E6%9D%A5%E8%AE%BF%E9%97%AEvps%E6%8A%98%E8%85%BE%E5%87%BA%E7%9A%84%E5%87%A0%E4%B8%AA%E9%97%AE%E9%A2%98.pdf" rel="nofollow">从翻墙到使用cloudflare作为跳板来访问vps折腾出的几个问题.pdf</a></td>
+<td align="left">从翻墙到使用cloudflare作为跳板来访问vps折腾出的几个问题.pdf</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking/raw/master/pdf/%E4%BA%86%E8%A7%A3%E4%B8%80%E4%B8%8Bgolang%E6%B1%87%E7%BC%96.md" rel="nofollow">了解一下golang汇编.md</a></td>
+<td align="left">了解一下golang汇编.md</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking/raw/master/pdf/%E4%BB%8E%E6%89%A7%E8%A1%8Credis%E5%91%BD%E4%BB%A4%E5%A4%B1%E8%B4%A5%E5%88%86%E6%9E%90%E4%B8%80%E4%B8%8BPipeline%EF%BC%8CTxPipeline%EF%BC%8CTransaction%EF%BC%8CAtomic.pdf" rel="nofollow">从执行redis命令失败分析一下Pipeline，TxPipeline，Transaction，Atomic.pdf</a></td>
+<td align="left">从执行redis命令失败分析一下Pipeline，TxPipeline，Transaction，Atomic.pdf</td>
+</tr>
+<tr>
+<td align="left"><a href="https://github.com/LockGit/Hacking/raw/master/pdf/%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96ip%E5%9C%B0%E5%9D%80.md" rel="nofollow">正确获取ip地址.md</a></td>
+<td align="left">正确获取ip地址.md</td>
+</tr>
+</tbody>
+</table>
+<h3>
+<a id="远程命令执行" class="anchor" href="#%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>远程命令执行</h3>
+<pre><code>Remote Command/Code Execute 简称 RCE 
+
+比如这篇文章：Gogs远程命令执行漏洞分析 （https://www.anquanke.com/post/id/163575）
+开发者在处理file型session时未处理危险字符造成目录穿越。
+攻击者通过目录穿越，伪造的管理员session，成功伪造管理员登陆,后利用Git hook实现任意远程命令执行。
+
+这只是Gogs项目，因为关注的人多，所以才被披露，实际场景中可能还有很多框架存在类似或者相似问题。
+
+比如2018年我在Beego中也发现了类似漏洞的存在，并向作者提交了一个漏洞修复的pr (https://github.com/astaxie/beego/pull/3383)
+作者也很快将修复代码合并到了主分支。
+
+但在这之间，另一位安全爱好者通过我提交的Beego框架的漏洞pr发现了某开源在线文档管理系统中存在漏洞，
+可以登录未授权用户账号。（https://github.com/lifei6671/mindoc/issues/384）
+
+而主要原因在于这个开源在线文档管理系统使用了Beego框架，而当时的Beego框架版本中还存在类似漏洞并没有修复。
+
+在web领域的框架尤其PHP最多，这其中肯定也有很多问题，以前给国产某框架提过一个，当时WooYun还没有关闭，
+而现在WooYun所代表的白帽文化可能永远消失在互联网的浪潮中。
+
+有些问题其实是一个小的安全问题，其本身可能并没有什么特别高深的技术含量，但所有小的安全问题组合起来就可以变成一个大的安全问题。
+
+类似问题有很多，主要是聚焦开发的往往关注安全很少，只有关注的人足够多了或者有乐于分享的人或者有推动这些被公开的动力，
+那些潜在的漏洞才有可能被逐渐披露。
+</code></pre>
+<h3>
+<a id="attackwifipy-一个获取wifi密码的工具" class="anchor" href="#attackwifipy-%E4%B8%80%E4%B8%AA%E8%8E%B7%E5%8F%96wifi%E5%AF%86%E7%A0%81%E7%9A%84%E5%B7%A5%E5%85%B7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>attackWiFi.py 一个获取wifi密码的工具</h3>
+<pre><code>破解原理：
+	破解wifi万能钥匙的接口协议，非抓包暴力破解，wifi万能钥匙的服务端存储了大量的wifi密码相关信息
+	通过向接口提供ssid和bssid信息，获取真实的wifi密码
+	这里要感谢zke1ev3n逆向了wifi万能钥匙的安卓客户端
+	本脚本完善了破解程序，增加了容错机制，获得的密码在response中其实是urlencode的，本脚本也增加了decode解码
+查看帮助
+➜  Hacking git:(master) ✗ py attackWiFi.py -h
+Usage: use:
+	--ssid &lt;wifi ssid&gt; --bssid &lt;wifi bssid&gt;
+	Example: python attackWiFi.py --ssid ssid --bssid bssid
+
+Options:
+  -h, --help          show this help message and exit
+  --ssid=WIFI_SSID    the wifi ssid info
+  --bssid=WIFI_BSSID  the wifi bssid info
+
+第一步是要获得wifi的ssid和bssid信息，我演示的环境是Mac环境，其他环境请自行寻找下获取ssid和bssid的工具
+Mac环境：
+	执行：airport -s 获取所有wifi相关信息，这里部分信息进行了打码：
+	Mac下默认airport -s 是不行的，因为我在执行之前建过一个软链接：
+	ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/local/bin/airport
+	其他操作系统获取方式可自行Google
+</code></pre>
+<p><a href="https://github.com/LockGit/Hacking/blob/master/img/ssid.png" target="_blank" rel="nofollow"><img src="https://github.com/LockGit/Hacking/blob/master/img/ssid.png" alt="" style="max-width:100%;"></a></p>
+<pre><code>上一步获得了ssid和bssid信息
+执行获取密码：
+python attackWiFi.py --ssid xxx --bssid ****
+xxx 表示wifi的名称：比如wifi名叫：home
+**** 表示wifi的bssid信息：比如 17:71:94:14:84:0d (随便写的)
+那么获取密码就是：
+python attackWiFi.py --ssid home --bssid 17:71:94:14:84:0d
+成功了会显示password is: xxxxxxx
+也有可能会失败，貌似服务端是有check的，操作多了，会获取失败，这个时候可以换一个网络环境测试，或者换一个wifi测试
+</code></pre>
+<h3>
+<a id="图解https" class="anchor" href="#%E5%9B%BE%E8%A7%A3https" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>图解https</h3>
+<pre><code>网上大部分关于https的讲解各式各样，也不易于理解。于是自己总结画了个图，如有错误欢迎批评指正
+</code></pre>
+<p><a href="https://github.com/LockGit/Hacking/blob/master/img/https.png" target="_blank" rel="nofollow"><img src="https://github.com/LockGit/Hacking/blob/master/img/https.png" alt="" style="max-width:100%;"></a></p>
+<pre><code>1.[server] 生成配对的公钥和私钥，Pub,Pri
+2.[server] 服务器将“Pub”传给客户端
+3.[Client] 生成对称秘钥("key2"),然后用key2加密信息
+4.[Client] 使用“Pub”加密“key2”。因为只有服务器知道“Pri”,所以“key2”是安全的
+5.[Client] send(加密后的数据)和(加密的后的key2)给服务器
+6.[Server] 用私钥“Pri”解密这个result_two，拿到“key2”
+7.[Server]用“key2”解密加密后的数据result_one。数据安全的到达来了服务器。
+
+总结:解密result_one用的key2采用对称加密,而公钥和私钥的生成则采用非对称加密,
+所以一个完整的https流程应该是既包含了对称加密也包含了非对称加密.
+</code></pre>
+<h3>
+<a id="图解hsts" class="anchor" href="#%E5%9B%BE%E8%A7%A3hsts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>图解HSTS</h3>
+<pre><code>HSTS一定是安全的的吗？助你深入理解HSTS的图。
+</code></pre>
+<p><a href="https://github.com/LockGit/Hacking/blob/master/img/hsts.png" target="_blank" rel="nofollow"><img src="https://github.com/LockGit/Hacking/blob/master/img/hsts.png" alt="" style="max-width:100%;"></a></p>
+<h3>
+<a id="tcpportforwardpy-端口转发tool" class="anchor" href="#tcpportforwardpy-%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91tool" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TcpPortForward.py 端口转发tool</h3>
+<pre><code>使用场景:
+
+一：
+A服务器在内网，公网无法直接访问这台服务器，但是A服务器可以联网访问公网的B服务器（假设IP为222.2.2.2）。
+我们也可以访问公网的B服务器。我们的目标是访问A服务器的22端口。那么可以这样：
+
+1. 在B服务器上运行：
+./TcpPortForward.py l:10001 l:10002
+表示在本地监听了10001与10002两个端口，这样，这两个端口就可以互相传输数据了。
+
+2. 在A服务器上运行：
+./TcpPortForward.py c:localhost:22 c:222.2.2.2:10001
+表示连接本地的22端口与B服务器的10001端口，这两个端口也可以互相传输数据了。
+
+3. 然后我们就可以这样来访问A服务器的22端口了：
+ssh 222.2.2.2 -p 10002
+原理很简单，这个命令执行后，B服务器的10002端口接收到的任何数据都会传给10001端口，此时，A服务器是连接了B服务器的10001端口的，
+数据就会传给A服务器，最终进入A服务器的22端口。
+
+二：
+不用更多举例了，TcpPortForward.py的l与c两个参数可以进行灵活的两两组合，多台服务器之间只要搞明白数据流方向，那么就能满足很多场景的需求。
+
+collect from phithon
+</code></pre>
+<h3>
+<a id="typeecho-get-shell--typeecho反序列化漏洞利用" class="anchor" href="#typeecho-get-shell--typeecho%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>typeEcho get Shell , typeEcho反序列化漏洞利用</h3>
+<pre><code>typeEchoShell.php 为生成shell的内容，经过base64后序列化的值，后用于typeEchoShell.py中的cookie一项
+typeEchoShell.py  获取目标站点shell
+
+例：python typeEchoShell.py -u http://www.xxx.com
+
+若要自定义shell内容，可更改typeEchoShell.php，自定义shell内容
+
+</code></pre>
+<h3>
+<a id="获取所有连接过的wifi密码win平台" class="anchor" href="#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%9A%84wifi%E5%AF%86%E7%A0%81win%E5%B9%B3%E5%8F%B0" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>获取所有连接过的wifi密码(Win平台)</h3>
+<pre><code>需要管理员权限
+for /f "skip=9 tokens=1,2 delims=:" %i in ('netsh wlan show profiles') do  @echo %j | findstr -i -v echo | netsh wlan show profiles %j key=clear
+</code></pre>
+<p><a href="https://github.com/LockGit/Hacking/blob/master/img/win_wifi_cmd.png" target="_blank" rel="nofollow"><img src="https://github.com/LockGit/Hacking/blob/master/img/win_wifi_cmd.png" alt="" style="max-width:100%;"></a></p>
+<h3>
+<a id="zipattackpy--zakpy-zip加密文件暴力破解" class="anchor" href="#zipattackpy--zakpy-zip%E5%8A%A0%E5%AF%86%E6%96%87%E4%BB%B6%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>zipattack.py | zak.py zip加密文件暴力破解</h3>
+<pre><code>帮助说明：  python zipattack.py -h
+
+测试：
+zip test.zip *.gif -e 
+
+进行暴力破解：
+python zipattack.py -f test.zip -d password.txt
+
+
+第二个脚本：zak.py 是无限穷举
+python zak.py -h 
+Usage: usage	 -f &lt;zipfile&gt; -t &lt;type&gt; -l &lt;length&gt; or -h get help
+
+Options:
+  -h, --help  show this help message and exit
+  -f ZNAME    specifyzip file
+  -t TNAME    specify type(num|a|A|aA|anum|numa|Anum|aAnum)
+  -l LENGTH   specify length,default=8
+例：
+	python zak.py -f test.zip -t num -l 12
+	表示以数字类型，长度最长为12的密码枚举test.zip文件
+</code></pre>
+<h3>
+<a id="createdictpy-生成一个简单的密码破解字典" class="anchor" href="#createdictpy-%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3%E5%AD%97%E5%85%B8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>createDict.py 生成一个简单的密码破解字典</h3>
+<pre><code>python createDict.py 
+
+按ctrl+c 停止生成
+</code></pre>
+<h3>
+<a id="portscanpy-多线程端口扫描器" class="anchor" href="#portscanpy-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E5%99%A8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PortScan.py 多线程端口扫描器</h3>
+<pre><code>More Help: PortScan.py -h
+
+测试:
+	python PortScan.py -H www.baidu.com -p 80 443 110
+	➜  py python PortScan.py -H www.baidu.com -p 80 443 110 
+		[+] Scan Results for: 119.75.218.70
+		Scanning port 443
+		Scanning port 110
+		Scanning port 80
+		[+]443/tcp open
+		[+] HTTP/1.1 302 Moved Temporarily
+		Server: bfe/1.0.8.18
+		Date: Sun, 06 Nov 2016 08:43:40 GMT
+		Content-T
+		[-]110/tcp closed
+		[-]80/tcp closed
+	Also, You can local test , The python script support domain or ip mode
+	Example:
+		python PortScan.py -H 127.0.0.1 -p 80
+</code></pre>
+<h3>
+<a id="sshattackpy-多线程ssh密码暴力破解" class="anchor" href="#sshattackpy-%E5%A4%9A%E7%BA%BF%E7%A8%8Bssh%E5%AF%86%E7%A0%81%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>sshAttack.py 多线程ssh密码暴力破解</h3>
+<pre><code>测试：
+	➜  py python sshAttack.py -h                                                    
+		Usage: -H &lt;target host&gt; -u &lt;user&gt; -f &lt;password list&gt;
+
+		Options:
+		  -h, --help     show this help message and exit
+		  -H TGTHOST     specify target host
+		  -f PASSWDFILE  specify password file
+		  -u USER        specify the user
+		  -c COUNT       specify the max ssh connect count , default 5
+	
+	py python sshAttack.py -H 192.168.2.201 -u test -f /Users/lock/1.txt -c 20
+	-c 用户测试指定ssh链接数，具体根据ssh config 文件判断
+
+例：
+➜  py python sshAttack.py -H 192.168.1.100 -u root -f password.md -c 20
+		[-] Testing: 1111
+		[-] Testing: 2222
+		[-] Testing: 3333
+		[-] Testing: 111111
+		[-] Testing: 123123
+		[-] Testing: 123456
+		[+] Good , Key Found: 123456
+</code></pre>
+<h3>
+<a id="ftpattackpy-多线程ftp密码暴力破解" class="anchor" href="#ftpattackpy-%E5%A4%9A%E7%BA%BF%E7%A8%8Bftp%E5%AF%86%E7%A0%81%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ftpAttack.py 多线程ftp密码暴力破解</h3>
+<pre><code>测试：
+➜  py python ftpAttack.py -h
+	Usage: -H &lt;target host&gt; -f &lt;password list&gt;
+
+	Options:
+	  -h, --help     show this help message and exit
+	  -H TGTHOST     specify target host
+	  -f PASSWDFILE  specify password file,like username:password format file
+	  -d DELAY       attack time delay set default 1s
+
+➜  py python ftpAttack.py -H 127.0.0.1 -f userpass.md -d 1
+
+	[-] 127.0.0.1 FTP Anonymous Logon Failed.
+	[+] Trying: root/aaa
+
+	[-] Could not brute force FTP credentials.
+
+	[+] Trying: lock/mmm
+
+	[-] Could not brute force FTP credentials.
+	[+] Trying: alice/123
+
+
+	[-] Could not brute force FTP credentials.
+
+	The default test delay time is 0s , test default account is anonymous , if success, will show user name and password.
+	userpass.md is username and password file,the file format like below:
+		root:123
+		hello:456
+		alice:789
+		test:12345
+</code></pre>
+<h3>
+<a id="synfloodpy-一个简单的-tcp-syn-洪水攻击-python版" class="anchor" href="#synfloodpy-%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84-tcp-syn-%E6%B4%AA%E6%B0%B4%E6%94%BB%E5%87%BB-python%E7%89%88" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>synFlood.py 一个简单的 TCP SYN 洪水攻击 python版</h3>
+<pre><code>More Detail:
+python synFlood.py -h
+1,用 Scapy 简单的复制一个 TCP SYN 洪水攻击，将制作一些 IP 数据包,  TCP 513 目标端口。
+2,运行攻击发送 TCP SYN 数据包耗尽目标主机资源，填满它的连接队列，基本瘫 痪目标发送 TCP 重置包的能力。
+3,netstat -an 大量的半链接状态 SYN_RECV
+
+可能需要的依赖：
+brew install --with-python libdnet
+
+pip install scapy
+pip install pcapy
+pip install pydumbnet
+
+执行效果:
+Sent 1 packets.
+.
+Sent 1 packets.
+.
+Sent 1 packets.
+.
+Sent 1 packets.
+.
+....
+</code></pre>
+<h3>
+<a id="ntpdenialservicepy-一个使ntp拒绝服务的poc代码" class="anchor" href="#ntpdenialservicepy-%E4%B8%80%E4%B8%AA%E4%BD%BFntp%E6%8B%92%E7%BB%9D%E6%9C%8D%E5%8A%A1%E7%9A%84poc%E4%BB%A3%E7%A0%81" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ntpDenialService.py 一个使ntp拒绝服务的poc代码</h3>
+<pre><code>构造一个特殊的数据包，ntpd没有默认开启trap服务，如果trap被开启，攻击者就能通过特别构造的数据包导致空指针引、ntpd崩溃，进而导致服务器拒绝服务。
+测试：
+监听本地udp 1111 端口
+➜  ~ nc -l -u 0 1111
+
+执行：
+➜  Hacking git:(master) ✗ python ntpDenialService.py 127.0.0.1 1111
+[-] Sending payload to 127.0.0.1:1111 ...
+[+] Done!
+
+➜  ~ nc -l -u 0 1111
+
+6nonce, laddr=[]:Hrags=32, laddr=[]:WOP2, laddr=[]:WOP
+
+接受到这个特殊的数据包，ntpd崩溃，形成拒绝服务
+</code></pre>
+<h3>
+<a id="分享一个sql注入的技巧" class="anchor" href="#%E5%88%86%E4%BA%AB%E4%B8%80%E4%B8%AAsql%E6%B3%A8%E5%85%A5%E7%9A%84%E6%8A%80%E5%B7%A7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>分享一个SQL注入的技巧</h3>
+<pre><code>审计开源框架/cms的时候可能会遇到一些有意思的注入漏洞
+当以pdo的方式连接mysql，也就是说可以多语句执行的时候
+然后，参考如下：
+
+python:
+import binascii
+s='select * from x limit 1;'
+
+print binascii.b2a_hex(s)
+# 获得16进制数据，73656c656374202a2066726f6d2078206c696d697420313b
+
+mysql -uroot
+set @a:=0x73656c656374202a2066726f6d2078206c696d697420313b;
+
+prepare s from @a;
+
+execute s;
+
+mysql <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b5c7dadac1f5d9dad6d4d9dddac6c1">[email&#160;protected]</a>:test&gt; execute s;
++------+----------+-------+
+|   id |   is_reg |   pid |
+|------+----------+-------|
+|    1 |        1 |     0 |
++------+----------+-------+
+1 row in set
+Time: 0.002s
+</code></pre>
+<h3>
+<a id="attacksmbwin10py-一个smb漏洞的poc代码" class="anchor" href="#attacksmbwin10py-%E4%B8%80%E4%B8%AAsmb%E6%BC%8F%E6%B4%9E%E7%9A%84poc%E4%BB%A3%E7%A0%81" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>attackSmb/win10.py 一个SMB漏洞的Poc代码</h3>
+<pre><code>此漏洞主要影响Windows Server 2012/2016、Win8/8.1以及Win10系统。
+攻击者可以模拟成一个SMB服务器，诱使客户端发起SMB请求来触发漏洞。
+攻击者也可以通过中间人方式“毒化”SMB回应，插入恶意的SMB回复实现拒绝服务或控制受害系统。
+</code></pre>
+<p><a href="https://github.com/LockGit/Hacking/blob/master/attackSmb/attacksmb.png" target="_blank" rel="nofollow"><img src="https://github.com/LockGit/Hacking/blob/master/attackSmb/attacksmb.png" alt="" style="max-width:100%;"></a></p>
+<h3>
+<a id="badtunnel-pocrb-badtunnel-跨网段劫持" class="anchor" href="#badtunnel-pocrb-badtunnel-%E8%B7%A8%E7%BD%91%E6%AE%B5%E5%8A%AB%E6%8C%81" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>badtunnel-poc.rb badtunnel 跨网段劫持</h3>
+<pre><code>detail:
+badtunnel-poc.rb
+</code></pre>
+<h3>
+<a id="sqlinjetctpy-一个延时注入的验证" class="anchor" href="#sqlinjetctpy-%E4%B8%80%E4%B8%AA%E5%BB%B6%E6%97%B6%E6%B3%A8%E5%85%A5%E7%9A%84%E9%AA%8C%E8%AF%81" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>sqlInjetct.py 一个延时注入的验证</h3>
+<pre><code>根据返回的时间差来猜测注入的结果是否正确(无视代码很烂)
+帮助：
+➜  Hacking git:(master) ✗ py sqlInjetct.py
+-----Usage:-----
+
+Example:
+python sqlInject.py -u http://xxx.xxx.com/id=123
+
+</code></pre>
+<h3>
+<a id="关于ssrf漏洞-与-dns域传送漏洞" class="anchor" href="#%E5%85%B3%E4%BA%8Essrf%E6%BC%8F%E6%B4%9E-%E4%B8%8E-dns%E5%9F%9F%E4%BC%A0%E9%80%81%E6%BC%8F%E6%B4%9E" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>关于SSRF漏洞 与 DNS域传送漏洞</h3>
+<pre><code>SSRF放大以后还是十分危险的，当利用SSRF刺探内网的时候，结合dict伪协议再利用ftp协议刺探某个ip是否存活.
+一般情况下如果可以在极短时间内得到response那么基本可以判定该ip存活，反之不存在该ip。
+这个技巧也是收集过来的，至于为什么应该是和ftp协议本身有关?
+获得一幅内网蓝图SSRF是一个不错的选择。
+如何判断SSRF：
+1,SSRF是由服务端发起的请求，因此在加载图片的时候，是由服务端发起的。
+2,在我们本地浏览器的请求中就不应该存在图片的请求，如果抓包可以立即看到效果。
+
+DNS域传送漏洞：
+主域服务器A，备域服务器B,
+A，B之间需要备份相关的域名，ip对应信息,
+原则上只有B可以去同步A信息到自己的数据库中。但是由于配置错误,
+导致任意客户端向主域发起请求,主域都会把相关信息返回给客户端,内部网络蓝图被轻松泄露。
+
+dig soa xxx.com
+得到ANSWER SECTION:假设为：
+ns3.dnsv4.com
+
+查看是否有域传送返回：
+dig axfr xxx.com @ns3.dnsv4.com
+有返回就表示漏洞存在
+</code></pre>
+<h3>
+<a id="使用python构造一个fastcgi协议请求内容发送给php-fpm--nginxiis7解析漏洞原理" class="anchor" href="#%E4%BD%BF%E7%94%A8python%E6%9E%84%E9%80%A0%E4%B8%80%E4%B8%AAfastcgi%E5%8D%8F%E8%AE%AE%E8%AF%B7%E6%B1%82%E5%86%85%E5%AE%B9%E5%8F%91%E9%80%81%E7%BB%99php-fpm--nginxiis7%E8%A7%A3%E6%9E%90%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>使用Python构造一个fastcgi协议请求内容发送给php-fpm , Nginx（IIS7）解析漏洞原理</h3>
+<pre><code>查看帮助：
+python fpm.py -h 
+
+这篇文章写的不错，于是收集了过来：
+https://www.leavesongs.com/PENETRATION/fastcgi-and-php-fpm.html
+
+简述如下：
+Nginx和IIS7曾经出现过一个PHP相关的解析漏洞（测试环境https://github.com/phith0n/vulhub/tree/master/nginx_parsing_vulnerability）.
+该漏洞现象是，在用户访问http://127.0.0.1/favicon.ico/.php时，访问到的文件是favicon.ico，但却按照.php后缀解析了。
+
+用户请求http://127.0.0.1/favicon.ico/.php，nginx将会发送如下环境变量到fpm里：
+
+{
+    ...
+    'SCRIPT_FILENAME': '/var/www/html/favicon.ico/.php',
+    'SCRIPT_NAME': '/favicon.ico/.php',
+    'REQUEST_URI': '/favicon.ico/.php',
+    'DOCUMENT_ROOT': '/var/www/html',
+    ...
+}
+正常来说:
+SCRIPT_FILENAME的值是一个不存在的文件/var/www/html/favicon.ico/.php，
+是PHP设置中的一个选项fix_pathinfo导致了这个漏洞。
+PHP为了支持Path Info模式而创造了fix_pathinfo，在这个选项被打开的情况下，
+fpm会判断SCRIPT_FILENAME是否存在，如果不存在则去掉最后一个/及以后的所有内容，
+再次判断文件是否存在，往次循环，直到文件存在。
+
+所以，第一次fpm发现/var/www/html/favicon.ico/.php不存在，则去掉/.php，再判断/var/www/html/favicon.ico是否存在。
+显然这个文件是存在的，于是被作为PHP文件执行，导致解析漏洞。
+
+正确的解决方法有两种：
+一，在Nginx端使用fastcgi_split_path_info将path info信息去除后，用tryfiles判断文件是否存在；
+二，借助PHP-FPM的security.limit_extensions配置项，避免其他后缀文件被解析。
+
+</code></pre>
+<h3>
+<a id="morsepy-摩斯密码加解密" class="anchor" href="#morsepy-%E6%91%A9%E6%96%AF%E5%AF%86%E7%A0%81%E5%8A%A0%E8%A7%A3%E5%AF%86" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>morse.py 摩斯密码加解密</h3>
+<pre><code>摩斯密码是由美国的三缪摩斯发明的一套加密算法，是一种断断续续的信号代码。
+加密：
+➜  ~ python morse.py -e lock
+.-.. --- -.-. -.-
+
+解密:
+➜  ~ python morse.py -d '.-.. --- -.-. -.-'
+lock
+➜  ~
+
+查看帮助:
+➜  ~ python morse.py
+usage	 -e|-d msg or -h get help
+
+</code></pre>
+<h3>
+<a id="crawlpy-轻量级图片爬虫" class="anchor" href="#crawlpy-%E8%BD%BB%E9%87%8F%E7%BA%A7%E5%9B%BE%E7%89%87%E7%88%AC%E8%99%AB" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>crawl.py 轻量级图片爬虫</h3>
+<pre><code>修改crawl.py中:
+URL = "https://www.xxx.top" # 要爬取的网站
+
+# 爬取的URL域名范围
+URL_RULE = [
+        'https://www.xxx.top',
+        'https://xxx.top',
+        'http://www.xxx.top',
+        'http://xxx.top'
+]
+
+执行爬虫：
+python crawl.py 
+
+</code></pre>
+<h3>
+<a id="wooyun_indexpy-1000个php代码审计案例20167以前乌云公开漏洞---增加索引" class="anchor" href="#wooyun_indexpy-1000%E4%B8%AAphp%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E6%A1%88%E4%BE%8B20167%E4%BB%A5%E5%89%8D%E4%B9%8C%E4%BA%91%E5%85%AC%E5%BC%80%E6%BC%8F%E6%B4%9E---%E5%A2%9E%E5%8A%A0%E7%B4%A2%E5%BC%95" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>wooyun_index.py 1000个PHP代码审计案例(2016.7以前乌云公开漏洞)---增加索引</h3>
+<pre><code>git clone <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="33545a4773545a475b46511d505c5e">[email&#160;protected]</a>:Xyntax/1000php.git
+默认是没有索引的，所以查看漏洞十分不方便
+1，cd 1000php
+2，执行下载我的脚本：wget https://raw.githubusercontent.com/LockGit/Hacking/master/wooyun_index.py -O wooyun_index.py
+3，执行：mkdir css &amp;&amp; mkdir js 
+4，执行：wget https://github.com/LockGit/Hacking/raw/master/res/style.css -O style.css -P css/
+5，执行：wget https://github.com/LockGit/Hacking/raw/master/res/jquery-1.4.2.min.js -O jquery-1.4.2.min.js -P js/
+6，执行：python wooyun_index.py 会生成漏洞索引列表，此时会生成index.html文件，打开这个文件即可
+效果如下：
+</code></pre>
+<p><a href="https://github.com/LockGit/Hacking/blob/master/img/1000php.png" target="_blank" rel="nofollow"><img src="https://github.com/LockGit/Hacking/blob/master/img/1000php.png" alt="" style="max-width:100%;"></a>
+<a href="https://github.com/LockGit/Hacking/blob/master/img/1000php_detail.png" target="_blank" rel="nofollow"><img src="https://github.com/LockGit/Hacking/blob/master/img/1000php_detail.png" alt="" style="max-width:100%;"></a></p>
+<h3>
+<a id="proxy_crawlget_proxypy--ocr_imgpy-反爬虫代理服务器抓取实现方式" class="anchor" href="#proxy_crawlget_proxypy--ocr_imgpy-%E5%8F%8D%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8A%93%E5%8F%96%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>proxy_crawl/get_proxy.py | ocr_img.py 反爬虫代理服务器抓取实现方式</h3>
+<pre><code>访问：http://www.goubanjia.com/free/index.shtml 可看到该网站提供了很多代理服务器
+但是核心的代理ip信息采用了反爬虫策略
+可以看下page结构如下面图片描述,写过爬虫的同学知道这是有意混淆页面结构,让爬虫无法抓取到正确信息，从而在一定程度上起到保护作用。
+写了2个py文件进行了一个小测试，是一个简单实现,代码在仓库proxy_crawl目录下：
+没有什么高深的技术含量
+核心原理是通过selenium唤醒chrome打开待抓取页面，然后程序自动对每一页内容进行截图，保存在proxy_crawl/img下面(如下图)
+之后通过pytesseract对抓取到的图片进行识别，直接无视前端页面的混淆
+pytesseract模块可以尝试下，国外还有大神用js实现了这个模块，支持62种语言浏览器端的识别，当然，也是需要模型数据支持的
+一般还可以识别一下简单的验证码，但是复杂的不行，太过复杂的可能需要比如tensorflow+cnn，网上也有案例
+清洗数据并记录到proxy_crawl/proxy.md文件中
+环境：python 2.7.14 , 模块可以自己看下 py 文件代码，pip install 下所用到的模块
+执行：python get_proxy.py 抓取图片
+执行：python ocr_img.py 代理数据识别
+</code></pre>
+<p><a href="https://github.com/LockGit/Hacking/blob/master/img/page_detail.png" target="_blank" rel="nofollow"><img src="https://github.com/LockGit/Hacking/blob/master/img/page_detail.png" alt="" style="max-width:100%;"></a>
+<a href="https://github.com/LockGit/Hacking/blob/master/img/crawl_png.png" target="_blank" rel="nofollow"><img src="https://github.com/LockGit/Hacking/blob/master/img/crawl_png.png" alt="" style="max-width:100%;"></a>
+<a href="https://github.com/LockGit/Hacking/blob/master/img/img_list.png" target="_blank" rel="nofollow"><img src="https://github.com/LockGit/Hacking/blob/master/img/img_list.png" alt="" style="max-width:100%;"></a>
+<a href="https://github.com/LockGit/Hacking/blob/master/img/proxy_list.png" target="_blank" rel="nofollow"><img src="https://github.com/LockGit/Hacking/blob/master/img/proxy_list.png" alt="" style="max-width:100%;"></a></p>
+<h3>
+<a id="验证码识别v1http协议range特性分析" class="anchor" href="#%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%ABv1http%E5%8D%8F%E8%AE%AErange%E7%89%B9%E6%80%A7%E5%88%86%E6%9E%90" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>验证码识别v1+HTTP协议Range特性分析</h3>
+<pre><code>Google 搜索 tesseract.js 字符识别
+</code></pre>
+<p><a href="https://github.com/LockGit/Hacking/blob/master/img/code_v1.png" target="_blank" rel="nofollow"><img src="https://github.com/LockGit/Hacking/blob/master/img/code_v1.png" alt="" style="max-width:100%;"></a></p>
+<p>总结文档：+ <a href="https://github.com/LockGit/Hacking/blob/master/res/doc/%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%ABv1+HTTP%E5%8D%8F%E8%AE%AERange%E7%89%B9%E6%80%A7%E5%88%86%E6%9E%90.pdf" rel="nofollow">验证码识别v1+HTTP协议Range特性分析.pdf</a></p>
+<pre><code>HTTP协议Range特性分析(多线程文件下载器实现):
+</code></pre>
+<ul>
+<li><a href="https://github.com/LockGit/Py#nice_downloadpy-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%99%A8" rel="nofollow">多线程文件下载器实现</a></li>
+</ul>
+<h3>
+<a id="基于机器学习tensorflow的复杂验证码识别" class="anchor" href="#%E5%9F%BA%E4%BA%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0tensorflow%E7%9A%84%E5%A4%8D%E6%9D%82%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%AB" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>基于机器学习(TensorFlow)的复杂验证码识别</h3>
+<p><a href="https://github.com/LockGit/Hacking/blob/master/img/code_v2.png" target="_blank" rel="nofollow"><img src="https://github.com/LockGit/Hacking/blob/master/img/code_v2.png" alt="" style="max-width:100%;"></a></p>
+<pre><code>运用机器学习算法时，如果不理解实现原理，先套接口先实现功能，识别算法是通用的。一般处理不同验证码，有不同的处理策略。
+分类算法举例：（具体：https://github.com/LockGit/Py）
+    01，knn   (k点邻近算法）
+    02，svm（支持向量机，十分复杂）
+    ...
+SVM算法相比较KNN算法来说，原理上要复杂复杂的多，SVM算法基本思想是把数据转化为点，
+通过把点映射到n维空间上，通过n-1维的超平面切割，找到最佳切割超平面，
+通过判断点在超平面的哪一边，来判断点属于哪一类字符。
+
+基于机器学习的验证码识别则是把要识别的对象当做一个整体。
+选择0-9纯数字，CNN网络4*10个输出，学习时间：70分钟，模型准确率：99%
+验证码预测截图:
+</code></pre>
+<p><a href="https://github.com/LockGit/Hacking/blob/master/img/cnn_test.png" target="_blank" rel="nofollow"><img src="https://github.com/LockGit/Hacking/blob/master/img/cnn_test.png" alt="" style="max-width:100%;"></a></p>
+<p>总结文档：+ <a href="https://github.com/LockGit/Hacking/blob/master/res/doc/%E5%9F%BA%E4%BA%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0(TensorFlow)%E7%9A%84%E5%A4%8D%E6%9D%82%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%AB.pdf" rel="nofollow">基于机器学习(TensorFlow)的复杂验证码识别.pdf</a></p>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120bca15e20e738',m:'005dd0bcd3599892b7519e6296a241b5b5c9eee8-1610725663-1800-Aaq7rTncXenGtRIKrhSYtzz0z6wq4xpXWDSKZ3y1yio0f7Ml04iIk1d01w4XFIyCvUxbh3qIIBD2hPgzALpwJklV5yaV79LYgWWiY+crzbZBsIKQ2KAuG5u/IOqokEbzO71OmOdHuA23qFloqeYGhIs=',s:[0x31dad15f38,0x606370b0e5],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="python"/> <!-- -->python<!-- --> (<!-- -->49,729<!-- -->) </div><div><input type="checkbox" name="topics" value="security"/> <!-- -->security<!-- --> (<!-- -->1,760<!-- -->) </div><div><input type="checkbox" name="topics" value="hacking"/> <!-- -->hacking<!-- --> (<!-- -->493<!-- -->) </div><div><input type="checkbox" name="topics" value="tool"/> <!-- -->tool<!-- --> (<!-- -->382<!-- -->) </div><div><input type="checkbox" name="topics" value="tools"/> <!-- -->tools<!-- --> (<!-- -->318<!-- -->) </div><div><input type="checkbox" name="topics" value="scanner"/> <!-- -->scanner<!-- --> (<!-- -->209<!-- -->) </div><div><input type="checkbox" name="topics" value="hack"/> <!-- -->hack<!-- --> (<!-- -->163<!-- -->) </div><div><input type="checkbox" name="topics" value="hacking-tool"/> <!-- -->hacking-tool<!-- --> (<!-- -->140<!-- -->) </div><div><input type="checkbox" name="topics" value="vulnerability"/> <!-- -->vulnerability<!-- --> (<!-- -->119<!-- -->) </div><div><input type="checkbox" name="topics" value="vulnerabilities"/> <!-- -->vulnerabilities<!-- --> (<!-- -->88<!-- -->) </div><div><input type="checkbox" name="topics" value="vulnerability-scanners"/> <!-- -->vulnerability-scanners<!-- --> (<!-- -->82<!-- -->) </div><div><input type="checkbox" name="topics" value="poc"/> <!-- -->poc<!-- --> (<!-- -->75<!-- -->) </div><div><input type="checkbox" name="topics" value="attack"/> <!-- -->attack<!-- --> (<!-- -->60<!-- -->) </div><div><input type="checkbox" name="topics" value="hacker"/> <!-- -->hacker<!-- --> (<!-- -->52<!-- -->) </div><div><input type="checkbox" name="topics" value="security-vulnerability"/> <!-- -->security-vulnerability<!-- --> (<!-- -->42<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Hacking<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/LockGit" target="_blank">Lockgit</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/LockGit" target="_blank">Lockgit</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-09f66708-67f7-40dc-8e6a-1240388c2c9d">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"attack","count":60},{"id":null,"name":"hack","count":163},{"id":null,"name":"hacker","count":52},{"id":null,"name":"hacking","count":493},{"id":null,"name":"hacking-tool","count":140},{"id":null,"name":"poc","count":75},{"id":null,"name":"python","count":49729},{"id":null,"name":"scanner","count":209},{"id":null,"name":"security","count":1760},{"id":null,"name":"security-vulnerability","count":42},{"id":null,"name":"tool","count":382},{"id":null,"name":"tools","count":318},{"id":null,"name":"vulnerabilities","count":88},{"id":null,"name":"vulnerability","count":119},{"id":null,"name":"vulnerability-scanners","count":82}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/LockGit/Hacking","projects":[],"project":{"id":65619,"created_at":"2018-08-21T00:48:47.310Z","updated_at":"2021-01-13T18:25:08.969Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003ch1\u003e\n\u003ca id=\"hacking-tools-demo\" class=\"anchor\" href=\"#hacking-tools-demo\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHacking Tools Demo\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/LockGit/Hacking/blob/master/README.en.md\" rel=\"nofollow\"\u003eEnglish version(英文版本)\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eMenu\u003c/strong\u003e\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth align=\"left\"\u003eTopic\u003c/th\u003e\n\u003cth align=\"left\"\u003eDescription\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C\" rel=\"nofollow\"\u003e远程命令执行(RCE)\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e远程命令执行(RCE)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#attackwifipy-%E4%B8%80%E4%B8%AA%E8%8E%B7%E5%8F%96wifi%E5%AF%86%E7%A0%81%E7%9A%84%E5%B7%A5%E5%85%B7\" rel=\"nofollow\"\u003eattackWiFi.py\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e一个获取wifi密码的工具\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#%E5%9B%BE%E8%A7%A3https\" rel=\"nofollow\"\u003e图解https\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e图解https\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#%E5%9B%BE%E8%A7%A3hsts\" rel=\"nofollow\"\u003e图解HSTS\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e图解HSTS\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#tcpportforwardpy-%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91tool\" rel=\"nofollow\"\u003eTcpPortForward.py\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e端口转发tool\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#typeecho-get-shell--typeecho%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8\" rel=\"nofollow\"\u003etypeEchoShell.py\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003etypeEchoShell.php\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%9A%84wifi%E5%AF%86%E7%A0%81win%E5%B9%B3%E5%8F%B0\" rel=\"nofollow\"\u003ewifi密码\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e获取所有连接过的wifi密码(Win平台)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#zipattackpy--zakpy-zip%E5%8A%A0%E5%AF%86%E6%96%87%E4%BB%B6%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3\" rel=\"nofollow\"\u003ezipattack.py\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003ezak.py\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#createDictpy-%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3%E5%AD%97%E5%85%B8\" rel=\"nofollow\"\u003ecreateDict.py\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e生成一个简单的密码破解字典\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#portscanpy-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E5%99%A8\" rel=\"nofollow\"\u003ePortScan.py\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e多线程端口扫描器\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#sshattackpy-%E5%A4%9A%E7%BA%BF%E7%A8%8Bssh%E5%AF%86%E7%A0%81%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3\" rel=\"nofollow\"\u003esshAttack.py\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e多线程ssh密码暴力破解\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#ftpattackpy-%E5%A4%9A%E7%BA%BF%E7%A8%8Bftp%E5%AF%86%E7%A0%81%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3\" rel=\"nofollow\"\u003eftpAttack.py\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e多线程ftp密码暴力破解\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#synfloodpy-%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84-tcp-syn-%E6%B4%AA%E6%B0%B4%E6%94%BB%E5%87%BB-python%E7%89%88\" rel=\"nofollow\"\u003esynFlood.py\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003esynFlood TCP SYN 洪水攻击\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#ntpdenialservicepy-%E4%B8%80%E4%B8%AA%E4%BD%BFntp%E6%8B%92%E7%BB%9D%E6%9C%8D%E5%8A%A1%E7%9A%84poc%E4%BB%A3%E7%A0%81\" rel=\"nofollow\"\u003entpdenialservice.py\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e一个使ntp拒绝服务的poc代码\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#%E5%88%86%E4%BA%AB%E4%B8%80%E4%B8%AAsql%E6%B3%A8%E5%85%A5%E7%9A%84%E6%8A%80%E5%B7%A7\" rel=\"nofollow\"\u003eSQL Inject\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e分享一个SQL注入的技巧\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#attacksmbwin10py-%E4%B8%80%E4%B8%AAsmb%E6%BC%8F%E6%B4%9E%E7%9A%84poc%E4%BB%A3%E7%A0%81\" rel=\"nofollow\"\u003eattackSmb/win10.py\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e一个SMB漏洞的Poc\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#badtunnel-pocrb-badtunnel-%E8%B7%A8%E7%BD%91%E6%AE%B5%E5%8A%AB%E6%8C%81\" rel=\"nofollow\"\u003ebadtunnel-poc.rb\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003ebadtunnel 跨网段劫持\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#sqlinjetctpy-%E4%B8%80%E4%B8%AA%E5%BB%B6%E6%97%B6%E6%B3%A8%E5%85%A5%E7%9A%84%E9%AA%8C%E8%AF%81\" rel=\"nofollow\"\u003esqlInjetct.py\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e一个延时注入的验证\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#%E5%85%B3%E4%BA%8Essrf%E6%BC%8F%E6%B4%9E-%E4%B8%8E-dns%E5%9F%9F%E4%BC%A0%E9%80%81%E6%BC%8F%E6%B4%9E\" rel=\"nofollow\"\u003eSSRF \u0026amp; DNS\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eSSRF漏洞 \u0026amp; DNS域传送漏洞\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#%E4%BD%BF%E7%94%A8python%E6%9E%84%E9%80%A0%E4%B8%80%E4%B8%AAfastcgi%E5%8D%8F%E8%AE%AE%E8%AF%B7%E6%B1%82%E5%86%85%E5%AE%B9%E5%8F%91%E9%80%81%E7%BB%99php-fpm--nginxiis7%E8%A7%A3%E6%9E%90%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86\" rel=\"nofollow\"\u003efpm.py\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eNginx（IIS7）解析漏洞原理\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#morsepy-%E6%91%A9%E6%96%AF%E5%AF%86%E7%A0%81%E5%8A%A0%E8%A7%A3%E5%AF%86\" rel=\"nofollow\"\u003emorse.py\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e摩斯密码加解密\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#crawlpy-%E8%BD%BB%E9%87%8F%E7%BA%A7%E5%9B%BE%E7%89%87%E7%88%AC%E8%99%AB\" rel=\"nofollow\"\u003ecrawl.py\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e轻量级图片爬虫\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#wooyun_indexpy-1000%E4%B8%AAphp%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E6%A1%88%E4%BE%8B20167%E4%BB%A5%E5%89%8D%E4%B9%8C%E4%BA%91%E5%85%AC%E5%BC%80%E6%BC%8F%E6%B4%9E---%E5%A2%9E%E5%8A%A0%E7%B4%A2%E5%BC%95\" rel=\"nofollow\"\u003ewooyun_index.py\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e1000个PHP代码审计案例(2016.7以前乌云公开漏洞)---增加索引\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#proxy_crawlget_proxypy--ocr_imgpy-%E5%8F%8D%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8A%93%E5%8F%96%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F\" rel=\"nofollow\"\u003eproxy_crawl/get_proxy.py \u0026amp; proxy_crawl/ocr_img.py \u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e反爬虫代理服务器抓取实现\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%ABv1http%E5%8D%8F%E8%AE%AErange%E7%89%B9%E6%80%A7%E5%88%86%E6%9E%90\" rel=\"nofollow\"\u003e验证码识别v1+HTTP协议Range特性分析.pdf\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e验证码识别v1+HTTP协议Range特性分析\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking#%E5%9F%BA%E4%BA%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0tensorflow%E7%9A%84%E5%A4%8D%E6%9D%82%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%AB\" rel=\"nofollow\"\u003e基于机器学习(TensorFlow)的复杂验证码识别.pdf\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e基于机器学习(TensorFlow)的复杂验证码识别\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Py#scrapy-%E7%88%AC%E8%99%AB%E6%B5%8B%E8%AF%95%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E5%9C%A8%E4%BB%93%E5%BA%93crawl_360%E7%9B%AE%E5%BD%95%E4%B8%8B\" rel=\"nofollow\"\u003eScrapy爬取站点数据\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eScrapy爬取漏洞列表\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking/raw/master/pdf/ip%E5%9C%B0%E5%9D%80%E4%B9%9F%E5%8F%AF%E4%BB%A5%E8%BF%99%E4%B9%88%E8%A1%A8%E7%A4%BA.pdf\" rel=\"nofollow\"\u003eip地址也可以这么表示.pdf\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003eip地址也可以这么表示.pdf\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking/raw/master/pdf/%E4%BB%8E2.5w%E7%BE%8E%E5%88%80%E6%BC%8F%E6%B4%9E%E8%B5%8F%E9%87%91%EF%BC%8C%E9%92%88%E5%AF%B9%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E7%9A%84%E5%88%86%E6%9E%90.pdf\" rel=\"nofollow\"\u003e针对跨域问题的分析.pdf\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e从2.5w美刀漏洞赏金，针对跨域问题的分析.pdf\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking/raw/master/pdf/%E5%85%B3%E4%BA%8ETTL%E7%94%9F%E5%AD%98%E6%97%B6%E9%97%B4.pdf\" rel=\"nofollow\"\u003e关于TTL生存时间.pdf\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e关于TTL生存时间.pdf\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking/raw/master/pdf/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%AD%A3%E7%A1%AE%E7%9A%84SQL%E4%B8%8D%E8%83%BD%E6%89%A7%E8%A1%8C.pdf\" rel=\"nofollow\"\u003e为什么正确的SQL不能执行.pdf\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e为什么正确的SQL不能执行.pdf\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking/raw/master/pdf/%E4%BB%8E%E7%BF%BB%E5%A2%99%E5%88%B0%E4%BD%BF%E7%94%A8cloudflare%E4%BD%9C%E4%B8%BA%E8%B7%B3%E6%9D%BF%E6%9D%A5%E8%AE%BF%E9%97%AEvps%E6%8A%98%E8%85%BE%E5%87%BA%E7%9A%84%E5%87%A0%E4%B8%AA%E9%97%AE%E9%A2%98.pdf\" rel=\"nofollow\"\u003e从翻墙到使用cloudflare作为跳板来访问vps折腾出的几个问题.pdf\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e从翻墙到使用cloudflare作为跳板来访问vps折腾出的几个问题.pdf\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking/raw/master/pdf/%E4%BA%86%E8%A7%A3%E4%B8%80%E4%B8%8Bgolang%E6%B1%87%E7%BC%96.md\" rel=\"nofollow\"\u003e了解一下golang汇编.md\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e了解一下golang汇编.md\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking/raw/master/pdf/%E4%BB%8E%E6%89%A7%E8%A1%8Credis%E5%91%BD%E4%BB%A4%E5%A4%B1%E8%B4%A5%E5%88%86%E6%9E%90%E4%B8%80%E4%B8%8BPipeline%EF%BC%8CTxPipeline%EF%BC%8CTransaction%EF%BC%8CAtomic.pdf\" rel=\"nofollow\"\u003e从执行redis命令失败分析一下Pipeline，TxPipeline，Transaction，Atomic.pdf\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e从执行redis命令失败分析一下Pipeline，TxPipeline，Transaction，Atomic.pdf\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd align=\"left\"\u003e\u003ca href=\"https://github.com/LockGit/Hacking/raw/master/pdf/%E6%AD%A3%E7%A1%AE%E8%8E%B7%E5%8F%96ip%E5%9C%B0%E5%9D%80.md\" rel=\"nofollow\"\u003e正确获取ip地址.md\u003c/a\u003e\u003c/td\u003e\n\u003ctd align=\"left\"\u003e正确获取ip地址.md\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n\u003ch3\u003e\n\u003ca id=\"远程命令执行\" class=\"anchor\" href=\"#%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e远程命令执行\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003eRemote Command/Code Execute 简称 RCE \n\n比如这篇文章：Gogs远程命令执行漏洞分析 （https://www.anquanke.com/post/id/163575）\n开发者在处理file型session时未处理危险字符造成目录穿越。\n攻击者通过目录穿越，伪造的管理员session，成功伪造管理员登陆,后利用Git hook实现任意远程命令执行。\n\n这只是Gogs项目，因为关注的人多，所以才被披露，实际场景中可能还有很多框架存在类似或者相似问题。\n\n比如2018年我在Beego中也发现了类似漏洞的存在，并向作者提交了一个漏洞修复的pr (https://github.com/astaxie/beego/pull/3383)\n作者也很快将修复代码合并到了主分支。\n\n但在这之间，另一位安全爱好者通过我提交的Beego框架的漏洞pr发现了某开源在线文档管理系统中存在漏洞，\n可以登录未授权用户账号。（https://github.com/lifei6671/mindoc/issues/384）\n\n而主要原因在于这个开源在线文档管理系统使用了Beego框架，而当时的Beego框架版本中还存在类似漏洞并没有修复。\n\n在web领域的框架尤其PHP最多，这其中肯定也有很多问题，以前给国产某框架提过一个，当时WooYun还没有关闭，\n而现在WooYun所代表的白帽文化可能永远消失在互联网的浪潮中。\n\n有些问题其实是一个小的安全问题，其本身可能并没有什么特别高深的技术含量，但所有小的安全问题组合起来就可以变成一个大的安全问题。\n\n类似问题有很多，主要是聚焦开发的往往关注安全很少，只有关注的人足够多了或者有乐于分享的人或者有推动这些被公开的动力，\n那些潜在的漏洞才有可能被逐渐披露。\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"attackwifipy-一个获取wifi密码的工具\" class=\"anchor\" href=\"#attackwifipy-%E4%B8%80%E4%B8%AA%E8%8E%B7%E5%8F%96wifi%E5%AF%86%E7%A0%81%E7%9A%84%E5%B7%A5%E5%85%B7\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eattackWiFi.py 一个获取wifi密码的工具\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e破解原理：\n\t破解wifi万能钥匙的接口协议，非抓包暴力破解，wifi万能钥匙的服务端存储了大量的wifi密码相关信息\n\t通过向接口提供ssid和bssid信息，获取真实的wifi密码\n\t这里要感谢zke1ev3n逆向了wifi万能钥匙的安卓客户端\n\t本脚本完善了破解程序，增加了容错机制，获得的密码在response中其实是urlencode的，本脚本也增加了decode解码\n查看帮助\n➜  Hacking git:(master) ✗ py attackWiFi.py -h\nUsage: use:\n\t--ssid \u0026lt;wifi ssid\u0026gt; --bssid \u0026lt;wifi bssid\u0026gt;\n\tExample: python attackWiFi.py --ssid ssid --bssid bssid\n\nOptions:\n  -h, --help          show this help message and exit\n  --ssid=WIFI_SSID    the wifi ssid info\n  --bssid=WIFI_BSSID  the wifi bssid info\n\n第一步是要获得wifi的ssid和bssid信息，我演示的环境是Mac环境，其他环境请自行寻找下获取ssid和bssid的工具\nMac环境：\n\t执行：airport -s 获取所有wifi相关信息，这里部分信息进行了打码：\n\tMac下默认airport -s 是不行的，因为我在执行之前建过一个软链接：\n\tln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/local/bin/airport\n\t其他操作系统获取方式可自行Google\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/LockGit/Hacking/blob/master/img/ssid.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://github.com/LockGit/Hacking/blob/master/img/ssid.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e上一步获得了ssid和bssid信息\n执行获取密码：\npython attackWiFi.py --ssid xxx --bssid ****\nxxx 表示wifi的名称：比如wifi名叫：home\n**** 表示wifi的bssid信息：比如 17:71:94:14:84:0d (随便写的)\n那么获取密码就是：\npython attackWiFi.py --ssid home --bssid 17:71:94:14:84:0d\n成功了会显示password is: xxxxxxx\n也有可能会失败，貌似服务端是有check的，操作多了，会获取失败，这个时候可以换一个网络环境测试，或者换一个wifi测试\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"图解https\" class=\"anchor\" href=\"#%E5%9B%BE%E8%A7%A3https\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e图解https\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e网上大部分关于https的讲解各式各样，也不易于理解。于是自己总结画了个图，如有错误欢迎批评指正\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/LockGit/Hacking/blob/master/img/https.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://github.com/LockGit/Hacking/blob/master/img/https.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e1.[server] 生成配对的公钥和私钥，Pub,Pri\n2.[server] 服务器将“Pub”传给客户端\n3.[Client] 生成对称秘钥(\"key2\"),然后用key2加密信息\n4.[Client] 使用“Pub”加密“key2”。因为只有服务器知道“Pri”,所以“key2”是安全的\n5.[Client] send(加密后的数据)和(加密的后的key2)给服务器\n6.[Server] 用私钥“Pri”解密这个result_two，拿到“key2”\n7.[Server]用“key2”解密加密后的数据result_one。数据安全的到达来了服务器。\n\n总结:解密result_one用的key2采用对称加密,而公钥和私钥的生成则采用非对称加密,\n所以一个完整的https流程应该是既包含了对称加密也包含了非对称加密.\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"图解hsts\" class=\"anchor\" href=\"#%E5%9B%BE%E8%A7%A3hsts\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e图解HSTS\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003eHSTS一定是安全的的吗？助你深入理解HSTS的图。\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/LockGit/Hacking/blob/master/img/hsts.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://github.com/LockGit/Hacking/blob/master/img/hsts.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"tcpportforwardpy-端口转发tool\" class=\"anchor\" href=\"#tcpportforwardpy-%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91tool\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eTcpPortForward.py 端口转发tool\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e使用场景:\n\n一：\nA服务器在内网，公网无法直接访问这台服务器，但是A服务器可以联网访问公网的B服务器（假设IP为222.2.2.2）。\n我们也可以访问公网的B服务器。我们的目标是访问A服务器的22端口。那么可以这样：\n\n1. 在B服务器上运行：\n./TcpPortForward.py l:10001 l:10002\n表示在本地监听了10001与10002两个端口，这样，这两个端口就可以互相传输数据了。\n\n2. 在A服务器上运行：\n./TcpPortForward.py c:localhost:22 c:222.2.2.2:10001\n表示连接本地的22端口与B服务器的10001端口，这两个端口也可以互相传输数据了。\n\n3. 然后我们就可以这样来访问A服务器的22端口了：\nssh 222.2.2.2 -p 10002\n原理很简单，这个命令执行后，B服务器的10002端口接收到的任何数据都会传给10001端口，此时，A服务器是连接了B服务器的10001端口的，\n数据就会传给A服务器，最终进入A服务器的22端口。\n\n二：\n不用更多举例了，TcpPortForward.py的l与c两个参数可以进行灵活的两两组合，多台服务器之间只要搞明白数据流方向，那么就能满足很多场景的需求。\n\ncollect from phithon\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"typeecho-get-shell--typeecho反序列化漏洞利用\" class=\"anchor\" href=\"#typeecho-get-shell--typeecho%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003etypeEcho get Shell , typeEcho反序列化漏洞利用\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003etypeEchoShell.php 为生成shell的内容，经过base64后序列化的值，后用于typeEchoShell.py中的cookie一项\ntypeEchoShell.py  获取目标站点shell\n\n例：python typeEchoShell.py -u http://www.xxx.com\n\n若要自定义shell内容，可更改typeEchoShell.php，自定义shell内容\n\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"获取所有连接过的wifi密码win平台\" class=\"anchor\" href=\"#%E8%8E%B7%E5%8F%96%E6%89%80%E6%9C%89%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%9A%84wifi%E5%AF%86%E7%A0%81win%E5%B9%B3%E5%8F%B0\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e获取所有连接过的wifi密码(Win平台)\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e需要管理员权限\nfor /f \"skip=9 tokens=1,2 delims=:\" %i in ('netsh wlan show profiles') do  @echo %j | findstr -i -v echo | netsh wlan show profiles %j key=clear\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/LockGit/Hacking/blob/master/img/win_wifi_cmd.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://github.com/LockGit/Hacking/blob/master/img/win_wifi_cmd.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"zipattackpy--zakpy-zip加密文件暴力破解\" class=\"anchor\" href=\"#zipattackpy--zakpy-zip%E5%8A%A0%E5%AF%86%E6%96%87%E4%BB%B6%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ezipattack.py | zak.py zip加密文件暴力破解\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e帮助说明：  python zipattack.py -h\n\n测试：\nzip test.zip *.gif -e \n\n进行暴力破解：\npython zipattack.py -f test.zip -d password.txt\n\n\n第二个脚本：zak.py 是无限穷举\npython zak.py -h \nUsage: usage\t -f \u0026lt;zipfile\u0026gt; -t \u0026lt;type\u0026gt; -l \u0026lt;length\u0026gt; or -h get help\n\nOptions:\n  -h, --help  show this help message and exit\n  -f ZNAME    specifyzip file\n  -t TNAME    specify type(num|a|A|aA|anum|numa|Anum|aAnum)\n  -l LENGTH   specify length,default=8\n例：\n\tpython zak.py -f test.zip -t num -l 12\n\t表示以数字类型，长度最长为12的密码枚举test.zip文件\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"createdictpy-生成一个简单的密码破解字典\" class=\"anchor\" href=\"#createdictpy-%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%AF%86%E7%A0%81%E7%A0%B4%E8%A7%A3%E5%AD%97%E5%85%B8\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ecreateDict.py 生成一个简单的密码破解字典\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003epython createDict.py \n\n按ctrl+c 停止生成\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"portscanpy-多线程端口扫描器\" class=\"anchor\" href=\"#portscanpy-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F%E5%99%A8\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePortScan.py 多线程端口扫描器\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003eMore Help: PortScan.py -h\n\n测试:\n\tpython PortScan.py -H www.baidu.com -p 80 443 110\n\t➜  py python PortScan.py -H www.baidu.com -p 80 443 110 \n\t\t[+] Scan Results for: 119.75.218.70\n\t\tScanning port 443\n\t\tScanning port 110\n\t\tScanning port 80\n\t\t[+]443/tcp open\n\t\t[+] HTTP/1.1 302 Moved Temporarily\n\t\tServer: bfe/1.0.8.18\n\t\tDate: Sun, 06 Nov 2016 08:43:40 GMT\n\t\tContent-T\n\t\t[-]110/tcp closed\n\t\t[-]80/tcp closed\n\tAlso, You can local test , The python script support domain or ip mode\n\tExample:\n\t\tpython PortScan.py -H 127.0.0.1 -p 80\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"sshattackpy-多线程ssh密码暴力破解\" class=\"anchor\" href=\"#sshattackpy-%E5%A4%9A%E7%BA%BF%E7%A8%8Bssh%E5%AF%86%E7%A0%81%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003esshAttack.py 多线程ssh密码暴力破解\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e测试：\n\t➜  py python sshAttack.py -h                                                    \n\t\tUsage: -H \u0026lt;target host\u0026gt; -u \u0026lt;user\u0026gt; -f \u0026lt;password list\u0026gt;\n\n\t\tOptions:\n\t\t  -h, --help     show this help message and exit\n\t\t  -H TGTHOST     specify target host\n\t\t  -f PASSWDFILE  specify password file\n\t\t  -u USER        specify the user\n\t\t  -c COUNT       specify the max ssh connect count , default 5\n\t\n\tpy python sshAttack.py -H 192.168.2.201 -u test -f /Users/lock/1.txt -c 20\n\t-c 用户测试指定ssh链接数，具体根据ssh config 文件判断\n\n例：\n➜  py python sshAttack.py -H 192.168.1.100 -u root -f password.md -c 20\n\t\t[-] Testing: 1111\n\t\t[-] Testing: 2222\n\t\t[-] Testing: 3333\n\t\t[-] Testing: 111111\n\t\t[-] Testing: 123123\n\t\t[-] Testing: 123456\n\t\t[+] Good , Key Found: 123456\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"ftpattackpy-多线程ftp密码暴力破解\" class=\"anchor\" href=\"#ftpattackpy-%E5%A4%9A%E7%BA%BF%E7%A8%8Bftp%E5%AF%86%E7%A0%81%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eftpAttack.py 多线程ftp密码暴力破解\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e测试：\n➜  py python ftpAttack.py -h\n\tUsage: -H \u0026lt;target host\u0026gt; -f \u0026lt;password list\u0026gt;\n\n\tOptions:\n\t  -h, --help     show this help message and exit\n\t  -H TGTHOST     specify target host\n\t  -f PASSWDFILE  specify password file,like username:password format file\n\t  -d DELAY       attack time delay set default 1s\n\n➜  py python ftpAttack.py -H 127.0.0.1 -f userpass.md -d 1\n\n\t[-] 127.0.0.1 FTP Anonymous Logon Failed.\n\t[+] Trying: root/aaa\n\n\t[-] Could not brute force FTP credentials.\n\n\t[+] Trying: lock/mmm\n\n\t[-] Could not brute force FTP credentials.\n\t[+] Trying: alice/123\n\n\n\t[-] Could not brute force FTP credentials.\n\n\tThe default test delay time is 0s , test default account is anonymous , if success, will show user name and password.\n\tuserpass.md is username and password file,the file format like below:\n\t\troot:123\n\t\thello:456\n\t\talice:789\n\t\ttest:12345\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"synfloodpy-一个简单的-tcp-syn-洪水攻击-python版\" class=\"anchor\" href=\"#synfloodpy-%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84-tcp-syn-%E6%B4%AA%E6%B0%B4%E6%94%BB%E5%87%BB-python%E7%89%88\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003esynFlood.py 一个简单的 TCP SYN 洪水攻击 python版\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003eMore Detail:\npython synFlood.py -h\n1,用 Scapy 简单的复制一个 TCP SYN 洪水攻击，将制作一些 IP 数据包,  TCP 513 目标端口。\n2,运行攻击发送 TCP SYN 数据包耗尽目标主机资源，填满它的连接队列，基本瘫 痪目标发送 TCP 重置包的能力。\n3,netstat -an 大量的半链接状态 SYN_RECV\n\n可能需要的依赖：\nbrew install --with-python libdnet\n\npip install scapy\npip install pcapy\npip install pydumbnet\n\n执行效果:\nSent 1 packets.\n.\nSent 1 packets.\n.\nSent 1 packets.\n.\nSent 1 packets.\n.\n....\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"ntpdenialservicepy-一个使ntp拒绝服务的poc代码\" class=\"anchor\" href=\"#ntpdenialservicepy-%E4%B8%80%E4%B8%AA%E4%BD%BFntp%E6%8B%92%E7%BB%9D%E6%9C%8D%E5%8A%A1%E7%9A%84poc%E4%BB%A3%E7%A0%81\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003entpDenialService.py 一个使ntp拒绝服务的poc代码\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e构造一个特殊的数据包，ntpd没有默认开启trap服务，如果trap被开启，攻击者就能通过特别构造的数据包导致空指针引、ntpd崩溃，进而导致服务器拒绝服务。\n测试：\n监听本地udp 1111 端口\n➜  ~ nc -l -u 0 1111\n\n执行：\n➜  Hacking git:(master) ✗ python ntpDenialService.py 127.0.0.1 1111\n[-] Sending payload to 127.0.0.1:1111 ...\n[+] Done!\n\n➜  ~ nc -l -u 0 1111\n\n6nonce, laddr=[]:Hrags=32, laddr=[]:WOP2, laddr=[]:WOP\n\n接受到这个特殊的数据包，ntpd崩溃，形成拒绝服务\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"分享一个sql注入的技巧\" class=\"anchor\" href=\"#%E5%88%86%E4%BA%AB%E4%B8%80%E4%B8%AAsql%E6%B3%A8%E5%85%A5%E7%9A%84%E6%8A%80%E5%B7%A7\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e分享一个SQL注入的技巧\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e审计开源框架/cms的时候可能会遇到一些有意思的注入漏洞\n当以pdo的方式连接mysql，也就是说可以多语句执行的时候\n然后，参考如下：\n\npython:\nimport binascii\ns='select * from x limit 1;'\n\nprint binascii.b2a_hex(s)\n# 获得16进制数据，73656c656374202a2066726f6d2078206c696d697420313b\n\nmysql -uroot\nset @a:=0x73656c656374202a2066726f6d2078206c696d697420313b;\n\nprepare s from @a;\n\nexecute s;\n\nmysql root@localhost:test\u0026gt; execute s;\n+------+----------+-------+\n|   id |   is_reg |   pid |\n|------+----------+-------|\n|    1 |        1 |     0 |\n+------+----------+-------+\n1 row in set\nTime: 0.002s\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"attacksmbwin10py-一个smb漏洞的poc代码\" class=\"anchor\" href=\"#attacksmbwin10py-%E4%B8%80%E4%B8%AAsmb%E6%BC%8F%E6%B4%9E%E7%9A%84poc%E4%BB%A3%E7%A0%81\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eattackSmb/win10.py 一个SMB漏洞的Poc代码\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e此漏洞主要影响Windows Server 2012/2016、Win8/8.1以及Win10系统。\n攻击者可以模拟成一个SMB服务器，诱使客户端发起SMB请求来触发漏洞。\n攻击者也可以通过中间人方式“毒化”SMB回应，插入恶意的SMB回复实现拒绝服务或控制受害系统。\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/LockGit/Hacking/blob/master/attackSmb/attacksmb.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://github.com/LockGit/Hacking/blob/master/attackSmb/attacksmb.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"badtunnel-pocrb-badtunnel-跨网段劫持\" class=\"anchor\" href=\"#badtunnel-pocrb-badtunnel-%E8%B7%A8%E7%BD%91%E6%AE%B5%E5%8A%AB%E6%8C%81\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ebadtunnel-poc.rb badtunnel 跨网段劫持\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003edetail:\nbadtunnel-poc.rb\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"sqlinjetctpy-一个延时注入的验证\" class=\"anchor\" href=\"#sqlinjetctpy-%E4%B8%80%E4%B8%AA%E5%BB%B6%E6%97%B6%E6%B3%A8%E5%85%A5%E7%9A%84%E9%AA%8C%E8%AF%81\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003esqlInjetct.py 一个延时注入的验证\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e根据返回的时间差来猜测注入的结果是否正确(无视代码很烂)\n帮助：\n➜  Hacking git:(master) ✗ py sqlInjetct.py\n-----Usage:-----\n\nExample:\npython sqlInject.py -u http://xxx.xxx.com/id=123\n\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"关于ssrf漏洞-与-dns域传送漏洞\" class=\"anchor\" href=\"#%E5%85%B3%E4%BA%8Essrf%E6%BC%8F%E6%B4%9E-%E4%B8%8E-dns%E5%9F%9F%E4%BC%A0%E9%80%81%E6%BC%8F%E6%B4%9E\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e关于SSRF漏洞 与 DNS域传送漏洞\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003eSSRF放大以后还是十分危险的，当利用SSRF刺探内网的时候，结合dict伪协议再利用ftp协议刺探某个ip是否存活.\n一般情况下如果可以在极短时间内得到response那么基本可以判定该ip存活，反之不存在该ip。\n这个技巧也是收集过来的，至于为什么应该是和ftp协议本身有关?\n获得一幅内网蓝图SSRF是一个不错的选择。\n如何判断SSRF：\n1,SSRF是由服务端发起的请求，因此在加载图片的时候，是由服务端发起的。\n2,在我们本地浏览器的请求中就不应该存在图片的请求，如果抓包可以立即看到效果。\n\nDNS域传送漏洞：\n主域服务器A，备域服务器B,\nA，B之间需要备份相关的域名，ip对应信息,\n原则上只有B可以去同步A信息到自己的数据库中。但是由于配置错误,\n导致任意客户端向主域发起请求,主域都会把相关信息返回给客户端,内部网络蓝图被轻松泄露。\n\ndig soa xxx.com\n得到ANSWER SECTION:假设为：\nns3.dnsv4.com\n\n查看是否有域传送返回：\ndig axfr xxx.com @ns3.dnsv4.com\n有返回就表示漏洞存在\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"使用python构造一个fastcgi协议请求内容发送给php-fpm--nginxiis7解析漏洞原理\" class=\"anchor\" href=\"#%E4%BD%BF%E7%94%A8python%E6%9E%84%E9%80%A0%E4%B8%80%E4%B8%AAfastcgi%E5%8D%8F%E8%AE%AE%E8%AF%B7%E6%B1%82%E5%86%85%E5%AE%B9%E5%8F%91%E9%80%81%E7%BB%99php-fpm--nginxiis7%E8%A7%A3%E6%9E%90%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e使用Python构造一个fastcgi协议请求内容发送给php-fpm , Nginx（IIS7）解析漏洞原理\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e查看帮助：\npython fpm.py -h \n\n这篇文章写的不错，于是收集了过来：\nhttps://www.leavesongs.com/PENETRATION/fastcgi-and-php-fpm.html\n\n简述如下：\nNginx和IIS7曾经出现过一个PHP相关的解析漏洞（测试环境https://github.com/phith0n/vulhub/tree/master/nginx_parsing_vulnerability）.\n该漏洞现象是，在用户访问http://127.0.0.1/favicon.ico/.php时，访问到的文件是favicon.ico，但却按照.php后缀解析了。\n\n用户请求http://127.0.0.1/favicon.ico/.php，nginx将会发送如下环境变量到fpm里：\n\n{\n    ...\n    'SCRIPT_FILENAME': '/var/www/html/favicon.ico/.php',\n    'SCRIPT_NAME': '/favicon.ico/.php',\n    'REQUEST_URI': '/favicon.ico/.php',\n    'DOCUMENT_ROOT': '/var/www/html',\n    ...\n}\n正常来说:\nSCRIPT_FILENAME的值是一个不存在的文件/var/www/html/favicon.ico/.php，\n是PHP设置中的一个选项fix_pathinfo导致了这个漏洞。\nPHP为了支持Path Info模式而创造了fix_pathinfo，在这个选项被打开的情况下，\nfpm会判断SCRIPT_FILENAME是否存在，如果不存在则去掉最后一个/及以后的所有内容，\n再次判断文件是否存在，往次循环，直到文件存在。\n\n所以，第一次fpm发现/var/www/html/favicon.ico/.php不存在，则去掉/.php，再判断/var/www/html/favicon.ico是否存在。\n显然这个文件是存在的，于是被作为PHP文件执行，导致解析漏洞。\n\n正确的解决方法有两种：\n一，在Nginx端使用fastcgi_split_path_info将path info信息去除后，用tryfiles判断文件是否存在；\n二，借助PHP-FPM的security.limit_extensions配置项，避免其他后缀文件被解析。\n\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"morsepy-摩斯密码加解密\" class=\"anchor\" href=\"#morsepy-%E6%91%A9%E6%96%AF%E5%AF%86%E7%A0%81%E5%8A%A0%E8%A7%A3%E5%AF%86\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003emorse.py 摩斯密码加解密\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e摩斯密码是由美国的三缪摩斯发明的一套加密算法，是一种断断续续的信号代码。\n加密：\n➜  ~ python morse.py -e lock\n.-.. --- -.-. -.-\n\n解密:\n➜  ~ python morse.py -d '.-.. --- -.-. -.-'\nlock\n➜  ~\n\n查看帮助:\n➜  ~ python morse.py\nusage\t -e|-d msg or -h get help\n\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"crawlpy-轻量级图片爬虫\" class=\"anchor\" href=\"#crawlpy-%E8%BD%BB%E9%87%8F%E7%BA%A7%E5%9B%BE%E7%89%87%E7%88%AC%E8%99%AB\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ecrawl.py 轻量级图片爬虫\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e修改crawl.py中:\nURL = \"https://www.xxx.top\" # 要爬取的网站\n\n# 爬取的URL域名范围\nURL_RULE = [\n        'https://www.xxx.top',\n        'https://xxx.top',\n        'http://www.xxx.top',\n        'http://xxx.top'\n]\n\n执行爬虫：\npython crawl.py \n\n\u003c/code\u003e\u003c/pre\u003e\n\u003ch3\u003e\n\u003ca id=\"wooyun_indexpy-1000个php代码审计案例20167以前乌云公开漏洞---增加索引\" class=\"anchor\" href=\"#wooyun_indexpy-1000%E4%B8%AAphp%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1%E6%A1%88%E4%BE%8B20167%E4%BB%A5%E5%89%8D%E4%B9%8C%E4%BA%91%E5%85%AC%E5%BC%80%E6%BC%8F%E6%B4%9E---%E5%A2%9E%E5%8A%A0%E7%B4%A2%E5%BC%95\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ewooyun_index.py 1000个PHP代码审计案例(2016.7以前乌云公开漏洞)---增加索引\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003egit clone git@github.com:Xyntax/1000php.git\n默认是没有索引的，所以查看漏洞十分不方便\n1，cd 1000php\n2，执行下载我的脚本：wget https://raw.githubusercontent.com/LockGit/Hacking/master/wooyun_index.py -O wooyun_index.py\n3，执行：mkdir css \u0026amp;\u0026amp; mkdir js \n4，执行：wget https://github.com/LockGit/Hacking/raw/master/res/style.css -O style.css -P css/\n5，执行：wget https://github.com/LockGit/Hacking/raw/master/res/jquery-1.4.2.min.js -O jquery-1.4.2.min.js -P js/\n6，执行：python wooyun_index.py 会生成漏洞索引列表，此时会生成index.html文件，打开这个文件即可\n效果如下：\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/LockGit/Hacking/blob/master/img/1000php.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://github.com/LockGit/Hacking/blob/master/img/1000php.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/LockGit/Hacking/blob/master/img/1000php_detail.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://github.com/LockGit/Hacking/blob/master/img/1000php_detail.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"proxy_crawlget_proxypy--ocr_imgpy-反爬虫代理服务器抓取实现方式\" class=\"anchor\" href=\"#proxy_crawlget_proxypy--ocr_imgpy-%E5%8F%8D%E7%88%AC%E8%99%AB%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8A%93%E5%8F%96%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eproxy_crawl/get_proxy.py | ocr_img.py 反爬虫代理服务器抓取实现方式\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e访问：http://www.goubanjia.com/free/index.shtml 可看到该网站提供了很多代理服务器\n但是核心的代理ip信息采用了反爬虫策略\n可以看下page结构如下面图片描述,写过爬虫的同学知道这是有意混淆页面结构,让爬虫无法抓取到正确信息，从而在一定程度上起到保护作用。\n写了2个py文件进行了一个小测试，是一个简单实现,代码在仓库proxy_crawl目录下：\n没有什么高深的技术含量\n核心原理是通过selenium唤醒chrome打开待抓取页面，然后程序自动对每一页内容进行截图，保存在proxy_crawl/img下面(如下图)\n之后通过pytesseract对抓取到的图片进行识别，直接无视前端页面的混淆\npytesseract模块可以尝试下，国外还有大神用js实现了这个模块，支持62种语言浏览器端的识别，当然，也是需要模型数据支持的\n一般还可以识别一下简单的验证码，但是复杂的不行，太过复杂的可能需要比如tensorflow+cnn，网上也有案例\n清洗数据并记录到proxy_crawl/proxy.md文件中\n环境：python 2.7.14 , 模块可以自己看下 py 文件代码，pip install 下所用到的模块\n执行：python get_proxy.py 抓取图片\n执行：python ocr_img.py 代理数据识别\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/LockGit/Hacking/blob/master/img/page_detail.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://github.com/LockGit/Hacking/blob/master/img/page_detail.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/LockGit/Hacking/blob/master/img/crawl_png.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://github.com/LockGit/Hacking/blob/master/img/crawl_png.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/LockGit/Hacking/blob/master/img/img_list.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://github.com/LockGit/Hacking/blob/master/img/img_list.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/LockGit/Hacking/blob/master/img/proxy_list.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://github.com/LockGit/Hacking/blob/master/img/proxy_list.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"验证码识别v1http协议range特性分析\" class=\"anchor\" href=\"#%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%ABv1http%E5%8D%8F%E8%AE%AErange%E7%89%B9%E6%80%A7%E5%88%86%E6%9E%90\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e验证码识别v1+HTTP协议Range特性分析\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003eGoogle 搜索 tesseract.js 字符识别\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/LockGit/Hacking/blob/master/img/code_v1.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://github.com/LockGit/Hacking/blob/master/img/code_v1.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e总结文档：+ \u003ca href=\"https://github.com/LockGit/Hacking/blob/master/res/doc/%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%ABv1+HTTP%E5%8D%8F%E8%AE%AERange%E7%89%B9%E6%80%A7%E5%88%86%E6%9E%90.pdf\" rel=\"nofollow\"\u003e验证码识别v1+HTTP协议Range特性分析.pdf\u003c/a\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003eHTTP协议Range特性分析(多线程文件下载器实现):\n\u003c/code\u003e\u003c/pre\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/LockGit/Py#nice_downloadpy-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%99%A8\" rel=\"nofollow\"\u003e多线程文件下载器实现\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n\u003ca id=\"基于机器学习tensorflow的复杂验证码识别\" class=\"anchor\" href=\"#%E5%9F%BA%E4%BA%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0tensorflow%E7%9A%84%E5%A4%8D%E6%9D%82%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%AB\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003e基于机器学习(TensorFlow)的复杂验证码识别\u003c/h3\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/LockGit/Hacking/blob/master/img/code_v2.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://github.com/LockGit/Hacking/blob/master/img/code_v2.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e运用机器学习算法时，如果不理解实现原理，先套接口先实现功能，识别算法是通用的。一般处理不同验证码，有不同的处理策略。\n分类算法举例：（具体：https://github.com/LockGit/Py）\n    01，knn   (k点邻近算法）\n    02，svm（支持向量机，十分复杂）\n    ...\nSVM算法相比较KNN算法来说，原理上要复杂复杂的多，SVM算法基本思想是把数据转化为点，\n通过把点映射到n维空间上，通过n-1维的超平面切割，找到最佳切割超平面，\n通过判断点在超平面的哪一边，来判断点属于哪一类字符。\n\n基于机器学习的验证码识别则是把要识别的对象当做一个整体。\n选择0-9纯数字，CNN网络4*10个输出，学习时间：70分钟，模型准确率：99%\n验证码预测截图:\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ca href=\"https://github.com/LockGit/Hacking/blob/master/img/cnn_test.png\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://github.com/LockGit/Hacking/blob/master/img/cnn_test.png\" alt=\"\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003e总结文档：+ \u003ca href=\"https://github.com/LockGit/Hacking/blob/master/res/doc/%E5%9F%BA%E4%BA%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0(TensorFlow)%E7%9A%84%E5%A4%8D%E6%9D%82%E9%AA%8C%E8%AF%81%E7%A0%81%E8%AF%86%E5%88%AB.pdf\" rel=\"nofollow\"\u003e基于机器学习(TensorFlow)的复杂验证码识别.pdf\u003c/a\u003e\u003c/p\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":40426389,"name":"Hacking","owner_login":"LockGit","description":"hacker, ready for more of our story ! 🚀 ","pushed_at":"2020-07-19T06:42:12.000Z","stargazers_count":409,"open_issues_count":3,"has_downloads":true,"archived":false,"license_key":null,"homepage":"","private":false,"project_created_at":"2015-08-09T05:23:45.000Z","project_updated_at":"2021-01-12T13:26:50.000Z","language":"Python","added_language_topic":true},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

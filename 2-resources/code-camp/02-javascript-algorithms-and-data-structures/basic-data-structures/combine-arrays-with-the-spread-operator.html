@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>Another huge advantage of the <dfn>spread</dfn> operator is the ability to combine arrays, or to insert all the elements of one array into another, at any index. With more traditional syntaxes, we can concatenate arrays, but this only allows us to combine arrays at the end of one, and at the start of another. Spread syntax makes the following operation extremely simple:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> thisArray <span class="op">=</span> [<span class="st">&#39;sage&#39;</span><span class="op">,</span> <span class="st">&#39;rosemary&#39;</span><span class="op">,</span> <span class="st">&#39;parsley&#39;</span><span class="op">,</span> <span class="st">&#39;thyme&#39;</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">let</span> thatArray <span class="op">=</span> [<span class="st">&#39;basil&#39;</span><span class="op">,</span> <span class="st">&#39;cilantro&#39;</span><span class="op">,</span> ...<span class="at">thisArray</span><span class="op">,</span> <span class="st">&#39;coriander&#39;</span>]<span class="op">;</span></a></code></pre></div>
+<p><code>thatArray</code> would have the value <code>['basil', 'cilantro', 'sage', 'rosemary', 'parsley', 'thyme', 'coriander']</code>.</p>
+<p>Using spread syntax, we have just achieved an operation that would have been more complex and more verbose had we used traditional methods.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>We have defined a function <code>spreadOut</code> that returns the variable <code>sentence</code>. Modify the function using the <dfn>spread</dfn> operator so that it returns the array <code>['learning', 'to', 'code', 'is', 'fun']</code>.</p>
+<h1 id="hints">–hints–</h1>
+<p><code>spreadOut</code> should return <code>["learning", "to", "code", "is", "fun"]</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">assert</span>.<span class="at">deepEqual</span>(<span class="at">spreadOut</span>()<span class="op">,</span> [<span class="st">&#39;learning&#39;</span><span class="op">,</span> <span class="st">&#39;to&#39;</span><span class="op">,</span> <span class="st">&#39;code&#39;</span><span class="op">,</span> <span class="st">&#39;is&#39;</span><span class="op">,</span> <span class="st">&#39;fun&#39;</span>])<span class="op">;</span></a></code></pre></div>
+<p>The <code>spreadOut</code> function should utilize spread syntax</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">assert</span>.<span class="at">notStrictEqual</span>(<span class="va">spreadOut</span>.<span class="at">toString</span>().<span class="at">search</span>(<span class="ss">/</span><span class="sc">[...]</span><span class="ss">/</span>)<span class="op">,</span> <span class="dv">-1</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">function</span> <span class="at">spreadOut</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="kw">let</span> fragment <span class="op">=</span> [<span class="st">&#39;to&#39;</span><span class="op">,</span> <span class="st">&#39;code&#39;</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="kw">let</span> sentence<span class="op">;</span> <span class="co">// Change this line</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="cf">return</span> sentence<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="op">}</span></a>
+<a class="sourceLine" id="cb4-6" title="6"></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="va">console</span>.<span class="at">log</span>(<span class="at">spreadOut</span>())<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">function</span> <span class="at">spreadOut</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="kw">let</span> fragment <span class="op">=</span> [<span class="st">&#39;to&#39;</span><span class="op">,</span> <span class="st">&#39;code&#39;</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="kw">let</span> sentence <span class="op">=</span> [<span class="st">&#39;learning&#39;</span><span class="op">,</span> ...<span class="at">fragment</span><span class="op">,</span> <span class="st">&#39;is&#39;</span><span class="op">,</span> <span class="st">&#39;fun&#39;</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-4" title="4">  <span class="cf">return</span> sentence<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="op">}</span></a></code></pre></div>
+</body></html>

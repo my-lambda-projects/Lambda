@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>If you haven’t already figured it out, the issue in the previous challenge was with the <code>splice</code> call in the <code>tabClose()</code> function. Unfortunately, <code>splice</code> changes the original array it is called on, so the second call to it used a modified array, and gave unexpected results.</p>
+<p>This is a small example of a much larger pattern - you call a function on a variable, array, or an object, and the function changes the variable or something in the object.</p>
+<p>One of the core principles of functional programming is to not change things. Changes lead to bugs. It’s easier to prevent bugs knowing that your functions don’t change anything, including the function arguments or any global variable.</p>
+<p>The previous example didn’t have any complicated operations but the <code>splice</code> method changed the original array, and resulted in a bug.</p>
+<p>Recall that in functional programming, changing or altering things is called <dfn>mutation</dfn>, and the outcome is called a <dfn>side effect</dfn>. A function, ideally, should be a <dfn>pure function</dfn>, meaning that it does not cause any side effects.</p>
+<p>Let’s try to master this discipline and not alter any variable or object in our code.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>Fill in the code for the function <code>incrementer</code> so it returns the value of the global variable <code>fixedValue</code> increased by one.</p>
+<h1 id="hints">–hints–</h1>
+<p>Your function <code>incrementer</code> should not change the value of <code>fixedValue</code> (which is <code>4</code>).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="at">incrementer</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="at">assert</span>(fixedValue <span class="op">===</span> <span class="dv">4</span>)<span class="op">;</span></a></code></pre></div>
+<p>Your <code>incrementer</code> function should return a value that is one larger than the <code>fixedValue</code> value.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> __newValue <span class="op">=</span> <span class="at">incrementer</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">assert</span>(__newValue <span class="op">===</span> <span class="dv">5</span>)<span class="op">;</span></a></code></pre></div>
+<p>Your <code>incrementer</code> function should return a value based on the global <code>fixedValue</code> variable value.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">(<span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  fixedValue <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="kw">const</span> newValue <span class="op">=</span> <span class="at">incrementer</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="at">assert</span>(fixedValue <span class="op">===</span> <span class="dv">10</span> <span class="op">&amp;&amp;</span> newValue <span class="op">===</span> <span class="dv">11</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-5" title="5">  fixedValue <span class="op">=</span> <span class="dv">4</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="op">}</span>)()<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="co">// The global variable</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw">var</span> fixedValue <span class="op">=</span> <span class="dv">4</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-3" title="3"></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="kw">function</span> <span class="at">incrementer</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-5" title="5">  <span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb4-6" title="6"></a>
+<a class="sourceLine" id="cb4-7" title="7"></a>
+<a class="sourceLine" id="cb4-8" title="8">  <span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="op">}</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">var</span> fixedValue <span class="op">=</span> <span class="dv">4</span></a>
+<a class="sourceLine" id="cb5-2" title="2"></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="kw">function</span> <span class="at">incrementer</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-4" title="4">  <span class="cf">return</span> fixedValue <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="op">}</span></a></code></pre></div>
+</body></html>

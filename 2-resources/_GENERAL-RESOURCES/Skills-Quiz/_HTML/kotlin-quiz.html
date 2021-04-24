@@ -1,0 +1,422 @@
+<h1 id="kotlin">Kotlin</h1>
+<h4 id="q1.-you-would-like-to-print-each-score-on-its-own-line-with-its-cardinal-position.-without-using-var-or-val-which-method-allows-iteration-with-both-the-value-and-its-position">Q1. You would like to print each score on its own line with its cardinal position. Without using <strong>var</strong> or <strong>val</strong>, which method allows iteration with both the value and its position?</h4>
+<pre><code>fun main(){
+  val highScores = listOf(4000, 2000, 10200, 12000, 9030)</code></pre>
+<ul>
+<li>[x] <code>.withIndex()</code> <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/with-index.html">references</a></li>
+<li>[ ] <code>.forEachIndexed()</code></li>
+<li>[ ] <code>.forEach()</code></li>
+<li>[ ] <code>.forIndexes()</code></li>
+</ul>
+<h4 id="q2.-when-the-airplane-class-is-instantiated-it-displays-aircraft-null-not-aircraft-c130-why">Q2. When the <strong>Airplane</strong> class is instantiated, it displays <strong>Aircraft = null</strong>, not <strong>Aircraft = C130</strong> why?</h4>
+<pre><code>abstract class Aircraft {
+  init { println(&quot;Aircraft = ${getName()}&quot;) }
+  abstract fun getName(): String
+}
+class Airplane(private val name: String) : Aircraft() {
+  override fun getName(): String = name
+}</code></pre>
+<ul>
+<li>[ ] Classes are initialized in the same order they are in the file, therefore, Aircraft should appear after Airplane</li>
+<li>[ ] The code needs to pass the parameter to the base class's primary constructor. Since it does not, it receives a null</li>
+<li>[ ] Abstract function always returns null</li>
+<li>[ ] A superclass is initialized before its subclass. Therefore, name has not been set before it is rendered</li>
+</ul>
+<h4 id="q3.-kotlin-interfaces-ad-abstract-classes-are-very-similar.-what-is-one-thing-abstract-class-can-do-that-interfaces-cannot">Q3. Kotlin interfaces ad abstract classes are very similar. What is one thing abstract class can do that interfaces cannot?</h4>
+<ul>
+<li>[ ] Only abstract classes are inheritable by subclasses</li>
+<li>[ ] Only abstract classes can inherit from multiple superclasses</li>
+<li>[ ] Only abstract classes can have abstract methods</li>
+<li>[x] Only abstract classes can store state <a href="https://blog.kotlin-academy.com/abstract-class-vs-interface-in-kotlin-5ab8697c3a14">reference</a></li>
+</ul>
+<h4 id="q4.-inside-an-extension-function-what-is-the-name-of-the-variable-that-corresponds-to-the-receiver-object">Q4. Inside an extension function, what is the name of the variable that corresponds to the receiver object</h4>
+<ul>
+<li>[ ] The variable is named <strong>it</strong></li>
+<li>[x] The variable is named <strong>this</strong> <a href="https://www.programiz.com/kotlin-programming/extension-functions#:~:text=The%20class%20name%20is%20the,function%20refers%20the%20receiver%20object">reference</a></li>
+<li>[ ] The variable is named <strong>receiver</strong></li>
+<li>[ ] The variable is named <strong>default</strong></li>
+</ul>
+<h4 id="q5.-your-application-has-an-add-function.-how-could-you-use-its-invoke-methods-and-display-the-results">Q5. Your application has an <strong>add</strong> function. How could you use its <strong>invoke</strong> methods and display the results?</h4>
+<pre><code>fun add(a: Int, b: Int): Int {
+  return a + b
+}</code></pre>
+<ul>
+<li>[ ] <code>println(add(5,10).invoke())</code></li>
+<li>[x] <code>println(::add.invoke(5, 10))</code> <a href="https://kotlinlang.org/docs/operator-overloading.html#invoke-operator">reference</a></li>
+<li>[ ] <code>println(::add.invoke{5, 10})</code></li>
+<li><p>[ ] <code>println(add.invoke(5,10))</code> #### Q6. What is the entry point for a Kotlin application?</p></li>
+<li>[ ] <code>fun static main(){}</code></li>
+<li>[x] <code>fun main(){}</code></li>
+<li>[ ] <code>fun Main(){}</code></li>
+<li><p>[ ] <code>public static void main(){}</code></p></li>
+</ul>
+<h4 id="q7.-you-are-writing-a-console-app-in-kotlin-that-processes-test-entered-by-the-user.-if-the-user-enters-an-empty-string-the-program-exits.-which-kind-of-loop-would-work-best-for-this-app-keep-in-mind-that-the-loop-is-entered-at-least-once">Q7. You are writing a console app in Kotlin that processes test entered by the user. If the user enters an empty string, the program exits. Which kind of loop would work best for this app? Keep in mind that the loop is entered at least once</h4>
+<ul>
+<li>[x] a do..while loop</li>
+<li>[ ] a for loop</li>
+<li>[ ] a while loop</li>
+<li>[ ] a forEach loop</li>
+</ul>
+<h4 id="q8.-you-pass-an-integer-to-a-function-expecting-type-any.-it-works-without-issue.-why-is-a-primitive-integer-able-to-work-with-a-function-that-expects-an-object">Q8. You pass an integer to a function expecting type Any. It works without issue. Why is a primitive integer able to work with a function that expects an object?</h4>
+<pre><code>fun showHashCode(obj: Any){
+  println(&quot;${obj.hasCode()}&quot;)
+}
+fun main() {
+  showHashCode(1)
+}</code></pre>
+<ul>
+<li>[ ] While the code runs, it does not produce correct results</li>
+<li>[ ] The integer is always a class</li>
+<li>[ ] The compiler runs an implicit .toClass() method on the integer</li>
+<li>[x] The integer is autoboxed to a Kotlin Int class</li>
+</ul>
+<h4 id="q9.-you-have-started-a-long-running-coroutine-whose-job-you-have-assigned-to-a-variable-named-task.-if-the-need-arose-how-could-you-abort-the-coroutine">Q9. You have started a long-running coroutine whose job you have assigned to a variable named <strong>task</strong>. If the need arose, how could you abort the coroutine?</h4>
+<pre><code>val task = launch {
+  // long running job
+}</code></pre>
+<ul>
+<li>[ ] <code>task.join()</code></li>
+<li>[ ] <code>task.abort()</code></li>
+<li>[ ] <code>job.stop()</code></li>
+<li>[ ] <code>task.cancel()</code></li>
+</ul>
+<h4 id="q10.-you-are-attempting-to-assign-an-integer-variable-to-a-long-variable-but-kotlin-compiler-flags-it-as-an-error.-why">Q10. You are attempting to assign an integer variable to a long variable, but Kotlin compiler flags it as an error. Why?</h4>
+<ul>
+<li>[ ] You must wrap all implicit conversion in a try/catch block</li>
+<li>[ ] You can only assign Long to an Int, not the other way around</li>
+<li>[x] There is no implicit conversion from Int to Long <a href="https://kotlinlang.org/docs/basic-types.html#explicit-conversions">reference</a></li>
+<li>[ ] All integers in Kotlin are of type Long</li>
+</ul>
+<h4 id="q11.-you-have-written-a-snippet-of-code-to-display-the-results-of-the-roll-of-a-six-sided-die.-when-the-die-displays-from-3-to-6-inclusive-you-want-to-display-a-special-message.-using-a-kotlin-range-what-code-should-you-add">Q11. You have written a snippet of code to display the results of the roll of a six-sided die. When the die displays from 3 to 6 inclusive, you want to display a special message. Using a Kotlin range, what code should you add?</h4>
+<pre><code>when (die) {
+  1 -&gt; println(&quot;die is 1&quot;)
+  2 -&gt; println(&quot;die is 2&quot;)
+  ___ -&gt; printlin(&quot;die is between 3 and 6&quot;)
+  else -&gt; printlin(&quot;dies is unknown&quot;)
+}</code></pre>
+<ul>
+<li>[x] <code>3,4,5,6</code></li>
+<li>[x] <code>in 3..6</code> <a href="https://kotlinlang.org/docs/ranges.html">reference</a></li>
+<li>[ ] <code>3 : 6</code></li>
+<li>[ ] <code>{3,4,5,6}</code></li>
+</ul>
+<h4 id="q12.-the-function-typechecker-receiver-a-parameter-obj-of-type-any.-based-upon-the-type-of-obj-it-prints-different-messages-for-int-string-double-and-float-types-if-not-any-of-the-mentioned-types-it-prints-unknown-type.-what-operator-allows-you-to-determine-the-type-of-an-object">Q12. The function <strong>typeChecker</strong> receiver a parameter <strong>obj</strong> of type <strong>Any</strong>. Based upon the type of <strong>obj</strong>, it prints different messages for Int, String, Double, and Float types; if not any of the mentioned types, it prints "unknown type". What operator allows you to determine the type of an object?</h4>
+<ul>
+<li>[ ] instanceof</li>
+<li>[x] is</li>
+<li>[ ] typeof</li>
+<li>[ ] as</li>
+</ul>
+<h4 id="q13.-this-code-does-not-print-any-output-to-the-console.-what-is-wrong">Q13. This code does not print any output to the console. What is wrong?</h4>
+<pre><code>firstName?.let {
+  println(&quot;Greeting $firstname!&quot;)
+}</code></pre>
+<ul>
+<li>[ ] A null pointer exception is thrown</li>
+<li>[x] firstName is equal to null</li>
+<li>[ ] firstName is equal to an empty string</li>
+<li>[ ] firstName is equal to Boolean false</li>
+</ul>
+<h4 id="q14.-you-have-a-function-simple-that-is-called-frequently-in-your-code.-you-place-the-inline-prefix-on-the-function.-what-effect-does-it-have-on-the-code">Q14. You have a function simple() that is called frequently in your code. You place the inline prefix on the function. What effect does it have on the code?</h4>
+<pre><code>inline fun simple(x: Int): Int{
+  return x * x
+}
+
+fun main() {
+  for(count in 1..1000) {
+    simple(count)
+  }
+}</code></pre>
+<ul>
+<li>[ ] The code will give a stack overflow error</li>
+<li>[x] The compiler warns of insignificant performance impact</li>
+<li>[ ] The compiler warns of significant memory usage</li>
+<li>[ ] The code is significantly faster</li>
+</ul>
+<h4 id="q15.how-do-you-fill-in-the-blank-below-to-display-all-of-the-even-numbers-from-1-to-10-with-least-amount-of-code">Q15.How do you fill in the blank below to display all of the even numbers from 1 to 10 with least amount of code?</h4>
+<pre><code>for (_____) {
+  println(&quot;There are $count butterflies.&quot;)
+}</code></pre>
+<ul>
+<li>[ ] <code>count in 1..10</code></li>
+<li>[x] <code>count in 2..10 step 2</code></li>
+<li>[ ] <code>count in 1..10 % 2</code></li>
+<li>[ ] <code>var count=2; count &lt;= 10; count+=2</code></li>
+</ul>
+<h4 id="q16.-what-value-is-printed-by-println">Q16. What value is printed by println()?</h4>
+<pre><code>val set = setOf(&quot;apple&quot;, &quot;pear&quot;, &quot;orange&quot;, &quot;apple&quot;)
+println(set.count())</code></pre>
+<ul>
+<li>[ ] 3</li>
+<li>[x] 4 <a href="https://zetcode.com/kotlin/sets/">reference</a></li>
+<li>[ ] 1</li>
+<li>[ ] 5</li>
+</ul>
+<h4 id="q17.-which-line-of-code-shows-how-to-display-a-nullable-strings-length-and-shows-0-instead-of-null">Q17. Which line of code shows how to display a nullable string's length and shows 0 instead of null?</h4>
+<ul>
+<li>[ ] <code>println(b!!.length ?: 0)</code></li>
+<li>[x] <code>println(b?.length ?: 0)</code></li>
+<li>[ ] <code>println(b?.length ?? 0)</code></li>
+<li>[ ] <code>println(b == null? 0: b.length)</code></li>
+</ul>
+<h4 id="q18.-in-the-file-main.kt-you-ae-filtering-a-list-of-integers-and-want-to-use-an-already-existing-function-removebadvalues.-what-is-the-proper-way-to-invoke-the-function-from-filter-in-the-line-below">Q18. In the file main.kt, you ae filtering a list of integers and want to use an already existing function, removeBadValues. What is the proper way to invoke the function from filter in the line below?</h4>
+<pre><code>val list2 = (80..100).toList().filter(_____)</code></pre>
+<ul>
+<li>[x] <code>::removeBadValues</code> <a href="https://kotlinlang.org/docs/reflection.html#callable-references">reference</a></li>
+<li>[ ] <code>GlobalScope.removeBadValues()</code></li>
+<li>[ ] <code>Mainkt.removeBadValues</code></li>
+<li>[ ] <code>removeBadValues</code></li>
+</ul>
+<h4 id="q19.-which-code-snippet-correctly-shows-a-for-loop-using-a-range-to-display-1-2-3-4-5-6">Q19. Which code snippet correctly shows a for loop using a range to display "1 2 3 4 5 6"?</h4>
+<ul>
+<li>[ ] <code>for(z in 1..7) println("$z ")</code></li>
+<li>[x] <code>for(z in 1..6) print("$z ")</code></li>
+<li>[ ] <code>for(z in 1 to 6) print("$z ")</code></li>
+<li>[ ] <code>for(z in 1..7) print("$z ")</code></li>
+</ul>
+<h4 id="q20.-you-are-upgrading-a-java-class-to-kotlin.-what-should-you-use-to-replace-the-java-classs-static-fields">Q20. You are upgrading a Java class to Kotlin. What should you use to replace the Java class's static fields?</h4>
+<ul>
+<li>[ ] an anonymous object</li>
+<li>[ ] a static property</li>
+<li>[x] a companion object</li>
+<li>[ ] a backing field</li>
+</ul>
+<h4 id="q21.-your-code-need-to-try-casting-an-object.-if-the-cast-is-not-possible-you-do-not-want-an-exception-generated-instead-you-want-null-to-be-assigned.-which-operator-can-safely-cast-a-value">Q21. Your code need to try casting an object. If the cast is not possible, you do not want an exception generated, instead you want null to be assigned. Which operator can safely cast a value?</h4>
+<ul>
+<li>[x] as?</li>
+<li>[ ] ??</li>
+<li>[ ] is</li>
+<li>[ ] as</li>
+</ul>
+<h4 id="q22.-kotlin-will-not-compile-this-code-snippet.-what-is-wrong">Q22. Kotlin will not compile this code snippet. What is wrong?</h4>
+<pre><code>class Employee
+class Manager : Employee()</code></pre>
+<ul>
+<li>[x] In order to inherit from a class, it must be marked <strong>open</strong></li>
+<li>[ ] In order to inherit from a class, it must be marked <strong>public</strong></li>
+<li>[ ] In order to inherit from a class, it must be marked <strong>sealed</strong></li>
+<li>[ ] In order to inherit from a class, it must be marked <strong>override</strong></li>
+</ul>
+<h4 id="q23.-which-function-changes-the-value-of-the-element-at-the-current-iterator-location">Q23. Which function changes the value of the element at the current iterator location?</h4>
+<ul>
+<li>[ ] <code>change()</code></li>
+<li>[ ] <code>modify()</code></li>
+<li>[ ] <code>set()</code></li>
+<li>[ ] <code>assign()</code></li>
+</ul>
+<h4 id="q24.-from-the-supervisor-subclass-how-do-you-call-the-employee-classs-display-method">Q24. From the Supervisor subclass, how do you call the Employee class's display() method?</h4>
+<pre><code>open class Employee(){
+  open fun display() = println(&quot;Employee display()&quot;)
+}
+class Supervisor : Employee() {
+  override fun display() {
+    println(&quot;Supervisor display()&quot;)
+  }
+}</code></pre>
+<ul>
+<li>[ ] <code>Employee.display()</code></li>
+<li>[ ] <code>::display()</code></li>
+<li>[x] <code>super.display()</code></li>
+<li>[ ] <code>override.display()</code></li>
+</ul>
+<h4 id="q25.-the-code-below-compiled-and-executed-without-issue-before-the-addition-of-the-line-declaring-errorstatus.-why-does-this-line-break-the-code">Q25. The code below compiled and executed without issue before the addition of the line declaring errorStatus. Why does this line break the code?</h4>
+<pre><code>sealed class Status(){
+  object Error : Status()
+  class Success : Status()
+}
+fun main(){
+  var successStatus = Status.Success()
+  var errorStatus = Status.Error()
+}</code></pre>
+<ul>
+<li>[ ] StatusError is an object, not a class and cannot be instantiated</li>
+<li>[ ] Only one instance of the class Status can be instantiated at a time</li>
+<li>[ ] Status.Error must be declared as an immutable type</li>
+<li>[ ] Status.Error is pribate to class and cannot be declared externally</li>
+</ul>
+<h4 id="q26.-the-code-below-is-expected-to-display-the-numbers-from-1-to-10-but-it-does-not.-why">Q26. The code below is expected to display the numbers from 1 to 10, but it does not. Why?</h4>
+<pre><code>val seq = sequence { yieldAll(1..20) }
+  .filter { it &lt; 11 }
+  println(seq)</code></pre>
+<ul>
+<li>[ ] You cannot assign a sequence to a variable</li>
+<li>[x] To produce result, a sequence must have terminal operation. In this case, it needs a .toList()</li>
+<li>[ ] The .filter{ it &lt; 11 } should be .filter{ it &gt; 11 }</li>
+<li>[ ] The yieldAll(1..20) should be yieldAll(1..10)</li>
+</ul>
+<h4 id="q27.-what-three-methods-does-this-class-have">Q27. What three methods does this class have?</h4>
+<pre><code>class Person</code></pre>
+<ul>
+<li>[x] <code>equals(), hashCode(), and toString()</code> <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/">reference</a></li>
+<li>[ ] <code>equals(), toHash(), and super()</code></li>
+<li>[ ] <code>print(), println(), and toString()</code></li>
+<li>[ ] <code>clone(), equals(), and super()</code></li>
+</ul>
+<h4 id="q28.-which-is-the-proper-way-to-declare-a-singleton-named-databasemanager">Q28. Which is the proper way to declare a singleton named DatabaseManager?</h4>
+<ul>
+<li>[x] <code>object DatabaseManager {}</code></li>
+<li>[ ] <code>singleton DatabaseManager {}</code></li>
+<li>[ ] <code>static class DatabaseManager {}</code></li>
+<li>[ ] <code>data class DatabaseManager {}</code></li>
+</ul>
+<h4 id="q29.-in-order-to-subclass-the-person-class-what-is-one-thing-you-must-do">Q29. In order to subclass the Person class, what is one thing you must do?</h4>
+<pre><code>abstract class Person(val name: String){
+  abstract fun displayJob(description: String)
+}</code></pre>
+<ul>
+<li>[ ] The subclass must be marked sealed</li>
+<li>[x] You must override the displayJob() method <a href="https://kotlinlang.org/docs/inheritance.html">reference</a></li>
+<li>[ ] You must mark the subclass as final</li>
+<li>[ ] An abstract class cannot be extended, so you must change it to open</li>
+</ul>
+<h4 id="q30.-the-code-snippet-below-translates-a-database-user-to-a-model-user.-because-their-names-are-both-user-you-must-use-their-fully-qualified-names-which-is-cumbersome.-you-do-not-have-access-to-either-of-the-imported-classes-source-code.-how-can-you-shorten-the-type-names">Q30. The code snippet below translates a database user to a model user. Because their names are both User, you must use their fully qualified names, which is cumbersome. You do not have access to either of the imported classes' source code. How can you shorten the type names?</h4>
+<pre><code>import com.tekadept.app.model.User
+import com.tekadept.app.database.User
+
+class UserService{
+  fun translateUser(user: com.tekadept.app.database.User): User =
+    com.tekadept.app.model.User(&quot;${user.first} ${user.last}&quot;)
+}</code></pre>
+<ul>
+<li>[ ] Use import as to change the type name</li>
+<li>[ ] Create subtypes with shorter names</li>
+<li>[ ] Create interfaces with shorter names</li>
+<li>[ ] Create extension classes with shorter names</li>
+</ul>
+<h4 id="q31.-your-function-is-passed-by-a-parameter-obj-of-type-any.-which-code-snippet-shows-a-way-to-retrieve-the-original-type-of-obj-including-package-information">Q31. Your function is passed by a parameter obj of type Any. Which code snippet shows a way to retrieve the original type of obj, including package information?</h4>
+<ul>
+<li>[ ] <code>obj.classInfo()</code></li>
+<li>[ ] <code>obj.typeInfo()</code></li>
+<li>[x] <code>obj::class.simpleName</code> <a href="https://kotlinlang.org/docs/reflection.html#constructor-references">reference</a></li>
+<li>[ ] <code>obj::class</code></li>
+</ul>
+<h4 id="q32.-which-is-the-correct-declaration-of-an-integer-array-with-a-size-of-5">Q32. Which is the correct declaration of an integer array with a size of 5?</h4>
+<ul>
+<li>[ ] <code>val arrs[5]: Int</code></li>
+<li>[x] <code>val arrs = IntArray[5]</code> <a href="https://kotlinlang.org/docs/basic-types.html#primitive-type-arrays">reference</a></li>
+<li>[ ] <code>val arrs: Int[5]</code></li>
+<li>[ ] <code>val arrs = Array&lt;Int&gt;(5)</code></li>
+</ul>
+<h4 id="q33.-you-have-created-a-class-that-should-be-visible-only-to-the-other-code-in-its-module.-which-modifier-do-you-use">Q33. You have created a class that should be visible only to the other code in its module. Which modifier do you use?</h4>
+<ul>
+<li>[x] <code>internal</code> <a href="https://kotlinlang.org/docs/visibility-modifiers.html#classes-and-interfaces">reference</a></li>
+<li>[ ] <code>private</code></li>
+<li>[ ] <code>public</code></li>
+<li>[ ] <code>protected</code></li>
+</ul>
+<h4 id="q34.-kotlin-has-two-equality-operators-and-.-what-is-the-difference">Q34. Kotlin has two equality operators, == and ===. What is the difference?</h4>
+<ul>
+<li>[ ] == determines if two primitive types are identical. === determines if two objects are identical</li>
+<li>[ ] == determines if two references point to the same object. === determines if two objects have the same value</li>
+<li>[ ] == determines if two objects have the same value. === determines if two strings have the same value</li>
+<li>[x] == determines if two objects have the same value. === determines if two references point to the same object <a href="https://kotlinlang.org/docs/equality.html#structural-equality">reference</a></li>
+</ul>
+<h4 id="q35.-which-snippet-correctly-shows-setting-the-variable-max-to-whichever-variable-holds-the-greatest-value-a-or-b-using-idiomatic-kotlin">Q35. Which snippet correctly shows setting the variable max to whichever variable holds the greatest value, a or b, using idiomatic Kotlin?</h4>
+<ul>
+<li>[ ] <code>val max3 = a.max(b)</code></li>
+<li>[ ] <code>val max = a &gt; b ? a : b</code></li>
+<li>[x] <code>val max = if (a &gt; b) a else b</code></li>
+<li>[ ] <code>if (a &gt; b) max = a else max = b</code></li>
+</ul>
+<h4 id="q36.-you-have-an-enum-class-signal-that-represents-the-state-of-a-network-connection.-you-want-to-print-the-position-number-of-the-sending-enum.-which-line-of-code-does-that">Q36. You have an enum class Signal that represents the state of a network connection. You want to print the position number of the SENDING enum. Which line of code does that?</h4>
+<div class="sourceCode" id="cb19"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">enum</span> <span class="kw">class</span> Signal { OPEN, CLOSED, SENDING }</a></code></pre></div>
+<ul>
+<li>[ ] <code>println(Signal.SENDING.position())</code></li>
+<li>[ ] <code>println(Signal.SENDING.hashCode())</code></li>
+<li>[ ] <code>println(Signal.SENDING)</code></li>
+<li>[x] <code>println(Signal.SENDING.ordinal)</code> <a href="https://kotlinlang.org/docs/enum-classes.html#working-with-enum-constants">reference</a></li>
+</ul>
+<h4 id="q37.-both-const-and-jvmfield-create-constants.-what-can-const-do-that-jvmfield-cannot">Q37. Both const and <span class="citation" data-cites="JvmField">@JvmField</span> create constants. What can const do that <span class="citation" data-cites="JvmField">@JvmField</span> cannot?</h4>
+<div class="sourceCode" id="cb20"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">class</span> <span class="bu">Detail</span> {</a>
+<a class="sourceLine" id="cb20-2" title="2">  companion object {</a>
+<a class="sourceLine" id="cb20-3" title="3">    <span class="dt">const</span> val COLOR = <span class="st">&quot;Blue&quot;</span></a>
+<a class="sourceLine" id="cb20-4" title="4">    <span class="at">@JvmField</span> val SIZE = <span class="st">&quot;Really Big&quot;</span></a>
+<a class="sourceLine" id="cb20-5" title="5">  }</a>
+<a class="sourceLine" id="cb20-6" title="6">}</a></code></pre></div>
+<ul>
+<li>[ ] const is compatible with Java, but <span class="citation" data-cites="JvmField">@JvmField</span> is not</li>
+<li>[ ] The compiler will inline const so it is faster and more memory efficient</li>
+<li>[ ] Virtually any type can be used with const but not <span class="citation" data-cites="JvmField">@JvmField</span></li>
+<li>[ ] const can also be used with mutable types</li>
+</ul>
+<h4 id="q38.-you-have-a-when-expression-for-all-of-the-subclasses-of-the-class-attribute.-to-satisfy-the-when-you-must-include-an-else-clause.-unfortunately-whenever-a-new-subclass-is-added-it-returns-unknown.-you-would-prefer-to-remove-the-else-clause-so-the-compiler-generates-an-error-for-unknown-subtypes.-what-is-one-simple-thing-you-can-do-to-achieve-this">Q38. You have a when expression for all of the subclasses of the class Attribute. To satisfy the when, you must include an else clause. Unfortunately, whenever a new subclass is added, it returns unknown. You would prefer to remove the else clause so the compiler generates an error for unknown subtypes. What is one simple thing you can do to achieve this?</h4>
+<div class="sourceCode" id="cb21"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb21-1" title="1">open <span class="kw">class</span> <span class="bu">Attribute</span></a>
+<a class="sourceLine" id="cb21-2" title="2"><span class="kw">class</span> Href: <span class="bu">Attribute</span>()</a>
+<a class="sourceLine" id="cb21-3" title="3"><span class="kw">class</span> Src: <span class="bu">Attribute</span>()</a>
+<a class="sourceLine" id="cb21-4" title="4"><span class="kw">class</span> Alt: <span class="bu">Attribute</span>()</a>
+<a class="sourceLine" id="cb21-5" title="5"></a>
+<a class="sourceLine" id="cb21-6" title="6">fun <span class="fu">getAttribute</span>(attribute: <span class="bu">Attribute</span>) : <span class="bu">String</span> {</a>
+<a class="sourceLine" id="cb21-7" title="7">  <span class="kw">return</span> <span class="fu">when</span> (attribute) {</a>
+<a class="sourceLine" id="cb21-8" title="8">    is Href -&gt; <span class="st">&quot;href&quot;</span></a>
+<a class="sourceLine" id="cb21-9" title="9">    is Alt -&gt; <span class="st">&quot;alt&quot;</span></a>
+<a class="sourceLine" id="cb21-10" title="10">    is Src -&gt; <span class="st">&quot;src&quot;</span></a>
+<a class="sourceLine" id="cb21-11" title="11">    <span class="kw">else</span> -&gt; <span class="st">&quot;unknown&quot;</span></a>
+<a class="sourceLine" id="cb21-12" title="12">  }</a>
+<a class="sourceLine" id="cb21-13" title="13">}</a></code></pre></div>
+<ul>
+<li>[ ] Replace <code>open</code> with <code>closed</code></li>
+<li>[ ] Replace <code>open</code> with <code>sealed</code></li>
+<li>[ ] Replace <code>open</code> with <code>private</code></li>
+<li>[ ] Replace <code>open</code> with <code>public</code></li>
+</ul>
+<h4 id="q39.-you-would-like-to-know-each-time-a-class-property-is-updated.-which-code-snippet-shows-a-built-in-delegated-property-that-can-accomplish-this">Q39. You would like to know each time a class property is updated. Which code snippet shows a built-in delegated property that can accomplish this?</h4>
+<ul>
+<li>[ ] <code>Delegates.watcher()</code></li>
+<li>[x] <code>Delegates.observable()</code> <a href="https://kotlinlang.org/docs/delegated-properties.html#observable-properties">reference</a></li>
+<li>[ ] <code>Delegates.rx()</code></li>
+<li>[ ] <code>Delegates.observer()</code></li>
+</ul>
+<h4 id="q40.-why-doesnt-this-code-compile">Q40. Why doesn't this code compile?</h4>
+<div class="sourceCode" id="cb22"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb22-1" title="1">infix fun Int.<span class="fu">add</span>(addedL Int=<span class="dv">1</span>) = <span class="kw">this</span> + addend</a>
+<a class="sourceLine" id="cb22-2" title="2">fun <span class="fu">main</span>(){</a>
+<a class="sourceLine" id="cb22-3" title="3">  val msg = <span class="st">&quot;Hello&quot;</span></a>
+<a class="sourceLine" id="cb22-4" title="4">  <span class="fu">println</span>( msg shouldMatch <span class="st">&quot;Hello&quot;</span>)    </a>
+<a class="sourceLine" id="cb22-5" title="5">  <span class="fu">println</span>( <span class="dv">10</span> multiply <span class="dv">5</span> + <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb22-6" title="6">  <span class="fu">println</span>( <span class="dv">10</span> add <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb22-7" title="7">}</a></code></pre></div>
+<ul>
+<li>[ ] infix function must be marked public</li>
+<li>[ ] In Kotlin, add is a keyword</li>
+<li>[ ] Extension functions use it, not this, as the default parameter name</li>
+<li>[ ] infix functions cannot have default values</li>
+</ul>
+<h4 id="q41.-what-is-the-correct-way-to-initialize-a-nullable-variable">Q41. What is the correct way to initialize a nullable variable?</h4>
+<ul>
+<li>[ ] <code>val name = null</code></li>
+<li>[ ] <code>var name: String</code></li>
+<li>[ ] <code>val name: String</code></li>
+<li>[x] <code>val name: String? = null</code></li>
+</ul>
+<h4 id="q42.-which-line-of-code-is-a-shorter-more-idiomatic-version-of-the-displayed-snippet">Q42. Which line of code is a shorter, more idiomatic version of the displayed snippet?</h4>
+<div class="sourceCode" id="cb23"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb23-1" title="1">val len: Int = <span class="kw">if</span> (x != <span class="kw">null</span>) x.<span class="fu">length</span> <span class="kw">else</span> -<span class="dv">1</span></a></code></pre></div>
+<ul>
+<li>[ ] <code>val len = x?.let{x.len} else {-1}</code></li>
+<li>[ ] <code>val len = x!!.length ?: -1</code></li>
+<li>[ ] <code>val len:Int = (x != null)? x.length : -1</code></li>
+<li>[x] <code>val len = x?.length ?: -1</code></li>
+</ul>
+<h4 id="q43.-you-are-creating-a-kotlin-unit-test-library.-what-else-should-you-add-to-make-the-following-code-compile-without-error">Q43. You are creating a Kotlin unit test library. What else should you add to make the following code compile without error?</h4>
+<div class="sourceCode" id="cb24"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb24-1" title="1">fun <span class="bu">String</span>.<span class="fu">shouldEqual</span>(value: <span class="bu">String</span>) = <span class="kw">this</span> == value</a>
+<a class="sourceLine" id="cb24-2" title="2">fun <span class="fu">main</span>(){</a>
+<a class="sourceLine" id="cb24-3" title="3">  val msg = <span class="st">&quot;test message&quot;</span></a>
+<a class="sourceLine" id="cb24-4" title="4">  <span class="fu">println</span>(msg shouldEqual <span class="st">&quot;test message&quot;</span>)</a>
+<a class="sourceLine" id="cb24-5" title="5">}</a></code></pre></div>
+<ul>
+<li>[ ] The extension function should be marked public</li>
+<li>[ ] Add the prefix operator to the shouldMatch extension function</li>
+<li>[ ] The code is not legal in Kotlin</li>
+<li>[ ] Add the prefix infix to the shouldMatch extension function</li>
+</ul>
+<h4 id="q44.-what-is-the-difference-between-the-declarations-of-color-and-size">Q44. What is the difference between the declarations of COLOR and SIZE?</h4>
+<div class="sourceCode" id="cb25"><pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb25-1" title="1"><span class="kw">class</span> Record{</a>
+<a class="sourceLine" id="cb25-2" title="2">  companion object {</a>
+<a class="sourceLine" id="cb25-3" title="3">    <span class="dt">const</span> val COLOR = <span class="st">&quot;Red&quot;</span></a>
+<a class="sourceLine" id="cb25-4" title="4">    val SIZE = <span class="st">&quot;Large&quot;</span></a>
+<a class="sourceLine" id="cb25-5" title="5">  }</a>
+<a class="sourceLine" id="cb25-6" title="6">}</a></code></pre></div>
+<ul>
+<li>[ ] Since COLOR and SIZE are both immutable, they are identical internally</li>
+<li>[ ] Both are immutable, but the use of the keyword const makes COLOR slower and less space efficient than SIZE</li>
+<li>[ ] const makes COLOR faster, but not compatible with Java. Without const, SIZE is still compatible with Java</li>
+<li>[ ] Both are immutable, but the use of the keyword const makes COLOR faster and mroe space efficient than SIZE</li>
+</ul>

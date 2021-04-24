@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://gist.githubusercontent.com/bgoonz/37bca66ce8441c688900b6f082f10560/raw/2e9a5966431d89b8ce6355e7b8039ba42554978b/CSS-Styling-for-Pandoc-generated-html.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://raw.githubusercontent.com/bgoonz/styling-templates/master/bootstrap3/assets/css/bootstrap.min.css"></head>
+<body>;
+<p>Top of Form</p>
+<p><strong>How to approach JS coding problems?</strong></p>
+<h1 id="understand-and-analyze-the-problem">1. Understand and Analyze the Problem</h1>
+<p>Read the problem, start thinking about it and if possible write the things that are given and the things that you need to find out on a piece of paper.</p>
+<ul>
+<li><strong>Ask yourself:</strong></li>
+</ul>
+<p>—Are you able to understand the question fully?  — Would you be able to explain the question to a layman?  — What and how many inputs are required?  — What would be the output for those inputs  — Can you separate out some modules or parts from the problem?  — Do you have enough information? If not, try understanding the question again.</p>
+<h1 id="section"></h1>
+<h1 id="go-through-the-sample-inputs-and-examples-thoroughly">2. Go through the sample inputs and examples thoroughly:</h1>
+<p>Going through some sample inputs and coming up with more examples sure helps you a lot to understand the problem well, and moreover, it gives you a clear way to how many cases your code should handle, and what all can be the possible output or output range.</p>
+<ul>
+<li><strong>Here's what I would suggest,</strong></li>
+</ul>
+<p>—Take very simple examples and find the output  — Take more complex and bigger inputs to see what will be the output, how many use cases do we want</p>
+<ul>
+<li><strong>Then, “Time to handle the edge cases”</strong></li>
+</ul>
+<p>—Try out the problem with no input, what should be the output now  — Try out the problem with invalid input, what should be the output now</p>
+<h1 id="break-down-the-problem">3. Break down the problem:</h1>
+<p>This step is really very helpful when the problem at hand is very big. In such cases, I recommend the following:</p>
+<p><img src="RackMultipart20201025-4-14orxdn_html_2b63d31968aaf775.png" /></p>
+<p>—Try to make a flow chart the problem  — Divide the problem into different modules or sub-problems  — Try to make independent functions for each sub-problem  — Connect those sub-problems by calling them in the required order, or as necessary (Probably one function would be calling another)</p>
+<h1 id="section-1"></h1>
+<h1 id="start-solvingcoding">4. Start solving/coding:</h1>
+<p>Now that you've analyzed the problem it's time to actually write the code. If you can't solve the problem fully at once, try writing code for a simpler sub part, as you solve the problem, gradually you keep figuring out the problem in more detail, and you start getting new ideas.</p>
+<p><strong>Just keep in mind 3 things, and you'll surely figure out the path</strong></p>
+<p>— <img src="RackMultipart20201025-4-14orxdn_html_ceac7f0ca6949c9c.png" />The point where you started  — Where are you right now?  — What is your destination?</p>
+<h1 id="look-back-and-learn-more">5. Look Back and Learn More</h1>
+<p>Now, this is the most important part! Once you are done, look back whether the code can be improved, is there any other way to solve the given problem?</p>
+<p><em>Champions don't rest on their success!!</em></p>
+<p><strong>Here are some Considerations/ questions you should ask yourself:</strong></p>
+<p>/*</p>
+<p>1.) Look at what you're given (func parameters) and what you're being asked for (return or print)…</p>
+<pre><code>if return what type...
+
+if it is reference type what primatives or references does it contain?
+
+do we need to initialize empty variable at beginning of func? ...
+
+if problem says print...console.log(what are we printing?)</code></pre>
+<p>1.5) Look at the test cases provided!!!</p>
+<pre><code> what are the arguments that correspond to each of the parameters in your function decleration and what is done to them to produce desired output?</code></pre>
+<p>2.) Is our code conditional ?</p>
+<pre><code> (look for the key words if,either,both, in problem)</code></pre>
+<p>2.5) If it is conditional….</p>
+<pre><code> how many possible test cases and what are they?...</code></pre>
+<p>3.) Do we need to (loop) itterate? <img src="cffee.png" /> (are we going to need to iterate through a string or array?)</p>
+<pre><code> If we are looping is it through an entire string or object...
+
+ up to a counter?
+
+ if we are counting... what is start point? end point? increment?
+
+ looping conditionally?
+
+ &amp;#39;!!!!Are we asked to do a repetative task ?!!!</code></pre>
+<p>4.) If we are looping…</p>
+<p>do we need a variable to represent the current element?..(normally need this when itterat ing through a string or array)</p>
+<pre><code>Are we just looping to print through a range of numbers (perhaps on a condition?)..Are we  looping to compare the largest smallest value or take a cumulative sum(initial value zero  bc 0+anything=anything) or product (initial value is 1 bc 1\* anything=anything)</code></pre>
+<p>5.) think about what needs to happen from input to output in the context of each array/string method you have learned…</p>
+<pre><code>are there any tricks that will make it easier? i.e. make a copy of array using .slice().</code></pre>
+<p>instead of initializing an empty array up top.</p>
+<pre><code>What parameters do our methods take(GO TO MDN DONT BE LAZY)?
+
+What do our methods return?</code></pre>
+<p>*/</p>
+<p>//Advice: take your first test case argument and !!!comment what happens to it on !!every!! line of your code!!!!!</p>
+<p>//once your code seems to be working double check every single test case!!!!!!!!!!!!!</p>
+<p>–keywords</p>
+<p>–start with const and change to let if you need to reassign</p>
+<h1 id="summary-of-steps">Summary of Steps</h1>
+<ul>
+<li>Analyze and understand the problem</li>
+<li>Have a look at sample inputs and use cases</li>
+<li>Break down the problem into smaller subparts, or functions, or modules</li>
+<li>Start solving/coding</li>
+<li>Once you are done, look back whether the code can be improved, is there any other way to solve the given problem,</li>
+</ul>
+</body></html>

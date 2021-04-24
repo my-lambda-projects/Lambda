@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>Just like a regular function, you can pass arguments into an arrow function.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> doubler <span class="op">=</span> (item) <span class="kw">=&gt;</span> item <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="at">doubler</span>(<span class="dv">4</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>doubler(4)</code> would return the value <code>8</code>.</p>
+<p>If an arrow function has a single parameter, the parentheses enclosing the parameter may be omitted.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> doubler <span class="op">=</span> item <span class="kw">=&gt;</span> item <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></a></code></pre></div>
+<p>It is possible to pass more than one argument into an arrow function.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">const</span> multiplier <span class="op">=</span> (item<span class="op">,</span> multi) <span class="kw">=&gt;</span> item <span class="op">*</span> multi<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="at">multiplier</span>(<span class="dv">4</span><span class="op">,</span> <span class="dv">2</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>multiplier(4, 2)</code> would return the value <code>8</code>.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>Rewrite the <code>myConcat</code> function which appends contents of <code>arr2</code> to <code>arr1</code> so that the function uses arrow function syntax.</p>
+<h1 id="hints">–hints–</h1>
+<p>You should replace the <code>var</code> keyword.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1">(getUserInput) <span class="kw">=&gt;</span> <span class="at">assert</span>(<span class="op">!</span><span class="at">getUserInput</span>(<span class="st">&#39;index&#39;</span>).<span class="at">match</span>(<span class="ss">/var/g</span>))<span class="op">;</span></a></code></pre></div>
+<p><code>myConcat</code> should be a constant variable (by using <code>const</code>).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1">(getUserInput) <span class="kw">=&gt;</span> <span class="at">assert</span>(<span class="at">getUserInput</span>(<span class="st">&#39;index&#39;</span>).<span class="at">match</span>(<span class="ss">/const</span><span class="sc">\s+</span><span class="ss">myConcat/g</span>))<span class="op">;</span></a></code></pre></div>
+<p><code>myConcat</code> should be an arrow function with two parameters</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="ss">/myConcat=</span><span class="sc">\(\w+</span><span class="ss">,</span><span class="sc">\w+\)</span><span class="ss">=&gt;/</span>.<span class="at">test</span>(<span class="va">code</span>.<span class="at">replace</span>(<span class="ss">/</span><span class="sc">\s</span><span class="ss">/g</span><span class="op">,</span> <span class="st">&#39;&#39;</span>)) <span class="op">&amp;&amp;</span></a>
+<a class="sourceLine" id="cb6-3" title="3">    <span class="kw">typeof</span> myConcat <span class="op">===</span> <span class="st">&#39;function&#39;</span></a>
+<a class="sourceLine" id="cb6-4" title="4">)<span class="op">;</span></a></code></pre></div>
+<p><code>myConcat()</code> should return <code>[1, 2, 3, 4, 5]</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="va">assert</span>.<span class="at">deepEqual</span>(<span class="at">myConcat</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>])<span class="op">,</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>])<span class="op">;</span></a></code></pre></div>
+<p>The <code>function</code> keyword should not be used.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1">(getUserInput) <span class="kw">=&gt;</span> <span class="at">assert</span>(<span class="op">!</span><span class="at">getUserInput</span>(<span class="st">&#39;index&#39;</span>).<span class="at">match</span>(<span class="ss">/function/g</span>))<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">var</span> myConcat <span class="op">=</span> <span class="kw">function</span>(arr1<span class="op">,</span> arr2) <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="cf">return</span> <span class="va">arr1</span>.<span class="at">concat</span>(arr2)<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="op">};</span></a>
+<a class="sourceLine" id="cb9-4" title="4"></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="va">console</span>.<span class="at">log</span>(<span class="at">myConcat</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>]))<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">const</span> myConcat <span class="op">=</span> (arr1<span class="op">,</span> arr2) <span class="kw">=&gt;</span>  <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-2" title="2">  <span class="cf">return</span> <span class="va">arr1</span>.<span class="at">concat</span>(arr2)<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="op">};</span></a>
+<a class="sourceLine" id="cb10-4" title="4"></a>
+<a class="sourceLine" id="cb10-5" title="5"><span class="va">console</span>.<span class="at">log</span>(<span class="at">myConcat</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>]))<span class="op">;</span></a></code></pre></div>
+</body></html>

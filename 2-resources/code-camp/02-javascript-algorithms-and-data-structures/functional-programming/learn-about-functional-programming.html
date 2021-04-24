@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>Functional programming is a style of programming where solutions are simple, isolated functions, without any side effects outside of the function scope: <code>INPUT -&gt; PROCESS -&gt; OUTPUT</code></p>
+<p>Functional programming is about:</p>
+<ol type="1">
+<li><p>Isolated functions - there is no dependence on the state of the program, which includes global variables that are subject to change</p></li>
+<li><p>Pure functions - the same input always gives the same output</p></li>
+<li><p>Functions with limited side effects - any changes, or mutations, to the state of the program outside the function are carefully controlled</p></li>
+</ol>
+<h1 id="instructions">–instructions–</h1>
+<p>The members of freeCodeCamp happen to love tea.</p>
+<p>In the code editor, the <code>prepareTea</code> and <code>getTea</code> functions are already defined for you. Call the <code>getTea</code> function to get 40 cups of tea for the team, and store them in the <code>tea4TeamFCC</code> variable.</p>
+<h1 id="hints">–hints–</h1>
+<p>The <code>tea4TeamFCC</code> variable should hold 40 cups of tea for the team.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="at">assert</span>(<span class="va">tea4TeamFCC</span>.<span class="at">length</span> <span class="op">===</span> <span class="dv">40</span>)<span class="op">;</span></a></code></pre></div>
+<p>The <code>tea4TeamFCC</code> variable should hold cups of green tea.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(tea4TeamFCC[<span class="dv">0</span>] <span class="op">===</span> <span class="st">&#39;greenTea&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// Function that returns a string representing a cup of green tea</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">const</span> prepareTea <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="st">&#39;greenTea&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="co">/*</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="co">Given a function (representing the tea type) and number of cups needed, the</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="co">following function returns an array of strings (each representing a cup of</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="co">a specific type of tea).</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="co">*/</span></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="kw">const</span> getTea <span class="op">=</span> (numOfCups) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-10" title="10">  <span class="kw">const</span> teaCups <span class="op">=</span> []<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-11" title="11"></a>
+<a class="sourceLine" id="cb3-12" title="12">  <span class="cf">for</span>(<span class="kw">let</span> cups <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> cups <span class="op">&lt;=</span> numOfCups<span class="op">;</span> cups <span class="op">+=</span> <span class="dv">1</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-13" title="13">    <span class="kw">const</span> teaCup <span class="op">=</span> <span class="at">prepareTea</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-14" title="14">    <span class="va">teaCups</span>.<span class="at">push</span>(teaCup)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-15" title="15">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-16" title="16">  <span class="cf">return</span> teaCups<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-17" title="17"><span class="op">};</span></a>
+<a class="sourceLine" id="cb3-18" title="18"></a>
+<a class="sourceLine" id="cb3-19" title="19"><span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb3-20" title="20"><span class="kw">const</span> tea4TeamFCC <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-21" title="21"><span class="co">// Only change code above this line</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">const</span> prepareTea <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="st">&#39;greenTea&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="kw">const</span> getTea <span class="op">=</span> (numOfCups) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="kw">const</span> teaCups <span class="op">=</span> []<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-5" title="5">  </a>
+<a class="sourceLine" id="cb4-6" title="6">  <span class="cf">for</span>(<span class="kw">let</span> cups <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> cups <span class="op">&lt;=</span> numOfCups<span class="op">;</span> cups <span class="op">+=</span> <span class="dv">1</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-7" title="7">    <span class="kw">const</span> teaCup <span class="op">=</span> <span class="at">prepareTea</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-8" title="8">    <span class="va">teaCups</span>.<span class="at">push</span>(teaCup)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-9" title="9">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-10" title="10"></a>
+<a class="sourceLine" id="cb4-11" title="11">  <span class="cf">return</span> teaCups<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-12" title="12"><span class="op">};</span></a>
+<a class="sourceLine" id="cb4-13" title="13"></a>
+<a class="sourceLine" id="cb4-14" title="14"><span class="kw">const</span> tea4TeamFCC <span class="op">=</span> <span class="at">getTea</span>(<span class="dv">40</span>)<span class="op">;</span> </a></code></pre></div>
+</body></html>

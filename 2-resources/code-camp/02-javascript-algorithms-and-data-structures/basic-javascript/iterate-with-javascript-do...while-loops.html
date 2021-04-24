@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>The next type of loop you will learn is called a <code>do...while</code> loop. It is called a <code>do...while</code> loop because it will first <code>do</code> one pass of the code inside the loop no matter what, and then continue to run the loop <code>while</code> the specified condition evaluates to <code>true</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">var</span> ourArray <span class="op">=</span> []<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="cf">do</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="va">ourArray</span>.<span class="at">push</span>(i)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  i<span class="op">++;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="op">}</span> <span class="cf">while</span> (i <span class="op">&lt;</span> <span class="dv">5</span>)<span class="op">;</span></a></code></pre></div>
+<p>The example above behaves similar to other types of loops, and the resulting array will look like <code>[0, 1, 2, 3, 4]</code>. However, what makes the <code>do...while</code> different from other loops is how it behaves when the condition fails on the first check. Let’s see this in action: Here is a regular <code>while</code> loop that will run the code in the loop as long as <code>i &lt; 5</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">var</span> ourArray <span class="op">=</span> []<span class="op">;</span> </a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">var</span> i <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="cf">while</span> (i <span class="op">&lt;</span> <span class="dv">5</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="va">ourArray</span>.<span class="at">push</span>(i)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-5" title="5">  i<span class="op">++;</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="op">}</span></a></code></pre></div>
+<p>In this example, we initialize the value of <code>ourArray</code> to an empty array and the value of <code>i</code> to 5. When we execute the <code>while</code> loop, the condition evaluates to <code>false</code> because <code>i</code> is not less than 5, so we do not execute the code inside the loop. The result is that <code>ourArray</code> will end up with no values added to it, and it will still look like <code>[]</code> when all of the code in the example above has completed running. Now, take a look at a <code>do...while</code> loop:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">var</span> ourArray <span class="op">=</span> []<span class="op">;</span> </a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">var</span> i <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="cf">do</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="va">ourArray</span>.<span class="at">push</span>(i)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-5" title="5">  i<span class="op">++;</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="op">}</span> <span class="cf">while</span> (i <span class="op">&lt;</span> <span class="dv">5</span>)<span class="op">;</span></a></code></pre></div>
+<p>In this case, we initialize the value of <code>i</code> to 5, just like we did with the <code>while</code> loop. When we get to the next line, there is no condition to evaluate, so we go to the code inside the curly braces and execute it. We will add a single element to the array and then increment <code>i</code> before we get to the condition check. When we finally evaluate the condition <code>i &lt; 5</code> on the last line, we see that <code>i</code> is now 6, which fails the conditional check, so we exit the loop and are done. At the end of the above example, the value of <code>ourArray</code> is <code>[5]</code>. Essentially, a <code>do...while</code> loop ensures that the code inside the loop will run at least once. Let’s try getting a <code>do...while</code> loop to work by pushing values to an array.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>Change the <code>while</code> loop in the code to a <code>do...while</code> loop so the loop will push only the number <code>10</code> to <code>myArray</code>, and <code>i</code> will be equal to <code>11</code> when your code has finished running.</p>
+<h1 id="hints">–hints–</h1>
+<p>You should be using a <code>do...while</code> loop for this exercise.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(<span class="va">code</span>.<span class="at">match</span>(<span class="ss">/do/g</span>))<span class="op">;</span></a></code></pre></div>
+<p><code>myArray</code> should equal <code>[10]</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">assert</span>.<span class="at">deepEqual</span>(myArray<span class="op">,</span> [<span class="dv">10</span>])<span class="op">;</span></a></code></pre></div>
+<p><code>i</code> should equal <code>11</code></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="va">assert</span>.<span class="at">equal</span>(i<span class="op">,</span> <span class="dv">11</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="after-user-code">–after-user-code–</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="cf">if</span>(<span class="kw">typeof</span> myArray <span class="op">!==</span> <span class="st">&quot;undefined&quot;</span>)<span class="op">{</span>(<span class="kw">function</span>()<span class="op">{</span><span class="cf">return</span> myArray<span class="op">;}</span>)()<span class="op">;}</span></a></code></pre></div>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="co">// Setup</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="kw">var</span> myArray <span class="op">=</span> []<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="kw">var</span> i <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb8-4" title="4"></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="cf">while</span> (i <span class="op">&lt;</span> <span class="dv">5</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-7" title="7">  <span class="va">myArray</span>.<span class="at">push</span>(i)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-8" title="8">  i<span class="op">++;</span></a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="op">}</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">var</span> myArray <span class="op">=</span> []<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="kw">var</span> i <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="cf">do</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-4" title="4">  <span class="va">myArray</span>.<span class="at">push</span>(i)<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-5" title="5">  i<span class="op">++;</span></a>
+<a class="sourceLine" id="cb9-6" title="6"><span class="op">}</span> <span class="cf">while</span> (i <span class="op">&lt;</span> <span class="dv">5</span>)</a></code></pre></div>
+</body></html>

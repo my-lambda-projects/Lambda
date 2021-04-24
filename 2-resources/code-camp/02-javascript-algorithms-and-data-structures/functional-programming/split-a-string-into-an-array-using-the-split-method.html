@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>The <code>split</code> method splits a string into an array of strings. It takes an argument for the delimiter, which can be a character to use to break up the string or a regular expression. For example, if the delimiter is a space, you get an array of words, and if the delimiter is an empty string, you get an array of each character in the string.</p>
+<p>Here are two examples that split one string by spaces, then another by digits using a regular expression:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">var</span> str <span class="op">=</span> <span class="st">&quot;Hello World&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">var</span> bySpace <span class="op">=</span> <span class="va">str</span>.<span class="at">split</span>(<span class="st">&quot; &quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">var</span> otherString <span class="op">=</span> <span class="st">&quot;How9are7you2today&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="kw">var</span> byDigits <span class="op">=</span> <span class="va">otherString</span>.<span class="at">split</span>(<span class="ss">/</span><span class="sc">\d</span><span class="ss">/</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>bySpace</code> would have the value <code>["Hello", "World"]</code> and <code>byDigits</code> would have the value <code>["How", "are", "you", "today"]</code>.</p>
+<p>Since strings are immutable, the <code>split</code> method makes it easier to work with them.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>Use the <code>split</code> method inside the <code>splitify</code> function to split <code>str</code> into an array of words. The function should return the array. Note that the words are not always separated by spaces, and the array should not contain punctuation.</p>
+<h1 id="hints">–hints–</h1>
+<p>Your code should use the <code>split</code> method.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(<span class="va">code</span>.<span class="at">match</span>(<span class="ss">/</span><span class="sc">\.</span><span class="ss">split/g</span>))<span class="op">;</span></a></code></pre></div>
+<p><code>splitify("Hello World,I-am code")</code> should return <code>["Hello", "World", "I", "am", "code"]</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="va">JSON</span>.<span class="at">stringify</span>(<span class="at">splitify</span>(<span class="st">&#39;Hello World,I-am code&#39;</span>)) <span class="op">===</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="va">JSON</span>.<span class="at">stringify</span>([<span class="st">&#39;Hello&#39;</span><span class="op">,</span> <span class="st">&#39;World&#39;</span><span class="op">,</span> <span class="st">&#39;I&#39;</span><span class="op">,</span> <span class="st">&#39;am&#39;</span><span class="op">,</span> <span class="st">&#39;code&#39;</span>])</a>
+<a class="sourceLine" id="cb3-4" title="4">)<span class="op">;</span></a></code></pre></div>
+<p><code>splitify("Earth-is-our home")</code> should return <code>["Earth", "is", "our", "home"]</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="va">JSON</span>.<span class="at">stringify</span>(<span class="at">splitify</span>(<span class="st">&#39;Earth-is-our home&#39;</span>)) <span class="op">===</span></a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="va">JSON</span>.<span class="at">stringify</span>([<span class="st">&#39;Earth&#39;</span><span class="op">,</span> <span class="st">&#39;is&#39;</span><span class="op">,</span> <span class="st">&#39;our&#39;</span><span class="op">,</span> <span class="st">&#39;home&#39;</span>])</a>
+<a class="sourceLine" id="cb4-4" title="4">)<span class="op">;</span></a></code></pre></div>
+<p><code>splitify("This.is.a-sentence")</code> should return <code>["This", "is", "a", "sentence"]</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="va">JSON</span>.<span class="at">stringify</span>(<span class="at">splitify</span>(<span class="st">&#39;This.is.a-sentence&#39;</span>)) <span class="op">===</span></a>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="va">JSON</span>.<span class="at">stringify</span>([<span class="st">&#39;This&#39;</span><span class="op">,</span> <span class="st">&#39;is&#39;</span><span class="op">,</span> <span class="st">&#39;a&#39;</span><span class="op">,</span> <span class="st">&#39;sentence&#39;</span>])</a>
+<a class="sourceLine" id="cb5-4" title="4">)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">function</span> <span class="at">splitify</span>(str) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb6-3" title="3"></a>
+<a class="sourceLine" id="cb6-4" title="4"></a>
+<a class="sourceLine" id="cb6-5" title="5">  <span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="op">}</span></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="at">splitify</span>(<span class="st">&quot;Hello World,I-am code&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">function</span> <span class="at">splitify</span>(str) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="cf">return</span> <span class="va">str</span>.<span class="at">split</span>(<span class="ss">/</span><span class="sc">\W</span><span class="ss">/</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  <span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="op">}</span></a></code></pre></div>
+</body></html>

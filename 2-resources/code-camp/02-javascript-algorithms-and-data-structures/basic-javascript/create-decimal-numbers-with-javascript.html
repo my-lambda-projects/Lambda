@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>We can store decimal numbers in variables too. Decimal numbers are sometimes referred to as <dfn>floating point</dfn> numbers or <dfn>floats</dfn>.</p>
+<p><strong>Note:</strong> Not all real numbers can accurately be represented in <dfn>floating point</dfn>. This can lead to rounding errors. <a href="https://en.wikipedia.org/wiki/Floating_point#Accuracy_problems">Details Here</a>.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>Create a variable <code>myDecimal</code> and give it a decimal value with a fractional part (e.g. <code>5.7</code>).</p>
+<h1 id="hints">–hints–</h1>
+<p><code>myDecimal</code> should be a number.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="at">assert</span>(<span class="kw">typeof</span> myDecimal <span class="op">===</span> <span class="st">&#39;number&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>myDecimal</code> should have a decimal point</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(myDecimal <span class="op">%</span> <span class="dv">1</span> <span class="op">!=</span> <span class="dv">0</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="after-user-code">–after-user-code–</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">(<span class="kw">function</span>()<span class="op">{</span><span class="cf">if</span>(<span class="kw">typeof</span> myDecimal <span class="op">!==</span> <span class="st">&quot;undefined&quot;</span>)<span class="op">{</span><span class="cf">return</span> myDecimal<span class="op">;}}</span>)()<span class="op">;</span></a></code></pre></div>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">var</span> ourDecimal <span class="op">=</span> <span class="fl">5.7</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="co">// Only change code below this line</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">var</span> myDecimal <span class="op">=</span> <span class="fl">9.9</span><span class="op">;</span></a></code></pre></div>
+</body></html>

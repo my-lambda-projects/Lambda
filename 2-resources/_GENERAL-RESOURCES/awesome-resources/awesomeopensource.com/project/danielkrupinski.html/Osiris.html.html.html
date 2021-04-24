@@ -1,0 +1,2047 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdDR19YUQYVGltZUwZA","queueTime":3,"applicationTime":120,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>Osiris</title>
+<meta name="description" content="Free open-source game cheat for Counter-Strike: Global Offensive, written in modern C++. GUI powered by Dear ImGui.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://awesomeopensource.com/project/danielkrupinski/Osiris">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "danielkrupinski/Osiris",
+  "description": "Free open-source game cheat for Counter-Strike: Global Offensive, written in modern C++. GUI powered by Dear ImGui.",
+  "url": "https://awesomeopensource.com/project/danielkrupinski/Osiris",
+  "sku": "project/danielkrupinski/Osiris",
+  "mpn": "project/danielkrupinski/Osiris",
+  "image": "https://github.com/danielkrupinski.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "danielkrupinski/Osiris",
+    "logo": "https://github.com/danielkrupinski.png"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "1318"
+  }
+}
+</script>
+
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="G5uU4B+8u+qX2y3lwWA9gMkiZBhbvgXtShJfH965aGLeWdnPv118sR+DdmF2uv+nuJ+SZDTXjcAh2PJPRXP4mA==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/project/danielkrupinski/Osiris","location":"/project/danielkrupinski/Osiris","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/project/danielkrupinski/Osiris","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-5cc412c7-e14f-429d-bfe8-901e7ee484f9"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_project_screen_container"><div class="aos_project_inner_screen_container"><div class="aos_project_metadata"><div class="aos_project_metadata_title">Osiris</div><div class="aos_project_metadata_description">Free open-source game cheat for Counter-Strike: Global Offensive, written in modern C++. GUI powered by Dear ImGui.</div><div class="aos_project_metadata_header">Stars</div><span class="aos_project_metadata_content">1,318</span><div class="project_page_ad_slot_1"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-gv-v+1t-u+27" data-ad-client="ca-pub-1878397330895234" data-ad-slot="5649017589"></ins></div><div class="aos_project_metadata_header aos_license_text_metadata">License</div><span class="aos_project_metadata_content">mit</span><div class="aos_project_metadata_header"><a href="https://github.com/danielkrupinski/Osiris" target="_blank" class="aos_grey_link" rel="nofollow">Repository</a></div><span class="aos_project_metadata_content"><a href="https://github.com/danielkrupinski/Osiris" target="_blank">https://github.com/danielkrupinski/Osiris</a></span><div class="aos_project_metadata_header"><a href="https://github.com/danielkrupinski/Osiris/issues" target="_blank" class="aos_grey_link" rel="nofollow">Open Issues</a></div><span class="aos_project_metadata_content"><a href="https://github.com/danielkrupinski/Osiris/issues" target="_blank">862</a></span><div class="aos_project_metadata_header">Most Recent Commit</div><span class="aos_project_metadata_content">3 days ago</span><div class="aos_project_metadata_header">Related Projects</div><span class="aos_project_metadata_content"><a href="https://awesomeopensource.com/projects/c-plus-plus"><div style="display:block;text-decoration:none;padding-bottom:10px">c-plus-plus<span> (<!-- -->17,339<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/linux"><div style="display:block;text-decoration:none;padding-bottom:10px">linux<span> (<!-- -->2,265<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/windows"><div style="display:block;text-decoration:none;padding-bottom:10px">windows<span> (<!-- -->1,331<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/cpp"><div style="display:block;text-decoration:none;padding-bottom:10px">cpp<span> (<!-- -->1,221<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/json"><div style="display:block;text-decoration:none;padding-bottom:10px">json<span> (<!-- -->1,116<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/reverse-engineering"><div style="display:block;text-decoration:none;padding-bottom:10px">reverse-engineering<span> (<!-- -->446<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/cpp17"><div style="display:block;text-decoration:none;padding-bottom:10px">cpp17<span> (<!-- -->200<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/cpp14"><div style="display:block;text-decoration:none;padding-bottom:10px">cpp14<span> (<!-- -->141<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/imgui"><div style="display:block;text-decoration:none;padding-bottom:10px">imgui<span> (<!-- -->73<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/csgo"><div style="display:block;text-decoration:none;padding-bottom:10px">csgo<span> (<!-- -->58<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/dll"><div style="display:block;text-decoration:none;padding-bottom:10px">dll<span> (<!-- -->58<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/cheat"><div style="display:block;text-decoration:none;padding-bottom:10px">cheat<span> (<!-- -->40<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/counter-strike"><div style="display:block;text-decoration:none;padding-bottom:10px">counter-strike<span> (<!-- -->37<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/source-engine"><div style="display:block;text-decoration:none;padding-bottom:10px">source-engine<span> (<!-- -->27<!-- -->)</span></div></a><a href="https://awesomeopensource.com/projects/dll-injection"><div style="display:block;text-decoration:none;padding-bottom:10px">dll-injection<span> (<!-- -->21<!-- -->)</span></div></a></span></div><div class="markdown-body"><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body>
+<h1>
+<a id="osiris" class="anchor" href="#osiris" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Osiris</h1>
+<p><a href="https://en.wikipedia.org/wiki/C%2B%2B" rel="nofollow"><img src="https://img.shields.io/badge/language-C%2B%2B-%23f34b7d.svg?style=plastic" alt="C++" style="max-width:100%;"></a>
+<a href="https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/" rel="nofollow"><img src="https://img.shields.io/badge/game-CS%3AGO-yellow.svg?style=plastic" alt="CS:GO" style="max-width:100%;"></a>
+<a href="https://en.wikipedia.org/wiki/Microsoft_Windows" rel="nofollow"><img src="https://img.shields.io/badge/platform-Windows-0078d7.svg?style=plastic" alt="Windows" style="max-width:100%;"></a>
+<a href="https://en.wikipedia.org/wiki/X86" rel="nofollow"><img src="https://img.shields.io/badge/arch-x86-red.svg?style=plastic" alt="x86" style="max-width:100%;"></a>
+<a href="https://github.com/danielkrupinski/Osiris/blob/master/LICENSE" rel="nofollow"><img src="https://img.shields.io/github/license/danielkrupinski/Osiris.svg?style=plastic" alt="License" style="max-width:100%;"></a>
+<a href="https://github.com/danielkrupinski/Osiris/issues" rel="nofollow"><img src="https://img.shields.io/github/issues/danielkrupinski/Osiris.svg?style=plastic" alt="Issues" style="max-width:100%;"></a>
+<a href="https://paypal.me/DanielK19" rel="nofollow"><img src="https://img.shields.io/badge/donate-PayPal-104098.svg?style=plastic&amp;logo=PayPal" alt="PayPal" style="max-width:100%;"></a>
+<br><a href="https://github.com/danielkrupinski/Osiris/workflows/Windows/badge.svg?branch=master&amp;event=push" target="_blank" rel="nofollow"><img src="https://github.com/danielkrupinski/Osiris/workflows/Windows/badge.svg?branch=master&amp;event=push" alt="Windows" style="max-width:100%;"></a>
+<a href="https://github.com/danielkrupinski/Osiris/workflows/Linux/badge.svg?branch=master&amp;event=push" target="_blank" rel="nofollow"><img src="https://github.com/danielkrupinski/Osiris/workflows/Linux/badge.svg?branch=master&amp;event=push" alt="Linux" style="max-width:100%;"></a></p>
+<p>Free open-source cheat software for <strong>Counter-Strike: Global Offensive</strong> game. Designed as an internal cheat - <a href="https://en.wikipedia.org/wiki/Dynamic-link_library" rel="nofollow">Dynamic-link library</a> (DLL) loadable into game process. Compatible with the Steam version of the game.</p>
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
+<ul>
+<li>
+<strong>Aimbot</strong> - aim assistance</li>
+<li>
+<strong>Triggerbot</strong> - automatically fires when crosshair is on enemy</li>
+<li>
+<strong>Backtrack</strong> - abuse lag compensation to move players back in time</li>
+<li>
+<strong>Glow</strong> - render glow effect on entities</li>
+<li>
+<strong>Chams</strong> - color player models to improve visibility</li>
+<li>
+<strong>Stream Proof ESP</strong> - show information about players, dropped weapons and projectiles</li>
+<li>
+<strong>Visuals</strong> - miscellaneous visual options</li>
+<li>
+<strong>Skin changer</strong> - change weapon skins, knives and stickers</li>
+<li>
+<strong>Sound</strong> - modify volume of certain sound effects</li>
+<li>
+<strong>Style</strong> - select menu window layout and colors</li>
+<li>
+<strong>Misc</strong> - miscellaneous features</li>
+<li>
+<strong>Config</strong> - JSON-based configuration system</li>
+</ul>
+<details>
+<ul>
+<li>
+<p><strong>Aimbot</strong> - aim assistance</p>
+<ul>
+<li>
+<strong>Enabled</strong> - on / off master switch</li>
+<li>
+<strong>On key [ key ]</strong> - aimbot works only when chosen key is being held</li>
+<li>
+<strong>Aimlock</strong> - brings your aim to the target (affected by Smooth).</li>
+<li>
+<strong>Silent</strong> - aimbot is not visible on your screen (client-sided only)</li>
+<li>
+<strong>Friendly fire</strong> - treat allies as enemies</li>
+<li>
+<strong>Visible only</strong> - aim only on visible players</li>
+<li>
+<strong>Scoped only</strong> - aimbot works only when using scope (applies only to sniper rifles)</li>
+<li>
+<strong>Ignore flash</strong> - ignore flashbang i.e. aim when local player is flashed</li>
+<li>
+<strong>Ignore smoke</strong> - ignore smoke i.e. aim when target is in smoke</li>
+<li>
+<strong>Auto shot</strong> - shoot automatically when target found</li>
+<li>
+<strong>Auto scope</strong> - automatically scopes sniper rifle before shooting</li>
+<li>
+<strong>Bone</strong> - bone which aimbot aims at</li>
+<li>
+<strong>Fov</strong> - field-of-view which aimbot operates [<em>0</em>-<em>255</em>]</li>
+<li>
+<strong>Smooth</strong> - smooth aimbot movement in order to seem more human-like</li>
+<li>
+<strong>Max aim inaccuracy</strong> - maximum weapon inaccuracy allowing aimbot to run, lowering this value will e.g. disable aimbot while jumping or running</li>
+</ul>
+</li>
+<li>
+<p><strong>Triggerbot</strong> - automatically fires when crosshair is on enemy</p>
+<ul>
+<li>
+<strong>Enabled</strong> - on / off master switch</li>
+<li>
+<strong>On key [ key ]</strong> - triggerbot works only when chosen key is being held</li>
+<li>
+<strong>Friendly fire</strong> - treat allies as enemies</li>
+<li>
+<strong>Scoped only</strong> - triggerbot works only when using scope (applies only to sniper rifles)</li>
+<li>
+<strong>Ignore flash</strong> - ignore flashbang i.e. shoot when local player is flashed</li>
+<li>
+<strong>Ignore smoke</strong> - ignore smoke i.e. shoot when target is in smoke</li>
+<li>
+<strong>Hitgroup</strong> - body parts on which triggerbot works</li>
+<li>
+<strong>Shot delay</strong> - delay time in ms (milliseconds)</li>
+<li>
+<strong>Min damage</strong> - minimal damage to fire.</li>
+</ul>
+</li>
+<li>
+<p><strong>Backtrack</strong> - abuse lag compensation in order to move players back in time</p>
+<ul>
+<li>
+<strong>Enabled</strong> - on / off master switch</li>
+<li>
+<strong>Ignore smoke</strong> - ignore smoke i.e. backtrack when target is in smoke</li>
+<li>
+<strong>Time limit</strong> - limit the backtracking window [<em>1</em>-<em>200</em>ms]</li>
+</ul>
+</li>
+<li>
+<p><strong>Glow</strong> - render glow effect on entities</p>
+<p><em>Allies, Enemies, Planting (player planting bomb), Defusing (player defusing bomb), Local player, Weapons (dropped weapons), C4, Planted C4, Chickens, Defuse kits, Projectiles, Hostages, Ragdolls</em> <strong>/</strong> <em>All, Visible, Occluded</em></p>
+<ul>
+<li>
+<strong>Enabled</strong> - on / off master switch</li>
+<li>
+<strong>Health based</strong> - color is based on player's hp</li>
+<li>
+<strong>Color</strong> - glow color in rgba format</li>
+<li>
+<strong>Style</strong> - glow style { <code>Default</code>, <code>Rim3d</code>, <code>Edge</code>, <code>Edge Pulse</code> }</li>
+</ul>
+</li>
+<li>
+<p><strong>Chams</strong> - color player models to improve visibility</p>
+<p><em>Allies, Enemies, Planting (player planting bomb), Defusing (player defusing bomb), Local player, Weapons (dropped weapons), Hands (view model hands), Backtrack (requires backtrack to be enabled), Sleeves (view model)</em> <strong>/</strong> <em>All, Visible, Occluded</em></p>
+<ul>
+<li>
+<strong>Enabled</strong> - on / off master switch</li>
+<li>
+<strong>Health based</strong> - color is based on player's hp</li>
+<li>
+<strong>Blinking</strong> - change transparency frequently</li>
+<li>
+<strong>Material</strong> - material applied to model { <code>Normal</code>, <code>Flat</code>, <code>Animated</code>, <code>Platinum</code>, <code>Glass</code>, <code>Chrome</code>, <code>Crystal</code>, <code>Silver</code>, <code>Gold</code>, <code>Plastic</code>, <code>Glow</code> }</li>
+<li>
+<strong>Wireframe</strong> - render triangle mesh instead of solid material</li>
+<li>
+<strong>Cover</strong> - draw chams material on top of the original material instead of overriding it</li>
+<li>
+<strong>Ignore-Z</strong> - draw material through walls</li>
+</ul>
+</li>
+<li>
+<p><strong>ESP</strong> - show additional information about players and game world</p>
+<ol>
+<li>
+<p><em>Allies, Enemies</em></p>
+<ul>
+<li><em>All, Visible, Occluded</em></li>
+</ul>
+</li>
+<li>
+<p><em>Weapons</em></p>
+</li>
+<li>
+<p><em>Projectiles</em></p>
+<ul>
+<li><em>Flashbang, HE Grenade, Breach Charge, Bump Mine, Decoy Grenade, Molotov, TA Grenade, Smoke Grenade, Snowball</em></li>
+</ul>
+</li>
+<li>
+<p><em>Danger Zone</em></p>
+<ul>
+<li><em>Sentries, Drones, Cash, Cash Dufflebag, Pistol Case, Light Case, Heavy Case, Explosive Case, Tools Case, Full Armor, Armor, Helmet, Parachute, Briefcase, Tablet Upgrade, ExoJump, Ammobox, Radar Jammer</em></li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>
+<strong>Enabled</strong> - on / off master switch</li>
+<li>
+<strong>Font</strong> - esp text font</li>
+<li>
+<strong>Snaplines</strong> - draw snapline to player</li>
+<li>
+<strong>Eye traces</strong> - draw player eye traces (shows where player looks)</li>
+<li>
+<strong>Box</strong> - draw 2D box over player model</li>
+<li>
+<strong>Name</strong> - draw player name</li>
+<li>
+<strong>Health</strong> - draw player health</li>
+<li>
+<strong>Health bar</strong> - draw rectangle indicating player health</li>
+<li>
+<strong>Armor</strong> - draw player armor</li>
+<li>
+<strong>Armor bar</strong> - draw rectangle indicating player armor</li>
+<li>
+<strong>Money</strong> - draw player money</li>
+<li>
+<strong>Head dot</strong> - draw dot on player's head</li>
+<li>
+<strong>Active Weapon</strong> - draw player equipped weapon</li>
+</ul>
+</li>
+<li>
+<p><strong>Visuals</strong> - miscellaneous visual options</p>
+<ul>
+<li>
+<strong>Disable post-processing</strong> - disable post-processing effects in order to increase FPS</li>
+<li>
+<strong>Inverse ragdoll gravity</strong> - inverse gravitational acceleration on falling player ragdoll corpse (during death sequence)</li>
+<li>
+<strong>No fog</strong> - remove fog from map for better visibility</li>
+<li>
+<strong>No 3d sky</strong> - remove 3d skybox from map - increases FPS</li>
+<li>
+<strong>No visual recoil</strong> - remove visual recoil punch effect</li>
+<li>
+<strong>No hands</strong> - remove arms / hands model from first-person view</li>
+<li>
+<strong>No sleeves</strong> - remove sleeves model from first-person view</li>
+<li>
+<strong>No weapons</strong> - remove weapons model from first-person view</li>
+<li>
+<strong>No smoke</strong> - remove smoke grenade effect</li>
+<li>
+<strong>No blur</strong> - remove blur</li>
+<li>
+<strong>No scope overlay</strong> - remove black overlay while scoping</li>
+<li>
+<strong>No grass</strong> - remove grass from map in Danger Zone mode (<code>dz_blacksite</code> and <code>dz_sirocco</code> maps)</li>
+<li>
+<strong>No shadows</strong> - disable dynamic shadows</li>
+<li>
+<strong>Wireframe smoke</strong> - render smoke skeleton instead of particle effect</li>
+<li>
+<strong>Zoom [ key ]</strong> - enable zoom on unzoomable weapons</li>
+<li>
+<strong>Thirdperson</strong> - thirdperson view</li>
+<li>
+<strong>Thirdperson distance</strong> - camera distance in thirdperson view</li>
+<li>
+<strong>View model FOV</strong> - change view model FOV [<em>-60</em>-<em>0</em>-<em>60</em>] (0 - actual view model, negative values - decreased view model, positive values - increased view model)</li>
+<li>
+<strong>FOV</strong> - change view FOV [<em>-60</em>-<em>0</em>-<em>60</em>] (0 - actual view fov, negative values - decreased, positive values - increased)</li>
+<li>
+<strong>Far Z</strong> - far clipping range, useful after disabling fog on large maps (e.g <code>dz_sirocco</code>) to render distant buildings</li>
+<li>
+<strong>Flash reduction</strong> - reduces flashbang grenade effect [<em>0</em>-<em>100</em>%] (0 - full flash, 100 - no flash)</li>
+<li>
+<strong>Brightness</strong> - control game brightness [<em>0.0</em>-<em>1.0</em>]</li>
+<li>
+<strong>Skybox</strong> - change sky(box)</li>
+<li>
+<strong>World color</strong> - set world material ambient light color</li>
+<li>
+<strong>Deagle spinner</strong> - play "spinning" inspect animation when holding Deagle</li>
+<li>
+<strong>Screen effect</strong> - screenspace effect - <em>Drone cam, Drone cam with noise, Underwater, Healthboost, Dangerzone</em>
+</li>
+<li>
+<strong>Hit effect</strong> - show screen effect on enemy hit</li>
+<li>
+<strong>Hit marker</strong> - show a cross detail on enemy hit</li>
+</ul>
+</li>
+<li>
+<p><strong>Skin changer</strong> - change knives, gloves, weapon skins and stickers</p>
+</li>
+<li>
+<p><strong>Sound</strong> - modify volume of certain sound effects</p>
+<ul>
+<li>
+<strong>Chicken volume</strong> - volume of chicken sounds</li>
+</ul>
+<p><em>Local player, Allies, Enemies</em></p>
+<ul>
+<li>
+<strong>Master volume</strong> - overall volume of sounds emitted by player</li>
+<li>
+<strong>Headshot volume</strong> - volume of headshot sound (when player gets headshoted)</li>
+<li>
+<strong>Weapon volume</strong> - volume of player weapon shots</li>
+<li>
+<strong>Footstep volume</strong> - volume of player footsteps</li>
+</ul>
+</li>
+<li>
+<p><strong>Misc</strong> - miscellaneous features</p>
+<ul>
+<li>
+<p><strong>Menu key [ key ]</strong> - menu toggle key</p>
+</li>
+<li>
+<p><strong>Menu style</strong> - menu style toggle (<em>Classic</em> <strong>/</strong> <em>One window</em>)</p>
+</li>
+<li>
+<p><strong>Menu colors</strong> - menu color theme (<em>Dark <strong>/</strong> Light <strong>/</strong> Classic</em>)</p>
+</li>
+<li>
+<p><strong>Anti AFK kick</strong> - avoid auto-kick by server for inactivity</p>
+</li>
+<li>
+<p><strong>Auto strafe</strong> - automatically strafe in air following mouse movement</p>
+</li>
+<li>
+<p><strong>Bunny hop</strong> - automatically simulate space bar press / release while jump button is being held; increases movement speed</p>
+</li>
+<li>
+<p><strong>Clan tag</strong> - set custom clan tag</p>
+</li>
+<li>
+<p><strong>Animated clan tag</strong> - animate clan tag</p>
+</li>
+<li>
+<p><strong>Fast duck</strong> - remove crouch delay</p>
+</li>
+<li>
+<p><strong>Sniper crosshair</strong> - draw crosshair while holding sniper rifle</p>
+</li>
+<li>
+<p><strong>Recoil crosshair</strong> - crosshair follows recoil pattern</p>
+</li>
+<li>
+<p><strong>Auto pistol</strong> - fire pistols like automatic rifles</p>
+</li>
+<li>
+<p><strong>Auto reload</strong> - automatically reload if weapon has empty clip</p>
+</li>
+<li>
+<p><strong>Auto accept</strong> - automatically accept competitive match</p>
+</li>
+<li>
+<p><strong>Radar hack</strong> - show enemies positions on radar</p>
+</li>
+<li>
+<p><strong>Reveal ranks</strong> - show player ranks in scoreboard in competitive modes</p>
+</li>
+<li>
+<p><strong>Reveal money</strong> - show enemies' money in scoreboard</p>
+</li>
+<li>
+<p><strong>Spectator list</strong> - show nicknames of players spectating you</p>
+</li>
+<li>
+<p><strong>Watermark</strong> - show cheat name in the upper-left screen corner and fps &amp; ping in the upper-right corner</p>
+</li>
+<li>
+<p><strong>Offscreen Enemies</strong> - draw circles on the screen indicating that there are enemies behind us</p>
+</li>
+<li>
+<p><strong>Fix animation LOD</strong> - fix aimbot inaccuracy for players behind local player</p>
+</li>
+<li>
+<p><strong>Fix bone matrix</strong> - correct client bone matrix to be closer to server one</p>
+</li>
+<li>
+<p><strong>Disable model occlusion</strong> - draw player models even if they are behind thick walls</p>
+</li>
+<li>
+<p><strong>Kill message</strong> - print message to chat after killing an enemy</p>
+</li>
+<li>
+<p><strong>Name stealer</strong> - mimic other players names</p>
+</li>
+<li>
+<p><strong>Custom clantag</strong> - set a custom clantag</p>
+</li>
+<li>
+<p><strong>Fast plant</strong> - plants bomb on bombsite border, when holding <kbd>LMB</kbd> or <kbd>E</kbd> key</p>
+</li>
+<li>
+<p><strong>Fast Stop</strong> - stops the player faster than normal</p>
+</li>
+<li>
+<p><strong>Quick reload</strong> - perform quick weapon switch during reload for faster reload</p>
+</li>
+<li>
+<p><strong>Prepare revolver [ key ]</strong> - keep revolver cocked, optionally on key</p>
+</li>
+<li>
+<p><strong>Fix tablet signal</strong> - allow use tablet on underground (dangerzone)</p>
+</li>
+<li>
+<p><strong>Hit Sound</strong> - sound emitted when hurting enemy</p>
+</li>
+<li>
+<p><strong>Chocked packets</strong> - length of sequence of chocked ticks</p>
+</li>
+<li>
+<p><strong>Max angle delta</strong> - maximum viewangles change per tick</p>
+</li>
+<li>
+<p><strong>Fake Prime</strong> - set a fake prime (visible in lobby)</p>
+</li>
+<li>
+<p><strong>Purchase List</strong> - show the purchased equipment by enemies.</p>
+</li>
+<li>
+<p><strong>Reportbot</strong> - automatically report players on server for cheating or other abusive actions</p>
+<ul>
+<li>
+<strong>Enabled</strong> - on / off master switch</li>
+<li>
+<strong>Target</strong> - report target <em>Enemies/Allies/All</em>
+</li>
+<li>
+<strong>Delay</strong> - delay between reports, in seconds</li>
+<li>
+<strong>Aimbot</strong> - report for aim assistance</li>
+<li>
+<strong>Wallhack</strong> - report for visual assistance</li>
+<li>
+<strong>Other</strong> - report for other assistance</li>
+<li>
+<strong>Griefing</strong> - report for griefing</li>
+<li>
+<strong>Abusive Communications</strong> - report for abusive communications</li>
+</ul>
+</li>
+<li>
+<p><strong>Unhook</strong> - unload cheat</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Config</strong> - JSON-based configuration system</p>
+<ul>
+<li>
+<strong>Create config</strong> - create new configuration file</li>
+<li>
+<strong>Reset config</strong> - restore default configuration settings (does not touch saved configuration)</li>
+<li>
+<strong>Load selected</strong> - load selected configuration file</li>
+<li>
+<strong>Save selected</strong> - save selected configuration file</li>
+<li>
+<strong>Delete selected</strong> - delete selected configuration file</li>
+<li>
+<strong>Reload configs</strong> - reload configs list</li>
+</ul>
+</li>
+</ul>
+</details>
+<h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting started</h2>
+<h3>
+<a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prerequisites</h3>
+<p>Microsoft Visual Studio 2019 (preferably the latest version), platform toolset v142 and Windows SDK 10.0.x.x are required in order to compile Osiris. If you don't have ones, you can download VS <a href="https://visualstudio.microsoft.com/" rel="nofollow">here</a> (Windows SDK is installed during Visual Studio Setup).</p>
+<h3>
+<a id="downloading" class="anchor" href="#downloading" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Downloading</h3>
+<p>There are two options of downloading the source code:</p>
+<h4>
+<a id="without-git" class="anchor" href="#without-git" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Without <a href="https://git-scm.com" rel="nofollow">git</a>
+</h4>
+<p>Choose this option if you want pure source and you're not going to contribute to the repo. Download size ~600 kB.</p>
+<p>To download source code this way <a href="https://github.com/danielkrupinski/Osiris/archive/master.zip" rel="nofollow">click here</a>.</p>
+<h4>
+<a id="with-git" class="anchor" href="#with-git" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>With <a href="https://git-scm.com" rel="nofollow">git</a>
+</h4>
+<p>Choose this option if you're going to contribute to the repo or you want to use version control system. Download size ~4 MB. Git is required to step further, if not installed download it <a href="https://git-scm.com" rel="nofollow">here</a>.</p>
+<p>Open git command prompt and enter following command:</p>
+<pre><code>git clone --depth=1 https://github.com/danielkrupinski/Osiris.git
+</code></pre>
+<p><code>Osiris</code> folder should have been successfully created, containing all the source files.</p>
+<h3>
+<a id="compiling-from-source" class="anchor" href="#compiling-from-source" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compiling from source</h3>
+<p>When you have equipped a copy of the source code, next step is opening <strong>Osiris.sln</strong> in Microsoft Visual Studio 2019.</p>
+<p>Then change build configuration to <code>Release | x86</code> and simply press <strong>Build solution</strong>.</p>
+<p>If everything went right you should receive <code>Osiris.dll</code>  binary file.</p>
+<h3>
+<a id="loading--injecting-into-game-process" class="anchor" href="#loading--injecting-into-game-process" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Loading / Injecting into game process</h3>
+<p>Open your favorite <a href="https://en.wikipedia.org/wiki/DLL_injection" rel="nofollow">DLL injector</a> and just inject <code>Osiris.dll</code> into <code>csgo.exe</code> process.</p>
+<p>When injected, menu is openable under <code>INSERT</code> key.</p>
+<h3>
+<a id="further-optimizations" class="anchor" href="#further-optimizations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Further optimizations</h3>
+<p>If your CPU supports AVX / AVX2 / AVX-512 instruction set, you can enable it in project settings. This should result in more performant code, optimized for your CPU. Currently SSE2 instructions are selected in project settings.</p>
+<h2>
+<a id="faq" class="anchor" href="#faq" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FAQ</h2>
+<h3>
+<a id="how-do-i-open-menu" class="anchor" href="#how-do-i-open-menu" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How do I open menu?</h3>
+<p>Press <kbd>INSERT</kbd> while focused on CS:GO window.</p>
+<h3>
+<a id="where-is-my-config-file-saved" class="anchor" href="#where-is-my-config-file-saved" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Where is my config file saved?</h3>
+<p>Configuration files are saved inside <code>Osiris</code> folder in your <code>Documents</code> folder (<code>%USERPROFILE%\Documents\Osiris</code>). The config is in human readable format and can be edited (e.g, using notepad). Sometimes after updates configuration file needs to be deleted and recreated.</p>
+<h3>
+<a id="what-hooking-methods-osiris-uses" class="anchor" href="#what-hooking-methods-osiris-uses" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What hooking methods Osiris uses?</h3>
+<p>Currently implemented hooking methods are:</p>
+<ul>
+<li>MinHook - trampoline hook</li>
+<li>VmtHook - hook a function directly in a vtable</li>
+<li>VmtSwap - create a copy of a vtable and swap the pointer on the class instance</li>
+</ul>
+<p>Hooking implementation files are located in <a href="https://github.com/danielkrupinski/Osiris/tree/master/Osiris/Hooks" rel="nofollow">Hooks</a> directory.</p>
+<h2>
+<a id="acknowledgments" class="anchor" href="#acknowledgments" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Acknowledgments</h2>
+<ul>
+<li>
+<a href="https://github.com/ocornut" rel="nofollow">ocornut</a> and <a href="https://github.com/ocornut/imgui/graphs/contributors" rel="nofollow">contributors</a> for creating and maintaining an amazing GUI library - <a href="https://github.com/ocornut/imgui" rel="nofollow">Dear imgui</a>.</li>
+<li>
+<a href="https://github.com/Zer0Mem0ry" rel="nofollow">Zer0Mem0ry</a> - for great tutorials on reverse engineering and game hacking</li>
+</ul>
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+<blockquote>
+<p>Copyright (c) 2018-2021 Daniel Krupiński</p>
+</blockquote>
+<p>This project is licensed under the <a href="https://opensource.org/licenses/mit-license.php" rel="nofollow">MIT License</a> - see the <a href="https://github.com/danielkrupinski/Osiris/blob/master/LICENSE" rel="nofollow">LICENSE</a> file for details.</p>
+<h2>
+<a id="see-also" class="anchor" href="#see-also" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>See also</h2>
+<ul>
+<li>
+<a href="https://github.com/danielkrupinski/Anubis" rel="nofollow">Anubis</a> - free and open source cheat for CS:GO with configuration compatible with Osiris</li>
+<li>
+<a href="https://github.com/danielkrupinski/GOESP" rel="nofollow">GOESP</a> - free and open source cross-platform streamproof ESP hack for Counter-Strike: Global Offensive, written in modern C++</li>
+</ul>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120b9aced5fe738',m:'946dc36a5b59b9036b159413c1cb825b8711dfb7-1610725542-1800-AXnBTi2T4k1g1jMMOcQJBJXHAKeA9sk3sEPgXXcBM2qovGLAzZfR1j/KbKdZ2SrhNZGSPLYHpv6mh2M7ZfMVzs/06Fuh1HcfX/Fpnnqg4vm4AGy6ogWec2aRBUtJMH5sg4xY4Lb7wZKc4kzKZ0NTZaA=',s:[0x7f193a593d,0xc4d7b53cfa],}})();</script></body></html>
+</div><div><br/><div style="border:1px solid gray;border-radius:5px;background-color:lightgray;padding:2%"><div style="font-size:24px;font-weight:bold;margin-bottom:10px">Get A Weekly Email With Trending Projects For These Topics</div><div style="margin-bottom:10px">No Spam.  Unsubscribe easily at any time.</div><div><div><input type="checkbox" name="topics" value="c-plus-plus"/> <!-- -->c-plus-plus<!-- --> (<!-- -->17,339<!-- -->) </div><div><input type="checkbox" name="topics" value="linux"/> <!-- -->linux<!-- --> (<!-- -->2,265<!-- -->) </div><div><input type="checkbox" name="topics" value="windows"/> <!-- -->windows<!-- --> (<!-- -->1,331<!-- -->) </div><div><input type="checkbox" name="topics" value="cpp"/> <!-- -->cpp<!-- --> (<!-- -->1,221<!-- -->) </div><div><input type="checkbox" name="topics" value="json"/> <!-- -->json<!-- --> (<!-- -->1,116<!-- -->) </div><div><input type="checkbox" name="topics" value="reverse-engineering"/> <!-- -->reverse-engineering<!-- --> (<!-- -->446<!-- -->) </div><div><input type="checkbox" name="topics" value="cpp17"/> <!-- -->cpp17<!-- --> (<!-- -->200<!-- -->) </div><div><input type="checkbox" name="topics" value="cpp14"/> <!-- -->cpp14<!-- --> (<!-- -->141<!-- -->) </div><div><input type="checkbox" name="topics" value="imgui"/> <!-- -->imgui<!-- --> (<!-- -->73<!-- -->) </div><div><input type="checkbox" name="topics" value="dll"/> <!-- -->dll<!-- --> (<!-- -->58<!-- -->) </div><div><input type="checkbox" name="topics" value="csgo"/> <!-- -->csgo<!-- --> (<!-- -->58<!-- -->) </div><div><input type="checkbox" name="topics" value="cheat"/> <!-- -->cheat<!-- --> (<!-- -->40<!-- -->) </div><div><input type="checkbox" name="topics" value="counter-strike"/> <!-- -->counter-strike<!-- --> (<!-- -->37<!-- -->) </div><div><input type="checkbox" name="topics" value="source-engine"/> <!-- -->source-engine<!-- --> (<!-- -->27<!-- -->) </div><div><input type="checkbox" name="topics" value="dll-injection"/> <!-- -->dll-injection<!-- --> (<!-- -->21<!-- -->) </div></div><div><input type="email" style="width:95%;margin-top:10px;margin-bottom:10px;padding:5px;font-size:20px;border-radius:5px" name="email" placeholder="Your email address"/></div><div><input type="submit" style="color:white;background-color:#0366d6;font-size:20px;border:1px solid black;border-radius:5px;padding:5px;cursor:pointer" value="Subscribe"/></div></div></div><h2>Find Open Source By Browsing 7,000 Topics Across 59 Categories</h2><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:block;box-shadow:1px 1px 5px lightgray"><a data-category-name="Advertising" href="https://awesomeopensource.com/categories/advertising"><div class="aos_category_explorer_category_container" data-category-name="Advertising"><span data-category-name="Advertising">Advertising<span data-category-name="Advertising" class="aos_project_count"> 📦 <!-- -->10</span></span></div></a><a data-category-name="All Projects" href="https://awesomeopensource.com/projects"><div class="aos_category_explorer_category_container" data-category-name="All Projects"><span data-category-name="All Projects">All Projects</span></div></a><a data-category-name="Application Programming Interfaces" href="https://awesomeopensource.com/categories/application-programming-interfaces"><div class="aos_category_explorer_category_container" data-category-name="Application Programming Interfaces"><span data-category-name="Application Programming Interfaces">Application Programming Interfaces<span data-category-name="Application Programming Interfaces" class="aos_project_count"> 📦 <!-- -->124</span></span></div></a><a data-category-name="Applications" href="https://awesomeopensource.com/categories/applications"><div class="aos_category_explorer_category_container" data-category-name="Applications"><span data-category-name="Applications">Applications<span data-category-name="Applications" class="aos_project_count"> 📦 <!-- -->192</span></span></div></a><a data-category-name="Artificial Intelligence" href="https://awesomeopensource.com/categories/artificial-intelligence"><div class="aos_category_explorer_category_container" data-category-name="Artificial Intelligence"><span data-category-name="Artificial Intelligence">Artificial Intelligence<span data-category-name="Artificial Intelligence" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Blockchain" href="https://awesomeopensource.com/categories/blockchain"><div class="aos_category_explorer_category_container" data-category-name="Blockchain"><span data-category-name="Blockchain">Blockchain<span data-category-name="Blockchain" class="aos_project_count"> 📦 <!-- -->73</span></span></div></a><a data-category-name="Build Tools" href="https://awesomeopensource.com/categories/build-tools"><div class="aos_category_explorer_category_container" data-category-name="Build Tools"><span data-category-name="Build Tools">Build Tools<span data-category-name="Build Tools" class="aos_project_count"> 📦 <!-- -->113</span></span></div></a><a data-category-name="Cloud Computing" href="https://awesomeopensource.com/categories/cloud-computing"><div class="aos_category_explorer_category_container" data-category-name="Cloud Computing"><span data-category-name="Cloud Computing">Cloud Computing<span data-category-name="Cloud Computing" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Code Quality" href="https://awesomeopensource.com/categories/code-quality"><div class="aos_category_explorer_category_container" data-category-name="Code Quality"><span data-category-name="Code Quality">Code Quality<span data-category-name="Code Quality" class="aos_project_count"> 📦 <!-- -->28</span></span></div></a><a data-category-name="Collaboration" href="https://awesomeopensource.com/categories/collaboration"><div class="aos_category_explorer_category_container" data-category-name="Collaboration"><span data-category-name="Collaboration">Collaboration<span data-category-name="Collaboration" class="aos_project_count"> 📦 <!-- -->32</span></span></div></a><a data-category-name="Command Line Interface" href="https://awesomeopensource.com/categories/command-line-interface"><div class="aos_category_explorer_category_container" data-category-name="Command Line Interface"><span data-category-name="Command Line Interface">Command Line Interface<span data-category-name="Command Line Interface" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Community" href="https://awesomeopensource.com/categories/community"><div class="aos_category_explorer_category_container" data-category-name="Community"><span data-category-name="Community">Community<span data-category-name="Community" class="aos_project_count"> 📦 <!-- -->83</span></span></div></a><a data-category-name="Companies" href="https://awesomeopensource.com/categories/companies"><div class="aos_category_explorer_category_container" data-category-name="Companies"><span data-category-name="Companies">Companies<span data-category-name="Companies" class="aos_project_count"> 📦 <!-- -->60</span></span></div></a><a data-category-name="Compilers" href="https://awesomeopensource.com/categories/compilers"><div class="aos_category_explorer_category_container" data-category-name="Compilers"><span data-category-name="Compilers">Compilers<span data-category-name="Compilers" class="aos_project_count"> 📦 <!-- -->63</span></span></div></a><a data-category-name="Computer Science" href="https://awesomeopensource.com/categories/computer-science"><div class="aos_category_explorer_category_container" data-category-name="Computer Science"><span data-category-name="Computer Science">Computer Science<span data-category-name="Computer Science" class="aos_project_count"> 📦 <!-- -->80</span></span></div></a><a data-category-name="Configuration Management" href="https://awesomeopensource.com/categories/configuration-management"><div class="aos_category_explorer_category_container" data-category-name="Configuration Management"><span data-category-name="Configuration Management">Configuration Management<span data-category-name="Configuration Management" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Content Management" href="https://awesomeopensource.com/categories/content-management"><div class="aos_category_explorer_category_container" data-category-name="Content Management"><span data-category-name="Content Management">Content Management<span data-category-name="Content Management" class="aos_project_count"> 📦 <!-- -->175</span></span></div></a><a data-category-name="Control Flow" href="https://awesomeopensource.com/categories/control-flow"><div class="aos_category_explorer_category_container" data-category-name="Control Flow"><span data-category-name="Control Flow">Control Flow<span data-category-name="Control Flow" class="aos_project_count"> 📦 <!-- -->213</span></span></div></a><a data-category-name="Data Formats" href="https://awesomeopensource.com/categories/data-formats"><div class="aos_category_explorer_category_container" data-category-name="Data Formats"><span data-category-name="Data Formats">Data Formats<span data-category-name="Data Formats" class="aos_project_count"> 📦 <!-- -->78</span></span></div></a><a data-category-name="Data Processing" href="https://awesomeopensource.com/categories/data-processing"><div class="aos_category_explorer_category_container" data-category-name="Data Processing"><span data-category-name="Data Processing">Data Processing<span data-category-name="Data Processing" class="aos_project_count"> 📦 <!-- -->276</span></span></div></a><a data-category-name="Data Storage" href="https://awesomeopensource.com/categories/data-storage"><div class="aos_category_explorer_category_container" data-category-name="Data Storage"><span data-category-name="Data Storage">Data Storage<span data-category-name="Data Storage" class="aos_project_count"> 📦 <!-- -->135</span></span></div></a><a data-category-name="Economics" href="https://awesomeopensource.com/categories/economics"><div class="aos_category_explorer_category_container" data-category-name="Economics"><span data-category-name="Economics">Economics<span data-category-name="Economics" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Frameworks" href="https://awesomeopensource.com/categories/frameworks"><div class="aos_category_explorer_category_container" data-category-name="Frameworks"><span data-category-name="Frameworks">Frameworks<span data-category-name="Frameworks" class="aos_project_count"> 📦 <!-- -->215</span></span></div></a><a data-category-name="Games" href="https://awesomeopensource.com/categories/games"><div class="aos_category_explorer_category_container" data-category-name="Games"><span data-category-name="Games">Games<span data-category-name="Games" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Graphics" href="https://awesomeopensource.com/categories/graphics"><div class="aos_category_explorer_category_container" data-category-name="Graphics"><span data-category-name="Graphics">Graphics<span data-category-name="Graphics" class="aos_project_count"> 📦 <!-- -->110</span></span></div></a><a data-category-name="Hardware" href="https://awesomeopensource.com/categories/hardware"><div class="aos_category_explorer_category_container" data-category-name="Hardware"><span data-category-name="Hardware">Hardware<span data-category-name="Hardware" class="aos_project_count"> 📦 <!-- -->152</span></span></div></a><a data-category-name="Integrated Development Environments" href="https://awesomeopensource.com/categories/integrated-development-environments"><div class="aos_category_explorer_category_container" data-category-name="Integrated Development Environments"><span data-category-name="Integrated Development Environments">Integrated Development Environments<span data-category-name="Integrated Development Environments" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Learning Resources" href="https://awesomeopensource.com/categories/learning-resources"><div class="aos_category_explorer_category_container" data-category-name="Learning Resources"><span data-category-name="Learning Resources">Learning Resources<span data-category-name="Learning Resources" class="aos_project_count"> 📦 <!-- -->166</span></span></div></a><a data-category-name="Legal" href="https://awesomeopensource.com/categories/legal"><div class="aos_category_explorer_category_container" data-category-name="Legal"><span data-category-name="Legal">Legal<span data-category-name="Legal" class="aos_project_count"> 📦 <!-- -->29</span></span></div></a><a data-category-name="Libraries" href="https://awesomeopensource.com/categories/libraries"><div class="aos_category_explorer_category_container" data-category-name="Libraries"><span data-category-name="Libraries">Libraries<span data-category-name="Libraries" class="aos_project_count"> 📦 <!-- -->129</span></span></div></a><a data-category-name="Lists Of Projects" href="https://awesomeopensource.com/categories/lists-of-projects"><div class="aos_category_explorer_category_container" data-category-name="Lists Of Projects"><span data-category-name="Lists Of Projects">Lists Of Projects<span data-category-name="Lists Of Projects" class="aos_project_count"> 📦 <!-- -->22</span></span></div></a><a data-category-name="Machine Learning" href="https://awesomeopensource.com/categories/machine-learning"><div class="aos_category_explorer_category_container" data-category-name="Machine Learning"><span data-category-name="Machine Learning">Machine Learning<span data-category-name="Machine Learning" class="aos_project_count"> 📦 <!-- -->347</span></span></div></a><a data-category-name="Mapping" href="https://awesomeopensource.com/categories/mapping"><div class="aos_category_explorer_category_container" data-category-name="Mapping"><span data-category-name="Mapping">Mapping<span data-category-name="Mapping" class="aos_project_count"> 📦 <!-- -->64</span></span></div></a><a data-category-name="Marketing" href="https://awesomeopensource.com/categories/marketing"><div class="aos_category_explorer_category_container" data-category-name="Marketing"><span data-category-name="Marketing">Marketing<span data-category-name="Marketing" class="aos_project_count"> 📦 <!-- -->15</span></span></div></a><a data-category-name="Mathematics" href="https://awesomeopensource.com/categories/mathematics"><div class="aos_category_explorer_category_container" data-category-name="Mathematics"><span data-category-name="Mathematics">Mathematics<span data-category-name="Mathematics" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Media" href="https://awesomeopensource.com/categories/media"><div class="aos_category_explorer_category_container" data-category-name="Media"><span data-category-name="Media">Media<span data-category-name="Media" class="aos_project_count"> 📦 <!-- -->239</span></span></div></a><a data-category-name="Messaging" href="https://awesomeopensource.com/categories/messaging"><div class="aos_category_explorer_category_container" data-category-name="Messaging"><span data-category-name="Messaging">Messaging<span data-category-name="Messaging" class="aos_project_count"> 📦 <!-- -->98</span></span></div></a><a data-category-name="Networking" href="https://awesomeopensource.com/categories/networking"><div class="aos_category_explorer_category_container" data-category-name="Networking"><span data-category-name="Networking">Networking<span data-category-name="Networking" class="aos_project_count"> 📦 <!-- -->315</span></span></div></a><a data-category-name="Operating Systems" href="https://awesomeopensource.com/categories/operating-systems"><div class="aos_category_explorer_category_container" data-category-name="Operating Systems"><span data-category-name="Operating Systems">Operating Systems<span data-category-name="Operating Systems" class="aos_project_count"> 📦 <!-- -->89</span></span></div></a><a data-category-name="Operations" href="https://awesomeopensource.com/categories/operations"><div class="aos_category_explorer_category_container" data-category-name="Operations"><span data-category-name="Operations">Operations<span data-category-name="Operations" class="aos_project_count"> 📦 <!-- -->121</span></span></div></a><a data-category-name="Package Managers" href="https://awesomeopensource.com/categories/package-managers"><div class="aos_category_explorer_category_container" data-category-name="Package Managers"><span data-category-name="Package Managers">Package Managers<span data-category-name="Package Managers" class="aos_project_count"> 📦 <!-- -->55</span></span></div></a><a data-category-name="Programming Languages" href="https://awesomeopensource.com/categories/programming-languages"><div class="aos_category_explorer_category_container" data-category-name="Programming Languages"><span data-category-name="Programming Languages">Programming Languages<span data-category-name="Programming Languages" class="aos_project_count"> 📦 <!-- -->245</span></span></div></a><a data-category-name="Runtime Environments" href="https://awesomeopensource.com/categories/runtime-environments"><div class="aos_category_explorer_category_container" data-category-name="Runtime Environments"><span data-category-name="Runtime Environments">Runtime Environments<span data-category-name="Runtime Environments" class="aos_project_count"> 📦 <!-- -->100</span></span></div></a><a data-category-name="Science" href="https://awesomeopensource.com/categories/science"><div class="aos_category_explorer_category_container" data-category-name="Science"><span data-category-name="Science">Science<span data-category-name="Science" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Security" href="https://awesomeopensource.com/categories/security"><div class="aos_category_explorer_category_container" data-category-name="Security"><span data-category-name="Security">Security<span data-category-name="Security" class="aos_project_count"> 📦 <!-- -->396</span></span></div></a><a data-category-name="Social Media" href="https://awesomeopensource.com/categories/social-media"><div class="aos_category_explorer_category_container" data-category-name="Social Media"><span data-category-name="Social Media">Social Media<span data-category-name="Social Media" class="aos_project_count"> 📦 <!-- -->27</span></span></div></a><a data-category-name="Software Architecture" href="https://awesomeopensource.com/categories/software-architecture"><div class="aos_category_explorer_category_container" data-category-name="Software Architecture"><span data-category-name="Software Architecture">Software Architecture<span data-category-name="Software Architecture" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Development" href="https://awesomeopensource.com/categories/software-development"><div class="aos_category_explorer_category_container" data-category-name="Software Development"><span data-category-name="Software Development">Software Development<span data-category-name="Software Development" class="aos_project_count"> 📦 <!-- -->72</span></span></div></a><a data-category-name="Software Performance" href="https://awesomeopensource.com/categories/software-performance"><div class="aos_category_explorer_category_container" data-category-name="Software Performance"><span data-category-name="Software Performance">Software Performance<span data-category-name="Software Performance" class="aos_project_count"> 📦 <!-- -->58</span></span></div></a><a data-category-name="Software Quality" href="https://awesomeopensource.com/categories/software-quality"><div class="aos_category_explorer_category_container" data-category-name="Software Quality"><span data-category-name="Software Quality">Software Quality<span data-category-name="Software Quality" class="aos_project_count"> 📦 <!-- -->133</span></span></div></a><a data-category-name="Text Editors" href="https://awesomeopensource.com/categories/text-editors"><div class="aos_category_explorer_category_container" data-category-name="Text Editors"><span data-category-name="Text Editors">Text Editors<span data-category-name="Text Editors" class="aos_project_count"> 📦 <!-- -->49</span></span></div></a><a data-category-name="Text Processing" href="https://awesomeopensource.com/categories/text-processing"><div class="aos_category_explorer_category_container" data-category-name="Text Processing"><span data-category-name="Text Processing">Text Processing<span data-category-name="Text Processing" class="aos_project_count"> 📦 <!-- -->136</span></span></div></a><a data-category-name="User Interface" href="https://awesomeopensource.com/categories/user-interface"><div class="aos_category_explorer_category_container" data-category-name="User Interface"><span data-category-name="User Interface">User Interface<span data-category-name="User Interface" class="aos_project_count"> 📦 <!-- -->330</span></span></div></a><a data-category-name="User Interface Components" href="https://awesomeopensource.com/categories/user-interface-components"><div class="aos_category_explorer_category_container" data-category-name="User Interface Components"><span data-category-name="User Interface Components">User Interface Components<span data-category-name="User Interface Components" class="aos_project_count"> 📦 <!-- -->514</span></span></div></a><a data-category-name="Version Control" href="https://awesomeopensource.com/categories/version-control"><div class="aos_category_explorer_category_container" data-category-name="Version Control"><span data-category-name="Version Control">Version Control<span data-category-name="Version Control" class="aos_project_count"> 📦 <!-- -->30</span></span></div></a><a data-category-name="Virtualization" href="https://awesomeopensource.com/categories/virtualization"><div class="aos_category_explorer_category_container" data-category-name="Virtualization"><span data-category-name="Virtualization">Virtualization<span data-category-name="Virtualization" class="aos_project_count"> 📦 <!-- -->71</span></span></div></a><a data-category-name="Web Browsers" href="https://awesomeopensource.com/categories/web-browsers"><div class="aos_category_explorer_category_container" data-category-name="Web Browsers"><span data-category-name="Web Browsers">Web Browsers<span data-category-name="Web Browsers" class="aos_project_count"> 📦 <!-- -->42</span></span></div></a><a data-category-name="Web Servers" href="https://awesomeopensource.com/categories/web-servers"><div class="aos_category_explorer_category_container" data-category-name="Web Servers"><span data-category-name="Web Servers">Web Servers<span data-category-name="Web Servers" class="aos_project_count"> 📦 <!-- -->26</span></span></div></a><a data-category-name="Web User Interface" href="https://awesomeopensource.com/categories/web-user-interface"><div class="aos_category_explorer_category_container" data-category-name="Web User Interface"><span data-category-name="Web User Interface">Web User Interface<span data-category-name="Web User Interface" class="aos_project_count"> 📦 <!-- -->210</span></span></div></a></div></div><div class="aos_project_metadata_trademark_notice">&quot;<!-- -->Osiris<!-- -->&quot; and other potentially trademarked words, copyrighted images and copyrighted readme contents likely belong to the legal entity who owns the &quot;<a href="https://github.com/danielkrupinski" target="_blank">Danielkrupinski</a>&quot; organization.  Awesome Open Source is not affiliated with the legal entity who owns the &quot;<a href="https://github.com/danielkrupinski" target="_blank">Danielkrupinski</a>&quot; organization.</div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-5cc412c7-e14f-429d-bfe8-901e7ee484f9">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[{"id":null,"name":"cheat","count":40},{"id":null,"name":"counter-strike","count":37},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"cpp","count":1221},{"id":null,"name":"cpp14","count":141},{"id":null,"name":"cpp17","count":200},{"id":null,"name":"csgo","count":58},{"id":null,"name":"dll","count":58},{"id":null,"name":"dll-injection","count":21},{"id":null,"name":"imgui","count":73},{"id":null,"name":"json","count":1116},{"id":null,"name":"linux","count":2265},{"id":null,"name":"reverse-engineering","count":446},{"id":null,"name":"source-engine","count":27},{"id":null,"name":"windows","count":1331}],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/project/danielkrupinski/Osiris","projects":[],"project":{"id":246399,"created_at":"2019-09-15T04:04:44.701Z","updated_at":"2021-01-14T03:25:04.459Z","markdown_readme":"\u003c!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\"\u003e\n\u003chtml\u003e\u003cbody\u003e\n\u003ch1\u003e\n\u003ca id=\"osiris\" class=\"anchor\" href=\"#osiris\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eOsiris\u003c/h1\u003e\n\u003cp\u003e\u003ca href=\"https://en.wikipedia.org/wiki/C%2B%2B\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/badge/language-C%2B%2B-%23f34b7d.svg?style=plastic\" alt=\"C++\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/badge/game-CS%3AGO-yellow.svg?style=plastic\" alt=\"CS:GO\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://en.wikipedia.org/wiki/Microsoft_Windows\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/badge/platform-Windows-0078d7.svg?style=plastic\" alt=\"Windows\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://en.wikipedia.org/wiki/X86\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/badge/arch-x86-red.svg?style=plastic\" alt=\"x86\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/danielkrupinski/Osiris/blob/master/LICENSE\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/github/license/danielkrupinski/Osiris.svg?style=plastic\" alt=\"License\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/danielkrupinski/Osiris/issues\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/github/issues/danielkrupinski/Osiris.svg?style=plastic\" alt=\"Issues\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://paypal.me/DanielK19\" rel=\"nofollow\"\u003e\u003cimg src=\"https://img.shields.io/badge/donate-PayPal-104098.svg?style=plastic\u0026amp;logo=PayPal\" alt=\"PayPal\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003cbr\u003e\u003ca href=\"https://github.com/danielkrupinski/Osiris/workflows/Windows/badge.svg?branch=master\u0026amp;event=push\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://github.com/danielkrupinski/Osiris/workflows/Windows/badge.svg?branch=master\u0026amp;event=push\" alt=\"Windows\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\n\u003ca href=\"https://github.com/danielkrupinski/Osiris/workflows/Linux/badge.svg?branch=master\u0026amp;event=push\" target=\"_blank\" rel=\"nofollow\"\u003e\u003cimg src=\"https://github.com/danielkrupinski/Osiris/workflows/Linux/badge.svg?branch=master\u0026amp;event=push\" alt=\"Linux\" style=\"max-width:100%;\"\u003e\u003c/a\u003e\u003c/p\u003e\n\u003cp\u003eFree open-source cheat software for \u003cstrong\u003eCounter-Strike: Global Offensive\u003c/strong\u003e game. Designed as an internal cheat - \u003ca href=\"https://en.wikipedia.org/wiki/Dynamic-link_library\" rel=\"nofollow\"\u003eDynamic-link library\u003c/a\u003e (DLL) loadable into game process. Compatible with the Steam version of the game.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"features\" class=\"anchor\" href=\"#features\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFeatures\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eAimbot\u003c/strong\u003e - aim assistance\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eTriggerbot\u003c/strong\u003e - automatically fires when crosshair is on enemy\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eBacktrack\u003c/strong\u003e - abuse lag compensation to move players back in time\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eGlow\u003c/strong\u003e - render glow effect on entities\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eChams\u003c/strong\u003e - color player models to improve visibility\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eStream Proof ESP\u003c/strong\u003e - show information about players, dropped weapons and projectiles\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eVisuals\u003c/strong\u003e - miscellaneous visual options\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eSkin changer\u003c/strong\u003e - change weapon skins, knives and stickers\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eSound\u003c/strong\u003e - modify volume of certain sound effects\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eStyle\u003c/strong\u003e - select menu window layout and colors\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eMisc\u003c/strong\u003e - miscellaneous features\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eConfig\u003c/strong\u003e - JSON-based configuration system\u003c/li\u003e\n\u003c/ul\u003e\n\u003cdetails\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eAimbot\u003c/strong\u003e - aim assistance\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eEnabled\u003c/strong\u003e - on / off master switch\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eOn key [ key ]\u003c/strong\u003e - aimbot works only when chosen key is being held\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eAimlock\u003c/strong\u003e - brings your aim to the target (affected by Smooth).\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eSilent\u003c/strong\u003e - aimbot is not visible on your screen (client-sided only)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eFriendly fire\u003c/strong\u003e - treat allies as enemies\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eVisible only\u003c/strong\u003e - aim only on visible players\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eScoped only\u003c/strong\u003e - aimbot works only when using scope (applies only to sniper rifles)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eIgnore flash\u003c/strong\u003e - ignore flashbang i.e. aim when local player is flashed\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eIgnore smoke\u003c/strong\u003e - ignore smoke i.e. aim when target is in smoke\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eAuto shot\u003c/strong\u003e - shoot automatically when target found\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eAuto scope\u003c/strong\u003e - automatically scopes sniper rifle before shooting\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eBone\u003c/strong\u003e - bone which aimbot aims at\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eFov\u003c/strong\u003e - field-of-view which aimbot operates [\u003cem\u003e0\u003c/em\u003e-\u003cem\u003e255\u003c/em\u003e]\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eSmooth\u003c/strong\u003e - smooth aimbot movement in order to seem more human-like\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eMax aim inaccuracy\u003c/strong\u003e - maximum weapon inaccuracy allowing aimbot to run, lowering this value will e.g. disable aimbot while jumping or running\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eTriggerbot\u003c/strong\u003e - automatically fires when crosshair is on enemy\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eEnabled\u003c/strong\u003e - on / off master switch\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eOn key [ key ]\u003c/strong\u003e - triggerbot works only when chosen key is being held\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eFriendly fire\u003c/strong\u003e - treat allies as enemies\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eScoped only\u003c/strong\u003e - triggerbot works only when using scope (applies only to sniper rifles)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eIgnore flash\u003c/strong\u003e - ignore flashbang i.e. shoot when local player is flashed\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eIgnore smoke\u003c/strong\u003e - ignore smoke i.e. shoot when target is in smoke\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eHitgroup\u003c/strong\u003e - body parts on which triggerbot works\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eShot delay\u003c/strong\u003e - delay time in ms (milliseconds)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eMin damage\u003c/strong\u003e - minimal damage to fire.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eBacktrack\u003c/strong\u003e - abuse lag compensation in order to move players back in time\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eEnabled\u003c/strong\u003e - on / off master switch\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eIgnore smoke\u003c/strong\u003e - ignore smoke i.e. backtrack when target is in smoke\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eTime limit\u003c/strong\u003e - limit the backtracking window [\u003cem\u003e1\u003c/em\u003e-\u003cem\u003e200\u003c/em\u003ems]\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eGlow\u003c/strong\u003e - render glow effect on entities\u003c/p\u003e\n\u003cp\u003e\u003cem\u003eAllies, Enemies, Planting (player planting bomb), Defusing (player defusing bomb), Local player, Weapons (dropped weapons), C4, Planted C4, Chickens, Defuse kits, Projectiles, Hostages, Ragdolls\u003c/em\u003e \u003cstrong\u003e/\u003c/strong\u003e \u003cem\u003eAll, Visible, Occluded\u003c/em\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eEnabled\u003c/strong\u003e - on / off master switch\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eHealth based\u003c/strong\u003e - color is based on player's hp\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eColor\u003c/strong\u003e - glow color in rgba format\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eStyle\u003c/strong\u003e - glow style { \u003ccode\u003eDefault\u003c/code\u003e, \u003ccode\u003eRim3d\u003c/code\u003e, \u003ccode\u003eEdge\u003c/code\u003e, \u003ccode\u003eEdge Pulse\u003c/code\u003e }\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eChams\u003c/strong\u003e - color player models to improve visibility\u003c/p\u003e\n\u003cp\u003e\u003cem\u003eAllies, Enemies, Planting (player planting bomb), Defusing (player defusing bomb), Local player, Weapons (dropped weapons), Hands (view model hands), Backtrack (requires backtrack to be enabled), Sleeves (view model)\u003c/em\u003e \u003cstrong\u003e/\u003c/strong\u003e \u003cem\u003eAll, Visible, Occluded\u003c/em\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eEnabled\u003c/strong\u003e - on / off master switch\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eHealth based\u003c/strong\u003e - color is based on player's hp\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eBlinking\u003c/strong\u003e - change transparency frequently\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eMaterial\u003c/strong\u003e - material applied to model { \u003ccode\u003eNormal\u003c/code\u003e, \u003ccode\u003eFlat\u003c/code\u003e, \u003ccode\u003eAnimated\u003c/code\u003e, \u003ccode\u003ePlatinum\u003c/code\u003e, \u003ccode\u003eGlass\u003c/code\u003e, \u003ccode\u003eChrome\u003c/code\u003e, \u003ccode\u003eCrystal\u003c/code\u003e, \u003ccode\u003eSilver\u003c/code\u003e, \u003ccode\u003eGold\u003c/code\u003e, \u003ccode\u003ePlastic\u003c/code\u003e, \u003ccode\u003eGlow\u003c/code\u003e }\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eWireframe\u003c/strong\u003e - render triangle mesh instead of solid material\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eCover\u003c/strong\u003e - draw chams material on top of the original material instead of overriding it\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eIgnore-Z\u003c/strong\u003e - draw material through walls\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eESP\u003c/strong\u003e - show additional information about players and game world\u003c/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cem\u003eAllies, Enemies\u003c/em\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cem\u003eAll, Visible, Occluded\u003c/em\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cem\u003eWeapons\u003c/em\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cem\u003eProjectiles\u003c/em\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cem\u003eFlashbang, HE Grenade, Breach Charge, Bump Mine, Decoy Grenade, Molotov, TA Grenade, Smoke Grenade, Snowball\u003c/em\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cem\u003eDanger Zone\u003c/em\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cem\u003eSentries, Drones, Cash, Cash Dufflebag, Pistol Case, Light Case, Heavy Case, Explosive Case, Tools Case, Full Armor, Armor, Helmet, Parachute, Briefcase, Tablet Upgrade, ExoJump, Ammobox, Radar Jammer\u003c/em\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eEnabled\u003c/strong\u003e - on / off master switch\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eFont\u003c/strong\u003e - esp text font\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eSnaplines\u003c/strong\u003e - draw snapline to player\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eEye traces\u003c/strong\u003e - draw player eye traces (shows where player looks)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eBox\u003c/strong\u003e - draw 2D box over player model\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eName\u003c/strong\u003e - draw player name\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eHealth\u003c/strong\u003e - draw player health\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eHealth bar\u003c/strong\u003e - draw rectangle indicating player health\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eArmor\u003c/strong\u003e - draw player armor\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eArmor bar\u003c/strong\u003e - draw rectangle indicating player armor\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eMoney\u003c/strong\u003e - draw player money\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eHead dot\u003c/strong\u003e - draw dot on player's head\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eActive Weapon\u003c/strong\u003e - draw player equipped weapon\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eVisuals\u003c/strong\u003e - miscellaneous visual options\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eDisable post-processing\u003c/strong\u003e - disable post-processing effects in order to increase FPS\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eInverse ragdoll gravity\u003c/strong\u003e - inverse gravitational acceleration on falling player ragdoll corpse (during death sequence)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eNo fog\u003c/strong\u003e - remove fog from map for better visibility\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eNo 3d sky\u003c/strong\u003e - remove 3d skybox from map - increases FPS\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eNo visual recoil\u003c/strong\u003e - remove visual recoil punch effect\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eNo hands\u003c/strong\u003e - remove arms / hands model from first-person view\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eNo sleeves\u003c/strong\u003e - remove sleeves model from first-person view\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eNo weapons\u003c/strong\u003e - remove weapons model from first-person view\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eNo smoke\u003c/strong\u003e - remove smoke grenade effect\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eNo blur\u003c/strong\u003e - remove blur\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eNo scope overlay\u003c/strong\u003e - remove black overlay while scoping\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eNo grass\u003c/strong\u003e - remove grass from map in Danger Zone mode (\u003ccode\u003edz_blacksite\u003c/code\u003e and \u003ccode\u003edz_sirocco\u003c/code\u003e maps)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eNo shadows\u003c/strong\u003e - disable dynamic shadows\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eWireframe smoke\u003c/strong\u003e - render smoke skeleton instead of particle effect\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eZoom [ key ]\u003c/strong\u003e - enable zoom on unzoomable weapons\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eThirdperson\u003c/strong\u003e - thirdperson view\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eThirdperson distance\u003c/strong\u003e - camera distance in thirdperson view\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eView model FOV\u003c/strong\u003e - change view model FOV [\u003cem\u003e-60\u003c/em\u003e-\u003cem\u003e0\u003c/em\u003e-\u003cem\u003e60\u003c/em\u003e] (0 - actual view model, negative values - decreased view model, positive values - increased view model)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eFOV\u003c/strong\u003e - change view FOV [\u003cem\u003e-60\u003c/em\u003e-\u003cem\u003e0\u003c/em\u003e-\u003cem\u003e60\u003c/em\u003e] (0 - actual view fov, negative values - decreased, positive values - increased)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eFar Z\u003c/strong\u003e - far clipping range, useful after disabling fog on large maps (e.g \u003ccode\u003edz_sirocco\u003c/code\u003e) to render distant buildings\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eFlash reduction\u003c/strong\u003e - reduces flashbang grenade effect [\u003cem\u003e0\u003c/em\u003e-\u003cem\u003e100\u003c/em\u003e%] (0 - full flash, 100 - no flash)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eBrightness\u003c/strong\u003e - control game brightness [\u003cem\u003e0.0\u003c/em\u003e-\u003cem\u003e1.0\u003c/em\u003e]\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eSkybox\u003c/strong\u003e - change sky(box)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eWorld color\u003c/strong\u003e - set world material ambient light color\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eDeagle spinner\u003c/strong\u003e - play \"spinning\" inspect animation when holding Deagle\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eScreen effect\u003c/strong\u003e - screenspace effect - \u003cem\u003eDrone cam, Drone cam with noise, Underwater, Healthboost, Dangerzone\u003c/em\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eHit effect\u003c/strong\u003e - show screen effect on enemy hit\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eHit marker\u003c/strong\u003e - show a cross detail on enemy hit\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eSkin changer\u003c/strong\u003e - change knives, gloves, weapon skins and stickers\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eSound\u003c/strong\u003e - modify volume of certain sound effects\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eChicken volume\u003c/strong\u003e - volume of chicken sounds\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cem\u003eLocal player, Allies, Enemies\u003c/em\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eMaster volume\u003c/strong\u003e - overall volume of sounds emitted by player\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eHeadshot volume\u003c/strong\u003e - volume of headshot sound (when player gets headshoted)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eWeapon volume\u003c/strong\u003e - volume of player weapon shots\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eFootstep volume\u003c/strong\u003e - volume of player footsteps\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eMisc\u003c/strong\u003e - miscellaneous features\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eMenu key [ key ]\u003c/strong\u003e - menu toggle key\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eMenu style\u003c/strong\u003e - menu style toggle (\u003cem\u003eClassic\u003c/em\u003e \u003cstrong\u003e/\u003c/strong\u003e \u003cem\u003eOne window\u003c/em\u003e)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eMenu colors\u003c/strong\u003e - menu color theme (\u003cem\u003eDark \u003cstrong\u003e/\u003c/strong\u003e Light \u003cstrong\u003e/\u003c/strong\u003e Classic\u003c/em\u003e)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eAnti AFK kick\u003c/strong\u003e - avoid auto-kick by server for inactivity\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eAuto strafe\u003c/strong\u003e - automatically strafe in air following mouse movement\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eBunny hop\u003c/strong\u003e - automatically simulate space bar press / release while jump button is being held; increases movement speed\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eClan tag\u003c/strong\u003e - set custom clan tag\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eAnimated clan tag\u003c/strong\u003e - animate clan tag\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFast duck\u003c/strong\u003e - remove crouch delay\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eSniper crosshair\u003c/strong\u003e - draw crosshair while holding sniper rifle\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eRecoil crosshair\u003c/strong\u003e - crosshair follows recoil pattern\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eAuto pistol\u003c/strong\u003e - fire pistols like automatic rifles\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eAuto reload\u003c/strong\u003e - automatically reload if weapon has empty clip\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eAuto accept\u003c/strong\u003e - automatically accept competitive match\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eRadar hack\u003c/strong\u003e - show enemies positions on radar\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eReveal ranks\u003c/strong\u003e - show player ranks in scoreboard in competitive modes\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eReveal money\u003c/strong\u003e - show enemies' money in scoreboard\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eSpectator list\u003c/strong\u003e - show nicknames of players spectating you\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eWatermark\u003c/strong\u003e - show cheat name in the upper-left screen corner and fps \u0026amp; ping in the upper-right corner\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eOffscreen Enemies\u003c/strong\u003e - draw circles on the screen indicating that there are enemies behind us\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFix animation LOD\u003c/strong\u003e - fix aimbot inaccuracy for players behind local player\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFix bone matrix\u003c/strong\u003e - correct client bone matrix to be closer to server one\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eDisable model occlusion\u003c/strong\u003e - draw player models even if they are behind thick walls\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eKill message\u003c/strong\u003e - print message to chat after killing an enemy\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eName stealer\u003c/strong\u003e - mimic other players names\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eCustom clantag\u003c/strong\u003e - set a custom clantag\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFast plant\u003c/strong\u003e - plants bomb on bombsite border, when holding \u003ckbd\u003eLMB\u003c/kbd\u003e or \u003ckbd\u003eE\u003c/kbd\u003e key\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFast Stop\u003c/strong\u003e - stops the player faster than normal\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eQuick reload\u003c/strong\u003e - perform quick weapon switch during reload for faster reload\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003ePrepare revolver [ key ]\u003c/strong\u003e - keep revolver cocked, optionally on key\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFix tablet signal\u003c/strong\u003e - allow use tablet on underground (dangerzone)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eHit Sound\u003c/strong\u003e - sound emitted when hurting enemy\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eChocked packets\u003c/strong\u003e - length of sequence of chocked ticks\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eMax angle delta\u003c/strong\u003e - maximum viewangles change per tick\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eFake Prime\u003c/strong\u003e - set a fake prime (visible in lobby)\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003ePurchase List\u003c/strong\u003e - show the purchased equipment by enemies.\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eReportbot\u003c/strong\u003e - automatically report players on server for cheating or other abusive actions\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eEnabled\u003c/strong\u003e - on / off master switch\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eTarget\u003c/strong\u003e - report target \u003cem\u003eEnemies/Allies/All\u003c/em\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eDelay\u003c/strong\u003e - delay between reports, in seconds\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eAimbot\u003c/strong\u003e - report for aim assistance\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eWallhack\u003c/strong\u003e - report for visual assistance\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eOther\u003c/strong\u003e - report for other assistance\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eGriefing\u003c/strong\u003e - report for griefing\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eAbusive Communications\u003c/strong\u003e - report for abusive communications\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eUnhook\u003c/strong\u003e - unload cheat\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eConfig\u003c/strong\u003e - JSON-based configuration system\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eCreate config\u003c/strong\u003e - create new configuration file\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eReset config\u003c/strong\u003e - restore default configuration settings (does not touch saved configuration)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eLoad selected\u003c/strong\u003e - load selected configuration file\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eSave selected\u003c/strong\u003e - save selected configuration file\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eDelete selected\u003c/strong\u003e - delete selected configuration file\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eReload configs\u003c/strong\u003e - reload configs list\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/details\u003e\n\u003ch2\u003e\n\u003ca id=\"getting-started\" class=\"anchor\" href=\"#getting-started\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eGetting started\u003c/h2\u003e\n\u003ch3\u003e\n\u003ca id=\"prerequisites\" class=\"anchor\" href=\"#prerequisites\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003ePrerequisites\u003c/h3\u003e\n\u003cp\u003eMicrosoft Visual Studio 2019 (preferably the latest version), platform toolset v142 and Windows SDK 10.0.x.x are required in order to compile Osiris. If you don't have ones, you can download VS \u003ca href=\"https://visualstudio.microsoft.com/\" rel=\"nofollow\"\u003ehere\u003c/a\u003e (Windows SDK is installed during Visual Studio Setup).\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"downloading\" class=\"anchor\" href=\"#downloading\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eDownloading\u003c/h3\u003e\n\u003cp\u003eThere are two options of downloading the source code:\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"without-git\" class=\"anchor\" href=\"#without-git\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWithout \u003ca href=\"https://git-scm.com\" rel=\"nofollow\"\u003egit\u003c/a\u003e\n\u003c/h4\u003e\n\u003cp\u003eChoose this option if you want pure source and you're not going to contribute to the repo. Download size ~600 kB.\u003c/p\u003e\n\u003cp\u003eTo download source code this way \u003ca href=\"https://github.com/danielkrupinski/Osiris/archive/master.zip\" rel=\"nofollow\"\u003eclick here\u003c/a\u003e.\u003c/p\u003e\n\u003ch4\u003e\n\u003ca id=\"with-git\" class=\"anchor\" href=\"#with-git\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWith \u003ca href=\"https://git-scm.com\" rel=\"nofollow\"\u003egit\u003c/a\u003e\n\u003c/h4\u003e\n\u003cp\u003eChoose this option if you're going to contribute to the repo or you want to use version control system. Download size ~4 MB. Git is required to step further, if not installed download it \u003ca href=\"https://git-scm.com\" rel=\"nofollow\"\u003ehere\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eOpen git command prompt and enter following command:\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003egit clone --depth=1 https://github.com/danielkrupinski/Osiris.git\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003ccode\u003eOsiris\u003c/code\u003e folder should have been successfully created, containing all the source files.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"compiling-from-source\" class=\"anchor\" href=\"#compiling-from-source\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eCompiling from source\u003c/h3\u003e\n\u003cp\u003eWhen you have equipped a copy of the source code, next step is opening \u003cstrong\u003eOsiris.sln\u003c/strong\u003e in Microsoft Visual Studio 2019.\u003c/p\u003e\n\u003cp\u003eThen change build configuration to \u003ccode\u003eRelease | x86\u003c/code\u003e and simply press \u003cstrong\u003eBuild solution\u003c/strong\u003e.\u003c/p\u003e\n\u003cp\u003eIf everything went right you should receive \u003ccode\u003eOsiris.dll\u003c/code\u003e  binary file.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"loading--injecting-into-game-process\" class=\"anchor\" href=\"#loading--injecting-into-game-process\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLoading / Injecting into game process\u003c/h3\u003e\n\u003cp\u003eOpen your favorite \u003ca href=\"https://en.wikipedia.org/wiki/DLL_injection\" rel=\"nofollow\"\u003eDLL injector\u003c/a\u003e and just inject \u003ccode\u003eOsiris.dll\u003c/code\u003e into \u003ccode\u003ecsgo.exe\u003c/code\u003e process.\u003c/p\u003e\n\u003cp\u003eWhen injected, menu is openable under \u003ccode\u003eINSERT\u003c/code\u003e key.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"further-optimizations\" class=\"anchor\" href=\"#further-optimizations\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFurther optimizations\u003c/h3\u003e\n\u003cp\u003eIf your CPU supports AVX / AVX2 / AVX-512 instruction set, you can enable it in project settings. This should result in more performant code, optimized for your CPU. Currently SSE2 instructions are selected in project settings.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"faq\" class=\"anchor\" href=\"#faq\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eFAQ\u003c/h2\u003e\n\u003ch3\u003e\n\u003ca id=\"how-do-i-open-menu\" class=\"anchor\" href=\"#how-do-i-open-menu\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eHow do I open menu?\u003c/h3\u003e\n\u003cp\u003ePress \u003ckbd\u003eINSERT\u003c/kbd\u003e while focused on CS:GO window.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"where-is-my-config-file-saved\" class=\"anchor\" href=\"#where-is-my-config-file-saved\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWhere is my config file saved?\u003c/h3\u003e\n\u003cp\u003eConfiguration files are saved inside \u003ccode\u003eOsiris\u003c/code\u003e folder in your \u003ccode\u003eDocuments\u003c/code\u003e folder (\u003ccode\u003e%USERPROFILE%\\Documents\\Osiris\u003c/code\u003e). The config is in human readable format and can be edited (e.g, using notepad). Sometimes after updates configuration file needs to be deleted and recreated.\u003c/p\u003e\n\u003ch3\u003e\n\u003ca id=\"what-hooking-methods-osiris-uses\" class=\"anchor\" href=\"#what-hooking-methods-osiris-uses\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eWhat hooking methods Osiris uses?\u003c/h3\u003e\n\u003cp\u003eCurrently implemented hooking methods are:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eMinHook - trampoline hook\u003c/li\u003e\n\u003cli\u003eVmtHook - hook a function directly in a vtable\u003c/li\u003e\n\u003cli\u003eVmtSwap - create a copy of a vtable and swap the pointer on the class instance\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eHooking implementation files are located in \u003ca href=\"https://github.com/danielkrupinski/Osiris/tree/master/Osiris/Hooks\" rel=\"nofollow\"\u003eHooks\u003c/a\u003e directory.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"acknowledgments\" class=\"anchor\" href=\"#acknowledgments\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eAcknowledgments\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/ocornut\" rel=\"nofollow\"\u003eocornut\u003c/a\u003e and \u003ca href=\"https://github.com/ocornut/imgui/graphs/contributors\" rel=\"nofollow\"\u003econtributors\u003c/a\u003e for creating and maintaining an amazing GUI library - \u003ca href=\"https://github.com/ocornut/imgui\" rel=\"nofollow\"\u003eDear imgui\u003c/a\u003e.\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/Zer0Mem0ry\" rel=\"nofollow\"\u003eZer0Mem0ry\u003c/a\u003e - for great tutorials on reverse engineering and game hacking\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003e\n\u003ca id=\"license\" class=\"anchor\" href=\"#license\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eLicense\u003c/h2\u003e\n\u003cblockquote\u003e\n\u003cp\u003eCopyright (c) 2018-2021 Daniel Krupiński\u003c/p\u003e\n\u003c/blockquote\u003e\n\u003cp\u003eThis project is licensed under the \u003ca href=\"https://opensource.org/licenses/mit-license.php\" rel=\"nofollow\"\u003eMIT License\u003c/a\u003e - see the \u003ca href=\"https://github.com/danielkrupinski/Osiris/blob/master/LICENSE\" rel=\"nofollow\"\u003eLICENSE\u003c/a\u003e file for details.\u003c/p\u003e\n\u003ch2\u003e\n\u003ca id=\"see-also\" class=\"anchor\" href=\"#see-also\" aria-hidden=\"true\"\u003e\u003cspan aria-hidden=\"true\" class=\"octicon octicon-link\"\u003e\u003c/span\u003e\u003c/a\u003eSee also\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/danielkrupinski/Anubis\" rel=\"nofollow\"\u003eAnubis\u003c/a\u003e - free and open source cheat for CS:GO with configuration compatible with Osiris\u003c/li\u003e\n\u003cli\u003e\n\u003ca href=\"https://github.com/danielkrupinski/GOESP\" rel=\"nofollow\"\u003eGOESP\u003c/a\u003e - free and open source cross-platform streamproof ESP hack for Counter-Strike: Global Offensive, written in modern C++\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/body\u003e\u003c/html\u003e\n","project_id":150774287,"name":"Osiris","owner_login":"danielkrupinski","description":"Free open-source game cheat for Counter-Strike: Global Offensive, written in modern C++. GUI powered by Dear ImGui.","pushed_at":"2021-01-13T21:07:46.000Z","stargazers_count":1318,"open_issues_count":862,"has_downloads":true,"archived":false,"license_key":"mit","homepage":"","private":false,"project_created_at":"2018-09-28T17:35:52.000Z","project_updated_at":"2021-01-14T02:25:54.000Z","language":"C++","added_language_topic":true},"categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"advertisement":{"variation":"project","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/pt2"},"nonCommercial":false,"nonDerivative":false}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  </body>
+</html>

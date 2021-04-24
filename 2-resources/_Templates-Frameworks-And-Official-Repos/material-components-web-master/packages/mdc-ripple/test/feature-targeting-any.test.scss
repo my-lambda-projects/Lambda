@@ -1,0 +1,24 @@
+@use '../ripple';
+@use '../ripple-theme';
+@use '@material/feature-targeting/feature-targeting';
+
+@mixin test($query) {
+  .test {
+    @include ripple.core-styles($query: $query);
+    @include ripple.common($query: $query);
+    @include ripple.surface($query: $query);
+    @include ripple.target-common($query: $query);
+    @include ripple-theme.states-base-color(red, $query: $query);
+    @include ripple-theme.states-hover-opacity(1, $query: $query);
+    @include ripple-theme.states-focus-opacity(1, $query: $query);
+    @include ripple-theme.states-press-opacity(1, $query: $query);
+    @include ripple-theme.states($query: $query);
+    @include ripple-theme.states-activated(red, $query: $query);
+    @include ripple-theme.states-selected(red, $query: $query);
+    @include ripple.radius-bounded($query: $query);
+    @include ripple.radius-unbounded($query: $query);
+  }
+}
+
+// This shouldn't output any CSS.
+@include test(feature-targeting.any());

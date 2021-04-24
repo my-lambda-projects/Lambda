@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>At their most basic, objects are just collections of <dfn>key-value</dfn> pairs. In other words, they are pieces of data (<dfn>values</dfn>) mapped to unique identifiers called <dfn>properties</dfn> (<dfn>keys</dfn>). Take a look at an example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> tekkenCharacter <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="dt">player</span><span class="op">:</span> <span class="st">&#39;Hwoarang&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="dt">fightingStyle</span><span class="op">:</span> <span class="st">&#39;Tae Kwon Doe&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="dt">human</span><span class="op">:</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="op">};</span></a></code></pre></div>
+<p>The above code defines a Tekken video game character object called <code>tekkenCharacter</code>. It has three properties, each of which map to a specific value. If you want to add an additional property, such as “origin”, it can be done by assigning <code>origin</code> to the object:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">tekkenCharacter</span>.<span class="at">origin</span> <span class="op">=</span> <span class="st">&#39;South Korea&#39;</span><span class="op">;</span></a></code></pre></div>
+<p>This uses dot notation. If you were to observe the <code>tekkenCharacter</code> object, it will now include the <code>origin</code> property. Hwoarang also had distinct orange hair. You can add this property with bracket notation by doing:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">tekkenCharacter[<span class="st">&#39;hair color&#39;</span>] <span class="op">=</span> <span class="st">&#39;dyed orange&#39;</span><span class="op">;</span></a></code></pre></div>
+<p>Bracket notation is required if your property has a space in it or if you want to use a variable to name the property. In the above case, the property is enclosed in quotes to denote it as a string and will be added exactly as shown. Without quotes, it will be evaluated as a variable and the name of the property will be whatever value the variable is. Here’s an example with a variable:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">const</span> eyes <span class="op">=</span> <span class="st">&#39;eye color&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3">tekkenCharacter[eyes] <span class="op">=</span> <span class="st">&#39;brown&#39;</span><span class="op">;</span></a></code></pre></div>
+<p>After adding all the examples, the object will look like this:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="dt">player</span><span class="op">:</span> <span class="st">&#39;Hwoarang&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="dt">fightingStyle</span><span class="op">:</span> <span class="st">&#39;Tae Kwon Doe&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-4" title="4">  <span class="dt">human</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-5" title="5">  <span class="dt">origin</span><span class="op">:</span> <span class="st">&#39;South Korea&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-6" title="6">  <span class="st">&#39;hair color&#39;</span><span class="op">:</span> <span class="st">&#39;dyed orange&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-7" title="7">  <span class="st">&#39;eye color&#39;</span><span class="op">:</span> <span class="st">&#39;brown&#39;</span></a>
+<a class="sourceLine" id="cb5-8" title="8"><span class="op">};</span></a></code></pre></div>
+<h1 id="instructions">–instructions–</h1>
+<p>A <code>foods</code> object has been created with three entries. Using the syntax of your choice, add three more entries to it: <code>bananas</code> with a value of <code>13</code>, <code>grapes</code> with a value of <code>35</code>, and <code>strawberries</code> with a value of <code>27</code>.</p>
+<h1 id="hints">–hints–</h1>
+<p><code>foods</code> should be an object.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="at">assert</span>(<span class="kw">typeof</span> foods <span class="op">===</span> <span class="st">&#39;object&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p>The <code>foods</code> object should have a key <code>bananas</code> with a value of <code>13</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="at">assert</span>(<span class="va">foods</span>.<span class="at">bananas</span> <span class="op">===</span> <span class="dv">13</span>)<span class="op">;</span></a></code></pre></div>
+<p>The <code>foods</code> object should have a key <code>grapes</code> with a value of <code>35</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="at">assert</span>(<span class="va">foods</span>.<span class="at">grapes</span> <span class="op">===</span> <span class="dv">35</span>)<span class="op">;</span></a></code></pre></div>
+<p>The <code>foods</code> object should have a key <code>strawberries</code> with a value of <code>27</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="at">assert</span>(<span class="va">foods</span>.<span class="at">strawberries</span> <span class="op">===</span> <span class="dv">27</span>)<span class="op">;</span></a></code></pre></div>
+<p>The key-value pairs should be set using dot or bracket notation.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb10-2" title="2">  <span class="va">code</span>.<span class="at">search</span>(<span class="ss">/bananas:/</span>) <span class="op">===</span> <span class="dv">-1</span> <span class="op">&amp;&amp;</span></a>
+<a class="sourceLine" id="cb10-3" title="3">    <span class="va">code</span>.<span class="at">search</span>(<span class="ss">/grapes:/</span>) <span class="op">===</span> <span class="dv">-1</span> <span class="op">&amp;&amp;</span></a>
+<a class="sourceLine" id="cb10-4" title="4">    <span class="va">code</span>.<span class="at">search</span>(<span class="ss">/strawberries:/</span>) <span class="op">===</span> <span class="dv">-1</span></a>
+<a class="sourceLine" id="cb10-5" title="5">)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">let</span> foods <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-2" title="2">  <span class="dt">apples</span><span class="op">:</span> <span class="dv">25</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb11-3" title="3">  <span class="dt">oranges</span><span class="op">:</span> <span class="dv">32</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb11-4" title="4">  <span class="dt">plums</span><span class="op">:</span> <span class="dv">28</span></a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="op">};</span></a>
+<a class="sourceLine" id="cb11-6" title="6"></a>
+<a class="sourceLine" id="cb11-7" title="7"><span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb11-8" title="8"></a>
+<a class="sourceLine" id="cb11-9" title="9"><span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb11-10" title="10"></a>
+<a class="sourceLine" id="cb11-11" title="11"><span class="va">console</span>.<span class="at">log</span>(foods)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">let</span> foods <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-2" title="2">  <span class="dt">apples</span><span class="op">:</span> <span class="dv">25</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb12-3" title="3">  <span class="dt">oranges</span><span class="op">:</span> <span class="dv">32</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb12-4" title="4">  <span class="dt">plums</span><span class="op">:</span> <span class="dv">28</span></a>
+<a class="sourceLine" id="cb12-5" title="5"><span class="op">};</span></a>
+<a class="sourceLine" id="cb12-6" title="6"></a>
+<a class="sourceLine" id="cb12-7" title="7">foods[<span class="st">&#39;bananas&#39;</span>] <span class="op">=</span> <span class="dv">13</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb12-8" title="8">foods[<span class="st">&#39;grapes&#39;</span>]  <span class="op">=</span> <span class="dv">35</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb12-9" title="9">foods[<span class="st">&#39;strawberries&#39;</span>] <span class="op">=</span> <span class="dv">27</span><span class="op">;</span></a></code></pre></div>
+</body></html>

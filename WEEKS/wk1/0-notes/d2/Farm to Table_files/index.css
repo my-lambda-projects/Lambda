@@ -1,0 +1,250 @@
+/* Mixins and variables */
+/* General Styles Including Reset */
+/* RESET */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
+}
+/*GENERAL STYLES */
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.8rem;
+  line-height: 1.5;
+  font-family: 'PT Sans', sans-serif;
+  background-color: #FFFAFA;
+  color: #444;
+}
+h1,
+h2,
+h3 {
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 3px;
+}
+h1 {
+  font-size: 4.5rem;
+}
+h2 {
+  font-size: 3rem;
+}
+h3 {
+  font-size: 2.5rem;
+}
+section {
+  padding: 4% 0;
+}
+footer {
+  padding: 2% 0;
+}
+i {
+  font-size: 5.5rem;
+}
+a {
+  color: #444;
+  text-decoration: none;
+}
+a:hover {
+  color: #fcb131;
+}
+/* Homepage */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1%;
+  position: fixed;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  top: 0;
+}
+nav .logo {
+  width: 10%;
+}
+nav .logo a {
+  color: #444;
+}
+nav .links {
+  width: 60%;
+  display: flex;
+  justify-content: space-evenly;
+}
+nav .links a {
+  letter-spacing: 3px;
+  color: #444;
+}
+nav .links a:hover {
+  color: #fcb131;
+}
+header {
+  margin-top: 5.5%;
+  height: 90vh;
+  background-image: url('../images/header.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.titles {
+  width: 40%;
+  text-align: center;
+}
+.hero {
+  background-image: url('../images/dirt.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  height: 40vh;
+}
+#products h2 {
+  text-align: center;
+  margin-bottom: 4%;
+}
+#products .container {
+  display: flex;
+  justify-content: space-evenly;
+}
+#products .container div {
+  width: 20%;
+  text-align: center;
+  padding: 4% 0;
+  border: 3px solid #444;
+  background-color: #fff;
+}
+#products .container div i {
+  margin: 4% 0;
+}
+#about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#about .text {
+  width: 60%;
+  padding: 3%;
+  border: 3px solid #444;
+  background-color: #fff;
+}
+#about .text p {
+  text-align: justify;
+}
+.gallery .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.gallery .container div {
+  width: 40%;
+  height: 40vh;
+  margin: 2% 0;
+  display: flex;
+  align-items: flex-end;
+}
+.gallery .container div .hide {
+  background-color: #fff;
+  height: 10vh;
+  display: none;
+}
+.gallery .container div .hide h2 {
+  margin: 4%;
+}
+.gallery .container div:hover .hide {
+  display: block;
+}
+.gallery .container .farm {
+  background-image: url('../images/barn.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.gallery .container .cook {
+  background-image: url('../images/cook.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.gallery .container .produce {
+  background-image: url('../images/produce.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.gallery .container .animals {
+  background-image: url('../images/sheep.jpg');
+  background-size: cover;
+  background-position: center;
+}
+#contact h2 {
+  text-align: center;
+  margin-bottom: 5%;
+}
+#contact .container {
+  display: flex;
+  justify-content: space-around;
+}
+#contact .container .left,
+#contact .container .right {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 2;
+}
+#contact .container img {
+  width: 75%;
+}
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #fcb131;
+  color: #fff;
+}
+footer a {
+  color: #fff;
+}
+footer a:hover {
+  color: #444;
+}
+footer h3 {
+  text-align: center;
+  margin-bottom: 4%;
+}
+footer div {
+  width: 33%;
+}
+footer div nav {
+  position: static;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #fcb131;
+}
+footer div nav a {
+  margin: 2% 0;
+  color: #fff;
+}
+footer div nav a:hover {
+  color: #444;
+}
+.social {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #fcb131;
+}
+.social a {
+  color: #fff;
+}
+.social a:hover {
+  color: #444;
+}
+.copy {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.copy p {
+  margin: 0 5%;
+}

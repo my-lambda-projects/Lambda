@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>As seen in the previous challenge, <code>const</code> declaration alone doesn’t really protect your data from mutation. To ensure your data doesn’t change, JavaScript provides a function <code>Object.freeze</code> to prevent data mutation.</p>
+<p>Once the object is frozen, you can no longer add, update, or delete properties from it. Any attempt at changing the object will be rejected without an error.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> obj <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="dt">name</span><span class="op">:</span><span class="st">&quot;FreeCodeCamp&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="dt">review</span><span class="op">:</span><span class="st">&quot;Awesome&quot;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="op">};</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="va">Object</span>.<span class="at">freeze</span>(obj)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="va">obj</span>.<span class="at">review</span> <span class="op">=</span> <span class="st">&quot;bad&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="va">obj</span>.<span class="at">newProp</span> <span class="op">=</span> <span class="st">&quot;Test&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="va">console</span>.<span class="at">log</span>(obj)<span class="op">;</span> </a></code></pre></div>
+<p>The <code>obj.review</code> and <code>obj.newProp</code> assignments will result in errors, and the console will display the value <code>{ name: "FreeCodeCamp", review: "Awesome" }</code>.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>In this challenge you are going to use <code>Object.freeze</code> to prevent mathematical constants from changing. You need to freeze the <code>MATH_CONSTANTS</code> object so that no one is able to alter the value of <code>PI</code>, add, or delete properties.</p>
+<h1 id="hints">–hints–</h1>
+<p>You should not replace the <code>const</code> keyword.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1">(getUserInput) <span class="kw">=&gt;</span> <span class="at">assert</span>(<span class="at">getUserInput</span>(<span class="st">&#39;index&#39;</span>).<span class="at">match</span>(<span class="ss">/const/g</span>))<span class="op">;</span></a></code></pre></div>
+<p><code>MATH_CONSTANTS</code> should be a constant variable (by using <code>const</code>).</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">(getUserInput) <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="at">assert</span>(<span class="at">getUserInput</span>(<span class="st">&#39;index&#39;</span>).<span class="at">match</span>(<span class="ss">/const</span><span class="sc">\s+</span><span class="ss">MATH_CONSTANTS/g</span>))<span class="op">;</span></a></code></pre></div>
+<p>You should not change the original declaration of <code>MATH_CONSTANTS</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1">(getUserInput) <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="at">getUserInput</span>(<span class="st">&#39;index&#39;</span>).<span class="at">match</span>(</a>
+<a class="sourceLine" id="cb4-4" title="4">      <span class="ss">/const</span><span class="sc">\s+</span><span class="ss">MATH_CONSTANTS</span><span class="sc">\s+</span><span class="ss">=</span><span class="sc">\s+</span><span class="ss">{</span><span class="sc">\s+</span><span class="ss">PI:</span><span class="sc">\s+</span><span class="ss">3.14</span><span class="sc">\s+</span><span class="ss">};/g</span></a>
+<a class="sourceLine" id="cb4-5" title="5">    )</a>
+<a class="sourceLine" id="cb4-6" title="6">  )<span class="op">;</span></a></code></pre></div>
+<p><code>PI</code> should equal <code>3.14</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">assert</span>(PI <span class="op">===</span> <span class="fl">3.14</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">function</span> <span class="at">freezeObj</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="kw">const</span> MATH_CONSTANTS <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-3" title="3">    <span class="dt">PI</span><span class="op">:</span> <span class="fl">3.14</span></a>
+<a class="sourceLine" id="cb6-4" title="4">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb6-5" title="5">  <span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb6-6" title="6"></a>
+<a class="sourceLine" id="cb6-7" title="7"></a>
+<a class="sourceLine" id="cb6-8" title="8">  <span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb6-9" title="9">  <span class="cf">try</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-10" title="10">    <span class="va">MATH_CONSTANTS</span>.<span class="at">PI</span> <span class="op">=</span> <span class="dv">99</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-11" title="11">  <span class="op">}</span> <span class="cf">catch</span>(ex) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-12" title="12">    <span class="va">console</span>.<span class="at">log</span>(ex)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-13" title="13">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-14" title="14">  <span class="cf">return</span> <span class="va">MATH_CONSTANTS</span>.<span class="at">PI</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-15" title="15"><span class="op">}</span></a>
+<a class="sourceLine" id="cb6-16" title="16"><span class="kw">const</span> PI <span class="op">=</span> <span class="at">freezeObj</span>()<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">function</span> <span class="at">freezeObj</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="kw">const</span> MATH_CONSTANTS <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-3" title="3">    <span class="dt">PI</span><span class="op">:</span> <span class="fl">3.14</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb7-5" title="5">  <span class="va">Object</span>.<span class="at">freeze</span>(MATH_CONSTANTS)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-6" title="6"></a>
+<a class="sourceLine" id="cb7-7" title="7">  <span class="cf">try</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-8" title="8">    <span class="va">MATH_CONSTANTS</span>.<span class="at">PI</span> <span class="op">=</span> <span class="dv">99</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-9" title="9">  <span class="op">}</span> <span class="cf">catch</span>(ex) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-10" title="10">    <span class="va">console</span>.<span class="at">log</span>(ex)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-11" title="11">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-12" title="12">  <span class="cf">return</span> <span class="va">MATH_CONSTANTS</span>.<span class="at">PI</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-13" title="13"><span class="op">}</span></a>
+<a class="sourceLine" id="cb7-14" title="14"><span class="kw">const</span> PI <span class="op">=</span> <span class="at">freezeObj</span>()<span class="op">;</span></a></code></pre></div>
+</body></html>

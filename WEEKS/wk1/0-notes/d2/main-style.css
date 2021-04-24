@@ -1,0 +1,348 @@
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 100;
+  src: url(https://fonts.gstatic.com/s/raleway/v19/1Ptug8zYS_SKggPNyCAIT5lu.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 100;
+  src: url(https://fonts.gstatic.com/s/raleway/v19/1Ptug8zYS_SKggPNyCkIT5lu.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 100;
+  src: url(https://fonts.gstatic.com/s/raleway/v19/1Ptug8zYS_SKggPNyCIIT5lu.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 100;
+  src: url(https://fonts.gstatic.com/s/raleway/v19/1Ptug8zYS_SKggPNyCMIT5lu.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 100;
+  src: url(https://fonts.gstatic.com/s/raleway/v19/1Ptug8zYS_SKggPNyC0ITw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 200;
+  src: url(https://fonts.gstatic.com/s/raleway/v19/1Ptug8zYS_SKggPNyCAIT5lu.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 200;
+  src: url(https://fonts.gstatic.com/s/raleway/v19/1Ptug8zYS_SKggPNyCkIT5lu.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 200;
+  src: url(https://fonts.gstatic.com/s/raleway/v19/1Ptug8zYS_SKggPNyCIIT5lu.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 200;
+  src: url(https://fonts.gstatic.com/s/raleway/v19/1Ptug8zYS_SKggPNyCMIT5lu.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 200;
+  src: url(https://fonts.gstatic.com/s/raleway/v19/1Ptug8zYS_SKggPNyC0ITw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/raleway/v19/1Ptug8zYS_SKggPNyCAIT5lu.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+/* cyrillic */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/raleway/v19/1Ptug8zYS_SKggPNyCkIT5lu.woff2) format('woff2');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+
+/* vietnamese */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/raleway/v19/1Ptug8zYS_SKggPNyCIIT5lu.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/raleway/v19/1Ptug8zYS_SKggPNyCMIT5lu.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/raleway/v19/1Ptug8zYS_SKggPNyC0ITw.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+#out {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-overlay {
+  display: none;
+  background: rgba(26, 26, 26, 0.7);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  top: 0;
+}
+
+.loading-overlay-image-container {
+  display: none;
+  position: fixed;
+  z-index: 7;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loading-overlay-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+@media screen and (max-width: 992px) {
+  .column {
+    width: 50%;
+  }
+}
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+body {
+  zoom: 1.4
+}
+
+#out {
+  border-radius: 700;
+}
+
+figure {
+  border-radius: 700;
+}
+
+.out {
+  padding: 60em;
+  margin: auto;
+
+}
+
+/* Use overscroll-behavior to stop the "bounce" or refresh effect you get on mobile
+  browsers when getting to the top or bottom scroll limits of the page */
+body {
+  overscroll-behavior: auto;
+}
+
+.ignore-css {
+  all: unset;
+}
+
+a {
+
+  text-transform: inherit;
+
+  box-shadow: 0 5px 0 darkred;
+  color: white;
+  padding: 1em 1.em;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+a:hover {
+  background-color: #f5f5f5;
+}
+
+a:active {
+  box-shadow: none;
+  top: 5px;
+}
+
+/* Non-Demo Styles */
+body {
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+
+  justify-content: center;
+  align-items: center;
+  box-align: center;
+  column-count: 2;
+  margin: auto;
+
+}
+
+li {
+  border: 1px solid goldenrod !important;
+  font-size: 20px;
+  letter-spacing: 0px;
+  font-weight: 900;
+  line-height: 14px;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  justify-content: center;
+  padding: 15px 15px;
+  height: 28px;
+  text-align: center;
+  white-space: normal;
+  border-radius: 12px;
+  min-width: 25em;
+  /* padding: 1.2em 1em 0; */
+  box-shadow: 0 0 9px;
+  margin: 0.5em;
+  /* display: grid; */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+body {
+  background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom: 0.85;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa;
+  margin: auto;
+}
+
+.btn {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: transparent;
+  color: #ffffff;
+  padding: 2px 6px 2px 6px;
+  border-radius: 10px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #18047a;
+}
+
+iframe.animate {
+  overflow-y: scroll;
+  border-radius: 2px;
+  min-width: 45em;
+  /* padding: 1.2em 1em 0; */
+  box-shadow: 0 0 9px;
+  margin: 0.5em;
+  /* display: grid; */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+iframe.embed {
+  overflow-y: scroll;
+  padding: 2em;
+  margin: auto;
+  overflow: auto;
+  width: '100%';
+  padding: 24;
+  border-radius: 8;
+  border-color: '#33CC99';
+  border-width: 1;
+  box-shadow: 2.22;
+  background: url(https://i.gifer.com/76YS.gif);
+  border: solid 2px rgb(41, 54, 204);
+  -moz-border-radius: 6px 6px 4px 4px;
+  -webkit-border-radius: 6px 6px 4px 4px;
+  border-radius: 6px 6px 6px 6px;
+}
+
+
+h1,
+h2 {
+  font-weight: 900;
+  margin: 0.4em 0;
+}
+
+h1 {
+  font-size: 3.5em;
+}
+
+h2 {
+  color: #888;
+  font-size: 2em;
+}

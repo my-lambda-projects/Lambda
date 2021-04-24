@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>The <code>Bird</code> and <code>Dog</code> constructors from the last challenge worked well. However, notice that all <code>Birds</code> that are created with the <code>Bird</code> constructor are automatically named Albert, are blue in color, and have two legs. What if you want birds with different values for name and color? It’s possible to change the properties of each bird manually but that would be a lot of work:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> swan <span class="op">=</span> <span class="kw">new</span> <span class="at">Bird</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="va">swan</span>.<span class="at">name</span> <span class="op">=</span> <span class="st">&quot;Carlos&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="va">swan</span>.<span class="at">color</span> <span class="op">=</span> <span class="st">&quot;white&quot;</span><span class="op">;</span></a></code></pre></div>
+<p>Suppose you were writing a program to keep track of hundreds or even thousands of different birds in an aviary. It would take a lot of time to create all the birds, then change the properties to different values for every one. To more easily create different <code>Bird</code> objects, you can design your Bird constructor to accept parameters:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">function</span> <span class="at">Bird</span>(name<span class="op">,</span> color) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="kw">this</span>.<span class="at">name</span> <span class="op">=</span> name<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="kw">this</span>.<span class="at">color</span> <span class="op">=</span> color<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="kw">this</span>.<span class="at">numLegs</span> <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="op">}</span></a></code></pre></div>
+<p>Then pass in the values as arguments to define each unique bird into the <code>Bird</code> constructor: <code>let cardinal = new Bird("Bruce", "red");</code> This gives a new instance of <code>Bird</code> with <code>name</code> and <code>color</code> properties set to <code>Bruce</code> and <code>red</code>, respectively. The <code>numLegs</code> property is still set to 2. The <code>cardinal</code> has these properties:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">cardinal</span>.<span class="at">name</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="va">cardinal</span>.<span class="at">color</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="va">cardinal</span>.<span class="at">numLegs</span></a></code></pre></div>
+<p>The constructor is more flexible. It’s now possible to define the properties for each <code>Bird</code> at the time it is created, which is one way that JavaScript constructors are so useful. They group objects together based on shared characteristics and behavior and define a blueprint that automates their creation.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>Create another <code>Dog</code> constructor. This time, set it up to take the parameters <code>name</code> and <code>color</code>, and have the property <code>numLegs</code> fixed at 4. Then create a new <code>Dog</code> saved in a variable <code>terrier</code>. Pass it two strings as arguments for the <code>name</code> and <code>color</code> properties.</p>
+<h1 id="hints">–hints–</h1>
+<p><code>Dog</code> should receive an argument for <code>name</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(<span class="kw">new</span> <span class="at">Dog</span>(<span class="st">&#39;Clifford&#39;</span>).<span class="at">name</span> <span class="op">===</span> <span class="st">&#39;Clifford&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>Dog</code> should receive an argument for <code>color</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">assert</span>(<span class="kw">new</span> <span class="at">Dog</span>(<span class="st">&#39;Clifford&#39;</span><span class="op">,</span> <span class="st">&#39;yellow&#39;</span>).<span class="at">color</span> <span class="op">===</span> <span class="st">&#39;yellow&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>Dog</code> should have property <code>numLegs</code> set to 4.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="at">assert</span>(<span class="kw">new</span> <span class="at">Dog</span>(<span class="st">&#39;Clifford&#39;</span>).<span class="at">numLegs</span> <span class="op">===</span> <span class="dv">4</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>terrier</code> should be created using the <code>Dog</code> constructor.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="at">assert</span>(terrier <span class="kw">instanceof</span> Dog)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">function</span> <span class="at">Dog</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2"></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="op">}</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">function</span> <span class="at">Dog</span> (name<span class="op">,</span> color) <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="kw">this</span>.<span class="at">numLegs</span> <span class="op">=</span> <span class="dv">4</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-3" title="3">  <span class="kw">this</span>.<span class="at">name</span> <span class="op">=</span> name<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-4" title="4">  <span class="kw">this</span>.<span class="at">color</span> <span class="op">=</span> color<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="op">}</span></a>
+<a class="sourceLine" id="cb9-6" title="6"></a>
+<a class="sourceLine" id="cb9-7" title="7"><span class="kw">const</span> terrier <span class="op">=</span> <span class="kw">new</span> <span class="at">Dog</span>()<span class="op">;</span></a></code></pre></div>
+</body></html>

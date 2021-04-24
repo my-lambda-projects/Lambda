@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="bdd">BDD</h3>
+<pre><code>mocha.setup(&#39;bdd&#39;);
+
+describe(&#39;something&#39;, function() {
+  beforeEach(function() {
+  });
+
+  it(&#39;should work&#39;, function() {
+  });
+});</code></pre>
+<h3 id="async">Async</h3>
+<pre><code>it(&#39;should save&#39;, function(done) {
+  var user = new User();
+  user.save(function(err) {
+    if (err) throw err;
+    done();
+  });
+});</code></pre>
+<h3 id="chai-shoulds">Chai: Shoulds</h3>
+<pre><code>chai.should();
+
+foo.should.be.a(&#39;string&#39;);
+foo.should.equal(&#39;bar&#39;);
+foo.should.have.length(3);
+tea.should.have.property(&#39;flavors&#39;).with.length(3);</code></pre>
+<h3 id="see-also">See also</h3>
+<ul>
+<li><a href="mocha-tdd.html">Mocha TDD</a></li>
+<li><a href="mocha-html.html">Mocha HTML</a></li>
+<li><a href="chai.html">Chai</a></li>
+<li><a href="sinon.html">Sinon</a></li>
+<li><a href="sinon-chai.html">Sinon Chai</a></li>
+</ul>
+</body></html>

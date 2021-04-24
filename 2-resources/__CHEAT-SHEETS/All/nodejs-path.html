@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h3 id="functions">Functions</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> fs <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;fs&#39;</span>)</a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="va">fs</span>.<span class="at">realpath</span>(<span class="st">&#39;/etc/passwd&#39;</span><span class="op">,</span> <span class="kw">function</span> (err<span class="op">,</span> path) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  path <span class="co">// =&gt; &quot;/private/etc/passwd&quot;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="op">}</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> path <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;path&#39;</span>)</a>
+<a class="sourceLine" id="cb2-2" title="2">dir <span class="op">=</span> <span class="va">path</span>.<span class="at">join</span>(<span class="st">&#39;etc&#39;</span><span class="op">,</span> <span class="st">&#39;passwd&#39;</span>)</a>
+<a class="sourceLine" id="cb2-3" title="3">dir <span class="op">=</span> <span class="va">path</span>.<span class="at">resolve</span>(<span class="st">&#39;/etc&#39;</span><span class="op">,</span> <span class="st">&#39;passwd&#39;</span><span class="op">,</span> <span class="st">&#39;..&#39;</span><span class="op">,</span> <span class="st">&#39;var&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">path</span>.<span class="at">dirname</span>(<span class="st">&#39;/etc/passwd&#39;</span>) <span class="co">//      =&gt; &quot;/etc&quot;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="va">path</span>.<span class="at">basename</span>(<span class="st">&#39;/etc/passwd&#39;</span>) <span class="co">//     =&gt; &quot;passwd&quot;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="va">path</span>.<span class="at">basename</span>(<span class="st">&#39;/etc/rc.d&#39;</span><span class="op">,</span> <span class="st">&#39;.d&#39;</span>) <span class="co">// =&gt; &quot;rc&quot;</span></a></code></pre></div>
+<h3 id="references">References</h3>
+<ul>
+<li>https://nodejs.org/api/path.html</li>
+</ul>
+</body></html>

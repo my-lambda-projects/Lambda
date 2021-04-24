@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>ES6 introduces the <dfn>spread operator</dfn>, which allows us to expand arrays and other expressions in places where multiple parameters or elements are expected.</p>
+<p>The ES5 code below uses <code>apply()</code> to compute the maximum value in an array:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">var</span> arr <span class="op">=</span> [<span class="dv">6</span><span class="op">,</span> <span class="dv">89</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">45</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">var</span> maximus <span class="op">=</span> <span class="va">Math</span>.<span class="va">max</span>.<span class="at">apply</span>(<span class="kw">null</span><span class="op">,</span> arr)<span class="op">;</span></a></code></pre></div>
+<p><code>maximus</code> would have a value of <code>89</code>.</p>
+<p>We had to use <code>Math.max.apply(null, arr)</code> because <code>Math.max(arr)</code> returns <code>NaN</code>. <code>Math.max()</code> expects comma-separated arguments, but not an array. The spread operator makes this syntax much better to read and maintain.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> arr <span class="op">=</span> [<span class="dv">6</span><span class="op">,</span> <span class="dv">89</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">45</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">const</span> maximus <span class="op">=</span> <span class="va">Math</span>.<span class="at">max</span>(...<span class="at">arr</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>maximus</code> would have a value of <code>89</code>.</p>
+<p><code>...arr</code> returns an unpacked array. In other words, it <em>spreads</em> the array. However, the spread operator only works in-place, like in an argument to a function or in an array literal. The following code will not work:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">const</span> spreaded <span class="op">=</span> ...<span class="at">arr</span><span class="op">;</span></a></code></pre></div>
+<h1 id="instructions">–instructions–</h1>
+<p>Copy all contents of <code>arr1</code> into another array <code>arr2</code> using the spread operator.</p>
+<h1 id="hints">–hints–</h1>
+<p><code>arr2</code> should be correct copy of <code>arr1</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(<span class="va">arr2</span>.<span class="at">every</span>((v<span class="op">,</span> i) <span class="kw">=&gt;</span> v <span class="op">===</span> arr1[i]) <span class="op">&amp;&amp;</span> <span class="va">arr2</span>.<span class="at">length</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>...</code> spread operator should be used to duplicate <code>arr1</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">assert</span>(<span class="va">code</span>.<span class="at">match</span>(<span class="ss">/Array</span><span class="sc">\(\s*\.\.\.</span><span class="ss">arr1</span><span class="sc">\s*\)|\[\s*\.\.\.</span><span class="ss">arr1</span><span class="sc">\s*\]</span><span class="ss">/</span>))<span class="op">;</span></a></code></pre></div>
+<p><code>arr2</code> should remain unchanged when <code>arr1</code> is changed.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="at">assert</span>((arr1<span class="op">,</span> arr2) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="va">arr1</span>.<span class="at">push</span>(<span class="st">&#39;JUN&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  <span class="cf">return</span> <span class="va">arr2</span>.<span class="at">length</span> <span class="op">&lt;</span> <span class="va">arr1</span>.<span class="at">length</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">const</span> arr1 <span class="op">=</span> [<span class="st">&#39;JAN&#39;</span><span class="op">,</span> <span class="st">&#39;FEB&#39;</span><span class="op">,</span> <span class="st">&#39;MAR&#39;</span><span class="op">,</span> <span class="st">&#39;APR&#39;</span><span class="op">,</span> <span class="st">&#39;MAY&#39;</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="kw">let</span> arr2<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-3" title="3"></a>
+<a class="sourceLine" id="cb7-4" title="4">arr2 <span class="op">=</span> []<span class="op">;</span>  <span class="co">// Change this line</span></a>
+<a class="sourceLine" id="cb7-5" title="5"></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="va">console</span>.<span class="at">log</span>(arr2)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">const</span> arr1 <span class="op">=</span> [<span class="st">&#39;JAN&#39;</span><span class="op">,</span> <span class="st">&#39;FEB&#39;</span><span class="op">,</span> <span class="st">&#39;MAR&#39;</span><span class="op">,</span> <span class="st">&#39;APR&#39;</span><span class="op">,</span> <span class="st">&#39;MAY&#39;</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="kw">let</span> arr2<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-3" title="3"></a>
+<a class="sourceLine" id="cb8-4" title="4">arr2 <span class="op">=</span> [...<span class="at">arr1</span>]<span class="op">;</span></a></code></pre></div>
+</body></html>

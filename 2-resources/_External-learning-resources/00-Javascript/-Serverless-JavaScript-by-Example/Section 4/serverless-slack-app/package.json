@@ -1,0 +1,30 @@
+{
+  "name": "serverless-slack-app",
+  "description": "A Serverless.js Slack App Template",
+  "version": "1.0.0",
+  "author": "John Agan <john@slack-corp.com>",
+  "homepage": "https://github.com/johnagan/serverless-slack-app",
+  "license": "MIT",
+  "keywords": [
+    "slack",
+    "app",
+    "bot",
+    "aws",
+    "lambda",
+    "dynamo",
+    "template",
+    "serverless"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johnagan/serverless-slack-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/johnagan/serverless-slack-app/issues"
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "random-quotes": "^1.3.0",
+    "serverless-slack": "^1.0.25"
+  }
+}

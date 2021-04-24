@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="operators">Operators</h2>
+<h3 id="accessors">Accessors</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> users <span class="kw">WHERE</span> <span class="kw">data</span><span class="op">-&gt;&gt;</span><span class="st">&#39;name&#39;</span> <span class="op">=</span> <span class="st">&#39;John&#39;</span>;</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">SELECT</span> <span class="kw">data</span><span class="op">-&gt;&gt;</span><span class="st">&#39;name&#39;</span> <span class="kw">AS</span> name <span class="kw">FROM</span> users;</a></code></pre></div>
+<p>{: .-setup}</p>
+<table>
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>-&gt;</code> <em>int</em></td>
+<td>Get array element <code>2</code></td>
+<td><code>data-&gt;2</code></td>
+<td>JSON</td>
+</tr>
+<tr class="even">
+<td><code>-&gt;</code> <em>text</em></td>
+<td>Get object key <code>name</code></td>
+<td><code>data-&gt;'name'</code></td>
+<td>JSON</td>
+</tr>
+<tr class="odd">
+<td><code>#&gt;</code> <em>text[]</em></td>
+<td>Get keypath <code>a,b</code> (eg, <code>data.a.b</code>)</td>
+<td><code>data#&gt;'{a,b}'</code></td>
+<td>JSON</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>-&gt;&gt;</code> <em>int</em></td>
+<td>Get array element <code>2</code></td>
+<td><code>data-&gt;&gt;2</code></td>
+<td>Text</td>
+</tr>
+<tr class="even">
+<td><code>-&gt;&gt;</code> <em>text</em></td>
+<td>Get object key <code>name</code></td>
+<td><code>data-&gt;&gt;'name'</code></td>
+<td>Text</td>
+</tr>
+<tr class="odd">
+<td><code>#&gt;&gt;</code> <em>text[]</em></td>
+<td>Get keypath <code>a,b</code> (eg, <code>data.a.b</code>)</td>
+<td><code>data#&gt;&gt;'{a,b}'</code></td>
+<td>Text</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-headers.-shortcuts}</p>
+<p><code>&gt;</code> returns JSON, <code>&gt;&gt;</code> returns text.</p>
+<h3 id="boolean-operators">Boolean operators</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> users <span class="kw">WHERE</span> <span class="kw">data</span><span class="op">-&gt;</span>tags ? <span class="st">&#39;admin&#39;</span>;</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">SELECT</span> <span class="kw">data</span><span class="op">-&gt;</span>tags ? <span class="st">&#39;admin&#39;</span> <span class="kw">AS</span> is_admin <span class="kw">FROM</span> users;</a></code></pre></div>
+<p>{: .-setup}</p>
+<table>
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>?</code> <em>str</em></td>
+<td>Does <code>data</code> have key <code>name</code>?</td>
+<td><code>data ? 'name'</code></td>
+</tr>
+<tr class="even">
+<td><code>?|</code> <em>text[]</em></td>
+<td>Does <code>data</code> have <code>a</code> or <code>b</code>?</td>
+<td><code>data ?| array['a','b']</code></td>
+</tr>
+<tr class="odd">
+<td><code>?&amp;</code> <em>text[]</em></td>
+<td>Does <code>data</code> have <code>a</code> and <code>b</code>?</td>
+<td><code>data ?&amp; array['a','b']</code></td>
+</tr>
+<tr class="even">
+<td><code>@&gt;</code> <em>jsonb</em></td>
+<td>Does <code>left</code> include <code>right</code>?</td>
+<td><code>data @&gt; '{"b":2}'::jsonb</code></td>
+</tr>
+<tr class="odd">
+<td><code>&lt;@</code> <em>jsonb</em></td>
+<td>Does <code>right</code> include <code>left</code>?</td>
+<td><code>data &lt;@ '{"a":1,"b":2}'::jsonb</code></td>
+</tr>
+</tbody>
+</table>
+<p>{: .-headers.-shortcuts.-left-align}</p>
+<p>When <code>?</code>/<code>?|</code>/<code>?&amp;</code> works on objects, it checks keys; when it works on arrays, it checks for elements.</p>
+<h2 id="updating">Updating</h2>
+<h3 id="arrays-and-objects">Arrays and objects</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">UPDATE</span> users <span class="kw">SET</span> tags <span class="op">=</span> tags <span class="op">||</span> <span class="dt">array</span>[<span class="st">&#39;admin&#39;</span>];</a></code></pre></div>
+<p>{: .-setup}</p>
+<table>
+<thead>
+<tr class="header">
+<th>Operator</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>||</code> <em>json</em></td>
+<td><code>data || array['a','b']</code></td>
+<td>Concatenate</td>
+</tr>
+<tr class="even">
+<td><code>-</code> <em>str</em></td>
+<td><code>data - 'a'</code></td>
+<td>Delete a key</td>
+</tr>
+<tr class="odd">
+<td><code>-</code> <em>int</em></td>
+<td><code>data - 1</code></td>
+<td>Delete an array item</td>
+</tr>
+<tr class="even">
+<td><code>#-</code> <em>text[]</em></td>
+<td><code>data #- '{us,name}'</code></td>
+<td>Delete a path</td>
+</tr>
+</tbody>
+</table>
+<p>{: .-headers.-shortcuts}</p>
+<p>Only available in PostgreSQL 9.5+.</p>
+<h3 id="jsonb_set">jsonb_set</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">UPDATE</span> users <span class="kw">SET</span> <span class="kw">data</span> <span class="op">=</span> jsonb_set(<span class="kw">data</span>, <span class="st">&#39;{name}&#39;</span>, <span class="st">&#39;&quot;John&quot;&#39;</span>);</a></code></pre></div>
+<p>Only available in PostgreSQL 9.5+.</p>
+<h2 id="functions">Functions</h2>
+<h4 id="fnjson-json">fn(json) → json</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb5-1" title="1">jsonb_set(<span class="kw">data</span>, <span class="st">&#39;{path}&#39;</span>, <span class="fu">value</span>)</a>
+<a class="sourceLine" id="cb5-2" title="2">jsonb_strip_nulls(<span class="kw">data</span>)</a></code></pre></div>
+<h4 id="fn-json">fn(···) → json</h4>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb6-1" title="1">to_json(<span class="ot">&quot;Hello&quot;</span>:<span class="ch">:text</span>)</a>
+<a class="sourceLine" id="cb6-2" title="2">array_to_json(<span class="st">&#39;{1,2}&#39;</span>:<span class="ch">:int</span>[])</a></code></pre></div>
+<h4 id="iteration">Iteration</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">from</span> json_each(<span class="st">&#39;{&quot;a&quot;:1, &quot;b&quot;:2}&#39;</span>)</a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">from</span> json_each_text(<span class="st">&#39;{&quot;a&quot;:1, &quot;b&quot;:2}&#39;</span>)</a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="co">-- key | value</span></a></code></pre></div>
+<p>This is an incomplete list, there's way too many!</p>
+<p>See: <a href="https://www.postgresql.org/docs/9.5/static/functions-json.html">JSON functions</a></p>
+<h2 id="more-examples">More examples</h2>
+<ul>
+<li><code>'{"a":1}'::jsonb ? 'a'</code></li>
+<li><code>'["a"]'::jsonb ? 'a'</code></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.postgresql.org/docs/9.5/static/functions-json.html" class="uri">https://www.postgresql.org/docs/9.5/static/functions-json.html</a></li>
+<li><a href="https://www.postgresql.org/docs/9.5/static/datatype-json.html" class="uri">https://www.postgresql.org/docs/9.5/static/datatype-json.html</a></li>
+</ul>
+</body></html>

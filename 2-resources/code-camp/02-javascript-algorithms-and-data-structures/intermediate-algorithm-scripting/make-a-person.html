@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>Fill in the object constructor with the following methods below:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="at">getFirstName</span>()</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="at">getLastName</span>()</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="at">getFullName</span>()</a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="at">setFirstName</span>(first)</a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="at">setLastName</span>(last)</a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="at">setFullName</span>(firstAndLast)</a></code></pre></div>
+<p>Run the tests to see the expected output for each method. The methods that take an argument must accept only one argument and it has to be a string. These methods must be the only available means of interacting with the object.</p>
+<h1 id="hints">–hints–</h1>
+<p><code>Object.keys(bob).length</code> should return 6.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">assert</span>.<span class="at">deepEqual</span>(<span class="va">Object</span>.<span class="at">keys</span>(bob).<span class="at">length</span><span class="op">,</span> <span class="dv">6</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>bob instanceof Person</code> should return <code>true</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">assert</span>.<span class="at">deepEqual</span>(bob <span class="kw">instanceof</span> Person<span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>bob.firstName</code> should return <code>undefined</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">assert</span>.<span class="at">deepEqual</span>(<span class="va">bob</span>.<span class="at">firstName</span><span class="op">,</span> <span class="kw">undefined</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>bob.lastName</code> should return <code>undefined</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">assert</span>.<span class="at">deepEqual</span>(<span class="va">bob</span>.<span class="at">lastName</span><span class="op">,</span> <span class="kw">undefined</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>bob.getFirstName()</code> should return the string <code>Bob</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="va">assert</span>.<span class="at">deepEqual</span>(<span class="va">bob</span>.<span class="at">getFirstName</span>()<span class="op">,</span> <span class="st">&#39;Bob&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>bob.getLastName()</code> should return the string <code>Ross</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="va">assert</span>.<span class="at">deepEqual</span>(<span class="va">bob</span>.<span class="at">getLastName</span>()<span class="op">,</span> <span class="st">&#39;Ross&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>bob.getFullName()</code> should return the string <code>Bob Ross</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="va">assert</span>.<span class="at">deepEqual</span>(<span class="va">bob</span>.<span class="at">getFullName</span>()<span class="op">,</span> <span class="st">&#39;Bob Ross&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>bob.getFullName()</code> should return the string <code>Haskell Ross</code> after <code>bob.setFirstName("Haskell")</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="va">assert</span>.<span class="at">strictEqual</span>(</a>
+<a class="sourceLine" id="cb9-2" title="2">  (<span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-3" title="3">    <span class="va">bob</span>.<span class="at">setFirstName</span>(<span class="st">&#39;Haskell&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-4" title="4">    <span class="cf">return</span> <span class="va">bob</span>.<span class="at">getFullName</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-5" title="5">  <span class="op">}</span>)()<span class="op">,</span></a>
+<a class="sourceLine" id="cb9-6" title="6">  <span class="st">&#39;Haskell Ross&#39;</span></a>
+<a class="sourceLine" id="cb9-7" title="7">)<span class="op">;</span></a></code></pre></div>
+<p><code>bob.getFullName()</code> should return the string <code>Haskell Curry</code> after <code>bob.setLastName("Curry")</code>.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="va">assert</span>.<span class="at">strictEqual</span>(</a>
+<a class="sourceLine" id="cb10-2" title="2">  (<span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-3" title="3">    <span class="kw">var</span> _bob <span class="op">=</span> <span class="kw">new</span> <span class="at">Person</span>(<span class="st">&#39;Haskell Ross&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-4" title="4">    <span class="va">_bob</span>.<span class="at">setLastName</span>(<span class="st">&#39;Curry&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-5" title="5">    <span class="cf">return</span> <span class="va">_bob</span>.<span class="at">getFullName</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-6" title="6">  <span class="op">}</span>)()<span class="op">,</span></a>
+<a class="sourceLine" id="cb10-7" title="7">  <span class="st">&#39;Haskell Curry&#39;</span></a>
+<a class="sourceLine" id="cb10-8" title="8">)<span class="op">;</span></a></code></pre></div>
+<p><code>bob.getFullName()</code> should return the string <code>Haskell Curry</code> after <code>bob.setFullName("Haskell Curry")</code>.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="va">assert</span>.<span class="at">strictEqual</span>(</a>
+<a class="sourceLine" id="cb11-2" title="2">  (<span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-3" title="3">    <span class="va">bob</span>.<span class="at">setFullName</span>(<span class="st">&#39;Haskell Curry&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-4" title="4">    <span class="cf">return</span> <span class="va">bob</span>.<span class="at">getFullName</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-5" title="5">  <span class="op">}</span>)()<span class="op">,</span></a>
+<a class="sourceLine" id="cb11-6" title="6">  <span class="st">&#39;Haskell Curry&#39;</span></a>
+<a class="sourceLine" id="cb11-7" title="7">)<span class="op">;</span></a></code></pre></div>
+<p><code>bob.getFirstName()</code> should return the string <code>Haskell</code> after <code>bob.setFullName("Haskell Curry")</code>.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="va">assert</span>.<span class="at">strictEqual</span>(</a>
+<a class="sourceLine" id="cb12-2" title="2">  (<span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-3" title="3">    <span class="va">bob</span>.<span class="at">setFullName</span>(<span class="st">&#39;Haskell Curry&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb12-4" title="4">    <span class="cf">return</span> <span class="va">bob</span>.<span class="at">getFirstName</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb12-5" title="5">  <span class="op">}</span>)()<span class="op">,</span></a>
+<a class="sourceLine" id="cb12-6" title="6">  <span class="st">&#39;Haskell&#39;</span></a>
+<a class="sourceLine" id="cb12-7" title="7">)<span class="op">;</span></a></code></pre></div>
+<p><code>bob.getLastName()</code> should return the string <code>Curry</code> after <code>bob.setFullName("Haskell Curry")</code>.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" title="1"><span class="va">assert</span>.<span class="at">strictEqual</span>(</a>
+<a class="sourceLine" id="cb13-2" title="2">  (<span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-3" title="3">    <span class="va">bob</span>.<span class="at">setFullName</span>(<span class="st">&#39;Haskell Curry&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb13-4" title="4">    <span class="cf">return</span> <span class="va">bob</span>.<span class="at">getLastName</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb13-5" title="5">  <span class="op">}</span>)()<span class="op">,</span></a>
+<a class="sourceLine" id="cb13-6" title="6">  <span class="st">&#39;Curry&#39;</span></a>
+<a class="sourceLine" id="cb13-7" title="7">)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="after-user-code">–after-user-code–</h2>
+<div class="sourceCode" id="cb14"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb14-1" title="1"><span class="cf">if</span>(bob)<span class="op">{</span></a>
+<a class="sourceLine" id="cb14-2" title="2">  bob <span class="op">=</span> <span class="kw">new</span> <span class="at">Person</span>(<span class="st">&quot;Bob Ross&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb14-3" title="3"><span class="op">}</span></a></code></pre></div>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb15"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">var</span> Person <span class="op">=</span> <span class="kw">function</span>(firstAndLast) <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-2" title="2">  <span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb15-3" title="3">  <span class="co">// Complete the method below and implement the others similarly</span></a>
+<a class="sourceLine" id="cb15-4" title="4">  <span class="kw">this</span>.<span class="at">getFullName</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-5" title="5">    <span class="cf">return</span> <span class="st">&quot;&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb15-6" title="6">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb15-7" title="7">  <span class="cf">return</span> firstAndLast<span class="op">;</span></a>
+<a class="sourceLine" id="cb15-8" title="8"><span class="op">};</span></a>
+<a class="sourceLine" id="cb15-9" title="9"></a>
+<a class="sourceLine" id="cb15-10" title="10"><span class="kw">var</span> bob <span class="op">=</span> <span class="kw">new</span> <span class="at">Person</span>(<span class="st">&#39;Bob Ross&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb15-11" title="11"><span class="va">bob</span>.<span class="at">getFullName</span>()<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb16"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">var</span> Person <span class="op">=</span> <span class="kw">function</span>(firstAndLast) <span class="op">{</span></a>
+<a class="sourceLine" id="cb16-2" title="2"></a>
+<a class="sourceLine" id="cb16-3" title="3">  <span class="kw">var</span> firstName<span class="op">,</span> lastName<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-4" title="4"></a>
+<a class="sourceLine" id="cb16-5" title="5">  <span class="kw">function</span> <span class="at">updateName</span>(str) <span class="op">{</span></a>
+<a class="sourceLine" id="cb16-6" title="6">    firstName <span class="op">=</span> <span class="va">str</span>.<span class="at">split</span>(<span class="st">&quot; &quot;</span>)[<span class="dv">0</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-7" title="7">    lastName <span class="op">=</span> <span class="va">str</span>.<span class="at">split</span>(<span class="st">&quot; &quot;</span>)[<span class="dv">1</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-8" title="8">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb16-9" title="9"></a>
+<a class="sourceLine" id="cb16-10" title="10">  <span class="at">updateName</span>(firstAndLast)<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-11" title="11"></a>
+<a class="sourceLine" id="cb16-12" title="12">  <span class="kw">this</span>.<span class="at">getFirstName</span> <span class="op">=</span> <span class="kw">function</span>()<span class="op">{</span></a>
+<a class="sourceLine" id="cb16-13" title="13">    <span class="cf">return</span> firstName<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-14" title="14">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb16-15" title="15"></a>
+<a class="sourceLine" id="cb16-16" title="16">  <span class="kw">this</span>.<span class="at">getLastName</span> <span class="op">=</span> <span class="kw">function</span>()<span class="op">{</span></a>
+<a class="sourceLine" id="cb16-17" title="17">    <span class="cf">return</span> lastName<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-18" title="18">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb16-19" title="19"></a>
+<a class="sourceLine" id="cb16-20" title="20">  <span class="kw">this</span>.<span class="at">getFullName</span> <span class="op">=</span> <span class="kw">function</span>()<span class="op">{</span></a>
+<a class="sourceLine" id="cb16-21" title="21">    <span class="cf">return</span> firstName <span class="op">+</span> <span class="st">&quot; &quot;</span> <span class="op">+</span> lastName<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-22" title="22">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb16-23" title="23"></a>
+<a class="sourceLine" id="cb16-24" title="24">  <span class="kw">this</span>.<span class="at">setFirstName</span> <span class="op">=</span> <span class="kw">function</span>(str)<span class="op">{</span></a>
+<a class="sourceLine" id="cb16-25" title="25">    firstName <span class="op">=</span> str<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-26" title="26">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb16-27" title="27"></a>
+<a class="sourceLine" id="cb16-28" title="28"></a>
+<a class="sourceLine" id="cb16-29" title="29">  <span class="kw">this</span>.<span class="at">setLastName</span> <span class="op">=</span> <span class="kw">function</span>(str)<span class="op">{</span></a>
+<a class="sourceLine" id="cb16-30" title="30">    lastName <span class="op">=</span> str<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-31" title="31">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb16-32" title="32"></a>
+<a class="sourceLine" id="cb16-33" title="33">  <span class="kw">this</span>.<span class="at">setFullName</span> <span class="op">=</span> <span class="kw">function</span>(str)<span class="op">{</span></a>
+<a class="sourceLine" id="cb16-34" title="34">    <span class="at">updateName</span>(str)<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-35" title="35">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb16-36" title="36"><span class="op">};</span></a>
+<a class="sourceLine" id="cb16-37" title="37"></a>
+<a class="sourceLine" id="cb16-38" title="38"><span class="kw">var</span> bob <span class="op">=</span> <span class="kw">new</span> <span class="at">Person</span>(<span class="st">&#39;Bob Ross&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-39" title="39"><span class="va">bob</span>.<span class="at">getFullName</span>()<span class="op">;</span></a></code></pre></div>
+</body></html>

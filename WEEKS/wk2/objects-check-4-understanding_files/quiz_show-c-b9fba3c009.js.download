@@ -1,0 +1,487 @@
+(window["canvasWebpackJsonp"]=window["canvasWebpackJsonp"]||[]).push([[572],{"1Lgu":function(e,s,t){"use strict"
+var n=t("pQTu")
+var i=t("m0r6")
+Object(i["a"])(JSON.parse('{"ar":{"message_sent_9ff3a79d":"تم إرسال الرسالة!","message_students_for_course_name_e55f8077":"مراسلة الطلاب لـ %{course_name}","public_message_students":{"send_message":"إرسال رسالة"},"remove_student_from_recipients_4b206e35":"إزالة %{student} من قائمة المستلمين","send_message_6ccc90e8":"إرسال رسالة","sending_message_8ac5bc90":"جارٍ إرسال رسالة...","sending_message_failed_please_try_again_b53cc904":"فشل إرسال الرسالة، يرجى المحاولة مرة أخرى"},"ca":{"message_sent_9ff3a79d":"Missatge enviat!","message_students_for_course_name_e55f8077":"Envia un missatge als estudiants de %{course_name}","public_message_students":{"send_message":"Envia un missatge"},"remove_student_from_recipients_4b206e35":"Suprimeix %{student} dels destinataris","send_message_6ccc90e8":"Envia un missatge","sending_message_8ac5bc90":"S\'està enviant el missatge...","sending_message_failed_please_try_again_b53cc904":"No s\'ha pogut enviar el missatge, torneu-ho a provar"},"cy":{"message_sent_9ff3a79d":"Mae’r neges wedi’i hanfon!","message_students_for_course_name_e55f8077":"Anfon neges at Fyfyrwyr am %{course_name}","public_message_students":{"send_message":"Anfon Neges"},"remove_student_from_recipients_4b206e35":"Tynnu %{student} o’r rhestr derbynwyr","send_message_6ccc90e8":"Anfon Neges","sending_message_8ac5bc90":"Wrthi’n anfon neges...","sending_message_failed_please_try_again_b53cc904":"Wedi methu anfon neges, rhowch gynnig arall arni"},"da":{"message_sent_9ff3a79d":"Besked sendt!","message_students_for_course_name_e55f8077":"Send besked til studerende for %{course_name}","public_message_students":{"send_message":"Send besked"},"remove_student_from_recipients_4b206e35":"Fjern %{student} fra modtagere","send_message_6ccc90e8":"Send besked","sending_message_8ac5bc90":"Sender besked ...","sending_message_failed_please_try_again_b53cc904":"Afsendelse af besked mislykkedes, prøv igen"},"da-x-k12":{"message_sent_9ff3a79d":"Besked sendt!","message_students_for_course_name_e55f8077":"Send besked til elever for %{course_name}","public_message_students":{"send_message":"Send besked"},"remove_student_from_recipients_4b206e35":"Fjern %{student} fra modtagere","send_message_6ccc90e8":"Send besked","sending_message_8ac5bc90":"Sender besked ...","sending_message_failed_please_try_again_b53cc904":"Afsendelse af besked mislykkedes, prøv igen"},"de":{"message_sent_9ff3a79d":"Nachricht versandt!","message_students_for_course_name_e55f8077":"Studenten benachrichtigen wegen %{course_name}","public_message_students":{"send_message":"Nachricht senden"},"remove_student_from_recipients_4b206e35":"%{student} aus den Empfängern entfernen","send_message_6ccc90e8":"Nachricht senden","sending_message_8ac5bc90":"Nachricht wird gesendet ...","sending_message_failed_please_try_again_b53cc904":"Senden der Nachrichten ist fehlgeschlagen. Bitte erneut versuchen"},"el":{"message_sent_9ff3a79d":"Μήνυμα εστάλη!","message_students_for_course_name_e55f8077":"Αποστολή μηνύματος στους Σπουδαστές για το μάθημα %{course_name}","public_message_students":{"send_message":"Αποστολή Μηνύματος"},"remove_student_from_recipients_4b206e35":"Αφαίρεση του/της %{student} από τους παραλήπτες"},"en-AU":{"message_sent_9ff3a79d":"Message sent!","message_students_for_course_name_e55f8077":"Message students for %{course_name}","public_message_students":{"send_message":"Send Message"},"remove_student_from_recipients_4b206e35":"Remove %{student} from recipients","send_message_6ccc90e8":"Send Message","sending_message_8ac5bc90":"Sending Message...","sending_message_failed_please_try_again_b53cc904":"Sending Message Failed. Please try again."},"en-AU-x-unimelb":{"message_sent_9ff3a79d":"Message sent!","message_students_for_course_name_e55f8077":"Message students for %{course_name}","public_message_students":{"send_message":"Send Message"},"remove_student_from_recipients_4b206e35":"Remove %{student} from recipients","send_message_6ccc90e8":"Send Message","sending_message_8ac5bc90":"Sending Message...","sending_message_failed_please_try_again_b53cc904":"Sending Message Failed. Please try again."},"en-CA":{"message_sent_9ff3a79d":"Message sent!","message_students_for_course_name_e55f8077":"Message Students for %{course_name}","public_message_students":{"send_message":"Send Message"},"remove_student_from_recipients_4b206e35":"Remove %{student} from recipients","send_message_6ccc90e8":"Send Message","sending_message_8ac5bc90":"Sending Message...","sending_message_failed_please_try_again_b53cc904":"Sending Message Failed, please try again"},"en-GB":{"message_sent_9ff3a79d":"Message sent!","message_students_for_course_name_e55f8077":"Message students for %{course_name}","public_message_students":{"send_message":"Send message"},"remove_student_from_recipients_4b206e35":"Remove %{student} from recipients","send_message_6ccc90e8":"Send message","sending_message_8ac5bc90":"Sending message...","sending_message_failed_please_try_again_b53cc904":"Sending message failed. Please try again."},"en-GB-x-lbs":{"message_sent_9ff3a79d":"Message sent!","remove_student_from_recipients_4b206e35":"Remove %{student} from recipients","send_message_6ccc90e8":"Send message","sending_message_8ac5bc90":"Sending message...","sending_message_failed_please_try_again_b53cc904":"Sending message failed. Please try again."},"en-GB-x-ukhe":{"message_sent_9ff3a79d":"Message sent!","message_students_for_course_name_e55f8077":"Message students for %{course_name}","public_message_students":{"send_message":"Send message"},"remove_student_from_recipients_4b206e35":"Remove %{student} from recipients","send_message_6ccc90e8":"Send message","sending_message_8ac5bc90":"Sending message...","sending_message_failed_please_try_again_b53cc904":"Sending message failed. Please try again."},"es":{"message_sent_9ff3a79d":"¡Mensaje enviado!","message_students_for_course_name_e55f8077":"Mensaje a estudiantes para %{course_name}","public_message_students":{"send_message":"Enviar mensaje"},"remove_student_from_recipients_4b206e35":"Eliminar %{student} desde los destinatarios","send_message_6ccc90e8":"Enviar mensaje","sending_message_8ac5bc90":"Enviando mensaje...","sending_message_failed_please_try_again_b53cc904":"La presentación del mensaje ha fallado, inténtelo nuevamente"},"fa":{"message_sent_9ff3a79d":"پیام ارسال شد!","message_students_for_course_name_e55f8077":"ارسال پیام برای دانشجویان درس %{course_name}","public_message_students":{"send_message":"ارسال پیام"},"remove_student_from_recipients_4b206e35":"حذف %{student} از گیرنده ها","send_message_6ccc90e8":"ارسال پیام","sending_message_8ac5bc90":"در حال ارسال پیام...","sending_message_failed_please_try_again_b53cc904":"ارسال پیام انجام نشد، لطفا دوباره سعی کنید"},"fi":{"message_sent_9ff3a79d":"Viesti lähetetty!","message_students_for_course_name_e55f8077":"Lähetä viesti opiskelijoille, jotka%{course_name}","public_message_students":{"send_message":"Lähetä viesti"},"remove_student_from_recipients_4b206e35":"Poista %{student} vastaanottajilta","send_message_6ccc90e8":"Lähetä viesti","sending_message_8ac5bc90":"Lähetetään viestiä...","sending_message_failed_please_try_again_b53cc904":"Viestin lähetys epäonnistui, yritä uudelleen"},"fr":{"message_sent_9ff3a79d":"Message envoyé !","message_students_for_course_name_e55f8077":"Envoyer un message aux étudiants pour %{course_name}","public_message_students":{"send_message":"Envoyer message"},"remove_student_from_recipients_4b206e35":"Supprimer %{student} des destinataires","send_message_6ccc90e8":"Envoyer message","sending_message_8ac5bc90":"Envoi du message...","sending_message_failed_please_try_again_b53cc904":"L’envoi du message a échoué, veuillez réessayer"},"fr-CA":{"message_sent_9ff3a79d":"Message envoyé!","message_students_for_course_name_e55f8077":"Envoyer un message aux étudiants pour le cours %{course_name}","public_message_students":{"send_message":"Envoyer un message"},"remove_student_from_recipients_4b206e35":"Retirer %{student} des destinataires","send_message_6ccc90e8":"Envoyer un message","sending_message_8ac5bc90":"Envoi du message...","sending_message_failed_please_try_again_b53cc904":"L’envoi du message a échoué, veuillez réessayer"},"he":{"message_sent_9ff3a79d":"הודעה נשלחה!","message_students_for_course_name_e55f8077":"הודעה לתלמידי הקורס %{course_name}","public_message_students":{"send_message":"שליחת הודעה"},"remove_student_from_recipients_4b206e35":"הסרת %{student} מרשימת הנמענים","send_message_6ccc90e8":"שליחת הודעה","sending_message_8ac5bc90":"שולח הודעה...","sending_message_failed_please_try_again_b53cc904":"משלוח הודעה נכשל, יש לנסות שוב"},"ht":{"message_sent_9ff3a79d":"Mesaj ale!","message_students_for_course_name_e55f8077":"Voye mesaj bay Elèv pou %{course_name}","public_message_students":{"send_message":"Voye Mesaj"},"remove_student_from_recipients_4b206e35":"Elimine %{student} nan destinatè yo","send_message_6ccc90e8":"Voye Mesaj","sending_message_8ac5bc90":"Voye Mesaj...","sending_message_failed_please_try_again_b53cc904":"Echèk Anvwa mesaj, tanpri eseye ankò"},"hu":{"message_sent_9ff3a79d":"Az üzenet elküldve!","message_students_for_course_name_e55f8077":"Üzenet a következő kurzus hallgatóinak: %{course_name}","public_message_students":{"send_message":"Üzenetküldés"},"remove_student_from_recipients_4b206e35":"%{student} nevű címzett eltávolítása","send_message_6ccc90e8":"Üzenetküldés","sending_message_8ac5bc90":"Üzenet küldése...","sending_message_failed_please_try_again_b53cc904":"Az üzenet küldése sikertelen, kérjük, próbálja újra!"},"hy":{"message_sent_9ff3a79d":"Հաղորդագրությունն ուղարկված է","message_students_for_course_name_e55f8077":"Ուղարկել հաղորդագրություն %{course_name} ունկնդիրներին","public_message_students":{"send_message":"Ուղարկել հաղորդագրություն"},"remove_student_from_recipients_4b206e35":"Ջնջել %{student} -ին ստացողների ցանկից"},"is":{"message_sent_9ff3a79d":"Skilaboð send!","message_students_for_course_name_e55f8077":"Senda nemendum í námskeiðinu %{course_name} skilaboð","public_message_students":{"send_message":"Senda skilaboð"},"remove_student_from_recipients_4b206e35":"Fjarlægja %{student} úr viðtakendum","send_message_6ccc90e8":"Senda skilaboð","sending_message_8ac5bc90":"Sendi skilaboð ...","sending_message_failed_please_try_again_b53cc904":"Ekki tókst að senda skilaboð, reyndu aftur"},"it":{"message_sent_9ff3a79d":"Messaggio inviato.","message_students_for_course_name_e55f8077":"Invia messaggio agli studenti per %{course_name}","public_message_students":{"send_message":"Invia messaggio"},"remove_student_from_recipients_4b206e35":"Rimuovi %{student} dai destinatari","send_message_6ccc90e8":"Invia messaggio","sending_message_8ac5bc90":"Invio messaggio in corso...","sending_message_failed_please_try_again_b53cc904":"Invio messaggio non riuscito. Riprova"},"ja":{"message_sent_9ff3a79d":"メッセージが送信されました!","message_students_for_course_name_e55f8077":"%{course_name}の受講生にメッセージを送る","public_message_students":{"send_message":"メッセージを送信"},"remove_student_from_recipients_4b206e35":"受信者から%{student}を削除する","send_message_6ccc90e8":"メッセージを送信","sending_message_8ac5bc90":"メッセージを送信しています...","sending_message_failed_please_try_again_b53cc904":"メッセージの送信に失敗しました。もう一度やり直してください"},"ko":{"message_students_for_course_name_e55f8077":"%{course_name}의 학생 관리","public_message_students":{"send_message":"메시지 보내기"}},"mi":{"message_sent_9ff3a79d":"Karere kua tukuna!","message_students_for_course_name_e55f8077":"Karere ngā ākonga mō te %{course_name}","public_message_students":{"send_message":"Tukua Karere"},"remove_student_from_recipients_4b206e35":"Tangohia %{student} i ngā kaiwhiwhi","send_message_6ccc90e8":"Tukua Karere","sending_message_8ac5bc90":"Te tuku Karere ...","sending_message_failed_please_try_again_b53cc904":"Te tuku Karere rahua, tēnā ngana anō"},"nb":{"message_sent_9ff3a79d":"Melding sendt!","message_students_for_course_name_e55f8077":"Send beskjed til studenter i %{course_name}","public_message_students":{"send_message":"Send melding"},"remove_student_from_recipients_4b206e35":"Fjerne %{student} fra mottakerlisten","send_message_6ccc90e8":"Send melding","sending_message_8ac5bc90":"Sender melding...","sending_message_failed_please_try_again_b53cc904":"Sending av melding feilet, vennligst prøv igjen"},"nb-x-k12":{"message_sent_9ff3a79d":"Melding sendt!","message_students_for_course_name_e55f8077":"Send beskjed til elever i %{course_name}","public_message_students":{"send_message":"Send melding"},"remove_student_from_recipients_4b206e35":"Fjerne %{student} fra mottakerlisten","send_message_6ccc90e8":"Send melding","sending_message_8ac5bc90":"Sender melding...","sending_message_failed_please_try_again_b53cc904":"Sending av melding feilet, vennligst prøv igjen"},"nl":{"message_sent_9ff3a79d":"Bericht verzonden!","message_students_for_course_name_e55f8077":"Bericht naar cursisten voor %{course_name}","public_message_students":{"send_message":"Bericht versturen"},"remove_student_from_recipients_4b206e35":"%{student} uit geadresseerden verwijderen","send_message_6ccc90e8":"Bericht versturen","sending_message_8ac5bc90":"Bericht aan het versturen...","sending_message_failed_please_try_again_b53cc904":"Inleveren van bericht mislukt, probeer het opnieuw"},"nn":{"message_sent_9ff3a79d":"Meldinga er send","message_students_for_course_name_e55f8077":"Send melding til studentar i %{course_name}","public_message_students":{"send_message":"Send melding"},"remove_student_from_recipients_4b206e35":"Fjern %{student} frå mottakarar","send_message_6ccc90e8":"Send melding","sending_message_8ac5bc90":"Sender melding...","sending_message_failed_please_try_again_b53cc904":"Sending av melding mislukkast, prøv på nytt seinare"},"pl":{"message_sent_9ff3a79d":"Wiadomość wysłana!","message_students_for_course_name_e55f8077":"Wiadomość dla uczestników dot %{course_name}","public_message_students":{"send_message":"Wyślij wiadomość"},"remove_student_from_recipients_4b206e35":"Usuń %{student} z odbiorców","send_message_6ccc90e8":"Wyślij wiadomość","sending_message_8ac5bc90":"Wysyłanie wiadomości...","sending_message_failed_please_try_again_b53cc904":"Wysyłanie wiadomości nie powiodło się, spróbuj ponownie"},"pt":{"message_sent_9ff3a79d":"Mensagem enviada!","message_students_for_course_name_e55f8077":"Mensagem a alunos para %{course_name}","public_message_students":{"send_message":"Enviar Mensagem"},"remove_student_from_recipients_4b206e35":"Remover %{student} dos destinatários","send_message_6ccc90e8":"Enviar Mensagem","sending_message_8ac5bc90":"Enviando mensagem...","sending_message_failed_please_try_again_b53cc904":"Falha no envio da mensagem, tente novamente"},"pt-BR":{"message_sent_9ff3a79d":"Mensagem enviada!","message_students_for_course_name_e55f8077":"Enviar mensagem aos alunos para %{course_name}","public_message_students":{"send_message":"Enviar mensagem"},"remove_student_from_recipients_4b206e35":"Remover %{student} de destinatários","send_message_6ccc90e8":"Enviar mensagem","sending_message_8ac5bc90":"Enviando mensagem...","sending_message_failed_please_try_again_b53cc904":"Falha no envio da mensagem, tente novamente"},"ru":{"message_sent_9ff3a79d":"Сообщение отправлено!","message_students_for_course_name_e55f8077":"Отправить сообщение студентам для %{course_name}","public_message_students":{"send_message":"Отправить сообщение"},"remove_student_from_recipients_4b206e35":"Удалить %{student} из получателей","send_message_6ccc90e8":"Отправить сообщение","sending_message_8ac5bc90":"Отправка сообщения...","sending_message_failed_please_try_again_b53cc904":"Ошибка отправки сообщения, повторите попытку"},"sl":{"message_sent_9ff3a79d":"Sporočilo je poslano.","remove_student_from_recipients_4b206e35":"Odstrani študenta %{student} iz prejemnikov","send_message_6ccc90e8":"Pošlji sporočilo","sending_message_8ac5bc90":"Pošiljanje sporočila ...","sending_message_failed_please_try_again_b53cc904":"Pošiljanje sporočila ni uspelo, poskusite znova."},"sv":{"message_sent_9ff3a79d":"Meddelandet har skickats!","message_students_for_course_name_e55f8077":"Meddela studenter om %{course_name}","public_message_students":{"send_message":"Skicka meddelande"},"remove_student_from_recipients_4b206e35":"Ta bort %{student} från mottagare","send_message_6ccc90e8":"Skicka meddelande","sending_message_8ac5bc90":"Skickar meddelande ...","sending_message_failed_please_try_again_b53cc904":"Meddelandet skickades inte, försök igen"},"sv-x-k12":{"message_sent_9ff3a79d":"Meddelandet har skickats!","message_students_for_course_name_e55f8077":"Meddela elever om %{course_name}","public_message_students":{"send_message":"Skicka meddelande"},"remove_student_from_recipients_4b206e35":"Ta bort %{student} från mottagare","send_message_6ccc90e8":"Skicka meddelande","sending_message_8ac5bc90":"Skickar meddelande ...","sending_message_failed_please_try_again_b53cc904":"Meddelandet skickades inte, försök igen"},"tr":{"message_sent_9ff3a79d":"Mesaj gönderildi!","message_students_for_course_name_e55f8077":"%{course_name} dersi Öğrencilerine Mesaj Gönder","public_message_students":{"send_message":"Mesaj Gönder"},"send_message_6ccc90e8":"Mesaj Gönder","sending_message_8ac5bc90":"Mesajınız Gönderiliyor...","sending_message_failed_please_try_again_b53cc904":"Mesah gönderimi başarısız, lütfen tekrar deneyin"},"uk":{"message_sent_9ff3a79d":"Повідомлення відправлено!","remove_student_from_recipients_4b206e35":"Видалити %{student} зі списку отримувачів","send_message_6ccc90e8":"Відправити повідомлення","sending_message_8ac5bc90":"Надіслати повідомлення...","sending_message_failed_please_try_again_b53cc904":"Не вдалося надіслати повідомлення, спробуйте ще раз"},"zh-Hans":{"message_sent_9ff3a79d":"邮件已发送！","message_students_for_course_name_e55f8077":"给学生发送%{course_name}的消息","public_message_students":{"send_message":"发送消息"},"remove_student_from_recipients_4b206e35":"从收件人中移除 %{student}","send_message_6ccc90e8":"发送消息","sending_message_8ac5bc90":"发送信息...","sending_message_failed_please_try_again_b53cc904":"发送信息失败，请再尝试"},"zh-Hant":{"message_sent_9ff3a79d":"訊息已發送！","message_students_for_course_name_e55f8077":"針對 %{course_name} 通知學生","public_message_students":{"send_message":"發送訊息"},"remove_student_from_recipients_4b206e35":"從收件人中刪除 %{student}","send_message_6ccc90e8":"傳送訊息","sending_message_8ac5bc90":"正在發送郵件...","sending_message_failed_please_try_again_b53cc904":"發送郵件失敗，請再試一次"}}'))
+t("jQeR")
+t("0sPK")
+var a=n["default"].scoped("public_message_students")
+var o=t("ouhR")
+var _=t.n(o)
+var r=t("yE80")
+var c=t("HbFp")
+t("Z+Ib")
+t("YGE8")
+t("p6Wi")
+let d={}
+function u(){const e=m()
+g(0==e.find("#body").val().length||0==e.find(".student:not(.blank):visible").length)}window.messageStudents=function(e){const s=m()
+d=e
+s.find(".message_types").empty()
+for(let t=0,n=e.options.length;t<n;t++){const n=_()("<option/>")
+const i=e.options[t]
+n.val(t).text(i.text)
+s.find(".message_types").append(n)}const t=e.title,n=s.find("ul li.blank:first"),i=s.find("ul"),o={}
+s.find("ul li:not(.blank)").remove()
+const c=e.students.slice()
+c.sort(r["a"].byKey("sortableName"))
+for(let e=0;e<c.length;e++){const s=c[e]
+const t=n.clone(true).removeClass("blank")
+t.find(".name").text(s.name)
+t.find(".score").text(s.score)
+const r=a.t("Remove %{student} from recipients",{student:s.name})
+const d=t.find(".remove-button")
+d.attr("title",r).append(_()("<span class='screenreader-only'></span>").text(r))
+d.click((function(e){e.preventDefault()
+const s=_()(this).closest("li")
+s.hide("fast",u)
+const t=s.nextAll(":visible:first")
+t.length?_()("button",t).focus():_()("#message_assignment_recipients #subject").focus()}))
+t.data("id",s.id)
+t.user_data=s
+i.append(t.show())
+o[s.id]=t}i.show()
+const l=a.t("Message Students for %{course_name}",{course_name:t})
+s.data("students_hash",o),s.find(".asset_title").text(t)
+s.find(".out_of").showIf(null!=e.points_possible)
+s.find(".send_button").text(a.t("send_message","Send Message"))
+s.find(".points_possible").text(a.n(e.points_possible))
+s.find("[name=context_code]").val(e.context_code)
+s.find("textarea").val("")
+s.find("select")[0].selectedIndex=0
+s.find("select").change()
+s.dialog({width:600,modal:true,open:(e,t)=>{s.closest(".ui-dialog").attr("role","dialog").attr("aria-label",l)},close:(e,t)=>{s.closest(".ui-dialog").removeAttr("role").removeAttr("aria-label")}}).dialog("open").dialog("option","title",l).on("dialogclose",e.onClose)}
+_()(document).ready(()=>{const e=m()
+e.find("button").click(e=>{const s=_()(e.target)
+if(s.hasClass("disabled")){e.preventDefault()
+e.stopPropagation()}})
+_()("#message_assignment_recipients").formSubmit({processData(e){const s=[]
+_()(this).find(".student:visible").each((function(){s.push(_()(this).data("id"))}))
+if(0==s.length)return false
+e.recipients=s.join(",")
+return e},beforeSubmit(e){l(true)
+_()(this).find(".send_button").text(a.t("Sending Message..."))},success(e){_.a.flashMessage(a.t("Message sent!"))
+l(false)
+_()(this).find(".send_button").text(a.t("Send Message"))
+_()("#message_students_dialog").dialog("close")},error(e){l(false)
+_()(this).find(".send_button").text(a.t("Sending Message Failed, please try again"))}})
+const s=function(){const s=parseInt(e.find("select").val(),10)||0
+const t=d.options[s]
+const n=e.data("students_hash")
+let i=c["a"].parse(e.find(".cutoff_score").val())
+isNaN(i)&&(i=null)
+const a=Object.values(n)
+let o=[]
+n&&(t&&t.callback?o=t.callback.call(window.messageStudents,i,a):d.callback&&(o=d.callback.call(window.messageStudents,t.text,i,a)))
+d.subjectCallback&&e.find("[name=subject]").val(d.subjectCallback(t.text,i))
+e.find(".cutoff_holder").showIf(t.cutoff)
+e.find(".student_list").toggleClass("show_score",!!(t.cutoff||t.score))
+l(0===o.length)
+const _=new Set(o)
+Object.entries(n).forEach(([e,s])=>{s.showIf(_.has(e))})}
+const t=function(){e.dialog("close")}
+e.find(".cancel_button").click(t)
+e.find("select").change(s).change(u)
+e.find(".cutoff_score").bind("change blur keyup",s).bind("change blur keyup",u)
+e.find("#body").bind("change blur keyup",u)})
+function l(e,s){null==s&&(s=m().find("button"))
+s.toggleClass("disabled",e).attr("aria-disabled",e)}function g(e){l(e,m().find(".send_button"))}function m(){return _()("#message_students_dialog")}s["a"]=messageStudents},"2wuA":function(e,s,t){"use strict"
+var n=t("pQTu")
+var i=t("m0r6")
+Object(i["a"])(JSON.parse('{"ar":{"quizzes":{"rubric":{"loading":"جارٍ التحميل...","titles":{"details":"تفاصيل عنوان المهمة"}}}},"ca":{"quizzes":{"rubric":{"loading":"S\'està carregant...","titles":{"details":"Detalls de la rúbrica de la tasca"}}}},"cy":{"quizzes":{"rubric":{"loading":"Wrthi’n llwytho...","titles":{"details":"Manylion Cyfarwyddyd Sgorio Aseiniad"}}}},"da":{"quizzes":{"rubric":{"loading":"Indlæser ...","titles":{"details":"Opgave rubrik-detaljer"}}}},"da-x-k12":{"quizzes":{"rubric":{"loading":"Indlæser ...","titles":{"details":"Detaljer om vurderingskriterium til opgave"}}}},"de":{"quizzes":{"rubric":{"loading":"Wird geladen ...","titles":{"details":"Bewertungsschemadetails der Aufgabe"}}}},"el":{"quizzes":{"rubric":{"loading":"Φόρτωση...","titles":{"details":"Λεπτομέρειες Ρουμπρίκας Εργασίας"}}}},"en-AU":{"quizzes":{"rubric":{"loading":"Loading...","titles":{"details":"Assignment Rubric Details"}}}},"en-AU-x-unimelb":{"quizzes":{"rubric":{"loading":"Loading...","titles":{"details":"Assignment Rubric Details"}}}},"en-CA":{"quizzes":{"rubric":{"loading":"Loading...","titles":{"details":"Assignment Rubric Details"}}}},"en-GB":{"quizzes":{"rubric":{"loading":"Loading...","titles":{"details":"Assignment rubric details"}}}},"en-GB-x-lbs":{"quizzes":{"rubric":{"loading":"Loading...","titles":{"details":"Task rubric details"}}}},"en-GB-x-ukhe":{"quizzes":{"rubric":{"loading":"Loading...","titles":{"details":"Assignment rubric details"}}}},"es":{"quizzes":{"rubric":{"loading":"Cargando...","titles":{"details":"Detalles de la rúbrica de la tarea"}}}},"fa":{"quizzes":{"rubric":{"loading":"در حال بارگذاری...","titles":{"details":"اطلاعات دستورالعمل ارزیابی تکلیف"}}}},"fi":{"quizzes":{"rubric":{"loading":"Ladataan...","titles":{"details":"Tehtävän arviointitaulukon tiedot"}}}},"fr":{"quizzes":{"rubric":{"loading":"Chargement...","titles":{"details":"Informations du barème des tâches"}}}},"fr-CA":{"quizzes":{"rubric":{"loading":"Chargement...","titles":{"details":"Informations du barème des tâches"}}}},"he":{"quizzes":{"rubric":{"loading":"טוען... ","titles":{"details":"פרטי טור המשימה"}}}},"ht":{"quizzes":{"rubric":{"loading":"Chajman...","titles":{"details":"Detay Sesyon Ribrik"}}}},"hu":{"quizzes":{"rubric":{"loading":"Töltődik...","titles":{"details":"Feladat értékelőtáblájának részletei"}}}},"hy":{"quizzes":{"rubric":{"loading":"Բեռնում է...","titles":{"details":"Հանձնարարության ռուբրիկի մանրամասներ"}}}},"is":{"quizzes":{"rubric":{"loading":"Hleð inn...","titles":{"details":"Upplýsingar um matskvarði verkefnis"}}}},"it":{"quizzes":{"rubric":{"loading":"Caricamento in corso...","titles":{"details":"Dettagli rubrica compito"}}}},"ja":{"quizzes":{"rubric":{"loading":"読み込んでいます...","titles":{"details":"課題の注釈の詳細表示"}}}},"ko":{"quizzes":{"rubric":{"loading":"로드 중...","titles":{"details":"과제 루브릭 세부 정보"}}}},"mi":{"quizzes":{"rubric":{"loading":"E Uta ana ....","titles":{"details":"whakataunga Rubric Taipitopito"}}}},"nb":{"quizzes":{"rubric":{"loading":"Laster...","titles":{"details":"Detaljer om oppgavens vurderingsveiledning"}}}},"nb-x-k12":{"quizzes":{"rubric":{"loading":"Laster...","titles":{"details":"Detaljer om oppgavens vurderingskriterier"}}}},"nl":{"quizzes":{"rubric":{"loading":"Bezig met laden...","titles":{"details":"Details van opdrachtrubriek"}}}},"nn":{"quizzes":{"rubric":{"loading":"Lastar...","titles":{"details":"Detaljar om vurderingsskjemaet"}}}},"pl":{"quizzes":{"rubric":{"loading":"Trwa ładowanie...","titles":{"details":"Informacje szczegółowe dot. kryteriów oceny zadań"}}}},"pt":{"quizzes":{"rubric":{"loading":"Carregando...","titles":{"details":"Detalhe do protocolo da tarefa"}}}},"pt-BR":{"quizzes":{"rubric":{"loading":"Carregando...","titles":{"details":"Detalhe da rubrica da tarefa"}}}},"ru":{"quizzes":{"rubric":{"loading":"Загрузка...","titles":{"details":"Сведения о рубрике задания"}}}},"sl":{"quizzes":{"rubric":{"loading":"Nalaganje ...","titles":{"details":"Podrobnosti o ocenjevalnem vodniku naloge"}}}},"sv":{"quizzes":{"rubric":{"loading":"Laddar ...","titles":{"details":"Detaljer om uppgiftens matris"}}}},"sv-x-k12":{"quizzes":{"rubric":{"loading":"Laddar ...","titles":{"details":"Detaljer om uppgiftens matris"}}}},"tr":{"quizzes":{"rubric":{"loading":"Yükleniyor...","titles":{"details":"Ödev Değerlendirme Listesi Detayları"}}}},"uk":{"quizzes":{"rubric":{"loading":"Завантаження...","titles":{"details":"Вказати подробиці для категорії"}}}},"zh-Hans":{"quizzes":{"rubric":{"loading":"正在加载...","titles":{"details":"作业评分标准详细说明"}}}},"zh-Hant":{"quizzes":{"rubric":{"loading":"正在載入...","titles":{"details":"作業題目詳細資料"}}}}}'))
+t("jQeR")
+t("0sPK")
+var a=n["default"].scoped("quizzes.rubric")
+var o=t("ouhR")
+var _=t.n(o)
+t("YGE8")
+const r={async loadBindings(){await Promise.all([t.e(5),t.e(6),t.e(10),t.e(12),t.e(13),t.e(15),t.e(18),t.e(20),t.e(22),t.e(26),t.e(28),t.e(49),t.e(48),t.e(55),t.e(63),t.e(61),t.e(65),t.e(71),t.e(77),t.e(86),t.e(113),t.e(647)]).then(t.bind(null,"T3Mz"))},async ready(){await this.loadBindings()
+const e=_()("#rubrics.rubric_dialog")
+e.dialog({title:a.t("titles.details","Assignment Rubric Details"),width:600,resizable:true})},buildLoadingDialog(){const e=_()("<div/>")
+e.text(a.t("loading","Loading..."))
+_()("body").append(e)
+e.dialog({width:400,height:200})
+return e},async replaceLoadingDialog(e,s){await this.loadBindings()
+_()("body").append(e)
+s.dialog("close")
+s.remove()
+r.ready()},async createRubricDialog(e,s){const t=_()("#rubrics.rubric_dialog")
+if(t.length)await r.ready()
+else{const t=r.buildLoadingDialog()
+if(void 0===s||null===s){const s=await _.a.get(e)
+await r.replaceLoadingDialog(s,t)}else await r.replaceLoadingDialog(s,t)}}}
+_()(document).ready((function(){_()(".show_rubric_link").click((function(e){e.preventDefault()
+const s=_()(this).attr("rel")
+r.createRubricDialog(s)}))}))},PHBv:function(e,s,t){"use strict"
+t.d(s,"a",(function(){return f}))
+var n=t("VTBJ")
+var i=t("ouhR")
+var a=t.n(i)
+var o=t("GLiE")
+var _=t.n(o)
+var r=t("FIFq")
+var c=t.n(r)
+var d=t("Et5h")
+var u=t("TRyN")
+var l=t("OzZ7")
+var g=t("Lox5")
+var m=t("pQTu")
+var p=t("m0r6")
+Object(p["a"])(JSON.parse('{"ar":{"modelsQuiz":{"assignment_points_possible":{"one":"نقطة واحدة","other":"%{count} نقاط"},"cant_unpublish_when_students_submit":"لا يمكن إلغاء النشر في حالة وجود عمليات إرسال لطالب","question_count":{"one":"سؤال واحد","other":"%{count} من الأسئلة"}},"points_pts_e5596bf7":"%{points} نقاط"},"ca":{"modelsQuiz":{"assignment_points_possible":{"one":"1 punt","other":"%{count} punts"},"cant_unpublish_when_students_submit":"No es pot anul·lar la publicació si hi ha entregues d\'estudiants","question_count":{"one":"1 pregunta","other":"%{count} preguntes"}},"points_pts_e5596bf7":"%{points} punts"},"cy":{"modelsQuiz":{"assignment_points_possible":{"one":"1 pt","other":"%{count} pwynt"},"cant_unpublish_when_students_submit":"Does dim modd dad-gyhoeddi os oes gwaith wedi’i gyflwyno gan fyfyrwyr","question_count":{"one":"1 Cwestiwn","other":"%{count} Cwestiwn"}},"points_pts_e5596bf7":"%{points} pwynt"},"da":{"modelsQuiz":{"assignment_points_possible":{"one":"1 point","other":"%{count} point"},"cant_unpublish_when_students_submit":"Kan ikke annullere offentliggørelsen, hvis der findes afleveringer fra studerende","question_count":{"one":"1 spørgsmål","other":"%{count} spørgsmål"}},"points_pts_e5596bf7":"%{points} point"},"da-x-k12":{"modelsQuiz":{"assignment_points_possible":{"one":"1 point","other":"%{count} point"},"cant_unpublish_when_students_submit":"Kan ikke annullere offentliggørelsen, hvis der findes afleveringer fra elever","question_count":{"one":"1 spørgsmål","other":"%{count} spørgsmål"}},"points_pts_e5596bf7":"%{points} point"},"de":{"modelsQuiz":{"assignment_points_possible":{"one":"1 Pkt.","other":"%{count} Pkte."},"cant_unpublish_when_students_submit":"Veröffentlichung kann nicht rückgängig gemacht werden, wenn es Abgaben von Studenten gibt.","question_count":{"one":"1 Frage","other":"%{count} Fragen"}},"points_pts_e5596bf7":"%{points} Pkte."},"el":{"modelsQuiz":{"cant_unpublish_when_students_submit":"Δεν γίνεται να αναιρεθεί η δημοσίευση αν υπάρχουν υποβολές σπουδαστών"},"points_pts_e5596bf7":"%{points} μόρια"},"en-AU":{"modelsQuiz":{"assignment_points_possible":{"one":"1 pt","other":"%{count} pts"},"cant_unpublish_when_students_submit":"Can\'t unpublish if there are student submissions","question_count":{"one":"1 Question","other":"%{count} Questions"}},"points_pts_e5596bf7":"%{points} pts"},"en-AU-x-unimelb":{"modelsQuiz":{"assignment_points_possible":{"one":"1 pt","other":"%{count} pts"},"cant_unpublish_when_students_submit":"Can\'t unpublish if there are student submissions","question_count":{"one":"1 Question","other":"%{count} Questions"}},"points_pts_e5596bf7":"%{points} pts"},"en-CA":{"modelsQuiz":{"assignment_points_possible":{"one":"1 pt","other":"%{count} pts"},"cant_unpublish_when_students_submit":"Can\'t unpublish if there are student submissions","question_count":{"one":"1 Question","other":"%{count} Questions"}},"points_pts_e5596bf7":"%{points} pts"},"en-GB":{"modelsQuiz":{"assignment_points_possible":{"one":"1 pt","other":"%{count} pts"},"cant_unpublish_when_students_submit":"Can\'t unpublish if there are student submissions","question_count":{"one":"1 Question","other":"%{count} Questions"}},"points_pts_e5596bf7":"%{points} pts"},"en-GB-x-lbs":{"points_pts_e5596bf7":"%{points} pts"},"en-GB-x-ukhe":{"modelsQuiz":{"assignment_points_possible":{"one":"1 pt","other":"%{count} pts"},"cant_unpublish_when_students_submit":"Can\'t unpublish if there are student submissions","question_count":{"one":"1 Question","other":"%{count} Questions"}},"points_pts_e5596bf7":"%{points} pts"},"es":{"modelsQuiz":{"assignment_points_possible":{"one":"1 pto.","other":"%{count} pts"},"cant_unpublish_when_students_submit":"No se puede cancelar la publicación si hay entregas de estudiantes","question_count":{"one":"1 pregunta","other":"%{count} Preguntas"}},"points_pts_e5596bf7":"%{points} ptos."},"fa":{"modelsQuiz":{"assignment_points_possible":{"one":"1 امتیاز","other":"%{count} امتیاز"},"cant_unpublish_when_students_submit":"اگر موردهای ارسالی دانشجو وجود داشته باشد، نمی توان انتشار را لغو کرد","question_count":{"one":"1 پرسش","other":"%{count} پرسش"}},"points_pts_e5596bf7":"%{points} امتیاز"},"fi":{"modelsQuiz":{"assignment_points_possible":{"one":"1 piste","other":"%{count} pistettä"},"cant_unpublish_when_students_submit":"Julkaisua ei voida peruuttaa, jos opiskelijoiden tehtäväpalautuksia on olemassa.","question_count":{"one":"1 kysymys","other":"%{count} kysymystä"}},"points_pts_e5596bf7":"%{points} pistettä"},"fr":{"modelsQuiz":{"assignment_points_possible":{"one":"1 pt","other":"%{count} pts"},"cant_unpublish_when_students_submit":"Impossible de retirer la publication s’il y a des envois d’étudiants","question_count":{"one":"1 question","other":"%{count} questions"}},"points_pts_e5596bf7":"%{points} pts"},"fr-CA":{"modelsQuiz":{"assignment_points_possible":{"one":"1 point","other":"%{count} pts"},"cant_unpublish_when_students_submit":"Ne peut être retiré de la publication si des étudiants ont envois","question_count":{"one":"1 question","other":"%{count} questions"}},"points_pts_e5596bf7":"%{points} pts"},"he":{"modelsQuiz":{"cant_unpublish_when_students_submit":"אין אפשרות לבטל פרסום אם ישנן הגשות תלמידים"},"points_pts_e5596bf7":"%{points} נקודות"},"ht":{"modelsQuiz":{"assignment_points_possible":{"one":"1 pt","other":"%{count} pwen"},"cant_unpublish_when_students_submit":"Ou paka pa pibliye si gen soumisyon elèv","question_count":{"one":"1 Kesyon","other":"%{count} Kesyon"}},"points_pts_e5596bf7":"%{points} pwen"},"hu":{"modelsQuiz":{"assignment_points_possible":{"one":"1 pont","other":"%{count} pont"},"cant_unpublish_when_students_submit":"Nem lehet visszavonni a publikálást, ha vannak a hallgatóknak beadandói","question_count":{"one":"1 kérdés","other":"%{count} kérdés"}},"points_pts_e5596bf7":"%{points} pont"},"hy":{"modelsQuiz":{"cant_unpublish_when_students_submit":"Հնարավոր չէ չեղարկել հրապարակումը, եթե առկա են ունկնդիրների ներկայացրած աշխատանքները:"}},"is":{"modelsQuiz":{"assignment_points_possible":{"one":"1 punktur","other":"%{count} punktar"},"cant_unpublish_when_students_submit":"Ekki hægt að fela ef skil nemenda eru til staðar","question_count":{"one":"1 spurning","other":"%{count} spurningar"}},"points_pts_e5596bf7":"%{points} punktar"},"it":{"modelsQuiz":{"assignment_points_possible":{"one":"1 pt","other":"%{count} pt."},"cant_unpublish_when_students_submit":"Impossibile annullare la pubblicazione se ci sono consegne degli studenti","question_count":{"one":"1 domanda","other":"%{count} domande"}},"points_pts_e5596bf7":"%{points} pt."},"ja":{"modelsQuiz":{"assignment_points_possible":{"one":"%{count} 点","other":"%{count} 点"},"cant_unpublish_when_students_submit":"受講生の提出物がある場合は、未公開にできません","question_count":{"one":"%{count}の質問","other":"%{count}の質問"}},"points_pts_e5596bf7":"%{points} 点"},"ko":{"modelsQuiz":{"cant_unpublish_when_students_submit":"확생 제출물이 있으면 게시를 취소할 수 없음"}},"mi":{"modelsQuiz":{"assignment_points_possible":{"one":"1 koinga","other":"%{count} ngā koinga"},"cant_unpublish_when_students_submit":"Kāore e taea te tāngia ki te reira e tāpaetanga ākonga","question_count":{"one":"1 Pātai","other":"%{count} Pātai"}},"points_pts_e5596bf7":"%{points} ngā koinga"},"nb":{"modelsQuiz":{"assignment_points_possible":{"one":"1 poeng","other":"%{count} poeng"},"cant_unpublish_when_students_submit":"Kan ikke avpublisere om det er student innleveringer","question_count":{"one":"1 spørsmål","other":"%{count} Spørsmål"}},"points_pts_e5596bf7":"%{points} poeng"},"nb-x-k12":{"modelsQuiz":{"assignment_points_possible":{"one":"1 poeng","other":"%{count} poeng"},"cant_unpublish_when_students_submit":"Kan ikke avpublisere om det er elevinnleveringer","question_count":{"one":"1 spørsmål","other":"%{count} Spørsmål"}},"points_pts_e5596bf7":"%{points} poeng"},"nl":{"modelsQuiz":{"assignment_points_possible":{"one":"1 pt","other":"%{count} punten"},"cant_unpublish_when_students_submit":"Kan publicatie niet ongedaan maken als er inzendingen van cursisten zijn","question_count":{"one":"1 vraag","other":"%{count} vragen"}},"points_pts_e5596bf7":"%{points} punten"},"nn":{"modelsQuiz":{"assignment_points_possible":{"one":"1 poeng","other":"%{count} poeng"},"cant_unpublish_when_students_submit":"Kan ikkje fjerne publisering dersom det finst studentinnleveringar","question_count":{"one":"1 spørsmål","other":"%{count} spørsmål"}},"points_pts_e5596bf7":"%{points} poeng"},"pl":{"modelsQuiz":{"assignment_points_possible":{"one":"1 pkt","other":"%{count} pkt"},"cant_unpublish_when_students_submit":"Nie można cofnąć publikowania, jeśli znajdują się przesłane zadania uczestnika","question_count":{"one":"1 pytanie","other":"Pytania: %{count}"}},"points_pts_e5596bf7":"%{points} pkt"},"pt":{"modelsQuiz":{"assignment_points_possible":{"one":"1 pt","other":"%{count} pts"},"cant_unpublish_when_students_submit":"Não é possível publicar se existirem envios de alunos","question_count":{"one":"1 Pergunta","other":"%{count} Perguntas"}},"points_pts_e5596bf7":"%{points} pts"},"pt-BR":{"modelsQuiz":{"assignment_points_possible":{"one":"1 pt","other":"%{count} pts"},"cant_unpublish_when_students_submit":"Não é possível remover publicação se houver envios dos alunos","question_count":{"one":"1 pergunta","other":"%{count} perguntas"}},"points_pts_e5596bf7":"%{points} pts"},"ru":{"modelsQuiz":{"assignment_points_possible":{"one":"1 балл","other":"%{count} баллов"},"cant_unpublish_when_students_submit":"Невозможно отменить публикацию, если есть отправленные студентами задания","question_count":{"one":"1 вопрос","other":"%{count} вопросов"}},"points_pts_e5596bf7":"%{points} баллов"},"sl":{"points_pts_e5596bf7":"%{points} točk"},"sv":{"modelsQuiz":{"assignment_points_possible":{"one":"1 p","other":"%{count} poäng"},"cant_unpublish_when_students_submit":"Det går inte att avpublicera om det finns studentinlämningar","question_count":{"one":"1 fråga","other":"%{count} frågor"}},"points_pts_e5596bf7":"%{points} poäng"},"sv-x-k12":{"modelsQuiz":{"assignment_points_possible":{"one":"1 p","other":"%{count} poäng"},"cant_unpublish_when_students_submit":"Det går inte att avpublicera om det finns elevinlämningar","question_count":{"one":"1 fråga","other":"%{count} frågor"}},"points_pts_e5596bf7":"%{points} poäng"},"tr":{"modelsQuiz":{"assignment_points_possible":{"one":"1 puan","other":"%{count} puan"},"cant_unpublish_when_students_submit":"Öğrenci gönderileri varsa yayından kaldırılamaz"},"points_pts_e5596bf7":"%{points} puan"},"uk":{"points_pts_e5596bf7":"%{points} балів"},"zh-Hans":{"modelsQuiz":{"assignment_points_possible":{"one":"%{count} 分","other":"%{count} 分"},"cant_unpublish_when_students_submit":"如有学生提交文件，则无法取消发布","question_count":{"one":"%{count} 个问题","other":"%{count} 个问题"}},"points_pts_e5596bf7":"%{points} 分"},"zh-Hant":{"modelsQuiz":{"assignment_points_possible":{"one":"%{count} 分","other":"%{count} 分"},"cant_unpublish_when_students_submit":"如有學生提交項目，則無法取消發佈","question_count":{"one":"%{count} 個問題","other":"%{count} 個問題"}},"points_pts_e5596bf7":"%{points} 分"}}'))
+t("jQeR")
+t("0sPK")
+var b=m["default"].scoped("modelsQuiz")
+t("jYyc")
+t("JI1W")
+var h=t("oNm9")
+class f extends c.a.Model{initialize(){this.publish=this.publish.bind(this)
+this.unpublish=this.unpublish.bind(this)
+this.dueAt=this.dueAt.bind(this)
+this.unlockAt=this.unlockAt.bind(this)
+this.lockAt=this.lockAt.bind(this)
+this.name=this.name.bind(this)
+this.htmlUrl=this.htmlUrl.bind(this)
+this.defaultDates=this.defaultDates.bind(this)
+this.multipleDueDates=this.multipleDueDates.bind(this)
+this.nonBaseDates=this.nonBaseDates.bind(this)
+this.allDates=this.allDates.bind(this)
+this.singleSectionDueDate=this.singleSectionDueDate.bind(this)
+this.postToSIS=this.postToSIS.bind(this)
+this.postToSISName=this.postToSISName.bind(this)
+this.sisIntegrationSettingsEnabled=this.sisIntegrationSettingsEnabled.bind(this)
+this.maxNameLength=this.maxNameLength.bind(this)
+this.maxNameLengthRequiredForAccount=this.maxNameLengthRequiredForAccount.bind(this)
+this.dueDateRequiredForAccount=this.dueDateRequiredForAccount.bind(this)
+this.toView=this.toView.bind(this)
+this.postToSISEnabled=this.postToSISEnabled.bind(this)
+this.objectType=this.objectType.bind(this)
+this.isDuplicating=this.isDuplicating.bind(this)
+this.isMigrating=this.isMigrating.bind(this)
+super.initialize(...arguments)
+this.initId()
+this.initAssignment()
+this.initAssignmentOverrides()
+this.initUrls()
+this.initTitleLabel()
+this.initUnpublishable()
+this.initQuestionsCount()
+this.initPointsCount()
+return this.initAllDates()}initId(){this.id=this.isQuizzesNext()?"assignment_"+this.get("id"):this.get("id")}initAssignment(){this.attributes.assignment&&this.set("assignment",new d["a"](this.attributes.assignment))
+return this.set("post_to_sis_enabled",this.postToSISEnabled())}initAssignmentOverrides(){if(this.attributes.assignment_overrides){const e=new l["a"](this.attributes.assignment_overrides)
+return this.set("assignment_overrides",e,{silent:true})}}initUrls(){if(this.get("html_url")){this.set("base_url",this.get("html_url").replace(/(quizzes|assignments)\/\d+/,"$1"))
+this.set("url",this.url())
+this.set("edit_url",this.edit_url())
+this.set("publish_url",this.publish_url())
+this.set("deletion_url",this.deletion_url())
+this.set("unpublish_url",this.unpublish_url())}}initTitleLabel(){return this.set("title_label",this.get("title")||this.get("readable_type"))}initUnpublishable(){if(false===this.get("can_unpublish")&&this.get("published"))return this.set("unpublishable",false)}initQuestionsCount(){const e=this.get("question_count")
+e&&this.set("question_count_label",b.t("question_count","Question",{count:e}))}initPointsCount(){const e=this.get("points_possible")
+let s=""
+e&&e>0&&!this.isUngradedSurvey()&&(s=Number.isInteger(e)?b.t("assignment_points_possible","pt",{count:e}):b.t("%{points} pts",{points:b.n(e)}))
+return this.set("possible_points_label",s)}isQuizzesNext(){return"quizzes.next"===this.get("quiz_type")}isUngradedSurvey(){return"survey"===this.get("quiz_type")}publish_url(){if(this.isQuizzesNext())return this.get("base_url")+"/publish/quiz"
+return this.get("base_url")+"/publish"}unpublish_url(){if(this.isQuizzesNext())return this.get("base_url")+"/unpublish/quiz"
+return this.get("base_url")+"/unpublish"}url(){var e,s
+if(this.isQuizzesNext()&&null!==(e=ENV.PERMISSIONS)&&void 0!==e&&e.manage&&null!==(s=ENV.FLAGS)&&void 0!==s&&s.new_quizzes_modules_support)return this.edit_url()
+return`${this.get("base_url")}/${this.get("id")}`}edit_url(){const e=this.isQuizzesNext()?"?quiz_lti":""
+return`${this.get("base_url")}/${this.get("id")}/edit${e}`}deletion_url(){if(this.isQuizzesNext())return`${this.get("base_url")}/${this.get("id")}`
+return this.get("url")}initAllDates(){let e
+if(null!=(e=this.get("all_dates")))return this.set("all_dates",new g["a"](e))}publish(){this.set("published",true)
+return a.a.ajaxJSON(this.get("publish_url"),"POST",{quizzes:[this.get("id")]})}unpublish(){this.set("published",false)
+return a.a.ajaxJSON(this.get("unpublish_url"),"POST",{quizzes:[this.get("id")]})}disabledMessage(){return b.t("cant_unpublish_when_students_submit","Can't unpublish if there are student submissions")}dueAt(e){if(!(arguments.length>0))return this.get("due_at")
+return this.set("due_at",e)}unlockAt(e){if(!(arguments.length>0))return this.get("unlock_at")
+return this.set("unlock_at",e)}lockAt(e){if(!(arguments.length>0))return this.get("lock_at")
+return this.set("lock_at",e)}isDuplicating(){return"duplicating"===this.get("workflow_state")}isMigrating(){return"migrating"===this.get("workflow_state")}name(e){if(!(arguments.length>0))return this.get("title")
+return this.set("title",e)}htmlUrl(){return this.get("url")}destroy(e){const s=Object(n["a"])({url:this.get("deletion_url")},e)
+c.a.Model.prototype.destroy.call(this,s)}defaultDates(){return new u["a"]({due_at:this.get("due_at"),unlock_at:this.get("unlock_at"),lock_at:this.get("lock_at")})}duplicate(e){const s=this.get("course_id")
+const t=this.get("id")
+return a.a.ajaxJSON(`/api/v1/courses/${s}/assignments/${t}/duplicate`,"POST",{quizzes:[t],result_type:"Quiz"},e)}duplicate_failed(e){const s=this.get("course_id")
+const t=this.get("id")
+const n=this.get("original_course_id")
+const i=this.get("original_assignment_id")
+let o="?target_assignment_id="+t
+n!==s&&(o+="&target_course_id="+s)
+a.a.ajaxJSON(`/api/v1/courses/${n}/assignments/${i}/duplicate${o}`,"POST",{},e)}retry_migration(e){const s=this.get("course_id")
+const t=this.get("original_quiz_id")
+a.a.ajaxJSON(`/api/v1/courses/${s}/content_exports?export_type=quizzes2&quiz_id=${t}&include[]=migrated_quiz`,"POST",{},e)}pollUntilFinishedLoading(e){this.isDuplicating()&&this.pollUntilFinished(e,this.isDuplicating)
+this.isMigrating()&&this.pollUntilFinished(e,this.isMigrating)}pollUntilFinished(e,s){const t=this.get("course_id")
+const n=this.get("id")
+const i=new h["a"](e,5*e,e=>{this.fetch({url:`/api/v1/courses/${t}/assignments/${n}?result_type=Quiz`}).always(()=>{e()
+if(!s())return i.stop()})})
+i.start()}multipleDueDates(){const e=this.get("all_dates")
+return e&&e.length>1}nonBaseDates(){const e=this.get("all_dates")
+if(!e)return false
+const s=_.a.filter(e,e=>e&&!e.get("base"))
+return s.length>0}allDates(){const e=this.get("all_dates")
+const s=e&&e.models||[]
+return _.a.map(s,e=>e.toJSON())}singleSectionDueDate(){return v(_.a.find(this.allDates(),"dueAt"),e=>e.dueAt.toISOString())||this.dueAt()}isOnlyVisibleToOverrides(e){if(!(arguments.length>0))return this.get("only_visible_to_overrides")||false
+return this.set("only_visible_to_overrides",e)}postToSIS(e){if(!(arguments.length>0))return this.get("post_to_sis")
+return this.set("post_to_sis",e)}postToSISName(){return ENV.SIS_NAME}sisIntegrationSettingsEnabled(){return ENV.SIS_INTEGRATION_SETTINGS_ENABLED}maxNameLength(){return ENV.MAX_NAME_LENGTH}maxNameLengthRequiredForAccount(){return ENV.MAX_NAME_LENGTH_REQUIRED_FOR_ACCOUNT}dueDateRequiredForAccount(){return ENV.DUE_DATE_REQUIRED_FOR_ACCOUNT}toView(){const e=["htmlUrl","multipleDueDates","nonBaseDates","allDates","dueAt","lockAt","unlockAt","singleSectionDueDate"]
+const s={id:this.get("id")}
+for(const t of e)s[t]=this[t]()
+return s}postToSISEnabled(){return ENV.FLAGS&&ENV.FLAGS.post_to_sis_enabled}objectType(){return"Quiz"}}f.prototype.resourceName="quizzes"
+f.prototype.defaults={due_at:null,unlock_at:null,lock_at:null,unpublishable:true,points_possible:null,post_to_sis:false,require_lockdown_browser:false}
+function v(e,s){return"undefined"!==typeof e&&null!==e?s(e):void 0}},RMh6:function(e,s,t){"use strict"
+var n=t("3O+N")
+var i=t.n(n)
+t("DfGn")
+var a=i.a.default
+var o=a.template,_=a.templates=a.templates||{}
+var r="EmptyDialogFormWrapper"
+_[r]=o((function(e,s,t,n,i){this.compilerInfo=[4,">= 1.0.0"]
+t=this.merge(t,e.helpers)
+i=i||{}
+return'<div class="outlet"></div>\n'}))
+s["a"]=_[r]},VS9R:function(e,s,t){"use strict"
+var n=t("pQTu")
+var i=t("m0r6")
+Object(i["a"])(JSON.parse('{"ar":{"message_sent_5e328899":"تم إرسال الرسالة!","message_students_37ba5dd5":"مراسلة الطلاب","message_students_for_context_ee62ff92":"مراسلة الطلاب لـ %{context}"},"ca":{"message_sent_5e328899":"Missatge enviat!","message_students_37ba5dd5":"Envia un missatge als estudiants","message_students_for_context_ee62ff92":"Envia un missatge als estudiants de %{context}"},"cy":{"message_sent_5e328899":"Mae’r neges wedi’i hanfon!","message_students_37ba5dd5":"Anfon neges at fyfyrwyr","message_students_for_context_ee62ff92":"Anfon neges at fyfyrwyr am %{context}"},"da":{"message_sent_5e328899":"Besked sendt!","message_students_37ba5dd5":"Send besked til studerende","message_students_for_context_ee62ff92":"Send besked til studerende for %{context}"},"da-x-k12":{"message_sent_5e328899":"Besked sendt!","message_students_37ba5dd5":"Send besked til elever","message_students_for_context_ee62ff92":"Send besked til elever for %{context}"},"de":{"message_sent_5e328899":"Nachricht wurde gesendet.","message_students_37ba5dd5":"Studenten benachrichtigen","message_students_for_context_ee62ff92":"Studenten benachrichtigen wegen %{context}"},"el":{"message_sent_5e328899":"Μήνυμα Εστάλη!","message_students_37ba5dd5":"Αποστολή μηνύματος στους μαθητές","message_students_for_context_ee62ff92":"Αποστολή μηνύματος στους σπουδαστές για %{context}"},"en-AU":{"message_sent_5e328899":"Message Sent!","message_students_37ba5dd5":"Message students","message_students_for_context_ee62ff92":"Message students for %{context}"},"en-AU-x-unimelb":{"message_sent_5e328899":"Message Sent!","message_students_37ba5dd5":"Message students","message_students_for_context_ee62ff92":"Message students for %{context}"},"en-CA":{"message_sent_5e328899":"Message Sent!","message_students_37ba5dd5":"Message students","message_students_for_context_ee62ff92":"Message students for %{context}"},"en-GB":{"message_sent_5e328899":"Message sent!","message_students_37ba5dd5":"Message students","message_students_for_context_ee62ff92":"Message students for %{context}"},"en-GB-x-ukhe":{"message_sent_5e328899":"Message sent!","message_students_37ba5dd5":"Message students","message_students_for_context_ee62ff92":"Message students for %{context}"},"es":{"message_sent_5e328899":"¡Mensaje enviado!","message_students_37ba5dd5":"Mensaje a estudiantes","message_students_for_context_ee62ff92":"Mensaje a estudiantes para %{context}"},"fa":{"message_sent_5e328899":"پیام ارسال شد!","message_students_37ba5dd5":"ارسال پیام برای دانشجویان","message_students_for_context_ee62ff92":"ارسال پیام برای دانشجویان برای %{context}"},"fi":{"message_sent_5e328899":"Viesti lähetetty!","message_students_37ba5dd5":"Lähetä viesti opiskelijoille","message_students_for_context_ee62ff92":"Lähetä viesti opiskelijoille tehtävästä %{context}"},"fr":{"message_sent_5e328899":"Message envoyé !","message_students_37ba5dd5":"Envoyer un message aux étudiants","message_students_for_context_ee62ff92":"Envoyer un message aux étudiants pour %{context}"},"fr-CA":{"message_sent_5e328899":"Message envoyé!","message_students_37ba5dd5":"Envoyer un message aux étudiants","message_students_for_context_ee62ff92":"Envoyer un message aux étudiants pour %{context}"},"he":{"message_sent_5e328899":"הודעה נשלחה!","message_students_37ba5dd5":"הודעות לתלמידים","message_students_for_context_ee62ff92":"הודע/י לתלמידים על %{context}"},"ht":{"message_sent_5e328899":"Mesaj Ale!","message_students_37ba5dd5":"Voye Mesaj bay Elèv","message_students_for_context_ee62ff92":"Voye Mesaj bay Elèv pou %{context}"},"hu":{"message_sent_5e328899":"Az üzenet elküldve!","message_students_37ba5dd5":"Üzenet a hallgatóknak","message_students_for_context_ee62ff92":"Üzenet a hallgatóknak: %{context}"},"hy":{"message_sent_5e328899":"Հաղորդագրությունն ուղարկված է:","message_students_37ba5dd5":"Հաղորդագրություն ուղարկել ունկնդիրներին","message_students_for_context_ee62ff92":"Հաղորդագրություն ուղարկել ունկնդիրներին  %{context} մասին"},"is":{"message_sent_5e328899":"Skilaboð send!","message_students_37ba5dd5":"Skilaboð til nemenda","message_students_for_context_ee62ff92":"Skilaboð til nemenda fyrir %{context}"},"it":{"message_sent_5e328899":"Messaggio inviato.","message_students_37ba5dd5":"Invia messaggio a studenti","message_students_for_context_ee62ff92":"Invia messaggio agli studenti per %{context}"},"ja":{"message_sent_5e328899":"メッセージが送信されました!","message_students_37ba5dd5":"受講生にメッセージを送る","message_students_for_context_ee62ff92":"%{context}の受講生にメッセージを送る"},"ko":{"message_sent_5e328899":"메시지를 보냈습니다!","message_students_37ba5dd5":"학생에게 메시지 보내기","message_students_for_context_ee62ff92":"학생에게 %{context}에 대한 메시지 보내기"},"mi":{"message_sent_5e328899":"Tukua Karere!","message_students_37ba5dd5":"ngā ākonga Karere","message_students_for_context_ee62ff92":"Ngā ākonga Karere mo %{context}"},"nb":{"message_sent_5e328899":"Melding sendt!","message_students_37ba5dd5":"Gi melding til studentene","message_students_for_context_ee62ff92":"Gi melding til studentene om %{context}"},"nb-x-k12":{"message_sent_5e328899":"Melding sendt!","message_students_37ba5dd5":"Gi melding til elevene","message_students_for_context_ee62ff92":"Gi melding til elevene om %{context}"},"nl":{"message_sent_5e328899":"Bericht verzonden!","message_students_37ba5dd5":"Bericht naar cursisten","message_students_for_context_ee62ff92":"Bericht naar cursisten voor %{context}"},"nn":{"message_sent_5e328899":"Melding er send.","message_students_37ba5dd5":"Send melding til studentane","message_students_for_context_ee62ff92":"Gi melding til studentane om %{context}"},"pl":{"message_sent_5e328899":"Wiadomość wysłana!","message_students_37ba5dd5":"Wiadomość dla uczestników","message_students_for_context_ee62ff92":"Wiadomość dla uczestników dot. %{context}"},"pt":{"message_sent_5e328899":"Mensagem enviada!","message_students_37ba5dd5":"Enviar mensagem a alunos","message_students_for_context_ee62ff92":"Mensagem a alunos para %{context}"},"pt-BR":{"message_sent_5e328899":"Mensagem enviada!","message_students_37ba5dd5":"Enviar mensagem de alunos","message_students_for_context_ee62ff92":"Enviar mensagem aos alunos para %{context}"},"ru":{"message_sent_5e328899":"Сообщение отправлено!","message_students_37ba5dd5":"Отправить сообщения студентам","message_students_for_context_ee62ff92":"Отправить сообщение студентам для %{context}"},"sv":{"message_sent_5e328899":"Meddelandet har skickats!","message_students_37ba5dd5":"Meddela studenter","message_students_for_context_ee62ff92":"Meddela studenter om %{context}"},"sv-x-k12":{"message_sent_5e328899":"Meddelandet har skickats!","message_students_37ba5dd5":"Meddela elever","message_students_for_context_ee62ff92":"Meddela elever som %{context}"},"tr":{"message_sent_5e328899":"Mesaj Gönderildi!","message_students_37ba5dd5":"Öğrencilere Mesaj Gönder","message_students_for_context_ee62ff92":"%{context} için Öğrencilere Mesaj"},"zh-Hans":{"message_sent_5e328899":"消息已发送！","message_students_37ba5dd5":"向学生发送消息","message_students_for_context_ee62ff92":"给学生发送%{context}的消息"},"zh-Hant":{"message_sent_5e328899":"訊息已傳送！","message_students_37ba5dd5":"通知學生","message_students_for_context_ee62ff92":"針對 %{context} 通知學生"}}'))
+t("jQeR")
+t("0sPK")
+var a=n["default"].scoped("viewsMessageStudentsDialog")
+var o=t("ouhR")
+var _=t.n(o)
+var r=t("faZh")
+var c=t("3O+N")
+var d=t.n(c)
+t("DfGn")
+var u=d.a.default
+var l=u.template,g=u.templates=u.templates||{}
+var m="-messageStudentsWhoRecipientList"
+g[m]=l((function(e,s,t,n,i){this.compilerInfo=[4,">= 1.0.0"]
+t=this.merge(t,e.helpers)
+i=i||{}
+var a,o="",_="function",r=this.escapeExpression,c=this
+function d(e,s){var n,i,a=""
+a+='\n  <span class="label">\n    '
+if(i=t.short_name)n=i.call(e,{hash:{},data:s})
+else{i=e&&e.short_name
+n=typeof i===_?i.call(e,{hash:{},data:s}):i}a+=r(n)+"\n  </span>\n"
+return a}a=t.each.call(s,s&&s.recipients,{hash:{},inverse:c.noop,fn:c.program(1,d,i),data:i});(a||0===a)&&(o+=a)
+o+="\n"
+return o}))
+u.registerPartial("messageStudentsWhoRecipientList",g["-messageStudentsWhoRecipientList"])
+var p=g[m]
+Object(i["a"])(JSON.parse('{"ar":{"cancel_caeb1e68":"إلغاء","recipients_a69b5e55":"المستلمون:","send_message_6ccc90e8":"إرسال رسالة","sending_bf324366":"جارٍ الإرسال...","sent_f4ee89ec":"تم الإرسال!"},"ca":{"cancel_caeb1e68":"Cancel·la","recipients_a69b5e55":"Destinataris:","send_message_6ccc90e8":"Envia un missatge","sending_bf324366":"S\'està enviant...","sent_f4ee89ec":"Enviat!"},"cy":{"cancel_caeb1e68":"Canslo","recipients_a69b5e55":"Derbynwyr:","send_message_6ccc90e8":"Anfon Neges","sending_bf324366":"Wrthi’n anfon...","sent_f4ee89ec":"Wedi anfon!"},"da":{"cancel_caeb1e68":"Annuller","recipients_a69b5e55":"Modtagere:","send_message_6ccc90e8":"Send besked","sending_bf324366":"Sender ...","sent_f4ee89ec":"Sendt!"},"da-x-k12":{"cancel_caeb1e68":"Annuller","recipients_a69b5e55":"Modtagere:","send_message_6ccc90e8":"Send besked","sending_bf324366":"Sender ...","sent_f4ee89ec":"Sendt!"},"de":{"cancel_caeb1e68":"Abbrechen","recipients_a69b5e55":"Empfänger:","send_message_6ccc90e8":"Nachricht senden","sending_bf324366":"Wird gesendet ...","sent_f4ee89ec":"Gesendet"},"el":{"cancel_caeb1e68":"Ακύρωση","recipients_a69b5e55":"Παραλήπτες:","sent_f4ee89ec":"Εστάλη!"},"en-AU":{"cancel_caeb1e68":"Cancel","recipients_a69b5e55":"Recipients:","send_message_6ccc90e8":"Send Message","sending_bf324366":"Sending...","sent_f4ee89ec":"Sent!"},"en-AU-x-unimelb":{"cancel_caeb1e68":"Cancel","recipients_a69b5e55":"Recipients:","send_message_6ccc90e8":"Send Message","sending_bf324366":"Sending...","sent_f4ee89ec":"Sent!"},"en-CA":{"cancel_caeb1e68":"Cancel","recipients_a69b5e55":"Recipients:","send_message_6ccc90e8":"Send Message","sending_bf324366":"Sending...","sent_f4ee89ec":"Sent!"},"en-GB":{"cancel_caeb1e68":"Cancel","recipients_a69b5e55":"Recipients:","send_message_6ccc90e8":"Send message","sending_bf324366":"sending...","sent_f4ee89ec":"Sent!"},"en-GB-x-lbs":{"cancel_caeb1e68":"Cancel","send_message_6ccc90e8":"Send message","sending_bf324366":"sending..."},"en-GB-x-ukhe":{"cancel_caeb1e68":"Cancel","recipients_a69b5e55":"Recipients:","send_message_6ccc90e8":"Send message","sending_bf324366":"sending...","sent_f4ee89ec":"Sent!"},"es":{"cancel_caeb1e68":"Cancelar","recipients_a69b5e55":"Destinatarios:","send_message_6ccc90e8":"Enviar mensaje","sending_bf324366":"Enviando...","sent_f4ee89ec":"¡Enviado!"},"fa":{"cancel_caeb1e68":"لغو","recipients_a69b5e55":"گیرنده ها:","send_message_6ccc90e8":"ارسال پیام","sending_bf324366":"در حال ارسال...","sent_f4ee89ec":"ارسال شد!"},"fi":{"cancel_caeb1e68":"Peruuta","recipients_a69b5e55":"Vastaanottajat:","send_message_6ccc90e8":"Lähetä viesti","sending_bf324366":"Lähetetään...","sent_f4ee89ec":"Lähetetty!"},"fr":{"cancel_caeb1e68":"Annuler","recipients_a69b5e55":"Destinataires :","send_message_6ccc90e8":"Envoyer message","sending_bf324366":"Envoi en cours...","sent_f4ee89ec":"Envoyé !"},"fr-CA":{"cancel_caeb1e68":"Annuler","recipients_a69b5e55":"Destinataires :","send_message_6ccc90e8":"Envoyer un message","sending_bf324366":"Envoi en cours...","sent_f4ee89ec":"Envoyé!"},"he":{"cancel_caeb1e68":"ביטול","recipients_a69b5e55":"נמענים:","send_message_6ccc90e8":"שליחת הודעה","sent_f4ee89ec":"נשלח!"},"ht":{"cancel_caeb1e68":"Anile","recipients_a69b5e55":"Destinatè:","send_message_6ccc90e8":"Voye Mesaj","sending_bf324366":"Voye...","sent_f4ee89ec":"Voye!"},"hu":{"cancel_caeb1e68":"Mégse","recipients_a69b5e55":"Címzettek:","send_message_6ccc90e8":"Üzenetküldés","sending_bf324366":"Küldés...","sent_f4ee89ec":"Elküldve!"},"hy":{"cancel_caeb1e68":"Չեղյալ համարել","recipients_a69b5e55":"Ստացողներ՝","sent_f4ee89ec":"Ուղարկվել է"},"is":{"cancel_caeb1e68":"Hætta við","recipients_a69b5e55":"Viðtakendur:","send_message_6ccc90e8":"Senda skilaboð","sending_bf324366":"Sendi...","sent_f4ee89ec":"Sent!"},"it":{"cancel_caeb1e68":"Annulla","recipients_a69b5e55":"Destinatari:","send_message_6ccc90e8":"Invia messaggio","sending_bf324366":"Invio in corso...","sent_f4ee89ec":"Inviato."},"ja":{"cancel_caeb1e68":"キャンセル","recipients_a69b5e55":"受信者:","send_message_6ccc90e8":"メッセージを送信","sending_bf324366":"送信しています...","sent_f4ee89ec":"送信されました!"},"ko":{"cancel_caeb1e68":"취소","recipients_a69b5e55":"수신인:","sent_f4ee89ec":"전송했습니다!"},"mi":{"cancel_caeb1e68":"Whakakore","recipients_a69b5e55":"Kaiwhiwhi:","send_message_6ccc90e8":"Tukua Karere","sending_bf324366":"Tuku ana ...","sent_f4ee89ec":"Tono!"},"nb":{"cancel_caeb1e68":"Avbryt","recipients_a69b5e55":"Mottakere:","send_message_6ccc90e8":"Send melding","sending_bf324366":"Sender...","sent_f4ee89ec":"Sendt!"},"nb-x-k12":{"cancel_caeb1e68":"Avbryt","recipients_a69b5e55":"Mottakere:","send_message_6ccc90e8":"Send melding","sending_bf324366":"Sender...","sent_f4ee89ec":"Sendt!"},"nl":{"cancel_caeb1e68":"Annuleren","recipients_a69b5e55":"Geadresseerden:","send_message_6ccc90e8":"Bericht versturen","sending_bf324366":"Bezig met verzenden...","sent_f4ee89ec":"Verstuurd!"},"nn":{"cancel_caeb1e68":"Avbryt","recipients_a69b5e55":"Mottakarar:","send_message_6ccc90e8":"Send melding","sending_bf324366":"Sender...","sent_f4ee89ec":"Send."},"pl":{"cancel_caeb1e68":"Anuluj","recipients_a69b5e55":"Odbiorcy:","send_message_6ccc90e8":"Wyślij wiadomość","sending_bf324366":"Trwa wysyłanie...","sent_f4ee89ec":"Wysłano!"},"pt":{"cancel_caeb1e68":"Cancelar","recipients_a69b5e55":"Destinatários:","send_message_6ccc90e8":"Enviar Mensagem","sending_bf324366":"A enviar...","sent_f4ee89ec":"Enviado!"},"pt-BR":{"cancel_caeb1e68":"Cancelar","recipients_a69b5e55":"Recipientes:","send_message_6ccc90e8":"Enviar mensagem","sending_bf324366":"Enviando...","sent_f4ee89ec":"Enviado!"},"ru":{"cancel_caeb1e68":"Отменить","recipients_a69b5e55":"Получатели:","send_message_6ccc90e8":"Отправить сообщение","sending_bf324366":"Отправка...","sent_f4ee89ec":"Отправлено!"},"sl":{"cancel_caeb1e68":"Prekliči","send_message_6ccc90e8":"Pošlji sporočilo","sending_bf324366":"Pošiljanje ..."},"sv":{"cancel_caeb1e68":"Avbryt","recipients_a69b5e55":"Mottagare:","send_message_6ccc90e8":"Skicka meddelande","sending_bf324366":"Skickar ...","sent_f4ee89ec":"Skickat!"},"sv-x-k12":{"cancel_caeb1e68":"Avbryt","recipients_a69b5e55":"Mottagare:","send_message_6ccc90e8":"Skicka meddelande","sending_bf324366":"Skickar ...","sent_f4ee89ec":"Skickat!"},"tr":{"cancel_caeb1e68":"İptal","recipients_a69b5e55":"Alıcılar:","send_message_6ccc90e8":"Mesaj Gönder","sent_f4ee89ec":"Gönderildi!"},"uk":{"cancel_caeb1e68":"Скасувати","send_message_6ccc90e8":"Відправити повідомлення","sending_bf324366":"Відправка..."},"zh-Hans":{"cancel_caeb1e68":"取消","recipients_a69b5e55":"收件人：","send_message_6ccc90e8":"发送消息","sending_bf324366":"正在发送...","sent_f4ee89ec":"已发送！"},"zh-Hant":{"cancel_caeb1e68":"取消","recipients_a69b5e55":"收件者：","send_message_6ccc90e8":"傳送訊息","sending_bf324366":"正在發送...","sent_f4ee89ec":"已傳送！"}}'))
+n["default"].scoped("message_students_dialog")
+var b=t("EvX+")
+var h=d.a.default
+var f=h.template,v=h.templates=h.templates||{}
+var y="messageStudentsDialog"
+v[y]=f((function(e,s,t,n,i){this.compilerInfo=[4,">= 1.0.0"]
+t=this.merge(t,e.helpers)
+n=this.merge(n,e.partials)
+i=i||{}
+var a,o,_,r="",c="function",d=this.escapeExpression,u=this,l=t.helperMissing
+function g(e,s){var t,n=""
+n+="\n      "+d((t=(t=(t=e&&e.recipientGroups,null==t||false===t?t:t[0]),null==t||false===t?t:t.name),typeof t===c?t.apply(e):t))+'\n      <input type="hidden" name="recipientGroupName" value="'+d((t=(t=(t=e&&e.recipientGroups,null==t||false===t?t:t[0]),null==t||false===t?t:t.name),typeof t===c?t.apply(e):t))+'" />\n    '
+return n}function m(e,s){var n,i=""
+i+='\n      <select name="recipientGroupName" id="message-recipients-group">\n        '
+n=t.each.call(e,e&&e.recipientGroups,{hash:{},inverse:u.noop,fn:u.program(4,p,s),data:s});(n||0===n)&&(i+=n)
+i+="\n      </select>\n    "
+return i}function p(e,s){var n,i,a=""
+a+='\n          <option value="'
+if(i=t.name)n=i.call(e,{hash:{},data:s})
+else{i=e&&e.name
+n=typeof i===c?i.call(e,{hash:{},data:s}):i}a+=d(n)+'">'
+if(i=t.name)n=i.call(e,{hash:{},data:s})
+else{i=e&&e.name
+n=typeof i===c?i.call(e,{hash:{},data:s}):i}a+=d(n)+"</option>\n        "
+return a}r+='<div class="message-students-dialog form-dialog-content">\n  <div class="message-recipients-group-container">\n    <label for="message-recipients-group">\n     '+d((o=t.t||s&&s.t,_={hash:{i18n_inferred_key:true},data:i},o?o.call(s,"recipients_a69b5e55","Recipients:",_):l.call(s,"t","recipients_a69b5e55","Recipients:",_)))+"\n    </label>\n\n    "
+a=(o=t.ifEqual||s&&s.ifEqual,_={hash:{},inverse:u.program(3,m,i),fn:u.program(1,g,i),data:i},o?o.call(s,(a=s&&s.recipientGroups,null==a||false===a?a:a.length),1,_):l.call(s,"ifEqual",(a=s&&s.recipientGroups,null==a||false===a?a:a.length),1,_));(a||0===a)&&(r+=a)
+r+='\n  </div>\n\n  <div id="message-recipients">\n    '
+a=u.invokePartial(n.messageStudentsWhoRecipientList,"messageStudentsWhoRecipientList",s,t,n,i);(a||0===a)&&(r+=a)
+r+='\n  </div>\n\n  <textarea name=body></textarea>\n\n</div>\n<div class="form-controls">\n  <button class="btn dialog_closer btn-secondary" type="button"\n    data-text-while-loading=\''+d((o=t.t||s&&s.t,_={hash:{i18n_inferred_key:true},data:i},o?o.call(s,"sending_bf324366","Sending...",_):l.call(s,"t","sending_bf324366","Sending...",_)))+"'>\n    "+d((o=t.t||s&&s.t,_={hash:{i18n_inferred_key:true},data:i},o?o.call(s,"cancel_caeb1e68","Cancel",_):l.call(s,"t","cancel_caeb1e68","Cancel",_)))+'\n  </button>\n  <button class="btn btn-primary"\n    data-text-while-loading=\''+d((o=t.t||s&&s.t,_={hash:{i18n_inferred_key:true},data:i},o?o.call(s,"sending_bf324366","Sending...",_):l.call(s,"t","sending_bf324366","Sending...",_)))+"'\n    data-text-when-loaded='"+d((o=t.t||s&&s.t,_={hash:{i18n_inferred_key:true},data:i},o?o.call(s,"sent_f4ee89ec","Sent!",_):l.call(s,"t","sent_f4ee89ec","Sent!",_)))+"'>\n    "+d((o=t.t||s&&s.t,_={hash:{i18n_inferred_key:true},data:i},o?o.call(s,"send_message_6ccc90e8","Send Message",_):l.call(s,"t","send_message_6ccc90e8","Send Message",_)))+"\n  </button>\n\n</div>\n"
+return r}))
+b["a"].loadStylesheet("jst/messageStudentsDialog",{combinedChecksum:"71cf06c9a8",includesNoVariables:true})
+var k=v[y]
+var z=t("RMh6")
+var S=t("LvDl")
+var w=t.n(S)
+Object(i["a"])(JSON.parse('{"ar":{"models_conversations":{"cannot_be_empty":"لا يمكن أن تكون الرسالة فارغة","no_recipients_choose_another_group":"لا يوجد مستلمون في هذه المجموعة. يرجى اختيار مجموعة أخرى."}},"ca":{"models_conversations":{"cannot_be_empty":"El missatge no pot estar en blanc","no_recipients_choose_another_group":"No hi ha cap destinatari al grup. Trieu un altre grup."}},"cy":{"models_conversations":{"cannot_be_empty":"Does dim modd i’r neges fod yn wag","no_recipients_choose_another_group":"Does dim derbynwyr yn y grŵp hwn Dewiswch grŵp arall."}},"da":{"models_conversations":{"cannot_be_empty":"Besked kan ikke være tom","no_recipients_choose_another_group":"Der er ingen modtagere i denne gruppe. Vælg venligst en anden gruppe."}},"da-x-k12":{"models_conversations":{"cannot_be_empty":"Besked kan ikke være tom","no_recipients_choose_another_group":"Der er ingen modtagere i denne gruppe. Vælg venligst en anden gruppe."}},"de":{"models_conversations":{"cannot_be_empty":"Nachricht darf nicht leer sein.","no_recipients_choose_another_group":"In dieser Gruppe gibt es keine Empfänger. Bitte wählen Sie eine andere Gruppe."}},"el":{"models_conversations":{"cannot_be_empty":"Το μήνυμα δεν μπορεί να είναι κενό.","no_recipients_choose_another_group":"Δεν υπάρχουν παραλήπτες σε αυτή την ομάδα. Παρακαλώ διαλέξτε μια άλλη ομάδα."}},"en-AU":{"models_conversations":{"cannot_be_empty":"Message cannot be blank","no_recipients_choose_another_group":"No recipients are in this group. Please choose another group."}},"en-AU-x-unimelb":{"models_conversations":{"cannot_be_empty":"Message cannot be blank","no_recipients_choose_another_group":"No recipients are in this group. Please choose another group."}},"en-CA":{"models_conversations":{"cannot_be_empty":"Message cannot be blank","no_recipients_choose_another_group":"No recipients are in this group. Please choose another group."}},"en-GB":{"models_conversations":{"cannot_be_empty":"Message cannot be blank","no_recipients_choose_another_group":"No recipients are in this group. Please choose another group."}},"en-GB-x-ukhe":{"models_conversations":{"cannot_be_empty":"Message cannot be blank","no_recipients_choose_another_group":"No recipients are in this group. Please choose another group."}},"es":{"models_conversations":{"cannot_be_empty":"El mensaje no puede estar vacío","no_recipients_choose_another_group":"No hay destinatarios en este grupo. Elija otro grupo."}},"fa":{"models_conversations":{"cannot_be_empty":"پیام نمی تواند خالی باشد","no_recipients_choose_another_group":"هیچ گیرنده ای در این گروه یافت نشد. گروه دیگری را انتخاب کنید."}},"fi":{"models_conversations":{"cannot_be_empty":"Viesti ei voi olla tyhjä","no_recipients_choose_another_group":"Tässä ryhmässä ei ole vastaanottajia. Valitse toinen ryhmä."}},"fr":{"models_conversations":{"cannot_be_empty":"Le message ne doit pas être vide","no_recipients_choose_another_group":"Aucun destinataire ne se trouve dans ce groupe. Veuillez sélectionner un autre groupe."}},"fr-CA":{"models_conversations":{"cannot_be_empty":"Le message ne doit pas être vide","no_recipients_choose_another_group":"Aucun destinataire n\'est dans ce groupe. Veuillez choisir un autre groupe."}},"he":{"models_conversations":{"cannot_be_empty":"הודעה אינה יכולה להשאר ריקה","no_recipients_choose_another_group":"אין נמענים בקבוצה זו. בבקשה לבחור קבוצה אחרת."}},"ht":{"models_conversations":{"cannot_be_empty":"Mesaj la pa dwe vid","no_recipients_choose_another_group":"Pa gen resipyan nan gwoup sa a. Tanpri chwazi yon lòt gwoup."}},"hu":{"models_conversations":{"cannot_be_empty":"Az üzenet nem lehet üres","no_recipients_choose_another_group":"Nincsenek címzettek ebben a csoportban. Kérjük, válasszon egy másik csoportot."}},"hy":{"models_conversations":{"cannot_be_empty":"Հաղորդագրությունը չի կարող դատարկ լինել","no_recipients_choose_another_group":"Այս խմբում ստացողներ չկան: Ընտրեք մեկ այլ խումբ:"}},"is":{"models_conversations":{"cannot_be_empty":"Skilaboð geta ekki verið auð","no_recipients_choose_another_group":"Engir móttakendur eru í þessum hóp. Veldu annan hóp."}},"it":{"models_conversations":{"cannot_be_empty":"Il messaggio non può essere lasciato vuoto","no_recipients_choose_another_group":"Non ci sono destinatari in questo gruppo. Scegli un altro gruppo."}},"ja":{"models_conversations":{"cannot_be_empty":"メッセージは空白にできません","no_recipients_choose_another_group":"このグループには受信者がいません。別のグループを選択してください。"}},"ko":{"models_conversations":{"cannot_be_empty":"메시지 내용이 있어야 함","no_recipients_choose_another_group":"이 그룹에 수신인이 없습니다. 다른 그룹을 선택하시기 바랍니다."}},"mi":{"models_conversations":{"cannot_be_empty":"E kore e taea e kore Karere","no_recipients_choose_another_group":"Kaore he kaiwhiwhi kei roto i tēnei rōpū. Tēnā koa kōwhiri he rōpūkē ake"}},"nb":{"models_conversations":{"cannot_be_empty":"Melding kan ikke være tom","no_recipients_choose_another_group":"Det er ingen mottakere i denne gruppen. Velg en annen gruppe."}},"nb-x-k12":{"models_conversations":{"cannot_be_empty":"Melding kan ikke være tom","no_recipients_choose_another_group":"Det er ingen mottakere i denne gruppen. Velg en annen gruppe."}},"nl":{"models_conversations":{"cannot_be_empty":"Bericht kan niet leeg zijn","no_recipients_choose_another_group":"Er zijn geen ontvangers in deze groep. Kies een andere groep."}},"nn":{"models_conversations":{"cannot_be_empty":"Meldinga kan ikkje vere tom","no_recipients_choose_another_group":"Det er ikkje mottakarar i denne gruppa. Vel ei anna gruppe."}},"pl":{"models_conversations":{"cannot_be_empty":"Wiadomość nie może być pusta","no_recipients_choose_another_group":"Brak odbiorców w tej grupie. Należy wybrać następną grupę."}},"pt":{"models_conversations":{"cannot_be_empty":"A mensagem não pode ficar em branco","no_recipients_choose_another_group":"Nenhum destinatário está neste grupo. Por favor, escolha outro grupo."}},"pt-BR":{"models_conversations":{"cannot_be_empty":"Mensagem não pode estar em branco","no_recipients_choose_another_group":"Nenhum destinatário está neste grupo. Escolha outro grupo."}},"ru":{"models_conversations":{"cannot_be_empty":"Сообщение не может быть пустым","no_recipients_choose_another_group":"В этой группе нет получателей. Выберите другую группу."}},"sv":{"models_conversations":{"cannot_be_empty":"Meddelandet kan inte lämnas tomt","no_recipients_choose_another_group":"Det finns inga mottagare i den här gruppen. Välj en annan grupp."}},"sv-x-k12":{"models_conversations":{"cannot_be_empty":"Meddelandet kan inte lämnas tomt","no_recipients_choose_another_group":"Det finns inga mottagare i den här gruppen. Välj en annan grupp."}},"tr":{"models_conversations":{"cannot_be_empty":"Mesaj boş olamaz","no_recipients_choose_another_group":"Bu grupta alıcılar bulunamadı. Lütfen farklı bir grup seçiniz."}},"zh-Hans":{"models_conversations":{"cannot_be_empty":"消息不能为空","no_recipients_choose_another_group":"没有收件人在此小组。请选择其他小组。"}},"zh-Hant":{"models_conversations":{"cannot_be_empty":"訊息不可為空白","no_recipients_choose_another_group":"此群組沒有收件人。請選擇其他群組。"}}}'))
+var x=n["default"].scoped("models_conversations")
+var M=t("FIFq")
+var E=function(e,s){for(var t in s)q.call(s,t)&&(e[t]=s[t])
+function n(){this.constructor=e}n.prototype=s.prototype
+e.prototype=new n
+e.__super__=s.prototype
+return e},q={}.hasOwnProperty
+var N=function(e){var s,t
+E(n,e)
+function n(){return n.__super__.constructor.apply(this,arguments)}n.prototype.url="/api/v1/conversations"
+s=x.t("cannot_be_empty","Message cannot be blank")
+t=x.t("no_recipients_choose_another_group","No recipients are in this group. Please choose another group.")
+n.prototype.validate=function(e,n){var i
+i={}
+e.body&&_.a.trim(e.body.toString())||(i.body=[{message:s}])
+e.recipients&&e.recipients.length||(i.recipients=[{message:t}])
+return Object.keys(i).length?i:void 0}
+return n}(M["Model"])
+var j=function(){function e(e){this.chunkSize=e.chunkSize||100}e.prototype.save=function(e,s){var t
+e.context_code=ENV.context_asset_string
+t=w.a.chunk(e.recipients,this.chunkSize).map((function(t){var n
+n=Object.assign({},e,{recipients:t})
+return(new N).save(n,s)}))
+return _.a.when.apply(_.a,t)}
+e.prototype.validate=function(e,s){return(new N).validate(e,s)}
+return e}()
+var D=t("GLiE")
+var A=t.n(D)
+t("BYL3")
+var I=function(e,s){return function(){return e.apply(s,arguments)}},R=function(e,s){for(var t in s)Q.call(s,t)&&(e[t]=s[t])
+function n(){this.constructor=e}n.prototype=s.prototype
+e.prototype=new n
+e.__super__=s.prototype
+return e},Q={}.hasOwnProperty
+s["a"]=function(e){R(s,e)
+function s(){this.updateListOfRecipients=I(this.updateListOfRecipients,this)
+this.getFormData=I(this.getFormData,this)
+this._findRecipientGroupByName=I(this._findRecipientGroupByName,this)
+this.validateBeforeSave=I(this.validateBeforeSave,this)
+this.toJSON=I(this.toJSON,this)
+return s.__super__.constructor.apply(this,arguments)}s.optionProperty("recipientGroups")
+s.optionProperty("context")
+s.prototype.template=k
+s.prototype.wrapperTemplate=z["a"]
+s.prototype.className="validated-form-view form-dialog"
+s.prototype.defaults={height:500,width:500}
+s.prototype.els={"[name=recipientGroupName]":"$recipientGroupName","#message-recipients":"$messageRecipients","[name=body]":"$messageBody"}
+s.prototype.events=A.a.extend({},r["a"].prototype.events,{"change [name=recipientGroupName]":"updateListOfRecipients","click .dialog_closer":"close",dialogclose:"close"})
+s.prototype.initialize=function(e){s.__super__.initialize.apply(this,arguments)
+this.options.title=this.context?a.t("Message students for %{context}",{context:this.context}):a.t("Message students")
+this.recipients=this.recipientGroups[0].recipients
+return this.model||(this.model=new j({chunkSize:ENV.MAX_GROUP_CONVERSATION_SIZE}))}
+s.prototype.toJSON=function(){var e,s,t,n,i
+s={}
+i=["title","recipients","recipientGroups"]
+for(e=0,n=i.length;e<n;e++){t=i[e]
+s[t]=this[t]}return s}
+s.prototype.validateBeforeSave=function(e,s){var t
+t=this.model.validate(e)
+if(t){t.body&&(s.body=t.body)
+t.recipients&&(s.recipientGroupName=t.recipients)}return s}
+s.prototype._findRecipientGroupByName=function(e){return A.a.detect(this.recipientGroups,(function(s){return s.name===e}))}
+s.prototype.getFormData=function(){var e,s,t,n
+n=this.$el.toJSON(),s=n.recipientGroupName,e=n.body
+t=this._findRecipientGroupByName(s).recipients
+return{body:e,recipients:A.a.pluck(t,"id")}}
+s.prototype.updateListOfRecipients=function(){var e,s
+e=this.$recipientGroupName.val()
+s=this._findRecipientGroupByName(e).recipients
+return this.$messageRecipients.html(p({recipients:s}))}
+s.prototype.onSaveSuccess=function(){this.close()
+return _.a.flashMessage(a.t("Message Sent!"))}
+s.prototype.close=function(){s.__super__.close.apply(this,arguments)
+this.hideErrors()
+return this.remove()}
+return s}(r["a"])},lkPJ:function(e,s,t){"use strict"
+var n=t("ouhR")
+var i=t.n(n)
+const a={disableInputs(e){const s=i()("body"),t=i()("<div />",{class:"input_cover"})
+t.on("mouseleave",(function(e){i()(this).remove()}))
+i()(e).on("mouseenter",(function(e){const n=i()(this),a=t.clone(true)
+a.css({height:n.height()+12,width:n.width()+12,position:"absolute",left:n.offset().left-6,top:n.offset().top-6,zIndex:15,background:"url(/images/blank.png) 0 0 repeat"})
+s.append(a)}))},setWidths(e){i()(e||".answer input[type=text]").each((function(){i()(this).width(9.5*i()(this).val().length)}))}}
+s["a"]=a},wWL5:function(e,s,t){"use strict"
+t.r(s)
+var n=t("ouhR")
+var i=t.n(n)
+var a=t("lkPJ")
+var o=t("An8g")
+var _=t("qx8k")
+t("q1tI")
+var r=t("i8i4")
+var c=t.n(r)
+var d=t("VS9R")
+var u=t("LqrG")
+var l=t("PHBv")
+var g=t("7FZx")
+var m=t("gl9/")
+var p=t("GXQz")
+t("UlQx")
+t("YGE8")
+t("TBRb")
+t("MWZS")
+t("p6Wi")
+t("vpJZ")
+t("1Lgu")
+var b=t("H4Sz")
+var h=t("ppA4")
+var f=t("6V2X")
+i()(document).ready((function(){ENV.QUIZ_SUBMISSION_EVENTS_URL&&Object(m["a"])(true)
+i()("#preview_quiz_button").click(e=>{i()("#js-sequential-warning-dialogue div a").attr("href",i()("#preview_quiz_button").attr("href"))})
+function e(e){return i()("#quiz_details").length?e():i.a.get(ENV.QUIZ_DETAILS_URL,s=>{i()("#quiz_details_wrapper").html(s)
+e()})}const s=new u["a"]
+s.applyArrows()
+if(!i()(".allow-inputs").length){a["a"].disableInputs("[type=radio], [type=checkbox]")
+a["a"].setWidths()}i()("form.edit_quizzes_quiz").on("submit",(function(e){e.preventDefault()
+e.stopImmediatePropagation()
+i()(this).find(".loading").removeClass("hidden")
+const s=i()(this).serializeArray()
+const t=i()(this).attr("action")
+i.a.ajax({url:t,data:s,type:"POST",success(){i()(".edit_quizzes_quiz").parents(".alert").hide()}})}))
+i()(".delete_quiz_link").click((function(e){e.preventDefault()
+let s=_["a"].t("confirms.delete_quiz","Are you sure you want to delete this quiz?")
+const t=parseInt(i()("#quiz_details_wrapper").data("submitted-count"))
+t>0&&(s+="\n\n"+_["a"].t("confirms.delete_quiz_submissions_warning",{one:"Warning: 1 student has already taken this quiz. If you delete it, any completed submissions will be deleted and no longer appear in the gradebook.",other:"Warning: %{count} students have already taken this quiz. If you delete it, any completed submissions will be deleted and no longer appear in the gradebook."},{count:t}))
+i()("nothing").confirmDelete({url:i()(this).attr("href"),message:s,success(){window.location.href=ENV.QUIZZES_URL}})}))
+let t=false
+i()(".quiz_details_link").click(s=>{s.preventDefault()
+i()("#quiz_details_wrapper").disableWhileLoading(e(()=>{const e=i()("#quiz_details_text")
+i()("#quiz_details").slideToggle()
+t?ENV.IS_SURVEY?e.text(_["a"].t("links.show_student_survey_results","Show Student Survey Results")):e.text(_["a"].t("links.show_student_quiz_results","Show Student Quiz Results")):ENV.IS_SURVEY?e.text(_["a"].t("links.hide_student_survey_results","Hide Student Survey Results")):e.text(_["a"].t("links.hide_student_quiz_results","Hide Student Quiz Results"))
+t=!t}))})
+i()(".message_students_link").click(s=>{s.preventDefault()
+e(()=>{const e=ENV.QUIZ_SUBMISSION_LIST
+const s=e.UNSUBMITTED_STUDENTS
+const t=e.SUBMITTED_STUDENTS
+const n=_["a"].t("students_who_have_taken_the_quiz","Students who have taken the quiz")
+const i=_["a"].t("students_who_have_not_taken_the_quiz","Students who have NOT taken the quiz")
+const a=new d["a"]({context:ENV.QUIZ.title,recipientGroups:[{name:n,recipients:t},{name:i,recipients:s}]})
+a.open()})})
+function n(e,s=true){e&&e.preventDefault()
+c.a.render(Object(o["a"])(h["a"],{open:s,sourceCourseId:ENV.COURSE_ID,contentShare:{content_type:"quiz",content_id:ENV.QUIZ.id},onDismiss:()=>{n(null,false)
+i()(".al-trigger").focus()}}),document.getElementById("direct-share-mount-point"))}i()(".direct-share-send-to-menu-item").click(n)
+function r(e,s=true){e&&e.preventDefault()
+c.a.render(Object(o["a"])(f["a"],{open:s,sourceCourseId:ENV.COURSE_ID,contentSelection:{quizzes:[ENV.QUIZ.id]},onDismiss:()=>{r(null,false)
+i()(".al-trigger").focus()}}),document.getElementById("direct-share-mount-point"))}i()(".direct-share-copy-to-menu-item").click(r)
+i()("#let_students_take_this_quiz_button").ifExists((function(e){const s=i()("#unlock_for_how_long_dialog")
+e.click(()=>{s.dialog("open")
+return false})
+const t=i()(this).find(".datetime_field")
+s.dialog({autoOpen:false,modal:true,resizable:false,width:400,buttons:{Unlock(){i()("#quiz_unlock_form").append(i()(this).dialog("destroy")).find("#quiz_lock_at").val(t.data("iso8601")).end().submit()}}})
+t.datetime_field()}))
+i()("#lock_this_quiz_now_link").ifExists(e=>{e.click(e=>{e.preventDefault()
+i()("#quiz_lock_form").submit()})})
+i()("ul.page-action-list").find("li").length>0&&i()("ul.page-action-list").show()
+i()("#publish_quiz_form").formSubmit({beforeSubmit(e){i()(this).find("button").attr("disabled",true).text(_["a"].t("buttons.publishing","Publishing..."))},success(e){i()(this).find("button").text(_["a"].t("buttons.already_published","Published!"))
+location.reload()}})
+const v=i()("#quiz-publish-link")
+const y=new l["a"](i.a.extend(ENV.QUIZ,{unpublishable:!v.hasClass("disabled")}))
+const k=new g["a"]({model:y,el:v})
+const z=function(){location.href=location.href}
+k.on("publish",z)
+k.on("unpublish",z)
+k.render()
+const S=document.getElementById("crs-graphs")
+const w=document.getElementById("not_right_side")
+p["default"].init(S,w)
+i()("#assignment_external_tools").length&&b["a"].attach(i()("#assignment_external_tools")[0],"assignment_view",parseInt(ENV.COURSE_ID,10),parseInt(ENV.QUIZ.assignment_id,10))}))
+t("2wuA")
+t("/j35")
+var v=t("y8OA")
+const y=new v["default"]
+y.init({itemType:"quiz",page:"show"})
+i()(()=>{a["a"].setWidths()
+i()(".answer input[type=text]").each((function(){i()(this).width(9.5*(i()(this).val().length||11))}))
+i()(".download_submissions_link").click((function(e){e.preventDefault()
+INST.downloadSubmissions(i()(this).attr("href"))}))
+if(ENV.SUBMISSION_VERSIONS_URL&&!ENV.IS_SURVEY){const e=i()("#quiz-submission-version-table")
+e.css({height:"100px"})
+const s=i.a.get(ENV.SUBMISSION_VERSIONS_URL,s=>{e.html(s)
+e.css({height:"auto"})})
+e.disableWhileLoading(s)}i()("#module_sequence_footer").moduleSequenceFooter({courseID:ENV.COURSE_ID,assetType:"Quiz",assetID:ENV.QUIZ.id,location:location})})},yE80:function(e,s,t){"use strict"
+var n=t("pQTu")
+s["a"]={strings(e,s){let t=n["default"].locale||"en-US"
+const i={zh_Hant:"zh-Hant"}
+t=i[t]||t
+return e.localeCompare(s,t,{sensitivity:"variant",ignorePunctuation:false,numeric:true})},by(e){return(s,t)=>this.strings(e(s),e(t))},byKey(e){return this.by(s=>s[e])},byGet(e){return this.by(s=>s.get(e))}}}}])
+
+//# sourceMappingURL=quiz_show-c-b9fba3c009.js.map

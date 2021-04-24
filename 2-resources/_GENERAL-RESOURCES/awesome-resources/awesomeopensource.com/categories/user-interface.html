@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script>window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","errorBeacon":"bam-cell.nr-data.net","licenseKey":"98ebaa2fbd","applicationID":"233526624","transactionName":"c11aERNaXltSERdHWkBbVxZOXFxTUhs=","queueTime":2,"applicationTime":89,"agent":""}</script>
+<script>(window.NREUM||(NREUM={})).loader_config={licenseKey:"98ebaa2fbd",applicationID:"233526624"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1194.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6242674-23"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-6242674-23', { 'optimize_id': 'GTM-T48MRN9'});
+    </script>
+
+    <title>The Top 330 User Interface Topics</title>
+<meta name="description" content="Find Useful Open Source Projects By Browsing and Combining 330 User Interface Topics">
+<meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+      /* copy template below */
+      /* ------------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+
+      }
+
+      /* end template copy */
+      /* ----------------- */
+      /* ----------------- */
+      /* ----------------- */
+
+      /*ipad and below */
+      .show_on_phones {
+        display: block;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .show_on_phones {
+          display: none;
+        }
+      }
+
+      .twenty_px_padding_top {
+        padding-top: 20px;
+      }
+
+      /*ipad and below */
+      .projects_category_explorer_left_column {
+        max-width: 0;
+        margin-right: 0;
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_category_explorer_left_column {
+          min-width: 20%;
+          margin-right: 5%;
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_right_column {
+        min-width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_right_column {
+          min-width: 75%;
+        }
+      }
+
+      .display_flex {
+        display: flex;
+      }
+
+      .margin_bottom_15 {
+        margin-bottom: 15px;
+      }
+
+      /*ipad and below */
+      .image-gallery-image {
+        width: 100% !important;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .image-gallery-image {
+          width: 1280px !important;
+        }
+      }
+
+      /*ipad and below */
+      .aos_sponsorship_link {
+        font-size: 14px;
+        font-weight: bold;
+        color: blue;
+        text-decoration: underline;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_sponsorship_link {
+          font-size: 18px;
+          font-weight: bold;
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+
+      /*ipad and below */
+      .aos_desktop_right_ads_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_desktop_right_ads_container {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_screen_container {
+        margin-left: 5%;
+        margin-right: 5%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_screen_container {
+          margin-left: 5%;
+          margin-right: 0;
+          display: flex;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_inner_screen_container {
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_inner_screen_container {
+          width: 95%;
+        }
+      }
+
+      /*ipad and below
+      .aos_license_text_metadata {
+        margin-top: 0 !important;
+      }
+
+      everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_license_text_metadata {
+          margin-top: 0 !important;
+        }
+      }*/
+
+      /*ipad and below */
+      .projects_list_ad_slot_1 {
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_1 {
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .projects_list_ad_slot_2 {
+        height: fit-content;
+        margin-top: -34px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .projects_list_ad_slot_2 {
+          height: fit-content;
+          margin-top: 0;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_1 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_1 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .project_page_ad_slot_2 {
+        display: block;
+        height: fit-content;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .project_page_ad_slot_2 {
+          display: block;
+          height: fit-content;
+        }
+      }
+
+      /*ipad and below */
+      .aos_category_explorer_category_container {
+        background-color: white;
+        padding: 10px;
+        margin-bottom: 0px;
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid lightgray;
+        border-right: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_category_explorer_category_container {
+          background-color: white;
+          padding: 10px;
+          margin-bottom: 0px;
+          border-bottom: 1px solid lightgray;
+          border-left: 1px solid lightgray;
+          border-right: 1px solid lightgray;
+        }
+      }
+
+      .aos_category_explorer_category_container:first-child {
+        border-top: 1px solid lightgray;
+      }
+
+      /*ipad and below */
+      .aos_topic_count {
+        font-size: 10px;
+        color: #4f4f4f;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_count {
+          font-size: 16px;
+          color: #4f4f4f;
+        }
+      }
+
+      /*ipad and below */
+      .aos_topic_icon {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topic_icon {
+          font-size: 14px;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_count {
+        color: #4f4f4f;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_count {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_star {
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_star {
+          font-size: 14px;
+          /*margin-right: 7px;*/
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_trademark_notice {
+        font-size: 8px;
+        color: gray;
+        margin-top: 10px;
+        border-bottom: 1px solid lightgray;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_trademark_notice {
+          font-size: 12px;
+          color: gray;
+          margin-top: 20px;
+          border-bottom: 1px solid lightgray;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_description {
+        margin-bottom: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_description {
+          margin-bottom: 5px;
+        }
+      }
+
+      .aos_project_metadata {
+        display: inline-block;
+        margin-bottom: 10px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata {
+          display: inline-block;
+          margin-bottom: 10px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_content {
+        /*border-bottom: 1px solid lightgray;*/
+        font-size: 16px;
+        color: #000000;
+        font-weight: 300;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_content {
+          /*border-bottom: 1px solid lightgray;*/
+          font-size: 16px;
+          color: #000000;
+          font-weight: 300;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_header {
+        color: #808080;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_header {
+          color: #808080;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+
+      aos_project_metadata_header:hover {
+        color: #808080;
+      }
+
+      /*ipad and below */
+      .aos_project_metadata_title {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_metadata_title {
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_app_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 2px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_app_container {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          margin-bottom: 0;
+        }
+      }
+
+      @media screen and (min-width: 1025px) {
+        .aos_desktop_ad_spacer {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_show_ad_on_mobile {
+        display: none;
+      }
+
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_mobile {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1025px) {
+        .aos_show_ad_on_desktop {
+          /*display: inline-block;*/
+          display: block; /*adsense recommended*/
+        }
+      }
+
+      /*ipad and below */
+      @media screen and (max-width: 1024px) {
+        .aos_show_ad_on_desktop {
+          display: none;
+        }
+      }
+
+      /*ipad and below */
+      .aos_filter_topics_input {
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid lightgray;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 1px 5px lightgrey;
+        margin-bottom: 20px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_filter_topics_input {
+          font-size: 20px;
+          padding: 10px;
+          border: 1px solid lightgray;
+          background-color: white;
+          border-radius: 10px;
+          box-shadow: 1px 1px 5px lightgrey;
+          margin-bottom: 20px;
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_project {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_project {
+          font-family: helvetica, arial, sans-serif;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 100%;
+        }
+      }
+
+      /* ipad and below
+      .aos_topics_sidebar {
+        font-family: helvetica, arial, sans-serif;
+        font-size: 12px;
+        margin-left: 2%;
+        margin-right: 2%;
+        width: 94%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+      }
+
+       everything larger than ipad
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar {
+          font-family: helvetica, arial, sans-serif;
+          margin-left: 5%;
+          margin-right: 2%;
+          width: 30%;
+          margin-bottom: 0;
+          font-size: 20px;
+          border-radius: 10px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+        }
+      }*/
+
+      /*ipad and below */
+      .aos_pill_box {
+        display: flex;
+        color: black;
+        border-radius: 5px;
+        padding: 2px;
+        margin: 2px;
+        align-items: center;
+        border-color: black;
+        background-color: white;
+        font-size: 12px;
+        border: 1px solid black;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pill_box {
+          display: flex;
+          color: black;
+          border-radius: 5px;
+          padding: 5px;
+          margin: 10px;
+          align-items: center;
+          border: 0;
+          background-color: white;
+          box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.25);
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_selected_topics_text_container {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_selected_topics_text_container {
+          margin-left: 25px;
+          margin-right: 10px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+          padding: 5px;
+          font-weight: bold;
+          font-size: 20px;
+          white-space: nowrap;
+          display: inline-block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_links_container {
+        display: flex;
+        justify-content: space-around;
+        font-size: 12px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_links_container {
+          display: flex;
+          justify-content: space-around;
+          font-size: 16px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_container {
+        padding-bottom: 20px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 5px;
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_container {
+          /*border-radius: 10px;*/
+          padding-bottom: 20px;
+          padding-left: 0;
+          padding-right: 0;
+          padding-top: 5px;
+          width: 100%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_description {
+        font-size: 16px;
+        width: 100%;
+        font-weight: 300; /* match adsense */
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_description {
+          font-size: 16px;
+          font-weight: 300; /* match adsense */
+        }
+      }
+
+      /*ipad and below */
+      .aos_project_title {
+        font-size: 20px;
+        margin-bottom: 2px;
+        font-weight: 400; /* match adsense */
+        width: 100%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_project_title {
+          font-size: 20px;
+          margin-bottom: 2px;
+          font-weight: 400; /* match adsense */
+        }
+      }
+
+      .aos_project_title a :hover {
+        text-decoration: none !important;
+      }
+
+      .aos_no_underline:hover {
+        text-decoration: none !important;
+      }
+
+      .aos_grey_link:hover {
+        color: #808080 !important;
+      }
+
+      .aos_grey_link {
+        color: #808080 !important;
+      }
+
+      /*ipad and below */
+      .category_topic_filter_container {
+        width: 94%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .category_topic_filter_container {
+          width: 94%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_projects_container {
+        font-family: helvetica, arial, sans-serif;
+        margin-right: 2%;
+        width: 96%; /* won't insert an ad this small (68%), but bigger and it overflows to the right with some topics that are long */
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-left: 2%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_projects_container {
+          font-family: helvetica, arial, sans-serif;
+          margin-right: 0;
+          width: 90%; /* was 53 before removing right margin spacer / ad container */
+          font-size: 18px;
+          margin-bottom: 5px;
+          min-width: 800px;
+          margin-left: 5%;
+        }
+      }
+
+      /*ipad and below */
+      .aos_pagenavigator_container {
+        display: flex;
+        justify-content: center;
+        font-size: 9px;
+        margin-bottom: 0;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_pagenavigator_container {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_header_title_container_ipad_and_smaller {
+        font-size: 12px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 134px;
+        white-space: nowrap;
+        flex-direction: column;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_ipad_and_smaller {
+          display: none;
+        }
+      }
+
+
+      /*ipad and below */
+      .aos_header_title_container_larger_than_ipad {
+        display: none;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_header_title_container_larger_than_ipad {
+          display: block;
+        }
+      }
+
+      /*ipad and below */
+      .aos_logo_image {
+        height: 25px;
+        width: 25px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_logo_image {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_footer_container {
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 2px;
+        width: 100%;
+        justify-content: center;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_footer_container {
+          display: flex;
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+          justify-content: center;
+        }
+      }
+
+      /*ipad and below */
+      .aos_fixed_header_container {
+        margin-left: 2%;
+        margin-right: 2%;
+        margin-top: 4px;
+        margin-bottom: 2px;
+        width: 96%;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_fixed_header_container {
+          margin-left: 5%;
+          margin-right: 20%;
+          margin-top: 5px;
+          margin-bottom: 5px;
+          width: 75%;
+        }
+      }
+
+      /*ipad and below */
+      body {
+        margin-top: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+        margin-left: 0;
+        padding: 0
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        body {
+          margin-top: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
+          padding: 0
+        }
+      }
+
+      /* ipad and below */
+      .aos_topics_sidebar_link {
+        width: 100%;
+        margin-bottom: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+      }
+
+      /* everything larger than ipad */
+      @media screen and (min-width: 1024px) {
+        .aos_topics_sidebar_link {
+          width: 100%;
+          margin-bottom: 10px;
+          font-size: 18px;
+        }
+      }
+
+      html {
+        margin: 0;
+        padding: 0
+      }
+
+      a {
+        color: #000000;
+        text-decoration: none;
+      }
+
+      a:visited {
+        text-decoration: none;
+      }
+
+      a:hover {
+        /*color: #0366d6;*/
+        color: #000000; /* match adsense */
+        text-decoration: underline;
+      }
+
+      .AOS_Pill:hover {
+        text-decoration: none;
+      }
+
+      /* MIT licensed github-markdown.css */
+      /* https://github.com/sindresorhus/github-markdown-css */
+      @font-face {
+        font-family: octicons-link;
+        src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAZwABAAAAAACFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEU0lHAAAGaAAAAAgAAAAIAAAAAUdTVUIAAAZcAAAACgAAAAoAAQAAT1MvMgAAAyQAAABJAAAAYFYEU3RjbWFwAAADcAAAAEUAAACAAJThvmN2dCAAAATkAAAABAAAAAQAAAAAZnBnbQAAA7gAAACyAAABCUM+8IhnYXNwAAAGTAAAABAAAAAQABoAI2dseWYAAAFsAAABPAAAAZwcEq9taGVhZAAAAsgAAAA0AAAANgh4a91oaGVhAAADCAAAABoAAAAkCA8DRGhtdHgAAAL8AAAADAAAAAwGAACfbG9jYQAAAsAAAAAIAAAACABiATBtYXhwAAACqAAAABgAAAAgAA8ASm5hbWUAAAToAAABQgAAAlXu73sOcG9zdAAABiwAAAAeAAAAME3QpOBwcmVwAAAEbAAAAHYAAAB/aFGpk3jaTY6xa8JAGMW/O62BDi0tJLYQincXEypYIiGJjSgHniQ6umTsUEyLm5BV6NDBP8Tpts6F0v+k/0an2i+itHDw3v2+9+DBKTzsJNnWJNTgHEy4BgG3EMI9DCEDOGEXzDADU5hBKMIgNPZqoD3SilVaXZCER3/I7AtxEJLtzzuZfI+VVkprxTlXShWKb3TBecG11rwoNlmmn1P2WYcJczl32etSpKnziC7lQyWe1smVPy/Lt7Kc+0vWY/gAgIIEqAN9we0pwKXreiMasxvabDQMM4riO+qxM2ogwDGOZTXxwxDiycQIcoYFBLj5K3EIaSctAq2kTYiw+ymhce7vwM9jSqO8JyVd5RH9gyTt2+J/yUmYlIR0s04n6+7Vm1ozezUeLEaUjhaDSuXHwVRgvLJn1tQ7xiuVv/ocTRF42mNgZGBgYGbwZOBiAAFGJBIMAAizAFoAAABiAGIAznjaY2BkYGAA4in8zwXi+W2+MjCzMIDApSwvXzC97Z4Ig8N/BxYGZgcgl52BCSQKAA3jCV8CAABfAAAAAAQAAEB42mNgZGBg4f3vACQZQABIMjKgAmYAKEgBXgAAeNpjYGY6wTiBgZWBg2kmUxoDA4MPhGZMYzBi1AHygVLYQUCaawqDA4PChxhmh/8ODDEsvAwHgMKMIDnGL0x7gJQCAwMAJd4MFwAAAHjaY2BgYGaA4DAGRgYQkAHyGMF8NgYrIM3JIAGVYYDT+AEjAwuDFpBmA9KMDEwMCh9i/v8H8sH0/4dQc1iAmAkALaUKLgAAAHjaTY9LDsIgEIbtgqHUPpDi3gPoBVyRTmTddOmqTXThEXqrob2gQ1FjwpDvfwCBdmdXC5AVKFu3e5MfNFJ29KTQT48Ob9/lqYwOGZxeUelN2U2R6+cArgtCJpauW7UQBqnFkUsjAY/kOU1cP+DAgvxwn1chZDwUbd6CFimGXwzwF6tPbFIcjEl+vvmM/byA48e6tWrKArm4ZJlCbdsrxksL1AwWn/yBSJKpYbq8AXaaTb8AAHja28jAwOC00ZrBeQNDQOWO//sdBBgYGRiYWYAEELEwMTE4uzo5Zzo5b2BxdnFOcALxNjA6b2ByTswC8jYwg0VlNuoCTWAMqNzMzsoK1rEhNqByEyerg5PMJlYuVueETKcd/89uBpnpvIEVomeHLoMsAAe1Id4AAAAAAAB42oWQT07CQBTGv0JBhagk7HQzKxca2sJCE1hDt4QF+9JOS0nbaaYDCQfwCJ7Au3AHj+LO13FMmm6cl7785vven0kBjHCBhfpYuNa5Ph1c0e2Xu3jEvWG7UdPDLZ4N92nOm+EBXuAbHmIMSRMs+4aUEd4Nd3CHD8NdvOLTsA2GL8M9PODbcL+hD7C1xoaHeLJSEao0FEW14ckxC+TU8TxvsY6X0eLPmRhry2WVioLpkrbp84LLQPGI7c6sOiUzpWIWS5GzlSgUzzLBSikOPFTOXqly7rqx0Z1Q5BAIoZBSFihQYQOOBEdkCOgXTOHA07HAGjGWiIjaPZNW13/+lm6S9FT7rLHFJ6fQbkATOG1j2OFMucKJJsxIVfQORl+9Jyda6Sl1dUYhSCm1dyClfoeDve4qMYdLEbfqHf3O/AdDumsjAAB42mNgYoAAZQYjBmyAGYQZmdhL8zLdDEydARfoAqIAAAABAAMABwAKABMAB///AA8AAQAAAAAAAAAAAAAAAAABAAAAAA==) format('woff');
+      }
+      .markdown-body {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        line-height: 1.5;
+        color: #24292e;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 16px;
+        line-height: 1.5;
+        word-wrap: break-word;
+      }
+      .markdown-body .pl-c {
+        color: #6a737d;
+      }
+      .markdown-body .pl-c1,
+      .markdown-body .pl-s .pl-v {
+        color: #005cc5;
+      }
+      .markdown-body .pl-e,
+      .markdown-body .pl-en {
+        color: #6f42c1;
+      }
+      .markdown-body .pl-smi,
+      .markdown-body .pl-s .pl-s1 {
+        color: #24292e;
+      }
+      .markdown-body .pl-ent {
+        color: #22863a;
+      }
+      .markdown-body .pl-k {
+        color: #d73a49;
+      }
+      .markdown-body .pl-s,
+      .markdown-body .pl-pds,
+      .markdown-body .pl-s .pl-pse .pl-s1,
+      .markdown-body .pl-sr,
+      .markdown-body .pl-sr .pl-cce,
+      .markdown-body .pl-sr .pl-sre,
+      .markdown-body .pl-sr .pl-sra {
+        color: #032f62;
+      }
+      .markdown-body .pl-v,
+      .markdown-body .pl-smw {
+        color: #e36209;
+      }
+      .markdown-body .pl-bu {
+        color: #b31d28;
+      }
+      .markdown-body .pl-ii {
+        color: #fafbfc;
+        background-color: #b31d28;
+      }
+      .markdown-body .pl-c2 {
+        color: #fafbfc;
+        background-color: #d73a49;
+      }
+      .markdown-body .pl-c2::before {
+        content: "^M";
+      }
+      .markdown-body .pl-sr .pl-cce {
+        font-weight: bold;
+        color: #22863a;
+      }
+      .markdown-body .pl-ml {
+        color: #735c0f;
+      }
+      .markdown-body .pl-mh,
+      .markdown-body .pl-mh .pl-en,
+      .markdown-body .pl-ms {
+        font-weight: bold;
+        color: #005cc5;
+      }
+      .markdown-body .pl-mi {
+        font-style: italic;
+        color: #24292e;
+      }
+      .markdown-body .pl-mb {
+        font-weight: bold;
+        color: #24292e;
+      }
+      .markdown-body .pl-md {
+        color: #b31d28;
+        background-color: #ffeef0;
+      }
+      .markdown-body .pl-mi1 {
+        color: #22863a;
+        background-color: #f0fff4;
+      }
+      .markdown-body .pl-mc {
+        color: #e36209;
+        background-color: #ffebda;
+      }
+      .markdown-body .pl-mi2 {
+        color: #f6f8fa;
+        background-color: #005cc5;
+      }
+      .markdown-body .pl-mdr {
+        font-weight: bold;
+        color: #6f42c1;
+      }
+      .markdown-body .pl-ba {
+        color: #586069;
+      }
+      .markdown-body .pl-sg {
+        color: #959da5;
+      }
+      .markdown-body .pl-corl {
+        text-decoration: underline;
+        color: #032f62;
+      }
+      .markdown-body .octicon {
+        display: inline-block;
+        vertical-align: text-top;
+        fill: currentColor;
+      }
+      .markdown-body a {
+        background-color: transparent;
+      }
+      .markdown-body a:active,
+      .markdown-body a:hover {
+        outline-width: 0;
+      }
+      .markdown-body strong {
+        font-weight: inherit;
+      }
+      .markdown-body strong {
+        font-weight: bolder;
+      }
+      .markdown-body h1 {
+        font-size: 2em;
+        margin: 0.67em 0;
+      }
+      .markdown-body img {
+        border-style: none;
+      }
+      .markdown-body code,
+      .markdown-body kbd,
+      .markdown-body pre {
+        font-family: monospace, monospace;
+        font-size: 1em;
+      }
+      .markdown-body hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+      .markdown-body input {
+        font: inherit;
+        margin: 0;
+      }
+      .markdown-body input {
+        overflow: visible;
+      }
+      .markdown-body [type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+      }
+      .markdown-body * {
+        box-sizing: border-box;
+      }
+      .markdown-body input {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+      }
+      .markdown-body a {
+        color: #0366d6;
+        text-decoration: none;
+      }
+      .markdown-body a:hover {
+        text-decoration: underline;
+      }
+      .markdown-body strong {
+        font-weight: 600;
+      }
+      .markdown-body hr {
+        height: 0;
+        margin: 15px 0;
+        overflow: hidden;
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid #dfe2e5;
+      }
+      .markdown-body hr::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body hr::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body table {
+        border-spacing: 0;
+        border-collapse: collapse;
+      }
+      .markdown-body td,
+      .markdown-body th {
+        padding: 0;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body h1 {
+        font-size: 32px;
+        font-weight: 600;
+      }
+      .markdown-body h2 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+      .markdown-body h3 {
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .markdown-body h4 {
+        font-size: 16px;
+        font-weight: 600;
+      }
+      .markdown-body h5 {
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .markdown-body h6 {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .markdown-body p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .markdown-body blockquote {
+        margin: 0;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body ol ol,
+      .markdown-body ul ol {
+        list-style-type: lower-roman;
+      }
+      .markdown-body ul ul ol,
+      .markdown-body ul ol ol,
+      .markdown-body ol ul ol,
+      .markdown-body ol ol ol {
+        list-style-type: lower-alpha;
+      }
+      .markdown-body dd {
+        margin-left: 0;
+      }
+      .markdown-body code {
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+      }
+      .markdown-body .octicon {
+        vertical-align: text-bottom;
+      }
+      .markdown-body .pl-0 {
+        padding-left: 0 !important;
+      }
+      .markdown-body .pl-1 {
+        padding-left: 4px !important;
+      }
+      .markdown-body .pl-2 {
+        padding-left: 8px !important;
+      }
+      .markdown-body .pl-3 {
+        padding-left: 16px !important;
+      }
+      .markdown-body .pl-4 {
+        padding-left: 24px !important;
+      }
+      .markdown-body .pl-5 {
+        padding-left: 32px !important;
+      }
+      .markdown-body .pl-6 {
+        padding-left: 40px !important;
+      }
+      .markdown-body::before {
+        display: table;
+        content: "";
+      }
+      .markdown-body::after {
+        display: table;
+        clear: both;
+        content: "";
+      }
+      .markdown-body>*:first-child {
+        margin-top: 0 !important;
+      }
+      .markdown-body>*:last-child {
+        margin-bottom: 0 !important;
+      }
+      .markdown-body a:not([href]) {
+        color: inherit;
+        text-decoration: none;
+      }
+      .markdown-body .anchor {
+        float: left;
+        padding-right: 4px;
+        margin-left: -20px;
+        line-height: 1;
+      }
+      .markdown-body .anchor:focus {
+        outline: none;
+      }
+      .markdown-body p,
+      .markdown-body blockquote,
+      .markdown-body ul,
+      .markdown-body ol,
+      .markdown-body dl,
+      .markdown-body table,
+      .markdown-body pre {
+        margin-top: 0;
+        margin-bottom: 16px;
+      }
+      .markdown-body hr {
+        height: 0.25em;
+        padding: 0;
+        margin: 24px 0;
+        background-color: #e1e4e8;
+        border: 0;
+      }
+      .markdown-body blockquote {
+        padding: 0 1em;
+        color: #6a737d;
+        border-left: 0.25em solid #dfe2e5;
+      }
+      .markdown-body blockquote>:first-child {
+        margin-top: 0;
+      }
+      .markdown-body blockquote>:last-child {
+        margin-bottom: 0;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 11px;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #c6cbd1;
+        border-bottom-color: #959da5;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #959da5;
+      }
+      .markdown-body h1,
+      .markdown-body h2,
+      .markdown-body h3,
+      .markdown-body h4,
+      .markdown-body h5,
+      .markdown-body h6 {
+        margin-top: 24px;
+        margin-bottom: 16px;
+        font-weight: 600;
+        line-height: 1.25;
+      }
+      .markdown-body h1 .octicon-link,
+      .markdown-body h2 .octicon-link,
+      .markdown-body h3 .octicon-link,
+      .markdown-body h4 .octicon-link,
+      .markdown-body h5 .octicon-link,
+      .markdown-body h6 .octicon-link {
+        color: #1b1f23;
+        vertical-align: middle;
+        visibility: hidden;
+      }
+      .markdown-body h1:hover .anchor,
+      .markdown-body h2:hover .anchor,
+      .markdown-body h3:hover .anchor,
+      .markdown-body h4:hover .anchor,
+      .markdown-body h5:hover .anchor,
+      .markdown-body h6:hover .anchor {
+        text-decoration: none;
+      }
+      .markdown-body h1:hover .anchor .octicon-link,
+      .markdown-body h2:hover .anchor .octicon-link,
+      .markdown-body h3:hover .anchor .octicon-link,
+      .markdown-body h4:hover .anchor .octicon-link,
+      .markdown-body h5:hover .anchor .octicon-link,
+      .markdown-body h6:hover .anchor .octicon-link {
+        visibility: visible;
+      }
+      .markdown-body h1 {
+        padding-bottom: 0.3em;
+        font-size: 2em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h2 {
+        padding-bottom: 0.3em;
+        font-size: 1.5em;
+        border-bottom: 1px solid #eaecef;
+      }
+      .markdown-body h3 {
+        font-size: 1.25em;
+      }
+      .markdown-body h4 {
+        font-size: 1em;
+      }
+      .markdown-body h5 {
+        font-size: 0.875em;
+      }
+      .markdown-body h6 {
+        font-size: 0.85em;
+        color: #6a737d;
+      }
+      .markdown-body ul,
+      .markdown-body ol {
+        padding-left: 2em;
+      }
+      .markdown-body ul ul,
+      .markdown-body ul ol,
+      .markdown-body ol ol,
+      .markdown-body ol ul {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .markdown-body li {
+        word-wrap: break-all;
+      }
+      .markdown-body li>p {
+        margin-top: 16px;
+      }
+      .markdown-body li+li {
+        margin-top: 0.25em;
+      }
+      .markdown-body dl {
+        padding: 0;
+      }
+      .markdown-body dl dt {
+        padding: 0;
+        margin-top: 16px;
+        font-size: 1em;
+        font-style: italic;
+        font-weight: 600;
+      }
+      .markdown-body dl dd {
+        padding: 0 16px;
+        margin-bottom: 16px;
+      }
+      .markdown-body table {
+        display: block;
+        width: 100%;
+        overflow: auto;
+      }
+      .markdown-body table th {
+        font-weight: 600;
+      }
+      .markdown-body table th,
+      .markdown-body table td {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5;
+      }
+      .markdown-body table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1;
+      }
+      .markdown-body table tr:nth-child(2n) {
+        background-color: #f6f8fa;
+      }
+      .markdown-body img {
+        max-width: 100%;
+        box-sizing: content-box;
+        background-color: #fff;
+      }
+      .markdown-body img[align=right] {
+        padding-left: 20px;
+      }
+      .markdown-body img[align=left] {
+        padding-right: 20px;
+      }
+      .markdown-body code {
+        padding: 0.2em 0.4em;
+        margin: 0;
+        font-size: 85%;
+        background-color: rgba(27,31,35,0.05);
+        border-radius: 3px;
+      }
+      .markdown-body pre {
+        word-wrap: normal;
+      }
+      .markdown-body pre>code {
+        padding: 0;
+        margin: 0;
+        font-size: 100%;
+        word-break: normal;
+        white-space: pre;
+        background: transparent;
+        border: 0;
+      }
+      .markdown-body .highlight {
+        margin-bottom: 16px;
+      }
+      .markdown-body .highlight pre {
+        margin-bottom: 0;
+        word-break: normal;
+      }
+      .markdown-body .highlight pre,
+      .markdown-body pre {
+        padding: 16px;
+        overflow: auto;
+        font-size: 85%;
+        line-height: 1.45;
+        background-color: #f6f8fa;
+        border-radius: 3px;
+      }
+      .markdown-body pre code {
+        display: inline;
+        max-width: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        line-height: inherit;
+        word-wrap: normal;
+        background-color: transparent;
+        border: 0;
+      }
+      .markdown-body .full-commit .btn-outline:not(:disabled):hover {
+        color: #005cc5;
+        border-color: #005cc5;
+      }
+      .markdown-body kbd {
+        display: inline-block;
+        padding: 3px 5px;
+        font: 11px "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        line-height: 10px;
+        color: #444d56;
+        vertical-align: middle;
+        background-color: #fafbfc;
+        border: solid 1px #d1d5da;
+        border-bottom-color: #c6cbd1;
+        border-radius: 3px;
+        box-shadow: inset 0 -1px 0 #c6cbd1;
+      }
+      .markdown-body :checked+.radio-label {
+        position: relative;
+        z-index: 1;
+        border-color: #0366d6;
+      }
+      .markdown-body .task-list-item {
+        list-style-type: none;
+      }
+      .markdown-body .task-list-item+.task-list-item {
+        margin-top: 3px;
+      }
+      .markdown-body .task-list-item input {
+        margin: 0 0.2em 0.25em -1.6em;
+        vertical-align: middle;
+      }
+      .markdown-body hr {
+        border-bottom-color: #eee;
+      }
+      /* github-markdown.css overrides */
+      .markdown-body h2 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      .hll { background-color: #ffffcc }
+      .c { color: #008000 } /* Comment */
+      .err { border: 1px solid #FF0000 } /* Error */
+      .k { color: #0000ff } /* Keyword */
+      .cm { color: #008000 } /* Comment.Multiline */
+      .cp { color: #0000ff } /* Comment.Preproc */
+      .c1 { color: #008000 } /* Comment.Single */
+      .cs { color: #008000 } /* Comment.Special */
+      .ge { font-style: italic } /* Generic.Emph */
+      .gh { font-weight: bold } /* Generic.Heading */
+      .gp { font-weight: bold } /* Generic.Prompt */
+      .gs { font-weight: bold } /* Generic.Strong */
+      .gu { font-weight: bold } /* Generic.Subheading */
+      .kc { color: #0000ff } /* Keyword.Constant */
+      .kd { color: #0000ff } /* Keyword.Declaration */
+      .kn { color: #0000ff } /* Keyword.Namespace */
+      .kp { color: #0000ff } /* Keyword.Pseudo */
+      .kr { color: #0000ff } /* Keyword.Reserved */
+      .kt { color: #2b91af } /* Keyword.Type */
+      .s { color: #a31515 } /* Literal.String */
+      .nc { color: #2b91af } /* Name.Class */
+      .ow { color: #0000ff } /* Operator.Word */
+      .sb { color: #a31515 } /* Literal.String.Backtick */
+      .sc { color: #a31515 } /* Literal.String.Char */
+      .sd { color: #a31515 } /* Literal.String.Doc */
+      .s2 { color: #a31515 } /* Literal.String.Double */
+      .se { color: #a31515 } /* Literal.String.Escape */
+      .sh { color: #a31515 } /* Literal.String.Heredoc */
+      .si { color: #a31515 } /* Literal.String.Interpol */
+      .sx { color: #a31515 } /* Literal.String.Other */
+      .sr { color: #a31515 } /* Literal.String.Regex */
+      .s1 { color: #a31515 } /* Literal.String.Single */
+      .ss { color: #a31515 } /* Literal.String.Symbol */
+
+    </style>
+
+    
+
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="cpJoNyXcFOtWEdQJMDT07n2lBwi8C9KxzdZS1eGEGOP1iAe9lVY4pMen2B4YYQJObzeQKmiTQGONLB4PeNgEXQ==" />
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+  <body>
+    <script type="application/json" id="js-react-on-rails-context">{"railsEnv":"production","inMailer":false,"i18nLocale":"en","i18nDefaultLocale":"en","rorVersion":"11.2.1","rorPro":false,"href":"http://awesomeopensource.com/categories/user-interface","location":"/categories/user-interface","scheme":"http","host":"awesomeopensource.com","port":null,"pathname":"/categories/user-interface","search":null,"httpAcceptLanguage":null,"serverSide":false}</script>
+<div id="Root-react-component-24298cf7-914e-47e9-9e70-09aef10f7685"><div style="font-family:helvetica, arial, sans-serif" data-reactroot=""><div class="aos_fixed_header_container"><div class="display_flex margin_bottom_15"><div style="margin-right:1%;display:flex;align-items:center"><a href="https://awesomeopensource.com" title="Awesome Open Source Home" rel="canonical"><img src="https://awesomeopensource.com/awesome.gif" class="aos_logo_image"/></a></div><div class="aos_header_title_container_larger_than_ipad"><div style="white-space:nowrap;font-size:24px;font-weight:bold;display:flex;flex-direction:row;align-items:center;height:100%"><div>Awesome Open Source</div></div></div><div class="aos_header_title_container_ipad_and_smaller"><div>Awesome Open Source</div></div><div style="display:flex;flex-wrap:wrap"></div></div><div></div></div><div class="aos_app_container"><div class="aos_projects_container"><div class="aos_topics_sidebar" style="margin:0;width:100%"><div class="category_topic_filter_container"><input style="width:100%" placeholder="Search, browse and combine topics" value="" class="aos_filter_topics_input"/></div><div style="display:none;box-shadow:1px 1px 5px lightgray"></div></div><h2 style="margin-top:0px;margin-bottom:20px">The Top 330 User Interface Topics </h2><div style="margin-top:10px"><a href="https://awesomeopensource.com">Categories</a> &gt; <b>User Interface</b></div><div style="width:100%;display:flex;flex-wrap:wrap"><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/react-native">react-native<span class="aos_project_count"> 📔 </span><span class="aos_project_count">1,437</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/flutter">flutter<span class="aos_project_count"> 📔 </span><span class="aos_project_count">1,147</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/redux">redux<span class="aos_project_count"> 📔 </span><span class="aos_project_count">1,134</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/animation">animation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">1,007</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ui">ui<span class="aos_project_count"> 📔 </span><span class="aos_project_count">960</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/android-library">android-library<span class="aos_project_count"> 📔 </span><span class="aos_project_count">779</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/theme">theme<span class="aos_project_count"> 📔 </span><span class="aos_project_count">774</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/visualization">visualization<span class="aos_project_count"> 📔 </span><span class="aos_project_count">764</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/material-design">material-design<span class="aos_project_count"> 📔 </span><span class="aos_project_count">635</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gui">gui<span class="aos_project_count"> 📔 </span><span class="aos_project_count">545</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/mobile">mobile<span class="aos_project_count"> 📔 </span><span class="aos_project_count">462</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/vuex">vuex<span class="aos_project_count"> 📔 </span><span class="aos_project_count">403</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/data-visualization">data-visualization<span class="aos_project_count"> 📔 </span><span class="aos_project_count">398</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/app">app<span class="aos_project_count"> 📔 </span><span class="aos_project_count">367</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/client">client<span class="aos_project_count"> 📔 </span><span class="aos_project_count">364</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/material">material<span class="aos_project_count"> 📔 </span><span class="aos_project_count">362</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/design">design<span class="aos_project_count"> 📔 </span><span class="aos_project_count">349</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/qt">qt<span class="aos_project_count"> 📔 </span><span class="aos_project_count">331</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/desktop">desktop<span class="aos_project_count"> 📔 </span><span class="aos_project_count">274</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/android-application">android-application<span class="aos_project_count"> 📔 </span><span class="aos_project_count">264</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/uikit">uikit<span class="aos_project_count"> 📔 </span><span class="aos_project_count">245</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/font">font<span class="aos_project_count"> 📔 </span><span class="aos_project_count">241</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/navigation">navigation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">237</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/android-development">android-development<span class="aos_project_count"> 📔 </span><span class="aos_project_count">209</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/view">view<span class="aos_project_count"> 📔 </span><span class="aos_project_count">204</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/material-ui">material-ui<span class="aos_project_count"> 📔 </span><span class="aos_project_count">202</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/qt5">qt5<span class="aos_project_count"> 📔 </span><span class="aos_project_count">202</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/wpf">wpf<span class="aos_project_count"> 📔 </span><span class="aos_project_count">199</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/retrofit2">retrofit2<span class="aos_project_count"> 📔 </span><span class="aos_project_count">187</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/cordova">cordova<span class="aos_project_count"> 📔 </span><span class="aos_project_count">182</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/state-management">state-management<span class="aos_project_count"> 📔 </span><span class="aos_project_count">181</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/sketch">sketch<span class="aos_project_count"> 📔 </span><span class="aos_project_count">173</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/layout">layout<span class="aos_project_count"> 📔 </span><span class="aos_project_count">171</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/accessibility">accessibility<span class="aos_project_count"> 📔 </span><span class="aos_project_count">164</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/qml">qml<span class="aos_project_count"> 📔 </span><span class="aos_project_count">162</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/native">native<span class="aos_project_count"> 📔 </span><span class="aos_project_count">154</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/offline">offline<span class="aos_project_count"> 📔 </span><span class="aos_project_count">154</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/animations">animations<span class="aos_project_count"> 📔 </span><span class="aos_project_count">150</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gtk">gtk<span class="aos_project_count"> 📔 </span><span class="aos_project_count">150</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/file">file<span class="aos_project_count"> 📔 </span><span class="aos_project_count">133</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/repl">repl<span class="aos_project_count"> 📔 </span><span class="aos_project_count">132</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ux">ux<span class="aos_project_count"> 📔 </span><span class="aos_project_count">130</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/antd">antd<span class="aos_project_count"> 📔 </span><span class="aos_project_count">129</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/color-scheme">color-scheme<span class="aos_project_count"> 📔 </span><span class="aos_project_count">128</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/vr">vr<span class="aos_project_count"> 📔 </span><span class="aos_project_count">124</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/themes">themes<span class="aos_project_count"> 📔 </span><span class="aos_project_count">119</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/dynamic">dynamic<span class="aos_project_count"> 📔 </span><span class="aos_project_count">111</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/livedata">livedata<span class="aos_project_count"> 📔 </span><span class="aos_project_count">111</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/matplotlib">matplotlib<span class="aos_project_count"> 📔 </span><span class="aos_project_count">111</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/minimal">minimal<span class="aos_project_count"> 📔 </span><span class="aos_project_count">110</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/templates">templates<span class="aos_project_count"> 📔 </span><span class="aos_project_count">108</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/custom">custom<span class="aos_project_count"> 📔 </span><span class="aos_project_count">107</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/state">state<span class="aos_project_count"> 📔 </span><span class="aos_project_count">106</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/transition">transition<span class="aos_project_count"> 📔 </span><span class="aos_project_count">106</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/design-system">design-system<span class="aos_project_count"> 📔 </span><span class="aos_project_count">105</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/augmented-reality">augmented-reality<span class="aos_project_count"> 📔 </span><span class="aos_project_count">103</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gtk3">gtk3<span class="aos_project_count"> 📔 </span><span class="aos_project_count">103</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/interactive">interactive<span class="aos_project_count"> 📔 </span><span class="aos_project_count">102</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/reasonml">reasonml<span class="aos_project_count"> 📔 </span><span class="aos_project_count">102</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/swipe">swipe<span class="aos_project_count"> 📔 </span><span class="aos_project_count">101</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/xaml">xaml<span class="aos_project_count"> 📔 </span><span class="aos_project_count">100</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/typography">typography<span class="aos_project_count"> 📔 </span><span class="aos_project_count">97</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/custom-view">custom-view<span class="aos_project_count"> 📔 </span><span class="aos_project_count">96</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ui-design">ui-design<span class="aos_project_count"> 📔 </span><span class="aos_project_count">95</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/design-systems">design-systems<span class="aos_project_count"> 📔 </span><span class="aos_project_count">90</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/a11y">a11y<span class="aos_project_count"> 📔 </span><span class="aos_project_count">89</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/arkit">arkit<span class="aos_project_count"> 📔 </span><span class="aos_project_count">89</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/customizable">customizable<span class="aos_project_count"> 📔 </span><span class="aos_project_count">89</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/diagram">diagram<span class="aos_project_count"> 📔 </span><span class="aos_project_count">89</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/skeleton">skeleton<span class="aos_project_count"> 📔 </span><span class="aos_project_count">89</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/desktop-app">desktop-app<span class="aos_project_count"> 📔 </span><span class="aos_project_count">88</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/webview">webview<span class="aos_project_count"> 📔 </span><span class="aos_project_count">87</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/effects">effects<span class="aos_project_count"> 📔 </span><span class="aos_project_count">86</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ui-kit">ui-kit<span class="aos_project_count"> 📔 </span><span class="aos_project_count">84</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/glide">glide<span class="aos_project_count"> 📔 </span><span class="aos_project_count">81</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/dataviz">dataviz<span class="aos_project_count"> 📔 </span><span class="aos_project_count">80</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/x11">x11<span class="aos_project_count"> 📔 </span><span class="aos_project_count">80</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/fonts">fonts<span class="aos_project_count"> 📔 </span><span class="aos_project_count">79</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/style">style<span class="aos_project_count"> 📔 </span><span class="aos_project_count">79</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/interface">interface<span class="aos_project_count"> 📔 </span><span class="aos_project_count">78</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/wxapp">wxapp<span class="aos_project_count"> 📔 </span><span class="aos_project_count">77</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/cocoa">cocoa<span class="aos_project_count"> 📔 </span><span class="aos_project_count">76</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/pyqt5">pyqt5<span class="aos_project_count"> 📔 </span><span class="aos_project_count">75</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/user-interface">user-interface<span class="aos_project_count"> 📔 </span><span class="aos_project_count">74</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/clipboard">clipboard<span class="aos_project_count"> 📔 </span><span class="aos_project_count">71</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/databinding">databinding<span class="aos_project_count"> 📔 </span><span class="aos_project_count">71</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/virtual-dom">virtual-dom<span class="aos_project_count"> 📔 </span><span class="aos_project_count">71</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/android-sdk">android-sdk<span class="aos_project_count"> 📔 </span><span class="aos_project_count">70</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ios-ui">ios-ui<span class="aos_project_count"> 📔 </span><span class="aos_project_count">70</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/virtual-reality">virtual-reality<span class="aos_project_count"> 📔 </span><span class="aos_project_count">70</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/desktop-application">desktop-application<span class="aos_project_count"> 📔 </span><span class="aos_project_count">69</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/enterprise">enterprise<span class="aos_project_count"> 📔 </span><span class="aos_project_count">69</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/hot-reload">hot-reload<span class="aos_project_count"> 📔 </span><span class="aos_project_count">69</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/store">store<span class="aos_project_count"> 📔 </span><span class="aos_project_count">66</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/i3">i3<span class="aos_project_count"> 📔 </span><span class="aos_project_count">62</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/lazy-loading">lazy-loading<span class="aos_project_count"> 📔 </span><span class="aos_project_count">62</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/form-validation">form-validation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">61</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/i3wm">i3wm<span class="aos_project_count"> 📔 </span><span class="aos_project_count">59</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/window-manager">window-manager<span class="aos_project_count"> 📔 </span><span class="aos_project_count">59</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/binding">binding<span class="aos_project_count"> 📔 </span><span class="aos_project_count">58</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/customview">customview<span class="aos_project_count"> 📔 </span><span class="aos_project_count">58</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/draw">draw<span class="aos_project_count"> 📔 </span><span class="aos_project_count">57</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/light">light<span class="aos_project_count"> 📔 </span><span class="aos_project_count">56</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/react-navigation">react-navigation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">56</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/animated">animated<span class="aos_project_count"> 📔 </span><span class="aos_project_count">55</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/minimalist">minimalist<span class="aos_project_count"> 📔 </span><span class="aos_project_count">55</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/thymeleaf">thymeleaf<span class="aos_project_count"> 📔 </span><span class="aos_project_count">54</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/transitions">transitions<span class="aos_project_count"> 📔 </span><span class="aos_project_count">54</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/winforms">winforms<span class="aos_project_count"> 📔 </span><span class="aos_project_count">54</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/liquid">liquid<span class="aos_project_count"> 📔 </span><span class="aos_project_count">51</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/reactnative">reactnative<span class="aos_project_count"> 📔 </span><span class="aos_project_count">51</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/autolayout">autolayout<span class="aos_project_count"> 📔 </span><span class="aos_project_count">50</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ios-animation">ios-animation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">50</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/typeface">typeface<span class="aos_project_count"> 📔 </span><span class="aos_project_count">50</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/design-tools">design-tools<span class="aos_project_count"> 📔 </span><span class="aos_project_count">49</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/animation-library">animation-library<span class="aos_project_count"> 📔 </span><span class="aos_project_count">48</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/cordova-plugin">cordova-plugin<span class="aos_project_count"> 📔 </span><span class="aos_project_count">48</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/palette">palette<span class="aos_project_count"> 📔 </span><span class="aos_project_count">48</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ar">ar<span class="aos_project_count"> 📔 </span><span class="aos_project_count">47</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/scenekit">scenekit<span class="aos_project_count"> 📔 </span><span class="aos_project_count">47</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gesture">gesture<span class="aos_project_count"> 📔 </span><span class="aos_project_count">46</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/iview">iview<span class="aos_project_count"> 📔 </span><span class="aos_project_count">46</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/templating">templating<span class="aos_project_count"> 📔 </span><span class="aos_project_count">46</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/layui">layui<span class="aos_project_count"> 📔 </span><span class="aos_project_count">45</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/skin">skin<span class="aos_project_count"> 📔 </span><span class="aos_project_count">45</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/visualizer">visualizer<span class="aos_project_count"> 📔 </span><span class="aos_project_count">45</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/constraints">constraints<span class="aos_project_count"> 📔 </span><span class="aos_project_count">44</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/interpolation">interpolation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">44</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/prototyping">prototyping<span class="aos_project_count"> 📔 </span><span class="aos_project_count">44</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/room-persistence-library">room-persistence-library<span class="aos_project_count"> 📔 </span><span class="aos_project_count">43</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/activity">activity<span class="aos_project_count"> 📔 </span><span class="aos_project_count">42</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/blur">blur<span class="aos_project_count"> 📔 </span><span class="aos_project_count">42</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/client-side">client-side<span class="aos_project_count"> 📔 </span><span class="aos_project_count">42</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/prototype">prototype<span class="aos_project_count"> 📔 </span><span class="aos_project_count">42</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/render">render<span class="aos_project_count"> 📔 </span><span class="aos_project_count">42</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/rgb">rgb<span class="aos_project_count"> 📔 </span><span class="aos_project_count">42</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/swing">swing<span class="aos_project_count"> 📔 </span><span class="aos_project_count">42</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/react-native-web">react-native-web<span class="aos_project_count"> 📔 </span><span class="aos_project_count">41</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/angular-material">angular-material<span class="aos_project_count"> 📔 </span><span class="aos_project_count">40</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/dva">dva<span class="aos_project_count"> 📔 </span><span class="aos_project_count">40</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/fragments">fragments<span class="aos_project_count"> 📔 </span><span class="aos_project_count">40</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/uiview">uiview<span class="aos_project_count"> 📔 </span><span class="aos_project_count">40</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/material-theme">material-theme<span class="aos_project_count"> 📔 </span><span class="aos_project_count">38</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/butterknife">butterknife<span class="aos_project_count"> 📔 </span><span class="aos_project_count">36</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/diagrams">diagrams<span class="aos_project_count"> 📔 </span><span class="aos_project_count">36</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/fragment">fragment<span class="aos_project_count"> 📔 </span><span class="aos_project_count">36</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/viewport">viewport<span class="aos_project_count"> 📔 </span><span class="aos_project_count">36</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/electron-vue">electron-vue<span class="aos_project_count"> 📔 </span><span class="aos_project_count">35</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/network-visualization">network-visualization<span class="aos_project_count"> 📔 </span><span class="aos_project_count">35</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/explorer">explorer<span class="aos_project_count"> 📔 </span><span class="aos_project_count">34</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/print">print<span class="aos_project_count"> 📔 </span><span class="aos_project_count">34</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/vdom">vdom<span class="aos_project_count"> 📔 </span><span class="aos_project_count">34</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/fontawesome">fontawesome<span class="aos_project_count"> 📔 </span><span class="aos_project_count">33</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/bezier">bezier<span class="aos_project_count"> 📔 </span><span class="aos_project_count">32</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gank">gank<span class="aos_project_count"> 📔 </span><span class="aos_project_count">32</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/kit">kit<span class="aos_project_count"> 📔 </span><span class="aos_project_count">32</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/landing-page">landing-page<span class="aos_project_count"> 📔 </span><span class="aos_project_count">32</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/auto">auto<span class="aos_project_count"> 📔 </span><span class="aos_project_count">31</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/tkinter">tkinter<span class="aos_project_count"> 📔 </span><span class="aos_project_count">31</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/android-security">android-security<span class="aos_project_count"> 📔 </span><span class="aos_project_count">30</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/device">device<span class="aos_project_count"> 📔 </span><span class="aos_project_count">30</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/edittext">edittext<span class="aos_project_count"> 📔 </span><span class="aos_project_count">30</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/effect">effect<span class="aos_project_count"> 📔 </span><span class="aos_project_count">30</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/foundation">foundation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">30</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/hue">hue<span class="aos_project_count"> 📔 </span><span class="aos_project_count">30</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/interface-builder">interface-builder<span class="aos_project_count"> 📔 </span><span class="aos_project_count">30</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/lazyload">lazyload<span class="aos_project_count"> 📔 </span><span class="aos_project_count">30</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/window">window<span class="aos_project_count"> 📔 </span><span class="aos_project_count">30</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/arcore">arcore<span class="aos_project_count"> 📔 </span><span class="aos_project_count">29</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/electronjs">electronjs<span class="aos_project_count"> 📔 </span><span class="aos_project_count">29</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/react-native-app">react-native-app<span class="aos_project_count"> 📔 </span><span class="aos_project_count">29</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/data-visualisation">data-visualisation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">28</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/declarative-ui">declarative-ui<span class="aos_project_count"> 📔 </span><span class="aos_project_count">28</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/frame">frame<span class="aos_project_count"> 📔 </span><span class="aos_project_count">28</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/hoc">hoc<span class="aos_project_count"> 📔 </span><span class="aos_project_count">28</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/pyqt">pyqt<span class="aos_project_count"> 📔 </span><span class="aos_project_count">28</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/uicollectionviewlayout">uicollectionviewlayout<span class="aos_project_count"> 📔 </span><span class="aos_project_count">28</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/can-bus">can-bus<span class="aos_project_count"> 📔 </span><span class="aos_project_count">27</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/transition-animation">transition-animation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">27</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/wanandroid">wanandroid<span class="aos_project_count"> 📔 </span><span class="aos_project_count">27</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/android-animation">android-animation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">26</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/data-binding">data-binding<span class="aos_project_count"> 📔 </span><span class="aos_project_count">26</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/flat">flat<span class="aos_project_count"> 📔 </span><span class="aos_project_count">26</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/lazy">lazy<span class="aos_project_count"> 📔 </span><span class="aos_project_count">26</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/vuex2">vuex2<span class="aos_project_count"> 📔 </span><span class="aos_project_count">26</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/designer">designer<span class="aos_project_count"> 📔 </span><span class="aos_project_count">25</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/opentype">opentype<span class="aos_project_count"> 📔 </span><span class="aos_project_count">25</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/props">props<span class="aos_project_count"> 📔 </span><span class="aos_project_count">25</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/tiling-window-manager">tiling-window-manager<span class="aos_project_count"> 📔 </span><span class="aos_project_count">25</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ttf">ttf<span class="aos_project_count"> 📔 </span><span class="aos_project_count">25</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/accessible">accessible<span class="aos_project_count"> 📔 </span><span class="aos_project_count">24</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/email-template">email-template<span class="aos_project_count"> 📔 </span><span class="aos_project_count">24</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/styling">styling<span class="aos_project_count"> 📔 </span><span class="aos_project_count">24</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/click">click<span class="aos_project_count"> 📔 </span><span class="aos_project_count">23</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/conversational-ui">conversational-ui<span class="aos_project_count"> 📔 </span><span class="aos_project_count">23</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/layout-engine">layout-engine<span class="aos_project_count"> 📔 </span><span class="aos_project_count">23</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/user-experience">user-experience<span class="aos_project_count"> 📔 </span><span class="aos_project_count">23</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/xorg">xorg<span class="aos_project_count"> 📔 </span><span class="aos_project_count">23</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/actionsheet">actionsheet<span class="aos_project_count"> 📔 </span><span class="aos_project_count">22</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/beta">beta<span class="aos_project_count"> 📔 </span><span class="aos_project_count">22</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/fullscreen">fullscreen<span class="aos_project_count"> 📔 </span><span class="aos_project_count">22</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/reducer">reducer<span class="aos_project_count"> 📔 </span><span class="aos_project_count">22</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/android-view">android-view<span class="aos_project_count"> 📔 </span><span class="aos_project_count">21</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/animate">animate<span class="aos_project_count"> 📔 </span><span class="aos_project_count">21</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/awesomewm">awesomewm<span class="aos_project_count"> 📔 </span><span class="aos_project_count">21</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/category">category<span class="aos_project_count"> 📔 </span><span class="aos_project_count">21</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/coreanimation">coreanimation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">21</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/elegant">elegant<span class="aos_project_count"> 📔 </span><span class="aos_project_count">21</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/embed">embed<span class="aos_project_count"> 📔 </span><span class="aos_project_count">21</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/introduction">introduction<span class="aos_project_count"> 📔 </span><span class="aos_project_count">21</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/night-mode">night-mode<span class="aos_project_count"> 📔 </span><span class="aos_project_count">21</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/robust">robust<span class="aos_project_count"> 📔 </span><span class="aos_project_count">21</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ux-design">ux-design<span class="aos_project_count"> 📔 </span><span class="aos_project_count">21</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/fab">fab<span class="aos_project_count"> 📔 </span><span class="aos_project_count">20</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/file-explorer">file-explorer<span class="aos_project_count"> 📔 </span><span class="aos_project_count">20</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/fluid">fluid<span class="aos_project_count"> 📔 </span><span class="aos_project_count">20</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/fresco">fresco<span class="aos_project_count"> 📔 </span><span class="aos_project_count">20</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/google-fonts">google-fonts<span class="aos_project_count"> 📔 </span><span class="aos_project_count">20</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/pinch-to-zoom">pinch-to-zoom<span class="aos_project_count"> 📔 </span><span class="aos_project_count">20</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/printing">printing<span class="aos_project_count"> 📔 </span><span class="aos_project_count">20</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/render-props">render-props<span class="aos_project_count"> 📔 </span><span class="aos_project_count">20</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/styles">styles<span class="aos_project_count"> 📔 </span><span class="aos_project_count">20</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/brackets">brackets<span class="aos_project_count"> 📔 </span><span class="aos_project_count">19</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/closure">closure<span class="aos_project_count"> 📔 </span><span class="aos_project_count">19</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/dagger2-android">dagger2-android<span class="aos_project_count"> 📔 </span><span class="aos_project_count">19</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gtk3-theme">gtk3-theme<span class="aos_project_count"> 📔 </span><span class="aos_project_count">19</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/intro">intro<span class="aos_project_count"> 📔 </span><span class="aos_project_count">19</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/pyside">pyside<span class="aos_project_count"> 📔 </span><span class="aos_project_count">19</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/theming">theming<span class="aos_project_count"> 📔 </span><span class="aos_project_count">19</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/alpha">alpha<span class="aos_project_count"> 📔 </span><span class="aos_project_count">18</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/antd-mobile">antd-mobile<span class="aos_project_count"> 📔 </span><span class="aos_project_count">18</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/aurelia">aurelia<span class="aos_project_count"> 📔 </span><span class="aos_project_count">18</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/layoutmanager">layoutmanager<span class="aos_project_count"> 📔 </span><span class="aos_project_count">18</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/tiling">tiling<span class="aos_project_count"> 📔 </span><span class="aos_project_count">18</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/after-effects">after-effects<span class="aos_project_count"> 📔 </span><span class="aos_project_count">17</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/behavior">behavior<span class="aos_project_count"> 📔 </span><span class="aos_project_count">17</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/crossplatform">crossplatform<span class="aos_project_count"> 📔 </span><span class="aos_project_count">17</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/data-frame">data-frame<span class="aos_project_count"> 📔 </span><span class="aos_project_count">17</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gestures">gestures<span class="aos_project_count"> 📔 </span><span class="aos_project_count">17</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gradients">gradients<span class="aos_project_count"> 📔 </span><span class="aos_project_count">17</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/kline">kline<span class="aos_project_count"> 📔 </span><span class="aos_project_count">17</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/minimalistic">minimalistic<span class="aos_project_count"> 📔 </span><span class="aos_project_count">17</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/otf">otf<span class="aos_project_count"> 📔 </span><span class="aos_project_count">17</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/windows-forms">windows-forms<span class="aos_project_count"> 📔 </span><span class="aos_project_count">17</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/android-ndk">android-ndk<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/aot-compilation">aot-compilation<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/beautiful">beautiful<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/coordinatorlayout">coordinatorlayout<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/delegate">delegate<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/hsl">hsl<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/html-emails">html-emails<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/i3-gaps">i3-gaps<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ligatures">ligatures<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/walkthrough">walkthrough<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/wxpython">wxpython<span class="aos_project_count"> 📔 </span><span class="aos_project_count">16</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/hyperapp">hyperapp<span class="aos_project_count"> 📔 </span><span class="aos_project_count">15</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/layouts">layouts<span class="aos_project_count"> 📔 </span><span class="aos_project_count">15</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/pyqt4">pyqt4<span class="aos_project_count"> 📔 </span><span class="aos_project_count">15</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/responsive-email">responsive-email<span class="aos_project_count"> 📔 </span><span class="aos_project_count">15</span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ui-framework">ui-framework<span class="aos_project_count"> 📔 </span><span class="aos_project_count">15</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/constraint-solver">constraint-solver<span class="aos_project_count"> 📔 </span><span class="aos_project_count">14</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ngrx-effects">ngrx-effects<span class="aos_project_count"> 📔 </span><span class="aos_project_count">14</span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/activity-fragment">activity-fragment<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/android-lib">android-lib<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/android-libs">android-libs<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/android-webview">android-webview<span class="aos_project_count"> 📔 </span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/animated-vector-drawables">animated-vector-drawables<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/animator">animator<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/aot-compatible">aot-compatible<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/arms">arms<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/bodymovin">bodymovin<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/breeze">breeze<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/cocoa-touch">cocoa-touch<span class="aos_project_count"> 📔 </span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/colorization">colorization<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/container-queries">container-queries<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/coretext">coretext<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/cosmicmind">cosmicmind<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/cross-platform-gui">cross-platform-gui<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/custom-camera">custom-camera<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/custom-fonts">custom-fonts<span class="aos_project_count"> 📔 </span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/custom-theme">custom-theme<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/custom-transitions">custom-transitions<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/dagger2-mvp">dagger2-mvp<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/deep-linking">deep-linking<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/devlight">devlight<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/dialogfragment">dialogfragment<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/easter-egg">easter-egg<span class="aos_project_count"> 📔 </span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/emojione">emojione<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/empty">empty<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/flex-layout">flex-layout<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/flowlayout">flowlayout<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/font-face">font-face<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/font-size">font-size<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/force-touch">force-touch<span class="aos_project_count"> 📔 </span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/framer">framer<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/freetype">freetype<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/fullpage">fullpage<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gankio">gankio<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gesture-driven-animations">gesture-driven-animations<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gnome-shell-theme">gnome-shell-theme<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gsap">gsap<span class="aos_project_count"> 📔 </span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/gui-framework">gui-framework<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/interfaces">interfaces<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/interpolator">interpolator<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/intersectionobserver">intersectionobserver<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/itemdecoration">itemdecoration<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/keyboard-navigation">keyboard-navigation<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/materialdesign">materialdesign<span class="aos_project_count"> 📔 </span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/metro">metro<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/monospace-font">monospace-font<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/motion-design">motion-design<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/nativebase">nativebase<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/ngrx-store">ngrx-store<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/night">night<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/opentype-fonts">opentype-fonts<span class="aos_project_count"> 📔 </span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/presets">presets<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/prpl">prpl<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/recompose">recompose<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/redux-store">redux-store<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/resize-events">resize-events<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/rift">rift<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/runloop">runloop<span class="aos_project_count"> 📔 </span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/sierra">sierra<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/solarized">solarized<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/uicolor">uicolor<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/uifont">uifont<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/vertical-rhythm">vertical-rhythm<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/virtualdom">virtualdom<span class="aos_project_count"> 📔 </span></a></div><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/virtualreality">virtualreality<span class="aos_project_count"> 📔 </span></a></div></div><div style="width:190px;padding:10px;padding-bottom:0px;margin-left:0;margin-right:15px;margin-top:15px;border:1px solid lightgray;background-color:white;border-radius:10px;box-shadow:1px 1px 5px lightgray"><div style="padding-bottom:12px"><a href="https://awesomeopensource.com/projects/xresources">xresources<span class="aos_project_count"> 📔 </span></a></div></div></div></div></div><div class="aos_fixed_footer_container"><br/></div></div></div>
+      <script type="application/json" class="js-react-on-rails-component" data-component-name="Root" data-dom-id="Root-react-component-24298cf7-914e-47e9-9e70-09aef10f7685">{"topics":[{"id":null,"name":"javascript","count":67310},{"id":null,"name":"python","count":49729},{"id":null,"name":"java","count":30048},{"id":null,"name":"c-plus-plus","count":17339},{"id":null,"name":"php","count":15812},{"id":null,"name":"c","count":14340},{"id":null,"name":"go","count":14132},{"id":null,"name":"ruby","count":12268},{"id":null,"name":"c-sharp","count":11505},{"id":null,"name":"objective-c","count":10769}],"projectTopics":[],"selectedTopics":[],"currentUrl":"https://awesomeopensource.com/categories/user-interface","projects":[],"project":{},"pageTitle":"The Top 330 User Interface Topics ","categories":[{"name":"Advertising","topicsCount":10},{"name":"Application Programming Interfaces","topicsCount":124},{"name":"Applications","topicsCount":192},{"name":"Artificial Intelligence","topicsCount":78},{"name":"Blockchain","topicsCount":73},{"name":"Build Tools","topicsCount":113},{"name":"Cloud Computing","topicsCount":80},{"name":"Code Quality","topicsCount":28},{"name":"Collaboration","topicsCount":32},{"name":"Command Line Interface","topicsCount":49},{"name":"Community","topicsCount":83},{"name":"Companies","topicsCount":60},{"name":"Compilers","topicsCount":63},{"name":"Computer Science","topicsCount":80},{"name":"Configuration Management","topicsCount":42},{"name":"Content Management","topicsCount":175},{"name":"Control Flow","topicsCount":213},{"name":"Data Formats","topicsCount":78},{"name":"Data Processing","topicsCount":276},{"name":"Data Storage","topicsCount":135},{"name":"Economics","topicsCount":64},{"name":"Frameworks","topicsCount":215},{"name":"Games","topicsCount":129},{"name":"Graphics","topicsCount":110},{"name":"Hardware","topicsCount":152},{"name":"Integrated Development Environments","topicsCount":49},{"name":"Learning Resources","topicsCount":166},{"name":"Legal","topicsCount":29},{"name":"Libraries","topicsCount":129},{"name":"Lists Of Projects","topicsCount":22},{"name":"Machine Learning","topicsCount":347},{"name":"Mapping","topicsCount":64},{"name":"Marketing","topicsCount":15},{"name":"Mathematics","topicsCount":55},{"name":"Media","topicsCount":239},{"name":"Messaging","topicsCount":98},{"name":"Networking","topicsCount":315},{"name":"Operating Systems","topicsCount":89},{"name":"Operations","topicsCount":121},{"name":"Package Managers","topicsCount":55},{"name":"Programming Languages","topicsCount":245},{"name":"Runtime Environments","topicsCount":100},{"name":"Science","topicsCount":42},{"name":"Security","topicsCount":396},{"name":"Social Media","topicsCount":27},{"name":"Software Architecture","topicsCount":72},{"name":"Software Development","topicsCount":72},{"name":"Software Performance","topicsCount":58},{"name":"Software Quality","topicsCount":133},{"name":"Text Editors","topicsCount":49},{"name":"Text Processing","topicsCount":136},{"name":"User Interface","topicsCount":330},{"name":"User Interface Components","topicsCount":514},{"name":"Version Control","topicsCount":30},{"name":"Virtualization","topicsCount":71},{"name":"Web Browsers","topicsCount":42},{"name":"Web Servers","topicsCount":26},{"name":"Web User Interface","topicsCount":210},{"name":"All Projects","topicsCount":0}],"categoryTopics":[{"name":"react-native","count":1437},{"name":"animation","count":1007},{"name":"redux","count":1134},{"name":"android-library","count":779},{"name":"ui","count":960},{"name":"theme","count":774},{"name":"material-design","count":635},{"name":"visualization","count":764},{"name":"gui","count":545},{"name":"material","count":362},{"name":"vuex","count":403},{"name":"mobile","count":462},{"name":"design","count":349},{"name":"app","count":367},{"name":"client","count":364},{"name":"data-visualization","count":398},{"name":"qt","count":331},{"name":"font","count":241},{"name":"uikit","count":245},{"name":"desktop","count":274},{"name":"view","count":204},{"name":"sketch","count":173},{"name":"android-application","count":264},{"name":"android-development","count":209},{"name":"navigation","count":237},{"name":"layout","count":171},{"name":"material-ui","count":202},{"name":"wpf","count":199},{"name":"retrofit2","count":187},{"name":"qt5","count":202},{"name":"repl","count":132},{"name":"cordova","count":182},{"name":"transition","count":106},{"name":"offline","count":154},{"name":"animations","count":150},{"name":"flutter","count":1147},{"name":"native","count":154},{"name":"custom-view","count":96},{"name":"color-scheme","count":128},{"name":"state-management","count":181},{"name":"file","count":133},{"name":"gtk","count":150},{"name":"vr","count":124},{"name":"ux","count":130},{"name":"typography","count":97},{"name":"interactive","count":102},{"name":"templates","count":108},{"name":"custom","count":107},{"name":"swipe","count":101},{"name":"effects","count":86},{"name":"accessibility","count":164},{"name":"dynamic","count":111},{"name":"themes","count":119},{"name":"arkit","count":89},{"name":"ios-ui","count":70},{"name":"customizable","count":89},{"name":"wxapp","count":77},{"name":"design-systems","count":90},{"name":"hot-reload","count":69},{"name":"xaml","count":100},{"name":"cocoa","count":76},{"name":"ios-animation","count":50},{"name":"skeleton","count":89},{"name":"webview","count":87},{"name":"augmented-reality","count":103},{"name":"minimal","count":110},{"name":"virtual-reality","count":70},{"name":"virtual-dom","count":71},{"name":"antd","count":129},{"name":"desktop-app","count":88},{"name":"glide","count":81},{"name":"matplotlib","count":111},{"name":"state","count":106},{"name":"gtk3","count":103},{"name":"ui-design","count":95},{"name":"ui-kit","count":84},{"name":"android-sdk","count":70},{"name":"interface","count":78},{"name":"autolayout","count":50},{"name":"enterprise","count":69},{"name":"gesture","count":46},{"name":"reasonml","count":102},{"name":"binding","count":58},{"name":"blur","count":42},{"name":"pyqt5","count":75},{"name":"style","count":79},{"name":"clipboard","count":71},{"name":"dataviz","count":80},{"name":"diagram","count":89},{"name":"constraints","count":44},{"name":"desktop-application","count":69},{"name":"a11y","count":89},{"name":"customview","count":58},{"name":"uiview","count":40},{"name":"gank","count":32},{"name":"lazy-loading","count":62},{"name":"palette","count":48},{"name":"templating","count":46},{"name":"cordova-plugin","count":48},{"name":"form-validation","count":61},{"name":"fragments","count":40},{"name":"visualizer","count":45},{"name":"animated","count":55},{"name":"client-side","count":42},{"name":"fonts","count":79},{"name":"foundation","count":30},{"name":"fragment","count":36},{"name":"qml","count":162},{"name":"scenekit","count":47},{"name":"butterknife","count":36},{"name":"design-tools","count":49},{"name":"prototyping","count":44},{"name":"viewport","count":36},{"name":"animation-library","count":48},{"name":"databinding","count":71},{"name":"design-system","count":105},{"name":"draw","count":57},{"name":"user-interface","count":74},{"name":"vdom","count":34},{"name":"lazyload","count":30},{"name":"livedata","count":111},{"name":"thymeleaf","count":54},{"name":"transitions","count":54},{"name":"material-theme","count":38},{"name":"reactnative","count":51},{"name":"winforms","count":54},{"name":"render","count":42},{"name":"x11","count":80},{"name":"react-navigation","count":56},{"name":"typeface","count":50},{"name":"light","count":56},{"name":"skin","count":45},{"name":"edittext","count":30},{"name":"fontawesome","count":33},{"name":"transition-animation","count":27},{"name":"interface-builder","count":30},{"name":"electron-vue","count":35},{"name":"iview","count":46},{"name":"minimalist","count":55},{"name":"network-visualization","count":35},{"name":"store","count":66},{"name":"window-manager","count":59},{"name":"actionsheet","count":22},{"name":"activity","count":42},{"name":"animate","count":21},{"name":"fullscreen","count":22},{"name":"hue","count":30},{"name":"i3wm","count":59},{"name":"prototype","count":42},{"name":"vuex2","count":26},{"name":"angular-material","count":40},{"name":"aot-compilation","count":16},{"name":"coreanimation","count":21},{"name":"data-binding","count":26},{"name":"dva","count":40},{"name":"react-native-app","count":29},{"name":"uicollectionviewlayout","count":28},{"name":"fab","count":20},{"name":"i3","count":62},{"name":"layout-engine","count":23},{"name":"rgb","count":42},{"name":"swing","count":42},{"name":"android-animation","count":26},{"name":"closure","count":19},{"name":"effect","count":30},{"name":"flat","count":26},{"name":"hoc","count":28},{"name":"layui","count":45},{"name":"pyqt4","count":15},{"name":"android-view","count":21},{"name":"ar","count":47},{"name":"elegant","count":21},{"name":"file-explorer","count":20},{"name":"interpolation","count":44},{"name":"liquid","count":51},{"name":"opentype","count":25},{"name":"styling","count":24},{"name":"after-effects","count":17},{"name":"category","count":21},{"name":"data-frame","count":17},{"name":"email-template","count":24},{"name":"explorer","count":34},{"name":"fluid","count":20},{"name":"frame","count":28},{"name":"gtk3-theme","count":19},{"name":"layoutmanager","count":18},{"name":"night-mode","count":21},{"name":"props","count":25},{"name":"tiling-window-manager","count":25},{"name":"accessible","count":24},{"name":"arms","count":null},{"name":"bezier","count":32},{"name":"cross-platform-gui","count":null},{"name":"dagger2-mvp","count":null},{"name":"data-visualisation","count":28},{"name":"devlight","count":null},{"name":"flowlayout","count":null},{"name":"otf","count":17},{"name":"print","count":34},{"name":"pyside","count":19},{"name":"tkinter","count":31},{"name":"uicolor","count":null},{"name":"window","count":30},{"name":"android-security","count":30},{"name":"auto","count":31},{"name":"beta","count":22},{"name":"brackets","count":19},{"name":"click","count":23},{"name":"cocoa-touch","count":null},{"name":"coordinatorlayout","count":16},{"name":"custom-fonts","count":null},{"name":"custom-transitions","count":null},{"name":"device","count":30},{"name":"embed","count":21},{"name":"empty","count":null},{"name":"fresco","count":20},{"name":"gradients","count":17},{"name":"hyperapp","count":15},{"name":"introduction","count":21},{"name":"landing-page","count":32},{"name":"lazy","count":26},{"name":"ligatures","count":16},{"name":"styles","count":20},{"name":"tiling","count":18},{"name":"ttf","count":25},{"name":"user-experience","count":23},{"name":"virtualreality","count":null},{"name":"android-libs","count":null},{"name":"antd-mobile","count":18},{"name":"aurelia","count":18},{"name":"awesomewm","count":21},{"name":"behavior","count":17},{"name":"conversational-ui","count":23},{"name":"dagger2-android","count":19},{"name":"declarative-ui","count":28},{"name":"delegate","count":16},{"name":"designer","count":25},{"name":"dialogfragment","count":null},{"name":"easter-egg","count":null},{"name":"electronjs","count":29},{"name":"emojione","count":null},{"name":"google-fonts","count":20},{"name":"gui-framework","count":null},{"name":"ux-design","count":21},{"name":"flex-layout","count":null},{"name":"gankio","count":null},{"name":"intro","count":19},{"name":"keyboard-navigation","count":null},{"name":"monospace-font","count":null},{"name":"printing","count":20},{"name":"pyqt","count":28},{"name":"reducer","count":22},{"name":"walkthrough","count":16},{"name":"alpha","count":18},{"name":"android-lib","count":null},{"name":"aot-compatible","count":null},{"name":"beautiful","count":16},{"name":"bodymovin","count":null},{"name":"coretext","count":null},{"name":"font-size","count":null},{"name":"react-native-web","count":41},{"name":"render-props","count":20},{"name":"ui-framework","count":15},{"name":"virtualdom","count":null},{"name":"windows-forms","count":17},{"name":"force-touch","count":null},{"name":"framer","count":null},{"name":"freetype","count":null},{"name":"fullpage","count":null},{"name":"gestures","count":17},{"name":"gnome-shell-theme","count":null},{"name":"i3-gaps","count":16},{"name":"interfaces","count":null},{"name":"intersectionobserver","count":null},{"name":"kit","count":32},{"name":"kline","count":17},{"name":"metro","count":null},{"name":"ngrx-effects","count":14},{"name":"ngrx-store","count":null},{"name":"night","count":null},{"name":"opentype-fonts","count":null},{"name":"prpl","count":null},{"name":"redux-store","count":null},{"name":"responsive-email","count":15},{"name":"robust","count":21},{"name":"runloop","count":null},{"name":"sierra","count":null},{"name":"solarized","count":null},{"name":"theming","count":19},{"name":"vertical-rhythm","count":null},{"name":"wanandroid","count":27},{"name":"wxpython","count":16},{"name":"xorg","count":23},{"name":"activity-fragment","count":null},{"name":"android-ndk","count":16},{"name":"android-webview","count":null},{"name":"animated-vector-drawables","count":null},{"name":"animator","count":null},{"name":"arcore","count":29},{"name":"can-bus","count":27},{"name":"colorization","count":null},{"name":"constraint-solver","count":14},{"name":"container-queries","count":null},{"name":"cosmicmind","count":null},{"name":"crossplatform","count":17},{"name":"custom-camera","count":null},{"name":"custom-theme","count":null},{"name":"deep-linking","count":null},{"name":"diagrams","count":36},{"name":"font-face","count":null},{"name":"gesture-driven-animations","count":null},{"name":"html-emails","count":16},{"name":"materialdesign","count":null},{"name":"pinch-to-zoom","count":20},{"name":"uifont","count":null},{"name":"gsap","count":null},{"name":"hsl","count":16},{"name":"interpolator","count":null},{"name":"itemdecoration","count":null},{"name":"layouts","count":15},{"name":"minimalistic","count":17},{"name":"motion-design","count":null},{"name":"nativebase","count":null},{"name":"presets","count":null},{"name":"recompose","count":null},{"name":"resize-events","count":null},{"name":"rift","count":null},{"name":"room-persistence-library","count":43},{"name":"xresources","count":null},{"name":"breeze","count":null}],"categoryName":"User Interface","advertisement":{"variation":"topics","title":"Become A Software Engineer At Top Companies","description":"Identify your strengths with a free online coding quiz, and skip resume and recruiter screens at multiple companies at once.  It's free, confidential, includes a free flight and hotel, along with help to study to pass interviews and negotiate a high salary!","url":"https://triplebyte.com/a/PGNifkM/t2"}}</script>
+      
+
+
+
+    <!-- load synchronously before app bundle so adsbygoogle is always defined, google's new ad code doesn't seem to like this, at least for the initial review  -->
+    <!-- try loading programatically and async with a callback to push the ads and see if it helps page load speed -->
+    <!--script src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script-->
+    <script src="/packs/root-bundle-1f53b6db74aa6b1bef19.js"></script>
+  <script type="text/javascript">(function(){window['__CF$cv$params']={r:'6120b6f1de1df041',m:'c4e239d48d97c1859f57c6bab4b8a3fb66accb26-1610725430-1800-AZR/p/Z1X55afL+5j6SYiumOy+cntNm0RRBrZURqJUOGE8yIM0adr8yzj/uejD2cbl8mGO9FmtCl74RzwTDt0qlgX+KgFofltDhUgR34icUM4cteOCWnAE2+092ZaeuCNbe2iw2DZbyNhTjz782Gois=',s:[0x6ecf687d36,0x8a9924205d],}})();</script></body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>All objects in JavaScript (with a few exceptions) have a <code>prototype</code>. Also, an object’s <code>prototype</code> itself is an object.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">Bird</span>(name) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">this</span>.<span class="at">name</span> <span class="op">=</span> name<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="kw">typeof</span> <span class="va">Bird</span>.<span class="at">prototype</span><span class="op">;</span></a></code></pre></div>
+<p>Because a <code>prototype</code> is an object, a <code>prototype</code> can have its own <code>prototype</code>! In this case, the <code>prototype</code> of <code>Bird.prototype</code> is <code>Object.prototype</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">Object</span>.<span class="va">prototype</span>.<span class="at">isPrototypeOf</span>(<span class="va">Bird</span>.<span class="at">prototype</span>)<span class="op">;</span></a></code></pre></div>
+<p>How is this useful? You may recall the <code>hasOwnProperty</code> method from a previous challenge:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> duck <span class="op">=</span> <span class="kw">new</span> <span class="at">Bird</span>(<span class="st">&quot;Donald&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="va">duck</span>.<span class="at">hasOwnProperty</span>(<span class="st">&quot;name&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<p>The <code>hasOwnProperty</code> method is defined in <code>Object.prototype</code>, which can be accessed by <code>Bird.prototype</code>, which can then be accessed by <code>duck</code>. This is an example of the <code>prototype</code> chain. In this <code>prototype</code> chain, <code>Bird</code> is the <code>supertype</code> for <code>duck</code>, while <code>duck</code> is the <code>subtype</code>. <code>Object</code> is a <code>supertype</code> for both <code>Bird</code> and <code>duck</code>. <code>Object</code> is a <code>supertype</code> for all objects in JavaScript. Therefore, any object can use the <code>hasOwnProperty</code> method.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>Modify the code to show the correct prototype chain.</p>
+<h1 id="hints">–hints–</h1>
+<p>Your code should show that <code>Object.prototype</code> is the prototype of <code>Dog.prototype</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(<span class="ss">/Object</span><span class="sc">\.</span><span class="ss">prototype</span><span class="sc">\.</span><span class="ss">isPrototypeOf/</span>.<span class="at">test</span>(code))<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">function</span> <span class="at">Dog</span>(name) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="kw">this</span>.<span class="at">name</span> <span class="op">=</span> name<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb5-4" title="4"></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="kw">let</span> beagle <span class="op">=</span> <span class="kw">new</span> <span class="at">Dog</span>(<span class="st">&quot;Snoopy&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-6" title="6"></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="va">Dog</span>.<span class="va">prototype</span>.<span class="at">isPrototypeOf</span>(beagle)<span class="op">;</span>  <span class="co">// yields true</span></a>
+<a class="sourceLine" id="cb5-8" title="8"></a>
+<a class="sourceLine" id="cb5-9" title="9"><span class="co">// Fix the code below so that it evaluates to true</span></a>
+<a class="sourceLine" id="cb5-10" title="10"><span class="op">???</span>.<span class="at">isPrototypeOf</span>(<span class="va">Dog</span>.<span class="at">prototype</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">function</span> <span class="at">Dog</span>(name) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="kw">this</span>.<span class="at">name</span> <span class="op">=</span> name<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="kw">let</span> beagle <span class="op">=</span> <span class="kw">new</span> <span class="at">Dog</span>(<span class="st">&quot;Snoopy&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="va">Dog</span>.<span class="va">prototype</span>.<span class="at">isPrototypeOf</span>(beagle)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="va">Object</span>.<span class="va">prototype</span>.<span class="at">isPrototypeOf</span>(<span class="va">Dog</span>.<span class="at">prototype</span>)<span class="op">;</span></a></code></pre></div>
+</body></html>

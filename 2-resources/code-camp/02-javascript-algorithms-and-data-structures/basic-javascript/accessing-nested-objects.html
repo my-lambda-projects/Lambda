@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>The sub-properties of objects can be accessed by chaining together the dot or bracket notation.</p>
+<p>Here is a nested object:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">var</span> ourStorage <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="st">&quot;desk&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="st">&quot;drawer&quot;</span><span class="op">:</span> <span class="st">&quot;stapler&quot;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="st">&quot;cabinet&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="st">&quot;top drawer&quot;</span><span class="op">:</span> <span class="op">{</span> </a>
+<a class="sourceLine" id="cb1-7" title="7">      <span class="st">&quot;folder1&quot;</span><span class="op">:</span> <span class="st">&quot;a file&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-8" title="8">      <span class="st">&quot;folder2&quot;</span><span class="op">:</span> <span class="st">&quot;secrets&quot;</span></a>
+<a class="sourceLine" id="cb1-9" title="9">    <span class="op">},</span></a>
+<a class="sourceLine" id="cb1-10" title="10">    <span class="st">&quot;bottom drawer&quot;</span><span class="op">:</span> <span class="st">&quot;soda&quot;</span></a>
+<a class="sourceLine" id="cb1-11" title="11">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="op">};</span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="va">ourStorage</span>.<span class="at">cabinet</span>[<span class="st">&quot;top drawer&quot;</span>].<span class="at">folder2</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="va">ourStorage</span>.<span class="va">desk</span>.<span class="at">drawer</span><span class="op">;</span></a></code></pre></div>
+<p><code>ourStorage.cabinet["top drawer"].folder2</code> would be the string <code>secrets</code>, and <code>ourStorage.desk.drawer</code> would be the string <code>stapler</code>.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>Access the <code>myStorage</code> object and assign the contents of the <code>glove box</code> property to the <code>gloveBoxContents</code> variable. Use dot notation for all properties where possible, otherwise use bracket notation.</p>
+<h1 id="hints">–hints–</h1>
+<p><code>gloveBoxContents</code> should equal the string <code>maps</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(gloveBoxContents <span class="op">===</span> <span class="st">&#39;maps&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p>Your code should use dot and bracket notation to access <code>myStorage</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(<span class="ss">/=</span><span class="sc">\s*</span><span class="ss">myStorage</span><span class="sc">\.</span><span class="ss">car</span><span class="sc">\.</span><span class="ss">inside</span><span class="sc">\[\s*(</span><span class="ss">&quot;</span><span class="sc">|</span><span class="ss">&#39;</span><span class="sc">)</span><span class="ss">glove box</span><span class="sc">\1\s*\]</span><span class="ss">/g</span>.<span class="at">test</span>(code))<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="after-user-code">–after-user-code–</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1">(<span class="kw">function</span>(x) <span class="op">{</span> </a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="cf">if</span>(<span class="kw">typeof</span> x <span class="op">!=</span> <span class="st">&#39;undefined&#39;</span>) <span class="op">{</span> </a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="cf">return</span> <span class="st">&quot;gloveBoxContents = &quot;</span> <span class="op">+</span> x<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-5" title="5">  <span class="cf">return</span> <span class="st">&quot;gloveBoxContents is undefined&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="op">}</span>)(gloveBoxContents)<span class="op">;</span></a></code></pre></div>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">var</span> myStorage <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="st">&quot;car&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="st">&quot;inside&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-4" title="4">      <span class="st">&quot;glove box&quot;</span><span class="op">:</span> <span class="st">&quot;maps&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-5" title="5">      <span class="st">&quot;passenger seat&quot;</span><span class="op">:</span> <span class="st">&quot;crumbs&quot;</span></a>
+<a class="sourceLine" id="cb5-6" title="6">     <span class="op">},</span></a>
+<a class="sourceLine" id="cb5-7" title="7">    <span class="st">&quot;outside&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-8" title="8">      <span class="st">&quot;trunk&quot;</span><span class="op">:</span> <span class="st">&quot;jack&quot;</span></a>
+<a class="sourceLine" id="cb5-9" title="9">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-10" title="10">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-11" title="11"><span class="op">};</span></a>
+<a class="sourceLine" id="cb5-12" title="12"></a>
+<a class="sourceLine" id="cb5-13" title="13"><span class="kw">var</span> gloveBoxContents <span class="op">=</span> <span class="kw">undefined</span><span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">var</span> myStorage <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="st">&quot;car&quot;</span><span class="op">:{</span></a>
+<a class="sourceLine" id="cb6-3" title="3">    <span class="st">&quot;inside&quot;</span><span class="op">:{</span></a>
+<a class="sourceLine" id="cb6-4" title="4">      <span class="st">&quot;glove box&quot;</span><span class="op">:</span><span class="st">&quot;maps&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-5" title="5">      <span class="st">&quot;passenger seat&quot;</span><span class="op">:</span><span class="st">&quot;crumbs&quot;</span></a>
+<a class="sourceLine" id="cb6-6" title="6">    <span class="op">},</span></a>
+<a class="sourceLine" id="cb6-7" title="7">    <span class="st">&quot;outside&quot;</span><span class="op">:{</span></a>
+<a class="sourceLine" id="cb6-8" title="8">      <span class="st">&quot;trunk&quot;</span><span class="op">:</span><span class="st">&quot;jack&quot;</span></a>
+<a class="sourceLine" id="cb6-9" title="9">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-10" title="10">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-11" title="11"><span class="op">};</span></a>
+<a class="sourceLine" id="cb6-12" title="12"><span class="kw">var</span> gloveBoxContents <span class="op">=</span> <span class="va">myStorage</span>.<span class="va">car</span>.<span class="at">inside</span>[<span class="st">&quot;glove box&quot;</span>]<span class="op">;</span></a></code></pre></div>
+</body></html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>The <code>sort</code> method sorts the elements of an array according to the callback function.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">ascendingOrder</span>(arr) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="cf">return</span> <span class="va">arr</span>.<span class="at">sort</span>(<span class="kw">function</span>(a<span class="op">,</span> b) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="cf">return</span> a <span class="op">-</span> b<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="at">ascendingOrder</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span>])<span class="op">;</span></a></code></pre></div>
+<p>This would return the value <code>[1, 2, 3, 4, 5]</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">function</span> <span class="at">reverseAlpha</span>(arr) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="cf">return</span> <span class="va">arr</span>.<span class="at">sort</span>(<span class="kw">function</span>(a<span class="op">,</span> b) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-3" title="3">    <span class="cf">return</span> a <span class="op">===</span> b <span class="op">?</span> <span class="dv">0</span> : a <span class="op">&lt;</span> b <span class="op">?</span> <span class="dv">1</span> : <span class="dv">-1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="op">}</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="at">reverseAlpha</span>([<span class="st">&#39;l&#39;</span><span class="op">,</span> <span class="st">&#39;h&#39;</span><span class="op">,</span> <span class="st">&#39;z&#39;</span><span class="op">,</span> <span class="st">&#39;b&#39;</span><span class="op">,</span> <span class="st">&#39;s&#39;</span>])<span class="op">;</span></a></code></pre></div>
+<p>This would return the value <code>['z', 's', 'l', 'h', 'b']</code>.</p>
+<p>JavaScript’s default sorting method is by string Unicode point value, which may return unexpected results. Therefore, it is encouraged to provide a callback function to specify how to sort the array items. When such a callback function, normally called <code>compareFunction</code>, is supplied, the array elements are sorted according to the return value of the <code>compareFunction</code>: If <code>compareFunction(a,b)</code> returns a value less than 0 for two elements <code>a</code> and <code>b</code>, then <code>a</code> will come before <code>b</code>. If <code>compareFunction(a,b)</code> returns a value greater than 0 for two elements <code>a</code> and <code>b</code>, then <code>b</code> will come before <code>a</code>. If <code>compareFunction(a,b)</code> returns a value equal to 0 for two elements <code>a</code> and <code>b</code>, then <code>a</code> and <code>b</code> will remain unchanged.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>Use the <code>sort</code> method in the <code>alphabeticalOrder</code> function to sort the elements of <code>arr</code> in alphabetical order.</p>
+<h1 id="hints">–hints–</h1>
+<p>Your code should use the <code>sort</code> method.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(<span class="va">code</span>.<span class="at">match</span>(<span class="ss">/</span><span class="sc">\.</span><span class="ss">sort/g</span>))<span class="op">;</span></a></code></pre></div>
+<p><code>alphabeticalOrder(["a", "d", "c", "a", "z", "g"])</code> should return <code>["a", "a", "c", "d", "g", "z"]</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="va">JSON</span>.<span class="at">stringify</span>(<span class="at">alphabeticalOrder</span>([<span class="st">&#39;a&#39;</span><span class="op">,</span> <span class="st">&#39;d&#39;</span><span class="op">,</span> <span class="st">&#39;c&#39;</span><span class="op">,</span> <span class="st">&#39;a&#39;</span><span class="op">,</span> <span class="st">&#39;z&#39;</span><span class="op">,</span> <span class="st">&#39;g&#39;</span>])) <span class="op">===</span></a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="va">JSON</span>.<span class="at">stringify</span>([<span class="st">&#39;a&#39;</span><span class="op">,</span> <span class="st">&#39;a&#39;</span><span class="op">,</span> <span class="st">&#39;c&#39;</span><span class="op">,</span> <span class="st">&#39;d&#39;</span><span class="op">,</span> <span class="st">&#39;g&#39;</span><span class="op">,</span> <span class="st">&#39;z&#39;</span>])</a>
+<a class="sourceLine" id="cb4-4" title="4">)<span class="op">;</span></a></code></pre></div>
+<p><code>alphabeticalOrder(["x", "h", "a", "m", "n", "m"])</code> should return <code>["a", "h", "m", "m", "n", "x"]</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="va">JSON</span>.<span class="at">stringify</span>(<span class="at">alphabeticalOrder</span>([<span class="st">&#39;x&#39;</span><span class="op">,</span> <span class="st">&#39;h&#39;</span><span class="op">,</span> <span class="st">&#39;a&#39;</span><span class="op">,</span> <span class="st">&#39;m&#39;</span><span class="op">,</span> <span class="st">&#39;n&#39;</span><span class="op">,</span> <span class="st">&#39;m&#39;</span>])) <span class="op">===</span></a>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="va">JSON</span>.<span class="at">stringify</span>([<span class="st">&#39;a&#39;</span><span class="op">,</span> <span class="st">&#39;h&#39;</span><span class="op">,</span> <span class="st">&#39;m&#39;</span><span class="op">,</span> <span class="st">&#39;m&#39;</span><span class="op">,</span> <span class="st">&#39;n&#39;</span><span class="op">,</span> <span class="st">&#39;x&#39;</span>])</a>
+<a class="sourceLine" id="cb5-4" title="4">)<span class="op">;</span></a></code></pre></div>
+<p><code>alphabeticalOrder(["a", "a", "a", "a", "x", "t"])</code> should return <code>["a", "a", "a", "a", "t", "x"]</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="va">JSON</span>.<span class="at">stringify</span>(<span class="at">alphabeticalOrder</span>([<span class="st">&#39;a&#39;</span><span class="op">,</span> <span class="st">&#39;a&#39;</span><span class="op">,</span> <span class="st">&#39;a&#39;</span><span class="op">,</span> <span class="st">&#39;a&#39;</span><span class="op">,</span> <span class="st">&#39;x&#39;</span><span class="op">,</span> <span class="st">&#39;t&#39;</span>])) <span class="op">===</span></a>
+<a class="sourceLine" id="cb6-3" title="3">    <span class="va">JSON</span>.<span class="at">stringify</span>([<span class="st">&#39;a&#39;</span><span class="op">,</span> <span class="st">&#39;a&#39;</span><span class="op">,</span> <span class="st">&#39;a&#39;</span><span class="op">,</span> <span class="st">&#39;a&#39;</span><span class="op">,</span> <span class="st">&#39;t&#39;</span><span class="op">,</span> <span class="st">&#39;x&#39;</span>])</a>
+<a class="sourceLine" id="cb6-4" title="4">)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">function</span> <span class="at">alphabeticalOrder</span>(arr) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb7-3" title="3"></a>
+<a class="sourceLine" id="cb7-4" title="4"></a>
+<a class="sourceLine" id="cb7-5" title="5">  <span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="op">}</span></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="at">alphabeticalOrder</span>([<span class="st">&quot;a&quot;</span><span class="op">,</span> <span class="st">&quot;d&quot;</span><span class="op">,</span> <span class="st">&quot;c&quot;</span><span class="op">,</span> <span class="st">&quot;a&quot;</span><span class="op">,</span> <span class="st">&quot;z&quot;</span><span class="op">,</span> <span class="st">&quot;g&quot;</span>])<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">function</span> <span class="at">alphabeticalOrder</span>(arr) <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2">  <span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb8-3" title="3">  <span class="cf">return</span> <span class="va">arr</span>.<span class="at">sort</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-4" title="4">  <span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="op">}</span></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="at">alphabeticalOrder</span>([<span class="st">&quot;a&quot;</span><span class="op">,</span> <span class="st">&quot;d&quot;</span><span class="op">,</span> <span class="st">&quot;c&quot;</span><span class="op">,</span> <span class="st">&quot;a&quot;</span><span class="op">,</span> <span class="st">&quot;z&quot;</span><span class="op">,</span> <span class="st">&quot;g&quot;</span>])<span class="op">;</span></a></code></pre></div>
+</body></html>

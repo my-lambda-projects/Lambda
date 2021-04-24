@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>The algorithm to convert from Celsius to Fahrenheit is the temperature in Celsius times <code>9/5</code>, plus <code>32</code>.</p>
+<p>You are given a variable <code>celsius</code> representing a temperature in Celsius. Use the variable <code>fahrenheit</code> already defined and assign it the Fahrenheit temperature equivalent to the given Celsius temperature. Use the algorithm mentioned above to help convert the Celsius temperature to Fahrenheit.</p>
+<h1 id="hints">–hints–</h1>
+<p><code>convertToF(0)</code> should return a number</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="at">assert</span>(<span class="kw">typeof</span> <span class="at">convertToF</span>(<span class="dv">0</span>) <span class="op">===</span> <span class="st">&#39;number&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>convertToF(-30)</code> should return a value of <code>-22</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">assert</span>(<span class="at">convertToF</span>(<span class="op">-</span><span class="dv">30</span>) <span class="op">===</span> <span class="dv">-22</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>convertToF(-10)</code> should return a value of <code>14</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">assert</span>(<span class="at">convertToF</span>(<span class="op">-</span><span class="dv">10</span>) <span class="op">===</span> <span class="dv">14</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>convertToF(0)</code> should return a value of <code>32</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(<span class="at">convertToF</span>(<span class="dv">0</span>) <span class="op">===</span> <span class="dv">32</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>convertToF(20)</code> should return a value of <code>68</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">assert</span>(<span class="at">convertToF</span>(<span class="dv">20</span>) <span class="op">===</span> <span class="dv">68</span>)<span class="op">;</span></a></code></pre></div>
+<p><code>convertToF(30)</code> should return a value of <code>86</code></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="at">assert</span>(<span class="at">convertToF</span>(<span class="dv">30</span>) <span class="op">===</span> <span class="dv">86</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">function</span> <span class="at">convertToF</span>(celsius) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="kw">let</span> fahrenheit<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="cf">return</span> fahrenheit<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="op">}</span></a>
+<a class="sourceLine" id="cb7-5" title="5"></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="at">convertToF</span>(<span class="dv">30</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">function</span> <span class="at">convertToF</span>(celsius) <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2">  <span class="kw">let</span> fahrenheit <span class="op">=</span> celsius <span class="op">*</span> <span class="dv">9</span>/<span class="dv">5</span> <span class="op">+</span> <span class="dv">32</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb8-3" title="3"></a>
+<a class="sourceLine" id="cb8-4" title="4">  <span class="cf">return</span> fahrenheit<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="op">}</span></a>
+<a class="sourceLine" id="cb8-6" title="6"></a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="at">convertToF</span>(<span class="dv">30</span>)<span class="op">;</span></a></code></pre></div>
+</body></html>

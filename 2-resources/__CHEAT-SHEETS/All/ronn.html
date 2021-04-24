@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="getting-started">Getting started</h2>
+<p>{: .-left-reference}</p>
+<h3 id="installation">Installation</h3>
+<h4 id="installation-1">Installation</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">gem</span> install ronn</a></code></pre></div>
+<h4 id="usage">Usage</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">ronn</span> foo.1.md        <span class="co"># creates foo.1.html</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="ex">ronn</span> -r foo.1.md     <span class="co"># creates foo.1 (--roff)</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="ex">ronn</span> -r -h foo.1.md  <span class="co"># builds --roff and --html</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="ex">ronn</span> -m foo.1.md     <span class="co"># view as manpage</span></a></code></pre></div>
+<p>Ronn is a Ruby gem.</p>
+<h3 id="basic-template">Basic template</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb3-1" title="1">name(1) -- short, single-sentence description</a>
+<a class="sourceLine" id="cb3-2" title="2">=============================================</a>
+<a class="sourceLine" id="cb3-3" title="3"></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="fu">## SYNOPSIS</span></a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="bn">`name`</span> [&lt;optional&gt;...] &lt;flags&gt;</a>
+<a class="sourceLine" id="cb3-7" title="7"></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="fu">## DESCRIPTION</span></a>
+<a class="sourceLine" id="cb3-9" title="9"></a>
+<a class="sourceLine" id="cb3-10" title="10">A normal paragraph. This can span multiple lines and is terminated with two</a>
+<a class="sourceLine" id="cb3-11" title="11">or more line endings just like Markdown.</a>
+<a class="sourceLine" id="cb3-12" title="12"></a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="fu">## OPTIONS</span></a>
+<a class="sourceLine" id="cb3-14" title="14"></a>
+<a class="sourceLine" id="cb3-15" title="15"> * <span class="bn">`-h`</span>, <span class="bn">`--help`</span> :</a>
+<a class="sourceLine" id="cb3-16" title="16">   Displays the help screen.</a>
+<a class="sourceLine" id="cb3-17" title="17"></a>
+<a class="sourceLine" id="cb3-18" title="18"> * <span class="bn">`--version`</span> : </a>
+<a class="sourceLine" id="cb3-19" title="19">   Displays version information.</a>
+<a class="sourceLine" id="cb3-20" title="20"></a>
+<a class="sourceLine" id="cb3-21" title="21"><span class="fu">## EXAMPLES</span></a>
+<a class="sourceLine" id="cb3-22" title="22"></a>
+<a class="sourceLine" id="cb3-23" title="23">Indent examples with 4 spaces.</a>
+<a class="sourceLine" id="cb3-24" title="24"></a>
+<a class="sourceLine" id="cb3-25" title="25"><span class="bn">    $ ls</span></a>
+<a class="sourceLine" id="cb3-26" title="26"><span class="bn">    $ ls -la</span></a>
+<a class="sourceLine" id="cb3-27" title="27"></a>
+<a class="sourceLine" id="cb3-28" title="28"><span class="fu">## COPYRIGHT</span></a>
+<a class="sourceLine" id="cb3-29" title="29"></a>
+<a class="sourceLine" id="cb3-30" title="30">**PROJECTNAME** is copyright (c) 2015, Rico Sta. Cruz. Released under the MIT</a>
+<a class="sourceLine" id="cb3-31" title="31">license.</a>
+<a class="sourceLine" id="cb3-32" title="32"></a>
+<a class="sourceLine" id="cb3-33" title="33"><span class="fu">## SEE ALSO</span></a>
+<a class="sourceLine" id="cb3-34" title="34"></a>
+<a class="sourceLine" id="cb3-35" title="35">ronn-format(7), ronn(1)</a></code></pre></div>
+<h2 id="formatting-tags">Formatting tags</h2>
+<h3 id="inline">Inline</h3>
+<h4 id="bold">Bold</h4>
+<pre><code>`code`
+**strong**</code></pre>
+<h4 id="underline">Underline</h4>
+<pre><code>&lt;variable&gt;
+_emphasis_
+*emphasis*</code></pre>
+<h3 id="linking">Linking</h3>
+<h4 id="manual-references">Manual references</h4>
+<pre><code>sh(1)
+markdown(7)</code></pre>
+<h4 id="sections">Sections</h4>
+<pre><code>[STANDARDS][]
+[SEE ALSO][]
+[DIFFERENT TEXT][#SEE-ALSO]</code></pre>
+<h4 id="url-links">URL links</h4>
+<pre><code>[URL link](http://github.com/rstacruz)
+&lt;http://github.com&gt;</code></pre>
+<h2 id="frequently-used-sections">Frequently-used sections</h2>
+<p>{: .-one-column}</p>
+<h3 id="sections-1">Sections</h3>
+<ul>
+<li><code>## SYNOPSIS</code></li>
+<li><code>## DESCRIPTION</code></li>
+<li><code>## OPTIONS</code></li>
+<li><code>## SYNTAX</code></li>
+<li><code>## ENVIRONMENT</code></li>
+<li><code>## RETURN VALUES</code></li>
+<li><code>## STANDARDS</code></li>
+<li><code>## SECURITY CONSIDERATIONS</code></li>
+<li><code>## BUGS</code></li>
+<li><code>## HISTORY</code></li>
+<li><code>## AUTHOR</code></li>
+<li><code>## COPYRIGHT</code></li>
+<li><code>## SEE ALSO</code> {: .-four-column}</li>
+</ul>
+<h2 id="other-cli-options">Other CLI options</h2>
+<h3 id="options">Options</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb9-1" title="1"><span class="ex">--pipe</span>                       <span class="co"># write to stdout</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="ex">--server</span>, -S                 <span class="co"># serve in http://localhost:1207</span></a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb10-1" title="1"><span class="ex">--html</span>, -5                   <span class="co"># default</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="ex">--fragment</span>, -f               <span class="co"># html without header/title/footer</span></a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb11-1" title="1"><span class="ex">--style</span>=toc,80c              <span class="co"># toc (table of contents)</span></a>
+<a class="sourceLine" id="cb11-2" title="2">                             <span class="co"># 80c (use 80c instead of 100c)</span></a>
+<a class="sourceLine" id="cb11-3" title="3">                             <span class="co"># print (include print stylesheet)</span></a>
+<a class="sourceLine" id="cb11-4" title="4">                             <span class="co"># dark</span></a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" title="1"><span class="ex">--manual</span>=<span class="st">&quot;MY MANUAL&quot;</span>         <span class="co"># shown on top-center</span></a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="ex">--organization</span>=<span class="st">&quot;RONN 0.7.0&quot;</span>  <span class="co"># shown on bottom-left</span></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="ex">--date</span>=<span class="st">&quot;YYYY-MM-DD&quot;</span>          <span class="co"># shown on bottom-center</span></a></code></pre></div>
+<h2 id="sections-2">Sections</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Section</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>1</code></td>
+<td>General commands</td>
+</tr>
+<tr class="even">
+<td><code>2</code></td>
+<td>System calls</td>
+</tr>
+<tr class="odd">
+<td><code>3</code></td>
+<td>C standard lib</td>
+</tr>
+<tr class="even">
+<td><code>4</code></td>
+<td>Special files (/dev) and drivers</td>
+</tr>
+<tr class="odd">
+<td><code>5</code></td>
+<td>File formats</td>
+</tr>
+<tr class="even">
+<td><code>6</code></td>
+<td>Games</td>
+</tr>
+<tr class="odd">
+<td><code>7</code></td>
+<td>Misc</td>
+</tr>
+<tr class="even">
+<td><code>8</code></td>
+<td>System administration commands and procedures</td>
+</tr>
+</tbody>
+</table>
+<p>See <a href="http://www.december.com/unix/ref/mansec.html">Man page sections</a> (december.com).</p>
+<h2 id="using-with-npm">Using with npm</h2>
+<h3 id="npm-scripts">npm scripts</h3>
+<p>Place manual files in <code>man/xxx.1.md</code>, then in package.json: {: .-setup}</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb13-1" title="1"><span class="er">&quot;scripts&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb13-2" title="2">  <span class="dt">&quot;prepublish&quot;</span><span class="fu">:</span> <span class="st">&quot;npm run build-man&quot;</span><span class="fu">,</span></a>
+<a class="sourceLine" id="cb13-3" title="3">  <span class="dt">&quot;build-man&quot;</span><span class="fu">:</span> <span class="st">&quot;if which ronn; then ronn man/*.md --html --roff --style=toc,80c --organization=</span><span class="ch">\&quot;</span><span class="st">@rstacruz</span><span class="ch">\&quot;</span><span class="st">; fi&quot;</span></a>
+<a class="sourceLine" id="cb13-4" title="4"><span class="fu">}</span><span class="er">,</span></a>
+<a class="sourceLine" id="cb13-5" title="5"><span class="er">&quot;directories&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb13-6" title="6">  <span class="dt">&quot;man&quot;</span><span class="fu">:</span> <span class="st">&quot;man&quot;</span></a>
+<a class="sourceLine" id="cb13-7" title="7"><span class="fu">}</span></a></code></pre></div>
+<h3 id="marked-man">marked-man</h3>
+<pre><code>npm install -g marked-man
+marked-man foo.1.md &gt; foo.1</code></pre>
+<h4 id="differences">Differences</h4>
+<ul>
+<li>No definition lists</li>
+<li>Can't use <code>&lt;br&gt;</code></li>
+</ul>
+<p>See <a href="https://github.com/kapouer/marked-man">marked-man</a>.</p>
+</body></html>

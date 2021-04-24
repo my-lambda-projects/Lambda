@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>The <code>const</code> declaration has many use cases in modern JavaScript.</p>
+<p>Some developers prefer to assign all their variables using <code>const</code> by default, unless they know they will need to reassign the value. Only in that case, they use <code>let</code>.</p>
+<p>However, it is important to understand that objects (including arrays and functions) assigned to a variable using <code>const</code> are still mutable. Using the <code>const</code> declaration only prevents reassignment of the variable identifier.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> s <span class="op">=</span> [<span class="dv">5</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">7</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">s <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">s[<span class="dv">2</span>] <span class="op">=</span> <span class="dv">45</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="va">console</span>.<span class="at">log</span>(s)<span class="op">;</span></a></code></pre></div>
+<p><code>s = [1, 2, 3]</code> will result in an error. The <code>console.log</code> will display the value <code>[5, 6, 45]</code>.</p>
+<p>As you can see, you can mutate the object <code>[5, 6, 7]</code> itself and the variable <code>s</code> will still point to the altered array <code>[5, 6, 45]</code>. Like all arrays, the array elements in <code>s</code> are mutable, but because <code>const</code> was used, you cannot use the variable identifier <code>s</code> to point to a different array using the assignment operator.</p>
+<h1 id="instructions">–instructions–</h1>
+<p>An array is declared as <code>const s = [5, 7, 2]</code>. Change the array to <code>[2, 5, 7]</code> using various element assignments.</p>
+<h1 id="hints">–hints–</h1>
+<p>You should not replace <code>const</code> keyword.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1">(getUserInput) <span class="kw">=&gt;</span> <span class="at">assert</span>(<span class="at">getUserInput</span>(<span class="st">&#39;index&#39;</span>).<span class="at">match</span>(<span class="ss">/const/g</span>))<span class="op">;</span></a></code></pre></div>
+<p><code>s</code> should be a constant variable (by using <code>const</code>).</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">(getUserInput) <span class="kw">=&gt;</span> <span class="at">assert</span>(<span class="at">getUserInput</span>(<span class="st">&#39;index&#39;</span>).<span class="at">match</span>(<span class="ss">/const</span><span class="sc">\s+</span><span class="ss">s/g</span>))<span class="op">;</span></a></code></pre></div>
+<p>You should not change the original array declaration.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1">(getUserInput) <span class="kw">=&gt;</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="at">assert</span>(</a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="at">getUserInput</span>(<span class="st">&#39;index&#39;</span>).<span class="at">match</span>(</a>
+<a class="sourceLine" id="cb4-4" title="4">      <span class="ss">/const</span><span class="sc">\s+</span><span class="ss">s</span><span class="sc">\s*</span><span class="ss">=</span><span class="sc">\s*\[\s*</span><span class="ss">5</span><span class="sc">\s*</span><span class="ss">,</span><span class="sc">\s*</span><span class="ss">7</span><span class="sc">\s*</span><span class="ss">,</span><span class="sc">\s*</span><span class="ss">2</span><span class="sc">\s*\]\s*</span><span class="ss">;</span><span class="sc">?</span><span class="ss">/g</span></a>
+<a class="sourceLine" id="cb4-5" title="5">    )</a>
+<a class="sourceLine" id="cb4-6" title="6">  )<span class="op">;</span></a></code></pre></div>
+<p><code>s</code> should be equal to <code>[2, 5, 7]</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">assert</span>.<span class="at">deepEqual</span>(s<span class="op">,</span> [<span class="dv">2</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">7</span>])<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">const</span> s <span class="op">=</span> [<span class="dv">5</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">function</span> <span class="at">editInPlace</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  <span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb6-4" title="4"></a>
+<a class="sourceLine" id="cb6-5" title="5">  <span class="co">// Using s = [2, 5, 7] would be invalid</span></a>
+<a class="sourceLine" id="cb6-6" title="6"></a>
+<a class="sourceLine" id="cb6-7" title="7">  <span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="op">}</span></a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="at">editInPlace</span>()<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">const</span> s <span class="op">=</span> [<span class="dv">5</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="kw">function</span> <span class="at">editInPlace</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  s[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  s[<span class="dv">1</span>] <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-5" title="5">  s[<span class="dv">2</span>] <span class="op">=</span> <span class="dv">7</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="op">}</span></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="at">editInPlace</span>()<span class="op">;</span></a></code></pre></div>
+</body></html>

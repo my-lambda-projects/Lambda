@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="description">–description–</h1>
+<p>In previous lessons, you learned that an object can inherit its behavior (methods) from another object by referencing its <code>prototype</code> object:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">ChildObject</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="va">Object</span>.<span class="at">create</span>(<span class="va">ParentObject</span>.<span class="at">prototype</span>)<span class="op">;</span></a></code></pre></div>
+<p>Then the <code>ChildObject</code> received its own methods by chaining them onto its <code>prototype</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">ChildObject</span>.<span class="va">prototype</span>.<span class="at">methodName</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span>...<span class="op">};</span></a></code></pre></div>
+<p>It’s possible to override an inherited method. It’s done the same way - by adding a method to <code>ChildObject.prototype</code> using the same method name as the one to override. Here’s an example of <code>Bird</code> overriding the <code>eat()</code> method inherited from <code>Animal</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">function</span> <span class="at">Animal</span>() <span class="op">{</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="va">Animal</span>.<span class="va">prototype</span>.<span class="at">eat</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="cf">return</span> <span class="st">&quot;nom nom nom&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="op">};</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="kw">function</span> <span class="at">Bird</span>() <span class="op">{</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-6" title="6"></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="va">Bird</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="va">Object</span>.<span class="at">create</span>(<span class="va">Animal</span>.<span class="at">prototype</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-8" title="8"></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="va">Bird</span>.<span class="va">prototype</span>.<span class="at">eat</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-10" title="10">  <span class="cf">return</span> <span class="st">&quot;peck peck peck&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="op">};</span></a></code></pre></div>
+<p>If you have an instance <code>let duck = new Bird();</code> and you call <code>duck.eat()</code>, this is how JavaScript looks for the method on <code>duck’s</code> <code>prototype</code> chain:</p>
+<ol type="1">
+<li><code>duck</code> =&gt; Is <code>eat()</code> defined here? No.</li>
+<li><code>Bird</code> =&gt; Is <code>eat()</code> defined here? =&gt; Yes. Execute it and stop searching.</li>
+<li><code>Animal</code> =&gt; <code>eat()</code> is also defined, but JavaScript stopped searching before reaching this level.</li>
+<li>Object =&gt; JavaScript stopped searching before reaching this level.</li>
+</ol>
+<h1 id="instructions">–instructions–</h1>
+<p>Override the <code>fly()</code> method for <code>Penguin</code> so that it returns the string <code>Alas, this is a flightless bird.</code></p>
+<h1 id="hints">–hints–</h1>
+<p><code>penguin.fly()</code> should return the string <code>Alas, this is a flightless bird.</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">assert</span>(<span class="va">penguin</span>.<span class="at">fly</span>() <span class="op">===</span> <span class="st">&#39;Alas, this is a flightless bird.&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p>The <code>bird.fly()</code> method should return the string <code>I am flying!</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">assert</span>(<span class="kw">new</span> <span class="at">Bird</span>().<span class="at">fly</span>() <span class="op">===</span> <span class="st">&#39;I am flying!&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<h1 id="seed">–seed–</h1>
+<h2 id="seed-contents">–seed-contents–</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">function</span> <span class="at">Bird</span>() <span class="op">{</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-2" title="2"></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="va">Bird</span>.<span class="va">prototype</span>.<span class="at">fly</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span> <span class="cf">return</span> <span class="st">&quot;I am flying!&quot;</span><span class="op">;</span> <span class="op">};</span></a>
+<a class="sourceLine" id="cb6-4" title="4"></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="kw">function</span> <span class="at">Penguin</span>() <span class="op">{</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="va">Penguin</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="va">Object</span>.<span class="at">create</span>(<span class="va">Bird</span>.<span class="at">prototype</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="va">Penguin</span>.<span class="va">prototype</span>.<span class="at">constructor</span> <span class="op">=</span> Penguin<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-8" title="8"></a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="co">// Only change code below this line</span></a>
+<a class="sourceLine" id="cb6-10" title="10"></a>
+<a class="sourceLine" id="cb6-11" title="11"></a>
+<a class="sourceLine" id="cb6-12" title="12"></a>
+<a class="sourceLine" id="cb6-13" title="13"><span class="co">// Only change code above this line</span></a>
+<a class="sourceLine" id="cb6-14" title="14"></a>
+<a class="sourceLine" id="cb6-15" title="15"><span class="kw">let</span> penguin <span class="op">=</span> <span class="kw">new</span> <span class="at">Penguin</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-16" title="16"><span class="va">console</span>.<span class="at">log</span>(<span class="va">penguin</span>.<span class="at">fly</span>())<span class="op">;</span></a></code></pre></div>
+<h1 id="solutions">–solutions–</h1>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">function</span> <span class="at">Bird</span>() <span class="op">{</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-2" title="2"></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="va">Bird</span>.<span class="va">prototype</span>.<span class="at">fly</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span> <span class="cf">return</span> <span class="st">&quot;I am flying!&quot;</span><span class="op">;</span> <span class="op">};</span></a>
+<a class="sourceLine" id="cb7-4" title="4"></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="kw">function</span> <span class="at">Penguin</span>() <span class="op">{</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="va">Penguin</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="va">Object</span>.<span class="at">create</span>(<span class="va">Bird</span>.<span class="at">prototype</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="va">Penguin</span>.<span class="va">prototype</span>.<span class="at">constructor</span> <span class="op">=</span> Penguin<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="va">Penguin</span>.<span class="va">prototype</span>.<span class="at">fly</span> <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="st">&#39;Alas, this is a flightless bird.&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-9" title="9"><span class="kw">let</span> penguin <span class="op">=</span> <span class="kw">new</span> <span class="at">Penguin</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-10" title="10"><span class="va">console</span>.<span class="at">log</span>(<span class="va">penguin</span>.<span class="at">fly</span>())<span class="op">;</span></a></code></pre></div>
+</body></html>
