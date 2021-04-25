@@ -1,0 +1,40 @@
+{
+  "name": "fizzbuzztesting",
+  "version": "1.0.0",
+  "description": "fizz buzz fizzbuzz",
+  "main": "fizzBuzz.js",
+  "scripts": {
+    "test": "eslint tests/*.js && eslint src/*.js && mocha -R nyan",
+    "watch": "npm test -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mixelpixel/CS1-Code-Challenges.git"
+  },
+  "keywords": [
+    "fizz",
+    "buzz",
+    "fizzbuzz",
+    "testing"
+  ],
+  "author": "Patrick Kennedy",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.1",
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb-base": "^11.1.3",
+    "eslint-plugin-import": "^2.2.0",
+    "mocha": "^3.5.0",
+    "regenerator-runtime": "^0.10.3",
+    "sinon": "^3.0.0",
+    "sinon-chai": "^2.12.0"
+  },
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.0",
+    "eslint-config-airbnb": "^14.1.0"
+  },
+  "bugs": {
+    "url": "https://github.com/mixelpixel/CS1-Code-Challenges/issues"
+  },
+  "homepage": "https://github.com/mixelpixel/CS1-Code-Challenges#readme"
+}
