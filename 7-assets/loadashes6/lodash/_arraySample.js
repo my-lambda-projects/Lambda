@@ -1,15 +1,1 @@
-import baseRandom from './_baseRandom';
-
-/**
- * A specialized version of `_.sample` for arrays.
- *
- * @private
- * @param {Array} array The array to sample.
- * @returns {*} Returns the random element.
- */
-function arraySample(array) {
-  const length = array.length;
-  return length ? array[baseRandom(0, length - 1)] : undefined;
-}
-
-export default arraySample;
+import baseRandom from"./_baseRandom";function arraySample(a){const e=a.length;return e?a[baseRandom(0,e-1)]:void 0}export default arraySample;

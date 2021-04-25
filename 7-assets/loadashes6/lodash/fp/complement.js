@@ -1,1 +1,1 @@
-module.exports = require('./negate');
+module.exports=require("./negate");

@@ -1,1 +1,1 @@
-module.exports = require('./xor');
+module.exports=require("./xor");

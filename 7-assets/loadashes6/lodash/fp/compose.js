@@ -1,1 +1,1 @@
-module.exports = require('./flowRight');
+module.exports=require("./flowRight");

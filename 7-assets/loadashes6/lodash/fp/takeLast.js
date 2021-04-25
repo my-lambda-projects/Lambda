@@ -1,1 +1,1 @@
-module.exports = require('./takeRight');
+module.exports=require("./takeRight");

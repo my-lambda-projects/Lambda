@@ -1,1 +1,1 @@
-module.exports = require('./xorWith');
+module.exports=require("./xorWith");

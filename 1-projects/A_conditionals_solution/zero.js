@@ -1,4 +1,4 @@
-g it // snippet 0-1
+ // snippet 0-1
 if ( true ) {
   console.log( "foo" ); // prints
 }

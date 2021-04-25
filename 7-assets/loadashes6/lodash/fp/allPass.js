@@ -1,1 +1,1 @@
-module.exports = require('./overEvery');
+module.exports=require("./overEvery");

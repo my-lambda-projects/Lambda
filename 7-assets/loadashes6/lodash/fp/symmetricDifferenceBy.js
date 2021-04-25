@@ -1,1 +1,1 @@
-module.exports = require('./xorBy');
+module.exports=require("./xorBy");

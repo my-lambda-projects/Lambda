@@ -1,1 +1,1 @@
-module.exports = require('./constant');
+module.exports=require("./constant");

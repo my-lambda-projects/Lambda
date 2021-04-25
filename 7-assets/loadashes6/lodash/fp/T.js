@@ -1,1 +1,1 @@
-module.exports = require('./stubTrue');
+module.exports=require("./stubTrue");

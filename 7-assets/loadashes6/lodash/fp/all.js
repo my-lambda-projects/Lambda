@@ -1,1 +1,1 @@
-module.exports = require('./every');
+module.exports = require( './every' );

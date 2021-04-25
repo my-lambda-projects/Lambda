@@ -1,4 +1,5 @@
-const convert = require('./convert'), func = convert('throttle', require('../throttle'));
+const convert = require( './convert' ),
+  func = convert( 'throttle', require( '../throttle' ) );
 
-func.placeholder = require('./placeholder');
+func.placeholder = require( './placeholder' );
 module.exports = func;

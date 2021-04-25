@@ -1,13 +1,1 @@
-customElements.define('simple-custom',
-  class extends HTMLElement {
-    constructor() {
-      super();
-
-      const divElem = document.createElement('div');
-      divElem.textContent = this.getAttribute('text');
-
-      const shadowRoot = this.attachShadow({mode: 'open'});
-      shadowRoot.appendChild(divElem);
-    }
-  }
-);
+customElements.define("simple-custom",class extends HTMLElement{constructor(){super();const t=document.createElement("div");t.textContent=this.getAttribute("text");this.attachShadow({mode:"open"}).appendChild(t)}});

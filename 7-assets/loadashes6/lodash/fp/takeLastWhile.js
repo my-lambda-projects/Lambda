@@ -1,1 +1,1 @@
-module.exports = require('./takeRightWhile');
+module.exports=require("./takeRightWhile");

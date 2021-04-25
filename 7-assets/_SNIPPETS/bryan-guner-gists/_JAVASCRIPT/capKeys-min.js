@@ -1,0 +1,1 @@
+function capitalizeKeys(e,t){if(Array.isArray(e)){return e.map((e=>capitalizeKeys(e,t)))}if("[object Object]"!==Object.prototype.toString.apply(e))return e;let r={};for(const a in e){let i=a.replace(/_(\w)/g,((e,t)=>t.toUpperCase()));t&&(i=t(i)),r[i]=capitalizeKeys(e[a],t)}return r}export default capitalizeKeys;
