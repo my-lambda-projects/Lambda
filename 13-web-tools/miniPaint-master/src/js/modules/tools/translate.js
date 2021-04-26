@@ -1,4 +1,4 @@
-hiimport config from './../../config.js';
+import config from './../../config.js';
 import Helper_class from './../../libs/helpers.js';
 import Translate_class from './../../libs/jquery.translate.js';
 import alertify from './../../../../node_modules/alertifyjs/build/alertify.min.js';
