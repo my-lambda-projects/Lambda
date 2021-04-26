@@ -1,0 +1,24 @@
+{% from 'macros/icon.njk' import icon with context %}
+
+{% extends 'partials/title-bar.njk' %}
+
+{% block title_bar_content %}
+  <nav class="breadcrumbs cluster" aria-label="{{ 'i18n.common.breadcrumbs' | i18n(locale) }}">
+    <div class="align-center flow-space-200">
+      {% set all = helpers.buildBreadcrumbs(page.url, collections) %}
+      {% for part in all -%}
+
+        {% if not loop.first -%}
+          {{ icon('keyboard-arrow-right') }}
+        {%- endif %}
+
+        {% if part.url %}
+          <a class="link type--h6 decoration-none no-visited" href="{{ part.url }}">{{ part.title }}</a>
+        {% else %}
+          <span class="type--h5">{{ part.title }}</span>
+        {% endif %}
+
+      {%- endfor %}
+    </div>
+  </nav>
+{% endblock %}

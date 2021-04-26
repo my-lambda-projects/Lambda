@@ -1,0 +1,63 @@
+---
+feature_name: autocapitalize Text Input
+chrome_version: 43
+feature_id: 4529989986811904
+---
+
+<style>
+  label {
+    margin-top: 1em;
+    width: 100%;
+    display: block;
+  }
+
+  input {
+    width:90%;
+  }
+
+  p.sublabel {
+    margin-top: 0;
+    color: #8d8d8d;
+    font-style: italic;
+  }
+</style>
+
+<h3>Background</h3>
+<p>
+  Apple introduced an attribute on <code>HTMLInputElement</code> and
+  <code>HTMLTextAreaElement</code> called <code>autocapitalize</code> in iOS 5. It allows the page author to
+  hint at how the browser should present the virtual keyboard for a user to optimize text entry for
+  the user. In it's simplest form, you could indicate that a text box should automatically
+  capitalize the first letter of every new sentence.
+</p>
+
+<p>
+  Starting in Chrome 43 for Android, Chrome will support the autocapitalize attribute on both
+  <code>HTMLInputElement</code> and <code>HTMLTextAreaElement</code>, which will allow you to
+  control the autocapitalization behaviour of the virtual keyboard and bring it inline with Safari
+  on iOS.
+</p>
+
+{% capture html %}
+<h3>Sentence Case</h3>
+<div>
+  <label>What is your favorite quote?</label>
+  <input type="text" autocapitalize="sentences">
+  <p class="sublabel">Sentence case will capitalize words after a period. Like this.</p>
+</div>
+
+<h3>Word Case</h3>
+<div>
+  <label>What is your favorite quote?</label>
+  <input type="text" autocapitalize="words">
+  <p class="sublabel">Word Case Will Capitalize Every Word. Like This.</p>
+</div>
+
+<h3>Character Case</h3>
+<div>
+  <label>What is your favorite quote?</label>
+  <input type="text" autocapitalize="characters">
+  <p class="sublabel">CHARACTER CASE IS LIKE ANGRY.</p>
+</div>
+{% endcapture %}
+{% include html_snippet.html html=html %}

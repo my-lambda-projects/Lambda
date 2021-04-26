@@ -1,0 +1,27 @@
+---
+feature_name: Encoding API
+chrome_version: 38
+feature_id: 5714368087982080
+---
+
+<h3>Background</h3>
+<p>
+  The JavaScript Encoding API allows developers to encode and decode strings using a wide range of
+  character encodings.
+</p>
+
+<p>
+  The example on this page illustrates decoding data from a file into JavaScript strings.
+  The code obtains raw binary <code>ArrayBuffer</code> by making an <code>XMLHttpRequest</code>
+  for a local file. The code then calls <code>TextDecoder.decode()</code> to translate the data
+  into a string, given the appropriate character encoding.
+</p>
+
+<p>
+  In a real world scenario, source data might be read from files that predate Unicode
+  or from a legacy database system that only supported a specific character encoding.
+</p>
+
+{% include output_helper.html %}
+
+{% include js_snippet.html filename='demo.js' %}

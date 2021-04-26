@@ -1,0 +1,25 @@
+# Misc
+*.log
+npm-debug.*
+*.scssc
+*.swp
+.DS_Store
+Thumbs.db
+.sass-cache
+.env
+.cache
+.vscode
+.lighthouseci
+
+# Code coverage generated files
+.nyc_output
+/coverage
+
+# Node modules and output
+node_modules
+dist
+**/_includes/css
+
+# Eleventy
+# We generate our own .eleventyignore file dynamically during builds
+.eleventyignore

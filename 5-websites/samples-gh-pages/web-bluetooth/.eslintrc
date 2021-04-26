@@ -1,0 +1,13 @@
+{
+  "globals": {
+    "BluetoothUUID": true,
+    "log": true
+  },
+  "rules": {
+    "radix": 0,
+    "max-len": 0,
+    "max-nested-callbacks": 0,
+    "no-unused-vars": 0,
+    "no-undef": 0
+  }
+}

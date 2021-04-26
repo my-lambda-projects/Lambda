@@ -1,0 +1,43 @@
+// The scaffold is a special block and only used to give the entire site
+// its layout.
+
+/* stylelint-disable order/properties-alphabetical-order */
+.scaffold {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    'header header'
+    'sidebar main'
+    'sidebar footer';
+}
+
+.scaffold > * {
+  // Flex/Grid children have a default min-width: auto which means they can
+  // easily bust out of the container and cause horizontal scrolling. Because
+  // min-width wins against width and max-width we need to explicitly set it to
+  // 0 to tell the browser that these children have no right to take up any
+  // minimum width
+  min-width: 0;
+}
+
+.scaffold > top-nav {
+  grid-area: header;
+}
+
+.scaffold > navigation-rail {
+  grid-area: sidebar;
+}
+
+.scaffold > side-nav {
+  grid-area: sidebar;
+}
+
+.scaffold > main {
+  grid-area: main;
+}
+
+.scaffold > footer {
+  grid-area: footer;
+}

@@ -1,0 +1,167 @@
+# This is a basic workflow that is manually triggered
+
+name: Publish Docker Image
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    inputs:
+      name:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Publish to DockerHub'
+        # Default value if no value is explicitly provided
+        default: 'latest'
+        # Input has to be provided for the workflow to run
+        required: true
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  release:
+    types: [ created ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  webportal:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      if: ${{ github.event_name != 'pull_request' }}
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Set output
+      id: vars
+      run: echo ::set-output name=version::${GITHUB_REF#refs/*/}
+    - name: Build in pull request
+      id: docker_build_pr
+      uses: docker/build-push-action@v2
+      if: ${{ github.event_name == 'pull_request' }}
+      with:
+        context: .
+        file: ./webportal/deploy/Dockerfile
+        push: false
+        build-args: |
+          VERSION=${{ github.event.pull_request.head.ref }}
+          TARGET=${{ github.event.pull_request.head.repo.git_url }}
+        tags: openpai/pai-marketplace-webportal:int
+    - name: Build and push after merge PR
+      id: docker_build_push
+      uses: docker/build-push-action@v2
+      if: ${{ github.event_name == 'push' }}
+      with:
+        context: .
+        file: ./webportal/deploy/Dockerfile
+        push: true
+        build-args: VERSION=${{ steps.vars.outputs.version }}
+        tags: openpai/pai-marketplace-webportal:latest
+    - name: Build and push on release
+      id: docker_build_release
+      uses: docker/build-push-action@v2
+      if: ${{ github.event_name == 'release' }}
+      with:
+        context: .
+        file: ./webportal/deploy/Dockerfile
+        push: true
+        build-args: VERSION=${{ steps.vars.outputs.version }}
+        tags: openpai/pai-marketplace-webportal:${{ steps.vars.outputs.version }}
+    - name: Build and push manual
+      id: docker_build_manual
+      uses: docker/build-push-action@v2
+      if: ${{ github.event_name == 'workflow_dispatch' }}
+      with:
+        context: .
+        file: ./webportal/deploy/Dockerfile
+        push: true
+        build-args: VERSION=${{ steps.vars.outputs.version }}
+        tags: openpai/pai-marketplace-webportal:${{ github.event.inputs.name }}
+    - name: Image digest
+      run: echo ${{ steps.docker_build.outputs.digest }}
+
+  restserver:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    - name: Login to DockerHub
+      uses: docker/login-action@v1
+      if: ${{ github.event_name != 'pull_request' }}
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Set output
+      id: vars
+      run: echo ::set-output name=version::${GITHUB_REF#refs/*/}
+    - name: Build in pull request
+      id: docker_build_pr
+      uses: docker/build-push-action@v2
+      if: ${{ github.event_name == 'pull_request' }}
+      with:
+        context: .
+        file: ./rest_server/deploy/Dockerfile
+        push: false
+        build-args: |
+          VERSION=${{ github.event.pull_request.head.ref }}
+          TARGET=${{ github.event.pull_request.head.repo.git_url }}
+        tags: openpai/pai-marketplace-restserver:int
+    - name: Build and push after merge PR
+      id: docker_build_push
+      uses: docker/build-push-action@v2
+      if: ${{ github.event_name == 'push' }}
+      with:
+        context: .
+        file: ./rest_server/deploy/Dockerfile
+        push: true
+        build-args: VERSION=${{ steps.vars.outputs.version }}
+        tags: openpai/pai-marketplace-restserver:latest
+    - name: Build and push on release
+      id: docker_build_release
+      uses: docker/build-push-action@v2
+      if: ${{ github.event_name == 'release' }}
+      with:
+        context: .
+        file: ./rest_server/deploy/Dockerfile
+        push: true
+        build-args: VERSION=${{ steps.vars.outputs.version }}
+        tags: openpai/pai-marketplace-restserver:${{ steps.vars.outputs.version }}
+    - name: Build and push manual
+      id: docker_build_manual
+      uses: docker/build-push-action@v2
+      if: ${{ github.event_name == 'workflow_dispatch' }}
+      with:
+        context: .
+        file: ./rest_server/deploy/Dockerfile
+        push: true
+        build-args: VERSION=${{ steps.vars.outputs.version }}
+        tags: openpai/pai-marketplace-restserver:${{ github.event.inputs.name }}
+    - name: Image digest
+      run: echo ${{ steps.docker_build.outputs.digest }}

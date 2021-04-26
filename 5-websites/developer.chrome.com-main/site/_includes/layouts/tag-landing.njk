@@ -1,0 +1,19 @@
+{% from 'macros/cards/blog-card.njk' import blogCard with context %}
+
+{% extends "layouts/base.njk" %}
+
+{% block title_bar %}
+  {% include 'partials/breadcrumbs-tag.njk' %}
+{% endblock %}
+
+{% block content %}
+  {% set paginationObject = paged.pagination %}
+  <div class="measure-1280 width-full gap-top-300 lg:gap-top-400 pad-left-400 pad-right-400 center-margin">
+    <div class="blog-grid">
+      {% for post in paginationObject.items %}
+        {{ blogCard(post) }}
+      {% endfor %}
+    </div>
+    {% include 'partials/pagination.njk' %}
+  </div>
+{% endblock %}

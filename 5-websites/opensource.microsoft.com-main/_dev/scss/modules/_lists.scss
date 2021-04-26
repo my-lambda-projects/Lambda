@@ -1,0 +1,216 @@
+// ---------------------------------------------------------------------
+//  Lists
+// ---------------------------------------------------------------------
+
+.tabs__tabs {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    li {
+        margin-right: 16px;
+
+        @include start-at($medium) {
+            margin-right: 24px;
+        }
+    }
+
+    a {
+        display: block;
+        position: relative;
+        padding: 8px 0 12px;
+        font-weight: 600;
+        font-size: 13px;
+
+        &:after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: $brand;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            transform-origin: center;
+            transform: scaleX(0);
+            transition: transform $trans;
+        }
+
+        &:hover:after {
+            transform: scaleX(.6);
+        }
+    }
+
+    li.is-active {
+        a:after {
+            transform: scaleX(1);
+        }
+
+    }
+}
+
+
+// ----------------------------------------
+// Tile list
+// ----------------------------------------
+
+.ul {
+    list-style-type: disc;
+    padding-left: 24px;
+    color: $gray;
+
+    li {
+        margin-bottom: 16px;
+        padding-left: 4px;
+    }
+}
+
+// ----------------------------------------
+// Tile list
+// ----------------------------------------
+
+.tile-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+
+    &:after {
+        content: '';
+        width: 100%;
+
+        @include start-at($small) {
+            width: calc(50% - 10px);
+        }
+
+        @include start-at($large) {
+            width: calc(33% - 15px);
+        }
+    }
+}
+
+.tile {
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.1), 0px 3px 8px rgba(0, 0, 0, 0.13);
+    border-radius: 4px;
+    width: 100%;
+    padding: 36px 16px;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: box-shadow $trans;
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2), 0px 3px 20px rgba(0, 0, 0, 0.23);
+    }
+
+    > * {
+        max-width: 400px;
+    }
+
+    img {
+        max-height: 90px;
+        margin: 0 auto;
+    }
+
+    @include start-at($small) {
+        width: calc(50% - 10px);
+        padding: 48px 24px;
+    }
+
+    @include start-at($large) {
+        width: calc(33% - 15px);
+        padding: 60px 30px;
+        margin-bottom: 30px;
+    }
+}
+
+
+
+// ----------------------------------------
+// Blog list
+// ----------------------------------------
+
+.blog-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.blog-preview {
+    width: 100%;
+    margin-bottom: 30px;
+    opacity: 1;
+    transition: opacity $trans;
+
+    &:hover {
+        cursor: pointer;
+        //opacity: .8;
+
+        p {
+            opacity: .8;
+        }
+
+        h3 {
+            color: darken($brand, 5%);
+        }
+
+        .blog-preview__img img {
+            opacity: 0.8;
+        }
+    }
+
+    .blog-preview__img {
+        width: 100%;
+        height: 0;
+        padding-bottom: 62%;
+        background: rgba($brand, 0.4);
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 12px;
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transition: opacity 0.6s ease;
+        }
+    }
+
+    h3 {
+        transition: color $trans;
+    }
+
+    p {
+        margin: 0;
+        transition: opacity $trans;
+    }
+
+
+    @include start-at($small) {
+        width: calc(50% - 20px);
+    }
+
+    @include start-at($large) {
+        width: calc(25% - 30px);
+        margin-bottom: 30px;
+    }
+}
+
+.blog-preview__meta {
+    font-size: 12px;
+    color: #75757A;
+}
+
+
+
+.foundation-list {
+    .img-gap {
+        height: 40px;
+    }
+}

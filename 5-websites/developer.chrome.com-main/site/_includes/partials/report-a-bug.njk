@@ -1,0 +1,36 @@
+{% from 'macros/icon.njk' import icon with context %}
+
+<div class="masonry-grid__item featured-card bg-green-lighter rounded-lg width-full pad-300 md:pad-400">
+  <div class="featured-card__title-bar color-green-darkest display-flex align-center">
+    {{ icon('docs') }}
+    <span class="gap-left-300 flex-1 user-select-none">Docs</span>
+  </div>
+
+  <h2 class="type--h5 color-green-darkest gap-top-400">How to report a Chrome bug</h2>
+  <div class="display-flex align-center justify-content-between">
+    <ol class="gap-top-200 gap-bottom-0 pad-left-0">
+      <li>Verify the bug</li>
+      <li>Search the bug base</li>
+      <li>Create a test case</li>
+      <li>Report the bug</li>
+    </ol>
+    {% Img
+      src="image/QMjXarRXcMarxQddwrEdPvHVM242/6sIefmW5LVABkFk32Wub.png",
+      alt="Question icon inside a speech bubble",
+      height="96",
+      width="96",
+      sizes="96px",
+      options={minWidth: 96, maxWidth: 288}
+    %}
+  </div>
+  <div class="display-flex gap-top-300 md:gap-top-400">
+    <a class="material-button button-text color-green-medium" href="https://web.dev/how-to-file-a-good-bug/">
+      <span>
+        Learn more <span class="visually-hidden">about reporting bugs.</span>
+      </span>
+    </a>
+    <a class="material-button button-text color-green-medium" href="https://crbug.com">
+      Report a bug
+    </a>
+  </div>
+</div>

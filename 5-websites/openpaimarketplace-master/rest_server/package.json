@@ -1,0 +1,44 @@
+{
+  "name": "marketplace-rest-server",
+  "version": "1.0.0",
+  "description": "The rest server of openpai marketplace.",
+  "author": "Microsoft",
+  "license": "MIT",
+  "engines": {
+    "node": "^10"
+  },
+  "scripts": {
+    "lint": "eslint --ext .js --ext .jsx .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "ajv": "^6.10.0",
+    "ajv-merge-patch": "~4.1.0",
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fs-extra": "^8.1.0",
+    "http-errors": "^1.8.0",
+    "js-yaml": "^3.13.1",
+    "jwt-decode": "^3.1.2",
+    "pg": "^7.14.0",
+    "sequelize": "^5.21.2",
+    "url-join": "^4.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "prettier": "1.18.2",
+    "sequelize-cli": "^6.2.0"
+  }
+}

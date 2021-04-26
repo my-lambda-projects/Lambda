@@ -1,0 +1,17 @@
+---
+feature_name: Cut and Copy
+chrome_version: 43
+feature_id: 5223997243392000
+---
+
+<h3>Simple Cut Example</h3>
+<p><textarea class="js-cuttextarea">Hello I'm some text</textarea></p>
+<p><button class="js-textareacutbtn">Cut Textarea</button></p>
+
+<h3>Simple Copy Example</h3>
+<p>Email me at <a class="js-emaillink" href="mailto:matt@example.co.uk" >matt@example.co.uk</a></p>
+<p><button class="js-emailcopybtn">Copy Email Address</button></p>
+
+{% include output_helper.html %}
+
+{% include js_snippet.html filename='demo.js' %}

@@ -1,0 +1,5 @@
+---
+api: printerProvider
+---
+
+<!-- Intentionally blank -->

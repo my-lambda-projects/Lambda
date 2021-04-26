@@ -1,0 +1,28 @@
+name: Build the builder
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Dockerfile.builder'
+      - 'Gemfile'
+      - 'Gemfile.lock'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/builder.yml'
+jobs:
+  builder:
+    runs-on: ubuntu-latest
+    steps:
+    #       actions/checkout@v2
+    - uses: actions/checkout@2036a08e25fa78bbd946711a407b529a0a1204bf
+    #       docker/build-push-action@v1
+    - uses: docker/build-push-action@92e71463491f2d026a477188b8ad3a0fdd9d672c
+      with:
+        dockerfile: Dockerfile.builder
+        tags: latest
+        tag_with_sha: true
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+        registry: docker.pkg.github.com
+        repository: microsoft/opensource.microsoft.com/custom-jekyll-builder

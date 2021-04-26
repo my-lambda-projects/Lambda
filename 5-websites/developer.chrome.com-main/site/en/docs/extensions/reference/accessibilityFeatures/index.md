@@ -1,0 +1,5 @@
+---
+api: accessibilityFeatures
+---
+
+<!-- Intentionally blank -->

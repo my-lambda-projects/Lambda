@@ -1,0 +1,54 @@
+navigation-tree {
+  display: none;
+  width: px-to-rem(250px);
+
+  @include media-query('lg') {
+    display: block;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.navigation-tree__title {
+  @extend %navigation__title;
+}
+
+.navigation-tree__link {
+  @extend %navigation__link;
+  @include font-setup(13px, 22px);
+  align-items: flex-start;
+  padding-left: px-to-rem(12px);
+
+  &[aria-expanded='true'] {
+    .navigation-tree__icon > svg {
+      transform: rotate(90deg);
+    }
+  
+    + .navigation-tree__nested {
+      display: flex;
+    }
+  }
+}
+
+.navigation-tree__icon {
+  @extend %navigation__icon;
+}
+
+.navigation-tree__nested {
+  display: none;
+  flex-direction: column;
+}
+
+// Indent nested sections.
+// We target the links instead of the .nav__nested
+// element because we want the hover and active
+// styles to reach all the way to the left edge.
+.navigation-tree__nested > .navigation-tree__link {
+  padding-left: 1.5rem;
+}
+
+.navigation-tree__nested > .navigation-tree__nested > .navigation-tree__link {
+  padding-left: 3rem;
+}

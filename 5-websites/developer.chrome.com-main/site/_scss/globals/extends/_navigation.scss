@@ -1,0 +1,58 @@
+// These styles are shared by the navigation-rail and navigation-tree components
+
+%navigation {
+  &__title {
+    @include apply-utility('font', 'google-sans');
+    font-size: px-to-rem(18px);
+    line-height: 1.5;
+  }
+
+  &__link {
+    align-items: center;
+    border-radius: 0 100px 100px 0;
+    color: var(--color-text);
+    display: flex;
+    padding: px-to-rem(6px) 0.5rem px-to-rem(6px) 0;
+    text-align: left;
+    text-decoration: none;
+    user-select: none;
+
+    &:hover {
+      background: var(--color-side-nav-hover);
+    }
+
+    // Put the link's focus ring in front of any adjacent elements which have a
+    // background.
+    &:focus {
+      z-index: 1;
+    }
+
+    // The last child is always the label which should have a left margin so
+    // its left edge moves past an expando chevron.
+    > :last-child {
+      margin-left: 2rem;
+    }
+  }
+
+  &__icon {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 2rem;
+
+    &::before {
+      content: '\200b';
+    }
+
+    > svg {
+      min-width: 24px;
+      transition: transform 0.2s;
+    }
+  }
+}
+
+%navigation__link[aria-current='page'] {
+  background: var(--color-secondary);
+  color: var(--color-side-nav-active);
+}

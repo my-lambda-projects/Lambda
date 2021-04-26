@@ -1,0 +1,5 @@
+---
+api: extension
+---
+
+<!-- Intentionally blank -->

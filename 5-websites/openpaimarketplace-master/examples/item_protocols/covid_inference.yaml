@@ -1,0 +1,40 @@
+protocolVersion: 2
+name: covid19_inference
+type: job
+contributor: OpenPAI
+description: |
+  # Covid19 Inference Service of Prediction Model
+
+  This is the inference service to visualize the prediction number of confirmed and death population in different countries.
+
+prerequisites:
+  - name: docker_image_0
+    type: dockerimage
+    uri: 'node:carbon'
+  - name: covid_code
+    type: script
+    uri: https://openpaimarketplace.blob.core.windows.net/marketplace/Covid19_data/covid19_inference_project.tgz
+taskRoles:
+  taskrole:
+    instances: 1
+    dockerImage: docker_image_0
+    script: covid_code
+    resourcePerInstance:
+      gpu: 0
+      cpu: 4
+      memoryMB: 8192
+      ports:
+        SERVER_PORT: 1
+    commands:
+      - mkdir -p /data/covid19
+      - cd /data/covid19
+      - wget <% $script.uri %>
+      - tar xvf covid19_inference_project.tgz
+      - export CODE_DIR=/data/covid19/inference_project
+      - export SERVER_PORT=$PAI_PORT_LIST_taskrole_0_SERVER_PORT
+      - cd ${CODE_DIR}
+      - ls
+      - npm install
+      - npm run build
+      - npm start
+      - echo please go to $PAI_HOST_IP_taskrole_0:$SERVER_PORT to view the result.

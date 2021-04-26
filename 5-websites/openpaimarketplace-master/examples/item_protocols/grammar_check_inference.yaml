@@ -1,0 +1,38 @@
+protocolVersion: 2
+name: grammar_inference
+type: job
+contributor: OpenPAI
+description: |
+  Grammar Check Inference Job Template
+
+  This is a model inference process. The input data is the training models trained by ```Grammer Check Model Training Job```, and this job will use ```fairseq-generate``` to correct test sentences.
+
+prerequisites:
+  - name: default_image
+    type: dockerimage
+    uri: 'openpai/standard:python_3.6-pytorch_1.2.0-gpu'
+  - name: grammar_model
+    type: data
+    uri :
+      - https://openpaimarketplace.blob.core.windows.net/marketplace/GrammarCheck/gramarCheck_data_bin.tgz
+      - https://openpaimarketplace.blob.core.windows.net/marketplace/GrammarCheck/gramarCheck_checkpoint_best.tgz
+taskRoles:
+  taskrole:
+    instances: 1
+    dockerImage: default_image
+    data: grammar_model
+    resourcePerInstance:
+      cpu: 4
+      memoryMB: 8192
+      gpu: 1
+    commands:
+      - mkdir -p /data/grammarCheck/
+      - cd /data/grammarCheck/
+      - wget <% $data.uri[0] %>
+      - tar xvf gramarCheck_data_bin.tgz
+      - wget <% $data.uri[1] %>
+      - tar xvf gramarCheck_checkpoint_best.tgz
+      - export PREPROCESSED_DATA_DIR=/data/grammarCheck/data-bin/
+      - export MODEL_SAVE_DIR=/data/grammarCheck/checkpoints/
+      - pip install fairseq==0.9
+      - fairseq-generate ${PREPROCESSED_DATA_DIR} --path ${MODEL_SAVE_DIR}/checkpoint_best.pt --source-lang origin --target-lang correct

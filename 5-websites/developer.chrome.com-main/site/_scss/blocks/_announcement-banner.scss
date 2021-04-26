@@ -1,0 +1,18 @@
+.banner--hide announcement-banner,
+announcement-banner[hidden] {
+  display: none;
+}
+
+announcement-banner {
+  [data-banner-close-btn] {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &[active] {
+    [data-banner-close-btn] {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}

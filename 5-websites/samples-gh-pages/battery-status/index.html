@@ -1,0 +1,22 @@
+---
+feature_name: Battery Status API
+chrome_version: 38
+feature_id: 4537134732017664
+---
+
+<h3>Background</h3>
+<p>
+  The <a href="http://www.w3.org/TR/battery-status">Battery Status API</a> lets you monitor what
+  is happening to the power of the device that your page is running on.
+</p>
+
+{% capture initial_output_content %}
+<div><span id="warning"></span></div>
+<div>Charging: <span id="chargingState"></span></div>
+<div>Time to charge: <span id="chargingTime"></span></div>
+<div>Time to discharge: <span id="dischargeTime"></span></div>
+<div>Battery Level: <span id="level"></span></div>
+{% endcapture %}
+{% include output_helper.html initial_output_content=initial_output_content %}
+
+{% include js_snippet.html filename='demo.js' %}

@@ -1,0 +1,5 @@
+---
+api: desktopCapture
+---
+
+<!-- Intentionally blank -->

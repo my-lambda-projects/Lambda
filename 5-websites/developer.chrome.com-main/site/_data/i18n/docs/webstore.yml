@@ -1,0 +1,16 @@
+overviews:
+  en: 'Overviews'
+payments:
+  en: 'Payments'
+identity:
+  en: 'Identity'
+policies:
+  en: 'Chrome Web Store policies'
+publish:
+  en: 'Publish your extension'
+details:
+  en: 'Item detail pages'
+develop:
+  en: 'Prepare your extension'
+api:
+  en: 'Chrome Web Store API'

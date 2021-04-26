@@ -1,0 +1,46 @@
+---
+feature_name: window.caches
+chrome_version: 43
+feature_id: 5072127703121920
+---
+<style>
+  #files {
+    display: none;
+  }
+
+  button {
+    margin-left: 1em;
+  }
+</style>
+
+<h3>Background</h3>
+<p>
+  This sample demonstrates basic service worker registration, in conjunction with pre-fetching
+  of specific resource URLs during the installation phase. Additionally, it illustrates how
+  <code>window.caches</code> can be used to make calls against the
+  <a href="https://slightlyoff.github.io/ServiceWorker/spec/service_worker/#cache-storage">Cache Storage API</a>
+  from the context of a normal document. (This was previously only exposed to service workers.)
+</p>
+
+{% capture initial_output_content %}
+<div id="files">
+  <p>
+    The resources currently in the cache are listed below. Some initial files have been added
+    via the service worker's install handler. You can add additional files to the cache or
+    remove files from the context of the current page, without having to pass messages back
+    and forth to the service worker.
+  </p>
+
+  <ul id="cache-entries"></ul>
+
+  <div>
+    <label for="url">URL to Cache:</label>
+    <input type="text" id="url" size="60" value="https://www.google.com">
+    <button id="add">Add</button>
+  </div>
+</div>
+{% endcapture %}
+{% include output_helper.html initial_output_content=initial_output_content %}
+
+{% include js_snippet.html filename='demo.js' %}
+{% include js_snippet.html filename='service-worker.js' displayonly=true title="Service Worker's JavaScript" %}

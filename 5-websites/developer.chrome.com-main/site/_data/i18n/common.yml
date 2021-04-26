@@ -1,0 +1,108 @@
+chrome_developers:
+  en: 'Chrome Developers'
+  es: 'Chrome Developers'
+
+home_search:
+  en: 'Home and search'
+  es: 'Home and search'
+
+compare_better:
+  en: 'Do'
+  es: 'Si'
+
+compare_worse:
+  en: "Don't"
+  es: 'No'
+
+compare_helpful:
+  en: 'Helpful'
+
+compare_unhelpful:
+  en: 'Unhelpful'
+
+menu:
+  en: 'menu'
+  es: 'menu'
+
+open_search:
+  en: 'open search'
+  es: 'open search'
+
+search:
+  en: 'search'
+  es: 'search'
+
+search_placeholder:
+  en: 'Search docs, blogs and more'
+  es: 'Search docs, blogs and more'
+
+breadcrumbs:
+  en: 'breadcrumbs'
+  es: 'breadcrumbs'
+
+primary:
+  en: 'primary'
+  es: 'primary'
+
+project_docs:
+  en: 'project docs'
+  es: 'project docs'
+
+caution:
+  en: 'Caution'
+  es: 'Precaución'
+
+warning:
+  en: 'Warning'
+  es: 'Advertencia'
+
+success:
+  en: 'Success'
+  es: 'Éxito'
+
+gotchas:
+  en: 'Gotchas'
+  es: 'Gotchas'
+
+key-term:
+  en: 'Key Term'
+  es: 'Término Clave'
+
+codelab:
+  en: 'Codelab'
+  es: 'Codelab'
+
+see_all_articles:
+  en: 'See all articles'
+  es: 'Ver todos los articulos'
+
+see_all_docs:
+  en: 'See all documentation'
+  es: 'Ver todos los documentación'
+
+follow:
+  en: 'Follow'
+  es: 'Seguir'
+
+toc:
+  en: 'Table of contents'
+  es: 'Tabla de contenido'
+
+tags:
+  en: 'Tags'
+
+documentation:
+  en: 'Documentation'
+
+blog:
+  en: 'Blog'
+
+skip_to_content:
+  en: 'Skip to content'
+  es: 'Saltar al contenido'
+
+newer_posts:
+  en: 'Newer posts'
+
+older_posts:
+  en: 'Older posts'

@@ -1,0 +1,5 @@
+---
+api: tabCapture
+---
+
+<!-- Intentionally blank -->

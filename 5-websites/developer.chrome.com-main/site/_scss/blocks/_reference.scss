@@ -1,0 +1,32 @@
+.reference-collapse {
+  display: none;
+
+  @include media-query('md') {
+    display: table-cell;
+  }
+}
+
+.reference {
+  border-radius: 4px;
+
+  th {
+    text-align: left;
+  }
+
+  td,
+  th {
+    vertical-align: top;
+
+    &:not(:last-child) {
+      padding-right: 0;
+    }
+  }
+}
+
+.reference-requirements {
+  > span {
+    &:not(:last-child)::after {
+      content: ' · ';
+    }
+  }
+}
