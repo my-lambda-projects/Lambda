@@ -1,0 +1,40 @@
+body {
+  background: blue;
+}
+
+div {
+  background: black;
+}
+
+p {
+  color: white; /* "color" for text color */
+}
+
+.a {
+  width: 100px;
+  height: 150px; /* no background declared, so the "div" bg is used from above */
+}
+
+.b {
+  max-width: 1000px; /* compare to .c 100% when expanding and shrinking */
+  min-width: 600px; /* the width of the browser page display */
+  height: 50px;
+  background: green; /* over-rides "body" width per SPECIFICITY */
+}
+
+.c {
+  width: 100%;
+  height: 50px;
+  background: yellow;
+}
+
+.d {
+  width: 100px;
+  height: 150px;
+  background: red;
+}
+
+#an_id {
+  width: 50px; /* over-rides class width per SPECIFICITY */
+  font-size: 50px;
+}

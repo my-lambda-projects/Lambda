@@ -1,0 +1,293 @@
+@import 'variables';
+
+.menu {
+    position: absolute;
+    z-index: 1000;
+    overflow: auto;
+    color: $white;
+    background: #535353;
+    border: 1px solid $grey-800;
+    box-sizing: border-box;
+
+    &.top {
+        top: 0;
+    }
+    &.bottom {
+        bottom: 0;
+    }
+    &.left {
+        left: 0;
+    }
+    &.right {
+        right: 0;
+    }
+
+    .handle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: grab;
+        opacity: 0.5;
+
+        &:active,
+        &.active {
+            cursor: grabbing;
+        }
+        .fa {
+            position: absolute;
+        }
+    }
+
+    &.fixed {
+        .handle {
+            display: none;
+        }
+    }
+    &:not(.fixed){
+        z-index: 1001;
+    }
+
+    &.horizontal {
+        flex-direction: row;
+
+        &.fixed {
+            left: 0;
+            width: 100%;
+            box-shadow: 0 - #{$menuBlurLength} #{$menuBlurLength} - #{$menuBlurLength} $menuBlurColor, 0 #{$menuBlurLength} #{$menuBlurLength} - #{$menuBlurLength} $menuBlurColor;
+        }
+        &:not(.fixed) {
+            padding-left: $menuHandleSize + 4px;
+        }
+
+        .handle {
+            width: $menuHandleSize;
+            height: 100%;
+            margin-left: 2px;
+
+            .fa {
+                top: 50%;
+                left: 0;
+                transform: translate(0, -50%);
+            }
+        }
+        > .tool {
+            margin: 0 3px;
+
+            &:first-of-type {
+                margin-left: 0;
+            }
+            &:last-of-type {
+                margin-right: 0;
+            }
+            &.end {
+                &.first {
+                    margin-left: auto;
+                }
+            }
+        }
+    }
+    &.vertical {
+        flex-direction: column;
+
+        &.fixed {
+            top: 0;
+            height: 100%;
+            box-shadow: - #{$menuBlurLength} 0 #{$menuBlurLength} - #{$menuBlurLength} $menuBlurColor, #{$menuBlurLength} 0 #{$menuBlurLength} - #{$menuBlurLength} $menuBlurColor;
+        }
+        &:not(.fixed) {
+            padding-top: $menuHandleSize + 4px;
+        }
+
+        .handle {
+            width: 100%;
+            height: $menuHandleSize;
+            margin-top: 4px;
+
+            .fa {
+                top: 0;
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+        }
+        > .tool {
+            margin: 3px 0;
+
+            &:first-of-type {
+                margin-top: 0;
+            }
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+            &.end {
+                &.first {
+                    margin-top: auto;
+                }
+            }
+        }
+    }
+
+    .tool {
+        display: inline-block;
+        padding: 6px 4px;
+        overflow: hidden;
+        font-size: 16px;
+        color: $grey-300;
+        cursor: pointer;
+        border: 1px solid rgba($black, 0);
+
+        &:hover {
+            border-color: $grey-500;
+        }
+        &.disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+        &.selected {
+            border-color: $grey-300;
+        }
+    }
+}
+
+.settings {
+    padding: 15px 15px 0;
+    color: $grey-800;
+    background: $white;
+
+    .settingsParent {
+        padding-left: 20px;
+
+        h6 {
+            margin-bottom: 0;
+            margin-left: -20px;
+            font-size: 16px;
+            font-weight: 700;
+            color: $main-500;
+            text-transform: capitalize;
+        }
+    }
+}
+
+.toolbar {
+    display: flex;
+    align-content: flex-start;
+    align-items: center;
+    padding: 5px;
+    line-height: 0;
+
+    .tool {
+        &.end {
+            order: 999;
+        }
+    }
+}
+
+.layersPanel {
+    min-width: 300px;
+    padding-bottom: 36px; // .buttons's height - 1
+
+    .layersList {
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+
+    .buttons {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        align-items: stretch;
+        width: 100%;
+        line-height: 0;
+        border-top: 1px solid $borderColor;
+
+        .tool {
+            margin: 3px;
+        }
+        .trash {
+            margin-left: auto;
+        }
+    }
+}
+.buttons {
+    .layerThumbnail {
+        display: none;
+    }
+}
+.layerThumbnail {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    margin-top: -1px;
+    line-height: 94px;
+    border-top: 1px solid $borderColor;
+    border-bottom: 1px solid $borderColor;
+
+    &.selected {
+        background: rgba($blue-500, 0.2);
+    }
+    &:first-of-type {
+        margin-top: 0;
+        border-top: 0;
+    }
+
+    &.dropOver {
+        &:after {
+            position: absolute;
+            top: -3px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            border-top: 6px solid $borderColor;
+            content: '';
+        }
+    }
+    div {
+        display: inline-block;
+        color: $white;
+    }
+    .visible {
+        width: 30px;
+        text-align: center;
+        vertical-align: top;
+        cursor: pointer;
+    }
+    .divider {
+        position: relative;
+        top: 20%;
+        display: inline-block;
+        width: 1px;
+        height: 60%;
+        border-right: 1px solid $borderColor;
+    }
+    .thumbnail {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        margin: 10px;
+        line-height: 0;
+        vertical-align: top;
+
+        .image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .transparent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('../img/transparentCheck.png');
+        }
+    }
+    .name {
+        margin-left: 5px;
+        vertical-align: top;
+    }
+}

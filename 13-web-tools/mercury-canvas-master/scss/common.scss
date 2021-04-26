@@ -1,0 +1,86 @@
+@import 'variables';
+@import 'menu';
+
+html,
+body,
+#wrapper {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+#wrapper {
+    user-select: none;
+
+    &.over {
+        &:after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: rgba($blue-300, 0.5);
+            content: '';
+        }
+        .dropText {
+            display: block;
+        }
+    }
+}
+.dropText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10000;
+    display: none;
+    font-size: 40px;
+    color: $white;
+    text-shadow: 0 0 4px rgba($black, 0.5);
+    transform: translate(-50%, -50%);
+}
+
+.layersContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background: $accent-500;
+
+    .layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+        transform-origin: 0 0;
+    }
+    .brushCursor {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        width: 10px;
+        height: 10px;
+        border: 1px solid $black;
+        border-radius: 50%;
+        box-shadow: inset 0 0 0 1px $white;
+    }
+    .selectCursor {
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        display: none;
+        width: 20px;
+        height: 20px;
+        background: url('../img/rotateCursor.png') no-repeat;
+        background-size: contain;
+    }
+}
+

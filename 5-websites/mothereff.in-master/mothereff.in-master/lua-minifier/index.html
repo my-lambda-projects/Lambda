@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang=en>
+<meta charset=utf-8>
+<title>Lua minifier</title>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<link rel=stylesheet href=eff.css>
+<meta name=description content="An online, on-the-fly Lua minifier.">
+<h1>Lua minifier</h1>
+<noscript><strong>To use this tool, please <a href=http://enable-javascript.com/>enable JavaScript</a> and reload the page.</strong></noscript>
+<h2>Input</h2>
+<textarea autofocus>for z = 1, 10 do
+  for y = 1, 10 do
+    for x = 1, 10 do
+      if x ^ 2 + y ^ 2 == z ^ 2 then
+        print('found a Pythagorean triple:', x, y, z)
+        goto done
+      end
+    end
+  end
+end
+::done::</textarea>
+<h2>Minified result (<a href=#for%20z%20%3D%201%2C%2010%20do%0A%20%20for%20y%20%3D%201%2C%2010%20do%0A%20%20%20%20for%20x%20%3D%201%2C%2010%20do%0A%20%20%20%20%20%20if%20x%20%5E%202%20%2B%20y%20%5E%202%20%3D%3D%20z%20%5E%202%20then%0A%20%20%20%20%20%20%20%20print%28%27found%20a%20Pythagorean%20triple%3A%27%2C%20x%2C%20y%2C%20z%29%0A%20%20%20%20%20%20%20%20goto%20done%0A%20%20%20%20%20%20end%0A%20%20%20%20end%0A%20%20end%0Aend%0A%3A%3Adone%3A%3A id=permalink>permalink</a>)</h2>
+<pre><code id=output>for a=1,10 do for b=1,10 do for c=1,10 do if c^2+b^2==a^2 then print('found a Pythagorean triple:',c,b,a)goto d end end end end::d::</code></pre>
+<dl>
+	<dt>Before
+		<dd>202 bytes
+	<dt>After
+		<dd>132 bytes
+	<dt>Compression ratio
+		<dd>34.65%
+</dl>
+<h2>About this tool</h2>
+<p>This tool uses <a href=https://mths.be/luamin>luamin</a> to minify any Lua snippet you enter. Under the hood, luamin uses <a href=https://oxyc.github.com/luaparse/>luaparse</a>.
+<p id=footer>Made by <a href=https://mathiasbynens.be/>@mathias</a> — <a href=https://github.com/mathiasbynens/mothereff.in/tree/master/lua-minifier>fork this on GitHub!</a></p>
+<script src=vendor/luaparse.js></script>
+<script src=vendor/luamin.js></script>
+<script src=eff.js></script>

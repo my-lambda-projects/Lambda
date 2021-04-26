@@ -1,0 +1,93 @@
+<!--
+  Copyright 2016 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<!doctype html>
+<html>
+  <head>
+    <title>v2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      .content {
+        margin-top: 11vh;
+      }
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #317EFB;
+        height: 10vh;
+        width: 100vw;
+        z-index: 1;
+      }
+      .header__open {
+        margin: 1em;
+        background-color: white;
+      }
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 90vw;
+        background-color: grey;
+        z-index: 2;
+        transform: translateX(-91vw);
+        will-change: transform;
+        transition: transform 300ms linear;
+      }
+      .nav__close {
+        margin: 1em;
+        background-color: white;
+      }
+      .nav__visible {
+        transform: none;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <button class="nav__close">Close</button>
+    </nav>
+    <header class="header"><button class="header__open">Menu</button></header>
+    <article class="content">
+      <p>
+        See <a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/load"
+        target="_blank">Get Started With Analyzing Load Performance</a> to learn
+        how to profile this demo's load performance with the Chrome
+        DevTools Performance panel.
+      </p>
+      <p>
+        See <a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/runtime"
+        target="_blank">Get Started With Analyzing Runtime Performance</a> to
+        learn how to profile this demo's runtime performance with the
+        Chrome DevTools Performance panel.
+      </p>
+    </article>
+    <script>
+      var nav = document.querySelector('.nav'),
+          open = document.querySelector('.header__open'),
+          close = document.querySelector('.nav__close');
+      function toggleNav() {
+        if (nav.classList.contains('nav__visible')) {
+          nav.classList.remove('nav__visible');
+        } else {
+          nav.classList.add('nav__visible');
+        }
+      }
+      open.addEventListener('click', toggleNav, false);
+      close.addEventListener('click', toggleNav, false);
+    </script>
+  </body>
+</html>

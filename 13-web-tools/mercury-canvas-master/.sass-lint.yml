@@ -1,0 +1,28 @@
+files:
+    include: 'scss/*.scss'
+rules:
+    no-color-literals:
+        - 0
+        - allow-rgba: true
+    indentation:
+        - 2
+        - size: 4
+    leading-zero:
+        - 2
+        - include: true
+    property-sort-order:
+        - 2
+        - order: 'recess'
+    variable-name-format: 0
+    hex-notation:
+        - 2
+        - style: uppercase
+    class-name-format:
+        - 2
+        - convention: camelcase
+    empty-line-between-blocks: 0
+    nesting-depth:
+        - 2
+        - max-depth: 4
+    no-ids: 0
+    pseudo-element: 0

@@ -1,0 +1,189 @@
+<!-- per: http://www.html-5-tutorial.com/ -->
+<!-- made it up to ... -->
+
+<!DOCTYPE html>
+<!-- or <!doctype html> = HTML5
+(but I dunno about <!DOCTYPE/doctype HTML>) -->
+
+<html lang="en">
+  <!-- with few exceptions every ELEMENT (or CONTAINER)
+  should have an opening <tag> and a closing </tag> -->
+  <head>
+    <!-- Per w3c and WHATWG charset goes first -->
+    <meta charset = 'utf-8'>
+
+    <title>
+      No more than 64 characters in length and keyword heavy: 4 S.E.O.<!--
+      ^^^^^^^^^^^^^^^^^^^^^^^ 64 characters ^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+      <!-- This text will be displayed in the browsers tab bar and Google search results -->
+      <!-- Place "title" after "meta charset = 'utf-8'" and before EVERYTHING else -->
+    </title>
+
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="description" content="sometimes this will show up in seach engines and ehlp with SEO">
+    <meta name="author" content="owner, copyright?">
+
+    <!-- vvv NO SEO VALUE w/created date vvv -->
+    <meta name="created" content="(date)">
+
+    <!-- <link href="..." or <link rel="..." FIRST??? -->
+    <!-- Bootstrap Core CSS -->
+    <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <!-- Theme CSS -->
+    <!-- <link href="css/clean-blog.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="clean-blog.min.css" >
+    <!-- Custom Fonts -->
+    <!-- <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <link rel="stylesheet" type="text/css" href="font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="homework.css">
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div>
+        <a href="#">Links to pertinent sites</a>
+      </div>
+    </nav>
+    <!-- Page Header -->
+    <header>
+      <!-- Header carries more SEO weight than Footers -->
+      <div>
+        <a href="">If there's no URL, this link is presumed to be the index (home) page</a>
+        <br>
+        <a href="file:///Users/mixelpix/LambdaSchool/Lambda-School-mini-bootcamp-2/Lesson2/homework/Homework.html">Homework 2</a>
+      </div>
+    </header>
+    <!-- Post Content Article -->
+    <article>
+      <div>
+        <h1>Google likes header tags</h1>
+        <h2>but respect them</h2>
+        <h3>and use them</h3>
+        <h4>for relative importance</h4>
+        <h5>and don't...</h5>
+        <h6>abuse them. Thanks!</h6>
+        <p>Put the most important headers in h1 and less imporatant in h2, then h3, and son on...</p>
+        <p><ul>
+          <li>list item 1</li>
+          <li>list item 2</li>
+          <li>list item 3</li>
+          <li>list item 4</li>
+          <li>list item 5</li>
+        </ul></p>
+        <p><ol>
+          <li>list item 1</li>
+          <li>list item 2</li>
+          <li>list item 3</li>
+          <li>list item 4</li>
+          <li>list item 5</li>
+        </ol></p>
+        <p>There's also nested ordered lists like this:
+          <ol>
+            <li>list item 1</li>
+              <ol><li>list item 1.1</li></ol>
+            <li>list item 2</li>
+              <ol><li>list item 2.1</li></ol>
+            <li>list item 3</li>
+              <ol><li>list item 3.1</li></ol>
+          </ol>
+        </p>
+        <p>...and nested unordered lists like this:
+          <ul>
+            <li>list item 1</li>
+              <ul><li>list item 1.1</li></ul>
+            <li>list item 2</li>
+              <ul><li>list item 2.1</li></ul>
+            <li>list item 3</li>
+              <ul><li>list item 3.1</li></ul>
+          </ul>
+        </p>
+        <p>...and "dictionary" style listings:
+          <dl>
+            <dt>Term 1</dt>
+              <dd>Definition of Term 1</dd>
+            <dt>Term 2</dt>
+              <dd>Definition of Term 2</dd>
+            <dt>Question...</dt>
+              <dd>Answer...</dd>
+          </dl>
+        </p>
+        <p>Basic Row and Column Tables:
+          <table border="2">
+            <th colspan="2">Rows and Columns of DATA! WHOOOPEEEE!!!
+              <tr>
+                <td>Row 1 - Col 1</td>
+                <td>Row 1 - Col 2</td>
+              </tr>
+              <tr>
+                <td>Row 2 - Col 1</td>
+                <td>Row 2 - Col 2</td>
+              </tr>
+            </th>
+          </table>
+        </p>
+        <p>
+          <strong>&lt;strong&gt;</strong> text is seen as more important to web crawlers, spiders and bot for SEO.
+        </p>
+        <p>
+          <b>&lt;b&gt; for bold</b>... not so much. :(
+        </p>
+      </div>
+    </article>
+    <!-- Footer -->
+    <footer>
+      <div>
+        <a href="#">Pertinent links</a>
+        <p>Pertinent Contact/About info</p>
+      </div>
+    </footer>
+    <!-- Addenda -->
+    <aside>
+      <div>
+        <p>Ads, links, etc.</p>
+      </div>
+    </aside>
+    <!-- Section(s) -->
+    <section>
+      <div>
+        <h2>Sections vs Divs</h2>
+        <p>Sections are generic sections, Divs are generic container elements and semantically neutral - they are ignored by SEOs.</p>
+        <p>Sections have more semantic weight than asides.</p>
+      </div>
+    </section>
+
+    <figure>
+      <img src="img_pulpit.jpg" alt="The Pulpit Rock" width="304" height="228">
+      <!-- <img class="img-responsive" src="#" alt="fallback content and SEO info"> BOOTSTRAP -->
+      <!-- <p class="caption text-muted text">Who doesn't love a nice image?</p> BBOTSTRAP-->
+      <figcaption>Fig1. - A view of the pulpit rock in Norway.</figcaption>
+      <a href="http://www.html-5-tutorial.com/map-and-area-elements.htm">map and area for mapping distinct areas of an image for clicking</a>
+    </figure>
+
+    <form>
+      <p>for filling out forms</p>
+      Name: <input type="text" name="your_name" size="35" value="">
+      email: <input type="email" name="email" size="35" value="">
+      age: <input type="number" name="age" value="">
+      <input type="submit" name="submit" value=" Submit ">
+    </form>
+
+    <!-- jQuery -->
+    <!-- Bootstrap Core JavaScript -->
+    <!-- Contact Form JavaScript -->
+    <!-- Theme JavaScript -->
+  </body>
+
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>Mercury canvas</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <!--<div class="row" id="blackboard">
+            <div id="boardWrapper">
+                <ul id="currentTool">
+                    <li class="tool" data-action="fullScreen" title="Enter fullscreen (F11)"><i class="fa fa-expand fa-fw"></i></li>
+                    <li class="disabled tool" data-action="undo" title="Undo (CTRL + Z)"><i class="fa fa-undo fa-fw"></i></li>
+                    <li class="disabled tool" data-action="redo" title="Redo (CTRL + Y)"><i class="fa fa-repeat fa-fw"></i></li>
+
+                    <li data-customSubmenu="select" class="customSubmenu ionSlider" title="Layer opacity">
+                        <input type="text" id="opacitySlider">
+                    </li>
+                    <li data-customSubmenu="select" class="customSubmenu select2parent" title="Layer blending mode">
+                        <select id="blendingModes">
+                                    <option value="normal">normal</option>
+                                    <option value="darken">darken</option>
+                                    <option value="multiply">multiply</option>
+                                    <option value="color-burn">color-burn</option>
+                                    <option value="lighten">lighten</option>
+                                    <option value="screen">screen</option>
+                                    <option value="color-dodge">color-dodge</option>
+                                    <option value="soft-light">soft-light</option>
+                                    <option value="hard-light">hard-light</option>
+                                    <option value="difference">difference</option>
+                                    <option value="exclusion">exclusion</option>
+                                    <option value="hue">hue</option>
+                                    <option value="saturation">saturation</option>
+                                    <option value="color">color</option>
+                                    <option value="luminosity">luminosity</option>
+                                </select>
+                    </li>
+                    <li data-customSubmenu="select" class="customSubmenu tool-checkbox" title="Delete selected layer(s)">
+                        <label for="scaling-mode"><input id="scaling-mode" type="checkbox">Pixel-perfect</label>
+                    </li>
+                    <li data-customSubmenu="brush eraser" class="customSubmenu ionSlider" title="Mărime pensulă">
+                        <input type="text" id="brushSizeSlider">
+                    </li>
+                    <li data-customSubmenu="textTool" class="customSubmenu disabled" id="textSize" title="Mărime text">
+                        <i class="fa fa-text-height fa-fw"></i>
+                    </li>
+                    <li data-customSubmenu="textTool" class="customSubmenu" id="textItalic" title="Italic">
+                        <i class="fa fa-italic fa-fw"></i>
+                    </li>
+                    <li data-customSubmenu="textTool" class="customSubmenu" id="textBold" title="Bold">
+                        <i class="fa fa-bold fa-fw"></i>
+                    </li>
+                    <li data-customSubmenu="textTool" class="customSubmenu disabled" id="textUnderline" title="Subliniat">
+                        <i class="fa fa-underline fa-fw"></i>
+                    </li>
+                    <li data-customSubmenu="textTool" class="customSubmenu" id="textFonts" title="Schimbă fontul">
+                        <i class="fa fa-font fa-fw"></i>
+                        <ul class="submenu" id="fontList"></ul>
+                    </li>
+                    <li data-customSubmenu="textTool" class="customSubmenu disabled" id="textalignleft" title="Alinează stânga">
+                        <i class="left align fa fa-align-left fa-fw"></i>
+                    </li>
+                    <li data-customSubmenu="textTool" class="customSubmenu disabled" id="textaligncenter" title="Alinează centru">
+                        <i class="center align fa fa-align-center fa-fw"></i>
+                    </li>
+                    <li data-customSubmenu="textTool" class="customSubmenu disabled" id="textalignright" title="Alinează dreapta">
+                        <i class="right align fa fa-align-right fa-fw"></i>
+                    </li>
+                    <li data-customSubmenu="textTool" class="customSubmenu disabled" id="textalignjustify" title="Alinează complet">
+                        <i class="fa fa-align-justify fa-fw"></i>
+                    </li>
+                    <li data-customSubmenu="textTool" class="customSubmenu disabled" id="textlist" title="Listă">
+                        <i class="fa fa-list fa-fw"></i>
+                    </li>
+                    <li data-customSubmenu="polyTool" class="customSubmenu" id="polySides" title="Numar de laturi poligon">
+                        <input type="number" maxlength="2" value="10">
+                    </li>
+                </ul>
+
+                <ul id="tools">
+                    <li class="tool" title="Select (V)" data-action="select"><i class="fa-cursor"></i></li>
+                    <li class="tool" title="Document nou (CTRL + N)" data-action="newDoc"><i class="fa fa-file fa-fw"></i></li>
+                    <li class="menu-open" data-menu="save" title="Salvează ca (S)">
+                        <i class="fa fa-floppy-o fa-fw hasSubmenu"><i class="fa fa-caret-right fa-rotate-45"></i></i>
+                    </li>
+                    <li class="menu-open" data-menu="open" title="Incarcă imaginea (O)">
+                        <i class="fa fa-folder-o fa-fw hasSubmenu"><i class="fa fa-caret-right fa-rotate-45"></i></i>
+                    </li>
+                    <li class="tool" title="Radiera (E)" data-action="eraser"><i class="fa fa-eraser fa-fw"></i></li>
+                    <li class="tool" title="Pensula (B)" data-action="brush"><i class="fa fa-paint-brush fa-fw"></i></li>
+                    <li id="text" title="Insereaza text (T)"><i class="fa fa-font fa-fw"></i></li>
+                    <li id="geom" title="Forme geometrice (G)">
+                        <i class="fa fa-cube fa-fw hasSubmenu"><i class="fa fa-caret-right fa-rotate-45"></i></i>
+                        <ul class="submenu">
+                            <li><i class="fa fa-arrows-v rotate-315" title="Linie" id="line"></i></li>
+                            <li><i class="fa fa-circle-thin" title="Cerc" id="circle"></i></li>
+                            <li><i class="fa fa-square-o" title="Patrat" id="rect"></i></li>
+                            <li><i class="fa fa-poly" title="Poligon regulat" id="regpoly"></i></li>
+                        </ul>
+                    </li>
+                    <li class="tool colorPicker" data-action="colorPicker" title="Alege culoarea (X)"><i class="fa fa-tint fa-fw"></i></li>
+                    <li class="tool" data-action="eyeDropper" title="Eye dropper"><i class="fa fa-eyedropper fa-fw"></i></li>
+                </ul>
+                <div id="layers" class="sortable"></div>
+                <div id="layer-buttons">
+                    <button class="btn btn-sm btn-default duplicateLayers"><i class="fa fa-copy fa-fw"></i>
+                            </button><button class="btn btn-sm btn-danger deleteLayers"><i class="fa fa-trash fa-fw"></i></button>
+                </div>
+                <div id="sketch">
+                    <div class="dragndrop" style="display: none;">
+                        <div class="upload">Trageți fișierele aici pentru a le încărca</div>
+                    </div>
+                    <div id="canvasWrapper">
+                        <div id="cursor"></div>
+                        <canvas class="canvasLayer" id="canvas-background" height="500" width="600" border="0">Update your browser</canvas>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </div>
+
+    <!--<div class="hidden">
+        <div id="open">
+            <div data-customSubmenu="open" class="rightSubmenu">
+                <button class="btn btn-default btn-lg chooseFiles">Alege fișierele</button>
+                <input id="oldInput" type="file" class="hidden" multiple>
+
+                <hr class="divider">
+                <button id="dbload" class="disabled btn btn-default">Incarca din baza de date</button>
+            </div>
+        </div>
+        <div id="save">
+            <div data-customSubmenu="save" class="rightSubmenu">
+                <a href="#" id="saveoffline" class="btn btn-default" download="Tabla.png">Descarca imaginea</a>
+                <hr class="divider">
+                <div id="dbsave">
+                    <input type="text" title="Nume" id="dbname" placeholder="Numele desenului" class="disabled form-control" style="margin-bottom: 5px;">
+                    <button class="disabled btn btn-default" id="savetodb">Salveaza in baza de date</button>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+    <script src="assets/bundle.js"></script>
+    <script src="js/matrix.js"></script>
+    <script src="js/select2.js"></script>
+
+    <script src="js/fontsDetect.js"></script>
+</body>
+
+</html>

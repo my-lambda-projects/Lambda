@@ -1,0 +1,109 @@
+/* for use with /Lesson1/3homework/Homework3.html */
+
+body {
+  background: red;
+}
+
+a {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  /*background: orange;*/
+}
+
+a.top {
+  top: 13%; left: 50%;
+}
+
+a.bottom {
+  top: 90%; left: 50%;
+}
+
+a.right {
+  text-align: right;
+}
+
+a.center {
+  text-align: center;
+}
+
+.header {
+  position: absolute;
+  top: 0; right: 0;
+  width: 100%; height: 85px;
+  background: purple;
+}
+
+.sidebar {
+  position: absolute;
+  width:95px; height: 100%;
+  background: white;
+}
+
+#left {
+  top:0; bottom:0; left:0;
+}
+
+#right {
+  top:0; bottom:0; right:0;
+}
+
+.box {
+  width: 307px; height: 175px;
+  left: 25.5%;
+  background-color: blue;
+}
+
+#blue-1 {
+  position: absolute;
+  top: 18%;
+}
+
+#blue-2 {
+  position: absolute;
+  top: 44%;
+}
+
+#blue-3 {
+  position: absolute;
+  top: 70%;
+}
+
+.square {
+  position: absolute;
+  width: 81px; height: 80px;
+  left: 28.5%;
+  text-align: center;
+  background-color: yellow;
+}
+
+#yellow-1 {
+  top: 21%;
+}
+
+#yellow-2 {
+  top: 47%;
+}
+
+#yellow-3 {
+  top: 73%;
+}
+
+.rect {
+  position: absolute;
+  width: 170px; height: 120px;
+  left: 44.5%;
+  background-color: green;
+}
+
+#green-1 {
+  top: 21%;
+}
+
+#green-2 {
+  top: 47%;
+}
+
+#green-3 {
+  top: 73%;
+}

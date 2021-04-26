@@ -1,0 +1,12 @@
+body {
+  background: green;
+}
+
+.col-md-1 {
+  background: pink;
+  border: 1px dashed black;
+}
+
+.newclass { /* more likely to overwrite bootstrap without compromising bootstrap defaults */
+  background: orange;
+}

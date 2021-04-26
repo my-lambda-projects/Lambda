@@ -1,0 +1,25 @@
+/* for use with /Lesson2/homework.html */
+
+#λ {
+  color: gray;
+}
+
+#λ2 {
+  color: black;
+}
+
+.LAMBDAtwitter {
+  color: #55ACEE;
+}
+
+.LAMBDAfacebook {
+  color: #3B5998;
+}
+
+.LAMBDAgithub {
+  color: #444444;
+}
+
+.HOVER:hover{color:pink}
+
+#link_bar a:hover { color:red; background-color:yellow; }
