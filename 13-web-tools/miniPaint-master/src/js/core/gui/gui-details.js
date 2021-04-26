@@ -122,72 +122,68 @@ class GUI_details_class {
 	}
 
 	render_main_details() {
-		document.getElementById('toggle_details').innerHTML = template;
+		document.getElementById( 'toggle_details' ).innerHTML = template;
 
-		this.render_details(true);
+		this.render_details( true );
 	}
 
-	render_details(events = false) {
-		this.render_general('x', events);
-		this.render_general('y', events);
-		this.render_general('width', events);
-		this.render_general('height', events);
+	render_details( events = false ) {
+		this.render_general( 'x', events );
+		this.render_general( 'y', events );
+		this.render_general( 'width', events );
+		this.render_general( 'height', events );
 
-		this.render_general('rotate', events);
-		this.render_general('opacity', events);
-		this.render_color(events);
-		this.render_reset(events);
+		this.render_general( 'rotate', events );
+		this.render_general( 'opacity', events );
+		this.render_color( events );
+		this.render_reset( events );
 
 		//text - special case
-		if (config.layer != undefined && config.layer.type == 'text') {
-			document.getElementById('text_detail_params').style.display = 'block';
-			document.getElementById('detail_color').closest('.row').style.display = 'none';
-		}
-		else{
-			document.getElementById('text_detail_params').style.display = 'none';
+		if ( config.layer != undefined && config.layer.type == 'text' ) {
+			document.getElementById( 'text_detail_params' ).style.display = 'block';
+			document.getElementById( 'detail_color' ).closest( '.row' ).style.display = 'none';
+		} else {
+			document.getElementById( 'text_detail_params' ).style.display = 'none';
 
-			if (config.layer != undefined && (config.layer.color === null || config.layer.type == 'image')) {
+			if ( config.layer != undefined && ( config.layer.color === null || config.layer.type == 'image' ) ) {
 				//hide color
-				document.getElementById('detail_color').closest('.row').style.display = 'none';
-			}
-			else {
+				document.getElementById( 'detail_color' ).closest( '.row' ).style.display = 'none';
+			} else {
 				//show color
-				document.getElementById('detail_color').closest('.row').style.display = 'block';
+				document.getElementById( 'detail_color' ).closest( '.row' ).style.display = 'block';
 			}
 		}
 
-		this.render_text(events);
-		this.render_general_select_param('boundary', events);
-		this.render_general_select_param('kerning', events);
-		this.render_general_select_param('text_direction', events);
-		this.render_general_select_param('wrap', events);
-		this.render_general_select_param('wrap_direction', events);
-		this.render_general_select_param('halign', events);
-		this.render_general_select_param('valign', events);
+		this.render_text( events );
+		this.render_general_select_param( 'boundary', events );
+		this.render_general_select_param( 'kerning', events );
+		this.render_general_select_param( 'text_direction', events );
+		this.render_general_select_param( 'wrap', events );
+		this.render_general_select_param( 'wrap_direction', events );
+		this.render_general_select_param( 'halign', events );
+		this.render_general_select_param( 'valign', events );
 	}
 
-	render_general(key, events) {
+	render_general( key, events ) {
 		var layer = config.layer;
 		var _this = this;
-		var units = this.Tools_settings.get_setting('default_units');
-		var resolution = this.Tools_settings.get_setting('resolution');
+		var units = this.Tools_settings.get_setting( 'default_units' );
+		var resolution = this.Tools_settings.get_setting( 'resolution' );
 
-		if (layer != undefined) {
-			var target = document.getElementById('detail_' + key);
+		if ( layer != undefined ) {
+			var target = document.getElementById( 'detail_' + key );
 			target.dataset.layer = layer.id;
-			if (layer[key] == null) {
+			if ( layer[ key ] == null ) {
 				target.value = '';
 				target.disabled = true;
-			}
-			else {
-				var value = layer[key];
+			} else {
+				var value = layer[ key ];
 
-				if(key == 'x' || key == 'y' || key == 'width' || key == 'height'){
+				if ( key == 'x' || key == 'y' || key == 'width' || key == 'height' ) {
 					//convert units
-					value = this.Helper.get_user_unit(value, units, resolution);
-				}
-				else {
-					value = Math.round(value);
+					value = this.Helper.get_user_unit( value, units, resolution );
+				} else {
+					value = Math.round( value );
 				}
 
 				//set
@@ -196,311 +192,303 @@ class GUI_details_class {
 			}
 		}
 
-		if (events) {
+		if ( events ) {
 			//events
-			var target = document.getElementById('detail_' + key);
-			if(target == undefined){
-				console.log('Error: missing details event target ' + 'detail_' + key);
+			var target = document.getElementById( 'detail_' + key );
+			if ( target == undefined ) {
+				console.log( 'Error: missing details event target ' + 'detail_' + key );
 				return;
 			}
 			let focus_value = null;
-			target.addEventListener('focus', function (e) {
-				focus_value = parseFloat(this.value);
-			});
-			target.addEventListener('blur', function (e) {
-				if(key == 'x' || key == 'y' || key == 'width' || key == 'height'){
+			target.addEventListener( 'focus', function ( e ) {
+				focus_value = parseFloat( this.value );
+			} );
+			target.addEventListener( 'blur', function ( e ) {
+				if ( key == 'x' || key == 'y' || key == 'width' || key == 'height' ) {
 					//convert units
-					var value = _this.Helper.get_internal_unit(this.value, units, resolution);
+					var value = _this.Helper.get_internal_unit( this.value, units, resolution );
+				} else {
+					var value = parseInt( this.value );
 				}
-				else {
-					var value = parseInt(this.value);
-				}
-				var layer = _this.Base_layers.get_layer(e.target.dataset.layer);
-				layer[key] = focus_value;
-				if (focus_value !== value) {
+				var layer = _this.Base_layers.get_layer( e.target.dataset.layer );
+				layer[ key ] = focus_value;
+				if ( focus_value !== value ) {
 					app.State.do_action(
-						new app.Actions.Bundle_action('change_layer_details', 'Change Layer Details', [
-							new app.Actions.Update_layer_action(layer.id, {
-								[key]: value
-							})
-						])
+						new app.Actions.Bundle_action( 'change_layer_details', 'Change Layer Details', [
+							new app.Actions.Update_layer_action( layer.id, {
+								[ key ]: value
+							} )
+						] )
 					);
 				}
-			});
-			target.addEventListener('change', function (e) {
-				if(key == 'x' || key == 'y' || key == 'width' || key == 'height'){
+			} );
+			target.addEventListener( 'change', function ( e ) {
+				if ( key == 'x' || key == 'y' || key == 'width' || key == 'height' ) {
 					//convert units
-					var value = _this.Helper.get_internal_unit(this.value, units, resolution);
+					var value = _this.Helper.get_internal_unit( this.value, units, resolution );
+				} else {
+					var value = parseInt( this.value );
 				}
-				else {
-					var value = parseInt(this.value);
-				}
-				
-				if(this.min != undefined && this.min != '' && value < this.min){
-					document.getElementById('detail_opacity').value = value;
+
+				if ( this.min != undefined && this.min != '' && value < this.min ) {
+					document.getElementById( 'detail_opacity' ).value = value;
 					value = this.min;
 				}
-				if(this.max != undefined && this.min != '' && value > this.max){
-					document.getElementById('detail_opacity').value = value;
+				if ( this.max != undefined && this.min != '' && value > this.max ) {
+					document.getElementById( 'detail_opacity' ).value = value;
 					value = this.max;
 				}
-				
-				config.layer[key] = value;
+
+				config.layer[ key ] = value;
 				config.need_render = true;
-			});
-			target.addEventListener('keyup', function (e) {
+			} );
+			target.addEventListener( 'keyup', function ( e ) {
 				//for edge....
-				if (e.keyCode != 13) {
+				if ( e.keyCode != 13 ) {
 					return;
 				}
 
-				if(key == 'x' || key == 'y' || key == 'width' || key == 'height'){
+				if ( key == 'x' || key == 'y' || key == 'width' || key == 'height' ) {
 					//convert units
-					var value = _this.Helper.get_internal_unit(this.value, units, resolution);
+					var value = _this.Helper.get_internal_unit( this.value, units, resolution );
+				} else {
+					var value = parseInt( this.value );
 				}
-				else {
-					var value = parseInt(this.value);
-				}
-				
-				if(this.min != undefined && this.min != '' && value < this.min){
-					document.getElementById('detail_opacity').value = value;
+
+				if ( this.min != undefined && this.min != '' && value < this.min ) {
+					document.getElementById( 'detail_opacity' ).value = value;
 					value = this.min;
 				}
-				if(this.max != undefined && this.min != '' && value > this.max){
-					document.getElementById('detail_opacity').value = value;
+				if ( this.max != undefined && this.min != '' && value > this.max ) {
+					document.getElementById( 'detail_opacity' ).value = value;
 					value = this.max;
 				}
-				
-				config.layer[key] = value;
+
+				config.layer[ key ] = value;
 				config.need_render = true;
-			});
+			} );
 		}
 	}
 
-	render_general_param(key, events) {
+	render_general_param( key, events ) {
 		var layer = config.layer;
 
-		if (layer != undefined) {
-			var target = document.getElementById('detail_param_' + key);
-			if (layer.params[key] == null) {
+		if ( layer != undefined ) {
+			var target = document.getElementById( 'detail_param_' + key );
+			if ( layer.params[ key ] == null ) {
 				target.value = '';
 				target.disabled = true;
-			}
-			else {
-				if (typeof layer.params[key] == 'boolean') {
+			} else {
+				if ( typeof layer.params[ key ] == 'boolean' ) {
 					//boolean
-					if(target.tagName == 'BUTTON'){
-						if(layer.params[key]){
-							target.classList.add('active');
-						}
-						else{
-							target.classList.remove('active');
+					if ( target.tagName == 'BUTTON' ) {
+						if ( layer.params[ key ] ) {
+							target.classList.add( 'active' );
+						} else {
+							target.classList.remove( 'active' );
 						}
 					}
-				}
-				else {
+				} else {
 					//common
-					target.value = layer.params[key];
+					target.value = layer.params[ key ];
 				}
 				target.disabled = false;
 			}
 		}
 
-		if (events) {
+		if ( events ) {
 			//events
-			var target = document.getElementById('detail_param_' + key);
+			var target = document.getElementById( 'detail_param_' + key );
 			let focus_value = null;
-			target.addEventListener('focus', function (e) {
-				focus_value = parseInt(this.value);
-			});
-			target.addEventListener('blur', function (e) {
-				var value = parseInt(this.value);
-				config.layer.params[key] = focus_value;
-				let params_copy = JSON.parse(JSON.stringify(config.layer.params));
-				params_copy[key] = value;
-				if (focus_value !== value) {
+			target.addEventListener( 'focus', function ( e ) {
+				focus_value = parseInt( this.value );
+			} );
+			target.addEventListener( 'blur', function ( e ) {
+				var value = parseInt( this.value );
+				config.layer.params[ key ] = focus_value;
+				let params_copy = JSON.parse( JSON.stringify( config.layer.params ) );
+				params_copy[ key ] = value;
+				if ( focus_value !== value ) {
 					app.State.do_action(
-						new app.Actions.Bundle_action('change_layer_details', 'Change Layer Details', [
-							new app.Actions.Update_layer_action(config.layer.id, {
+						new app.Actions.Bundle_action( 'change_layer_details', 'Change Layer Details', [
+							new app.Actions.Update_layer_action( config.layer.id, {
 								params: params_copy
-							})
-						])
+							} )
+						] )
 					);
 				}
-			});
-			target.addEventListener('change', function (e) {
-				var value = parseInt(this.value);
-				config.layer.params[key] = value;
+			} );
+			target.addEventListener( 'change', function ( e ) {
+				var value = parseInt( this.value );
+				config.layer.params[ key ] = value;
 				config.need_render = true;
 				config.need_render_changed_params = true;
 
-			});
-			target.addEventListener('click', function (e) {
-				if (typeof config.layer.params[key] != 'boolean')
+			} );
+			target.addEventListener( 'click', function ( e ) {
+				if ( typeof config.layer.params[ key ] != 'boolean' )
 					return;
-				this.classList.toggle('active');
-				config.layer.params[key] = !config.layer.params[key];
+				this.classList.toggle( 'active' );
+				config.layer.params[ key ] = !config.layer.params[ key ];
 				config.need_render = true;
 				config.need_render_changed_params = true;
-			});
+			} );
 		}
 	}
-	
-	render_general_select_param(key, events){
+
+	render_general_select_param( key, events ) {
 		var layer = config.layer;
 
-		if (layer != undefined) {
-			var target = document.getElementById('detail_param_' + key);
-			
-			if (layer.params[key] == null) {
+		if ( layer != undefined ) {
+			var target = document.getElementById( 'detail_param_' + key );
+
+			if ( layer.params[ key ] == null ) {
 				target.value = '';
 				target.disabled = true;
-			}
-			else {
-				if(typeof layer.params[key] == 'object')
-					target.value = layer.params[key].value; //legacy
+			} else {
+				if ( typeof layer.params[ key ] == 'object' )
+					target.value = layer.params[ key ].value; //legacy
 				else
-					target.value = layer.params[key];
+					target.value = layer.params[ key ];
 				target.disabled = false;
 			}
 		}
 
-		if (events) {
+		if ( events ) {
 			//events
-			var target = document.getElementById('detail_param_' + key);
+			var target = document.getElementById( 'detail_param_' + key );
 			let focus_value = null;
-			target.addEventListener('focus', function (e) {
+			target.addEventListener( 'focus', function ( e ) {
 				focus_value = this.value;
-			});
-			target.addEventListener('blur', function (e) {
+			} );
+			target.addEventListener( 'blur', function ( e ) {
 				var value = this.value;
-				config.layer.params[key] = focus_value;
-				let params_copy = JSON.parse(JSON.stringify(config.layer.params));
-				params_copy[key] = value;
-				if (focus_value !== value) {
+				config.layer.params[ key ] = focus_value;
+				let params_copy = JSON.parse( JSON.stringify( config.layer.params ) );
+				params_copy[ key ] = value;
+				if ( focus_value !== value ) {
 					app.State.do_action(
-						new app.Actions.Bundle_action('change_layer_details', 'Change Layer Details', [
-							new app.Actions.Update_layer_action(config.layer.id, {
+						new app.Actions.Bundle_action( 'change_layer_details', 'Change Layer Details', [
+							new app.Actions.Update_layer_action( config.layer.id, {
 								params: params_copy
-							})
-						])
+							} )
+						] )
 					);
 				}
-			});
-			target.addEventListener('change', function (e) {
+			} );
+			target.addEventListener( 'change', function ( e ) {
 				var value = this.value;
-				config.layer.params[key] = value;
+				config.layer.params[ key ] = value;
 				config.need_render = true;
 				config.need_render_changed_params = true;
-			});
+			} );
 		}
 	}
 
 	/**
 	 * item: color
 	 */
-	render_color(events) {
+	render_color( events ) {
 		var layer = config.layer;
 
 		let $colorInput;
-		if (events) {
-			$colorInput = $(document.getElementById('detail_color')).uiColorInput();
+		if ( events ) {
+			$colorInput = $( document.getElementById( 'detail_color' ) ).uiColorInput();
 		} else {
-			$colorInput = $(document.getElementById('detail_color'));
+			$colorInput = $( document.getElementById( 'detail_color' ) );
 		}
 
-		if (layer != undefined) {
-			$colorInput.uiColorInput('set_value', layer.color);
+		if ( layer != undefined ) {
+			$colorInput.uiColorInput( 'set_value', layer.color );
 		}
 
-		if (events) {
+		if ( events ) {
 			//events
 			let focus_value = null;
-			$colorInput.on('focus', function (e) {
-				focus_value = $colorInput.uiColorInput('get_value');
-			});
-			$colorInput.on('change', function (e) {
-				const value = $colorInput.uiColorInput('get_value');
+			$colorInput.on( 'focus', function ( e ) {
+				focus_value = $colorInput.uiColorInput( 'get_value' );
+			} );
+			$colorInput.on( 'change', function ( e ) {
+				const value = $colorInput.uiColorInput( 'get_value' );
 				config.layer.color = focus_value;
-				if (focus_value !== value) {
+				if ( focus_value !== value ) {
 					app.State.do_action(
-						new app.Actions.Bundle_action('change_layer_details', 'Change Layer Details', [
-							new app.Actions.Update_layer_action(config.layer.id, {
+						new app.Actions.Bundle_action( 'change_layer_details', 'Change Layer Details', [
+							new app.Actions.Update_layer_action( config.layer.id, {
 								color: value
-							})
-						])
+							} )
+						] )
 					);
 				}
-			});
+			} );
 		}
 	}
 
 	/**
 	 * item: size reset button
 	 */
-	render_reset(events) {
+	render_reset( events ) {
 		var layer = config.layer;
 
-		if (layer != undefined) {
+		if ( layer != undefined ) {
 			//size
-			if (layer.width_original != null) {
-				document.getElementById('reset_size').classList.remove('hidden');
-			}
-			else {
-				document.getElementById('reset_size').classList.add('hidden');
+			if ( layer.width_original != null ) {
+				document.getElementById( 'reset_size' ).classList.remove( 'hidden' );
+			} else {
+				document.getElementById( 'reset_size' ).classList.add( 'hidden' );
 			}
 		}
 
-		if (events) {
+		if ( events ) {
 			//events
-			document.getElementById('reset_x').addEventListener('click', function (e) {
-				if (config.layer.x) {
+			document.getElementById( 'reset_x' ).addEventListener( 'click', function ( e ) {
+				if ( config.layer.x ) {
 					app.State.do_action(
-						new app.Actions.Bundle_action('change_layer_details', 'Change Layer Details', [
-							new app.Actions.Update_layer_action(config.layer.id, {
+						new app.Actions.Bundle_action( 'change_layer_details', 'Change Layer Details', [
+							new app.Actions.Update_layer_action( config.layer.id, {
 								x: 0
-							})
-						])
+							} )
+						] )
 					);
 				}
-			});
-			document.getElementById('reset_y').addEventListener('click', function (e) {
-				if (config.layer.y) {
+			} );
+			document.getElementById( 'reset_y' ).addEventListener( 'click', function ( e ) {
+				if ( config.layer.y ) {
 					app.State.do_action(
-						new app.Actions.Bundle_action('change_layer_details', 'Change Layer Details', [
-							new app.Actions.Update_layer_action(config.layer.id, {
+						new app.Actions.Bundle_action( 'change_layer_details', 'Change Layer Details', [
+							new app.Actions.Update_layer_action( config.layer.id, {
 								y: 0
-							})
-						])
+							} )
+						] )
 					);
 				}
-			});
-			document.getElementById('reset_size').addEventListener('click', function (e) {
-				if (config.layer.width !== config.layer.width_original || config.layer.height !== config.layer.height_original) {
+			} );
+			document.getElementById( 'reset_size' ).addEventListener( 'click', function ( e ) {
+				if ( config.layer.width !== config.layer.width_original || config.layer.height !== config.layer.height_original ) {
 					app.State.do_action(
-						new app.Actions.Bundle_action('change_layer_details', 'Change Layer Details', [
-							new app.Actions.Update_layer_action(config.layer.id, {
+						new app.Actions.Bundle_action( 'change_layer_details', 'Change Layer Details', [
+							new app.Actions.Update_layer_action( config.layer.id, {
 								width: config.layer.width_original,
 								height: config.layer.height_original
-							})
-						])
+							} )
+						] )
 					);
 				}
-			});
+			} );
 		}
 	}
 
 	/**
 	 * item: text
 	 */
-	render_text(events) {
-		if (events) {
+	render_text( events ) {
+		if ( events ) {
 			//events
-			document.getElementById('detail_param_text').addEventListener('click', function (e) {
-				document.querySelector('#tools_container #text').click();
-				document.getElementById('text_tool_keyboard_input').focus();
+			document.getElementById( 'detail_param_text' ).addEventListener( 'click', function ( e ) {
+				document.querySelector( '#tools_container #text' ).click();
+				document.getElementById( 'text_tool_keyboard_input' ).focus();
 				config.need_render = true;
-			});
+			} );
 		}
 	}
 

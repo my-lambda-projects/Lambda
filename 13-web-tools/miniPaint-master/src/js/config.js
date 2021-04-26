@@ -76,8 +76,7 @@ config.FONTS = [
 ];
 //no-translate END
 
-config.TOOLS = [
-	{
+config.TOOLS = [ {
 		name: 'select',
 		title: 'Select object tool',
 		attributes: {
@@ -339,8 +338,8 @@ config.TOOLS = [
 			font: {
 				value: 'Arial',
 				values() {
-					const user_font_names = Object.keys(config.user_fonts);
-					return ['', '[Add Font...]', ...Array.from(new Set([...config.FONTS, ...user_font_names].sort()))];
+					const user_font_names = Object.keys( config.user_fonts );
+					return [ '', '[Add Font...]', ...Array.from( new Set( [ ...config.FONTS, ...user_font_names ].sort() ) ) ];
 				}
 			},
 			size: 40,
@@ -398,7 +397,7 @@ config.TOOLS = [
 			anti_aliasing: true,
 			source_layer: {
 				value: 'Current',
-				values: ['Current', 'Previous'],
+				values: [ 'Current', 'Previous' ],
 			},
 		},
 	},
@@ -452,6 +451,6 @@ config.TOOLS = [
 ];
 
 //link to active tool
-config.TOOL = config.TOOLS[2];
-	
+config.TOOL = config.TOOLS[ 2 ];
+
 export default config;

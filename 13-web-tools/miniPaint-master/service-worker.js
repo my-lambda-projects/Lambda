@@ -2,11 +2,11 @@
 var cacheName = 'v1:static';
 
 // during the install phase you usually want to cache static assets
-self.addEventListener('install', function(e) {
+self.addEventListener( 'install', function ( e ) {
 	// once the SW is installed, go ahead and fetch the resources to make this work offline
 	e.waitUntil(
-		caches.open(cacheName).then(function(cache) {
-			return cache.addAll([
+		caches.open( cacheName ).then( function ( cache ) {
+			return cache.addAll( [
 				'./',
 				'./dist/bundle.js',
 				'./images/favicon.png',
@@ -41,24 +41,24 @@ self.addEventListener('install', function(e) {
 				'./images/icons/text.svg',
 				'./images/icons/underline.svg',
 				'./images/icons/view.svg'
-			]).then(function() {
+			] ).then( function () {
 				self.skipWaiting();
-			});
-		})
+			} );
+		} )
 	);
-});
+} );
 
 // when the browser fetches a url
-self.addEventListener('fetch', function(event) {
+self.addEventListener( 'fetch', function ( event ) {
 	// either respond with the cached object or go ahead and fetch the actual url
 	event.respondWith(
-		caches.match(event.request).then(function(response) {
-			if (response) {
+		caches.match( event.request ).then( function ( response ) {
+			if ( response ) {
 				// retrieve from cache
 				return response;
 			}
 			// fetch as normal
-			return fetch(event.request);
-		})
+			return fetch( event.request );
+		} )
 	);
-});
+} );

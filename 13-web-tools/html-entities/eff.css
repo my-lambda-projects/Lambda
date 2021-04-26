@@ -1,4 +1,5 @@
-html, textarea {
+html,
+textarea {
 	font: 1em/1.6 sans-serif;
 }
 
@@ -25,7 +26,8 @@ a {
 	padding: .1em .2em;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
 	color: #fff;
 	border-color: #036;
 	background: #36c;
@@ -62,7 +64,8 @@ code {
 	word-wrap: break-word;
 }
 
-.invalid, :invalid {
+.invalid,
+:invalid {
 	border-color: red;
 	background: #ffb6c1;
 }

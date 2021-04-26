@@ -8,7 +8,7 @@ class View_grid_class {
 
 	constructor() {
 		//singleton
-		if (instance) {
+		if ( instance ) {
 			return instance;
 		}
 		instance = this;
@@ -20,24 +20,25 @@ class View_grid_class {
 	}
 
 	set_events() {
-		document.addEventListener('keydown', (event) => {
+		document.addEventListener( 'keydown', ( event ) => {
 			var code = event.keyCode;
-			if (this.Helper.is_input(event.target))
+			if ( this.Helper.is_input( event.target ) )
 				return;
 
-			if (code == 71 && event.ctrlKey != true && event.metaKey != true) {
+			if ( code == 71 && event.ctrlKey != true && event.metaKey != true ) {
 				//G - grid
-				this.grid({visible: !this.GUI.grid});
+				this.grid( {
+					visible: !this.GUI.grid
+				} );
 				event.preventDefault();
 			}
-		}, false);
+		}, false );
 	}
 
 	grid() {
-		if (this.GUI.grid == false) {
+		if ( this.GUI.grid == false ) {
 			this.GUI.grid = true;
-		}
-		else {
+		} else {
 			this.GUI.grid = false;
 		}
 		config.need_render = true;

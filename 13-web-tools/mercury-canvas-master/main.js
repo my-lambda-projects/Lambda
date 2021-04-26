@@ -37,8 +37,8 @@
 // check if browser supports css blendings: var supportsMixBlendMode = window.getComputedStyle(document.body).mixBlendMode; (!undefined)
 
 // TODO: remove this part
-$('li > .fa').parent().addClass('disabled');
-$('[data-action], .tool, .menu-open').removeClass('disabled');
+$( 'li > .fa' ).parent().addClass( 'disabled' );
+$( '[data-action], .tool, .menu-open' ).removeClass( 'disabled' );
 
 var menu = {
     'text': 'textTool',
@@ -70,17 +70,17 @@ $('.dragndrop').on('drop', function (e) {
     handleFiles(files);
 });*/
 
-$(function(){
+$( function () {
     // load fonts list 
     fontsAvailable.sort();
-    for(var i = 0; i < fontsAvailable.length; i++){
-        $('#fontList').append('<li class="font'+ (fontsAvailable[i] == fontsAvailable['selected'] ? ' selectedFont' : '') +'">'+ fontsAvailable[i] +'</li>');
+    for ( var i = 0; i < fontsAvailable.length; i++ ) {
+        $( '#fontList' ).append( '<li class="font' + ( fontsAvailable[ i ] == fontsAvailable[ 'selected' ] ? ' selectedFont' : '' ) + '">' + fontsAvailable[ i ] + '</li>' );
     }
-    
-    $('#boardWrapper').mercuryCanvas({});
 
-//    $.mercuryCanvas.refreshSettings();
-});
+    $( '#boardWrapper' ).mercuryCanvas( {} );
+
+    //    $.mercuryCanvas.refreshSettings();
+} );
 
 
 
@@ -96,126 +96,127 @@ $(function(){
 
 
 var loader = {};
-loader.hide = function(){
-    $('#loader').hide();
+loader.hide = function () {
+    $( '#loader' ).hide();
 }
-loader.show = function(){
-    $('#loader').hide();
+loader.show = function () {
+    $( '#loader' ).hide();
 }
 
-function error(e) {
-    var r = noty({
+function error( e ) {
+    var r = noty( {
         layout: "top",
         text: e,
         type: "error",
         timeout: false
-    })
+    } )
 }
 
-function warning(e) {
-    var r = noty({
+function warning( e ) {
+    var r = noty( {
         layout: "top",
         text: e,
         type: "warning",
         timeout: 3000
-    })
+    } )
 }
 
-function success(e) {
-    var r = noty({
+function success( e ) {
+    var r = noty( {
         layout: "top",
         text: e,
         type: "success",
         timeout: false
-    })
+    } )
 }
 
 var fullscreen = false;
+
 function EnterFullScreen() {
-    $('#fullscreenBtn').children('i').addClass('fa-compress').removeClass('fa-expand');
+    $( '#fullscreenBtn' ).children( 'i' ).addClass( 'fa-compress' ).removeClass( 'fa-expand' );
     docElm = document.documentElement;
-    if (docElm.requestFullscreen)
+    if ( docElm.requestFullscreen )
         docElm.requestFullscreen();
-    else if (docElm.mozRequestFullScreen)
+    else if ( docElm.mozRequestFullScreen )
         docElm.mozRequestFullScreen();
-    else if (docElm.webkitRequestFullScreen)
-        docElm.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
-    else if (docElm.msRequestFullscreen)
+    else if ( docElm.webkitRequestFullScreen )
+        docElm.webkitRequestFullScreen( Element.ALLOW_KEYBOARD_INPUT );
+    else if ( docElm.msRequestFullscreen )
         docElm.msRequestFullscreen();
     fullscreen = true;
-    $('body').addClass('fullscreen');
+    $( 'body' ).addClass( 'fullscreen' );
 }
 
 function ExitFullScreen() {
-    $('#fullscreenBtn').children('i').addClass('fa-expand').removeClass('fa-compress');
-    if (document.webkitCancelFullScreen)
+    $( '#fullscreenBtn' ).children( 'i' ).addClass( 'fa-expand' ).removeClass( 'fa-compress' );
+    if ( document.webkitCancelFullScreen )
         document.webkitCancelFullScreen();
-    else if (document.mozCancelFullScreen)
+    else if ( document.mozCancelFullScreen )
         document.mozCancelFullScreen();
-    else if (document.exitFullscreen)
+    else if ( document.exitFullscreen )
         document.exitFullscreen();
     fullscreen = false;
-    $('body').removeClass('fullscreen');
+    $( 'body' ).removeClass( 'fullscreen' );
 }
 
-$(function() {
-    $(window).bind("load resize", function() {
-        width = (this.window.innerWidth > 0) ? this.window.innerWidth : this.screen.width;
-    })
-    
+$( function () {
+    $( window ).bind( "load resize", function () {
+        width = ( this.window.innerWidth > 0 ) ? this.window.innerWidth : this.screen.width;
+    } )
+
     loader.hide();
 
-    $('#fullscreenBtn').on('click', function(){
-        if (fullscreen) {
+    $( '#fullscreenBtn' ).on( 'click', function () {
+        if ( fullscreen ) {
             ExitFullScreen();
-        }
-        else{
+        } else {
             EnterFullScreen();
         }
-    });
-    
-    $('.dropdown-menu').on('click', function (e) { e.stopPropagation(); });
-});
+    } );
 
-document.addEventListener("fullscreenchange", function () {
-    if (!document.fullScreen) {
-        ExitFullScreen();
-    }
-}, false);
- 
-document.addEventListener("mozfullscreenchange", function () {
-    if (!document.mozFullScreen) {
-        ExitFullScreen();
-    }
-}, false);
- 
-document.addEventListener("webkitfullscreenchange", function () {
-    if (!document.webkitIsFullScreen) {
-        ExitFullScreen();
-    }
-}, false);
- 
-document.addEventListener("msfullscreenchange", function () {
-    if (!document.msFullscreenElement) {
-        ExitFullScreen();
-    }
-}, false);
+    $( '.dropdown-menu' ).on( 'click', function ( e ) {
+        e.stopPropagation();
+    } );
+} );
 
-$(document).on({
-    'keyup': function (e) {
+document.addEventListener( "fullscreenchange", function () {
+    if ( !document.fullScreen ) {
+        ExitFullScreen();
+    }
+}, false );
+
+document.addEventListener( "mozfullscreenchange", function () {
+    if ( !document.mozFullScreen ) {
+        ExitFullScreen();
+    }
+}, false );
+
+document.addEventListener( "webkitfullscreenchange", function () {
+    if ( !document.webkitIsFullScreen ) {
+        ExitFullScreen();
+    }
+}, false );
+
+document.addEventListener( "msfullscreenchange", function () {
+    if ( !document.msFullscreenElement ) {
+        ExitFullScreen();
+    }
+}, false );
+
+$( document ).on( {
+    'keyup': function ( e ) {
         e.preventDefault();
-        if (e.keyCode == 27) {
-            if (fullscreen) {
+        if ( e.keyCode == 27 ) {
+            if ( fullscreen ) {
                 ExitFullScreen();
             }
         }
-        if (e.keyCode == 122) {
-            if (fullscreen) {
+        if ( e.keyCode == 122 ) {
+            if ( fullscreen ) {
                 ExitFullScreen();
-            }
-            else{
+            } else {
                 EnterFullScreen();
             }
         }
     }
-});
+} );

@@ -1,40 +1,40 @@
-(function(window, document) {
+( function ( window, document ) {
 
-	var textarea = document.getElementsByTagName('textarea')[0];
-	var characters = document.getElementById('characters');
-	var output = document.getElementById('output');
+	var textarea = document.getElementsByTagName( 'textarea' )[ 0 ];
+	var characters = document.getElementById( 'characters' );
+	var output = document.getElementById( 'output' );
 	var regexNumberGroup = /(?=(?:\d{3})+$)(?!\b)/g;
 	var regexAmpersand = /&/g;
 	var regexCharacterReference = /&([0-9a-zA-Z]+);/g;
 	var regexCharacterReferencesThatHaveASemicolonFreeCharacterReferenceAsSubstring;
 	var regexNoSemi;
 	// https://mathiasbynens.be/notes/localstorage-pattern
-	var storage = (function() {
+	var storage = ( function () {
 		var uid = new Date;
 		var storage;
 		var result;
 		try {
-			(storage = window.localStorage).setItem(uid, uid);
-			result = storage.getItem(uid) == uid;
-			storage.removeItem(uid);
+			( storage = window.localStorage ).setItem( uid, uid );
+			result = storage.getItem( uid ) == uid;
+			storage.removeItem( uid );
 			return result && storage;
-		} catch (exception) {}
-	}());
+		} catch ( exception ) {}
+	}() );
 	var characterReferences;
 
-	function encode(string) {
+	function encode( string ) {
 		// URL-encode some more characters to avoid issues when using permalink URLs in Markdown
-		return encodeURIComponent(string).replace(/['()_*]/g, function(character) {
-			return '%' + character.charCodeAt().toString(16);
-		});
+		return encodeURIComponent( string ).replace( /['()_*]/g, function ( character ) {
+			return '%' + character.charCodeAt().toString( 16 );
+		} );
 	}
 
-	function formatNumber(number, unit) {
-		return (number == 0 ? 'no' : String(number).replace(regexNumberGroup, ',')) + ' ' + unit + (number == 1 ? '' : 's');
+	function formatNumber( number, unit ) {
+		return ( number == 0 ? 'no' : String( number ).replace( regexNumberGroup, ',' ) ) + ' ' + unit + ( number == 1 ? '' : 's' );
 	}
 
-	function encodeAmpersands(string) {
-		return string.replace(regexAmpersand, '&amp;');
+	function encodeAmpersands( string ) {
+		return string.replace( regexAmpersand, '&amp;' );
 	}
 
 	/*
@@ -2217,11 +2217,11 @@
 
 	function update() {
 		var value = textarea.value,
-		    ambiguousAmpersands = [],
-		    ambiguousAmpersandCount,
-		    link = '<a href=#' + encode(value) + '>#</a>',
-		    semiless = [],
-		    semilessCount;
+			ambiguousAmpersands = [],
+			ambiguousAmpersandCount,
+			link = '<a href=#' + encode( value ) + '>#</a>',
+			semiless = [],
+			semilessCount;
 
 		// This is tricky stuff. Luckily, we don’t need to parse/render anything; just find errors!
 		// e.g. `&notin;` is a valid entity
@@ -2229,50 +2229,53 @@
 		// So… first remove all known character references that end with a semicolon AND that have a substring that is a known semicolon-free character reference (e.g. `&notin;`) — they’re valid anyway
 		// then look for char refs with missing semicolons (e.g. `&amp`)
 		// then look for ambiguous ampersands (e.g. `&abc;`)
-		value.replace(regexCharacterReferencesThatHaveASemicolonFreeCharacterReferenceAsSubstring, function() {
+		value.replace( regexCharacterReferencesThatHaveASemicolonFreeCharacterReferenceAsSubstring, function () {
 			return ''; // remove the ones we already handled
-		}).replace(regexNoSemi, function($0, $1) {
-			semiless.push($1);
+		} ).replace( regexNoSemi, function ( $0, $1 ) {
+			semiless.push( $1 );
 			return ''; // remove the ones we already handled
-		}).replace(regexCharacterReference, function($0, $1) {
-			characterReferences.hasOwnProperty($1) || ambiguousAmpersands.push($0);
-		});
+		} ).replace( regexCharacterReference, function ( $0, $1 ) {
+			characterReferences.hasOwnProperty( $1 ) || ambiguousAmpersands.push( $0 );
+		} );
 		ambiguousAmpersandCount = ambiguousAmpersands.length;
 		semilessCount = semiless.length;
-		link = '<a href=#' + encode(value) + '>#</a>';
+		link = '<a href=#' + encode( value ) + '>#</a>';
 		output.className = ambiguousAmpersandCount || semilessCount ? 'fail' : '';
-		output.innerHTML = '<p>' + link + ' Found ' + formatNumber(ambiguousAmpersandCount, 'ambiguous ampersand') + (ambiguousAmpersandCount ? ': <ul><li><code>' + encodeAmpersands(ambiguousAmpersands.join('</code><li><code>')) + '</code></ul>' : '. ') + '<p>Found ' + formatNumber(semilessCount, 'character reference') + ' that ' + (semilessCount == 1 ? 'doesn’t' : 'don’t') + ' end with a semicolon' + (semilessCount ? ': <ul><li><code>' + encodeAmpersands(semiless.join('</code><li><code>')) + '</code></ul>' : '.');
-		storage && (storage.ampersandText = value);
+		output.innerHTML = '<p>' + link + ' Found ' + formatNumber( ambiguousAmpersandCount, 'ambiguous ampersand' ) + ( ambiguousAmpersandCount ? ': <ul><li><code>' + encodeAmpersands( ambiguousAmpersands.join( '</code><li><code>' ) ) + '</code></ul>' : '. ' ) + '<p>Found ' + formatNumber( semilessCount, 'character reference' ) + ' that ' + ( semilessCount == 1 ? 'doesn’t' : 'don’t' ) + ' end with a semicolon' + ( semilessCount ? ': <ul><li><code>' + encodeAmpersands( semiless.join( '</code><li><code>' ) ) + '</code></ul>' : '.' );
+		storage && ( storage.ampersandText = value );
 	};
 
 	// https://mathiasbynens.be/notes/oninput
 	textarea.onkeyup = update;
-	textarea.oninput = function() {
+	textarea.oninput = function () {
 		textarea.onkeyup = null;
 		update();
 	};
 
-	if (storage) {
-		storage.ampersandText && (textarea.value = storage.ampersandText);
+	if ( storage ) {
+		storage.ampersandText && ( textarea.value = storage.ampersandText );
 		update();
 	}
 
-	window.onhashchange = function() {
-		textarea.value = decodeURIComponent(location.hash.slice(1));
+	window.onhashchange = function () {
+		textarea.value = decodeURIComponent( location.hash.slice( 1 ) );
 		update();
 	};
 
-	if (location.hash) {
+	if ( location.hash ) {
 		window.onhashchange();
 	}
 
-}(this, document));
+}( this, document ) );
 
 // Google Analytics
-window._gaq = [['_setAccount', 'UA-6065217-60'], ['_trackPageview']];
-(function(d, t) {
-	var g = d.createElement(t);
-	var s = d.getElementsByTagName(t)[0];
+window._gaq = [
+	[ '_setAccount', 'UA-6065217-60' ],
+	[ '_trackPageview' ]
+];
+( function ( d, t ) {
+	var g = d.createElement( t );
+	var s = d.getElementsByTagName( t )[ 0 ];
 	g.src = 'https://www.google-analytics.com/ga.js';
-	s.parentNode.insertBefore(g, s);
-}(document, 'script'));
+	s.parentNode.insertBefore( g, s );
+}( document, 'script' ) );

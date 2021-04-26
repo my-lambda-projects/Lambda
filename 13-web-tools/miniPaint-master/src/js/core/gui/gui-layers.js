@@ -24,14 +24,14 @@ var template = `
  */
 class GUI_layers_class {
 
-	constructor(ctx) {
+	constructor( ctx ) {
 		this.Base_layers = new Base_layers_class();
 		this.Helper = new Helper_class();
 		this.Layer_rename = new Layer_rename_class();
 	}
 
 	render_main_layers() {
-		document.getElementById('layers_base').innerHTML = template;
+		document.getElementById( 'layers_base' ).innerHTML = template;
 		this.render_layers();
 
 		this.set_events();
@@ -40,61 +40,55 @@ class GUI_layers_class {
 	set_events() {
 		var _this = this;
 
-		document.getElementById('layers_base').addEventListener('click', function (event) {
+		document.getElementById( 'layers_base' ).addEventListener( 'click', function ( event ) {
 			var target = event.target;
-			if (target.id == 'insert_layer') {
+			if ( target.id == 'insert_layer' ) {
 				//new layer
 				app.State.do_action(
 					new app.Actions.Insert_layer_action()
 				);
-			}
-			else if (target.id == 'layer_up') {
+			} else if ( target.id == 'layer_up' ) {
 				//move layer up
 				app.State.do_action(
-					new app.Actions.Reorder_layer_action(config.layer.id, 1)
+					new app.Actions.Reorder_layer_action( config.layer.id, 1 )
 				);
-			}
-			else if (target.id == 'layer_down') {
+			} else if ( target.id == 'layer_down' ) {
 				//move layer down
 				app.State.do_action(
-					new app.Actions.Reorder_layer_action(config.layer.id, -1)
+					new app.Actions.Reorder_layer_action( config.layer.id, -1 )
 				);
-			}
-			else if (target.id == 'visibility') {
+			} else if ( target.id == 'visibility' ) {
 				//change visibility
 				return app.State.do_action(
-					new app.Actions.Toggle_layer_visibility_action(target.dataset.id)
+					new app.Actions.Toggle_layer_visibility_action( target.dataset.id )
 				);
-			}
-			else if (target.id == 'delete') {
+			} else if ( target.id == 'delete' ) {
 				//delete layer
 				app.State.do_action(
-					new app.Actions.Delete_layer_action(target.dataset.id)
+					new app.Actions.Delete_layer_action( target.dataset.id )
 				);
-			}
-			else if (target.id == 'layer_name') {
+			} else if ( target.id == 'layer_name' ) {
 				//select layer
-				if (target.dataset.id == config.layer.id)
+				if ( target.dataset.id == config.layer.id )
 					return;
 				app.State.do_action(
-					new app.Actions.Select_layer_action(target.dataset.id)
+					new app.Actions.Select_layer_action( target.dataset.id )
 				);
-			}
-			else if (target.id == 'delete_filter') {
+			} else if ( target.id == 'delete_filter' ) {
 				//delete filter
 				app.State.do_action(
-					new app.Actions.Delete_layer_filter_action(target.dataset.pid, target.dataset.id)
+					new app.Actions.Delete_layer_filter_action( target.dataset.pid, target.dataset.id )
 				);
 			}
-		});
+		} );
 
-		document.getElementById('layers_base').addEventListener('dblclick', function (event) {
+		document.getElementById( 'layers_base' ).addEventListener( 'dblclick', function ( event ) {
 			var target = event.target;
-			if (target.id == 'layer_name') {
+			if ( target.id == 'layer_name' ) {
 				//rename layer
-				_this.Layer_rename.rename(target.dataset.id);
+				_this.Layer_rename.rename( target.dataset.id );
 			}
-		});
+		} );
 
 	}
 
@@ -105,21 +99,21 @@ class GUI_layers_class {
 		var target_id = 'layers';
 		var layers = config.layers.concat().sort(
 			//sort function
-				(a, b) => b.order - a.order
-			);
+			( a, b ) => b.order - a.order
+		);
 
-		document.getElementById(target_id).innerHTML = '';
+		document.getElementById( target_id ).innerHTML = '';
 		var html = '';
-		
-		if (config.layer) {
-			for (var i in layers) {
-				var value = layers[i];
 
-				if (value.id == config.layer.id)
+		if ( config.layer ) {
+			for ( var i in layers ) {
+				var value = layers[ i ];
+
+				if ( value.id == config.layer.id )
 					html += '<div class="item active">';
 				else
 					html += '<div class="item">';
-				if (value.visible == true)
+				if ( value.visible == true )
 					html += '	<span class="visibility visible" id="visibility" data-id="' + value.id + '" title="hide"></span>';
 				else
 					html += '	<span class="visibility" id="visibility" data-id="' + value.id + '" title="show"></span>';
@@ -129,16 +123,16 @@ class GUI_layers_class {
 				html += '</div>';
 
 				//show filters
-				if (layers[i].filters.length > 0) {
+				if ( layers[ i ].filters.length > 0 ) {
 					html += '<div class="filters">';
-					for (var j in layers[i].filters) {
-						var filter = layers[i].filters[j];
-						var title = this.Helper.ucfirst(filter.name);
-						title = title.replace(/-/g, ' ');
+					for ( var j in layers[ i ].filters ) {
+						var filter = layers[ i ].filters[ j ];
+						var title = this.Helper.ucfirst( filter.name );
+						title = title.replace( /-/g, ' ' );
 
 						html += '<div class="filter">';
-						html += '	<span class="delete" id="delete_filter" data-pid="' + layers[i].id + '" data-id="' + filter.id + '" title="delete"></span>';
-						html += '	<span class="layer_name" id="filter_name" data-pid="' + layers[i].id + '" data-id="' + filter.id + '">' + title + '</span>';
+						html += '	<span class="delete" id="delete_filter" data-pid="' + layers[ i ].id + '" data-id="' + filter.id + '" title="delete"></span>';
+						html += '	<span class="layer_name" id="filter_name" data-pid="' + layers[ i ].id + '" data-id="' + filter.id + '">' + title + '</span>';
 						html += '	<div class="clear"></div>';
 						html += '</div>';
 					}
@@ -148,7 +142,7 @@ class GUI_layers_class {
 		}
 
 		//register
-		document.getElementById(target_id).innerHTML = html;
+		document.getElementById( target_id ).innerHTML = html;
 	}
 }
 

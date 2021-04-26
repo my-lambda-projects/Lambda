@@ -1,4 +1,5 @@
-html, textarea {
+html,
+textarea {
 	font: 1em/1.6 sans-serif;
 }
 
@@ -21,13 +22,16 @@ a {
 	padding: .1em .2em;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
 	color: #fff;
 	border-color: #036;
 	background: #36c;
 }
 
-#output a, textarea, code {
+#output a,
+textarea,
+code {
 	font-family: Monaco, Consolas, monospace;
 }
 
@@ -39,7 +43,8 @@ a:hover, a:focus {
 	margin-top: 0;
 }
 
-#output p:last-child, #output ul:last-child {
+#output p:last-child,
+#output ul:last-child {
 	margin-bottom: 0;
 }
 

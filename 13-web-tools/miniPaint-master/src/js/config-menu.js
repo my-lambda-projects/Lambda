@@ -1,8 +1,6 @@
-const menuDefinition = [
-	{
+const menuDefinition = [ {
 		name: 'File',
-		children: [
-			{
+		children: [ {
 				name: 'New',
 				target: 'file/new.new'
 			},
@@ -11,8 +9,7 @@ const menuDefinition = [
 			},
 			{
 				name: 'Open',
-				children: [
-					{
+				children: [ {
 						name: 'Open File',
 						shortcut: 'O',
 						ellipsis: true,
@@ -90,8 +87,7 @@ const menuDefinition = [
 	},
 	{
 		name: 'Edit',
-		children: [
-			{
+		children: [ {
 				name: 'Undo',
 				shortcut: 'Ctrl+Z',
 				target: 'edit/undo.undo'
@@ -135,11 +131,9 @@ const menuDefinition = [
 	},
 	{
 		name: 'View',
-		children: [
-			{
+		children: [ {
 				name: 'Zoom',
-				children: [
-					{
+				children: [ {
 						name: 'Zoom In',
 						target: 'view/zoom.in'
 					},
@@ -167,8 +161,7 @@ const menuDefinition = [
 			},
 			{
 				name: 'Guides',
-				children: [
-					{
+				children: [ {
 						name: 'Insert',
 						ellipsis: true,
 						target: 'view/guides.insert'
@@ -198,8 +191,7 @@ const menuDefinition = [
 	},
 	{
 		name: 'Image',
-		children: [
-			{
+		children: [ {
 				name: 'Information',
 				shortcut: 'I',
 				ellipsis: true,
@@ -232,8 +224,7 @@ const menuDefinition = [
 			},
 			{
 				name: 'Flip',
-				children: [
-					{
+				children: [ {
 						name: 'Vertical',
 						target: 'image/flip.vertical'
 					},
@@ -288,8 +279,7 @@ const menuDefinition = [
 	},
 	{
 		name: 'Layer',
-		children: [
-			{
+		children: [ {
 				name: 'New',
 				shortcut: 'N',
 				target: 'layer/new.new'
@@ -323,8 +313,7 @@ const menuDefinition = [
 			},
 			{
 				name: 'Move',
-				children: [
-					{
+				children: [ {
 						name: 'Up',
 						target: 'layer/move.up'
 					},
@@ -367,8 +356,7 @@ const menuDefinition = [
 	},
 	{
 		name: 'Effects',
-		children: [
-			{
+		children: [ {
 				name: 'Effect browser',
 				ellipsis: true,
 				target: 'effects/browser.browser'
@@ -378,8 +366,7 @@ const menuDefinition = [
 			},
 			{
 				name: 'Common Filters',
-				children: [
-					{
+				children: [ {
 						name: 'Gaussian Blur',
 						ellipsis: true,
 						target: 'effects/common/blur.blur'
@@ -428,8 +415,7 @@ const menuDefinition = [
 			},
 			{
 				name: 'Instagram Filters',
-				children: [
-					{
+				children: [ {
 						name: '1977',
 						target: 'effects/instagram/1977.1977'
 					},
@@ -574,8 +560,7 @@ const menuDefinition = [
 	},
 	{
 		name: 'Tools',
-		children: [
-			{
+		children: [ {
 				name: 'Borders',
 				ellipsis: true,
 				target: 'tools/borders.borders'
@@ -613,8 +598,7 @@ const menuDefinition = [
 			},
 			{
 				name: 'External',
-				children: [
-					{
+				children: [ {
 						name: 'TINYPNG - Compress PNG and JPEG',
 						href: 'https://tinypng.com'
 					},
@@ -637,8 +621,7 @@ const menuDefinition = [
 			},
 			{
 				name: 'Language',
-				children: [
-					{
+				children: [ {
 						name: 'English',
 						target: 'tools/translate.translate.en'
 					},
@@ -712,8 +695,7 @@ const menuDefinition = [
 	},
 	{
 		name: 'Help',
-		children: [
-			{
+		children: [ {
 				name: 'Keyboard Shortcuts',
 				ellipsis: true,
 				target: 'help/shortcuts.shortcuts'

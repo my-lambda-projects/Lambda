@@ -1,4 +1,6 @@
-html, input, hgroup h2 {
+html,
+input,
+hgroup h2 {
 	font: 1em/1.6 sans-serif;
 }
 
@@ -21,7 +23,8 @@ a {
 	padding: .1em .2em;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
 	color: #fff;
 	border-color: #036;
 	background: #36c;
@@ -41,11 +44,23 @@ i {
 	padding-bottom: 0;
 }
 
-#es3, #es5, #unicode, #browser, #reserved-word, #immutable-properties, #zero-width {
+#es3,
+#es5,
+#unicode,
+#browser,
+#reserved-word,
+#immutable-properties,
+#zero-width {
 	display: none;
 }
 
-#es3.show, #es5.show, #unicode.show, #browser.show, #reserved-word.show, #immutable-properties.show, #zero-width.show {
+#es3.show,
+#es5.show,
+#unicode.show,
+#browser.show,
+#reserved-word.show,
+#immutable-properties.show,
+#zero-width.show {
 	display: block;
 }
 
@@ -89,7 +104,8 @@ label {
 	cursor: pointer;
 }
 
-code, input {
+code,
+input {
 	font-family: Monaco, monospace;
 	font-size: .9em;
 	white-space: pre;

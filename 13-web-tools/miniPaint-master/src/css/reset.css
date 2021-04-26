@@ -24,7 +24,7 @@
 	--input-border-color: #0f0f0f;
 	--input-border-color-active: #70996e;
 	--input-border-radius: .4rem;
-	--input-group-border-color:  #323a3c;
+	--input-group-border-color: #323a3c;
 	--menu-background-color: #222;
 	--menu-icons-filter: invert(1);
 	--menu-icons-filter-active: none;
@@ -38,7 +38,8 @@
 	--scrollbar-thumb-color: #2f3739;
 	--mobile-menu-toggle-filter: invert(1);
 }
-body.theme-light{
+
+body.theme-light {
 	/* light */
 	--background: #f9f9fa;
 	--text-color: #0c0c0d;
@@ -77,7 +78,8 @@ body.theme-light{
 	--scrollbar-thumb-color: #919090;
 	--mobile-menu-toggle-filter: none;
 }
-body.theme-green{
+
+body.theme-green {
 	/* green */
 	--background: #050702;
 	--text-color: #acc3a9;
@@ -89,7 +91,7 @@ body.theme-green{
 	--header-background-color: #2b460f;
 	--button-background-color: #2e4a0d;
 	--button-background-color-hover: #58960e;
-	--button-background-color-active:#2b460f;
+	--button-background-color-active: #2b460f;
 	--button-text-color-active: #ccc;
 	--button-toggle-background-color: #243e05;
 	--input-background-color: #ffffff;
@@ -109,14 +111,17 @@ body.theme-green{
 	--mobile-menu-toggle-filter: invert(1);
 }
 
-*{
+* {
 	box-sizing: border-box;
 	background-repeat: no-repeat;
 }
+
 html {
-	font-size: 10px; /* Base is 10px for easy REM calculation */
+	font-size: 10px;
+	/* Base is 10px for easy REM calculation */
 }
-body{
+
+body {
 	margin: 0;
 	padding: 30px 0 0 0;
 	background-color: #424F5A;
@@ -128,7 +133,8 @@ body{
 	font-weight: normal;
 	overflow: hidden;
 }
-canvas{
+
+canvas {
 	outline: none;
 	/* disable select canvas */
 	-webkit-touch-callout: none;
@@ -146,26 +152,35 @@ canvas{
 	image-rendering: pixelated;
 	-ms-interpolation-mode: nearest-neighbor;
 }
-img{
+
+img {
 	border: none;
 }
-td, th{
-	vertical-align:top;
+
+td,
+th {
+	vertical-align: top;
 }
-table{
+
+table {
 	border: 0;
 	margin: 0;
 	padding: 0;
 	vertical-align: baseline;
 	border-collapse: collapse;
 	border-spacing: 0;
-	width:100%;
+	width: 100%;
 }
-hr{
-	border-color: rgba(0,0,0,0.3);
+
+hr {
+	border-color: rgba(0, 0, 0, 0.3);
 	border-bottom: 0;
 }
-input[type="text"], select, input[type="number"], textarea{
+
+input[type="text"],
+select,
+input[type="number"],
+textarea {
 	background: var(--input-background-color);
 	border: 1px solid var(--input-border-color);
 	border-radius: var(--input-border-radius);
@@ -173,17 +188,22 @@ input[type="text"], select, input[type="number"], textarea{
 	padding: 3px 5px;
 	font-size: 13px;
 }
+
 input:disabled {
 	opacity: 0.3;
 }
-select{
+
+select {
 	padding: 2px 4px;
 }
-input[type="range"]{
+
+input[type="range"] {
 	margin-left: 0;
-	width:100%;
+	width: 100%;
 }
-button, input[type="button"]{
+
+button,
+input[type="button"] {
 	border-radius: var(--button-border-radius);
 	box-shadow: 0 1px 2px 0 var(--button-shadow-color), 0 1px 0 0 rgba(255, 255, 255, 0.1) inset;
 	cursor: pointer;
@@ -191,42 +211,60 @@ button, input[type="button"]{
 	background-color: var(--button-background-color);
 	color: var(--text-color);
 }
-button:hover, input[type="button"]:hover{
+
+button:hover,
+input[type="button"]:hover {
 	background-color: var(--button-background-color-hover);
 }
-button:disabled, input[type="button"]:disabled{
-	visibility:hidden;
+
+button:disabled,
+input[type="button"]:disabled {
+	visibility: hidden;
 }
-button[aria-pressed="true"], input[type="button"][aria-pressed="true"]{
+
+button[aria-pressed="true"],
+input[type="button"][aria-pressed="true"] {
 	background-color: var(--button-background-color-active);
 	color: var(--button-text-color-active);
 	box-shadow: 0 1px 2px 0 var(--button-shadow-color), 0 1px 1px 1.5px rgba(58, 40, 40, 0.1) inset, 0 -1px 0 0 var(--button-text-color-active) inset;
 }
-button[aria-pressed="true"]:hover, input[type="button"][aria-pressed="true"]:hover{
+
+button[aria-pressed="true"]:hover,
+input[type="button"][aria-pressed="true"]:hover {
 	background-color: var(--button-background-color-hover);
 }
-label{
+
+label {
 	display: inline-block;
 	vertical-align: top;
 	margin-top: 7px;
 }
+
 ::-webkit-scrollbar {
-    width: 12px;
-    height: 12px;
+	width: 12px;
+	height: 12px;
 }
+
 ::-webkit-scrollbar-track-piece {
-    background: rgba(0,0,0,0.3);
+	background: rgba(0, 0, 0, 0.3);
 }
+
 ::-webkit-scrollbar-thumb {
-    background: rgba(0,0,0,0.6);
+	background: rgba(0, 0, 0, 0.6);
 }
+
 @supports (zoom:2) {
-	input[type="radio"],  input[type=checkbox]{
+
+	input[type="radio"],
+	input[type=checkbox] {
 		zoom: 1.5;
 	}
 }
+
 @supports not (zoom:2) {
-	input[type="radio"],  input[type=checkbox]{
+
+	input[type="radio"],
+	input[type=checkbox] {
 		transform: scale(1.5);
 		transform-origin: left center;
 		margin: 8px 12px 8px 0;

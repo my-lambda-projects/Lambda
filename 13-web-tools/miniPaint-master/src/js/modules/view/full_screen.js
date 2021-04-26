@@ -6,11 +6,10 @@ class View_fullScreen_class {
 	 * toggle full-screen
 	 */
 	fs() {
-		if (!document.fullscreenElement) {
+		if ( !document.fullscreenElement ) {
 			document.documentElement.requestFullscreen();
-		}
-		else {
-			if (document.exitFullscreen) {
+		} else {
+			if ( document.exitFullscreen ) {
 				document.exitFullscreen();
 			}
 		}

@@ -3,19 +3,19 @@ import GUI_preview_class from './../../core/gui/gui-preview.js';
 class View_zoom_class {
 
 	constructor() {
-		this.GUI_preview = new GUI_preview_class();
-	}
+			this.GUI_preview = new GUI_preview_class();
+		}
 
-	in() {
-		this.GUI_preview.zoom(1);
-	}
+		in () {
+			this.GUI_preview.zoom( 1 );
+		}
 
 	out() {
-		this.GUI_preview.zoom(-1);
+		this.GUI_preview.zoom( -1 );
 	}
 
 	original() {
-		this.GUI_preview.zoom(100);
+		this.GUI_preview.zoom( 100 );
 	}
 
 	auto() {

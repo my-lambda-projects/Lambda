@@ -1,6 +1,6 @@
-const webpack = require('webpack');
-const path = require('path');
-const WebpackMonitor = require('webpack-monitor');
+const webpack = require( 'webpack' );
+const path = require( 'path' );
+const WebpackMonitor = require( 'webpack-monitor' );
 
 var exp = {
     mode: 'development',
@@ -20,7 +20,7 @@ var exp = {
         bundle: './index.js'
     },
     output: {
-        path: path.join(__dirname, 'assets'),
+        path: path.join( __dirname, 'assets' ),
         filename: '[name].js',
         publicPath: 'assets/',
     },
@@ -29,66 +29,57 @@ var exp = {
     },
     devtool: 'cheap-module-source-map',
     module: {
-        rules: [
-            {
+        rules: [ {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            plugins: [
-                                '@babel/proposal-class-properties',
-                                '@babel/proposal-optional-chaining',
-                            ],
-                            presets: [
-                                ['@babel/preset-env', {
-                                    'targets': {
-                                        'browsers': ['last 2 versions'],
-                                    },
-                                    'modules': false,
-                                }],
-                                '@babel/react',
-                            ],
-                        },
+                use: [ {
+                    loader: 'babel-loader',
+                    options: {
+                        plugins: [
+                            '@babel/proposal-class-properties',
+                            '@babel/proposal-optional-chaining',
+                        ],
+                        presets: [
+                            [ '@babel/preset-env', {
+                                'targets': {
+                                    'browsers': [ 'last 2 versions' ],
+                                },
+                                'modules': false,
+                            } ],
+                            '@babel/react',
+                        ],
                     },
-                ],
+                }, ],
             },
             {
                 test: /\.png$/,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 10000,
-                            minetype: 'image/png',
-                        },
+                use: [ {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 10000,
+                        minetype: 'image/png',
                     },
-                ],
+                }, ],
             },
             {
                 test: /\.jpg$/,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 10000,
-                            minetype: 'image/jpg',
-                        },
+                use: [ {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 10000,
+                        minetype: 'image/jpg',
                     },
-                ],
+                }, ],
             },
             {
                 test: /\.gif$/,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 10000,
-                            minetype: 'image/gif',
-                        },
+                use: [ {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 10000,
+                        minetype: 'image/gif',
                     },
-                ],
+                }, ],
             },
             {
                 test: /\.scss$/,
@@ -114,13 +105,13 @@ var exp = {
         ],
     },
     plugins: [
-        new WebpackMonitor({
+        new WebpackMonitor( {
             port: 8081,
-        }),
+        } ),
         new webpack.NamedModulesPlugin(),
     ],
     resolve: {
-        extensions: ['.js', '.jsx'],
+        extensions: [ '.js', '.jsx' ],
     },
     performance: {
         hints: false,

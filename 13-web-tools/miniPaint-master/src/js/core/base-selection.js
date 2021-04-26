@@ -30,13 +30,13 @@ class Base_selection_class {
 	 * @param {object} settings
 	 * @param {string|null} key
 	 */
-	constructor(ctx, settings, key = null) {
-		if (key != null) {
-			settings_all[key] = settings;
+	constructor( ctx, settings, key = null ) {
+		if ( key != null ) {
+			settings_all[ key ] = settings;
 		}
 
 		//singleton
-		if (instance) {
+		if ( instance ) {
 			return instance;
 		}
 		instance = this;
@@ -54,53 +54,55 @@ class Base_selection_class {
 	}
 
 	events() {
-		document.addEventListener('mousedown', (e) => {
+		document.addEventListener( 'mousedown', ( e ) => {
 			this.is_drag = false;
-			if(this.is_touch == true)
+			if ( this.is_touch == true )
 				return;
-			if (!e.target.closest('#main_wrapper'))
+			if ( !e.target.closest( '#main_wrapper' ) )
 				return;
 			this.is_drag = true;
-			this.selected_object_actions(e);
-		});
-		document.addEventListener('mousemove', (e) => {
-			if(this.is_touch == true)
+			this.selected_object_actions( e );
+		} );
+		document.addEventListener( 'mousemove', ( e ) => {
+			if ( this.is_touch == true )
 				return;
-			this.selected_object_actions(e);
-		});
-		document.addEventListener('mouseup', (e) => {
-			if(this.is_touch == true)
+			this.selected_object_actions( e );
+		} );
+		document.addEventListener( 'mouseup', ( e ) => {
+			if ( this.is_touch == true )
 				return;
-			this.selected_object_actions(e);
-		});
+			this.selected_object_actions( e );
+		} );
 
 		// touch
-		document.addEventListener('touchstart', (event) => {
+		document.addEventListener( 'touchstart', ( event ) => {
 			this.is_drag = false;
 			this.is_touch = true;
-			if (!event.target.closest('#main_wrapper'))
+			if ( !event.target.closest( '#main_wrapper' ) )
 				return;
 			this.is_drag = true;
-			this.selected_object_actions(event);
-		});
-		document.addEventListener('touchmove', (event) => {
-			this.selected_object_actions(event);
-		}, {passive: false});
-		document.addEventListener('touchend', (event) => {
-			this.selected_object_actions(event);
-		});
+			this.selected_object_actions( event );
+		} );
+		document.addEventListener( 'touchmove', ( event ) => {
+			this.selected_object_actions( event );
+		}, {
+			passive: false
+		} );
+		document.addEventListener( 'touchend', ( event ) => {
+			this.selected_object_actions( event );
+		} );
 	}
 
-	set_selection(x, y, width, height) {
+	set_selection( x, y, width, height ) {
 		var settings = this.find_settings();
 
-		if (x != null)
+		if ( x != null )
 			settings.data.x = x;
-		if (y != null)
+		if ( y != null )
 			settings.data.y = y;
-		if (width != null)
+		if ( width != null )
 			settings.data.width = width;
-		if (height != null)
+		if ( height != null )
 			settings.data.height = height;
 		config.need_render = true;
 	}
@@ -127,18 +129,18 @@ class Base_selection_class {
 		var current_key = config.TOOL.name;
 		var settings = null;
 
-		for (var i in settings_all) {
-			if (i == current_key)
-				settings = settings_all[i];
+		for ( var i in settings_all ) {
+			if ( i == current_key )
+				settings = settings_all[ i ];
 		}
 
 		//default
-		if (settings === null) {
-			settings = settings_all['main'];
+		if ( settings === null ) {
+			settings = settings_all[ 'main' ];
 		}
 
 		//find data
-		settings.data = (settings.data_function).call();
+		settings.data = ( settings.data_function ).call();
 
 		return settings;
 	}
@@ -150,8 +152,8 @@ class Base_selection_class {
 		var settings = this.find_settings();
 		var data = settings.data;
 
-		if (settings.data === null || settings.data.status == 'draft'
-			|| (settings.data.hide_selection_if_active === true && settings.data.type == config.TOOL.name)) {
+		if ( settings.data === null || settings.data.status == 'draft' ||
+			( settings.data.hide_selection_if_active === true && settings.data.type == config.TOOL.name ) ) {
 			return;
 		}
 
@@ -160,86 +162,86 @@ class Base_selection_class {
 		var w = settings.data.width;
 		var h = settings.data.height;
 
-		if (x == null || y == null || w == null || h == null) {
+		if ( x == null || y == null || w == null || h == null ) {
 			//not supported 
 			return;
 		}
 
 		var block_size_default = handle_size / config.ZOOM;
 
-		if (config.ZOOM != 1) {
-			x = Math.round(x);
-			y = Math.round(y);
-			w = Math.round(w);
-			h = Math.round(h);
+		if ( config.ZOOM != 1 ) {
+			x = Math.round( x );
+			y = Math.round( y );
+			w = Math.round( w );
+			h = Math.round( h );
 		}
 		var block_size = block_size_default;
-		var corner_offset = (block_size / 2.4);
-		var middle_offset = (block_size / 1.9);
+		var corner_offset = ( block_size / 2.4 );
+		var middle_offset = ( block_size / 1.9 );
 
 		this.ctx.save();
 		this.ctx.globalAlpha = 1;
 		let isRotated = false;
-		if (data.rotate != null && data.rotate != 0) {
+		if ( data.rotate != null && data.rotate != 0 ) {
 			//rotate
 			isRotated = true;
-			this.ctx.translate(data.x + data.width / 2, data.y + data.height / 2);
-			this.ctx.rotate(data.rotate * Math.PI / 180);
-			x = Math.round(-data.width / 2);
-			y = Math.round(-data.height / 2);
+			this.ctx.translate( data.x + data.width / 2, data.y + data.height / 2 );
+			this.ctx.rotate( data.rotate * Math.PI / 180 );
+			x = Math.round( -data.width / 2 );
+			y = Math.round( -data.height / 2 );
 		}
-		
+
 		//fill
-		if (settings.enable_background == true) {
+		if ( settings.enable_background == true ) {
 			this.ctx.fillStyle = "rgba(0, 255, 0, 0.3)";
-			this.ctx.fillRect(x, y, w, h);
+			this.ctx.fillRect( x, y, w, h );
 		}
 
 		const wholeLineWidth = 2 / config.ZOOM;
 		const halfLineWidth = wholeLineWidth / 2;
 
 		//borders
-		if (settings.enable_borders == true && (x != 0 || y != 0 || w != config.WIDTH || h != config.HEIGHT)) {
+		if ( settings.enable_borders == true && ( x != 0 || y != 0 || w != config.WIDTH || h != config.HEIGHT ) ) {
 			this.ctx.lineWidth = wholeLineWidth;
 			this.ctx.strokeStyle = 'rgb(255, 255, 255)';
-			this.ctx.strokeRect(x - halfLineWidth, y - halfLineWidth, w + wholeLineWidth, h + wholeLineWidth);
+			this.ctx.strokeRect( x - halfLineWidth, y - halfLineWidth, w + wholeLineWidth, h + wholeLineWidth );
 			this.ctx.lineWidth = halfLineWidth;
 			this.ctx.strokeStyle = 'rgb(0, 0, 0)';
-			this.ctx.strokeRect(x - wholeLineWidth, y - wholeLineWidth, w + (wholeLineWidth * 2), h + (wholeLineWidth * 2));
+			this.ctx.strokeRect( x - wholeLineWidth, y - wholeLineWidth, w + ( wholeLineWidth * 2 ), h + ( wholeLineWidth * 2 ) );
 		}
 
 		//show crop lines
-		if(settings.crop_lines === true){
+		if ( settings.crop_lines === true ) {
 
-			for(var part = 1; part < 3; part++) {
+			for ( var part = 1; part < 3; part++ ) {
 				this.ctx.lineWidth = wholeLineWidth;
 				this.ctx.strokeStyle = 'rgb(255, 255, 255)';
 				this.ctx.beginPath();
-				this.ctx.moveTo(x + w / 3 * part - halfLineWidth, y);
-				this.ctx.lineTo(x + w / 3 * part - halfLineWidth, y + h);
+				this.ctx.moveTo( x + w / 3 * part - halfLineWidth, y );
+				this.ctx.lineTo( x + w / 3 * part - halfLineWidth, y + h );
 				this.ctx.stroke();
 
 				this.ctx.lineWidth = halfLineWidth;
 				this.ctx.strokeStyle = 'rgb(0, 0, 0)';
 				this.ctx.beginPath();
-				this.ctx.moveTo(x + w / 3 * part - halfLineWidth, y);
-				this.ctx.lineTo(x + w / 3 * part - halfLineWidth, y + h);
+				this.ctx.moveTo( x + w / 3 * part - halfLineWidth, y );
+				this.ctx.lineTo( x + w / 3 * part - halfLineWidth, y + h );
 				this.ctx.stroke();
 			}
 
-			for(var part = 1; part < 3; part++) {
+			for ( var part = 1; part < 3; part++ ) {
 				this.ctx.lineWidth = wholeLineWidth;
 				this.ctx.strokeStyle = 'rgb(255, 255, 255)';
 				this.ctx.beginPath();
-				this.ctx.moveTo(x, y + h / 3 * part - halfLineWidth);
-				this.ctx.lineTo(x + w, y + h / 3 * part - halfLineWidth);
+				this.ctx.moveTo( x, y + h / 3 * part - halfLineWidth );
+				this.ctx.lineTo( x + w, y + h / 3 * part - halfLineWidth );
 				this.ctx.stroke();
 
 				this.ctx.lineWidth = halfLineWidth;
 				this.ctx.strokeStyle = 'rgb(0, 0, 0)';
 				this.ctx.beginPath();
-				this.ctx.moveTo(x, y + h / 3 * part - halfLineWidth);
-				this.ctx.lineTo(x + w, y + h / 3 * part - halfLineWidth);
+				this.ctx.moveTo( x, y + h / 3 * part - halfLineWidth );
+				this.ctx.lineTo( x + w, y + h / 3 * part - halfLineWidth );
 				this.ctx.stroke();
 			}
 		}
@@ -250,25 +252,24 @@ class Base_selection_class {
 		const hitsBottomEdge = isRotated ? false : y + h > config.HEIGHT - handle_size;
 
 		//draw corners
-		var corner = (x, y, dx, dy, drag_type) => {
+		var corner = ( x, y, dx, dy, drag_type ) => {
 			// var block_size = Math.round(block_size_default / 2) * 2;
 			var angle = 0;
-			if (settings.data.rotate != null && settings.data.rotate != 0) {
+			if ( settings.data.rotate != null && settings.data.rotate != 0 ) {
 				angle = settings.data.rotate;
 			}
 
 			//register position
-			this.selected_obj_positions[drag_type] = {
+			this.selected_obj_positions[ drag_type ] = {
 				x: x + dx * block_size,
 				y: y + dy * block_size,
 				size: block_size,
 			};
 
-			if (settings.enable_controls == false || angle != 0) {
+			if ( settings.enable_controls == false || angle != 0 ) {
 				this.ctx.strokeStyle = "rgba(0, 0, 0, 0.4)";
 				this.ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
-			}
-			else {
+			} else {
 				this.ctx.strokeStyle = "#000000";
 				this.ctx.fillStyle = "#ffffff";
 			}
@@ -276,27 +277,27 @@ class Base_selection_class {
 			//borders
 			this.ctx.lineWidth = wholeLineWidth;
 			this.ctx.beginPath();
-			this.ctx.arc(x + dx * block_size, y + dy * block_size, block_size / 2, 0, 2 * Math.PI);
+			this.ctx.arc( x + dx * block_size, y + dy * block_size, block_size / 2, 0, 2 * Math.PI );
 			this.ctx.fill();
 			this.ctx.stroke();
 		};
 
-		if (settings.enable_controls == true) {
-			corner(x - corner_offset - wholeLineWidth, y - corner_offset - wholeLineWidth, hitsLeftEdge ? 0.5 : 0, hitsTopEdge ? 0.5 : 0, DRAG_TYPE_LEFT | DRAG_TYPE_TOP);
-			corner(x + w + corner_offset + wholeLineWidth, y - corner_offset - wholeLineWidth, hitsRightEdge ? -0.5 : 0, hitsTopEdge ? 0.5 : 0, DRAG_TYPE_RIGHT | DRAG_TYPE_TOP);
-			corner(x - corner_offset - wholeLineWidth, y + h + corner_offset + wholeLineWidth, hitsLeftEdge ? 0.5 : 0, hitsBottomEdge ? -0.5 : 0, DRAG_TYPE_LEFT | DRAG_TYPE_BOTTOM);
-			corner(x + w + corner_offset + wholeLineWidth, y + h + corner_offset + wholeLineWidth, hitsRightEdge ? -0.5 : 0, hitsBottomEdge ? -0.5 : 0, DRAG_TYPE_RIGHT | DRAG_TYPE_BOTTOM);
+		if ( settings.enable_controls == true ) {
+			corner( x - corner_offset - wholeLineWidth, y - corner_offset - wholeLineWidth, hitsLeftEdge ? 0.5 : 0, hitsTopEdge ? 0.5 : 0, DRAG_TYPE_LEFT | DRAG_TYPE_TOP );
+			corner( x + w + corner_offset + wholeLineWidth, y - corner_offset - wholeLineWidth, hitsRightEdge ? -0.5 : 0, hitsTopEdge ? 0.5 : 0, DRAG_TYPE_RIGHT | DRAG_TYPE_TOP );
+			corner( x - corner_offset - wholeLineWidth, y + h + corner_offset + wholeLineWidth, hitsLeftEdge ? 0.5 : 0, hitsBottomEdge ? -0.5 : 0, DRAG_TYPE_LEFT | DRAG_TYPE_BOTTOM );
+			corner( x + w + corner_offset + wholeLineWidth, y + h + corner_offset + wholeLineWidth, hitsRightEdge ? -0.5 : 0, hitsBottomEdge ? -0.5 : 0, DRAG_TYPE_RIGHT | DRAG_TYPE_BOTTOM );
 		}
 
-		if (settings.enable_controls == true) {
+		if ( settings.enable_controls == true ) {
 			//draw centers
-			if (Math.abs(w) > block_size * 5) {
-				corner(x + w / 2, y - middle_offset - wholeLineWidth, 0, hitsTopEdge ? 0.5 : 0, DRAG_TYPE_TOP);
-				corner(x + w / 2, y + h + middle_offset + wholeLineWidth, 0, hitsBottomEdge ? -0.5 : 0, DRAG_TYPE_BOTTOM);
+			if ( Math.abs( w ) > block_size * 5 ) {
+				corner( x + w / 2, y - middle_offset - wholeLineWidth, 0, hitsTopEdge ? 0.5 : 0, DRAG_TYPE_TOP );
+				corner( x + w / 2, y + h + middle_offset + wholeLineWidth, 0, hitsBottomEdge ? -0.5 : 0, DRAG_TYPE_BOTTOM );
 			}
-			if (Math.abs(h) > block_size * 5) {
-				corner(x - middle_offset - wholeLineWidth, y + h / 2, hitsLeftEdge ? 0.5 : 0, 0, DRAG_TYPE_LEFT);
-				corner(x + w + middle_offset + wholeLineWidth, y + h / 2, hitsRightEdge ? -0.5 : 0, 0, DRAG_TYPE_RIGHT);
+			if ( Math.abs( h ) > block_size * 5 ) {
+				corner( x - middle_offset - wholeLineWidth, y + h / 2, hitsLeftEdge ? 0.5 : 0, 0, DRAG_TYPE_LEFT );
+				corner( x + w + middle_offset + wholeLineWidth, y + h / 2, hitsRightEdge ? -0.5 : 0, 0, DRAG_TYPE_RIGHT );
 			}
 		}
 
@@ -304,27 +305,27 @@ class Base_selection_class {
 		this.ctx.restore();
 	}
 
-	selected_object_actions(e) {
+	selected_object_actions( e ) {
 		var settings = this.find_settings();
 
 		//simplify checks
 		var event_type = e.type;
-		if(event_type == 'touchstart') event_type = 'mousedown';
-		if(event_type == 'touchmove') event_type = 'mousemove';
-		if(event_type == 'touchend') event_type = 'mouseup';
+		if ( event_type == 'touchstart' ) event_type = 'mousedown';
+		if ( event_type == 'touchmove' ) event_type = 'mousemove';
+		if ( event_type == 'touchend' ) event_type = 'mouseup';
 
-		if (!this.is_drag && ['mousedown', 'mouseup'].includes(event_type))
+		if ( !this.is_drag && [ 'mousedown', 'mouseup' ].includes( event_type ) )
 			return;
 
-		const mainWrapper = document.getElementById('main_wrapper');
+		const mainWrapper = document.getElementById( 'main_wrapper' );
 		const defaultCursor = config.TOOL && config.TOOL.name === 'text' ? 'text' : 'default';
-		if (mainWrapper.style.cursor != defaultCursor) {
+		if ( mainWrapper.style.cursor != defaultCursor ) {
 			mainWrapper.style.cursor = defaultCursor;
 		}
-		if (event_type == 'mousedown' && config.mouse.valid == false || settings.enable_controls == false) {
+		if ( event_type == 'mousedown' && config.mouse.valid == false || settings.enable_controls == false ) {
 			return;
 		}
-		if (settings.data != null && settings.data.rotate != null && settings.data.rotate > 0) {
+		if ( settings.data != null && settings.data.rotate != null && settings.data.rotate > 0 ) {
 			//controls on rotated object disabled
 			return;
 		}
@@ -332,7 +333,7 @@ class Base_selection_class {
 		var mouse = config.mouse;
 		const drag_type = this.selected_object_drag_type;
 
-		if(event_type == 'mousedown' && settings.data !== null){
+		if ( event_type == 'mousedown' && settings.data !== null ) {
 			this.click_details = {
 				x: settings.data.x,
 				y: settings.data.y,
@@ -340,45 +341,44 @@ class Base_selection_class {
 				height: settings.data.height,
 			};
 		}
-		if (event_type == 'mousemove' && this.mouse_lock == 'selected_object_actions' && this.is_drag) {
+		if ( event_type == 'mousemove' && this.mouse_lock == 'selected_object_actions' && this.is_drag ) {
 
-			const allowNegativeDimensions = settings.data.render_function
-				&& ['line', 'arrow', 'gradient'].includes(settings.data.render_function[0]);
+			const allowNegativeDimensions = settings.data.render_function &&
+				[ 'line', 'arrow', 'gradient' ].includes( settings.data.render_function[ 0 ] );
 
 			mainWrapper.style.cursor = "pointer";
-			
+
 			var is_ctrl = false;
-			if (e.ctrlKey == true || e.metaKey) {
+			if ( e.ctrlKey == true || e.metaKey ) {
 				is_ctrl = true;
 			}
 
-			const is_drag_type_left = Math.floor(drag_type / DRAG_TYPE_LEFT) % 2 === 1;
-			const is_drag_type_right = Math.floor(drag_type / DRAG_TYPE_RIGHT) % 2 === 1;
-			const is_drag_type_top = Math.floor(drag_type / DRAG_TYPE_TOP) % 2 === 1;
-			const is_drag_type_bottom = Math.floor(drag_type / DRAG_TYPE_BOTTOM) % 2 === 1;
-			
-			if (e.buttons == 1 || typeof e.buttons == "undefined") {
+			const is_drag_type_left = Math.floor( drag_type / DRAG_TYPE_LEFT ) % 2 === 1;
+			const is_drag_type_right = Math.floor( drag_type / DRAG_TYPE_RIGHT ) % 2 === 1;
+			const is_drag_type_top = Math.floor( drag_type / DRAG_TYPE_TOP ) % 2 === 1;
+			const is_drag_type_bottom = Math.floor( drag_type / DRAG_TYPE_BOTTOM ) % 2 === 1;
+
+			if ( e.buttons == 1 || typeof e.buttons == "undefined" ) {
 				// Do transformations
-				var dx = Math.round(mouse.x - mouse.click_x);
-				var dy = Math.round(mouse.y - mouse.click_y);
+				var dx = Math.round( mouse.x - mouse.click_x );
+				var dy = Math.round( mouse.y - mouse.click_y );
 				var width = this.click_details.width + dx;
 				var height = this.click_details.height + dy;
-				if (is_drag_type_top)
+				if ( is_drag_type_top )
 					height = this.click_details.height - dy;
-				if (is_drag_type_left)
+				if ( is_drag_type_left )
 					width = this.click_details.width - dx;
 
 				// Keep ratio - (if drag_type power of 2, only dragging on single axis)
-				if (drag_type && (drag_type & (drag_type - 1)) !== 0 && (settings.keep_ratio == true && is_ctrl == false) 
-					|| (settings.keep_ratio !== true && is_ctrl == true)){
+				if ( drag_type && ( drag_type & ( drag_type - 1 ) ) !== 0 && ( settings.keep_ratio == true && is_ctrl == false ) ||
+					( settings.keep_ratio !== true && is_ctrl == true ) ) {
 					var ratio = this.click_details.width / this.click_details.height;
-					var width_new = Math.round(height * ratio);
-					var height_new = Math.round(width / ratio);
+					var width_new = Math.round( height * ratio );
+					var height_new = Math.round( width / ratio );
 
-					if (Math.abs(width * 100 / width_new) > Math.abs(height * 100 / height_new)) {
+					if ( Math.abs( width * 100 / width_new ) > Math.abs( height * 100 / height_new ) ) {
 						height = height_new;
-					}
-					else {
+					} else {
 						width = width_new;
 					}
 				}
@@ -386,28 +386,28 @@ class Base_selection_class {
 				// Set values
 				settings.data.x = this.click_details.x;
 				settings.data.y = this.click_details.y;
-				if (is_drag_type_top)
-					settings.data.y = this.click_details.y - (height - this.click_details.height);
-				if (is_drag_type_left)
-					settings.data.x = this.click_details.x - (width - this.click_details.width);
-				if (is_drag_type_left || is_drag_type_right)
+				if ( is_drag_type_top )
+					settings.data.y = this.click_details.y - ( height - this.click_details.height );
+				if ( is_drag_type_left )
+					settings.data.x = this.click_details.x - ( width - this.click_details.width );
+				if ( is_drag_type_left || is_drag_type_right )
 					settings.data.width = width;
-				if (is_drag_type_top || is_drag_type_bottom)
+				if ( is_drag_type_top || is_drag_type_bottom )
 					settings.data.height = height;
-				
+
 				// Don't allow negative width/height on most layers
-				if (!allowNegativeDimensions) {
-					if (settings.data.width <= 0) {
-						settings.data.width = Math.abs(settings.data.width);
-						if (is_drag_type_left) {
+				if ( !allowNegativeDimensions ) {
+					if ( settings.data.width <= 0 ) {
+						settings.data.width = Math.abs( settings.data.width );
+						if ( is_drag_type_left ) {
 							settings.data.x -= settings.data.width;
 						} else {
 							settings.data.x = this.click_details.x - settings.data.width;
 						}
 					}
-					if (settings.data.height <= 0) {
-						settings.data.height = Math.abs(settings.data.height);
-						if (is_drag_type_top) {
+					if ( settings.data.height <= 0 ) {
+						settings.data.height = Math.abs( settings.data.height );
+						if ( is_drag_type_top ) {
 							settings.data.y -= settings.data.height;
 						} else {
 							settings.data.y = this.click_details.y - settings.data.height;
@@ -418,26 +418,26 @@ class Base_selection_class {
 			}
 			return;
 		}
-		if (event_type == 'mouseup' && this.mouse_lock == 'selected_object_actions') {
+		if ( event_type == 'mouseup' && this.mouse_lock == 'selected_object_actions' ) {
 			//reset
 			this.mouse_lock = null;
 		}
 
-		if (!this.mouse_lock) {
-			for (let current_drag_type in this.selected_obj_positions) {
-				const position = this.selected_obj_positions[current_drag_type];
+		if ( !this.mouse_lock ) {
+			for ( let current_drag_type in this.selected_obj_positions ) {
+				const position = this.selected_obj_positions[ current_drag_type ];
 
-				if (mouse.x >= position.x - position.size / 2 && mouse.x <= position.x + position.size / 2
-					&& mouse.y >= position.y - position.size / 2 && mouse.y <= position.y + position.size / 2
-					) {
+				if ( mouse.x >= position.x - position.size / 2 && mouse.x <= position.x + position.size / 2 &&
+					mouse.y >= position.y - position.size / 2 && mouse.y <= position.y + position.size / 2
+				) {
 					//match
-					if (event_type == 'mousedown') {
-						if (e.buttons == 1 || typeof e.buttons == "undefined") {
+					if ( event_type == 'mousedown' ) {
+						if ( e.buttons == 1 || typeof e.buttons == "undefined" ) {
 							this.mouse_lock = 'selected_object_actions';
 							this.selected_object_drag_type = current_drag_type;
 						}
 					}
-					if (event_type == 'mousemove') {
+					if ( event_type == 'mousemove' ) {
 						mainWrapper.style.cursor = "pointer";
 					}
 				}

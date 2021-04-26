@@ -23,10 +23,10 @@ import File_open_class from './modules/file/open.js';
 import File_save_class from './modules/file/save.js';
 import * as Actions from './actions/index.js';
 
-window.addEventListener('load', function (e) {
+window.addEventListener( 'load', function ( e ) {
 	// Initiate app
 	var Layers = new Base_layers_class();
-	var Base_tools = new Base_tools_class(true);
+	var Base_tools = new Base_tools_class( true );
 	var GUI = new Base_gui_class();
 	var Base_state = new Base_state_class();
 	var File_open = new File_open_class();
@@ -52,4 +52,4 @@ window.addEventListener('load', function (e) {
 	// Render all
 	GUI.init();
 	Layers.init();
-}, false);
+}, false );

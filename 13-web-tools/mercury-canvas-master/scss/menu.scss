@@ -12,12 +12,15 @@
     &.top {
         top: 0;
     }
+
     &.bottom {
         bottom: 0;
     }
+
     &.left {
         left: 0;
     }
+
     &.right {
         right: 0;
     }
@@ -33,6 +36,7 @@
         &.active {
             cursor: grabbing;
         }
+
         .fa {
             position: absolute;
         }
@@ -43,7 +47,8 @@
             display: none;
         }
     }
-    &:not(.fixed){
+
+    &:not(.fixed) {
         z-index: 1001;
     }
 
@@ -53,8 +58,10 @@
         &.fixed {
             left: 0;
             width: 100%;
-            box-shadow: 0 - #{$menuBlurLength} #{$menuBlurLength} - #{$menuBlurLength} $menuBlurColor, 0 #{$menuBlurLength} #{$menuBlurLength} - #{$menuBlurLength} $menuBlurColor;
+            box-shadow: 0 - #{$menuBlurLength} #{$menuBlurLength} - #{$menuBlurLength} $menuBlurColor,
+            0 #{$menuBlurLength} #{$menuBlurLength} - #{$menuBlurLength} $menuBlurColor;
         }
+
         &:not(.fixed) {
             padding-left: $menuHandleSize + 4px;
         }
@@ -70,15 +77,18 @@
                 transform: translate(0, -50%);
             }
         }
-        > .tool {
+
+        >.tool {
             margin: 0 3px;
 
             &:first-of-type {
                 margin-left: 0;
             }
+
             &:last-of-type {
                 margin-right: 0;
             }
+
             &.end {
                 &.first {
                     margin-left: auto;
@@ -86,14 +96,17 @@
             }
         }
     }
+
     &.vertical {
         flex-direction: column;
 
         &.fixed {
             top: 0;
             height: 100%;
-            box-shadow: - #{$menuBlurLength} 0 #{$menuBlurLength} - #{$menuBlurLength} $menuBlurColor, #{$menuBlurLength} 0 #{$menuBlurLength} - #{$menuBlurLength} $menuBlurColor;
+            box-shadow: - #{$menuBlurLength} 0 #{$menuBlurLength} - #{$menuBlurLength} $menuBlurColor,
+            #{$menuBlurLength} 0 #{$menuBlurLength} - #{$menuBlurLength} $menuBlurColor;
         }
+
         &:not(.fixed) {
             padding-top: $menuHandleSize + 4px;
         }
@@ -109,15 +122,18 @@
                 transform: translate(-50%, 0);
             }
         }
-        > .tool {
+
+        >.tool {
             margin: 3px 0;
 
             &:first-of-type {
                 margin-top: 0;
             }
+
             &:last-of-type {
                 margin-bottom: 0;
             }
+
             &.end {
                 &.first {
                     margin-top: auto;
@@ -138,10 +154,12 @@
         &:hover {
             border-color: $grey-500;
         }
+
         &.disabled {
             cursor: not-allowed;
             opacity: 0.5;
         }
+
         &.selected {
             border-color: $grey-300;
         }
@@ -203,16 +221,19 @@
         .tool {
             margin: 3px;
         }
+
         .trash {
             margin-left: auto;
         }
     }
 }
+
 .buttons {
     .layerThumbnail {
         display: none;
     }
 }
+
 .layerThumbnail {
     position: relative;
     width: 100%;
@@ -225,6 +246,7 @@
     &.selected {
         background: rgba($blue-500, 0.2);
     }
+
     &:first-of-type {
         margin-top: 0;
         border-top: 0;
@@ -241,16 +263,19 @@
             content: '';
         }
     }
+
     div {
         display: inline-block;
         color: $white;
     }
+
     .visible {
         width: 30px;
         text-align: center;
         vertical-align: top;
         cursor: pointer;
     }
+
     .divider {
         position: relative;
         top: 20%;
@@ -259,6 +284,7 @@
         height: 60%;
         border-right: 1px solid $borderColor;
     }
+
     .thumbnail {
         position: relative;
         width: 80px;
@@ -277,6 +303,7 @@
             background-repeat: no-repeat;
             background-size: contain;
         }
+
         .transparent {
             position: absolute;
             top: 0;
@@ -286,6 +313,7 @@
             background: url('../img/transparentCheck.png');
         }
     }
+
     .name {
         margin-left: 5px;
         vertical-align: top;

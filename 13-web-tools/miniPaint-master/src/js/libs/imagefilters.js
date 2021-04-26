@@ -5,8 +5,8 @@
 var ImageFilters = {};
 ImageFilters.utils = {
 	initSampleCanvas: function () {
-		var _canvas = document.createElement('canvas'),
-			_context = _canvas.getContext('2d');
+		var _canvas = document.createElement( 'canvas' ),
+			_context = _canvas.getContext( '2d' );
 
 		_canvas.width = 0;
 		_canvas.height = 0;
@@ -17,10 +17,10 @@ ImageFilters.utils = {
 		this.getSampleContext = function () {
 			return _context;
 		};
-		this.createImageData = (_context.createImageData) ? function (w, h) {
-			return _context.createImageData(w, h);
-		} : function (w, h) {
-			return new ImageData(w, h);
+		this.createImageData = ( _context.createImageData ) ? function ( w, h ) {
+			return _context.createImageData( w, h );
+		} : function ( w, h ) {
+			return new ImageData( w, h );
 		};
 	},
 	getSampleCanvas: function () {
@@ -31,137 +31,140 @@ ImageFilters.utils = {
 		this.initSampleCanvas();
 		return this.getSampleContext();
 	},
-	createImageData: function (w, h) {
+	createImageData: function ( w, h ) {
 		this.initSampleCanvas();
-		return this.createImageData(w, h);
+		return this.createImageData( w, h );
 	},
-	clamp: function (value) {
+	clamp: function ( value ) {
 		return value > 255 ? 255 : value < 0 ? 0 : value;
 	},
-	buildMap: function (f) {
-		for (var m = [], k = 0, v; k < 256; k += 1) {
-			m[k] = (v = f(k)) > 255 ? 255 : v < 0 ? 0 : v | 0;
+	buildMap: function ( f ) {
+		for ( var m = [], k = 0, v; k < 256; k += 1 ) {
+			m[ k ] = ( v = f( k ) ) > 255 ? 255 : v < 0 ? 0 : v | 0;
 		}
 		return m;
 	},
-	applyMap: function (src, dst, map) {
-		for (var i = 0, l = src.length; i < l; i += 4) {
-			dst[i] = map[src[i]];
-			dst[i + 1] = map[src[i + 1]];
-			dst[i + 2] = map[src[i + 2]];
-			dst[i + 3] = src[i + 3];
+	applyMap: function ( src, dst, map ) {
+		for ( var i = 0, l = src.length; i < l; i += 4 ) {
+			dst[ i ] = map[ src[ i ] ];
+			dst[ i + 1 ] = map[ src[ i + 1 ] ];
+			dst[ i + 2 ] = map[ src[ i + 2 ] ];
+			dst[ i + 3 ] = src[ i + 3 ];
 		}
 	},
-	mapRGB: function (src, dst, func) {
-		this.applyMap(src, dst, this.buildMap(func));
+	mapRGB: function ( src, dst, func ) {
+		this.applyMap( src, dst, this.buildMap( func ) );
 	},
-	getPixelIndex: function (x, y, width, height, edge) {
-		if (x < 0 || x >= width || y < 0 || y >= height) {
-			switch (edge) {
+	getPixelIndex: function ( x, y, width, height, edge ) {
+		if ( x < 0 || x >= width || y < 0 || y >= height ) {
+			switch ( edge ) {
 				case 1: // clamp
 					x = x < 0 ? 0 : x >= width ? width - 1 : x;
 					y = y < 0 ? 0 : y >= height ? height - 1 : y;
 					break;
 				case 2: // wrap
-					x = (x %= width) < 0 ? x + width : x;
-					y = (y %= height) < 0 ? y + height : y;
+					x = ( x %= width ) < 0 ? x + width : x;
+					y = ( y %= height ) < 0 ? y + height : y;
 					break;
 				default: // transparent
 					return null;
 			}
 		}
-		return (y * width + x) << 2;
+		return ( y * width + x ) << 2;
 	},
-	getPixel: function (src, x, y, width, height, edge) {
-		if (x < 0 || x >= width || y < 0 || y >= height) {
-			switch (edge) {
+	getPixel: function ( src, x, y, width, height, edge ) {
+		if ( x < 0 || x >= width || y < 0 || y >= height ) {
+			switch ( edge ) {
 				case 1: // clamp
 					x = x < 0 ? 0 : x >= width ? width - 1 : x;
 					y = y < 0 ? 0 : y >= height ? height - 1 : y;
 					break;
 				case 2: // wrap
-					x = (x %= width) < 0 ? x + width : x;
-					y = (y %= height) < 0 ? y + height : y;
+					x = ( x %= width ) < 0 ? x + width : x;
+					y = ( y %= height ) < 0 ? y + height : y;
 					break;
 				default: // transparent
 					return 0;
 			}
 		}
 
-		var i = (y * width + x) << 2;
+		var i = ( y * width + x ) << 2;
 
 		// ARGB
-		return src[i + 3] << 24 | src[i] << 16 | src[i + 1] << 8 | src[i + 2];
+		return src[ i + 3 ] << 24 | src[ i ] << 16 | src[ i + 1 ] << 8 | src[ i + 2 ];
 	},
-	getPixelByIndex: function (src, i) {
-		return src[i + 3] << 24 | src[i] << 16 | src[i + 1] << 8 | src[i + 2];
+	getPixelByIndex: function ( src, i ) {
+		return src[ i + 3 ] << 24 | src[ i ] << 16 | src[ i + 1 ] << 8 | src[ i + 2 ];
 	},
 	/**
 	 * one of the most important functions in this library.
 	 * I want to make this as fast as possible.
 	 */
-	copyBilinear: function (src, x, y, width, height, dst, dstIndex, edge) {
+	copyBilinear: function ( src, x, y, width, height, dst, dstIndex, edge ) {
 		var fx = x < 0 ? x - 1 | 0 : x | 0, // Math.floor(x)
 			fy = y < 0 ? y - 1 | 0 : y | 0, // Math.floor(y)
 			wx = x - fx,
 			wy = y - fy,
 			i,
-			nw = 0, ne = 0, sw = 0, se = 0,
+			nw = 0,
+			ne = 0,
+			sw = 0,
+			se = 0,
 			cx, cy,
 			r, g, b, a;
 
-		if (fx >= 0 && fx < (width - 1) && fy >= 0 && fy < (height - 1)) {
+		if ( fx >= 0 && fx < ( width - 1 ) && fy >= 0 && fy < ( height - 1 ) ) {
 			// in bounds, no edge actions required
-			i = (fy * width + fx) << 2;
+			i = ( fy * width + fx ) << 2;
 
-			if (wx || wy) {
-				nw = src[i + 3] << 24 | src[i] << 16 | src[i + 1] << 8 | src[i + 2];
-
-				i += 4;
-				ne = src[i + 3] << 24 | src[i] << 16 | src[i + 1] << 8 | src[i + 2];
-
-				i = (i - 8) + (width << 2);
-				sw = src[i + 3] << 24 | src[i] << 16 | src[i + 1] << 8 | src[i + 2];
+			if ( wx || wy ) {
+				nw = src[ i + 3 ] << 24 | src[ i ] << 16 | src[ i + 1 ] << 8 | src[ i + 2 ];
 
 				i += 4;
-				se = src[i + 3] << 24 | src[i] << 16 | src[i + 1] << 8 | src[i + 2];
+				ne = src[ i + 3 ] << 24 | src[ i ] << 16 | src[ i + 1 ] << 8 | src[ i + 2 ];
+
+				i = ( i - 8 ) + ( width << 2 );
+				sw = src[ i + 3 ] << 24 | src[ i ] << 16 | src[ i + 1 ] << 8 | src[ i + 2 ];
+
+				i += 4;
+				se = src[ i + 3 ] << 24 | src[ i ] << 16 | src[ i + 1 ] << 8 | src[ i + 2 ];
 			} else {
 				// no interpolation required
-				dst[dstIndex] = src[i];
-				dst[dstIndex + 1] = src[i + 1];
-				dst[dstIndex + 2] = src[i + 2];
-				dst[dstIndex + 3] = src[i + 3];
+				dst[ dstIndex ] = src[ i ];
+				dst[ dstIndex + 1 ] = src[ i + 1 ];
+				dst[ dstIndex + 2 ] = src[ i + 2 ];
+				dst[ dstIndex + 3 ] = src[ i + 3 ];
 				return;
 			}
 		} else {
 			// edge actions required
-			nw = this.getPixel(src, fx, fy, width, height, edge);
+			nw = this.getPixel( src, fx, fy, width, height, edge );
 
-			if (wx || wy) {
-				ne = this.getPixel(src, fx + 1, fy, width, height, edge);
-				sw = this.getPixel(src, fx, fy + 1, width, height, edge);
-				se = this.getPixel(src, fx + 1, fy + 1, width, height, edge);
+			if ( wx || wy ) {
+				ne = this.getPixel( src, fx + 1, fy, width, height, edge );
+				sw = this.getPixel( src, fx, fy + 1, width, height, edge );
+				se = this.getPixel( src, fx + 1, fy + 1, width, height, edge );
 			} else {
 				// no interpolation required
-				dst[dstIndex] = nw >> 16 & 0xFF;
-				dst[dstIndex + 1] = nw >> 8 & 0xFF;
-				dst[dstIndex + 2] = nw & 0xFF;
-				dst[dstIndex + 3] = nw >> 24 & 0xFF;
+				dst[ dstIndex ] = nw >> 16 & 0xFF;
+				dst[ dstIndex + 1 ] = nw >> 8 & 0xFF;
+				dst[ dstIndex + 2 ] = nw & 0xFF;
+				dst[ dstIndex + 3 ] = nw >> 24 & 0xFF;
 				return;
 			}
 		}
 
 		cx = 1 - wx;
 		cy = 1 - wy;
-		r = ((nw >> 16 & 0xFF) * cx + (ne >> 16 & 0xFF) * wx) * cy + ((sw >> 16 & 0xFF) * cx + (se >> 16 & 0xFF) * wx) * wy;
-		g = ((nw >> 8 & 0xFF) * cx + (ne >> 8 & 0xFF) * wx) * cy + ((sw >> 8 & 0xFF) * cx + (se >> 8 & 0xFF) * wx) * wy;
-		b = ((nw & 0xFF) * cx + (ne & 0xFF) * wx) * cy + ((sw & 0xFF) * cx + (se & 0xFF) * wx) * wy;
-		a = ((nw >> 24 & 0xFF) * cx + (ne >> 24 & 0xFF) * wx) * cy + ((sw >> 24 & 0xFF) * cx + (se >> 24 & 0xFF) * wx) * wy;
+		r = ( ( nw >> 16 & 0xFF ) * cx + ( ne >> 16 & 0xFF ) * wx ) * cy + ( ( sw >> 16 & 0xFF ) * cx + ( se >> 16 & 0xFF ) * wx ) * wy;
+		g = ( ( nw >> 8 & 0xFF ) * cx + ( ne >> 8 & 0xFF ) * wx ) * cy + ( ( sw >> 8 & 0xFF ) * cx + ( se >> 8 & 0xFF ) * wx ) * wy;
+		b = ( ( nw & 0xFF ) * cx + ( ne & 0xFF ) * wx ) * cy + ( ( sw & 0xFF ) * cx + ( se & 0xFF ) * wx ) * wy;
+		a = ( ( nw >> 24 & 0xFF ) * cx + ( ne >> 24 & 0xFF ) * wx ) * cy + ( ( sw >> 24 & 0xFF ) * cx + ( se >> 24 & 0xFF ) * wx ) * wy;
 
-		dst[dstIndex] = r > 255 ? 255 : r < 0 ? 0 : r | 0;
-		dst[dstIndex + 1] = g > 255 ? 255 : g < 0 ? 0 : g | 0;
-		dst[dstIndex + 2] = b > 255 ? 255 : b < 0 ? 0 : b | 0;
-		dst[dstIndex + 3] = a > 255 ? 255 : a < 0 ? 0 : a | 0;
+		dst[ dstIndex ] = r > 255 ? 255 : r < 0 ? 0 : r | 0;
+		dst[ dstIndex + 1 ] = g > 255 ? 255 : g < 0 ? 0 : g | 0;
+		dst[ dstIndex + 2 ] = b > 255 ? 255 : b < 0 ? 0 : b | 0;
+		dst[ dstIndex + 3 ] = a > 255 ? 255 : a < 0 ? 0 : a | 0;
 	},
 	/**
 	 * @param r 0 <= n <= 255
@@ -169,37 +172,37 @@ ImageFilters.utils = {
 	 * @param b 0 <= n <= 255
 	 * @return Array(h, s, l)
 	 */
-	rgbToHsl: function (r, g, b) {
+	rgbToHsl: function ( r, g, b ) {
 		r /= 255;
 		g /= 255;
 		b /= 255;
 
-//        var max = Math.max(r, g, b),
-//            min = Math.min(r, g, b),
-		var max = (r > g) ? (r > b) ? r : b : (g > b) ? g : b,
-			min = (r < g) ? (r < b) ? r : b : (g < b) ? g : b,
+		//        var max = Math.max(r, g, b),
+		//            min = Math.min(r, g, b),
+		var max = ( r > g ) ? ( r > b ) ? r : b : ( g > b ) ? g : b,
+			min = ( r < g ) ? ( r < b ) ? r : b : ( g < b ) ? g : b,
 			chroma = max - min,
 			h = 0,
 			s = 0,
 			// Lightness
-			l = (min + max) / 2;
+			l = ( min + max ) / 2;
 
-		if (chroma !== 0) {
+		if ( chroma !== 0 ) {
 			// Hue
-			if (r === max) {
-				h = (g - b) / chroma + ((g < b) ? 6 : 0);
-			} else if (g === max) {
-				h = (b - r) / chroma + 2;
+			if ( r === max ) {
+				h = ( g - b ) / chroma + ( ( g < b ) ? 6 : 0 );
+			} else if ( g === max ) {
+				h = ( b - r ) / chroma + 2;
 			} else {
-				h = (r - g) / chroma + 4;
+				h = ( r - g ) / chroma + 4;
 			}
 			h /= 6;
 
 			// Saturation
-			s = (l > 0.5) ? chroma / (2 - max - min) : chroma / (max + min);
+			s = ( l > 0.5 ) ? chroma / ( 2 - max - min ) : chroma / ( max + min );
 		}
 
-		return [h, s, l];
+		return [ h, s, l ];
 	},
 	/**
 	 * @param h 0.0 <= n <= 1.0
@@ -207,17 +210,17 @@ ImageFilters.utils = {
 	 * @param l 0.0 <= n <= 1.0
 	 * @return Array(r, g, b)
 	 */
-	hslToRgb: function (h, s, l) {
+	hslToRgb: function ( h, s, l ) {
 		var m1, m2, hue,
 			r, g, b,
 			rgb = [];
 
-		if (s === 0) {
+		if ( s === 0 ) {
 			r = g = b = l * 255 + 0.5 | 0;
-			rgb = [r, g, b];
+			rgb = [ r, g, b ];
 		} else {
-			if (l <= 0.5) {
-				m2 = l * (s + 1);
+			if ( l <= 0.5 ) {
+				m2 = l * ( s + 1 );
 			} else {
 				m2 = l + s - l * s;
 			}
@@ -226,24 +229,24 @@ ImageFilters.utils = {
 			hue = h + 1 / 3;
 
 			var tmp;
-			for (var i = 0; i < 3; i += 1) {
-				if (hue < 0) {
+			for ( var i = 0; i < 3; i += 1 ) {
+				if ( hue < 0 ) {
 					hue += 1;
-				} else if (hue > 1) {
+				} else if ( hue > 1 ) {
 					hue -= 1;
 				}
 
-				if (6 * hue < 1) {
-					tmp = m1 + (m2 - m1) * hue * 6;
-				} else if (2 * hue < 1) {
+				if ( 6 * hue < 1 ) {
+					tmp = m1 + ( m2 - m1 ) * hue * 6;
+				} else if ( 2 * hue < 1 ) {
 					tmp = m2;
-				} else if (3 * hue < 2) {
-					tmp = m1 + (m2 - m1) * (2 / 3 - hue) * 6;
+				} else if ( 3 * hue < 2 ) {
+					tmp = m1 + ( m2 - m1 ) * ( 2 / 3 - hue ) * 6;
 				} else {
 					tmp = m1;
 				}
 
-				rgb[i] = tmp * 255 + 0.5 | 0;
+				rgb[ i ] = tmp * 255 + 0.5 | 0;
 
 				hue -= 1 / 3;
 			}
@@ -254,36 +257,36 @@ ImageFilters.utils = {
 };
 
 
-ImageFilters.Translate = function (srcImageData, x, y, interpolation) {
+ImageFilters.Translate = function ( srcImageData, x, y, interpolation ) {
 
 };
-ImageFilters.Scale = function (srcImageData, scaleX, scaleY, interpolation) {
+ImageFilters.Scale = function ( srcImageData, scaleX, scaleY, interpolation ) {
 
 };
-ImageFilters.Rotate = function (srcImageData, originX, originY, angle, resize, interpolation) {
+ImageFilters.Rotate = function ( srcImageData, originX, originY, angle, resize, interpolation ) {
 
 };
-ImageFilters.Affine = function (srcImageData, matrix, resize, interpolation) {
+ImageFilters.Affine = function ( srcImageData, matrix, resize, interpolation ) {
 
 };
-ImageFilters.UnsharpMask = function (srcImageData, level) {
+ImageFilters.UnsharpMask = function ( srcImageData, level ) {
 
 };
 
-ImageFilters.ConvolutionFilter = function (srcImageData, matrixX, matrixY, matrix, divisor, bias, preserveAlpha, clamp, color, alpha) {
+ImageFilters.ConvolutionFilter = function ( srcImageData, matrixX, matrixY, matrix, divisor, bias, preserveAlpha, clamp, color, alpha ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data;
 
 	divisor = divisor || 1;
 	bias = bias || 0;
 
 	// default true
-	(preserveAlpha !== false) && (preserveAlpha = true);
-	(clamp !== false) && (clamp = true);
+	( preserveAlpha !== false ) && ( preserveAlpha = true );
+	( clamp !== false ) && ( clamp = true );
 
 	color = color || 0;
 	alpha = alpha || 0;
@@ -296,8 +299,8 @@ ImageFilters.ConvolutionFilter = function (srcImageData, matrixX, matrixY, matri
 		clampB = color & 0xFF,
 		clampA = alpha * 0xFF;
 
-	for (var y = 0; y < srcHeight; y += 1) {
-		for (var x = 0; x < srcWidth; x += 1, index += 4) {
+	for ( var y = 0; y < srcHeight; y += 1 ) {
+		for ( var x = 0; x < srcWidth; x += 1, index += 4 ) {
 			var r = 0,
 				g = 0,
 				b = 0,
@@ -306,52 +309,52 @@ ImageFilters.ConvolutionFilter = function (srcImageData, matrixX, matrixY, matri
 				mIndex = 0,
 				v;
 
-			for (var row = -rows; row <= rows; row += 1) {
+			for ( var row = -rows; row <= rows; row += 1 ) {
 				var rowIndex = y + row,
 					offset;
 
-				if (0 <= rowIndex && rowIndex < srcHeight) {
+				if ( 0 <= rowIndex && rowIndex < srcHeight ) {
 					offset = rowIndex * srcWidth;
-				} else if (clamp) {
+				} else if ( clamp ) {
 					offset = y * srcWidth;
 				} else {
 					replace = true;
 				}
 
-				for (var col = -cols; col <= cols; col += 1) {
-					var m = matrix[mIndex++];
+				for ( var col = -cols; col <= cols; col += 1 ) {
+					var m = matrix[ mIndex++ ];
 
-					if (m !== 0) {
+					if ( m !== 0 ) {
 						var colIndex = x + col;
 
-						if (!(0 <= colIndex && colIndex < srcWidth)) {
-							if (clamp) {
+						if ( !( 0 <= colIndex && colIndex < srcWidth ) ) {
+							if ( clamp ) {
 								colIndex = x;
 							} else {
 								replace = true;
 							}
 						}
 
-						if (replace) {
+						if ( replace ) {
 							r += m * clampR;
 							g += m * clampG;
 							b += m * clampB;
 							a += m * clampA;
 						} else {
-							var p = (offset + colIndex) << 2;
-							r += m * srcPixels[p];
-							g += m * srcPixels[p + 1];
-							b += m * srcPixels[p + 2];
-							a += m * srcPixels[p + 3];
+							var p = ( offset + colIndex ) << 2;
+							r += m * srcPixels[ p ];
+							g += m * srcPixels[ p + 1 ];
+							b += m * srcPixels[ p + 2 ];
+							a += m * srcPixels[ p + 3 ];
 						}
 					}
 				}
 			}
 
-			dstPixels[index] = (v = r / divisor + bias) > 255 ? 255 : v < 0 ? 0 : v | 0;
-			dstPixels[index + 1] = (v = g / divisor + bias) > 255 ? 255 : v < 0 ? 0 : v | 0;
-			dstPixels[index + 2] = (v = b / divisor + bias) > 255 ? 255 : v < 0 ? 0 : v | 0;
-			dstPixels[index + 3] = preserveAlpha ? srcPixels[index + 3] : (v = a / divisor + bias) > 255 ? 255 : v < 0 ? 0 : v | 0;
+			dstPixels[ index ] = ( v = r / divisor + bias ) > 255 ? 255 : v < 0 ? 0 : v | 0;
+			dstPixels[ index + 1 ] = ( v = g / divisor + bias ) > 255 ? 255 : v < 0 ? 0 : v | 0;
+			dstPixels[ index + 2 ] = ( v = b / divisor + bias ) > 255 ? 255 : v < 0 ? 0 : v | 0;
+			dstPixels[ index + 3 ] = preserveAlpha ? srcPixels[ index + 3 ] : ( v = a / divisor + bias ) > 255 ? 255 : v < 0 ? 0 : v | 0;
 		}
 	}
 
@@ -361,67 +364,67 @@ ImageFilters.ConvolutionFilter = function (srcImageData, matrixX, matrixY, matri
 /**
  * @param threshold 0.0 <= n <= 1.0
  */
-ImageFilters.Binarize = function (srcImageData, threshold) {
+ImageFilters.Binarize = function ( srcImageData, threshold ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data;
 
-	if (isNaN(threshold)) {
+	if ( isNaN( threshold ) ) {
 		threshold = 0.5;
 	}
 
 	threshold *= 255;
 
-	for (var i = 0; i < srcLength; i += 4) {
-		var avg = srcPixels[i] + srcPixels[i + 1] + srcPixels[i + 2] / 3;
+	for ( var i = 0; i < srcLength; i += 4 ) {
+		var avg = srcPixels[ i ] + srcPixels[ i + 1 ] + srcPixels[ i + 2 ] / 3;
 
-		dstPixels[i] = dstPixels[i + 1] = dstPixels[i + 2] = avg <= threshold ? 0 : 255;
-		dstPixels[i + 3] = 255;
+		dstPixels[ i ] = dstPixels[ i + 1 ] = dstPixels[ i + 2 ] = avg <= threshold ? 0 : 255;
+		dstPixels[ i + 3 ] = 255;
 	}
 
 	return dstImageData;
 };
 
-ImageFilters.BlendAdd = function (srcImageData, blendImageData, dx, dy) {
+ImageFilters.BlendAdd = function ( srcImageData, blendImageData, dx, dy ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data,
 		blendPixels = blendImageData.data;
 
 	var v;
 
-	for (var i = 0; i < srcLength; i += 4) {
-		dstPixels[i] = ((v = srcPixels[i] + blendPixels[i]) > 255) ? 255 : v;
-		dstPixels[i + 1] = ((v = srcPixels[i + 1] + blendPixels[i + 1]) > 255) ? 255 : v;
-		dstPixels[i + 2] = ((v = srcPixels[i + 2] + blendPixels[i + 2]) > 255) ? 255 : v;
-		dstPixels[i + 3] = 255;
+	for ( var i = 0; i < srcLength; i += 4 ) {
+		dstPixels[ i ] = ( ( v = srcPixels[ i ] + blendPixels[ i ] ) > 255 ) ? 255 : v;
+		dstPixels[ i + 1 ] = ( ( v = srcPixels[ i + 1 ] + blendPixels[ i + 1 ] ) > 255 ) ? 255 : v;
+		dstPixels[ i + 2 ] = ( ( v = srcPixels[ i + 2 ] + blendPixels[ i + 2 ] ) > 255 ) ? 255 : v;
+		dstPixels[ i + 3 ] = 255;
 	}
 
 	return dstImageData;
 };
 
-ImageFilters.BlendSubtract = function (srcImageData, blendImageData, dx, dy) {
+ImageFilters.BlendSubtract = function ( srcImageData, blendImageData, dx, dy ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data,
 		blendPixels = blendImageData.data;
 
 	var v;
 
-	for (var i = 0; i < srcLength; i += 4) {
-		dstPixels[i] = ((v = srcPixels[i] - blendPixels[i]) < 0) ? 0 : v;
-		dstPixels[i + 1] = ((v = srcPixels[i + 1] - blendPixels[i + 1]) < 0) ? 0 : v;
-		dstPixels[i + 2] = ((v = srcPixels[i + 2] - blendPixels[i + 2]) < 0) ? 0 : v;
-		dstPixels[i + 3] = 255;
+	for ( var i = 0; i < srcLength; i += 4 ) {
+		dstPixels[ i ] = ( ( v = srcPixels[ i ] - blendPixels[ i ] ) < 0 ) ? 0 : v;
+		dstPixels[ i + 1 ] = ( ( v = srcPixels[ i + 1 ] - blendPixels[ i + 1 ] ) < 0 ) ? 0 : v;
+		dstPixels[ i + 2 ] = ( ( v = srcPixels[ i + 2 ] - blendPixels[ i + 2 ] ) < 0 ) ? 0 : v;
+		dstPixels[ i + 3 ] = 255;
 	}
 
 	return dstImageData;
@@ -432,8 +435,8 @@ ImageFilters.BlendSubtract = function (srcImageData, blendImageData, dx, dy) {
  * @see http://www.jhlabs.com/ip/blurring.html
  * Copyright 2005 Huxtable.com. All rights reserved.
  */
-ImageFilters.BoxBlur = (function () {
-	var blur = function (src, dst, width, height, radius) {
+ImageFilters.BoxBlur = ( function () {
+	var blur = function ( src, dst, width, height, radius ) {
 		var tableSize = radius * 2 + 1;
 		var radiusPlus1 = radius + 1;
 		var widthMinus1 = width - 1;
@@ -447,52 +450,52 @@ ImageFilters.BoxBlur = (function () {
 			nextIndex, prevIndex;
 
 		var sumTable = [];
-		for (i = 0, l = 256 * tableSize; i < l; i += 1) {
-			sumTable[i] = i / tableSize | 0;
+		for ( i = 0, l = 256 * tableSize; i < l; i += 1 ) {
+			sumTable[ i ] = i / tableSize | 0;
 		}
 
-		for (y = 0; y < height; y += 1) {
+		for ( y = 0; y < height; y += 1 ) {
 			r = g = b = a = 0;
 			dstIndex = y;
 
 			p = srcIndex << 2;
-			r += radiusPlus1 * src[p];
-			g += radiusPlus1 * src[p + 1];
-			b += radiusPlus1 * src[p + 2];
-			a += radiusPlus1 * src[p + 3];
+			r += radiusPlus1 * src[ p ];
+			g += radiusPlus1 * src[ p + 1 ];
+			b += radiusPlus1 * src[ p + 2 ];
+			a += radiusPlus1 * src[ p + 3 ];
 
-			for (i = 1; i <= radius; i += 1) {
-				p = (srcIndex + (i < width ? i : widthMinus1)) << 2;
-				r += src[p];
-				g += src[p + 1];
-				b += src[p + 2];
-				a += src[p + 3];
+			for ( i = 1; i <= radius; i += 1 ) {
+				p = ( srcIndex + ( i < width ? i : widthMinus1 ) ) << 2;
+				r += src[ p ];
+				g += src[ p + 1 ];
+				b += src[ p + 2 ];
+				a += src[ p + 3 ];
 			}
 
-			for (x = 0; x < width; x += 1) {
+			for ( x = 0; x < width; x += 1 ) {
 				p = dstIndex << 2;
-				dst[p] = sumTable[r];
-				dst[p + 1] = sumTable[g];
-				dst[p + 2] = sumTable[b];
-				dst[p + 3] = sumTable[a];
+				dst[ p ] = sumTable[ r ];
+				dst[ p + 1 ] = sumTable[ g ];
+				dst[ p + 2 ] = sumTable[ b ];
+				dst[ p + 3 ] = sumTable[ a ];
 
 				nextIndex = x + radiusPlus1;
-				if (nextIndex > widthMinus1) {
+				if ( nextIndex > widthMinus1 ) {
 					nextIndex = widthMinus1;
 				}
 
 				prevIndex = x - radius;
-				if (prevIndex < 0) {
+				if ( prevIndex < 0 ) {
 					prevIndex = 0;
 				}
 
-				next = (srcIndex + nextIndex) << 2;
-				prev = (srcIndex + prevIndex) << 2;
+				next = ( srcIndex + nextIndex ) << 2;
+				prev = ( srcIndex + prevIndex ) << 2;
 
-				r += src[next] - src[prev];
-				g += src[next + 1] - src[prev + 1];
-				b += src[next + 2] - src[prev + 2];
-				a += src[next + 3] - src[prev + 3];
+				r += src[ next ] - src[ prev ];
+				g += src[ next + 1 ] - src[ prev + 1 ];
+				b += src[ next + 2 ] - src[ prev + 2 ];
+				a += src[ next + 3 ] - src[ prev + 3 ];
 
 				dstIndex += height;
 			}
@@ -500,33 +503,33 @@ ImageFilters.BoxBlur = (function () {
 		}
 	};
 
-	return function (srcImageData, hRadius, vRadius, quality) {
+	return function ( srcImageData, hRadius, vRadius, quality ) {
 		var srcPixels = srcImageData.data,
 			srcWidth = srcImageData.width,
 			srcHeight = srcImageData.height,
 			srcLength = srcPixels.length,
-			dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+			dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 			dstPixels = dstImageData.data,
-			tmpImageData = this.utils.createImageData(srcWidth, srcHeight),
+			tmpImageData = this.utils.createImageData( srcWidth, srcHeight ),
 			tmpPixels = tmpImageData.data;
 
-		for (var i = 0; i < quality; i += 1) {
+		for ( var i = 0; i < quality; i += 1 ) {
 			// only use the srcPixels on the first loop
-			blur(i ? dstPixels : srcPixels, tmpPixels, srcWidth, srcHeight, hRadius);
-			blur(tmpPixels, dstPixels, srcHeight, srcWidth, vRadius);
+			blur( i ? dstPixels : srcPixels, tmpPixels, srcWidth, srcHeight, hRadius );
+			blur( tmpPixels, dstPixels, srcHeight, srcWidth, vRadius );
 		}
 
 		return dstImageData;
 	};
-}());
+}() );
 
 /**
  * @ param strength 1 <= n <= 4
  */
-ImageFilters.GaussianBlur = function (srcImageData, strength) {
+ImageFilters.GaussianBlur = function ( srcImageData, strength ) {
 	var size, matrix, divisor;
 
-	switch (strength) {
+	switch ( strength ) {
 		case 2:
 			size = 5;
 			matrix = [
@@ -582,7 +585,7 @@ ImageFilters.GaussianBlur = function (srcImageData, strength) {
 			divisor = 16;
 			break;
 	}
-	return this.ConvolutionFilter(srcImageData, size, size, matrix, divisor, 0, false);
+	return this.ConvolutionFilter( srcImageData, size, size, matrix, divisor, 0, false );
 };
 
 /**
@@ -613,7 +616,7 @@ ImageFilters.GaussianBlur = function (srcImageData, strength) {
  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  OTHER DEALINGS IN THE SOFTWARE.
  */
-ImageFilters.StackBlur = (function () {
+ImageFilters.StackBlur = ( function () {
 	var mul_table = [
 		512, 512, 456, 512, 328, 456, 335, 512, 405, 328, 271, 456, 388, 335, 292, 512,
 		454, 405, 364, 328, 298, 271, 496, 456, 420, 388, 360, 335, 312, 292, 273, 512,
@@ -630,7 +633,8 @@ ImageFilters.StackBlur = (function () {
 		451, 446, 442, 437, 433, 428, 424, 420, 416, 412, 408, 404, 400, 396, 392, 388,
 		385, 381, 377, 374, 370, 367, 363, 360, 357, 354, 350, 347, 344, 341, 338, 335,
 		332, 329, 326, 323, 320, 318, 315, 312, 310, 307, 304, 302, 299, 297, 294, 292,
-		289, 287, 285, 282, 280, 278, 275, 273, 271, 269, 267, 265, 263, 261, 259];
+		289, 287, 285, 282, 280, 278, 275, 273, 271, 269, 267, 265, 263, 261, 259
+	];
 
 
 	var shg_table = [
@@ -649,7 +653,8 @@ ImageFilters.StackBlur = (function () {
 		24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24,
 		24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24,
 		24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24,
-		24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24];
+		24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24
+	];
 
 	function BlurStack() {
 		this.r = 0;
@@ -659,12 +664,12 @@ ImageFilters.StackBlur = (function () {
 		this.next = null;
 	}
 
-	return function (srcImageData, radius) {
+	return function ( srcImageData, radius ) {
 		var srcPixels = srcImageData.data,
 			srcWidth = srcImageData.width,
 			srcHeight = srcImageData.height,
 			srcLength = srcPixels.length,
-			dstImageData = this.Clone(srcImageData),
+			dstImageData = this.Clone( srcImageData ),
 			dstPixels = dstImageData.data;
 
 		var x, y, i, p, yp, yi, yw,
@@ -677,16 +682,16 @@ ImageFilters.StackBlur = (function () {
 			widthMinus1 = srcWidth - 1,
 			heightMinus1 = srcHeight - 1,
 			radiusPlus1 = radius + 1,
-			sumFactor = radiusPlus1 * (radiusPlus1 + 1) / 2,
+			sumFactor = radiusPlus1 * ( radiusPlus1 + 1 ) / 2,
 			stackStart = new BlurStack(),
 			stack = stackStart,
 			stackIn, stackOut, stackEnd,
-			mul_sum = mul_table[radius],
-			shg_sum = shg_table[radius];
+			mul_sum = mul_table[ radius ],
+			shg_sum = shg_table[ radius ];
 
-		for (i = 1; i < div; i += 1) {
+		for ( i = 1; i < div; i += 1 ) {
 			stack = stack.next = new BlurStack();
-			if (i == radiusPlus1) {
+			if ( i == radiusPlus1 ) {
 				stackEnd = stack;
 			}
 		}
@@ -694,13 +699,13 @@ ImageFilters.StackBlur = (function () {
 		stack.next = stackStart;
 		yw = yi = 0;
 
-		for (y = 0; y < srcHeight; y += 1) {
+		for ( y = 0; y < srcHeight; y += 1 ) {
 			r_in_sum = g_in_sum = b_in_sum = a_in_sum = r_sum = g_sum = b_sum = a_sum = 0;
 
-			r_out_sum = radiusPlus1 * (pr = dstPixels[yi]);
-			g_out_sum = radiusPlus1 * (pg = dstPixels[yi + 1]);
-			b_out_sum = radiusPlus1 * (pb = dstPixels[yi + 2]);
-			a_out_sum = radiusPlus1 * (pa = dstPixels[yi + 3]);
+			r_out_sum = radiusPlus1 * ( pr = dstPixels[ yi ] );
+			g_out_sum = radiusPlus1 * ( pg = dstPixels[ yi + 1 ] );
+			b_out_sum = radiusPlus1 * ( pb = dstPixels[ yi + 2 ] );
+			a_out_sum = radiusPlus1 * ( pa = dstPixels[ yi + 3 ] );
 
 			r_sum += sumFactor * pr;
 			g_sum += sumFactor * pg;
@@ -709,7 +714,7 @@ ImageFilters.StackBlur = (function () {
 
 			stack = stackStart;
 
-			for (i = 0; i < radiusPlus1; i += 1) {
+			for ( i = 0; i < radiusPlus1; i += 1 ) {
 				stack.r = pr;
 				stack.g = pg;
 				stack.b = pb;
@@ -717,12 +722,12 @@ ImageFilters.StackBlur = (function () {
 				stack = stack.next;
 			}
 
-			for (i = 1; i < radiusPlus1; i += 1) {
-				p = yi + ((widthMinus1 < i ? widthMinus1 : i) << 2);
-				r_sum += (stack.r = (pr = dstPixels[p])) * (rbs = radiusPlus1 - i);
-				g_sum += (stack.g = (pg = dstPixels[p + 1])) * rbs;
-				b_sum += (stack.b = (pb = dstPixels[p + 2])) * rbs;
-				a_sum += (stack.a = (pa = dstPixels[p + 3])) * rbs;
+			for ( i = 1; i < radiusPlus1; i += 1 ) {
+				p = yi + ( ( widthMinus1 < i ? widthMinus1 : i ) << 2 );
+				r_sum += ( stack.r = ( pr = dstPixels[ p ] ) ) * ( rbs = radiusPlus1 - i );
+				g_sum += ( stack.g = ( pg = dstPixels[ p + 1 ] ) ) * rbs;
+				b_sum += ( stack.b = ( pb = dstPixels[ p + 2 ] ) ) * rbs;
+				a_sum += ( stack.a = ( pa = dstPixels[ p + 3 ] ) ) * rbs;
 
 				r_in_sum += pr;
 				g_in_sum += pg;
@@ -735,11 +740,11 @@ ImageFilters.StackBlur = (function () {
 			stackIn = stackStart;
 			stackOut = stackEnd;
 
-			for (x = 0; x < srcWidth; x += 1) {
-				dstPixels[yi] = (r_sum * mul_sum) >> shg_sum;
-				dstPixels[yi + 1] = (g_sum * mul_sum) >> shg_sum;
-				dstPixels[yi + 2] = (b_sum * mul_sum) >> shg_sum;
-				dstPixels[yi + 3] = (a_sum * mul_sum) >> shg_sum;
+			for ( x = 0; x < srcWidth; x += 1 ) {
+				dstPixels[ yi ] = ( r_sum * mul_sum ) >> shg_sum;
+				dstPixels[ yi + 1 ] = ( g_sum * mul_sum ) >> shg_sum;
+				dstPixels[ yi + 2 ] = ( b_sum * mul_sum ) >> shg_sum;
+				dstPixels[ yi + 3 ] = ( a_sum * mul_sum ) >> shg_sum;
 
 				r_sum -= r_out_sum;
 				g_sum -= g_out_sum;
@@ -751,12 +756,12 @@ ImageFilters.StackBlur = (function () {
 				b_out_sum -= stackIn.b;
 				a_out_sum -= stackIn.a;
 
-				p = (yw + ((p = x + radius + 1) < widthMinus1 ? p : widthMinus1)) << 2;
+				p = ( yw + ( ( p = x + radius + 1 ) < widthMinus1 ? p : widthMinus1 ) ) << 2;
 
-				r_in_sum += (stackIn.r = dstPixels[p]);
-				g_in_sum += (stackIn.g = dstPixels[p + 1]);
-				b_in_sum += (stackIn.b = dstPixels[p + 2]);
-				a_in_sum += (stackIn.a = dstPixels[p + 3]);
+				r_in_sum += ( stackIn.r = dstPixels[ p ] );
+				g_in_sum += ( stackIn.g = dstPixels[ p + 1 ] );
+				b_in_sum += ( stackIn.b = dstPixels[ p + 2 ] );
+				a_in_sum += ( stackIn.a = dstPixels[ p + 3 ] );
 
 				r_sum += r_in_sum;
 				g_sum += g_in_sum;
@@ -765,10 +770,10 @@ ImageFilters.StackBlur = (function () {
 
 				stackIn = stackIn.next;
 
-				r_out_sum += (pr = stackOut.r);
-				g_out_sum += (pg = stackOut.g);
-				b_out_sum += (pb = stackOut.b);
-				a_out_sum += (pa = stackOut.a);
+				r_out_sum += ( pr = stackOut.r );
+				g_out_sum += ( pg = stackOut.g );
+				b_out_sum += ( pb = stackOut.b );
+				a_out_sum += ( pa = stackOut.a );
 
 				r_in_sum -= pr;
 				g_in_sum -= pg;
@@ -783,14 +788,14 @@ ImageFilters.StackBlur = (function () {
 			yw += srcWidth;
 		}
 
-		for (x = 0; x < srcWidth; x += 1) {
+		for ( x = 0; x < srcWidth; x += 1 ) {
 			g_in_sum = b_in_sum = a_in_sum = r_in_sum = g_sum = b_sum = a_sum = r_sum = 0;
 
 			yi = x << 2;
-			r_out_sum = radiusPlus1 * (pr = dstPixels[yi]);
-			g_out_sum = radiusPlus1 * (pg = dstPixels[yi + 1]);
-			b_out_sum = radiusPlus1 * (pb = dstPixels[yi + 2]);
-			a_out_sum = radiusPlus1 * (pa = dstPixels[yi + 3]);
+			r_out_sum = radiusPlus1 * ( pr = dstPixels[ yi ] );
+			g_out_sum = radiusPlus1 * ( pg = dstPixels[ yi + 1 ] );
+			b_out_sum = radiusPlus1 * ( pb = dstPixels[ yi + 2 ] );
+			a_out_sum = radiusPlus1 * ( pa = dstPixels[ yi + 3 ] );
 
 			r_sum += sumFactor * pr;
 			g_sum += sumFactor * pg;
@@ -799,7 +804,7 @@ ImageFilters.StackBlur = (function () {
 
 			stack = stackStart;
 
-			for (i = 0; i < radiusPlus1; i += 1) {
+			for ( i = 0; i < radiusPlus1; i += 1 ) {
 				stack.r = pr;
 				stack.g = pg;
 				stack.b = pb;
@@ -809,13 +814,13 @@ ImageFilters.StackBlur = (function () {
 
 			yp = srcWidth;
 
-			for (i = 1; i <= radius; i += 1) {
-				yi = (yp + x) << 2;
+			for ( i = 1; i <= radius; i += 1 ) {
+				yi = ( yp + x ) << 2;
 
-				r_sum += (stack.r = (pr = dstPixels[yi])) * (rbs = radiusPlus1 - i);
-				g_sum += (stack.g = (pg = dstPixels[yi + 1])) * rbs;
-				b_sum += (stack.b = (pb = dstPixels[yi + 2])) * rbs;
-				a_sum += (stack.a = (pa = dstPixels[yi + 3])) * rbs;
+				r_sum += ( stack.r = ( pr = dstPixels[ yi ] ) ) * ( rbs = radiusPlus1 - i );
+				g_sum += ( stack.g = ( pg = dstPixels[ yi + 1 ] ) ) * rbs;
+				b_sum += ( stack.b = ( pb = dstPixels[ yi + 2 ] ) ) * rbs;
+				a_sum += ( stack.a = ( pa = dstPixels[ yi + 3 ] ) ) * rbs;
 
 				r_in_sum += pr;
 				g_in_sum += pg;
@@ -824,7 +829,7 @@ ImageFilters.StackBlur = (function () {
 
 				stack = stack.next;
 
-				if (i < heightMinus1) {
+				if ( i < heightMinus1 ) {
 					yp += srcWidth;
 				}
 			}
@@ -833,12 +838,12 @@ ImageFilters.StackBlur = (function () {
 			stackIn = stackStart;
 			stackOut = stackEnd;
 
-			for (y = 0; y < srcHeight; y += 1) {
+			for ( y = 0; y < srcHeight; y += 1 ) {
 				p = yi << 2;
-				dstPixels[p] = (r_sum * mul_sum) >> shg_sum;
-				dstPixels[p + 1] = (g_sum * mul_sum) >> shg_sum;
-				dstPixels[p + 2] = (b_sum * mul_sum) >> shg_sum;
-				dstPixels[p + 3] = (a_sum * mul_sum) >> shg_sum;
+				dstPixels[ p ] = ( r_sum * mul_sum ) >> shg_sum;
+				dstPixels[ p + 1 ] = ( g_sum * mul_sum ) >> shg_sum;
+				dstPixels[ p + 2 ] = ( b_sum * mul_sum ) >> shg_sum;
+				dstPixels[ p + 3 ] = ( a_sum * mul_sum ) >> shg_sum;
 
 				r_sum -= r_out_sum;
 				g_sum -= g_out_sum;
@@ -850,19 +855,19 @@ ImageFilters.StackBlur = (function () {
 				b_out_sum -= stackIn.b;
 				a_out_sum -= stackIn.a;
 
-				p = (x + (((p = y + radiusPlus1) < heightMinus1 ? p : heightMinus1) * srcWidth)) << 2;
+				p = ( x + ( ( ( p = y + radiusPlus1 ) < heightMinus1 ? p : heightMinus1 ) * srcWidth ) ) << 2;
 
-				r_sum += (r_in_sum += (stackIn.r = dstPixels[p]));
-				g_sum += (g_in_sum += (stackIn.g = dstPixels[p + 1]));
-				b_sum += (b_in_sum += (stackIn.b = dstPixels[p + 2]));
-				a_sum += (a_in_sum += (stackIn.a = dstPixels[p + 3]));
+				r_sum += ( r_in_sum += ( stackIn.r = dstPixels[ p ] ) );
+				g_sum += ( g_in_sum += ( stackIn.g = dstPixels[ p + 1 ] ) );
+				b_sum += ( b_in_sum += ( stackIn.b = dstPixels[ p + 2 ] ) );
+				a_sum += ( a_in_sum += ( stackIn.a = dstPixels[ p + 3 ] ) );
 
 				stackIn = stackIn.next;
 
-				r_out_sum += (pr = stackOut.r);
-				g_out_sum += (pg = stackOut.g);
-				b_out_sum += (pb = stackOut.b);
-				a_out_sum += (pa = stackOut.a);
+				r_out_sum += ( pr = stackOut.r );
+				g_out_sum += ( pg = stackOut.g );
+				b_out_sum += ( pb = stackOut.b );
+				a_out_sum += ( pa = stackOut.a );
 
 				r_in_sum -= pr;
 				g_in_sum -= pg;
@@ -877,23 +882,23 @@ ImageFilters.StackBlur = (function () {
 
 		return dstImageData;
 	}
-}());
+}() );
 
 /**
  * TV based algorithm
  */
-ImageFilters.Brightness = function (srcImageData, brightness) {
+ImageFilters.Brightness = function ( srcImageData, brightness ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data;
 
-	this.utils.mapRGB(srcPixels, dstPixels, function (value) {
+	this.utils.mapRGB( srcPixels, dstPixels, function ( value ) {
 		value += brightness;
-		return (value > 255) ? 255 : value;
-	});
+		return ( value > 255 ) ? 255 : value;
+	} );
 
 	return dstImageData;
 };
@@ -903,12 +908,12 @@ ImageFilters.Brightness = function (srcImageData, brightness) {
  * @param brightness -100 <= n <= 100
  * @param contrast -100 <= n <= 100
  */
-ImageFilters.BrightnessContrastGimp = function (srcImageData, brightness, contrast) {
+ImageFilters.BrightnessContrastGimp = function ( srcImageData, brightness, contrast ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data,
 		p4 = Math.PI / 4;
 
@@ -920,27 +925,27 @@ ImageFilters.BrightnessContrastGimp = function (srcImageData, brightness, contra
 	// fix to -1 < n < 1
 	contrast /= 100;
 	// apply GIMP formula
-	contrast = Math.tan((contrast + 1) * p4);
+	contrast = Math.tan( ( contrast + 1 ) * p4 );
 
 	// get the average color
-	for (var avg = 0, i = 0; i < srcLength; i += 4) {
-		avg += (srcPixels[i] * 19595 + srcPixels[i + 1] * 38470 + srcPixels[i + 2] * 7471) >> 16;
+	for ( var avg = 0, i = 0; i < srcLength; i += 4 ) {
+		avg += ( srcPixels[ i ] * 19595 + srcPixels[ i + 1 ] * 38470 + srcPixels[ i + 2 ] * 7471 ) >> 16;
 	}
-	avg = avg / (srcLength / 4);
+	avg = avg / ( srcLength / 4 );
 
-	this.utils.mapRGB(srcPixels, dstPixels, function (value) {
-		if (brightness < 0) {
-			value = value * (1 + brightness);
-		} else if (brightness > 0) {
-			value = value + ((255 - value) * brightness);
+	this.utils.mapRGB( srcPixels, dstPixels, function ( value ) {
+		if ( brightness < 0 ) {
+			value = value * ( 1 + brightness );
+		} else if ( brightness > 0 ) {
+			value = value + ( ( 255 - value ) * brightness );
 		}
 		//value += brightness;
 
-		if (contrast !== 0) {
-			value = (value - avg) * contrast + avg;
+		if ( contrast !== 0 ) {
+			value = ( value - avg ) * contrast + avg;
 		}
 		return value + 0.5 | 0;
-	});
+	} );
 	return dstImageData;
 };
 
@@ -949,30 +954,30 @@ ImageFilters.BrightnessContrastGimp = function (srcImageData, brightness, contra
  * @param brightness -100 <= n <= 100
  * @param contrast -100 <= n <= 100
  */
-ImageFilters.BrightnessContrastPhotoshop = function (srcImageData, brightness, contrast) {
+ImageFilters.BrightnessContrastPhotoshop = function ( srcImageData, brightness, contrast ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data;
 
 	// fix to 0 <= n <= 2;
-	brightness = (brightness + 100) / 100;
-	contrast = (contrast + 100) / 100;
+	brightness = ( brightness + 100 ) / 100;
+	contrast = ( contrast + 100 ) / 100;
 
-	this.utils.mapRGB(srcPixels, dstPixels, function (value) {
+	this.utils.mapRGB( srcPixels, dstPixels, function ( value ) {
 		value *= brightness;
-		value = (value - 127.5) * contrast + 127.5;
+		value = ( value - 127.5 ) * contrast + 127.5;
 		return value + 0.5 | 0;
-	});
+	} );
 	return dstImageData;
 };
 
-ImageFilters.Channels = function (srcImageData, channel) {
+ImageFilters.Channels = function ( srcImageData, channel ) {
 	var matrix;
 
-	switch (channel) {
+	switch ( channel ) {
 		case 2: // green
 			matrix = [
 				0, 1, 0, 0, 0,
@@ -1000,17 +1005,17 @@ ImageFilters.Channels = function (srcImageData, channel) {
 
 	}
 
-	return this.ColorMatrixFilter(srcImageData, matrix);
+	return this.ColorMatrixFilter( srcImageData, matrix );
 };
 
-ImageFilters.Clone = function (srcImageData) {
-	return this.Copy(srcImageData, this.utils.createImageData(srcImageData.width, srcImageData.height));
+ImageFilters.Clone = function ( srcImageData ) {
+	return this.Copy( srcImageData, this.utils.createImageData( srcImageData.width, srcImageData.height ) );
 };
 
 /**
  * slower
  */
-ImageFilters.CloneBuiltin = function (srcImageData) {
+ImageFilters.CloneBuiltin = function ( srcImageData ) {
 	var srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		canvas = this.utils.getSampleCanvas(),
@@ -1020,8 +1025,8 @@ ImageFilters.CloneBuiltin = function (srcImageData) {
 	canvas.width = srcWidth;
 	canvas.height = srcHeight;
 
-	context.putImageData(srcImageData, 0, 0);
-	dstImageData = context.getImageData(0, 0, srcWidth, srcHeight);
+	context.putImageData( srcImageData, 0, 0 );
+	dstImageData = context.getImageData( 0, 0, srcWidth, srcHeight );
 
 	canvas.width = 0;
 	canvas.height = 0;
@@ -1029,46 +1034,46 @@ ImageFilters.CloneBuiltin = function (srcImageData) {
 	return dstImageData;
 };
 
-ImageFilters.ColorMatrixFilter = function (srcImageData, matrix) {
+ImageFilters.ColorMatrixFilter = function ( srcImageData, matrix ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data;
 
-	var m0 = matrix[0],
-		m1 = matrix[1],
-		m2 = matrix[2],
-		m3 = matrix[3],
-		m4 = matrix[4],
-		m5 = matrix[5],
-		m6 = matrix[6],
-		m7 = matrix[7],
-		m8 = matrix[8],
-		m9 = matrix[9],
-		m10 = matrix[10],
-		m11 = matrix[11],
-		m12 = matrix[12],
-		m13 = matrix[13],
-		m14 = matrix[14],
-		m15 = matrix[15],
-		m16 = matrix[16],
-		m17 = matrix[17],
-		m18 = matrix[18],
-		m19 = matrix[19];
+	var m0 = matrix[ 0 ],
+		m1 = matrix[ 1 ],
+		m2 = matrix[ 2 ],
+		m3 = matrix[ 3 ],
+		m4 = matrix[ 4 ],
+		m5 = matrix[ 5 ],
+		m6 = matrix[ 6 ],
+		m7 = matrix[ 7 ],
+		m8 = matrix[ 8 ],
+		m9 = matrix[ 9 ],
+		m10 = matrix[ 10 ],
+		m11 = matrix[ 11 ],
+		m12 = matrix[ 12 ],
+		m13 = matrix[ 13 ],
+		m14 = matrix[ 14 ],
+		m15 = matrix[ 15 ],
+		m16 = matrix[ 16 ],
+		m17 = matrix[ 17 ],
+		m18 = matrix[ 18 ],
+		m19 = matrix[ 19 ];
 
 	var value, i, r, g, b, a;
-	for (i = 0; i < srcLength; i += 4) {
-		r = srcPixels[i];
-		g = srcPixels[i + 1];
-		b = srcPixels[i + 2];
-		a = srcPixels[i + 3];
+	for ( i = 0; i < srcLength; i += 4 ) {
+		r = srcPixels[ i ];
+		g = srcPixels[ i + 1 ];
+		b = srcPixels[ i + 2 ];
+		a = srcPixels[ i + 3 ];
 
-		dstPixels[i] = (value = r * m0 + g * m1 + b * m2 + a * m3 + m4) > 255 ? 255 : value < 0 ? 0 : value | 0;
-		dstPixels[i + 1] = (value = r * m5 + g * m6 + b * m7 + a * m8 + m9) > 255 ? 255 : value < 0 ? 0 : value | 0;
-		dstPixels[i + 2] = (value = r * m10 + g * m11 + b * m12 + a * m13 + m14) > 255 ? 255 : value < 0 ? 0 : value | 0;
-		dstPixels[i + 3] = (value = r * m15 + g * m16 + b * m17 + a * m18 + m19) > 255 ? 255 : value < 0 ? 0 : value | 0;
+		dstPixels[ i ] = ( value = r * m0 + g * m1 + b * m2 + a * m3 + m4 ) > 255 ? 255 : value < 0 ? 0 : value | 0;
+		dstPixels[ i + 1 ] = ( value = r * m5 + g * m6 + b * m7 + a * m8 + m9 ) > 255 ? 255 : value < 0 ? 0 : value | 0;
+		dstPixels[ i + 2 ] = ( value = r * m10 + g * m11 + b * m12 + a * m13 + m14 ) > 255 ? 255 : value < 0 ? 0 : value | 0;
+		dstPixels[ i + 3 ] = ( value = r * m15 + g * m16 + b * m17 + a * m18 + m19 ) > 255 ? 255 : value < 0 ? 0 : value | 0;
 	}
 
 	return dstImageData;
@@ -1076,68 +1081,68 @@ ImageFilters.ColorMatrixFilter = function (srcImageData, matrix) {
 
 ImageFilters.ColorTransformFilter = function (
 	srcImageData, redMultiplier, greenMultiplier, blueMultiplier, alphaMultiplier,
-	redOffset, greenOffset, blueOffset, alphaOffset) {
+	redOffset, greenOffset, blueOffset, alphaOffset ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data;
 
 	var i, v;
-	for (i = 0; i < srcLength; i += 4) {
-		dstPixels[i] = (v = srcPixels[i] * redMultiplier + redOffset) > 255 ? 255 : v < 0 ? 0 : v;
-		dstPixels[i + 1] = (v = srcPixels[i + 1] * greenMultiplier + greenOffset) > 255 ? 255 : v < 0 ? 0 : v;
-		dstPixels[i + 2] = (v = srcPixels[i + 2] * blueMultiplier + blueOffset) > 255 ? 255 : v < 0 ? 0 : v;
-		dstPixels[i + 3] = (v = srcPixels[i + 3] * alphaMultiplier + alphaOffset) > 255 ? 255 : v < 0 ? 0 : v;
+	for ( i = 0; i < srcLength; i += 4 ) {
+		dstPixels[ i ] = ( v = srcPixels[ i ] * redMultiplier + redOffset ) > 255 ? 255 : v < 0 ? 0 : v;
+		dstPixels[ i + 1 ] = ( v = srcPixels[ i + 1 ] * greenMultiplier + greenOffset ) > 255 ? 255 : v < 0 ? 0 : v;
+		dstPixels[ i + 2 ] = ( v = srcPixels[ i + 2 ] * blueMultiplier + blueOffset ) > 255 ? 255 : v < 0 ? 0 : v;
+		dstPixels[ i + 3 ] = ( v = srcPixels[ i + 3 ] * alphaMultiplier + alphaOffset ) > 255 ? 255 : v < 0 ? 0 : v;
 	}
 
 	return dstImageData;
 };
 
-ImageFilters.Copy = function (srcImageData, dstImageData) {
+ImageFilters.Copy = function ( srcImageData, dstImageData ) {
 	var srcPixels = srcImageData.data,
 		srcLength = srcPixels.length,
 		dstPixels = dstImageData.data;
 
-	while (srcLength--) {
-		dstPixels[srcLength] = srcPixels[srcLength];
+	while ( srcLength-- ) {
+		dstPixels[ srcLength ] = srcPixels[ srcLength ];
 	}
 
 	return dstImageData;
 };
 
-ImageFilters.Crop = function (srcImageData, x, y, width, height) {
+ImageFilters.Crop = function ( srcImageData, x, y, width, height ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(width, height),
+		dstImageData = this.utils.createImageData( width, height ),
 		dstPixels = dstImageData.data;
 
-	var srcLeft = Math.max(x, 0),
-		srcTop = Math.max(y, 0),
-		srcRight = Math.min(x + width, srcWidth),
-		srcBottom = Math.min(y + height, srcHeight),
+	var srcLeft = Math.max( x, 0 ),
+		srcTop = Math.max( y, 0 ),
+		srcRight = Math.min( x + width, srcWidth ),
+		srcBottom = Math.min( y + height, srcHeight ),
 		dstLeft = srcLeft - x,
 		dstTop = srcTop - y,
 		srcRow, srcCol, srcIndex, dstIndex;
 
-	for (srcRow = srcTop, dstRow = dstTop; srcRow < srcBottom; srcRow += 1, dstRow += 1) {
-		for (srcCol = srcLeft, dstCol = dstLeft; srcCol < srcRight; srcCol += 1, dstCol += 1) {
-			srcIndex = (srcRow * srcWidth + srcCol) << 2;
-			dstIndex = (dstRow * width + dstCol) << 2;
-			dstPixels[dstIndex] = srcPixels[srcIndex];
-			dstPixels[dstIndex + 1] = srcPixels[srcIndex + 1];
-			dstPixels[dstIndex + 2] = srcPixels[srcIndex + 2];
-			dstPixels[dstIndex + 3] = srcPixels[srcIndex + 3];
+	for ( srcRow = srcTop, dstRow = dstTop; srcRow < srcBottom; srcRow += 1, dstRow += 1 ) {
+		for ( srcCol = srcLeft, dstCol = dstLeft; srcCol < srcRight; srcCol += 1, dstCol += 1 ) {
+			srcIndex = ( srcRow * srcWidth + srcCol ) << 2;
+			dstIndex = ( dstRow * width + dstCol ) << 2;
+			dstPixels[ dstIndex ] = srcPixels[ srcIndex ];
+			dstPixels[ dstIndex + 1 ] = srcPixels[ srcIndex + 1 ];
+			dstPixels[ dstIndex + 2 ] = srcPixels[ srcIndex + 2 ];
+			dstPixels[ dstIndex + 3 ] = srcPixels[ srcIndex + 3 ];
 		}
 	}
 
 	return dstImageData;
 };
 
-ImageFilters.CropBuiltin = function (srcImageData, x, y, width, height) {
+ImageFilters.CropBuiltin = function ( srcImageData, x, y, width, height ) {
 	var srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		canvas = this.utils.getSampleCanvas(),
@@ -1145,8 +1150,8 @@ ImageFilters.CropBuiltin = function (srcImageData, x, y, width, height) {
 
 	canvas.width = srcWidth;
 	canvas.height = srcHeight;
-	context.putImageData(srcImageData, 0, 0);
-	var result = context.getImageData(x, y, width, height);
+	context.putImageData( srcImageData, 0, 0 );
+	var result = context.getImageData( x, y, width, height );
 
 	canvas.width = 0;
 	canvas.height = 0;
@@ -1157,44 +1162,44 @@ ImageFilters.CropBuiltin = function (srcImageData, x, y, width, height) {
 /**
  * sets to the average of the highest and lowest contrast
  */
-ImageFilters.Desaturate = function (srcImageData) {
+ImageFilters.Desaturate = function ( srcImageData ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data;
 
-	for (var i = 0; i < srcLength; i += 4) {
-		var r = srcPixels[i],
-			g = srcPixels[i + 1],
-			b = srcPixels[i + 2],
-			max = (r > g) ? (r > b) ? r : b : (g > b) ? g : b,
-			min = (r < g) ? (r < b) ? r : b : (g < b) ? g : b,
-			avg = ((max + min) / 2) + 0.5 | 0;
+	for ( var i = 0; i < srcLength; i += 4 ) {
+		var r = srcPixels[ i ],
+			g = srcPixels[ i + 1 ],
+			b = srcPixels[ i + 2 ],
+			max = ( r > g ) ? ( r > b ) ? r : b : ( g > b ) ? g : b,
+			min = ( r < g ) ? ( r < b ) ? r : b : ( g < b ) ? g : b,
+			avg = ( ( max + min ) / 2 ) + 0.5 | 0;
 
-		dstPixels[i] = dstPixels[i + 1] = dstPixels[i + 2] = avg;
-		dstPixels[i + 3] = srcPixels[i + 3];
+		dstPixels[ i ] = dstPixels[ i + 1 ] = dstPixels[ i + 2 ] = avg;
+		dstPixels[ i + 3 ] = srcPixels[ i + 3 ];
 	}
 
 	return dstImageData;
 };
 
-ImageFilters.DisplacementMapFilter = function (srcImageData, mapImageData, mapX, mapY, componentX, componentY, scaleX, scaleY, mode) {
+ImageFilters.DisplacementMapFilter = function ( srcImageData, mapImageData, mapX, mapY, componentX, componentY, scaleX, scaleY, mode ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = ImageFilters.Clone(srcImageData),
+		dstImageData = ImageFilters.Clone( srcImageData ),
 		dstPixels = dstImageData.data;
 
-	mapX || (mapX = 0);
-	mapY || (mapY = 0);
-	componentX || (componentX = 0); // red?
-	componentY || (componentY = 0);
-	scaleX || (scaleX = 0);
-	scaleY || (scaleY = 0);
-	mode || (mode = 2); // wrap
+	mapX || ( mapX = 0 );
+	mapY || ( mapY = 0 );
+	componentX || ( componentX = 0 ); // red?
+	componentY || ( componentY = 0 );
+	scaleX || ( scaleX = 0 );
+	scaleY || ( scaleY = 0 );
+	mode || ( mode = 2 ); // wrap
 
 	var mapWidth = mapImageData.width,
 		mapHeight = mapImageData.height,
@@ -1204,39 +1209,39 @@ ImageFilters.DisplacementMapFilter = function (srcImageData, mapImageData, mapX,
 		dstIndex, srcIndex, mapIndex,
 		cx, cy, tx, ty, x, y;
 
-	for (x = 0; x < srcWidth; x += 1) {
-		for (y = 0; y < srcHeight; y += 1) {
+	for ( x = 0; x < srcWidth; x += 1 ) {
+		for ( y = 0; y < srcHeight; y += 1 ) {
 
-			dstIndex = (y * srcWidth + x) << 2;
+			dstIndex = ( y * srcWidth + x ) << 2;
 
-			if (x < mapX || y < mapY || x >= mapRight || y >= mapBottom) {
+			if ( x < mapX || y < mapY || x >= mapRight || y >= mapBottom ) {
 				// out of the map bounds
 				// copy src to dst
 				srcIndex = dstIndex;
 			} else {
 				// apply map
-				mapIndex = ((y - mapY) * mapWidth + (x - mapX)) << 2;
+				mapIndex = ( ( y - mapY ) * mapWidth + ( x - mapX ) ) << 2;
 
 				// tx = x + ((componentX(x, y) - 128) * scaleX) / 256
-				cx = mapPixels[mapIndex + componentX];
-				tx = x + (((cx - 128) * scaleX) >> 8);
+				cx = mapPixels[ mapIndex + componentX ];
+				tx = x + ( ( ( cx - 128 ) * scaleX ) >> 8 );
 
 				// tx = y + ((componentY(x, y) - 128) * scaleY) / 256
-				cy = mapPixels[mapIndex + componentY];
-				ty = y + (((cy - 128) * scaleY) >> 8);
+				cy = mapPixels[ mapIndex + componentY ];
+				ty = y + ( ( ( cy - 128 ) * scaleY ) >> 8 );
 
-				srcIndex = ImageFilters.utils.getPixelIndex(tx + 0.5 | 0, ty + 0.5 | 0, srcWidth, srcHeight, mode);
-				if (srcIndex === null) {
+				srcIndex = ImageFilters.utils.getPixelIndex( tx + 0.5 | 0, ty + 0.5 | 0, srcWidth, srcHeight, mode );
+				if ( srcIndex === null ) {
 					// if mode == ignore and (tx,ty) is out of src bounds
 					// then copy (x,y) to dst
 					srcIndex = dstIndex;
 				}
 			}
 
-			dstPixels[dstIndex] = srcPixels[srcIndex];
-			dstPixels[dstIndex + 1] = srcPixels[srcIndex + 1];
-			dstPixels[dstIndex + 2] = srcPixels[srcIndex + 2];
-			dstPixels[dstIndex + 3] = srcPixels[srcIndex + 3];
+			dstPixels[ dstIndex ] = srcPixels[ srcIndex ];
+			dstPixels[ dstIndex + 1 ] = srcPixels[ srcIndex + 1 ];
+			dstPixels[ dstIndex + 2 ] = srcPixels[ srcIndex + 2 ];
+			dstPixels[ dstIndex + 3 ] = srcPixels[ srcIndex + 3 ];
 		}
 	}
 
@@ -1247,10 +1252,10 @@ ImageFilters.DisplacementMapFilter = function (srcImageData, mapImageData, mapX,
  * Floyd-Steinberg algorithm
  * @param levels 2 <= n <= 255
  */
-ImageFilters.Dither = function (srcImageData, levels) {
+ImageFilters.Dither = function ( srcImageData, levels ) {
 	var srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
-		dstImageData = this.Clone(srcImageData),
+		dstImageData = this.Clone( srcImageData ),
 		dstPixels = dstImageData.data;
 
 	levels = levels < 2 ? 2 : levels > 255 ? 255 : levels;
@@ -1263,22 +1268,22 @@ ImageFilters.Dither = function (srcImageData, levels) {
 		k = 0,
 		i;
 
-	for (i = 0; i < levels; i += 1) {
-		levelMap[i] = (255 * i) / levelsMinus1;
+	for ( i = 0; i < levels; i += 1 ) {
+		levelMap[ i ] = ( 255 * i ) / levelsMinus1;
 	}
 
-	posterize = this.utils.buildMap(function (value) {
-		var ret = levelMap[j];
+	posterize = this.utils.buildMap( function ( value ) {
+		var ret = levelMap[ j ];
 
 		k += levels;
 
-		if (k > 255) {
+		if ( k > 255 ) {
 			k -= 255;
 			j += 1;
 		}
 
 		return ret;
-	});
+	} );
 
 	// Apply the dithering algorithm to each pixel
 	var x, y,
@@ -1294,24 +1299,24 @@ ImageFilters.Dither = function (srcImageData, levels) {
 		C = 5 / 16,
 		D = 1 / 16;
 
-	for (y = 0; y < srcHeight; y += 1) {
-		for (x = 0; x < srcWidth; x += 1) {
+	for ( y = 0; y < srcHeight; y += 1 ) {
+		for ( x = 0; x < srcWidth; x += 1 ) {
 			// Get the current pixel.
-			index = (y * srcWidth + x) << 2;
+			index = ( y * srcWidth + x ) << 2;
 
-			old_r = dstPixels[index];
-			old_g = dstPixels[index + 1];
-			old_b = dstPixels[index + 2];
+			old_r = dstPixels[ index ];
+			old_g = dstPixels[ index + 1 ];
+			old_b = dstPixels[ index + 2 ];
 
 			// Quantize using the color map
-			new_r = posterize[old_r];
-			new_g = posterize[old_g];
-			new_b = posterize[old_b];
+			new_r = posterize[ old_r ];
+			new_g = posterize[ old_g ];
+			new_b = posterize[ old_b ];
 
 			// Set the current pixel.
-			dstPixels[index] = new_r;
-			dstPixels[index + 1] = new_g;
-			dstPixels[index + 2] = new_b;
+			dstPixels[ index ] = new_r;
+			dstPixels[ index + 1 ] = new_g;
+			dstPixels[ index + 2 ] = new_b;
 
 			// Quantization errors
 			err_r = old_r - new_r;
@@ -1321,50 +1326,50 @@ ImageFilters.Dither = function (srcImageData, levels) {
 			// Apply the matrix.
 			// x + 1, y
 			index += 1 << 2;
-			if (x < srcWidthMinus1) {
-				nbr_r = dstPixels[index] + A * err_r;
-				nbr_g = dstPixels[index + 1] + A * err_g;
-				nbr_b = dstPixels[index + 2] + A * err_b;
+			if ( x < srcWidthMinus1 ) {
+				nbr_r = dstPixels[ index ] + A * err_r;
+				nbr_g = dstPixels[ index + 1 ] + A * err_g;
+				nbr_b = dstPixels[ index + 2 ] + A * err_b;
 
-				dstPixels[index] = nbr_r > 255 ? 255 : nbr_r < 0 ? 0 : nbr_r | 0;
-				dstPixels[index + 1] = nbr_g > 255 ? 255 : nbr_g < 0 ? 0 : nbr_g | 0;
-				dstPixels[index + 2] = nbr_b > 255 ? 255 : nbr_b < 0 ? 0 : nbr_b | 0;
+				dstPixels[ index ] = nbr_r > 255 ? 255 : nbr_r < 0 ? 0 : nbr_r | 0;
+				dstPixels[ index + 1 ] = nbr_g > 255 ? 255 : nbr_g < 0 ? 0 : nbr_g | 0;
+				dstPixels[ index + 2 ] = nbr_b > 255 ? 255 : nbr_b < 0 ? 0 : nbr_b | 0;
 			}
 
 			// x - 1, y + 1
-			index += (srcWidth - 2) << 2;
-			if (x > 0 && y < srcHeightMinus1) {
-				nbr_r = dstPixels[index] + B * err_r;
-				nbr_g = dstPixels[index + 1] + B * err_g;
-				nbr_b = dstPixels[index + 2] + B * err_b;
+			index += ( srcWidth - 2 ) << 2;
+			if ( x > 0 && y < srcHeightMinus1 ) {
+				nbr_r = dstPixels[ index ] + B * err_r;
+				nbr_g = dstPixels[ index + 1 ] + B * err_g;
+				nbr_b = dstPixels[ index + 2 ] + B * err_b;
 
-				dstPixels[index] = nbr_r > 255 ? 255 : nbr_r < 0 ? 0 : nbr_r | 0;
-				dstPixels[index + 1] = nbr_g > 255 ? 255 : nbr_g < 0 ? 0 : nbr_g | 0;
-				dstPixels[index + 2] = nbr_b > 255 ? 255 : nbr_b < 0 ? 0 : nbr_b | 0;
+				dstPixels[ index ] = nbr_r > 255 ? 255 : nbr_r < 0 ? 0 : nbr_r | 0;
+				dstPixels[ index + 1 ] = nbr_g > 255 ? 255 : nbr_g < 0 ? 0 : nbr_g | 0;
+				dstPixels[ index + 2 ] = nbr_b > 255 ? 255 : nbr_b < 0 ? 0 : nbr_b | 0;
 			}
 
 			// x, y + 1
 			index += 1 << 2;
-			if (y < srcHeightMinus1) {
-				nbr_r = dstPixels[index] + C * err_r;
-				nbr_g = dstPixels[index + 1] + C * err_g;
-				nbr_b = dstPixels[index + 2] + C * err_b;
+			if ( y < srcHeightMinus1 ) {
+				nbr_r = dstPixels[ index ] + C * err_r;
+				nbr_g = dstPixels[ index + 1 ] + C * err_g;
+				nbr_b = dstPixels[ index + 2 ] + C * err_b;
 
-				dstPixels[index] = nbr_r > 255 ? 255 : nbr_r < 0 ? 0 : nbr_r | 0;
-				dstPixels[index + 1] = nbr_g > 255 ? 255 : nbr_g < 0 ? 0 : nbr_g | 0;
-				dstPixels[index + 2] = nbr_b > 255 ? 255 : nbr_b < 0 ? 0 : nbr_b | 0;
+				dstPixels[ index ] = nbr_r > 255 ? 255 : nbr_r < 0 ? 0 : nbr_r | 0;
+				dstPixels[ index + 1 ] = nbr_g > 255 ? 255 : nbr_g < 0 ? 0 : nbr_g | 0;
+				dstPixels[ index + 2 ] = nbr_b > 255 ? 255 : nbr_b < 0 ? 0 : nbr_b | 0;
 			}
 
 			// x + 1, y + 1
 			index += 1 << 2;
-			if (x < srcWidthMinus1 && y < srcHeightMinus1) {
-				nbr_r = dstPixels[index] + D * err_r;
-				nbr_g = dstPixels[index + 1] + D * err_g;
-				nbr_b = dstPixels[index + 2] + D * err_b;
+			if ( x < srcWidthMinus1 && y < srcHeightMinus1 ) {
+				nbr_r = dstPixels[ index ] + D * err_r;
+				nbr_g = dstPixels[ index + 1 ] + D * err_g;
+				nbr_b = dstPixels[ index + 2 ] + D * err_b;
 
-				dstPixels[index] = nbr_r > 255 ? 255 : nbr_r < 0 ? 0 : nbr_r | 0;
-				dstPixels[index + 1] = nbr_g > 255 ? 255 : nbr_g < 0 ? 0 : nbr_g | 0;
-				dstPixels[index + 2] = nbr_b > 255 ? 255 : nbr_b < 0 ? 0 : nbr_b | 0;
+				dstPixels[ index ] = nbr_r > 255 ? 255 : nbr_r < 0 ? 0 : nbr_r | 0;
+				dstPixels[ index + 1 ] = nbr_g > 255 ? 255 : nbr_g < 0 ? 0 : nbr_g | 0;
+				dstPixels[ index + 2 ] = nbr_b > 255 ? 255 : nbr_b < 0 ? 0 : nbr_b | 0;
 			}
 		}
 	}
@@ -1372,89 +1377,89 @@ ImageFilters.Dither = function (srcImageData, levels) {
 	return dstImageData;
 };
 
-ImageFilters.Edge = function (srcImageData) {
+ImageFilters.Edge = function ( srcImageData ) {
 	//pretty close to Fireworks 'Find Edges' effect
-	return this.ConvolutionFilter(srcImageData, 3, 3, [
+	return this.ConvolutionFilter( srcImageData, 3, 3, [
 		-1, -1, -1,
 		-1, 8, -1,
 		-1, -1, -1
-	]);
+	] );
 };
 
-ImageFilters.Emboss = function (srcImageData) {
-	return this.ConvolutionFilter(srcImageData, 3, 3, [
+ImageFilters.Emboss = function ( srcImageData ) {
+	return this.ConvolutionFilter( srcImageData, 3, 3, [
 		-2, -1, 0,
 		-1, 1, 1,
 		0, 1, 2
-	]);
+	] );
 };
 
-ImageFilters.Enrich = function (srcImageData) {
-	return this.ConvolutionFilter(srcImageData, 3, 3, [
+ImageFilters.Enrich = function ( srcImageData ) {
+	return this.ConvolutionFilter( srcImageData, 3, 3, [
 		0, -2, 0,
 		-2, 20, -2,
 		0, -2, 0
-	], 10, -40);
+	], 10, -40 );
 };
 
-ImageFilters.Flip = function (srcImageData, vertical) {
+ImageFilters.Flip = function ( srcImageData, vertical ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data;
 
 	var x, y, srcIndex, dstIndex, i;
 
-	for (y = 0; y < srcHeight; y += 1) {
-		for (x = 0; x < srcWidth; x += 1) {
-			srcIndex = (y * srcWidth + x) << 2;
-			if (vertical) {
-				dstIndex = ((srcHeight - y - 1) * srcWidth + x) << 2;
+	for ( y = 0; y < srcHeight; y += 1 ) {
+		for ( x = 0; x < srcWidth; x += 1 ) {
+			srcIndex = ( y * srcWidth + x ) << 2;
+			if ( vertical ) {
+				dstIndex = ( ( srcHeight - y - 1 ) * srcWidth + x ) << 2;
 			} else {
-				dstIndex = (y * srcWidth + (srcWidth - x - 1)) << 2;
+				dstIndex = ( y * srcWidth + ( srcWidth - x - 1 ) ) << 2;
 			}
 
-			dstPixels[dstIndex] = srcPixels[srcIndex];
-			dstPixels[dstIndex + 1] = srcPixels[srcIndex + 1];
-			dstPixels[dstIndex + 2] = srcPixels[srcIndex + 2];
-			dstPixels[dstIndex + 3] = srcPixels[srcIndex + 3];
+			dstPixels[ dstIndex ] = srcPixels[ srcIndex ];
+			dstPixels[ dstIndex + 1 ] = srcPixels[ srcIndex + 1 ];
+			dstPixels[ dstIndex + 2 ] = srcPixels[ srcIndex + 2 ];
+			dstPixels[ dstIndex + 3 ] = srcPixels[ srcIndex + 3 ];
 		}
 	}
 
 	return dstImageData;
 };
 
-ImageFilters.Gamma = function (srcImageData, gamma) {
+ImageFilters.Gamma = function ( srcImageData, gamma ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data;
 
-	this.utils.mapRGB(srcPixels, dstPixels, function (value) {
-		value = (255 * Math.pow(value / 255, 1 / gamma) + 0.5);
+	this.utils.mapRGB( srcPixels, dstPixels, function ( value ) {
+		value = ( 255 * Math.pow( value / 255, 1 / gamma ) + 0.5 );
 		return value > 255 ? 255 : value + 0.5 | 0;
-	});
+	} );
 
 	return dstImageData;
 };
 
-ImageFilters.GrayScale = function (srcImageData) {
+ImageFilters.GrayScale = function ( srcImageData ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data;
 
-	for (var i = 0; i < srcLength; i += 4) {
-		var intensity = (srcPixels[i] * 19595 + srcPixels[i + 1] * 38470 + srcPixels[i + 2] * 7471) >> 16;
+	for ( var i = 0; i < srcLength; i += 4 ) {
+		var intensity = ( srcPixels[ i ] * 19595 + srcPixels[ i + 1 ] * 38470 + srcPixels[ i + 2 ] * 7471 ) >> 16;
 		//var intensity = (srcPixels[i] * 0.3086 + srcPixels[i + 1] * 0.6094 + srcPixels[i + 2] * 0.0820) | 0;
-		dstPixels[i] = dstPixels[i + 1] = dstPixels[i + 2] = intensity;
-		dstPixels[i + 3] = srcPixels[i + 3];
+		dstPixels[ i ] = dstPixels[ i + 1 ] = dstPixels[ i + 2 ] = intensity;
+		dstPixels[ i + 3 ] = srcPixels[ i + 3 ];
 	}
 
 	return dstImageData;
@@ -1465,12 +1470,12 @@ ImageFilters.GrayScale = function (srcImageData) {
  * @param satDelta  -100 <= n <= 100
  * @param lightness -100 <= n <= 100
  */
-ImageFilters.HSLAdjustment = function (srcImageData, hueDelta, satDelta, lightness) {
+ImageFilters.HSLAdjustment = function ( srcImageData, hueDelta, satDelta, lightness ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data;
 
 	hueDelta /= 360;
@@ -1481,124 +1486,124 @@ ImageFilters.HSLAdjustment = function (srcImageData, hueDelta, satDelta, lightne
 	var hslToRgb = this.utils.hslToRgb;
 	var h, s, l, hsl, rgb, i;
 
-	for (i = 0; i < srcLength; i += 4) {
+	for ( i = 0; i < srcLength; i += 4 ) {
 		// convert to HSL
-		hsl = rgbToHsl(srcPixels[i], srcPixels[i + 1], srcPixels[i + 2]);
+		hsl = rgbToHsl( srcPixels[ i ], srcPixels[ i + 1 ], srcPixels[ i + 2 ] );
 
 		// hue
-		h = hsl[0] + hueDelta;
-		while (h < 0) {
+		h = hsl[ 0 ] + hueDelta;
+		while ( h < 0 ) {
 			h += 1;
 		}
-		while (h > 1) {
+		while ( h > 1 ) {
 			h -= 1;
 		}
 
 		// saturation
-		s = hsl[1] + hsl[1] * satDelta;
-		if (s < 0) {
+		s = hsl[ 1 ] + hsl[ 1 ] * satDelta;
+		if ( s < 0 ) {
 			s = 0;
-		} else if (s > 1) {
+		} else if ( s > 1 ) {
 			s = 1;
 		}
 
 		// lightness
-		l = hsl[2];
-		if (lightness > 0) {
-			l += (1 - l) * lightness;
-		} else if (lightness < 0) {
+		l = hsl[ 2 ];
+		if ( lightness > 0 ) {
+			l += ( 1 - l ) * lightness;
+		} else if ( lightness < 0 ) {
 			l += l * lightness;
 		}
 
 		// convert back to rgb
-		rgb = hslToRgb(h, s, l);
+		rgb = hslToRgb( h, s, l );
 
-		dstPixels[i] = rgb[0];
-		dstPixels[i + 1] = rgb[1];
-		dstPixels[i + 2] = rgb[2];
-		dstPixels[i + 3] = srcPixels[i + 3];
+		dstPixels[ i ] = rgb[ 0 ];
+		dstPixels[ i + 1 ] = rgb[ 1 ];
+		dstPixels[ i + 2 ] = rgb[ 2 ];
+		dstPixels[ i + 3 ] = srcPixels[ i + 3 ];
 	}
 
 	return dstImageData;
 };
 
-ImageFilters.Invert = function (srcImageData) {
+ImageFilters.Invert = function ( srcImageData ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data;
 
-	this.utils.mapRGB(srcPixels, dstPixels, function (value) {
+	this.utils.mapRGB( srcPixels, dstPixels, function ( value ) {
 		return 255 - value;
-	});
+	} );
 
 	return dstImageData;
 };
 
-ImageFilters.Mosaic = function (srcImageData, blockSize) {
+ImageFilters.Mosaic = function ( srcImageData, blockSize ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data;
 
-	var cols = Math.ceil(srcWidth / blockSize),
-		rows = Math.ceil(srcHeight / blockSize),
+	var cols = Math.ceil( srcWidth / blockSize ),
+		rows = Math.ceil( srcHeight / blockSize ),
 		row, col,
 		x_start, x_end, y_start, y_end,
 		x, y, yIndex, index, size,
 		r, g, b, a;
 
-	for (row = 0; row < rows; row += 1) {
+	for ( row = 0; row < rows; row += 1 ) {
 		y_start = row * blockSize;
 		y_end = y_start + blockSize;
 
-		if (y_end > srcHeight) {
+		if ( y_end > srcHeight ) {
 			y_end = srcHeight;
 		}
 
-		for (col = 0; col < cols; col += 1) {
+		for ( col = 0; col < cols; col += 1 ) {
 			x_start = col * blockSize;
 			x_end = x_start + blockSize;
 
-			if (x_end > srcWidth) {
+			if ( x_end > srcWidth ) {
 				x_end = srcWidth;
 			}
 
 			// get the average color from the src
 			r = g = b = a = 0;
-			size = (x_end - x_start) * (y_end - y_start);
+			size = ( x_end - x_start ) * ( y_end - y_start );
 
-			for (y = y_start; y < y_end; y += 1) {
+			for ( y = y_start; y < y_end; y += 1 ) {
 				yIndex = y * srcWidth;
 
-				for (x = x_start; x < x_end; x += 1) {
-					index = (yIndex + x) << 2;
-					r += srcPixels[index];
-					g += srcPixels[index + 1];
-					b += srcPixels[index + 2];
-					a += srcPixels[index + 3];
+				for ( x = x_start; x < x_end; x += 1 ) {
+					index = ( yIndex + x ) << 2;
+					r += srcPixels[ index ];
+					g += srcPixels[ index + 1 ];
+					b += srcPixels[ index + 2 ];
+					a += srcPixels[ index + 3 ];
 				}
 			}
 
-			r = (r / size) + 0.5 | 0;
-			g = (g / size) + 0.5 | 0;
-			b = (b / size) + 0.5 | 0;
-			a = (a / size) + 0.5 | 0;
+			r = ( r / size ) + 0.5 | 0;
+			g = ( g / size ) + 0.5 | 0;
+			b = ( b / size ) + 0.5 | 0;
+			a = ( a / size ) + 0.5 | 0;
 
 			// fill the dst with that color
-			for (y = y_start; y < y_end; y += 1) {
+			for ( y = y_start; y < y_end; y += 1 ) {
 				yIndex = y * srcWidth;
 
-				for (x = x_start; x < x_end; x += 1) {
-					index = (yIndex + x) << 2;
-					dstPixels[index] = r;
-					dstPixels[index + 1] = g;
-					dstPixels[index + 2] = b;
-					dstPixels[index + 3] = a;
+				for ( x = x_start; x < x_end; x += 1 ) {
+					index = ( yIndex + x ) << 2;
+					dstPixels[ index ] = r;
+					dstPixels[ index + 1 ] = g;
+					dstPixels[ index + 2 ] = b;
+					dstPixels[ index + 3 ] = a;
 				}
 			}
 		}
@@ -1611,12 +1616,12 @@ ImageFilters.Mosaic = function (srcImageData, blockSize) {
  * @param range  1 <= n <= 5
  * @param levels 1 <= n <= 256
  */
-ImageFilters.Oil = function (srcImageData, range, levels) {
+ImageFilters.Oil = function ( srcImageData, range, levels ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data;
 
 	var index = 0,
@@ -1631,60 +1636,60 @@ ImageFilters.Oil = function (srcImageData, range, levels) {
 		sr, sg, sb, ri, gi, bi,
 		r, g, b;
 
-	for (y = 0; y < srcHeight; y += 1) {
-		for (x = 0; x < srcWidth; x += 1) {
-			for (i = 0; i < levels; i += 1) {
-				rh[i] = gh[i] = bh[i] = rt[i] = gt[i] = bt[i] = 0;
+	for ( y = 0; y < srcHeight; y += 1 ) {
+		for ( x = 0; x < srcWidth; x += 1 ) {
+			for ( i = 0; i < levels; i += 1 ) {
+				rh[ i ] = gh[ i ] = bh[ i ] = rt[ i ] = gt[ i ] = bt[ i ] = 0;
 			}
 
-			for (row = -range; row <= range; row += 1) {
+			for ( row = -range; row <= range; row += 1 ) {
 				rowIndex = y + row;
 
-				if (rowIndex < 0 || rowIndex >= srcHeight) {
+				if ( rowIndex < 0 || rowIndex >= srcHeight ) {
 					continue;
 				}
 
 				offset = rowIndex * srcWidth;
 
-				for (col = -range; col <= range; col += 1) {
+				for ( col = -range; col <= range; col += 1 ) {
 					colIndex = x + col;
-					if (colIndex < 0 || colIndex >= srcWidth) {
+					if ( colIndex < 0 || colIndex >= srcWidth ) {
 						continue;
 					}
 
-					srcIndex = (offset + colIndex) << 2;
-					sr = srcPixels[srcIndex];
-					sg = srcPixels[srcIndex + 1];
-					sb = srcPixels[srcIndex + 2];
-					ri = (sr * levels) >> 8;
-					gi = (sg * levels) >> 8;
-					bi = (sb * levels) >> 8;
-					rt[ri] += sr;
-					gt[gi] += sg;
-					bt[bi] += sb;
-					rh[ri] += 1;
-					gh[gi] += 1;
-					bh[bi] += 1;
+					srcIndex = ( offset + colIndex ) << 2;
+					sr = srcPixels[ srcIndex ];
+					sg = srcPixels[ srcIndex + 1 ];
+					sb = srcPixels[ srcIndex + 2 ];
+					ri = ( sr * levels ) >> 8;
+					gi = ( sg * levels ) >> 8;
+					bi = ( sb * levels ) >> 8;
+					rt[ ri ] += sr;
+					gt[ gi ] += sg;
+					bt[ bi ] += sb;
+					rh[ ri ] += 1;
+					gh[ gi ] += 1;
+					bh[ bi ] += 1;
 				}
 			}
 
 			r = g = b = 0;
-			for (i = 1; i < levels; i += 1) {
-				if (rh[i] > rh[r]) {
+			for ( i = 1; i < levels; i += 1 ) {
+				if ( rh[ i ] > rh[ r ] ) {
 					r = i;
 				}
-				if (gh[i] > gh[g]) {
+				if ( gh[ i ] > gh[ g ] ) {
 					g = i;
 				}
-				if (bh[i] > bh[b]) {
+				if ( bh[ i ] > bh[ b ] ) {
 					b = i;
 				}
 			}
 
-			dstPixels[index] = rt[r] / rh[r] | 0;
-			dstPixels[index + 1] = gt[g] / gh[g] | 0;
-			dstPixels[index + 2] = bt[b] / bh[b] | 0;
-			dstPixels[index + 3] = srcPixels[index + 3];
+			dstPixels[ index ] = rt[ r ] / rh[ r ] | 0;
+			dstPixels[ index + 1 ] = gt[ g ] / gh[ g ] | 0;
+			dstPixels[ index + 2 ] = bt[ b ] / bh[ b ] | 0;
+			dstPixels[ index + 3 ] = srcPixels[ index + 3 ];
 			index += 4;
 		}
 	}
@@ -1692,19 +1697,19 @@ ImageFilters.Oil = function (srcImageData, range, levels) {
 	return dstImageData;
 };
 
-ImageFilters.OpacityFilter = function (srcImageData, opacity) {
+ImageFilters.OpacityFilter = function ( srcImageData, opacity ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data;
 
-	for (var i = 0; i < srcLength; i += 4) {
-		dstPixels[i] = srcPixels[i];
-		dstPixels[i + 1] = srcPixels[i + 1];
-		dstPixels[i + 2] = srcPixels[i + 2];
-		dstPixels[i + 3] = opacity;
+	for ( var i = 0; i < srcLength; i += 4 ) {
+		dstPixels[ i ] = srcPixels[ i ];
+		dstPixels[ i + 1 ] = srcPixels[ i + 1 ];
+		dstPixels[ i + 2 ] = srcPixels[ i + 2 ];
+		dstPixels[ i + 3 ] = opacity;
 	}
 
 	return dstImageData;
@@ -1713,12 +1718,12 @@ ImageFilters.OpacityFilter = function (srcImageData, opacity) {
 /**
  * @param levels 2 <= n <= 255
  */
-ImageFilters.Posterize = function (srcImageData, levels) {
+ImageFilters.Posterize = function ( srcImageData, levels ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data;
 
 	levels = levels < 2 ? 2 : levels > 255 ? 255 : levels;
@@ -1729,22 +1734,22 @@ ImageFilters.Posterize = function (srcImageData, levels) {
 		k = 0,
 		i;
 
-	for (i = 0; i < levels; i += 1) {
-		levelMap[i] = (255 * i) / levelsMinus1;
+	for ( i = 0; i < levels; i += 1 ) {
+		levelMap[ i ] = ( 255 * i ) / levelsMinus1;
 	}
 
-	this.utils.mapRGB(srcPixels, dstPixels, function (value) {
-		var ret = levelMap[j];
+	this.utils.mapRGB( srcPixels, dstPixels, function ( value ) {
+		var ret = levelMap[ j ];
 
 		k += levels;
 
-		if (k > 255) {
+		if ( k > 255 ) {
 			k -= 255;
 			j += 1;
 		}
 
 		return ret;
-	});
+	} );
 
 	return dstImageData;
 };
@@ -1752,18 +1757,18 @@ ImageFilters.Posterize = function (srcImageData, levels) {
 /**
  * @param scale 0.0 <= n <= 5.0
  */
-ImageFilters.Rescale = function (srcImageData, scale) {
+ImageFilters.Rescale = function ( srcImageData, scale ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data;
 
-	this.utils.mapRGB(srcPixels, dstPixels, function (value) {
+	this.utils.mapRGB( srcPixels, dstPixels, function ( value ) {
 		value *= scale;
-		return (value > 255) ? 255 : value + 0.5 | 0;
-	});
+		return ( value > 255 ) ? 255 : value + 0.5 | 0;
+	} );
 
 	return dstImageData;
 };
@@ -1771,29 +1776,30 @@ ImageFilters.Rescale = function (srcImageData, scale) {
 /**
  * Nearest neighbor
  */
-ImageFilters.ResizeNearestNeighbor = function (srcImageData, width, height) {
+ImageFilters.ResizeNearestNeighbor = function ( srcImageData, width, height ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(width, height),
+		dstImageData = this.utils.createImageData( width, height ),
 		dstPixels = dstImageData.data;
 
 	var xFactor = srcWidth / width,
 		yFactor = srcHeight / height,
-		dstIndex = 0, srcIndex,
+		dstIndex = 0,
+		srcIndex,
 		x, y, offset;
 
-	for (y = 0; y < height; y += 1) {
-		offset = ((y * yFactor) | 0) * srcWidth;
+	for ( y = 0; y < height; y += 1 ) {
+		offset = ( ( y * yFactor ) | 0 ) * srcWidth;
 
-		for (x = 0; x < width; x += 1) {
-			srcIndex = (offset + x * xFactor) << 2;
+		for ( x = 0; x < width; x += 1 ) {
+			srcIndex = ( offset + x * xFactor ) << 2;
 
-			dstPixels[dstIndex] = srcPixels[srcIndex];
-			dstPixels[dstIndex + 1] = srcPixels[srcIndex + 1];
-			dstPixels[dstIndex + 2] = srcPixels[srcIndex + 2];
-			dstPixels[dstIndex + 3] = srcPixels[srcIndex + 3];
+			dstPixels[ dstIndex ] = srcPixels[ srcIndex ];
+			dstPixels[ dstIndex + 1 ] = srcPixels[ srcIndex + 1 ];
+			dstPixels[ dstIndex + 2 ] = srcPixels[ srcIndex + 2 ];
+			dstPixels[ dstIndex + 3 ] = srcPixels[ srcIndex + 3 ];
 			dstIndex += 4;
 		}
 	}
@@ -1804,12 +1810,12 @@ ImageFilters.ResizeNearestNeighbor = function (srcImageData, width, height) {
 /**
  * Bilinear
  */
-ImageFilters.Resize = function (srcImageData, width, height) {
+ImageFilters.Resize = function ( srcImageData, width, height ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(width, height),
+		dstImageData = this.utils.createImageData( width, height ),
 		dstPixels = dstImageData.data;
 
 	var xFactor = srcWidth / width,
@@ -1817,9 +1823,9 @@ ImageFilters.Resize = function (srcImageData, width, height) {
 		dstIndex = 0,
 		x, y;
 
-	for (y = 0; y < height; y += 1) {
-		for (x = 0; x < width; x += 1) {
-			this.utils.copyBilinear(srcPixels, x * xFactor, y * yFactor, srcWidth, srcHeight, dstPixels, dstIndex, 0);
+	for ( y = 0; y < height; y += 1 ) {
+		for ( x = 0; x < width; x += 1 ) {
+			this.utils.copyBilinear( srcPixels, x * xFactor, y * yFactor, srcWidth, srcHeight, dstPixels, dstIndex, 0 );
 			dstIndex += 4;
 		}
 	}
@@ -1834,22 +1840,22 @@ ImageFilters.Resize = function (srcImageData, width, height) {
  * this might not work if the image is transparent.
  * to fix that we probably need two contexts
  */
-ImageFilters.ResizeBuiltin = function (srcImageData, width, height) {
+ImageFilters.ResizeBuiltin = function ( srcImageData, width, height ) {
 	var srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		canvas = this.utils.getSampleCanvas(),
 		context = this.utils.getSampleContext(),
 		dstImageData;
 
-	canvas.width = Math.max(srcWidth, width);
-	canvas.height = Math.max(srcHeight, height);
+	canvas.width = Math.max( srcWidth, width );
+	canvas.height = Math.max( srcHeight, height );
 	context.save();
 
-	context.putImageData(srcImageData, 0, 0);
-	context.scale(width / srcWidth, height / srcHeight);
-	context.drawImage(canvas, 0, 0);
+	context.putImageData( srcImageData, 0, 0 );
+	context.scale( width / srcWidth, height / srcHeight );
+	context.drawImage( canvas, 0, 0 );
 
-	dstImageData = context.getImageData(0, 0, width, height);
+	dstImageData = context.getImageData( 0, 0, width, height );
 
 	context.restore();
 	canvas.width = 0;
@@ -1858,25 +1864,25 @@ ImageFilters.ResizeBuiltin = function (srcImageData, width, height) {
 	return dstImageData;
 };
 
-ImageFilters.Sepia = function (srcImageData) {
+ImageFilters.Sepia = function ( srcImageData ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data;
 
 	var r, g, b, i, value;
 
-	for (i = 0; i < srcLength; i += 4) {
-		r = srcPixels[i];
-		g = srcPixels[i + 1];
-		b = srcPixels[i + 2];
+	for ( i = 0; i < srcLength; i += 4 ) {
+		r = srcPixels[ i ];
+		g = srcPixels[ i + 1 ];
+		b = srcPixels[ i + 2 ];
 
-		dstPixels[i] = (value = r * 0.393 + g * 0.769 + b * 0.189) > 255 ? 255 : value < 0 ? 0 : value + 0.5 | 0;
-		dstPixels[i + 1] = (value = r * 0.349 + g * 0.686 + b * 0.168) > 255 ? 255 : value < 0 ? 0 : value + 0.5 | 0;
-		dstPixels[i + 2] = (value = r * 0.272 + g * 0.534 + b * 0.131) > 255 ? 255 : value < 0 ? 0 : value + 0.5 | 0;
-		dstPixels[i + 3] = srcPixels[i + 3];
+		dstPixels[ i ] = ( value = r * 0.393 + g * 0.769 + b * 0.189 ) > 255 ? 255 : value < 0 ? 0 : value + 0.5 | 0;
+		dstPixels[ i + 1 ] = ( value = r * 0.349 + g * 0.686 + b * 0.168 ) > 255 ? 255 : value < 0 ? 0 : value + 0.5 | 0;
+		dstPixels[ i + 2 ] = ( value = r * 0.272 + g * 0.534 + b * 0.131 ) > 255 ? 255 : value < 0 ? 0 : value + 0.5 | 0;
+		dstPixels[ i + 3 ] = srcPixels[ i + 3 ];
 	}
 
 	return dstImageData;
@@ -1885,49 +1891,49 @@ ImageFilters.Sepia = function (srcImageData) {
 /**
  * @param factor 1 <= n
  */
-ImageFilters.Sharpen = function (srcImageData, factor) {
+ImageFilters.Sharpen = function ( srcImageData, factor ) {
 	//Convolution formula from VIGRA
-	return this.ConvolutionFilter(srcImageData, 3, 3, [
+	return this.ConvolutionFilter( srcImageData, 3, 3, [
 		-factor / 16, -factor / 8, -factor / 16,
 		-factor / 8, factor * 0.75 + 1, -factor / 8,
 		-factor / 16, -factor / 8, -factor / 16
-	]);
+	] );
 };
 
-ImageFilters.Solarize = function (srcImageData) {
+ImageFilters.Solarize = function ( srcImageData ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data;
 
-	this.utils.mapRGB(srcPixels, dstPixels, function (value) {
-		return value > 127 ? (value - 127.5) * 2 : (127.5 - value) * 2;
-	});
+	this.utils.mapRGB( srcPixels, dstPixels, function ( value ) {
+		return value > 127 ? ( value - 127.5 ) * 2 : ( 127.5 - value ) * 2;
+	} );
 
 	return dstImageData;
 };
 
-ImageFilters.Transpose = function (srcImageData) {
+ImageFilters.Transpose = function ( srcImageData ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcHeight, srcWidth),
+		dstImageData = this.utils.createImageData( srcHeight, srcWidth ),
 		dstPixels = dstImageData.data;
 
 	var srcIndex, dstIndex;
 
-	for (y = 0; y < srcHeight; y += 1) {
-		for (x = 0; x < srcWidth; x += 1) {
-			srcIndex = (y * srcWidth + x) << 2;
-			dstIndex = (x * srcHeight + y) << 2;
+	for ( y = 0; y < srcHeight; y += 1 ) {
+		for ( x = 0; x < srcWidth; x += 1 ) {
+			srcIndex = ( y * srcWidth + x ) << 2;
+			dstIndex = ( x * srcHeight + y ) << 2;
 
-			dstPixels[dstIndex] = srcPixels[srcIndex];
-			dstPixels[dstIndex + 1] = srcPixels[srcIndex + 1];
-			dstPixels[dstIndex + 2] = srcPixels[srcIndex + 2];
-			dstPixels[dstIndex + 3] = srcPixels[srcIndex + 3];
+			dstPixels[ dstIndex ] = srcPixels[ srcIndex ];
+			dstPixels[ dstIndex + 1 ] = srcPixels[ srcIndex + 1 ];
+			dstPixels[ dstIndex + 2 ] = srcPixels[ srcIndex + 2 ];
+			dstPixels[ dstIndex + 3 ] = srcPixels[ srcIndex + 3 ];
 		}
 	}
 
@@ -1941,12 +1947,12 @@ ImageFilters.Transpose = function (srcImageData) {
  * @param angle(degree)
  * @param smooth
  */
-ImageFilters.Twril = function (srcImageData, centerX, centerY, radius, angle, edge, smooth) {
+ImageFilters.Twril = function ( srcImageData, centerX, centerY, radius, angle, edge, smooth ) {
 	var srcPixels = srcImageData.data,
 		srcWidth = srcImageData.width,
 		srcHeight = srcImageData.height,
 		srcLength = srcPixels.length,
-		dstImageData = this.utils.createImageData(srcWidth, srcHeight),
+		dstImageData = this.utils.createImageData( srcWidth, srcHeight ),
 		dstPixels = dstImageData.data;
 
 	//convert position to px
@@ -1954,7 +1960,7 @@ ImageFilters.Twril = function (srcImageData, centerX, centerY, radius, angle, ed
 	centerY = srcHeight * centerY;
 
 	// degree to radian
-	angle *= (Math.PI / 180);
+	angle *= ( Math.PI / 180 );
 
 	var radius2 = radius * radius,
 		max_y = srcHeight - 1,
@@ -1962,37 +1968,37 @@ ImageFilters.Twril = function (srcImageData, centerX, centerY, radius, angle, ed
 		dstIndex = 0,
 		x, y, dx, dy, distance, a, tx, ty, srcIndex, pixel, i;
 
-	for (y = 0; y < srcHeight; y += 1) {
-		for (x = 0; x < srcWidth; x += 1) {
+	for ( y = 0; y < srcHeight; y += 1 ) {
+		for ( x = 0; x < srcWidth; x += 1 ) {
 			dx = x - centerX;
 			dy = y - centerY;
 			distance = dx * dx + dy * dy;
 
-			if (distance > radius2) {
+			if ( distance > radius2 ) {
 				// out of the effected area. just copy the pixel
-				dstPixels[dstIndex] = srcPixels[dstIndex];
-				dstPixels[dstIndex + 1] = srcPixels[dstIndex + 1];
-				dstPixels[dstIndex + 2] = srcPixels[dstIndex + 2];
-				dstPixels[dstIndex + 3] = srcPixels[dstIndex + 3];
+				dstPixels[ dstIndex ] = srcPixels[ dstIndex ];
+				dstPixels[ dstIndex + 1 ] = srcPixels[ dstIndex + 1 ];
+				dstPixels[ dstIndex + 2 ] = srcPixels[ dstIndex + 2 ];
+				dstPixels[ dstIndex + 3 ] = srcPixels[ dstIndex + 3 ];
 			} else {
 				// main formula
-				distance = Math.sqrt(distance);
-				a = Math.atan2(dy, dx) + (angle * (radius - distance)) / radius;
-				tx = centerX + distance * Math.cos(a);
-				ty = centerY + distance * Math.sin(a);
+				distance = Math.sqrt( distance );
+				a = Math.atan2( dy, dx ) + ( angle * ( radius - distance ) ) / radius;
+				tx = centerX + distance * Math.cos( a );
+				ty = centerY + distance * Math.sin( a );
 
 				// copy target pixel
-				if (smooth) {
+				if ( smooth ) {
 					// bilinear
-					this.utils.copyBilinear(srcPixels, tx, ty, srcWidth, srcHeight, dstPixels, dstIndex, edge);
+					this.utils.copyBilinear( srcPixels, tx, ty, srcWidth, srcHeight, dstPixels, dstIndex, edge );
 				} else {
 					// nearest neighbor
 					// round tx, ty
-					srcIndex = ((ty + 0.5 | 0) * srcWidth + (tx + 0.5 | 0)) << 2;
-					dstPixels[dstIndex] = srcPixels[srcIndex];
-					dstPixels[dstIndex + 1] = srcPixels[srcIndex + 1];
-					dstPixels[dstIndex + 2] = srcPixels[srcIndex + 2];
-					dstPixels[dstIndex + 3] = srcPixels[srcIndex + 3];
+					srcIndex = ( ( ty + 0.5 | 0 ) * srcWidth + ( tx + 0.5 | 0 ) ) << 2;
+					dstPixels[ dstIndex ] = srcPixels[ srcIndex ];
+					dstPixels[ dstIndex + 1 ] = srcPixels[ srcIndex + 1 ];
+					dstPixels[ dstIndex + 2 ] = srcPixels[ srcIndex + 2 ];
+					dstPixels[ dstIndex + 3 ] = srcPixels[ srcIndex + 3 ];
 				}
 			}
 

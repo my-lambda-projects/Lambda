@@ -2,4 +2,4 @@
 
 Wondering what a given legacy HTML color value looks like? This tool will show you.
 
-Another Extremely Useful™ tool made by [Mathias Bynens](https://mathiasbynens.be/).
+Another Extremely Useful&trade; tool made by [Mathias Bynens](https://mathiasbynens.be/).

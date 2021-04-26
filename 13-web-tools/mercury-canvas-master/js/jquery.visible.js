@@ -1,10 +1,10 @@
-export default function ($) {
-    var $w = $(window);
+export default function ( $ ) {
+    var $w = $( window );
     $.fn.visible = function () {
-        if (this.length < 1) return;
+        if ( this.length < 1 ) return;
 
-        var $t = this.length > 1 ? this.eq(0) : this;
-        var t = $t.get(0);
+        var $t = this.length > 1 ? this.eq( 0 ) : this;
+        var t = $t.get( 0 );
         var width = $w.width();
         var height = $w.height();
 

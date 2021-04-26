@@ -1,5 +1,5 @@
-var webpack = require('webpack');
-var path = require('path');
+var webpack = require( 'webpack' );
+var path = require( 'path' );
 
 module.exports = {
 	entry: [
@@ -7,25 +7,26 @@ module.exports = {
 		'./src/js/main.js',
 	],
 	output: {
-		path: path.resolve(__dirname, 'dist'),
+		path: path.resolve( __dirname, 'dist' ),
 		filename: 'bundle.js',
 		publicPath: '/dist/'
 	},
 	resolve: {
-		extensions: ['.js', '.css'],
+		extensions: [ '.js', '.css' ],
 		alias: {
-			Utilities: path.resolve(__dirname, './../node_modules/')
+			Utilities: path.resolve( __dirname, './../node_modules/' )
 		}
 	},
 	module: {
-		rules: [
-			{
+		rules: [ {
 				test: /\.css$/,
 				use: [
 					'style-loader',
 					{
 						loader: 'css-loader',
-						options: {url: false}
+						options: {
+							url: false
+						}
 					}
 				]
 			},
@@ -33,23 +34,23 @@ module.exports = {
 				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
 				use: {
-				loader: 'babel-loader',
+					loader: 'babel-loader',
 					options: {
-					presets: ['env']
+						presets: [ 'env' ]
 					}
 				}
 			},
 		]
 	},
 	plugins: [
-		new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery",
-            "window.jQuery": "jquery"
-		}),
-		new webpack.DefinePlugin({
-			VERSION: JSON.stringify(require("./package.json").version)
-		}),
+		new webpack.ProvidePlugin( {
+			$: "jquery",
+			jQuery: "jquery",
+			"window.jQuery": "jquery"
+		} ),
+		new webpack.DefinePlugin( {
+			VERSION: JSON.stringify( require( "./package.json" ).version )
+		} ),
 	],
 	devtool: "cheap-module-source-map",
 	devServer: {

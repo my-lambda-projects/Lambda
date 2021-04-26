@@ -24,6 +24,7 @@
             display: inline-block;
             width: auto;
         }
+
         label {
             position: initial;
             padding-right: 5px;
@@ -44,22 +45,26 @@
         box-shadow: none;
 
         &:focus {
-            ~ label {
+            ~label {
                 @extend %label;
             }
-            ~ .bar {
+
+            ~.bar {
+
                 &:before,
                 &:after {
                     width: 50%;
                 }
             }
-            ~ .highlight {
+
+            ~.highlight {
                 animation: inputHighlighter 0.3s ease;
             }
         }
+
         &:required {
             &:valid {
-                ~ label {
+                ~label {
                     @extend %label;
                 }
             }
@@ -68,7 +73,7 @@
 
     &:not(.empty) {
         input {
-            & ~ label {
+            &~label {
                 @extend %label;
             }
         }
@@ -105,9 +110,11 @@
             content: '';
             transition: width 0.5s, color 0.2s;
         }
+
         &:before {
             left: 50%;
         }
+
         &:after {
             right: 50%;
         }
@@ -136,12 +143,14 @@
         margin-bottom: 45px;
 
         .bar {
+
             &:after,
             &:before {
                 width: 50%;
                 background: $red-500;
             }
         }
+
         .message {
             color: $red-500;
             opacity: 1;

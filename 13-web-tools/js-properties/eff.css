@@ -1,4 +1,6 @@
-html, input, hgroup h2 {
+html,
+input,
+hgroup h2 {
 	font: 1em/1.6 sans-serif;
 }
 
@@ -21,7 +23,8 @@ a {
 	padding: .1em .2em;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
 	color: #fff;
 	border-color: #036;
 	background: #36c;
@@ -61,11 +64,13 @@ mark {
 	background: pink;
 }
 
-#es3, #es5 {
+#es3,
+#es5 {
 	display: none;
 }
 
-#es3.show, #es5.show {
+#es3.show,
+#es5.show {
 	display: inline;
 }
 
@@ -91,7 +96,8 @@ label {
 	cursor: pointer;
 }
 
-code, input {
+code,
+input {
 	font-family: Monaco, monospace;
 	font-size: .9em;
 	white-space: pre;

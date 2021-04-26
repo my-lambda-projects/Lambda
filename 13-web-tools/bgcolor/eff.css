@@ -18,7 +18,8 @@ h2 {
 	font-size: .8em;
 }
 
-div { /* http://bugzil.la/414526 */
+div {
+	/* http://bugzil.la/414526 */
 	display: inline;
 	border: 1px dotted #666;
 	padding: .2em;
@@ -33,7 +34,8 @@ mark {
 	padding: .2em;
 }
 
-a, label {
+a,
+label {
 	color: #333;
 	text-decoration: none;
 	border-bottom: 1px solid #aaa;
@@ -45,7 +47,9 @@ label {
 	cursor: help;
 }
 
-a:hover, a:focus, label:hover {
+a:hover,
+a:focus,
+label:hover {
 	color: #fff;
 	border-color: #036;
 	background: #36c;
@@ -80,7 +84,8 @@ code {
 	color: #036;
 }
 
-.attribute, .property {
+.attribute,
+.property {
 	color: #006;
 }
 

@@ -7,7 +7,7 @@ import alertify from './../../../node_modules/alertifyjs/build/alertify.min.js';
 
 class Media_class extends Base_tools_class {
 
-	constructor(ctx) {
+	constructor( ctx ) {
 		super();
 		this.File_open = new File_open_class();
 		this.Tools_settings = new Tools_settings_class();
@@ -22,7 +22,7 @@ class Media_class extends Base_tools_class {
 		//nothing
 	}
 
-	render(ctx, layer) {
+	render( ctx, layer ) {
 		//nothing
 	}
 
@@ -37,20 +37,20 @@ class Media_class extends Base_tools_class {
 	 * @param {array} data
 	 * @param pages
 	 */
-	search(query = '', data = [], pages = null) {
+	search( query = '', data = [], pages = null ) {
 		var _this = this;
 		var html = '';
 		var html_paging = '';
 
 		var key = config.pixabay_key;
-		key = key.split("").reverse().join("");
+		key = key.split( "" ).reverse().join( "" );
 
-		var safe_search = this.Tools_settings.get_setting('safe_search');
+		var safe_search = this.Tools_settings.get_setting( 'safe_search' );
 
-		if (data.length > 0) {
-			for (var i in data) {
+		if ( data.length > 0 ) {
+			for ( var i in data ) {
 				html += '<div class="item">';
-				html += '	<img class="displayBlock pointer" alt="" src="' + data[i].previewURL + '" data-url="' + data[i].webformatURL + '" />';
+				html += '	<img class="displayBlock pointer" alt="" src="' + data[ i ].previewURL + '" data-url="' + data[ i ].webformatURL + '" />';
 				html += '</div>';
 			}
 			//fix for last line
@@ -62,17 +62,16 @@ class Media_class extends Base_tools_class {
 			//paging
 			html_paging += '<div class="media-paging" id="media_paging">';
 			html_paging += '<button type="button" data-value="1">&lt;</button> ';
-			for(var i = 1; i <= Math.min(10, pages); i++) {
+			for ( var i = 1; i <= Math.min( 10, pages ); i++ ) {
 				var selected = '';
-				if(this.page == i){
+				if ( this.page == i ) {
 					var selected = 'selected';
 				}
-				html_paging += '<button type="button" class="'+selected+'" data-value="'+i+'">'+i+'</button> ';
+				html_paging += '<button type="button" class="' + selected + '" data-value="' + i + '">' + i + '</button> ';
 			}
-			html_paging += '<button type="button" data-value="'+Math.min(this.page + 1, pages)+'">&gt;</button> ';
+			html_paging += '<button type="button" data-value="' + Math.min( this.page + 1, pages ) + '">&gt;</button> ';
 			html_paging += '</div>';
-		}
-		else{
+		} else {
 			this.page = 1;
 		}
 
@@ -80,79 +79,80 @@ class Media_class extends Base_tools_class {
 			title: 'Search',
 			//comment: 'Source: <a class="text_muted" href="https://pixabay.com/">pixabay.com</a>.',
 			className: 'wide',
-			params: [
-				{name: "query", title: "Keyword:", value: query},
-			],
-			on_load: function (params, popup) {
-				var node = document.createElement("div");
-				node.classList.add('flex-container');
+			params: [ {
+				name: "query",
+				title: "Keyword:",
+				value: query
+			}, ],
+			on_load: function ( params, popup ) {
+				var node = document.createElement( "div" );
+				node.classList.add( 'flex-container' );
 				node.innerHTML = html + html_paging;
-				popup.el.querySelector('.dialog_content').appendChild(node);
+				popup.el.querySelector( '.dialog_content' ).appendChild( node );
 				//events
-				var targets = popup.el.querySelectorAll('.item img');
-				for (var i = 0; i < targets.length; i++) {
-					targets[i].addEventListener('click', function (event) {
+				var targets = popup.el.querySelectorAll( '.item img' );
+				for ( var i = 0; i < targets.length; i++ ) {
+					targets[ i ].addEventListener( 'click', function ( event ) {
 						//we have click
 						var data = {
 							url: this.dataset.url,
 						};
-						_this.File_open.file_open_url_handler(data);
+						_this.File_open.file_open_url_handler( data );
 						_this.POP.hide();
-					});
+					} );
 				}
-				var targets = popup.el.querySelectorAll('#media_paging button');
-				for (var i = 0; i < targets.length; i++) {
-					targets[i].addEventListener('click', function (event) {
+				var targets = popup.el.querySelectorAll( '#media_paging button' );
+				for ( var i = 0; i < targets.length; i++ ) {
+					targets[ i ].addEventListener( 'click', function ( event ) {
 						//we have click
-						_this.page = parseInt(this.dataset.value);
+						_this.page = parseInt( this.dataset.value );
 						_this.POP.save();
-					});
+					} );
 				}
 			},
-			on_finish: function (params) {
-				if (params.query == '')
+			on_finish: function ( params ) {
+				if ( params.query == '' )
 					return;
 
-				var URL = "https://pixabay.com/api/?key=" + key
-					+ "&page=" + _this.page
-					+ "&per_page=" + _this.per_page
-					+ "&safesearch=" + safe_search
-					+ "&q="	+ encodeURIComponent(params.query);
+				var URL = "https://pixabay.com/api/?key=" + key +
+					"&page=" + _this.page +
+					"&per_page=" + _this.per_page +
+					"&safesearch=" + safe_search +
+					"&q=" + encodeURIComponent( params.query );
 
-				if (_this.cache[URL] != undefined) {
+				if ( _this.cache[ URL ] != undefined ) {
 					//using cache
 
-					setTimeout(function () {
+					setTimeout( function () {
 						//only call same function after all handlers finishes
-						var data = _this.cache[URL];
+						var data = _this.cache[ URL ];
 
-						if (parseInt(data.totalHits) == 0) {
-							alertify.error('Your search did not match any images.');
+						if ( parseInt( data.totalHits ) == 0 ) {
+							alertify.error( 'Your search did not match any images.' );
 						}
 
-						var pages = Math.ceil(data.totalHits / _this.per_page);
-						_this.search(params.query, data.hits, pages);
-					}, 100);
-				}
-				else {
+						var pages = Math.ceil( data.totalHits / _this.per_page );
+						_this.search( params.query, data.hits, pages );
+					}, 100 );
+				} else {
 					//query to service
-					$.getJSON(URL, function (data) {
-						_this.cache[URL] = data;
+					$.getJSON( URL, function ( data ) {
+							_this.cache[ URL ] = data;
 
-						if (parseInt(data.totalHits) == 0) {
-							alertify.error('Your search did not match any images.');
-						}
+							if ( parseInt( data.totalHits ) == 0 ) {
+								alertify.error( 'Your search did not match any images.' );
+							}
 
-						var pages = Math.ceil(data.totalHits / _this.per_page);
-						_this.search(params.query, data.hits, pages);
-					})
-					.fail(function () {
-						alertify.error('Error connecting to service.');
-					});
+							var pages = Math.ceil( data.totalHits / _this.per_page );
+							_this.search( params.query, data.hits, pages );
+						} )
+						.fail( function () {
+							alertify.error( 'Error connecting to service.' );
+						} );
 				}
 			},
 		};
-		this.POP.show(settings);
+		this.POP.show( settings );
 	}
 }
 
