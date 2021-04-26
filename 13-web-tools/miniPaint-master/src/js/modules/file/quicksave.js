@@ -20,24 +20,24 @@ class File_quicksave_class {
 	set_events() {
 		var _this = this;
 
-		document.addEventListener('keydown', function (event) {
+		document.addEventListener( 'keydown', function ( event ) {
 			var code = event.keyCode;
 
-			if (code == 120) {
+			if ( code == 120 ) {
 				//F9
 				_this.quicksave();
 			}
-		}, false);
+		}, false );
 	}
 
 	quicksave() {
 		//save image data
 		var data_json = this.File_save.export_as_json();
-		if (data_json.length > 5000000) {
-			alertify.error('Sorry, image is too big, max 5 MB.');
+		if ( data_json.length > 5000000 ) {
+			alertify.error( 'Sorry, image is too big, max 5 MB.' );
 			return false;
 		}
-		localStorage.setItem('quicksave_data', data_json);
+		localStorage.setItem( 'quicksave_data', data_json );
 	}
 
 }

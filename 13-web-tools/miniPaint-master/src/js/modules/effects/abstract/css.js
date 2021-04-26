@@ -13,41 +13,41 @@ class Effects_common_class {
 		this.params = null;
 	}
 
-	show_dialog(type, params) {
+	show_dialog( type, params ) {
 		var _this = this;
-		var title = this.Helper.ucfirst(type);
-		title = title.replace(/-/g, ' ');
+		var title = this.Helper.ucfirst( type );
+		title = title.replace( /-/g, ' ' );
 
 		var settings = {
 			title: title,
 			preview: true,
 			effects: true,
 			params: params,
-			on_change: function (params, canvas_preview, w, h) {
+			on_change: function ( params, canvas_preview, w, h ) {
 				_this.params = params;
-				canvas_preview.filter = _this.preview(params, type);
-				canvas_preview.drawImage(this.layer_active_small, 0, 0);
+				canvas_preview.filter = _this.preview( params, type );
+				canvas_preview.drawImage( this.layer_active_small, 0, 0 );
 			},
-			on_finish: function (params) {
+			on_finish: function ( params ) {
 				_this.params = params;
-				_this.save(params, type);
+				_this.save( params, type );
 			},
 		};
-		this.POP.show(settings);
+		this.POP.show( settings );
 	}
 
-	save(params, type) {
+	save( params, type ) {
 		return app.State.do_action(
-			new app.Actions.Add_layer_filter_action(null, type, params)
+			new app.Actions.Add_layer_filter_action( null, type, params )
 		);
 	}
 
-	preview(params, type) {
-		var value = this.convert_value(params.value, params, 'preview');
+	preview( params, type ) {
+		var value = this.convert_value( params.value, params, 'preview' );
 		return type + "(" + value + ")";
 	}
 
-	convert_value(value, params) {
+	convert_value( value, params ) {
 		return value;
 	}
 

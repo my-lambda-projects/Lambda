@@ -3,7 +3,7 @@ import alertify from './../../../../node_modules/alertifyjs/build/alertify.min.j
 class Edit_paste_class {
 
 	paste() {
-		alertify.error('Use Ctrl+V keyboard shortcut to paste from Clipboard.');
+		alertify.error( 'Use Ctrl+V keyboard shortcut to paste from Clipboard.' );
 	}
 }
 

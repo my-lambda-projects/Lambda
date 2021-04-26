@@ -14,33 +14,40 @@ class Image_translate_class {
 
 	translate() {
 		var _this = this;
-		var units = this.Tools_settings.get_setting('default_units');
-		var resolution = this.Tools_settings.get_setting('resolution');
+		var units = this.Tools_settings.get_setting( 'default_units' );
+		var resolution = this.Tools_settings.get_setting( 'resolution' );
 
-		var pos_x = this.Helper.get_user_unit(config.layer.x, units, resolution);
-		var pos_y = this.Helper.get_user_unit(config.layer.y, units, resolution);
+		var pos_x = this.Helper.get_user_unit( config.layer.x, units, resolution );
+		var pos_y = this.Helper.get_user_unit( config.layer.y, units, resolution );
 
 		var settings = {
 			title: 'Translate',
-			params: [
-				{name: "x", title: "X position:", value: pos_x},
-				{name: "y", title: "Y position:", value: pos_y},
+			params: [ {
+					name: "x",
+					title: "X position:",
+					value: pos_x
+				},
+				{
+					name: "y",
+					title: "Y position:",
+					value: pos_y
+				},
 			],
-			on_finish: function (params) {
-				var pos_x = _this.Helper.get_internal_unit(params.x, units, resolution);
-				var pos_y = _this.Helper.get_internal_unit(params.y, units, resolution);
+			on_finish: function ( params ) {
+				var pos_x = _this.Helper.get_internal_unit( params.x, units, resolution );
+				var pos_y = _this.Helper.get_internal_unit( params.y, units, resolution );
 
 				app.State.do_action(
-					new app.Actions.Bundle_action('translate_layer', 'Translate Layer', [
-						new app.Actions.Update_layer_action(config.layer.id, {
+					new app.Actions.Bundle_action( 'translate_layer', 'Translate Layer', [
+						new app.Actions.Update_layer_action( config.layer.id, {
 							x: pos_x,
 							y: pos_y,
-						})
-					])
+						} )
+					] )
 				);
 			},
 		};
-		this.POP.show(settings);
+		this.POP.show( settings );
 	}
 }
 

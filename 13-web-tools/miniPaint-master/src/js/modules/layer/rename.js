@@ -10,30 +10,32 @@ class Layer_rename_class {
 		this.POP = new Dialog_class();
 	}
 
-	rename(id = null) {
+	rename( id = null ) {
 		var _this = this;
 
 		var settings = {
 			title: 'Rename',
-			params: [
-				{name: "name", title: "Name:", value: config.layer.name},
-			],
+			params: [ {
+				name: "name",
+				title: "Name:",
+				value: config.layer.name
+			}, ],
 			on_load: function () {
-				document.querySelector('#pop_data_name').select();
+				document.querySelector( '#pop_data_name' ).select();
 			},
-			on_finish: function (params) {
+			on_finish: function ( params ) {
 				app.State.do_action(
-					new app.Actions.Bundle_action('rename_layer', 'Rename Layer', [
-						new app.Actions.Refresh_layers_gui_action('undo'),
-						new app.Actions.Update_layer_action(id || config.layer.id, {
+					new app.Actions.Bundle_action( 'rename_layer', 'Rename Layer', [
+						new app.Actions.Refresh_layers_gui_action( 'undo' ),
+						new app.Actions.Update_layer_action( id || config.layer.id, {
 							name: params.name
-						}),
-						new app.Actions.Refresh_layers_gui_action('do')
-					])
+						} ),
+						new app.Actions.Refresh_layers_gui_action( 'do' )
+					] )
 				);
 			},
 		};
-		this.POP.show(settings);
+		this.POP.show( settings );
 	}
 }
 

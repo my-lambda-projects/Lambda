@@ -7,12 +7,12 @@ class Edit_selection_class {
 
 	constructor() {
 		this.Base_layers = new Base_layers_class();
-		this.Selection = new Selection_class(this.Base_layers.ctx);
+		this.Selection = new Selection_class( this.Base_layers.ctx );
 	}
 
 	select_all() {
-		if (config.layer.type != 'image') {
-			alertify.error('This layer must contain an image. Please convert it to raster to apply this tool.');
+		if ( config.layer.type != 'image' ) {
+			alertify.error( 'This layer must contain an image. Please convert it to raster to apply this tool.' );
 			return;
 		}
 		this.Selection.select_all();

@@ -18,55 +18,94 @@ class Image_colorCorrections_class {
 	color_corrections() {
 		var _this = this;
 
-		if (config.layer.type != 'image') {
-			alertify.error('This layer must contain an image. Please convert it to raster to apply this tool.');
+		if ( config.layer.type != 'image' ) {
+			alertify.error( 'This layer must contain an image. Please convert it to raster to apply this tool.' );
 			return;
 		}
 
 		var settings = {
 			title: 'Color Corrections',
 			preview: true,
-			on_change: function (params, canvas_preview, w, h) {
-				var img = canvas_preview.getImageData(0, 0, w, h);
-				var data = _this.do_corrections(img, params);
-				canvas_preview.putImageData(data, 0, 0);
+			on_change: function ( params, canvas_preview, w, h ) {
+				var img = canvas_preview.getImageData( 0, 0, w, h );
+				var data = _this.do_corrections( img, params );
+				canvas_preview.putImageData( data, 0, 0 );
 			},
-			params: [
-				{name: "param1", title: "Brightness:", value: "0", range: [-100, 100]},
-				{name: "param2", title: "Contrast:", value: "0", range: [-100, 100]},
+			params: [ {
+					name: "param1",
+					title: "Brightness:",
+					value: "0",
+					range: [ -100, 100 ]
+				},
+				{
+					name: "param2",
+					title: "Contrast:",
+					value: "0",
+					range: [ -100, 100 ]
+				},
 				{},
-				{name: "param_red", title: "Red channel:", value: "0", range: [-255, 255]},
-				{name: "param_green", title: "Green channel:", value: "0", range: [-255, 255]},
-				{name: "param_blue", title: "Blue channel:", value: "0", range: [-255, 255]},
+				{
+					name: "param_red",
+					title: "Red channel:",
+					value: "0",
+					range: [ -255, 255 ]
+				},
+				{
+					name: "param_green",
+					title: "Green channel:",
+					value: "0",
+					range: [ -255, 255 ]
+				},
+				{
+					name: "param_blue",
+					title: "Blue channel:",
+					value: "0",
+					range: [ -255, 255 ]
+				},
 				{},
-				{name: "param_h", title: "Hue:", value: "0", range: [-180, 180]},
-				{name: "param_s", title: "Saturation:", value: "0", range: [-100, 100]},
-				{name: "param_l", title: "Luminance:", value: "0", range: [-100, 100]},
+				{
+					name: "param_h",
+					title: "Hue:",
+					value: "0",
+					range: [ -180, 180 ]
+				},
+				{
+					name: "param_s",
+					title: "Saturation:",
+					value: "0",
+					range: [ -100, 100 ]
+				},
+				{
+					name: "param_l",
+					title: "Luminance:",
+					value: "0",
+					range: [ -100, 100 ]
+				},
 			],
-			on_finish: function (params) {
-				_this.save_alpha(params);
+			on_finish: function ( params ) {
+				_this.save_alpha( params );
 			},
 		};
-		this.POP.show(settings);
+		this.POP.show( settings );
 	}
 
-	save_alpha(params) {
+	save_alpha( params ) {
 		//get canvas from layer
-		var canvas = this.Base_layers.convert_layer_to_canvas(null, true);
-		var ctx = canvas.getContext("2d");
+		var canvas = this.Base_layers.convert_layer_to_canvas( null, true );
+		var ctx = canvas.getContext( "2d" );
 
 		//change data
-		var img = ctx.getImageData(0, 0, canvas.width, canvas.height);
-		var data = this.do_corrections(img, params);
-		ctx.putImageData(data, 0, 0);
+		var img = ctx.getImageData( 0, 0, canvas.width, canvas.height );
+		var data = this.do_corrections( img, params );
+		ctx.putImageData( data, 0, 0 );
 
 		//save
 		return app.State.do_action(
-			new app.Actions.Update_layer_image_action(canvas)
+			new app.Actions.Update_layer_image_action( canvas )
 		);
 	}
 
-	do_corrections(data, params) {
+	do_corrections( data, params ) {
 		var param1 = params.param1;
 		var param2 = params.param2;
 		var param_red = params.param_red;
@@ -77,11 +116,11 @@ class Image_colorCorrections_class {
 		var param_l = params.param_l;
 
 		//Brightness/Contrast
-		var filtered = this.ImageFilters.BrightnessContrastPhotoshop(data, param1, param2);
+		var filtered = this.ImageFilters.BrightnessContrastPhotoshop( data, param1, param2 );
 		//RGB corrections
-		var filtered = this.ImageFilters.ColorTransformFilter(filtered, 1, 1, 1, 1, param_red, param_green, param_blue, 1);
+		var filtered = this.ImageFilters.ColorTransformFilter( filtered, 1, 1, 1, 1, param_red, param_green, param_blue, 1 );
 		//hue/saturation/luminance
-		var filtered = this.ImageFilters.HSLAdjustment(filtered, param_h, param_s, param_l);
+		var filtered = this.ImageFilters.HSLAdjustment( filtered, param_h, param_s, param_l );
 
 		return filtered;
 	}

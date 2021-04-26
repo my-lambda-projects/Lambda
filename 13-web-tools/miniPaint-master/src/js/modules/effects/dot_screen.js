@@ -16,8 +16,8 @@ class Effects_dotScreen_class {
 	dot_screen() {
 		var _this = this;
 
-		if (config.layer.type != 'image') {
-			alertify.error('This layer must contain an image. Please convert it to raster to apply this tool.');
+		if ( config.layer.type != 'image' ) {
+			alertify.error( 'This layer must contain an image. Please convert it to raster to apply this tool.' );
 			return;
 		}
 
@@ -25,63 +25,66 @@ class Effects_dotScreen_class {
 			title: 'Dot Screen',
 			preview: true,
 			effects: true,
-			params: [
-				{name: "size", title: "Size:", value: "3", range: [1, 20]},
-			],
-			on_change: function (params, canvas_preview, w, h, canvas_) {
-				var data = _this.change(canvas_, params);
-				canvas_preview.clearRect(0, 0, canvas_.width, canvas_.height);
-				canvas_preview.drawImage(data, 0, 0);
+			params: [ {
+				name: "size",
+				title: "Size:",
+				value: "3",
+				range: [ 1, 20 ]
+			}, ],
+			on_change: function ( params, canvas_preview, w, h, canvas_ ) {
+				var data = _this.change( canvas_, params );
+				canvas_preview.clearRect( 0, 0, canvas_.width, canvas_.height );
+				canvas_preview.drawImage( data, 0, 0 );
 			},
-			on_finish: function (params) {
-				_this.save(params);
+			on_finish: function ( params ) {
+				_this.save( params );
 			},
 		};
-		this.POP.show(settings);
+		this.POP.show( settings );
 	}
 
-	save(params) {
+	save( params ) {
 		//get canvas from layer
-		var canvas = this.Base_layers.convert_layer_to_canvas(null, true);
-		var ctx = canvas.getContext("2d");
+		var canvas = this.Base_layers.convert_layer_to_canvas( null, true );
+		var ctx = canvas.getContext( "2d" );
 
 		//change data
-		var data = this.change(canvas, params);
-		ctx.clearRect(0, 0, canvas.width, canvas.height);
-		ctx.drawImage(data, 0, 0);
+		var data = this.change( canvas, params );
+		ctx.clearRect( 0, 0, canvas.width, canvas.height );
+		ctx.drawImage( data, 0, 0 );
 
 		//save
 		return app.State.do_action(
-			new app.Actions.Update_layer_image_action(canvas)
+			new app.Actions.Update_layer_image_action( canvas )
 		);
 	}
 
-	change(canvas, params) {
-		if (this.fx_filter == false) {
+	change( canvas, params ) {
+		if ( this.fx_filter == false ) {
 			//init glfx lib
 			this.fx_filter = glfx.canvas();
 		}
 
-		var size = parseFloat(params.size);
+		var size = parseFloat( params.size );
 
-		var texture = this.fx_filter.texture(canvas);
-		this.fx_filter.draw(texture).dotScreen(Math.round(canvas.width / 2), Math.round(canvas.height / 2), 0, size).update();
+		var texture = this.fx_filter.texture( canvas );
+		this.fx_filter.draw( texture ).dotScreen( Math.round( canvas.width / 2 ), Math.round( canvas.height / 2 ), 0, size ).update();
 
 		return this.fx_filter;
 	}
 
-	demo(canvas_id, canvas_thumb){
-		var canvas = document.getElementById(canvas_id);
-		var ctx = canvas.getContext("2d");
+	demo( canvas_id, canvas_thumb ) {
+		var canvas = document.getElementById( canvas_id );
+		var ctx = canvas.getContext( "2d" );
 
 		//modify
 		var params = {
 			size: 3,
 		};
-		var data = this.change(canvas_thumb, params);
+		var data = this.change( canvas_thumb, params );
 
 		//draw
-		ctx.drawImage(data, 0, 0);
+		ctx.drawImage( data, 0, 0 );
 	}
 
 }

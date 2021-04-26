@@ -19,26 +19,26 @@ class File_quickload_class {
 	set_events() {
 		var _this = this;
 
-		document.addEventListener('keydown', function (event) {
+		document.addEventListener( 'keydown', function ( event ) {
 			var code = event.keyCode;
 
-			if (code == 121) {
+			if ( code == 121 ) {
 				//F10
 				_this.quickload();
 				event.preventDefault();
 			}
-		}, false);
+		}, false );
 	}
 
 	quickload() {
 		//load image data
-		var json = localStorage.getItem('quicksave_data');
-		if (json == '' || json == null) {
+		var json = localStorage.getItem( 'quicksave_data' );
+		if ( json == '' || json == null ) {
 			//nothing was found
 			return false;
 		}
 
-		this.File_open.load_json(json);
+		this.File_open.load_json( json );
 	}
 
 }
