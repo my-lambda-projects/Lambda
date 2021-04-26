@@ -1,0 +1,1384 @@
+<!DOCTYPE html><html><head>
+      <title>README</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\bryan\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.5.18\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <div><h1 align="center">
+<br>
+  <img src="https://raw.githubusercontent.com/thedaviddias/Front-End-Checklist/master/data/images/logo-front-end-checklist.jpg" alt="Front-End Checklist" width="130">
+  <br>
+    <br>
+&#xA0; Front-End Checklist
+&#xA0; <br>
+</h1>
+<h4 align="center">The Front-End Checklist is an exhaustive list of all elements you need to have / to test before launching your website / HTML page to production.</h4>
+<p align="center">
+&#xA0; <a href="http://makeapullrequest.com">
+&#xA0;&#xA0;&#xA0; <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome">
+&#xA0; </a>
+&#xA0; &#xA0; <a href="https://github.com/thedaviddias/Front-End-Checklist/graphs/contributors">
+&#xA0;&#xA0;&#xA0; <img src="https://img.shields.io/github/contributors/thedaviddias/Front-End-Checklist.svg?style=flat-square" alt="Contributors">
+&#xA0; </a>
+&#xA0; <a href="https://github.com/thedaviddias/Front-End-Checklist/">
+&#xA0;&#xA0;&#xA0; <img src="https://img.shields.io/badge/Front&#x2011;End_Checklist-followed-brightgreen.svg?style=flat-square" alt="Front&#x2011;End_Checklist followed">
+  </a>
+&#xA0; &#xA0; <a href="https://creativecommons.org/publicdomain/zero/1.0/">
+&#xA0;&#xA0;&#xA0; <img src="https://img.shields.io/badge/license-CC0-green.svg?style=flat-square" alt="CC0">
+&#xA0; </a>
+</p>
+<p align="center">
+&#xA0; <a href="#how-to-use">How To Use</a> &#x2022; <a href="#contributing">Contributing</a> &#x2022; <a href="https://frontendchecklist.io">Website</a> &#x2022; <a href="https://www.producthunt.com/posts/front-end-checklist">Product Hunt</a>
+</p>
+<p align="center">
+    <span>Other Checklists:</span>
+    <br>
+&#xA0; <a href="https://github.com/thedaviddias/Front-End-Performance-Checklist#---------front-end-performance-checklist-">&#x1F3AE; Front-End Performance Checklist</a> &#x2022; <a href="https://github.com/thedaviddias/Front-End-Design-Checklist#front-end-design-checklist">&#x1F48E; Front-End Design Checklist</a>
+</p>
+<p>It is based on Front-End developers&apos; years of experience, with the additions coming from some other open-source checklists.</p>
+<h2 class="mume-header" id="table-of-contents">Table of Contents</h2>
+
+<ol>
+<li><strong><a href="#head">Head</a></strong></li>
+<li><strong><a href="#html">HTML</a></strong></li>
+<li><strong><a href="#webfonts">Webfonts</a></strong></li>
+<li><strong><a href="#css">CSS</a></strong></li>
+<li><strong><a href="#images">Images</a></strong></li>
+<li><strong><a href="#javascript">JavaScript</a></strong></li>
+<li><strong><a href="#security">Security</a></strong></li>
+<li><strong><a href="#performance-1">Performance</a></strong></li>
+<li><strong><a href="#accessibility">Accessibility</a></strong></li>
+<li><strong><a href="#seo">SEO</a></strong></li>
+<li><strong><a href="#translations">Translations</a></strong></li>
+</ol>
+<hr>
+<h2 class="mume-header" id="how-to-use">How to use?</h2>
+
+<p>All items in the <strong>Front-End Checklist</strong> are required for the majority of the projects, but some elements can be omitted or are not essential (in the case of an administration web app, you may not need RSS feed for example). We choose to use 3 levels of flexibility:</p>
+<ul>
+<li><img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> means that the item is <strong>recommended</strong> but can be omitted in some particular situations.</li>
+<li><img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> means that the item is <strong>highly recommended</strong> and can eventually be omitted in some really particular cases. Some elements, if omitted, can have bad repercussions in terms of performance or SEO.</li>
+<li><img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> means that the item <strong>can&apos;t be omitted</strong> by any reason. You may cause a dysfunction in your page or have accessibility or SEO issues. The testing priority needs to be on these elements first.</li>
+</ul>
+<p>Some resources possess an emoticon to help you understand which type of content / help you may find on the checklist:</p>
+<ul>
+<li>&#x1F4D6;: documentation or article</li>
+<li>&#x1F6E0;: online tool / testing tool</li>
+<li>&#x1F4F9;: media or video content</li>
+</ul>
+<blockquote>
+<p>You can contribute to the <em><strong>Front-End Checklist App</strong></em> reading the <a href="https://github.com/thedaviddias/Front-End-Checklist/blob/master/CONTRIBUTING.md">CONTRIBUTING.md file</a> which explains everything about the project.</p>
+</blockquote>
+<hr>
+<h2 class="mume-header" id="head">Head</h2>
+
+<blockquote>
+<p><strong>Notes:</strong> You can find <a href="https://github.com/joshbuchea/HEAD">a list of everything</a> that could be found in the <code>&lt;head&gt;</code> of an HTML document.</p>
+</blockquote>
+<h3 class="mume-header" id="meta-tag">Meta tag</h3>
+
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Doctype:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> The Doctype is HTML5 and is at the top of all your HTML pages.</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token name">doctype</span> <span class="token name">html</span><span class="token punctuation">&gt;</span></span> <span class="token comment">&lt;!-- HTML5 --&gt;</span>
+</pre><blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://www.w3.org/TR/html5/syntax.html#determining-the-character-encoding">Determining the character encoding - HTML5 W3C</a></li>
+</ul>
+</blockquote>
+<p><em>The next 2 meta tags (Charset and Viewport) need to come first in the head.</em></p>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Charset:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> The charset (UTF-8) is declared correctly.</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token comment">&lt;!-- Set character encoding for the document --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>utf-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+</pre><ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Viewport:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> The viewport is declared correctly.</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token comment">&lt;!-- Viewport for responsive web design --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>viewport<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>width=device-width, initial-scale=1, viewport-fit=cover<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+</pre><ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Title:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> A title is used on all pages (SEO: Google calculates the pixel width of the characters used in the title, and it cuts off between 472 and 482 pixels. The average character limit would be around 55-characters).</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token comment">&lt;!-- Document Title --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Page Title less than 55 characters<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+</pre><blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title">Title - HTML - MDN</a></li>
+<li>&#x1F6E0; <a href="https://www.sistrix.com/serp-snippet-generator/">SERP Snippet Generator</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Description:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> A meta description is provided, it is unique and doesn&apos;t possess more than 150 characters.</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token comment">&lt;!-- Meta Description --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>description<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Description of the page less than 150 characters<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+</pre><blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML#Adding_an_author_and_description">Meta Description - HTML - MDN</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Favicons:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> Each favicon has been created and displays correctly. If you have only a <code>favicon.ico</code>, put it at the root of your site. Normally you won&apos;t need to use any markup. However, it&apos;s still good practice to link to it using the example below. Today, <strong>PNG format is recommended</strong> over <code>.ico</code> format (dimensions: 32x32px).</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token comment">&lt;!-- Standard favicon --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>icon<span class="token punctuation">&quot;</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>image/x-icon<span class="token punctuation">&quot;</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>https://example.com/favicon.ico<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token comment">&lt;!-- Recommended favicon format --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>icon<span class="token punctuation">&quot;</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>image/png<span class="token punctuation">&quot;</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>https://example.com/favicon.png<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+</pre><blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://www.favicon-generator.org/">Favicon Generator</a></li>
+<li>&#x1F6E0; <a href="https://realfavicongenerator.net/">RealFaviconGenerator</a></li>
+<li>&#x1F4D6; <a href="https://github.com/audreyr/favicon-cheat-sheet">Favicon Cheat Sheet</a></li>
+<li>&#x1F4D6; <a href="https://css-tricks.com/favicon-quiz/">Favicons, Touch Icons, Tile Icons, etc. Which Do You Need? - CSS Tricks</a></li>
+<li>&#x1F4D6; <a href="https://caniuse.com/#feat=link-icon-png">PNG favicons - caniuse</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Apple Web App Meta:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> Apple meta-tags are present.</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token comment">&lt;!-- Apple Touch Icon (at least 200x200px) --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>apple-touch-icon<span class="token punctuation">&quot;</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>/custom-icon.png<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token comment">&lt;!-- To run web application in full-screen --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>apple-mobile-web-app-capable<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>yes<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+
+<span class="token comment">&lt;!-- Status Bar Style (see Supported Meta Tags below for available values) --&gt;</span>
+<span class="token comment">&lt;!-- Has no effect unless you have the previous meta tag --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>apple-mobile-web-app-status-bar-style<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>black<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+</pre><blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html">Configuring Web Applications</a></li>
+<li>&#x1F4D6; <a href="https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html">Supported Meta Tags</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Windows Tiles:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> Windows tiles are present and linked.</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token comment">&lt;!-- Microsoft Tiles --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>msapplication-config<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>browserconfig.xml<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+</pre><p>Minimum required xml markup for the <code>browserconfig.xml</code> file is as follows:</p>
+<pre data-role="codeBlock" data-info="xml" class="language-xml"><span class="token prolog">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>browserconfig</span><span class="token punctuation">&gt;</span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>msapplication</span><span class="token punctuation">&gt;</span></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tile</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>square70x70logo</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>small.png<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>square150x150logo</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>medium.png<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>wide310x150logo</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>wide.png<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>square310x310logo</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>large.png<span class="token punctuation">&quot;</span></span><span class="token punctuation">/&gt;</span></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tile</span><span class="token punctuation">&gt;</span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>msapplication</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>browserconfig</span><span class="token punctuation">&gt;</span></span>
+</pre><blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://msdn.microsoft.com/en-us/library/dn320426(v=vs.85).aspx">Browser configuration schema reference</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Canonical:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> Use <code>rel=&quot;canonical&quot;</code> to avoid duplicate content.</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token comment">&lt;!-- Helps prevent duplicate content issues --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>canonical<span class="token punctuation">&quot;</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>http://example.com/2017/09/a-new-article-to-read.html<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+</pre><blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://support.google.com/webmasters/answer/139066?hl=en">Use canonical URLs - Search Console Help - Google Support</a></li>
+<li>&#x1F4D6; <a href="https://webmasters.googleblog.com/2013/04/5-common-mistakes-with-relcanonical.html">5 common mistakes with rel=canonical - Google Webmaster Blog</a></li>
+</ul>
+</blockquote>
+<h3 class="mume-header" id="html-tags">HTML tags</h3>
+
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Language attribute:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> The <code>lang</code> attribute of your website is specified and related to the language of the current page.</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+</pre><ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Direction attribute:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> The direction of lecture is specified on the html tag (It can be used on another HTML tag).</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">dir</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>rtl<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+</pre><blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir">dir - HTML - MDN</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Alternate language:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> The language tag of your website is specified and related to the language of the current page.</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>alternate<span class="token punctuation">&quot;</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>https://es.example.com/<span class="token punctuation">&quot;</span></span> <span class="token attr-name">hreflang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>es<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+</pre><ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>x-default:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> The language tag of your website for international landing pages.</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>alternate<span class="token punctuation">&quot;</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>https://example.com/<span class="token punctuation">&quot;</span></span> <span class="token attr-name">hreflang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>x-default<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+</pre><blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://webmasters.googleblog.com/2013/04/x-default-hreflang-for-international-pages.html">x-default - Google</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Conditional comments:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> Conditional comments are present for IE if needed.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://msdn.microsoft.com/en-us/library/ms537512(v=vs.85).aspx">About conditional comments (Internet Explorer) - MSDN - Microsoft</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item">
+<p><input type="checkbox" class="task-list-item-checkbox"> <strong>RSS feed:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> If your project is a blog or has articles, an RSS link was provided.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" class="task-list-item-checkbox"> <strong>CSS Critical:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> The CSS critical (or &quot;above the fold&quot;) collects all the CSS used to render the visible portion of the page. It is embedded before your principal CSS call and between <code>&lt;style&gt;&lt;/style&gt;</code> in a single line (minified).</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://github.com/addyosmani/critical">Critical by Addy Osmani on GitHub</a> automates this.</li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>CSS order:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> All CSS files are loaded before any JavaScript files in the <code>&lt;head&gt;</code>. (Except the case where sometimes JS files are loaded asynchronously on top of your page).</li>
+</ul>
+<h3 class="mume-header" id="social-meta">Social meta</h3>
+
+<p>Visualize and generate automatically our social meta tags with <a href="https://metatags.io/">Meta Tags</a></p>
+<p><em><strong>Facebook OG</strong></em> and <em><strong>Twitter Cards</strong></em> are, for any website, highly recommended. The other social media tags can be considered if you target a particular presence on those and want to ensure the display.</p>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Facebook Open Graph:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> All Facebook Open Graph (OG) are tested and no one is missing or with false information. Images need to be at least 600 x 315 pixels, although 1200 x 630 pixels is recommended.</li>
+</ul>
+<blockquote>
+<p><strong>Notes:</strong> Using <code>og:image:width</code> and <code>og:image:height</code> will specify the image dimensions to the crawler so that it can render the image immediately without having to asynchronously download and process it.</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>og:type<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>website<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>og:url<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>https://example.com/page.html<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>og:title<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Content Title<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>og:image<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>https://example.com/image.jpg<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>og:description<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Description Here<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>og:site_name<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Site Name<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>og:locale<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>en_US<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token comment">&lt;!-- Next tags are optional but recommended --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>og:image:width<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>1200<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">property</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>og:image:height<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>630<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+</pre><blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://developers.facebook.com/docs/sharing/webmasters/">A Guide to Sharing for Webmasters</a></li>
+<li>&#x1F4D6; <a href="https://developers.facebook.com/docs/sharing/best-practices/">Best Practices - Sharing</a></li>
+<li>&#x1F6E0; Test your page with the <a href="https://developers.facebook.com/tools/debug/">Facebook OG testing</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Twitter Card:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"></li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>twitter:card<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>summary<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>twitter:site<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>@site_account<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>twitter:creator<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>@individual_account<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>twitter:url<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>https://example.com/page.html<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>twitter:title<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Content Title<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>twitter:description<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>Content description less than 200 characters<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>twitter:image<span class="token punctuation">&quot;</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>https://example.com/image.jpg<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+</pre><blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started">Getting started with cards &#x2014; Twitter Developers</a></li>
+<li>&#x1F6E0; Test your page with the <a href="https://cards-dev.twitter.com/validator">Twitter card validator</a></li>
+</ul>
+</blockquote>
+<p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+<hr>
+<h2 class="mume-header" id="html">HTML</h2>
+
+<h3 class="mume-header" id="best-practices">Best practices</h3>
+
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>HTML5 Semantic Elements:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> HTML5 Semantic Elements are used appropriately (header, section, footer, main...).</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="http://htmlreference.io/">HTML Reference</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item">
+<p><input type="checkbox" class="task-list-item-checkbox"> <strong>Error pages:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> Error 404 page and 5xx exist. Remember that the 5xx error pages need to have their CSS integrated (no external call on the current server).</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" class="task-list-item-checkbox"> <strong>Noopener:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> In case you are using external links with <code>target=&quot;_blank&quot;</code>, your link should have a <code>rel=&quot;noopener&quot;</code> attribute to prevent tab nabbing. If you need to support older versions of Firefox, use <code>rel=&quot;noopener noreferrer&quot;</code>.</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://mathiasbynens.github.io/rel-noopener/">About rel=noopener</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Clean up comments:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> Unnecessary code needs to be removed before sending the page to production.</li>
+</ul>
+<h3 class="mume-header" id="html-testing">HTML testing</h3>
+
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>W3C compliant:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> All pages need to be tested with the W3C validator to identify possible issues in the HTML code.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://validator.w3.org/">W3C validator</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>HTML Lint:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> I use tools to help me analyze any issues I could have on my HTML code.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://www.10bestdesign.com/dirtymarkup/">Dirty markup</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://webhint.io/">webhint</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Link checker:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> There are no broken links in my page, verify that you don&apos;t have any 404 error.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://validator.w3.org/checklink">W3C Link Checker</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Adblockers test:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> Your website shows your content correctly with adblockers enabled (You can provide a message encouraging people to disable their adblocker).</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://andreicioara.com/use-adblocking-in-your-dev-environment-48db500d9b86">Use AdBlocking in your Dev Environment</a></li>
+</ul>
+</blockquote>
+<p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+<hr>
+<h2 class="mume-header" id="webfonts">Webfonts</h2>
+
+<blockquote>
+<p><strong>Notes:</strong> Using web fonts may cause Flash Of Unstyled Text/Flash Of Invisible Text - consider having fallback fonts and/or utilizing web font loaders to control behavior.</p>
+<ul>
+<li>&#x1F4D6; <a href="https://developers.google.com/fonts/docs/technical_considerations">Google Technical considerations about webfonts</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Webfont format:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> WOFF, WOFF2 and TTF are supported by all modern browsers.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://caniuse.com/#feat=woff">WOFF - Web Open Font Format - Caniuse</a>.</li>
+<li>&#x1F4D6; <a href="https://caniuse.com/#feat=woff2">WOFF 2.0 - Web Open Font Format - Caniuse</a>.</li>
+<li>&#x1F4D6; <a href="https://caniuse.com/#feat=ttf">TTF/OTF - TrueType and OpenType font support</a></li>
+<li>&#x1F4D6; <a href="https://css-tricks.com/snippets/css/using-font-face/">Using @font-face - CSS-Tricks</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item">
+<p><input type="checkbox" class="task-list-item-checkbox"> <strong>Webfont size:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> Webfont sizes don&apos;t exceed 2 MB (all variants included).</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" class="task-list-item-checkbox"> <strong>Webfont loader:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> Control loading behavior with a webfont loader</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://github.com/typekit/webfontloader">Typekit Web Font Loader</a></li>
+</ul>
+</blockquote>
+<p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+<hr>
+<h2 class="mume-header" id="css">CSS</h2>
+
+<blockquote>
+<p><strong>Notes:</strong> Take a look at <a href="https://cssguidelin.es/">CSS guidelines</a> and <a href="https://sass-guidelin.es/">Sass Guidelines</a> followed by most  Front-End developers. If you have a doubt about CSS properties, you can visit <a href="http://cssreference.io/">CSS Reference</a>. There is also a short <a href="http://codeguide.co/">Code Guide</a> for consistency.</p>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Responsive Web Design:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> The website is using responsive web design.</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>CSS Print:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> A print stylesheet is provided and is correct on each page.</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Preprocessors:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> Your project is using a CSS preprocessor (e.g <a href="http://sass-lang.com/">Sass</a>, <a href="http://lesscss.org/">Less</a>, <a href="http://stylus-lang.com/">Stylus</a>).</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Unique ID:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> If IDs are used, they are unique to a page.</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Reset CSS:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> A CSS reset (reset, normalize or reboot) is used and up to date. <em>(If you are using a CSS Framework like Bootstrap or Foundation, a Normalize is already included into it.)</em></li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://meyerweb.com/eric/tools/css/reset/">Reset.css</a></li>
+<li>&#x1F4D6; <a href="https://necolas.github.io/normalize.css/">Normalize.css</a></li>
+<li>&#x1F4D6; <a href="https://getbootstrap.com/docs/4.0/content/reboot/">Reboot</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>JS prefix:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> All classes (or id- used in JavaScript files) begin with <strong>js-</strong> and are not styled into the CSS files.</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>js-slider<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>my-slider<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token comment">&lt;!-- Or --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>id-used-by-cms<span class="token punctuation">&quot;</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>js-slider my-slider<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+</pre><ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>embedded or inline CSS:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> Avoid at all cost embedding CSS in <code>&lt;style&gt;</code> tags or using inline CSS: only use for valid reasons (e.g. background-image for slider, critical CSS).</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Vendor prefixes:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> CSS vendor prefixes are used and are generated accordingly with your browser support compatibility.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://autoprefixer.github.io/">Autoprefixer CSS online</a></li>
+</ul>
+</blockquote>
+<h3 class="mume-header" id="performance">Performance</h3>
+
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Concatenation:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> CSS files are concatenated in a single file <em>(Not for HTTP/2)</em>.</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Minification:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> All CSS files are minified.</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Non-blocking:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> CSS files need to be non-blocking to prevent the DOM from taking time to load.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://github.com/filamentgroup/loadCSS">loadCSS by filament group</a></li>
+<li>&#x1F4D6; <a href="https://gist.github.com/thedaviddias/c24763b82b9991e53928e66a0bafc9bf">Example of preload CSS using loadCSS</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Unused CSS:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> Remove unused CSS.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://uncss-online.com/">UnCSS Online</a></li>
+<li>&#x1F6E0; <a href="https://github.com/purifycss/purifycss">PurifyCSS</a></li>
+<li>&#x1F6E0; <a href="https://github.com/FullHuman/purgecss">PurgeCSS</a></li>
+<li>&#x1F6E0; <a href="https://developers.google.com/web/updates/2017/04/devtools-release-notes#coverage">Chrome DevTools Coverage</a></li>
+</ul>
+</blockquote>
+<h3 class="mume-header" id="css-testing">CSS testing</h3>
+
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Stylelint:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> All CSS or SCSS files are without any errors.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://stylelint.io/">stylelint, a CSS linter</a></li>
+<li>&#x1F4D6; <a href="https://sass-guidelin.es/">Sass guidelines</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Responsive web design:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> All pages were tested at the following breakpoints: 320px, 768px, 1024px (can be more / different according to your analytics).<br>
+<strong>Responsive Checker -</strong></li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="http://ami.responsivedesign.is/">Am I Responsive?</a></li>
+<li>&#x1F6E0; <a href="https://search.google.com/test/mobile-friendly">Mobile Friendly Test</a></li>
+<li>&#x1F6E0; <a href="https://responsivedesignchecker.com/">Responsive Website Design Tester</a></li>
+<li>&#x1F6E0; <a href="https://www.responsinator.com/">Responsinator</a></li>
+<li>&#x1F6E0; <a href="https://xrespond.com/">XRespond</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>CSS Validator:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> The CSS was tested and pertinent errors were corrected.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://jigsaw.w3.org/css-validator/">CSS Validator</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item">
+<p><input type="checkbox" class="task-list-item-checkbox"> <strong>Desktop Browsers:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> All pages were tested on all current desktop browsers (Safari, Firefox, Chrome, Internet Explorer, EDGE...).</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" class="task-list-item-checkbox"> <strong>Mobile Browsers:</strong>  <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> All pages were tested on all current mobile browsers (Native browser, Chrome, Safari...).</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" class="task-list-item-checkbox"> <strong>OS:</strong>  <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> All pages were tested on all current OS (Windows, Android, iOS, Mac...).</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" class="task-list-item-checkbox"> <strong>Design fidelity:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> Depending on the project and the quality of the creatives, you may be asked to be close to the design. You can use some tools to compare creatives with your code implementation and ensure consistency.</p>
+</li>
+</ul>
+<blockquote>
+<p><a href="https://chrome.google.com/webstore/detail/perfectpixel-by-welldonec/dkaagdgjmgdmbnecmcefdhjekcoceebi?hl=en">Pixel Perfect - Chrome Extension</a></p>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Reading direction:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> All pages need to be tested for LTR and RTL languages if they need to be supported.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://hacks.mozilla.org/2015/09/building-rtl-aware-web-apps-and-websites-part-1/">Building RTL-Aware Web Apps &amp; Websites: Part 1 - Mozilla Hacks</a></li>
+<li>&#x1F4D6; <a href="https://hacks.mozilla.org/2015/10/building-rtl-aware-web-apps-websites-part-2/">Building RTL-Aware Web Apps &amp; Websites: Part 2 - Mozilla Hacks</a></li>
+</ul>
+</blockquote>
+<p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+<hr>
+<h2 class="mume-header" id="images">Images</h2>
+
+<blockquote>
+<p><strong>Notes:</strong> For a complete understanding of image optimization, check the free ebook <strong><a href="https://images.guide/">Essential Image Optimization</a></strong> from Addy Osmani.</p>
+</blockquote>
+<h3 class="mume-header" id="best-practices-1">Best practices</h3>
+
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Optimization:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> All images are optimized to be rendered in the browser. WebP format could be used for critical pages (like Homepage).</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://github.com/imagemin/imagemin">Imagemin</a></li>
+<li>&#x1F6E0; Use <a href="https://imageoptim.com/">ImageOptim</a> to optimise your images for free.</li>
+<li>&#x1F6E0; Use <a href="https://www.keycdn.com/support/image-processing">KeyCDN Image Processing</a> for image optimization in real time.</li>
+<li>&#x1F6E0; Use <a href="https://kraken.io/web-interface">Kraken.io</a> awesome alternative for both png and jpg optimization. Up to 1mb per files on free plan.</li>
+<li>&#x1F6E0; <a href="https://tinypng.com/">TinyPNG</a> losslessly optimises png, apng (animated png) and jpg images. Free and paid version available.</li>
+<li>&#x1F6E0; <a href="http://quasimondo.com/ZorroSVG/">ZorroSVG</a> jpg-like compression for transparent images using svg masking.</li>
+<li>&#x1F6E0; <a href="https://github.com/svg/svgo">SVGO</a> a Nodejs-based tool for optimizing SVG vector graphics files.</li>
+<li>&#x1F6E0; <a href="https://jakearchibald.github.io/svgomg/">SVGOMG</a> a web-based GUI version of SVGO for optimising your svgs online.</li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Picture/Srcset:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> You use picture/srcset to provide the most appropriate image for the current viewport of the user.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://www.sitepoint.com/how-to-build-responsive-images-with-srcset/">How to Build Responsive Images with srcset</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Retina:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> You provide layout images 2x or 3x, support retina display.</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Sprite:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> Small images are in a sprite file (in the case of icons, they can be in an SVG sprite image).</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Width and Height:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> Set <code>width</code> and <code>height</code> attributes on <code>&lt;img&gt;</code> if the final rendered image size is known (can be omitted for CSS sizing).</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Alternative text:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> All <code>&lt;img&gt;</code> have an alternative text which describes the image visually.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://axesslab.com/alt-texts/">Alt-texts: The Ultimate Guide</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Lazy loading:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> Images are lazyloaded (A noscript fallback is always provided).</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://github.com/mfranzke/loading-attribute-polyfill/">Native lazy loading polyfill</a></li>
+</ul>
+</blockquote>
+<p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+<hr>
+<h2 class="mume-header" id="javascript">JavaScript</h2>
+
+<h3 class="mume-header" id="best-practices-2">Best practices</h3>
+
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>JavaScript Inline:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> You don&apos;t have any JavaScript code inline (mixed with your HTML code).</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Concatenation:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> JavaScript files are concatenated.</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Minification:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> JavaScript files are minified (you can add the <code>.min</code> suffix).</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://developers.google.com/speed/docs/insights/MinifyResources">Minify Resources (HTML, CSS, and JavaScript)</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>JavaScript security:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"></li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://www.owasp.org/index.php/DOM_based_XSS_Prevention_Cheat_Sheet#Guidelines_for_Developing_Secure_Applications_Utilizing_JavaScript">Guidelines for Developing Secure Applications Utilizing JavaScript</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong><code>noscript</code> tag:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> Use <code>&lt;noscript&gt;</code> tag in the HTML body if a script type on the page is unsupported or if scripting is currently turned off in the browser. This will be helpful in client-side rendering heavy apps such as React.js, see <a href="https://webdesign.tutsplus.com/tutorials/quick-tip-dont-forget-the-noscript-element--cms-25498">examples</a>.</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>noscript</span><span class="token punctuation">&gt;</span></span>
+  You need to enable JavaScript to run this app.
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>noscript</span><span class="token punctuation">&gt;</span></span>
+</pre><ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Non-blocking:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> JavaScript files are loaded asynchronously using <code>async</code> or deferred using <code>defer</code> attribute.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://developers.google.com/speed/docs/insights/BlockingJS">Remove Render-Blocking JavaScript</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Optimized and updated JS libraries:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> All JavaScript libraries used in your project are necessary (prefer Vanilla Javascript for simple functionalities), updated to their latest version and don&apos;t overwhelm your JavaScript with unnecessary methods.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="http://youmightnotneedjquery.com/">You may not need jQuery</a></li>
+<li>&#x1F4D6; <a href="https://plainjs.com/">Vanilla JavaScript for building powerful web applications</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Modernizr:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> If you need to target some specific features you can use a custom Modernizr to add classes in your <code>&lt;html&gt;</code> tag.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://modernizr.com/download?setclasses">Customize your Modernizr</a></li>
+</ul>
+</blockquote>
+<h3 class="mume-header" id="javascript-testing">JavaScript testing</h3>
+
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>ESLint:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> No errors are flagged by ESLint (based on your configuration or standards rules).</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://eslint.org/">ESLint - The pluggable linting utility for JavaScript and JSX</a></li>
+</ul>
+</blockquote>
+<p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+<hr>
+<h2 class="mume-header" id="security">Security</h2>
+
+<h3 class="mume-header" id="scan-and-check-your-web-site">Scan and check your web site</h3>
+
+<blockquote>
+<ul>
+<li><a href="https://securityheaders.io/">securityheaders.io</a></li>
+<li><a href="https://observatory.mozilla.org/">Observatory by Mozilla</a></li>
+</ul>
+</blockquote>
+<h3 class="mume-header" id="best-practices-3">Best practices</h3>
+
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>HTTPS:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> HTTPS is used on every page and for all external content (plugins, images...).</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://letsencrypt.org/">Let&apos;s Encrypt - Free SSL/TLS Certificates</a></li>
+<li>&#x1F6E0; <a href="https://www.ssllabs.com/ssltest/index.html">Free SSL Server Test</a></li>
+<li>&#x1F4D6; <a href="http://caniuse.com/#feat=stricttransportsecurity">Strict Transport Security</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>HTTP Strict Transport Security (HSTS):</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> The HTTP header is set to &apos;Strict-Transport-Security&apos;.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://hstspreload.org/">Check HSTS preload status and eligibility</a></li>
+<li>&#x1F4D6; <a href="https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html">HTTP Strict Transport Security Cheat Sheet - OWASP</a></li>
+<li>&#x1F4D6; <a href="https://cheatsheetseries.owasp.org/cheatsheets/Transport_Layer_Protection_Cheat_Sheet.html">Transport Layer Protection Cheat Sheet - OWASP</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Cross Site Request Forgery (CSRF):</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> You ensure that requests made to your server-side are legitimate and originate from your website / app to prevent CSRF attacks.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html">Cross-Site Request Forgery (CSRF) Prevention Cheat Sheet  - OWASP</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Cross Site Scripting (XSS):</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> Your page or website is free from XSS possible issues.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html">XSS (Cross Site Scripting) Prevention Cheat Sheet  - OWASP</a></li>
+<li>&#x1F4D6; <a href="https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html">DOM based XSS Prevention Cheat Sheet  - OWASP</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Content Type Options:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> Prevents Google Chrome and Internet Explorer from trying to mime-sniff the content-type of a response away from the one being declared by the server.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://scotthelme.co.uk/hardening-your-http-response-headers/#x-content-type-options">X-Content-Type-Options - Scott Helme</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>X-Frame-Options (XFO):</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> Protects your visitors against clickjacking attacks.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://scotthelme.co.uk/hardening-your-http-response-headers/#x-frame-options">X-Frame-Options - Scott Helme</a></li>
+<li>&#x1F4D6; <a href="https://tools.ietf.org/html/rfc7034">RFC7034 - HTTP Header Field X-Frame-Options</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Content Security Policy:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> Defines how content is loaded on your site and from where it is permitted to be loaded. Can also be used to protect against clickjacking attacks.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://scotthelme.co.uk/content-security-policy-an-introduction/">Content Security Policy - An Introduction - Scott Helme</a></li>
+<li>&#x1F4D6; <a href="https://scotthelme.co.uk/csp-cheat-sheet/">CSP Cheat Sheet - Scott Helme</a></li>
+<li>&#x1F4D6; <a href="https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html">CSP Cheat Sheet - OWASP</a></li>
+<li>&#x1F4D6; <a href="https://content-security-policy.com/">Content Security Policy Reference</a></li>
+</ul>
+</blockquote>
+<p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+<hr>
+<h2 class="mume-header" id="performance-1">Performance</h2>
+
+<h3 class="mume-header" id="best-practices-4">Best practices</h3>
+
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Goals to achieve:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> Your pages should reach these goals:
+<ul>
+<li>First Meaningful Paint under 1 second</li>
+<li>Time To Interactive under 5 seconds for the &quot;average&quot; configuration (a $200 Android on a slow 3G network with 400ms RTT and 400kbps transfer speed) and under 2 seconds for repeat visits</li>
+<li>Critical file size under 170Kb gzipped</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://tools.pingdom.com">Website Page Analysis</a></li>
+<li>&#x1F6E0; <a href="https://www.webpagetest.org/">WebPageTest</a></li>
+<li>&#x1F4D6; <a href="https://evilmartians.com/chronicles/size-limit-make-the-web-lighter">Size Limit: Make the Web lighter</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item">
+<p><input type="checkbox" class="task-list-item-checkbox"> <strong>Minified HTML:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> Your HTML is minified.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" class="task-list-item-checkbox"> <strong>Lazy loading:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> Images, scripts and CSS need to be lazy loaded to improve the response time of the current page (See details in their respective sections).</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" class="task-list-item-checkbox"> <strong>Cookie size:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> If you are using cookies be sure each cookie doesn&apos;t exceed 4096 bytes and your domain name doesn&apos;t have more than 20 cookies.</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://tools.ietf.org/html/rfc6265">Cookie specification: RFC 6265</a></li>
+<li>&#x1F4D6; <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies">Cookies</a></li>
+<li>&#x1F6E0; <a href="http://browsercookielimits.squawky.net/">Browser Cookie Limits</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Third party components:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> Third party iframes or components relying on external JS (like sharing buttons) are replaced by static components when possible, thus limiting calls to external APIs and keeping your user&apos;s activity private.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://simplesharingbuttons.com/">Simple sharing buttons generator</a></li>
+</ul>
+</blockquote>
+<h3 class="mume-header" id="preparing-upcoming-requests">Preparing upcoming requests</h3>
+
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://css-tricks.com/prefetching-preloading-prebrowsing/">Explanation of the following techniques</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>DNS resolution:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> DNS of third-party services that may be needed are resolved in advance during idle time using <code>dns-prefetch</code>.</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>dns-prefetch<span class="token punctuation">&quot;</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>https://example.com<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+</pre><ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Preconnection:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> DNS lookup, TCP handshake and TLS negotiation with services that will be needed soon is done in advance during idle time using <code>preconnect</code>.</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>preconnect<span class="token punctuation">&quot;</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>https://example.com<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+</pre><ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Prefetching:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> Resources that will be needed soon (e.g. lazy loaded images) are requested in advance during idle time using <code>prefetch</code>.</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>prefetch<span class="token punctuation">&quot;</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>image.png<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+</pre><ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Preloading:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> Resources needed in the current page (e.g. scripts placed at the end of <code>&lt;body&gt;</code>) in advance using <code>preload</code>.</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>preload<span class="token punctuation">&quot;</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>app.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+</pre><blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf">Difference between prefetch and preload</a></li>
+</ul>
+</blockquote>
+<h3 class="mume-header" id="performance-testing">Performance testing</h3>
+
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Google PageSpeed:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> All your pages were tested (not only the homepage) and have a score of at least 90/100.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://developers.google.com/speed/pagespeed/insights/">Google PageSpeed</a></li>
+<li>&#x1F6E0; <a href="https://testmysite.withgoogle.com">Test your mobile speed with Google</a></li>
+<li>&#x1F6E0; <a href="https://www.webpagetest.org/">WebPagetest - Website Performance and Optimization Test</a></li>
+<li>&#x1F6E0; <a href="https://gtmetrix.com/">GTmetrix - Website speed and performance optimization</a></li>
+<li>&#x1F6E0; <a href="https://speedrank.app/">Speedrank - Improve the performance of your website</a></li>
+</ul>
+</blockquote>
+<p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+<hr>
+<h2 class="mume-header" id="accessibility">Accessibility</h2>
+
+<blockquote>
+<p><strong>Notes:</strong> You can watch the playlist <a href="https://www.youtube.com/playlist?list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g">A11ycasts with Rob Dodson</a> &#x1F4F9;</p>
+</blockquote>
+<h3 class="mume-header" id="best-practices-5">Best practices</h3>
+
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Progressive enhancement:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> Major functionality like main navigation and search should work without JavaScript enabled.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://www.youtube.com/watch?v=kBmvq2cE0D8">Enable / Disable JavaScript in Chrome Developer Tools</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Color contrast:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> Color contrast should at least pass WCAG AA (AAA for mobile).</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://leaverou.github.io/contrast-ratio/">Contrast ratio</a></li>
+</ul>
+</blockquote>
+<h4 class="mume-header" id="headings">Headings</h4>
+
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>H1:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> All pages have an H1 which is not the title of the website.</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Headings:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> Headings should be used properly and in the right order (H1 to H6).</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4F9; <a href="https://www.youtube.com/watch?v=vAAzdi1xuUY&amp;index=9&amp;list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g">Why headings and landmarks are so important -- A11ycasts #18</a></li>
+</ul>
+</blockquote>
+<h3 class="mume-header" id="semantics">Semantics</h3>
+
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Specific HTML5 input types are used:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> This is especially important for mobile devices that show customized keypads and widgets for different types.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="http://mobileinputtypes.com/">Mobile Input Types</a></li>
+</ul>
+</blockquote>
+<h3 class="mume-header" id="form">Form</h3>
+
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Label:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> A label is associated with each input form element. In case a label can&apos;t be displayed, use <code>aria-label</code> instead.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute">Using the aria-label attribute - MDN</a></li>
+</ul>
+</blockquote>
+<h3 class="mume-header" id="accessibility-testing">Accessibility testing</h3>
+
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Accessibility standards testing:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> Use the WAVE tool to test if your page respects the accessibility standards.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="http://wave.webaim.org/">Wave testing</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Keyboard navigation:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> Test your website using only your keyboard in a previsible order. All interactive elements are reachable and usable.</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Screen-reader:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> All pages were tested in a screen-reader (VoiceOver, ChromeVox, NVDA or Lynx).</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Focus style:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> If the focus is disabled, it is replaced by visible state in CSS.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4F9; <a href="https://www.youtube.com/watch?v=srLRSQg6Jgg&amp;index=5&amp;list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g">Managing Focus - A11ycasts #22</a></li>
+</ul>
+</blockquote>
+<p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+<hr>
+<h2 class="mume-header" id="seo">SEO</h2>
+
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Google Analytics:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> Google Analytics is installed and correctly configured.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://analytics.google.com/analytics/web/">Google Analytics</a></li>
+<li>&#x1F6E0; <a href="http://www.gachecker.com/">GA Checker (and others)</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Search Console:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkxvdyBwcmlvcml0eTwvdGl0bGU+CiAgPHBhdGggZmlsbD0iIzQxNzUwNSIgZD0iTTI1NiAwQzExNC44MzcgMCAwIDExNC44MzcgMCAyNTZzMTE0LjgzNyAyNTYgMjU2IDI1NiAyNTYtMTE0LjgzNyAyNTYtMjU2UzM5Ny4xNjMgMCAyNTYgMHoiLz4KPC9zdmc+Cg==" alt="Low"> Search Console is installed and correctly configured. It is a free service offered by Google that helps you monitor, maintain, and troubleshoot your site&apos;s presence in Google Search results.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://search.google.com/search-console/about">Search Console</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Headings logic:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> Heading text helps to understand the content in the current page.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="http://khan.github.io/tota11y/#Try-it">Tota11y, tab Headings</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>sitemap.xml:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> A sitemap.xml exists and was submitted to Google Search Console (previously Google Webmaster Tools).</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://websiteseochecker.com/html-sitemap-generator/">Sitemap generator</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>robots.txt:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> The robots.txt is not blocking webpages.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://varvy.com/robottxt.html">The robots.txt file</a></li>
+<li>&#x1F6E0; Test your robots.txt with <a href="https://www.google.com/webmasters/tools/robots-testing-tool">Google Robots Testing Tool</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Structured Data:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMS4wNDEgMjEuMDQxIiByb2xlPSJpbWciIHdpZHRoPSIxMCIgaGVpZ2h0PSIxMCI+CiAgPHRpdGxlPkhpZ2ggcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNkMDAyMWIiIGQ9Ik0yMC41MSAwSC41MjRhLjQ2OS40NjkgMCAwMC0uNDY4LjQ2OXYyMC4xMDRjMCAuMjU1LjIxMS40NjguNDY4LjQ2OEgyMC41MWEuNDc0LjQ3NCAwIDAwLjQ3Ni0uNDY4Vi40NjlBLjQ3Mi40NzIgMCAwMDIwLjUxIDB6Ii8+Cjwvc3ZnPgo=" alt="High"> Pages using structured data are tested and are without errors. Structured data helps crawlers understand the content in the current page.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://developers.google.com/search/docs/guides/intro-structured-data">Introduction to Structured Data - Search - Google Developers</a></li>
+<li>&#x1F4D6; <a href="https://json-ld.org/">JSON-LD</a></li>
+<li>&#x1F4D6; <a href="https://www.w3.org/TR/microdata/">Microdata</a></li>
+<li>&#x1F6E0; Test your page with the <a href="https://search.google.com/test/rich-results">Rich Restults Test</a></li>
+<li>&#x1F6E0; Complete list of vocabularies that can be used as structured data. <a href="http://schema.org/docs/full.html">Schema.org Full Hierarchy</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Sitemap HTML:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> An HTML sitemap is provided and is accessible via a link in the footer of your website.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://support.google.com/webmasters/answer/183668?hl=en">Sitemap guidelines - Google Support</a></li>
+</ul>
+</blockquote>
+<ul>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> <strong>Pagination link tags:</strong> <img src="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MC4wMiA2MC4wMiIgcm9sZT0iaW1nIiB3aWR0aD0iMTAiIGhlaWdodD0iMTAiPgogIDx0aXRsZT5NZWRpdW0gcHJpb3JpdHk8L3RpdGxlPgogIDxwYXRoIGZpbGw9IiNlMDhiMDAiIGQ9Ik0zMC44OTUuNTRjLS4zNC0uNjc4LTEuNDQ5LS42NzgtMS43ODkgMGwtMjkgNThBMSAxIDAgMDAxIDU5Ljk4OGg1OC4wMmExIDEgMCAwMC43OTUtMS42MDhMMzAuODk1LjU0eiIvPgo8L3N2Zz4=" alt="Medium"> Provide <code>rel=&quot;prev&quot;</code> and <code>rel=&quot;next&quot;</code> to indicate paginated content.</li>
+</ul>
+<blockquote>
+<ul>
+<li>&#x1F6E0; <a href="https://technicalseo.com/seo-tools/rel-prev-next/">Pagination (rel=&quot;prev/next&quot;) Testing Tool</a></li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>&#x1F4D6; <a href="https://support.google.com/webmasters/answer/1663744?hl=en">Pagination guidelines - Google Support</a></li>
+</ul>
+</blockquote>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token comment">&lt;!-- Example: Pagination link tags for page 2 of a paginated list --&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>prev<span class="token punctuation">&quot;</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>https://example.com/?page=1<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>next<span class="token punctuation">&quot;</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>https://example.com/?page=3<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+</pre><p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+<hr>
+<h2 class="mume-header" id="translations">Translations</h2>
+
+<p>The Front-End Checklist is also available in other languages. Thanks for all translators and their awesome work!</p>
+<ul>
+<li>&#x1F1EF;&#x1F1F5; Japanese: <a href="https://github.com/miya0001/Front-End-Checklist">miya0001/Front-End-Checklist</a></li>
+<li>&#x1F1EA;&#x1F1F8; Spanish: <a href="https://github.com/eoasakura/Front-End-Checklist-ES">eoasakura/Front-End-Checklist-ES</a></li>
+<li>&#x1F1E8;&#x1F1F3; Chinese: <a href="https://github.com/JohnsenZhou/Front-End-Checklist">JohnsenZhou/Front-End-Checklist</a></li>
+<li>&#x1F1F0;&#x1F1F7; Korean: <a href="https://github.com/kesuskim/Front-End-Checklist">kesuskim/Front-End-Checklist</a></li>
+<li>&#x1F1E7;&#x1F1F7; Portuguese: <a href="https://github.com/jcezarms/Front-End-Checklist">jcezarms/Front-End-Checklist</a></li>
+<li>&#x1F1FB;&#x1F1F3; Vietnamese: <a href="https://github.com/euclid1990/Front-End-Checklist">euclid1990/Front-End-Checklist</a></li>
+<li>&#x1F1F9;&#x1F1FC; Traditional Chinese: <a href="https://github.com/EngineLin/Front-End-Checklist">EngineLin/Front-End-Checklist</a></li>
+<li>&#x1F1EB;&#x1F1F7; French: <a href="https://github.com/ynizon/Front-End-Checklist">ynizon/Front-End-Checklist</a></li>
+<li>&#x1F1F7;&#x1F1FA; Russian: <a href="https://github.com/ungear/Front-End-Checklist">ungear/Front-End-Checklist</a></li>
+<li>&#x1F1F9;&#x1F1F7; Turkish: <a href="https://github.com/eraycetinay/Front-End-Checklist">eraycetinay/Front-End-Checklist</a></li>
+<li>&#x1F1E9;&#x1F1EA; German: <a href="https://github.com/xFuture603/Front-End-Checklist">xfuture603/Front-End-Checklist</a></li>
+<li>&#x1F1F5;&#x1F1F1; Polish: <a href="https://github.com/mbiesiad/Front-End-Checklist">mbiesiad/Front-End-Checklist</a></li>
+</ul>
+<hr>
+<h2 class="mume-header" id="front-end-checklist-badge">Front-End Checklist Badge</h2>
+
+<p>If you want to show you are following the rules of the Front-End Checklist, put this badge on your README file!</p>
+<p>&#x2794; <a href="https://github.com/thedaviddias/Front-End-Checklist/"><img src="https://img.shields.io/badge/Front%E2%80%91End_Checklist-followed-brightgreen.svg" alt="Front&#x2011;End_Checklist followed"></a></p>
+<pre data-role="codeBlock" data-info="md" class="language-gfm"><code>[![Front&#x2011;End_Checklist followed](https://img.shields.io/badge/Front&#x2011;End_Checklist-followed-brightgreen.svg)](https://github.com/thedaviddias/Front-End-Checklist/)
+</code></pre><p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+<hr>
+<h2 class="mume-header" id="contributing">Contributing</h2>
+
+<p><strong>Open an issue or a pull request to suggest changes or additions.</strong></p>
+<h3 class="mume-header" id="guide">Guide</h3>
+
+<p>The <strong>Front-End Checklist</strong> repository consists of two branches:</p>
+<h4 class="mume-header" id="1-master">1. <code>master</code></h4>
+
+<p>This branch consists of the <code>README.md</code> file that is automatically reflected on the <a href="https://frontendchecklist.io">Front-End Checklist</a> website.</p>
+<h4 class="mume-header" id="2-develop">2. <code>develop</code></h4>
+
+<p>This branch will be used to make some significant changes to the structure, content if needed. It is preferable to use the master branch to fix small errors or add a new item.</p>
+<h2 class="mume-header" id="support">Support</h2>
+
+<p>If you have any question or suggestion, don&apos;t hesitate to use Gitter or Twitter:</p>
+<ul>
+<li><a href="https://gitter.im/Front-End-Checklist/Lobby?utm_source=share-link&amp;utm_medium=link&amp;utm_campaign=share-link">Chat on Gitter</a></li>
+<li><a href="https://www.facebook.com/frontendchecklist/">Facebook</a></li>
+<li><a href="https://twitter.com/thedaviddias">Twitter</a></li>
+</ul>
+<h2 class="mume-header" id="author">Author</h2>
+
+<p><strong><a href="https://github.com/thedaviddias">David Dias</a></strong></p>
+<h2 class="mume-header" id="contributors">Contributors</h2>
+
+<p>This project exists thanks to all the people who contribute. <a href=".github/CONTRIBUTING.md">[Contribute]</a>.<br>
+<a href="https://github.com/thedaviddias/Front-End-Checklist/graphs/contributors"><img src="https://opencollective.com/front-end-checklist/contributors.svg?width=890"></a></p>
+<h2 class="mume-header" id="backers">Backers</h2>
+
+<p>Thank you to all our backers! &#x1F64F; [<a href="https://opencollective.com/front-end-checklist#backer">Become a backer</a>]</p>
+<p><a href="https://opencollective.com/front-end-checklist#backers" target="_blank"><img src="https://opencollective.com/front-end-checklist/backers.svg?width=890"></a></p>
+<h2 class="mume-header" id="sponsors">Sponsors</h2>
+
+<p>Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [<a href="https://opencollective.com/front-end-checklist#sponsor">Become a sponsor</a>]</p>
+<p><a href="https://opencollective.com/front-end-checklist/sponsor/0/website" target="_blank"><img src="https://opencollective.com/front-end-checklist/sponsor/0/avatar.svg"></a><br>
+<a href="https://opencollective.com/front-end-checklist/sponsor/1/website" target="_blank"><img src="https://opencollective.com/front-end-checklist/sponsor/1/avatar.svg"></a><br>
+<a href="https://opencollective.com/front-end-checklist/sponsor/2/website" target="_blank"><img src="https://opencollective.com/front-end-checklist/sponsor/2/avatar.svg"></a><br>
+<a href="https://opencollective.com/front-end-checklist/sponsor/3/website" target="_blank"><img src="https://opencollective.com/front-end-checklist/sponsor/3/avatar.svg"></a><br>
+<a href="https://opencollective.com/front-end-checklist/sponsor/4/website" target="_blank"><img src="https://opencollective.com/front-end-checklist/sponsor/4/avatar.svg"></a><br>
+<a href="https://opencollective.com/front-end-checklist/sponsor/5/website" target="_blank"><img src="https://opencollective.com/front-end-checklist/sponsor/5/avatar.svg"></a><br>
+<a href="https://opencollective.com/front-end-checklist/sponsor/6/website" target="_blank"><img src="https://opencollective.com/front-end-checklist/sponsor/6/avatar.svg"></a><br>
+<a href="https://opencollective.com/front-end-checklist/sponsor/7/website" target="_blank"><img src="https://opencollective.com/front-end-checklist/sponsor/7/avatar.svg"></a><br>
+<a href="https://opencollective.com/front-end-checklist/sponsor/8/website" target="_blank"><img src="https://opencollective.com/front-end-checklist/sponsor/8/avatar.svg"></a><br>
+<a href="https://opencollective.com/front-end-checklist/sponsor/9/website" target="_blank"><img src="https://opencollective.com/front-end-checklist/sponsor/9/avatar.svg"></a></p>
+<h2 class="mume-header" id="license">License</h2>
+
+<p><a href="https://creativecommons.org/publicdomain/zero/1.0/"><img src="https://i.creativecommons.org/p/zero/1.0/88x31.png" alt="CC0"></a></p>
+<p><strong><a href="#table-of-contents">&#x2B06; back to top</a></strong></p>
+</div>
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#how-to-use">How to use?</a></li>
+<li><a href="#head">Head</a>
+<ul>
+<li><a href="#meta-tag">Meta tag</a></li>
+<li><a href="#html-tags">HTML tags</a></li>
+<li><a href="#social-meta">Social meta</a></li>
+</ul>
+</li>
+<li><a href="#html">HTML</a>
+<ul>
+<li><a href="#best-practices">Best practices</a></li>
+<li><a href="#html-testing">HTML testing</a></li>
+</ul>
+</li>
+<li><a href="#webfonts">Webfonts</a></li>
+<li><a href="#css">CSS</a>
+<ul>
+<li><a href="#performance">Performance</a></li>
+<li><a href="#css-testing">CSS testing</a></li>
+</ul>
+</li>
+<li><a href="#images">Images</a>
+<ul>
+<li><a href="#best-practices-1">Best practices</a></li>
+</ul>
+</li>
+<li><a href="#javascript">JavaScript</a>
+<ul>
+<li><a href="#best-practices-2">Best practices</a></li>
+<li><a href="#javascript-testing">JavaScript testing</a></li>
+</ul>
+</li>
+<li><a href="#security">Security</a>
+<ul>
+<li><a href="#scan-and-check-your-web-site">Scan and check your web site</a></li>
+<li><a href="#best-practices-3">Best practices</a></li>
+</ul>
+</li>
+<li><a href="#performance-1">Performance</a>
+<ul>
+<li><a href="#best-practices-4">Best practices</a></li>
+<li><a href="#preparing-upcoming-requests">Preparing upcoming requests</a></li>
+<li><a href="#performance-testing">Performance testing</a></li>
+</ul>
+</li>
+<li><a href="#accessibility">Accessibility</a>
+<ul>
+<li><a href="#best-practices-5">Best practices</a>
+<ul>
+<li><a href="#headings">Headings</a></li>
+</ul>
+</li>
+<li><a href="#semantics">Semantics</a></li>
+<li><a href="#form">Form</a></li>
+<li><a href="#accessibility-testing">Accessibility testing</a></li>
+</ul>
+</li>
+<li><a href="#seo">SEO</a></li>
+<li><a href="#translations">Translations</a></li>
+<li><a href="#front-end-checklist-badge">Front-End Checklist Badge</a></li>
+<li><a href="#contributing">Contributing</a>
+<ul>
+<li><a href="#guide">Guide</a>
+<ul>
+<li><a href="#1-master">1. <code>master</code></a></li>
+<li><a href="#2-develop">2. <code>develop</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#support">Support</a></li>
+<li><a href="#author">Author</a></li>
+<li><a href="#contributors">Contributors</a></li>
+<li><a href="#backers">Backers</a></li>
+<li><a href="#sponsors">Sponsors</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>
