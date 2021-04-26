@@ -1,0 +1,624 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	
+<!-- Mirrored from www.quackit.com/javascript/javascript_alert_box.cfm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Apr 2021 16:08:36 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">	
+
+		
+		<meta name="keywords" content="JavaScript alert box messages, Javascript prompt, notifications, popup, pop-up">
+		<meta name="Description" content="Javascript alert box messages - alert your users to important messages.">
+		<link rel="canonical" href="javascript_alert_box.html">
+
+		<title>JavaScript Alert Box</title>
+    
+    
+    <script src="../../ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+		
+		<link rel="shortcut icon" href="../pix/favicon96.png">
+		<link rel="apple-touch-icon" href="../pix/apple-touch-icon.png">
+    
+    
+    
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700%7CKadwa:400,700" rel="stylesheet">
+    
+    
+    <link href="../common/css/master.42.min.css" rel="stylesheet">
+    
+		
+		
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-269964-1', 'quackit.com');
+  ga('send', 'pageview');
+
+</script>
+
+	</head>
+
+	<body>
+	
+		
+		<header class="site-header">
+    
+      
+      <div class="site-header-base">
+        <div class="site-logo">
+          <a title="Quackit Homepage" target="_top" href="https://www.quackit.com/"><img src="../pix/quackit_logo_watermark.png" width="87" height="33" alt="Quackit Logo"></a>
+        </div>
+
+        <button id="site-nav-toggler" class="site-nav-toggler" aria-expanded="false" aria-controls="site-nav">
+          <span class="sr-only">Toggle navigation</span>
+           &#9776;
+        </button>
+      </div>
+      
+      
+      <nav id="site-nav" class="site-nav">
+        <div class="site-links">
+          
+<ul>
+    <li><a href="https://www.quackit.com/"><i class="fa fa-home"></i> <span class="sr-only">Home</span></a></li>
+    <li><a href="https://www.quackit.com/html/">HTML</a></li>
+    <li><a href="https://www.quackit.com/css/">CSS</a></li>
+    <li><a href="https://www.quackit.com/scripting/">Scripting</a></li>
+    <li><a href="https://www.quackit.com/database/">Database</a></li>
+</ul>
+
+        </div>
+        <div class="site-search-top">
+          
+<form action="https://www.quackit.com/search/" id="cse-search-box-bottom" class="site-search">
+ <div>
+   <input type="hidden" name="cx" value="partner-pub-6331358926293806:98x0fk-bbgi">
+   <input type="hidden" name="cof" value="FORID:10">
+   <input type="hidden" name="ie" value="ISO-8859-1">
+   <input type="text" name="q" size="20" class="site-search-input">
+   <button type="submit" name="sa" class="site-search-button"><i class="fa fa-search"></i></button>
+ </div>
+</form>
+
+
+
+
+
+
+
+
+
+        </div>
+      </nav>
+      
+		</header>
+    
+		
+		
+		
+			<div class="main">
+					<article class="content">
+						
+							<h1 class="page-title">JavaScript Alert Box</h1>
+						
+	<div class="ad ad-top">
+		<script async src="../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+		<!-- Q Responsive Top -->
+		<ins class="adsbygoogle responsive-top"
+		     style="display:block"
+		     data-ad-client="ca-pub-6331358926293806"
+		     data-ad-slot="2095624553"
+		     data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		
+	</div>
+
+
+<div class="tip">
+<p>Also see the HTML <a href="https://www.quackit.com/html/tags/html_dialog_tag.cfm"><code>&lt;dialog&gt;</code></a> tag.</p>
+</div>
+<p>The JavaScript alert box is useful for alerting your users to something important. When a JavaScript alert box is triggered, a small box will pop up and display the text that you specify in your JavaScript code.</p>
+
+
+
+<p>You create a JavaScript alert box by calling the built-in JavaScript <code>alert()</code> function. All you need to do is pass your message to this function.
+
+<h2>JavaScript Alert: <code>onClick</code></h2>
+<p>You can place the JavaScript <code>alert()</code> function directly into a button element, then use the <code>onClick</code> event to trigger it. Like this:</p>
+
+
+      <script src="../common/js/codemirror/lib/codemirror.js"></script>
+    
+          <script src="../common/js/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+          <script src="../common/js/codemirror/mode/css/css.js"></script>
+          <script src="../common/js/codemirror/mode/javascript/javascript.js"></script>
+          <script src="../common/js/codemirror/mode/xml/xml.js"></script>
+        
+
+                <form action="https://www.quackit.com/preview/preview_example_code.cfm" method="post" target="result1" name="formEditor1">
+			
+                  <div class="code-snippet code-snippet-responsive" id="snippet1">
+
+
+                    
+                    
+                    <div class="toolbar">
+
+                        
+                        <div class="run">
+                          <button type="submit" class="submit" title="Refreshes the result in the preview pane."><i class="fa fa-play" aria-hidden="true"></i> Run</button>
+                        </div>
+                        
+                        
+                        
+                        <div class="orientation-links">
+                          <button id="btn-unstack1" class="btn-unstack selected" title="Stacked view">
+                            <span class="sr-only">Stack editor</span>
+                          </button>
+                          <button id="btn-stack1" class="btn-stack" title="Stacked view">
+                            <span class="sr-only">Unstack editor</span>
+                          </button>
+                        </div>
+                        
+                        
+                        
+                          <div class="scratchpad-links">
+                          
+                              <a href="https://www.quackit.com/html/html_editors/scratchpad/?example=/javascript/javascript_alert_box_onclick" target="_blank" title="Full-page editor. Opens this example in the full-page editor."><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editor</a>
+                              <a href="https://www.quackit.com/html/html_editors/scratchpad/preview.cfm?example=/javascript/javascript_alert_box_onclick" target="_blank" title="Full-page preview. Opens this preview in a new window."><i class="fa fa-external-link" aria-hidden="true"></i> Preview</a>
+                              
+                          </div>
+                          
+                        		
+                        
+
+                    </div>
+
+
+                    
+                    
+                    <div class="code-group">	
+                    
+                        
+                        
+                        <div class="code-pane">
+
+                            <textarea name="codeUpdate" class="code-inputter" id="example1" autocomplete="off" spellcheck="false">&lt;input type&#x3d;&quot;button&quot; value&#x3d;&quot;Click me&quot; onclick&#x3d;&quot;alert&#x28;&#x27;Thanks... I feel much better now&#x21;&#x27;&#x29;&#x3b;&quot; style&#x3d;&quot;font-size&#x3a;2em&#x3b;background&#x3a;lime&quot;&gt;</textarea>
+
+                        </div>
+                        
+
+                        
+                        
+                        <div class="result-pane">
+
+                            
+
+                                <iframe class="result" src="https://www.quackit.com/preview/preview_example_code.cfm?r=editorCode1" name="result1"></iframe>
+
+                                
+                                <script>
+                                  window.document.forms["formEditor1"].submit();
+                                </script>
+														
+                            
+                        </div>
+                        
+                    </div>
+                  </div>
+                
+                </form>
+                
+                
+                
+                <script>
+                  $( function() {
+                    $( "#btn-stack1" ).click( function() {
+                      $( "#snippet1" ).removeClass( "code-snippet-responsive" );
+                      $( "#snippet1" ).addClass( "code-snippet-stacked" );
+                      $( "#btn-unstack1" ).removeClass( "selected" );
+                      $( this ).addClass( "selected" );
+                    });
+                    
+                    $( "#btn-unstack1" ).click( function() {
+                      $( "#snippet1" ).removeClass( "code-snippet-stacked code-snippet-responsive" );
+                      $( "#btn-stack1" ).removeClass( "selected" );
+                      $( this ).addClass( "selected" );
+                    });
+                    
+                  });
+                </script>              
+                
+
+
+            
+             						
+	<script>
+		var exampleCode1 = CodeMirror.fromTextArea(document.getElementById("example1"), {
+				mode: "htmlmixed",
+				tabMode: "indent",
+				styleActiveLine: false,
+				lineNumbers: false,
+				lineWrapping: true,
+				theme: "q-dark"
+		});
+	</script>
+
+
+<h2>JavaScript Alert: Before Page Loads</h2>
+<p>The above example uses the JavaScript <code>onClick</code> event to trigger the alert box. This example, on the other hand, loads automatically as the page is loading. By placing the code by itself (i.e. not within a link/button), this will automatically trigger the alert box as soon as the page is loading.</p>
+<p>The alert will popup as the browser renders the code. Therefore, if you place the code within the <a href="https://www.quackit.com/html/tags/html_head_tag.cfm"><code>&lt;head&gt;</code></a> tags, your alert box will popup before the HTML elements are displayed. On the other hand, if you call your <code>alert()</code> function within the <a href="https://www.quackit.com/html/tags/html_body_tag.cfm"><code>&lt;body&gt;</code></a> tags, users will be able to see any HTML elements that have been rendered prior to the alert box code.</p>
+
+<p>
+<a class="btn btn-default" href="#" onclick="window.open('javascript_alert_box_example_1.html','popUpWindow','height=500,width=800,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');return false;">View Example</a>
+</p>
+
+                
+                <div class="code-only">
+								
+									
+									
+                
+<textarea id="example2" autocomplete="off" spellcheck="false">&lt;html&gt;&#xd;&#xa;&lt;head&gt;&#xd;&#xa;&lt;body&gt;&#xd;&#xa;&lt;div style&#x3d;&quot;text-align&#x3a;center&#x3b;padding&#x3a;10px&#x3b;&quot;&gt;&#xd;&#xa;&lt;h1&gt;Amazing Web Page&lt;&#x2f;h1&gt;&#xd;&#xa;&lt;script&gt;&#xd;&#xa;alert&#x28;&#x27;But wait, there&#x5c;&#x27;s more...&#x27;&#x29;&#x3b;&#xd;&#xa;&lt;&#x2f;script&gt;&#xd;&#xa;&lt;p&gt;&lt;a href&#x3d;&quot;JavaScript&#x3a;self.close&#x28;&#x29;&#x3b;&quot;&gt;Close This Silly Page&#x21;&lt;&#x2f;a&gt;&lt;&#x2f;p&gt;&#xd;&#xa;&lt;&#x2f;div&gt;&#xd;&#xa;&lt;&#x2f;body&gt;&#xd;&#xa;&lt;&#x2f;html&gt;</textarea>      
+
+										
+										
+								
+
+                
+                
+                      
+                
+                </div>
+                
+ 
+            						
+	<script>
+		var exampleCode2 = CodeMirror.fromTextArea(document.getElementById("example2"), {
+				mode: "htmlmixed",
+				tabMode: "indent",
+				styleActiveLine: false,
+				lineNumbers: false,
+				lineWrapping: true,
+				theme: "q-dark"
+		});
+	</script>
+
+
+
+
+<h2>JavaScript Alert: After Page Loads</h2>
+<p>If you prefer to have the full page visible while the user reads the alert box message, use the <code>onLoad</code> event.</p>
+<p>To do this, place a function in the document's <a href="https://www.quackit.com/html/tags/html_head_tag.cfm"><code>&lt;head&gt;</code></a>, then trigger it using the <code>onLoad</code> attribute in the document's <a href="https://www.quackit.com/html/tags/html_body_tag.cfm"><code>&lt;body&gt;</code></a> tag.</p>
+
+<p>
+<a class="btn btn-default" href="#" onclick="window.open('javascript_alert_box_example_2.html','popUpWindow','height=500,width=800,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes');return false;">View Example</a>
+</p>
+
+                
+                <div class="code-only">
+								
+									
+									
+                
+<textarea id="example3" autocomplete="off" spellcheck="false">&lt;html&gt;&#xd;&#xa;&lt;head&gt;&#xd;&#xa;&lt;script&gt;&#xd;&#xa;function alertUser&#x28;msg&#x29; &#x7b;&#xd;&#xa;alert&#x28;msg&#x29;&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&lt;&#x2f;script&gt;&#xd;&#xa;&lt;&#x2f;head&gt;&#xd;&#xa;&lt;body onload&#x3d;&quot;alertUser&#x28;&#x27;Welcome to this AMAZING web page&#x21;&#x27;&#x29;&quot;&gt;&#xd;&#xa;&lt;div style&#x3d;&quot;text-align&#x3a;center&#x3b;padding&#x3a;10px&#x3b;&quot;&gt;&#xd;&#xa;&lt;h1&gt;Amazing Web Page.&lt;&#x2f;h1&gt;&#xd;&#xa;&lt;p&gt;&lt;a href&#x3d;&quot;JavaScript&#x3a;self.close&#x28;&#x29;&#x3b;&quot;&gt;Close&lt;&#x2f;a&gt;&lt;&#x2f;p&gt;&#xd;&#xa;&lt;&#x2f;div&gt;&#xd;&#xa;&lt;&#x2f;body&gt;&#xd;&#xa;&lt;&#x2f;html&gt;</textarea>      
+
+										
+										
+								
+
+                
+                
+                      
+                
+                </div>
+                
+ 
+            						
+	<script>
+		var exampleCode3 = CodeMirror.fromTextArea(document.getElementById("example3"), {
+				mode: "htmlmixed",
+				tabMode: "indent",
+				styleActiveLine: false,
+				lineNumbers: false,
+				lineWrapping: true,
+				theme: "q-dark"
+		});
+	</script>
+
+
+
+<h2>JavaScript Alert: Within Another Function</h2>
+<p>The most common use for the JavaScript alert is to call it from within a function that does something else. The alert simply draws the user's attention to something that the function has done (or detected).</p>
+
+
+
+                <form action="https://www.quackit.com/preview/preview_example_code.cfm" method="post" target="result4" name="formEditor4">
+			
+                  <div class="code-snippet code-snippet-responsive" id="snippet4">
+
+
+                    
+                    
+                    <div class="toolbar">
+
+                        
+                        <div class="run">
+                          <button type="submit" class="submit" title="Refreshes the result in the preview pane."><i class="fa fa-play" aria-hidden="true"></i> Run</button>
+                        </div>
+                        
+                        
+                        
+                        <div class="orientation-links">
+                          <button id="btn-unstack4" class="btn-unstack selected" title="Stacked view">
+                            <span class="sr-only">Stack editor</span>
+                          </button>
+                          <button id="btn-stack4" class="btn-stack" title="Stacked view">
+                            <span class="sr-only">Unstack editor</span>
+                          </button>
+                        </div>
+                        
+                        
+                        		
+                        
+
+                    </div>
+
+
+                    
+                    
+                    <div class="code-group">	
+                    
+                        
+                        
+                        <div class="code-pane">
+
+                            <textarea name="codeUpdate" class="code-inputter" id="example4" autocomplete="off" spellcheck="false">&lt;script&gt;&#xd;&#xa;function jumpto&#x28;x&#x29;&#x7b;&#xd;&#xa;&#xd;&#xa;if &#x28;document.form1.jumpmenu.value &#x21;&#x3d; &quot;null&quot;&#x29; &#x7b;&#xd;&#xa;&#x9;if &#x28;document.form1.jumpmenu.value &#x21;&#x3d; &quot;https&#x3a;&#x2f;&#x2f;www.quackit.com&quot;&#x29; &#x7b;&#xd;&#xa;&#x9;&#x9;alert&#x28;&#x27;Good choice&#x21;&#x27;&#x29;&#x3b;&#xd;&#xa;&#x9;&#x9;&#x7d;&#xd;&#xa;&#x9;document.location.href &#x3d; x&#xd;&#xa;&#x9;&#x7d;&#xd;&#xa;&#x7d;&#xd;&#xa;&lt;&#x2f;script&gt;&#xd;&#xa;&lt;form name&#x3d;&quot;form1&quot;&gt;&#xd;&#xa;&lt;select name&#x3d;&quot;jumpmenu&quot;&#xd;&#xa;onChange&#x3d;&quot;jumpto&#x28;document.form1.jumpmenu.options&#x5b;document.form1.jumpmenu.options.selectedIndex&#x5d;.value&#x29;&quot;&gt;&#xd;&#xa;&lt;option&gt;Jump to...&lt;&#x2f;option&gt;&#xd;&#xa;&lt;option value&#x3d;&quot;https&#x3a;&#x2f;&#x2f;www.quackit.com&quot;&gt;Home&lt;&#x2f;option&gt;&#xd;&#xa;&lt;option value&#x3d;&quot;https&#x3a;&#x2f;&#x2f;www.quackit.com&#x2f;html&#x2f;tutorial&#x2f;&quot;&gt;HTML Tutorial&lt;&#x2f;option&gt;&#xd;&#xa;&lt;option value&#x3d;&quot;https&#x3a;&#x2f;&#x2f;www.quackit.com&#x2f;database&#x2f;tutorial&#x2f;&quot;&gt;Database Tutorial&lt;&#x2f;option&gt;&#xd;&#xa;&lt;option value&#x3d;&quot;https&#x3a;&#x2f;&#x2f;www.quackit.com&#x2f;mysql&#x2f;tutorial&#x2f;&quot;&gt;MySQL Tutorial&lt;&#x2f;option&gt;&#xd;&#xa;&lt;&#x2f;select&gt;&#xd;&#xa;&lt;&#x2f;form&gt;</textarea>
+
+                        </div>
+                        
+
+                        
+                        
+                        <div class="result-pane">
+
+                            
+
+                                <iframe class="result" src="https://www.quackit.com/preview/preview_example_code.cfm?r=editorCode4" name="result4"></iframe>
+
+                                
+                                <script>
+                                  window.document.forms["formEditor4"].submit();
+                                </script>
+														
+                            
+                        </div>
+                        
+                    </div>
+                  </div>
+                
+                </form>
+                
+                
+                
+                <script>
+                  $( function() {
+                    $( "#btn-stack4" ).click( function() {
+                      $( "#snippet4" ).removeClass( "code-snippet-responsive" );
+                      $( "#snippet4" ).addClass( "code-snippet-stacked" );
+                      $( "#btn-unstack4" ).removeClass( "selected" );
+                      $( this ).addClass( "selected" );
+                    });
+                    
+                    $( "#btn-unstack4" ).click( function() {
+                      $( "#snippet4" ).removeClass( "code-snippet-stacked code-snippet-responsive" );
+                      $( "#btn-stack4" ).removeClass( "selected" );
+                      $( this ).addClass( "selected" );
+                    });
+                    
+                  });
+                </script>              
+                
+
+
+            
+             						
+	<script>
+		var exampleCode4 = CodeMirror.fromTextArea(document.getElementById("example4"), {
+				mode: "htmlmixed",
+				tabMode: "indent",
+				styleActiveLine: false,
+				lineNumbers: false,
+				lineWrapping: true,
+				theme: "q-dark"
+		});
+	</script>
+
+
+<p>In the above example, if you choose anything but <samp>Home</samp>, you'll see a JavaScript alert.</p>
+
+<h2>HTML <a href="https://www.quackit.com/html/tags/html_dialog_tag.cfm"><code>&lt;dialog&gt;</code></a> Element</h2>
+<p>Also see the HTML <a href="https://www.quackit.com/html/tags/html_dialog_tag.cfm"><code>&lt;dialog&gt;</code></a> element, which allows you to do things like, create a dialog box, inspector, window, etc. </p>
+
+
+	<div class="ad ad-bottom">
+		<script async src="../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+		<!-- Q Responsive Bottom -->
+		<ins class="adsbygoogle responsive-bottom"
+		     style="display:block"
+		     data-ad-client="ca-pub-6331358926293806"
+		     data-ad-slot="4873379751"
+		     data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+
+					
+				</article>
+				
+			
+					<div class="sidebar">
+						
+
+            <div class="relatedLinks">
+                <h4>Related</h4>
+                <ul>
+                <li><a href="https://www.quackit.com/html/tags/html_dialog_tag.cfm" title="">HTML <code>dialog</code> Tag</a></li> <li><a href="https://www.quackit.com/html/tags/html_dialog_tag.cfm" title="">HTML <code>dialog</code> Tag</a></li> 
+                </ul>
+            </div>
+
+        
+
+<nav>
+	<ul>
+    <li>
+        <h3><a href="tutorial/index.html">JavaScript Tutorial</a></h3>
+        <ul>
+            <li><a href="tutorial/introduction.html">Introduction</a></li> <li><a href="tutorial/how_to_enable_javascript.html">How to Enable JavaScript</a></li>
+            <li><a href="tutorial/javascript_syntax.html">JavaScript Syntax</a></li>
+            <li><a href="tutorial/javascript_popup_boxes.html">JavaScript Popup Boxes</a></li>
+            <li><a href="tutorial/javascript_html.html">JavaScript and HTML</a></li>
+            <li><a href="tutorial/external_javascript_file.html">External JavaScript File</a></li>
+            <li><a href="tutorial/javascript_operators.html">JavaScript Operators</a></li>
+            <li><a href="tutorial/javascript_variables.html">JavaScript Variables</a></li>
+            <li><a href="tutorial/javascript_functions.html">JavaScript Functions</a></li>
+            <li><a href="tutorial/javascript_events.html">JavaScript Events</a></li>
+            <li><a href="tutorial/javascript_if_statements.html">JavaScript If Statements</a></li>
+            <li><a href="tutorial/javascript_switch_statement.html">JavaScript Switch Statements</a></li>
+            <li><a href="tutorial/javascript_while_loop.html">JavaScript While Loop</a></li>
+            <li><a href="tutorial/javascript_for_loop.html">JavaScript For Loop</a></li>
+            <li><a href="tutorial/javascript_try_catch.html">JavaScript Try Catch</a></li>
+            <li><a href="tutorial/javascript_escape_characters.html">JavaScript Escape Characters</a></li>
+            <li><a href="tutorial/javascript_void_0.html">JavaScript Void(0)</a></li>
+            <li><a href="tutorial/javascript_cookies.html">JavaScript Cookies</a></li>
+            <li><a href="tutorial/javascript_date_and_time.html">JavaScript Date and Time</a></li>
+            <li><a href="tutorial/javascript_arrays.html">JavaScript Arrays</a></li>
+            <li><a href="tutorial/two_dimensional_arrays.html">Two Dimensional Arrays</a></li>
+            <li><a href="tutorial/innerhtml_in_javascript.html">JavaScript innerHTML</a></li>
+            <li><a href="tutorial/unobtrusive_javascript.html">Unobtrusive JavaScript</a></li>
+            <li><a href="tutorial/javascript_summary.html">JavaScript Summary</a></li>
+        </ul>
+    </li>
+
+    <li><h3>JavaScript Reference</h3>
+        <ul>
+            <li><a href="examples/index.html" title="">JavaScript Examples</a></li>
+            <li><a href="javascript_reserved_words.html" title="">JavaScript Reserved Words</a></li>
+            <li><a href="javascript_event_handlers.html" title="Introduction to the 12 JavaScript event handlers">JavaScript Event Handlers</a></li>
+            <li><a href="javascript_date_and_time_functions.html" title="Full listing of all JavaScript methods for dealing with date and time.">JavaScript Date and Time Functions</a></li>
+        </ul>
+    <li><h3>jQuery</h3>
+        <ul>
+            <li><a href="https://www.quackit.com/jquery/tutorial/" title="">jQuery Tutorial</a></li>
+            <li><a href="https://www.quackit.com/jquery/examples/" title="">jQuery Examples</a></li>
+        </ul>
+    </li>
+    <li><h3>JSON</h3>
+        <ul>
+            <li><a href="https://www.quackit.com/json/tutorial/" title="Data format for exchanging data between applications and different environments.">JSON Tutorial</a></li>
+        </ul>
+    <li>
+
+    
+</ul> 
+</nav>
+
+	<div class="ad ad-left">
+		<script async src="../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+		<!-- Q Responsive Middle -->
+		<ins class="adsbygoogle"
+		     style="display:block"
+		     data-ad-client="ca-pub-6331358926293806"
+		     data-ad-slot="7187717753"
+		     data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+
+					</div>
+          
+          
+					<div class="ads">
+            
+	<div class="ad ad-right">
+	
+		<script async src="../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+		<!-- Q Responsive - Right -->
+		<ins class="adsbygoogle"
+				 style="display:block"
+				 data-ad-client="ca-pub-6331358926293806"
+				 data-ad-slot="9157690018"
+				 data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+
+					</div>
+          
+				
+		</div> 
+		
+			
+ 			<div class="searchbox-bottom">
+				
+<form action="https://www.quackit.com/search/" id="cse-search-box-bottom" class="site-search">
+ <div>
+   <input type="hidden" name="cx" value="partner-pub-6331358926293806:npmuvy-i8kk">
+   <input type="hidden" name="cof" value="FORID:10">
+   <input type="hidden" name="ie" value="ISO-8859-1">
+   <input type="text" name="q" size="30" class="site-search-input">
+   <button type="submit" name="sa" class="site-search-button"><i class="fa fa-search"></i></button>
+ </div>
+</form>
+
+<script src="http://cse.google.com/cse/brand?form=cse-search-box-bottom&amp;lang=en"></script>
+	
+
+
+			</div>
+
+		
+		<footer>
+			<p><a href="https://www.facebook.com/quackit.tutorials"><i class="fa fa-facebook-official"></i> Quackit on Facebook</a> </p>
+			<p class="about"><a href="https://www.quackit.com/"><i class="fa fa-home"></i> Home</a> | <a href="https://www.quackit.com/about.cfm" rel="nofollow">About</a> | <a href="https://www.quackit.com/contact.cfm" rel="nofollow">Contact</a> | <a href="https://www.quackit.com/terms_of_use.cfm" rel="nofollow">Terms&nbsp;of&nbsp;Use</a> | <a href="https://www.quackit.com/privacy_policy.cfm" rel="nofollow">Privacy&nbsp;Policy</a></p>
+			<p>&#169; Copyright 2000 - 2021 Quackit.com &nbsp;</p>
+		</footer>
+
+		
+        <script src="../common/js/spectrum/spectrum.js"></script>
+        <script src="../common/js/lightbox2-master/dist/js/lightbox.min.js" charset="utf-8"></script>
+
+        
+        <script>
+        $(document).ready(function(){
+
+          $( "#site-nav-toggler" ).click(function() {
+
+            $( "#site-nav" ).toggle( "slow" );
+
+          });
+
+        });
+        </script>
+
+        
+        <script>
+            $(function(){var a=window.location.href;$(".sidebar nav a").each(function(){a==this.href&&$(this).closest("li").addClass("selected")})});
+        
+            
+        </script>
+	</body>
+
+<!-- Mirrored from www.quackit.com/javascript/javascript_alert_box.cfm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Apr 2021 16:08:37 GMT -->
+</html>

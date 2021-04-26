@@ -4,4 +4,4 @@
 
 This tool will automatically remove comments from any brainfuck snippet you enter.
 
-Made by [Mathias Bynens](https://mathiasbynens.be/).
+

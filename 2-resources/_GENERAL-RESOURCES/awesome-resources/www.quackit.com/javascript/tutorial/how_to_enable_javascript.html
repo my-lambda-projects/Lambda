@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	
+<!-- Mirrored from www.quackit.com/javascript/tutorial/how_to_enable_javascript.cfm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Apr 2021 16:08:26 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">	
+
+		
+		<meta name="keywords" content="how to enable javascript, in your browser, internet explorer, firefox, netscape, javascript tutorial, javascript dropdown menu, rollovers, form validation, pop up windows, scripting, jscript">
+		<meta name="Description" content="JavaScript tutorial - How to enable JavaScript in your browser - includes Internet Explorer, Firefox, Safari.">
+		<link rel="canonical" href="how_to_enable_javascript.html">
+
+		<title>How to enable JavaScript</title>
+    
+    
+    <script src="../../../ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+		
+		<link rel="shortcut icon" href="../../pix/favicon96.png">
+		<link rel="apple-touch-icon" href="../../pix/apple-touch-icon.png">
+    
+    
+    
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700%7CKadwa:400,700" rel="stylesheet">
+    
+    
+    <link href="../../common/css/master.42.min.css" rel="stylesheet">
+    
+		
+		
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-269964-1', 'quackit.com');
+  ga('send', 'pageview');
+
+</script>
+
+	</head>
+
+	<body>
+	
+		
+		<header class="site-header">
+    
+      
+      <div class="site-header-base">
+        <div class="site-logo">
+          <a title="Quackit Homepage" target="_top" href="https://www.quackit.com/"><img src="../../pix/quackit_logo_watermark.png" width="87" height="33" alt="Quackit Logo"></a>
+        </div>
+
+        <button id="site-nav-toggler" class="site-nav-toggler" aria-expanded="false" aria-controls="site-nav">
+          <span class="sr-only">Toggle navigation</span>
+           &#9776;
+        </button>
+      </div>
+      
+      
+      <nav id="site-nav" class="site-nav">
+        <div class="site-links">
+          
+<ul>
+    <li><a href="https://www.quackit.com/"><i class="fa fa-home"></i> <span class="sr-only">Home</span></a></li>
+    <li><a href="https://www.quackit.com/html/">HTML</a></li>
+    <li><a href="https://www.quackit.com/css/">CSS</a></li>
+    <li><a href="https://www.quackit.com/scripting/">Scripting</a></li>
+    <li><a href="https://www.quackit.com/database/">Database</a></li>
+</ul>
+
+        </div>
+        <div class="site-search-top">
+          
+<form action="https://www.quackit.com/search/" id="cse-search-box-bottom" class="site-search">
+ <div>
+   <input type="hidden" name="cx" value="partner-pub-6331358926293806:98x0fk-bbgi">
+   <input type="hidden" name="cof" value="FORID:10">
+   <input type="hidden" name="ie" value="ISO-8859-1">
+   <input type="text" name="q" size="20" class="site-search-input">
+   <button type="submit" name="sa" class="site-search-button"><i class="fa fa-search"></i></button>
+ </div>
+</form>
+
+
+
+
+
+
+
+
+
+        </div>
+      </nav>
+      
+		</header>
+    
+		
+		
+		
+			<div class="main">
+					<article class="content">
+						
+							<h1 class="page-title">How to enable JavaScript</h1>
+						
+	<div class="ad ad-top">
+		<script async src="../../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+		<!-- Q Responsive Top -->
+		<ins class="adsbygoogle responsive-top"
+		     style="display:block"
+		     data-ad-client="ca-pub-6331358926293806"
+		     data-ad-slot="2095624553"
+		     data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		
+	</div>
+
+		<ul class="pager">
+			
+			 <li><a href="introduction.html"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Introduction</a></li> 
+			
+		    <li><a href="javascript_syntax.html">JavaScript Syntax <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></li>
+			
+		</ul>
+		
+<p class="lead">Most modern browsers enable JavaScript by default. However, here's an overview of how to enable/disable JavaScript if required.</p>
+<p>To view webpages with JavaScript, you need to ensure your browser has JavaScript enabled. Generally speaking, you can still view the webpage without JavaScript, but you will not be able to take advantage of the JavaScript functionality.</p>
+
+<p>When testing any web page that you develop, it's a good idea to disable JavaScript periodically to see how the page appears and behaves without JavaScript. This will show you how it will be displayed to users with JavaScript disabled.</p>
+
+<p>However, to test that the actual JavaScript code works properly, you will need to ensure that it's enabled.</p>
+
+
+<h2>How do I check if my browser has JavaScript enabled?</h2>
+<p>You normally do this by checking your browser's options/preferences/settings. This will depend on the browser you're using. Instructions for some of the more common browsers are below:</p>
+
+
+<h3>Mozilla Firefox</h3>
+<ul>
+	<li>Type <kbd>about:config</kbd> into the address bar</li>
+	<li>Click <kbd>I'll be careful, I promise</kbd></li>
+	<li>Using the search bar at the top, search for <kbd>javascript.enabled</kbd>. This should return the entry you're looking for.</li>
+	<li>Right-click on <kbd>javascript.enabled</kbd> and select <kbd>Toggle</kbd>. You can also double-click it if you prefer.</li>
+</ul>
+
+<h3>Google Chrome</h3>
+<ol>
+	<li>Go to <kbd>Chrome</kbd> from the top menu</li>
+	<li>Select <kbd>Preferences...</kbd></li>
+	<li>Click on <kbd>Show advanced settings...</kbd></li>
+	<kbd>Click on <kbd>Content Settings...</kbd></kbd>
+	<li>Ensure that the <kbd>Allow all sites to run JavaScript (recommended)</kbd> option is selected</li>
+	<li>Click <kbd>OK</kbd></li>
+</ol>
+
+<h3>Apple Safari</h3>
+<ol>
+	<li>Go to <kbd>Safari</kbd> from the top menu</li>
+	<li>Select <kbd>Preferences</kbd></li>
+	<li>Select <kbd>Security</kbd></li>
+	<li>Ensure that the <kbd>Enable JavaScript</kbd> option is checked</li>
+	<li>Click <kbd>OK</kbd></li>
+</ol>
+
+<h3>Opera</h3>
+<ol>
+	<li>Go to <kbd>Opera</kbd> from the top menu</li>
+	<li>Select <kbd>Preferences</kbd></li>
+	<li>Select <kbd>Websites</kbd> from the left menu bar</li>
+	<li>Ensure that <kbd>Allow all sites to run JavaScript (recommended)</kbd> is checked</li>
+</ol>
+
+
+<h3>Internet Explorer</h3>
+<ol>
+	<li>Go to <kbd>Tools</kbd> from the top menu</li>
+	<li>Select <kbd>Internet Options</kbd></li>
+	<li>Click on the <kbd>Security</kbd> tab</li>
+    <li>Ensure that the <kbd>Internet</kbd> zone is selected</li>
+	<li>Click <kbd>Custom Level</kbd></li>
+	<li>Scroll down until you see the <kbd>Scripting</kbd> section</li>
+	<li>Ensure that the <kbd>Active Scripting</kbd> option is set at <kbd>Enable</kbd></li>
+	<li>When the <samp>Warning!</samp> window asks <samp>Are you sure you want to change the settings for this zone?</samp> click <kbd>Yes</kbd></li>
+</ol>
+
+
+<h3>Microsoft Edge</h3>
+<p>For Microsoft Edge on Windows 10, you need to disable JavaScript from the Windows Group Policy Editor, rather than in the browser settings.</p>
+<p>You can access the Windows Group Policy Editor by searching for <kbd>Edit Group Policy</kbd> in the Windows Taskbar, then navigate to the appropriate setting via the left navigation pane.</p>
+
+<div class="info">
+<p>Depending on your browser, the exact steps may differ slightly from above. Having said that, the above steps should point you in the right direction.</p>
+</div>
+<div class="info">
+<p>Note that you may need to refresh the page after enabling JavaScript before you see the effect.</p>
+</div>
+<h2>How do I disable JavaScript?</h2>
+<p>You simply go through the steps above but ensure the JavaScript options are not checked/selected.</p>
+<p>If you're developing web pages with JavaScript, it's good practice to view your website with JavaScript disabled. This will show you what your website will look like to users who choose to disable JavaScript.</p>
+
+<h2>Other browsers?</h2>
+<p>Most (if not all browsers) give you the option to enable/disable JavaScript. If your browser is not listed above, the steps above will give you some idea of how to find it. Just look for something called <samp>tools</samp>, <samp>options</samp>, <samp>preferences</samp> or something similar. </p>
+
+<h2>Warning</h2>
+<p>Java and JavaScript are two different things &mdash; make sure you're enabling/disabling the right option!</p>
+
+
+		<ul class="pager">
+			
+			 <li><a href="introduction.html"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Introduction</a></li> 
+			
+		    <li><a href="javascript_syntax.html">JavaScript Syntax <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></li>
+			
+		</ul>
+		
+	<div class="ad ad-bottom">
+		<script async src="../../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+		<!-- Q Responsive Bottom -->
+		<ins class="adsbygoogle responsive-bottom"
+		     style="display:block"
+		     data-ad-client="ca-pub-6331358926293806"
+		     data-ad-slot="4873379751"
+		     data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+
+					
+				</article>
+				
+			
+					<div class="sidebar">
+						
+
+<nav>
+	<ul>
+    <li>
+        <h3><a href="index.html">JavaScript Tutorial</a></h3>
+        <ul>
+            <li><a href="introduction.html">Introduction</a></li> <li><a href="how_to_enable_javascript.html">How to Enable JavaScript</a></li>
+            <li><a href="javascript_syntax.html">JavaScript Syntax</a></li>
+            <li><a href="javascript_popup_boxes.html">JavaScript Popup Boxes</a></li>
+            <li><a href="javascript_html.html">JavaScript and HTML</a></li>
+            <li><a href="external_javascript_file.html">External JavaScript File</a></li>
+            <li><a href="javascript_operators.html">JavaScript Operators</a></li>
+            <li><a href="javascript_variables.html">JavaScript Variables</a></li>
+            <li><a href="javascript_functions.html">JavaScript Functions</a></li>
+            <li><a href="javascript_events.html">JavaScript Events</a></li>
+            <li><a href="javascript_if_statements.html">JavaScript If Statements</a></li>
+            <li><a href="javascript_switch_statement.html">JavaScript Switch Statements</a></li>
+            <li><a href="javascript_while_loop.html">JavaScript While Loop</a></li>
+            <li><a href="javascript_for_loop.html">JavaScript For Loop</a></li>
+            <li><a href="javascript_try_catch.html">JavaScript Try Catch</a></li>
+            <li><a href="javascript_escape_characters.html">JavaScript Escape Characters</a></li>
+            <li><a href="javascript_void_0.html">JavaScript Void(0)</a></li>
+            <li><a href="javascript_cookies.html">JavaScript Cookies</a></li>
+            <li><a href="javascript_date_and_time.html">JavaScript Date and Time</a></li>
+            <li><a href="javascript_arrays.html">JavaScript Arrays</a></li>
+            <li><a href="two_dimensional_arrays.html">Two Dimensional Arrays</a></li>
+            <li><a href="innerhtml_in_javascript.html">JavaScript innerHTML</a></li>
+            <li><a href="unobtrusive_javascript.html">Unobtrusive JavaScript</a></li>
+            <li><a href="javascript_summary.html">JavaScript Summary</a></li>
+        </ul>
+    </li>
+
+    <li><h3>JavaScript Reference</h3>
+        <ul>
+            <li><a href="../examples/index.html" title="">JavaScript Examples</a></li>
+            <li><a href="../javascript_reserved_words.html" title="">JavaScript Reserved Words</a></li>
+            <li><a href="../javascript_event_handlers.html" title="Introduction to the 12 JavaScript event handlers">JavaScript Event Handlers</a></li>
+            <li><a href="../javascript_date_and_time_functions.html" title="Full listing of all JavaScript methods for dealing with date and time.">JavaScript Date and Time Functions</a></li>
+        </ul>
+    <li><h3>jQuery</h3>
+        <ul>
+            <li><a href="https://www.quackit.com/jquery/tutorial/" title="">jQuery Tutorial</a></li>
+            <li><a href="https://www.quackit.com/jquery/examples/" title="">jQuery Examples</a></li>
+        </ul>
+    </li>
+    <li><h3>JSON</h3>
+        <ul>
+            <li><a href="https://www.quackit.com/json/tutorial/" title="Data format for exchanging data between applications and different environments.">JSON Tutorial</a></li>
+        </ul>
+    <li>
+
+    
+</ul> 
+</nav>
+
+	<div class="ad ad-left">
+		<script async src="../../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+		<!-- Q Responsive Middle -->
+		<ins class="adsbygoogle"
+		     style="display:block"
+		     data-ad-client="ca-pub-6331358926293806"
+		     data-ad-slot="7187717753"
+		     data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+
+					</div>
+          
+          
+					<div class="ads">
+            
+	<div class="ad ad-right">
+	
+		<script async src="../../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+		<!-- Q Responsive - Right -->
+		<ins class="adsbygoogle"
+				 style="display:block"
+				 data-ad-client="ca-pub-6331358926293806"
+				 data-ad-slot="9157690018"
+				 data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+
+					</div>
+          
+				
+		</div> 
+		
+			
+ 			<div class="searchbox-bottom">
+				
+<form action="https://www.quackit.com/search/" id="cse-search-box-bottom" class="site-search">
+ <div>
+   <input type="hidden" name="cx" value="partner-pub-6331358926293806:npmuvy-i8kk">
+   <input type="hidden" name="cof" value="FORID:10">
+   <input type="hidden" name="ie" value="ISO-8859-1">
+   <input type="text" name="q" size="30" class="site-search-input">
+   <button type="submit" name="sa" class="site-search-button"><i class="fa fa-search"></i></button>
+ </div>
+</form>
+
+<script src="http://cse.google.com/cse/brand?form=cse-search-box-bottom&amp;lang=en"></script>
+	
+
+
+			</div>
+
+		
+		<footer>
+			<p><a href="https://www.facebook.com/quackit.tutorials"><i class="fa fa-facebook-official"></i> Quackit on Facebook</a> </p>
+			<p class="about"><a href="https://www.quackit.com/"><i class="fa fa-home"></i> Home</a> | <a href="https://www.quackit.com/about.cfm" rel="nofollow">About</a> | <a href="https://www.quackit.com/contact.cfm" rel="nofollow">Contact</a> | <a href="https://www.quackit.com/terms_of_use.cfm" rel="nofollow">Terms&nbsp;of&nbsp;Use</a> | <a href="https://www.quackit.com/privacy_policy.cfm" rel="nofollow">Privacy&nbsp;Policy</a></p>
+			<p>&#169; Copyright 2000 - 2021 Quackit.com &nbsp;</p>
+		</footer>
+
+		
+        <script src="../../common/js/spectrum/spectrum.js"></script>
+        <script src="../../common/js/lightbox2-master/dist/js/lightbox.min.js" charset="utf-8"></script>
+
+        
+        <script>
+        $(document).ready(function(){
+
+          $( "#site-nav-toggler" ).click(function() {
+
+            $( "#site-nav" ).toggle( "slow" );
+
+          });
+
+        });
+        </script>
+
+        
+        <script>
+            $(function(){var a=window.location.href;$(".sidebar nav a").each(function(){a==this.href&&$(this).closest("li").addClass("selected")})});
+        
+            
+        </script>
+	</body>
+
+<!-- Mirrored from www.quackit.com/javascript/tutorial/how_to_enable_javascript.cfm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Apr 2021 16:08:26 GMT -->
+</html>

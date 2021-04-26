@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	
+<!-- Mirrored from www.quackit.com/javascript/tutorial/javascript_variables.cfm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Apr 2021 16:08:31 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">	
+
+		
+		<meta name="keywords" content="javascript variables, session, global, pass, passing, javascript tutorial, code, function, source, learn, method, javascript dropdown menu, rollovers, form validation, pop up windows, scripting, jscript, reference">
+		<meta name="Description" content="Learn about JavaScript variables and how to use them.">
+		<link rel="canonical" href="javascript_variables.html">
+
+		<title>JavaScript Variables</title>
+    
+    
+    <script src="../../../ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+		
+		<link rel="shortcut icon" href="../../pix/favicon96.png">
+		<link rel="apple-touch-icon" href="../../pix/apple-touch-icon.png">
+    
+    
+    
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700%7CKadwa:400,700" rel="stylesheet">
+    
+    
+    <link href="../../common/css/master.42.min.css" rel="stylesheet">
+    
+		
+		
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-269964-1', 'quackit.com');
+  ga('send', 'pageview');
+
+</script>
+
+	</head>
+
+	<body>
+	
+		
+		<header class="site-header">
+    
+      
+      <div class="site-header-base">
+        <div class="site-logo">
+          <a title="Quackit Homepage" target="_top" href="https://www.quackit.com/"><img src="../../pix/quackit_logo_watermark.png" width="87" height="33" alt="Quackit Logo"></a>
+        </div>
+
+        <button id="site-nav-toggler" class="site-nav-toggler" aria-expanded="false" aria-controls="site-nav">
+          <span class="sr-only">Toggle navigation</span>
+           &#9776;
+        </button>
+      </div>
+      
+      
+      <nav id="site-nav" class="site-nav">
+        <div class="site-links">
+          
+<ul>
+    <li><a href="https://www.quackit.com/"><i class="fa fa-home"></i> <span class="sr-only">Home</span></a></li>
+    <li><a href="https://www.quackit.com/html/">HTML</a></li>
+    <li><a href="https://www.quackit.com/css/">CSS</a></li>
+    <li><a href="https://www.quackit.com/scripting/">Scripting</a></li>
+    <li><a href="https://www.quackit.com/database/">Database</a></li>
+</ul>
+
+        </div>
+        <div class="site-search-top">
+          
+<form action="https://www.quackit.com/search/" id="cse-search-box-bottom" class="site-search">
+ <div>
+   <input type="hidden" name="cx" value="partner-pub-6331358926293806:98x0fk-bbgi">
+   <input type="hidden" name="cof" value="FORID:10">
+   <input type="hidden" name="ie" value="ISO-8859-1">
+   <input type="text" name="q" size="20" class="site-search-input">
+   <button type="submit" name="sa" class="site-search-button"><i class="fa fa-search"></i></button>
+ </div>
+</form>
+
+
+
+
+
+
+
+
+
+        </div>
+      </nav>
+      
+		</header>
+    
+		
+		
+		
+			<div class="main">
+					<article class="content">
+						
+							<h1 class="page-title">JavaScript Variables</h1>
+						
+	<div class="ad ad-top">
+		<script async src="../../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+		<!-- Q Responsive Top -->
+		<ins class="adsbygoogle responsive-top"
+		     style="display:block"
+		     data-ad-client="ca-pub-6331358926293806"
+		     data-ad-slot="2095624553"
+		     data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		
+	</div>
+
+		<ul class="pager">
+			
+			 <li><a href="javascript_operators.html"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> JavaScript Operators</a></li> 
+			
+		    <li><a href="javascript_functions.html">JavaScript Functions <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></li>
+			
+		</ul>
+		
+<p class="lead">JavaScript variables are used to store information that can be referenced and used by a script.</p>
+<p>As with any programming language, JavaScript variables are a like a container that contains a value &mdash; a value that can be changed as required.</p>
+<p>For example, you could prompt your website users for their first name. When they enter their first name you could store it in a variable called say, <var>firstName</var>.</p> 
+<p>Now that you have the user's first name assigned to a variable, you could do all sorts of things with it like display a personalized welcome message back to the user for example. By using a variable to store the user's first name, you can write one piece of code for all your users.</p>
+
+<h2>Declaring JavaScript variables</h2>
+<p>First, you need to declare your variables. You do this using the <code>var</code> keyword. You can declare one variable at a time or more than one. You can also assign values to the variables at the time you declare them. </p>
+<h3>Different methods of declaring JavaScript variables</h3>
+
+      <script src="../../common/js/codemirror/lib/codemirror.js"></script>
+    
+                    <script src="../../common/js/codemirror/mode/javascript/javascript.js"></script>
+                  
+                
+                <div class="code-only">
+								
+									
+									
+                
+<textarea id="example1" autocomplete="off" spellcheck="false">&#x2f;&#x2f; declaring one javascript variable&#xd;&#xa;var firstName&#x3b;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; declaring multiple javascript variables&#xd;&#xa;var firstName, lastName&#x3b;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; declaring and assigning one javascript variable&#xd;&#xa;var firstName &#x3d; &#x27;Homer&#x27;&#x3b;&#xd;&#xa;&#xd;&#xa;&#x2f;&#x2f; declaring and assigning multiple javascript variables&#xd;&#xa;var firstName &#x3d; &#x27;Homer&#x27;, lastName &#x3d; &#x27;Simpson&#x27;&#x3b;</textarea>      
+
+										
+										
+								
+
+                
+                
+                      
+                
+                </div>
+                
+ 
+            						
+	<script>
+		var exampleCode1 = CodeMirror.fromTextArea(document.getElementById("example1"), {
+				mode: "text/javascript",
+				tabMode: "indent",
+				styleActiveLine: false,
+				lineNumbers: false,
+				lineWrapping: true,
+				theme: "q-dark"
+		});
+	</script>
+
+
+<h2>Using JavaScript variables</h2>
+<p>Although there are many uses for JavaScript variables, here is a quick and dirty example:</p>
+
+                
+                <div class="code-only">
+								
+									
+									
+                
+<textarea id="example2" autocomplete="off" spellcheck="false">var firstName &#x3d; prompt&#x28;&quot;What&#x27;s your first name&#x3f;&quot;, &quot;&quot;&#x29;&#x3b;&#xd;&#xa;document.write&#x28;firstName&#x29;&#x3b;</textarea>      
+
+										
+										
+								
+
+                
+                
+                      
+                
+                </div>
+                
+ 
+            						
+	<script>
+		var exampleCode2 = CodeMirror.fromTextArea(document.getElementById("example2"), {
+				mode: "text/javascript",
+				tabMode: "indent",
+				styleActiveLine: false,
+				lineNumbers: false,
+				lineWrapping: true,
+				theme: "q-dark"
+		});
+	</script>
+
+
+<p>The above example opens a JavaScript prompt, prompting the user for their first name. It will then write the name to the page . In practice, you would output the name somewhere within the <a href="https://www.quackit.com/html/tags/html_body_tag.cfm"><code class="tag">body</code></a> element. You would also use a <a href="javascript_functions.html">function</a> for this type of thing.</p>
+<p>I suspect you can find a much better use for your javascript variables but this simply to demonstrate how easily you can store data inside a variable &mdash; data that could change at any moment.</p>
+
+<h2>Rules for JavaScript Variables</h2>
+<ul>
+<li>Can contain any letter of the alphabet, digits 0-9, and the underscore character.</li>
+<li>No spaces.</li>
+<li>No punctuation characters (eg comma, full stop, etc).</li>
+<li>The first character of a variable name cannot be a digit. </li>
+<li>JavaScript variables' names are case-sensitive. For example <var>firstName</var> and <var>FirstName</var> are two different variables. </li>
+</ul>
+
+
+		<ul class="pager">
+			
+			 <li><a href="javascript_operators.html"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> JavaScript Operators</a></li> 
+			
+		    <li><a href="javascript_functions.html">JavaScript Functions <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></li>
+			
+		</ul>
+		
+	<div class="ad ad-bottom">
+		<script async src="../../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+		<!-- Q Responsive Bottom -->
+		<ins class="adsbygoogle responsive-bottom"
+		     style="display:block"
+		     data-ad-client="ca-pub-6331358926293806"
+		     data-ad-slot="4873379751"
+		     data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+
+					
+				</article>
+				
+			
+					<div class="sidebar">
+						
+
+<nav>
+	<ul>
+    <li>
+        <h3><a href="index.html">JavaScript Tutorial</a></h3>
+        <ul>
+            <li><a href="introduction.html">Introduction</a></li> <li><a href="how_to_enable_javascript.html">How to Enable JavaScript</a></li>
+            <li><a href="javascript_syntax.html">JavaScript Syntax</a></li>
+            <li><a href="javascript_popup_boxes.html">JavaScript Popup Boxes</a></li>
+            <li><a href="javascript_html.html">JavaScript and HTML</a></li>
+            <li><a href="external_javascript_file.html">External JavaScript File</a></li>
+            <li><a href="javascript_operators.html">JavaScript Operators</a></li>
+            <li><a href="javascript_variables.html">JavaScript Variables</a></li>
+            <li><a href="javascript_functions.html">JavaScript Functions</a></li>
+            <li><a href="javascript_events.html">JavaScript Events</a></li>
+            <li><a href="javascript_if_statements.html">JavaScript If Statements</a></li>
+            <li><a href="javascript_switch_statement.html">JavaScript Switch Statements</a></li>
+            <li><a href="javascript_while_loop.html">JavaScript While Loop</a></li>
+            <li><a href="javascript_for_loop.html">JavaScript For Loop</a></li>
+            <li><a href="javascript_try_catch.html">JavaScript Try Catch</a></li>
+            <li><a href="javascript_escape_characters.html">JavaScript Escape Characters</a></li>
+            <li><a href="javascript_void_0.html">JavaScript Void(0)</a></li>
+            <li><a href="javascript_cookies.html">JavaScript Cookies</a></li>
+            <li><a href="javascript_date_and_time.html">JavaScript Date and Time</a></li>
+            <li><a href="javascript_arrays.html">JavaScript Arrays</a></li>
+            <li><a href="two_dimensional_arrays.html">Two Dimensional Arrays</a></li>
+            <li><a href="innerhtml_in_javascript.html">JavaScript innerHTML</a></li>
+            <li><a href="unobtrusive_javascript.html">Unobtrusive JavaScript</a></li>
+            <li><a href="javascript_summary.html">JavaScript Summary</a></li>
+        </ul>
+    </li>
+
+    <li><h3>JavaScript Reference</h3>
+        <ul>
+            <li><a href="../examples/index.html" title="">JavaScript Examples</a></li>
+            <li><a href="../javascript_reserved_words.html" title="">JavaScript Reserved Words</a></li>
+            <li><a href="../javascript_event_handlers.html" title="Introduction to the 12 JavaScript event handlers">JavaScript Event Handlers</a></li>
+            <li><a href="../javascript_date_and_time_functions.html" title="Full listing of all JavaScript methods for dealing with date and time.">JavaScript Date and Time Functions</a></li>
+        </ul>
+    <li><h3>jQuery</h3>
+        <ul>
+            <li><a href="https://www.quackit.com/jquery/tutorial/" title="">jQuery Tutorial</a></li>
+            <li><a href="https://www.quackit.com/jquery/examples/" title="">jQuery Examples</a></li>
+        </ul>
+    </li>
+    <li><h3>JSON</h3>
+        <ul>
+            <li><a href="https://www.quackit.com/json/tutorial/" title="Data format for exchanging data between applications and different environments.">JSON Tutorial</a></li>
+        </ul>
+    <li>
+
+    
+</ul> 
+</nav>
+
+	<div class="ad ad-left">
+		<script async src="../../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+		<!-- Q Responsive Middle -->
+		<ins class="adsbygoogle"
+		     style="display:block"
+		     data-ad-client="ca-pub-6331358926293806"
+		     data-ad-slot="7187717753"
+		     data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+
+					</div>
+          
+          
+					<div class="ads">
+            
+	<div class="ad ad-right">
+	
+		<script async src="../../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+		<!-- Q Responsive - Right -->
+		<ins class="adsbygoogle"
+				 style="display:block"
+				 data-ad-client="ca-pub-6331358926293806"
+				 data-ad-slot="9157690018"
+				 data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+
+					</div>
+          
+				
+		</div> 
+		
+			
+ 			<div class="searchbox-bottom">
+				
+<form action="https://www.quackit.com/search/" id="cse-search-box-bottom" class="site-search">
+ <div>
+   <input type="hidden" name="cx" value="partner-pub-6331358926293806:npmuvy-i8kk">
+   <input type="hidden" name="cof" value="FORID:10">
+   <input type="hidden" name="ie" value="ISO-8859-1">
+   <input type="text" name="q" size="30" class="site-search-input">
+   <button type="submit" name="sa" class="site-search-button"><i class="fa fa-search"></i></button>
+ </div>
+</form>
+
+<script src="http://cse.google.com/cse/brand?form=cse-search-box-bottom&amp;lang=en"></script>
+	
+
+
+			</div>
+
+		
+		<footer>
+			<p><a href="https://www.facebook.com/quackit.tutorials"><i class="fa fa-facebook-official"></i> Quackit on Facebook</a> </p>
+			<p class="about"><a href="https://www.quackit.com/"><i class="fa fa-home"></i> Home</a> | <a href="https://www.quackit.com/about.cfm" rel="nofollow">About</a> | <a href="https://www.quackit.com/contact.cfm" rel="nofollow">Contact</a> | <a href="https://www.quackit.com/terms_of_use.cfm" rel="nofollow">Terms&nbsp;of&nbsp;Use</a> | <a href="https://www.quackit.com/privacy_policy.cfm" rel="nofollow">Privacy&nbsp;Policy</a></p>
+			<p>&#169; Copyright 2000 - 2021 Quackit.com &nbsp;</p>
+		</footer>
+
+		
+        <script src="../../common/js/spectrum/spectrum.js"></script>
+        <script src="../../common/js/lightbox2-master/dist/js/lightbox.min.js" charset="utf-8"></script>
+
+        
+        <script>
+        $(document).ready(function(){
+
+          $( "#site-nav-toggler" ).click(function() {
+
+            $( "#site-nav" ).toggle( "slow" );
+
+          });
+
+        });
+        </script>
+
+        
+        <script>
+            $(function(){var a=window.location.href;$(".sidebar nav a").each(function(){a==this.href&&$(this).closest("li").addClass("selected")})});
+        
+            
+        </script>
+	</body>
+
+<!-- Mirrored from www.quackit.com/javascript/tutorial/javascript_variables.cfm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Apr 2021 16:08:31 GMT -->
+</html>

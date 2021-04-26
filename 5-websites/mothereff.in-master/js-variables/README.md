@@ -4,4 +4,4 @@ Wondering if you can use a given string as a variable name in JavaScript? This t
 
 See [_Valid JavaScript variable names in ES6_](https://mathiasbynens.be/notes/javascript-identifiers-es6) for the full explanation.
 
-Made by [Mathias Bynens](https://mathiasbynens.be/).
+

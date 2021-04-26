@@ -1,0 +1,818 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	
+<!-- Mirrored from www.quackit.com/javascript/tutorial/unobtrusive_javascript.cfm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Apr 2021 16:08:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">	
+
+		
+		<meta name="keywords" content="unobtrusive javascript, innerHTML, dom scripting, getElementById, dom, inner html, javascript, how to create">
+		<meta name="Description" content="Explains what unobtrusive JavaScript is and why you should consider it. Includes copy/paste codes.">
+		<link rel="canonical" href="unobtrusive_javascript.html">
+
+		<title>Unobtrusive JavaScript</title>
+    
+    
+    <script src="../../../ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+		
+		<link rel="shortcut icon" href="../../pix/favicon96.png">
+		<link rel="apple-touch-icon" href="../../pix/apple-touch-icon.png">
+    
+    
+    
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700%7CKadwa:400,700" rel="stylesheet">
+    
+    
+    <link href="../../common/css/master.42.min.css" rel="stylesheet">
+    
+		
+		
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-269964-1', 'quackit.com');
+  ga('send', 'pageview');
+
+</script>
+
+	</head>
+
+	<body>
+	
+		
+		<header class="site-header">
+    
+      
+      <div class="site-header-base">
+        <div class="site-logo">
+          <a title="Quackit Homepage" target="_top" href="https://www.quackit.com/"><img src="../../pix/quackit_logo_watermark.png" width="87" height="33" alt="Quackit Logo"></a>
+        </div>
+
+        <button id="site-nav-toggler" class="site-nav-toggler" aria-expanded="false" aria-controls="site-nav">
+          <span class="sr-only">Toggle navigation</span>
+           &#9776;
+        </button>
+      </div>
+      
+      
+      <nav id="site-nav" class="site-nav">
+        <div class="site-links">
+          
+<ul>
+    <li><a href="https://www.quackit.com/"><i class="fa fa-home"></i> <span class="sr-only">Home</span></a></li>
+    <li><a href="https://www.quackit.com/html/">HTML</a></li>
+    <li><a href="https://www.quackit.com/css/">CSS</a></li>
+    <li><a href="https://www.quackit.com/scripting/">Scripting</a></li>
+    <li><a href="https://www.quackit.com/database/">Database</a></li>
+</ul>
+
+        </div>
+        <div class="site-search-top">
+          
+<form action="https://www.quackit.com/search/" id="cse-search-box-bottom" class="site-search">
+ <div>
+   <input type="hidden" name="cx" value="partner-pub-6331358926293806:98x0fk-bbgi">
+   <input type="hidden" name="cof" value="FORID:10">
+   <input type="hidden" name="ie" value="ISO-8859-1">
+   <input type="text" name="q" size="20" class="site-search-input">
+   <button type="submit" name="sa" class="site-search-button"><i class="fa fa-search"></i></button>
+ </div>
+</form>
+
+
+
+
+
+
+
+
+
+        </div>
+      </nav>
+      
+		</header>
+    
+		
+		
+		
+			<div class="main">
+					<article class="content">
+						
+							<h1 class="page-title">Unobtrusive JavaScript</h1>
+						
+	<div class="ad ad-top">
+		<script async src="../../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+		<!-- Q Responsive Top -->
+		<ins class="adsbygoogle responsive-top"
+		     style="display:block"
+		     data-ad-client="ca-pub-6331358926293806"
+		     data-ad-slot="2095624553"
+		     data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		
+	</div>
+
+		<ul class="pager">
+			
+			 <li><a href="innerhtml_in_javascript.html"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> InnerHTML</a></li> 
+			
+		    <li><a href="javascript_summary.html">Tutorial Summary <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></li>
+			
+		</ul>
+		
+<p class="lead">Unobtrusive JavaScript is an approach to JavaScript programming intended to facilitate progressive enhancement, separation of functionality from content/presentation, and overall best practice.</p>
+
+
+<p>The basic concept behind unobtrusive JavaScript (also known as "unobtrusive DOM scripting") is to provide a best practice approach to JavaScript programming that maintains usability and accessibility, and degrades gracefully. Code maintainability from a programming perspective can also be considered a goal of unobtrusive JavaScript.  </p>
+
+<h2>Basic Example of Unobtrusive JavaScript</h2>
+<p>Here's a basic example to demonstrate the concept.</p>
+<p>If you enter your name into the following input field, your name will appear under the input field. It will update with each letter you type. You don't need to click any buttons to make this happen. It just works. </p>
+
+
+      <script src="../../common/js/codemirror/lib/codemirror.js"></script>
+    
+          <script src="../../common/js/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+          <script src="../../common/js/codemirror/mode/css/css.js"></script>
+          <script src="../../common/js/codemirror/mode/javascript/javascript.js"></script>
+          <script src="../../common/js/codemirror/mode/xml/xml.js"></script>
+        
+
+                <form action="https://www.quackit.com/preview/preview_example_code.cfm" method="post" target="result1" name="formEditor1">
+			
+                  <div class="code-snippet code-snippet-responsive" id="snippet1">
+
+
+                    
+                    
+                    <div class="toolbar">
+
+                        
+                        <div class="run">
+                          <button type="submit" class="submit" title="Refreshes the result in the preview pane."><i class="fa fa-play" aria-hidden="true"></i> Run</button>
+                        </div>
+                        
+                        
+                        
+                        <div class="orientation-links">
+                          <button id="btn-unstack1" class="btn-unstack selected" title="Stacked view">
+                            <span class="sr-only">Stack editor</span>
+                          </button>
+                          <button id="btn-stack1" class="btn-stack" title="Stacked view">
+                            <span class="sr-only">Unstack editor</span>
+                          </button>
+                        </div>
+                        
+                        
+                        
+                          <div class="scratchpad-links">
+                          
+                              <a href="https://www.quackit.com/html/html_editors/scratchpad/?example=/javascript/tutorial/unobtrusive_javascript_example" target="_blank" title="Full-page editor. Opens this example in the full-page editor."><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editor</a>
+                              <a href="https://www.quackit.com/html/html_editors/scratchpad/preview.cfm?example=/javascript/tutorial/unobtrusive_javascript_example" target="_blank" title="Full-page preview. Opens this preview in a new window."><i class="fa fa-external-link" aria-hidden="true"></i> Preview</a>
+                              
+                          </div>
+                          
+                        		
+                        
+
+                    </div>
+
+
+                    
+                    
+                    <div class="code-group">	
+                    
+                        
+                        
+                        <div class="code-pane">
+
+                            <textarea name="codeUpdate" class="code-inputter" id="example1" autocomplete="off" spellcheck="false">&lt;&#x21;-- JavaScript --&gt;&#xa;&lt;script src&#x3d;&quot;&#x2f;javascript&#x2f;tutorial&#x2f;unobtrusive_javascript_example.js&quot;&gt;&lt;&#x2f;script&gt;&#xa;&#xa;&lt;&#x21;-- HTML --&gt;&#xa;&lt;form action&#x3d;&quot;&#x2f;html&#x2f;tags&#x2f;html_form_tag_action.cfm&quot;&gt;&#xa;  &lt;input type&#x3d;&quot;input&quot; id&#x3d;&quot;first_name&quot; name&#x3d;&quot;first_name&quot; placeholder&#x3d;&quot;First Name...&quot;&gt;&#xa;  &lt;input type&#x3d;&quot;submit&quot; id&#x3d;&quot;submit&quot; value&#x3d;&quot;Submit&quot;&gt;&#xa;&lt;&#x2f;form&gt;&#xa;&#xa;&lt;p id&#x3d;&quot;msg&quot;&gt;&lt;&#x2f;p&gt;</textarea>
+
+                        </div>
+                        
+
+                        
+                        
+                        <div class="result-pane">
+
+                            
+
+                                <iframe class="result" src="https://www.quackit.com/preview/preview_example_code.cfm?r=editorCode1" name="result1"></iframe>
+
+                                
+                                <script>
+                                  window.document.forms["formEditor1"].submit();
+                                </script>
+														
+                            
+                        </div>
+                        
+                    </div>
+                  </div>
+                
+                </form>
+                
+                
+                
+                <script>
+                  $( function() {
+                    $( "#btn-stack1" ).click( function() {
+                      $( "#snippet1" ).removeClass( "code-snippet-responsive" );
+                      $( "#snippet1" ).addClass( "code-snippet-stacked" );
+                      $( "#btn-unstack1" ).removeClass( "selected" );
+                      $( this ).addClass( "selected" );
+                    });
+                    
+                    $( "#btn-unstack1" ).click( function() {
+                      $( "#snippet1" ).removeClass( "code-snippet-stacked code-snippet-responsive" );
+                      $( "#btn-stack1" ).removeClass( "selected" );
+                      $( this ).addClass( "selected" );
+                    });
+                    
+                  });
+                </script>              
+                
+
+
+            
+             						
+	<script>
+		var exampleCode1 = CodeMirror.fromTextArea(document.getElementById("example1"), {
+				mode: "htmlmixed",
+				tabMode: "indent",
+				styleActiveLine: false,
+				lineNumbers: false,
+				lineWrapping: true,
+				theme: "q-dark"
+		});
+	</script>
+
+
+<p>If you remove the JavaScript from that example, it will still work, but in a slightly different way. </p>
+
+<p>Here it is with the JavaScript removed:</p>
+
+
+                <form action="https://www.quackit.com/preview/preview_example_code.cfm" method="post" target="result2" name="formEditor2">
+			
+                  <div class="code-snippet code-snippet-responsive" id="snippet2">
+
+
+                    
+                    
+                    <div class="toolbar">
+
+                        
+                        <div class="run">
+                          <button type="submit" class="submit" title="Refreshes the result in the preview pane."><i class="fa fa-play" aria-hidden="true"></i> Run</button>
+                        </div>
+                        
+                        
+                        
+                        <div class="orientation-links">
+                          <button id="btn-unstack2" class="btn-unstack selected" title="Stacked view">
+                            <span class="sr-only">Stack editor</span>
+                          </button>
+                          <button id="btn-stack2" class="btn-stack" title="Stacked view">
+                            <span class="sr-only">Unstack editor</span>
+                          </button>
+                        </div>
+                        
+                        
+                        
+                          <div class="scratchpad-links">
+                          
+                              <a href="https://www.quackit.com/html/html_editors/scratchpad/?example=/javascript/tutorial/unobtrusive_javascript_example_non_javascript_version" target="_blank" title="Full-page editor. Opens this example in the full-page editor."><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editor</a>
+                              <a href="https://www.quackit.com/html/html_editors/scratchpad/preview.cfm?example=/javascript/tutorial/unobtrusive_javascript_example_non_javascript_version" target="_blank" title="Full-page preview. Opens this preview in a new window."><i class="fa fa-external-link" aria-hidden="true"></i> Preview</a>
+                              
+                          </div>
+                          
+                        		
+                        
+
+                    </div>
+
+
+                    
+                    
+                    <div class="code-group">	
+                    
+                        
+                        
+                        <div class="code-pane">
+
+                            <textarea name="codeUpdate" class="code-inputter" id="example2" autocomplete="off" spellcheck="false">&lt;&#x21;-- We&#x27;ve removed the JavaScript, so this example relies on the action page. --&gt;&#xa;&lt;form action&#x3d;&quot;&#x2f;html&#x2f;tags&#x2f;html_form_tag_action.cfm&quot;&gt;&#xa;  &lt;input type&#x3d;&quot;input&quot; id&#x3d;&quot;first_name&quot; name&#x3d;&quot;first_name&quot; placeholder&#x3d;&quot;First Name...&quot;&gt;&#xa;  &lt;input type&#x3d;&quot;submit&quot; id&#x3d;&quot;submit&quot; value&#x3d;&quot;Submit&quot;&gt;&#xa;&lt;&#x2f;form&gt;&#xa;&#xa;&lt;p id&#x3d;&quot;msg&quot;&gt;&lt;&#x2f;p&gt;</textarea>
+
+                        </div>
+                        
+
+                        
+                        
+                        <div class="result-pane">
+
+                            
+
+                                <iframe class="result" src="https://www.quackit.com/preview/preview_example_code.cfm?r=editorCode2" name="result2"></iframe>
+
+                                
+                                <script>
+                                  window.document.forms["formEditor2"].submit();
+                                </script>
+														
+                            
+                        </div>
+                        
+                    </div>
+                  </div>
+                
+                </form>
+                
+                
+                
+                <script>
+                  $( function() {
+                    $( "#btn-stack2" ).click( function() {
+                      $( "#snippet2" ).removeClass( "code-snippet-responsive" );
+                      $( "#snippet2" ).addClass( "code-snippet-stacked" );
+                      $( "#btn-unstack2" ).removeClass( "selected" );
+                      $( this ).addClass( "selected" );
+                    });
+                    
+                    $( "#btn-unstack2" ).click( function() {
+                      $( "#snippet2" ).removeClass( "code-snippet-stacked code-snippet-responsive" );
+                      $( "#btn-stack2" ).removeClass( "selected" );
+                      $( this ).addClass( "selected" );
+                    });
+                    
+                  });
+                </script>              
+                
+
+
+            
+             						
+	<script>
+		var exampleCode2 = CodeMirror.fromTextArea(document.getElementById("example2"), {
+				mode: "htmlmixed",
+				tabMode: "indent",
+				styleActiveLine: false,
+				lineNumbers: false,
+				lineWrapping: true,
+				theme: "q-dark"
+		});
+	</script>
+
+
+<p>When you remove the JavaScript, a button appears. You need to click the button before your name appears below the input field.</p>
+
+<p>In this case, we provide enhanced functionality for users with JavaScript enabled, and basic functionality for non-JavaScript users. The end result is the same &mdash; users enter their name and the web page displays it back to them.</p>
+<p>Of course, most web applications are much more complex than this, but if they use unobtrusive JavaScript, their core functionality will still work for non-JavaScript users &mdash; even if it requires a few extra clicks.</p>
+<p>The important thing is, the user won't know any different. They won't get any nasty error messages telling them to upgrade their browser or anything like that. Non-JavaScript users will simply use the website as it is intended for them. They won't know that JavaScript users get an enhanced experienced.</p>
+
+<p>One other observation of the above example is that, the HTML contains no JavaScript &mdash; not even an event handler. Removing the JavaScript was a simple matter of deleting the <a href="https://www.quackit.com/html/tags/html_script_tag.cfm"><code class="tag">script</code></a> tag. We didn't have to go through the HTML code and remove event handlers, function calls, etc.</p>
+
+<h2>Unobtrusive JavaScript Principles</h2>
+<p>While there's no formal definition for unobtrusive JavaScript, the approach generally adheres to the following core principles. </p>
+
+<ul>
+  <li><strong>Usability</strong></li>
+  <li><strong>Graceful Degradation</strong> or <strong>progressive enhancement</strong> to support user agents that may not support advanced JavaScript functionality</li>
+  <li><strong>Accessibility</strong></li>
+  <li><strong>Separation</strong> of functionality from content and presentation</li>
+</ul>
+
+<h3>Usability</h3>
+<p>Unobtrusive JavaScript runs without drawing attention to itself. The script is a useful addtion to the website, but it is so integrated, and works so well that the user simply uses the website (and its scripts) without thinking about it.</p>
+
+<h3>Graceful Degradation or Progressive Enhancement</h3>
+<p>Graceful degradation of JavaScript means that the script doesn't draw attention to itself when it fails. </p>
+<p>Different browsers support different features. So when you write some JavaScript, there's a possibility that not all browsers will support some of the features you're using in your script. Rather than display an error message when you try to run the unsupported script, your script detects whether the browser supports your objects <em>before</em> it tries to run the script. It can then deal with it in another way, perhaps by running a different script that <em>is</em> supported, or by reverting to an HTML/server-side scripting solution.</p>
+
+<p>When developing, graceful degradation is an approach where you focus on providing functionality for the "best case scenario" (e.g. for browsers that support all your functionality), then work out ways of making it work well in other cases (e.g. browsers that don't support all of the enhanced functionality). </p>
+<p>Progressive enhancement on the other hand, works in the reverse order. You concentrate on providing functionality that works in all situations, then provide "extra" functionality that more advanced browsers can take advantage of.</p>
+
+<h3>Accessibility</h3>
+<p>The benefits of including JavaScript on a website can be great. But these benefits will only be available for users with JavaScript enabled. Also, some users with disabilities might have trouble with JavaScript. </p>
+<p>In other words, not all users can actually use your JavaScript.</p>
+<p>When you use unobtrusive JavaScript, the website will still work for those "non-JavaScript" users. This usually means that your HTML code (often in conjunction with a server-side script) provides the same (or similar) functionality that would've been achieved with the JavaScript. It might not work exactly like the JavaScript version, but at least it doesn't prevent those users from completing their task. </p>
+
+<p>You might say, "well why bother even doing it in JavaScript then?". </p>
+<p>Good point. Here's one of the main reasons for using JavaScript in a web page.</p>
+
+<p>Generally speaking, JavaScript can provide a more interactive experience for the user. And because it runs on the client side, it can do things a lot quicker than if we'd had to send a request to a server-side script.</p>
+<p>The previous example demonstrates this. We were able to provide an interactive input field for the user, but we also provided a scaled down solution for non-JavaScript users.</p>
+
+
+<h3>Separation</h3>
+<p>When using unobtrusive JavaScript, all scripts and their event handlers are kept away from the HTML.</p>
+<p>Unobtrusive JavaScript is maintained separately to the HTML file. All JavaScript resides in its own file and the HTML file simply links to this file. Also, instead of using inline event handlers embedded within HTML tags (such as <code>onclick=""</code>), unobtrusive JavaScript uses other techniques to detect events.</p>
+<p>While the end user doesn't care whether JavaScript is inline or not, developers who work on the site will typically find the code easier to maintain this way. This is considered "unobtrusive" because it hides the JavaScript from those developers who don't need to look at the JavaScript. Developers who need to look at the JavaScript can simply open the relevant file.</p>
+
+
+<p>Let's look at the previous example again, but this time we'll take a closer look at the code.</p>
+
+
+<p>The HTML:</p>
+
+                
+                <div class="code-only">
+								
+									
+									
+                
+<textarea id="example3" autocomplete="off" spellcheck="false">&lt;form action&#x3d;&quot;&#x2f;html&#x2f;tags&#x2f;html_form_tag_action.cfm&quot;&gt;&#xd;&#xa;  &lt;input type&#x3d;&quot;input&quot; id&#x3d;&quot;first_name&quot; name&#x3d;&quot;first_name&quot; placeholder&#x3d;&quot;First Name...&quot;&gt;&#xd;&#xa;  &lt;input type&#x3d;&quot;submit&quot; id&#x3d;&quot;submit&quot; value&#x3d;&quot;Submit&quot;&gt;&#xd;&#xa;&lt;&#x2f;form&gt;&#xd;&#xa;&#xd;&#xa;&lt;p id&#x3d;&quot;msg&quot;&gt;&lt;&#x2f;p&gt;</textarea>      
+
+										
+										
+								
+
+                
+                
+                      
+                
+                </div>
+                
+ 
+            						
+	<script>
+		var exampleCode3 = CodeMirror.fromTextArea(document.getElementById("example3"), {
+				mode: "htmlmixed",
+				tabMode: "indent",
+				styleActiveLine: false,
+				lineNumbers: false,
+				lineWrapping: true,
+				theme: "q-dark"
+		});
+	</script>
+
+
+
+<p>The Javascript (file <a target="_blank" href="unobtrusive_javascript_example.js">here</a>):</p>
+
+                
+                <div class="code-only">
+								
+									
+									
+                
+<textarea id="example4" autocomplete="off" spellcheck="false">&#x2f;&#x2f; Wait for DOM to load&#xd;&#xa;document.addEventListener&#x28;&quot;DOMContentLoaded&quot;, function&#x28;event&#x29; &#x7b;&#xd;&#xa;&#xd;&#xa;  &#x2f;&#x2f; Hide the submit button. Non-JavaScript users will still see it.&#xd;&#xa;  document.getElementById&#x28;&quot;submit&quot;&#x29;.style.display &#x3d; &quot;none&quot;&#x3b;&#xd;&#xa;&#xd;&#xa;  &#x2f;&#x2f; Put the form control into a variable&#xd;&#xa;  var e &#x3d; document.getElementById&#x28;&quot;first_name&quot;&#x29;&#x3b;&#xd;&#xa;  &#xd;&#xa;  &#x2f;&#x2f; Wait for user input  &#xd;&#xa;  e.addEventListener&#x28;&quot;keyup&quot;, function&#x28;&#x29; &#x7b;&#xd;&#xa;&#xd;&#xa;    var first_name &#x3d; document.getElementById&#x28;&quot;first_name&quot;&#x29;.value&#x3b;&#xd;&#xa;    document.getElementById&#x28;&quot;msg&quot;&#x29;.textContent &#x3d; first_name&#x3b;&#xd;&#xa;&#xd;&#xa;  &#x7d;, false&#x29;&#x3b;&#xd;&#xa;  &#xd;&#xa;&#x7d;&#x29;&#x3b;</textarea>      
+
+										
+										
+								
+
+                
+                
+                      
+                
+                </div>
+                
+ 
+            						
+	<script>
+		var exampleCode4 = CodeMirror.fromTextArea(document.getElementById("example4"), {
+				mode: "text/javascript",
+				tabMode: "indent",
+				styleActiveLine: false,
+				lineNumbers: false,
+				lineWrapping: true,
+				theme: "q-dark"
+		});
+	</script>
+
+
+
+<p>This code uses a technique that allows us to keep the JavaScript completely separate from the HTML. All JavaScript resides in an <a href="external_javascript_file.html">external file</a>.</p>
+
+<p>If we didn't use unobtrusive JavaScript, we might insert an <code>onclick</code> attribute into the <a href="https://www.quackit.com/html/tags/html_input_tag.cfm"><code class="tag">input</code></a> tag in order to trigger a function. So it might look something like this:</p>
+
+                
+                <div class="code-only">
+								
+									
+									
+                
+<textarea id="example5" autocomplete="off" spellcheck="false">&lt;input onclick&#x3d;&quot;myFunction&#x28;&#x29;&quot; ...&gt;</textarea>      
+
+										
+										
+								
+
+                
+                
+                      
+                
+                </div>
+                
+ 
+            						
+	<script>
+		var exampleCode5 = CodeMirror.fromTextArea(document.getElementById("example5"), {
+				mode: "htmlmixed",
+				tabMode: "indent",
+				styleActiveLine: false,
+				lineNumbers: false,
+				lineWrapping: true,
+				theme: "q-dark"
+		});
+	</script>
+
+
+<p>However, this doesn't follow the unobtrusive JavaScript principle of keeping the JavaScript away from the content and presentation.</p>
+
+<p>Therefore, we use this (inside the <code>.js</code> file) instead:</p>
+
+
+                
+                <div class="code-only">
+								
+									
+									
+                
+<textarea id="example6" autocomplete="off" spellcheck="false">e.addEventListener&#x28;&quot;keyup&quot;, function&#x28;&#x29; &#x7b;&#xd;&#xa;&#xd;&#xa;  ... code here ...&#xd;&#xa;&#xd;&#xa;&#x7d;, false&#x29;&#x3b;</textarea>      
+
+										
+										
+								
+
+                
+                
+                      
+                
+                </div>
+                
+ 
+            						
+	<script>
+		var exampleCode6 = CodeMirror.fromTextArea(document.getElementById("example6"), {
+				mode: "text/javascript",
+				tabMode: "indent",
+				styleActiveLine: false,
+				lineNumbers: false,
+				lineWrapping: true,
+				theme: "q-dark"
+		});
+	</script>
+
+
+<p>This goes with the rest of the JavaScript and therefore, it can easily reside in a separate <code>.js</code> file. This means there's no need to put <code>onclick</code> into any form elements.</p>
+
+<h3>Loading the DOM</h3>
+<p>Another thing about this example is that all JavaScript is wrapped inside this: </p>
+
+                
+                <div class="code-only">
+								
+									
+									
+                
+<textarea id="example7" autocomplete="off" spellcheck="false">document.addEventListener&#x28;&quot;DOMContentLoaded&quot;, function&#x28;event&#x29; &#x7b;&#xd;&#xa;&#xd;&#xa;  ... code here ...&#xd;&#xa;&#xd;&#xa;&#x7d;&#x29;&#x3b;</textarea>      
+
+										
+										
+								
+
+                
+                
+                      
+                
+                </div>
+                
+ 
+            						
+	<script>
+		var exampleCode7 = CodeMirror.fromTextArea(document.getElementById("example7"), {
+				mode: "text/javascript",
+				tabMode: "indent",
+				styleActiveLine: false,
+				lineNumbers: false,
+				lineWrapping: true,
+				theme: "q-dark"
+		});
+	</script>
+
+
+
+<p>This code allows us to wait for the document object model (DOM) to load before running the rest of the code. We do this to ensure that we can make reference to any object on the page &mdash; even if it comes later on in the code. If we didn't do this, we wouldn't be able to call the HTML elements further down the page.</p>
+
+<p>We then use some trickery to hide the button from JavaScript users:</p> 
+
+                
+                <div class="code-only">
+								
+									
+									
+                
+<textarea id="example8" autocomplete="off" spellcheck="false">document.getElementById&#x28;&quot;submit&quot;&#x29;.style.display &#x3d; &quot;none&quot;&#x3b;</textarea>      
+
+										
+										
+								
+
+                
+                
+                      
+                
+                </div>
+                
+ 
+            						
+	<script>
+		var exampleCode8 = CodeMirror.fromTextArea(document.getElementById("example8"), {
+				mode: "text/javascript",
+				tabMode: "indent",
+				styleActiveLine: false,
+				lineNumbers: false,
+				lineWrapping: true,
+				theme: "q-dark"
+		});
+	</script>
+
+
+<p>They won't be needing it. This button is only for non-JavaScript users. If they don't have JavaScript enabled, then JavaScript won't be able to hide the button, which is exactly what we want. </p>
+
+<p>This is a basic example, and there are other things you could do to make your JavaScript unobtrusive. For example, rather than hide the button for all JavaScript users, you could go a step further and check whether the browser supports the specific objects that you're going to use in your script. So the button could hide/display elements based on that test.</p>
+
+
+
+		<ul class="pager">
+			
+			 <li><a href="innerhtml_in_javascript.html"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> InnerHTML</a></li> 
+			
+		    <li><a href="javascript_summary.html">Tutorial Summary <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a></li>
+			
+		</ul>
+		
+	<div class="ad ad-bottom">
+		<script async src="../../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+		<!-- Q Responsive Bottom -->
+		<ins class="adsbygoogle responsive-bottom"
+		     style="display:block"
+		     data-ad-client="ca-pub-6331358926293806"
+		     data-ad-slot="4873379751"
+		     data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+
+					
+				</article>
+				
+			
+					<div class="sidebar">
+						
+
+<nav>
+	<ul>
+    <li>
+        <h3><a href="index.html">JavaScript Tutorial</a></h3>
+        <ul>
+            <li><a href="introduction.html">Introduction</a></li> <li><a href="how_to_enable_javascript.html">How to Enable JavaScript</a></li>
+            <li><a href="javascript_syntax.html">JavaScript Syntax</a></li>
+            <li><a href="javascript_popup_boxes.html">JavaScript Popup Boxes</a></li>
+            <li><a href="javascript_html.html">JavaScript and HTML</a></li>
+            <li><a href="external_javascript_file.html">External JavaScript File</a></li>
+            <li><a href="javascript_operators.html">JavaScript Operators</a></li>
+            <li><a href="javascript_variables.html">JavaScript Variables</a></li>
+            <li><a href="javascript_functions.html">JavaScript Functions</a></li>
+            <li><a href="javascript_events.html">JavaScript Events</a></li>
+            <li><a href="javascript_if_statements.html">JavaScript If Statements</a></li>
+            <li><a href="javascript_switch_statement.html">JavaScript Switch Statements</a></li>
+            <li><a href="javascript_while_loop.html">JavaScript While Loop</a></li>
+            <li><a href="javascript_for_loop.html">JavaScript For Loop</a></li>
+            <li><a href="javascript_try_catch.html">JavaScript Try Catch</a></li>
+            <li><a href="javascript_escape_characters.html">JavaScript Escape Characters</a></li>
+            <li><a href="javascript_void_0.html">JavaScript Void(0)</a></li>
+            <li><a href="javascript_cookies.html">JavaScript Cookies</a></li>
+            <li><a href="javascript_date_and_time.html">JavaScript Date and Time</a></li>
+            <li><a href="javascript_arrays.html">JavaScript Arrays</a></li>
+            <li><a href="two_dimensional_arrays.html">Two Dimensional Arrays</a></li>
+            <li><a href="innerhtml_in_javascript.html">JavaScript innerHTML</a></li>
+            <li><a href="unobtrusive_javascript.html">Unobtrusive JavaScript</a></li>
+            <li><a href="javascript_summary.html">JavaScript Summary</a></li>
+        </ul>
+    </li>
+
+    <li><h3>JavaScript Reference</h3>
+        <ul>
+            <li><a href="../examples/index.html" title="">JavaScript Examples</a></li>
+            <li><a href="../javascript_reserved_words.html" title="">JavaScript Reserved Words</a></li>
+            <li><a href="../javascript_event_handlers.html" title="Introduction to the 12 JavaScript event handlers">JavaScript Event Handlers</a></li>
+            <li><a href="../javascript_date_and_time_functions.html" title="Full listing of all JavaScript methods for dealing with date and time.">JavaScript Date and Time Functions</a></li>
+        </ul>
+    <li><h3>jQuery</h3>
+        <ul>
+            <li><a href="https://www.quackit.com/jquery/tutorial/" title="">jQuery Tutorial</a></li>
+            <li><a href="https://www.quackit.com/jquery/examples/" title="">jQuery Examples</a></li>
+        </ul>
+    </li>
+    <li><h3>JSON</h3>
+        <ul>
+            <li><a href="https://www.quackit.com/json/tutorial/" title="Data format for exchanging data between applications and different environments.">JSON Tutorial</a></li>
+        </ul>
+    <li>
+
+    
+</ul> 
+</nav>
+
+	<div class="ad ad-left">
+		<script async src="../../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+		<!-- Q Responsive Middle -->
+		<ins class="adsbygoogle"
+		     style="display:block"
+		     data-ad-client="ca-pub-6331358926293806"
+		     data-ad-slot="7187717753"
+		     data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+
+					</div>
+          
+          
+					<div class="ads">
+            
+	<div class="ad ad-right">
+	
+		<script async src="../../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+		<!-- Q Responsive - Right -->
+		<ins class="adsbygoogle"
+				 style="display:block"
+				 data-ad-client="ca-pub-6331358926293806"
+				 data-ad-slot="9157690018"
+				 data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+
+					</div>
+          
+				
+		</div> 
+		
+			
+ 			<div class="searchbox-bottom">
+				
+<form action="https://www.quackit.com/search/" id="cse-search-box-bottom" class="site-search">
+ <div>
+   <input type="hidden" name="cx" value="partner-pub-6331358926293806:npmuvy-i8kk">
+   <input type="hidden" name="cof" value="FORID:10">
+   <input type="hidden" name="ie" value="ISO-8859-1">
+   <input type="text" name="q" size="30" class="site-search-input">
+   <button type="submit" name="sa" class="site-search-button"><i class="fa fa-search"></i></button>
+ </div>
+</form>
+
+<script src="http://cse.google.com/cse/brand?form=cse-search-box-bottom&amp;lang=en"></script>
+	
+
+
+			</div>
+
+		
+		<footer>
+			<p><a href="https://www.facebook.com/quackit.tutorials"><i class="fa fa-facebook-official"></i> Quackit on Facebook</a> </p>
+			<p class="about"><a href="https://www.quackit.com/"><i class="fa fa-home"></i> Home</a> | <a href="https://www.quackit.com/about.cfm" rel="nofollow">About</a> | <a href="https://www.quackit.com/contact.cfm" rel="nofollow">Contact</a> | <a href="https://www.quackit.com/terms_of_use.cfm" rel="nofollow">Terms&nbsp;of&nbsp;Use</a> | <a href="https://www.quackit.com/privacy_policy.cfm" rel="nofollow">Privacy&nbsp;Policy</a></p>
+			<p>&#169; Copyright 2000 - 2021 Quackit.com &nbsp;</p>
+		</footer>
+
+		
+        <script src="../../common/js/spectrum/spectrum.js"></script>
+        <script src="../../common/js/lightbox2-master/dist/js/lightbox.min.js" charset="utf-8"></script>
+
+        
+        <script>
+        $(document).ready(function(){
+
+          $( "#site-nav-toggler" ).click(function() {
+
+            $( "#site-nav" ).toggle( "slow" );
+
+          });
+
+        });
+        </script>
+
+        
+        <script>
+            $(function(){var a=window.location.href;$(".sidebar nav a").each(function(){a==this.href&&$(this).closest("li").addClass("selected")})});
+        
+            
+        </script>
+	</body>
+
+<!-- Mirrored from www.quackit.com/javascript/tutorial/unobtrusive_javascript.cfm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Apr 2021 16:08:35 GMT -->
+</html>

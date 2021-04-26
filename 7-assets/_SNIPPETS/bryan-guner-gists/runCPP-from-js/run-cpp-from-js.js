@@ -1,25 +1,23 @@
 'use strict';
 
-const childProcess = require('child_process');
-const fs = require('fs');
-const path = require('path');
+import { exec } from 'child_process';
+import { readdirSync, lstatSync } from 'fs';
+import { join } from 'path';
 
 function getFiles(cppDir) {
-    return fs
-        .readdirSync(cppDir)
+    return readdirSync(cppDir)
         .filter(function (item) {
-            const fullPath = path.join(cppDir, item);
-            return fs.lstatSync(fullPath).isDirectory();
+            const fullPath = join(cppDir, item);
+            return lstatSync(fullPath).isDirectory();
         })
         .map(function (dirname) {
-            const fullPath = path.join(cppDir, dirname);
-            return fs
-                .readdirSync(fullPath)
+            const fullPath = join(cppDir, dirname);
+            return readdirSync(fullPath)
                 .filter(function (item) {
                     return item.endsWith('.cpp');
                 })
                 .map(function (filename) {
-                    return path.join(cppDir, dirname, filename);
+                    return join(cppDir, dirname, filename);
                 });
         })
         .reduce(function (flattenedArray, fileSet) {
@@ -32,7 +30,7 @@ function execute(command, printOutput = false) {
     const execFile = execFileMatch && execFileMatch.length > 1 ? execFileMatch[1] : '';
     const printFile = execFile.replace(/\.out$/, '.cpp');
     return new Promise(function (resolve, reject) {
-        return childProcess.exec(command, function (err, stdout, stderr) {
+        return exec(command, function (err, stdout, stderr) {
             if (err) {
                 console.log(`${printFile}\n${stdout}`);
                 return reject(err);
@@ -60,7 +58,7 @@ function clearOutputFiles() {
 if (!module.parent) {
     const args = process.argv;
     const userRequestedFiles = args.slice(2);
-    const cppDir = path.join(__dirname, 'c++');
+    const cppDir = join(__dirname, 'c++');
     const files = userRequestedFiles.length ? userRequestedFiles : getFiles(cppDir);
     const promises = files.map(runTest);
     Promise.all(promises)

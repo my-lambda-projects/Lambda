@@ -1,0 +1,801 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	
+<!-- Mirrored from www.quackit.com/javascript/javascript_event_handlers.cfm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Apr 2021 16:07:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">	
+
+		
+		<meta name="keywords" content="JavaScript Event Handlers, events, onMouseover, onLoad, onClick, onChange">
+		<meta name="Description" content="JavaScript Event Handlers - introduction to the 12 JavaScript event handlers.">
+		<link rel="canonical" href="javascript_event_handlers.html">
+
+		<title>JavaScript Event Handlers</title>
+    
+    
+    <script src="../../ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+		
+		<link rel="shortcut icon" href="../pix/favicon96.png">
+		<link rel="apple-touch-icon" href="../pix/apple-touch-icon.png">
+    
+    
+    
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,700%7CKadwa:400,700" rel="stylesheet">
+    
+    
+    <link href="../common/css/master.42.min.css" rel="stylesheet">
+    
+		
+		
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-269964-1', 'quackit.com');
+  ga('send', 'pageview');
+
+</script>
+
+	</head>
+
+	<body>
+	
+		
+		<header class="site-header">
+    
+      
+      <div class="site-header-base">
+        <div class="site-logo">
+          <a title="Quackit Homepage" target="_top" href="https://www.quackit.com/"><img src="../pix/quackit_logo_watermark.png" width="87" height="33" alt="Quackit Logo"></a>
+        </div>
+
+        <button id="site-nav-toggler" class="site-nav-toggler" aria-expanded="false" aria-controls="site-nav">
+          <span class="sr-only">Toggle navigation</span>
+           &#9776;
+        </button>
+      </div>
+      
+      
+      <nav id="site-nav" class="site-nav">
+        <div class="site-links">
+          
+<ul>
+    <li><a href="https://www.quackit.com/"><i class="fa fa-home"></i> <span class="sr-only">Home</span></a></li>
+    <li><a href="https://www.quackit.com/html/">HTML</a></li>
+    <li><a href="https://www.quackit.com/css/">CSS</a></li>
+    <li><a href="https://www.quackit.com/scripting/">Scripting</a></li>
+    <li><a href="https://www.quackit.com/database/">Database</a></li>
+</ul>
+
+        </div>
+        <div class="site-search-top">
+          
+<form action="https://www.quackit.com/search/" id="cse-search-box-bottom" class="site-search">
+ <div>
+   <input type="hidden" name="cx" value="partner-pub-6331358926293806:98x0fk-bbgi">
+   <input type="hidden" name="cof" value="FORID:10">
+   <input type="hidden" name="ie" value="ISO-8859-1">
+   <input type="text" name="q" size="20" class="site-search-input">
+   <button type="submit" name="sa" class="site-search-button"><i class="fa fa-search"></i></button>
+ </div>
+</form>
+
+
+
+
+
+
+
+
+
+        </div>
+      </nav>
+      
+		</header>
+    
+		
+		
+		
+			<div class="main">
+					<article class="content">
+						
+							<h1 class="page-title">JavaScript Event Handlers</h1>
+						
+	<div class="ad ad-top">
+		<script async src="../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+		<!-- Q Responsive Top -->
+		<ins class="adsbygoogle responsive-top"
+		     style="display:block"
+		     data-ad-client="ca-pub-6331358926293806"
+		     data-ad-slot="2095624553"
+		     data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+		
+	</div>
+
+
+
+<p>When your users visit your website, they do things like click on things, hover over things etc. These are examples of what JavaScript calls <i>events</i>. Using JavaScript, you can respond to an event using <i>Event Handlers</i>. You can attach an event handler to the HTML element for which you want to respond to when a specific event occurs. For example, you could attach the <code>onMouseover</code> event handler to a button and specify some JavaScript to run whenever this event occurs against that button.</p>
+<h2>Event Handlers for All HTML Elements &amp; <code>document</code> &amp; <code>window</code> Objects</h2>
+<p>The following table lists the event handlers supported by all HTML elements, as both event handler content attributes and event handler IDL attributes; and supported by all <code>Document</code> and <code>Window</code> objects, as event handler IDL attributes.</p>
+<table width="100%" cellspacing="0" cellpadding="3" class="tabular">
+	<thead>
+	<tr>
+		<th style="width:120px;"><strong>Attribute</strong></th>
+		<th><strong>Description</strong></th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td><code>onabort</code></td>
+		<td>Invoked when an event has been aborted. For example, the browser stops fetching media data before it is completely downloaded.</td>
+	</tr>
+	<tr>
+		<td><code>onauxclick</code></td>
+		<td><code>auxclick</code> event handler.</td>
+	</tr>
+	<tr>
+		<td><code>oncancel</code></td>
+		<td><code>cancel</code> event handler.</td>
+	</tr>	
+	<tr>
+		<td><code>oncanplay</code></td>
+		<td>Invoked when the browser/user agent can start playing media, but hasn't yet, due to buffering. In other words, if playback were to begin now, it wouldn't play right to the end (due to the current playback rate) - it would need to pause during playback in order to load the rest of the media.</td>
+	</tr>	
+	<tr>
+		<td><code>oncanplaythrough</code></td>
+		<td>The browser/user agent estimates that if playback were to begin now, the media resource could be rendered at the current playback rate all the way to its end without having to stop for further buffering.</td>
+	</tr>	
+	<tr>
+		<td><code>onchange</code></td>
+		<td>User has changed the object, then attempts to leave that field (i.e. clicks elsewhere).</td>
+	</tr>
+	<tr>
+		<td><code>onclick</code></td>
+		<td>Invoked when the user clicked on the object.</td>
+	</tr>
+	<tr>
+		<td><code>onclose</code></td>
+		<td><code>close</code> event handler.</td>
+	</tr>	
+	<tr>
+		<td><code>oncontextmenu</code></td>
+		<td>Invoked when a context menu has been triggered.</td>
+	</tr>	
+	<tr>
+		<td><code>oncuechange</code></td>
+		<td><code>cuechange</code> event handler.</td>
+	</tr>
+	<tr>
+		<td><code>ondblclick</code></td>
+		<td>Invoked when the user clicked twice on the object.</td>
+	</tr>
+	<tr>
+		<td><code>ondrag</code></td>
+		<td>Invoked when an element is being dragged.</td>
+	</tr>
+	<tr>
+		<td><code>ondragend</code></td>
+		<td>Invoked when an element has stopped being dragged.</td>
+	</tr>
+	<tr>
+		<td><code>ondragenter</code></td>
+		<td>Invoked when an element has been dragged to a drop target.</td>
+	</tr>
+	<tr>
+		<td><code>ondragexit</code></td>
+		<td><code>dragexit</code> event handler.</td>
+	</tr>
+	<tr>
+		<td><code>ondragleave</code></td>
+		<td>Invoked when an element leaves a valid drop target.</td>
+	</tr>
+	<tr>
+		<td><code>ondragover</code></td>
+		<td>Invoked when an element is being dragged over a valid drop target.</td>
+	</tr>
+	<tr>
+		<td><code>ondragstart</code></td>
+		<td>Invoked when a drag operation has started.</td>
+	</tr>
+	<tr>
+		<td><code>ondrop</code></td>
+		<td>Invoked when an element is being dropped.</td>
+	</tr>	
+	<tr>
+		<td><code>ondurationchange</code></td>
+		<td>Invoked when the length of the media is changed (i.e. the <code>duration</code> attribute has just been updated).</td>
+	</tr>	
+	<tr>
+		<td><code>onemptied</code></td>
+		<td>Invoked when a media resource element suddenly becomes empty (for example, due to a network error).</td>
+	</tr>
+	<tr>
+		<td><code>onended</code></td>
+		<td>Invoked when the media has reached the end.</td>
+	</tr>
+	<tr>
+		<td><code>onformdata</code></td>
+		<td><code>formdata</code> event handler.</td>
+	</tr>
+	<tr>
+		<td><code>oninput</code></td>
+		<td><code>input</code> event handler.</td>
+	</tr>	
+	<tr>
+		<td><code>oninvalid</code></td>
+		<td><code>invalid</code> event handler.</td>
+	</tr>	
+	<tr>
+		<td><code>onkeydown</code></td>
+		<td>Invoked when a key was pressed over an element.</td>
+	</tr>
+	<tr>
+		<td><code>onkeypress</code></td>
+		<td>Invoked when a key was pressed over an element then released.</td>
+	</tr>	
+	<tr>
+		<td><code>onkeyup</code></td>
+		<td>Invoked when a key was released over an element.</td>
+	</tr>
+	<tr>
+		<td><code>onloadeddata</code></td>
+		<td>Invoked when the browser/user agent can render the media data at the current playback position for the first time.</td>
+	</tr>	
+	<tr>
+		<td><code>onloadedmetadata</code></td>
+		<td>Invoked when the browser/user agent has just determined the duration and dimensions of the media resource.</td>
+	</tr>	
+	<tr>
+		<td><code>onloadstart</code></td>
+		<td>Invoked when the browser/user agent has started loading the media resource.</td>
+	</tr>
+	<tr>
+		<td><code>onmousedown</code></td>
+		<td>The cursor moved over the object and mouse/pointing device was pressed down.</td>
+	</tr>
+	<tr>
+		<td><code>onmouseenter</code></td>
+		<td><code>mouseenter</code> event handler.</td>
+	</tr>
+	<tr>
+		<td><code>onmouseleave</code></td>
+		<td><code>mouseleave</code> event handler.</td>
+	</tr>
+	<tr>
+		<td><code>onmousemove</code></td>
+		<td>The cursor moved while hovering over an object.</td>
+	</tr>
+	<tr>
+		<td><code>onmouseout</code></td>
+		<td>The cursor moved off the object</td>
+	</tr>
+	<tr>
+		<td><code>onmouseover</code></td>
+		<td>The cursor moved over the object (i.e. user hovers the mouse over the object).</td>
+	</tr>
+	<tr>
+		<td><code>onmouseup</code></td>
+		<td>The mouse/pointing device was released after being pressed down.</td>
+	</tr>
+	<tr>
+		<td><code>onpause</code></td>
+		<td>Invoked when the media resource has been paused.</td>
+	</tr>
+	<tr>
+		<td><code>onplay</code></td>
+		<td>Invoked when the media resource starts playback.</td>
+	</tr>
+	<tr>
+		<td><code>onplaying</code></td>
+		<td>Playback has begun.</td>
+	</tr>
+	<tr>
+		<td><code>onprogress</code></td>
+		<td>The browser/user agent is fetching media data the.</td>
+	</tr>
+	<tr>
+		<td><code>onratechange</code></td>
+		<td>Invoked when the playback rate has changed (i.e. either the <code>defaultPlaybackRate</code> or the <code>playbackRate</code> has just been updated).</td>
+	</tr>
+	<tr>
+		<td><code>onreset</code></td>
+		<td><code>reset</code> event handler.</td>
+	</tr>	
+	<tr>
+		<td><code>onsecuritypolicyviolation</code></td>
+		<td><code>securitypolicyviolation</code> event handler.</td>
+	</tr>	
+	<tr>
+		<td><code>onseeked</code></td>
+		<td>Invoked when the <code>seeking</code> IDL attribute changed to false (i.e. the <code>seeking</code> attribute is no longer true)</td>
+	</tr>
+	<tr>
+		<td><code>onseeking</code></td>
+		<td>Invoked when the <code>seeking</code> IDL attribute changed to true and the seek operation is taking long enough that the user agent has time to fire the event.</td>
+	</tr>
+	<tr>
+		<td><code>onselect</code></td>
+		<td>Invoked when some or all of the contents of an object is selected. For example, the user selected some text within a text field.</td>
+	</tr>
+	<tr>
+		<td><code>onslotchange</code></td>
+		<td><code>slotchange</code> event handler.</td>
+	</tr>
+	<tr>
+		<td><code>onstalled</code></td>
+		<td>Invoked when the browser/user agent is trying to fetch media data but the data has stalled (i.e. the data has stopped coming).</td>
+	</tr>
+	<tr>
+		<td><code>onsubmit</code></td>
+		<td>User submitted a form.</td>
+	</tr>
+	<tr>
+		<td><code>onsuspend</code></td>
+		<td>The browser/user agent is (intentionally) not currently fetching media data, but has not yet downloaded the entire media resource (i.e. it has suspended the download).</td>
+	</tr>	
+	<tr>
+		<td><code>ontimeupdate</code></td>
+		<td>Invoked when the media's current playback position changed.</td>
+	</tr>	
+	<tr>
+		<td><code>ontoggle</code></td>
+		<td><code>toggle</code> event handler.</td>
+	</tr>
+	<tr>
+		<td><code>onvolumechange</code></td>
+		<td>Invoked when either the <code>volume</code> attribute or the <code>muted</code> attribute has changed.</td>
+	</tr>	
+	<tr>
+		<td><code>onwaiting</code></td>
+		<td>The next frame of the media is not yet available (but the browser/user agent expects it to become available).</td>
+	</tr>	
+	<tr>
+		<td><code>onwebkitanimationend</code></td>
+		<td><code>webkitanimationend</code> event handler.</td>
+	</tr>
+	<tr>
+		<td><code>onwebkitanimationiteration</code></td>
+		<td><code>webkitAnimationIteration</code> event handler.</td>
+	</tr>
+	<tr>
+		<td><code>onwebkitanimationstart</code></td>
+		<td><code>webkitAnimationStart</code> event handler.</td>
+	</tr>
+	<tr>
+		<td><code>onwebkittransitionend</code></td>
+		<td><code>webkitTransitionEnd</code> event handler.</td>
+	</tr>
+	<tr>
+		<td><code>onwheel</code></td>
+		<td><code>wheel</code> event handler.</td>
+	</tr>
+	</tbody>
+</table>
+
+<p>The following table lists the event handlers (and their corresponding event handler event types) supported by all HTML elements other than <code>body</code> and <code>frameset</code> elements, as both event handler content attributes and event handler IDL attributes; supported by all <code>Document</code> objects, as event handler IDL attributes; and supported by all <code>Window</code> objects, as event handler IDL attributes on the <code>Window</code> objects themselves, and with corresponding event handler content attributes and event handler IDL attributes exposed on all <code>body</code> and <code>frameset</code> elements that are owned by that <code>Window</code> object's associated <code>Document</code>.</p>
+<table width="100%" cellspacing="0" cellpadding="3" class="tabular">
+	<thead>
+	<tr>
+		<th style="width:120px;"><strong>Attribute</strong></th>
+		<th><strong>Description</strong></th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td><code>onblur</code></td>
+		<td>User has left the focus of the element.</td>
+	</tr>	
+	<tr>
+		<td><code>onerror</code></td>
+		<td>Invoked when an error occurs while the <code>Window</code> object is being loaded. Also handler for script error notifications.</td>
+	</tr>	
+	<tr>
+		<td><code>onfocus</code></td>
+		<td>Invoked when the focus is on the element.</td>
+	</tr>
+	<tr>
+		<td><code>onload</code></td>
+		<td>The element has loaded.</td>
+	</tr>	
+	<tr>
+		<td><code>onresize</code></td>
+		<td>The viewport has been resized.</td>
+	</tr>	
+	<tr>
+		<td><code>onscroll</code></td>
+		<td><code>scroll</code> event handler. Invoked when the element's scrollbar is being scrolled.</td>
+	</tr>
+	</tbody>
+</table>
+
+<p>The following table lists the event handlers supported by <code>Window</code> objects, as event handler IDL attributes on the <code>Window</code> objects themselves, and with corresponding event handler content attributes and event handler IDL attributes exposed on all <code>body</code> and <code>frameset</code> elements that are owned by that <code>Window</code> object's associated <code>Document</code>.</p>
+
+<table width="100%" cellspacing="0" cellpadding="3" class="tabular">
+	<thead>
+	<tr>
+		<th style="width:120px;"><strong>Attribute</strong></th>
+		<th><strong>Description</strong></th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td><code>onafterprint</code></td>
+		<td><code>afterprint</code> event handler</td>
+	</tr>
+	<tr>
+		<td><code>onbeforeprint</code></td>
+		<td><code>beforeprint</code> event handler</td>
+	</tr>
+	<tr>
+		<td><code>onbeforeunload</code></td>
+		<td><code>beforeunload</code> event handler</td>
+	</tr>
+	<tr>
+		<td><code>onhashchange</code></td>
+		<td><code>hashchange</code> event handler. The <code>hashchange</code> event is fired when navigating to a session history entry whose URL differs from that of the previous one only in the fragment identifier.</td>
+	</tr>
+	<tr>
+		<td><code>onlanguagechange</code></td>
+		<td><code>languagechange</code> event handler.</td>
+	</tr>	
+	<tr>
+		<td><code>onmessage</code></td>
+		<td><code>message</code> event handler.</td>
+	</tr>
+	<tr>
+		<td><code>onmessageerror</code></td>
+		<td><code>messageerror</code> event handler.</td>
+	</tr>
+	<tr>
+		<td><code>onoffline</code></td>
+		<td><code>offline</code> event handler.</td>
+	</tr>
+	<tr>
+		<td><code>ononline</code></td>
+		<td><code>online</code> event handler.</td>
+	</tr>
+	<tr>
+		<td><code>onpagehide</code></td>
+		<td><code>pagehide</code> event handler. The <code>pagehide</code> event is fired when traversing <i>from</i> a session history entry.</td>
+	</tr>
+	<tr>
+		<td><code>onpageshow</code></td>
+		<td><code>pageshow</code> event handler. The <code>pageshow</code> event is fired when traversing <i>to</i> a session history entry.</td>
+	</tr>
+	<tr>
+		<td><code>onpopstate</code></td>
+		<td><code>popstate</code> event handler. The <code>popstate</code> event is fired when navigating to a session history entry that represents a state object.</td>
+	</tr> 	
+	<tr>
+		<td><code>onrejectionhandled</code></td>
+		<td><code>rejectionhandled</code> event handler.</td>
+	</tr>
+	<tr>
+		<td><code>onstorage</code></td>
+		<td><code>storage</code> event handler.</td>
+	</tr>
+	<tr>
+		<td><code>onunhandledrejection</code></td>
+		<td><code>unhandledrejection</code> event handler.</td>
+	</tr>
+	<tr>
+		<td><code>onunload</code></td>
+		<td><code>unload</code> event handler.</td>
+	</tr>
+	</tbody>
+</table>
+    
+<p>The following are the event handlers supported by all HTML elements, as both event handler content attributes and event handler IDL attributes; and supported by all <code>Document</code> objects, as event handler IDL attributes:</p>
+<table width="100%" cellspacing="0" cellpadding="3" class="tabular">
+	<thead>
+	<tr>
+		<th style="width:120px;"><strong>Attribute</strong></th>
+		<th><strong>Description</strong></th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td><code>oncut</code></td>
+		<td><code>cut</code> event handler.</td>
+	</tr>
+	<tr>
+		<td><code>oncopy</code></td>
+		<td><code>copy</code> event handler.</td>
+	</tr>
+	<tr>
+		<td><code>onpaste</code></td>
+		<td><code>paste</code> event handler.</td>
+	</tr>
+	</tbody>
+</table>    
+
+
+<p>The following event handler is supported on <code>Document</code> objects as an event handler IDL attribute.</p>
+
+<table width="100%" cellspacing="0" cellpadding="3" class="tabular">
+	<thead>
+	<tr>
+		<th style="width:120px;"><strong>Attribute</strong></th>
+		<th><strong>Description</strong></th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td><code>onreadystatechange</code></td>
+		<td><code>readystatechange</code> event handler.</td>
+	</tr>
+	</tbody>
+</table>
+
+
+<h2>Legacy Support</h2>
+<p>If you're using an application built with HTML 4, your options for event handlers is much more limited.</p>
+<p>HTML 4 only supports the following 18 event handlers:</p>
+<table class="tabular">
+	<thead>
+	<tr>
+		<th>Event Handler</th>
+		<th>Event that it handles</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>onBlur</td>
+		<td>User has left the focus of the object. For example, they clicked away from a text field that was previously selected.</td>
+	</tr>
+	<tr>
+		<td>onChange</td>
+		<td>User has changed the object, then attempts to leave that field (i.e. clicks elsewhere).</td>
+	</tr>
+	<tr>
+		<td>onClick</td>
+		<td>User clicked on the object.</td>
+	</tr>
+	<tr>
+		<td>onDblClick</td>
+		<td>User clicked twice on the object.</td>
+	</tr>
+	<tr>
+		<td>onFocus</td>
+		<td>User brought the focus to the object (i.e. clicked on it/tabbed to it)</td>
+	</tr>
+	<tr>
+		<td>onKeydown</td>
+		<td>A key was pressed over an element.</td>
+	</tr>
+	<tr>
+		<td>onKeyup</td>
+		<td>A key was released over an element.</td>
+	</tr>
+	<tr>
+		<td>onKeypress</td>
+		<td>A key was pressed over an element then released.</td>
+	</tr>
+	<tr>
+		<td>onLoad</td>
+		<td>The object has loaded.</td>
+	</tr>
+	<tr>
+		<td>onMousedown</td>
+		<td>The cursor moved over the object and mouse/pointing device was pressed down.</td>
+	</tr>
+	<tr>
+		<td>onMouseup</td>
+		<td>The mouse/pointing device was released after being pressed down.</td>
+	</tr>
+	<tr>
+		<td>onMouseover</td>
+		<td>The cursor moved over the object (i.e. user hovers the mouse over the object).</td>
+	</tr>
+	<tr>
+		<td>onMousemove</td>
+		<td>The cursor moved while hovering over an object.</td>
+	</tr>
+	<tr>
+		<td>onMouseout</td>
+		<td>The cursor moved off the object</td>
+	</tr>
+	<tr>
+		<td>onReset</td>
+		<td>User has reset a form.</td>
+	</tr>
+	<tr>
+		<td>onSelect</td>
+		<td>User selected some or all of the contents of the object. For example, the user selected some text within a text field.</td>
+	</tr>
+	<tr>
+		<td>onSubmit</td>
+		<td>User submitted a form.</td>
+	</tr>
+	<tr>
+		<td>onUnload</td>
+		<td>User left the window (i.e. user closes the browser window).</td>
+	</tr>
+	</tbody>
+</table>
+
+
+
+
+	<div class="ad ad-bottom">
+		<script async src="../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+		<!-- Q Responsive Bottom -->
+		<ins class="adsbygoogle responsive-bottom"
+		     style="display:block"
+		     data-ad-client="ca-pub-6331358926293806"
+		     data-ad-slot="4873379751"
+		     data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+
+					
+				</article>
+				
+			
+					<div class="sidebar">
+						
+
+            <div class="relatedLinks">
+                <h4>Related</h4>
+                <ul>
+                <li><a href="https://www.quackit.com/html/tags/html_5_event_handler_content_attributes.cfm" title="Event handlers supported by HTML5">HTML Event Handlers</a></li> 
+                </ul>
+            </div>
+
+        
+
+<nav>
+	<ul>
+    <li>
+        <h3><a href="tutorial/index.html">JavaScript Tutorial</a></h3>
+        <ul>
+            <li><a href="tutorial/introduction.html">Introduction</a></li> <li><a href="tutorial/how_to_enable_javascript.html">How to Enable JavaScript</a></li>
+            <li><a href="tutorial/javascript_syntax.html">JavaScript Syntax</a></li>
+            <li><a href="tutorial/javascript_popup_boxes.html">JavaScript Popup Boxes</a></li>
+            <li><a href="tutorial/javascript_html.html">JavaScript and HTML</a></li>
+            <li><a href="tutorial/external_javascript_file.html">External JavaScript File</a></li>
+            <li><a href="tutorial/javascript_operators.html">JavaScript Operators</a></li>
+            <li><a href="tutorial/javascript_variables.html">JavaScript Variables</a></li>
+            <li><a href="tutorial/javascript_functions.html">JavaScript Functions</a></li>
+            <li><a href="tutorial/javascript_events.html">JavaScript Events</a></li>
+            <li><a href="tutorial/javascript_if_statements.html">JavaScript If Statements</a></li>
+            <li><a href="tutorial/javascript_switch_statement.html">JavaScript Switch Statements</a></li>
+            <li><a href="tutorial/javascript_while_loop.html">JavaScript While Loop</a></li>
+            <li><a href="tutorial/javascript_for_loop.html">JavaScript For Loop</a></li>
+            <li><a href="tutorial/javascript_try_catch.html">JavaScript Try Catch</a></li>
+            <li><a href="tutorial/javascript_escape_characters.html">JavaScript Escape Characters</a></li>
+            <li><a href="tutorial/javascript_void_0.html">JavaScript Void(0)</a></li>
+            <li><a href="tutorial/javascript_cookies.html">JavaScript Cookies</a></li>
+            <li><a href="tutorial/javascript_date_and_time.html">JavaScript Date and Time</a></li>
+            <li><a href="tutorial/javascript_arrays.html">JavaScript Arrays</a></li>
+            <li><a href="tutorial/two_dimensional_arrays.html">Two Dimensional Arrays</a></li>
+            <li><a href="tutorial/innerhtml_in_javascript.html">JavaScript innerHTML</a></li>
+            <li><a href="tutorial/unobtrusive_javascript.html">Unobtrusive JavaScript</a></li>
+            <li><a href="tutorial/javascript_summary.html">JavaScript Summary</a></li>
+        </ul>
+    </li>
+
+    <li><h3>JavaScript Reference</h3>
+        <ul>
+            <li><a href="examples/index.html" title="">JavaScript Examples</a></li>
+            <li><a href="javascript_reserved_words.html" title="">JavaScript Reserved Words</a></li>
+            <li><a href="javascript_event_handlers.html" title="Introduction to the 12 JavaScript event handlers">JavaScript Event Handlers</a></li>
+            <li><a href="javascript_date_and_time_functions.html" title="Full listing of all JavaScript methods for dealing with date and time.">JavaScript Date and Time Functions</a></li>
+        </ul>
+    <li><h3>jQuery</h3>
+        <ul>
+            <li><a href="https://www.quackit.com/jquery/tutorial/" title="">jQuery Tutorial</a></li>
+            <li><a href="https://www.quackit.com/jquery/examples/" title="">jQuery Examples</a></li>
+        </ul>
+    </li>
+    <li><h3>JSON</h3>
+        <ul>
+            <li><a href="https://www.quackit.com/json/tutorial/" title="Data format for exchanging data between applications and different environments.">JSON Tutorial</a></li>
+        </ul>
+    <li>
+
+    
+</ul> 
+</nav>
+
+	<div class="ad ad-left">
+		<script async src="../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+		<!-- Q Responsive Middle -->
+		<ins class="adsbygoogle"
+		     style="display:block"
+		     data-ad-client="ca-pub-6331358926293806"
+		     data-ad-slot="7187717753"
+		     data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+
+					</div>
+          
+          
+					<div class="ads">
+            
+	<div class="ad ad-right">
+	
+		<script async src="../../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+		<!-- Q Responsive - Right -->
+		<ins class="adsbygoogle"
+				 style="display:block"
+				 data-ad-client="ca-pub-6331358926293806"
+				 data-ad-slot="9157690018"
+				 data-ad-format="auto"></ins>
+		<script>
+		(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
+
+					</div>
+          
+				
+		</div> 
+		
+			
+ 			<div class="searchbox-bottom">
+				
+<form action="https://www.quackit.com/search/" id="cse-search-box-bottom" class="site-search">
+ <div>
+   <input type="hidden" name="cx" value="partner-pub-6331358926293806:npmuvy-i8kk">
+   <input type="hidden" name="cof" value="FORID:10">
+   <input type="hidden" name="ie" value="ISO-8859-1">
+   <input type="text" name="q" size="30" class="site-search-input">
+   <button type="submit" name="sa" class="site-search-button"><i class="fa fa-search"></i></button>
+ </div>
+</form>
+
+<script src="http://cse.google.com/cse/brand?form=cse-search-box-bottom&amp;lang=en"></script>
+	
+
+
+			</div>
+
+		
+		<footer>
+			<p><a href="https://www.facebook.com/quackit.tutorials"><i class="fa fa-facebook-official"></i> Quackit on Facebook</a> </p>
+			<p class="about"><a href="https://www.quackit.com/"><i class="fa fa-home"></i> Home</a> | <a href="https://www.quackit.com/about.cfm" rel="nofollow">About</a> | <a href="https://www.quackit.com/contact.cfm" rel="nofollow">Contact</a> | <a href="https://www.quackit.com/terms_of_use.cfm" rel="nofollow">Terms&nbsp;of&nbsp;Use</a> | <a href="https://www.quackit.com/privacy_policy.cfm" rel="nofollow">Privacy&nbsp;Policy</a></p>
+			<p>&#169; Copyright 2000 - 2021 Quackit.com &nbsp;</p>
+		</footer>
+
+		
+        <script src="../common/js/spectrum/spectrum.js"></script>
+        <script src="../common/js/lightbox2-master/dist/js/lightbox.min.js" charset="utf-8"></script>
+
+        
+        <script>
+        $(document).ready(function(){
+
+          $( "#site-nav-toggler" ).click(function() {
+
+            $( "#site-nav" ).toggle( "slow" );
+
+          });
+
+        });
+        </script>
+
+        
+        <script>
+            $(function(){var a=window.location.href;$(".sidebar nav a").each(function(){a==this.href&&$(this).closest("li").addClass("selected")})});
+        
+            
+        </script>
+	</body>
+
+<!-- Mirrored from www.quackit.com/javascript/javascript_event_handlers.cfm by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 Apr 2021 16:08:21 GMT -->
+</html>

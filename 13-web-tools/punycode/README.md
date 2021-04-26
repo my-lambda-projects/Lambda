@@ -4,4 +4,4 @@ An internationalized domain name (IDN) is an Internet domain name that contains 
 
 This is a tool that uses [Punycode.js](https://mths.be/punycode) to convert domain names between Unicode and Punycode (ASCII).
 
-Made by [Mathias Bynens](https://mathiasbynens.be/).
+
