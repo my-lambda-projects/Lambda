@@ -6,7 +6,7 @@ import Helper_class from './../../libs/helpers.js';
 
 class Plus_class extends Base_tools_class {
 
-	constructor(ctx) {
+	constructor( ctx ) {
 		super();
 		this.Base_layers = new Base_layers_class();
 		this.Helper = new Helper_class();
@@ -14,21 +14,24 @@ class Plus_class extends Base_tools_class {
 		this.name = 'plus';
 		this.layer = {};
 		this.best_ratio = 1;
-		this.snap_line_info = {x: null, y: null};
+		this.snap_line_info = {
+			x: null,
+			y: null
+		};
 		this.coords = [
-			[35, 0],
-			[65, 0],
-			[65, 35],
-			[100, 35],
-			[100, 65],
-			[65, 65],
-			[65, 100],
-			[35, 100],
-			[35, 65],
-			[0, 65],
-			[0, 35],
-			[35, 35],
-			[35, 0],
+			[ 35, 0 ],
+			[ 65, 0 ],
+			[ 65, 35 ],
+			[ 100, 35 ],
+			[ 100, 65 ],
+			[ 65, 65 ],
+			[ 65, 100 ],
+			[ 35, 100 ],
+			[ 35, 65 ],
+			[ 0, 65 ],
+			[ 0, 35 ],
+			[ 35, 35 ],
+			[ 35, 0 ],
 		];
 	}
 
@@ -36,28 +39,28 @@ class Plus_class extends Base_tools_class {
 		this.default_events();
 	}
 
-	mousedown(e) {
-		this.shape_mousedown(e);
+	mousedown( e ) {
+		this.shape_mousedown( e );
 	}
 
-	mousemove(e) {
-		this.shape_mousemove(e);
+	mousemove( e ) {
+		this.shape_mousemove( e );
 	}
 
-	mouseup(e) {
-		this.shape_mouseup(e);
+	mouseup( e ) {
+		this.shape_mouseup( e );
 	}
 
-	render_overlay(ctx){
+	render_overlay( ctx ) {
 		var ctx = this.Base_layers.ctx;
-		this.render_overlay_parent(ctx);
+		this.render_overlay_parent( ctx );
 	}
 
-	demo(ctx, x, y, width, height) {
-		this.draw_shape(ctx, x, y, width, height, this.coords);
+	demo( ctx, x, y, width, height ) {
+		this.draw_shape( ctx, x, y, width, height, this.coords );
 	}
 
-	render(ctx, layer) {
+	render( ctx, layer ) {
 		var params = layer.params;
 		var fill = params.fill;
 
@@ -66,16 +69,16 @@ class Plus_class extends Base_tools_class {
 		//set styles
 		ctx.strokeStyle = 'transparent';
 		ctx.fillStyle = 'transparent';
-		if(params.border)
+		if ( params.border )
 			ctx.strokeStyle = params.border_color;
-		if(params.fill)
+		if ( params.fill )
 			ctx.fillStyle = params.fill_color;
 		ctx.lineWidth = params.border_size;
 
 		//draw with rotation support
-		ctx.translate(layer.x + layer.width / 2, layer.y + layer.height / 2);
-		ctx.rotate(layer.rotate * Math.PI / 180);
-		this.draw_shape(ctx, -layer.width / 2, -layer.height / 2, layer.width, layer.height, this.coords, false);
+		ctx.translate( layer.x + layer.width / 2, layer.y + layer.height / 2 );
+		ctx.rotate( layer.rotate * Math.PI / 180 );
+		this.draw_shape( ctx, -layer.width / 2, -layer.height / 2, layer.width, layer.height, this.coords, false );
 
 		ctx.restore();
 	}
