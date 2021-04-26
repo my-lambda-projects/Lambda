@@ -1,0 +1,11 @@
+{
+    "pages": {
+        "all": {
+            "cssExampleSrc": "./live-examples/css-examples/cascading-and-inheritance/all.css",
+            "exampleCode": "./live-examples/css-examples/cascading-and-inheritance/all.html",
+            "fileName": "all.html",
+            "title": "CSS Demo: all",
+            "type": "css"
+        }
+    }
+}

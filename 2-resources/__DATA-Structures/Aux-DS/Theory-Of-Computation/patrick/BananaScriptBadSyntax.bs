@@ -1,0 +1,7 @@
+make x bed 5
+go bananas x bigger than 0
+  shout "banana"
+  shout x
+  enshrinken x
+end
+

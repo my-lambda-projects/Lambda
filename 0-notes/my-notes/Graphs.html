@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="graphs">Graphs</h1>
+<p><strong>graph</strong>: collections of data represented by nodes and connections between nodes <strong>graphs</strong>: way to formally represent network; ordered pairs <strong>graphs</strong>: modeling relations between many items; Facebook friends (you = node; friendship = edge; bidirectional); twitter = unidirectional <strong>graph theory</strong>: study of graphs <strong>big O of graphs</strong>: G = V(E)</p>
+<p>trees are a type of graph</p>
+<p>Components required to make a graph:</p>
+<ul>
+<li><strong>nodes or vertices</strong>: represent objects in a dataset (cities, animals, web pages)</li>
+<li><strong>edges</strong>: connections between vertices; can be bidirectional</li>
+<li><strong>weight</strong>: cost to travel across an edge; optional (aka cost)</li>
+</ul>
+<p>Useful for:</p>
+<ul>
+<li>maps</li>
+<li>networks of activity</li>
+<li>anything you can represent as a network</li>
+<li>multi-way relational data</li>
+</ul>
+<p>Types of Graphs:</p>
+<ul>
+<li><strong>directed</strong>: can only move in one direction along edges; which direction indicated by arrows</li>
+<li><strong>undirected</strong>: allows movement in both directions along edges; bidirectional</li>
+<li><strong>cyclic</strong>: weighted; edges allow you to revisit at least 1 vertex; example weather</li>
+<li><strong>acyclical</strong>: vertices can only be visited once; example recipe</li>
+</ul>
+<p>Two common ways to represent graphs in code:</p>
+<ul>
+<li><strong>adjacency lists</strong>: graph stores list of vertices; for each vertex, it stores list of connected vertices</li>
+<li><strong>adjacency matrices</strong>: two-dimensional array of lists with built-in edge weights; denotes no relationship</li>
+</ul>
+<p>Both have strengths and weaknesses.</p>
+<table>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 16%" />
+<col style="width: 10%" />
+<col style="width: 13%" />
+<col style="width: 8%" />
+<col style="width: 11%" />
+<col style="width: 9%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">type</th>
+<th style="text-align: center;">space complexity</th>
+<th style="text-align: center;">add vertex</th>
+<th style="text-align: center;">remove vertex</th>
+<th style="text-align: center;">add edge</th>
+<th style="text-align: center;">remove edge</th>
+<th style="text-align: center;">find edge</th>
+<th style="text-align: center;">get all edges from vertex</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">adjacency matrix</td>
+<td style="text-align: center;">O(v^2)</td>
+<td style="text-align: center;">O(v)</td>
+<td style="text-align: center;">O(v^2)</td>
+<td style="text-align: center;">O(1)</td>
+<td style="text-align: center;">O(1)</td>
+<td style="text-align: center;">O(1)</td>
+<td style="text-align: center;">O(v)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">adjacency list</td>
+<td style="text-align: center;">O(v+E)</td>
+<td style="text-align: center;">O(1)</td>
+<td style="text-align: center;">O(v)</td>
+<td style="text-align: center;">O(1)</td>
+<td style="text-align: center;">O(1)</td>
+<td style="text-align: center;">O(1)</td>
+<td style="text-align: center;">O(1)</td>
+</tr>
+</tbody>
+</table>
+<p>Worst-case space complexity of adjacency list is when graph is dense.</p>
+<h2 id="breadth-first-search">Breadth-First Search</h2>
+<p>Can use breadth-first search when searching a graph; explores graph outward in rings of increasing distance from starting vertex; never attempts to explore vertex it is or has already explored</p>
+<h3 id="applications-of-bfs">Applications of BFS</h3>
+<ul>
+<li>pathfinding, routing</li>
+<li>web crawlers</li>
+<li>find neighbor nodes in P2P network</li>
+<li>finding people/connections away on social network</li>
+<li>find neighboring locations on graph</li>
+<li>broadcasting on a network</li>
+<li>cycle detection in a graph</li>
+<li>finding connected components</li>
+<li>solving several theoretical graph problems</li>
+</ul>
+<h3 id="coloring-bfs">Coloring BFS</h3>
+<p>It’s useful to color vertexes as you arrive at them and as you leave them behind as already searched.</p>
+<p><strong>unlisted</strong>: white <strong>vertices whose neighbors are being explored</strong>: gray <strong>vertices with no unexplored neighbors</strong>: black</p>
+<h3 id="bfs-pseudocode">BFS Pseudocode</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">def</span> BFS(graph, start_vert):</a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="cf">for</span> v of graph.vertices:</a>
+<a class="sourceLine" id="cb1-3" title="3">        v.color <span class="op">=</span> white</a>
+<a class="sourceLine" id="cb1-4" title="4">    start_vert.color <span class="op">=</span> gray</a>
+<a class="sourceLine" id="cb1-5" title="5">    queue.enqueue(start_vert)</a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="cf">while</span> <span class="op">!</span>queue isEmpty():</a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="co"># peek at head but don&#39;t dequeue</span></a>
+<a class="sourceLine" id="cb1-8" title="8">    u <span class="op">=</span> queue[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb1-9" title="9">    <span class="cf">for</span> v of u.neighbors:</a>
+<a class="sourceLine" id="cb1-10" title="10">        <span class="cf">if</span> v.color <span class="op">==</span> white:</a>
+<a class="sourceLine" id="cb1-11" title="11">            v.color <span class="op">==</span> gray</a>
+<a class="sourceLine" id="cb1-12" title="12">            queue.enqueue(v)</a>
+<a class="sourceLine" id="cb1-13" title="13">    queue.dequeue()</a>
+<a class="sourceLine" id="cb1-14" title="14">    u.color <span class="op">=</span> black</a></code></pre></div>
+<h3 id="bfs-steps">BFS Steps</h3>
+<ol type="1">
+<li>Mark graph vertices white.</li>
+<li>Mark starting vertex gray.</li>
+<li>Enqueue starting vertex.</li>
+<li>Check if queue is not empty.</li>
+<li>If not empty, peek at first item in queue.</li>
+<li>Loop through that vertex’s neighbors.</li>
+<li>Check if unvisited.</li>
+<li>If unvisited, mark as gray and enqueue vertex.</li>
+<li>Dequeue current vertex and mark as black.</li>
+<li>Repeat until all vertices are explored.</li>
+</ol>
+<h2 id="depth-first-search">Depth-First Search</h2>
+<p>dives down the graph as far as it can before backtracking and exploring another branch; never attempts to explore a vertex it has already explored or is in the process of exploring; exact order will vary depending on which branches get taken first and which is starting vertex</p>
+<h3 id="applications-of-dfs">Applications of DFS</h3>
+<ul>
+<li>preferred method for exploring a graph if we want to ensure we visit every node in graph</li>
+<li>finding minimum spanning trees of weighted graphs</li>
+<li>pathfinding</li>
+<li>detecting cycles in graphs</li>
+<li>solving and generating mazes</li>
+<li>topological sorting, useful for scheduling sequences of dependent jobs</li>
+</ul>
+<h3 id="dfs-pseudocode">DFS Pseudocode</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># recursion</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">def</span> explore(graph):</a>
+<a class="sourceLine" id="cb2-3" title="3">    visit(this_vert)</a>
+<a class="sourceLine" id="cb2-4" title="4">    explore(remaining_graph)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># iterative</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">def</span> DFS(graph):</a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="cf">for</span> v of graph.verts:</a>
+<a class="sourceLine" id="cb3-4" title="4">        v.color <span class="op">=</span> white</a>
+<a class="sourceLine" id="cb3-5" title="5">        v.parent <span class="op">=</span> null</a>
+<a class="sourceLine" id="cb3-6" title="6">    <span class="cf">for</span> v of graph.verts:</a>
+<a class="sourceLine" id="cb3-7" title="7">        <span class="cf">if</span> v.color <span class="op">==</span> white:</a>
+<a class="sourceLine" id="cb3-8" title="8">            DFS_visit(v)</a>
+<a class="sourceLine" id="cb3-9" title="9"></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="kw">def</span> DFS_visit(v):</a>
+<a class="sourceLine" id="cb3-11" title="11">    v.color <span class="op">=</span> gray</a>
+<a class="sourceLine" id="cb3-12" title="12">    <span class="cf">for</span> neighbor of v.adjacent_nodes:</a>
+<a class="sourceLine" id="cb3-13" title="13">        <span class="cf">if</span> neighbor.color <span class="op">==</span> white:</a>
+<a class="sourceLine" id="cb3-14" title="14">            neighbor.parent <span class="op">=</span> v</a>
+<a class="sourceLine" id="cb3-15" title="15">            DFS_visit(neighbor)</a>
+<a class="sourceLine" id="cb3-16" title="16">    v.color <span class="op">=</span> black</a></code></pre></div>
+<h3 id="dfs-steps">DFS Steps</h3>
+<ol type="1">
+<li>Take graph as parameter.</li>
+<li>Marks all vertices as unvisited.</li>
+<li>Sets vertex parent as null.</li>
+<li>Passes each unvisited vertex into DFS_visit().</li>
+<li>Mark current vertex as gray.</li>
+<li>Loops through its unvisited neighbors.</li>
+<li>Sets parent and makes recursive call to DFS_visit().</li>
+<li>Marks vertex as black.</li>
+<li>Repeat until done.</li>
+</ol>
+<h2 id="connected-components">Connected Components</h2>
+<p><strong>connected components</strong>: in a disjoint graph, groups of nodes on a graph that are connected with each other</p>
+<h3 id="uses">Uses</h3>
+<ul>
+<li>typically very large graphs, networks</li>
+<li>social networks</li>
+<li>networks (which devices can reach one another)</li>
+<li>epidemics (how spread, who started, where next)</li>
+</ul>
+<p><strong>key to finding connected components</strong>: searching algorithms, breadth-first search</p>
+<h3 id="how-to-find-connected-componnents">How to find connected componnents</h3>
+<ul>
+<li>for each node in graph:
+<ul>
+<li>has it been explored</li>
+<li>if no, do BFS</li>
+<li>all nodes reached are connected</li>
+<li>if yes, already in connected component</li>
+<li>go to next node</li>
+</ul></li>
+</ul>
+<p><strong>strongly connected components</strong>: any node in this group can get to any other node</p>
+</body></html>

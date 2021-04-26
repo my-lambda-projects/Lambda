@@ -1,0 +1,19 @@
+<expressions> := <expression+\>
+<expression> := <type> <name> = <value>
+                <while-loop>
+                <print> <name>
+                <print> <value>
+<conditional> := <name> <lt> <value>
+                 <name> <gt> <value>
+                 <name> <eq> <value>
+<while-loop> := <while> <conditional> <expressions> end
+<while> := go bananas <conditional> <expressions> end
+<type> := make <name> be <value>
+<name> := string
+<value> := integer or a string 
+<print> := console.log(<name>) | console.log(<value>)
+<lt> := littler than
+<gt> := bigger than
+<eq> := same as
+<print> := shout
+<end> := end

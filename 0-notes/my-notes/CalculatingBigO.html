@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="calculating-big-o">Calculating Big O</h1>
+<p><strong>Big O</strong>: big picture, broad strokes, not details</p>
+<ul>
+<li>way we analyze how efficient algorithms are without getting too mired in details</li>
+<li>can model how much time any function will take given <code>n</code> inputs</li>
+<li>interested in order of magnitude of number of the exact figure</li>
+<li>O absorbs all fluff and n = biggest term
+<ul>
+<li>Big O of <code>3x^2 +x + 1</code> = <code>O(n^2)</code></li>
+</ul></li>
+</ul>
+<h2 id="time-complexity">Time Complexity</h2>
+<p>no loops or exit &amp; return = O(1)</p>
+<p>0 nested loops = <code>O(n)</code> 1 nested loops = <code>O(n^2)</code> 2 nested loops = <code>O(n^3)</code> 3 nested loops = <code>O(n^4)</code></p>
+<p><strong>recursive</strong>: as you add more terms, increase in time as you add input diminishes <strong>recursion</strong>: when you define something in terms of itself, a function that calls itself</p>
+<ul>
+<li>used because of ability to maintain state at diffferent levels of recursion</li>
+<li>inherently carries large footprint</li>
+<li>every time function called, you add call to stack</li>
+</ul>
+<p><strong>iterative</strong>: use loops instead of recursion (preferred) - favor readability over performance</p>
+<p><code>O(n log(n))</code> &amp; <code>O(log(n))</code>: dividing/halving</p>
+<ul>
+<li>if code employes recursion/divide-and-conquer strategy</li>
+<li>what power do i need to power my base to get n</li>
+</ul>
+<h3 id="time-definitions">Time Definitions</h3>
+<ul>
+<li><strong>constant</strong>: does not scale with input, will take same amount of time
+<ul>
+<li>for any input size n, constant time performs same number of operations every time</li>
+</ul></li>
+<li><strong>logarithmic</strong>: increases number of operations it performs as logarithmic function of input size n
+<ul>
+<li>function log n grows very slowly, so as n gets longer, number of operations the algorithm needs to perform doesn’t increase very much</li>
+<li>halving</li>
+</ul></li>
+<li><strong>linear</strong>: increases number of operations it performs as linear function of input size n
+<ul>
+<li>number of additional operations needed to perform grows in direct proportion to increase in input size n</li>
+</ul></li>
+<li><strong>log-linear</strong>: increases number of operations it performs as log-linear function of input size n
+<ul>
+<li>looking over every element and doing work on each one</li>
+</ul></li>
+<li><strong>quadratic</strong>: increases number of operations it performs as quadratic function of input size n</li>
+<li><strong>exponential</strong>: increases number of operations it performs as exponential function of input size n
+<ul>
+<li>number of nested loops increases as function of n</li>
+</ul></li>
+<li><strong>polynomial</strong>: as size of input increases, runtime/space used will grow at a faster rate</li>
+<li><strong>factorial</strong>: as size of input increases, runtime/space used will grow astronomically even with relatively small inputs</li>
+<li><strong>rate of growth</strong>: how fast a function grows with input size</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Big O</th>
+<th style="text-align: center;">Classification</th>
+<th style="text-align: center;">Rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">O(c)</td>
+<td style="text-align: center;">constant</td>
+<td style="text-align: center;">Better</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">O(log(n))</td>
+<td style="text-align: center;">logarithmic</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">O(n)</td>
+<td style="text-align: center;">linear</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">O(n log(n))</td>
+<td style="text-align: center;">log-linear</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">O(n^c)</td>
+<td style="text-align: center;">quadratic</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">O(c^n)</td>
+<td style="text-align: center;">exponential</td>
+<td style="text-align: center;">Worst</td>
+</tr>
+</tbody>
+</table>
+<h2 id="space-complexity">Space Complexity</h2>
+<ul>
+<li>How does the space usage scale/change as input gets very large?</li>
+<li>What auxiliary space does your algorithm use or is it in place (constant)?</li>
+<li>Runtime stack space counts as part of space complexity unless told otherwise.</li>
+</ul>
+<h2 id="sorting-algorithms">Sorting Algorithms</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;"></th>
+<th style="text-align: center;">Time Best</th>
+<th style="text-align: center;">Time Average</th>
+<th style="text-align: center;">Time Worst</th>
+<th style="text-align: center;">Worst Space</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Quick</td>
+<td style="text-align: center;">O(n log(n))</td>
+<td style="text-align: center;">O(n log(n))</td>
+<td style="text-align: center;">O(n^2)</td>
+<td style="text-align: center;">O(log(n))</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Merge</td>
+<td style="text-align: center;">O(n log(n))</td>
+<td style="text-align: center;">O(n log(n))</td>
+<td style="text-align: center;">O(n^2)</td>
+<td style="text-align: center;">O(n)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Heap</td>
+<td style="text-align: center;">O(n)</td>
+<td style="text-align: center;">O(n log(n))</td>
+<td style="text-align: center;">O(n^2)</td>
+<td style="text-align: center;">O(1)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Bubble</td>
+<td style="text-align: center;">O(n)</td>
+<td style="text-align: center;">O(n^2)</td>
+<td style="text-align: center;">O(n^2)</td>
+<td style="text-align: center;">O(1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Insertion</td>
+<td style="text-align: center;">O(n)</td>
+<td style="text-align: center;">O(n^2)</td>
+<td style="text-align: center;">O(n^2)</td>
+<td style="text-align: center;">O(1)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Selection</td>
+<td style="text-align: center;">O(n^2)</td>
+<td style="text-align: center;">O(n^2)</td>
+<td style="text-align: center;">O(n^2)</td>
+<td style="text-align: center;">O(1)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Tree</td>
+<td style="text-align: center;">O(n log(n))</td>
+<td style="text-align: center;">O(n log(n))</td>
+<td style="text-align: center;">O(n^2)</td>
+<td style="text-align: center;">O(n)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Bucket</td>
+<td style="text-align: center;">O(n+k)</td>
+<td style="text-align: center;">O(n+k)</td>
+<td style="text-align: center;">O(n^2)</td>
+<td style="text-align: center;">O(n)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Radix</td>
+<td style="text-align: center;">O(nk)</td>
+<td style="text-align: center;">O(nk)</td>
+<td style="text-align: center;">O(nk)</td>
+<td style="text-align: center;">O(n+k)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Counting</td>
+<td style="text-align: center;">O(n+k)</td>
+<td style="text-align: center;">O(n+k)</td>
+<td style="text-align: center;">O(n+k)</td>
+<td style="text-align: center;">O(k)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="data-structures">Data Structures</h1>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 9%" />
+<col style="width: 8%" />
+<col style="width: 9%" />
+<col style="width: 8%" />
+<col style="width: 11%" />
+<col style="width: 10%" />
+<col style="width: 11%" />
+<col style="width: 9%" />
+<col style="width: 7%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Data Structure</th>
+<th style="text-align: center;">Average Access</th>
+<th>Worst Access</th>
+<th style="text-align: center;">Average Search</th>
+<th>Worst Search</th>
+<th style="text-align: center;">Average Insertion</th>
+<th>Worst Insertion</th>
+<th style="text-align: center;">Average Deletion</th>
+<th>Worst Deletion</th>
+<th>Worst Space</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Array</td>
+<td style="text-align: center;">O(1)</td>
+<td>O(1)</td>
+<td style="text-align: center;">O(n)</td>
+<td>O(n)</td>
+<td style="text-align: center;">O(n)</td>
+<td>O(n)</td>
+<td style="text-align: center;">O(n)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Stack</td>
+<td style="text-align: center;">O(n)</td>
+<td>O(n)</td>
+<td style="text-align: center;">O(n)</td>
+<td>O(n)</td>
+<td style="text-align: center;">O(1)</td>
+<td>O(1)</td>
+<td style="text-align: center;">O(1)</td>
+<td>O(1)</td>
+<td>O(n)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Queue</td>
+<td style="text-align: center;">O(n)</td>
+<td>O(n)</td>
+<td style="text-align: center;">O(n)</td>
+<td>O(n)</td>
+<td style="text-align: center;">O(1)</td>
+<td>O(1)</td>
+<td style="text-align: center;">O(1)</td>
+<td>O(1)</td>
+<td>O(n)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Singly Linked List</td>
+<td style="text-align: center;">O(n)</td>
+<td>O(n)</td>
+<td style="text-align: center;">O(n)</td>
+<td>O(n)</td>
+<td style="text-align: center;">O(1)</td>
+<td>O(1)</td>
+<td style="text-align: center;">O(1)</td>
+<td>O(1)</td>
+<td>O(n)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Doubly Linked List</td>
+<td style="text-align: center;">O(n)</td>
+<td>O(n)</td>
+<td style="text-align: center;">O(n)</td>
+<td>O(n)</td>
+<td style="text-align: center;">O(1)</td>
+<td>O(1)</td>
+<td style="text-align: center;">O(1)</td>
+<td>O(1)</td>
+<td>O(n)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Skip List</td>
+<td style="text-align: center;">O(log(n))</td>
+<td>O(n)</td>
+<td style="text-align: center;">O(log(n))</td>
+<td>O(n)</td>
+<td style="text-align: center;">O(log(n))</td>
+<td>O(n)</td>
+<td style="text-align: center;">O(log(n))</td>
+<td>O(n)</td>
+<td>O(n log(n))</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Hash Table</td>
+<td style="text-align: center;">N/A</td>
+<td>N/A</td>
+<td style="text-align: center;">O(1)</td>
+<td>O(n)</td>
+<td style="text-align: center;">O(1)</td>
+<td>O(n)</td>
+<td style="text-align: center;">O(1)</td>
+<td>O(n)</td>
+<td>O(n)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Binary Search Tree</td>
+<td style="text-align: center;">O(log(n))</td>
+<td>O(n)</td>
+<td style="text-align: center;">O(log(n))</td>
+<td>O(n)</td>
+<td style="text-align: center;">O(log(n))</td>
+<td>O(n)</td>
+<td style="text-align: center;">O(log(n))</td>
+<td>O(n)</td>
+<td>O(n)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">AVL Tree</td>
+<td style="text-align: center;">O(log(n))</td>
+<td>O(log(n))</td>
+<td style="text-align: center;">O(log(n))</td>
+<td>O(log(n))</td>
+<td style="text-align: center;">O(log(n))</td>
+<td>O(log(n))</td>
+<td style="text-align: center;">O(log(n))</td>
+<td>O(log(n))</td>
+<td>O(n)</td>
+</tr>
+</tbody>
+</table>
+</body></html>

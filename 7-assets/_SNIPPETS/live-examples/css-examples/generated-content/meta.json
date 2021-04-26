@@ -1,0 +1,11 @@
+{
+    "pages": {
+        "quotes": {
+            "cssExampleSrc": "./live-examples/css-examples/generated-content/quotes.css",
+            "exampleCode": "./live-examples/css-examples/generated-content/quotes.html",
+            "fileName": "quotes.html",
+            "title": "CSS Demo: quotes",
+            "type": "css"
+        }
+    }
+}

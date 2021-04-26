@@ -1,0 +1,13 @@
+#example-container {
+    width: 14rem;
+}
+
+#example-element {
+    background: linear-gradient(to bottom right, #fffd55, #387d22);
+    padding: 0 1em;
+    border-radius: 16px;
+    border-style: solid;
+    margin-left: 10px;
+    font: 24px sans-serif;
+    line-height: 2;
+}

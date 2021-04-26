@@ -1,0 +1,20 @@
+@import 'fonts.css';
+
+@font-face {
+    src: url('/media/fonts/AmstelvarAlpha-VF.ttf');
+    font-family:'Amstelvar';
+    font-style: normal;
+}
+
+#example-element {
+    font-family: Amstelvar;
+    text-align: left;
+}
+
+#example-element h2 {
+    font-size: 36px;
+}
+
+#example-element p {
+    font-size: 12px;
+}
