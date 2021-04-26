@@ -18,18 +18,18 @@ class Layer_raster_class {
 		var params = {
 			type: 'image',
 			name: config.layer.name + ' + raster',
-			data: canvas.toDataURL("image/png"),
-			x: parseInt(canvas.dataset.x),
-			y: parseInt(canvas.dataset.y),
+			data: canvas.toDataURL( "image/png" ),
+			x: parseInt( canvas.dataset.x ),
+			y: parseInt( canvas.dataset.y ),
 			width: canvas.width,
 			height: canvas.height,
 			opacity: current_layer.opacity,
 		};
 		app.State.do_action(
-			new app.Actions.Bundle_action('convert_to_raster', 'Convert to Raster', [
-				new app.Actions.Insert_layer_action(params, false),
-				new app.Actions.Delete_layer_action(current_id)
-			])
+			new app.Actions.Bundle_action( 'convert_to_raster', 'Convert to Raster', [
+				new app.Actions.Insert_layer_action( params, false ),
+				new app.Actions.Delete_layer_action( current_id )
+			] )
 		);
 	}
 

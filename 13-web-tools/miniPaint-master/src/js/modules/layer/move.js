@@ -10,13 +10,13 @@ class Layer_move_class {
 
 	up() {
 		app.State.do_action(
-			new app.Actions.Reorder_layer_action(config.layer.id, 1)
+			new app.Actions.Reorder_layer_action( config.layer.id, 1 )
 		);
 	}
 
 	down() {
 		app.State.do_action(
-			new app.Actions.Reorder_layer_action(config.layer.id, -1)
+			new app.Actions.Reorder_layer_action( config.layer.id, -1 )
 		);
 	}
 }

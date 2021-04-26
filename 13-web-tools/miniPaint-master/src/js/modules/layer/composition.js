@@ -45,36 +45,39 @@ class Layer_composition_class {
 		var settings = {
 			title: 'Composition',
 			//preview: true,
-			params: [
-				{name: "composition", title: "Composition:", value: config.layer.composition, values: compositions},
-			],
-			on_change: function (params, canvas_preview, w, h) {
+			params: [ {
+				name: "composition",
+				title: "Composition:",
+				value: config.layer.composition,
+				values: compositions
+			}, ],
+			on_change: function ( params, canvas_preview, w, h ) {
 				//redraw preview
-				if (params.composition == '-- Default --') {
+				if ( params.composition == '-- Default --' ) {
 					params.composition = 'source-over';
 				}
 				config.layer.composition = params.composition;
 				config.need_render = true;
 			},
-			on_finish: function (params) {
+			on_finish: function ( params ) {
 				config.layer.composition = initial_composition;
-				if (params.composition == '-- Default --') {
+				if ( params.composition == '-- Default --' ) {
 					params.composition = 'source-over';
 				}
 				app.State.do_action(
-					new app.Actions.Bundle_action('change_composition', 'Change Composition', [
-						new app.Actions.Update_layer_action(config.layer.id, {
+					new app.Actions.Bundle_action( 'change_composition', 'Change Composition', [
+						new app.Actions.Update_layer_action( config.layer.id, {
 							composition: params.composition
-						})
-					])
+						} )
+					] )
 				);
 			},
-			on_cancel: function (params) {
+			on_cancel: function ( params ) {
 				config.layer.composition = initial_composition;
 				config.need_render = true;
 			},
 		};
-		this.POP.show(settings);
+		this.POP.show( settings );
 	}
 }
 

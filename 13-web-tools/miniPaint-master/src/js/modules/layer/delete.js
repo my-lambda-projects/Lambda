@@ -10,7 +10,7 @@ class Layer_delete_class {
 
 	delete() {
 		app.State.do_action(
-			new app.Actions.Delete_layer_action(config.layer.id)
+			new app.Actions.Delete_layer_action( config.layer.id )
 		);
 	}
 

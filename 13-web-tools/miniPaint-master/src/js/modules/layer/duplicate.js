@@ -9,7 +9,7 @@ class Layer_duplicate_class {
 
 	constructor() {
 		//singleton
-		if (instance) {
+		if ( instance ) {
 			return instance;
 		}
 		instance = this;
@@ -21,44 +21,44 @@ class Layer_duplicate_class {
 	}
 
 	set_events() {
-		document.addEventListener('keydown', (event) => {
+		document.addEventListener( 'keydown', ( event ) => {
 			var code = event.keyCode;
-			if (this.Helper.is_input(event.target))
+			if ( this.Helper.is_input( event.target ) )
 				return;
 
-			if (code == 68) {
+			if ( code == 68 ) {
 				//D - duplicate
 				this.duplicate();
 				event.preventDefault();
 			}
-		}, false);
+		}, false );
 	}
 
 	duplicate() {
-		var params = JSON.parse(JSON.stringify(config.layer));
+		var params = JSON.parse( JSON.stringify( config.layer ) );
 		delete params.id;
 		delete params.order;
 		params.name = "Copy: " + params.name;
-		if(params.x != 0 || params.y != 0 || params.width != config.WIDTH || params.height != config.HEIGHT){
+		if ( params.x != 0 || params.y != 0 || params.width != config.WIDTH || params.height != config.HEIGHT ) {
 			params.x += 10;
 			params.y += 10;
 		}
 
-		for (var i in params) {
+		for ( var i in params ) {
 			//remove private attributes
-			if (i[0] == '_')
-				delete params[i];
+			if ( i[ 0 ] == '_' )
+				delete params[ i ];
 		}
 
-		if (params.type == 'image') {
+		if ( params.type == 'image' ) {
 			//image
-			params.link = config.layer.link.cloneNode(true);
+			params.link = config.layer.link.cloneNode( true );
 		}
 
 		app.State.do_action(
-			new app.Actions.Bundle_action('duplicate_layer', 'Duplicate Layer', [
-				new app.Actions.Insert_layer_action(params)
-			])
+			new app.Actions.Bundle_action( 'duplicate_layer', 'Duplicate Layer', [
+				new app.Actions.Insert_layer_action( params )
+			] )
 		);
 	}
 
