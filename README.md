@@ -22,14 +22,15 @@ hi2
 -[build-log](https://app.netlify.com/teams/bgoonz/builds/6079ad62b489600007b91367)
 - [Lambda Resources Website)](#lambda-resources-website)
 
-![demo](./frames.gif)
-# Lambda Resources Website)
+![demo](https://github.com/bgoonz/Lambda/blob/master/media-gifs-images/frames.gif?raw=true)
+
+# Lambda Resources Website
 
 ![demo2](https://github.com/bgoonz/Lambda/blob/master/eDTCKsuaI2.gif?raw=true)
 
 #### Loading Gif:
 
-![loading](./giphy.gif)
+![loading](https://github.com/bgoonz/Lambda/blob/master/media-gifs-images/giphy.gif?raw=true)
 
 
 
