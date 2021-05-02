@@ -1,0 +1,21 @@
+{
+  "author": "George Ornbo <george@shapeshed.com> (http://shapeshed.com/)",
+  "name": "ohaithere",
+  "description": "An example module used in the Sams Teach Yourself Node.js in 24 Hours book",
+  "version": "0.0.0",
+  "repository": {
+    "url": ""
+  },
+  "engines": {
+    "node": "~0.6.9"
+  },
+  "main" : "./lib/ohai.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha" : "0.10.2"
+  },
+  "optionalDependencies": {}
+}

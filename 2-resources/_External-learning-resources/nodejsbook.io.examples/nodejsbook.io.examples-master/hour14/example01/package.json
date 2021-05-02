@@ -1,0 +1,8 @@
+{
+  "name":"socket.io-twitter-example",
+  "version":"0.0.1",
+  "private":true,
+  "dependencies":{
+    "ntwitter":"0.5.0"
+  }
+}
