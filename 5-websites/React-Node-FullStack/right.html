@@ -1,0 +1,606 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>/5-websites/React-Node-FullStack</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bgoonz/blob/master/gradient.css">
+<style type="text/css">
+table { width: 100%;height: 100%;padding:5%; text-align:center; }
+a {
+  text-transform: inherit;
+  box-shadow: 0 5px 0 gold;
+  color: white;
+  padding: 1em 1.em;
+  position: relative;
+  text-transform: uppercase;
+}
+a:hover {
+  background-color: yellow;
+}
+a:active {
+  box-shadow: none;
+  top: 8px;
+}
+/* Non-Demo Styles */
+body {
+  justify-content: center;
+  align-items: center;
+}
+body {
+  background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom:1.3;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa
+}
+.btn {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: transparent;
+  color: #ffffff;
+  padding: 2px 6px 2px 6px;
+  border-radius: 10px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #18047a;
+}
+iframe.animate {
+  overflow-y: scroll;
+  border-radius: 2px;
+  min-width: 45em;
+  /* padding: 1.2em 1em 0; */
+  box-shadow: 0 0 9px;
+  margin: 0.5em;
+  /* display: grid; */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+iframe.embed {
+  overflow-y: scroll;
+  padding: 2em;
+  margin: auto;
+  overflow: scroll;
+  border: solid 4px rgb(41, 54, 204);
+  -moz-border-radius: 6px 6px 4px 4px;
+  -webkit-border-radius: 6px 6px 4px 4px;
+  border-radius: 6px 6px 6px 6px;
+}
+h1,
+h2 {
+  font-weight: 900;
+  margin: 0.4em 0;
+}
+h1 {
+  font-size: 3.5em;
+}
+h2 {
+  color: #888;
+  font-size: 2em;
+}
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+        html {
+            box-sizing: border-box;
+        }
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+        body {
+            background-color: whitesmoke;
+        }
+        body.is-preload *,
+        body.is-preload *:before,
+        body.is-preload *:after {
+            -moz-animation: none !important;
+            -webkit-animation: none !important;
+            -ms-animation: none !important;
+            animation: none !important;
+            -moz-transition: none !important;
+            -webkit-transition: none !important;
+            -ms-transition: none !important;
+            transition: none !important;
+        }
+        /* Type */
+        html {
+            font-size: 11pt;
+overflow-y:scroll;
+        }
+       
+        body {
+            color: whitesmoke;
+        }
+        body,
+        input,
+        select,
+        textarea {
+            font-family: "Merriweather", Georgia, serif;
+            font-weight: 200;
+            font-size: 0.8rem;
+          
+        }
+        a {
+            -moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            -webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            -ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border-bottom: dotted 1px;
+            text-decoration: none;
+        }
+        a:hover {
+            border-bottom-color: transparent;
+        }
+  a:visited {
+            border-bottom-color: transparent;
+color:red;
+        }
+        @charset "UTF-8";
+        @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+        HTML {
+            font-size: medium;
+            font-family: Garamond
+        }
+        BODY {
+            background: black font-family: 'Open Sans', sans-serif;
+            font-weight: 150;
+         
+            color: #A7A1AE;
+            background-color: #1F2739;
+        }
+        h1 {
+            font-size: 2em;
+            font-weight: 300;
+         
+            text-align: left;
+            color: #4DC3FA;
+        }
+        p {
+            color: grey;
+        }
+        A {
+            text-decoration: none color:black;
+          
+        }
+        A:hover {
+            color: red;
+            background: whitesmoke;
+            border-radius: 8px;
+            padding-left: 3px;
+            padding-right: 3px;
+        }
+        TABLE.fancy {
+           background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom: 0.85;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa
+            border-left: 3px solid;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.8em;
+            font-family: sans-serif;
+            min-width: 150px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            border-top: 1px solid;
+            border-bottom: 0px solid;
+            border-color: #FFF;
+            overflow-y: scroll;
+            width: 80%;
+            display: table;
+            padding: 0 0 8em 0;
+        }
+        TABLE.fancy TD {
+  background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom: 0.85;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            border-color: #FFF;
+            text-align: left;
+            padding-right: 4%px;
+            padding-bottom: 4%;
+            padding-top: 4%;
+            padding-left: 4%;
+            border: 2px solid gold !important;
+            font-size: 12px;
+            letter-spacing: 0.8px;
+            font-weight: 470;
+            line-height: 18px;
+            text-decoration: none !important;
+            text-transform: uppercase;
+     
+           
+            cursor: pointer;
+            justify-content: left;
+            padding: 20px 300px;
+            height: 75px;
+            text-align:left;
+            white-space: normal;
+            border-radius: 10px;
+            min-width: 14em;
+            padding: .9em .9em 0;
+            box-shadow: 0 0 5px;
+            margin: 1em;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 20px;
+        TABLE.fancy tr:nth-child(odd) {
+            background-color: #323C50;
+        }
+        TABLE.fancy tr:nth-child(even) {
+            background-color: #2C3446;
+        }
+        TABLE.fancy th {
+            background-color: #1F2739;
+        }
+        TABLE.fancy td,
+        TABLE.fancy th {
+            padding-bottom: 2%;
+            padding-top: 2%;
+            padding-left: 2%;
+        }
+        TABLE.fancy tr:hover {
+            background-color: #464A52;
+            -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+            -moz-box-shadow: 0 6px 6px -6px #0E1119;
+            box-shadow: 0 6px 6px -6px #0E1119;
+        }
+        TABLE.fancy td:hover {
+            background-color: #FFF842;
+            color: #403E10;
+            font-weight: bold;
+            box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+            transform: translate3d(6px, -6px, 0);
+            transition-delay: 0s;
+            transition-duration: 0.4s;
+            transition-property: all;
+            transition-timing-function: line;
+        }
+        @media (max-width: 800px) {
+            TABLE.fancy td:nth-child(4),
+            TABLE.fancy th:nth-child(4) {
+                display: none;
+            }
+        }
+        TABLE.fancy TD.no-right {
+            border-right: 0px
+        }
+        TABLE.fancy TD.right {
+            text-align: left
+        }
+        TABLE.fancy TD.left {
+            text-align: center
+        }
+        TABLE.fancy a {
+            color: yellow;
+        }
+        TABLE.fancy TH {
+            border-right: 1px solid;
+            border-bottom: 1px solid;
+            text-align: left;
+            background: black;
+            color: #FFF;
+            border-color: #FFF;
+            font-weight: bold;
+            padding: 12px 15px;
+        }
+        .anchor {
+            font-weight: bold;
+            border-top: 0px solid;
+            text-align: left;
+            border-bottom: 1px solid;
+            background: black;
+            color: #FFF
+        }
+        .dark-blue {
+            font-weight: bold;
+            border-top: 0px solid;
+            text-align: left;
+            border-bottom: 1px solid;
+            background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom: 0.85;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa  
+        }
+        .no-top-border {
+            border-top: 0px
+        }
+        .centered {
+            margin: auto
+        }
+        .rZ {
+            text-align: right
+        }
+        .row2 {
+            background: #D3D3E1
+        }
+@import url(//fonts.googleapis.com/css?family=PT+Sans);
+body {
+    margin: 0px;
+    font-family: 'PT Sans', Helvetica, 'Helvetica Neuve', Arial, Tahoma, sans-serif;
+    font-size: 17px;
+    color: #333;
+}
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #222;
+    margin: 0 0 20px;
+}
+p,
+ul,
+ol,
+table,
+pre,
+dl {
+    margin: 0 0 20px;
+}
+h1,
+h2,
+h3 {
+    line-height: 1.1;
+}
+h1 {
+    font-size: 28px;
+}
+h2 {
+    color: #393939;
+}
+h3,
+h4,
+h5,
+h6 {
+    color: #494949;
+}
+a {
+    color: #39c;
+    font-weight: 400;
+    text-decoration: none;
+}
+a small {
+    font-size: 11px;
+    color: #777;
+    margin-top: -0.6em;
+    display: block;
+}
+.wrapper {
+    width: 860px;
+    margin: 0 auto;
+}
+blockquote {
+    border-left: 1px solid #e5e5e5;
+    margin: 0;
+    padding: 0 0 0 20px;
+    font-style: italic;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th,
+td {
+    text-align: left;
+    padding: 5px 10px;
+    border-bottom: 1px solid #e5e5e5;
+}
+dt {
+    color: #444;
+    font-weight: 700;
+}
+th {
+    color: #444;
+}
+img {
+    max-width: 100%;
+}
+header {
+    width: 270px;
+    float: left;
+    position: fixed;
+}
+header ul {
+    list-style: none;
+    height: 40px;
+    padding: 0;
+    background: #eee;
+    background: -moz-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f8f8f8), color-stop(100%, #dddddd));
+    background: -webkit-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    background: -o-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    background: -ms-linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    background: linear-gradient(top, #f8f8f8 0%, #dddddd 100%);
+    border-radius: 5px;
+    border: 1px solid #d2d2d2;
+    box-shadow: inset #fff 0 1px 0,
+    inset rgba(0, 0, 0, 0.03) 0 -1px 0;
+    width: 270px;
+}
+header li {
+    width: 89px;
+    float: left;
+    border-right: 1px solid #d2d2d2;
+    height: 40px;
+}
+header ul a {
+    line-height: 1;
+    font-size: 11px;
+    color: #999;
+    display: block;
+    text-align: center;
+    padding-top: 6px;
+    height: 40px;
+}
+strong {
+    color: #222;
+    font-weight: 700;
+}
+header ul li+li {
+    width: 88px;
+    border-left: 1px solid #fff;
+}
+header ul li+li+li {
+    border-right: none;
+    width: 89px;
+}
+header ul a strong {
+    font-size: 14px;
+    display: block;
+    color: #222;
+}
+section {
+    width: 500px;
+    float: right;
+    padding-bottom: 50px;
+}
+small {
+    font-size: 11px;
+}
+hr {
+    border: 0;
+    background: #e5e5e5;
+    height: 1px;
+    margin: 0 0 20px;
+}
+footer {
+    width: 270px;
+    float: left;
+    position: fixed;
+    bottom: 50px;
+}
+@media print,
+screen and (max-width: 960px) {
+    div.wrapper {
+        width: auto;
+        margin: 0;
+    }
+    header,
+    section,
+    footer {
+        float: none;
+        position: static;
+        width: auto;
+    }
+    header {
+        padding-right: 320px;
+    }
+    section {
+        border: 1px solid #e5e5e5;
+        border-width: 1px 0;
+        padding: 20px 0;
+        margin: 0 0 20px;
+    }
+    header a small {
+        display: inline;
+    }
+    header ul {
+        position: absolute;
+        right: 50px;
+        top: 52px;
+    }
+}
+#wrapper {
+    padding: 1em;
+}
+.ca-menu {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+}
+.nav-list {
+    height: 50%;
+    margin: auto 0;
+}
+div.clear {
+    clear: both;
+}
+        /*]]>*/
+.fancybox-margin{margin-right:0px;}
+</style>
+</head>
+
+<body>
+
+<table border="0" cellspacing="1" cellpadding="2" summary="file table" class="file-table centered">
+<tr><td colspan="4" class="header-row"><b>Folders</b></td></tr>
+<tr><td><a href="../right.html" target="rframe">&lt;Go Back&gt;</a></td><td>&nbsp;<a href="18%20layout%20page/right.html" target="rframe">18 layout page</a></td><td>&nbsp;<a href="5%20separating%20routes/right.html" target="rframe">5 separat...routes</a></td><td>&nbsp;<a href="75%20single%20blog%20head%20section%20for%20seo/right.html" target="rframe">75 single...or seo</a></td></tr>
+<tr class="row2"><td><a href="1%20setup%20server/right.html" target="rframe">1 setup server</a></td><td>&nbsp;<a href="19%20custom%20document%20page/right.html" target="rframe">19 custom...t page</a></td><td>&nbsp;<a href="50%20create%20blog%20with%20categories%20and%20tags/right.html" target="rframe">50 create...d tags</a></td><td>&nbsp;<a href="76%20related%20blogs%20backend/right.html" target="rframe">76 relate...ackend</a></td></tr>
+<tr><td><a href="100%20update%20user%20in%20local%20storage/right.html" target="rframe">100 updat...torage</a></td><td>&nbsp;<a href="2%20postman%20and%20cors/right.html" target="rframe">2 postman and cors</a></td><td>&nbsp;<a href="51%20generate%20blog%20excerpt/right.html" target="rframe">51 genera...xcerpt</a></td><td>&nbsp;<a href="77%20relateed%20blogs%20frontend/right.html" target="rframe">77 relate...ontend</a></td></tr>
+<tr class="row2"><td><a href="101%20blog%20create%20for%20auth%20user/right.html" target="rframe">101 blog ...h user</a></td><td>&nbsp;<a href="20%20reactstrap%20navbar/right.html" target="rframe">20 reacts...navbar</a></td><td>&nbsp;<a href="52%20blog%20create%20page%20setup/right.html" target="rframe">52 blog c... setup</a></td><td>&nbsp;<a href="78%20list%20of%20blogs%20for%20admin/right.html" target="rframe">78 list o... admin</a></td></tr>
+<tr><td><a href="103%20user%20can%20update%20delete%20blog/right.html" target="rframe">103 user ...e blog</a></td><td>&nbsp;<a href="21%20env%20variables%20in%20nextjs/right.html" target="rframe">21 env va...nextjs</a></td><td>&nbsp;<a href="53%20blog%20create%20action%20and%20imports/right.html" target="rframe">53 blog c...mports</a></td><td>&nbsp;<a href="79%20delete%20blog/right.html" target="rframe">79 delete blog</a></td></tr>
+<tr class="row2"><td><a href="104%20auth%20user%20can%20update%20delete%20blog%20frontend/right.html" target="rframe">104 auth ...ontend</a></td><td>&nbsp;<a href="22%20Navigation%20using%20link%20component/right.html" target="rframe">22 Naviga...ponent</a></td><td>&nbsp;<a href="54%20blog%20create%20form/right.html" target="rframe">54 blog c...e form</a></td><td>&nbsp;<a href="80%20update%20blog%20page%20setup/right.html" target="rframe">80 update... setup</a></td></tr>
+<tr><td><a href="105%20handling%20token%20expiry/right.html" target="rframe">105 handl...expiry</a></td><td>&nbsp;<a href="23%20signup%20form/right.html" target="rframe">23 signup form</a></td><td>&nbsp;<a href="56%20quill%20modules,%20event%20handlers%20and%20local%20storage/right.html" target="rframe">56 quill ...torage</a></td><td>&nbsp;<a href="81%20update%20blog%20-%20populate%20content%20in%20rich%20text%20editor/right.html" target="rframe">81 update...editor</a></td></tr>
+<tr class="row2"><td><a href="106%20disqus%20commenting%20system/right.html" target="rframe">106 disqu...system</a></td><td>&nbsp;<a href="24%20signup%20action%20and%20alerts/right.html" target="rframe">24 signup...alerts</a></td><td>&nbsp;<a href="57%20show%20categories%20and%20tags%20in%20checkbox/right.html" target="rframe">57 show c...eckbox</a></td><td>&nbsp;<a href="82%20update%20blog%20show%20checked%20categories%20and%20tags/right.html" target="rframe">82 update...d tags</a></td></tr>
+<tr><td><a href="108%20contact%20blog%20author%20backend/right.html" target="rframe">108 conta...ackend</a></td><td>&nbsp;<a href="25%20signin/right.html" target="rframe">25 signin</a></td><td>&nbsp;<a href="58%20toggle%20categories%20check%20uncheck/right.html" target="rframe">58 toggle...ncheck</a></td><td>&nbsp;<a href="83%20blog%20update%20complete%20form/right.html" target="rframe">83 blog u...e form</a></td></tr>
+<tr class="row2"><td><a href="109%20contact%20page/right.html" target="rframe">109 contact page</a></td><td>&nbsp;<a href="26%20saving%20token%20and%20user%20in%20cookie%20and%20localstorage/right.html" target="rframe">26 saving...torage</a></td><td>&nbsp;<a href="59%20publish%20blog/right.html" target="rframe">59 publish blog</a></td><td>&nbsp;<a href="85%20show%20categories%20with%20associated%20blogs/right.html" target="rframe">85 show c... blogs</a></td></tr>
+<tr><td><a href="11%20signup%20validator/right.html" target="rframe">11 signup...idator</a></td><td>&nbsp;<a href="27%20signout%20and%20conditionally%20showing%20nav%20links/right.html" target="rframe">27 signou... links</a></td><td>&nbsp;<a href="6%20using%20controllers/right.html" target="rframe">6 using c...ollers</a></td><td>&nbsp;<a href="87%20homework%20done%20-%20tags%20with%20all%20blogs%20and%20seo/right.html" target="rframe">87 homewo...nd seo</a></td></tr>
+<tr class="row2"><td><a href="110%20contact%20page%20sending%20email/right.html" target="rframe">110 conta... email</a></td><td>&nbsp;<a href="29%20homework%20solution/right.html" target="rframe">29 homewo...lution</a></td><td>&nbsp;<a href="60%20blog%20published%20messages/right.html" target="rframe">60 blog p...ssages</a></td><td>&nbsp;<a href="88%20blogs%20search%20backend/right.html" target="rframe">88 blogs ...ackend</a></td></tr>
+<tr><td><a href="111%20contact%20author%20by%20email/right.html" target="rframe">111 conta... email</a></td><td>&nbsp;<a href="3%20database%20setup%20-%20mongo%20atlas/right.html" target="rframe">3 databas... atlas</a></td><td>&nbsp;<a href="61%20list%20all%20blogs/right.html" target="rframe">61 list all blogs</a></td><td>&nbsp;<a href="9%20signup%20route%20and%20controllers%20setup/right.html" target="rframe">9 signup ... setup</a></td></tr>
+<tr class="row2"><td><a href="114%20forgot%20password%20backend/right.html" target="rframe">114 forgo...ackend</a></td><td>&nbsp;<a href="31%20admin%20and%20user%20dashboard/right.html" target="rframe">31 admin ...hboard</a></td><td>&nbsp;<a href="62%20list%20all%20blogs%20with%20categories%20and%20tags/right.html" target="rframe">62 list a...d tags</a></td><td>&nbsp;<a href="90%20blogs%20search%20frontend/right.html" target="rframe">90 blogs ...ontend</a></td></tr>
+<tr><td><a href="115%20reset%20password%20backend/right.html" target="rframe">115 reset...ackend</a></td><td>&nbsp;<a href="32%20protecting%20routes%20for%20auth%20user%20and%20admin/right.html" target="rframe">32 protec... admin</a></td><td>&nbsp;<a href="63%20read%20and%20delete%20blog/right.html" target="rframe">63 read a...e blog</a></td><td>&nbsp;<a href="91%20user%20public%20profile%20backend/right.html" target="rframe">91 user p...ackend</a></td></tr>
+<tr class="row2"><td><a href="117%20reset%20password%20frontend/right.html" target="rframe">117 reset...ontend</a></td><td>&nbsp;<a href="37%20error%20handler%20to%20avoid%20duplicates/right.html" target="rframe">37 error ...icates</a></td><td>&nbsp;<a href="65%20show%20blog%20photo/right.html" target="rframe">65 show blog photo</a></td><td>&nbsp;<a href="92%20public%20profile%20page%20setup/right.html" target="rframe">92 public... setup</a></td></tr>
+<tr><td><a href="118%20account%20activation%20email%20pre%20signup/right.html" target="rframe">118 accou...signup</a></td><td>&nbsp;<a href="38%20category%20list%20read%20delete/right.html" target="rframe">38 catego...delete</a></td><td>&nbsp;<a href="66%20blogs%20page/right.html" target="rframe">66 blogs page</a></td><td>&nbsp;<a href="93%20user%20public%20profile/right.html" target="rframe">93 user p...rofile</a></td></tr>
+<tr class="row2"><td><a href="119%20signup%20user%20after%20activating%20account/right.html" target="rframe">119 signu...ccount</a></td><td>&nbsp;<a href="4%20database%20setup%20-%20local/right.html" target="rframe">4 databas... local</a></td><td>&nbsp;<a href="67%20ssr%20blogs%20page%20with%20getinitialprops/right.html" target="rframe">67 ssr bl...lprops</a></td><td>&nbsp;<a href="94%20click%20blog%20author%20name%20to%20view%20profile/right.html" target="rframe">94 click ...rofile</a></td></tr>
+<tr><td><a href="12%20user%20schema%20virtual%20field%20and%20methods/right.html" target="rframe">12 user s...ethods</a></td><td>&nbsp;<a href="41%20using%20nprogress/right.html" target="rframe">41 using nprogress</a></td><td>&nbsp;<a href="68%20show%20blog%20categories%20and%20tags/right.html" target="rframe">68 show b...d tags</a></td><td>&nbsp;<a href="95%20user%20profile%20update%20and%20photo%20backend/right.html" target="rframe">95 user p...ackend</a></td></tr>
+<tr class="row2"><td><a href="120%20login%20with%20google%20backend/right.html" target="rframe">120 login...ackend</a></td><td>&nbsp;<a href="42%20css%20using%20staic%20file%20and%20next-css/right.html" target="rframe">42 css us...xt-css</a></td><td>&nbsp;<a href="69%20show%20blog%20image/right.html" target="rframe">69 show blog image</a></td><td>&nbsp;<a href="96%20profile%20update%20actions%20and%20page%20setup/right.html" target="rframe">96 profil... setup</a></td></tr>
+<tr><td><a href="122%20login%20with%20google%20frontend/right.html" target="rframe">122 login...ontend</a></td><td>&nbsp;<a href="43%20create-category-page/right.html" target="rframe">43 create...y-page</a></td><td>&nbsp;<a href="7%20user%20model%20schema/right.html" target="rframe">7 user mo...schema</a></td><td>&nbsp;<a href="97%20profile%20update%20component%20setup/right.html" target="rframe">97 profil... setup</a></td></tr>
+<tr class="row2"><td><a href="123%20google%20analytics%20code/right.html" target="rframe">123 googl...s code</a></td><td>&nbsp;<a href="44%20create%20category/right.html" target="rframe">44 create category</a></td><td>&nbsp;<a href="70%20show%20all%20categories%20tags/right.html" target="rframe">70 show a...s tags</a></td><td>&nbsp;<a href="98%20update%20user%20profile/right.html" target="rframe">98 update...rofile</a></td></tr>
+<tr><td><a href="124%20static%20home%20page/right.html" target="rframe">124 stati...e page</a></td><td>&nbsp;<a href="45%20category%20read%20delete%20and%20messages/right.html" target="rframe">45 catego...ssages</a></td><td>&nbsp;<a href="71%20seo%20head%20section%20for%20blogs/right.html" target="rframe">71 seo he... blogs</a></td><td>&nbsp;<a href="99%20profile%20update%20errors%20validation%20messages%20and%20user%20photo/right.html" target="rframe">99 profil... photo</a></td></tr>
+<tr class="row2"><td><a href="13%20user%20signup/right.html" target="rframe">13 user signup</a></td><td>&nbsp;<a href="47%20homework%20solution%20-%20tags%20frontend/right.html" target="rframe">47 homewo...ontend</a></td><td>&nbsp;<a href="72%20load%20more%20blogs/right.html" target="rframe">72 load more blogs</a></td><td>&nbsp;<a href="Backend/right.html" target="rframe">Backend</a></td></tr>
+<tr><td><a href="15%20user%20signin/right.html" target="rframe">15 user signin</a></td><td>&nbsp;<a href="48%20blog%20schema/right.html" target="rframe">48 blog schema</a></td><td>&nbsp;<a href="73%20show%20single%20blog/right.html" target="rframe">73 show s...e blog</a></td><td>&nbsp;<a href="Frontend/right.html" target="rframe">Frontend</a></td></tr>
+<tr class="row2"><td><a href="17%20starting%20next%20js/right.html" target="rframe">17 starti...ext js</a></td><td>&nbsp;<a href="49%20create%20blog%20with%20photo/right.html" target="rframe">49 create... photo</a></td><td>&nbsp;<a href="74%20single%20blog%20with%20fullwidth%20image%20cnd%20content/right.html" target="rframe">74 single...ontent</a></td><td>&nbsp;<a href="react-node-next-multi-user-blogging-platform-master/right.html" target="rframe">react-nod...master</a></td></tr>
+</table>
+<br>
+
+<table border="0" cellspacing="1" cellpadding="2" summary="file table" class="file-table centered">
+<tr><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th></tr>
+<tr><td><a href="LICENSE" target="_parent">LICENSE</a>&nbsp;</td><td><a href="README.md" target="_parent">README.md</a>&nbsp;</td></tr>
+</table>
+
+<p class="summary-style">
+Folders:  104<br>
+Files: 2<br>
+Size of all files: 1348 KB</p>
+
+</body>
+</html>
