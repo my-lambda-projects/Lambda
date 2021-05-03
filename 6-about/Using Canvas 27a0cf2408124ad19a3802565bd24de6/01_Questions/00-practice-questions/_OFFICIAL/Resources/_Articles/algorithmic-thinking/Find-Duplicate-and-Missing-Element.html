@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A description of the page and its contents" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Page Title</title>
+        <link rel="stylesheet" href="./../../../assets/style.css" />
+        <link rel="stylesheet" href="./../../../assets/prism.css" />
+        <script async src="./../../../assets/prism.js"></script>
+</head>
+
+<body>
+  <h1 id="how-to-find-duplicate-and-missing-element">How to Find Duplicate and Missing Element</h1>
+  <p><strong>Translator: <a class="btn" href="https://github.com/bryceustc">bryceustc</a></strong></p>
+  
+  <p>Today we are going to talk about a simple but skillfull problem: find duplicate and missing element. It seems to be
+    similar to the previous problem <a class="btn" href="./missing_elements.md">How to Find Missing Elements</a>, but
+    there are some difference between these two problems.</p>
+  <p>Here is the detailed description of this problem(LeetCode 645: Set Mismatch)</p>
+  <p>The set <code>S</code>originally contains numbers from <code>1</code> to <code>n</code>. But unfortunately, due to
+    the data error, one of the numbers in the set got duplicate to <strong>another</strong> number in the set, which
+    results in repetition of one number and loss of another number.</p>
+  <p>Given an array <code>nums</code> representing the data status of this set after the error. Your task is to firstly
+    find the number occurs twice and then find the number that is missing. Return them in the form of an array.</p>
+  <p><strong>Example 1:</strong></p>
+  pre data-role="codeBlock" data-info="js" class="language-javascript"><code>Input: nums = [1,2,2,4]
+Output: [2,3]</code></pre>
+  <p>Actually, it’s easy to solve this problem. Firstly, traverse over the whole <code>nums</code> array and use HashMap
+    to store the number of times each element of the array. After this, we can consider every number from <code>1</code>
+    to <code>n</code>, and check for its presence in map.</p>
+  <p>But here’s a problem. This solution requires a HashMap that means the space complexity is O(n). We check the
+    condition again. Consider the numbers from <code>1</code> to <code>n</code>, which happens to be one duplicate
+    element and one missing element. There must be something strange about things going wrong.</p>
+  <p>We must traverse over the whole <code>nums</code> array of size <code>n</code> for each of the numbers from
+    <code>1</code> to <code>n</code>. That means the time complexity is O(n). So we can think how to save the space used
+    to reduce the space complexity to O(1).
+  </p>
+  <h2 id="analysis">Analysis</h2>
+  <p>The characteristic of this problem is that each element has a certain correspondence with the array index.</p>
+  <p>Let’s change the condition of the problem temporarily. Change the elements in <code>nums</code> array to
+    <code>[0..N-1]</code>. Therefore, each element corresponds exactly to an array index, which is easy to understand.
+  </p>
+  <p>We assume that there are no duplicate or missing elements in the array. Therefore, each element corresponds to a
+    unique index value.</p>
+  <p>But the question now is one number is repeated that results which results in loss of another number. What would
+    happen? This will result in two elements corresponding to the same index, and there will be an index with no
+    elements to correspond.</p>
+  <p>If we can somehow find the duplicate corresponding index, which means we find the duplicate element. Then find the
+    index that no element to correspond that also means we find the missing element.</p>
+  <p>So, how do you determine how many elements of an index correspond to without using extra space? Here is the
+    subtlety of the question.</p>
+  <p><strong>By turning the element corresponding to each index into a negative number, it indicates that this index has
+      been mapped once.</strong></p>
+  <p><img src="./pictures/dupmissing/1.gif" /></p>
+  <p>If we find a duplicate element <code>4</code>, the intuitive result is that the element corresponding to index
+    <code>4</code>is already negative.
+  </p>
+  <p><img src="./pictures/dupmissing/2.jpg" /></p>
+  <p>For the missing element <code>3</code>, the intuitive result is that the element corresponding to index
+    <code>3</code>is positive.
+  </p>
+  <p><img src="./pictures/dupmissing/3.jpg" /></p>
+  <p>Therefore, we can code as follows:</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1">vector&lt;<span>int</span>&gt;
+            findErrorNums(vector&lt;<span>int</span>&gt;&amp; nums) {</a>
+            <a id=-2" title="2"> <span>int</span> n = nums.size();</a>
+            <a id=-3" title="3"> <span>int</span> dup = -<span>1</span>;</a>
+            <a id=-4" title="4"> <span>for</span> (<span>int</span> i = <span>0</span>; i &lt; n; i++) {</a>
+            <a id=-5" title="5"> <span>int</span> index = abs(nums[i]);</a>
+            <a id=-6" title="6"> <span>// nums[index] &lt; 0 means find the duplicate element</span></a>
+            <a id=-7" title="7"> <span>if</span> (nums[index] &lt; <span>0</span>)</a>
+            <a id=-8" title="8"> dup = abs(nums[i]);</a>
+            <a id=-9" title="9"> <span>else</span></a>
+            <a id=-10" title="10"> nums[index] *= -<span>1</span>;</a>
+            <a id=-11" title="11"> }</a>
+            <a id=-12" title="12"></a>
+            <a id=-13" title="13"> <span>int</span> missing = -<span>1</span>;</a>
+            <a id=-14" title="14"> <span>for</span> (<span>int</span> i = <span>0</span>; i &lt; n; i++)</a>
+            <a id=-15" title="15"> <span>// nums[i] &gt; 0 means find the missing element</span></a>
+            <a id=-16" title="16"> <span>if</span> (nums[i] &gt; <span>0</span>)</a>
+            <a id=-17" title="17"> missing = i;</a>
+            <a id=-18" title="18"> </a>
+            <a id=-19" title="19"> <span>return</span> {dup, missing};</a>
+            <a id=-20" title="20">}</a></code></pre>
+  </div>
+  <p>Now, the question is basically solved. But don’t forget that we have just assumed that the elements in
+    <code>nums</code> array is from <code>0</code> to <code>N-1</code>. Actually, it should be <code>1</code> to
+    <code>N</code>. So we need to modify two places to get the right answer to the original question.
+  </p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1">vector&lt;<span>int</span>&gt;
+            findErrorNums(vector&lt;<span>int</span>&gt;&amp; nums) {</a>
+            <a title="2"> <span>int</span> n = nums.size();</a>
+            <a title="3"> <span>int</span> dup = -<span>1</span>;</a>
+            <a id=-4" title="4"> <span>for</span> (<span>int</span> i = <span>0</span>; i &lt; n; i++) {</a>
+            <a id=-5" title="5"> <span>// Now, elements start at 1</span></a>
+            <a id=-6" title="6"> <span>int</span> index = abs(nums[i]) - <span>1</span>;</a>
+            <a id=-7" title="7"> <span>if</span> (nums[index] &lt; <span>0</span>)</a>
+            <a id=-8" title="8"> dup = abs(nums[i]);</a>
+            <a id=-9" title="9"> <span>else</span></a>
+            <a id=-10" title="10"> nums[index] *= -<span>1</span>;</a>
+            <a id=-11" title="11"> }</a>
+            <a id=-12" title="12"></a>
+            <a id=-13" title="13"> <span>int</span> missing = -<span>1</span>;</a>
+            <a id=-14" title="14"> <span>for</span> (<span>int</span> i = <span>0</span>; i &lt; n; i++)</a>
+            <a id=-15" title="15"> <span>if</span> (nums[i] &gt; <span>0</span>)</a>
+            <a id=-16" title="16"> <span>// Convert index to element</span></a>
+            <a id=-17" title="17"> missing = i + <span>1</span>;</a>
+            <a id=-18" title="18"> </a>
+            <a id=-19" title="19"> <span>return</span> {dup, missing};</a>
+            <a id=-20" title="20">}</a></code></pre>
+  </div>
+  <p>In fact, it makes sense for elements to start from <code>1</code>, and it must start with a non-zero number. If the
+    element starts from <code>0</code>, the opposite number of <code>0</code> is still itself. So when the number
+    <code>0</code> is repeated or missing, we can’t deal with this situation. Our previous assumption was just to
+    simplify the problem and make it easier to understand.
+  </p>
+  <h2 id="summary">Summary</h2>
+  <p><strong>The key point is that elements and indexes appear in pairs for this kind of problems. Common methods
+      include Sorting, XOR, and Map</strong></p>
+  <p>The idea of Map is the above analysis. Mapping each index and element, and recording whether an element is mapped
+    with a sign.</p>
+  <p>The Sorting method is also easy to understand. For this problem, we can assume that if all elements are sorted from
+    smallest to largest. If we find that the corresponding elements of the index didn’t match, so we find duplicate and
+    missing elements.</p>
+  <p>XOR operation is also commonly used. The XOR operation (<code>^</code>) has a special property: the result of a
+    number XOR itself is 0, and the result of a number with 0 is itself. For instance:
+    <code>a ^ a = 0, a ^ 0 = a</code>.
+    If we take XOR of the index and element at the same time, the paired index and element can be eliminated, and the
+    remaining are duplicate or missing elements. You can look at the previous article <a class="btn"
+      href="./missing_elements.md">Find Missing Elements</a> which introduce this method.
+  </p>
+  <p><em>We can stop by now.</em></p>
+
+</body>
+
+</html>

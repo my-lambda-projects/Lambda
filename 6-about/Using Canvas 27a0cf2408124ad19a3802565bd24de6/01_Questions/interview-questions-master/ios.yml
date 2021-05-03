@@ -1,0 +1,30 @@
+# Questions to ask a potential iOS employer.  https://gitlab.com/doctorj/interview-questions
+# Copyright 2016 Drew Crawford.  CC-BY-SA licensed.
+---
+qs:
+- q: How much of your product is written in Swift?
+  followup: How do you see this changing over the next few years?
+  ref: http://sealedabstract.com/rants/objc-is-our-generations-cobol/
+  tags: [tech]
+
+- q: What is the oldest version of iOS you support?
+  a: Some kind of data-driven decision that sounds plausible e.g. 20% of our users still run iOS 4.  And is it really
+    "support" if it's not being tested?
+  followup:
+    - How do I request a test device running that version?
+    - What information do you look at to make this decision?
+  tags: [tech]
+
+- q: Tell me about the history of your codebase
+  a: Beware the "five years ago we hired an offshore company and we now need somebody to finish it"
+  tags: [tech]
+
+- q: What is the process for making a release?
+  a: Tests, human QA, beta program (perhaps internal).  Beware the "Process?  What process?"
+  tags: [process]
+
+- q: What third-party code do you use inside the app?
+  a: In the settings screen.  The real point of this question is that if third-party developers are ignored (to the
+    point of a license violation), first party developers will be ignored too.
+  followup: How do you comply with the attribution requirements of the code you use?
+  tags: [tech]

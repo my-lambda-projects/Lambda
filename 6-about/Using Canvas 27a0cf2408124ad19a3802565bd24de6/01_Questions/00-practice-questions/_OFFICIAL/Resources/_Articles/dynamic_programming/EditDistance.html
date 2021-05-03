@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A description of the page and its contents" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Page Title</title>
+        <link rel="stylesheet" href="./../../../assets/style.css" />
+        <link rel="stylesheet" href="./../../../assets/prism.css" />
+        <script async src="./../../../assets/prism.js"></script>
+</head>
+
+<body>
+  <h1 id="editing-distance">Editing Distance</h1>
+  <p><strong>Translator: <a class="btn" href="https://github.com/Master-cai">Master-cai</a></strong></p>
+  <p>few days ago, I saw an interview paper of Tencent. In this paper, most of the algorithm problems are Dynamic
+    programming. The last question is that writing a function to calculate the shortest editing Distance. Today I wrote
+    an article specifically to discuss this problem.</p>
+  <p>I personally like this problem because it looks very hard, the solution is Surprisingly simple and beautiful and
+    it`s a rare algorithm which is not very useful.(yech, I recognized that many algorithm problems are not very
+    useful.)Following is the problem:</p>
+  <p><img src="./pictures/editDistance/title.png" /></p>
+  <p>Why I say this problem is hard? Obviously, it`s just hard, making people Helpless and frightened.</p>
+  <p>And why I say this problem is useful? Because days ago I used the algorithm in my daily life. I had a article in my
+    ‎Wechat Official Account and I wrote some words out of place by mistake. So I decided to modify this part to make
+    the logic suitable. However, the Wechat Official Account article can only be modified 20 words at most, and it only
+    supports addition, deletion and replacement(exactly same as the editing distance problem.) So I used the algorithm
+    to find a best way to solve the problem in just 16 steps.</p>
+  <p>Another advanced example is that the edit distance can be used to measure the similarity of two DNA sequences. The
+    DNA sequence is a sequence included of A, G, C and T, which is similar to a string. The less editing distance is,
+    The more similar the two DNA are. Maybe the owner of these DNAs were ancient relatives.</p>
+  <p>Let’s get to the point, I will explain you how to edit the distance in detail, and I hope you could obtain
+    something fruitful.</p>
+  <h3 id="train-of-thought">1. train of thought</h3>
+  <p>The editing distance is a problem that give us two strings <code>s1</code> and <code>s2</code> with only three
+    operations and let`s change <code>s1</code> to <code>s2</code> in least steps. The first thing to be sure of is that
+    the result of <code>s1</code> to <code>s2</code> and <code>s2</code> to <code>s1</code> is the same. So we will use
+    <code>s1</code> to <code>s2</code> as an example.
+  </p>
+  <p>Mentioned in the early paper “The longest common subsequence”, <strong>I said that to solve the dynamic programming
+      problem of two strings, We normally use two pointers <code>i</code>, <code>j</code> to point to the end of the two
+      strings, and then go forward step by step to reduce the size of the problem.</strong></p>
+  <p>Assuming that the two strings are “rad” and “apple”, in order to change <code>s1</code> to<code>s2</code>, the
+    algorithm works like this:</p>
+  <p><img src="./pictures/editDistance/edit.gif" /> <img src="./pictures/editDistance/1.jpg" /></p>
+  <p>Remember this gif in order to solve the editing distance problem. The key is how to make</p>
+  <p>the right operation which I will discuss later.</p>
+  <p>According to the above gif, we can figure out that there are not only three operations, in fact there is the fourth
+    operation which is skip. For example:</p>
+  <p><img src="./pictures/editDistance/2.jpg" /></p>
+  <p>As the two strings are same, obviously there should be no operation to minimize the distance. Just move
+    <code>i</code>, <code>j</code>.
+  </p>
+  <p>Another simple situation is when <code>j</code> has finished <code>s2</code>, if <code>i</code> has not finished
+    <code>s1</code>, then you can only delete <code>s1</code> to make them the same. For example:
+  </p>
+  <p><img src="./pictures/editDistance/3.jpg" /></p>
+  <p>Similarly, if <code>i</code> finished <code>s1</code> and <code>j</code> has not finished <code>s2</code>, you can
+    only insert all the remaining characters of <code>s2</code> into <code>s1</code> by inserting. As you see, the two
+    cases are the <strong>base case</strong> of the algorithm.</p>
+  <p>Let`s look at how to change your ideas into code. Sit tight, it’s time to go.</p>
+  <h3 id="code-in-detail">2. code in detail</h3>
+  <p>First we sort out our ideas:</p>
+  <p>The base case is when <code>i</code> finished <code>s1</code> or <code>j</code> finished <code>s2</code>, we can
+    return the remaining length of another string directly.</p>
+  <p>For each pair characters, <code>s1[i]</code> and <code>s2[j]</code>, there are four operations:</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>if</span> s1[i] <span>==</span> s2[j]:</a>
+    <a title="2"> skip</a>
+    <a title="3"> i, j move forward</a>
+    <a title="4"><span>else</span>:</a>
+    <a title="5"> chose：</a>
+    <a id=-6" title="6"> insert</a>
+    <a title="7"> delete</a>
+    <a title="8"> replace</a></code></pre>
+  </div>
+  <p>With this framework, the problem has been solved. Maybe you will ask, how to chose the “three choices”? It`s very
+    simple, try it all, and chose the smallest one. we need some recursive skills here.Look at the code:</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>def</span> minDistance(s1, s2) <span>-&gt;</span> <span>int</span>:</a>
+    <a id=-2" title="2"></a>
+    <a id=-3" title="3"> <span>def</span> dp(i, j):</a>
+    <a id=-4" title="4"> <span># base case</span></a>
+    <a id=-5" title="5"> <span>if</span> i <span>==</span> <span>-1</span>: <span>return</span> j <span>+</span>
+      <span>1</span></a>
+    <a id=-6" title="6"> <span>if</span> j <span>==</span> <span>-1</span>: <span>return</span> i <span>+</span>
+      <span>1</span></a>
+    <a id=-7" title="7"> </a>
+    <a id=-8" title="8"> <span>if</span> s1[i] <span>==</span> s2[j]:</a>
+    <a id=-9" title="9"> <span>return</span> dp(i <span>-</span> <span>1</span>, j <span>-</span> <span>1</span>)
+      <span># skip</span></a>
+    <a id=-10" title="10"> <span>else</span>:</a>
+    <a id=-11" title="11"> <span>return</span> <span>min</span>(</a>
+    <a id=-12" title="12"> dp(i, j <span>-</span> <span>1</span>) <span>+</span> <span>1</span>, <span>#
+        insert</span></a>
+    <a id=-13" title="13"> dp(i <span>-</span> <span>1</span>, j) <span>+</span> <span>1</span>, <span>#
+        delete</span></a>
+    <a id=-14" title="14"> dp(i <span>-</span> <span>1</span>, j <span>-</span> <span>1</span>) <span>+</span>
+      <span>1</span> <span># replace</span></a>
+    <a id=-15" title="15"> )</a>
+    <a id=-16" title="16"> </a>
+    <a id=-17" title="17"> <span># i，j initialize to the last index</span></a>
+    <a id=-18" title="18"> <span>return</span> dp(<span>len</span>(s1) <span>-</span> <span>1</span>,
+      <span>len</span>(s2)
+      <span>-</span> <span>1</span>)</a></code></pre>
+  </div>
+  <p>Let`s explain this recursive code in detail. There is no need to explain the base case, so I mainly explain the
+    recursive part.</p>
+  <p>It is said that recursive code is very interpretable. It does make sense. As long as you understand the definition
+    of a function, you can clearly understand the logic of the algorithm. The function dp(i, j) is defined like this:
+  </p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>def</span> dp(i, j) <span>-&gt;</span> <span>int</span></a>
+    <a title="2"><span># return the least editing distance s1[0..i] and s2[0..j]</span></a></code></pre>
+  </div>
+  <p><strong>Remember this definition</strong>, let`s look at the code:</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>if</span> s1[i] <span>==</span> s2[j]:</a>
+    <a id=-2" title="2"> <span>return</span> dp(i <span>-</span> <span>1</span>, j <span>-</span> <span>1</span>)
+      <span># skip</span></a>
+    <a id=-3" title="3"><span># explain：</span></a>
+    <a id=-4" title="4"><span># already the same, no need any operation</span></a>
+    <a id=-5" title="5"><span># the least editing distance of s1[0..i] and s2[0..j] equals</span></a>
+    <a id=-6" title="6"><span># the least distance of s1[0..i-1] 和 s2[0..j-1]</span></a>
+    <a id=-7" title="7"><span># It means that dp(i, j) equals dp(i-1, j-1)</span></a></code></pre>
+  </div>
+  <p>if <code>s1[i]！=s2[j]</code>, we should recurse the three operations which needs a bit of thing:</p>
+  <div>
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a   title="1">dp(i, j <span >-</span> <span >1</span>) <span >+</span> <span >1</span>,    <span ># insert</span></a>
+  <a  id=-2" title="2"><span ># explain：</span></a>
+  <a  id=-3" title="3"><span ># I Directly insert a character same as s2[j] at s1[i]</span></a>
+  <a  id=-4" title="4"><span ># then s2[j] are matched，move forward j，and continue compareed with i</span></a>
+  <a  id=-5" title="5"><span ># Don`t forget to add one to the operation number</span></a></code></pre>
+  </div>
+  <p><img src="./pictures/editDistance/insert.gif" /></p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1">dp(i <span>-</span> <span>1</span>, j) <span>+</span> <span>1</span>, <span>#
+      delete</span></a>
+    <a id=-2" title="2"><span># explain：</span></a>
+    <a id=-3" title="3"><span># I directly delete s[i]</span></a>
+    <a id=-4" title="4"><span># move forward i，continue to compared with j</span></a>
+    <a id=-5" title="5"><span># add one to the operation number</span></a></code></pre>
+  </div>
+  <p><img src="./pictures/editDistance/delete.gif" /></p>
+  <div id="cb7">
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a   title="1">dp(i <span >-</span> <span >1</span>, j <span >-</span> <span >1</span>) <span >+</span> <span >1</span> <span ># replace</span></a>
+  <a  id="cb7-2" title="2"><span ># explain：</span></a>
+  <a  id="cb7-3" title="3"><span ># I directly replace s1[i] with s2[j], then they are matched</span></a>
+  <a  id="cb7-4" title="4"><span ># move forward i，j and continue to compare</span></a>
+  <a  id="cb7-5" title="5"><span ># add one to operation number</span></a></code></pre>
+  </div>
+  <p><img src="./pictures/editDistance/replace.gif" /></p>
+  <p>Now, you should fully understand this short and clever code. Another small problem is that this is a violent
+    solution. There are many overlapping subproblems, which should to be optimized by dynamic programming techniques.
+  </p>
+  <p><strong>How can we see the overlapping subproblems at a glance?</strong> As mentioned in the previous article
+    “Regular Expressions for Dynamic Programming”, we need to abstract the recursive framework of the algorithm in this
+    article:</p>
+  <div id="cb8">
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a   title="1"><span >def</span> dp(i, j):</a>
+  <a  id="cb8-2" title="2">    dp(i <span >-</span> <span >1</span>, j <span >-</span> <span >1</span>) <span >#1</span></a>
+  <a  id="cb8-3" title="3">    dp(i, j <span >-</span> <span >1</span>)     <span >#2</span></a>
+  <a  id="cb8-4" title="4">    dp(i <span >-</span> <span >1</span>, j)     <span >#3</span></a></code></pre>
+  </div>
+  <p>For the subproblem <code>dp(i-1, j-1)</code>, how can we get it from the original question <code>dp(i, j)</code>?
+    Once we found a repetitive path, it means that there is a huge number of repetitive paths, which is the overlapping
+    subproblem. For example: <code>dp(i, j)-&gt; #1</code> and <code>dp(i, j)-&gt;#2-&gt;#3</code>.</p>
+  <h3 id="optimized-by-dynamic-programming">3. Optimized by Dynamic programming</h3>
+  <p>For the overlapping subproblems, we introduced in the previous article “Detailed Explanation of Dynamic
+    Programming” in detailed. The optimization is nothing more than a memo or a DP table.</p>
+  <p>The memo is easy to append, just modified the original code slightly.</p>
+  <div id="cb9">
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a   title="1"><span >def</span> minDistance(s1, s2) <span >-&gt;</span> <span >int</span>:</a>
+  <a  id="cb9-2" title="2"></a>
+  <a id="cb9-3" title="3"> memo <span>=</span> <span>dict</span>() <span># memo</span></a>
+  <a  id="cb9-4" title="4">    <span >def</span> dp(i, j):</a>
+  <a  id="cb9-5" title="5">        <span >if</span> (i, j) <span >in</span> memo: </a>
+  <a  id="cb9-6" title="6">            <span >return</span> memo[(i, j)]</a>
+  <a  id="cb9-7" title="7">        ...</a>
+  <a  id="cb9-8" title="8">        </a>
+  <a  id="cb9-9" title="9">        <span >if</span> s1[i] <span >==</span> s2[j]:</a>
+  <a  id="cb9-10" title="10">            memo[(i, j)] <span >=</span> ...  </a>
+  <a  id="cb9-11" title="11">        <span >else</span>:</a>
+  <a  id="cb9-12" title="12">            memo[(i, j)] <span >=</span> ...</a>
+  <a  id="cb9-13" title="13">        <span >return</span> memo[(i, j)]</a>
+  <a  id="cb9-14" title="14">    </a>
+  <a id="cb9-15" title="15"> <span>return</span> dp(<span>len</span>(s1) <span>-</span> <span>1</span>,
+    <span>len</span>(s2) <span>-</span> <span>1</span>)</a></code></pre>
+  </div>
+  <p><strong>We mainly explain the DP table solution.</strong></p>
+  <p>First, we declare the meaning of the dp array. The dp array is a two-dimensional array, which looks like this:</p>
+  <p><img src="./pictures/editDistance/dp.jpg" /></p>
+  <p>With the foundation of the previous recursive solution, it`s easy to understand. <code>dp [..][0]</code> and
+    <code>dp [0][..]</code> correspond to the base case. The meaning of <code>dp [i][j]</code> is similar to the
+    previous dp function:
+  </p>
+  <div id=0">
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a  id=0-1" title="1"><span >def</span> dp(i, j) <span >-&gt;</span> <span >int</span></a>
+  <a  id=0-2" title="2"><span ># return the least editing distance of s1[0..i] and s2[0..j]</span></a>
+  <a  id=0-3" title="3"></a>
+  <a  id=0-4" title="4">dp[i<span >-1</span>][j<span >-1</span>]</a>
+  <a  id=0-5" title="5"><span ># storage the least editing distance of s1[0..i] and s2[0..j]</span></a></code></pre>
+  </div>
+  <p>The base case of the dp function is that <code>i, j</code> is equal to -1. However the array index is at least 0,
+    the dp array is offset by one position.</p>
+  <p>Since the dp array has the same meaning as the recursive dp function, you can directly apply the previous ideas to
+    write code. <strong>The only difference is that the DP table is solved from the bottom to up, and the recursive
+      solution is solved from the top to down</strong>:</p>
+  <div id=1">
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a  id=1-1" title="1"><span >int</span> <span >minDistance</span>(<span pan> s1, <span pan> s2) {</a>
+      <a  id=1-2" title="2">    <span >int</span> m = s1.<span >length</span>(), n = s2.<span >length</span>();</a>
+  <a  id=1-3" title="3">    <span >int</span>[][] dp = <span >new</span> <span >int</span>[m + <span >1</span>][n + <span >1</span>];</a>
+  <a  id=1-4" title="4">    <span >// base case </span></a>
+  <a  id=1-5" title="5">    <span >for</span> (<span >int</span> i = <span >1</span>; i &lt;= m; i++)</a>
+  <a  id=1-6" title="6">        dp[i][<span >0</span>] = i;</a>
+  <a  id=1-7" title="7">    <span >for</span> (<span >int</span> j = <span >1</span>; j &lt;= n; j++)</a>
+  <a  id=1-8" title="8">        dp[<span >0</span>][j] = j;</a>
+  <a  id=1-9" title="9">    <span >// from the bottom to up</span></a>
+  <a  id=1-10" title="10">    <span >for</span> (<span >int</span> i = <span >1</span>; i &lt;= m; i++)</a>
+  <a  id=1-11" title="11">        <span >for</span> (<span >int</span> j = <span >1</span>; j &lt;= n; j++)</a>
+  <a id=1-12" title="12"> <span>if</span> (s1.<span>charAt</span>(i-<span>1</span>) ==
+    s2.<span>charAt</span>(j-<span>1</span>))</a>
+  <a  id=1-13" title="13">                dp[i][j] = dp[i - <span >1</span>][j - <span >1</span>];</a>
+  <a  id=1-14" title="14">            <span >else</span>               </a>
+  <a id=1-15" title="15"> dp[i][j] = <span>min</span>(</a>
+  <a  id=1-16" title="16">                    dp[i - <span >1</span>][j] + <span >1</span>,</a>
+  <a  id=1-17" title="17">                    dp[i][j - <span >1</span>] + <span >1</span>,</a>
+  <a  id=1-18" title="18">                    dp[i-<span >1</span>][j-<span >1</span>] + <span >1</span></a>
+  <a  id=1-19" title="19">                );</a>
+  <a  id=1-20" title="20">    <span >// storage the least editing distance of s1 and s2</span></a>
+  <a  id=1-21" title="21">    <span >return</span> dp[m][n];</a>
+  <a  id=1-22" title="22">}</a>
+  <a  id=1-23" title="23"></a>
+  <a id=1-24" title="24"><span>int</span> <span>min</span>(<span>int</span> a, <span>int</span> b, <span>int</span> c)
+    {</a>
+  <a id=1-25" title="25"> <span>return</span> <span>Math</span>.<span>min</span>(a, <span n>.<span>min</span>(b, c));</a>
+  <a  id=1-26" title="26">}</a></code></pre>
+  </div>
+  <h3 id="extension">4. Extension</h3>
+  <p>Generally speaking, when dealing with the dynamic programming of two strings, we just follow the ideas of this
+    article, making the DP table. Why? Because it`s easy to find out the relationship of the state transitions, such as
+    the DP table of the edit distance:</p>
+  <p><img src="./pictures/editDistance/4.jpg" /></p>
+  <p>There is another detail: since every <code>dp[i][j]</code> is only related to the three status, the space
+    complexity can be reduced to <span><em>O</em>(<em>m</em><em>i</em><em>n</em>(<em>M</em>, <em>N</em>))</span> (M, N
+    is the length
+    of the two strings). It`s not very difficult but the code is harder to read. You can try to optimize it by yourself.
+  </p>
+  <p>Maybe you will also ask, <strong>As we only found the minimum editing distance, how can we know the every
+      step?</strong> In the example of modifying the article you mentioned earlier, only a editing distance is
+    definitely not enough. You must know how to modify it.</p>
+  <p>Actually, it`s very simple, just slightly modified the code and add additional information to the dp array:</p>
+  <div id=2">
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a  id=2-1" title="1"><span >// int[][] dp;</span></a>
+      <a  id=2-2" title="2"><span >Node</span>[][] dp;</a>
+  <a  id=2-3" title="3"></a>
+  <a id=2-4" title="4"><span>class</span> <span>Node</span> {</a>
+  <a  id=2-5" title="5">    <span >int</span> val;</a>
+  <a  id=2-6" title="6">    <span >int</span> choice;</a>
+  <a  id=2-7" title="7">    <span >// 0 skip</span></a>
+  <a  id=2-8" title="8">    <span >// 1 insert</span></a>
+  <a  id=2-9" title="9">    <span >// 2 delete</span></a>
+  <a  id=2-10" title="10">    <span >// 3 replace</span></a>
+  <a  id=2-11" title="11">}</a></code></pre>
+  </div>
+  <p>The <code>val</code> attribute is the value of the previous dp array, and the<code>choice</code> attribute
+    represents the operation. When making the best choice, record the operation and then infer the specific operation
+    from the result.</p>
+  <p>Our final result is <code>dp [m] [n]</code>, where <code>val</code> holds the minimum edit distance,
+    and<code>choice</code> holds the last operation, such as the insert operation, then you can move one space to the
+    left:</p>
+  <p><img src="./pictures/editDistance/5.jpg" /></p>
+  <p>Repeat this process, you can return to the starting point <code>dp [0] [0]</code> step by step to form a path.
+    Editing according to the operations on this path is the best solution.</p>
+  <p><img src="./pictures/editDistance/6.jpg" /></p>
+  <p>The above is the entire content of the edit distance algorithm.</p>
+
+</body>
+
+</html>

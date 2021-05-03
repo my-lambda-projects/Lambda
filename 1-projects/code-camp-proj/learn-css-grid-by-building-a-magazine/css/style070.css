@@ -1,0 +1,22 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Baskervville', serif;
+  color: linen;
+  background-color: rgb(20, 30, 40);
+}
+
+/* 
+As we mentioned before, there are three fonts from Google already downloaded. One for the body, one for the main heading, and the other for the sub-heading.
+Create a rule for the `h1` element and set its `font-family` to `"Anton"` with `sans-serif` as the fallback font. 
+*/

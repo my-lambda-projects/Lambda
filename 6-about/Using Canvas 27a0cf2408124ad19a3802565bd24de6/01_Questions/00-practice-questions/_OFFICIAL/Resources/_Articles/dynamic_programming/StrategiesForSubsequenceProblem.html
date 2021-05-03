@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A description of the page and its contents" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Page Title</title>
+        <link rel="stylesheet" href="./../../../assets/style.css" />
+        <link rel="stylesheet" href="./../../../assets/prism.css" />
+        <script async src="./../../../assets/prism.js"></script>
+</head>
+
+<body>
+  <h1 id="the-strategies-of-subsequence-problem">The Strategies of Subsequence Problem</h1>
+  <p><strong>Translator: <a class="btn" href="https://github.com/sunqiuming526">sunqiuming526</a></strong></p>
+  <p>Subsequence Problem is one of the most common algorithm problem, which is not easy to figure out.</p>
+  <p>First of all, the subsequence problem itself is more difficult than those for substring and subarray, since the
+    former needs to deal with discontinuous sequence, while the latter two are continuous. It is hard enough to simply
+    enumerate the subsequences, let alone solve related algorithm problems.</p>
+  <p>Moreover, the subsequence problem is likely to involve two strings, such as the “Longest Common Subsequence (LCS)”
+    problem in the previous article. Without some processing experience, it is really not easy to figure out. Therefore,
+    this article will come up with a routine for the subsequence related problems. In fact, there are only two types of
+    strategies. As long as these two problem-solving strategies in your mind, it’s highly possible to ace the problem.
+  </p>
+  <p>Generally speaking, this kind of question would ask you to find a <strong>longest subsequence </strong>. Since the
+    shortest subsequence, on the other hand, is just a character, which is not worth asking. Once it comes to
+    subsequences or extreme value problems, it is almost certain that <strong>we need to use dynamic programming
+      techniques, and the time complexity is generally O(n^2)</strong>.</p>
+  <p>The reason is quite simple. Just think about a string. How many possibilities are there for its subsequence? The
+    answer is at least exponential, right? Thus, we have no reason not to use DP.</p>
+  <p>Since dynamic programming is used, it is necessary to define the DP array and find the state transition relation.
+    The two strategies we mentioned above are actually the ideas of defining DP arrays. Different problems may require
+    different DP array definitions to solve.</p>
+  <h3 id="two-strategies">1. Two Strategies</h3>
+  <p><strong>1.1 The first strategy is using a one-dimensional DP array</strong></p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>int</span> n = array.<span>length</span>;</a>
+            <a title="2"><span>int</span>[] dp = <span>new</span> <span>int</span>[n];</a>
+            <a title="3"></a>
+            <a title="4"><span>for</span> (<span>int</span> i = <span>1</span>; i &lt; n; i++) {</a>
+            <a title="5"> <span>for</span> (<span>int</span> j = <span>0</span>; j &lt; i; j++) {</a>
+    <a id=-6" title="6"> dp[i] = max|<span>min</span>(dp[i], dp[j] + ...)</a>
+    <a title="7"> }</a>
+    <a title="8">}</a></code></pre>
+  </div>
+  <p>Take an example we used before – “the Longest Increasing Subsequence (LIS)”. The definition of DP array in this
+    case is as below:</p>
+  <p><strong>We define <code>dp[i]</code> as the length of the required subsequence (the longest increasing subsequence)
+      within the subarray <code>array [0..i]</code></strong>.</p>
+  <p>Why does the LIS problem require this strategy? The foregoing is clear enough – because this strategy is in line
+    with the induction method, and the state transition relation can be found. We are not going to discuss this in
+    details further.</p>
+  <p><strong>1.2 The second strategy is using a two-dimensional DP array</strong></p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>int</span> n = arr.<span>length</span>;</a>
+            <a id=-2" title="2"><span>int</span>[][] dp = <span>new</span> dp[n][n];</a>
+            <a id=-3" title="3"></a>
+            <a id=-4" title="4"><span>for</span> (<span>int</span> i = <span>0</span>; i &lt; n; i++) {</a>
+            <a id=-5" title="5"> <span>for</span> (<span>int</span> j = <span>0</span>; j &lt; n; j++) {</a>
+            <a id=-6" title="6"> <span>if</span> (arr[i] == arr[j]) </a>
+            <a id=-7" title="7"> dp[i][j] = dp[i][j] + ...</a>
+            <a id=-8" title="8"> <span>else</span></a>
+    <a id=-9" title="9"> dp[i][j] = max|<span>min</span>(...)</a>
+    <a id=-10" title="10"> }</a>
+    <a id=-11" title="11">}</a></code></pre>
+  </div>
+  <p>This strategy is used relatively more, especially for the subsequences problems involving two strings / arrays,
+    such as the <strong>“Longest Common Subsequence”</strong> we mentioned before. The definition of the DP array in
+    this strategy is further divided into two cases: “Only one string is involved” and “Two strings are involved”.</p>
+  <p><strong>a) In the case where two strings are involved</strong> (e.g. LCS), the definition of DP array is as
+    follows:</p>
+  <p><strong>We define <code>dp[i][j]</code> as the length of the required subsequence (longest common subsequence)
+      within the subarray <code>arr1[0..i]</code> and the subarray <code>arr2[0..j]</code></strong>.</p>
+  <p><strong>b) In the case where only one string is involved</strong> (such as the Longest Palindrome Subsequence (LPS)
+    which will be discussed in this article later), the definition of DP array is as follows:</p>
+  <p><strong>We define <code>dp[i][j]</code> as the length of the required subsequence (the longest palindrome
+      subsequence) within the subarray <code>array [i..j]</code></strong>.</p>
+  <p>For the first case, you can refer to these two articles: “Editing distance”, “Common Subsequence”.</p>
+  <p>Now let’s talk about the Longest Palindrome Subsequence (LPS) problem to explain how to solve DP in the second case
+    in details.</p>
+  <h3 id="the-longest-palindrome-subsequence">2. The Longest Palindrome Subsequence</h3>
+  <p>We have solve the “Longest Palindrome Substring” problem before. This time, the difficulty is increased by finding
+    the length of the Longest Palindrome Subsequence instead of substring:</p>
+  <p><img src="./pictures/subsequence/1.jpg" /></p>
+  <p>In this question, <strong>we define <code>dp[i][j]</code> as the length of the longest palindrome subsequence
+      within the substring <code>s[i..j]</code></strong>. Please remember this definition so as to understand the
+    algorithm.</p>
+  <p>Why do we define a two-dimensional DP array like this? We mentioned many times before that <strong>finding state
+      transition relation requires inductive thinking. To put it plainly, it is how we derive unknown parts from known
+      results</strong>, which makes it easy to generalize and discover the state transition relation.</p>
+  <p>Specifically, if we want to find <code>dp[i][j]</code>, suppose you have already got the result of the subproblem
+    <code>dp[i+1][j-1]</code> (the length of the longest palindrome subsequence in<code>s[i+1..j-1]</code>), can you
+    find a way to calculate the value of<code>dp[i][j]</code>(the length of the longest palindrome subsequence
+    in<code>s[i..j]</code>) ?
+  </p>
+  <p><img src="./pictures/subsequence/1.jpg" /></p>
+  <p>The answer is yes! It depends on the characters of <code>s[i]</code> and <code>s[j]</code>:</p>
+  <p><strong>If they are equal</strong>, then the longest palindrome subsequence in <code>s[i+1..j-1]</code> would be
+    these two characters plus the longest palindrome subsequence in <code>s[i..j]</code>:</p>
+  <p><img src="./pictures/subsequence/2.jpg" /></p>
+  <p><strong>If they are not equal</strong>, it means that they <strong>cannot appear at the same time</strong> in the
+    longest palindrome subsequence of <code>s[i..j]</code>. Therefore, we add them <strong>separately</strong> to
+    <code>s[i+1..j-1]</code> to see which substring produces a longer palindrome subsequence:
+  </p>
+  <p><img src="./pictures/subsequence/3.jpg" /></p>
+  <p>The code of the above two cases can be written like this:</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code
+          ><a   title=" 1"><span>if</span> (s[i] == s[j])</a>
+    <a title="2"> <span>// These two chars must be in the longest palindrome sequence</span></a>
+    <a title="3"> dp[i][j] = dp[i + <span>1</span>][j - <span>1</span>] + <span>2</span>;</a>
+    <a id=-4" title="4"><span>else</span></a>
+    <a id=-5" title="5"> <span>// Choose the longer palindrome subsequence from s[i+1..j] and s[i..j-1]</span></a>
+    <a id=-6" title="6"> dp[i][j] = <span>max</span>(dp[i + <span>1</span>][j], dp[i][j - <span>1</span>]);</a></code>
+    </pre>
+  </div>
+  <p>At this point, the state transition equation is derived. According to the definition of the DP array, what we
+    require is <code>dp[0][n-1]</code>, which is the length of the longest palindrome subsequence of the entire
+    <code>s</code>.
+  </p>
+  <h3 id="code-implementation">3. Code Implementation</h3>
+  <p>Let’s begin with defining the base case. If there is only one character, the longest palindrome subsequence length
+    is 1, which can be represented as <code>dp[i][j] = 1 (i == j)</code>.</p>
+  <p>Since <code>i</code>must be less than or equal to <code>j</code>, for those locations where <code>i &gt; j</code>,
+    there are no subsequences at all and thus should be initialized to 0.</p>
+  <p>In addition, look at the state transition equation we just got. To find <code>dp[i][j]</code>, you need to know
+    <code>dp[i+1][j-1]</code>, <code>dp[i+1][j]</code> and<code>dp[i][j -1]</code> these three values. And look at the
+    base case we determined, this is how the DP array looks like after being filled:
+  </p>
+  <p><img src="./pictures/subsequence/4.jpg" /></p>
+  <p><strong>In order to guarantee that before each calculation of <code>dp[i][j]</code>, the values in the left, down
+      and right direction have been calculated, we can only traverse it diagonally or reversely</strong>:<img
+      src="./pictures/subsequence/5.jpg"/></p>
+  <p>Here I choose to traverse reversely. The code is as follows:</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>int</span> longestPalindromeSubseq(string s) {</a>
+    <a id=-2" title="2"> <span>int</span> n = s.size();</a>
+    <a id=-3" title="3"> <span>// DP arrays are all initialized to 0</span></a>
+    <a id=-4" title="4"> vector&lt;vector&lt;<span>int</span>&gt;&gt; dp(n, vector&lt;<span>int</span>&gt;(n,
+      <span>0</span>));</a>
+    <a id=-5" title="5"> <span>// base case</span></a>
+    <a id=-6" title="6"> <span>for</span> (<span>int</span> i = <span>0</span>; i &lt; n; i++)</a>
+    <a id=-7" title="7"> dp[i][i] = <span>1</span>;</a>
+    <a id=-8" title="8"> <span>// Reverse traversal to ensure correct state transition</span></a>
+    <a id=-9" title="9"> <span>for</span> (<span>int</span> i = n - <span>1</span>; i &gt;= <span>0</span>; i--) {</a>
+    <a id=-10" title="10"> <span>for</span> (<span>int</span> j = i + <span>1</span>; j &lt; n; j++) {</a>
+    <a id=-11" title="11"> <span>// State transition equation</span></a>
+    <a id=-12" title="12"> <span>if</span> (s[i] == s[j])</a>
+    <a id=-13" title="13"> dp[i][j] = dp[i + <span>1</span>][j - <span>1</span>] + <span>2</span>;</a>
+    <a id=-14" title="14"> <span>else</span></a>
+    <a id=-15" title="15"> dp[i][j] = max(dp[i + <span>1</span>][j], dp[i][j - <span>1</span>]);</a>
+    <a id=-16" title="16"> }</a>
+    <a id=-17" title="17"> }</a>
+    <a id=-18" title="18"> <span>// return the length of LPS</span></a>
+    <a id=-19" title="19"> <span>return</span> dp[<span>0</span>][n - <span>1</span>];</a>
+    <a id=-20" title="20">}</a></code></pre>
+  </div>
+  <p>So far, the longest palindrome subsequence problem has been solved.</p>
+
+</body>
+
+</html>

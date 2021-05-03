@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A description of the page and its contents" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Page Title</title>
+        <link rel="stylesheet" href="./../../../assets/style.css" />
+        <link rel="stylesheet" href="./../../../assets/prism.css" />
+        <script async src="./../../../assets/prism.js"></script>
+</head>
+
+<body>
+  <h1 id="remove-duplicates-from-sorted-array">Remove Duplicates from Sorted Array</h1>
+  <p><strong>Translator: <a class="btn" href="https://hiarcher.top/">Hi_archer</a></strong></p>
+  
+  <p>We know that for arrays,it is efficient to insert and delete elements at the end,with a time complexity of
+    O(1).However, if we insert and delete elements at the middle or the beginning,it will move many data, with a time
+    complexity of O(N).</p>
+  <p>Therefore, for the general algorithm problems dealing with arrays, we need to operate on the elements at the end of
+    the array as much as possible to avoid additional time complexity</p>
+  <p>This article is on how to remove Duplicates from Sorted Array.</p>
+  <p><img src="./pictures/Remove_Duplicates_from_Sorted_Array/title1.jpg" /></p>
+  <p>Obviously, since the array is sorted, the duplicate elements must be connected together, so it’s not difficult to
+    find them, but if you delete each duplicate element as soon as you find it, you’re going to delete it in the middle
+    of
+    the array, and the total time complexity is going to be <span><em>O</em>(<em>N</em><sup>2</sup>)</span>.And the
+    problem asking us must do this by modifying the input array in-place with O(1) extra memory.</p>
+  <p>In fact,<strong>for the array related algorithm problem,there is a general technique: try to avoid deleting the
+      element in the middle, then I want to find a way to swap the element to the last</strong>.In this way,the elements
+    to be deleted are dragged to the end of the array and the time complexity of a single deletion is reduced to
+    <span><em>O</em>(1)</span>.
+    </p>
+    <p>Through this idea, we can derive a common way to solve similar requirements——the two-pointer technique.To be
+      specific, it should be fast or slow pointer.</p>
+    <p>We let the slow pointer <code>slow</code> go to the back of the array, and the fast pointer<code>fast</code> go
+      ahead to find the way. If we find a unique element,let<code>slow</code> move forward. In this way, when the
+      <code>fast</code> pointer traverses the entire array<code>nums</code>, <strong><code>nums [0..slow]</code> is a
+        unique element, and all subsequent elements are repeated elements</strong>.
+    </p>
+    <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>int</span> <span>removeDuplicates</span>(<span>int</span>[]
+    nums) {</a>
+    <a title="2"> <span>int</span> n = nums.<span>length</span>;</a>
+    <a title="3"> <span>if</span> (n == <span>0</span>) <span>return</span> <span>0</span>;</a>
+    <a title="4"> <span>int</span> slow = <span>0</span>, fast = <span>1</span>;</a>
+    <a title="5"> <span>while</span> (fast &lt; n) {</a>
+    <a id=-6" title="6"> <span>if</span> (nums[fast] != nums[slow]) {</a>
+    <a title="7"> slow++;</a>
+    <a title="8"> <span>// Maintain no repetition of nums[0..slow] </span></a>
+    <a title="9"> nums[slow] = nums[fast];</a>
+    <a id=-10" title="10"> }</a>
+    <a title="11"> fast++;</a>
+    <a id=-12" title="12"> }</a>
+    <a id=-13" title="13"> <span>//The length is index + 1 </span></a>
+    <a id=-14" title="14"> <span>return</span> slow + <span>1</span>;</a>
+    <a id=-15" title="15">}</a></code></pre>
+    </div>
+  <p>Look at the process of algorithm implementation:</p>
+  <p><img src="./pictures/Remove_Duplicates_from_Sorted_Array/1.gif" /></p>
+  <p>Extending it briefly,how to remove Duplicates from Sorted list.In fact, it is exactly the same as an array.The only
+    difference is that the array assignment operation is turned into an operation pointer:</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1">ListNode <span>deleteDuplicates</span>(ListNode head) {</a>
+            <a id=-2" title="2"> <span>if</span> (head == <span>null</span>) <span>return</span> <span>null</span>;</a>
+    <a id=-3" title="3"> ListNode slow = head, fast = head.<span>next</span>;</a>
+    <a id=-4" title="4"> <span>while</span> (fast != <span>null</span>) {</a>
+    <a id=-5" title="5"> <span>if</span> (fast.<span>val</span> != slow.<span>val</span>) {</a>
+    <a id=-6" title="6"> <span>// nums[slow] = nums[fast];</span></a>
+    <a id=-7" title="7"> slow.<span>next</span> = fast;</a>
+    <a id=-8" title="8"> <span>// slow++;</span></a>
+    <a id=-9" title="9"> slow = slow.<span>next</span>;</a>
+    <a id=-10" title="10"> }</a>
+    <a id=-11" title="11"> <span>// fast++</span></a>
+    <a id=-12" title="12"> fast = fast.<span>next</span>;</a>
+    <a id=-13" title="13"> }</a>
+    <a id=-14" title="14"> <span>// The list disconnects from the following repeating elements</span></a>
+    <a id=-15" title="15"> slow.<span>next</span> = <span>null</span>;</a>
+    <a id=-16" title="16"> <span>return</span> head;</a>
+    <a id=-17" title="17">}</a></code></pre>
+    </div>
+    <p><img src="./pictures/Remove_Duplicates_from_Sorted_Array/2.gif" /></p>
+
+</body>
+
+</html>

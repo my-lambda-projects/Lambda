@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A description of the page and its contents" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Page Title</title>
+        <link rel="stylesheet" href="./../../../assets/style.css" />
+        <link rel="stylesheet" href="./../../../assets/prism.css" />
+        <script async src="./../../../assets/prism.js"></script>
+</head>
+
+<body>
+  <h1 id="runtime-complexity">Runtime Complexity</h1>
+  <h3 id="projected-time">Projected Time</h3>
+  <p>About 3 hours</p>
+  <ul>
+    <li>1 hour for Lesson</li>
+    <li>70 minutes for Independent Practice</li>
+    <li>20 minutes for Group Practice</li>
+  </ul>
+  <h3 id="prerequisites">Prerequisites</h3>
+  <ul>
+    <li><a class="btn" href="/javascript">JavaScript I - VI lessons</a></li>
+  </ul>
+  <h3 id="motivation">Motivation</h3>
+  <p>While computers are lightning fast, some code can run faster than other code. When computer programs get larger and
+    larger, a slow runtime can be noticeable to the user. Luckily, code can be written in efficient ways. Understanding
+    runtime complexity is important for multiple reasons:</p>
+  <ul>
+    <li>It will help you write fast code</li>
+    <li>It is a driving force when choosing which data structures to use in real-world coding</li>
+    <li>You will be asked about it in technical interviews</li>
+  </ul>
+  <p><em>Which companies use runtime complexity?</em> <a class="btn"
+      href="https://medium.com/pinterest-engineering/driving-user-growth-with-performance-improvements-cfc50dafadd7">Pinterest
+      reported</a> that search engine traffic and sign-ups increased by 15% when the perceived load times decreased by
+    40%. While there are many factors that contribute to the waiting time of large websites, any company will want their
+    programmers to be considering runtimes when writing their code.</p>
+  <p>Google also has written extensively on the <a class="btn"
+      href="https://developers.google.com/web/fundamentals/performance/why-performance-matters">importance of
+      runtime</a>,
+    and why more efficient websites lead to increased web traffic.</p>
+  <h3 id="objectives">Objectives</h3>
+  <p><strong>Participants will be able to:</strong></p>
+  <ul>
+    <li>Understand the following runtimes: O(1), O(log n), O(n), O(n log n), O(n^2), and O(2^n)</li>
+    <li>Know the runtime of array and object functions</li>
+    <li>Determine time complexity for simple functions and algorithms</li>
+  </ul>
+  <h3 id="materials">Materials</h3>
+  <ul>
+    <li><a class="btn"
+        href="https://softwareengineering.stackexchange.com/questions/20832/is-big-o-really-that-relevant-when-working-in-industry/20834">How
+        is Big-O runtime used in industry?</a> (Recommended reading time: 5 min)</li>
+    <li><a class="btn"
+        href="https://medium.freecodecamp.org/big-o-notation-simply-explained-with-illustrations-and-video-87d5a71c0174">Big
+        O Notation — Simply explained with illustrations and video</a> (15 min read)</li>
+    <li><a class="btn" href="https://www.interviewcake.com/article/python/big-o-notation-time-and-space-complexity?">Big
+        O
+        Notation</a> - this Interview Cake article is available for free. (15 min read)</li>
+    <li><a class="btn" href="https://www.baeldung.com/java-algorithm-complexity">Practical Java Examples of the Big O
+        Notation (10 min read)</a></li>
+  </ul>
+  <h3 id="supplemental-resources">Supplemental Resources</h3>
+  <ul>
+    <li><a class="btn" href="https://www.youtube.com/watch?v=3GKpkJ2pr-0&amp;amp=&amp;t=454s">Efficiency: Determining
+        Big O
+        (15 min video)</a></li>
+    <li><a class="btn" href="https://www.cpp.edu/~ftang/courses/CS240/lectures/analysis.htm">Explanations of the
+        different
+        common runtimes</a></li>
+    <li><a class="btn" href="https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/">Explanations and code
+        examples of common runtimes</a> (10 min read)</li>
+  </ul>
+  <h3 id="lesson">Lesson</h3>
+  <ul>
+    <li><a class="btn" href="https://docs.google.com/presentation/d/1ZcOdekB_aP59huZdp4X0u6EfUJKgxzK7y8LqCmzSLC8">Runtime
+        Complexity Lecture Slides</a></li>
+    <li><a class="btn" href="https://drive.google.com/file/d/1ZoHxJMUiKOKPqu69vX3b_aeYGlDlRL6n/view">Runtime Complexity
+        Lecture Video Slides</a></li>
+    <li>Work through all the ‘Materials’ as well.</li>
+  </ul>
+  <h3 id="things-to-know">Things to know:</h3>
+  <h4 id="runtimes-to-know">Runtimes to know:</h4>
+  <p>There are several common runtimes that you should understand:</p>
+  <ul>
+    <li>
+      <p>Indexing into an array (e.g. <code>array[7]</code>) is <code>O(1)</code></p>
+    </li>
+    <li>
+      <p>Looking up a key in an object (e.g. <code>object["name"]</code>) is <code>O(1)</code></p>
+    </li>
+    <li>
+      <p>Sorting an array (with a fast algorithm) is <code>O(n log n)</code> – this isn’t simple to prove, but if you’re
+        curious you can read more about why <a class="btn"
+          href="https://www.cs.cmu.edu/~15110-f12/Unit05PtC-handout.pdf">here</a> and <a class="btn"
+          href="https://en.wikipedia.org/wiki/Comparison_sort">here</a></p>
+    </li>
+  </ul>
+  <h4 id="runtime-details">Runtime details:</h4>
+  <ul>
+    <li>
+      <p>Big-O/runtime describes the worst case scenario runtime. For example, if you’re looking at each item in a list
+        to find a specific element, the best case scenario is if it’s the first element and you find it right away! But
+        the worst case is if you look through every single item, and the one you are looking for is the last item in the
+        list or not in the list at all. Runtime analysis focuses on the worst-case scenario.</p>
+    </li>
+    <li>
+      <p>Only the largest/fastest-growing term matters. For example, if a function takes <code>n^2 + 3n</code> steps,
+        the function is <code>O(n^2)</code>, because the runtime will be dominated by the <code>n^2</code> term</p>
+    </li>
+    <li>
+      <p>When stating the runtime complexity, drop any constants. For example, if a function takes <code>4n</code>
+        steps, we drop the <code>4</code> and call it <code>O(n)</code>. This is because runtime complexity describes
+        how the time of the function grows with relation to the input – not the exact time it takes to run.</p>
+    </li>
+    <li>Runtime complexity goes by many names that are generally used interchangably. E.g:
+      <ul>
+        <li>Time complexity</li>
+        <li>Asymptotic time complexity</li>
+        <li>Runtime analysis</li>
+        <li>Big O runtime</li>
+        <li>Growth rate analysis</li>
+        <li>Computational complexity</li>
+      </ul>
+      </li>
+  </ul>
+  <h3 id="things-well-cover-later">Things we’ll cover later</h3>
+  <p>These things are not covered in this lesson, but they are related and important to know.</p>
+  <ul>
+    <li>
+      <p>Different data structures let you do different things quickly. So far you’ve learned about two data structures:
+        arrays and objects. Later, you’ll learn about more data structures, including linked lists, trees, stacks, and
+        queues. You’ll learn about the runtime complexity of doing different operations with these data structures.</p>
+    </li>
+    <li>
+      <p>Space complexity. Similar to time complexity, algorithms can use differing amounts of memory</p>
+    </li>
+    <li>
+      <p>Runtime complexity is related to (but not the same!) as the total amount of time it takes to run a piece of
+        code. A piece of O(n^2) code could run faster than a piece of O(n) code.</p>
+    </li>
+  </ul>
+  <h3 id="independent-practice">Independent Practice</h3>
+  <p>Techtonica staff will assign pairs.</p>
+  <p><strong>Runtime Complexity Exercise 1: Reading code and analyzing runtime</strong></p>
+  <p>Read the functions in <a class="btn" href="runtime1-analyzing.js">runtime1-analyzing.js</a>. For each function,
+    figure out:</p>
+  <ul>
+    <li>What does the function do?</li>
+    <li>What is the input size? Examples include the size of a list, the length of a string, or the integer passed into
+      a function. This will be “n” in Big O notation.</li>
+    <li>Try to figure out the runtime – O(1), O(log n), O(n), O(n log n), O(n^2), or O(2^n)</li>
+    <li>When the input size doubles, what would happen to the time it takes to run?</li>
+  </ul>
+  <p><strong>Runtime Complexity Exercise 2: Comparing code</strong></p>
+  <p>Compare multiple pieces of code that do the same thing, and figure out the runtime of each one. Which solution
+    would
+    be fastest for large input sizes? <a class="btn" href="runtime2-comparisions.js">runtime2-comparisions.js</a></p>
+  <p><strong>Runtime Complexity Exercise 3: Solving problems and writing code</strong></p>
+  <p>How would you solve these problems <a class="btn" href="runtime3-solving.md">runtime3-solving.md</a>? Can you think
+    of an O(n^2), O(n log n), O(n) solution?</p>
+  <h3 id="group-practice">Group Practice</h3>
+  <p>Discuss with the group and an instructor:</p>
+  <ul>
+    <li>Which runtimes/concepts were the hardest to guess/understand?</li>
+    <li>Which ones were the easiest?</li>
+    <li>Do you still have things you don’t understand?</li>
+  </ul>
+  <h3 id="challenge">Challenge</h3>
+  <ul>
+    <li>Try to implement the problems in <a class="btn" href="runtime3-solving.md">runtime3-solving.md</a>. Run your
+      solutions on multiple input sizes. Does it match your expectations?</li>
+  </ul>
+  <h3 id="check-for-understanding">Check for Understanding</h3>
+  <ul>
+    <li>
+      <p>How important is it to understand runtime complexity?</p>
+    </li>
+    <li>
+      <p>What is Big-O/runtime?</p>
+    </li>
+    <li>
+      <p>What others names to Runtime complexity that are generally used interchangeably?</p>
+    </li>
+  </ul>
+  <p>-Make a cheat sheet about runtime complexity. For O(1), O(log(n)), O(n), and O(nlogn) and O(n^2), give an example
+    of 1-3 algorithms/operations that have this runtime.</p>
+
+</body>
+
+</html>

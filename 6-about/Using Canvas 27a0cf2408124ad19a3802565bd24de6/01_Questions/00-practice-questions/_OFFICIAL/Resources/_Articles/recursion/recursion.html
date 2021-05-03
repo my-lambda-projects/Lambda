@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A description of the page and its contents" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Page Title</title>
+        <link rel="stylesheet" href="./../../../assets/style.css" />
+        <link rel="stylesheet" href="./../../../assets/prism.css" />
+        <script async src="./../../../assets/prism.js"></script>
+</head>
+
+<body>
+  <h1 id="recursion">Recursion</h1>
+  <h3 id="projected-time">Projected Time</h3>
+  <p>About 6 hours</p>
+  <ul>
+    <li>50 minutes for the lesson</li>
+    <li>30 minutes for Independent Practice</li>
+    <li>240 minutes for Independent Practice &amp; Challenge</li>
+  </ul>
+  <h3 id="prerequisites">Prerequisites</h3>
+  <ul>
+    <li><a class="btn" href="/javascript/javascript-1-variables.md">JavaScript 1 - Variables, Strings, Numbers</a></li>
+    <li><a class="btn" href="/javascript/javascript-2-arrays-functions.md">JavaScript 2 - Arrays, Functions</a></li>
+    <li><a class="btn" href="/javascript/javascript-3-conditionals.md">JavaScript 3 - Conditionals, Comparisons,
+        Booleans</a></li>
+    <li><a class="btn" href="/javascript/javascript-4-loops.md">JavaScript 4 - Loops</a></li>
+  </ul>
+  <h3 id="motivation">Motivation</h3>
+  <p>Recursion is a powerful technique you can use to solve certain types of problems, usually those that involve
+    hierarchical data. It is also a common interview subject area.</p>
+  <h3 id="objectives">Objectives</h3>
+  <p><strong>Apprentices will be able to:</strong></p>
+  <ul>
+    <li>Understand the structure and definition of a recursive algorithm</li>
+    <li>Distinguish between iterative and recursive functions</li>
+    <li>Recognize problems where recursion would be a good solution</li>
+    <li>Solve coding challenges using recursion</li>
+  </ul>
+  <h3 id="specific-things-to-learn">Specific Things to Learn</h3>
+  <ul>
+    <li>Types of problems where a recursive algorithm would be useful
+      <ul>
+        <li>Interview Questions!
+          <ul>
+            <li>Fibonacci sequence</li>
+            <li>Factorial</li>
+            <li>Tree traversal</li>
+          </ul>
+          </li>
+          </ul>
+          </li>
+    <li>The structure and definition of a recursive algorithm
+      <ul>
+        <li>Base case</li>
+        <li>Recursive case</li>
+      </ul>
+      </li>
+    <li>How to avoid infinite recursion/stack overflow</li>
+  </ul>
+  <h3 id="common-misconceptions">Common Misconceptions</h3>
+  <ul>
+    <li>Myth: Recursion is only used in Computer Science classes and in interviews. Real Code™ doesn’t use it.
+      <ul>
+        <li>This is 100% untrue</li>
+        <li>Operations on the DOM (a tree structure) often involves recursion</li>
+        <li>Other hierarchical data structures are natural fits for recursive algorithms (filesystems, lists of lists,
+          any graph)</li>
+        </ul>
+        </li>
+    <li><strong>Recursion is inefficient.</strong>
+      <ul>
+        <li>(Often the reason cited for why Real Code™ doesn’t use it)</li>
+        <li>Recursive code is compact because it’s essentially using the <a class="btn" href="">call stack</a> as a
+          built-in
+          data structure. However, this structure has a cost. So on the one hand, this is not a myth. However if your
+          call stack
+          can fit in memory, why not use this elegant tool?</li>
+        <li>Also Pro Tip: Performance of in-memory code is usually largely irrelevant. System scaling bottlenecks in the
+          real world usually relate to databases and other forms of latency. Unlike Computer Science students,
+          professional engineers usually favor simpler code that is easier to understand later than squeezing every last
+          byte from an algorithm.</li>
+        <li>“The real problem is that programmers have spent far too much time worrying about efficiency in the wrong
+          places and
+          at the wrong times; premature optimization is the root of all evil (or at least most of it) in programming.”
+          –<a class="btn" href="https://en.wikiquote.org/wiki/Donald_Knuth">Donald Knuth</a></li>
+      </ul>
+    </li>
+    </ul>
+  <h3 id="materials">Materials</h3>
+  <h4 id="techtonica-definition">Techtonica Definition</h4>
+  <ul>
+    <li>A <strong>recursive</strong> function is any function that calls itself.
+      <ul>
+        <li>(<strong>Recursion</strong> refers to the process of evaluating a recursive function)</li>
+      </ul>
+    </li>
+    <li>Recursion is usually contrasted with <strong>iteration</strong>, the process of solving a problem by a single
+      function, called once, that solves the problem in its entirety</li>
+    <li>Recursive solutions tend to divide a larger problem (or data set) into smaller pieces, often further and
+      further, until the logic can seem trivial (adding two numbers or check if a == b)</li>
+    <li>Recursive solutions tend to be short and sweet, which means you have to think about them for a bit to follow
+      along, unlike an iterative solution that might be easier to read</li>
+    </ul>
+  <h4 id="example">Example</h4>
+  <p>Summing an array. <code>a = [1,2,3,5,6,7,8]</code></p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>function</span> <span>sumArray</span>(arr) <span>{</span></a>
+        <a title="2"> <span>let</span> sum <span>=</span> <span>0;</span></a>
+        <a title="3"> <span>for</span> (<span>let</span> i <span>=</span> <span>0;</span> i <span>&lt;</span>
+          <span>arr</span>.<span>length;</span> i<span>++</span>) <span>{</span></a>
+        <a title="4"> sum <span>+=</span> arr[i]<span>;</span></a>
+        <a title="5"> <span>}</span></a>
+        <a id=-6" title="6"> <span>return</span> sum<span>;</span></a>
+        <a title="7"><span>}</span></a></code></pre>
+  </div>
+  <p>You could loop through each number and add them to a running total and then return it. That would be the iterative
+    solution.</p>
+  <p>The <em>recursive solution</em> would instead say:</p>
+  <ul>
+    <li>The sum of an entire array is the sum of it’s <em>first half</em> [1,2,3,4] + its <em>second half</em> [5,6,7,8]
+    </li>
+    <li>The sum of that half array is the sum of <strong>its</strong> first half [1,2] + <strong>its</strong> second
+      half [3,4]</li>
+    <li>The sum of that array is the sum of its first half [1] and its second half [2]</li>
+    <li>(<strong>Base Case</strong>) The sum of that array is just itself since it’s a single element: 1</li>
+  </ul>
+  <p>This might seem almost silly. Why would you reduce it in this way? But it’s an incredibly powerful technique, for
+    some reasons:</p>
+  <ul>
+    <li>The final step is usually very simple</li>
+    <li>If you can run these different steps in parallel, the total clock time to determine the answer could be shorter
+    </li>
+  </ul>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>function</span> <span>recursiveSum</span>(arr) <span>{</span></a>
+        <a id=-2" title="2"> <span>if</span> (<span>arr</span>.<span>length</span> <span>===</span> <span>1</span>)
+          <span>{</span></a>
+        <a id=-3" title="3"> <span>return</span> arr[<span>0</span>]<span>;</span> <span>// Base Case</span></a>
+        <a id=-4" title="4"> <span>}</span> <span>else</span> <span>{</span></a>
+        <a id=-5" title="5"> <span>const</span> halfwayPoint <span>=</span>
+          <span>Math</span>.<span>floor</span>(<span>arr</span>.<span>length</span> / <span>2</span>)<span>;</span></a>
+        <a id=-6" title="6"> <span>const</span> firstHalf <span>=</span> <span>arr</span>.<span>slice</span>(<span>0,</span>
+          halfwayPoint)<span>;</span></a>
+        <a id=-7" title="7"> <span>const</span> secondHalf <span>=</span>
+          <span>arr</span>.<span>slice</span>(halfwayPoint<span>,</span>
+          <span>arr</span>.<span>length</span>)<span>;</span></a>
+        <a id=-8" title="8"> <span>return</span> <span>recursiveSum</span>(firstHalf) <span>+</span>
+          <span>recursiveSum</span>(secondHalf)<span>;</span></a>
+        <a id=-9" title="9"> <span>}</span></a>
+        <a id=-10" title="10"><span>}</span></a></code></pre>
+  </div>
+  <h4 id="resources">Resources</h4>
+  <ul>
+    <li><a class="btn" href="https://www.youtube.com/watch?v=k7-N8R0-KY4">FunFunFunction - Recursion - Part 7 of
+        Functional
+        Programming in JavaScript video (16 mins watch)</a> - Learn from Matthias about recursion.</li>
+    <li><a class="btn"
+        href="https://docs.google.com/presentation/d/1KQ5bPs839gvH3iO4-v5fdVZ3JOH9_4QP0y5g0_YxxlQ/edit#slide=id.p">Recursion
+        Slides</a></li>
+    <li><a class="btn" href="https://www.useloom.com/share/e2ce9f18d8af4fa1a836ce72d873566c">Recursion slides video (12
+        mins
+        watch)</a></li>
+    <li><a class="btn" href="https://www.youtube.com/watch?v=93_iFq6rBy8">Recursion: Russian Nesting Dolls video (5 mins
+        watch)</a></li>
+  </ul>
+  <h3 id="supplemental-materials">Supplemental Materials</h3>
+  <ul>
+    <li><a class="btn" href="https://www.thecodingdelight.com/understanding-recursion-javascript/">Understand Recursion
+        in
+        JavaScript in depth</a></li>
+    <li><a class="btn" href="https://www.geeksforgeeks.org/recursion-practice-problems-solutions/">Recursive Practice
+        Problems</a></li>
+  </ul>
+  <h3 id="lesson">Lesson</h3>
+  <ul>
+    <li>Video walkthrough of lesson slides <a class="btn"
+        href="https://www.useloom.com/share/e2ce9f18d8af4fa1a836ce72d873566c">Recursion video (12 mins watch)</a></li>
+    <li>Read through lesson slides <a class="btn"
+        href="https://docs.google.com/presentation/d/1KQ5bPs839gvH3iO4-v5fdVZ3JOH9_4QP0y5g0_YxxlQ/edit#slide=id.p">Recursion</a>
+    </li>
+    <li>Watch video <a class="btn" href="https://www.youtube.com/watch?v=93_iFq6rBy8">Recursion: Russian Nesting Dolls
+        (5
+        mins watch)</a></li>
+    <li>Watch <a class="btn" href="https://www.youtube.com/watch?v=k7-N8R0-KY4">FunFunFunction - Recursion - Part 7 of
+        Functional Programming in JavaScript video (16 mins watch)</a> - Learn from Matthias about recursion.</li>
+  </ul>
+  <h3 id="things-to-remember">Things to Remember</h3>
+  <ul>
+    <li>You can solve all recursion problems with a while loop and vice versa
+      <ul>
+        <li>Recursion solutions are usually simpler to implement and easier to read</li>
+      </ul>
+      </li>
+      <li>Recursive algorithms are often used to solve problems with the Tree data structures (for example, the DOM is a
+        tree!)</li>
+  </ul>
+  <h3 id="demonstration">Demonstration</h3>
+  <p>The instructor demonstrates in the video walkthrough an example of a recursive algorithm in JavaScript.</p>
+  <h3 id="independent-practice">Independent Practice</h3>
+  <p>Write a recursive function <code>isPalindrome(aString)</code> that returns <code>true</code> if
+    <code>aString</code>
+    is a <a class="btn" href="https://en.wikipedia.org/wiki/Palindrome">palindrome</a>. A palindrome is any string that
+    is
+    the same read forwards or backwards:
+  </p>
+  pre data-role="codeBlock" data-info="js" class="language-javascript"><code>isPalindrome(&#39;racecar&#39;) -&gt; true
+isPalindrome(&#39;step on no pets&#39;) -&gt; true
+isPalindrome(&#39;a&#39;) -&gt; true
+isPalindrome(&#39;goat&#39;) -&gt; false</code></pre>
+  <h3 id="challenges">Challenges</h3>
+  <h4 id="challenge---factorial">[Challenge] - Factorial</h4>
+  <p>The <a class="btn" href="https://en.wikipedia.org/wiki/Factorial#Definition">factorial</a> of a whole number
+    <code>n</code> is written <code>n!</code> and defined as the product of all positive whole numbers less than or
+    equal
+    to <code>n</code>.
+  </p>
+  <p>For example, the value of <code>3!</code> (read: three factorial) is <code>6</code> which is calculated by
+    multiplying together all whole numbers less than or equal to <code>3</code>:</p>
+  pre data-role="codeBlock" data-info="js" class="language-javascript"><code>factorial(3) = 3! = 3 * 2 * 1 = 6</code>
+  </pre>
+  <p>The value of <code>10</code> factorial, for example, can be calculated by:</p>
+  pre data-role="codeBlock" data-info="js" class="language-javascript"><code>10 * 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1</code>
+  </pre>
+  <blockquote>
+    <p>Write a function that uses recursion to calculate the factorial of a number.</p>
+  </blockquote>
+  <h4 id="challenge---fibonacci">[Challenge] - Fibonacci</h4>
+  <p>The <a class="btn" href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci sequence</a> appears in
+    unexpected
+    places all over mathematics and nature. It is defined by the following three rules:</p>
+  <ul>
+    <li>The first Fibonacci number is 1</li>
+    <li>The second Fibonacci number is 1</li>
+    <li>Every other Fibonacci number is the sum of the previous two Fibonacci numbers</li>
+  </ul>
+  <p>For example, the first few numbers in the Fibonacci sequence are:</p>
+  pre data-role="codeBlock" data-info="js" class="language-javascript"><code>1, 1, 2, 3, 5, 8, 13, 21, ...</code></pre>
+  <p>The next Fibonacci number is:</p>
+  pre data-role="codeBlock" data-info="js" class="language-javascript"><code>13 + 21 = 34</code></pre>
+  <blockquote>
+    <p>Write a method <code>fib(n)</code> that calculates the <code>n</code>th Fibonacci number (starting from
+      <code>n = 1</code>).
+    </p>
+  </blockquote>
+  <h4 id="challenge---gcd">[Challenge] - GCD</h4>
+  <p>The <a class="btn" href="https://en.wikipedia.org/wiki/Greatest_common_divisor">GCD</a> of two or more integers,
+    none
+    of which are zero is the largest positive integer that divides each of the integers. The greatest common
+    divisor(GCD)
+    is also known as:</p>
+  <ul>
+    <li>the greatest common factor (GCF),</li>
+    <li>highest common factor (HCF),</li>
+    <li>greatest common measure (GCM),</li>
+    <li>highest common divisor.</li>
+  </ul>
+  <p>For example:</p>
+  <p>the GCD of 48 and 14 is 2.</p>
+  <h5 id="pseudocode-to-calculate-gcd-of-two-numbers">Pseudocode to calculate GCD of two numbers:</h5>
+  pre data-role="codeBlock" data-info="js" class="language-javascript"><code>GCD(x, y)
+Begin
+    if y = 0 then
+        return x;
+    else
+        Call: GCD(y, x%y);
+    endif
+End</code></pre>
+  <h4 id="challenge---tree-operations-optional-additional-practice">[Challenge] - Tree Operations (Optional Additional
+    Practice)</h4>
+  <p>Consider a fictitious hierarchical organization that looks like follows:</p>
+  <figure>
+    <img src="./pnr-hierarchy.png"
+      alt="A diagram describing a (fictitious) hierarchical organization in the form of an n-ary tree." />
+    <figcaption>A diagram describing a (fictitious) hierarchical organization in the form of an n-ary tree.</figcaption>
+  </figure>
+  <p>It’s a simple reporting structure, but we can do many interesting things with it. The data structure to represent
+    each node on this tree can be simply expressed as follows:</p>
+  pre data-role="codeBlock" data-info="js" class="language-javascript"><code>class Employee {
+    constructor(name, title, directReports=[]) {
+        this.name = name
+        this.title = title
+        this.directReports = directReports
+    }
+}</code></pre>
+  <p>The very first thing you’d want to do is to starting building the object in your code that would accurately
+    represent the hierarchy in the diagram. Here’s a small sample of what would be needed:</p>
+  pre data-role="codeBlock" data-info="js" class="language-javascript"><code>let donnaMeagle = new Employee(&quot;Donna Meagle&quot;, &quot;Permits Manager&quot;);
+
+let jerryGergich = new Employee(&quot;Jerry Gergich&quot;, &quot;Mindless Factotum&quot;);
+
+let ronSwanson = new Employee(&quot;Ron Swanson&quot;, &quot;Parks Department Head&quot;, [donnaMeagle, jerryGergich]);</code></pre>
+  <p>Build the entire hierarchy of employees first, and then write functions on the <code>Employee</code> class that
+    would:</p>
+  <ol type="1">
+    <li>
+      <p>Give you the total number of reports (both direct and indirect) for any given employee. For the given diagram,
+        <code>getTotalReportsCount()</code> on Chris Traeger should return <code>8</code>.
+      </p>
+    </li>
+    <li>
+      <p>Give you all the reports (both direct and indirect) for any given employee. For the given diagram,
+        <code>getAllReports()</code> on Chris Traeger should return an array of employee objects for Ben Wyatt, Ann
+        Perkins, Ron Swanson, April Ludgate, Jerry Gergich, Tom Haverford, Craig Middlebrooks, and Donna Meagle.
+      </p>
+    </li>
+  </ol>
+  <h3 id="check-for-understanding">Check for Understanding</h3>
+  <p>Given the following code:</p>
+  pre data-role="codeBlock" data-info="js" class="language-javascript"><code>int fun1(int x, int y)
+{
+  if(x == 0)
+    return y;
+  else
+    return fun1(x - 1,  x + y);
+}</code></pre>
+  <p>What do these function calls return? <code>fun1(1, 1)</code> <code>fun1(2, 1)</code> <code>fun1(2, 2)</code>
+    <code>fun1(0, 2)</code>
+  </p>
+  <h3 id="and-remember-always-have-a-base-case">And remember: always have a base case</h3>
+  <p><img src="./recursion-bear.jpg" /></p>
+  <p>Note: You can get this on a <a class="btn"
+      href="https://www.teepublic.com/t-shirt/1935527-maximum-call-stack-size-exceeded-programming">T-shirt</a></p>
+
+</body>
+
+</html>

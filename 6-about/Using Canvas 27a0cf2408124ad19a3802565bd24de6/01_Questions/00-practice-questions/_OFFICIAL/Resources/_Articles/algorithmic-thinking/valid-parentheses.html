@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A description of the page and its contents" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Page Title</title>
+        <link rel="stylesheet" href="./../../../assets/style.css" />
+        <link rel="stylesheet" href="./../../../assets/prism.css" />
+        <script async src="./../../../assets/prism.js"></script>
+</head>
+
+<body>
+  <h1 id="valid-parentheses">Valid Parentheses</h1>
+  <p><strong>Translator: <a class="btn" href="https://github.com/andavid">andavid</a></strong></p>
+  
+  <p>The valid of parentheses is a very common and practical problem. For example, the editor and the compiler would
+    check the code we wrote whether the parentheses were correctly closed. As our code might contain the characters ‘(’,
+    ‘)’, ‘{’, ‘}’, ‘[’ and ’]’, it’s a little bit difficult to determine.</p>
+  <p>This article is on an algorithm problem about valid parentheses. I believe it will help you to come to a better
+    understanding of stack.</p>
+  <p>The problem is very simple. Given a string containing just the characters ‘(’, ‘)’, ‘{’, ‘}’, ‘[’ and ’]’,
+    determine if the input string is valid.</p>
+  pre data-role="codeBlock" data-info="js" class="language-javascript"><code>Input: &quot;()[]{}&quot;
+Output: true
+
+Input: &quot;([)]&quot;
+Output: false
+
+Input: &quot;{[]}&quot;
+Output: true</code></pre>
+  <p>Before solving this problem, let’s lower the difficulty. If the given string contains only parentheses, i.e. ‘(’
+    and ‘)’, how to check if the string is valid?</p>
+  <h2 id="deal-with-parentheses">deal with parentheses</h2>
+  <p>As the string contains only parentheses, if the string is valid we must make sure:</p>
+  <p><strong>every <code>)</code>’s left must have a corresponding <code>(</code></strong>.</p>
+  <p>For example: <code>()))((</code>, the two right parenthesis in the middle have no corresponding left parenthesis,
+    so this string is not valid.</p>
+  <p>We can write out the algorithm according to this thought.</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>bool</span> isValid(string str) {</a>
+            <a id=-2" title="2"> <span>// the number of left parenthesis to be matched</span></a>
+            <a id=-3" title="3"> <span>int</span> left = <span>0</span>;</a>
+            <a id=-4" title="4"> <span>for</span> (<span>char</span> c : str) {</a>
+    <a id=-5" title="5"> <span>if</span> (c == <span>&#39;(&#39;</span>)</a>
+    <a id=-6" title="6"> left++;</a>
+    <a id=-7" title="7"> <span>else</span> <span>// encounter right parenthesis</span></a>
+    <a id=-8" title="8"> left--;</a>
+    <a id=-9" title="9"></a>
+    <a id=-10" title="10"> <span>if</span> (left &lt; <span>0</span>)</a>
+    <a id=-11" title="11"> <span>return</span> <span>false</span>;</a>
+    <a id=-12" title="12"> }</a>
+    <a id=-13" title="13"> <span>return</span> left == <span>0</span>;</a>
+    <a id=-14" title="14">}</a></code></pre>
+    </div>
+    <p>If the string contains only one parentheses, the algorithm above will work. As for the case with three kind of
+      parentheses, At first I imitate this thought, define three variables <code>left1</code>, <code>left2</code> and
+      <code>left3</code>, each handle one parentheses. Although we need to write a lot of if-else branches, it seems to
+      solve the problem.
+    </p>
+    <p>But actually, it doesn’t work. For example, <code>(())</code> is valid in the case with one parentheses, while
+      <code>[(])</code> is not valid in the case with multiple parentheses.
+    </p>
+    <p>Only recording the number of times that left parenthesis occurs is not enough to make the right judgments. We need
+      to increase the information we stored. We can use stack to imitate similar thoughts.</p>
+  <h2 id="deal-with-multiple-parentheses">deal with multiple parentheses</h2>
+  <p>Stack is a FILO(first in last out) data structure. It’s very useful in dealing with parentheses.</p>
+  <p>In this problem, we use a <code>left</code> stack instead of the <code>left</code> variable before. <strong>Having
+      left parenthesis into stack, as for right parenthesis, find the recent left parenthesis in the stack, and then
+      check if matched.</strong>.</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>bool</span> isValid(string str) {</a>
+            <a title="2"> stack&lt;<span>char</span>&gt; left;</a>
+            <a title="3"> <span>for</span> (<span>char</span> c : str) {</a>
+    <a id=-4" title="4"> <span>if</span> (c == <span>&#39;(&#39;</span> || c == <span>&#39;{&#39;</span> || c ==
+      <span>&#39;[&#39;</span>)</a>
+    <a id=-5" title="5"> left.push(c);</a>
+    <a id=-6" title="6"> <span>else</span> <span>// character c is right parenthesis</span></a>
+    <a id=-7" title="7"> <span>if</span> (!left.empty() &amp;&amp; leftOf(c) == left.top())</a>
+    <a id=-8" title="8"> left.pop();</a>
+    <a id=-9" title="9"> <span>else</span></a>
+    <a id=-10" title="10"> <span>// not match with recent left parenthesis</span></a>
+    <a id=-11" title="11"> <span>return</span> <span>false</span>;</a>
+    <a id=-12" title="12"> }</a>
+    <a id=-13" title="13"> <span>// whether all left parenthesis are matched</span></a>
+    <a id=-14" title="14"> <span>return</span> left.empty();</a>
+    <a id=-15" title="15">}</a>
+    <a id=-16" title="16"></a>
+    <a id=-17" title="17"><span>char</span> leftOf(<span>char</span> c) {</a>
+    <a id=-18" title="18"> <span>if</span> (c == <span>&#39;}&#39;</span>) <span>return</span>
+      <span>&#39;{&#39;</span>;</a>
+    <a id=-19" title="19"> <span>if</span> (c == <span>&#39;)&#39;</span>) <span>return</span>
+      <span>&#39;(&#39;</span>;</a>
+    <a id=-20" title="20"> <span>return</span> <span>&#39;[&#39;</span>;</a>
+    <a id=-21" title="21">}</a></code></pre>
+    </div>

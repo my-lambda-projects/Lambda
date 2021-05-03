@@ -1,0 +1,17 @@
+.card {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.cardInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 15px 5px 15px;
+}
+
+.cardInner > p {
+  margin-top: 5px;
+}

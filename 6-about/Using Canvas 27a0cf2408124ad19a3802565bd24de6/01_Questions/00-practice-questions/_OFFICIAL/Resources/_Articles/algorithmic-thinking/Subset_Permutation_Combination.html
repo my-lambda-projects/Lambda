@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A description of the page and its contents" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Page Title</title>
+        <link rel="stylesheet" href="./../../../assets/style.css" />
+        <link rel="stylesheet" href="./../../../assets/prism.css" />
+        <script async src="./../../../assets/prism.js"></script>
+</head>
+
+<body>
+  <h1 id="solve-permutation-combination-subset-problems-by-backtracking">Solve Permutation, Combination, Subset Problems
+    by Backtracking</h1>
+  <p><strong>Translator: <a class="btn" href="https://github.com/yx-tan">yx-tan</a></strong></p>
+  
+  <p>Today let’s talk about three common interview problems which are quite confusing. They are finding subset, finding
+    permutation and finding combination.</p>
+  <p>These problems can be solved by a backtracking algorithm template, what’s more the subset problem can also be
+    solved by mathematical induction. You can keep the routines of these three problems in mind to avoid confusion.</p>
+  <h3 id="subset">1. Subset</h3>
+  <p>The problem is simple: Input an array <strong>without duplicate numbers</strong>, and your algorithm needs to
+    output all subsets of these numbers.</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1">vector&lt;vector&lt;<span>int</span>&gt;&gt;
+            subsets(vector&lt;<span>int</span>&gt;&amp; nums);</a></code></pre>
+  </div>
+  <p>For example, for the input <code>nums = [1,2,3]</code>, your algorithm should output 8 subsets, including empty set
+    and the set itself. The order can be different:</p>
+  <p>[ [],[1],[2],[3],[1,3],[2,3],[1,2],[1,2,3] ]</p>
+  <p><strong>The first solution is using the idea of mathematical induction</strong>: Suppose now I know the results of
+    a smaller subproblem, then how can I derive the results of the current problem?</p>
+  <p>To be specific, now you need to find the subset of <code>[1,2,3]</code>, if you have already known the subset of
+    <code>[1,2]</code>, can you derive the subset of <code>[1,2,3]</code>? Let’s take a look of the subset of
+    <code>[1,2]</code>:
+  </p>
+  <p>[ [],[1],[2],[1,2] ]</p>
+  <p>You will find such a rule:</p>
+  <p>subset(<code>[1,2,3]</code>) - subset(<code>[1,2]</code>)</p>
+  <p>= [3],[1,3],[2,3],[1,2,3]</p>
+  <p>And this is to add 3 to each set in the result of subset(<code>[1,2]</code>).</p>
+  <p>In other words, if <code>A = subset([1,2])</code>, then:</p>
+  <p><code>subset([1,2,3])</code></p>
+  <p>= A + [A[i].add(3) for i = 1..len(A)]</p>
+  <p>This is a typical recursive structure: The subset of<code>[1,2,3]</code>can be derived by<code>[1,2]</code>, and
+    the subset of <code>[1,2]</code> can be derived by <code>[1]</code>. Obviously, the base case is that when the input
+    set is an empty set, the output subset is also an empty set.</p>
+  <p>It is easy to understand if we translate the idea into code:</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1">vector&lt;vector&lt;<span>int</span>&gt;&gt;
+            subsets(vector&lt;<span>int</span>&gt;&amp; nums) {</a>
+            <a id=-2" title="2"> <span>// base case, return an empty set</span></a>
+            <a id=-3" title="3"> <span>if</span> (nums.empty()) <span>return</span> {{}};</a>
+            <a id=-4" title="4"> <span>// take the last element</span></a>
+            <a id=-5" title="5"> <span>int</span> n = nums.back();</a>
+            <a id=-6" title="6"> nums.pop_back();</a>
+            <a id=-7" title="7"> <span>// recursively calculate all subsets of the previous elements</span></a>
+            <a id=-8" title="8"> vector&lt;vector&lt;<span>int</span>&gt;&gt; res = subsets(nums);</a>
+            <a id=-9" title="9"></a>
+            <a id=-10" title="10"> <span>int</span> size = res.size();</a>
+            <a id=-11" title="11"> <span>for</span> (<span>int</span> i = <span>0</span>; i &lt; size; i++) {</a>
+            <a id=-12" title="12"> <span>// then append to the previous result</span></a>
+            <a id=-13" title="13"> res.push_back(res[i]);</a>
+            <a id=-14" title="14"> res.back().push_back(n);</a>
+            <a id=-15" title="15"> }</a>
+            <a id=-16" title="16"> <span>return</span> res;</a>
+            <a id=-17" title="17">}</a></code></pre>
+  </div>
+  <p><strong>It is easy to make mistakes calculating the time complexity of this problem.</strong> The method we said to
+    calculate the time complexity of a recursive problem is to find the recursion depth and then multiply it by the
+    number of iterations in each recursion. However, for this problem, the recursion depth is obviously N, but we found
+    that the number of iterations of for loop in each recursion depends on the length of <code>res</code>, which is not
+    fixed.</p>
+  <p>According to the idea above, the length of <code>res</code> should be doubled every recursion. So the total number
+    of iterations should be 2^N. Or don’t bother, how many subsets of a set of size N has do you think? 2^N, right? So
+    at least 2^N elements must be added to <code>res</code>.</p>
+  <p>So is the time complexity of the algorithm O (2^N)? Still wrong. 2^N subsets are added to <code>res</code> by
+    <code>push_back</code>, so the efficiency of <code>push_back</code> operation must be considered:
+  </p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>for</span> (<span>int</span> i = <span>0</span>; i &lt; size; i++) {</a>
+            <a title="2"> res.push_back(res[i]); <span>// O(N)</span></a>
+            <a title="3"> res.back().push_back(n); <span>// O(1)</span></a>
+            <a id=-4" title="4">}</a></code></pre>
+  </div>
+  <p>Because <code>res[i]</code> is also an array, <code>push_back</code> copies <code>res[i]</code>and adds it to the
+    end of the array, so the time of one operation is O (N).</p>
+  <p>Above all, the total time complexity is O (N*2^N), which is quite time-consuming.</p>
+  <p>Considering space complexity, if the space used to store the returned results is not calculated, only O(N)
+    recursive stack space is required. If you calculate the space for <code>res</code>, it should be O (N*2^N).</p>
+  <p><strong>The second general method is the backtracking algorithm</strong>. There is a template for backtracking
+    algorithms in the old article <a class="btn"
+      href="https://github.com/labuladong/fucking-algorithm/blob/english/think_like_computer/DetailsaboutBacktracking.md">DetailsaboutBacktracking</a>:
+  </p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1">result <span>=</span> []</a>
+            <a id=-2" title="2"><span>def</span> backtrack(Path, Seletion List):</a>
+            <a id=-3" title="3"> <span>if</span> meet the End Conditon:</a>
+            <a id=-4" title="4"> result.add(Path)</a>
+            <a id=-5" title="5"> <span>return</span></a>
+            <a id=-6" title="6"> </a>
+            <a id=-7" title="7"> <span>for</span> seletion <span>in</span> Seletion List:</a>
+            <a id=-8" title="8"> select</a>
+            <a id=-9" title="9"> backtrack(Path, Seletion List)</a>
+            <a id=-10" title="10"> deselect</a></code></pre>
+  </div>
+  <p>We just need to modify the template of the backtracking algorithm:</p>
+  <div>
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a   title="1">vector&lt;vector&lt;<span >int</span>&gt;&gt; res;</a>
+<a  id=-2" title="2"></a>
+<a  id=-3" title="3">vector&lt;vector&lt;<span >int</span>&gt;&gt; subsets(vector&lt;<span >int</span>&gt;&amp; nums) {</a>
+<a  id=-4" title="4">    <span >// record the path</span></a>
+<a  id=-5" title="5">    vector&lt;<span >int</span>&gt; track;</a>
+<a  id=-6" title="6">    backtrack(nums, <span >0</span>, track);</a>
+<a  id=-7" title="7">    <span >return</span> res;</a>
+<a  id=-8" title="8">}</a>
+<a  id=-9" title="9"></a>
+<a  id=-10" title="10"><span >void</span> backtrack(vector&lt;<span >int</span>&gt;&amp; nums, <span >int</span> start, vector&lt;<span >int</span>&gt;&amp; track) {</a>
+<a  id=-11" title="11">    res.push_back(track);</a>
+<a  id=-12" title="12">    <span >for</span> (<span >int</span> i = start; i &lt; nums.size(); i++) {</a>
+<a  id=-13" title="13">        <span >// select</span></a>
+<a  id=-14" title="14">        track.push_back(nums[i]);</a>
+<a  id=-15" title="15">        <span >// backtrack</span></a>
+<a  id=-16" title="16">        backtrack(nums, i + <span >1</span>, track);</a>
+<a  id=-17" title="17">        <span >// deselect</span></a>
+<a  id=-18" title="18">        track.pop_back();</a>
+<a  id=-19" title="19">    }</a>
+<a id=-20" title="20">}</a></code></pre>
+</div>
+<p>It can be seen that the update position of <code>res</code> is in the preorder traversal, which means,
+  <strong><code>res</code> is all nodes on the tree </strong>:
+</p>
+<p><img src="./pictures/subset/1.jpg" /></p>
+  <h3 id="combination">2. Combination</h3>
+  <p>Input two numbers <code>n, k</code>, and the algorithm outputs all combinations of k numbers in
+    <code>[1..n]</code>.
+  </p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1">vector&lt;vector&lt;<span>int</span>&gt;&gt; combine(<span>int</span> n,
+            <span>int</span> k);</a></code></pre>
+  </div>
+  <p>For example, input <code>n = 4, k = 2</code>, the output is as follows, the order does not matter, but it cannot
+    contain duplicates (according to the definition of the combination,<code>[1,2]</code>and<code>[2,1]</code>are also
+    duplicates):</p>
+  <p>[ [1,2], [1,3], [1,4], [2,3], [2,4], [3,4]]</p>
+  <p>This is also a typical backtracking algorithm. <code>K</code> limits the height of the tree, and <code>n</code>
+    limits the width of the tree. Just continue to use the template framework of the backtracking algorithm we have
+    mentioned before:</p>
+  <p><img src="./pictures/subset/2.jpg" /></p>
+  <div id="cb7">
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a   title="1">vector&lt;vector&lt;<span >int</span>&gt;&gt;res;</a>
+<a  id="cb7-2" title="2"></a>
+<a  id="cb7-3" title="3">vector&lt;vector&lt;<span >int</span>&gt;&gt; combine(<span >int</span> n, <span >int</span> k) {</a>
+<a  id="cb7-4" title="4">    <span >if</span> (k &lt;= <span >0</span> || n &lt;= <span >0</span>) <span >return</span> res;</a>
+<a  id="cb7-5" title="5">    vector&lt;<span >int</span>&gt; track;</a>
+<a  id="cb7-6" title="6">    backtrack(n, k, <span >1</span>, track);</a>
+<a  id="cb7-7" title="7">    <span >return</span> res;</a>
+<a  id="cb7-8" title="8">}</a>
+<a  id="cb7-9" title="9"></a>
+<a  id="cb7-10" title="10"><span >void</span> backtrack(<span >int</span> n, <span >int</span> k, <span >int</span> start, vector&lt;<span >int</span>&gt;&amp; track) {</a>
+<a  id="cb7-11" title="11">    <span >// reach the bottom of tree</span></a>
+<a  id="cb7-12" title="12">    <span >if</span> (k == track.size()) {</a>
+<a  id="cb7-13" title="13">        res.push_back(track);</a>
+<a  id="cb7-14" title="14">        <span >return</span>;</a>
+<a  id="cb7-15" title="15">    }</a>
+<a  id="cb7-16" title="16">    <span >// note: i is incremented from start </span></a>
+<a  id="cb7-17" title="17">    <span >for</span> (<span >int</span> i = start; i &lt;= n; i++) {</a>
+<a  id="cb7-18" title="18">        <span >// select</span></a>
+<a  id="cb7-19" title="19">        track.push_back(i);</a>
+<a  id="cb7-20" title="20">        backtrack(n, k, i + <span >1</span>, track);</a>
+<a  id="cb7-21" title="21">        <span >// deselect</span></a>
+<a  id="cb7-22" title="22">        track.pop_back();</a>
+<a  id="cb7-23" title="23">    }</a>
+<a id="cb7-24" title="24">}</a></code></pre>
+</div>
+<p>The <code>backtrack</code> function is similar to computing a subset, except that the time to update
+  <code>res</code> is reaching the bottom of tree.
+</p>
+  <h3 id="permutation">3. Permutation</h3>
+  <p>Enter an array <code>nums</code> which <strong>does not contain duplicate numbers </strong>, and return all
+    permutations of these numbers.</p>
+  <div id="cb8">
+    pre data-role="codeBlock" data-info="js"
+    class="language-javascript"><code><a   title="1">vector&lt;vector&lt;<span >int</span>&gt;&gt; permute(vector&lt;<span >int</span>&gt;&amp; nums);</a></code>
+    </pre>
+  </div>
+  <p>For example, for input array <code>[1,2,3]</code>, the output result should be as follows, the order does not
+    matter, there can be no duplicates:</p>
+  <p>[ [1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], [3,2,1]]</p>
+  <p>This problem is used in <a class="btn"
+      href="https://github.com/labuladong/fucking-algorithm/blob/english/think_like_computer/DetailsaboutBacktracking.md">DetailsaboutBacktracking</a>
+    to explain the backtracking template. We use this problem again to compare the coded of two backtracking algorithms
+    “permutation” and “combination”.</p>
+  <p>First draw a backtrack tree and take a look:</p>
+  <p><img src="./pictures/subset/3.jpg" /></p>
+  <p>Our solution was written in Java code at that time:</p>
+  <div id="cb9">
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a   title="1"><span >List</span>&lt;<span >List</span>&lt;<span >Integer</span>&gt;&gt; res = <span >new</span> <span >LinkedList</span>&lt;&gt;();</a>
+<a  id="cb9-2" title="2"></a>
+<a  id="cb9-3" title="3"><span >/* main function, input a uique set of numbers and return all permutations of them */</span></a>
+<a id="cb9-4" title="4"><span>List</span>&lt;<span>List</span>&lt;<span>Integer</span>&gt;&gt;
+  <span>permute</span>(<span>int</span>[] nums) {</a>
+<a  id="cb9-5" title="5">    <span >// record &quot;path&quot;</span></a>
+<a id="cb9-6" title="6"> <span>LinkedList</span>&lt;<span>Integer</span>&gt; track = <span>new</span>
+  <span>LinkedList</span>&lt;&gt;();</a>
+<a id="cb9-7" title="7"> <span>backtrack</span>(nums, track);</a>
+<a  id="cb9-8" title="8">    <span >return</span> res;</a>
+<a  id="cb9-9" title="9">}</a>
+<a  id="cb9-10" title="10"></a>
+<a id="cb9-11" title="11"><span>void</span> <span>backtrack</span>(<span>int</span>[] nums, <span t</span>&lt;<span
+      span>&gt; track) {</a>
+<a  id="cb9-12" title="12">    <span >// trigger the ending condition</span></a>
+<a id="cb9-13" title="13"> <span>if</span> (track.<span>size</span>() == nums.<span>length</span>) {</a>
+<a id="cb9-14" title="14"> res.<span>add</span>(<span>new</span> <span t</span>(track));</a>
+<a  id="cb9-15" title="15">        <span >return</span>;</a>
+<a  id="cb9-16" title="16">    }</a>
+<a  id="cb9-17" title="17">    </a>
+<a id="cb9-18" title="18"> <span>for</span> (<span>int</span> i = <span>0</span>; i &lt; nums.<span>length</span>; i++)
+  {</a>
+<a  id="cb9-19" title="19">        <span >// exclud illegal selections</span></a>
+<a id="cb9-20" title="20"> <span>if</span> (track.<span>contains</span>(nums[i]))</a>
+<a  id="cb9-21" title="21">            <span >continue</span>;</a>
+<a  id="cb9-22" title="22">        <span >// select</span></a>
+<a id="cb9-23" title="23"> track.<span>add</span>(nums[i]);</a>
+<a  id="cb9-24" title="24">        <span >// go to the next decision tree</span></a>
+<a id="cb9-25" title="25"> <span>backtrack</span>(nums, track);</a>
+<a  id="cb9-26" title="26">        <span >// deselect</span></a>
+<a id="cb9-27" title="27"> track.<span>removeLast</span>();</a>
+<a  id="cb9-28" title="28">    }</a>
+<a id="cb9-29" title="29">}</a></code></pre>
+</div>
+<p>The backtracking template remains unchanged, but according to the trees drawn by the permutation problem and the
+  combination problem, the tree of the permutation problem is relatively symmetrical, and the tree of the combination
+  problem has fewer right nodes.</p>
+<p>In the code we can see, the permutation problem uses the <code>contains</code> method to exclude the numbers that
+  have been selected in <code>track</code> each time; while the combination problem passes a <code>start</code>
+  parameter to exclude the numbers before the <code>start</code> index .</p>
+<p><strong>The above is the solution to the three problems of permutation, combination and subsets. To sum
+    up:</strong></p>
+<p>The subset problem can use the idea of mathematical induction: assuming that the results of a smaller problem are
+  known, and thinking about how to derive the results of the original problem. You can also use the backtracking
+  algorithm, using the <code>start</code> parameter to exclude selected numbers.</p>
+<p>The combination problem uses the backtracking idea, and the results can be expressed as a tree structure. We only
+  need to apply the backtracking algorithm template. The key point is to use a <code>start</code> to exclude the
+  selected numbers.</p>
+<p>The permutation problem uses the backtracking idea, and it can also be expressed as a tree structure to apply the
+  algorithm template. The key point is to use the <code>contains</code> method to exclude the selected numbers. There
+  is detailed analysis previously. Here we mainly compare it with the combination problem.</p>
+<p>Keeping the shape of these trees in mind is enough to deal with most backtracking algorithm problems. It is nothing
+  more than the pruning of <code>start</code> or <code>contains</code>. There is no other trick.</p>
+
+</body>
+
+</html>

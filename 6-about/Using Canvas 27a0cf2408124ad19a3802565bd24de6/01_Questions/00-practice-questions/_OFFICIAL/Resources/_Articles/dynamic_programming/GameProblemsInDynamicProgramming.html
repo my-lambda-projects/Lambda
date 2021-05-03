@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A description of the page and its contents" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Page Title</title>
+        <link rel="stylesheet" href="./../../../assets/style.css" />
+        <link rel="stylesheet" href="./../../../assets/prism.css" />
+        <script async src="./../../../assets/prism.js"></script>
+</head>
+
+<body>
+  <h1 id="game-problems-in-dynamic-programming">Game Problems In Dynamic Programming</h1>
+  <p><strong>Translator: <a class="btn" href="https://github.com/wadegrc">wadegrc</a></strong></p>
+  
+  <p>In the last article,we discussed a fun「stone game 」in <a class="btn" href="../高频面试系列/一行代码解决的智力题.md">several
+      puzzles</a>,By the
+    constraints of the problem, the game is first to win.But intelligence questions are always intelligence
+    questions,Real algorithmic problems are not solved by cutting corners. So this paper is going to talk about the
+    stone game and assuming that both of these guys are smart enough, who’s going to win in the end how do you solve
+    this problem with dynamic programming.</p>
+  <p>Game problems follow a similar pattern,The core idea is to use tuples to store the game results of two people on
+    the basis of two-dimensional dp array.Once you’re mastered this technique,if someone asks you a similar question
+    again,you can take it in stride.</p>
+  <p>We changed the stone game to be more general:</p>
+  <p>There is a pile of stones in front of you and your friends,it’s represented by an array of piles,and piles[i] is
+    how many stones are there in the ith heap.You take turns with the stones,one pile at a time,but you can only take
+    the left or the right piles.After all the stones have been taken away, the last one who has more stones wins.</p>
+  <p>The heap number of stones can be any positive integer,and the total number of stones can be any positive
+    integer,That would break the situation in which one must win first.Let’s say I have three piles of rocks:
+    <code>piles = [1, 100, 3]</code>,Whether it’s a 1or a 3,the 100 that’s going to make the difference is going to be
+    taken away by the back hand,and the back hand is going to win.
+  </p>
+  <p><strong>Assuming they are both smart</strong>,design an algorithm that returns the difference between the final
+    score of the first hand and the last hand,As in the example above,the first hand gets 4 points,the second hand gets
+    100 points, and you should return -96.</p>
+  <p>With this design,this problem is a Hard dynamic programming problem.<strong>The difficuty with gaming is that two
+      people have to take turns choosing,and they’re both smart.How do we program?</strong></p>
+  <p>It’s the approach that’s been emphasized many times,The first step is to define the array,and then,like the stock
+    buying and selling series,once you find the「status」and the「selection」,and then it’s easy.</p>
+  <h3 id="define-the-meaning-of-the-dp-array">1.Define the meaning of the dp array:</h3>
+  <p>Defining what a dp array means is very tachnical,The dp array of the same problem can be defined in several
+    ways.Different definitions lead to different state transition equations,But as long as there’s no logic problem,you
+    end up with the same answer.I recommend that you don’t get caught up in what looks like a great short technique,and
+    that you end up with something that’s a little bit more stable, something that’s the most interpretable, and
+    something that’s the easiest to generalize,This paper gives a general design framework of game problem.</p>
+  <p>Before we introduce what a dp array means,let’s take a look at what it ultimately looks like:</p>
+  <figure>
+    <img src="./pictures/GameProblems/1.png" alt="1" />
+    <figcaption>1</figcaption>
+  </figure>
+  <p>As explained below,tupels are considered to be a calss containing first and second atrributes,And to save
+    space,these two atrributes are abbreviated to fir and sec.As shown in the figure above,we think
+    <code>dp[1][3].fir = 10</code>，<code>dp[0][1].sec = 3</code>.
+  </p>
+  <p>Start by answering a few questions that readers might ask:</p>
+  <p>This is a two-dimensional dp table that stores tuples.How do you represent that?Half of this array is useless,How
+    do you optimize it?Very simple, do not care,first to think out the way to solve the problem again.</p>
+  <p><strong>Here’s an explanation of what a dp array means:</strong></p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1">dp[i][j].fir represents the highest score the first hand can get
+    <span>for</span> this section of the pile piles[i...j]</a>
+    <a title="2">dp[i][j].sec represents the highest score the back hand can get <span>for</span> this section of the
+      pile piles[i...j]</a>
+    <a title="3"></a>
+    <a title="4">Just to give you an example,Assuming piles <span>=</span> [<span>3</span>, <span>9</span>,
+      <span>1</span>, <span>2</span>],The inedx starts at <span>0</span></a>
+    <a title="5">dp[<span>0</span>][<span>1</span>].fir <span>=</span> <span>9</span> means:Facing the pile of stones
+      [<span>3</span>, <span>9</span>],The first player eventually gets <span>9</span> points.</a>
+    <a id=-6" title="6">dp[<span>1</span>][<span>3</span>].sec <span>=</span> <span>2</span> means:Facing the pile of
+      stones [<span>9</span>, <span>1</span>, <span>2</span>],The second player eventually gets <span>2</span>
+      points.</a></code></pre>
+  </div>
+  <p>The answer we want is the difference between the final score of the first hand and the final score of the second
+    hand,By thisdefinition, that is
+    <span><em>d</em><em>p</em>[0][<em>n</em> − 1].<em>f</em><em>i</em><em>r</em> − <em>d</em><em>p</em>[0][<em>n</em> − 1].<em>s</em><em>e</em><em>c</em></span>
+    That is,facing the whole piles,the difference between the best score of the first hand and the best score of the
+    second hand.
+    </p>
+  <h3 id="state-transition-equation">2.state transition equation:</h3>
+  <p>It’s easy to write the transition equation,The first step is to find all the states and the choices you can make
+    for each state,and then pick the best.</p>
+  <p>From the previous definition of the dp array,<strong>there are obviously three states:the starting index i,the
+      ending index j,and the person whose turn it is.</strong></p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1">dp[i][j][fir <span>or</span> sec]</a>
+    <a id=-2" title="2">range：</a>
+    <a id=-3" title="3"><span>0</span> <span>&lt;=</span> i <span>&lt;</span> piles.length</a>
+    <a id=-4" title="4">i <span>&lt;=</span> j <span>&lt;</span> piles.length</a></code></pre>
+  </div>
+  <p>For each state of the problem,<strong>there are two choices you can make :Choose the pile to the left,or the pile
+      to the right</strong>.We can do all the states like this :</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1">n <span>=</span> piles.length</a>
+    <a title="2"><span>for</span> <span>0</span> <span>&lt;=</span> i <span>&lt;</span> n:</a>
+    <a title="3"> <span>for</span> j <span>&lt;=</span> i <span>&lt;</span> n:</a>
+    <a id=-4" title="4"> <span>for</span> who <span>in</span> {fir, sec}:</a>
+    <a id=-5" title="5"> dp[i][j][who] <span>=</span> <span>max</span>(left, right)</a></code></pre>
+  </div>
+  <p>The pseudocode above is a rough framework for dynamic programming,and there is a similar pseudocode in the stock
+    series problem.The difficulty of this problem is that two people choose alternately,that is to say,the choice of the
+    first hand has effect on the second hand,how can we express this?</p>
+  <p>According to our definition of dp array,it is easy to solve this difficulty and <strong>write down the state
+      transition equation</strong>:</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1">dp[i][j].fir <span>=</span> <span>max</span>(piles[i] <span>+</span>
+    dp[i<span>+1</span>][j].sec, piles[j] <span>+</span> dp[i][j<span>-1</span>].sec)</a>
+    <a id=-2" title="2">dp[i][j].fir <span>=</span> <span>max</span>( Select the rock pile on the far left ,
+      Select the rock pile on the far right )</a>
+    <a id=-3" title="3"><span># explanation：I,as a first hand,faced piles[i...j],I had two choices：</span></a>
+    <a id=-4" title="4"><span># If I choose the pile of rocks on the far left,and I will face piles[i+1...j]</span></a>
+    <a id=-5" title="5"><span># But when it came to the other side,I became the back hand.</span></a>
+    <a id=-6" title="6"><span># If I choose the pile of rocks on the far right,and I will face piles[i...j-1]</span></a>
+    <a id=-7" title="7"><span># But when it came to the other side,I became the back hand.</span></a>
+    <a id=-8" title="8"></a>
+    <a id=-9" title="9"><span>if</span> the first hand select the left:</a>
+    <a id=-10" title="10"> dp[i][j].sec <span>=</span> dp[i<span>+1</span>][j].fir</a>
+    <a id=-11" title="11"><span>if</span> the first hand select the right:</a>
+    <a id=-12" title="12"> dp[i][j].sec <span>=</span> dp[i][j<span>-1</span>].fir</a>
+    <a id=-13" title="13"><span># explanation：I,as a back hand ,have to wait for the first hand to choose,There are two
+        condition:</span></a>
+    <a id=-14" title="14"><span># If the first hand choose the pile of rocks on the far left,I will face
+        piles[i+1...j]</span></a>
+    <a id=-15" title="15"><span># then it&#39;s my turn, and i become the first hand.</span></a>
+    <a id=-16" title="16"><span># If the first hand choose the pile of rocks on the far right,I will face
+        piles[i...j-1]</span></a>
+    <a id=-17" title="17"><span># then it&#39;s my turn, and i become the first hand.</span></a></code></pre>
+  </div>
+  <p>According to the definition of the dp array, we can also find the <strong>base case</strong>,which is the simplest
+    case:</p>
+  <div>
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a   title="1">dp[i][j].fir <span >=</span> piles[i]</a>
+  <a  id=-2" title="2">dp[i][j].sec <span >=</span> <span >0</span></a>
+  <a id=-3" title="3"><span>range</span>: <span>0</span> <span>&lt;=</span> i <span>==</span> j <span>&lt;</span> n</a>
+  <a  id=-4" title="4"><span ># explanation：i==j which means just a bunch of rocks piles[i] in the front of us</span></a>
+  <a  id=-5" title="5"><span ># So obviously the first hand can get piles[i],</span></a>
+  <a  id=-6" title="6"><span ># there are no stones int the back,so his score is 0</span></a></code></pre>
+  </div>
+  <figure>
+    <img src="./pictures/GameProblems/2.png" alt="2" />
+    <figcaption>2</figcaption>
+  </figure>
+  <p>One thing to note here is that we found that the base case is tilted in the table,and we need dp[i+1][j] and
+    dp[i][j-1] to compute dp[i][j]:</p>
+  <figure>
+    <img src="./pictures/GameProblems/3.png" alt="3" />
+    <figcaption>3</figcaption>
+  </figure>
+  <p>So the algorithm can not simply traverse the dp array row by row,but <strong>traverse the array
+      diagonally</strong>.</p>
+  <figure>
+    <img src="./pictures/GameProblems/4.png" alt="4" />
+    <figcaption>4</figcaption>
+  </figure>
+  <p>To be honest,traversing a two-dimensional array diagonally is easier said than done.</p>
+  <h3 id="code-implementation">3.code implementation</h3>
+  <p>How do you implement this fir and sec tuple?You can either use python,with its own tuple type,or use the c++pair
+    container,or use a three-dimensional array,the last dimension being the tuple,or we can write a pair class
+    ourselves.</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>class</span> Pair {</a>
+            <a id=-2" title="2"> <span>int</span> fir, sec;</a>
+    <a id=-3" title="3"> <span>Pair</span>(<span>int</span> fir, <span>int</span> sec) {</a>
+    <a id=-4" title="4"> <span>this</span>.<span>fir</span> = fir;</a>
+    <a id=-5" title="5"> <span>this</span>.<span>sec</span> = sec;</a>
+    <a id=-6" title="6"> }</a>
+    <a id=-7" title="7">}</a></code></pre>
+  </div>
+  <p>Then we can directly translate our state transition equation into code,and we can pay attention to technique of
+    traversing through array diagonally:</p>
+  <div id="cb7">
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a   title="1"><span >/* Returns the difference between the last first hand and last hand */</span></a>
+          <a  id="cb7-2" title="2"><span >int</span> <span >stoneGame</span>(<span >int</span>[] piles) {</a>
+          <a  id="cb7-3" title="3">    <span >int</span> n = piles.<span >length</span>;</a>
+  <a  id="cb7-4" title="4">    <span >//Initializes the dp array</span></a>
+  <a  id="cb7-5" title="5">    Pair[][] dp = <span >new</span> Pair[n][n];</a>
+  <a  id="cb7-6" title="6">    <span >for</span> (<span >int</span> i = <span >0</span>; i &lt; n; i++) </a>
+  <a  id="cb7-7" title="7">        <span >for</span> (<span >int</span> j = i; j &lt; n; j++)</a>
+  <a id="cb7-8" title="8"> dp[i][j] = <span>new</span> <span>Pair</span>(<span>0</span>, <span>0</span>);</a>
+  <a  id="cb7-9" title="9">    <span >// base case</span></a>
+  <a  id="cb7-10" title="10">    <span >for</span> (<span >int</span> i = <span >0</span>; i &lt; n; i++) {</a>
+  <a id="cb7-11" title="11"> dp[i][i].<span>fir</span> = piles[i];</a>
+  <a id="cb7-12" title="12"> dp[i][i].<span>sec</span> = <span>0</span>;</a>
+  <a  id="cb7-13" title="13">    }</a>
+  <a  id="cb7-14" title="14">    <span >// traverse the array diagonally</span></a>
+  <a  id="cb7-15" title="15">    <span >for</span> (<span >int</span> l = <span >2</span>; l &lt;= n; l++) {</a>
+  <a  id="cb7-16" title="16">        <span >for</span> (<span >int</span> i = <span >0</span>; i &lt;= n - l; i++) {</a>
+  <a  id="cb7-17" title="17">            <span >int</span> j = l + i - <span >1</span>;</a>
+  <a  id="cb7-18" title="18">            <span >// The first hand select the left- or right-most pile.</span></a>
+  <a id="cb7-19" title="19"> <span>int</span> left = piles[i] + dp[i+<span>1</span>][j].<span>sec</span>;</a>
+  <a id="cb7-20" title="20"> <span>int</span> right = piles[j] + dp[i][j-<span>1</span>].<span>sec</span>;</a>
+  <a  id="cb7-21" title="21">            <span >// Refer to the state transition equation.</span></a>
+  <a  id="cb7-22" title="22">            <span >if</span> (left &gt; right) {</a>
+  <a id="cb7-23" title="23"> dp[i][j].<span>fir</span> = left;</a>
+  <a id="cb7-24" title="24"> dp[i][j].<span>sec</span> = dp[i+<span>1</span>][j].<span>fir</span>;</a>
+  <a  id="cb7-25" title="25">            } <span >else</span> {</a>
+  <a id="cb7-26" title="26"> dp[i][j].<span>fir</span> = right;</a>
+  <a id="cb7-27" title="27"> dp[i][j].<span>sec</span> = dp[i][j-<span>1</span>].<span>fir</span>;</a>
+  <a  id="cb7-28" title="28">            }</a>
+  <a  id="cb7-29" title="29">        }</a>
+  <a  id="cb7-30" title="30">    }</a>
+  <a  id="cb7-31" title="31">    Pair res = dp[<span >0</span>][n-<span >1</span>];</a>
+  <a id="cb7-32" title="32"> <span>return</span> res.<span>fir</span> - res.<span>sec</span>;</a>
+  <a  id="cb7-33" title="33">}</a></code></pre>
+  </div>
+  <p>Dynamic programming ,the most important is to understand the state transition equation,based on the previous
+    detailed explanation,the reader should be able to clearly understand the meaning of this large piece of code.</p>
+  <p>And notice that the calculation of ‘dp[i][j]’ only depends on the left and the bottom elements,so there must be
+    room for optimization, for one-dimensional dp,But one-dimensional dp is a little bit more complicated,it’s less
+    interpretable,so you don’t have to waste time trying to understand it.</p>
+  <h3 id="summary">4.summary:</h3>
+  <p>This paper presents a dynamic programming method to solve the game problem. The premise of game problems is usually
+    between two smart people. The common way to describe such games is a one-dimensional array of dp, in which tuples
+    represent the optimal decision of two people.</p>
+  <p>The reason for this design is that when the first hand makes a choice, it becomes the second hand, and when the
+    second hand makes a choice, it becomes the first hand. This role reversal allows us to reuse the previous results,
+    typical dynamic programming flags.</p>
+  <p>Those of you who have read this should understand how algorithms solve game problems. Learning algorithms, must pay
+    attention to the template framework of the algorithm,rather than some seemingly awesome ideas, do not bend to write
+    an optimal solution.Don’t be afraid to use more space,don’t try optimization too early, and don’t be afraid of
+    multidimensional arrays.A dp array is a way to store information and avoid double counting.</p>
+  <p>I hope this article has been helpful.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A description of the page and its contents" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Page Title</title>
+        <link rel="stylesheet" href="./../../../assets/style.css" />
+        <link rel="stylesheet" href="./../../../assets/prism.css" />
+        <script async src="./../../../assets/prism.js"></script>
+</head>
+
+<body>
+  <h1 id="how-to-find-the-longest-palindromic-substring">How to find <strong>The Longest Palindromic Substring</strong>
+  </h1>
+  
+  <p><strong>Translator: <a class="btn" href="https://github.com/Lrc123">Lrc123</a></strong></p>
+  <p>Palindrome questions are very common in the interview, this article provides some insights about palindromic
+    problem.</p>
+  <p>To specific : &gt; A palindrome is a word, number, phrase, or other sequence of characters which reads the same
+    backward as forward, such as madam, racecar. <a class="btn"
+      href="https://en.wikipedia.org/wiki/Palindrome">reference</a></p>
+  <p>For example: <code>aba</code> and <code>abba</code> are both palindromic, because they are symetric strings, that
+    you can read each of them in reversed order, and you can just get a same string.</p>
+  <p>Notice: palindrome string could be in either odd length or even length, a good solution would be <strong>double
+      pointers</strong>. Next, I’ll show you how <strong>doulbe pointers</strong> work in a real leetcode problem.</p>
+  <p><img src="./pictures/palindrome/example.png" /></p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript">
+    <code><a   title=" 1">string longestPalindrome(string s) {}</a></code></pre>
+  </div>
+  <h3 id="thinking">1. Thinking</h3>
+  <p>Given a string s, find the longest palindromic substring in s.</p>
+  <p>A very interesting pespective: 1. Reversing s in to s’ 2. Finding the longest common substring.</p>
+  <p>For instance, a string <code>abacd</code>, a reversed version is <code>dcaba</code>, and the longest common string
+    is <code>aba</code>, seemingly perfect.</p>
+  <p>However, it would be wrong when we apply to <code>aacxycaa</code>, which a reversed version would be
+    <code>aacyxcaa</code>, then the longest common substring turns out to be <code>aac</code>. But, what we need should
+    be <code>aa</code>.
+  </p>
+  <p>Although this way has its faults, <strong>we can still get some inspirations that we can transform a problem
+      seemingly hard into another simpler problem that we can understand easier.</strong></p>
+  <p>Now, <strong>the double pointers</strong></p>
+  <p><strong>Core idea: start a scanner from the mid point of the string</strong> we represent the idea into pseudo
+    code:</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>for</span> <span>0</span> <span>&lt;=</span> i <span>&lt;</span>
+    <span>len</span>(s):</a>
+    <a id=-2" title="2"> find a palindrome that <span>set</span> s[i] <span>as</span> its mid point</a>
+    <a id=-3" title="3"> update the answer</a></code></pre>
+    </div>
+  <p>When the length of string is even, for instance: <code>abba</code>, the code above would not work.</p>
+  <p>So, a better version here :</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>for</span> <span>0</span> <span>&lt;=</span> i <span>&lt;</span>
+    <span>len</span>(s):</a>
+    <a title="2"> find a palindrome that <span>set</span> s[i] <span>as</span> its mid point</a>
+    <a title="3"> find a palindrome that <span>set</span> s[i] <span>and</span> s[i <span>+</span> <span>1</span>]
+      <span>as</span> its mid point</a>
+    <a id=-4" title="4"> update the answer</a></code></pre>
+    </div>
+  <p>PS: you may encounter some problems like : outofIndex error. Don’t worry, we’ll fix them later.</p>
+  <h3 id="implementation">2. Implementation</h3>
+  <p>a function implementation:</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1">string palindrome(string&amp; s, <span>int</span> l, <span>int</span> r) {</a>
+            <a id=-2" title="2"> <span>// avoid outOfIndex error</span></a>
+            <a id=-3" title="3"> <span>while</span> (l &gt;= <span>0</span> &amp;&amp; r &lt; s.size()</a>
+            <a id=-4" title="4"> &amp;&amp; s[l] == s[r]) {</a>
+            <a id=-5" title="5"> <span>// scanning toward both directions</span></a>
+            <a id=-6" title="6"> l--; r++;</a>
+            <a id=-7" title="7"> }</a>
+            <a id=-8" title="8"> <span>// return a palindrome that set s[l] and s[r] as mid point</span></a>
+            <a id=-9" title="9"> <span>return</span> s.substr(l + <span>1</span>, r - l - <span>1</span>);</a>
+            <a id=-10" title="10">}</a></code></pre>
+  </div>
+  <p>Why we need both pointer <code>l</code> and pointer <code>r</code>? <strong>In this way, we can handle palindrome
+      strings in odd and even length</strong></p>
+  <div>
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a   title="1"><span >for</span> <span >0</span> <span >&lt;=</span> i <span >&lt;</span> <span >len</span>(s):</a>
+<a  id=-2" title="2">    <span ># find a palindrome that set s[i] as its mid </span></a>
+<a  id=-3" title="3">    palindrome(s, i, i)</a>
+<a  id=-4" title="4">    <span ># find a palindrome that set s[i] and s[i + 1] as its mid  </span></a>
+<a  id=-5" title="5">    palindrome(s, i, i <span >+</span> <span >1</span>)</a>
+<a id=-6" title="6"> update the answer</a></code></pre>
+</div>
+  <p>Completed code solution:</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1">string longestPalindrome(string s) {</a>
+            <a id=-2" title="2"> string res;</a>
+            <a id=-3" title="3"> <span>for</span> (<span>int</span> i = <span>0</span>; i &lt; s.size(); i++) {</a>
+            <a id=-4" title="4"> <span>// find a palindrome that set s[i] as its mid </span></a>
+            <a id=-5" title="5"> string s1 = palindrome(s, i, i);</a>
+            <a id=-6" title="6"> <span>// find a palindrome that set s[i] and s[i + 1] as its mid </span></a>
+            <a id=-7" title="7"> string s2 = palindrome(s, i, i + <span>1</span>);</a>
+            <a id=-8" title="8"> <span>// res = longest(res, s1, s2)</span></a>
+            <a id=-9" title="9"> res = res.size() &gt; s1.size() ? res : s1;</a>
+            <a id=-10" title="10"> res = res.size() &gt; s2.size() ? res : s2;</a>
+            <a id=-11" title="11"> }</a>
+            <a id=-12" title="12"> <span>return</span> res;</a>
+            <a id=-13" title="13">}</a></code></pre>
+  </div>
+  <p>Thus, this leetcode problem is solved. Now, we get:</p>
+  <p>Time complexity: O(N^2)</p>
+  <p>Space complexity: O(1)</p>
+  <p>By the way, a dynamic programming approach can also work in this problem in a same time complexity. However, we
+    need at least O(N^2) spaces to store DP table. Therefore, in this problem, dp approach is not the best solution.</p>
+  <p>In addition, <strong>Manacher’s Algorithm</strong> requires only O(N) time complexity. You readers can search it
+    through the Internet by your own interests. It should be very interesting.</p>
+  <p><strong>Stick to original high-quality articles, and strive to make clear the algorithm problems. Welcome to follow
+      my Wechat official account “labuladong” for the latest articles.</strong></p>
+
+</body>
+
+</html>

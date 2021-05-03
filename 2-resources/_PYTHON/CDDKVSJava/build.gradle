@@ -1,0 +1,85 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'idea'
+
+    // Creates fat JAR
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+
+    // Adds dependencyUpdates task
+    id 'com.github.ben-manes.versions' version '0.36.0'
+}
+
+def gradleDependencyVersion = '6.8.1'
+
+wrapper {
+    gradleVersion = gradleDependencyVersion
+    distributionType = Wrapper.DistributionType.ALL
+}
+
+distZip.enabled = shadowDistZip.enabled = false
+distTar.enabled = shadowDistTar.enabled = false
+
+// Required by shadow but not necessary
+mainClassName = 'not-necessary'
+
+group = 'CDDKVSJava'
+version = '1.0-SNAPSHOT'
+
+description = """"""
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://plugins.gradle.org/m2/" }
+    maven { url 'https://jitpack.io' }
+}
+
+// Guidance from: https://stackoverflow.com/questions/23446233/compile-jar-from-url-in-gradle
+def githubJar = { organization, module, revision, name ->
+    File file = new File("$buildDir/libs/${name}.jar")
+    file.parentFile.mkdirs()
+    if (!file.exists()) {
+        def url = "https://github.com/$organization/$module/raw/v$revision/sdk/GreengrassJavaSDK.jar"
+        new URL(url).withInputStream { downloadStream ->
+            file.withOutputStream { fileOut ->
+                fileOut << downloadStream
+            }
+        }
+    }
+    files(file.absolutePath)
+}
+
+def awsGreengrassCoreSdkJava = '1.4.1'
+def cddVersion = '0.8.74'
+def slf4jVersion = '2.0.0-alpha1'
+def jacksonVersion = '2.12.1'
+def awsLambdaJavaCoreVersion = '1.2.1'
+def junitVersion = '4.13.2'
+def daggerVersion = '2.32'
+def gstVersion = '1.4.0'
+
+dependencies {
+    implementation githubJar('aws', 'aws-greengrass-core-sdk-java', awsGreengrassCoreSdkJava, 'GreengrassJavaSDK')
+    compile "com.github.aws-samples:aws-greengrass-lambda-functions:$cddVersion"
+
+    // Dagger code generation
+    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
+
+    // Dependency injection with Dagger
+    compile "com.google.dagger:dagger:$daggerVersion"
+
+    compile "org.slf4j:slf4j-jdk14:$slf4jVersion"
+    compile "com.fasterxml.jackson.core:jackson-core:$jacksonVersion"
+    compile "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+    compile "com.amazonaws:aws-lambda-java-core:$awsLambdaJavaCoreVersion"
+    compile "org.freedesktop.gstreamer:gst1-java-core:$gstVersion"
+
+    testCompile "junit:junit:$junitVersion"
+}

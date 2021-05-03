@@ -1,0 +1,359 @@
+# Questions to ask a potential tech employer.  https://gitlab.com/doctorj/interview-questions
+# Copyright 2016 Doctor J.  CC-BY-SA licensed.
+---
+qs:
+- q: If you could wave a magic wand and change anything about the company, what would it be?
+  a: Prefer technical issues; they are generally easier to fix than people issues.
+  followup: Anything else you would change?
+  ref: https://news.ycombinator.com/item?id=11449133
+  pri: 1
+  tags: [issues]
+
+- q: Could your manager step in and do your job if necessary?
+  a: Yes (perhaps with some period of getting up to speed, etc.).
+    Research shows that "the benefit of having a highly competent boss is easily the largest positive influence on a typical worker’s level of job satisfaction."
+    Avoid working for non-technical management. Work for a manager who understands what their reports do, the complexity and level of effort of tasks,
+    can help you with technical problems, can critically evaluate alternatives, and detect bullshit.  Work
+    where people are hired and promoted because they are capable and respected.  Ideally every manager up to
+    and including the CEO is technical.
+  followup: Could your manager's manager?  The CEO?
+  ref:
+    - http://www.algeri-wong.com/yishan/engineering-management-technical-leaders.html
+    - https://hbr.org/2016/12/if-your-boss-could-do-your-job-youre-more-likely-to-be-happy-at-work
+  pri: 1
+  tags: [management]
+
+- q: Would you say you learn more from your co-workers or on your own?
+  a: Work with people who know more, different things than you so you can learn and grow.
+    Work where people hold their colleagues in high esteem and have the humility to say it.
+  pri: 1
+  tags: [culture]
+
+- q: How many hours did you work last week?
+  a: Working more than 40-hour weeks regularly decreases productivity.
+  followup: Is that typical?
+  ref: https://www.salon.com/2012/03/14/bring_back_the_40_hour_work_week/
+  pri: 2
+  tags: [culture]
+
+- q: How many meetings were you in in the last few days, and how long did they last?
+  followup: Is that typical?
+  pri: 2
+  tags: [culture]
+
+- q: Would you say your colleagues are good at reading your emotional state, or still learning?   # TODO: Better wording so the answer is not so obvious
+  a: Research shows the most important factor in team effectiveness is psychological safety, a "shared belief held by
+    members of a team that the team is safe for interpersonal risk-taking."  One component of this is high "average social
+    sensitivity," or that everyone is good at reading the emotional state of others.
+  followup: Do you feel like your opinion is heard, respected, and valued?
+  ref: http://www.nytimes.com/2016/02/28/magazine/what-google-learned-from-its-quest-to-build-the-perfect-team.html
+  pri: 1
+  tags: [culture]
+
+- q: In meetings (or discussions) specifically, what's the range of talkativeness between the most quiet person and the most vocal?    # TODO: Better wording?
+  a: Research shows the most important factor in team effectiveness is psychological safety, a "shared belief held by
+    members of a team that the team is safe for interpersonal risk-taking."  One component of this is conversational
+    turn-taking, or that everyone talks roughly the same amount.
+  ref: http://www.nytimes.com/2016/02/28/magazine/what-google-learned-from-its-quest-to-build-the-perfect-team.html
+  pri: 1
+  tags: [culture]
+
+- q: Where do you fall on the spectrum of "Do it right" to "Get-R-Done"?
+  a: The answer should align with your personal preference, but beware the extremes.
+  followup: Where would you say your team / manager / the company falls?
+  pri: 2
+  tags: [culture]
+
+- q: What sort of software development process / methodology do you use?
+  a: They should have one, preferably in the general area of "Agile."
+  followup:
+  - How long are sprints?
+  - How do you feel it works for your team?
+  pri: 2
+  tags: [process]
+
+- q: What do you use for source control?
+  ref: http://www.joelonsoftware.com/articles/fog0000000043.html
+  tags: [tech]
+
+- q: How long does a build take?
+  a: Shorter is better.
+  pri: 2
+  tags: [tech, process]
+
+- q: Describe your build / deploy process.
+  a: There should be a process, ideally automated to a single step.
+  followup:
+  - How often does it break?  Why?
+  - Is it documented?
+  pri: 2
+  ref: http://www.joelonsoftware.com/articles/fog0000000043.html
+  tags: [tech, process]
+
+- q: How often do you build / deploy?
+  a: More is better.
+  followup: How do you know if the deploy broke anything?
+  pri: 2
+  ref: http://www.joelonsoftware.com/articles/fog0000000043.html
+  tags: [process]
+
+- q: What do you use for a bug / task tracker?
+  a: They should have one.
+  followup: Is it up to date?
+  ref: http://www.joelonsoftware.com/articles/fog0000000043.html
+  tags: [tech, process]
+
+- q: Do you do code reviews?  What is the process?
+  a: Generally the bigger the company the more process there will  be.
+  followup: How much time did you spend reviewing code last week?
+  tags: [process]
+
+- q: How do you prioritize features vs. bugs (new development vs. fixing existing code)?
+  a: Generally you want to fix bugs before writing new code.
+  ref: http://www.joelonsoftware.com/articles/fog0000000043.html
+  tags: [process]
+
+- q: Do you have an up-to-date schedule?
+  a: Having a schedule forces you to plan and prioritize features and stay on the same page as the rest of the business.
+  ref: http://www.joelonsoftware.com/articles/fog0000000043.html
+  tags: [process]
+
+- q: Do you spec out features before building them? How?
+  a: Finding and fixing problems is dramatically easier in the design stage.  Specs save time and frustration.
+  ref: http://www.joelonsoftware.com/articles/fog0000000043.html
+  tags: [process]
+
+- q: What's the typical noise level where you work?
+  a: Quiet space and privacy have well-documented productivity benefits.
+  ref: http://www.joelonsoftware.com/articles/fog0000000043.html
+  tags: [culture]
+
+- q: What's the process for ordering new software or hardware?
+  a: It should be very easy and they should not be stingy about it.  The cost of lost productivity is usually greater
+    than the cost of the tools.
+  ref: http://www.joelonsoftware.com/articles/fog0000000043.html
+  tags: [culture, process]
+
+- q: Do you have engineers dedicated to building internal tools?
+  a: Larger companies should dedicate resources to making their teams more effective.
+  followup: Can you describe one of your favorite internal tools?
+  ref: http://www.algeri-wong.com/yishan/engineering-management.html
+  tags: [tech]
+
+- q: What does your QA process look like?  Do you have QA engineers?
+  a: There should be some process; opinions differ on whether engineers should test their own code or have dedicated
+    QA engineers.
+  ref: http://www.joelonsoftware.com/articles/fog0000000043.html
+  tags: [process]
+
+- q: How do you do UX / usability testing?
+  a: Grabbing five or six people in the hallway is a good start.  User studies are even better.
+  ref: http://www.joelonsoftware.com/articles/fog0000000043.html
+  tags: [process]
+
+- q: Are all candidates required to write code during interviews?
+  a: You should have a good idea from your own experience so far, but you want to make sure there are no exceptions.
+  ref: http://www.joelonsoftware.com/articles/fog0000000043.html
+  tags: [hiring]
+
+- q: Do you do design reviews? Before writing code?
+  a: In all but the smallest of companies and tasks, getting input from others before starting can save time and effort.
+    Studies show that making changes post-delivery is 5x (for small projects) to >100X (for large projects) more expensive
+    than during requirements definition.
+  ref: http://shop.oreilly.com/product/9780596808303.do
+  tags: [process]
+
+- q: Do you use static analysis?
+  a: Ideally as part of the build process / CI.  Static analysis is shown to catch bugs humans don't.
+  followup:
+  - What tool(s)?
+  - Do static analysis warnings fail the build?
+  tags: [tech, process]
+
+- q: Do you have unit tests?
+  a: Beware "That's something we're working on," "We'd really like to get there," etc.
+  followup:
+  - How long does the test suite take to run?
+  - What is the code coverage?
+  pri: 2
+  tags: [tech, process]
+
+- q: What is the makeup of your team?  (How many people in what roles?)
+  tags: [people, culture]
+
+- q: How many lines of code is your system?
+  a: This is a basic metric that is surprisingly uncommon to know.  Knowing it means it's visible, which means the
+    team values metrics and visibility.  Check that it's not wildly outlandish with respect to the system they're
+    building.  Beware of positions hiring for one language where the codebase is mostly another, a sign that you may be
+    doing more legacy maintenance than expected.
+  followup: How does that break down by language?
+
+- q: How would you gauge your technical debt?
+  a: Lower is better, but an explicit process to manage it is even better.
+  followup: Do you have a process for managing it?
+  pri: 2
+  tags: [process]
+
+- q: How do you decide what goes into the next release?
+  a: Engineers should have a (large) say, and bug fixing, refactoring, and addressing technical debt should be prioritized
+    or at least given official time.
+  pri: 2
+  tags: [process]
+
+- q: How do you estimate the level of effort (time required) for a task?
+  a: Have knowledgeable people make independent estimates and take the average (or some reasonable summary).
+  tags: [process]
+
+- q: How are tech / library / service / vendor choices made?
+  a: "Ideally via engineering: trying the alternatives and choosing the best."
+  followup: Do you feel like you have a significant voice in the process?
+  tags: [process, culture]
+
+- q: Do you have regular all-hands meetings?
+  tags: [culture]
+
+- q: Do you have regular team outings / field-trips?
+  tags: [culture]
+
+- q: What is the vacation policy?
+  tags: [culture]
+
+- q: How are hiring decisions made?
+  a: Five or six technical interviewers vote via secret ballot; all must agree (except perhaps one
+    junior engineer), or it's a no-hire.  No one should be able to hire unilaterally or override the
+    vote of someone else; everyone should have unilateral veto power.  The cost of a poor hire is
+    far greater than the cost of missing a good hire.
+  followup:
+  - Does anyone have authority to hire unilaterally?
+  - Does anyone have authority to veto unilaterally?
+  - Do you feel like the process and your voice is always respected?
+  pri: 1
+  ref:
+  - http://www.joelonsoftware.com/articles/GuerrillaInterviewing3.html
+  - http://www.algeri-wong.com/yishan/engineering-management.html
+  tags: [process, culture, hiring]
+
+- q: Can I meet the people I will be working with?  The manager?
+  a: Yes.  The people you work with are one of the biggest determinants of job satisfaction.  Push hard to follow up
+    on this one.
+  pri: 1
+  who: [manager, hr]
+  tags: [culture]
+
+- q: Can you show me some code you're proud of?
+  a: Craftsmanship and pride in one's work should be part of the company culture.  Be wary of teams that aren't
+    proud of anything they've done.  Some companies may not allow you to see their code, but they should
+    be able to discuss something they're proud of.
+  who: [engineer]
+  tags: [culture]
+
+- q: What tools do you use for communication and collaboration?
+  a: Know whether you prefer working at a desktop-and-e-mail kind of place or a laptop-and-IM kind of place.
+  followup: Are there plans to investigate or move to new systems in the future?
+  pri: 2
+  tags: [tech, culture]
+
+- q: Will I be responsible for system uptime? Part of any on-call rotation?
+  pri: 1
+  tags: [culture, issues]
+
+- q: Who on your team has been at the company the longest?  How long?
+  a: Low turnover in the past hopefully predicts low turnover in the future.
+  pri: 2
+  tags: [culture, issues]
+
+- q: How many people have left in the last year?
+  a: Low turnover in the past hopefully predicts low turnover in the future.
+  pri: 2
+  tags: [culture, issues]
+
+- q: Has any of the system been built by contractors or outsourced work?
+  a: May be an indicator of personnel issues or low-quality code.
+  followup: Any plans for outsourcing or contracting in the future?
+  tags: [culture, issues]
+
+- q: Tell me about the last time a deploy broke production.  What did you do to prevent it happening again?
+  a: "The details aren't as important as the response: fix the system/process that let the mistake through.
+    Ideally a systematic review of how it happened, addressed as appropriate via more unit testing, code reviews, training,
+    canary testing, monitoring, rollbacks, etc.  Preferably not via punishing or firing responsible parties."
+  tags: [process]
+
+- q: When was the last time you missed or thought you might miss a sprint deadline, and how did you handle it?
+  a: Cut features, rather than testing or quality.  Working longer/harder is not a sustainable solution.
+  ref: https://www.salon.com/2012/03/14/bring_back_the_40_hour_work_week/
+  tags: [culture, issues]
+
+- q: What's your idea of a good team?
+  tags: [culture, management]
+  ref: https://news.ycombinator.com/item?id=11449133
+  who: [manager, exec]
+
+- q: What surprised you most when you started here?
+  tags: [issues]
+
+- q: What was the last technical disagreement your team had? How was it resolved?
+  tags: [culture]
+
+- q: What are you hoping I'll change?
+  a: With this question, you're looking for the real job description, as well as signs of wishful thinking.  E.g.,
+    "Unit testing is important, and we'd like you to help us get started."  (If it's important, why aren't they doing it?)
+    Beware expectations of big changes without the authority to make them.
+  ref: https://rkoutnik.com/articles/Questions-to-ask-your-interviewer.html
+  tags: [issues]
+
+- q: How often are you pulled off your primary task?
+  a: Distractions are costly and multitasking is not efficient.  It could also signal overly broad roles, wishy-washy leadership,
+    or understaffing.
+  pri: 2
+  who: [engineer]
+  ref: https://rkoutnik.com/articles/Questions-to-ask-your-interviewer.html
+  tags: [culture, issues]
+
+- q: How will I get better at my job?
+  a: Training, conferences, Friday tech talks, mentoring program, etc.  Anything beyond platitudes.
+  ref: https://rkoutnik.com/articles/Questions-to-ask-your-interviewer.html
+  tags: [culture]
+
+- q: When was your last one-on-one meeting?
+  a: Within the last week.
+  ref: http://randsinrepose.com/archives/the-update-the-vent-and-the-disaster/
+  pri: 2
+  tags: [culture, management]
+
+- q: When was the last time you told your boss no?
+  a: No one is infallible.  Look for an environment that welcomes feedback and where people feel comfortable raising
+   concerns up the chain.
+  followup:
+  - How did your boss respond?
+  ref: http://randsinrepose.com/archives/the-rands-test/
+  tags: [culture, management]
+
+- q: What's your e-mail address?
+  a: So you can follow up or ask more questions after the interview.
+
+- q: Given a month of time to work on it, what would you work on in your current product?
+  ref: https://news.ycombinator.com/item?id=11496962
+  tags: [issues]
+  
+- q: What are your policies regarding contributing to open source?
+  a: A demand you not contribute to FOSS projects, especially when on your own time, is a huge red flag for culture.
+    Better would be if contributions are at least not discouraged, best would be officially sanctioned, or even
+    done as part of the job. This will likely be covered in any contract or handbook anyways, but it may be an
+    important signal to find out ahead of time.
+  followup:
+    - What projects are contributed to officially?
+    - Are there hackathons or a variation of "20% time" where people are encouraged to make these contributions if they want?
+  pri: 2
+  tags: [culture, issues]
+
+- q: Does your team attend training or conferences more often?
+  a: Training may indicate a pyramid-shaped team with many junior devs. Conferences indicates somewhere in the middle.
+    "Presents at conferences" can indicate a high percentage of senior staff.
+  tags: [people]
+  who: [manager]
+
+
+# Valid values for these question fields
+tags: [process, culture, people, tech, management, hiring, issues]
+who: [engineer, manager, exec, hr, other]
+where: [startup, bigco]

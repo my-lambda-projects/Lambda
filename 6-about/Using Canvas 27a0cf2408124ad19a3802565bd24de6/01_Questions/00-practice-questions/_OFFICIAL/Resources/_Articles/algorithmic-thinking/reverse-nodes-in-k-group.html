@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A description of the page and its contents" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Page Title</title>
+        <link rel="stylesheet" href="./../../../assets/style.css" />
+        <link rel="stylesheet" href="./../../../assets/prism.css" />
+        <script async src="./../../../assets/prism.js"></script>
+</head>
+
+<body>
+  <h1 id="how-to-reverse-nodes-in-k-group">How to reverse nodes in k-group</h1>
+  <p><strong>Translator: <a class="btn" href="https://github.com/Justin-YGG">Justin</a></strong></p>
+  
+  <p>We talked about the way how to reverse the part of linked list recursively in <a class="btn"
+      href="..算法思维系列/学习数据结构和算法的框架思维.md">previous article</a>. Some readers may wonder how to reverse the whole linked
+    list. We also need to use the function of linked list reversion in this article, so we might as well use the
+    recursive
+    method to solve it.</p>
+  <p>The problem we need to solve is <a class="btn" href="https://leetcode.com/problems/reverse-nodes-in-k-group/">Reverse
+      Nodes in k-Group</a>. It’s easy to understand what that means.</p>
+  <blockquote>
+    <p>Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.</p>
+  </blockquote>
+  <blockquote>
+    <p>k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not
+      a multiple of k then left-out nodes in the end should remain as it is.</p>
+  </blockquote>
+  <blockquote>
+    <p>Example:</p>
+  </blockquote>
+  <blockquote>
+    <p>Given this linked list: <code>1-&gt;2-&gt;3-&gt;4-&gt;5</code> For k = 2, you should return:
+      <code>2-&gt;1-&gt;4-&gt;3-&gt;5</code> For k = 3, you should return: <code>3-&gt;2-&gt;1-&gt;4-&gt;5</code>
+    </p>
+  </blockquote>
+  <p>We may often encounter this problem in interview and its difficulty is <strong>Hard</strong> on LeetCode. But is it
+    really so tough?</p>
+  <p>Actually, the problems of basic data structure are not difficult. We can solve them by splitting the big problem
+    into the small one step by step. I will show you how to do that below.</p>
+  <h3 id="analysis">Analysis</h3>
+  <p>As mentioned in the previous article <a class="btn" href="../算法思维系列/学习数据结构和算法的框架思维.md">the thinking framework of
+      learning data structure</a>, linked list is a kind of data structure with recursion and iteration. On second
+    thought, we can find that this problem can be solved by recursion.</p>
+  <p>What does recursion mean? We can try to understand it with the help of the example below.</p>
+  <p>We call <code>reverseKGroup(head, 2)</code> on the linked list so that we can reverse the linked list with 2 nodes
+    as a group.</p>
+  <p><img src="./pictures/kgroup/1.jpg" /></p>
+  <p>What should we do next to deal with the remaining nodes after reversing the first two nodes？The remaining nodes
+    also form a linked list but it’s shorter than origin linked list.It turns out to be a subproblem of primal problem.
+  </p>
+  <p><img src="./pictures/kgroup/2.jpg" /></p>
+  <p>We can call <code>reverseKGroup(cur, 2)</code> recursively because there is the same structure between primal
+    problem and subproblem. So, this is so called recursion.</p>
+  <p>We can find out the basic procedure of algorithm to solve the problem after understand recursion.</p>
+  <p><strong>1.Reverse the first k nodes</strong></p>
+  <p><img src="./pictures/kgroup/3.jpg" /></p>
+  <p><strong>2. Reverse list with k+1 node as head by calling reverseKGroup recursively</strong></p>
+  <p><img src="./pictures/kgroup/4.jpg" /></p>
+  <p><strong>3. Merge the results of above two steps</strong></p>
+  <p><img src="./pictures/kgroup/5.jpg" /></p>
+  <p>Note, there usually is a base case in recursion function. The base case of this problem is <strong>If the number of
+      nodes is not a multiple of k then left-out nodes in the end should remain as it is</strong>. I will emphasize it
+    in code.</p>
+  <h3 id="coding">Coding</h3>
+  <p>First, we need to implement a <code>reverse</code> function to reverse the elements in a interval. Before that,
+    let’s simplify the problem and consider that how to reverse the linked list with a given head node.</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>// reverse the linked list with node a as head</span></a>
+    <a title="2">ListNode <span>reverse</span>(ListNode a) {</a>
+    <a title="3"> ListNode pre, cur, nxt;</a>
+    <a title="4"> pre = <span>null</span>; cur = a; nxt = a;</a>
+    <a title="5"> <span>while</span> (cur != <span>null</span>) {</a>
+    <a id=-6" title="6"> nxt = cur.<span>next</span>;</a>
+    <a title="7"> <span>// reverse node one by one</span></a>
+    <a title="8"> cur.<span>next</span> = pre;</a>
+    <a title="9"> <span>// update pointer</span></a>
+    <a id=-10" title="10"> pre = cur;</a>
+    <a title="11"> cur = nxt;</a>
+    <a id=-12" title="12"> }</a>
+    <a id=-13" title="13"> <span>// return head node of the reversed linked list</span></a>
+    <a id=-14" title="14"> <span>return</span> pre;</a>
+    <a id=-15" title="15">}</a></code></pre>
+    </div>
+    <p><img src="./pictures/kgroup/8.gif" /></p>
+  <p>It’s easy to understand the iteration with the help of animation above.</p>
+  <p>When we reverse the linked list with node <code>a</code> as head, indeed, we reverse nodes between node
+    <code>a</code> and <code>null</code>.
+  </p>
+  <p>How should we do to reverse nodes between node <code>a</code> and <code>b</code>?</p>
+  <p>Just change the function signature and change <code>null</code> to<code>b</code> in the above code</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>/**</span> reverse the nodes of interval <span>[</span>a<span>,</span>
+    b<span>),</span> which is left<span>-</span>closed and right<span>-</span>open <span>*/</span></a>
+    <a id=-2" title="2">ListNode <span>reverse</span>(ListNode a, ListNode b) {</a>
+    <a id=-3" title="3"> ListNode pre, cur, nxt;</a>
+    <a id=-4" title="4"> pre = <span>null</span>; cur = a; nxt = a;</a>
+    <a id=-5" title="5"> <span>// just change the condition of quit</span></a>
+    <a id=-6" title="6"> <span>while</span> (cur != b) {</a>
+    <a id=-7" title="7"> nxt = cur.<span>next</span>;</a>
+    <a id=-8" title="8"> cur.<span>next</span> = pre;</a>
+    <a id=-9" title="9"> pre = cur;</a>
+    <a id=-10" title="10"> cur = nxt;</a>
+    <a id=-11" title="11"> }</a>
+    <a id=-12" title="12"> <span>// return head node of the reversed linked list</span></a>
+    <a id=-13" title="13"> <span>return</span> pre;</a>
+    <a id=-14" title="14">}</a></code></pre>
+    </div>
+    <p>So far, we have finished the function of reversing the part of the linked list. Next, we will work on the function
+      of <code>reverseKGroup</code> according to the previous design.</p>
+    <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1">ListNode <span>reverseKGroup</span>(ListNode head, <span>int</span> k)
+    {</a>
+    <a title="2"> <span>if</span> (head == <span>null</span>) <span>return</span> <span>null</span>;</a>
+    <a title="3"> <span>// interval [a, b) includes k nodes to be reversed</span></a>
+    <a id=-4" title="4"> ListNode a, b;</a>
+    <a id=-5" title="5"> a = b = head;</a>
+    <a id=-6" title="6"> <span>for</span> (<span>int</span> i = <span>0</span>; i &lt; k; i++) {</a>
+    <a id=-7" title="7"> <span>// base case</span></a>
+    <a id=-8" title="8"> <span>if</span> (b == <span>null</span>) <span>return</span> head;</a>
+    <a id=-9" title="9"> b = b.<span>next</span>;</a>
+    <a id=-10" title="10"> }</a>
+    <a id=-11" title="11"> <span>// reverse first k nodes</span></a>
+    <a id=-12" title="12"> ListNode newHead = <span>reverse</span>(a, b);</a>
+    <a id=-13" title="13"> <span>// merge all reversed internals</span></a>
+    <a id=-14" title="14"> a.<span>next</span> = <span>reverseKGroup</span>(b, k);</a>
+    <a id=-15" title="15"> <span>return</span> newHead;</a>
+    <a id=-16" title="16">}</a></code></pre>
+    </div>
+  <p>Note that the interval of <code>reverse</code> function is <code>[a, b)</code>.</p>
+  <p><img src="./pictures/kgroup/6.jpg" /></p>
+  <p>We will not give more details about the recursive part again. The result fully meets the meaning of the question:
+  </p>
+  <p><img src="./pictures/kgroup/7.jpg" /></p>
+  <h3 id="more">More</h3>
+  <p>Only a few people read the algorithm articles related to basic data structure according to the page view. Most of
+    people tend to read the articles related to dynamic programming because they often show up in interview. But what I
+    want to share is basic data structure and algorithm matter a lot and all complicated problems evolve from simple
+    problems.</p>
+  <p>By the way, remember that <strong>practice makes perfect</strong>.</p>
+  <p><a class="btn" href="../interview/The%20Longest%20Palindromic%20Substring.md.md">previous：how to find the longest
+      palindromicsubstring</a></p>
+  <p><a class="btn" href="../interview/合法括号判定.md">next：how to valid parentheses</a></p>
+  <p><a class="btn" href="../README.md#目录">catalog</a></p>
+
+</body>
+
+</html>

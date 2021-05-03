@@ -1,0 +1,38 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Baskervville', serif;
+  color: linen;
+  background-color: rgb(20, 30, 40);
+}
+
+h1 {
+  font-family: 'Anton', serif;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Raleway', sans-serif;
+}
+
+/* 
+Now the text decoration is gone, but the color looks dull. 
+Set the property `color` to `linen`, the same color value we already declared in the `body`.
+*/
+
+a {
+  text-decoration: none;
+}

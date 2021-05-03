@@ -1,0 +1,43 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Baskervville', serif;
+  color: linen;
+  background-color: rgb(20, 30, 40);
+}
+
+h1 {
+  font-family: 'Anton', sans-serif;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Raleway', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: linen;
+}
+
+/* Now you can style the layout of your grid. CSS grid is similar to Flexbox in that it has a special property for both the parent and child elements.
+In this parent element, set the magazine to a three column layout by setting the `grid-template-columns` property to the value `1fr 94rem 1fr`.
+This will create three columns where the middle column is 94 rem wide, and the first and last columns are both 1 fraction of the remaining space in the grid container.`.
+*/
+
+main {
+  display: grid;
+}

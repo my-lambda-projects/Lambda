@@ -1,0 +1,14 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+}
+
+/* 
+To ease any confusion with the actual size of our elements, add the `box-sizing` property and set it to `border-box`.
+*/
+
+html {
+  font-size: 62.5%;
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A description of the page and its contents" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Page Title</title>
+        <link rel="stylesheet" href="./../../../assets/style.css" />
+        <link rel="stylesheet" href="./../../../assets/prism.css" />
+        <script async src="./../../../assets/prism.js"></script>
+</head>
+
+<body>
+  <h1 id="searching-algorithms">Searching Algorithms</h1>
+  <h3 id="projected-time">Projected Time</h3>
+  <ul>
+    <li>Video: 30 min</li>
+    <li>Exercises: 2-3 hours</li>
+  </ul>
+  <h3 id="prerequisites">Prerequisites</h3>
+  <ul>
+    <li>Arrays</li>
+  </ul>
+  <h3 id="motivation">Motivation</h3>
+  <p>Searching for an item in an array is a common need. Software developers should know the possible algorithms for
+    searching and which is best for different use cases.</p>
+  <p><a class="btn" href="https://www.agari.com/">Agari</a> used <a class="btn"
+      href="https://en.wikipedia.org/wiki/Radix_tree">Radix trees</a> to optimize their IP address search engine - their
+    efficiency went from 0(n) (searching an array) to O(log n).</p>
+  <h3 id="objectives">Objectives</h3>
+  <p><strong>Participants will be able to:</strong></p>
+  <ul>
+    <li>Understand what algorithms are</li>
+    <li>Understand how linear and binary search work</li>
+    <li>Understand the runtime of linear and binary search</li>
+    <li>Know when to use linear and binary search</li>
+  </ul>
+  <h3 id="materials">Materials</h3>
+  <ul>
+    <li><a class="btn" href="https://www.youtube.com/watch?v=vZWfKBdSgXI">Linear search video</a></li>
+    <li><a class="btn" href="https://www.youtube.com/watch?v=5xlIPT1FRcA">Binary search video</a></li>
+    <li><a class="btn" href="https://youtu.be/zaBhtODEL0w">Depth-First and Breadth-First Searches</a></li>
+    <li><a class="btn"
+        href="https://docs.google.com/presentation/d/1x8xO_URwZVoB4JxTNN90z0sHSxoYEq0INOH_IIi8SLE/edit#slide=id.p">Searching
+        algorithm (slides)</a></li>
+    <li><a class="btn" href="https://drive.google.com/open?id=1iHgUlPK2G9Gk3mbdOSObUKOFld_mALrs">Searching algorithm
+        (video
+        walkthrough of slides)</a></li>
+  </ul>
+  <h3 id="lesson">Lesson</h3>
+  <p>What is an algorithm?</p>
+  <p>Think about a shuffled deck of cards. Let’s say you’re looking for the 6 of hearts. How do you find it? You could
+    just start grabbing random cards until you find it. If you grab a card and say “this isn’t it” and put it back, you
+    really could be looking for a long time. Starting at the top of the deck and looking at each card one by one, you’re
+    guaranteed to find it. This is the basis of a linear search.</p>
+  <p>If you have a phone book, and you’re looking for Jessica Smith, do you start on page 1 and read every name until
+    you find her? Probably not. By starting in the middle, flipping larger chunks of pages until you get to the Ss, then
+    eventually finding Smith, then finding Jessica eliminates a TON of time. This is the idea behind a binary search.
+  </p>
+  <p>All of these algorithms are pretty common and have standard implementations in most programming languages. But
+    understanding how they work and when to use one over another will help you write better software.</p>
+  <p>Watch the videos to learn more details about linear and binary search algorithms!</p>
+  <p>Slides: <a class="btn"
+      href="https://docs.google.com/presentation/d/1x8xO_URwZVoB4JxTNN90z0sHSxoYEq0INOH_IIi8SLE/edit#slide=id.p">Searching
+      algorithm (slides)</a></p>
+  <p>Video:<a class="btn" href="https://drive.google.com/open?id=1iHgUlPK2G9Gk3mbdOSObUKOFld_mALrs">Searching algorithm
+      (video walkthrough of slides)</a></p>
+  <h3 id="common-mistakes-misconceptions">Common Mistakes / Misconceptions</h3>
+  <ul>
+    <li>Binary search can only be used on sorted arrays</li>
+    <li>Binary search is not always faster than linear search – for small arrays, linear search can be faster</li>
+  </ul>
+  <h3 id="independent-practice">Independent Practice</h3>
+  <ul>
+    <li>
+      <p>Write a linear search to find a given item in an array. The function should take in an array of strings and a
+        string to search for, and return whether that string is in the array</p>
+    </li>
+    <li>
+      <p>Write a linear search to find the largest item in an array. The function should take in an array of integers
+        and return the largest integer.</p>
+    </li>
+    <li>
+      <p>Say you have an array and want to find the number closest to a given number n. Write a linear search to find
+        the closest number. E.g. if the array is [4, 1, 6, 8] and n=3, your function should return 4.</p>
+    </li>
+    <li>
+      <p>How long does linear search take for large arrays vs binary search? Draw a graph with values 1 to 100 on the
+        x-axis. Graph a linear function (y=x) and a log function (y=log<sub>2</sub>(n))</p>
+    </li>
+  </ul>
+  <h3 id="challenge">Challenge</h3>
+  <ul>
+    <li>Write a binary search to find a given item in an array. You can write it yourself, or use this tutorial for some
+      guidance:
+      https://www.khanacademy.org/computing/computer-science/algorithms/binary-search/p/challenge-binary-search</li>
+  </ul>
+  <h3 id="check-for-understanding">Check for Understanding</h3>
+  <p>Make a cheat sheet answering the following questions for linear search and binary search:</p>
+  <ul>
+    <li>What is it?</li>
+    <li>What types of arrays can you use it on?</li>
+    <li>What is the runtime?</li>
+  </ul>
+  <h3 id="supplemental-resources">Supplemental Resources</h3>
+  <ul>
+    <li><a class="btn"
+        href="https://medium.com/@connorleech/implement-linear-and-binary-search-algorithms-with-javascript-2149997588f0">Linear
+        and binary search</a></li>
+    <li><a class="btn"
+        href="https://www.khanacademy.org/computing/computer-science/algorithms/binary-search/a/binary-search">In-depth
+        articles about binary search</a></li>
+    <li><a class="btn" href="https://hackernoon.com/what-does-the-time-complexity-o-log-n-actually-mean-45f94bb5bfbf">More
+        about log(n)</a></li>
+    <li><a class="btn" href="https://www.youtube.com/watch?v=wNVCJj642n4">Linear + binary search video</a></li>
+    <li><a class="btn" href="https://www.youtube.com/watch?v=P3YID7liBug">Binary search + code implementation video</a>
+    </li>
+  </ul>

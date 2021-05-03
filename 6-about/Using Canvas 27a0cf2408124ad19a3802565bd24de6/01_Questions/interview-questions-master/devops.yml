@@ -1,0 +1,30 @@
+# Devops questions to ask a potential employer. https://gitlab.com/doctorj/interview-questions
+# Copyright 2016 Doctor J.  CC-BY-SA licensed.
+---
+qs:
+- q: What OS do you use?  What version(s)?
+- q: How often do you deploy to production?
+- q: When was the last time you updated your third party libraries and services?
+  followup:
+  - How do you know when your dependencies are out of date?
+  - Is there a regular process for updating them?
+- q: How do you handle secrets (keys, passwords) in your app?
+  a: >
+    Ideally a key distribution infrastructure like Vault, Keywhiz, KMS/IAM, etc.; possibly environment variables;
+    definitely not in the repo.
+  followup:
+  - When was the last time you rotated your keys?
+  - Is rotation automated?  How long does it take?
+- q: Are you using containers in production?
+  followup: What do you use for container orchestration?
+- q: What is your production service uptime?
+- q: Describe the last time production went down and how you handled it.
+- q: What's your least favorite component of your system and why?
+- q: How do you manage on-call rotation?
+  followup:
+  - Do all team members participate in on-call, including ops, developers, and managers?
+  - Do you use a service like PagerDuty to let on-call staff know about service
+  outages and other issues?
+  - What is your current rate of night/weekend pages? Do you consider this
+  acceptable? If not, what are you planning to do about it?
+

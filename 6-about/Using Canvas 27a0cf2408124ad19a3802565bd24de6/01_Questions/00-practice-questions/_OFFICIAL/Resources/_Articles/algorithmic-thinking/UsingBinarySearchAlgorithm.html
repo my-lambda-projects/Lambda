@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A description of the page and its contents" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Page Title</title>
+        <link rel="stylesheet" href="./../../../assets/style.css" />
+        <link rel="stylesheet" href="./../../../assets/prism.css" />
+        <script async src="./../../../assets/prism.js"></script>
+</head>
+
+<body>
+  <h1 id="how-to-use-a-binary-search-algorithm">How to use a binary search algorithm</h1>
+  <p><strong>Translator: <a class="btn" href="https://github.com/Coder2Programmer">Dong Wang</a></strong></p>
+  <p>In what scenarios can binary search be used？</p>
+  <p>The most common example is in textbook, that is, searching for the index of a given target value in <strong>an
+      ordered array</strong>. Moreover, if the target values is duplicated, the modified binary search can return the
+    left boundary or right boundary index of the target value.</p>
+  <p>PS: The three binary search algorithms mentioned above are explained in detail in the previous <a class="btn"
+      href="../think_like_computer/BinarySearch.md">Binary Search Detailed Explanation</a>. It is strongly recommended
+    if
+    you haven’t read it.</p>
+  <p>Putting aside the boring ordered array, how can binary search be applied to practical algorithm problems? When the
+    search space is in order, you can perform <em>pruning</em> through binary search, greatly improving efficiency.</p>
+  <p>Talk is cheap, show you the specific <em>Koko eating banana</em> problem.</p>
+  <h3 id="problem-analysis">1. Problem analysis</h3>
+  <p>Koko loves to eat bananas. There are <code>N</code> piles of bananas, the <code>i</code>-th pile has
+    <code>piles[i]</code> bananas. The guards have gone and will come back in <code>H</code> hours.
+  </p>
+  <p>Koko can decide her bananas-per-hour eating speed of <code>K</code>. Each hour, she chooses some pile of bananas,
+    and eats <code>K</code> bananas from that pile. If the pile has less than <code>K</code> bananas, she eats all of
+    them instead, and won’t eat any more bananas during this hour.</p>
+  <p>Koko likes to eat slowly, but still wants to finish eating all the bananas before the guards come back.</p>
+  <p>Return the minimum integer <code>K</code> such that she can eat all the bananas within <code>H</code> hours.</p>
+  <p>
+    <strong>Example 1:</strong>
+  </p>
+  pre data-role="codeBlock" data-info="js" class="language-javascript">
+<strong>Input:</strong> piles = [3,6,7,11], H = 8
+<strong>Output:</strong> 4
+</pre>
+  <p>
+    <strong>Example 2:</strong>
+  </p>
+  pre data-role="codeBlock" data-info="js" class="language-javascript">
+<strong>Input:</strong> piles = [30,11,23,4,20], H = 5
+<strong>Output:</strong> 30
+</pre>
+  <p>In other words, Koko eats up to a bunch of bananas every hour. 1. If she can’t, she can eat them until the next
+    hour. 2. If she has an appetite after eating this bunch, she will only eat the next bunch until the next hour.</p>
+  <p>Under this condition, let us determine <strong>the minimum speed</strong> Koko eats bananas.</p>
+  <p>Given this scenario directly, can you think of where you can use the binary search algorithm? If you haven’t seen a
+    similar problem, it’s hard to associate this problem with binary search.</p>
+  <p>So let’s put aside the binary search algorithm and think about how to solve the problem violently?</p>
+  <p>First of all, the algorithm requires <em>minimum speed of eating bananas in <code>H</code> hours</em>. We might as
+    well call it <code>speed</code>. What is the maximum possible <code>speed</code>? What is the minimum possible
+    <code>speed</code>?
+  </p>
+  <p>Obviously the minimum is 1 and the maximum is <code>max(piles)</code>, because you can only eat a bunch of bananas
+    in an hour. Then the brute force solution is very simple. As long as it starts from 1 and exhausts to
+    <code>max(piles)</code>, once it is found that a certain value can eat all bananas in <code>H</code> hours, this
+    value is the minimum speed.
+  </p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>int</span> <span>minEatingSpeed</span>(<span>int</span>[] piles,
+    <span>int</span> H) {</a>
+    <a title="2"> <span>// the maximum value of piles</span></a>
+    <a title="3"> <span>int</span> max = <span>getMax</span>(piles);</a>
+    <a title="4"> <span>for</span> (<span>int</span> speed = <span>1</span>; speed &lt; max; speed++) {</a>
+    <a title="5"> <span>// wherher can finish eating banana in H hours at speed</span></a>
+    <a id=-6" title="6"> <span>if</span> (<span>canFinish</span>(piles, speed, H))</a>
+    <a title="7"> <span>return</span> speed;</a>
+    <a title="8"> }</a>
+    <a title="9"> <span>return</span> max;</a>
+    <a id=-10" title="10">}</a></code></pre>
+    </div>
+    <p>Note that this for loop is a linear search in <strong>continuous space, which is the flag that binary search can
+        work</strong>. Because we require the minimum speed, we can use a <strong>binary search algorithm to find out the
+        left boundary</strong> to replace the linear search to improve efficiency.</p>
+    <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>int</span> <span>minEatingSpeed</span>(<span>int</span>[] piles,
+    <span>int</span> H) {</a>
+    <a id=-2" title="2"> <span>// apply the algorithms framework for searching the left boundary</span></a>
+    <a id=-3" title="3"> <span>int</span> left = <span>1</span>, right = <span>getMax</span>(piles) +
+      <span>1</span>;</a>
+    <a id=-4" title="4"> <span>while</span> (left &lt; right) {</a>
+    <a id=-5" title="5"> <span>// prevent overflow</span></a>
+    <a id=-6" title="6"> <span>int</span> mid = left + (right - left) / <span>2</span>;</a>
+    <a id=-7" title="7"> <span>if</span> (<span>canFinish</span>(piles, mid, H)) {</a>
+    <a id=-8" title="8"> right = mid;</a>
+    <a id=-9" title="9"> } <span>else</span> {</a>
+    <a id=-10" title="10"> left = mid + <span>1</span>;</a>
+    <a id=-11" title="11"> }</a>
+    <a id=-12" title="12"> }</a>
+    <a id=-13" title="13"> <span>return</span> left;</a>
+    <a id=-14" title="14">}</a></code></pre>
+    </div>
+    <p>PS: If you have questions about the details of this binary search algorithm, it is recommended to look at the
+      algorithm template on the left boundary of the search for <a class="btn"
+        href="../think_like_computer/BinarySearch.md">Binary Search Detailed Explanation</a> in the previous article.</p>
+  <p>The remaining helper functions are also very simple and can be disassembled step by step.</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>// Time complexity O(N)</span></a>
+    <a title="2"><span>boolean</span> <span>canFinish</span>(<span>int</span>[] piles, <span>int</span> speed,
+      <span>int</span> H) {</a>
+    <a title="3"> <span>int</span> time = <span>0</span>;</a>
+    <a id=-4" title="4"> <span>for</span> (<span>int</span> n : piles) {</a>
+    <a id=-5" title="5"> time += <span>timeOf</span>(n, speed);</a>
+    <a id=-6" title="6"> }</a>
+    <a id=-7" title="7"> <span>return</span> time &lt;= H;</a>
+    <a id=-8" title="8">}</a>
+    <a id=-9" title="9"></a>
+    <a id=-10" title="10"><span>int</span> <span>timeOf</span>(<span>int</span> n, <span>int</span> speed) {</a>
+    <a id=-11" title="11"> <span>return</span> (n / speed) + ((n % speed &gt; <span>0</span>) ? <span>1</span> :
+      <span>0</span>);</a>
+    <a id=-12" title="12">}</a>
+    <a id=-13" title="13"></a>
+    <a id=-14" title="14"><span>int</span> <span>getMax</span>(<span>int</span>[] piles) {</a>
+    <a id=-15" title="15"> <span>int</span> max = <span>0</span>;</a>
+    <a id=-16" title="16"> <span>for</span> (<span>int</span> n : piles)</a>
+    <a id=-17" title="17"> max = <span>Math</span>.<span>max</span>(n, max);</a><a id=-18" title="18">
+      <span>return</span> max;</a>
+    <a id=-19" title="19">}</a></code></pre>
+    </div>
+  <p>So far, with the help of the binary search, the time complexity of the algorithm is O(NlogN).</p>
+  <h3 id="extension">2. Extension</h3>
+  <p>Similarly, look at a transportation problem again.</p>
+  <p>The <code>i</code>-th package on the conveyor belt has a weight of <code>weights[i]</code>. Each day, we load the
+    ship with packages on the conveyor belt (in the order given by weights). We may not load more weight than the
+    maximum weight capacity of the ship.</p>
+  <p>Return the least weight capacity of the ship that will result in all the packages on the conveyor belt being
+    shipped within <code>D</code> days.</p>
+  <p>
+    <strong>Example 1:</strong>
+  </p>
+  pre data-role="codeBlock" data-info="js" class="language-javascript">
+<strong>Input:</strong> weights = [1,2,3,4,5,6,7,8,9,10], D = 5
+<strong>Output:</strong> 15
+<strong>Explanation:</strong> 
+A ship capacity of 15 is the minimum to ship all the packages in 5 days like this:
+1st day: 1, 2, 3, 4, 5
+2nd day: 6, 7
+3rd day: 8
+4th day: 9
+5th day: 10
+
+Note that the cargo must be shipped in the order given, so using a ship of capacity 14 and splitting the packages into parts like (2, 3, 4, 5), (1, 6, 7), (8), (9), (10) is not allowed. 
+</pre>
+  <p>To transport all the goods within <code>D</code> days, the goods are inseparable. How to determine the minimum load
+    for transportation(hereinafter referred to as <code>cap</code>)?</p>
+  <p>In fact, it is essentially the same problem as Koko eating bananas. First, determine the minimum and maximum values
+    of <code>cap</code> as <code>max(weights)</code> and <code>sum(weights)</code>.</p>
+  <p>We require <strong>minimum load</strong>, so a binary search algorithm that searches the left boundary can be used
+    to optimize the linear search.</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>// find the left boundary using binary search</span></a>
+          <a id=-2" title="2"><span>int</span> <span>shipWithinDays</span>(<span>int</span>[] weights, <span>int</span> D)
+            {</a>
+          <a id=-3" title="3"> <span>// minimum possible load</span></a>
+    <a id=-4" title="4"> <span>int</span> left = <span>getMax</span>(weights);</a>
+    <a id=-5" title="5"> <span>// maximum possible load + 1</span></a>
+    <a id=-6" title="6"> <span>int</span> right = <span>getSum</span>(weights) + <span>1</span>;</a>
+    <a id=-7" title="7"> <span>while</span> (left &lt; right) {</a>
+    <a id=-8" title="8"> <span>int</span> mid = left + (right - left) / <span>2</span>;</a>
+    <a id=-9" title="9"> <span>if</span> (<span>canFinish</span>(weights, D, mid)) {</a>
+    <a id=-10" title="10"> right = mid;</a>
+    <a id=-11" title="11"> } <span>else</span> {</a>
+    <a id=-12" title="12"> left = mid + <span>1</span>;</a>
+    <a id=-13" title="13"> }</a>
+    <a id=-14" title="14"> }</a>
+    <a id=-15" title="15"> <span>return</span> left;</a>
+    <a id=-16" title="16">}</a>
+    <a id=-17" title="17"></a>
+    <a id=-18" title="18"><span>// If the load is cap, can I ship the goods within D days？</span></a>
+    <a id=-19" title="19"><span>boolean</span> <span>canFinish</span>(<span>int</span>[] w, <span>int</span> D,
+      <span>int</span> cap) {</a>
+    <a id=-20" title="20"> <span>int</span> i = <span>0</span>;</a>
+    <a id=-21" title="21"> <span>for</span> (<span>int</span> day = <span>0</span>; day &lt; D; day++) {</a>
+    <a id=-22" title="22"> <span>int</span> maxCap = cap;</a>
+    <a id=-23" title="23"> <span>while</span> ((maxCap -= w[i]) &gt;= <span>0</span>) {</a>
+    <a id=-24" title="24"> i++;</a>
+    <a id=-25" title="25"> <span>if</span> (i == w.<span>length</span>)</a>
+    <a id=-26" title="26"> <span>return</span> <span>true</span>;</a>
+    <a id=-27" title="27"> }</a>
+    <a id=-28" title="28"> }</a>
+    <a id=-29" title="29"> <span>return</span> <span>false</span>;</a>
+    <a id=-30" title="30">}</a></code></pre>
+    </div>
+  <p>Through these two examples, do you understand the application of binary search in practical problems？</p>
+  <div>
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a   title="1"><span >for</span> (<span >int</span> i = <span >0</span>; i &lt; n; i++)</a>
+<a  id=-2" title="2">    <span >if</span> (<span >isOK</span>(i))</a>
+<a id=-3" title="3"> <span>return</span> ans;</a></code></pre>
+</div>

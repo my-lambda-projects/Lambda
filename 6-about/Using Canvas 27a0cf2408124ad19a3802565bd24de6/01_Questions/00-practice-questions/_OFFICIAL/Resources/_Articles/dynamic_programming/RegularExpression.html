@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A description of the page and its contents" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Page Title</title>
+        <link rel="stylesheet" href="./../../../assets/style.css" />
+        <link rel="stylesheet" href="./../../../assets/prism.css" />
+        <script async src="./../../../assets/prism.js"></script>
+</head>
+
+<body>
+  <h1 id="regular-expression---dynamic-programming">Regular Expression - Dynamic Programming</h1>
+  <p><strong>Translator: <a class="btn" href="https://github.com/PaperJets">PaperJets</a></strong></p>
+  <p>The previous article, “Dynamic Programming in Detail,” was very well-received. Today, I’m going to talk about a
+    practical application: Regular Expression. I highly recommend you to take a look at the previous article, if you
+    don’t know what is “Dynamic Programming”.</p>
+  <p>Regular Expression is an ingenious algorithm but is a little bit hard to understand. This article mainly focuses on
+    the implementation of two Regular Expression symbols: period「.」and asterisk「*」. Don’t worry if you have never used
+    Regular Expression; I will introduce it later. At the end of this article, I’ll share with you a tip to quickly find
+    the overlapping subproblems.</p>
+  <p>Another important purpose of this article is to teach readers how to design their own algorithms. Sometimes it’s
+    hard to understand others’ comprehensive algorithms. And we even feel exhausted. But in this article, I just want to
+    tell you that designing an algorithm is not a piece of cake; instead, it’s a continuing upward spiral of progress.
+    You need to work for it, refine it and perfect it. I’ll try my best to make you know how do we simplify problems and
+    build the final solutions from the simplest framework.</p>
+  <p>Without wasting time, let’s dive into it: Given a string(s) and a string mode(p). Implement the Regular Expression
+    that supports the ‘.’ and ’*’ match.</p>
+  pre data-role="codeBlock" data-info="js" class="language-javascript"><code>&#39;.&#39;  matches any single character
+&#39;*&#39;  matches zero or more before &quot;*&quot;
+Note: Matches should cover the whole string, not part of it.</code></pre>
+  <p>Demo1:</p>
+  pre data-role="codeBlock" data-info="js" class="language-javascript"><code>Input:
+    s = &quot;aa&quot;
+    p = &quot;a*&quot;
+Output:
+    true
+Explanation:
+    &#39;*&#39; represents matching zero or more characters before the &quot;*&quot;. 
+    &quot;a*&quot; can either match &quot;a&quot; or &quot;aa&quot;.</code></pre>
+  <p>Demo2:</p>
+  pre data-role="codeBlock" data-info="js" class="language-javascript"><code>Input:
+    s = &quot;aab&quot;
+    p = &quot;c*a*b&quot;
+Output:
+    true
+Explanation:
+    &#39;c&#39; and &#39;a&#39; can appear zero time or more than one times.</code></pre>
+  <p>Demo3:</p>
+  pre data-role="codeBlock" data-info="js" class="language-javascript"><code>Input:
+    s = &quot;ab&quot;
+    p = &quot;.*&quot;
+Output:
+    true
+Explanation:
+    &quot;.*&quot; means matching zero or more(&#39;*&#39;) arbitrary character(&#39;.&#39;).</code></pre>
+  <h3 id="warm-up">1. Warm-up</h3>
+  <p>The first step, let’s ignore the regular symbols for a moment. If you’re comparing two normal strings, how do you
+    match them? I think this is an algorithm that anyone can write:</p>
+  <div>
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a   title="1"><span >bool</span> isMatch(string text, string pattern) {</a>
+  <a  id=-2" title="2">    <span >if</span> (text.size() != pattern.size()) </a>
+  <a  id=-3" title="3">        <span >return</span> <span >false</span>;</a>
+  <a  id=-4" title="4">    <span >for</span> (<span >int</span> j = <span >0</span>; j &lt; pattern.size(); j++) {</a>
+  <a  id=-5" title="5">        <span >if</span> (pattern[j] != text[j])</a>
+  <a  id=-6" title="6">            <span >return</span> <span >false</span>;</a>
+  <a  id=-7" title="7">    }</a>
+  <a  id=-8" title="8">    <span >return</span> <span >true</span>;</a>
+  <a  id=-9" title="9">}</a></code></pre>
+  </div>
+  <p>Then, I’m going to tweak the above code a little bit. It’s a little more complicated, but it still means the same
+    thing.</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>bool</span> isMatch(string text, string pattern) {</a>
+    <a id=-2" title="2"> <span>int</span> i = <span>0</span>; <span>// Index position of text</span></a>
+    <a id=-3" title="3"> <span>int</span> j = <span>0</span>; <span>// Index position of pattern</span></a>
+    <a id=-4" title="4"> <span>while</span> (j &lt; pattern.size()) {</a>
+    <a id=-5" title="5"> <span>if</span> (i &gt;= text.size()) </a>
+    <a id=-6" title="6"> <span>return</span> <span>false</span>;</a>
+    <a id=-7" title="7"> <span>if</span> (pattern[j++] != text[i++])</a>
+    <a id=-8" title="8"> <span>return</span> <span>false</span>;</a>
+    <a id=-9" title="9"> }</a>
+    <a id=-10" title="10"> <span>// Equality means matching is complete</span></a>
+    <a id=-11" title="11"> <span>return</span> j == text.size();</a>
+    <a id=-12" title="12">}</a></code></pre>
+  </div>
+  <p>The above rewriting is to transform this algorithm into a recursive algorithm (pseudo code) :</p>
+  <div id="cb7">
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a   title="1"><span >def</span> isMatch(text, pattern) <span >-&gt;</span> <span >bool</span>:</a>
+  <a  id="cb7-2" title="2">    <span >if</span> pattern <span >is</span> empty: <span >return</span> (text <span >is</span> empty?)</a>
+  <a  id="cb7-3" title="3">    first_match <span >=</span> (text <span >not</span> empty) <span >and</span> pattern[<span >0</span>] <span >==</span> text[<span >0</span>]</a>
+  <a  id="cb7-4" title="4">    <span >return</span> first_match <span >and</span> isMatch(text[<span >1</span>:], pattern[<span >1</span>:])</a></code></pre>
+  </div>
+  <p>If you can understand this code. Congratulations! your recursion idea is in place. The regular expression
+    algorithm, though a little complicated, is actually based on this recursive code.</p>
+  <h3 id="handle-the-dot-.-wildcard">2. Handle the dot 「.」 wildcard</h3>
+  <p>Dot can match any character. Very handy! In fact, it is the simplest with a little modification:</p>
+  <div id="cb8">
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a   title="1"><span >def</span> isMatch(text, pattern) <span >-&gt;</span> <span >bool</span>:</a>
+  <a  id="cb8-2" title="2">    <span >if</span> <span >not</span> pattern: <span >return</span> <span >not</span> text</a>
+  <a id="cb8-3" title="3"> first_match <span>=</span> <span>bool</span>(text) <span>and</span> pattern[<span>0</span>]
+    <span>in</span> {text[<span>0</span>], <span>&#39;.&#39;</span>}</a>
+  <a  id="cb8-4" title="4">    <span >return</span> first_match <span >and</span> isMatch(text[<span >1</span>:], pattern[<span >1</span>:])</a></code></pre>
+  </div>
+  <h3 id="handle-the-wildcard">3. Handle the 「*」 wildcard</h3>
+  <p>The asterisk wildcard allows the previous character to be repeated any number of times, including zero. How many
+    times? It’s a little hard to say, but don’t worry, we can at least build the framework further:</p>
+  <div id="cb9">
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a   title="1"><span >def</span> isMatch(text, pattern) <span >-&gt;</span> <span >bool</span>:</a>
+  <a  id="cb9-2" title="2">    <span >if</span> <span >not</span> pattern: <span >return</span> <span >not</span> text</a>
+  <a id="cb9-3" title="3"> first_match <span>=</span> <span>bool</span>(text) <span>and</span> pattern[<span>0</span>]
+    <span>in</span> {text[<span>0</span>], <span>&#39;.&#39;</span>}</a>
+  <a id="cb9-4" title="4"> <span>if</span> <span>len</span>(pattern) <span>&gt;=</span> <span>2</span> <span>and</span>
+    pattern[<span>1</span>] <span>==</span> <span>&#39;*&#39;</span>:</a>
+  <a  id="cb9-5" title="5">        <span ># find &#39;*&#39; wildcard</span></a>
+  <a  id="cb9-6" title="6">    <span >else</span>:</a>
+  <a  id="cb9-7" title="7">        <span >return</span> first_match <span >and</span> isMatch(text[<span >1</span>:], pattern[<span >1</span>:])</a></code></pre>
+  </div>
+  <p>How many times does the character before the asterisk have to be repeated? It depends on the computation of a
+    computer. Let’s say, N times. As I’ve said many times before, the trick to writing recursion is to focus on the
+    present issues and leave the rest to the recursion. Here, no matter what N is, there are only two choices: zero
+    matches and one match. So you can do it this way:</p>
+  <div id=0">
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a  id=0-1" title="1"><span >if</span> <span >len</span>(pattern) <span >&gt;=</span> <span >2</span> <span >and</span> pattern[<span >1</span>] <span >==</span> <span >&#39;*&#39;</span>:</a>
+  <a  id=0-2" title="2">    <span >return</span> isMatch(text, pattern[<span >2</span>:]) <span >or</span> <span >\</span></a>
+  <a  id=0-3" title="3">            first_match <span >and</span> isMatch(text[<span >1</span>:], pattern)</a>
+  <a  id=0-4" title="4"></a>
+  <a  id=0-5" title="5"><span ># explanation: </span></a>
+  <a  id=0-6" title="6">    <span >#if a character is found in combination with &#39;*&#39;,</span></a>
+  <a  id=0-7" title="7">    <span ># or match the character 0 times, then skip the character and &#39;*&#39;</span></a>
+  <a  id=0-8" title="8">    <span ># or move the text when the pattern[0] matches the text[0]</span></a></code></pre>
+  </div>
+  <p>As we can see, we keep the 「*」 in the pattern and pushed the text backwards to implement the function of 「<em>」 to
+      match the characters repeatedly for many times. A simple example will illustrate the logic. Suppose ’pattern =
+      a</em>’, ‘text = aaa’, we can draw a picture to see the matching process:</p>
+  <figure>
+    <img src="./pictures/regularExpression/regex_example.jpg" alt="example" />
+    <figcaption>example</figcaption>
+  </figure>
+  <p>At this point, the regular expression algorithm is almost complete.</p>
+  <h3 id="dynamic-programming">4. Dynamic Programming</h3>
+  <p>I chose to use the 「memo」 recursion to lower complexity. With the brute force method, the optimization process is
+    as simple as using two variables I and j to record the current matching position, thus avoiding substring slices,
+    and storing I and j in memos to avoid double counting.</p>
+  <p>I put the violent solution and the optimized solution together so that you can easily compare. You will find that
+    the optimized solution is nothing more than the violent solution “translated”, add a memo. That’s all!</p>
+  <div id=1">
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a  id=1-1" title="1"><span ># Recursion with memo</span></a>
+  <a id=1-2" title="2"><span>def</span> isMatch(text, pattern) <span>-&gt;</span> <span>bool</span>:</a>
+  <a id=1-3" title="3"> memo <span>=</span> <span>dict</span>() <span># memo</span></a>
+  <a  id=1-4" title="4">    <span >def</span> dp(i, j):</a>
+  <a  id=1-5" title="5">        <span >if</span> (i, j) <span >in</span> memo: <span >return</span> memo[(i, j)]</a>
+  <a id=1-6" title="6"> <span>if</span> j <span>==</span> <span>len</span>(pattern): <span>return</span> i <span>==</span>
+    <span>len</span>(text)</a>
+  <a  id=1-7" title="7"></a>
+  <a id=1-8" title="8"> first <span>=</span> i <span>&lt;</span> <span>len</span>(text) <span>and</span> pattern[j]
+    <span>in</span> {text[i], <span>&#39;.&#39;</span>}</a>
+  <a  id=1-9" title="9">        </a>
+  <a id=1-10" title="10"> <span>if</span> j <span>&lt;=</span> <span>len</span>(pattern) <span>-</span> <span>2</span>
+    <span>and</span> pattern[j <span>+</span> <span>1</span>] <span>==</span> <span>&#39;*&#39;</span>:</a>
+  <a  id=1-11" title="11">            ans <span >=</span> dp(i, j <span >+</span> <span >2</span>) <span >or</span> <span >\</span></a>
+  <a  id=1-12" title="12">                    first <span >and</span> dp(i <span >+</span> <span >1</span>, j)</a>
+  <a  id=1-13" title="13">        <span >else</span>:</a>
+  <a  id=1-14" title="14">            ans <span >=</span> first <span >and</span> dp(i <span >+</span> <span >1</span>, j <span >+</span> <span >1</span>)</a>
+  <a  id=1-15" title="15">            </a>
+  <a  id=1-16" title="16">        memo[(i, j)] <span >=</span> ans</a>
+  <a  id=1-17" title="17">        <span >return</span> ans</a>
+  <a  id=1-18" title="18">    </a>
+  <a  id=1-19" title="19">    <span >return</span> dp(<span >0</span>, <span >0</span>)</a>
+  <a  id=1-20" title="20"></a>
+  <a  id=1-21" title="21"><span ># brute force recursive</span></a>
+  <a id=1-22" title="22"><span>def</span> isMatch(text, pattern) <span>-&gt;</span> <span>bool</span>:</a>
+  <a  id=1-23" title="23">    <span >if</span> <span >not</span> pattern: <span >return</span> <span >not</span> text</a>
+  <a  id=1-24" title="24"></a>
+  <a id=1-25" title="25"> first <span>=</span> <span>bool</span>(text) <span>and</span> pattern[<span>0</span>]
+    <span>in</span> {text[<span>0</span>], <span>&#39;.&#39;</span>}</a>
+  <a  id=1-26" title="26"></a>
+  <a id=1-27" title="27"> <span>if</span> <span>len</span>(pattern) <span>&gt;=</span> <span>2</span> <span>and</span>
+    pattern[<span>1</span>] <span>==</span> <span>&#39;*&#39;</span>:</a>
+  <a  id=1-28" title="28">        <span >return</span> isMatch(text, pattern[<span >2</span>:]) <span >or</span> <span >\</span></a>
+  <a  id=1-29" title="29">                first <span >and</span> isMatch(text[<span >1</span>:], pattern)</a>
+  <a  id=1-30" title="30">    <span >else</span>:</a>
+  <a  id=1-31" title="31">        <span >return</span> first <span >and</span> isMatch(text[<span >1</span>:], pattern[<span >1</span>:])</a></code></pre>
+  </div>
+  <p><strong>Some readers may ask, how do you know that this problem is a dynamic programming problem, how do you know
+      that there is an overlapping subproblem? It’s not easy to find that!</strong></p>
+  <p>The clearest way is to answer this question is to assume an input and then draw a recursion tree. And you will
+    definitely find the same node, which is a quantitative analysis. In fact, without so much trouble, let me teach you
+    the qualitative analysis, at a glance can see the “overlapping sub-problem” property.</p>
+  <p>Taking the simplest Fibonacci sequence for example, we abstract the framework of recursive algorithm:</p>
+  <div id=2">
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a  id=2-1" title="1"><span >def</span> fib(n):</a>
+  <a  id=2-2" title="2">    fib(n <span >-</span> <span >1</span>) <span >#1</span></a>
+  <a  id=2-3" title="3">    fib(n <span >-</span> <span >2</span>) <span >#2</span></a></code></pre>
+  </div>
+  <p>Look at the frame, how do I get from the original problem f(n) to the sub-problem f(n - 2)? There are two paths,
+    one is f(n) -&gt; #1 -&gt; #1, and the other is f(n) -&gt; #2. The former recurses twice; the latter recurse once.
+    Two different computational paths but all face the same problem, which is called the “overlap subproblem”. It is
+    certain that <strong>as long as you find a repeated path, there must be tens of thousands of such repeated paths,
+      meaning that the huge quantum problem overlaps.</strong></p>
+  <p>Similarly, for this problem, we still abstract the algorithm framework first:</p>
+  <div id=3">
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a  id=3-1" title="1"><span >def</span> dp(i, j):</a>
+  <a      id=3-2" title="2">    dp(i, j <span >+</span> <span >2</span>)     <span >#1</span></a>
+  <a  id=3-3" title="3">    dp(i <span >+</span> <span >1</span>, j)     <span >#2</span></a>
+  <a  id=3-4" title="4">    dp(i <span >+</span> <span >1</span>, j <span >+</span> <span >1</span>) <span >#3</span></a></code></pre>
+  </div>
+  <p>A similar problem is raised. How can we reach the subproblem dp(i, j) from the original problem dp(i + 2, j + 2)?
+    There are at least two paths, one is the dp(i, j) - &gt; # 3 - &gt; # 3, the second is the dp (i, j) - &gt; # 1 -
+    &gt; #2 - &gt; #2. Therefore, there must be overlapping subproblems in this problem, which need the optimization
+    skills of dynamic programming to deal with.</p>
+  <h3 id="summary">5. Summary</h3>
+  <p>In this article, you have gained a deep insight into the algorithmic implementation of two common wildcards for
+    regular expressions. In fact, the implementation of the dot 「.」is very simple. The key is that the implementation of
+    the asterisk 「*」 needs to use dynamic programming skills, a little more complex. But it breaks down under our
+    analysis. In addition, you have developed a technique for quickly analyzing the nature of overlapping subproblems,
+    allowing you to quickly determine whether a problem can be solved using dynamic programming.</p>
+  <p>Reviewing the whole process, you should be able to understand the process of algorithm design: from similar simple
+    problems to the basic framework of the gradual assembly of new logic, eventually become a more complex,
+    sophisticated algorithm. So, you guys don’t be afraid of some more complex algorithm problems. No matter how big the
+    algorithm in your eyes is just a piece of cake.</p>
+  <p>If this article is helpful to you, welcome to pay attention to my wechat official account
+    <strong>labuladong</strong>, I’m committed to make the algorithm problem more clear ~
+  </p>
+
+</body>
+
+</html>

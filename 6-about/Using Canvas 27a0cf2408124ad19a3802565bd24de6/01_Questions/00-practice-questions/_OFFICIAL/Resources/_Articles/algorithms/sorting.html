@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A description of the page and its contents" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Page Title</title>
+        <link rel="stylesheet" href="./../../../assets/style.css" />
+        <link rel="stylesheet" href="./../../../assets/prism.css" />
+        <script async src="./../../../assets/prism.js"></script>
+</head>
+
+<body>
+  <h1 id="sorting-algorithms">Sorting Algorithms</h1>
+  <h3 id="projected-time">Projected Time</h3>
+  <p>5-6 hours</p>
+  <h3 id="prerequisites">Prerequisites</h3>
+  <ul>
+    <li><a class="btn" href="/recursion/recursion.md">Recursion</a></li>
+    <li><a class="btn" href="/algorithms/searching.md">Searching</a> (Particularly Binary Search)</li>
+  </ul>
+  <h3 id="motivation">Motivation</h3>
+  <p>Sorting is important in programming for the same reason it is important in everyday life. It is easier and faster
+    to
+    locate items in a sorted list than unsorted. Sorting algorithms can be used in a program to sort an array for later
+    searching or writing out to an ordered file or report.<a class="btn"
+      href="https://www.quora.com/Why-is-sorting-important-in-computer-science-and-programming">(by Siddharth
+      Khuntwal)</a></p>
+  <p>For example bubble sort, quick sort, and selection sort all take the same input and produce the same output but at
+    different speeds. This is a nice way to show how different approaches can yield more efficient algorithms using
+    approaches such as divide and conquer. On top of that, sorting algorithms don’t require advanced data structures
+    knowledge to understand. If you can understand arrays you can understand sorting algorithm examples.<a class="btn"
+      href="https://dev.to/cooperfle/whats-the-point-of-learning-how-to-sort-20dl">(by cma)</a></p>
+  <h3 id="objectives">Objectives</h3>
+  <p><strong>Participants will be able to:</strong></p>
+  <ul>
+    <li>Understand what an algorithm is.</li>
+    <li>Understand what a sorting algorithm is.</li>
+    <li>Understand the mechanics of a few sorting algorithms including Bubble Sort, Merge Sort, and Quick Sort.</li>
+    <li>Understand the Runtime Complexity of these algorithms.</li>
+  </ul>
+  <h3 id="materials-and-useful-videos">Materials and Useful Videos</h3>
+  <ul>
+    <li><a class="btn" href="https://www.toptal.com/developers/sorting-algorithms/">Sorting Algorithms Visualized</a>
+    </li>
+    <li><a class="btn" href="https://www.youtube.com/watch?v=lyZQPjUT5B4">Bubble Sort With Hungarian Folk Dance</a></li>
+    <li><a class="btn" href="https://www.youtube.com/watch?v=XaqR3G_NVoo">Merge Sort With German Folk Dance</a></li>
+    <li>A Deck of Cards</li>
+  </ul>
+  <h3 id="pre-lesson-warm-up-and-game-30-minutes">Pre-Lesson Warm Up and Game (30 minutes)</h3>
+  <ul>
+    <li>Discussion topic: What is an algorithm? Can you give us an example of an algorithm?
+      <ul>
+        <li>An algorithm is a way for describing automated processes.</li>
+      </ul>
+      </li>
+      <li>Discussion topic: What is a Sorting Algorithm? Can you give us an example of something that we sort in our
+        day-to-day lives?
+      <ul>
+        <li>A Sorting Algorithm orders items in a group according to a specificed attribute. ie: Order a roster of
+          students by name, Order cartons of milk by expiration date.</li>
+        </ul>
+        </li>
+    <li>Discussion topic: Why do we need sorting algorithms in Computer Science?
+      <ul>
+        <li>Let’s do a Card-Sorting activity. Partner up in groups of two or three and order cards from lowest to
+          highest (all of the same suit). Give student groups a deck of cards and give them each a suit of cards to
+          sort.</li>
+        <li>After 10 minutes of sorting, let’s reflect on how we accomplished it. Did we sort the cards differently from
+          the people in our partner groups? Did we compare a few at a time? Did we look for the lowest first and then go
+          from there? Do you think we could sort in fewer “moves”?</li>
+        <li>After this Card-Sorting activity it’s clear there are a lot of different ways to sort cards! This translates
+          right
+          to how computer scientists sort Lists. As Computer Scientists we have lots of different algorithms to use that
+          allow
+          us to sort - from Bubble Sort, to Merge Sort, to Quick Sort! Some algorithms aren’t as fast as others (Obama
+          knows not
+          to use the Bubble Sort: <a class="btn" href="https://www.youtube.com/watch?v=k4RRi_ntQc8">Watch video</a>),
+          but there
+          are many tradeoffs to different algorithms!</li>
+        <li>Why is sorting important? Remember Binary Search last lesson? Well, we need a sorted list to do Binary
+          Searching!</li>
+      </ul>
+    </li>
+    </ul>
+  <h3 id="lesson-3-hours">Lesson (3 hours)</h3>
+  <p>Remember how we can sort cards lots of different ways? Let’s talk about all the ways computers sort Lists.</p>
+  <p>Let’s start with a Bad Way To Sort:</p>
+  <h4 id="bogosort-10-minutes">BogoSort (10 minutes)</h4>
+  <p>Say we want to sort a deck of cards:</p>
+  <ol type="1">
+    <li>Toss them in the air!</li>
+    <li>Pick them up one by one.</li>
+    <li>Are they sorted?</li>
+    <li>If not, repeat lines 1 - 3</li>
+  </ol>
+  <p>Let’s talk about the Complexity of BogoSort. Here’s the pseudocode:</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>while</span> not <span>Sorted</span>(a) </a>
+        <a title="2"> <span>Shuffle</span>(a)</a></code></pre>
+  </div>
+  <p><em>The best case?</em></p>
+  <p>O(n) where n is the length of the list, because we have to check that the list is sorted.</p>
+  <p><em>The worst case?</em></p>
+  <p>O(????) because this could NEVER END if we get really unlucky.</p>
+  <p>Hopefully you can see why we never want to use this algorithm again.</p>
+  <h4 id="bubble-sort-30-minutes">Bubble Sort (30 minutes)</h4>
+  <p><a class="btn" href="https://www.youtube.com/watch?v=k4RRi_ntQc8">Thanks, Obama</a></p>
+  <p>How does it work?</p>
+  <ol type="1">
+    <li>Compare consecutive pairs of elements.</li>
+    <li>Swap elements in the pair so that the smaller one is first.</li>
+    <li>When we reach the end of the list, start over!</li>
+    <li>Stop when no more swaps have been made.</li>
+  </ol>
+  <p>Demonstration video: <a class="btn" href="https://www.youtube.com/watch?v=Cq7SMsQBEUw">Watch this Video</a> (useful
+    in slo-mo)</p>
+  <p>Let’s watch a folk dance interpretation of Bubble Sort: <a class="btn"
+      href="https://www.youtube.com/watch?v=lyZQPjUT5B4">Watch this video, It is also available in the materials
+      section</a></p>
+  <p>Let’s break into groups again and try out the sorting algorithm on our own decks of cards!</p>
+  <p>What’s the Complexity of Bubble Sort?</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>function</span> <span>bubble_sort</span>(a)</a>
+        <a id=-2" title="2"><span>{</span></a>
+        <a id=-3" title="3"> <span>let</span> swap<span>;</span></a>
+        <a id=-4" title="4"> <span>let</span> n <span>=</span> <span>a</span>.<span>length-1;</span></a>
+        <a id=-5" title="5"> <span>let</span> x<span>=</span>a<span>;</span></a>
+        <a id=-6" title="6"> <span>do</span> <span>{</span></a>
+        <a id=-7" title="7"> swap <span>=</span> <span>false;</span></a>
+        <a id=-8" title="8"> <span>for</span> (<span>let</span> i<span>=0;</span> i <span>&lt;</span> n<span>;</span>
+          i<span>++</span>)</a>
+        <a id=-9" title="9"> <span>{</span></a>
+        <a id=-10" title="10"> <span>if</span> (x[i] <span>&lt;</span> x[i<span>+1</span>])</a>
+        <a id=-11" title="11"> <span>{</span></a>
+        <a id=-12" title="12"> <span>let</span> temp <span>=</span> x[i]<span>;</span></a>
+        <a id=-13" title="13"> x[i] <span>=</span> x[i<span>+1</span>]<span>;</span></a>
+        <a id=-14" title="14"> x[i<span>+1</span>] <span>=</span> temp<span>;</span></a>
+        <a id=-15" title="15"> swap <span>=</span> <span>true;</span></a>
+        <a id=-16" title="16"> <span>}</span></a>
+        <a id=-17" title="17"> <span>}</span></a>
+        <a id=-18" title="18"> n<span>--;</span></a>
+        <a id=-19" title="19"> <span>}</span> <span>while</span> (swap)<span>;</span></a>
+        <a id=-20" title="20"> <span>return</span> x<span>;</span> </a>
+        <a id=-21" title="21"><span>}</span> </a></code></pre>
+  </div>
+  <p>We have nested loops: the while-loop and the for-loop! The outer loop passes until there are no more swaps. Thus
+    the runtime is O(n^2).</p>
+  <p>Group question: what state would the list be in for Bubble Sort to have the worst possible performance?</p>
+  <ul>
+    <li>If the smallest element of the list is at the back, Bubble Sort will perform at the absolute worst. Because in
+      each iteration only the largest unsorted element gets put in its proper location. When the smallest element is at
+      the end it will have to be swapped each time through the list and it won’t get to the front of the list until all
+      n iterations have occurred.</li>
+  </ul>
+  <h4 id="selection-sort-15-minutes">Selection Sort (15 minutes)</h4>
+  <p>How does it work?</p>
+  <ol type="1">
+    <li>First step:
+      <ol type="1">
+        <li>Extract the smallest element.</li>
+        <li>Swap it with the element at index 0.</li>
+      </ol>
+      </li>
+    <li>Next step:
+      <ol type="1">
+        <li>In the remaining unsorted sublist extract the smallest element.</li>
+        <li>Swap it with the element at index 1.</li>
+      </ol>
+      </li>
+    <li>At the i’th step, the first i elements of the list are guaranteed to be sorted.</li>
+  </ol>
+  <p>Demonstration video: <a class="btn" href="https://www.youtube.com/watch?v=92BfuxHn2XE">Watch this video</a></p>
+  <p>What’s the Complexity of Selection Sort?</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>function</span> <span>selection_sort</span>(a)<span>{</span></a>
+        <a title="2"> <span>for</span>( <span>let</span> i <span>=</span> <span>0;</span> i <span>&lt;</span>
+          <span>a</span>.<span>length;</span> i<span>++</span> )<span>{</span></a>
+        <a title="3"> <span>let</span> small <span>=</span> i<span>;</span></a>
+        <a id=-4" title="4"> <span>for</span>( <span>let</span> j <span>=</span> i <span>+</span> <span>1;</span> j
+          <span>&lt;</span> <span>a</span>.<span>length;</span> j<span>++</span> )<span>{</span></a>
+        <a id=-5" title="5"> <span>if</span>( a[j] <span>&lt;</span> a[small])<span>{</span></a>
+        <a id=-6" title="6"> small <span>=</span> j<span>;</span></a>
+        <a id=-7" title="7"> <span>}</span></a>
+        <a id=-8" title="8"> <span>}</span></a>
+        <a id=-9" title="9"> <span>if</span>(i <span>!==</span> small)<span>{</span></a>
+        <a id=-10" title="10"> <span>let</span> temp <span>=</span> a[i]<span>;</span></a>
+        <a id=-11" title="11"> a[i] <span>=</span> a[small]<span>;</span></a>
+        <a id=-12" title="12"> a[small] <span>=</span> temp<span>;</span></a>
+        <a id=-13" title="13"> <span>}</span></a>
+        <a id=-14" title="14"> <span>}</span></a>
+        <a id=-15" title="15"> <span>return</span> a<span>;</span></a>
+        <a id=-16" title="16"><span>}</span></a></code></pre>
+  </div>
+  <p>Again, there’s a nested loop, so worst-case runtime is O(n^2)!</p>
+  <h4 id="can-we-do-better-than-on2">Can we do better than O(n^2)?????</h4>
+  <h4 id="merge-sort-2-hours">Merge Sort (2 hours)</h4>
+  <p>Merge Sort is a <em>divide and conquer</em> algorithm. A divide and conquer algorithm works by recursively breaking
+    down a problem into two or more sub-problems of the same or related type, until these become simple enough to be
+    solved directly. The solutions to the sub-problems are then combined to give a solution to the original problem.</p>
+  <p>What are we dividing and what are we conquering here?</p>
+  <p>Well, we divide the list into lots of sublists. In fact, we divide them into lists that are of size 1! At that
+    point, we know a list of size 1 is sorted! This isn’t intuitive, right? Let’s dig in…</p>
+  <ol type="1">
+    <li>If a list is of length 0 or 1, it’s already sorted!</li>
+    <li>If a list has more than one element, split it into two lists, and sort each.</li>
+    <li>Merge sorted sublists.
+      <ol type="1">
+        <li>Look at the first element of each, move smaller to the end of the result.</li>
+        <li>When one list is empty, just copy the rest of the other list.</li>
+      </ol>
+    </li>
+    </ol>
+    <p>Let’s review this video: <a class="btn" href="https://www.youtube.com/watch?v=KF2j-9iSf4Q">Watch this video, it is
+        also available in the materials section</a></p>
+  <p>This will be tough, but let’s try implementing it ourselves!</p>
+  <p>Let’s try just the merge (a, left, right, middle) function first.</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>function</span> <span>merge</span> (a<span>,</span> left<span>,</span>
+        right<span>,</span> middle)<span>{</span></a>
+        <a id=-2" title="2"> n1 <span>=</span> middle <span>-</span> left <span>+1;</span></a>
+        <a id=-3" title="3"> n2 <span>=</span> right <span>-</span> middle<span>;</span></a>
+        <a id=-4" title="4"> <span>let</span> L <span>=</span> []<span>;</span></a>
+        <a id=-5" title="5"> <span>let</span> R <span>=</span> []<span>;</span></a>
+        <a id=-6" title="6"> <span>for</span>(<span>let</span> i
+          <span>=0;</span>i<span>&lt;</span>n1<span>;</span>i<span>++</span>)<span>{</span></a>
+        <a id=-7" title="7"> L[i] <span>=</span> a[left <span>+</span> i ]<span>;</span></a>
+        <a id=-8" title="8"> <span>}</span></a>
+        <a id=-9" title="9"> <span>for</span>(<span>let</span>
+          j<span>=0;</span>j<span>&lt;</span>n2<span>;</span>j<span>++</span>)<span>{</span></a>
+        <a id=-10" title="10"> R[j] <span>=</span> a[middle<span>+</span>j<span>+1</span>]<span>;</span></a>
+        <a id=-11" title="11"> <span>}</span></a>
+        <a id=-12" title="12"> i <span>=</span> <span>0;</span> </a>
+        <a id=-13" title="13"> j <span>=</span> <span>0</span> <span>;</span> </a>
+        <a id=-14" title="14"> <span>let</span> k <span>=</span> left<span>;</span></a>
+        <a id=-15" title="15"> <span>while</span> (i <span>&lt;</span> n1 <span>&amp;&amp;</span> j <span>&lt;</span>
+          n2)</a>
+        <a id=-16" title="16"> <span>{</span></a>
+        <a id=-17" title="17"> <span>if</span> (L[i] <span>&lt;=</span> R[j])</a>
+        <a id=-18" title="18"> a[k] <span>=</span> L[i<span>++</span>]<span>;</span></a>
+        <a id=-19" title="19"> <span>else</span></a>
+        <a id=-20" title="20"> a[k] <span>=</span> R[j<span>++</span>]<span>;</span></a>
+        <a id=-21" title="21"> k<span>++;</span> </a>
+        <a id=-22" title="22"> <span>}</span></a>
+        <a id=-23" title="23"> <span>while</span> (i <span>&lt;</span> n1)</a>
+        <a id=-24" title="24"> <span>{</span></a>
+        <a id=-25" title="25"> a[k] <span>=</span> L[i]<span>;</span></a>
+        <a id=-26" title="26"> i<span>++;</span></a>
+        <a id=-27" title="27"> k<span>++;</span></a>
+        <a id=-28" title="28"> <span>}</span></a>
+        <a id=-29" title="29"> <span>while</span> (j <span>&lt;</span> n2)</a>
+        <a id=-30" title="30"> <span>{</span></a>
+        <a id=-31" title="31"> a[k] <span>=</span> R[j]<span>;</span></a>
+        <a id=-32" title="32"> j<span>++;</span></a>
+        <a id=-33" title="33"> k<span>++;</span></a>
+        <a id=-34" title="34"> <span>}</span></a>
+        <a id=-35" title="35"><span>}</span></a></code></pre>
+  </div>
+  <p>Can we merge this with sample input? What if left = [1,3] and right = [2, 4]?</p>
+  <p>After an hour, let’s complete the merge_sort function!</p>
+  <div>
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a   title="1"><span >function</span> <span >merge_sort</span> (a<span >,</span> left<span >,</span> right)<span >{</span></a>
+<a  id=-2" title="2">    <span >if</span>(left <span >&lt;</span> right)<span >{</span></a>
+<a  id=-3" title="3">        <span >let</span> middle <span >=</span> <span >Math</span>.<span >floor</span>((left <span >+</span>right)/<span >2</span>)<span >;</span></a>
+<a  id=-4" title="4">        <span >merge_sort</span>(a<span >,</span>left<span >,</span>middle)<span >;</span></a>
+<a  id=-5" title="5">        <span >merge_sort</span>(a<span >,</span>middle<span >+1,</span>right)<span >;</span></a>
+<a  id=-6" title="6">        <span >merge</span>(a<span >,</span>left<span >,</span>right<span >,</span>middle)<span >;</span></a>
+<a  id=-7" title="7">    <span >}</span></a>
+<a id=-8" title="8"><span>}</span></a></code></pre>
+</div>
+  <p>Let’s test it with this list: testList = [1,3,5,7,2,6,25,18,13]</p>
+  <h3 id="independent-practice-2-hours">Independent Practice (2 hours)</h3>
+  <p>Spend 3 hours writing steps for yourself on how to go about writing each algorithm: Bubble, Selection, Merge. For
+    example:</p>
+  <p><strong>Name of Algorithm</strong></p>
+  <ol type="1">
+    <li>Create this function and a helper function.</li>
+    <li>Flesh out the first function by creating variables and then using them in these ways.</li>
+    <li>Call helper function.</li>
+    <li>Flesh out the helper function by creating these variables and then using them in these ways.</li>
+    <li>Return helper result to first function.</li>
+    <li>This is why it worked!</li>
+  </ol>
+  <p>If you’re curious to read more there are lots of good resources out there!</p>
+  <p><a class="btn"
+      href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/lecture-slides-code/MIT6_0001F16_Lec12.pdf">MIT
+      Intro to CS Slides on Sorting</a></p>
+  <p><a class="btn"
+      href="https://www.cs.hmc.edu/MyCS/MyCS_all_handouts/Unit%205/PDF%20Sorting%20Algorithms%20Lesson%20Plan.pdf">Harvey
+      Mudd Lesson Plan on Sorting</a></p>
+  <p><a class="btn" href="http://www.sparknotes.com/cs/sorting/bubble/section1.rhtml">SparkNotes on Sorting</a></p>
+  <p>https://www.toptal.com/developers/sorting-algorithms/</p>
+  <p>http://sorting.at/</p>
+  <h3 id="challenge">Challenge</h3>
+  <ol type="1">
+    <li>Find out what Radix Sort is.</li>
+    <li>Find one more sorting algorithm we didn’t mention.</li>
+  </ol>
+  <h3 id="check-for-understanding">Check for Understanding</h3>
+  <ul>
+    <li>What is a potential benefit of a Bubble Sort as compared to a Merge Sort?</li>
+    <li>Which sort has the potential to be most positively influenced by initial ordering of the list?</li>
+    <li>What is the benefit of recursion in sorting? Any drawbacks?</li>
+  </ul>
+  <h3 id="supplemental-resources">Supplemental Resources</h3>
+  <ul>
+    <li><a class="btn" href="https://code.likeagirl.io/sorting-algorithms-conceptually-2bfbb3968388">Sorting Algorithms
+        Conceptually</a></li>
+  </ul>
+  <h4 id="attribution">Attribution</h4>
+  <p>Thanks to the MIT OpenCourseWare site for Sorting Algorithm Code Examples!
+    https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/lecture-slides-code/lec12_sorting.py
+  </p>
+
+</body>
+
+</html>

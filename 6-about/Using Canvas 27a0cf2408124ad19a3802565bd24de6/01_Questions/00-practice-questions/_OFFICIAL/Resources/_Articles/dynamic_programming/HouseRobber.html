@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A description of the page and its contents" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Page Title</title>
+        <link rel="stylesheet" href="./../../../assets/style.css" />
+        <link rel="stylesheet" href="./../../../assets/prism.css" />
+        <script async src="./../../../assets/prism.js"></script>
+</head>
+
+<body>
+  <h1 id="house-robber-series">House Robber series</h1>
+  <p><strong>Translator</strong>: <a class="btn" href="https://github.com/xiaochuhub">cooker</a></p>
+  <p><strong>Author</strong>: <a class="btn" href="https://github.com/labuladong">labuladong</a></p>
+  <p>I find that this series of problems are highly praised. They are representative and skillful dynamic planning
+    problems. Today I will introduce an generalized method to solve all of these problems.</p>
+  <p>House robber series includes three problems. The difficulty design is very reasonable and progressive. The first
+    (<a class="btn" href="https://leetcode.com/problems/house-robber/">house robber</a>) is a standard dynamic
+    programming
+    problem.
+  </p>
+  <p>The second (<a class="btn" href="https://leetcode.com/problems/house-robber-ii/">house robber ii</a>) include
+    incorporates the
+    condition of a circular array.</p>
+  <p>The third (<a class="btn" href="https://leetcode.com/problems/house-robber-iii/">house robber iii</a>) is quite
+    amazing which
+    combines the bottom-up and top-down solutions of dynamic programming with a binary tree. If you haven’t done it, I
+    highly recommend this series of problems.</p>
+  <h3 id="house-robber-i">House Robber I</h3>
+  <figure>
+    <img src="./pictures/robber/rob1.jpg" alt="title" />
+    <figcaption>title</figcaption>
+  </figure>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code
+          ><a   title=" 1"><span>public</span> <span>int</span> <span>rob</span>(<span>int</span>[]
+    nums);</a></code>
+    </pre>
+  </div>
+  <p>The problem is easy to understand and the characteristics of dynamic programming are quite obvious. We have
+    summarized the [Dynamic programming Detailed Explanation] before, <strong>the key points to solve the dynamic
+      programming problem is to find [state] and [choice]</strong>.</p>
+  <p>Imagine that you are this professional robber. You walk through this row of houses from left to right. There are
+    two <strong>choices</strong> in front of each house: <code>rob</code> or <code>not rob</code>.</p>
+  <p><code>rob</code>: If you rob this house, then you <strong>definitely</strong> can’t rob the adjacent houses, you
+    can only start the next rob from the house after next.</p>
+  <p><code>not rob</code>: If you don’t rob this house, then you can walk to the next house and continue making choices.
+  </p>
+  <p>When you walked past the last house, you don’t have to rob. The money you could rob is obviously 0 (<strong>base
+      case</strong>).</p>
+  <p>The above logic is very simple. In fact, the <strong>state</strong> and <strong>choice</strong> have been clearly
+    defined: <strong>The index of the house in front of you is the <code>state</code>, and rob or not rob is
+      <code>choice</code></strong>.</p>
+  <figure>
+    <img src="./pictures/robber/1.jpg" alt="1" />
+    <figcaption>1</figcaption>
+  </figure>
+  <p>In these two choices, you need to choose a larger result each time. You end up with the most money you can rob:</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>// main function</span></a>
+    <a id=-2" title="2"><span>public</span> <span>int</span> <span>rob</span>(<span>int</span>[] nums) {</a>
+    <a id=-3" title="3"> <span>return</span> <span>dp</span>(nums, <span>0</span>);</a>
+    <a id=-4" title="4">}</a>
+    <a id=-5" title="5"><span>// return nums[start..] Maximum value that can be robbed</span></a>
+    <a id=-6" title="6"><span>private</span> <span>int</span> <span>dp</span>(<span>int</span>[] nums, <span>int</span>
+      start) {</a>
+    <a id=-7" title="7"> <span>if</span> (start &gt;= nums.<span>length</span>) {</a>
+    <a id=-8" title="8"> <span>return</span> <span>0</span>;</a>
+    <a id=-9" title="9"> }</a>
+    <a id=-10" title="10"> </a>
+    <a id=-11" title="11"> <span>int</span> res = <span>Math</span>.<span>max</span>(</a>
+    <a id=-12" title="12"> <span>// not rob, walk to the next house</span></a>
+    <a id=-13" title="13"> <span>dp</span>(nums, start + <span>1</span>), </a>
+    <a id=-14" title="14"> <span>// rob，walk to the house after next</span></a>
+    <a id=-15" title="15"> nums[start] + <span>dp</span>(nums, start + <span>2</span>)</a>
+    <a id=-16" title="16"> );</a>
+    <a id=-17" title="17"> <span>return</span> res;</a>
+    <a id=-18" title="18">}</a></code></pre>
+  </div>
+  <p>After clearing the state transition, we can find that there is an overlap sub-problem for the same
+    <code>start</code> position, such as the following figure: <img src="./pictures/robber/2.jpg" alt="2" />
+  </p>
+  <p>Thieves have multiple choices to go to this position. Wouldn’t it be a waste of time if they entered recursion
+    every time? So there are overlapping sub-problems that can be optimized with memos:</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>private</span> <span>int</span>[] memo;</a>
+        <a title="2"><span>// main function</span></a>
+    <a title="3"><span>public</span> <span>int</span> <span>rob</span>(<span>int</span>[] nums) {</a>
+    <a id=-4" title="4"> <span>// initialize the memos</span></a>
+    <a id=-5" title="5"> memo = <span>new</span> <span>int</span>[nums.<span>length</span>];</a>
+    <a id=-6" title="6"> <span>Arrays</span>.<span>fill</span>(memo, -<span>1</span>);</a>
+    <a id=-7" title="7"> <span>// robber robs from house 0</span></a>
+    <a id=-8" title="8"> <span>return</span> <span>dp</span>(nums, <span>0</span>);</a>
+    <a id=-9" title="9">}</a>
+    <a id=-10" title="10"></a>
+    <a id=-11" title="11"><span>// return dp[start..] Maximum value that can be robbed</span></a>
+    <a id=-12" title="12"><span>private</span> <span>int</span> <span>dp</span>(<span>int</span>[] nums,
+      <span>int</span>
+      start) {</a>
+    <a id=-13" title="13"> <span>if</span> (start &gt;= nums.<span>length</span>) {</a>
+    <a id=-14" title="14"> <span>return</span> <span>0</span>;</a>
+    <a id=-15" title="15"> }</a>
+    <a id=-16" title="16"> <span>// Avoid duplicate processing</span></a>
+    <a id=-17" title="17"> <span>if</span> (memo[start] != -<span>1</span>) <span>return</span> memo[start];</a>
+    <a id=-18" title="18"> </a>
+    <a id=-19" title="19"> <span>int</span> res = <span>Math</span>.<span>max</span>(<span>dp</span>(nums, start +
+      <span>1</span>), </a>
+    <a id=-20" title="20"> nums[start] + <span>dp</span>(nums, start + <span>2</span>));</a>
+    <a id=-21" title="21"> <span>// record the result to memos</span></a>
+    <a id=-22" title="22"> memo[start] = res;</a>
+    <a id=-23" title="23"> <span>return</span> res;</a>
+    <a id=-24" title="24">}</a></code></pre>
+  </div>
+  <p>This is the top-down dynamic programming solution. We can also modify it slightly and write the
+    <strong>bottom-up</strong> solution:
+  </p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"> <span>int</span> <span>rob</span>(<span>int</span>[] nums) {</a>
+    <a id=-2" title="2"> <span>int</span> n = nums.<span>length</span>;</a>
+    <a id=-3" title="3"> <span>// dp[i] = x: start rob at i-th house, the maximum money you can get is x</span></a>
+    <a id=-4" title="4"> <span>// base case: dp[n] = 0</span></a>
+    <a id=-5" title="5"> <span>int</span>[] dp = <span>new</span> <span>int</span>[n + <span>2</span>];</a>
+    <a id=-6" title="6"> <span>for</span> (<span>int</span> i = n - <span>1</span>; i &gt;= <span>0</span>; i--) {</a>
+    <a id=-7" title="7"> dp[i] = <span>Math</span>.<span>max</span>(dp[i + <span>1</span>], nums[i] + dp[i +
+      <span>2</span>]);</a>
+    <a id=-8" title="8"> }</a>
+    <a id=-9" title="9"> <span>return</span> dp[<span>0</span>];</a>
+    <a id=-10" title="10">}</a></code></pre>
+  </div>
+  <p>We also found that the state transition is only related to the two recent states of <code>dp [i]</code>, so it can
+    be further optimized to reduce the space complexity to O(1).</p>
+  <div>
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a   title="1"><span >int</span> <span >rob</span>(<span >int</span>[] nums) {</a>
+      <a  id=-2" title="2">    <span >int</span> n = nums.<span >length</span>;</a>
+  <a  id=-3" title="3">    <span >// record dp[i+1] and dp[i+2]</span></a>
+  <a  id=-4" title="4">    <span >int</span> dp_i_<span >1</span> = <span >0</span>, dp_i_<span >2</span> = <span >0</span>;</a>
+  <a  id=-5" title="5">    <span >// record dp[i]</span></a>
+  <a  id=-6" title="6">    <span >int</span> dp_i = <span >0</span>; </a>
+  <a  id=-7" title="7">    <span >for</span> (<span >int</span> i = n - <span >1</span>; i &gt;= <span >0</span>; i--) {</a>
+  <a id=-8" title="8"> dp_i = <span>Math</span>.<span>max</span>(dp_i_<span>1</span>, nums[i] + dp_i_<span>2</span>);</a>
+  <a  id=-9" title="9">        dp_i_<span >2</span> = dp_i_<span >1</span>;</a>
+  <a  id=-10" title="10">        dp_i_<span >1</span> = dp_i;</a>
+  <a  id=-11" title="11">    }</a>
+  <a  id=-12" title="12">    <span >return</span> dp_i;</a>
+  <a  id=-13" title="13">}</a></code></pre>
+  </div>
+  <p>The above process has been explained in detail in [Dynamic programming Detailed Explanation]. I believe that
+    everyone can catch it. I think the next problem is more interesting, and we need to make some clever changes based
+    on our current thinking.</p>
+  <h3 id="house-robber-ii">House Robber II</h3>
+  <figure>
+    <img src="./pictures/robber/rob2.jpg" alt="title" />
+    <figcaption>title</figcaption>
+  </figure>
+  <p>This question is basically the same as the first description. The robber still cannot rob adjacent houses. The
+    input is still an array, but these houses are not in a row but arranged in a <strong>circle</strong>.</p>
+  <p>In other words, the first house and the last house are also adjacent and cannot be robbed at the same time. For
+    example, if the input array <code>nums = [2,3,2]</code>, the result returned by the algorithm should be 3 instead of
+    4, because the beginning and end cann’t be robbed at the same time.</p>
+  <p>It seems that this constraint should not be difficult to solve. We mentioned a solution for circular arrays in [a
+    monotonic stack solve Next Greater Number]. So how to deal with this problem?</p>
+  <p>First of all, the first and last rooms cannot be robbed at the same time, then there are only three possible
+    situations: case I, either they are not robbed; case II the first house is robbed and the last one is not robbed;
+    case III, the first house is not robbed and the last one is robbed;</p>
+  <figure>
+    <img src="./../pictures/robber/3.jpg" alt="3" />
+    <figcaption>3</figcaption>
+  </figure>
+  <p>That’s easy. The solution is the maximum of these three cases. However, in fact, we don’t need to compare three
+    cases, just compare case II and case III. <strong>Because these two cases have more room to choose than the case I,
+      the money in the house is non-negative. So the optimal decision result is certainly not small if we have more
+      choice</strong>.</p>
+  <p>So just modify the previous solution slightly:</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>public</span> <span>int</span> <span>rob</span>(<span>int</span>[] nums)
+    {</a>
+    <a id=-2" title="2"> <span>int</span> n = nums.<span>length</span>;</a>
+    <a id=-3" title="3"> <span>if</span> (n == <span>1</span>) <span>return</span> nums[<span>0</span>];</a>
+    <a id=-4" title="4"> <span>return</span> <span>Math</span>.<span>max</span>(<span>robRange</span>(nums,
+      <span>0</span>,
+      n - <span>2</span>), </a>
+    <a id=-5" title="5"> <span>robRange</span>(nums, <span>1</span>, n - <span>1</span>));</a>
+    <a id=-6" title="6">}</a>
+    <a id=-7" title="7"></a>
+    <a id=-8" title="8"><span>// Calculate the optimal result for only the closed interval [start, end]</span></a>
+    <a id=-9" title="9"><span>int</span> <span>robRange</span>(<span>int</span>[] nums, <span>int</span> start,
+      <span>int</span> end) {</a>
+    <a id=-10" title="10"> <span>int</span> n = nums.<span>length</span>;</a>
+    <a id=-11" title="11"> <span>int</span> dp_i_<span>1</span> = <span>0</span>, dp_i_<span>2</span> =
+      <span>0</span>;</a>
+    <a id=-12" title="12"> <span>int</span> dp_i = <span>0</span>;</a>
+    <a id=-13" title="13"> <span>for</span> (<span>int</span> i = end; i &gt;= start; i--) {</a>
+    <a id=-14" title="14"> dp_i = <span>Math</span>.<span>max</span>(dp_i_<span>1</span>, nums[i] +
+      dp_i_<span>2</span>);</a>
+    <a id=-15" title="15"> dp_i_<span>2</span> = dp_i_<span>1</span>;</a>
+    <a id=-16" title="16"> dp_i_<span>1</span> = dp_i;</a>
+    <a id=-17" title="17"> }</a>
+    <a id=-18" title="18"> <span>return</span> dp_i;</a>
+    <a id=-19" title="19">}</a></code></pre>
+  </div>
+  <p>At this point, the second problem has also been solved.</p>
+  <h3 id="house-robber-iii">House Robber III</h3>
+  <p>The third question changes the pattern again. The house now is arranged not a row, not a circle, but a binary tree!
+    The house is on the node of the binary tree. The two connected houses cannot be robbed at the same time. It is
+    indeed a legendary high IQ crime: <img src="./pictures/robber/rob3.jpg" alt="title" /></p>
+    <p>The overall thinking hasn’t changed at all, we need to choose the option of robbing or not robbing, and make choice
+    with higher returns. We can even write the code directly according to this routine:</p>
+  <div id="cb7">
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a   title="1"><span >Map</span>&lt;<span >TreeNode</span>, <span >Integer</span>&gt; memo = <span >new</span> <span >HashMap</span>&lt;&gt;();</a>
+      <a  id="cb7-2" title="2"><span >public</span> <span >int</span> <span >rob</span>(<span /span> root) {</a>
+  <a  id="cb7-3" title="3">    <span >if</span> (root == <span >null</span>) <span >return</span> <span >0</span>;</a>
+  <a  id="cb7-4" title="4">    <span >// Eliminating overlapping subproblems with memos</span></a>
+  <a id="cb7-5" title="5"> <span>if</span> (memo.<span>containsKey</span>(root)) </a>
+  <a id="cb7-6" title="6"> <span>return</span> memo.<span>get</span>(root);</a>
+  <a  id="cb7-7" title="7">    <span >// rob, walk to the house after next</span></a>
+  <a id="cb7-8" title="8"> <span>int</span> do_it = root.<span>val</span></a>
+  <a id="cb7-9" title="9"> + (root.<span>left</span> == <span>null</span> ? </a>
+  <a id="cb7-10" title="10"> <span>0</span> : <span>rob</span>(root.<span>left</span>.<span>left</span>) +
+    <span>rob</span>(root.<span>left</span>.<span>right</span>))</a>
+  <a id="cb7-11" title="11"> + (root.<span>right</span> == <span>null</span> ? </a>
+  <a id="cb7-12" title="12"> <span>0</span> : <span>rob</span>(root.<span>right</span>.<span>left</span>) +
+    <span>rob</span>(root.<span>right</span>.<span>right</span>));</a>
+  <a  id="cb7-13" title="13">    <span >// not rob, walk to the next house</span></a>
+  <a id="cb7-14" title="14"> <span>int</span> not_do = <span>rob</span>(root.<span>left</span>) +
+    <span>rob</span>(root.<span>right</span>);</a>
+  <a  id="cb7-15" title="15">    </a>
+  <a id="cb7-16" title="16"> <span>int</span> res = <span>Math</span>.<span>max</span>(do_it, not_do);</a>
+  <a id="cb7-17" title="17"> memo.<span>put</span>(root, res);</a>
+  <a  id="cb7-18" title="18">    <span >return</span> res;</a>
+  <a  id="cb7-19" title="19">}</a></code></pre>
+  </div>
+  <p>This problem is solved, the time complexity O (N), <code>N</code> is the number of nodes.</p>
+  <p>But what makes me think that this problem is clever is that there are more beautiful solutions. For example, here
+    is a solution I saw in the comment:</p>
+  <div id="cb8">
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a   title="1"><span >int</span> <span >rob</span>(<span /span> root) {</a>
+      <a  id="cb8-2" title="2">    <span >int</span>[] res = <span >dp</span>(root);</a>
+      <a  id="cb8-3" title="3">    <span >return</span> <span >Math</span>.<span >max</span>(res[<span >0</span>], res[<span >1</span>]);</a>
+  <a  id="cb8-4" title="4">}</a>
+  <a  id="cb8-5" title="5"></a>
+  <a  id="cb8-6" title="6"><span >/* return an array of size 2 arr</span></a>
+  <a  id="cb8-7" title="7"><span >arr [0] means the maximum amount of money you get if you do not rob root</span></a>
+  <a  id="cb8-8" title="8"><span >arr [1] means the maximum amount of money you get if you rob root */</span></a>
+  <a id="cb8-9" title="9"><span>int</span>[] <span>dp</span>(<span /span> root) {</a>
+  <a  id="cb8-10" title="10">    <span >if</span> (root == <span >null</span>)</a>
+  <a  id="cb8-11" title="11">        <span >return</span> <span >new</span> <span >int</span>[]{<span >0</span>, <span >0</span>};</a>
+  <a id="cb8-12" title="12"> <span>int</span>[] left = <span>dp</span>(root.<span>left</span>);</a>
+  <a id="cb8-13" title="13"> <span>int</span>[] right = <span>dp</span>(root.<span>right</span>);</a>
+  <a  id="cb8-14" title="14">    <span >// rob, walk to the house after next</span></a>
+  <a id="cb8-15" title="15"> <span>int</span> rob = root.<span>val</span> + left[<span>0</span>] +
+    right[<span>0</span>];</a>
+  <a  id="cb8-16" title="16">    <span >// not rob, The next home can be robbed or not, depending on the size of the income</span></a>
+  <a id="cb8-17" title="17"> <span>int</span> not_rob = <span>Math</span>.<span>max</span>(left[<span>0</span>],
+    left[<span>1</span>])</a>
+  <a id="cb8-18" title="18"> + <span>Math</span>.<span>max</span>(right[<span>0</span>], right[<span>1</span>]);</a>
+  <a  id="cb8-19" title="19">    </a>
+  <a  id="cb8-20" title="20">    <span >return</span> <span >new</span> <span >int</span>[]{not_rob, rob};</a>
+  <a  id="cb8-21" title="21">}</a></code></pre>
+  </div>
+  <p>The time complexity is O (N). The space complexity is only the space required by the recursive function stack, and
+    no extra space is needed for the memo.</p>
+  <p>His thinking is different from ours. He has modified the definition of recursive functions and slightly modified
+    his thinking so that the logic is self-consistent, he still gets the correct answer, and the code is more beautiful.
+    This is a characteristic of the dynamic programming problem that we mentioned earlier in [Different Definitions
+    Generate Different Solutions].</p>
+  <p>In fact, this solution runs much faster than our solution, although the time complexity of the algorithm analysis
+    level is the same. The reason is that this solution does not use additional memos, which reduces the complexity of
+    data operations, so the actual operation efficiency will be faster.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A description of the page and its contents" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Page Title</title>
+        <link rel="stylesheet" href="./../../../assets/style.css" />
+        <link rel="stylesheet" href="./../../../assets/prism.css" />
+        <script async src="./../../../assets/prism.js"></script>
+</head>
+
+<body>
+  <h1 id="how-to-arrange-candidates-seats">How to arrange candidates’ seats</h1>
+  <p><strong>Translator: <a class="btn" href="https://github.com/HuangZiSheng001">SCUhzs</a></strong></p>
+  
+  <p>This is no.885 question in LeetCode, interesting and skillful. Solving such problems is not as IQ-cost as dynamic
+    programming, but rather depends on understanding of common data structures and capacity to write code. As far as I’m
+    concerned, it deserves our attention and study.</p>
+  <p>By the way, I’d like to say something. Many readers ask me, how to sum up framework of algorithm. But in fact,
+    that’s not really like that. The framework is slowly extracted from the details. I hope, after you read our
+    articles, you’d better take some time to try solving more similar problems by yourself. As it said, “Practice goes
+    deeper than theoretic knowledge.”</p>
+  <p>Let me first describe the subject: “suppose there is an examination room, with a row of <code>N</code> seats,
+    respectively, their indexes are <code>[0.. n-1]</code>. The Candidates, will <strong>successively</strong> enter the
+    room, will probably leave at <strong>any time</strong>.”</p>
+  <p>As an examiner, you should arrange the seats for students, so as to meet those requirements: <strong>whenever a
+      student enters, maximize the distance between him and the nearest other students; if there are more than one such
+      seats, arrange him to the seat with the smallest index.</strong> This is a real situation in life as we known.</p>
+  <p>That is, you need to implement a class like this:</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>class</span> ExamRoom {</a>
+          <a title="2"> <span>// constructor, receive the N which means total number of seats </span></a>
+    <a title="3"> <span>public</span> <span>ExamRoom</span>(<span>int</span> N);</a>
+    <a title="4"> <span>// when a candidate comes, return to the seat assigned for him</span></a>
+    <a title="5"> <span>public</span> <span>int</span> <span>seat</span>();</a>
+    <a id=-6" title="6"> <span>// The candidate in the position P now left</span></a>
+    <a title="7"> <span>// It can be considered that there must be a candidate in the position P</span></a>
+    <a title="8"> <span>public</span> <span>void</span> <span>leave</span>(<span>int</span> p);</a>
+    <a title="9">}</a></code></pre>
+    </div>
+  <p>For example, there are five seats in the room, which are <code>[0..4]</code>:</p>
+  <p>When the candidate 1 enters (call <code>seat()</code>), it is OK for him to sit in any position, but you should
+    arrange the position with lowest index for him, that is, return position 0.</p>
+  <p>When the candidate 2 enters (call <code>seat()</code>), he should keep away from candidates nearby as possible,
+    that is, return to position 4.</p>
+  <p>When the candidate 3 enters, he should keep away from candidates nearby as possible, so he need to sit in the
+    middle, that is, seat 2.</p>
+  <p>If another candidate enters, he can sit in seat 1 or seat 3. Take the smaller one, index 1.</p>
+  <p>And so on.</p>
+  <p>In the situation just mentioned, the function <code>leave</code> doesn’t be called. However, readers can definitely
+    find the following regular:</p>
+  <p><strong>If we regard every two adjacent candidates as the two endpoints of a line segment, the new arrangement is
+      that, find the longest line segment, let this candidate 「dichotomy」 the line segment in middle, and then the
+      middle point is the seat assigned to him. Actually, <code>Leave (P)</code> is to remove the end point
+      <code>p</code>, so as to merge two adjacent segments into one.</strong></p>
+  <p>It’s not hard to think about it, actually, this question wants to examine your understanding of data structure. To
+    implement the above logic, which data structure should be selected ?</p>
+  <h3 id="thinking-analysis">1. Thinking analysis</h3>
+  <p>According to the above idea, first of all, we need to abstract the students sitting in the classroom into line
+    segments, which can be simply represented by an array of 2 size .</p>
+  <p>In addition, the idea requires us to find the 「longest」 line segment, removing or adding the line segment both are
+    needed.</p>
+  <p><strong>If we face with such a requirement that need to get the most value in the dynamic process, the ordered data
+      structure should be used. Binary heap and balanced binary search tree is what we use most often.</strong> The
+    priority queue, which implemented by binary heap, its time complexity of getting most value is O (logN), but only
+    the maximum value can be deleted. Balanced binary tree can not only get the most value, but also modify or delete
+    any value, and the time complexity of them both are O (logn).</p>
+  <p>In summary, binary heap can’t finish the operation of <code>leave</code> , so balanced binary tree should be chose.
+    And we will use a structure named <code>TreeSet</code>, which used in JAVA. It is an ordered data structure, and its
+    bottom layer is implemented by red black tree.</p>
+  <p>By the way, when it comes to Set or Map, some readers may take it for granted that it is a HashSet or a HashMap.
+    There is something wrong with that.</p>
+  <p>Because the bottom layer of Hash_Set/Map is implemented by the hash function and the array, it has the feature: its
+    traversal order is not fixed while its operation efficiency is high, and its time complexity is O (1).</p>
+  <p>Meanwhile, the Set/Map can also rely on other underlying data structures, The Red Black Tree (a balanced binary
+    search tree) is the common one, which has a feature that maintaining the order of elements automatically and its
+    efficiency is O (logn). This is commonly referred to 「ordered Set/Map」.</p>
+  <p>The <code>TreeSet</code> we use just is an ordered set. Its purpose is to maintain the order of line length,
+    quickly find the longest line, and quickly delete and insert.</p>
+  <h3 id="simplify-the-problem">2. Simplify the problem</h3>
+  <p>Firstly, if there are multiple optional seats, you should choose the seat with the lowest index. <strong>Let’s
+      simplify the problem first, this is, ignore this requirement for the moment</strong> , and put the implement of
+    above idea ahead.</p>
+  <p>Another common programming trick used in this problem is to use a 「virtual line segment」, so as to let the
+    algorithm start properly, the same as the reason why the algorithms which related to linked list algorithms need a
+    「virtual header」.</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>// Map endpoint p to the segment with P as the left endpoint</span></a>
+          <a id=-2" title="2"><span>private</span> <span>Map</span>&lt;<span>Integer</span>, <span>int</span>[]&gt;
+            startMap;</a>
+          <a id=-3" title="3"><span>// Map endpoint p to the segment with P as the right endpoint</span></a>
+          <a id=-4" title="4"><span>private</span> <span>Map</span>&lt;<span>Integer</span>, <span>int</span>[]&gt;
+            endMap;</a>
+          <a id=-5" title="5"><span>// According to their length, store all line segments from small to large </span></a>
+          <a id=-6" title="6"><span>private</span> <span>TreeSet</span>&lt;<span>int</span>[]&gt; pq;</a>
+          <a id=-7" title="7"><span>private</span> <span>int</span> N;</a>
+          <a id=-8" title="8"></a>
+    <a id=-9" title="9"><span>public</span> <span>ExamRoom</span>(<span>int</span> N) {</a>
+    <a id=-10" title="10"> <span>this</span>.<span>N</span> = N;</a>
+    <a id=-11" title="11"> startMap = <span>new</span> <span>HashMap</span>&lt;&gt;();</a>
+    <a id=-12" title="12"> endMap = <span>new</span> <span>HashMap</span>&lt;&gt;();</a>
+    <a id=-13" title="13"> pq = <span>new</span> <span>TreeSet</span>&lt;&gt;((a, b) -&gt; {</a>
+    <a id=-14" title="14"> <span>// Calculate the length of two line segments</span></a>
+    <a id=-15" title="15"> <span>int</span> distA = <span>distance</span>(a);</a>
+    <a id=-16" title="16"> <span>int</span> distB = <span>distance</span>(b);</a>
+    <a id=-17" title="17"> <span>// Longer means it is bigger, and put it back</span></a>
+    <a id=-18" title="18"> <span>return</span> distA - distB;</a>
+    <a id=-19" title="19"> });</a>
+    <a id=-20" title="20"> <span>// Firstly, put a virtual segment in the ordered set</span></a>
+    <a id=-21" title="21"> <span>addInterval</span>(<span>new</span> <span>int</span>[] {-<span>1</span>, N});</a>
+    <a id=-22" title="22">}</a>
+    <a id=-23" title="23"></a>
+    <a id=-24" title="24"><span>/* Remove a line segment */</span></a>
+    <a id=-25" title="25"><span>private</span> <span>void</span> <span>removeInterval</span>(<span>int</span>[] intv)
+      {</a>
+    <a id=-26" title="26"> pq.<span>remove</span>(intv);</a>
+    <a id=-27" title="27"> startMap.<span>remove</span>(intv[<span>0</span>]);</a>
+    <a id=-28" title="28"> endMap.<span>remove</span>(intv[<span>1</span>]);</a>
+    <a id=-29" title="29">}</a>
+    <a id=-30" title="30"></a>
+    <a id=-31" title="31"><span>/* Add a line segment */</span></a>
+    <a id=-32" title="32"><span>private</span> <span>void</span> <span>addInterval</span>(<span>int</span>[] intv) {</a>
+    <a id=-33" title="33"> pq.<span>add</span>(intv);</a>
+    <a id=-34" title="34"> startMap.<span>put</span>(intv[<span>0</span>], intv);</a>
+    <a id=-35" title="35"> endMap.<span>put</span>(intv[<span>1</span>], intv);</a>
+    <a id=-36" title="36">}</a>
+    <a id=-37" title="37"></a>
+    <a id=-38" title="38"><span>/* Calculate the length of a line segment */</span></a>
+    <a id=-39" title="39"><span>private</span> <span>int</span> <span>distance</span>(<span>int</span>[] intv) {</a>
+    <a id=-40" title="40"> <span>return</span> intv[<span>1</span>] - intv[<span>0</span>] - <span>1</span>;</a>
+    <a id=-41" title="41">}</a></code></pre>
+    </div>
+  <p>「Virtual line segment 」is to represent all seats as one line segment:</p>
+  <p><img src="./pictures/seat_scheduling/9.png" /></p>
+  <p>With the foreshadowing, the main API <code>seat</code> and <code>leave</code> could be written:</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>public</span> <span>int</span> <span>seat</span>() {</a>
+          <a title="2"> <span>// Take the longest line from the ordered set</span></a>
+    <a title="3"> <span>int</span>[] longest = pq.<span>last</span>();</a>
+    <a id=-4" title="4"> <span>int</span> x = longest[<span>0</span>];</a>
+    <a id=-5" title="5"> <span>int</span> y = longest[<span>1</span>];</a>
+    <a id=-6" title="6"> <span>int</span> seat;</a>
+    <a id=-7" title="7"> <span>if</span> (x == -<span>1</span>) { <span>// case 1</span></a>
+    <a id=-8" title="8"> seat = <span>0</span>;</a>
+    <a id=-9" title="9"> } <span>else</span> <span>if</span> (y == N) { <span>// case 2</span></a>
+    <a id=-10" title="10"> seat = N - <span>1</span>;</a>
+    <a id=-11" title="11"> } <span>else</span> { <span>// case 3</span></a>
+    <a id=-12" title="12"> seat = (y - x) / <span>2</span> + x;</a>
+    <a id=-13" title="13"> }</a>
+    <a id=-14" title="14"> <span>// Divide the longest line segment into two segments</span></a>
+    <a id=-15" title="15"> <span>int</span>[] left = <span>new</span> <span>int</span>[] {x, seat};</a>
+    <a id=-16" title="16"> <span>int</span>[] right = <span>new</span> <span>int</span>[] {seat, y};</a>
+    <a id=-17" title="17"> <span>removeInterval</span>(longest);</a>
+    <a id=-18" title="18"> <span>addInterval</span>(left);</a>
+    <a id=-19" title="19"> <span>addInterval</span>(right);</a>
+    <a id=-20" title="20"> <span>return</span> seat;</a>
+    <a id=-21" title="21">}</a>
+    <a id=-22" title="22"></a>
+    <a id=-23" title="23"><span>public</span> <span>void</span> <span>leave</span>(<span>int</span> p) {</a>
+    <a id=-24" title="24"> <span>// Find out the lines around p</span></a>
+    <a id=-25" title="25"> <span>int</span>[] right = startMap.<span>get</span>(p);</a>
+    <a id=-26" title="26"> <span>int</span>[] left = endMap.<span>get</span>(p);</a>
+    <a id=-27" title="27"> <span>// Merge two segments into one</span></a>
+    <a id=-28" title="28"> <span>int</span>[] merged = <span>new</span> <span>int</span>[] {left[<span>0</span>],
+      right[<span>1</span>]};</a>
+    <a id=-29" title="29"> <span>removeInterval</span>(left);</a>
+    <a id=-30" title="30"> <span>removeInterval</span>(right);</a>
+    <a id=-31" title="31"> <span>addInterval</span>(merged);</a>
+    <a id=-32" title="32">}</a></code></pre>
+    </div>
+  <figure>
+    <img src="./pictures/seat_scheduling/8.png" alt="three contidions" />
+    <figcaption>three contidions</figcaption>
+  </figure>
+  <p>At this point, this algorithm is basically implemented. Although a lot of code, in fact it’s not difficult to
+    think: find the longest line segment, divide it into two segments from the middle, and the midpoint is the return
+    value of <code>seat()</code>; find the left and right line segments of <code>p</code> , merge them into one segment.
+    Those is the logic of <code>leave (P)</code>.</p>
+  <h3 id="advanced-problem">3. Advanced problem</h3>
+  <p>However, when the topic requires multiple choices, we should choose the seat with the smallest index. We just
+    ignored that. For example, the following situation may cause errors:<img src="./pictures/seat_scheduling/3.jpg" />
+  </p>
+  <p>Now there are line segments <code>[0,4]</code> and <code>[4,9]</code> in the ordered set, the longest line segment
+    <code>longest</code> is the latter one. According to the logic of <code>seat</code>, it will split the
+    <code>[4,9]</code>, that is, return to seat 6. However, the correct answer should be seat 2. Because both 2 and 6
+    meet the condition of maximizing the distance between adjacent candidates, and the smaller one should be taken.
+  </p>
+  <p><img src="./pictures/seat_scheduling/4.jpg" /></p>
+  <p><strong>The solution to such requirements is to modify the sorting method of ordered data structure.</strong> In
+    this problem, is that, modify the logic of <code>treemap</code>’s comparison function:</p>
+  <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1">pq = <span>new</span> <span>TreeSet</span>&lt;&gt;((a, b) -&gt; {</a>
+    <a id=-2" title="2"> <span>int</span> distA = <span>distance</span>(a);</a>
+    <a id=-3" title="3"> <span>int</span> distB = <span>distance</span>(b);</a>
+    <a id=-4" title="4"> <span>// If the lengths are equal, compare the indexes</span></a>
+    <a id=-5" title="5"> <span>if</span> (distA == distB)</a>
+    <a id=-6" title="6"> <span>return</span> b[<span>0</span>] - a[<span>0</span>];</a>
+    <a id=-7" title="7"> <span>return</span> distA - distB;</a>
+    <a id=-8" title="8">});</a></code></pre>
+    </div>
+    <p>Beside that, we also need to change the <code>distance</code> function. Instead of calculating the length between
+      two endpoints of a line segment, we need to let it calculate the length between the midpoint and endpoint of the
+      line segment.</p>
+  <div>
+    pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a   title="1"><span >private</span> <span >int</span> <span >distance</span>(<span >int</span>[] intv) {</a>
+<a  id=-2" title="2">    <span >int</span> x = intv[<span >0</span>];</a>
+<a  id=-3" title="3">    <span >int</span> y = intv[<span >1</span>];</a>
+<a  id=-4" title="4">    <span >if</span> (x == -<span >1</span>) <span >return</span> y;</a>
+<a  id=-5" title="5">    <span >if</span> (y == N) <span >return</span> N - <span >1</span> - x;</a>
+<a  id=-6" title="6">    <span >// Length between midpoint and endpoint</span></a>
+<a  id=-7" title="7">    <span >return</span> (y - x) / <span >2</span>;</a>
+<a id=-8" title="8">}</a></code></pre>
+</div>
+<p><img src="./pictures/seat_scheduling/5.jpg" /></p>
+<p>In this way, the values of <code>distance</code> , <code>[0,4]</code> and <code>[4,9]</code> are equal. The
+  algorithm will compare the indexes of the two, and take smaller line segments for segmentation. So far, this
+  algorithm problem has been solved perfectly.</p>
+  <h3 id="final-summary">4. Final summary</h3>
+  <p>​ The problem mentioned in this article is not so difficult, although it seems that there is a lot of code. The
+    core issue is to examine the understanding and use of ordered data structures</p>
+  <p>​ To deal with dynamic problems, we usually use ordered data structures, such as balanced binary search tree and
+    binary heap, which have similar time complexity. But the former supports more operations.</p>
+  <p>​ Since balanced binary search tree is so easy to use, why use binary heap? The reason given by me, is that, the
+    bottom layer of binary heap is array, which is easier to implement. See the old article 「detailed explanation of
+    binary heap」 to learn more detail. Try to make a Red Black Tree? It not only has more complex operation, but also
+    costs more space. Of course, to solve the specific problems, we should choose the appropriate data structure with
+    specific analysis.</p>
+  <p>​ I hope this article can be helpful for you.</p>
+
+</body>
+
+</html>

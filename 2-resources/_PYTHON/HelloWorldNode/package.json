@@ -1,0 +1,12 @@
+{
+  "name": "HelloWorldNode",
+  "version": "1.0.0",
+  "description": "## Greengrass Hello World function",
+  "main": "HelloWorldNode.js",
+  "keywords": [],
+  "author": "",
+  "license": "Apache",
+  "dependencies": {
+    "greengrass-core-sdk": "1.6.1"
+  }
+}

@@ -1,0 +1,57 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Baskervville', serif;
+  color: linen;
+  background-color: rgb(20, 30, 40);
+}
+
+h1 {
+  font-family: 'Anton', sans-serif;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Raleway', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: linen;
+}
+
+main {
+  display: grid;
+  grid-template-columns: minmax(2rem, 1fr) minmax(min-content, 94rem) minmax(
+      2rem,
+      1fr
+    );
+  row-gap: 3rem;
+}
+
+/* 
+You might be thinking, is it possible to have a grid inside a grid? Yes, it's possible!
+All you have to do is set `display` to `grid` in the child element.
+Add that to the `heading` class
+*/
+
+.heading {
+  grid-column: 2 / 3;
+}
+
+.text {
+  grid-column: 2 / 3;
+}
