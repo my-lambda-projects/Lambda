@@ -1,5 +1,5 @@
 // model answer
-// - student will produce something functionally equivalent
+// produce something functionally equivalent
 // but using regex literals exclusively (no `makeRegex`)
 
 const wordCondenser = /(?:^|\s)\S(?:(\s+)\S)(?:\1\S)*(?:$|\s)/g;
