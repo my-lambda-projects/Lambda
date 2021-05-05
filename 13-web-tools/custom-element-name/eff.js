@@ -1,11 +1,11 @@
-( function ( window, document ) {
+((window, document) => {
 
 	var input = document.getElementsByTagName( 'input' )[ 0 ];
 	var valid = window.valid;
 	var message = window.message;
 	var permalink = document.getElementById( 'permalink' );
 	// https://web-dev-resource-hub.netlify.app/notes/localstorage-pattern
-	var storage = ( function () {
+	var storage = (() => {
 		var uid = new Date;
 		var storage;
 		var result;
@@ -15,14 +15,12 @@
 			storage.removeItem( uid );
 			return result && storage;
 		} catch ( exception ) {}
-	}() );
+	})();
 	var stringFromCharCode = String.fromCharCode;
 
 	function encode( string ) {
 		// URL-encode some more characters to avoid issues when using permalink URLs in Markdown
-		return encodeURIComponent( string ).replace( /['()_*]/g, function ( character ) {
-			return '%' + character.charCodeAt().toString( 16 );
-		} );
+		return encodeURIComponent( string ).replace( /['()_*]/g, character => '%' + character.charCodeAt().toString( 16 ) );
 	}
 
 	function update() {
@@ -53,7 +51,7 @@
 
 	// https://web-dev-resource-hub.netlify.app/notes/oninput
 	input.onkeyup = update;
-	input.oninput = function () {
+	input.oninput = () => {
 		input.onkeyup = null;
 		update();
 	};
@@ -63,7 +61,7 @@
 		update();
 	}
 
-	window.onhashchange = function () {
+	window.onhashchange = () => {
 		input.value = decodeURIComponent( location.hash.slice( 1 ) );
 		update();
 	};
@@ -72,6 +70,6 @@
 		window.onhashchange();
 	}
 
-}( this, document ) );
+})(this, document);
 //-------------------------------
 //-------------------------------

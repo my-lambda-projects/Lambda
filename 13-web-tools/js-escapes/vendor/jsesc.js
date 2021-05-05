@@ -60,7 +60,7 @@
 	};
 	var isFunction = function ( value ) {
 		// In a perfect world, the `typeof` check would be sufficient. However,
-		// in Chrome 1–12, `typeof /x/ == 'object'`, and in IE 6–8
+		// in Chrome 1-12, `typeof /x/ == 'object'`, and in IE 6-8
 		// `typeof alert == 'object'` and similar for other host objects.
 		return typeof value == 'function' ||
 			toString.call( value ) == '[object Function]';

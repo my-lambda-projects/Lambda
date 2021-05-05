@@ -15,21 +15,46 @@
         <link type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="./css/main-style.css" rel="stylesheet">
+        <!-- Include only the reset -->
+
+        <link href="./css/angolia.css" rel="stylesheet">
         <style>
-            @media screen and (min-width: 40em) {
-                article {
-                    display: grid;
-                    grid-template-columns: 3fr 1fr;
-                    column-gap: 20px;
-                }
+            input {
+                -webkit-writing-mode: horizontal-tb !important;
+                text-rendering: auto;
+                color: -internal-light-dark(black, white);
+                letter-spacing: normal;
+                word-spacing: normal;
+                text-transform: none;
+                text-indent: 0px;
+                text-shadow: none;
+                display: inline-block;
+                text-align: start;
+                appearance: auto;
+                background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+                -webkit-rtl-ordering: logical;
+                cursor: text;
+                margin: 0em;
+                font: 400 13.3333px Arial;
+                padding: 1px 2px;
+                border-width: 2px;
+                border-style: inset;
+                border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+                border-image: initial;
+            }
 
-                nav ul {
-                    display: flex;
-                }
-
-                nav li {
-                    flex: 1;
-                }
+            .aa-Input {
+                width: 1000px !important;
+                position: relative;
+                display: flex;
+                min-width: 100px;
+                align-self: center;
+                border: 1px solid grey;
+                border-radius: 5px;
+                height: 25px;
+                /* padding: 2px 23px 2px 30px; */
+                outline: 0;
+                background-color: #f5f5f5;
             }
 
             body {
@@ -49,24 +74,10 @@
         <script src="./js/index.js" async></script>
         <!--====================jQuery=========================================================================================-->
         <!-- <script async defer src="./jQuery-min.js"></script> -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-        <script type="text/javascript">
-            function hideLoader() {
-                $( '#loading' ).hide();
-            }
-            $( window ).ready( hideLoader );
-            // Strongly recommended: Hide loader after 20 seconds, even if the page hasn't finished loading
-            setTimeout( hideLoader, 20 * 1000 );
-            $( window ).on( 'beforeunload', function () {
-                $( window ).scrollTop( 0 );
-            } );
 
-        </script>
         <!--===================================Angolia Search================================================================================================================================-->
-        <link
-            href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css"
-            rel="stylesheet">
-        <script
+  <script async defer src="./js/angolia-search.js"></script>
+        <script async defer
             src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"
             type="text/javascript"></script>
         <script type="text/javascript">
@@ -79,6 +90,8 @@
             } );
 
         </script>
+
+      
     </head>
     <!--===================================================================================================================================================================-->
 
@@ -89,10 +102,16 @@
             <!--=============================================================================================================================================-->
             <h1 style="color:rgb(84, 172, 226); align-content:center;">This is:</h1>
             <!--===================================================================================================================================================================-->
-            <div id="loading"
-                style="background: url('./giphy.gif') no-repeat center center;position: absolute;top: 0;left: 0;height: 100%;width: 100%;z-index: 9999999;">
-            </div>
-            <div id="search"></div>
+                  <div id="search"></div>
+<div class="ais-InstantSearch">
+
+
+    <div class="right-panel">
+        <div id="searchbox"></div>
+        <div id="hits"></div>
+        <div id="pagination"></div>
+    </div>
+</div>
             <!--===================================================================================================================================================================-->
             <br>
             <br>
@@ -133,6 +152,18 @@
                     href="https://codepen.io/bgoonz/pen/VwPxEXK">Web 43
                     Sprint 2 Module 3</a> by Bryan C Guner (<a href="https://codepen.io/bgoonz">@bgoonz</a>) on <a
                     href="https://codepen.io">CodePen</a>.</iframe>
+
+
+            <h2>DOM EVENTS</h2>
+
+            <iframe class"embed" height="500" style="width: 100%;" scrolling="no" title="DOM-II Events"
+                src="https://codepen.io/bgoonz/embed/KKWPxjw?height=265&theme-id=light&default-tab=js,result"
+                frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                See the Pen <a href='https://codepen.io/bgoonz/pen/KKWPxjw'>DOM-II Events</a> by
+                Bryan C Guner
+                (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+            </iframe>
+
             <!--===================================================================================================================================================================-->
             <div class="embed">
                 <br>
@@ -186,6 +217,8 @@
             <iframe class="embed" src="./WEEKS/wk2/0-notes/d2/whatIsJavaScript.html" width="90%" height="800"
                 frameborder="0"
                 style="   height:950px;  width:100%;  zoom:0.8;  overflow:hidden; margin: auto;  align-content: center;  justify-content: center;"></iframe>
+
+
             <!--===================================================================================================-->
             <br>
             <br>

@@ -105,7 +105,7 @@ class Effects_backAndWhite_class {
 				imgData[ i + 2 ] = c;
 			}
 		} else {
-			//Floyd–Steinberg dithering
+			//Floyd-Steinberg dithering
 			var img2 = canvas.getContext( "2d" ).getImageData( 0, 0, W, H );
 			var imgData2 = img2.data;
 			for ( var j = 0; j < H; j++ ) {
