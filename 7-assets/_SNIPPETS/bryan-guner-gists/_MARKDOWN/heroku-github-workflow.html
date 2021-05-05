@@ -53,17 +53,17 @@
 <p><em>.github/workflows/main.yml</em></p>
 <p>name: Deploy</p>
 <p>on: push: branches: - master</p>
-<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: “YOUR APP’s NAME” #Must be unique in Heroku heroku_email: “YOUR EMAIL”</p>
+<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: "YOUR APP’s NAME” #Must be unique in Heroku heroku_email: "YOUR EMAIL”</p>
 <p>Now go to your Heroku account and go to Account Settings. Scroll to the bottom until you see API Key. Copy this key and go to your project’s repository on GitHub.</p>
-<p>In your Repo, go to Settings -&gt; Secrets and click on “New Secret”. Then enter HEROKU_API_KEY as the name and paste the copied API Key as the value.</p>
+<p>In your Repo, go to Settings -&gt; Secrets and click on "New Secret”. Then enter HEROKU_API_KEY as the name and paste the copied API Key as the value.</p>
 <p>You can now push your project to GitHub and it will be automatically deployed to Heroku henceforth.</p>
 <p>You learn more about GitHub Secrets <a href="https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets">here</a> and GitHub Actions <a href="https://docs.github.com/en/actions">here</a></p>
 <h2 id="important-note">Important Note</h2>
-<p><strong>Please Note</strong>: Git has recently announced that it is planning to switch the default branch’s name from “<strong>master</strong>” to “<strong>main</strong>”. For this reason, the Action also pushes to the “<strong>main</strong>” branch in the heroku origin by default and if your Heroku App is still using the “<strong>master</strong>” branch, then the Action will automatically switch your Heroku remote to use “<strong>main</strong>” as the default branch. There is <strong>No Action Needed</strong> from you, just keep in mind that this change is occurring as you continue to use the App and if you ever need to manually deploy the App, you can do so using the following command:</p>
+<p><strong>Please Note</strong>: Git has recently announced that it is planning to switch the default branch’s name from "<strong>master</strong>” to "<strong>main</strong>”. For this reason, the Action also pushes to the "<strong>main</strong>” branch in the heroku origin by default and if your Heroku App is still using the "<strong>master</strong>” branch, then the Action will automatically switch your Heroku remote to use "<strong>main</strong>” as the default branch. There is <strong>No Action Needed</strong> from you, just keep in mind that this change is occurring as you continue to use the App and if you ever need to manually deploy the App, you can do so using the following command:</p>
 <p>git push heroku YOUR_BRANCH:refs/heads/main</p>
 <p>Also the <code>remote_branch</code> property no longer exists in the latest release of the Action. If you still have this as part of the <code>3.10.9</code> release. Please remove it as it may cause problems in your workflow</p>
 <h2 id="options">Options</h2>
-<p>The action comes with additional options that you can use to configure your project’s behavior on Heroku. You can setup these options under the “with” object as presented above:</p>
+<p>The action comes with additional options that you can use to configure your project’s behavior on Heroku. You can setup these options under the "with” object as presented above:</p>
 <table>
 <colgroup>
 <col style="width: 8%" />
@@ -107,7 +107,7 @@
 <tr class="odd">
 <td>branch</td>
 <td>false</td>
-<td>The branch that you would like to deploy to Heroku. Defaults to “HEAD”</td>
+<td>The branch that you would like to deploy to Heroku. Defaults to "HEAD”</td>
 <td>master, dev, test</td>
 </tr>
 <tr class="even">
@@ -131,7 +131,7 @@
 <tr class="odd">
 <td>docker_heroku_process_type</td>
 <td>false</td>
-<td>Type of heroku process (web, worker, etc). This option only makes sense when usedocker enabled. Defaults to “web” (Thanks to <a href="https://github.com/singleton11">singleton11</a> for adding this feature)</td>
+<td>Type of heroku process (web, worker, etc). This option only makes sense when usedocker enabled. Defaults to "web” (Thanks to <a href="https://github.com/singleton11">singleton11</a> for adding this feature)</td>
 <td>web, worker</td>
 </tr>
 <tr class="even">
@@ -208,49 +208,49 @@
 <p><em>.github/workflows/main.yml</em></p>
 <p>name: Deploy</p>
 <p>on: push: branches: - master</p>
-<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: “YOUR APP’s NAME” #Must be unique in Heroku heroku_email: “YOUR EMAIL” usedocker: true</p>
+<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: "YOUR APP’s NAME” #Must be unique in Heroku heroku_email: "YOUR EMAIL” usedocker: true</p>
 <p>Keep in mind that if you deploy once using docker, the same heroku app is not compatible with a non-docker setup and similarly, you cannot deploy a dockerized setup to a non-docker heroku app.</p>
 <p>If you need to pass in any ARGs for the Docker build, you may provide a list of arg names which automatically pull from the environment.</p>
 <p><em>.github/workflows/main.yml</em></p>
 <p>name: Deploy</p>
 <p>on: push: branches: - master</p>
-<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: “YOUR APP’s NAME” #Must be unique in Heroku heroku_email: “YOUR EMAIL” usedocker: true docker_build_args: | NODE_ENV SECRET_KEY env: NODE_ENV: production SECRET_KEY: ${{ secrets.MY_SECRET_KEY }}</p>
+<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: "YOUR APP’s NAME” #Must be unique in Heroku heroku_email: "YOUR EMAIL” usedocker: true docker_build_args: | NODE_ENV SECRET_KEY env: NODE_ENV: production SECRET_KEY: ${{ secrets.MY_SECRET_KEY }}</p>
 <p>Also, thanks to <a href="https://github.com/olaven">Olav Sundfør</a> for adding the Docker feature and <a href="https://github.com/mbStavola">Matt Stavola</a> for adding the ability to pass in build args.</p>
 <h3 id="deploy-with-custom-buildpacks">Deploy with custom Buildpacks</h3>
 <p>Taken from the official heroku website:</p>
-<p>“Heroku Buildpacks are sets of open source scripts that are used for compiling apps on Heroku. They form the backbone of Heroku’s <a href="https://www.heroku.com/languages">polyglot platform</a>. Buildpacks enable you to extend Heroku’s build system to support your language or customizations, or to make particular binary packages available to the runtime. Heroku Buildpacks give you the freedom to code in the languages and frameworks that work best for your app and your team”</p>
+<p>"Heroku Buildpacks are sets of open source scripts that are used for compiling apps on Heroku. They form the backbone of Heroku’s <a href="https://www.heroku.com/languages">polyglot platform</a>. Buildpacks enable you to extend Heroku’s build system to support your language or customizations, or to make particular binary packages available to the runtime. Heroku Buildpacks give you the freedom to code in the languages and frameworks that work best for your app and your team”</p>
 <p>To use a custom buildpack in the action, simply add the url of the buildpack to the action:</p>
 <p><em>.github/workflows/main.yml</em></p>
 <p>name: Deploy</p>
 <p>on: push: branches: - master</p>
-<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: “YOUR APP’s NAME” #Must be unique in Heroku heroku_email: “YOUR EMAIL” buildpack: “https://github.com/HashNuke/heroku-buildpack-elixir.git”</p>
+<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: "YOUR APP’s NAME” #Must be unique in Heroku heroku_email: "YOUR EMAIL” buildpack: "https://github.com/HashNuke/heroku-buildpack-elixir.git”</p>
 <h3 id="deploy-subdirectory">Deploy Subdirectory</h3>
 <p>If you are using a complex application which has both frontend and backend applications in separate folders, you can specify a path to the directory to deploy using the <strong>appdir</strong> option:</p>
 <p><em>.github/workflows/main.yml</em></p>
 <p>name: Deploy</p>
 <p>on: push: branches: - master</p>
-<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: “YOUR APP’s NAME” #Must be unique in Heroku heroku_email: “YOUR EMAIL” appdir: “api” # &lt;- This will point to the api folder in your project</p>
+<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: "YOUR APP’s NAME” #Must be unique in Heroku heroku_email: "YOUR EMAIL” appdir: "api” # &lt;- This will point to the api folder in your project</p>
 <p>Thanks to <a href="https://github.com/meszarosdezso">meszarosdezso</a> for adding the appdir feature</p>
 <h3 id="deploy-custom-branch">Deploy custom branch</h3>
 <p>You can use the <strong>branch</strong> option to deploy an app in another branch</p>
 <p><em>.github/workflows/main.yml</em></p>
 <p>name: Deploy</p>
 <p>on: push: branches: - master # Changing the branch here would also work</p>
-<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: “YOUR APP’s NAME” #Must be unique in Heroku heroku_email: “YOUR EMAIL” branch: “dev”</p>
+<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: "YOUR APP’s NAME” #Must be unique in Heroku heroku_email: "YOUR EMAIL” branch: "dev”</p>
 <p>Though this is also possible to do with GitHub Actions, click <a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on">here</a> for more information</p>
 <h3 id="deploy-custom-remote-branch">Deploy custom remote branch</h3>
 <p>You can use the <strong>remote_branch</strong> option to deploy an app to another remote branch</p>
 <p><em>.github/workflows/main.yml</em></p>
 <p>name: Deploy</p>
 <p>on: push: branches: - master # Changing the branch here would also work</p>
-<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: “YOUR APP’s NAME” #Must be unique in Heroku heroku_email: “YOUR EMAIL” remote_branch: “main”</p>
+<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: "YOUR APP’s NAME” #Must be unique in Heroku heroku_email: "YOUR EMAIL” remote_branch: "main”</p>
 <p>Though this is also possible to do with GitHub Actions, click <a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#on">here</a> for more information</p>
 <h2 id="health-check">Health Check</h2>
 <p>Sometimes you will run into issues where the action has successfully deployed the project but because of some error in code or the like, the Heroku App crashes or fails to launch. To counter this, you can setup a healthcheck in the action:</p>
 <p><em>.github/workflows/main.yml</em></p>
 <p>name: Deploy</p>
 <p>on: push: branches: - master # Changing the branch here would also work</p>
-<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: “YOUR APP’s NAME” #Must be unique in Heroku heroku_email: “YOUR EMAIL” healthcheck: “https://[YOUR APP’s NAME].herokuapp.com/health”</p>
+<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: "YOUR APP’s NAME” #Must be unique in Heroku heroku_email: "YOUR EMAIL” healthcheck: "https://[YOUR APP’s NAME].herokuapp.com/health”</p>
 <p>Adding the url to the healthcheck option of the action will make the action attempt to perform a GET Request to that url and print the response if successful. Else it will fail the action to indicate that the deploy was not successful.</p>
 <p>P.S: It is recommended that you setup a specific route such as <strong>/health</strong> for performing healthchecks</p>
 <h3 id="advanced-usage">Advanced Usage</h3>
@@ -258,45 +258,45 @@
 <p><em>.github/workflows/main.yml</em></p>
 <p>name: Deploy</p>
 <p>on: push: branches: - master # Changing the branch here would also work</p>
-<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: “YOUR APP’s NAME” #Must be unique in Heroku heroku_email: “YOUR EMAIL” healthcheck: “https://[YOUR APP’s NAME].herokuapp.com/health” checkstring: “ok”</p>
+<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: "YOUR APP’s NAME” #Must be unique in Heroku heroku_email: "YOUR EMAIL” healthcheck: "https://[YOUR APP’s NAME].herokuapp.com/health” checkstring: "ok”</p>
 <p>This will essentially check if the value returned by sending a GET request to the <strong>healthcheck</strong> url is equal to the <strong>checkstring</strong></p>
 <h3 id="adding-delay">Adding Delay</h3>
 <p>In some cases, a healthcheck ends up being performed before the application has been setup on Heroku. To counter this, you can manually set the <strong>delay</strong> option in the action to make the action wait a certain period of time (in seconds) before performing the healthcheck</p>
 <p><em>.github/workflows/main.yml</em></p>
 <p>name: Deploy</p>
 <p>on: push: branches: - master # Changing the branch here would also work</p>
-<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: “YOUR APP’s NAME” #Must be unique in Heroku heroku_email: “YOUR EMAIL” healthcheck: “https://[YOUR APP’s NAME].herokuapp.com/health” checkstring: “ok” delay: 5</p>
+<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: "YOUR APP’s NAME” #Must be unique in Heroku heroku_email: "YOUR EMAIL” healthcheck: "https://[YOUR APP’s NAME].herokuapp.com/health” checkstring: "ok” delay: 5</p>
 <p>By default, the delay will be 0 if you choose to not set it</p>
 <h3 id="rollback-on-healthcheck-failure">Rollback on healthcheck failure</h3>
 <p>You can set the rollbackonhealthcheckfailed option to ensure that your application is rolled back if the healthcheck fails. <em>.github/workflows/main.yml</em></p>
 <p>name: Deploy</p>
 <p>on: push: branches: - master # Changing the branch here would also work</p>
-<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: “YOUR APP’s NAME” #Must be unique in Heroku heroku_email: “YOUR EMAIL” healthcheck: “https://[YOUR APP’s NAME].herokuapp.com/health” checkstring: “ok” rollbackonhealthcheckfailed: true</p>
+<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: "YOUR APP’s NAME” #Must be unique in Heroku heroku_email: "YOUR EMAIL” healthcheck: "https://[YOUR APP’s NAME].herokuapp.com/health” checkstring: "ok” rollbackonhealthcheckfailed: true</p>
 <p>By default, the application will not be rolled back if the healthcheck fails.</p>
 <p>Thanks to <a href="https://github.com/FridaTveit">FridaTveit</a> for adding this feature</p>
 <h2 id="environment-variables">Environment Variables</h2>
-<p>Heroku offers a means of passing sensitive information to your app (such as api keys etc) via something it calls <strong>config vars</strong> which you can find in the settings of your heroku app. But sometimes you might want to store sensitive information (api keys etc) in GitHub Secrets instead just to ensure platform independence. If you choose to this, you can then pass those secrets to your heroku app by using the “env” object of the action:-</p>
+<p>Heroku offers a means of passing sensitive information to your app (such as api keys etc) via something it calls <strong>config vars</strong> which you can find in the settings of your heroku app. But sometimes you might want to store sensitive information (api keys etc) in GitHub Secrets instead just to ensure platform independence. If you choose to this, you can then pass those secrets to your heroku app by using the "env” object of the action:-</p>
 <p><em>.github/workflows/main.yml</em></p>
 <p>name: Deploy</p>
 <p>on: push: branches: - master # Changing the branch here would also work</p>
-<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: “YOUR APP’s NAME” #Must be unique in Heroku heroku_email: “YOUR EMAIL” env: HD_FIREBASE_API_KEY: ${{secrets.FIREBASE_API_KEY}} HD_RANDOM_DATA: “Hello”</p>
-<p>Note that the variables must start with “<strong>HD_</strong>”. This is is important so the action can tell your environment variable apart from multiple other variables (passed by your language, github actions etc) which you probably don’t want sitting in your heroku app’s config vars.</p>
+<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: "YOUR APP’s NAME” #Must be unique in Heroku heroku_email: "YOUR EMAIL” env: HD_FIREBASE_API_KEY: ${{secrets.FIREBASE_API_KEY}} HD_RANDOM_DATA: "Hello”</p>
+<p>Note that the variables must start with "<strong>HD_</strong>”. This is is important so the action can tell your environment variable apart from multiple other variables (passed by your language, github actions etc) which you probably don’t want sitting in your heroku app’s config vars.</p>
 <p>On that note, if you’ve set these variables and have deployed your app, you can check your Heroku App’s config vars and you’ll find that they have been set with the env variables you have passed.</p>
-<p><strong>PLEASE NOTE</strong>: The “<strong>HD_</strong>” will be scrapped from the variable your name by the action. So in your project, “<strong>FIREBASE_API_KEY</strong>” will be passed instead of “<strong>HD_FIREBASE_API_KEY</strong>” (for example) and you can see this if you check your Heroku App’s config vars. We understand that this can be confusing but this is again to ensure Platform independence and so that you don’t have to use HD_FIREBASE_API_KEY if you choose to stop using Heroku</p>
+<p><strong>PLEASE NOTE</strong>: The "<strong>HD_</strong>” will be scrapped from the variable your name by the action. So in your project, "<strong>FIREBASE_API_KEY</strong>” will be passed instead of "<strong>HD_FIREBASE_API_KEY</strong>” (for example) and you can see this if you check your Heroku App’s config vars. We understand that this can be confusing but this is again to ensure Platform independence and so that you don’t have to use HD_FIREBASE_API_KEY if you choose to stop using Heroku</p>
 <h3 id="env-file">ENV File</h3>
 <p>You can if you wish also pass the path to an env file (with respect to your appdir path) as an option to the action. The action will then read that file and set the config vars accordingly in Heroku</p>
 <p><em>.github/workflows/main.yml</em></p>
 <p>name: Deploy</p>
 <p>on: push: branches: - master # Changing the branch here would also work</p>
-<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: “YOUR APP’s NAME” #Must be unique in Heroku heroku_email: “YOUR EMAIL” env_file: “.env” env: HD_FIREBASE_API_KEY: ${{secrets.FIREBASE_API_KEY}} HD_RANDOM_DATA: “Hello”</p>
+<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: "YOUR APP’s NAME” #Must be unique in Heroku heroku_email: "YOUR EMAIL” env_file: ".env” env: HD_FIREBASE_API_KEY: ${{secrets.FIREBASE_API_KEY}} HD_RANDOM_DATA: "Hello”</p>
 <p>Example env file</p>
 <pre><code>HELLO=world
 WORLD=hello</code></pre>
 <p>There are two important points to keep in mind when using the <strong>env_file</strong> option.</p>
 <ol type="1">
 <li><p>The first is that in can be used in conjunction with <strong>env</strong> option of the action as you have seen above</p></li>
-<li><p>The second is that unlike in the <strong>env</strong> option, you do not need to prefix the env variables in the .env file with “HD_”.</p>
-<p>(For those of you who are wondering why this is the case, when using the <strong>env</strong> option, the env variables are passed directly into the process along with all the other env variables passed by GitHub Actions, the language you are using etc and the “HD_” in that case is to help differentiate your env variables from them. But when using a file to pass the env variables, the action manually reads the file so there is no chance of stray env variables being passed by your language, github actions etc and hence no need to add the “HD_”)</p></li>
+<li><p>The second is that unlike in the <strong>env</strong> option, you do not need to prefix the env variables in the .env file with "HD_”.</p>
+<p>(For those of you who are wondering why this is the case, when using the <strong>env</strong> option, the env variables are passed directly into the process along with all the other env variables passed by GitHub Actions, the language you are using etc and the "HD_” in that case is to help differentiate your env variables from them. But when using a file to pass the env variables, the action manually reads the file so there is no chance of stray env variables being passed by your language, github actions etc and hence no need to add the "HD_”)</p></li>
 </ol>
 <p>Also note that using a file (which can be named anything so long as it follows the format of a standard env file) can be useful if you’re trying to send a very large number of env variables to Heroku, it does mean that keeping the .env file secure and private is entirely in your hands so tread with caution.</p>
 <h2 id="procfile-passing">Procfile Passing</h2>
@@ -304,20 +304,20 @@ WORLD=hello</code></pre>
 <p><em>.github/workflows/main.yml</em></p>
 <p>name: Deploy</p>
 <p>on: push: branches: - master # Changing the branch here would also work</p>
-<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: “YOUR APP’s NAME” #Must be unique in Heroku heroku_email: “YOUR EMAIL” procfile: “web: npm start”</p>
+<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: "YOUR APP’s NAME” #Must be unique in Heroku heroku_email: "YOUR EMAIL” procfile: "web: npm start”</p>
 <p>Keep in mind this won’t work if you are using Docker.</p>
 <h2 id="deploying-to-a-team">Deploying to a team</h2>
 <p>If you are an enterprise user and wish to deploy your app to a specific team, you can do so by just passing the <strong>team</strong> option to the action:</p>
 <p><em>.github/workflows/main.yml</em></p>
 <p>name: Deploy</p>
 <p>on: push: branches: - master</p>
-<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: “YOUR APP’s NAME” heroku_email: “YOUR EMAIL” team: “THE TEAM’s NAME”</p>
+<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: "YOUR APP’s NAME” heroku_email: "YOUR EMAIL” team: "THE TEAM’s NAME”</p>
 <h2 id="just-login">Just Login</h2>
 <p>GitHub Actions does come with the heroku cli pre-installed (this is what is used by the Action to deploy applications). So if you wish to use the heroku cli and just need to login, you can use the <strong>justlogin</strong> option of the Heroku Deploy Action</p>
 <p><em>.github/workflows/main.yml</em></p>
 <p>name: Deploy</p>
 <p>on: push: branches: - master # Changing the branch here would also work</p>
-<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: "" heroku_email: “YOUR EMAIL” justlogin: true - run: heroku auth:whoami</p>
+<p>jobs: build: runs-on: ubuntu-latest steps: - uses: actions/checkout@v2 - uses: akhileshns/heroku-deploy@v3.11.10 # This is the action with: heroku_api_key: ${{secrets.HEROKU_API_KEY}} heroku_app_name: "" heroku_email: "YOUR EMAIL” justlogin: true - run: heroku auth:whoami</p>
 <h2 id="important-notes">Important Notes</h2>
 <ul>
 <li><p>You can check this repo’s <a href="https://github.com/AkhileshNS/heroku-deploy/blob/master/.github/workflows/main.yml"><em>.github/workflows/main.yml</em></a> for example use cases of the action in use. Additionally the APIs for these use cases can be found in the <a href="https://github.com/AkhileshNS/heroku-deploy/tree/master/tests"><em>tests</em></a> folder of the repo</p></li>

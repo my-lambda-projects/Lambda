@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="draw-a-histogram-of-words-in-an-input-string">Draw a histogram of words in an input string</h1>
+<p>This is a variation of the "word count” exercise, with a focus on how to sort the data in a dictionary.</p>
+<h2 id="input">Input</h2>
+<p>This function takes a single filename string as an argument, e.g.</p>
+<pre><code>robin.txt</code></pre>
+<p>It should open the file, and work through it to produce the output.</p>
+<p>(<code>robin.txt</code> is in this directory.)</p>
+<h2 id="output">Output</h2>
+<p>Print a histogram showing the word count for each word, one hash mark for every occurrence of the word.</p>
+<p>Output will be first ordered by the number of words, then by the word (alphabetically).</p>
+<p>The hash marks should be left justified two spaces after the longest word.</p>
+<p>Case should be ignored, and all output forced to lowercase.</p>
+<p>Split the strings into words on any whitespace.</p>
+<p>Ignore each of the following characters:</p>
+<pre><code>&quot; : ; , . - + = / \ | [ ] { } ( ) * ^ &amp;</code></pre>
+<p>If the input contains no ignored characters, print nothing.</p>
+<p>Sample output (truncated):</p>
+<pre><code>the              ################################################
+and              ####################################
+of               ###################################
+a                ########################
+with             #################
+to               ################
+robin            #############
+he               ############
+his              ############
+that             ############
+in               ###########
+at               ##########
+good             ##########
+i                ##########
+as               #########
+for              #######
+green            #######
+thou             #######
+upon             #######
+ale              ######
+all              ######
+bow              ######</code></pre>
+<h2 id="hints">Hints</h2>
+<p>Items: <code>.vgrzf()</code> zrgubq ba n qvpgvbanel zvtug or hfrshy.</p>
+<p>Sorting: vg’f cbffvoyr sbe <code>.fbeg()</code> gb fbeg ba zhygvcyr xrlf ng bapr.</p>
+<p>Sorting: artngvirf zvtug uryc jurer <code>erirefr</code> jba’g.</p>
+<p>Printing: lbh pna cevag n inevnoyr svryq jvqgu va na s-fgevat jvgu arfgrq oenprf, yvxr fb <code>{k:{l}}</code> # you can print a variable field width in an f-string with nested braces, like so <code>{x:{y}}</code></p>
+<p>(The hints are encrypted with ROT13. Google for <code>rot13 decoder</code> to see them.)</p>
+</body></html>

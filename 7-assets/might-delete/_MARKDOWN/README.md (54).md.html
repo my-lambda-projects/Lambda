@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="intro-to-python-i">Intro to Python I</h1>
+<p>It’s time to learn a new language! Python!</p>
+<p>Python is a popular, easy-to-use programming language that has significant traction in the field.</p>
+<p>Remember the goal is <em>learning to learn</em>, so keep track of what works for you and what doesn’t as you go through the process of exploring Python.</p>
+<h2 id="techniques-for-learning-new-languages">Techniques for learning new languages</h2>
+<ul>
+<li><p>Try to relate things you already know in another language (e.g. what an <em>array</em> is) to the corresponding things in Python (e.g. a <em>list</em>) and how to use them.</p></li>
+<li><p>Write a bunch of "toy programs” that demonstrate different key features of the language</p></li>
+<li><p>Explore the standard library that’s available for the language. Skim it briefly for now–the idea isn’t to memorize everything but to file away generally what functionality is available.</p></li>
+<li><p>Write a more substantial toy program that uses a variety of the features.</p></li>
+</ul>
+<p>Again, keep track of what works for you. Try different things to see what works best for learning new languages.</p>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://github.com/LambdaSchool/CS-Wiki/wiki/Installing-Python-3-and-pipenv">Installing Python and pipenv</a></li>
+<li><a href="https://github.com/LambdaSchool/CS-Wiki/wiki/Javascript-Python-cheatsheet">JavaScript&lt;-&gt;Python cheatsheet</a></li>
+<li><a href="https://github.com/LambdaSchool/CS-Wiki/wiki/How-to-Read-Specifications-and-Code">How to read Specs and Code</a></li>
+<li><a href="https://docs.python.org/3.6/library/">Python 3 standard library</a></li>
+</ul>
+<h2 id="getting-started">Getting started</h2>
+<ol type="1">
+<li><p>Make sure you have Python 3 and pipenv installed.</p></li>
+<li><p>Go to the directory with the <code>Pipfile</code> and run</p>
+<pre><code>pipenv install</code></pre></li>
+<li><p>After the install completes, run</p>
+<pre><code>pipenv shell</code></pre>
+<p>This will get you into the virtual environment. At this point, you should be able to run Python 3 by just running <code>python</code>:</p>
+<pre><code>$ python --version
+Python 3.6.5</code></pre>
+<p>You can exit the virtual environment by typing <code>exit</code>.</p></li>
+</ol>
+<h2 id="goals">Goals</h2>
+<ul>
+<li>Learn the basic syntax and structure of Python</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Implement a number of tiny Python programs that demonstrate Python syntax and language concepts.</li>
+</ul>
+<h2 id="instructions">Instructions</h2>
+<p>Each directory inside the <code>src/</code> directory presents exercises revolving around a particular concept in Python. Not all of these concepts are unique to Python (in fact, most probably aren’t). This means that you can leverage knowledge you’ve obtained via exposure to other programming languages towards learning Python.</p>
+<p>The suggested order for going through each of the directories is:</p>
+<ul>
+<li><code>hello</code> – Hello world</li>
+<li><code>bignum</code> – Print some big numbers</li>
+<li><code>datatypes</code> – Experiment with type conversion</li>
+<li><code>modules</code> – Learn to import from modules</li>
+<li><code>printing</code> – Formatted print output</li>
+<li><code>lists</code> – Python’s version of arrays</li>
+<li><code>tuples</code> – Immutable lists typically for heterogenous data</li>
+<li><code>slices</code> – Accessing parts of lists</li>
+<li><code>comprehensions</code> – List comprehensions</li>
+<li><code>dictionaries</code> – Dictionaries</li>
+<li><code>functions</code> – Functions</li>
+<li><code>args</code> – Arguments and Keyword Arguments</li>
+<li><code>scopes</code> – Global, Local, and Non-Local scope</li>
+<li><code>file_io</code> – Read and write from files</li>
+<li><code>cal</code> – Experiment with module imports and implement a text-based calendar</li>
+<li><code>classes</code> – Classes and objects</li>
+</ul>
+<h2 id="stretch-goals">Stretch Goals</h2>
+<ol type="1">
+<li><p>One of Python’s main philosophical tenets is its emphasis on readability. To that end, the Python community has standardized around a style guide called <a href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a>. Take a look at it and then go over the code you’ve written and make sure it adheres to what PEP 8 recommends. Alternatively, PEP 8 linters exist for most code editors (you can find instructions on installing a Python linter for VSCode <a href="https://code.visualstudio.com/docs/python/linting">here</a>). Try installing one for your editor!</p></li>
+<li><p>Rewrite code challenges you’ve solved before or projects you’ve implemented before in a different language in Python. Start getting in as much practice with the language as possible!</p></li>
+<li><p>Write a program to determine if a number, given on the command line, is prime.</p>
+<ol type="1">
+<li>How can you optimize this program?</li>
+<li>Implement <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">The Sieve of Eratosthenes</a>, one of the oldest algorithms known (ca. 200 BC).</li>
+</ol></li>
+</ol>
+</body></html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="lecture-ii-linked-lists">Lecture II: Linked Lists</h1>
+<ol type="a">
+<li><a href="#Nodes">Nodes</a><br />
+</li>
+<li><a href="#Doubly-Linked-List">Doubly Linked List</a><br />
+</li>
+<li><a href="#Build-a-Doubly-Linked-List">Build a Doubly Linked List</a><br />
+</li>
+<li><a href="#Add-and-Remove-Tail">Add and Remove Tail</a><br />
+</li>
+<li><a href="#Move-to-Head-or-Tail">Move to Head or Tail</a><br />
+</li>
+<li><a href="#Delete-a-Node">Delete a Node</a><br />
+</li>
+<li><a href="#Get-Max">Get Max</a></li>
+</ol>
+<p><br></p>
+<p><a href="https://youtu.be/l5jfEmBnAqg">CS18 Sean Chen Lecture</a></p>
+<p><a href="https://youtu.be/YV8H5vevKGU">CS19 Brian Doyle Lecture</a></p>
+<p><br> <br></p>
+<h2 id="nodes">Nodes</h2>
+<p>A node is a bucket structure with two components (or three in a doubly linked list). The data being stored, a pointer to the next node, and possibly a pointer to the previous node.</p>
+<p>We could imagine it like this:</p>
+<pre><code>|          |          |          |          
+| Previous |   DATA   |   Next   |
+|__________|__________|__________|</code></pre>
+<p>The benefit of nodes is that it allows us to dynamically utilize memory.</p>
+<p><br> <br></p>
+<h2 id="doubly-linked-list">Doubly Linked List</h2>
+<p>A doubly linked list has pointers to both the next and previous node (hence, doubly linked).</p>
+<p>In our <a href="https://github.com/LambdaSchool/data-structures">project repo</a> there is a doubly linked list file (copied into <a href="dll.py">this file</a>). It has this code setting up listNode instances:</p>
+<p><br></p>
+<pre><code>&quot;&quot;&quot;Each ListNode holds a reference to its previous node
+as well as its next node in the List.&quot;&quot;&quot;
+class ListNode:
+  def __init__(self, value, prev=None, next=None):
+    self.value = value
+    self.prev = prev
+    self.next = next
+
+  &quot;&quot;&quot;Wrap the given value in a ListNode and insert it
+  after this node. Note that this node could already
+  have a next node it is pointing to.&quot;&quot;&quot;
+  def insert_after(self, value):
+    current_next = self.next
+    self.next = ListNode(value, self, current_next)
+    if current_next:
+      current_next.prev = self.next
+
+  &quot;&quot;&quot;Wrap the given value in a ListNode and insert it
+  before this node. Note that this node could already
+  have a previous node it is pointing to.&quot;&quot;&quot;
+  def insert_before(self, value):
+    current_prev = self.prev
+    self.prev = ListNode(value, current_prev, self)
+    if current_prev:
+      current_prev.next = self.prev
+
+  &quot;&quot;&quot;Rearranges this ListNode&#39;s previous and next pointers
+  accordingly, effectively deleting this ListNode.&quot;&quot;&quot;
+  def delete(self):
+    if self.prev:
+      self.prev.next = self.next
+    if self.next:
+      self.next.prev = self.prev</code></pre>
+<p><br></p>
+<p>It sets up nodes that keep track of the next <em>and</em> previous nodes, and also provides an <code>insert_after</code>, <code>insert_before</code>, and <code>delete</code> function.</p>
+<p>To make it a little easier to see what’s happening under the hood when we call a listNode, we can add this <code>__repr__</code> method to show the value, previous and next references.</p>
+<p><br></p>
+<pre><code>  def __repr__(self):
+    return &quot;Value: {}, &quot;.format(self.value if self.value else None) + &quot;Prev: {}, &quot;.format(self.prev.value if self.prev else None) + &quot;Next: {} \n&quot;.format(self.next.value if self.next else None)</code></pre>
+<p><br></p>
+<p>If we run:</p>
+<blockquote>
+<p>print(ListNode(5))</p>
+</blockquote>
+<p>We’ll receive in the terminal:</p>
+<blockquote>
+<p>Value: 5, Prev: None, Next: None</p>
+</blockquote>
+<p>This shows that an initialized ListNode without a specified previous or next reference will point to <code>None</code>.</p>
+<p><br> <br></p>
+<h2 id="build-a-doubly-linked-list">Build a Doubly Linked List</h2>
+<p>Let’s start building methods on our base code:</p>
+<p><br></p>
+<pre><code>&quot;&quot;&quot;Our doubly-linked list class. It holds references to
+the list&#39;s head and tail nodes.&quot;&quot;&quot;
+class DoublyLinkedList:
+  def __init__(self, node=None):
+    self.head = node
+    self.tail = node
+    self.length = 1 if node is not None else 0
+  
+  def __repr__(self):
+    return f&quot;Head: {self.head} \n Tail: {self.tail} \n Length: {self.length}&quot;
+
+  def __len__(self):
+    return self.length</code></pre>
+<p><br></p>
+<p>We should define an <code>add_to_head</code> method:</p>
+<p><br></p>
+<pre><code>  &quot;&quot;&quot;Replaces the head of the list with a new value that is passed in.&quot;&quot;&quot;
+  def add_to_head(self, value):</code></pre>
+<p><br></p>
+<p>We know that we need to create a new node and increase the length of the list:</p>
+<p><br></p>
+<pre><code>  &quot;&quot;&quot;Replaces the head of the list with a new value that is passed in.&quot;&quot;&quot;
+  def add_to_head(self, value):
+      new_node = ListNode(value, prev=None, next=None)
+      self.length += 1
+      # if there is no head or tail, it needs to become both:
+      if not self.head and not self.tail:
+          self.head = new_node
+          self.tail = new_node
+     # otherwise it only needs to become the head:
+     else:
+         self.head.prev = new_node
+         new_node.next = self.head
+         self.head = new_node</code></pre>
+<p><br></p>
+<p>Another solution is that we could also check using length:</p>
+<p><br></p>
+<pre><code>    if self.length == 0:
+      self.head = ListNode(value, None, None)
+      self.tail = self.head
+      self.length = 1
+    else:
+      self.head.prev = ListNode(value, None, self.head)
+      self.head = self.head.prev
+      self.length += 1</code></pre>
+<p><br></p>
+<p>Let’s work on the <code>remove</code> function next. This should return the removed node:</p>
+<p><br></p>
+<pre><code>  &quot;&quot;&quot;Replaces the tail of the list with a new value that is passed in.&quot;&quot;&quot;
+  def remove_from_head(self):
+    # if there is no head, just return None because we can&#39;t remove
+    if not self.head:
+        return None
+    # reduce the length
+    self.length -= 1</code></pre>
+<p><br></p>
+<p>Now we could check the length of the list but maintaining consistency is ideal. Since we compared the head and tail previously, we should continue using that method. If we went with the length comparison method, we would decrement <em>after</em> and continue to use that comparison instead.</p>
+<p>So, if the head and tail match, we know that there is only one node:</p>
+<p><br></p>
+<pre><code>    # we need to store the current head to return it once removed
+    current_head = self.head
+
+    # if there is solely one node, we set both head and tail to None
+    if self.head == self.tail:
+        self.head = None
+        self.tail = None
+        return current_head.value</code></pre>
+<p><br></p>
+<p>We need to finish by handling the last case, which is if there are other nodes in the list. We’ll set the next node as the head and remove the pointer to the previous.</p>
+<p><br></p>
+<pre><code>    # changes the head to the next node
+    else:
+        self.head = self.head.next
+        # Removes pointers to any previous node
+        self.head.prev = None
+        return current_head.value</code></pre>
+<p><br> <br></p>
+<h2 id="add-and-remove-tail">Add and Remove Tail</h2>
+<p>To add to the tail, we’ll write a method almost identical to the add to head method:</p>
+<p><br></p>
+<pre><code>  &quot;&quot;&quot;Removes the head node and returns the value stored in it.&quot;&quot;&quot;
+  def add_to_tail(self, value):
+      new_node = ListNode(value)
+      self.length += 1
+      # if there is no head or tail, it needs to become both:
+      if not self.head and not self.tail:
+          self.head = new_node
+          self.tail = new_node
+     # otherwise it only needs to become the tail:
+     else:
+         self.tail.next = new_node
+         new_node.prev = self.tail
+         self.tail = new_node</code></pre>
+<p><br></p>
+<p>We should test these methods after writing them. We could use the unit tests in the test file. Or we could write our own within our current file to see if it returns the expected.</p>
+<p><br></p>
+<pre><code>ll = DoublyLinkedList()
+print(f&quot;ll: {ll}&quot;) # should be empty
+ll.add_to_head(2) # should be 2
+ll.add_to_head(5) # should be 5,2
+ll.add_to_head(7) # should be 7,5,2
+ll.remove_from_head() # should be 5,2
+ll.add_to_tail(9) # should be 5,2,9
+print(f&quot;ll: {ll}&quot;)</code></pre>
+<p><br></p>
+<p>This should return the final print statement as:</p>
+<p><br></p>
+<pre><code>ll: Head: Value: 5, Prev: None, Next: 2 
+ 
+Tail: Value: 9, Prev: 2, Next: None 
+ 
+Length: 3</code></pre>
+<p><br></p>
+<p>Now let’s write our <code>remove_from_tail</code>. Again, it’s very similar to the <code>remove_from_head</code> method with a few syntax adjustments and changing references to next node (which should be None at the tail).</p>
+<p><br></p>
+<pre><code>  def remove_from_tail(self):
+    # if there is no tail, just return None because we can&#39;t remove
+    if not self.tail:
+        return None
+    # reduce the length
+    self.length -= 1
+    # we need to store the current tail to return it once removed
+    current_tail = self.tail
+
+    # if there is solely one node, we set both head and tail to None
+    if self.head == self.tail:
+        self.head = None
+        self.tail = None
+        return current_tail.value
+    # changes the tail to the next node
+    else:
+        self.tail = self.tail.prev
+        # Removes pointers to any next node
+        self.tail.next = None
+        return current_tail.value</code></pre>
+<p><br> <br></p>
+<h2 id="move-to-head-or-tail">Move to Head or Tail</h2>
+<p>Let’s write this next set of methods.</p>
+<pre><code>  &quot;&quot;&quot;Takes a reference to a node in the list and moves it to the front of the list, shifting all other list nodes down.&quot;&quot;&quot;
+  def move_to_front(self, node):
+    pass
+
+  &quot;&quot;&quot;Takes a reference to a node in the list and moves it to the end of the list, shifting all other list nodes up.&quot;&quot;&quot;
+  def move_to_end(self, node):
+    pass</code></pre>
+<p>Off the bat, one thing we might want to do is change the name of these functions to more clearly indicate what these functions do – like <code>move_to_head</code> or <code>move_to_tail</code>. We’ll also need to adjust those names in our test files to avoid errors.</p>
+<p>Since we’re passed in a node, we don’t need to create a node because it already exists.</p>
+<p><br></p>
+<pre><code>  def move_to_head(self, node):
+    # if the passed node is already the head, we just return it
+    if node is self.head:
+        return node
+    # if the passed node is the tail, we need to remove it from the tail
+    if node is self.tail:
+        self.remove_from_tail()
+    else:
+        node.delete()
+        self.length -=1
+    # we should add it but only the value of the passed node
+    self.add_to_head(node.value)</code></pre>
+<p><br></p>
+<p>We want to make sure that we use <code>is</code> instead of <code>==</code> when comparing the node to the head or tail because we are not just comparing the values but checking if they are truly the <em>same</em> values (with the same reference to space in memory).</p>
+<p>Why are we reducing the length when we’re only moving around a node, not removing it?</p>
+<p>The add methods we’re calling will automatically adjust the length to add the value, so we need to decrement it first. We are <em>technically</em> deleting the node and then adding it again.</p>
+<p>We could alternately just change the pointer references, rather than deleting and adding the node. It would be more memory efficient – but we evaluate this based on the situation. By reusing already written code, we’re also being efficient, and unless we need the improved space complexity at scale, it’s not necessary to write longer functions to do this process.</p>
+<p>A best practice would be to leave a comment in the function about how we could optimize this in the future, so that it would be easy to identify how to improve the space complexity IF it matters.</p>
+<p>Let’s do the same with <code>move_to_tail</code>:</p>
+<p><br></p>
+<pre><code>  &quot;&quot;&quot;Takes a reference to a node in the list and moves it to the end of the list, shifting all other list nodes up.&quot;&quot;&quot;
+  def move_to_tail(self, node):
+    if node is self.tail:
+        return node
+    if node is self.head:
+        self.remove_from_head()
+    else:
+        node.delete()
+        self.length -=1
+
+    self.add_to_tail(node.value)</code></pre>
+<p><br> <br></p>
+<h2 id="delete-a-node">Delete a Node</h2>
+<p>Why do we need to write another delete function when we already have one?</p>
+<p>This allows us to handle the edge cases of if it’s the head or tail node.</p>
+<p>We could handle if there’s only one node in the list like so:</p>
+<p><br></p>
+<pre><code>    if self.head is self.tail:
+        self.head = None
+        self.tail = None</code></pre>
+<p><br></p>
+<p>But we also already wrote that edge case into our <code>remove_from_head</code> function so instead, let’s let it be handled that way:</p>
+<p><br></p>
+<pre><code>  &quot;&quot;&quot;Takes a reference to a node in the list and removes it from the list. The deleted node&#39;s `previous` and `next` pointers should point to each afterwards.&quot;&quot;&quot;
+  def delete(self, node):
+    if self.head is self.tail:
+        self.remove_from_head()
+    elif node is self.head:
+        self.remove_from_head()
+    elif node is self.tail:
+        self.remove_from_tail()
+    else:
+        node.delete()
+        return node.value    </code></pre>
+<p><br></p>
+<p>We don’t need to manually decrement the length because all of our previously written functions handle that for us.</p>
+<p><br> <br></p>
+<h2 id="get-max">Get Max</h2>
+<p>We know off the bat that when we try to get the maximum value from a linked list, but the list has no items, then that edge case is simple to handle – we’ll return None.</p>
+<p>Next we’ll iterate through the values of the linked list, starting at the head, to compare to the current maximum value found. Once we read the end of the list, we’ll have checked each value and found the maximum.</p>
+<p><br></p>
+<pre><code>  def get_max(self):
+    # if there is no head, we know the list is empty
+    if not self.head:
+        return None
+    
+    # we&#39;ll set our starting max value as the first value we&#39;ll begin looping through in the list, the head
+    max_value = self.head.value
+    # we&#39;ll set a current value to check against
+    current = self.head
+    while current:
+        if current.value &gt; max_value:
+            max_value = current.value
+        # increment current
+        current = current.next
+    # once all values are checked, return max value
+    return max_value</code></pre>
+<p><br> <br></p>
+</body></html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="rest-api-review---nodeexpress">REST API Review - Node/Express</h1>
+<h3 id="section-2">Section 2</h3>
+<h2 id="configures-knex">Configures knex</h2>
+<ul>
+<li>[ ] First, since we’re working with postgres, we’ll need to create a database locally. If you haven’t already, download <a href="https://www.pgadmin.org/download/">PG Admin</a> and create a new db for your project. I’m making a drink recipe API later on, so I’ll call mine <code>cocktailRecipeDB</code>. Call yours something relevant to your application.</li>
+</ul>
+<p>Back in your terminal (in the root folder of this project)</p>
+<ul>
+<li>[ ] Checkout a new branch called <code>config/knex</code> and push it to the remote</li>
+<li>[ ] <code>npx knex init</code></li>
+</ul>
+<p>This creates a new knexfile.js at the root of our project. Edit it to look similar to this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// Update with your config settings.</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="dt">development</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="dt">client</span><span class="op">:</span> <span class="st">&#39;pg&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="dt">connection</span><span class="op">:</span> <span class="st">&#39;postgres://localhost/cocktailRecipeDB&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-8" title="8">    <span class="dt">migrations</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-9" title="9">      <span class="dt">directory</span><span class="op">:</span> <span class="st">&#39;./data/migrations&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-10" title="10">    <span class="op">},</span></a>
+<a class="sourceLine" id="cb1-11" title="11">    <span class="dt">seeds</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-12" title="12">      <span class="dt">directory</span><span class="op">:</span> <span class="st">&#39;./data/seeds&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-13" title="13">    <span class="op">},</span></a>
+<a class="sourceLine" id="cb1-14" title="14">    <span class="dt">pool</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-15" title="15">      <span class="dt">min</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-16" title="16">      <span class="dt">max</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-17" title="17">    <span class="op">},</span></a>
+<a class="sourceLine" id="cb1-18" title="18">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb1-19" title="19"></a>
+<a class="sourceLine" id="cb1-20" title="20">  <span class="dt">production</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-21" title="21">    <span class="dt">client</span><span class="op">:</span> <span class="st">&#39;pg&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-22" title="22">    <span class="dt">connection</span><span class="op">:</span> <span class="va">process</span>.<span class="va">env</span>.<span class="at">DATABASE_URL</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-23" title="23">    <span class="dt">migrations</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-24" title="24">      <span class="dt">directory</span><span class="op">:</span> <span class="st">&#39;./data/migrations&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-25" title="25">    <span class="op">},</span></a>
+<a class="sourceLine" id="cb1-26" title="26">    <span class="dt">pool</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-27" title="27">      <span class="dt">min</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-28" title="28">      <span class="dt">max</span><span class="op">:</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb1-29" title="29">    <span class="op">},</span></a>
+<a class="sourceLine" id="cb1-30" title="30">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-31" title="31"></a>
+<a class="sourceLine" id="cb1-32" title="32"><span class="op">};</span></a></code></pre></div>
+<blockquote>
+<p><strong>NOTE:</strong> I’m using an unsecured Postgres DB here, it should be pretty easy to find the correct config for adding credentials.</p>
+</blockquote>
+<p>Notice that we don’t include a staging environment here. That’s because we have two seperate heroku deploys and we want them to mirror each other as closely as possible, so we’ll also point our heroku ‘Staging’ app to the ‘Production’ knex config. It’ll be using a different db anyhow so having the one env in our simple context is ideal.</p>
+<ul>
+<li>[ ] Commit and push</li>
+</ul>
+<p><br /></p>
+<h2 id="creates-migration-for-users-table">Creates migration for users table</h2>
+<p>In your terminal:</p>
+<ul>
+<li><p>[ ] <code>npx knex migrate:make users</code></p></li>
+<li><p>[ ] which will create a <code>_users.js</code> file in <code>data/migrations/</code>, edit it to look like so:</p></li>
+</ul>
+<p>__users.js_</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">exports</span>.<span class="at">up</span> <span class="op">=</span> <span class="kw">function</span>(knex) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="cf">return</span> <span class="va">knex</span>.<span class="va">schema</span>.<span class="at">createTable</span>(<span class="st">&#39;users&#39;</span><span class="op">,</span> users <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4">    <span class="va">users</span>.<span class="at">increments</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-5" title="5"></a>
+<a class="sourceLine" id="cb2-6" title="6">    users</a>
+<a class="sourceLine" id="cb2-7" title="7">      .<span class="at">string</span>(<span class="st">&#39;username&#39;</span><span class="op">,</span> <span class="dv">128</span>)</a>
+<a class="sourceLine" id="cb2-8" title="8">      .<span class="at">notNullable</span>()</a>
+<a class="sourceLine" id="cb2-9" title="9">      .<span class="at">unique</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-10" title="10"></a>
+<a class="sourceLine" id="cb2-11" title="11">    users </a>
+<a class="sourceLine" id="cb2-12" title="12">      .<span class="at">string</span>(<span class="st">&#39;password&#39;</span><span class="op">,</span> <span class="dv">128</span>)</a>
+<a class="sourceLine" id="cb2-13" title="13">      .<span class="at">notNullable</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-14" title="14"></a>
+<a class="sourceLine" id="cb2-15" title="15">      users </a>
+<a class="sourceLine" id="cb2-16" title="16">      .<span class="at">string</span>(<span class="st">&#39;email&#39;</span><span class="op">,</span> <span class="dv">128</span>)</a>
+<a class="sourceLine" id="cb2-17" title="17">      .<span class="at">notNullable</span>()</a>
+<a class="sourceLine" id="cb2-18" title="18">      .<span class="at">unique</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-19" title="19">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-20" title="20"><span class="op">};</span></a>
+<a class="sourceLine" id="cb2-21" title="21"></a>
+<a class="sourceLine" id="cb2-22" title="22"><span class="va">exports</span>.<span class="at">down</span> <span class="op">=</span> <span class="kw">function</span>(knex) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-23" title="23">  <span class="cf">return</span> <span class="va">knex</span>.<span class="va">schema</span>.<span class="at">dropTableIfExists</span>(<span class="st">&#39;users&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-24" title="24"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li>[ ] Commit and push this work</li>
+</ul>
+<p>I am not covering seeding in this review. We will use insomnia or postman to populate our database.</p>
+<ul>
+<li>[ ] <strong>OPTIONAL:</strong> On your own, using google and knexjs.org, find information about seeding a postgres db. Watch out for those primary keys!</li>
+</ul>
+<h2 id="configures-db-entry-point">Configures db entry point</h2>
+<ul>
+<li>[ ] in the <code>data/</code> directory, add a file called <code>dbConfig.js</code> and configure knex to process the correct environment.</li>
+</ul>
+<p><em>data/dbConfig.js</em></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">const</span> knex <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;knex&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="kw">const</span> knexConfig <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;../knexfile.js&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="kw">const</span> environment <span class="op">=</span> <span class="va">process</span>.<span class="va">env</span>.<span class="at">DB_ENV</span> <span class="op">||</span> <span class="st">&#39;development&#39;</span></a>
+<a class="sourceLine" id="cb3-6" title="6"></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="at">knex</span>(knexConfig[environment])<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ] Commit this work and push it up</li>
+</ul>
+<h2 id="adds-users-route">Adds Users Route</h2>
+<ul>
+<li>[ ] Create a new branch called <code>feat/users-route</code> and publish it to the remote</li>
+</ul>
+<p>Now we’ll build out the model, router, and basic validation for accessing the <code>Users</code> resource, so we can use it when registering or logging in.</p>
+<ul>
+<li>[ ] At the root of our project, add a <code>users/</code> directory, and add to it 3 files:
+<ul>
+<li>[ ] user-helpers.js</li>
+<li>[ ] user-model.js</li>
+<li>[ ] user-router.js</li>
+</ul></li>
+<li>[ ] First we’ll write our knex query functions to look something like this:</li>
+</ul>
+<p><em>users/user-model.js</em></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">const</span> db <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;../data/dbConfig&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  add<span class="op">,</span></a>
+<a class="sourceLine" id="cb4-5" title="5">  find<span class="op">,</span></a>
+<a class="sourceLine" id="cb4-6" title="6">  findBy<span class="op">,</span></a>
+<a class="sourceLine" id="cb4-7" title="7">  findById<span class="op">,</span></a>
+<a class="sourceLine" id="cb4-8" title="8">  update<span class="op">,</span></a>
+<a class="sourceLine" id="cb4-9" title="9">  remove</a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="op">};</span></a>
+<a class="sourceLine" id="cb4-11" title="11"></a>
+<a class="sourceLine" id="cb4-12" title="12"><span class="kw">function</span> <span class="at">find</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-13" title="13">  <span class="cf">return</span> <span class="at">db</span>(<span class="st">&#39;users&#39;</span>).<span class="at">select</span>(<span class="st">&#39;id&#39;</span><span class="op">,</span> <span class="st">&#39;username&#39;</span><span class="op">,</span> <span class="st">&#39;email&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-14" title="14"><span class="op">}</span></a>
+<a class="sourceLine" id="cb4-15" title="15"></a>
+<a class="sourceLine" id="cb4-16" title="16"><span class="kw">function</span> <span class="at">findBy</span>(filter) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-17" title="17">  <span class="cf">return</span> <span class="at">db</span>(<span class="st">&#39;users&#39;</span>).<span class="at">where</span>(filter)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-18" title="18"><span class="op">}</span></a>
+<a class="sourceLine" id="cb4-19" title="19"></a>
+<a class="sourceLine" id="cb4-20" title="20"><span class="kw">async</span> <span class="kw">function</span> <span class="at">add</span>(user) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-21" title="21">  <span class="kw">const</span> [id] <span class="op">=</span> <span class="cf">await</span> <span class="at">db</span>(<span class="st">&#39;users&#39;</span>).<span class="at">insert</span>(user<span class="op">,</span> <span class="st">&#39;id&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-22" title="22">  <span class="cf">return</span> <span class="at">findById</span>(id)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-23" title="23"><span class="op">}</span></a>
+<a class="sourceLine" id="cb4-24" title="24"></a>
+<a class="sourceLine" id="cb4-25" title="25"><span class="kw">function</span> <span class="at">findById</span>(id) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-26" title="26">  <span class="cf">return</span> <span class="at">db</span>(<span class="st">&#39;users&#39;</span>)</a>
+<a class="sourceLine" id="cb4-27" title="27">    .<span class="at">select</span>(<span class="st">&#39;id&#39;</span><span class="op">,</span> <span class="st">&#39;username&#39;</span><span class="op">,</span> <span class="st">&#39;email&#39;</span>)</a>
+<a class="sourceLine" id="cb4-28" title="28">    .<span class="at">where</span>(<span class="op">{</span> id <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb4-29" title="29">    .<span class="at">first</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-30" title="30"><span class="op">}</span></a>
+<a class="sourceLine" id="cb4-31" title="31"></a>
+<a class="sourceLine" id="cb4-32" title="32"><span class="kw">function</span> <span class="at">update</span>(id<span class="op">,</span> user) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-33" title="33">  <span class="cf">return</span> <span class="at">db</span>(<span class="st">&#39;users&#39;</span>)</a>
+<a class="sourceLine" id="cb4-34" title="34">    .<span class="at">where</span>(<span class="st">&#39;id&#39;</span><span class="op">,</span> <span class="at">Number</span>(id))</a>
+<a class="sourceLine" id="cb4-35" title="35">    .<span class="at">update</span>(user)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-36" title="36"><span class="op">}</span></a>
+<a class="sourceLine" id="cb4-37" title="37"></a>
+<a class="sourceLine" id="cb4-38" title="38"><span class="kw">function</span> <span class="at">remove</span>(id) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-39" title="39">  <span class="cf">return</span> <span class="at">db</span>(<span class="st">&#39;users&#39;</span>)</a>
+<a class="sourceLine" id="cb4-40" title="40">    .<span class="at">where</span>(<span class="st">&#39;id&#39;</span><span class="op">,</span> <span class="at">Number</span>(id))</a>
+<a class="sourceLine" id="cb4-41" title="41">    .<span class="at">del</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-42" title="42"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li>[ ] Now in our router, we’re only going to write a <code>GET</code> to <code>/</code>, a <code>GET</code> to <code>/:id</code>, and <code>DELETE</code> to <code>/:id</code>. We’ll take care of <code>ADD</code> in our Register endpoint later.</li>
+</ul>
+<p><em>users/user-router.js</em></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">const</span> router <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;express&#39;</span>).<span class="at">Router</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-2" title="2"></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="kw">const</span> Users <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;./user-model.js&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-4" title="4"></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="va">router</span>.<span class="at">get</span>(<span class="st">&#39;/&#39;</span><span class="op">,</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-6" title="6">  <span class="va">Users</span>.<span class="at">find</span>()</a>
+<a class="sourceLine" id="cb5-7" title="7">    .<span class="at">then</span>(users <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-8" title="8">      <span class="va">res</span>.<span class="at">status</span>(<span class="dv">200</span>).<span class="at">json</span>(users)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-9" title="9">    <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb5-10" title="10">    .<span class="at">catch</span>(err <span class="kw">=&gt;</span> <span class="va">res</span>.<span class="at">send</span>(err))<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-11" title="11"><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-12" title="12"></a>
+<a class="sourceLine" id="cb5-13" title="13"><span class="va">router</span>.<span class="at">get</span>(<span class="st">&#39;/:id&#39;</span><span class="op">,</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-14" title="14">  <span class="kw">const</span> id <span class="op">=</span> <span class="va">req</span>.<span class="va">params</span>.<span class="at">id</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-15" title="15">  <span class="cf">if</span> (<span class="op">!</span>id) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-16" title="16">    <span class="va">res</span>.<span class="at">status</span>(<span class="dv">404</span>).<span class="at">json</span>(<span class="op">{</span> <span class="dt">message</span><span class="op">:</span> <span class="st">&quot;The user with the specified id does not exist.&quot;</span> <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-17" title="17">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-18" title="18">    <span class="va">Users</span>.<span class="at">findById</span>(id)</a>
+<a class="sourceLine" id="cb5-19" title="19">    .<span class="at">then</span>(user <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-20" title="20">      <span class="va">res</span>.<span class="at">status</span>(<span class="dv">201</span>).<span class="at">json</span>(user)</a>
+<a class="sourceLine" id="cb5-21" title="21">    <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb5-22" title="22">    .<span class="at">catch</span>(err <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-23" title="23">      <span class="va">res</span>.<span class="at">status</span>(<span class="dv">500</span>).<span class="at">json</span>(<span class="op">{</span> <span class="dt">message</span><span class="op">:</span> <span class="st">&#39;The user information could not be retrieved.&#39;</span> <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-24" title="24">    <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb5-25" title="25">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-26" title="26"><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-27" title="27"></a>
+<a class="sourceLine" id="cb5-28" title="28"><span class="va">router</span>.<span class="at">delete</span>(<span class="st">&#39;/:id&#39;</span><span class="op">,</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-29" title="29">  <span class="kw">const</span> id <span class="op">=</span> <span class="va">req</span>.<span class="va">params</span>.<span class="at">id</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-30" title="30">  <span class="cf">if</span> (<span class="op">!</span>id) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-31" title="31">    <span class="va">res</span>.<span class="at">status</span>(<span class="dv">404</span>).<span class="at">json</span>(<span class="op">{</span> <span class="dt">message</span><span class="op">:</span> <span class="st">&quot;The user with the specified ID does not exist.&quot;</span> <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb5-32" title="32">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-33" title="33">  <span class="va">Users</span>.<span class="at">remove</span>(id)</a>
+<a class="sourceLine" id="cb5-34" title="34">   .<span class="at">then</span>(user <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-35" title="35">     <span class="va">res</span>.<span class="at">json</span>(user)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-36" title="36">   <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb5-37" title="37">    .<span class="at">catch</span>(err <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-38" title="38">      <span class="va">res</span>.<span class="at">status</span>(<span class="dv">500</span>).<span class="at">json</span>(<span class="op">{</span> <span class="dt">message</span><span class="op">:</span> <span class="st">&#39;The user could not be removed&#39;</span> <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-39" title="39">    <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb5-40" title="40"><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-41" title="41"></a>
+<a class="sourceLine" id="cb5-42" title="42"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> router<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>[ ] Let’s navigate now into our server and <code>.use</code> our new route.</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">const</span> express <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;express&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">const</span> cors <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;cors&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="kw">const</span> helmet <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;helmet&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-4" title="4"></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="kw">const</span> logger <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;../middleware/logger&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-6" title="6"></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="kw">const</span> usersRouter <span class="op">=</span> <span class="at">require</span>(<span class="st">&quot;../users/user-router&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-8" title="8"></a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="kw">const</span> server <span class="op">=</span> <span class="at">express</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-10" title="10"></a>
+<a class="sourceLine" id="cb6-11" title="11"><span class="va">server</span>.<span class="at">use</span>(<span class="at">helmet</span>())<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-12" title="12"><span class="va">server</span>.<span class="at">use</span>(<span class="at">cors</span>())<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-13" title="13"><span class="va">server</span>.<span class="at">use</span>(<span class="va">express</span>.<span class="at">json</span>())<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-14" title="14"><span class="va">server</span>.<span class="at">use</span>(logger)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-15" title="15"></a>
+<a class="sourceLine" id="cb6-16" title="16"><span class="va">server</span>.<span class="at">use</span>(<span class="st">&quot;/api/users&quot;</span><span class="op">,</span> usersRouter)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-17" title="17"></a>
+<a class="sourceLine" id="cb6-18" title="18"><span class="va">server</span>.<span class="at">get</span>(<span class="st">&#39;/&#39;</span><span class="op">,</span> (req<span class="op">,</span> res) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-19" title="19">  <span class="va">res</span>.<span class="at">send</span>(<span class="st">&#39;&lt;h1&gt;🚀&lt;/h1&gt;&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-20" title="20"><span class="op">}</span>)</a>
+<a class="sourceLine" id="cb6-21" title="21"></a>
+<a class="sourceLine" id="cb6-22" title="22"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> server<span class="op">;</span></a></code></pre></div>
+<ul>
+<li><p>[ ] Test out your new route by starting up your server and pointing postman or insomnia toward <code>localhost:5000/api/users</code>. You should return an empty array with a status of <code>200</code>.</p></li>
+<li><p>[ ] Commit this work and push</p></li>
+</ul>
+<h2 id="adds-validation-for-post">Adds validation for <code>POST</code></h2>
+<p>Always remember to add good validation for any <code>POST</code> or <code>PUT</code> methods. The following is an incredibly basic validation function, make sure that when you’re validating it’s in a more meaningful way.</p>
+<ul>
+<li>[ ] in your <code>user-helper.js</code></li>
+</ul>
+<p><em>users/user-helper.js</em></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  validateUser</a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="op">};</span></a>
+<a class="sourceLine" id="cb7-4" title="4"></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="kw">function</span> <span class="at">validateUser</span>(user) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-6" title="6">  <span class="kw">let</span> errors <span class="op">=</span> []<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-7" title="7"></a>
+<a class="sourceLine" id="cb7-8" title="8">  <span class="cf">if</span> (<span class="op">!</span><span class="va">user</span>.<span class="at">username</span> <span class="op">||</span> <span class="va">user</span>.<span class="va">username</span>.<span class="at">length</span> <span class="op">&lt;</span> <span class="dv">2</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-9" title="9">    <span class="va">errors</span>.<span class="at">push</span>(<span class="st">&#39;Username must contain at least 2 characters&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-10" title="10">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-11" title="11"></a>
+<a class="sourceLine" id="cb7-12" title="12">  <span class="cf">if</span> (<span class="op">!</span><span class="va">user</span>.<span class="at">password</span> <span class="op">||</span> <span class="va">user</span>.<span class="va">password</span>.<span class="at">length</span> <span class="op">&lt;</span> <span class="dv">4</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-13" title="13">    <span class="va">errors</span>.<span class="at">push</span>(<span class="st">&#39;Password must contain at least 4 characters&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-14" title="14">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-15" title="15"></a>
+<a class="sourceLine" id="cb7-16" title="16">  <span class="cf">return</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-17" title="17">    <span class="dt">isSuccessful</span><span class="op">:</span> <span class="va">errors</span>.<span class="at">length</span> <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">?</span> <span class="kw">false</span> : <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-18" title="18">    errors</a>
+<a class="sourceLine" id="cb7-19" title="19">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb7-20" title="20"></a>
+<a class="sourceLine" id="cb7-21" title="21"><span class="op">}</span> </a></code></pre></div>
+<ul>
+<li>[ ] Commit and push</li>
+</ul>
+<p><a href="Section3.md#REST-API-Review--NodeExpress">Next Page</a></p>
+</body></html>

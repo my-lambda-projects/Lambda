@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="testing-ii">Testing II</h1>
+<p>In this project, you will demonstrate proficiency by writing unit tests and production code to satisfy the <em>Minimum Viable Product</em> described below.</p>
+<p>Some of the topics covered were:</p>
+<ul>
+<li>introduction to testing a React application.</li>
+<li>using the <code>react-testing-library</code> testing framework.</li>
+<li>writing unit tests for React components.</li>
+</ul>
+<h2 id="instructions">Instructions</h2>
+<p><strong>Read these requirements carefully. Understand exactly what is expected <em>before</em> starting.</strong></p>
+<p>You are allowed, and encouraged, to collaborate with your peers while working on this assignment. Remember to follow the <em>twenty-minute rule</em> and post questions to your cohort’s help channel before seeking support from your PM and Instructor.</p>
+<h2 id="commits">Commits</h2>
+<p>Please push your code often and use descriptive commit messages, this helps you and your project manager.</p>
+<h2 id="project-description">Project Description</h2>
+<p>In this project, you will <strong>write unit tests and the implementation code</strong> for a React application for <em>Baseball Stadium</em> personnel. The application helps them enter information about the game and have that information shown in the <em>Score Board Display</em> for fans to see.</p>
+<p>The requirements are listed under the <em>Minimum Viable Product</em> section below.</p>
+<h2 id="project-set-up">Project Set Up</h2>
+<p>Follow these steps to setup your git <em>fork</em> and <em>branch</em>.</p>
+<ul>
+<li>[ ] Fork this repository.</li>
+<li>[ ] Use GitHub’s website to add your project manager as collaborator on <strong>your fork</strong>.</li>
+<li>[ ] <strong>Clone your forked version</strong> of the repository (<strong>Not Lambda’s</strong>!).</li>
+<li>[ ] Create a new branch: <code>git checkout -b &lt;firstName-lastName&gt;</code>.</li>
+<li>[ ] Commit changes to your <code>&lt;firstName-lastName&gt;</code> branch.</li>
+<li>[ ] Push often to your branch: <code>git push origin &lt;firstName-lastName&gt;</code>.</li>
+</ul>
+<p>Follow these steps for completing your project.</p>
+<ul>
+<li>[ ] Submit a Pull-Request to merge the <code>&lt;firstName-lastName&gt;</code> branch into the master branch on your fork. <strong>Please don’t merge your own pull request</strong></li>
+<li>[ ] Use GitHub’s website to add your project manager as a reviewer on the pull-request.</li>
+<li>[ ] Your project manager will count the project as complete by merging the branch back into the master branch of your forked repository.</li>
+</ul>
+<h2 id="minimum-viable-product">Minimum Viable Product</h2>
+<p>After a set of interviews with the potential users of the solution, we gathered the following information about the desired functionality. Not all the information provided by our clients is relevant to the design of the solution, but it’s included to help understand the requirements.</p>
+<p>Your job is to design and build a React application that includes at least two components: <code>Display</code> and <code>Dashboard</code>. <strong>For the MVP you only need to record information about a player’s <em>"at bat”</em></strong>.</p>
+<p>The specifications are listed below.</p>
+<h3 id="count-rules">Count Rules</h3>
+<ul>
+<li>balls and strikes reset to 0 when a player reaches 3 strikes or 4 balls.</li>
+<li>balls and strikes reset to 0 when a <code>hit</code> is recorded.</li>
+<li>a <code>foul</code> increases strikes up to 2. With no strikes, a foul makes it 1 strike. With 1 strike, a foul makes it 2 strikes. With two strikes a foul has no effect, count stays at 2 strikes.</li>
+</ul>
+<h3 id="display">Display</h3>
+<ul>
+<li>display the count of <code>balls</code> and <code>strikes</code> for the at-bat.</li>
+<li>should be updated when the user records activity on the <code>Dashboard</code> component.</li>
+</ul>
+<h3 id="dashboard">Dashboard</h3>
+<ul>
+<li>provide a button that the person in charge can press every time there is a <code>strike</code>, <code>ball</code>, <code>foul</code> or <code>hit</code>.</li>
+<li>there is <strong>NO</strong> need to specify the type of hit (single, double, etc).</li>
+<li>changes recorded on this component should update the information shown by the <code>Display</code> component.</li>
+</ul>
+<p>Feel free add other components and organize and name your components any way you want to satisfy the requirements. <strong>Make it up and make it happen developer!</strong>.</p>
+<h2 id="stretch-problem">Stretch Problem</h2>
+<p>This section is <strong>optional</strong> and not counted towards MVP. Start working on it after you’re done with the main assignment.</p>
+<ul>
+<li>Expand the solution to keep track of all the activity of a single inning. Include the number of outs and track them.</li>
+<li>Expand the solution to keep track of the number of runs and errors in the inning.</li>
+<li>Expand the solution to keep track of which bases are occupied and to record hits, doubles, triples and home runs.</li>
+<li>Expand the solution to keep track of all activity across all innings. Display the current inning.</li>
+<li>Work on <a href="https://github.com/LambdaSchool/React-Testing">this repository for extra practice testing a legacy React application</a>.</li>
+</ul>
+</body></html>

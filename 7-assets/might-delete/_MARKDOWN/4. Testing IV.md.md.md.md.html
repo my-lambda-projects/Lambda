@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="testing-iv---testing-in-node">Testing IV - Testing in Node</h1>
+<ul>
+<li>Remember <code>process.env</code>? This is where the node environment variables live.</li>
+<li>We use environment variables to configure our test script in our <code>package.json</code>:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><a class="sourceLine" id="cb1-1" title="1"><span class="er">&quot;scripts&quot;:</span> <span class="fu">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="dt">&quot;test&quot;</span><span class="fu">:</span> <span class="st">&quot;cross-env DB_ENV=testing jest --watch --verbose&quot;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="fu">}</span></a></code></pre></div>
+<ul>
+<li><p><code>cross-env</code> makes environment variable configuration cross-platform, as the environment variable syntax differs on different platforms such as windows.</p></li>
+<li>We use this environment variable to select a configuration of which database the tests connect to in Knex:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> dbEnv <span class="op">=</span> <span class="va">process</span>.<span class="va">env</span>.<span class="at">DB_ENV</span> <span class="op">||</span> <span class="st">&#39;development&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="at">knex</span>(config[dbEnv])<span class="op">;</span></a></code></pre></div>
+<ul>
+<li><p>We use a different "testing” database because we don’t want our tests to execute reads and writes on our development or production databases.</p></li>
+<li>In our Knex config we can setup a testing configuration:</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">testing<span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">      <span class="dt">client</span><span class="op">:</span> <span class="st">&#39;sqlite3&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-3" title="3">      <span class="dt">connection</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-4" title="4">        <span class="dt">filename</span><span class="op">:</span> <span class="st">&#39;./data/test.db3&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-5" title="5">      <span class="op">},</span></a>
+<a class="sourceLine" id="cb3-6" title="6">      <span class="dt">useNullAsDefault</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-7" title="7">      <span class="dt">migrations</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-8" title="8">        <span class="dt">directory</span><span class="op">:</span> <span class="st">&#39;./data/migrations&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-9" title="9">      <span class="op">},</span></a>
+<a class="sourceLine" id="cb3-10" title="10">      <span class="dt">seeds</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-11" title="11">        <span class="dt">directory</span><span class="op">:</span> <span class="st">&#39;./data/seeds&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-12" title="12">      <span class="op">},</span></a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li>Let’s generate a migration for our tests</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1">$ <span class="ex">yarn</span> run knex migrate:latest --env=testing</a></code></pre></div>
+<p><strong>Writing Our Tests</strong></p>
+<ul>
+<li><strong>Step 0:</strong> Installing <code>supertest</code></li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1">$ <span class="ex">yarn</span> add supertest --dev</a></code></pre></div>
+<ul>
+<li><p><code>supertest</code> is a HTTP testing framework derived from <code>superagent</code> which is a client-side HTTP request library. It can be installed and used on a node server or in the browser.</p></li>
+<li><p><strong>Step 1:</strong> Create a file called <code>&lt;filename&gt;.test.js</code> or <code>&lt;filename&gt;.spec.js</code></p></li>
+<li><strong>Step 2:</strong> Import <code>supertest</code> and the file we want to test</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">const</span> request <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;supertest&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">const</span> serverFile <span class="op">=</span> <span class="at">require</span>(<span class="st">&#39;./serverFile&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li><strong>Step 3:</strong> Create our tests</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1">  <span class="at">describe</span>(<span class="st">&#39;Server Test&#39;</span><span class="op">,</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">    <span class="at">describe</span>(<span class="st">&#39;GET / Endpoint&#39;</span><span class="op">,</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-3" title="3">      <span class="co">// Add tests for endpoint</span></a>
+<a class="sourceLine" id="cb7-4" title="4">    <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb7-5" title="5">  <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1">  <span class="co">// Inside the describe...</span></a>
+<a class="sourceLine" id="cb8-2" title="2">  <span class="at">it</span>(<span class="st">&#39;responds with the proper status code&#39;</span><span class="op">,</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-3" title="3">    <span class="cf">return</span> <span class="at">request</span>(server)</a>
+<a class="sourceLine" id="cb8-4" title="4">      .<span class="at">get</span>(<span class="st">&#39;/&#39;</span>)</a>
+<a class="sourceLine" id="cb8-5" title="5">      .<span class="at">expect</span>(<span class="dv">200</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-6" title="6">  <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>This mock <code>request()</code> framework comes from <code>supertest</code>.</li>
+<li>We can also simulate HTTP headers in our tests:</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1">  <span class="co">// Inside the describe...</span></a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="at">it</span>(<span class="st">&#39;responds with &lt;header name&gt; header&#39;</span><span class="op">,</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-3" title="3">    <span class="cf">return</span> <span class="at">request</span>(server)</a>
+<a class="sourceLine" id="cb9-4" title="4">      .<span class="at">get</span>(<span class="st">&#39;/&#39;</span>)</a>
+<a class="sourceLine" id="cb9-5" title="5">      .<span class="at">expect</span>(<span class="st">&#39;&lt;header name&gt;&#39;</span><span class="op">,</span> <span class="st">&#39;&lt;header value&gt;&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-6" title="6">  <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p><strong>Database Cleanup</strong> - When we perform tests we should clean up our database before and after each test:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1">  <span class="co">// At the top of our test file...</span></a>
+<a class="sourceLine" id="cb10-2" title="2">  <span class="at">beforeEach</span>(<span class="kw">async</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-3" title="3">    <span class="co">// deletes everything on the table</span></a>
+<a class="sourceLine" id="cb10-4" title="4">    <span class="cf">return</span> <span class="cf">await</span> <span class="at">db</span>(<span class="st">&#39;table&#39;</span>).<span class="at">truncate</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-5" title="5">    <span class="co">// </span><span class="al">CAUTION</span><span class="co">: MAKE SURE YOU ARE NOT RUNNING THIS ON PRODUCTION OR DEV DATABASES</span></a>
+<a class="sourceLine" id="cb10-6" title="6">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-7" title="7"></a>
+<a class="sourceLine" id="cb10-8" title="8">  <span class="at">afterEach</span>(<span class="kw">async</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-9" title="9">    <span class="co">// deletes everything on the table</span></a>
+<a class="sourceLine" id="cb10-10" title="10">    <span class="cf">return</span> <span class="cf">await</span> <span class="at">db</span>(<span class="st">&#39;table&#39;</span>).<span class="at">truncate</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-11" title="11">    <span class="co">// </span><span class="al">CAUTION</span><span class="co">: MAKE SURE YOU ARE NOT RUNNING THIS ON PRODUCTION OR DEV DATABASES</span></a>
+<a class="sourceLine" id="cb10-12" title="12">  <span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+</body></html>

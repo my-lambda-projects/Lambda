@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="client-side-authentication">Client-Side Authentication</h1>
+<h2 id="objectives">Objectives</h2>
+<p>After today’s guided project, you’ll know how to: * Handle authentication with tokens in a React app * Implement protected routes using an authentication token and Redirect</p>
+<h2 id="json-web-tokens-and-auth">JSON Web Tokens and Auth</h2>
+<p>Visuals first :) here’s what we’re learning about today:</p>
+<figure>
+<img src="images/auth_flow.png" alt="JWT Auth Flow" /><figcaption>JWT Auth Flow</figcaption>
+</figure>
+<p>Thanks Mark Macneil for this diagram! In our case, there’s just one server (rather than separate auth and database servers) but the concept is the same. Here’s a typical auth flow, in words: 1. Client app (our front-end React app, running "client-side” in the browser) makes a request to the login endpoint on a web server, sending username and password 2. If successful, the server responds with a token, which the client app saves locally in the browser (localStorage, cookies, etc) 3. When making a request to a "protected” (login required) endpoint, our client app includes this token as an authorization header for every axios request.</p>
+<p>Some version of this pattern is used in virtually every web application and mobile app in existence today. If you’ve ever wondered how you’re able to "stay logged in” to websites and mobile apps (all of which consume external API’s), this is the answer. And more specifically, this is all achieved using JSON Web Tokens.</p>
+<p>For our purposes, we can simply think of a JSON web token (or JWT for short, pronounced "jot”) as a credential format, used for transferring information securely between a client app and a web server. Check out <a href="https://jwt.io/">jwt.io</a> for more info if you’re curious about the specifics.</p>
+<h2 id="review-local-storage">Review: Local Storage</h2>
+<p>For your Auth Friends project, you’ll be using an auth token to make requests to protected API endpoints. After initial authentication, saving the returned auth token locally is a common practice for allowing the user to remain "logged in.” We’ll use Local Storage for this, since it provides a very straightforward way of saving key/value pairs locally in the browser. Here’s a quick review:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">localStorage</span>.<span class="at">setItem</span>(<span class="st">&#39;key&#39;</span><span class="op">,</span> <span class="st">&#39;value&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="va">localStorage</span>.<span class="at">getItem</span>(<span class="st">&#39;key&#39;</span>)<span class="op">;</span> <span class="co">// returns &#39;value</span></a></code></pre></div>
+<p>Along with <code>localStorage.removeItem</code> and <code>localStorage.clear()</code> for cleanup, that’s basically the entire API! Nice and simple.</p>
+<h2 id="security-concerns">Security Concerns</h2>
+<p>Note that we’re using localStorage as a convenient storage solution for learning purposes, but an actual auth implementation requires much more advanced security protocols. It’s easy to leave your app open to Cross-Site Scripting (XSS) attacks, in which an attacker can inject JavaScript code into your app.</p>
+<p>Secure cookies with the HttpOnly flag and other precautions provide one common approach, but it really comes down to the big picture of how you architect your entire application rather than just the specifics of where you store the auth token. I’m far from an expert on the subject, and only developers who choose a security-related specialty in their career really need to know the nitty gritty. It’s interesting stuff though! If you’re curious, feel free to check out the "Extra Reading” articles linked below.</p>
+<p>For our purposes, just know that this simple localStorage implementation is intended as a convenient example rather than a rigorous demonstration of real-world auth practices.</p>
+<h2 id="api-review-http-and-restful-services">API review: HTTP and RESTful services</h2>
+<p>Since you’ll also be working directly with an API for the Auth Friends project, here’s a quick review / cheat sheet for how to interact with web services. Most modern API’s conform to the "representational state transfer” (REST) architecture.</p>
+<table>
+<thead>
+<tr class="header">
+<th>HTTP Verb (axios)</th>
+<th>CRUD naming</th>
+<th>Description</th>
+<th>Happy Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>get</td>
+<td>Read</td>
+<td>Read a representation of a resource</td>
+<td>200 (OK)</td>
+</tr>
+<tr class="even">
+<td>post</td>
+<td>Create</td>
+<td>Create new resources</td>
+<td>201 (created)</td>
+</tr>
+<tr class="odd">
+<td>put</td>
+<td>Update</td>
+<td>Update a resource</td>
+<td>200 (OK) or 201 (created)</td>
+</tr>
+<tr class="even">
+<td>delete</td>
+<td>Delete</td>
+<td>Delete a resource</td>
+<td>200 (OK) or 204 (no content)</td>
+</tr>
+</tbody>
+</table>
+<p>To make debugging easier as you’re building out your web client, log any errors to the console from your axios requests. You can always just Google the error codes and messages that show up, but knowing the common ones will make your life a lot easier! Here are some good ones to know:</p>
+<ul>
+<li><p><strong>400 Bad Request:</strong> you sent an invalid JSON document (e.g. a "}” is missing), or the syntax/content is incorrect.</p></li>
+<li><p><strong>401 Unauthorized:</strong> the access credentials (via the Authorization header) were missing or are invalid.</p></li>
+<li><p><strong>403 Forbidden:</strong> the credentials you provided are valid, but you are not authorized to access the resource you requested.</p></li>
+<li><p><strong>404 Not found:</strong> the request itself is valid, but the resource you try to access does not exist, or is outside your scope.</p></li>
+</ul>
+<h2 id="videos">Videos</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=Y0-qdp-XBJg">Protected Routes in React using React Router</a></li>
+<li><a href="https://www.youtube.com/watch?v=oRL-pttfNSc">React Client Side Authentication</a></li>
+</ul>
+<h2 id="articles">Articles</h2>
+<ul>
+<li><a href="https://jwt.io/introduction/">Introduction to JSON Web Tokens</a></li>
+<li><a href="https://medium.com/javascript-in-plain-english/how-to-set-up-protected-routes-in-your-react-application-a3254deda380">Protected Routes - React tutorial</a></li>
+<li><a href="https://medium.com/better-programming/building-basic-react-authentication-e20a574d5e71">Building Basic React Authentication</a></li>
+<li><a href="https://sebhastian.com/local-storage-introduction">Introduction to Local Storage</a></li>
+<li><a href="https://developers.evrythng.com/docs/http-verbs-and-error-codes">HTTP Verbs and Error Codes</a></li>
+</ul>
+<h2 id="extra-reading---auth-tokens-security">Extra Reading - Auth Tokens &amp; Security</h2>
+<ul>
+<li><a href="https://resources.infosecinstitute.com/topic/securing-cookies-httponly-secure-flags/">Securing Cookies with HttpOnly and Secure Flags</a></li>
+<li><a href="https://pragmaticwebsecurity.com/articles/oauthoidc/localstorage-xss.html">Why avoiding LocalStorage for tokens is the wrong solution</a></li>
+</ul>
+</body></html>

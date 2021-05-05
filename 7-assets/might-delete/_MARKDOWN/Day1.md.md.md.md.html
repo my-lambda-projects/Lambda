@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="algorithms-and-sorting">Algorithms and Sorting!</h1>
+<p><a href="#Lecture-Notes">Lecture Notes</a><br />
+a. <a href="#Additional-Resources">Additional Resources</a><br />
+b. <a href="#What-is-Big-O">What is Big O</a><br />
+c. <a href="#O(n)">O(n)</a><br />
+d. <a href="#O(1)">O(1)</a><br />
+e. <a href="#O(n%5E2)">O(n^2)</a><br />
+f. <a href="#Memoization">Memoization</a><br />
+g. <a href="#Fibonacci-Numbers">Fibonacci Numbers</a><br />
+h. <a href="#Space-Complexity">Space Complexity</a><br />
+i. <a href="#O(log-n)">O(log n)</a><br />
+j. <a href="#Determining-Big-O">Determining Big O</a><br />
+k. <a href="#The-3-Main-Rules-of-Big-O">The 3 Main Rules of Big O</a></p>
+<p><br> <br></p>
+<p>If you found these notes helpful and want to show appreciation to the author, <a href="buymeacoff.ee/G1stPBuYU">coffee donations</a> are much loved.</p>
+<h2 id="additional-resources">Additional Resources</h2>
+<p><a href="https://github.com/LambdaSchool/CS-Wiki/wiki/Computing-Big-O">Computing Big O Notes - Lambda</a></p>
+<p>These notes are based off of <a href="https://www.youtube.com/watch?v=btgmegU676g&amp;feature=youtu.be">Beej’s previous recording for CS13</a>, which condenses the usual 4 hours of lecture down to 3.</p>
+<p>The notes also pull from <a href="https://justin.abrah.ms/computer-science/big-o-notation-explained.html">this simple overview of Big O Notation</a></p>
+<p><a href="https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/">Another explanation</a></p>
+<p><a href="https://bigocheatsheet.io">Big O Breakdown of Data Structures and Sorting Algorithms</a></p>
+<p>** Also included in this repo is a copy of Grokking’s Algorithms in PDF format. <code>Big O Notation</code> begins on page 10.</p>
+<p><br> <br></p>
+<h1 id="lecture-notes">Lecture Notes</h1>
+<h2 id="what-is-big-o">What is Big O</h2>
+<p>Big O Notation is a way to determine how efficient a function is, based on run time and space requirements. It evaluates based on the <em>worst</em> case scenario of the function.</p>
+<p>Big O Notation is a good indicator of how well an algorithm will scale.</p>
+<p>Even if the function might run efficiently in some instances (small item list), it will evaluate based on the worst possible set of inputs. That does not mean an algorithm can’t or shouldn’t be used in some scenarios - it’s just important to consider, especially when building for scale.</p>
+<p>Big O is considered the worst case evaluation while Big Theta is finds the average case.</p>
+<p>When we discuss Big O, we’re evaluating as if on a graph (see BigO Graph.png file in repo folder). It’s essentially like graphing the time it takes to run the function with different sized inputs (an array of 1 item, 2 items, 3 items, etc).</p>
+<p>The line that is shown on the graph displays the trend of that algorithm’s efficiency when handling small to large inputs.</p>
+<p><br></p>
+<figure>
+<img src="BigOGraph.png" title="Big O Computational Graph" alt="Big O Computational Graph" /><figcaption>Big O Computational Graph</figcaption>
+</figure>
+<p><br> <br></p>
+<h2 id="on">O(n)</h2>
+<p><code>O(n)</code>, called <code>Order of N</code> or <code>O of N</code>, refers to <code>linear time</code>. Linear time means that for every additional item in the function’s input, that many operations are computed. 1 input? 1 operation. 10 inputs? 10 operations. The time complexity grows linearly with the number of inputs.</p>
+<p>On the graph image, that is depicted by the green line of <code>n</code>.</p>
+<p>A good example of O(n) would be something like this:</p>
+<p><br></p>
+<pre><code>def item_in_list(check_item, the_list):
+    for item in the_list:
+        if check_item == item:
+            return True
+    return False</code></pre>
+<p><br></p>
+<p>This function receives an item and a list of items. It will pass over each individual item in the list to see if it matches with the given item. Because each item is being compared individually, the run time of this algorithm depends on how many items are in the_list. If it’s short, it will be fast. If it’s a long list, the run time will be much longer.</p>
+<p><br> <br></p>
+<h2 id="o1">O(1)</h2>
+<p><code>O(1)</code>, called <code>Order of 1</code>, refers to <code>Constant Time</code>. This means that no matter how large the input is, it will always take the same amount of time to run.</p>
+<p>On the graph image, this is depicted by the pink line of <code>1</code>.</p>
+<p>An example of O(1) is:</p>
+<p><br></p>
+<pre><code>def is_none(item):
+    return item is None</code></pre>
+<p><br></p>
+<p>No matter how many inputs are in <code>item</code> that we give this function, the run time will always be the same - the time it takes to return <code>None</code>.</p>
+<p>It cannot run faster, but it also cannot run slower. Constant time is considered the best case scenario for a function because it cannot grow despite the complexity of the inputs.</p>
+<p><br> <br></p>
+<h2 id="on2">O(n^2)</h2>
+<p><code>O(n^2)</code>, called <code>Order of n squared</code>, indicates that for every input item (n), we have to do that number squared (n^2 or n*n) operations. This is still considered proportional to the size of the input data set, just squared.</p>
+<p>As you can imagine, that run time can become very slow, very quickly. If there are only 2 inputs, that would mean 4 operations. But if we have just 8 inputs, that’s already 64 operations being computed.</p>
+<p>On the graph image, this is depicted by the red line of <code>n^2</code>.</p>
+<p>A common example of O(n^2) run time is a nested for loop (though that does not <em>always</em> indicate n squared time, so consider each one carefully).</p>
+<p>An example might be:</p>
+<p><br></p>
+<pre><code>def all_combinations(the_list)
+    results = []
+    for item in the_list:
+        for inner_item in the_list:
+            results.append((item, inner_item))
+    return results</code></pre>
+<p><br></p>
+<p>This function matches each item within the_list with every other item in the_list. Therefore, if the_list = [1,2,3], it would output [(1,1), (1,2), (1,3), (2,1), (2,2), (2,3), (3,1), (3,2), (3,3)] - an output of 9 items, despite only 3 being in the input (n^2).</p>
+<p>O(n^2) taps into Combinatorics (the mathematical study of combinations of things and counting) - but not every algorithm does, despite the common conception that most do.</p>
+<p><a href="https://en.wikipedia.org/wiki/Combinatorics">Learn more about Combinatorics</a></p>
+<p>Discrete Math is the basis of a lot of Computer Science (if you’re looking for further learning). Algebra, geometry and trigonometry are common if you’re planning to go into graphics. If you like 3D graphics, Linear Algebra is a good field of additional study too.</p>
+<p><br> <br></p>
+<h2 id="memoization">Memoization</h2>
+<p><code>Memoization</code> is an optimization technique that speeds up a program or algorithm by storing the results of previous function calls in a cache, to easily access the result if the same call is made again. (This only works if, given the same input, the output is always the same.)</p>
+<p><br></p>
+<p>A <code>cache</code> is a way of storing data that typically takes extensive computing, to speed it up. It’s less complete and durable than a database, so it typically only stores a subset of data. Browsers also use caching to load web pages faster, by not having to fetch and render data completely each time you re-visit a webpage. It’s a way we also store user preferences.</p>
+<p><br></p>
+<p>Memoization is best used when you notice that your algorithm is making the same calculations repeatedly. A good example is when solving the Fibonacci sequence. By storing previous results, the algorithm becomes much faster (rather than having to compute the same result each time).</p>
+<p>Another way we might use memoization is by storing square roots, sin and cosine computations within a table when the function is created, to speed up the runtime (and add to the table when new outputs are run).</p>
+<p><br></p>
+<p>If you realize a function is being called often and the run time is slow, that’s a good sign that memoization would help speed it up.</p>
+<p>If a database is being frequently queried for one or two types of input, and the table typically stays the same, to speed up the backend, we might opt to save those values and send them more quickly - rather than querying the database every time.</p>
+<p><a href="https://codeburst.io/understanding-memoization-in-3-minutes-2e58daf33a19">Further reading</a></p>
+<p><br> <br></p>
+<h2 id="fibonacci-numbers">Fibonacci Numbers</h2>
+<p>We can practice solving using dynamic programming techniques with the Fibonacci sequence.</p>
+<p><a href="https://en.wikipedia.org/wiki/Fibonacci_number">Learn more</a></p>
+<p>In math, the Fibonacci sequence is numbers in order, where each number is the sum of the two preceding one, starting from 0 and 1.</p>
+<blockquote>
+<p>F0 = 0<br />
+F1 = 1<br />
+F2 = 1 (0 + 1)<br />
+F3 = 2 (1 + 1)<br />
+F4 = 3 (2 + 1)</p>
+</blockquote>
+<p>And so on.</p>
+<p>0 and 1 are our base cases.</p>
+<p>A basic way of writing it might look like this:</p>
+<p><br></p>
+<pre><code>fib(0) = 0
+fib(1) = 1
+fib(n) = fib(n-1) + fib(n-2)</code></pre>
+<p><br></p>
+<p>So let’s define the function and call it recursively:</p>
+<p><br></p>
+<pre><code>def fib(n):
+    if n == 0:
+        return 0
+    
+    if n == 1:
+        return 1
+    
+    return fib(n-1) + fib(n-2)
+
+for i in range(10):
+    print(fib(i))</code></pre>
+<p><br></p>
+<p>This works and outputs the first 10 Fibonacci number.</p>
+<p>Recursive solutions work and can make sense. But if we try to run it for range(30), our terminal will drastically slow down, due to the poor run time of this algorithm.</p>
+<p><a href="http://www.maths.surrey.ac.uk/hosted-sites/R.Knott/Fibonacci/fibmaths.html">Go in depth on Fibonacci</a></p>
+<p>This is an example of…</p>
+<p><br></p>
+<h2 id="o2n">O(2^n)</h2>
+<p><code>O(2^n)</code>, called <code>Order of 2 to the nth</code>, is <code>exponential</code> time - for each additional input, the operations computed grow exponentially.</p>
+<p>On the graph image, this is depicted by the dark orange line of <code>2^n</code>.</p>
+<p>The standard Fibonacci calculation is a good example of this type of function, though we could optimize it to reduce the run time.</p>
+<p>The basic solution could also be called a "naive” solution - it’s simple and brute force but doesn’t take into account larger inputs or scalability.</p>
+<p><br></p>
+<p>So how can we improve the Fibonacci sequence?</p>
+<p>First, let’s consider why our current solution is not ideal. If we want to find fib(8), the function is recursively trying to solve:</p>
+<p><br></p>
+<pre><code>fib(8) = fib(7) + fib(6)
+fib(7) = fib(6) + fib(5)
+fib(6) = fib(5) + fib(4)
+fib(4) = fib(3) + fib(2)</code></pre>
+<p><br></p>
+<p>We’re finding fib(n) multiple times for each higher integer - despite having already calculated it once before.</p>
+<p>Instead, we could use a memoization (top down) solution, as well as an iterative (bottom up) solution. Both will improve our run time.</p>
+<p><br></p>
+<p>If we store values that were previously calculated in a table, we can instead just reference that memory in the table for duplicate calls. This uses a cache.</p>
+<p>For our memoization (top down) solution, we’ll initialize a cache that will store calculated Fibonacci numbers. We’ll start with the two base cases of 0 and 1.</p>
+<p>Then in our fib() function, if n is not currently in the cache, we’ll calculate it and store it. If it is in there, we’ll simply return the existing stored result.</p>
+<p><br></p>
+<pre><code>cache = {}
+
+def fib(n):
+
+    if n not in cache:
+        cache[n] = fib(n-1) + fib(n-2)
+
+    return cache[n]
+
+cache[0] = 0
+cache[1] = 1
+
+for i in range(10):
+    print(fib(i))</code></pre>
+<p><br></p>
+<p>As the function is run more and more, the cache will contain more and more stored Fibonacci numbers, making it faster to return results because it does not have to re-calculate each number, every time.</p>
+<p>If we print the cache after this, it will look like:</p>
+<p><br></p>
+<pre><code>{0: 0, 1: 1, 2: 1, 3: 2, 4: 3, 5: 5, 6: 8, 7: 13, 8: 21, 9: 34}</code></pre>
+<p><br></p>
+<p>Every Fibonacci number in the range(10) was calculated and stored for future quick access.</p>
+<p>This solution has <code>O(n)</code> runtime.</p>
+<p>Let’s now try computing bottom up, or iteratively, for an optimized solution that is not recursive. Usually an algorithm is either recursive <em>or</em> iterative.</p>
+<p>We’ll start with our base cases and work our way up from that, by setting a base case of 0 and base case of 1. Then within a for loop, that runs to n-1 (because we want to have the range up to n, not including n), we’ll re-assign p0 and p1 to the next set of numbers up, to build to the next Fibonacci number.</p>
+<p><br></p>
+<pre><code>def fib_iter(n):
+
+    if n == 0:
+        return 0
+
+    if n == 1:
+        return 1
+
+    p0 = 0
+    p1 = 1
+
+    for i in range(n-1):
+        next = p0 + p1
+
+        p0 = p1
+        p1 = next
+
+    return next
+
+for i in range(10):
+    print(f&#39;{i}: {fib_iter(i)}&#39;)</code></pre>
+<p><br></p>
+<p>This solution builds <em>up</em> from the base cases, to store the outputs as the input increases. Rather than having to re-calculate the same value multiple times when working from the top down, building from the bottom up ensures that each number only needs to be calculated once.</p>
+<p>The expected output would be:</p>
+<p><br></p>
+<pre><code>0: 0
+1: 1
+2: 1
+3: 2
+4: 3
+5: 5
+6: 8
+7: 13
+8: 21
+9: 34</code></pre>
+<p><br></p>
+<p>(If we had left the algorithm at <code>for i in range(n):</code>, it would have been outputting one number ahead of what it should have, because it would have initially set 2 to output 2 instead of 1 –&gt; 2:2, 3:3, 4:5, 5:8, etc..)</p>
+<p><br></p>
+<p>So when we discuss scalability with algorithms, we’re really asking: <code>How much longer does it take to calculate n+1 elements than n elements?</code></p>
+<p>With the memoization and iterative optimized solutions, the algorithm becomes much more efficient, finding fib(1000) relatively quickly. With the O(2^n) brute force solution, fib(1000) is never output because the run time will stall out.</p>
+<p>When our software or algorithmic solutions have to scale to large inputs, it’s critical to consider these Big O Notation concepts when deciding what type of algorithm or solution to use.</p>
+<p><br></p>
+<p>If our input will always be small, then using a brute force solution may be okay. It may not ever affect our user’s experience or output.</p>
+<p>But in most cases, the code we write may need to handle an unknown future number of inputs, which means we want to write optimized algorithms to prevent future issues.</p>
+<p><br> <br></p>
+<h2 id="space-complexity">Space Complexity</h2>
+<p>Space complexity refers to the amount of space used by an algorithm - O(n), linear, is using 10 units per 10 inputs. Memoization uses O(n) space complexity, wheras the iterative solution has constant space complexity: O(1).</p>
+<p>We can analyze an algorithm for both space <em>and</em> time complexity.</p>
+<p>If two algorithms are the same time complexity and memory usage is also important, we might opt for the iterative solution as the better choice. There may be different reasons to prioritize time and/or space complexity.</p>
+<p><br></p>
+<p><code>** Keep in mind:</code> when solving an algorithm problem (or whiteboard problem), finding <em>any</em> solution is the first and more important step. Optimizing is the next step. If you’re struggling to find an "elegant” or "optimized” solution, simply brute force first. Then openly find ways to optimize. Pre-mature optimization is not always ideal or necessary, as it typically increases the complexity of the code which makes it difficult to maintain and prone to bugs. Not every problem is worth those issues.</p>
+<p>For example, if we knew we’d never need to find fib() greater than input 4, then optimizing is unnecessary. If we think it would grow to fib(100), then that’s a great reason to optimize.</p>
+<p><code>Hash tables</code> (cache) takes up more space and are more complicated than lists, but they provide speed.</p>
+<p><br> <br></p>
+<h2 id="olog-n">O(log n)</h2>
+<p><code>O(log n)</code>, called <code>log time</code>, indicates a logarithmic run time function, of log base 2 (so, sometimes seen as O(log2n) ).</p>
+<p>If we have n elements, it will take the log of n * inputs to run the calculations - it will take logn of time units. If we have 1 unit, that will take (roughly) 0 time units to run. If it were linear (O(n)), 10 units would take 10 times units - but with O(log n), 10 units would only take 3 time units. At 100 units, it will take only 6 time units.</p>
+<p>Essentially, with log n, the choice of which next element to perform an action on is broken into a few possibilities, but only one is chosen. Typically, if each step involves <em>halving</em> the remaining number of units, that indicates O(log n).</p>
+<p><br></p>
+<p>For example, when searching in a phone book: if we are looking for "Smith” and open the phone book at random to "McDonald”, we intuitively understand that the data set we should next look at is not before McDonald but <em>after</em>. We mentally broke the phone book into two data sets - before M and after M. Based on comparison, we know that Smith is going to be found after M. The next data set we choose to look at is based on a break point chosen in our first whole data set.</p>
+<p><br></p>
+<p>On the graph image, this is depicted by the dark blue line of <code>O(log2n)</code>.</p>
+<p>O(log n) is faster than O(n), but its true speed advantage grows as the input items grow in number. The more inputs, the faster it is than O(n).</p>
+<p><br></p>
+<p>A good example of O(log n) is <code>binary search</code>. With the binary search algorithm, a data set is halved on each iteration, and compares the median to the target value.</p>
+<p>Because the number of inputs is halved repeatedly, doubling the size of the input data has little effect on its run time. Unlike O(n), which would continue to double with double the input data, O(log n) only becomes slightly slower. This makes O(log n) and binary search extremely efficient when dealing with <em>large</em> data sets.</p>
+<p><a href="https://hackernoon.com/what-does-the-time-complexity-o-log-n-actually-mean-45f94bb5bfbf">Read more on O(log n)</a></p>
+<p>If we were searching a phone book and used this example, what is the run time?</p>
+<p><br></p>
+<pre><code>phonebook = [&#39;Aaron&#39;, &#39;Angela&#39;, &#39;Andrew&#39;, &#39;Banana&#39;, &#39;Beej&#39;, &#39;Cameron&#39;, &#39;Cindy&#39;, &#39;Cynthia&#39;]
+
+def name_in_phonebook(to_find):
+    for name in phonebook:
+        if name == to_find:
+            return True
+
+    return False
+
+print(name_in_phonebook(&quot;Beej&quot;))</code></pre>
+<p><br></p>
+<p>This example is O(n) - it’s linear time. The run time will scale with the size of the phone book. While some names will be found faster than others (like Aaron, which is at the start of the list), we still calculate Big O based on the <em>worst</em> case scenario, or Big Theta based on the <em>average</em> case scenario.</p>
+<p>On <em>average</em>, this search will take roughly half the number of inputs in time units. In the <em>worst case</em>, it will take as long as the number of inputs in time units. So, for our Big O evaluation, this runs with linear time.</p>
+<p>Remember, Big Theta evaluation would also depend on if this function is being given an ordered list or not. If the list was not alphabetized, that may change the <em>average</em> time it takes to find the name.</p>
+<p><br></p>
+<p>We could optimize this if we know the list is organized by using binary search, to search the ordered list the same way a person would, by splitting the phone book into segments to narrow down our items as we search. By cutting the space in half each time, we would have an algorithm that is O(log n).</p>
+<p><br></p>
+<p>What if we looped through the index letters until we find a matching start letter with the name we’re searching for, and then loop through the values in the phone book that start with that letter?</p>
+<p>Since we’re looping through the index of existing letters, it’s still O(n) because the time increases with the number of starting letters in the phone book. While it will max at 26 units of time, and grow only based on the values it then loops through with that starting letter, it is still O(n).</p>
+<p><br></p>
+<p>Although that method has two loops, they aren’t <em>nested</em>. It’s simply one loop that follows once the logic of the first loop is completed.</p>
+<p><em>But wait - isn’t that actually O(2n)?</em></p>
+<p>If O(n) of the first loop + O(n) of the second loop, wouldn’t that equate to O(2n)?</p>
+<p>Yes - but when evaluating algorithms, we <em>typically</em> do not care about the integer in front of n in any linear time label. There are more advanced cases where it matters but <em>in general</em>, we care about the shape of the graphed line. For this example, whether O(n) or O(2n), the line will still be linear in shape, so we just refer to it as O(n).</p>
+<p><br></p>
+<p>What if we used a linear search to get to the right starting letter index (B) and then used Binary Search to find "Beej” within the B name?</p>
+<p><br></p>
+<pre><code>O(n) + O(log n) = ?</code></pre>
+<p><br></p>
+<p>If we provide some imaginary time units based on n growing in size…</p>
+<p><br></p>
+<pre><code>If n=1,000: 1,000 + 10 = 1,010
+If n=1,000,000: 1,000,000 + 20 = 1,000,020</code></pre>
+<p><br></p>
+<p>Because O(n) is slower than O(log n), and Big O evaluates based on the <em>worst</em> case scenario, we would still evaluate this algorithm as O(n), because if n becomes extremely large (like 1000), the time complexity is still 1000.</p>
+<p>O(n) will dominate the shape of the graphed line, because its larger time complexity dominates the overall time complexity of this algorithm. So we would consider it O(n) despite it including an O(log n) process too.</p>
+<blockquote>
+<p>In short: When adding different Big O notations, evaluate based on the one that has the worst time complexity, aka the one whose time output will affect the overall run time the most.</p>
+</blockquote>
+<p><br></p>
+<p>What if we want to find out the time complexity of a function without looking at its source code? For example, when Python runs a search on a dictionary, how do we know how efficient it is and what method it’s using?</p>
+<p>We could time the results and plot them, to see the shape of the trend line. This would require vast dictionaries with thousands or millions of items to see the way it handles large data sets.</p>
+<p><br> <br></p>
+<h2 id="determining-big-o">Determining Big O</h2>
+<p>When we want to evaluate an alogrithm for time complexity, there are two questions we’ll ask:</p>
+<p><br></p>
+<pre><code>For a given number n, what is the maximum number of times the loop runs?
+For a given number n, how many time units is it going to take to process?</code></pre>
+<p><br></p>
+<p>Let’s take a look at this basic algorithm that finds the square root of the given number, and prints each whole number up to that square root.</p>
+<p><br></p>
+<pre><code>import math
+
+def foo(n):
+    sq_root = int(math.sqrt(n))
+    for i in range(0, sq_root):
+        print(i, sq_root)</code></pre>
+<p><br></p>
+<p>If we print out a list of the given number (n) and the length of the output (meaning the number of times the algorithm loops), we can get a better idea of the relationship between the input and loop:</p>
+<p><br></p>
+<pre><code>n   sqrt(n)
+1   1
+2   1
+3   1
+4   2
+5   2
+6   2
+7   2
+8   2
+9   3
+10  3
+11  3
+12  3</code></pre>
+<p><br></p>
+<p>Looking at this, it’s apparent that this algorithm is not linear because as the input grows, the loops do not increase similarly.</p>
+<p>But it doesn’t <em>exactly</em> fit any of the other Big O Notations we’ve discussed either. So what would we describe this as?</p>
+<p><br></p>
+<p>Just because our time complexity doesn’t appear on the Big O complexity graph, doesn’t mean it doesn’t exist. The graph shows the most common ones, but any could exist within the graph as well.</p>
+<p>For example, an accurate description of this square root algorithm might be <code>O(sqrt(n))</code> which is a valid time complexity. It’s a square root of n process. As n increases, the amount of time it takes to process this algorithm will increase by the square root of n.</p>
+<p><br></p>
+<p>As a programmer, when you write an algorithm like this, mentally you should be considering, "As n increases, it won’t loop through the entire range up to n, but instead it will loop through to the square root of n, which indicates this is a square root process.”</p>
+<p>Just because it has a for loop does not mean it is O(n) - it’s <em>how</em> the loop processes that matters for the time complexity.</p>
+<hr />
+<p>Let’s try another one.</p>
+<p><br></p>
+<pre><code>def bar(n):
+    s = 0
+
+    for i in range(n):
+        for j in range(n):
+            s += i * j
+
+    return s</code></pre>
+<p><br></p>
+<p>This has a nested for loop - so given number of n, what is the maximum number of times each loop runs?</p>
+<p>We would assume this is <code>O(n^2)</code> because of the nested for loop, but let’s adjust the function a little to print the number of times we loop through the i loop and j loop, to be certain:</p>
+<p><br></p>
+<pre><code>def bar(n):
+    s = 0
+    i_count = []
+    j_count = []
+
+    for i in range(n):
+        i_count.append(i)
+        for j in range(n):
+            j_count.append(j)
+            s += i * j
+
+    return f&#39;s: {s}, i count: {len(i_count)}, j count: {len(j_count)}&#39;</code></pre>
+<p><br></p>
+<p>If we run <code>print(bar(5))</code>, the terminal prints:</p>
+<p><br></p>
+<pre><code>s: 100, i count: 5, j count: 25</code></pre>
+<p><br></p>
+<p>Showing that the algorithm does in fact loop through n^2 times (5 * 5 = 25, and the j loop runs 25 times).</p>
+<p>When you see a nested loop, it’s important to always stay alert to the problem that <code>O(n^2)</code> can become slow very quickly. If the expected inputs will be large, that’s a good case for optimization.</p>
+<p><em>Keep in mind, not <em>all</em> nested loops are O(n^2) though.</em></p>
+<hr />
+<p>If we modify the previous loop to:</p>
+<p><br></p>
+<pre><code>def baz(n):
+    s = 0
+
+    for i in range(n):
+        for j in range(int(math.sqrt(n))):
+            s += i * j
+
+    return s</code></pre>
+<p><br></p>
+<p>What is the time complexity now?</p>
+<p>Since we’re only running the inner loop <code>O(sqrt(n))</code> times, does that change the time complexity to <code>O(sqrt(n))</code>?</p>
+<p>Again, let’s expand this algorithm out to see how many loops are running by printing a count for each:</p>
+<p><br></p>
+<pre><code>def baz_expanded(n):
+    s = 0
+    i_count = []
+    j_count = []
+
+    for i in range(n):
+        i_count.append(i)
+        for j in range(int(math.sqrt(n))):
+            j_count.append(j)
+            s += i * j
+
+    return f&#39;s: {s}, i count: {len(i_count)}, j count: {len(j_count)}&#39;
+
+print(baz_expanded(25))</code></pre>
+<p><br></p>
+<p>The terminal prints out:</p>
+<p><br></p>
+<pre><code>s: 3000, i count: 25, j count: 125</code></pre>
+<p><br></p>
+<p>If this algorithm were still O(n^2), the <code>j count</code> would be 625.</p>
+<p><code>O(n) * O(sqrt(n))</code> = <code>O(n * sqrt(n))</code> = <code>O(n sqrt n)</code></p>
+<blockquote>
+<p>O(n) * O(sqrt(n)) = O(n * sqrt(n)) = <code>O(n sqrt n)</code></p>
+</blockquote>
+<p><br></p>
+<p>Let’s try another example:</p>
+<p><br></p>
+<pre><code>def frotz(n):
+    s = 0
+
+    for i in range(n):
+        for j in range(2*n):
+            s += i * j
+
+    return s</code></pre>
+<p><br></p>
+<p>What is the time complexity of this algorithm?</p>
+<p>Before running it with printed counters, let’s consider…</p>
+<p>The first loop runs <code>for i in range(n)</code> which gives it <code>O(n)</code>.</p>
+<p>The second loop runs <code>for j in range(2*n)</code> which gives it <code>O(2*n)</code>.</p>
+<p><br></p>
+<p>The first loop runs <code>for i in range(n)</code> which gives it O(n). The second loop runs <code>for j in range(2*n)</code> which gives it O(2*n). But it’s also a nested for loop which means the time complexity is O(n^2) because the inner loop is not being limited.</p>
+<p><br></p>
+<p>n * 2n in this algorithm equates to 2 * n^2, or two times n squared.</p>
+<p>Again we can expanded it out and print counters to see exactly how many times each loop runs:</p>
+<p><br></p>
+<pre><code>def frotz_expanded(n):
+    s = 0
+    i_count = []
+    j_count = []
+
+    for i in range(n):
+        i_count.append(i)
+        for j in range(2*n):
+            j_count.append(j)
+            s += i * j
+
+    return f&#39;s: {s}, i count: {len(i_count)}, j count: {len(j_count)}&#39;
+
+print(frotz_expanded(5))</code></pre>
+<p><br></p>
+<p>This prints out in the terminal:</p>
+<p><br></p>
+<pre><code>s: 450, i count: 5, j count: 50</code></pre>
+<p><br></p>
+<blockquote>
+<p>n = 5<br />
+n^2 = 25<br />
+2 * n^2 = 50</p>
+</blockquote>
+<p>This algorithm does in fact have the time complexity of <code>O(2 * n^2)</code>, as shown by the final loop count of 50, the exact output expected of O(2 * n^2) when the input is 5.</p>
+<blockquote>
+<p>But remember that constants in Big O are dropped, so we would simplify this to O(n^2) process.</p>
+</blockquote>
+<p><br></p>
+<p>Despite this version taking twice as long as the simplified version, the <em>shape of the curve</em> is what we care about, not the exact time of the worst case scenario. Although the curve of this algorithm (<code>O(2 * n^2)</code>)might be steeper than just <code>O(n^2)</code>, the shape of the line is the same.</p>
+<p>Constants don’t change the <em>shape</em> of the curve, only how steep it is. There is no number you can multiply n^2 by to change how the line bends, so although there are better and worse case scenarios <em>within</em> O(n^2) type algorithms, they are evaluated as equal in time complexity.</p>
+<p><br> <br></p>
+<h2 id="the-3-main-rules-of-big-o">The 3 Main Rules of Big O</h2>
+<blockquote>
+<ol type="1">
+<li>Discard the constant<br />
+</li>
+<li>The bigger Big O Notation dominates (less efficient wins)<br />
+</li>
+<li>We’re interested in what happens with large values of <code>n</code> because some processes can be deceptively efficient with small values, but that doesn’t account for scalability.</li>
+</ol>
+</blockquote>
+<p>For our last example, let’s try to figure out how many times each loop runs <em>without</em> running the algorithm first:</p>
+<p><br></p>
+<pre><code>def booley(x):
+    sum = 0
+    for i in range(0, 1463):
+        i += sum
+        for j in range(0,x):
+            for k in range(x, x+15):
+                sum +=1</code></pre>
+<p><br></p>
+<p>If we break this apart line by line, we can determine the time complexity of each loop individually and then determine how they relate to one another.</p>
+<p><br></p>
+<p><code>for i in range(0, 1463)</code> indicates constant time <code>O(1)</code> because no matter how small or large x is, the time for calculating this will remain constant, even through <code>i += sum</code> happens on each loop.</p>
+<p><code>for j in range(0,x)</code> indicates linear time <code>O(n)</code> because it will grow linearly depending on how large or small x is.</p>
+<p><code>for k in range(x, x + 15)</code> indicates <code>O(15)</code> or O(1) because it is a nested for loop that will run exactly 15 times, no matter how big or small x is. The range will always be from x to x+15.</p>
+<p><br></p>
+<p>Because all these loops are nested, we would multiply them together:</p>
+<blockquote>
+<p>O(1) * O(n) * O(15) = <code>O(n)</code></p>
+</blockquote>
+<p>Despite two nested loops, this algorithm has a linear run time of <code>O(n)</code>.</p>
+<p>When there are nested loops, we mutiply their time complexities to reach a final result; when the loops run independently (one after another completes), we add them together instead.</p>
+<p><br></p>
+<p>One more example:</p>
+<p><br></p>
+<pre><code>def bogey(array):
+
+    print(array[1])
+    midpoint = len(array) // 2
+    
+    for i in range(0, midpoint):
+        print(array[i])
+
+    for _ in range(1000):
+        print(&#39;hi&#39;)</code></pre>
+<p><br></p>
+<p><code>len(array) // 2</code> is integer division that says the length of the array divided by two.</p>
+<p><br></p>
+<p>Let’s break it down, line by line:</p>
+<p><code>print(array[1])</code> = O(1)</p>
+<p><code>midpoint = len(array) // 2</code> = O(1)</p>
+<p><code>for i in range(0, midpoint)</code> = O(n)</p>
+<p><code>print(array[1])</code> = O(1)</p>
+<p><code>for _ in range(1000)</code> = O(1)</p>
+<p><code>print('hi')</code> = O(1)</p>
+<p><br></p>
+<p>When we combine these:</p>
+<blockquote>
+<p>O(1) + O(1) + ( O(n) * O(1) ) + ( O(1) * O(1) )</p>
+</blockquote>
+<p>Which combines down to:</p>
+<blockquote>
+<p>O(1) + O(1) + O(n) + O(1) = <code>O(n)</code></p>
+</blockquote>
+<p>Again, this algorithm evaluates down to a linear time complexity O(n).</p>
+</body></html>

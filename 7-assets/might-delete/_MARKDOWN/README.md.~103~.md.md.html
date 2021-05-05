@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="module-project-composing-stateful-logic---dark-mode">Module Project: Composing Stateful Logic - Dark Mode</h1>
+<p>This project allows you to practice the concepts and techniques learned in this module and apply them in a concrete project. This module explored Form management in React. You learned what stateful logic is, how to build custom hooks, how to compose multiple hooks together, and how to use mocks and spies in testing. In your project you will demonstrate proficiency of these subjects and principles by creating an application using each of these.</p>
+<h2 id="instructions">Instructions</h2>
+<p><strong>Read these instructions carefully. Understand exactly what is expected <em>before</em> starting this project.</strong></p>
+<h3 id="commits">Commits</h3>
+<p>Commit your code regularly and meaningfully. This helps both you and your team lead in case you ever need to return to old code for any number of reasons.</p>
+<h3 id="description">Description</h3>
+<p>In this project you’ll take this crypto currency tracker app and build two custom hooks that, when composed together, will allow users to set and persist a dark mode preference.</p>
+<h2 id="project-set-up">Project Set Up</h2>
+<ul>
+<li>[X] Create a forked copy of this project.</li>
+<li>[X] Add your team lead as collaborator on Github.</li>
+<li>[X] Clone your OWN version of the repository in your terminal</li>
+<li>[X] CD into the project base directory <code>cd dark-mode</code></li>
+<li>[X] Download project dependencies by running one of these two commands <code>yarn</code> or <code>npm install</code></li>
+<li>[X] Using the same command tool (yarn or npm) start up the app using <code>yarn start</code> or <code>npm start</code></li>
+<li>[X] Create a new branch: git checkout -b <code>&lt;firstName-lastName&gt;</code>.</li>
+<li>[X] Implement the project on your newly created <code>&lt;firstName-lastName&gt;</code> branch, committing changes regularly.</li>
+<li>[X] Push commits: git push origin <code>&lt;firstName-lastName&gt;</code>.</li>
+</ul>
+<p>Follow these steps for completing your project.</p>
+<ul>
+<li>[X] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student’s Repository). <strong>Please don’t merge your own pull request</strong></li>
+<li>[X] Add your team lead as a reviewer on the pull-request</li>
+<li>[X] Your team lead will count the project as complete by merging the branch back into master.</li>
+<li>[X] Do your magic!</li>
+</ul>
+<h2 id="minimum-viable-product">Minimum Viable Product</h2>
+<ul>
+<li>[X] Build a custom hook that let’s you save data to localStorage</li>
+<li>[X] Build a second custom hook that sets the <code>dark-mode</code> class on the body element</li>
+<li>[X] Compose your two new hooks together to be able to set and persist your user’s dark mode preference in your app <!--
+- [ ] Write tests that use mocks and spies to handle dependencies in your components
+--></li>
+</ul>
+<h2 id="step-1---uselocalstorage">STEP 1 - useLocalStorage</h2>
+<p>Open your app and take a look around. The crypto currency data is being fetched and displayed for you. In <code>styles.scss</code>, at the very bottom, you’ll notice there are some styles for a class called <code>dark-mode</code>. Soon, we’ll write a custom hook that sets this class on the body tag. That hook is going to compose a <code>useLocalStorage</code> inside it to accomplish that, so let’s write the localStorage one first.</p>
+<p>This is going to be a pretty cool hook. It will be used pretty much the same way as <code>useState</code>, but with a key and value passed into it - ie <code>const [name, setName] = useLocalStorage('name', 'Dustin')</code>. You can use <code>setName</code> to update the value of <code>name</code> on localStorage! Pretty cool, huh? Let’s get to it!</p>
+<ul>
+<li>[X] Create a new directory called <code>hooks</code>, and a new file in it called <code>useLocalStorage</code>.</li>
+<li>[X] Build a function called <code>useLocalStorage</code>.</li>
+<li>[X] Now, to set something to localStorage, we need a key (must be a string) and a value (can be anything).</li>
+<li>[X] To retrieve something from localStorage, we need the key.</li>
+<li>[X] To update something in localStorage, you use the same method as adding something new, and it will just replace the old key/value pair in localStorage.</li>
+<li>[X] Knowing this, let’s add <code>key</code> and <code>initialValue</code> as parameters to the hook.</li>
+<li>[X] We’re going to set up some state here. Set up a state property called storedValue.</li>
+<li>[X] This state property is going to take a function as it’s initial value. When we do this, whatever that callback function returns is what gets set as the intialValue for the state property.</li>
+<li>[X] In the callback function, we’ll check to see if the item we passed in already exists in localStorage, and return that value, otherwise we’ll return whatever initialValue was passed in.</li>
+<li>[X] Quick note, if you pass in arrays or objects to localStorage, you will need to parse it into JSON. Then when you retrieve it, like we do below, you’ll need to parse it back into regular JavaScript</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// To retrieve an item from localStorage, call localStorage.getItem(&#39;itemName&#39;)</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="co">// If that item doesn&#39;t exist, it will return undefined</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">const</span> [storedValue<span class="op">,</span> setStoredValue] <span class="op">=</span> <span class="at">useState</span>(() <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="co">// Get from local storage by key</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="kw">const</span> item <span class="op">=</span> <span class="va">window</span>.<span class="va">localStorage</span>.<span class="at">getItem</span>(key)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6">  <span class="co">// Parse and return stored json or, if undefined, return initialValue</span></a>
+<a class="sourceLine" id="cb1-7" title="7">  <span class="cf">return</span> item <span class="op">?</span> <span class="va">JSON</span>.<span class="at">parse</span>(item) : initialValue<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-9" title="9"></a></code></pre></div>
+<ul>
+<li>Now, let’s return <code>storedValue</code> from this hook in an array:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="im">import</span> <span class="op">{</span> useState <span class="op">}</span> <span class="im">from</span> <span class="st">&quot;react&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="im">export</span> <span class="kw">const</span> useLocalStorage <span class="op">=</span> (key<span class="op">,</span> initialValue) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="kw">const</span> [storedValue<span class="op">,</span> setStoredValue] <span class="op">=</span> <span class="at">useState</span>(() <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-5" title="5">    <span class="kw">const</span> item <span class="op">=</span> <span class="va">window</span>.<span class="va">localStorage</span>.<span class="at">getItem</span>(key)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-6" title="6">    <span class="cf">return</span> item <span class="op">?</span> <span class="va">JSON</span>.<span class="at">parse</span>(item) : initialValue<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-7" title="7">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-8" title="8"></a>
+<a class="sourceLine" id="cb2-9" title="9">  <span class="cf">return</span> [storedValue]<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="op">};</span></a></code></pre></div>
+<ul>
+<li>[X] Remember we’re trying to use this hook like this: <code>const [name, setName] = useLocalStorage('name', 'Dustin')</code>. So far we have made the value part of the hook, but not the setter. Let’s go ahead and create a setter function, and return that in the array as well.</li>
+<li>[X] inside the hook, write a function called <code>setValue</code> that takes a <code>value</code> parameter</li>
+<li>[X] In <code>setValue</code>, set the <code>value</code> to localStorage using the <code>key</code> that was passed into the hook itself</li>
+<li>[X] Also, update the state of <code>storedValue</code> with <code>value</code> as well</li>
+<li>[X] Add <code>setValue</code> to the array that is being returned out of this hook</li>
+<li>[X] <code>setValue</code> should look something like this:</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">const</span> setValue <span class="op">=</span> value <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="co">// Save state</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="at">setStoredValue</span>(value)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="co">// Save to local storage</span></a>
+<a class="sourceLine" id="cb3-5" title="5">  <span class="va">window</span>.<span class="va">localStorage</span>.<span class="at">setItem</span>(key<span class="op">,</span> <span class="va">JSON</span>.<span class="at">stringify</span>(value))<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="op">};</span></a></code></pre></div>
+<p>We’re going to use this inside our dark mode hook, but this can be used anywhere for any kind of localStorage needs you have in your apps. Custom hooks are so awesome!!</p>
+<h2 id="step-2---usedarkmode">STEP 2 - useDarkMode</h2>
+<ul>
+<li>[X] Inside the <code>hooks</code> directory, add a new file called <code>useDarkMode</code>.</li>
+<li>[X] Build a function called <code>useDarkMode</code>.</li>
+<li>[X] Import <code>useLocalStorage</code></li>
+<li>[X] Call <code>useLocalStorage</code> and pass in the key you want to use to store whether or not dark mode is enabled.</li>
+<li>[X] Remember, this hook returns an array with a value and a setter in an array, exactly like the state hook, so make sure to capture those values in a <code>const</code> - <code>const [someValue, setSomeValue] = useLocalStorage('your key here')</code></li>
+<li>[X] Now to add the class to the body. If we need to manipulate the DOM directly, how do we do that? Any direct DOM manipulation is considered a side effect, right? So let’s use the effect hook.</li>
+<li>[X] Import and set up your effect hook.</li>
+<li>[X] Inside it, check to see if the value from <code>useLocalStorage</code> is true or false.</li>
+<li>[X] If it’s true, add the class <code>dark-mode</code> to the <code>body</code> element.</li>
+<li>[X] If it’s false, remove the class from the <code>body</code> element. (If you don’t quite remember how to do this from ages and ages ago, Google will be your friend here 😉)</li>
+<li>[X] We don’t want this effect to run every time anything in the component changes, right? Think about what piece of data this hook depends on, and should be synced with, and add that in its dependency array.</li>
+<li>[X] Finally, we need to return something out of here so we can use this in our app. What do you think we’ll need? We’ll need to know if dark mode is enabled, right? And we’ll need a setter function to toggle dark mode. Let’s just forward the value and the setter that were returned out of the <code>useLocalStorage</code> call. Return those two values in an array as well.</li>
+</ul>
+<h2 id="step-3---using-the-hook-in-a-component">STEP 3 - Using the hook in a component</h2>
+<p>Now that we have composed our different pieces of stateful logic, let’s use it in our component!</p>
+<ul>
+<li>[X] import the dark mode hook into the <code>NavBar</code> component</li>
+<li>[X] Looking at this component, we see that we are controlling the toggle with some state. The state hook here returns a <code>darkMode</code> value, and a <code>setDarkMode</code> function. Isn’t that exactly what our <code>useDarkMode</code> hook returns as well? Replace the state hook with our hook, click the toggle, and watch the magic happen!!!</li>
+</ul>
+<p>(If it wasn’t magical, you have a bug somewhere 😫 go back through the steps slowly, one at a time, to see if you missed any of the steps)</p>
+<h2 id="stretch-problems">Stretch Problems</h2>
+<p>After finishing your required elements, you can push your work further. These goals may or may not be things you have learned in this module but they build on the material you just studied. Time allowing, stretch your limits and see if you can deliver on the following optional goals:</p>
+<ul>
+<li><p>[ ] Add routing into this app and build out some other pages</p></li>
+<li><p>[ ] Go to the <a href="https://www.coingecko.com/">Coin Gecko API</a> where we got this data from, and add more features to your app. Maybe you want to make a dropdown list of coins, and only look at one coin at a time. You could make an API call to that API for a specific coin and get more data on it. You could get more specific coin data for the last 24 hrs. There’s a lot you can do with this API. Explore and have fun!</p></li>
+<li><p>[ ] Look into the recharts library and build a new chart. Or change the appearence of the charts we built out here. Maybe when you toggle to dark mode, the line on the chart could change colors! There’s a lot you can do with this library. Explore and have fun!</p></li>
+</ul>
+</body></html>

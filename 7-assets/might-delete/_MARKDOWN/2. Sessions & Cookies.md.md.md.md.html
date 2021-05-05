@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="using-sessions-cookies">Using Sessions &amp; Cookies</h1>
+<p><strong>HTTP Messages</strong></p>
+<p><strong>Using Sessions in Express</strong></p>
+<pre><code>$ yarn add express-session</code></pre>
+<pre><code>const session = require(&#39;express-session&#39;);</code></pre>
+<pre><code>server.use(session(sessionConfig));</code></pre>
+<pre><code>const sessionConfig = {
+  name: &lt;cookie name&gt;,
+  secret: &#39;keep it secret, keep it safe, keep it long&#39;,
+  cookie: {
+    maxAge: 1000 * 60 * 60,
+    secure: false
+  },
+  httpOnly: true,
+  resave: false,
+  saveUninitialized: false
+};</code></pre>
+<ul>
+<li>We attach the user to the session inside our <code>/login</code> endpoint:</li>
+</ul>
+<pre><code>// After getting user by username...
+  .then(user =&gt; {
+    if (passwordIsCorrect) {
+      req.session.user = user; // saving the user object to the session
+      res.end();
+    }
+    else {
+      res.status(401).json({ message: &#39;Invalid Credentials&#39; });
+    }
+  })</code></pre>
+<ul>
+<li>Logging out:</li>
+</ul>
+<pre><code>server.get(&#39;/logout&#39;, (req, res) =&gt; {
+    req.session.destroy();
+    res.end();
+});</code></pre>
+<p><strong>Storing The Sessions in Our DB with Knex</strong></p>
+<pre><code>$ yarn add connect-session-knex</code></pre>
+<p>…</p>
+</body></html>

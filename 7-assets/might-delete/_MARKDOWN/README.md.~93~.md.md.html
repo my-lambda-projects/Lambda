@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="client-side-routing-w-react-router-v.-5">Client Side Routing w/ React Router v. 5</h1>
+<p>Topics:</p>
+<ul>
+<li>React Router</li>
+<li>Using Link and NavLink to navigate to specific routes</li>
+<li>Passing Route Parameters</li>
+<li>Passing props to components rendered by the Router</li>
+</ul>
+<h2 id="instructions">Instructions</h2>
+<p><strong>NOTE ⚠️ - You will NOT need to finish this project after React Router I. Start working on it now, then you can finish it up after the next module - React Router II.</strong></p>
+<ul>
+<li>[X] <strong>Fork</strong> this repository, then clone your fork.</li>
+<li>[X] <strong>NOTE</strong> You have 2 servers that you will be running here so read these instructions carefully.</li>
+<li>[X] <strong>In the root of this directory</strong>: Run <code>yarn install</code> to download dependencies.</li>
+<li>[X] Run the server using <code>yarn start</code> or <code>node server.js</code>. (Don’t worry too much about this process, you’ll get used to doing this and it will be explained more in the future).</li>
+<li>[X] In a separate terminal cd into the <code>client</code> folder and run <code>yarn install</code> to download dependencies.</li>
+<li><p>[X] Still inside the <code>client</code> folder run <code>yarn start</code> to run the client application.</p></li>
+<li><p>[X] Once your application is up and running on the client, you should see a browser window that looks like this at <code>localhost:3000</code> <img src="https://ibin.co/3xhmmHVl9BKF.png" alt="Movies Home" /></p></li>
+</ul>
+<h3 id="part-1">Part 1:</h3>
+<ul>
+<li>[X] Wrap your app with the router.</li>
+<li>[X] Inside your App file add two routes.</li>
+<li>[X] one route for <code>/</code> that loads the <code>MovieList</code> component.</li>
+<li>[X] one route that will take an <code>id</code> parameter after<code>/movies/</code> (ex: <code>/movies/2</code>, <code>/movies/3</code> where the id is dynamic). This route should load the <code>Movie</code> component.</li>
+</ul>
+<h3 id="part-2">Part 2:</h3>
+<ul>
+<li>[X] Make it so that the card in <code>MovieList</code> is a link, this should direct the user to the <code>/movies/{id of movie here}</code> URL, where <code>:id</code> is the id of the individual movie.</li>
+<li>[X] When a user clicks on a movie card they should be taken to <code>/movies/{id of movie here}</code> to see the details for the selected movie.</li>
+<li>[X] You will need to modify line 13 of <code>Movie.js</code> in order to accept the correct id for the movie selected.</li>
+<li>[X] Add functionality so the <code>Home</code> button on the <code>SavedList</code> component navigates back to home.</li>
+<li>[X] You should now be able to navigate back and forth between the individual movies and the home screen.</li>
+</ul>
+<h2 id="stretch-goals.">Stretch Goals.</h2>
+<p>If you have completed Parts 1 &amp; 2 feel free to move on to these stretch goals.</p>
+<h3 id="refactor-so-that-our-code-is-dry.">Refactor so that our code is DRY.</h3>
+<ul>
+<li>[X] You may notice that we are using essentially the same exact JSX code in the <code>Movie</code> component and the <code>MovieDetails</code> component in <code>MovieList.js</code> create a new component in <code>MovieCard.js</code> that returns this JSX code. Then remove the old code from <code>Movie</code> and <code>MovieDetails</code> and instead return the new <code>MovieCard</code> component.</li>
+</ul>
+<h3 id="add-save-movie-functionality.">Add <code>Save Movie</code> functionality.</h3>
+<ul>
+<li>[ ] You will notice there is a ‘Saved Movies’ component that we are not currently using. In this step you will add the functionality to save a movie. You will need to pass the <code>addToSavedList</code> function to the <code>Movie</code> component. Once you have done that you will need to add a click handler to the save button. You will need to uncomment lines 24-27 in <code>Movie.js</code> to complete this.</li>
+</ul>
+<h3 id="turn-your-saved-movie-list-into-links.">Turn your Saved Movie list into <code>Link</code>s.</h3>
+<ul>
+<li>[ ] Your list of saved movies should be links to the movie itself. Study and understand what the <code>saveMovie</code> function is doing.</li>
+</ul>
+<h3 id="turn-your-saved-movie-links-into-navlinks.">Turn your Saved Movie <code>Link</code>s into <code>NavLink</code>s.</h3>
+<ul>
+<li>[ ] Navlink</li>
+</ul>
+</body></html>

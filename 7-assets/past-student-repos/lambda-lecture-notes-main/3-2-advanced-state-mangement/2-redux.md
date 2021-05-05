@@ -20,7 +20,7 @@ const EnhancedComponent = higherOrderComponent(WrappedComponent);
 In the context of Redux, we'll be using this pattern with the `connect` function in order to "enhance" the components of our application with the ability to read values from the Redux store and dispatch actions to update the store.
 
 ## Managing shared state across multiple components
-Without a state management system like Redux, our only notion of state is at the level of each component and all interactions must be achieved with “prop drilling”, passing data and state management functions down the component tree. Redux is all about consolidating this and managing **application-level state**.
+Without a state management system like Redux, our only notion of state is at the level of each component and all interactions must be achieved with "prop drilling”, passing data and state management functions down the component tree. Redux is all about consolidating this and managing **application-level state**.
 
 We can still work with `useState` for managing state at the component level, but for bigger-picture concerns of our application we'll make the Redux store our single source of truth. 
 

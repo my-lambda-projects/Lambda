@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="file-finder">File Finder</h1>
+<p>Given a list of full paths to files, and a list of filenames to query, report all the full paths that match that filename.</p>
+<p>Example input:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1">paths <span class="op">=</span> [</a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="st">&quot;/usr/local/share/foo.txt&quot;</span>,</a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="st">&quot;/usr/bin/ls&quot;</span>,</a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="st">&quot;/home/davidlightman/foo.txt&quot;</span>,</a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="st">&quot;/bin/su&quot;</span></a>
+<a class="sourceLine" id="cb1-6" title="6">]</a>
+<a class="sourceLine" id="cb1-7" title="7"></a>
+<a class="sourceLine" id="cb1-8" title="8">queries <span class="op">=</span> [</a>
+<a class="sourceLine" id="cb1-9" title="9">    <span class="st">&quot;ls&quot;</span>,</a>
+<a class="sourceLine" id="cb1-10" title="10">    <span class="st">&quot;foo.txt&quot;</span>,</a>
+<a class="sourceLine" id="cb1-11" title="11">    <span class="st">&quot;nosuchfile.txt&quot;</span></a>
+<a class="sourceLine" id="cb1-12" title="12">]</a></code></pre></div>
+<p>Example return value:</p>
+<pre><code>[ &quot;/usr/local/share/foo.txt&quot;, &quot;/usr/bin/ls&quot;, &quot;/home/davidlightman/foo.txt&quot; ]</code></pre>
+<p>because that’s where the <code>foo.txt</code> and <code>ls</code> files are.</p>
+<p>The file <code>"nosuchfile.txt"</code> is ignored because it’s not in the <code>paths</code>.</p>
+<p>Return list can be in any order.</p>
+<p>Limits:</p>
+<ul>
+<li>Up to approximately 1,000,000 paths.</li>
+<li>Up to approximately 1,000,000 queries.</li>
+</ul>
+</body></html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="testing-web-applications">Testing Web Applications</h1>
+<p>⚛️👩‍🔬🧪🧬</p>
+<h2 id="why-test">Why Test?</h2>
+<ul>
+<li>Having a comprehensive test suite allows us to trust the code</li>
+<li>Safety net for future changes &amp; refactoring (especially helpful for team collaboration)</li>
+<li>Bugs will immediately be surfaced in the future</li>
+<li>Encourages modular, easy-to understand-code (tangled code is also often difficult to test!)</li>
+<li>Helpful in quality control and deployment</li>
+<li>Tests also act as a form of documentation and enforces best practices</li>
+<li>…and many other reasons. (<em>Not testing</em> is a bad idea, like taking out a high-interest loan of technical debt)</li>
+</ul>
+<h2 id="why-not-just-qa-manually">Why not just QA manually?</h2>
+<p>For a small app it’s easy to just run through some test cases in the browser before shipping a new feature. But what if your app has hundreds of thousands of lines of code? The manual approach quickly gets unmanageable at scale, and it’s easy to unexpectedly (and invisibly) break a legacy feature when you go live with something new.</p>
+<p>While it’s impossible to comprehensively test your app top to bottom every time you push some new code with the manual QA approach, it’s easy to do exactly that with a thoughtful automated test suite.</p>
+<h2 id="four-kinds-of-tests">Four Kinds of Tests</h2>
+<p>There’s a lot of different terminology floating around, and sometimes the categories overlap but here’s a relatively easy way to understand the main categories of automated tests. (Kent C. Dodds explains ths really nicely – check out his article and pdf’s below!)</p>
+<ul>
+<li>🌲 <strong>End to End testing:</strong> simulating an entire user flow from start to finish. If you’re writing an e-commerce app, that flow could be placing items in the cart and completing a purchase. You’ve seen this kind of testing before with <strong>Enzyme</strong></li>
+<li>🌿 <strong>Integration testing:</strong> verifying the functionality of a complete piece of application behavior, agnostic of its implementation details. This is similar to E2E but generally focused on more discrete behavior rather than the big picture. For example, an integration test in your e-commerce app might just verify the behavior of adding an item to your cart rather than simulating an entire purchase flow from start to finish.</li>
+<li>🌱 <strong>Unit testing:</strong> verifying that an individual function or component of your application works as expected</li>
+<li>👀 <strong>Static testing:</strong> catch errors and typos in code. (Code linters like ESLint help you with this)</li>
+</ul>
+<figure>
+<img src="../3-3-advanced-web-applications/images/testing_pyramid.png" alt="Testing pyramid" /><figcaption>Testing pyramid</figcaption>
+</figure>
+<p>As you might expect, higher-level tests (especially E2E) run a lot slower and have more potential failure points since they test many components at once, as well as the interaction between components. However, these tests are closest to the way your software is actually going to be used, so they provide the most confidence. So you’ll start to see that architecture and design decisions are just as important in your automated test suite as in your application code!</p>
+<p>We’re basically writing software to test the software, and in large production applications this is incredibly important. There’s no one "right way”, so your job is to know the tradeoffs and write tests in a way that works best for your specific project. In practice we end up creating a kind of hierarchy or "testing pyramid”, where simple concerns are handled with quick unit tests while broader application behavior is ensured with integration and E2E tests.</p>
+<h2 id="aaa-flow-of-testing">AAA flow of testing:</h2>
+<ul>
+<li>Arrange</li>
+<li>Act</li>
+<li>Assert</li>
+</ul>
+<h2 id="integration-tests-with-rtl-and-jest">Integration Tests (with RTL and Jest)</h2>
+<p>Today’s guided project is all about integration testing.</p>
+<p>Here’s a nice overview of the philosophy behind this kind of testing, from the React Testing Library docs: &gt; You want to write maintainable tests for your React components. As a part of this goal, you want your tests to avoid including implementation details of your components and rather focus on making your tests give you the confidence for which they are intended. As part of this, you want your testbase to be maintainable in the long run so refactors of your components (changes to implementation but not functionality) don’t break your tests and slow you and your team down.</p>
+<p>So integration testing is a higher-level form of testing, in which we actually interact with the interface in the same way a user does. While unit tests verify your specific implementation, integration tests are more concerned with the overall <em>behavior</em> of your application. With this kind of testing, you could potentially change the details of an implementation and significantly refactor individual functions and components without failing integration tests, as long as the overall behavior is the same.</p>
+<p>As an example to understand the difference, for a basic form component you’d have unit tests for each method (<code>handleChanges</code>, <code>submitForm</code>, etc) and an integration test to verify the overall behavior from a user’s perspective, going through an actual use case for the application that may involve multiple components. Integration tests are <strong>implementation agnostic</strong> – you can entirely change the code and refactor components, but the tests will be green as long as things still work from a user perspective.</p>
+<p>React Testing Library provides the DOM matchers and event-firing functionality to be able to simulate a user flow. Note that RTL itself is <strong>not a test runner or framework</strong> – it’s just a library that you can use <em>with</em> a testing framework like Jest. Jest + RTL is a popular combination, and we’ll be working with this stack today!</p>
+<p>With this common approach, we use Jest to make assertions and actually run the tests, and RTL helps out by providing a virtual DOM, matchers to select elements and <code>fireEvent</code> to simulate user interaction.</p>
+<h2 id="rtl-matchers-get-find-or-query">RTL Matchers – get, find or query?</h2>
+<ul>
+<li>✅ get (getBy / getAllBy): you’ll probably use this one the most. It has an implicit assertion built in, meaning that the query itself will make your test fail if the node isn’t found, rather than just returning null.</li>
+<li>✅ find (findBy / findAllBy): useful for testing async behavior, like making an API call and rendering the new content to the DOM.</li>
+<li>☑️ query (queryBy / queryAllBy): returns null rather than causing an error if no matching elements are found. Rarely used – basically you should only use the query variant if you’re specifically looking to verify that an element is <em>not</em> rendered to the page.</li>
+</ul>
+<p>If you’re trying decide whether to use a singular or plural matcher: * 🧖‍♂️ Singular matchers (getBy, findBy, queryBy) return an error if there’s more than one matching element! There’s an implicit assertion bulit in, asserting that there should be <strong>1 and only 1</strong> matching element. * 👩‍👩‍👧‍👦 Plural matchers (getAllBy, queryAllBy, findAllBy) are more flexible, allowing one or more matching elements.</p>
+<p>Just open up the <a href="https://testing-library.com/docs/dom-testing-library/cheatsheet">cheatsheet</a> for reference while writing tests with RTL, no need to memorize all this. Remember the basics will help though: <strong>get and find are more strict than query</strong>, and <strong>singular matchers are more strict than plural ones</strong>. In general, being very strict and specific about your assertions will allow for better tests.</p>
+<h2 id="simulating-user-actions-with-fireevent">Simulating user actions with fireEvent</h2>
+<p>A common QA strategy is to have a human step through the entire user flow for the new feature you’ve just developed, navigating the UI as a normal user would. My friend CJ does QA on some of the projects I’ve been working on, and he describes his job as "trying to break stuff.” Basically, he’ll run through a variety of scenarios and try every edge case he can think of, on every browser and platform. If nothing breaks, we get some "quality assurance” that the new feature works as expected. Otherwise, it’s back to the drawing board for the developer (me!)</p>
+<p>The whole idea behind integration testing is that for large and complex applications, we’d like to automate this same kind of user-oriented QA process. Modern libraries like RTL are designed to simulate exactly this kind of process – going through a user flow step by step, clicking buttons, filling out forms, and making sure the right stuff shows up on the page at the right time. With <code>fireEvent</code> we can directly simulate DOM events like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// User fills out a form in a field</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">const</span> speciesInput <span class="op">=</span> <span class="va">screen</span>.<span class="at">getByLabelText</span>(<span class="ss">/species/i</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="va">fireEvent</span>.<span class="at">change</span>(speciesInput<span class="op">,</span> <span class="op">{</span> <span class="dt">target</span><span class="op">:</span> <span class="op">{</span> <span class="dt">value</span><span class="op">:</span> <span class="st">&quot;Grizzly Bear&quot;</span> <span class="op">}</span> <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="co">// User clicks the submit button</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="kw">const</span> button <span class="op">=</span> <span class="va">screen</span>.<span class="at">getByRole</span>(<span class="st">&quot;button&quot;</span><span class="op">,</span> <span class="op">{</span> <span class="dt">name</span><span class="op">:</span> <span class="ss">/submit!/i</span> <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="va">fireEvent</span>.<span class="at">click</span>(button)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-8" title="8"></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="co">// assert that the new animal has been added to the list (test only passes if a match is found after the page re-renders)</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="kw">const</span> newAnimal <span class="op">=</span> <span class="cf">await</span> <span class="va">screen</span>.<span class="at">findByText</span>(<span class="ss">/grizzly bear/i</span>)<span class="op">;</span></a></code></pre></div>
+<p>This works well for most use cases, but there’s also a more advanced companion library <code>@testing-library/user-event</code> in active development. The idea behind <code>userEvent</code> is to more fully simulate behavior from the user perspective, providing extra nuances of user interaction beyond the basic actions represented by DOM events.</p>
+<h2 id="pdfs-to-download">PDF’s to download</h2>
+<ul>
+<li><a href="pdf/Print_Worksheet_US.pdf">"What Should I Test?” by Kent C Dodds</a></li>
+<li><a href="pdf/Print_Trophy_US.pdf">How to Win at JavaScript Testing</a></li>
+<li><a href="pdf/Print_Glossary_US.pdf">Testing Glossary</a></li>
+<li><a href="pdf/RTL_cheat_sheet.pdf">RTL Cheat Sheet</a></li>
+</ul>
+<h2 id="other-helpful-resources">Other Helpful Resources</h2>
+<ul>
+<li><a href="https://github.com/testing-library/jest-dom">Jest DOM matchers</a></li>
+<li><a href="https://kentcdodds.com/blog/unit-vs-integration-vs-e2e-tests">Static vs Unit vs Integration vs E2E Testing</a></li>
+<li><a href="https://devhints.io/jest">Jest cheat sheet</a></li>
+<li><a href="https://testing-library.com/docs/react-testing-library/intro">RTL Docs</a></li>
+<li><a href="https://defragdev.com/blog/?p=783">Arrange, Act, Assert</a></li>
+<li><a href="https://dev.to/catherinecodes/a-regex-cheatsheet-for-all-those-regex-haters-and-lovers--2cj1">Regex Cheatsheet</a></li>
+<li><a href="https://kentcdodds.com/blog/avoid-nesting-when-youre-testing">Avoid Nesting When You’re Testing</a></li>
+<li><a href="https://medium.com/javascript-in-plain-english/i-tested-a-react-app-with-jest-testing-library-and-cypress-here-are-the-differences-3192eae03850#:~:text=A%20key%20difference%20I%20should,%2DEnd%20(e2e)%20testing.">Jest, Enzyme, RTL and Cypress compared</a></li>
+</ul>
+</body></html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="lecture-iii-notes">Lecture III Notes</h1>
+<ol type="a">
+<li><a href="#Additional-Resources">Additional Resources</a><br />
+</li>
+<li><a href="#What-is-the-difference-between-an-algorithm-and-a-function?">What is the difference between an algorithm and a function?</a><br />
+</li>
+<li><a href="#Abstraction">Abstraction</a><br />
+</li>
+<li><a href="#POLYA-Problem-Solving-Technique">POLYA Problem Solving Technique</a><br />
+</li>
+<li><a href="#What-if-we-don&#39;t-understand-the-problem?">What if we don’t understand the problem?</a><br />
+</li>
+<li><a href="#Factorials">Factorials</a><br />
+</li>
+<li><a href="#The-3-main-rules-of-Big-O">The 3 main rules of Big O</a><br />
+</li>
+<li><a href="#Recursive-Solution">Recursive Solution</a><br />
+</li>
+<li><a href="#Fibonacci-Sequence">Fibonacci Sequence</a></li>
+</ol>
+<p><br></p>
+<p>If you feel so inclined, you can contribute to these notes by <a href="buymeacoff.ee/G1stPBuYU">donating coffee to the author</a>, for caffeine-fueled focus during lectures.</p>
+<p><br></p>
+<h1 id="additional-resources">Additional Resources</h1>
+<p><a href="https://learn.lambdaschool.com/cs/module/recrCuZQMVI6LvxhD">TK: How to Write and Analyze Algorithms</a></p>
+<p><a href="https://youtu.be/vtoYShxbPQw">Coming Up With a First Pass Solution - 11 min</a></p>
+<p><a href="https://youtu.be/1QCmUv4-sIc">Improving Upon a First Pass Solution - 15 min</a></p>
+<p><a href="https://visualgo.net/en">Visualgo</a>: visualizing data structures and algorithms through animation.</p>
+<p><a href="https://www.hackersdelight.org">Hacker’s Delight</a>: a collection of programming tricks at the bit level.</p>
+<p><br> <br></p>
+<h1 id="how-to-write-and-analyze-algorithms-notes">How to Write and Analyze Algorithms Notes</h1>
+<p><br></p>
+<p><a href="https://www.youtube.com/watch?v=lB1n6lY8Lw0">Lecture III Recording: CS19 Beej Jorgensen</a></p>
+<p><br></p>
+<h1 id="what-is-the-difference-between-an-algorithm-and-a-function">What is the difference between an algorithm and a function?</h1>
+<p>An algorithm is a little more general than a function. An algorithm is a set of steps to solve some problem, whereas a function is a set of specific steps to solve a specific problem.</p>
+<blockquote>
+<p>"A function is concrete, and does have a machine implementation. In computer programming, a function is an implementation of an algorithm. An algorithm is a series of steps (a process) for performing a calculation, whereas a function is the mathematical relationship between parameters and results.” - Google</p>
+</blockquote>
+<p><br></p>
+<h1 id="abstraction">Abstraction</h1>
+<p>Abstraction is when we lessen the details/information, or when we use something without knowing how it works in detail.</p>
+<p>We use algorithms all the time as an abstracted version of an implementable function.</p>
+<p>There are sets of steps we do daily - tie our shoes, drive to work - that are abstracted out. We aren’t focusing on each specific step and way that those things work mechanically.</p>
+<p>Algorithms are known as mathematical and complicated ideas, which they can be, but also are not inherently.</p>
+<p>Instead of trying to solve a problem we encounter specifically, this week we want to focus on how to solve problems generally in writing applications, by following a general set of steps:</p>
+<p><br> <br></p>
+<h1 id="polya-problem-solving-technique">POLYA Problem Solving Technique</h1>
+<p>This is a four step problem solving process you can use to identify problems and come up with a solution.</p>
+<p>See this <a href="https://math.berkeley.edu/~gmelvin/polya.pdf">in depth POLYA explanation</a>.</p>
+<p>The common steps are….</p>
+<p><br></p>
+<h4 id="understand-the-problem">1. Understand the Problem</h4>
+<p>This means making sure you’re solving what is actually being asked to be solved. If we misunderstand the problem, we might create a viable solution for <em>a</em> problem, but not the correct problem.</p>
+<p>Ask questions and ensure you have a solid understanding of the problem before beginning any following steps.</p>
+<p><em>"Can I assume that…”</em></p>
+<p>Like, "Can I assume that the user will only input valid numerical data or do I need to assume they can input anything?”</p>
+<p>Spending the time up front to fully understand what needs to be done, next you should…</p>
+<p><br></p>
+<h4 id="come-up-with-a-plan-pseudo-code">2. Come Up With a Plan (Pseudo-code)</h4>
+<p>Don’t just jump into coding. It’s far more efficient to pause and come up with a plan.</p>
+<p>As you write a gameplan or a few lines of pseudo-code, you’ll often come up with additional ideas, edge cases, potential difficulties, etc.</p>
+<p>Then…</p>
+<p><br></p>
+<h4 id="code-your-solution">3. Code Your Solution</h4>
+<p>Execute your game plan to get to a working solution - a first pass solution. It might not be elegant or optimized. You just want to get to an MVP solution.</p>
+<p>Afterwards, you can analyze it for an optimized solution, time permitting.</p>
+<p>The most important thing is to get it working, even if in a brute force manner.</p>
+<p><br></p>
+<h4 id="analyze-and-optimize">4. Analyze and Optimize</h4>
+<p>During this step is a good time to find edge cases or ways that you would optimize your solution, expressing the logic behind those to your interviewer.</p>
+<p>Consider addressing issues of scalability or unusual cases. Refactor for cleaner code.</p>
+<p><br> <br></p>
+<h2 id="what-if-we-dont-understand-the-problem">What if we don’t understand the problem?</h2>
+<p>If there is a term being used that you are unfamiliar with - ask about it. In an interview situation, most hiring managers should clarify and appreciate you taking the time to fully understand the problem.</p>
+<p>Identify exactly what you are being asked to return or show - what is the end result being returned from a good solution? Is is a numerical value? A string?</p>
+<p>What are the inputs being given? What kind of data should I expect to be given?</p>
+<p>A good way to verify you understand the problem is by rephrasing and summarizing it back to them: "From my understanding, what we’re trying to do is…”</p>
+<p>Draw a diagram or picture to help fully understand the problem. You can draw a visual example, a diagram of how the data flows, create a small mathematical example, the recursive call stack to identify the base case, etc.</p>
+<p><br> <br></p>
+<h4 id="is-it-common-to-calculate-big-o-in-an-interview">Is it common to calculate Big O in an interview?</h4>
+<p>It depends on the industry and company - if that’s important to them - but being able to look at something and give a rough example of the run time is an important skill.</p>
+<p>It can also simply be a bonus to an interviewer to show that beyond being able to solve problems, you care about and understand optimization.</p>
+<p><br> <br></p>
+<h2 id="factorials">Factorials</h2>
+<p><em>See file <a href="day3_work.py">day3_work.py</a> for the code to this section:</em></p>
+<p>A factorial is when something is the product of an integer and all the integers below it.</p>
+<blockquote>
+<p>I.e. 4! = 4 * 3 * 2 * 1</p>
+</blockquote>
+<p>What are some questions we might ask about writing a function that returns the factorial of the given number, using an iterative approach (not recursion)?</p>
+<p><br></p>
+<ul>
+<li>What are the expected inputs? Are they positive integers?</li>
+<li>What is considered 0!? (Possible edge case)</li>
+<li>Are there any upper limits?</li>
+<li>Are any string being input?</li>
+<li>What should be returned from this function?</li>
+</ul>
+<p><br></p>
+<p>Once we have these assumptions answered, we’ll make a plan. A good method is outlining our plan as comments within the code.</p>
+<p>If we think about a base case, what is the <em>last</em> number we multiply? 1.</p>
+<p>Thinking about that, we’ll do something <em>until</em> something is 1. This implies a loop.</p>
+<p>Within that loop, we need to multiply.</p>
+<p>We’ll initialize our returned result as 1 because even if the integer given is 0, it’ll return one.</p>
+<p>Our plan looks like:</p>
+<p><code>def iter_factorial(n):</code> <br></p>
+<pre><code>    result = 1
+    # loop until 1
+        # multiply
+    
+    return result</code></pre>
+<p><br></p>
+<p>When we fill this in, it looks like…</p>
+<p><br></p>
+<pre><code>def iter_factorial(n):
+    result = 1
+    # loop until 1
+    while n &gt; 1:
+        # multiply
+        result *= n
+        n -= 1
+    
+    return result
+
+n = 4
+print(&#39;Result when n is&#39;, n, &#39;is: &#39;, iter_factorial(n))</code></pre>
+<p><br> <br></p>
+<h4 id="what-would-be-the-run-time-of-this-function">What would be the run time of this function?</h4>
+<p>The result and the return statement will only run once, no matter how large n is.</p>
+<p>But how long the loop will run depends on how large n is. It will run n-1 times.</p>
+<p>Remember though, we drop associated integers when evaluating run time so this would reduce down to <code>O(n)</code> or linear time.</p>
+<p><br> <br></p>
+<h2 id="the-3-main-rules-of-big-o">The 3 main rules of Big O</h2>
+<blockquote>
+<ol type="1">
+<li><p>Discard the constant</p></li>
+<li><p>The bigger Big O Notation dominates (less efficient wins)</p></li>
+<li><p>We’re interested in what happens with large values of <code>n</code> because some processes can be deceptively efficient with small values, but that doesn’t account for scalability.</p></li>
+</ol>
+</blockquote>
+<p><br> <br></p>
+<h2 id="recursive-solution">Recursive Solution</h2>
+<p>Think of the base case when considering how to solve something recursively (the very smallest case).</p>
+<p>We could build a plan like so:</p>
+<p><br></p>
+<pre><code>def rec_factorial(n):
+    # base case, n=1
+
+    # recursive cases, when n&gt;1</code></pre>
+<p><br></p>
+<p>We should also consider, what about the case when <code>n=0</code>:</p>
+<p><br></p>
+<pre><code>def rec_factorial(n):
+    # base case, n=1
+    if n == 1 or n == 0:
+        return 1
+
+    # recursive cases, when n&gt;1
+</code></pre>
+<p><br></p>
+<p>So with our base case, we know <em>when</em> to stop, but we need to make sure with our recursive step, we’re doing something to <em>get to the base case</em>. We need to use <code>n-1</code>.</p>
+<p><br></p>
+<pre><code>def rec_factorial(n):
+    # base case, n=1
+    if n == 1 or n == 0:
+        return 1
+
+    # recursive cases, when n&gt;1
+    else:
+        rec_factorial(n-1)</code></pre>
+<p><br></p>
+<p>Now, we’re decreasing <code>n</code> but we still need to multiply the result by <code>n</code>:</p>
+<p><br></p>
+<pre><code>def rec_factorial(n):
+    # base case, n=1
+    if n == 1 or n == 0:
+        return 1
+
+    # recursive cases, when n&gt;1
+    else:
+        return n * rec_factorial(n-1)</code></pre>
+<p><br></p>
+<h4 id="what-is-the-runtime-evaluation">What is the runtime evaluation?</h4>
+<p>There are no loops but we do have a recursive function call. When we see a recursive call, we want to visualize, "How many times will this recursive function call be made?”</p>
+<p>In memory, all these calls are being <em>made</em> but not <em>finishing</em> until the base case is resolved. <code>rec_factorial(3)</code> has to wait on <code>rec_factorial(2)</code> to resolve, which waits for <code>rec_factorial(1)</code> to resolve.</p>
+<p>In this case, the number of recursive calls being made increases by one every time n increases by one, so this resolves to <code>O(n)</code> or linear time still.</p>
+<p>While this may be time efficient, it is not memory (space) efficient due to the open, waiting function calls that stack while waiting to hit the base case resolution.</p>
+<p><br> <br></p>
+<h2 id="fibonacci-sequence">Fibonacci Sequence</h2>
+<p>We can practice solving using dynamic programming techniques with the Fibonacci sequence.</p>
+<p>Learn more <a href="https://en.wikipedia.org/wiki/Fibonacci_number">here</a>.</p>
+<p>In math, the Fibonacci sequence is numbers in order, where each number is the sum of the two preceding one, starting from 0 and 1.</p>
+<p><br></p>
+<pre><code>F0 = 0 F1 = 1 F2 = 1 (0 + 1) F3 = 2 (1 + 1) F4 = 3 (2 + 1)</code></pre>
+<p><br></p>
+<p>And so on.</p>
+<p>0 and 1 are our base cases.</p>
+<p>A basic way of writing it might look like this:</p>
+<p><br></p>
+<pre><code>fib(0) = 0
+fib(1) = 1
+fib(n) = fib(n-1) + fib(n-2)</code></pre>
+<p><br></p>
+<p>So let’s define the function and call it recursively:</p>
+<p><br></p>
+<pre><code>def fib(n):
+    if n == 0:
+        return 0
+    
+    if n == 1:
+        return 1
+    
+    return fib(n-1) + fib(n-2)
+
+for i in range(10):
+    print(fib(i))</code></pre>
+<p><br></p>
+<p>This works and outputs the first 10 Fibonacci number.</p>
+<p>Recursive solutions work and can make sense. But if we try to run it for range(30), our terminal will drastically slow down, due to the poor run time of this algorithm.</p>
+<p>Go in depth on Fibonacci <a href="http://www.maths.surrey.ac.uk/hosted-sites/R.Knott/Fibonacci/fibmaths.html">here</a>.</p>
+<p>This is an example of <code>O(2^n)</code> runtime because for each additional input, the operations computed grow exponentially.</p>
+</body></html>

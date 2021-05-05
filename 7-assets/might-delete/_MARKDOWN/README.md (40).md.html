@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="one-way-flight-trip">One-Way Flight Trip</h1>
+<p>You’ve booked a <em>really</em> cheap one-way flight. Unfortunately, that means you have <em>tons</em> of layovers before you reach your destination. The morning of, you woke up late and had to scramble to the airport to catch your first flight. However, in your rush, you accidentally scrambled all your flight tickets. You don’t know the route of your entire trip now!</p>
+<p>Write a function <code>reconstruct_trip</code> to reconstruct your trip from your mass of flight tickets. Each ticket is represented as a class with the following form:</p>
+<pre><code>class Ticket:
+    def __init__(self, source, destination):
+        self.source = source
+        self.destination = destination</code></pre>
+<p>where the <code>source</code> string represents the starting airport and the <code>destination</code> string represents the next airport along our trip. The ticket for your first flight has a destination with a <code>source</code> of <code>NONE</code>, and the ticket for your final flight has a <code>source</code> with a <code>destination</code> of <code>NONE</code>.</p>
+<p>Pseudocode for an array of <code>Tickets</code> might look like this:</p>
+<pre><code>tickets = [
+    Ticket{ source: &quot;PIT&quot;, destination: &quot;ORD&quot; },
+    Ticket{ source: &quot;XNA&quot;, destination: &quot;CID&quot; },
+    Ticket{ source: &quot;SFO&quot;, destination: &quot;BHM&quot; },
+    Ticket{ source: &quot;FLG&quot;, destination: &quot;XNA&quot; },
+    Ticket{ source: &quot;NONE&quot;, destination: &quot;LAX&quot; },
+    Ticket{ source: &quot;LAX&quot;, destination: &quot;SFO&quot; },
+    Ticket{ source: &quot;CID&quot;, destination: &quot;SLC&quot; },
+    Ticket{ source: &quot;ORD&quot;, destination: &quot;NONE&quot; },
+    Ticket{ source: &quot;SLC&quot;, destination: &quot;PIT&quot; },
+    Ticket{ source: &quot;BHM&quot;, destination: &quot;FLG&quot; }
+]</code></pre>
+<p>Your function should output an array of strings with the entire route of your trip. For the above example, it should look like this:</p>
+<pre><code>[&quot;LAX&quot;, &quot;SFO&quot;, &quot;BHM&quot;, &quot;FLG&quot;, &quot;XNA&quot;, &quot;CID&quot;, &quot;SLC&quot;, &quot;PIT&quot;, &quot;ORD&quot;]</code></pre>
+<p>Your solution should run in linear time. You can assume that your function will always be handed a valid ticket chain as input.</p>
+<h2 id="hints">Hints</h2>
+<ul>
+<li><p>The crux of this problem requires us to ‘link’ tickets together to reconstruct the entire trip. For example, if we have a ticket <code>('SJC', 'BOS')</code> that has us flying from San Jose to Boston, then there exists another ticket where Boston is the starting location, <code>('BOS', 'JFK')</code>.</p></li>
+<li><p>We can hash each ticket such that the starting location is the key and the destination is the value. Then, when constructing the entire route, the <code>i</code>th location in the route can be found by checking the hash table for the <code>i-1</code>th location.</p></li>
+</ul>
+</body></html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="rock-paper-scissors">Rock Paper Scissors</h1>
+<p>Write a function <code>rock_paper_scissors</code> to generate all of the possible plays that can be made in a game of "Rock Paper Scissors”, given some input <code>n</code>, which represents the number of plays per round.</p>
+<p>For example, given n = 2, your function should output the following:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1">[[<span class="st">&#39;rock&#39;</span>, <span class="st">&#39;rock&#39;</span>], [<span class="st">&#39;rock&#39;</span>, <span class="st">&#39;paper&#39;</span>], [<span class="st">&#39;rock&#39;</span>, <span class="st">&#39;scissors&#39;</span>], [<span class="st">&#39;paper&#39;</span>, <span class="st">&#39;rock&#39;</span>], [<span class="st">&#39;paper&#39;</span>, <span class="st">&#39;paper&#39;</span>], [<span class="st">&#39;paper&#39;</span>, <span class="st">&#39;scissors&#39;</span>], [<span class="st">&#39;scissors&#39;</span>, <span class="st">&#39;rock&#39;</span>], [<span class="st">&#39;scissors&#39;</span>, <span class="st">&#39;paper&#39;</span>], [<span class="st">&#39;scissors&#39;</span>, <span class="st">&#39;scissors&#39;</span>]]</a></code></pre></div>
+<p>Your output should be a list of lists containing strings. Each inner list should have length equal to the input n.</p>
+<h2 id="testing">Testing</h2>
+<p>Run the test file by executing <code>python test_rps.py</code>.</p>
+<p>You can also test your implementation manually by executing <code>python rps.py [n]</code>.</p>
+<h2 id="hints">Hints</h2>
+<ul>
+<li>You’ll want to define a list with all of the possible Rock Paper Scissors plays.</li>
+<li>Another problem that asks you to generate a bunch of permutations, so we’re probably going to want to opt for using recursion again. Since we’re building up a list of results, we’ll have to pass the list we’re constructing around to multiple recursive calls so that each recursive call can add to the overall result. However, the tests only give our function <code>n</code> as input. To get around this, we could define an inner recursive helper function that will perform the recursion for us, while allowing us to preserve the outer function’s function signature.</li>
+<li>In Python, you can concatenate two lists with the <code>+</code> operator. However, you’ll want to make sure that both operands are lists!</li>
+<li>If you opt to define an inner recursive helper function, don’t forget to make an initial call to the recursive helper function to kick off the recursion.</li>
+</ul>
+</body></html>

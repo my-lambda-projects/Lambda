@@ -163,7 +163,7 @@
 </ol>
 <p>For this course and for your programming career moving forward we recommend you <strong>always</strong> use <code>let</code> &amp; <code>const</code>. These two words allow us to be the most clear with our intentions for the variable we are creating.</p>
 <h3 id="hoisting-and-scoping-with-variables">Hoisting and scoping with variables</h3>
-<p>A wonderful definition of hoisting by Mabishi Wakio, “Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.”</p>
+<p>A wonderful definition of hoisting by Mabishi Wakio, ""Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.”</p>
 <p>What this means is that when you run JavaScript code the variables and function declarations will be <em>hoisted</em> to the top of their particular scope. This is important because <code>const</code> and <code>let</code> are <strong>block-scoped</strong> while <code>var</code> is <strong>function-scoped</strong>.</p>
 <p>Let’s start by talking more about all <code>const</code>, <code>let</code>, and <code>var</code> before we dive into why the difference of scopes and hoisting is important.</p>
 <h4 id="function-scoped-variables">Function-scoped variables</h4>
@@ -348,7 +348,7 @@
 </ul>
 <h2 id="calculating-closures">Calculating Closures</h2>
 <p>What is a <em>closure</em>? This question is one of the <em>most frequent interview questions</em> where JavaScript is involved. If you answer this question quickly and knowledgeably you’ll look like a great candidate. We know you want to know it all so let’s dive right in!</p>
-<p>The official definition of a closure from MDN is, “A closure is the combination of a function and the lexical environment within which that function was declared.” The practicality of how a <em>closure</em> is used it simple: a <em>closure</em> is when an inner function uses, or changes, variables in an outer function. Closures in JavaScript are incredibly important in terms of the creativity, flexibility and security of your code.</p>
+<p>The official definition of a closure from MDN is, ""A closure is the combination of a function and the lexical environment within which that function was declared.” The practicality of how a <em>closure</em> is used it simple: a <em>closure</em> is when an inner function uses, or changes, variables in an outer function. Closures in JavaScript are incredibly important in terms of the creativity, flexibility and security of your code.</p>
 <p>When you finish this reading you should be able to implement a closure and explain how that closure effects scope.</p>
 <h3 id="closures-and-scope">Closures and scope</h3>
 <p>Let’s look at an example of a simple closure below:</p>
@@ -550,7 +550,7 @@
 <a class="sourceLine" id="cb35-4" title="4"></a>
 <a class="sourceLine" id="cb35-5" title="5"><span class="co">// global. is a method of the global object!</span></a>
 <a class="sourceLine" id="cb35-6" title="6"><span class="va">global</span>.<span class="at">setTimeout</span>(hello<span class="op">,</span> <span class="dv">5000</span>)<span class="op">;</span> <span class="co">// waits 5 seconds then prints &quot;hello!&quot;</span></a></code></pre></div>
-<p>Expanding on the <code>global.setTimeout</code> method now using our <code>cat</code> from before let’s say we wanted our <code>cat</code> to “meow” in 5 seconds instead of right now:</p>
+<p>Expanding on the <code>global.setTimeout</code> method now using our <code>cat</code> from before let’s say we wanted our <code>cat</code> to ""meow” in 5 seconds instead of right now:</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb36-1" title="1"><span class="kw">let</span> cat <span class="op">=</span> <span class="op">{</span></a>
 <a class="sourceLine" id="cb36-2" title="2">  <span class="dt">purr</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{</span></a>
 <a class="sourceLine" id="cb36-3" title="3">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;meow&quot;</span>)<span class="op">;</span></a>
@@ -563,8 +563,8 @@
 <a class="sourceLine" id="cb36-10" title="10"><span class="va">global</span>.<span class="at">setTimeout</span>(<span class="va">cat</span>.<span class="at">purrMore</span><span class="op">,</span> <span class="dv">5000</span>)<span class="op">;</span> <span class="co">// 5 seconds later: TypeError: this.purr is not a function</span></a></code></pre></div>
 <p>So what happened there? We called <code>cat.purrMore</code> so it should have the right context right? Noooooope. This is because <code>cat.purrMore</code> is a callback in the above code! Meaning that when the <code>global.setTimeout</code> function attempts to call the <code>purrMore</code> function all it has reference to is the function itself. Since <code>setTimeout</code> is on the global object that means that the global object will be the context for attempting to invoke the <code>cat.purrMore</code> function.</p>
 <p><strong>Strictly protecting the global object</strong></p>
-<p>The accidental mutation of the global object when invoking functions in unintended contexts is one of the reasons JavaScript released “strict” mode in ECMAScript version 5. We won’t dive too much into JavaScript’s strict mode here, but it’s important to know how strict mode can be used to protect the global object.</p>
-<p>Writing and running code in strict mode is easy and much like writing code in “sloppy mode” (jargon for the normal JavaScript environment). We can run JavaScript in strict mode simply by adding the string “use strict” at the top of our file:</p>
+<p>The accidental mutation of the global object when invoking functions in unintended contexts is one of the reasons JavaScript released ""strict” mode in ECMAScript version 5. We won’t dive too much into JavaScript’s strict mode here, but it’s important to know how strict mode can be used to protect the global object.</p>
+<p>Writing and running code in strict mode is easy and much like writing code in ""sloppy mode” (jargon for the normal JavaScript environment). We can run JavaScript in strict mode simply by adding the string ""use strict” at the top of our file:</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb37-1" title="1"><span class="st">&quot;use strict&quot;</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb37-2" title="2"></a>
 <a class="sourceLine" id="cb37-3" title="3"><span class="kw">function</span> <span class="at">hello</span>() <span class="op">{</span></a>
@@ -605,7 +605,7 @@
 <p>If you’d like to learn more about strict mode we recommend checking out the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode">documentation</a>.</p>
 <h3 id="changing-context-using-bind">Changing context using <code>bind</code></h3>
 <p>Good thing JavaScript has something that can solve this problem for us: what is known as the <strong>binding</strong> of a context to a function.</p>
-<p>From the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind"><code>Function.prototype.bind()</code></a>, “The simplest use of <code>bind()</code> is to make a function that, no matter how it is called, is called with a particular <code>this</code> value”.</p>
+<p>From the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind"><code>Function.prototype.bind()</code></a>, ""The simplest use of <code>bind()</code> is to make a function that, no matter how it is called, is called with a particular <code>this</code> value”.</p>
 <p>Here is a preview of the syntax we use to <code>bind</code>:</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb41-1" title="1"><span class="kw">let</span> aboundFunc <span class="op">=</span> <span class="va">func</span>.<span class="at">bind</span>(context)<span class="op">;</span></a></code></pre></div>
 <p>So when we call <code>bind</code> we are returned what is called an exotic function. Which essentially means a function with it’s <code>this</code> bound no matter where that function is invoked.</p>

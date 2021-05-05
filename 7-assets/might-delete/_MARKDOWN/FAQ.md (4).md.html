@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="faq">FAQ</h1>
+<!-- TODO
+positional args vs keyword ards
+What's the difference between inheritance and polymorphism?
+-->
+<h2 id="contents">Contents</h2>
+<h3 id="general-cs">General CS</h3>
+<ul>
+<li><a href="#q100">What are some things we can do to prepare for CS?</a></li>
+<li><a href="#q3600">What are some ways to learn a new language?</a></li>
+<li><a href="#q3700">Why test code frequently?</a></li>
+<li><a href="#q3800">Why isn’t official documentation more helpful than Stack Overflow?</a></li>
+<li><a href="#q3900">During an interview, what do I do if I can’t remember the exact syntax?</a></li>
+</ul>
+<h3 id="general-python">General Python</h3>
+<ul>
+<li><a href="#q300">In regard to the code challenge solution, why is the ‘+’ operator being used to concatenate strings? I thought we were supposed to use the join() method in Python?</a></li>
+<li><a href="#q400">How do you get out of the Python built-in <code>help</code>?</a></li>
+<li><a href="#q500">Are there any helpful VS Code extensions that are recommend for using with Python?</a></li>
+<li><a href="#q600">I’m on Windows; what command do I use to run Python?</a></li>
+<li><a href="#q700">What version of Python do I need?</a></li>
+<li><a href="#q900">How do I get out of the Python REPL?</a></li>
+<li><a href="#q1000">What does "REPL” mean?</a></li>
+<li><a href="#q1100">I’m on a Mac and when I run Python it says I’m on version 2.7. Why?</a></li>
+<li><a href="#q1200">Does Python use tabs or spaces?</a></li>
+<li><a href="#q1700">Can you use boolean shortcut assignments?</a></li>
+<li><a href="#q1800">Can you do anonymous functions?</a></li>
+<li><a href="#q2000">What are all those method names with double underscores around them?</a></li>
+<li><a href="#q2600">Where are good Python docs?</a></li>
+<li><a href="#q2700">Which linter?</a></li>
+<li><a href="#q3300">What’s the difference between <strong>repr</strong> and <strong>str</strong>?</a></li>
+<li><a href="#q3400">How does <code>sys.argv</code> work?</a></li>
+</ul>
+<h3 id="pipenv">Pipenv</h3>
+<ul>
+<li><a href="#q800">Do I need to use pipenv?</a></li>
+<li><a href="#q2200">When do we run pipenv shell?</a></li>
+<li><a href="#q2300">How do I get out of the pipenv shell?</a></li>
+<li><a href="#q2400">How do I install additional packages from pipenv?</a></li>
+<li><a href="#q2500">Is it possible to use system-wide packages from inside the virtual environment?</a></li>
+</ul>
+<h3 id="object-oriented-programming">Object-Oriented Programming</h3>
+<ul>
+<li><a href="#q200">Why is there such a debate between OOP and functional programming, and why should we care?</a></li>
+<li><a href="#q2900">Following this flow: 1) class Dog is created with attributes size and weight. 2) New instance called Snoopy of class Dog is created. 3) Class Dog gets the method bark() dynamically added to it. Question: will Snoopy now have access to bark() method?</a></li>
+<li><a href="#q2800">Can you dynamically add new methods/properties to class through other functions? Or must all properties/methods be declared at once?</a></li>
+<li><a href="#q3000">If a subclass inherits from two superclasses with a method of the same name, which method will the subclass use?</a></li>
+<li><a href="#q3100">How to handle multiple inheritance and why/when to do it in the first place?</a></li>
+</ul>
+<h3 id="python-scoping">Python Scoping</h3>
+<ul>
+<li><a href="#q1400">Does Python have hoisting?</a></li>
+<li><a href="#q1500">Does scoping work similar to other languages?</a></li>
+<li><a href="#q1600">Can you return a reference to a function from another function? Or store it in a variable?</a></li>
+<li><a href="#q1800">Can you do anonymous functions?</a></li>
+</ul>
+<h3 id="types">Types</h3>
+<ul>
+<li><a href="#q1300">How do I convert an iterator into a list?</a></li>
+<li><a href="#q1900">Is a dict like a JavaScript object?</a></li>
+<li><a href="#q2100">How do I get a value from a dict?</a></li>
+<li><a href="#q3200">Why use tuples instead of lists?</a></li>
+<li><a href="#q3500">How do I concatenate two arrays into a single array?</a></li>
+</ul>
+<h2 id="questions">Questions</h2>
+<p><a name="q100"></a> ### What are some things we can do to prepare for CS?</p>
+<ul>
+<li><a href="https://github.com/LambdaSchool/CS-Wiki/wiki">CS Wiki</a></li>
+<li><a href="https://github.com/LambdaSchool/CS-Wiki/wiki/Polya%27s-Problem-Solving-Techniques">Polya’s Problem Solving Techniques</a></li>
+<li><a href="https://github.com/LambdaSchool/CS-Wiki/wiki/Solving-Programming-Problems">Solving Programming Problems</a></li>
+<li><a href="https://github.com/LambdaSchool/CS-Wiki/wiki/Computer-Science-Reading-List">CS Reading List</a></li>
+<li><a href="https://github.com/LambdaSchool/CS-Wiki/wiki/How-to-Google-Effectively">How to Google effectively</a></li>
+<li><a href="https://github.com/LambdaSchool/CS-Wiki/wiki/How-to-Read-Specifications-and-Code">How to read specs and code</a></li>
+<li><a href="https://github.com/LambdaSchool/CS-Wiki/wiki/Command-Line-Primer">Command line primer</a></li>
+<li><a href="https://github.com/LambdaSchool/CS-Wiki/wiki/CS-Coding-Style-Guidelines">Coding style guidelines</a></li>
+</ul>
+<hr />
+<p><a name="q200"></a> ### Why is there such a debate between OOP and functional programming, and why should we care?</p>
+<p>There are a lot of <a href="https://en.wikipedia.org/wiki/Programming_paradigm">programming paradigms</a> and they all have their strengths and weaknesses when it comes to solving different types of problems.</p>
+<p>People can be quite opinionated about their favorites, but it’s important to remember that no one language or paradigm is the right tool for all jobs. And, additionally, that virtually all problems can be solved in any of the declarative or imperative paradigms. (Some might produce cleaner, more elegant code for a particular problem.)</p>
+<p>Paradigms are the hardest thing to learn because you often have to take all the knowledge you have about solving a problem in another paradigm and throw it out the window. You have to learn new patterns and techniques to be effective.</p>
+<p>But we encourage this kind of learning because most popular languages are to some degree <em>multi-paradigm</em>, and the more techniques you know from more paradigms, the more effective you are in that multi-paradigm langage.</p>
+<hr />
+<p><a name="q300"></a> ### In regard to the code challenge solution, why is the ‘+’ operator being used to concatenate strings? I thought we were supposed to use the join() method in Python?</p>
+<p>Using <code>join()</code> to join large numbers of strings is definitely faster in Python than using the <code>+</code> operator to do it. The reason is that every time you <code>join()</code> or use the <code>+</code> operator, a new string is created. So if you only have to <code>join()</code> once, versus using <code>+</code> hundreds of times, you’ll run faster.</p>
+<p>That said, if you want to use the <code>join()</code> approach, you’ll have to have all your strings in a list, which uses more memory than just having the two or three that you need at a time to use <code>+</code>. So there’s a tradeoff.</p>
+<p>Another tradeoff might be in readability. It might be easier to read the <code>+</code> version. That’s worth something.</p>
+<p>Finally, if <code>+</code> is fast enough for this case, it might not be worth the time to bother with making a list of strings to <code>join()</code>.</p>
+<ul>
+<li><a href="https://waymoot.org/home/python_string/">Speed comparison with different ways of concatenating strings</a></li>
+</ul>
+<hr />
+<p><a name="q400"></a> ### How do you get out of the Python built-in <code>help</code>?</p>
+<p>Hit <code>q</code> for "quit”.</p>
+<p>It’s a common command in Unix "pagers” (programs that show documents a page at a time).</p>
+<hr />
+<p><a name="q500"></a> ### Are there any helpful VS Code extensions that are recommend for using with Python?</p>
+<ul>
+<li><a href="https://code.visualstudio.com/docs/languages/python">Official VS Code Python Extension</a></li>
+</ul>
+<hr />
+<p><a name="q600"></a> ### I’m on Windows; what command do I use to run Python?</p>
+<p>If you’re running in PowerShell or cmd, use:</p>
+<pre><code>py</code></pre>
+<p>If in bash, use <code>python</code> or <code>python3</code>.</p>
+<hr />
+<p><a name="q700"></a> ### What version of Python do I need?</p>
+<p>You should have version 3.7 or higher. Test with:</p>
+<pre class="shell"><code>python --version</code></pre>
+<hr />
+<p><a name="q800"></a> ### Do I need to use pipenv?</p>
+<p>You should. Good Python devs know how.</p>
+<hr />
+<p><a name="q900"></a> ### How do I get out of the Python REPL?</p>
+<p>Hit <code>CTRL-D</code>. This is the way End-Of-File is signified in Unix-likes.</p>
+<hr />
+<p><a name="q1000"></a> ### What does "REPL” mean?</p>
+<p><em>Read, Evaluate, Print Loop</em>.</p>
+<p>It reads your input, evaluates it, and prints the result. And loops.</p>
+<hr />
+<p><a name="q1100"></a> ### I’m on a Mac and when I run Python it says I’m on version 2.7. Why?</p>
+<p>Macs come with version 2.7 by default. You’ll need to install version 3.</p>
+<p>And preferable use <code>pipenv</code> after that.</p>
+<hr />
+<p><a name="q1200"></a> ### Does Python use tabs or spaces?</p>
+<p><a href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a> says four spaces.</p>
+<hr />
+<p><a name="q1300"></a> ### How do I convert an iterator into a list?</p>
+<p>Cast it:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">5</span>))</a></code></pre></div>
+<p>produces:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1">[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]</a></code></pre></div>
+<hr />
+<p><a name="q1400"></a> ### Does Python have hoisting?</p>
+<p>No.</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Hoisting">What is hoisting?</a></li>
+</ul>
+<hr />
+<p><a name="q1500"></a> ### Does scoping work similar to other languages?</p>
+<p>Generally, and also not really. Variables are either global or function-local.</p>
+<p>Since there are no declarations, there’s no block-level scope.</p>
+<p>It is similar to <code>var</code> in JavaScript.</p>
+<hr />
+<p><a name="q1600"></a> ### Can you return a reference to a function from another function? Or store it in a variable?</p>
+<p>Yes. Functions are <a href="https://en.wikipedia.org/wiki/First-class_citizen">first-class citizens</a>.</p>
+<hr />
+<p><a name="q1700"></a> ### Can you use boolean shortcut assignments?</p>
+<p>Yes, you can. This is common in Perl and JavaScript, but it’s not particularly <a href="https://en.wikipedia.org/wiki/Programming_idiom">idiomatic</a> in Python.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1">x <span class="op">=</span> SomethingFalsey <span class="kw">or</span> <span class="dv">5</span></a></code></pre></div>
+<hr />
+<p><a name="q1800"></a> ### Can you do anonymous functions?</p>
+<p>You can use <code>lambda</code> for simple functions:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1">adder <span class="op">=</span> <span class="kw">lambda</span> x, y: x <span class="op">+</span> y</a>
+<a class="sourceLine" id="cb6-2" title="2"></a>
+<a class="sourceLine" id="cb6-3" title="3">adder(<span class="dv">4</span>, <span class="dv">5</span>)   <span class="co"># 9</span></a>
+<a class="sourceLine" id="cb6-4" title="4"></a>
+<a class="sourceLine" id="cb6-5" title="5">do_some_math(<span class="dv">4</span>, <span class="dv">5</span>, <span class="kw">lambda</span> x, y: y <span class="op">-</span> x)</a></code></pre></div>
+<hr />
+<p><a name="q1900"></a> ### Is a dict like a JavaScript object?</p>
+<p>Sort of.</p>
+<p>The syntax is different, though. In Python you must use <code>[]</code> notation to access elements. And you must use <code>"</code> around the key names.</p>
+<hr />
+<p><a name="q2000"></a> ### What are all those method names with double underscores around them?</p>
+<p>Those are function you typically don’t need to use, but can override or call if you wish.</p>
+<p>Most commonly used are:</p>
+<ul>
+<li><code>__init__()</code> is the constructor for objects</li>
+<li><code>__str__()</code> returns a string representation of the object</li>
+<li><code>__repr__()</code> returns a string representation of the object, for debugging</li>
+</ul>
+<hr />
+<p><a name="q2100"></a> ### How do I get a value from a dict?</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" title="1">d <span class="op">=</span> {</a>
+<a class="sourceLine" id="cb7-2" title="2">    <span class="st">&quot;a&quot;</span>: <span class="dv">2</span>,</a>
+<a class="sourceLine" id="cb7-3" title="3">    <span class="st">&quot;b&quot;</span>: <span class="dv">3</span></a>
+<a class="sourceLine" id="cb7-4" title="4">}</a>
+<a class="sourceLine" id="cb7-5" title="5"></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="bu">print</span>(d[<span class="st">&quot;a&quot;</span>])</a></code></pre></div>
+<p>You don’t use dot notation.</p>
+<hr />
+<p><a name="q2200"></a> ### When do we run pipenv shell?</p>
+<p><code>pipenv shell</code> puts you into your work environment. When you’re ready to work, or run the code, or install new dependencies, you should be in your pipenv shell.</p>
+<hr />
+<p><a name="q2300"></a> ### How do I get out of the pipenv shell?</p>
+<p>Type <code>exit</code>.</p>
+<hr />
+<p><a name="q2400"></a> ### How do I install additional packages from pipenv?</p>
+<pre class="shell"><code>pipenv install packagename</code></pre>
+<hr />
+<p><a name="q2500"></a> ### Is it possible to use system-wide packages from inside the virtual environment?</p>
+<p>This is <a href="https://pipenv.readthedocs.io/en/latest/diagnose/#no-module-named-module-name">not recommended</a>.</p>
+<hr />
+<p><a name="q2600"></a> ### Where are good Python docs?</p>
+<ul>
+<li><a href="https://docs.python.org/3/">Official documentation</a> tutorial and library reference.</li>
+</ul>
+<p>The official docs might be hard to read at first, but you’ll get used to them quickly</p>
+<hr />
+<p><a name="q2700"></a> ### Which linter?</p>
+<p>Pylint or Flake8. The latter seems to be a bit more popular.</p>
+<hr />
+<p><a name="q2800"></a> ### Can you dynamically add new methods/properties to class through other functions? Or must all properties/methods be declared at once?</p>
+<p>You can add them dynamically at runtime, but you have to add them to the class itself:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">class</span> Foo():</a>
+<a class="sourceLine" id="cb9-2" title="2">    <span class="cf">pass</span></a>
+<a class="sourceLine" id="cb9-3" title="3"></a>
+<a class="sourceLine" id="cb9-4" title="4">f <span class="op">=</span> Foo()</a>
+<a class="sourceLine" id="cb9-5" title="5"></a>
+<a class="sourceLine" id="cb9-6" title="6">Foo.x <span class="op">=</span> <span class="dv">12</span>  <span class="co"># Dynamically add property to class</span></a>
+<a class="sourceLine" id="cb9-7" title="7"></a>
+<a class="sourceLine" id="cb9-8" title="8">f.x <span class="op">==</span> <span class="dv">12</span> <span class="co"># True!</span></a>
+<a class="sourceLine" id="cb9-9" title="9"></a>
+<a class="sourceLine" id="cb9-10" title="10"><span class="kw">def</span> a_method(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb9-11" title="11">    <span class="bu">print</span>(<span class="st">&quot;Hi&quot;</span>)</a>
+<a class="sourceLine" id="cb9-12" title="12"></a>
+<a class="sourceLine" id="cb9-13" title="13">Foo.hi <span class="op">=</span> a_method  <span class="co"># Dynamically add method to class</span></a>
+<a class="sourceLine" id="cb9-14" title="14"></a>
+<a class="sourceLine" id="cb9-15" title="15">f.hi()   <span class="co"># Prints &quot;Hi&quot;</span></a></code></pre></div>
+<p>This is not a common thing to see in Python, however.</p>
+<hr />
+<p><a name="q2900"></a> ### Following this flow: 1) class Dog is created with attributes size and weight. 2) New instance called Snoopy of class Dog is created. 3) Class Dog gets the method bark() dynamically added to it. Question: will Snoopy now have access to bark() method?</p>
+<p>Yes.</p>
+<hr />
+<p><a name="q3000"></a> ### If a subclass inherits from two superclasses with a method of the same name, which method will the subclass use?</p>
+<p>The answer to this is twofold:</p>
+<ol type="1">
+<li><p>Lots of devs and shops frown on multiple inheritance, so maybe just don’t do it. (<a href="https://softwareengineering.stackexchange.com/questions/218458/is-there-any-real-reason-multiple-inheritance-is-hated">Discussion</a>)</p></li>
+<li><p>As for the order in which methods of the same name are resolved, check out the <a href="https://en.wikipedia.org/wiki/C3_linearization">MRO Algorithm</a> which is what Python uses.</p></li>
+</ol>
+<hr />
+<p><a name="q3100"></a> ### How to handle multiple inheritance and why/when to do it in the first place?</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">class</span> Base1:</a>
+<a class="sourceLine" id="cb10-2" title="2">    <span class="cf">pass</span></a>
+<a class="sourceLine" id="cb10-3" title="3"></a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="kw">class</span> Base2:</a>
+<a class="sourceLine" id="cb10-5" title="5">    <span class="cf">pass</span></a>
+<a class="sourceLine" id="cb10-6" title="6"></a>
+<a class="sourceLine" id="cb10-7" title="7"><span class="kw">class</span> Derived(Base1, Base2):  <span class="co"># Multiple inheritance</span></a>
+<a class="sourceLine" id="cb10-8" title="8">    <span class="cf">pass</span></a></code></pre></div>
+<p>Sometimes multiple inheritance can lead to elegant solutions when a subclass needs attributes from multiple, otherwise-unrelated parent classes.</p>
+<p>However, <a href="https://softwareengineering.stackexchange.com/questions/218458/is-there-any-real-reason-multiple-inheritance-is-hated">a lot of people find it’s not worth the trouble</a>) and opt for other solutions, like composition.</p>
+<hr />
+<p><a name="q3200"></a> ### Why use tuples instead of lists?</p>
+<ul>
+<li>Tuples are immutable. There’s a school of thought that says bugs can be reduced if you make as many things immutable as you can.</li>
+<li>Tuples are faster than lists to access.</li>
+<li>Some tuples (containing primitive types), can be used as <code>dict</code> keys.</li>
+</ul>
+<hr />
+<p><a name="q3300"></a> ### What’s the difference between <strong>repr</strong> and <strong>str</strong>?</p>
+<p>Generally speaking, <code>__repr__</code> is the string a dev would want to see if they dumped an object to the screen. <code>__str__</code> is the string a user would want to see if the object were <code>print()</code>ed.</p>
+<p>The output of <code>__repr__</code> should be <em>valid Python code that can reproduce the object</em>.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">class</span> Goat:</a>
+<a class="sourceLine" id="cb11-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, leg_count):</a>
+<a class="sourceLine" id="cb11-3" title="3">        <span class="va">self</span>.leg_count <span class="op">=</span> leg_count</a>
+<a class="sourceLine" id="cb11-4" title="4"></a>
+<a class="sourceLine" id="cb11-5" title="5">    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb11-6" title="6">        <span class="cf">return</span> <span class="ss">f&#39;Goat(leg_count=</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>leg_count<span class="sc">}</span><span class="ss">)&#39;</span></a>
+<a class="sourceLine" id="cb11-7" title="7"></a>
+<a class="sourceLine" id="cb11-8" title="8">    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb11-9" title="9">        <span class="cf">return</span> <span class="ss">f&#39;a goat with </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>leg_count<span class="sc">}</span><span class="ss"> legs&#39;</span></a></code></pre></div>
+<p>In action:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" title="1"><span class="op">&gt;&gt;&gt;</span> g <span class="op">=</span> Goat(<span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="op">&gt;&gt;&gt;</span> <span class="bu">str</span>(g)</a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="co">&#39;a goat with 4 legs&#39;</span></a>
+<a class="sourceLine" id="cb12-4" title="4"><span class="op">&gt;&gt;&gt;</span> g</a>
+<a class="sourceLine" id="cb12-5" title="5">Goat(leg_count<span class="op">=</span><span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb12-6" title="6"><span class="op">&gt;&gt;&gt;</span> Goat(leg_count<span class="op">=</span><span class="dv">4</span>)  <span class="co"># output of __repr__ makes a clone of that object!</span></a>
+<a class="sourceLine" id="cb12-7" title="7">Goat(leg_count<span class="op">=</span><span class="dv">4</span>)</a></code></pre></div>
+<hr />
+<p><a name="q3400"></a> ### How does <code>sys.argv</code> work?</p>
+<p>It’s a list that holds <em>command line arguments</em>. This is a way for a user to run your program and specify different behavior from the command line.</p>
+<p>Here’s a small program that prints the command line arguments:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb13-1" title="1"><span class="im">import</span> sys</a>
+<a class="sourceLine" id="cb13-2" title="2"></a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(sys.argv)):</a>
+<a class="sourceLine" id="cb13-4" title="4">    <span class="bu">print</span>(<span class="ss">f&#39;Argument #</span><span class="sc">{i}</span><span class="ss"> is: </span><span class="sc">{</span>sys<span class="sc">.</span>argv[i]<span class="sc">}</span><span class="ss">&#39;</span>)</a></code></pre></div>
+<p>and here’s some output, assuming you named the script <code>foo.py</code>:</p>
+<pre class="screen"><code>$ python foo.py
+Argument #0 is: foo.py</code></pre>
+<pre class="screen"><code>$ python foo.py antelope buffalo
+Argument #0 is: foo.py
+Argument #1 is: antelope
+Argument #2 is: buffalo</code></pre>
+<p>Note that the 0th element in the list is the name of the program.</p>
+<p>Here’s another program that prints up to whatever number the user specifies:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb16-1" title="1"><span class="im">import</span> sys</a>
+<a class="sourceLine" id="cb16-2" title="2"></a>
+<a class="sourceLine" id="cb16-3" title="3"><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">int</span>(sys.argv[<span class="dv">1</span>])):</a>
+<a class="sourceLine" id="cb16-4" title="4">    <span class="bu">print</span>(i<span class="op">+</span><span class="dv">1</span>)</a></code></pre></div>
+<p>Example runs:</p>
+<pre class="screen"><code>$ python foo.py 2
+1
+2</code></pre>
+<pre class="screen"><code>$ python foo.py 4
+1
+2
+3
+4</code></pre>
+<hr />
+<p><a name="q3500"></a> ### How do I concatenate two arrays into a single array?</p>
+<p>Use <code>extend()</code>.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb19-1" title="1">a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb19-2" title="2">b <span class="op">=</span> [<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</a>
+<a class="sourceLine" id="cb19-3" title="3"></a>
+<a class="sourceLine" id="cb19-4" title="4">a.extend(b)</a>
+<a class="sourceLine" id="cb19-5" title="5"></a>
+<a class="sourceLine" id="cb19-6" title="6"><span class="bu">print</span>(a)   <span class="co"># [ 1, 2, 3, 4, 5, 6 ]</span></a></code></pre></div>
+<hr />
+<p><a name="q3600"></a> ### What are some ways to learn a new language?</p>
+<ul>
+<li>Figure out how variables and functions work.</li>
+<li>Build small toy programs to test individual features.</li>
+<li>Build a larger project that exercises many features.</li>
+<li>Don’t get frustrated! Treat the problem like a curiosity, a thing to be studied.</li>
+<li>Do small tutorials or code-alongs.</li>
+<li>Find docs you like.</li>
+<li>Learn the differences between this language and one you know.</li>
+<li>Learn this language’s way of doing the things you know.</li>
+</ul>
+<p>Things to look for in the new language:</p>
+<ul>
+<li>Collections (arrays, vectors, dictionaries)</li>
+<li>Data types</li>
+<li>Iterators</li>
+<li>Flow control (if, while, loops, etc)</li>
+<li>Functions</li>
+<li>etc.</li>
+</ul>
+<hr />
+<p><a name="q3700"></a> ### Why test code frequently?</p>
+<p>It’s often better to make progress in small increments than to write a bunch of stuff and test it in one go.</p>
+<p>Also, it’s easier to stay motivated if you spend 10 minutes getting a first version going, even if it’s missing 99% of its features, and then starting to iterate on that.</p>
+<hr />
+<p><a name="q3800"></a> ### Why isn’t official documentation more helpful than Stack Overflow?</p>
+<p>Often official documentation is more geared toward being a concise reference. Stack Overflow is more of an example-based learning environment.</p>
+<p>Sometimes you need to know the specific details. In those cases, you can dig into the spec, with all it’s lawyerly language, and try to decipher what it is you have to do.</p>
+<p>Other times, you just need a getting-started example, and Stack Overflow is great for that.</p>
+<p>Both types of documentation have their purpose.</p>
+<hr />
+<p><a name="q3900"></a> ### During an interview, what do I do if I can’t remember the exact syntax?</p>
+<p>Just say so.</p>
+<p>"I can’t remember how to add an element to the end of the list in Python… is it <code>push()</code>? In any case, we’ll call the function here that does that.”</p>
+<p>(Turns out it’s <code>append()</code> in Python, but being honest and describing what it is your’re trying to do will get you 99% of the way there in an interview.)</p>
+</body></html>

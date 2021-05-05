@@ -34,7 +34,7 @@ export default Lambda;
 
 ## What are lifecycle methods? 
 
-This may feel a bit complex at first, especially coming from the more streamlined Hooks approach. An easy way to understand the React lifecycle is that it's simply “when a component does what it does, and why". 
+This may feel a bit complex at first, especially coming from the more streamlined Hooks approach. An easy way to understand the React lifecycle is that it's simply "when a component does what it does, and why". 
 
 Just like a 🌿 or 🦔, a React component has three phases to its "lifecycle", and different things need to happen at each stage of life:
 * 🐛 Birth / mounting (`componentDidMount`)

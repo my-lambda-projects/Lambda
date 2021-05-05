@@ -105,10 +105,10 @@
 <p>console.log(secondEl); // =&gt; 9</p></li>
 </ul>
 <p>// can also destructure using … syntax let array = [35,9,14]; let [head, …tail] = array; console.log(head); // =&gt; 35 console.log(tail); // =&gt; [9, 14]</p>
-<p><code>javascript - Destructure an object to reference specific values    - if you want to use variable names that don't match the keys, you can use aliasing       - `let { oldkeyname: newkeyname } = object`    - rule of thumb—only destructure values from objects that are two levels deep</code>javascript let obj = { name: “Wilfred”, appearance: [“short”, “mustache”], favorites: { color: “mauve”, food: “spaghetti squash”, number: 3 } } // with variable names that match keys let { name, appearance } = obj; console.log(name); // “Wilfred” console.log(appearance); // [“short”, “mustache”]</p>
+<p><code>javascript - Destructure an object to reference specific values    - if you want to use variable names that don't match the keys, you can use aliasing       - `let { oldkeyname: newkeyname } = object`    - rule of thumb—only destructure values from objects that are two levels deep</code>javascript let obj = { name: ""Wilfred”, appearance: [""short”, ""mustache”], favorites: { color: ""mauve”, food: ""spaghetti squash”, number: 3 } } // with variable names that match keys let { name, appearance } = obj; console.log(name); // ""Wilfred” console.log(appearance); // [""short”, ""mustache”]</p>
 <p>// with new variable names (aliasing) let {name: myName, appearance: myAppearance} = obj;</p>
-<p>console.log(myName); // “Wilfred” console.log(myAppearance); // [“short”, “mustache”]</p>
-<p>// in a function call let sayHello = function({name}) { console.log(“Hello,” + name); // “Hello Wilfred” }</p>
+<p>console.log(myName); // ""Wilfred” console.log(myAppearance); // [""short”, ""mustache”]</p>
+<p>// in a function call let sayHello = function({name}) { console.log(""Hello,” + name); // ""Hello Wilfred” }</p>
 <p>// nested objects + aliasing let { favorites: {color, food: vegetable} } = obj; console.log(color, vegetable); //=&gt; mauve spaghetti squash ```</p>
 <ul>
 <li><p>Write a function that accepts a array as an argument and returns an object representing the count of each character in the array</p>
@@ -125,7 +125,7 @@
 </ul>
 <h3 id="callbacks-lesson-concepts">Callbacks Lesson Concepts</h3>
 <ul>
-<li>Given multiple plausible reasons, identify why functions are called “First Class Objects” in JavaScript.
+<li>Given multiple plausible reasons, identify why functions are called ""First Class Objects” in JavaScript.
 <ul>
 <li>they can be stored in variables, passed as arguments to other functions, and serve as return value for a function</li>
 <li>supports same basic operations as other types (strings, bools, numbers)</li>
@@ -195,9 +195,9 @@
 </ul></li>
 <li>Explain the difference between <code>const</code>, <code>let</code>, and <code>var</code> declarations
 <ul>
-<li><code>var</code> is function scoped—so if you declare it anywhere in a function, the declaration (but not assignment) is “hoisted”
+<li><code>var</code> is function scoped—so if you declare it anywhere in a function, the declaration (but not assignment) is ""hoisted”
 <ul>
-<li>so it will exist in memory as “undefined” which is bad and unpredictable</li>
+<li>so it will exist in memory as ""undefined” which is bad and unpredictable</li>
 </ul></li>
 <li><code>var</code> will also allow you to redeclare a variable, while <code>let</code> or <code>const</code> will raise a syntax error. you shouldn’t be able to do that!</li>
 <li><code>const</code> won’t let you reassign a variable, but if it points to a mutable object, you will still be able to change the value by mutating the object</li>
@@ -248,7 +248,7 @@
 <li><p>so you can’t use an arrow function to define a method directly</p>
 <p>```javascript</p>
 <p>let obj = {</p>
-<p>name: “my object”,</p>
+<p>name: ""my object”,</p>
 <p>unboundFunc: function () {</p>
 <p>return this.name;</p>
 <p>// this function will be able to be called on different objects</p>
@@ -297,7 +297,7 @@
 <a class="sourceLine" id="cb9-38" title="38"><span class="co">// the return value of my immediately invoked function // shows that the context inside of the object is the // global object, not the object itself // context only changes inside a function that is called // on an object console.log(&quot;immediatelyInvokedFunc: &quot;, obj.immediatelyInvokedFunc); // =&gt; undefined</span></a>
 <a class="sourceLine" id="cb9-39" title="39"><span class="co">// even though we&#39;re inside a nested object, the context is // still the same as it was outside the outer object // in this case, the global object console.log(&quot;innerArrowFunc: &quot;, obj.innerObj.innerArrowFunc()); // =&gt; undefined</span></a></code></pre></div>
 <p>}</p>
-<p>```javascript - Implement a closure and explain how the closure effects scope - a closure is “the combination of a function and the lexical environment within which that function was declared” - alternatively, “when an inner function uses or changes variables in an outer function” - closures have access to any variables within their own scope + scope of outer functions + global scope — the set of all these available variables is “lexical environemnt” - closure keeps reference to all variables <strong>even if the outer function has returned</strong> - each function has a private mutable state that cannot be accessed externally - the inner function will maintain a reference to the scope in which it was declared. so it has access to variables that were initialized in any outer scope—even if that scope - if a variable exists in the scope of what could have been accessed by a function (e.g. global scope, outer function, etc), does that variable wind up in the closure even if it never got accessed? - if you change the value of a variable (e.g. i++) you will change the value of that variable in the scope that it was declared in</p>
+<p>```javascript - Implement a closure and explain how the closure effects scope - a closure is ""the combination of a function and the lexical environment within which that function was declared” - alternatively, ""when an inner function uses or changes variables in an outer function” - closures have access to any variables within their own scope + scope of outer functions + global scope — the set of all these available variables is ""lexical environemnt” - closure keeps reference to all variables <strong>even if the outer function has returned</strong> - each function has a private mutable state that cannot be accessed externally - the inner function will maintain a reference to the scope in which it was declared. so it has access to variables that were initialized in any outer scope—even if that scope - if a variable exists in the scope of what could have been accessed by a function (e.g. global scope, outer function, etc), does that variable wind up in the closure even if it never got accessed? - if you change the value of a variable (e.g. i++) you will change the value of that variable in the scope that it was declared in</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">function</span> <span class="at">createCounter</span>() <span class="op">{</span></a>
 <a class="sourceLine" id="cb10-2" title="2">   <span class="co">// this function starts a counter at 0, then returns a</span></a>
 <a class="sourceLine" id="cb10-3" title="3">   <span class="co">// new function that can access and change that counter</span></a>
@@ -380,7 +380,7 @@ boundCat(); // prints &quot;meow&quot;</code></pre>
 </ul>
 <h3 id="section-2"></h3>
 <h3 id="section-3"></h3>
-<p><code>javascript    - `bind` can also work with arguments, so you can have a version of a function with particular arguments and a particular context. the first arg will be the context aka the `this` you want it to use. the next arguments will be the functions arguments that you are binding       - if you just want to bind it to those arguments in particular, you can use `null` as the first argument, so the context won't be bound, just the arguments - Given a code snippet, identify what `this` refers to    - important to recognize the difference between scope and context       - scope works like a dictionary that has all the variables that are available within a given block, plus a pointer back the next outer scope (which itself has pointers to new scopes until you reach the global scope. so you can think about a whole given block's scope as a kind of linked list of dictionaries) (also, this is not to say that scope is actually implemented in this way, that is just the schema that i can use to understand it)       - context refers to the value of the `this` keyword    - the keyword `this` exists in every function and it evaluates to the object that is currently invoking that function    - so the context is fairly straightforward when we talk about methods being called on specific objects    - you could, however, call an object's method on something other than that object, and then this would refer to the context where/how it was called, e.g.</code>javascript let dog = { name: “Bowser”, changeName: function () { this.name = “Layla”; }, };</p>
+<p><code>javascript    - `bind` can also work with arguments, so you can have a version of a function with particular arguments and a particular context. the first arg will be the context aka the `this` you want it to use. the next arguments will be the functions arguments that you are binding       - if you just want to bind it to those arguments in particular, you can use `null` as the first argument, so the context won't be bound, just the arguments - Given a code snippet, identify what `this` refers to    - important to recognize the difference between scope and context       - scope works like a dictionary that has all the variables that are available within a given block, plus a pointer back the next outer scope (which itself has pointers to new scopes until you reach the global scope. so you can think about a whole given block's scope as a kind of linked list of dictionaries) (also, this is not to say that scope is actually implemented in this way, that is just the schema that i can use to understand it)       - context refers to the value of the `this` keyword    - the keyword `this` exists in every function and it evaluates to the object that is currently invoking that function    - so the context is fairly straightforward when we talk about methods being called on specific objects    - you could, however, call an object's method on something other than that object, and then this would refer to the context where/how it was called, e.g.</code>javascript let dog = { name: ""Bowser”, changeName: function () { this.name = ""Layla”; }, };</p>
 <p>// note this is <strong>not invoked</strong> - we are assigning the function itself let change = dog.changeName; console.log(change()); // undefined</p>
 <p>// our dog still has the same name console.log(dog); // { name: ‘Bowser’, changeName: [Function: changeName] }</p>
 <p>// instead of changing the dog we changed the global name!!! console.log(this); // Object [global] {etc, etc, etc, name: ‘Layla’} ```</p>
@@ -405,8 +405,8 @@ global.setTimeout(cat.purrMore, 5000); // 5 seconds later: TypeError: this.purr 
 <h3 id="section-4"></h3>
 <p>let sayMeow = cat.purrMore; console.log(sayMeow()); // TypeError: this.purr is not a function</p>
 <p>// we can use the built in Function.bind to ensure our context, our <code>this</code>, // is the cat object let boundCat = sayMeow.bind(cat);</p>
-<p>boundCat(); // prints “meow”</p>
-<p><code>text    - `bind` can also work with arguments, so you can have a version of a function with particular arguments and a particular context. the first arg will be the context aka the `this` you want it to use. the next arguments will be the functions arguments that you are binding       - if you just want to bind it to those arguments in particular, you can use `null` as the first argument, so the context won't be bound, just the arguments - Given a code snippet, identify what `this` refers to    - important to recognize the difference between scope and context       - scope works like a dictionary that has all the variables that are available within a given block, plus a pointer back the next outer scope (which itself has pointers to new scopes until you reach the global scope. so you can think about a whole given block's scope as a kind of linked list of dictionaries) (also, this is not to say that scope is actually implemented in this way, that is just the schema that i can use to understand it)       - context refers to the value of the `this` keyword    - the keyword `this` exists in every function and it evaluates to the object that is currently invoking that function    - so the context is fairly straightforward when we talk about methods being called on specific objects    - you could, however, call an object's method on something other than that object, and then this would refer to the context where/how it was called, e.g.</code>javascript let dog = { name: “Bowser”, changeName: function () { this.name = “Layla”; }, };</p>
+<p>boundCat(); // prints ""meow”</p>
+<p><code>text    - `bind` can also work with arguments, so you can have a version of a function with particular arguments and a particular context. the first arg will be the context aka the `this` you want it to use. the next arguments will be the functions arguments that you are binding       - if you just want to bind it to those arguments in particular, you can use `null` as the first argument, so the context won't be bound, just the arguments - Given a code snippet, identify what `this` refers to    - important to recognize the difference between scope and context       - scope works like a dictionary that has all the variables that are available within a given block, plus a pointer back the next outer scope (which itself has pointers to new scopes until you reach the global scope. so you can think about a whole given block's scope as a kind of linked list of dictionaries) (also, this is not to say that scope is actually implemented in this way, that is just the schema that i can use to understand it)       - context refers to the value of the `this` keyword    - the keyword `this` exists in every function and it evaluates to the object that is currently invoking that function    - so the context is fairly straightforward when we talk about methods being called on specific objects    - you could, however, call an object's method on something other than that object, and then this would refer to the context where/how it was called, e.g.</code>javascript let dog = { name: ""Bowser”, changeName: function () { this.name = ""Layla”; }, };</p>
 <p>// note this is <strong>not invoked</strong> - we are assigning the function itself let change = dog.changeName; console.log(change()); // undefined</p>
 <p>// our dog still has the same name console.log(dog); // { name: ‘Bowser’, changeName: [Function: changeName] }</p>
 <p>// instead of changing the dog we changed the global name!!! console.log(this); // Object [global] {etc, etc, etc, name: ‘Layla’} ```</p>
@@ -420,7 +420,7 @@ global.setTimeout(cat.purrMore, 5000); // 5 seconds later: TypeError: this.purr 
 <p>```javascript</p>
 <p>let cat = {</p>
 <p>purr: function () {</p>
-<p>console.log(“meow”);</p>
+<p>console.log(""meow”);</p>
 <p>},</p>
 <p>purrMore: function () {</p>
 <p>this.purr();</p>

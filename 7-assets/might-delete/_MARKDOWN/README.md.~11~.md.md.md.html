@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="module-project-context-api---shopping-cart">Module Project: Context API - Shopping Cart</h1>
+<p>In this module you will take your newfound knowledge of <code>Context API</code> and refactor a e-commerce store to use <code>Context API</code> as well as extend the functionality of the application making it more robust!</p>
+<h2 id="instructions">Instructions</h2>
+<p>Read these instructions carefully. Understand exactly what is expected <em>before</em> starting this project.</p>
+<h2 id="commits">Commits</h2>
+<p>Commit your code regularly and meaningfully. This helps both you and your team lead in case you ever need to return to old code for any number of reasons.</p>
+<h2 id="description">Description</h2>
+<p>In this project you’ll take take an existing e-commerce store and refactor the application to use the <code>Context API</code>.</p>
+<h2 id="project-set-up">Project Set Up</h2>
+<ul>
+<li>[ ] Create a forked copy of this project.</li>
+<li>[ ] Add your team lead as collaborator on Github.</li>
+<li>[ ] Clone your OWN version of the repository in your terminal</li>
+<li>[ ] CD into the project base directory <code>cd react-shopping-cart</code></li>
+<li>[ ] Download project dependencies by running one of these two commands <code>yarn</code> or <code>npm install</code></li>
+<li>[ ] Using the same command tool (yarn or npm) start up the app using <code>yarn start</code> or <code>npm start</code></li>
+<li>[ ] Create a new branch: git checkout -b <code>&lt;firstName-lastName&gt;</code>.</li>
+<li>[ ] Implement the project on your newly created <code>&lt;firstName-lastName&gt;</code> branch, committing changes regularly.</li>
+<li>[ ] Push commits: git push origin <code>&lt;firstName-lastName&gt;</code>.</li>
+</ul>
+<p>Follow these steps for completing your project.</p>
+<ul>
+<li>[ ] Submit a Pull-Request to merge <code>&lt;firstName-lastName&gt;</code> Branch into master (student’s repository). <strong>Please don’t merge your own pull request</strong></li>
+<li>[ ] Add your team lead as a reviewer on the pull-request</li>
+<li>[ ] Your team lead will count the project as complete by merging the branch back into master.</li>
+<li>[ ] Do your magic!</li>
+</ul>
+<h1 id="project---shopping-cart">Project - Shopping Cart</h1>
+<h2 id="directions">Directions</h2>
+<p>Before you get started, please take a few minutes and get acquainted with this application. Understand what’s going on and how it’s working.</p>
+<ul>
+<li><p>If you look in the <code>App.js</code> you’ll notice there are currently two state properties - <code>products</code> to keep track of all available products, and <code>cart</code> that will keep track of all the items in our <code>cart</code>.</p></li>
+<li><p>You’ll also notice inside of our <code>App.js</code> we have 3 components. A navigation component and two route based components. Each of those components are all being passed either our <code>cart</code> state or <code>product</code> state as props, when we start to scale our application and add more props our codebase is going to start to become very cumbersome and will make our application hard to work with.</p></li>
+<li><p>To combat this from happening we’re going to refactor our application to use <code>Context API</code>, making it easier and more effiecent to access data across our application.</p></li>
+</ul>
+<p><strong>STEP 1 - Creating ProductContext</strong></p>
+<ul>
+<li><p>In <code>src</code>, create a new folder named <code>contexts</code>, this folder is going to be used to hold all of <code>context objects</code> we create.</p></li>
+<li><p>Inside that folder create a new file named <code>ProductContext.js</code></p></li>
+<li><p>In this file, import the <code>createContext</code> function from the react library and create our <code>ProductContext</code>.</p></li>
+</ul>
+<p><strong>STEP 2 - Providing data with ProductContext</strong></p>
+<ul>
+<li><p>Now that we’ve created our <code>ProductContext</code> we can import into our <code>App.js</code>. Now we can start providing data across our application!</p></li>
+<li><p>Wrap all of your components/routes in <code>App.js</code> inside of <code>ProductContext.Provider</code> component.</p></li>
+<li><p>Next pass a value prop to your <code>Provider</code>.</p></li>
+<li><p>In the value prop we’ll pass in the products state, and an addItem function that will allow us to add books to the cart.</p></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="op">&lt;</span><span class="va">ProductContext</span>.<span class="at">Provider</span> value<span class="op">={{</span> products<span class="op">,</span> addItem <span class="op">}}&gt;</span></a></code></pre></div>
+<ul>
+<li>Now that we’re providing our products state and addItem function we can refactor our products route to no longer use render props.</li>
+</ul>
+<p><strong>Before</strong></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="op">&lt;</span>Route</a>
+<a class="sourceLine" id="cb2-2" title="2">  exact</a>
+<a class="sourceLine" id="cb2-3" title="3">  path<span class="op">=</span><span class="st">&quot;/&quot;</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  render<span class="op">={</span>() <span class="kw">=&gt;</span> <span class="op">&lt;</span>Products products<span class="op">={</span>products<span class="op">}</span> addItem<span class="op">={</span>addItem<span class="op">}</span> /&gt;<span class="op">}</span></a>
+<a class="sourceLine" id="cb2-5" title="5">/&gt;</a></code></pre></div>
+<p><strong>AFTER</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="op">&lt;</span>Route exact path<span class="op">=</span><span class="st">&quot;/&quot;</span> component<span class="op">={</span>Products<span class="op">}</span> /&gt;</a></code></pre></div>
+<ul>
+<li>After refactoring you’ll notice a few errors… Don’t worry we’ll clean those up shortly!</li>
+</ul>
+<p><strong>STEP 3 - Consuming data with ProductContext</strong></p>
+<ul>
+<li><p>Now that our <code>ProductContext</code> is now providing data we can finally consume it! To do so let’s head over to our <code>Products</code> component and import the <code>useContext</code> hook as well as our <code>ProductContext</code>.</p></li>
+<li><p>In the component, call the <code>useContext</code> hook and pass in the context object we want to use into it.</p></li>
+<li><p>When we do this, <code>useContext</code> is going to return value passed by our <code>ProductContext</code> Provider <code>value</code> prop. In our case we’re getting back an object with two properties. A <code>products</code> property and a <code>addItem</code> property. We can go ahead and destructure those.</p></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">const</span> <span class="op">{</span> products<span class="op">,</span> addItem <span class="op">}</span> <span class="op">=</span> <span class="at">useContext</span>(ProductContext)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li><p>Now that we have all of the data we need we can refactor our <code>Products</code> component from using props.</p></li>
+<li><p>To do so we just need to remove every instance of <code>props</code>.</p>
+<ul>
+<li>Remove it from the function parameters</li>
+<li>Remove it from the products map</li>
+<li>Remove it from addItem prop</li>
+</ul></li>
+<li><p>Now our <code>Products</code> component is getting it’s data solely from <code>Context API</code> 😃.</p></li>
+</ul>
+<p><strong>STEP 4 - Create the CartContext</strong></p>
+<ul>
+<li><p>Now that we have refactored our <code>Products</code> component to utilize <code>Context API</code> let’s refactor our <code>Cart</code> and <code>Navigation</code> Component to use <code>Context API</code> as well.</p></li>
+<li><p>To start create a new file in our contexts folder named <code>CartContext.js</code>, this context is going to be utilized by our <code>ShoppingCart</code> and <code>Navigation</code> component.</p></li>
+<li><p>Inside of our new <code>CartContext</code> import <code>createContext</code> and create a new context named <code>CartContext</code>.</p></li>
+</ul>
+<p><strong>STEP 5 - Providing data with CartContext</strong></p>
+<ul>
+<li><p>Let’s go ahead and bring our newly created <code>CartContext</code> into our <code>App.js</code> and wrap all of our components inside of our <code>CartContext.Provider</code>. Make sure our <code>ProductContext.Provider</code> is still the root provider.</p></li>
+<li><p>Now pass a value prop to our <code>CartContext.Provider</code>, this value prop is going to contain our <code>cart</code> state.</p></li>
+<li><p>Now that we’re providing our cart data, we can start to refactor our <code>Navigation</code> and <code>ShoppingCart</code> components.</p></li>
+<li><p>Let’s start with our <code>ShoppingCart</code> component first. Go ahead and refactor the <code>ShoppingCart</code> route to no longer use render props. This will throw us an error, but we’ll be able to resolve it quickly.</p></li>
+<li><p>While were at it let’s go ahead and remove the props from our navigation as well.</p></li>
+</ul>
+<p><strong>STEP 6 - The final stretch</strong></p>
+<ul>
+<li><p>Our cart data is now being provided to us from our <code>CartContext</code> time to consume it!</p></li>
+<li><p>First, let’s head to our <code>ShoppingCart</code> component and import the <code>useContext</code> hook and our <code>CartContext</code>.</p></li>
+<li><p>Now in the component, pass <code>CartContext</code> to the <code>useContext</code> hook and assign it to a variable named cart.</p></li>
+<li><p>Inside of our component we now need to remove all instances of props.</p>
+<ul>
+<li>Remove the <code>props</code> parameter</li>
+<li>Remove the <code>props</code> portion in our <code>getCartTotal</code> function</li>
+<li>Remove <code>props</code> when we’re mapping over our cart</li>
+</ul></li>
+<li>Time to do the same thing for our <code>Navigation</code> component.
+<ul>
+<li>First import the <code>useContext</code> hook and our <code>CartContext</code></li>
+<li>Next, pass our <code>CartContext</code> to the <code>useContext</code> hook and assign it to a variable named cart.</li>
+<li>Lastly we need to remove all instances of <code>props</code>
+<ul>
+<li>Remove <code>props</code> from our parameters</li>
+<li>Remove <code>props</code> from our cart length</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>We have now successfully converted our application into using <code>Context API</code> 🔥</p>
+<h2 id="mvp-requirements"><em>MVP Requirements:</em></h2>
+<ul>
+<li>Create a <code>ProductContext</code> and a <code>CartContext</code></li>
+<li>Use the Provider Component from <code>ProductContext</code> and <code>CartContext</code> to provide data to child components</li>
+<li>Consume data using the <code>useContext</code> hook from <code>ProductContext</code> and <code>CartContext</code></li>
+</ul>
+<h2 id="stretch-problems">Stretch Problems</h2>
+<p>Do not attempt stretch problems until MVP has been reached and a final commit has been made.</p>
+<ul>
+<li><p>Create a <code>removeItem</code> function that allows you to remove an item from your cart with a click of a button. This <code>removeItem</code> function should be able to be consumed from your <code>ShoppingCartItem</code> component. Remember each item has an <code>id</code> this will help out a lot while creating your removeItem function!</p></li>
+<li><p>Persist Cart Items using <code>localStorage</code>. (If you try this one, it will be a bit tricky to get our items to populate the shopping cart on a refresh. You’ll have to think about where the data actually lives, and how you can get data there from localStorage when the app is being mounted after a refresh. Good luck!)</p></li>
+</ul>
+</body></html>

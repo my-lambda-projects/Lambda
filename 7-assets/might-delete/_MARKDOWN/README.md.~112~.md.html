@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="testing-iii">Testing III</h1>
+<p>In this project, you will demonstrate proficiency by writing unit tests for an existing React application. Your tests should verify the behavior listed in the <em>Minimum Viable Product</em> section.</p>
+<p>Some of the topics covered were:</p>
+<ul>
+<li>Testing a React application.</li>
+<li>Using the <code>@testing-library/react</code> testing framework.</li>
+<li>Writing unit tests for React components.</li>
+</ul>
+<h2 id="instructions">Instructions</h2>
+<p><strong>Read these requirements carefully. Understand exactly what is expected <em>before</em> starting.</strong></p>
+<p>You are allowed, and encouraged, to collaborate with your peers while working on this assignment. Remember to follow the <em>twenty-minute rule</em> and post questions to your cohort’s help channel before seeking support from your PM and Instructor.</p>
+<h2 id="commits">Commits</h2>
+<p>Please push your code often and use descriptive commit messages, this helps you and your project manager.</p>
+<h2 id="project-description">Project Description</h2>
+<p>In this project, you will <strong>write unit tests</strong> for an existing React application that controls a gate and shows two LEDs that portrait the status of the gate.</p>
+<p>The requirements are listed under the <em>Minimum Viable Product</em> section below.</p>
+<h2 id="project-set-up">Project Set Up</h2>
+<p>Follow these steps to setup your git <em>fork</em> and <em>branch</em>.</p>
+<ul>
+<li>[X] Fork this repository.</li>
+<li>[X] Use GitHub’s website to add your project manager as collaborator on <strong>your fork</strong>.</li>
+<li>[X] <strong>Clone your forked version</strong> of the repository (<strong>Not Lambda’s</strong>!).</li>
+<li>[X] Create a new branch: <code>git checkout -b &lt;firstName-lastName&gt;</code>.</li>
+<li>[X] Commit changes to your <code>&lt;firstName-lastName&gt;</code> branch.</li>
+<li>[X] Push often to your branch: <code>git push origin &lt;firstName-lastName&gt;</code>.</li>
+</ul>
+<p>Follow these steps for completing your project.</p>
+<ul>
+<li>[X] Submit a Pull-Request to merge the <code>&lt;firstName-lastName&gt;</code> branch into the master branch on your fork. <strong>Please don’t merge your own pull request</strong></li>
+<li>[X] Use GitHub’s website to add your project manager as a reviewer on the pull-request.</li>
+<li>[X] Your project manager will count the project as complete by merging the branch back into the master branch of your forked repository.</li>
+</ul>
+<h2 id="minimum-viable-product">Minimum Viable Product</h2>
+<p>After a set of interviews with the potential users of the solution, we gathered the following information about the desired functionality. Not all the information provided by our clients is relevant to the design of the solution, but it’s included to help understand the requirements.</p>
+<p>Your job is to write unit tests to ensure that the application behaves as expected.</p>
+<p>The expected/assumed behavior of the application is listed below.</p>
+<h3 id="gate">Gate</h3>
+<ul>
+<li>[ ] defaults to <code>unlocked</code> and <code>open</code></li>
+<li>[ ] cannot be closed or opened if it is locked</li>
+</ul>
+<h3 id="dashboard">Dashboard</h3>
+<ul>
+<li>[ ] shows the controls and display</li>
+</ul>
+<h3 id="display-component">Display Component</h3>
+<ul>
+<li>[ ] displays if gate is open/closed and if it is locked/unlocked</li>
+<li>[ ] displays ‘Closed’ if the <code>closed</code> prop is <code>true</code> and ‘Open’ if otherwise</li>
+<li>[ ] displays ‘Locked’ if the <code>locked</code> prop is <code>true</code> and ‘Unlocked’ if otherwise</li>
+<li>[ ] when <code>locked</code> or <code>closed</code> use the <code>red-led</code> class</li>
+<li>[ ] when <code>unlocked</code> or <code>open</code> use the <code>green-led</code> class</li>
+</ul>
+<h3 id="controls-component">Controls Component</h3>
+<ul>
+<li>[ ] provide buttons to toggle the <code>closed</code> and <code>locked</code> states.</li>
+<li>[ ] buttons’ text changes to reflect the state the door will be in if clicked</li>
+<li>[ ] the closed toggle button is disabled if the gate is locked</li>
+<li>[ ] the locked toggle button is disabled if the gate is open</li>
+</ul>
+<h2 id="stretch-problem">Stretch Problem</h2>
+<p>This section is <strong>optional</strong> and not counted towards MVP. Start working on it after you’re done with the main assignment.</p>
+<ul>
+<li>add <code>Redux</code> and <a href="https://testing-library.com/docs/example-react-redux">read this example in the docs</a> to learn how to write tests for it.</li>
+</ul>
+</body></html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="sprint-challenge-express-and-node.js---projects-actions">Sprint Challenge: Express and Node.js - Projects &amp; Actions</h1>
+<h2 id="description">Description</h2>
+<p>In this challenge, you design and create a web API to manage the following resources: <code>Projects</code> and <code>Actions</code>.</p>
+<h2 id="instructions">Instructions</h2>
+<p><strong>Read these instructions carefully</strong>. Understand exactly what is expected <strong><em>before</em></strong> starting to code.</p>
+<p>This is an individual assessment, please work on it alone. It is an opportunity to demonstrate proficiency of the concepts and objectives introduced and practiced in preceding days.</p>
+<p>If the instructions are not clear, please seek support from your TL and Instructor on Slack.</p>
+<p>The Minimum Viable Product must be completed in three hours.</p>
+<p>Follow these steps to set up and work on your project:</p>
+<ul>
+<li>[X] Create a forked copy of this project.</li>
+<li>[X] Add your <em>Team Lead</em> as collaborator on Github.</li>
+<li>[X] Clone your forked version of the Repository.</li>
+<li>[X] Create a new Branch on the clone: git checkout -b <code>firstName-lastName</code>.</li>
+<li>[X] Implement the project on this Branch, committing changes regularly.</li>
+<li>[X] Push commits: git push origin <code>firstName-lastName</code>.</li>
+</ul>
+<p>Follow these steps for completing your project.</p>
+<ul>
+<li>[X] Submit a Pull-Request to merge <code>firstName-lastName</code> Branch into master on <strong>your fork, don’t make Pull Requests against Lambda’s repository</strong>.</li>
+<li>[X] Please don’t merge your own pull request.</li>
+<li>[X] Add your <em>Team Lead</em> as a Reviewer on the Pull-request</li>
+<li>[X] Your <em>Team Lead</em> will count the challenge as done by merging the branch into <em>master</em>.</li>
+</ul>
+<h2 id="commits">Commits</h2>
+<p>Commit your code regularly and use descriptive messages. This helps both you (in case you ever need to return to old code) and your Team Lead.</p>
+<h2 id="self-studyessay-questions">Self-Study/Essay Questions</h2>
+<p>Demonstrate your understanding of this Sprint’s concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your Team Lead.</p>
+<ul>
+<li><p>[X] Mention two parts of Express that you learned about this week.</p>
+<p>routing, middleware, convenience helpers</p></li>
+<li><p>[X] Describe Middleware?</p>
+<p>array of functions that get executed in the order they are introduced into the server code</p></li>
+<li><p>[X] Describe a Resource?</p>
+<p>○ everything is a resource. ○ each resource is accessible via a unique URI. ○ resources can have multiple representations. ○ communication is done over a stateless protocol (HTTP). ○ management of resources is done via HTTP methods.</p></li>
+<li><p>[X] What can the API return to help clients know if a request was successful?</p>
+<p>200/201 status code</p></li>
+<li><p>[X] How can we partition our application into sub-applications?</p>
+<p>By dividing the code up into multiple files and ‘requiring’ them in the main server file.</p></li>
+</ul>
+<h2 id="minimum-viable-product">Minimum Viable Product</h2>
+<ul>
+<li>[X] Configure an <em>npm script</em> named <em>"server”</em> that will execute your code using <em>nodemon</em>. Make <em>nodemon</em> be a development time dependency only, it shouldn’t be deployed to production.</li>
+<li>[X] Configure an <em>npm script</em> named <em>"start”</em> that will execute your code using <em>node</em>.</li>
+</ul>
+<p>Design and build the necessary endpoints to:</p>
+<ul>
+<li>[X] Perform CRUD operations on <em>projects</em> and <em>actions</em>. When adding an action, make sure the <code>project_id</code> provided belongs to an existing <code>project</code>. If you try to add an action with an <code>id</code> of 3 and there is no project with that <code>id</code> the database will return an error.</li>
+<li>[X] Retrieve the list of actions for a project.</li>
+</ul>
+<p>Please read the following sections before implementing the Minimum Viable Product, they describe how the database is structured and the files and methods available for interacting with the data.</p>
+<h3 id="database-schemas">Database Schemas</h3>
+<p>The description of the structure and extra information about each <em>resource</em> stored in the included database (<code>./data/lambda.db3</code>) is listed below.</p>
+<h4 id="projects">Projects</h4>
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 9%" />
+<col style="width: 78%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Data Type</th>
+<th>Metadata</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>id</td>
+<td>number</td>
+<td>no need to provide it when creating projects, the database will generate it</td>
+</tr>
+<tr class="even">
+<td>name</td>
+<td>string</td>
+<td>required.</td>
+</tr>
+<tr class="odd">
+<td>description</td>
+<td>string</td>
+<td>required.</td>
+</tr>
+<tr class="even">
+<td>completed</td>
+<td>boolean</td>
+<td>used to indicate if the project has been completed, not required</td>
+</tr>
+</tbody>
+</table>
+<h4 id="actions">Actions</h4>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 7%" />
+<col style="width: 82%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Data Type</th>
+<th>Metadata</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>id</td>
+<td>number</td>
+<td>no need to provide it when creating posts, the database will automatically generate it.</td>
+</tr>
+<tr class="even">
+<td>project_id</td>
+<td>number</td>
+<td>required, must be the id of an existing project.</td>
+</tr>
+<tr class="odd">
+<td>description</td>
+<td>string</td>
+<td>up to 128 characters long, required.</td>
+</tr>
+<tr class="even">
+<td>notes</td>
+<td>string</td>
+<td>no size limit, required. Used to record additional notes or requirements to complete the action.</td>
+</tr>
+<tr class="odd">
+<td>completed</td>
+<td>boolean</td>
+<td>used to indicate if the action has been completed, not required</td>
+</tr>
+</tbody>
+</table>
+<h3 id="database-persistence-helpers">Database Persistence Helpers</h3>
+<p>The <code>/data/helpers</code> folder includes files you can use to manage the persistence of <em>project</em> and <em>action</em> data. These files are <code>projectModel.js</code> and <code>actionModel.js</code>. Both files publish the following api, which you can use to store, modify and retrieve each resource:</p>
+<p><strong>All these helper methods return a promise. Remember to use .then().catch() or async/await.</strong></p>
+<ul>
+<li><code>get()</code>: resolves to an array of all the resources contained in the database. If you pass an <code>id</code> to this method it will return the resource with that id if one is found.</li>
+<li><code>insert()</code>: calling insert passing it a resource object will add it to the database and return the newly created resource.</li>
+<li><code>update()</code>: accepts two arguments, the first is the <code>id</code> of the resource to update, and the second is an object with the <code>changes</code> to apply. It returns the updated resource. If a resource with the provided <code>id</code> is not found, the method returns <code>null</code>.</li>
+<li><code>remove()</code>: the remove method accepts an <code>id</code> as it’s first parameter and, upon successfully deleting the resource from the database, returns the number of records deleted.</li>
+</ul>
+<p>The <code>projectModel.js</code> helper includes an extra method called <code>getProjectActions()</code> that takes a <em>project id</em> as it’s only argument and returns a list of all the <em>actions</em> for the <em>project</em>.</p>
+<p>We have provided test data for all the resources.</p>
+<h2 id="stretch-goal">Stretch Goal</h2>
+<ul>
+<li>[X] Use <code>create-react-app</code> to create an application in a separate folder (outside the API project folder). Name it anything you want.</li>
+<li>[ ] From the React application show a list of all <em>projects</em> using the API you built.</li>
+<li>[ ] Add functionality to show the details of a project, including its actions, when clicking a project name in the list. Use React Router to navigate to a separate route to show the project details.</li>
+<li>[ ] Add styling!</li>
+</ul>
+</body></html>

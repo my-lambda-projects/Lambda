@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="computer-architecture-faq">Computer Architecture FAQ</h1>
+<h2 id="contents">Contents</h2>
+<h3 id="common-problems">Common Problems</h3>
+<ul>
+<li><a href="#q2000">Do you have some handy code for helping trace what the CPU is doing?</a></li>
+</ul>
+<h3 id="general">General</h3>
+<ul>
+<li><a href="#q100">How much of the emulator do I need to implement?</a></li>
+<li><a href="#q200">Once we get the <code>HLT</code> instruction, what should the emulator do?</a></li>
+<li><a href="#q900">Is the flags <code>FL</code> register one of the <code>Rx</code> registers, or is it a special register?</a></li>
+<li><a href="#q1000">What about the <code>IR</code>, <code>MAR</code>, and <code>MDR</code> registers?</a></li>
+<li><a href="#q1200">If RAM is faster than an SSD, why not just store everything in RAM?</a></li>
+<li><a href="#q1300">Do CPUs get hot because of the power constantly running through them?</a></li>
+<li><a href="#q1700">How do I move the <code>PC</code> to the next instruction without hardcoding the instruction length?</a></li>
+<li><a href="#q1900">Why are the ALU and the RAM read/write functions broken out? Can we just code the lines to do the work directly?</a></li>
+<li><a href="#q2200">Why do opcodes have the numeric values that they do?</a></li>
+<li><a href="#q2300">What is a "cache hit” or "cache miss”?</a></li>
+<li><a href="#q2400">How are logic gates built?</a></li>
+<li><a href="#q2500">How does the CPU use logic gates?</a></li>
+<li><a href="#q2600">Why is half a byte called a <em>nibble</em>?</a></li>
+<li><a href="#q2700">What are the <code>&lt;&lt;</code> and <code>&gt;&gt;</code> shift operators useful for?</a></li>
+<li><a href="#q3100">On a multicore CPU, is there some kind of overseer that coordinates between the cores?</a></li>
+<li><a href="#q3200">On a multicore CPU, do cores share registers or do they have their own sets?</a></li>
+<li><a href="#q3400">Does the ALU handle conditionals/<code>CMP</code>?</a></li>
+<li><a href="#q3600">How are floating point numbers represented in binary?</a></li>
+<li><a href="#q3700">How are signed integers represented in binary?</a></li>
+<li><a href="#q3800">How does the CPU cache work? What is L1, L2, L3 and so on?</a></li>
+</ul>
+<h3 id="callret-subroutines"><code>CALL</code>/<code>RET</code>, Subroutines</h3>
+<ul>
+<li><a href="#q300">How do you return values from subroutines?</a></li>
+</ul>
+<h3 id="interrupts">Interrupts</h3>
+<ul>
+<li><a href="#q400">With interrupts, why do we push everything on the stack?</a></li>
+</ul>
+<h3 id="the-cpu-stack">The CPU Stack</h3>
+<ul>
+<li><a href="#q500">What is "stack overflow”?</a></li>
+<li><a href="#q600">What is "stack underflow”?</a></li>
+<li><a href="#q700">On the LS-8, why does the stack pointer start at address <code>F4</code>, when the first stack element is at <code>F3</code>?</a></li>
+<li><a href="#q800">How are stacks and subroutines used by higher-level languages like Python?</a></li>
+<li><a href="#q2900">Why does the CPU allow for stack overflow or underflow?</a></li>
+<li><a href="#q3000">Why does the CPU support a stack and not some other data structure?</a></li>
+<li><a href="#q3500">On the LS-8, why does <code>POP</code> need an operand?</a></li>
+</ul>
+<h3 id="registers">Registers</h3>
+<ul>
+<li><a href="#q1100">What are the registers for, and what do they do?</a></li>
+<li><a href="#q2800">What is the difference between general-purpose registers and internal, special-purpose registers?</a></li>
+<li><a href="#q900">Is the flags <code>FL</code> register one of the <code>Rx</code> registers, or is it a special register?</a></li>
+<li><a href="#q1000">What about the <code>IR</code>, <code>MAR</code>, and <code>MDR</code> registers?</a></li>
+<li><a href="#q1700">How do I move the <code>PC</code> to the next instruction without hardcoding the instruction length?</a></li>
+<li><a href="#q2100">Why is <code>R7</code> set to something other than zero?</a></li>
+<li><a href="#q3300">Are the flags on the LS-8 stored on the stack or in a register?</a></li>
+</ul>
+<h3 id="number-bases-and-conversions">Number Bases and Conversions</h3>
+<ul>
+<li><a href="#q1400">Why is hex base 16? Seems so random.</a></li>
+</ul>
+<h2 id="questions">Questions</h2>
+<p><a name="q100"></a> ### How much of the emulator do I need to implement?</p>
+<p>As little as possible to get a particular LS-8 program running.</p>
+<p>Add features incrementally. Once <code>print8.ls8</code> is working, then add a <code>MULT</code> instruction to get <code>mult.ls8</code> running. And so on.</p>
+<p>Of course, you’re <em>allowed</em> to implement as many instructions are you’d like.</p>
+<p>This goes for individual components like registers, as well. Do you need to implement the <code>FL</code> register? If you want to use any functionality that depends on it, then yes. The spec will tell you if the thing you’re implementing needs the <code>FL</code> register to work.</p>
+<hr />
+<p><a name="q200"></a> ### Once we get the <code>HLT</code> instruction, what should the emulator do?</p>
+<p>You should exit the emulator.</p>
+<p>You don’t need to worry about any of the LS-8 internals at that point since you’re exiting anyway.</p>
+<hr />
+<p><a name="q300"></a> ### How do you return values from subroutines?</p>
+<p>Since the <code>RET</code> instruction doesn’t allow you to specify a return value, you’ll have to get the value back by other means.</p>
+<p>One of the most common is to set a register (e.g. <code>R0</code>) to the return value, and the caller will just know, by convention, that the <code>R0</code> register will hold that value once the <code>CALL</code> returns.</p>
+<p>But you could also push that value on the stack and have the caller pop it off. This would have the advantage of supporting an arbitrary number of return values.</p>
+<p>There are no fixed rules when writing code in assembly language. Returning values in registers just happens to be a common convention.</p>
+<hr />
+<p><a name="q400"></a> ### With interrupts, why do we push everything on the stack?</p>
+<p>The idea is that if you save the machine state on the stack, then after you service the interrupt you can restore it and seamlessly pick up where you left off.</p>
+<p>The CPU might have been in the middle of something important when the interrupt occurred, and it’ll want to get back to that once the interrupt handler is complete.</p>
+<p>So we push the general purpose registers and internal registers on the stack, then do interrupt stuff, then restore all those registers from the stack so the CPU can carry on with what it was doing before the interrupt occurred.</p>
+<hr />
+<p><a name="q500"></a> ### What is "stack overflow”?</p>
+<p>Short answer: it’s when the stack grows into some area of memory that something else was using.</p>
+<p>In the LS-8, this would mean the stack grew down in RAM to the point that it overwrote some of the instructions in the program.</p>
+<p>If the stack grows down to address <code>0x00</code> on the LS-8, it wraps around to address <code>0xff</code>.</p>
+<p>On modern machines with <a href="https://en.wikipedia.org/wiki/Virtual_memory">virtual memory</a>, this isn’t a practical concern since you’ll run out of physical RAM before the stack overflow occurs.</p>
+<p>Some interpreted languages like Python track how large their internal stacks have grown and crash out if the stack grows too large. But this is happening within the Python virtual machine, not on the hardware.</p>
+<hr />
+<p><a name="q600"></a> ### What is "stack underflow”?</p>
+<p>This means you <code>POP</code>ped more times than you <code>PUSH</code>ed. Basically you popped an empty stack.</p>
+<p>The CPU is more than happy to let you do this, but it’s considered an error on the part of the programmer.</p>
+<p>If the stack pointer is at address <code>0xff</code> on the LS-8, then you <code>POP</code>, it will wrap around to address <code>0x00</code>.</p>
+<hr />
+<p><a name="q700"></a> ### On the LS-8, why does the stack pointer start at address <code>F4</code>, when the first stack element is at <code>F3</code>?</p>
+<p>Since the first thing a <code>PUSH</code> instruction does is decrement the stack pointer, it means that the stack pointer is moved to <code>F3</code> first and <em>then</em> the value is stored there. Exactly where we wanted it.</p>
+<hr />
+<p><a name="q800"></a> ### How are stacks and subroutines used by higher-level languages like Python?</p>
+<p>In Python, when you make a function call, a bunch of space is allocated (pushed) on the stack to hold a number of things:</p>
+<ul>
+<li>The return address to come back to after the function completes</li>
+<li>Space for all the function parameters</li>
+<li>Space for all the other local variables in the function</li>
+</ul>
+<p>This allocated chunk of stack is called a <a href="https://en.wikipedia.org/wiki/Call_stack#STACK-FRAME">stack frame</a>.</p>
+<p>When you call any function:</p>
+<ol type="1">
+<li>A new stack frame is allocated (pushed)</li>
+<li>Parameter values are copied from the function arguments to their spots on the stack frame</li>
+</ol>
+<p>When you return from any function:</p>
+<ol type="1">
+<li>Any return value is copied from the stack frame into a dedicated register</li>
+<li>The stack frame is deallocated (popped)</li>
+</ol>
+<p>In assembly language, <code>CALL</code> doesn’t allow any arguments to be passed, and <code>RET</code> doesn’t allow any values to be returned.</p>
+<p>Using stack frames gives <code>CALL</code> the power to give parameters to subtroutines.</p>
+<p>And we can use a dedicated register, like <code>R0</code>, to pass returned values back to the caller over a <code>RET</code> instruction.</p>
+<p>Since all the local variables for a function are stored in the stack frame, they all vaporize as soon as the stack is popped when the function returned. This is why local variables are not persistent from call to call.</p>
+<p>Furthermore, using the stack to hold frames allows us to call functions to an arbitrary nesting level. Indeed, it is what allows for recursion at all.</p>
+<hr />
+<p><a name="q900"></a> ### Is the flags <code>FL</code> register one of the <code>Rx</code> registers, or is it a special register?</p>
+<p>It’s a special purpose register that can be added separately to the <code>class CPU</code> similar to how <code>PC</code> works.</p>
+<p>In <code>class CPU</code>, it’s convenient to have an array to store <code>R0</code> through <code>R7</code>, but the other registers are just fields in the <code>class</code>.</p>
+<hr />
+<p><a name="q1000"></a> ### What about the <code>IR</code>, <code>MAR</code>, and <code>MDR</code> registers?</p>
+<p>You can store those special-purpose registers similar to how <code>PC</code> and <code>FL</code> are stored in the <code>class</code>.</p>
+<p>…Or, if you’re not using them in any place except a single function, maybe they can be locals or function parameters.</p>
+<p>It’s a matter of which way you think produces more readable code.</p>
+<hr />
+<p><a name="q1100"></a> ### What are the registers for, and what do they do?</p>
+<p>You can think of the registers as the CPU’s variables. They hold numbers. You use them like you would variable in another langauge.</p>
+<p>In a high-level language, you can make all the variables you need. But in a CPU, there are a fixed number of them, and they have fixed names, and they only hold numbers. You cannot make more.</p>
+<p>(The reason you can’t make more is because registers are literally built out of the hardware–you can’t make more without changing the hardware.)</p>
+<p>Most operations (like math) in the CPU work on registers.</p>
+<p>But if we have RAM, why do we need registers?</p>
+<p>While some CPUs like the x86 can use either values in RAM or registers to do work, RAM is far, far slower to access. Nothing is faster to access in the CPU than a register. For that reason, assembly language programs use registers whenever possible to keep speed up.</p>
+<hr />
+<p><a name="q1200"></a> ### If RAM is faster than an SSD, why not just store everything in RAM?</p>
+<p>Cost. 1 TB SSD is orders of magnitude cheaper than 1 TB of RAM. And finding a motherboard that supports 1 TB of RAM is a challenge.</p>
+<p>Also the SSD continues to store data even if power is removed, unlike RAM.</p>
+<p>Someday someone will discover RAM that is cheap, fast, and will permanently store data, and when that happens, SSDs will vanish.</p>
+<hr />
+<p><a name="q1300"></a> ### Do CPUs get hot because of the power constantly running through them?</p>
+<p>Yup. When you run current through any regular conductor, heat is generated.</p>
+<p>In that regard, a CPU is like a tiny, expensive electric blanket that is capable of arbitrary computation but really bad at giving you a good night’s sleep.</p>
+<hr />
+<p><a name="q1400"></a> ### Why is hex base 16? Seems so random.</p>
+<p>Conveniently, one hex digit represents exactly 4 bits (AKA a <em>nibble</em>).</p>
+<p>This means a byte can be represented by exactly 2 hex digits (assuming you put a leading zero on numbers less than <code>0x10</code>). And the biggest byte’s value roundly ends at <code>0xff</code>.</p>
+<p>It’s compact, and easy to convert to and from binary.</p>
+<p>Compare to decimal, where one decimal digit represents somewhere between 3 and 4 bits. And a byte is represented by 3 digits, isn’t easily convertible to binary, and ends quite unroundly on <code>255</code> for the largest value.</p>
+<hr />
+<p><a name="q1700"></a> ### How do I move the <code>PC</code> to the next instruction without hardcoding the instruction length?</p>
+<p>Check out the spec where it talks about instruction layout.</p>
+<p>The two high bits of the instruction tell you how many operands the instruction has. The value of those two bits plus one is the number of bytes you have to move the <code>PC</code>.</p>
+<p>Use <code>&gt;&gt;</code> and an <code>&amp;</code> mask to extract those two bits, then add one to the result, then add that to the <code>PC</code> to get to the next instruction.</p>
+<blockquote>
+<p>Note that some instructions (like <code>CALL</code>, <code>RET</code>, and all the <code>JMP</code> variants) move the <code>PC</code> to a specific destination. In those cases, you <em>do not</em> want to advance the PC to the next instruction.</p>
+</blockquote>
+<hr />
+<p><a name="q1900"></a> ### Why are the ALU and the RAM read/write functions broken out? Can we just code the lines to do the work directly?</p>
+<p>Because the ALU is a separate component on the CPU, and the RAM is a separate component off the CPU, it makes logical sense from a learning perspective to have different pieces of code handle the work.</p>
+<p>Plus having the RAM access function there makes the code easier to read, and easier to change if the structure of RAM were to change somehow in the future.</p>
+<hr />
+<p><a name="q2000"></a> ### Do you have some handy code for helping trace what the CPU is doing?</p>
+<p>You’ll find a <code>trace()</code> function in <code>cpu.py</code> that you can call each iteration of your main loop to get a dump of registers, etc.</p>
+<hr />
+<p><a name="q2100"></a> ### Why is <code>R7</code> set to something other than zero?</p>
+<p><code>R7</code> has additional meaning: it is the <em>stack pointer</em>. So it needs to start just past the top of the stack so that the <code>PUSH</code> and <code>POP</code> (and <code>CALL</code> and <code>RET</code>) functions operate normally.</p>
+<hr />
+<p><a name="q2200"></a> ### Why do opcodes have the numeric values that they do?</p>
+<p>See the "Instruction Layout” part of the LS-8 spec for what the specific bits mean in any particular instruction.</p>
+<p>In a real CPU, these bits correspond to wires that will have voltage or no-voltage on them depending on whether or not the bit in the instruction is <code>0</code> or <code>1</code>.</p>
+<p>So the instruction bits are close to the metal, literally. Their exact meanings are closely tied with how the CPU will be physically constructed.</p>
+<hr />
+<p><a name="q2300"></a> ### What is a "cache hit” or "cache miss”?</p>
+<p>If a program accesses a byte of RAM at some address that’s in the cache already, that’s a <em>cache hit</em>. The byte is returned immediately.</p>
+<p>If a program accesses a byte of RAM at some address that’s not in the cache, that’s a <em>cache miss</em>, and the cache must be updated by going out to RAM to get that data.</p>
+<p>The cache is fast memory that sits between main RAM and the CPU.</p>
+<p>It’s common that if you access a byte of RAM, that you will soon access subsequent bytes in RAM. (E.g. like when printing a string, or doing a <code>strlen()</code>.) The cache makes use of this assumption.</p>
+<p>The cache figures, if you’re going to spend the time making a relatively slow RAM request for a single byte, why not go ahead and transfer the next, say 128 bytes at the same time into the faster cache. If the user then goes on to access the subsequent bytes, like they probably will, the data will already be in cache ready to use.</p>
+<hr />
+<p><a name="q2400"></a> ### How are logic gates built?</p>
+<p>They’re made out of transistors. Details are getting into the realm of materials science and is beyond the scope of the course.</p>
+<hr />
+<p><a name="q2500"></a> ### How does the CPU use logic gates?</p>
+<p>Logic gates can be composed into circuits that can do far more than Boolean logical operations.</p>
+<p>You can build an ALU, for example, that does arithmetic and comparisons using only logic gates.</p>
+<p>You can even build <a href="https://en.wikipedia.org/wiki/Flip-flop_(electronics)">circuits that store data</a>.</p>
+<p>The fantastic book <a href="https://www.nand2tetris.org/"><em>The Elements of Computing Systems</em></a> talks about this in great detail from the ground up.</p>
+<hr />
+<p><a name="q2600"></a> ### Why is half a byte called a <em>nibble</em>?</p>
+<p>It’s a pun, playing off byte/bite. Sometimes it’s spelled <em>nybble</em>.</p>
+<hr />
+<p><a name="q2700"></a> ### What are the <code>&lt;&lt;</code> and <code>&gt;&gt;</code> shift operators useful for?</p>
+<p>Most commonly, they’re used to get or set individual bits within a number.</p>
+<p>This is useful if multiple values are packed into a single byte. Bytes hold numbers from 0 to 255, but parts of a byte can hold smaller numbers. For example, if you have 4 values that you know only go from 0-3 each, you can pack that into a byte as four 2-bit numbers.</p>
+<p>Packing the numbers 3, 0, 2, and 1 into a single byte:</p>
+<pre><code>  Three
+  ||
+  ||  Two
+  vv  vv
+0b11001001
+    ^^  ^^
+    ||  One
+    ||
+    Zero</code></pre>
+<p>This technique is normally only used in high-performance situations where you absolutely must save space or bandwidth.</p>
+<p>For example, if we wanted to extract these 3 bits from this number:</p>
+<pre><code>    vvv
+0b10110101</code></pre>
+<p>We’d get <code>110</code>, which is 6 decimal. But the whole number is 181 decimal. How to extract the 6?</p>
+<p>First, we can shift right by 3:</p>
+<pre><code>       vvv
+0b00010110</code></pre>
+<p>Then we can bitwise-AND with the mask <code>0b111</code> to filter out just the bits we want:</p>
+<pre><code>         vvv
+  0b00010110   &lt;-- Right-shifted original number
+&amp; 0b00000111   &lt;-- AND mask
+------------
+         110</code></pre>
+<p>And there’s our 6!</p>
+<p>On the flip side, what if we wanted to set these bits to the value 2 (<code>0b010</code>)? Right now the three bits have the value 7 (<code>0b111</code>):</p>
+<pre><code>    vvv
+0b10111101</code></pre>
+<p>First let’s take our 2:</p>
+<pre><code>0b010</code></pre>
+<p>and left shift it by 3:</p>
+<pre><code>0b010000</code></pre>
+<p>Secondly, let’s use a bitwise-AND on the original number to mask out those bits and set them all to zero:</p>
+<pre><code>      vvv
+  0b10111101   &lt;-- original number
+&amp; 0b11000111   &lt;-- AND mask
+------------
+  0b10000101
+      ^^^
+  These three bits set to 0, others unchanged</code></pre>
+<p>Lastly, let’s bitwise-OR the shifted value with the result from the previous step:</p>
+<pre><code>      vvv
+  0b10000101   &lt;-- masked-out original number from previous step
+| 0b00010000   &lt;-- our left-shifted 2
+------------
+  0b10010101
+      ^^^
+  Now these three bits set to 2, others unchanged</code></pre>
+<p>And there we have it. The three bits in the middle of the number have been changed from the value 7 to the value 2.</p>
+<hr />
+<p><a name="q2800"></a> ### What is the difference between general-purpose registers and internal, special-purpose registers?</p>
+<p>The general-purpose registers are <code>R0</code> through <code>R7</code>.</p>
+<p>Special-purpose registers are things like <code>PC</code>, <code>FL</code>, and maybe <code>IR</code>, <code>MAR</code>, and <code>MDR</code>.</p>
+<p>The main difference is this: general-purpose registers can be used directly by instructions. Special-purpose registers cannot.</p>
+<pre class="assembly"><code>LDI R0,4   ; Valid
+LDI PC,5   ; INVALID--PC is not a general-purpose register
+
+ADD R0,R1  ; Valid
+ADD FL,R0  ; INVALID--FL is not a general-purpose register</code></pre>
+<p>In <code>class CPU</code>, it’s convenient to represent the general purpose registers with an array for easy indexing from <code>0</code> to <code>7</code>.</p>
+<hr />
+<p><a name="q2900"></a> ### Why does the CPU allow for stack overflow or underflow?</p>
+<p>It takes time for the CPU to check to see if either condition has occurred. And most of the time it won’t have.</p>
+<p>CPUs are interested in running instructions as quickly as possible.</p>
+<p>Also, you’d need additional hardware in place to make those checks, and that costs money.</p>
+<p>Because assemnbly language is so low-level, the CPU is already putting basically ultimate trust in the developer to not do something they shouldn’t do.</p>
+<blockquote>
+<p>If you didn’t want me to overflow the stack, why did you tell me to overflow the stack?</p>
+<p>–The CPU</p>
+</blockquote>
+<hr />
+<p><a name="q3000"></a> ### Why does the CPU support a stack and not some other data structure?</p>
+<p>Turns out a stack is a really useful data structure for a number of reasons:</p>
+<ul>
+<li>It’s a great place to temporarily store data.</li>
+<li>It’s useful for holding a return address for a subroutine/function.</li>
+<li>It’s a place to pass arguments to subroutines.</li>
+<li>It’s a good place to hold a subroutine’s local variables.</li>
+<li>It can hold all the information that needs to be saved while the CPU is servicing an interrupt.</li>
+</ul>
+<p>Additionally, it’s pretty cheap to implement. All CPUs already come with this functionality:</p>
+<ul>
+<li>Memory (for the stack data)</li>
+<li>Registers (for the stack pointer)</li>
+<li>A way to decrement and increment registers (to move the stack pointer)</li>
+<li>A way to read and write data to and from RAM (to retrieve and store data on the stack)</li>
+</ul>
+<p>Since the CPU was doing all that anyway, adding <code>PUSH</code> and <code>POP</code> instructions is a pretty low-hanging fruit.</p>
+<hr />
+<p><a name="q3100"></a> ### On a multicore CPU, is there some kind of overseer that coordinates between the cores?</p>
+<p>Not really, and from a programmer perspective, no.</p>
+<p>Cores have their own registers, own PCs, and generally run autonomously on their own.</p>
+<p>What they <em>do</em> share is RAM (and usually at least some cache) and peripherals.</p>
+<p>The real "overseer” is the operating system, which decides which programs run on which core at any particular time.</p>
+<hr />
+<p><a name="q3200"></a> ### On a multicore CPU, do cores share registers or do they have their own sets?</p>
+<p>They have their own.</p>
+<p>Cores generally run autonomously on their own.</p>
+<p>What they <em>do</em> share is RAM (and usually at least some cache) and peripherals.</p>
+<hr />
+<p><a name="q3300"></a> ### Are the flags on the LS-8 stored on the stack or in a register?</p>
+<p>Flags (the <code>FL</code> register) are their own special-purpose register, similar to the <code>PC</code>.</p>
+<p>Each bit of the <code>FL</code> register has special meaning as laid out in the LS-8 spec.</p>
+<hr />
+<p><a name="q3400"></a> ### Does the ALU handle conditionals/<code>CMP</code>?</p>
+<p>Yes.</p>
+<p>The compare instruction <code>CMP</code> will set the flags register appropriately indicating whether or not the values of the registers compared are less-than, greater-than, or equal.</p>
+<p>This is actually quite similar to a subtraction, which the ALU can already do.</p>
+<p>If I give you two numbers, <code>a</code> and <code>b</code>, and you compute the difference <code>b - a</code>, you can look at the result and determine if the values are equal, or if one is greater than the other.</p>
+<p>If <code>b - a</code> is a positive number, it means that <code>a</code> is less than <code>b</code>.</p>
+<p>If <code>b - a</code> is a negative number, it means that <code>a</code> is greater than <code>b</code>.</p>
+<p>If <code>b - a</code> is zero, it means that <code>a</code> equals <code>b</code>.</p>
+<p>So the ALU can use its subtraction circuitry to do a <code>CMP</code>, saving money and construction complexity.</p>
+<hr />
+<p><a name="q3500"></a> ### On the LS-8, why does <code>POP</code> need an operand?</p>
+<p>Because you probably want to know what the value was you popped off the stack, rather than just throwing it away.</p>
+<p>Basically, <code>POP R0</code> is saying "pop the value from the top of the stack and store it in <code>R0</code>.”</p>
+<hr />
+<p><a name="q3600"></a> ### How are floating point numbers represented in binary?</p>
+<p>There is a standard binary format for storing floating point numbers called <a href="https://en.wikipedia.org/wiki/IEEE_754">IEEE 754</a>.</p>
+<p>It basically breaks a number into three parts:</p>
+<ul>
+<li><strong>Sign</strong>–indicating positive or negative, 1 bit</li>
+<li><strong>Mantissa</strong> (AKA "Significand”)–the actual binary digits of the number, unsigned, e.g. 22 bits</li>
+<li><strong>Exponent</strong>–signed binary exponent to apply to the mantissa, e.g. 8 bits</li>
+</ul>
+<p>A simpler-to-comprehend example might be in base 10, decimal.</p>
+<p>For example, the components that make up the decimal number <code>-98.273</code> are:</p>
+<ul>
+<li><strong>Sign</strong>: <code>-1</code> (because it’s -98, not 98)</li>
+<li><strong>Mantissa</strong>: <code>98273</code> (all the digits)</li>
+<li><strong>Exponent</strong>: <code>-3</code> (tells us where the decimal place is)</li>
+</ul>
+<p>The result (again for base 10) is:</p>
+<p><code>sign * mantissa * 10 ^ exponent</code></p>
+<p>or:</p>
+<p><code>-1 * 98273 * 10 ^ -3 == -98.273</code></p>
+<p>Basically the exponent tells us how to left (if it’s negative) or right (if it’s positive) to shift the decimal point.</p>
+<p>It works exactly the same way in binary (base 2):</p>
+<p>The components that make up the binary number <code>0b101.11</code> are:</p>
+<ul>
+<li><strong>Sign</strong>: <code>0b1</code> (because it’s 101, not -101)</li>
+<li><strong>Mantissa</strong>: <code>0b10111</code> (all the digits)</li>
+<li><strong>Exponent</strong>: <code>-2</code> (tells us where the decimal place is)</li>
+</ul>
+<p>Then the formula is:</p>
+<p><code>sign * mantissa * 2 ^ exponent</code></p>
+<p>or:</p>
+<p><code>0b1 * 0b10111 * 2 ^ -2</code></p>
+<p>Again, the exponent tells us how far to shift the decimal; in this case, shift it 2 bits left for <code>0b101.11</code>.</p>
+<p>Printing out binary floating point numbers in decimal is a bit weird because you have to think in fractions of two instead of 10.</p>
+<p>Decimal example:</p>
+<p><code>12.34</code> is written as:</p>
+<ul>
+<li><code>1</code> 10s (10 == 10<sup>1</sup>)</li>
+<li><code>2</code> 1s (1 == 10<sup>0</sup>)</li>
+<li><code>3</code> 1/10ths (1/10 == 10<sup>-1</sup>)</li>
+<li><code>4</code> 1/100ths (1/100 = 10<sup>-2</sup>)</li>
+</ul>
+<p>Of course you see powers of 10 all over because it’s base 10.</p>
+<p>With base two, binary:</p>
+<p><code>11.01</code> is written as:</p>
+<ul>
+<li><code>1</code> 2s (2 == 2<sup>1</sup>)</li>
+<li><code>1</code> 1s (1 == 2<sup>0</sup>)</li>
+<li><code>0</code> 1/2s (1/2 == 2<sup>-1</sup>)</li>
+<li><code>1</code> 1/4s (1/4 == 2<sup>-2</sup>)</li>
+</ul>
+<p>Which would give us (in decimal): <code>2 + 1 + 1/4</code> or <code>3.25</code>.</p>
+<p><code>11.01</code> binary is <code>3.25</code> decimal.</p>
+<p>Luckily <code>printf()</code> handles that with <code>%f</code> for us.</p>
+<hr />
+<p><a name="q3700"></a> ### How are signed integers represented in binary?</p>
+<p>It’s a format known as <a href="https://en.wikipedia.org/wiki/Two%27s_complement"><em>two’s complement</em></a>.</p>
+<p>Basically, about half of the bit patterns are used for negative numbers.</p>
+<p>The following is an example with 3-bit integers, though it applies equally well to integers of any number of bits.</p>
+<p>Unsigned, binary on the left, decimal on the right:</p>
+<pre><code>111   7
+110   6
+101   5
+100   4
+010   2
+011   3
+001   1
+000   0</code></pre>
+<p>Signed (same on the right, but in sorted numeric order):</p>
+<pre><code>111  -1          010   2
+110  -2          011   3
+101  -3          001   1
+100  -4          000   0
+011   3          111  -1
+010   2          110  -2
+001   1          101  -3
+000   0          100  -4</code></pre>
+<p>Notice how the bit pattern for <code>7</code> (unsigned) is <code>111</code>, which is the same bit pattern for <code>-1</code> (signed).</p>
+<p>So is <code>111</code> <code>-1</code> or is it <code>7</code>? It depends only on whether or not <em>you</em> are looking at those bits as signed or unsigned.</p>
+<p>Another thing to notice is that if the high (leftmost) bit of a signed number is <code>1</code>, it means that number is negative.</p>
+<p>Also notice how the positive signed numbers have the same bit patterns as their unsigned counterparts.</p>
+<p>If you have a signed number (either sign) and you want to find it’s two’s complement opposite, first you subtract one from it and then take the bitwise-NOT of that result.</p>
+<ul>
+<li><code>2</code> is <code>0b010</code> binary.</li>
+<li>Subtract <code>1</code> to get <code>0b001</code>.</li>
+<li>Then bitwise-NOT to get <code>0b110</code>.</li>
+<li><code>0b110</code> is <code>-2</code>.</li>
+</ul>
+<p>Using two’s complement to represent signed numbers has one great advantage: the exact same circuitry in the ALU can be used to add or subtract numbers regardless of whether they are signed or unsigned. The ALU doesn’t have to care.</p>
+<hr />
+<p><a name="q3800"></a> ### How does the CPU cache work? What is L1, L2, L3 and so on?</p>
+<p><em>You don’t have to implement any kind of emulated cache on the LS-8.</em></p>
+<p>Generally speaking, the cache is some fast memory that’s closer to the CPU than RAM.</p>
+<p>The assumption is that if a program wants a byte at address <code>x</code>, it’s likely to very soon thereafter want the byte at address <code>x + 1</code>.</p>
+<p>(Imagine printing a string, for example. You got the first byte, printed it, and now you’re going to print the next one.)</p>
+<p>So CPU first looks in the cache to see if the byte is there. If it’s not, it goes out and requests a block of memory from RAM be copied into the cache. The block includes the byte in question, but also the subsequent bytes.</p>
+<p>Then when you go to read the subsequent bytes, they’re in the super fast cache and you don’t have to go to RAM again, thus increasing the speed of your run.</p>
+<p>In a modern CPU, cache is arranged as a hierarchy. Closest to the CPU is L1 (<em>Level 1</em>), which is fast and doesn’t hold much. If the data isn’t in L1, L1 looks to see if it’s in L2. If it’s not there L2 looks to see if it’s in L3. If it’s not there, it looks in the next level again for however many levels of cache your CPU has. Eventually if it can’t be found in any level, it is obtained from RAM.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Level</th>
+<th style="text-align: center;">Capacity</th>
+<th style="text-align: center;">Lookup Time (nanoseconds)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">L1</td>
+<td style="text-align: center;">2-8 KB</td>
+<td style="text-align: center;">~1 ns</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">L2</td>
+<td style="text-align: center;">256-512 KB</td>
+<td style="text-align: center;">~3 ns</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">L3</td>
+<td style="text-align: center;">1024-8192 KB</td>
+<td style="text-align: center;">~12 ns</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">RAM</td>
+<td style="text-align: center;">8-32 <strong>GB</strong></td>
+<td style="text-align: center;">~100 ns</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Capacities and speeds are examples only. Actual number vary.</p>
+</blockquote>
+<hr />
+</body></html>

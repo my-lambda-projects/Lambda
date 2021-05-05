@@ -22,10 +22,10 @@
 <p>This is not required, but feel free to give it a try. To install, follow the installation instructions on the <a href="https://github.com/appacademy/app-academy-chrome-tab">App Academy Chrome Tab Repo</a>.</p>
 <h3 id="xcode">Xcode</h3>
 <p>Let’s start with Xcode. The Xcode command line tools are a requirement for installing the homebrew package manager in the next step.</p>
-<p><strong>NOTE: If you are using a Linux machine you will not be able to install Xcode or homebrew. Instead please follow <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">these git installation directions</a> and then <a href="https://github.com/rbenv/rbenv#basic-github-checkout">these rbenv installation directions</a> (up to and including “Installing Ruby versions”) to download rbenv using git. Once you are finished, skip to the section on Git and ignore all commands involving homebrew.</strong></p>
+<p><strong>NOTE: If you are using a Linux machine you will not be able to install Xcode or homebrew. Instead please follow <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">these git installation directions</a> and then <a href="https://github.com/rbenv/rbenv#basic-github-checkout">these rbenv installation directions</a> (up to and including "Installing Ruby versions”) to download rbenv using git. Once you are finished, skip to the section on Git and ignore all commands involving homebrew.</strong></p>
 <p>Install the Xcode command line tools by running the following from the console.</p>
 <pre><code>$ xcode-select --install</code></pre>
-<p>To conclude the installation you will need to agree to the Xcode license. Start the Xcode app, click “Agree”, and allow the installation to finish. Then you can go ahead and quit the Xcode app.</p>
+<p>To conclude the installation you will need to agree to the Xcode license. Start the Xcode app, click "Agree”, and allow the installation to finish. Then you can go ahead and quit the Xcode app.</p>
 <h3 id="homebrew">Homebrew</h3>
 <p>Homebrew is kind of like a low-tech App Store. It allows us access to and the ability to install a wide variety of software and command line tools from the console. These are distinct from those hosted on the App Store and will need to be managed by Homebrew.</p>
 <p>Enter the following in your terminal to download and install Homebrew:</p>
@@ -106,7 +106,7 @@ which ruby # =&gt; /Users/your-username/.rbenv/shims/ruby</code></pre>
 <pre><code>sudo mkdir -p /etc/paths.d &amp;&amp;
 echo /Applications/Postgres.app/Contents/Versions/latest/bin | sudo tee /etc/paths.d/postgresapp</code></pre>
 <h4 id="linux">Linux</h4>
-<p>The <a href="https://help.ubuntu.com/community/PostgreSQL">Ubuntu wiki</a> can help. See especially “Alternative Server Setup”.</p>
+<p>The <a href="https://help.ubuntu.com/community/PostgreSQL">Ubuntu wiki</a> can help. See especially "Alternative Server Setup”.</p>
 <h3 id="after-installation">After installation</h3>
 <p>Close and reopen your terminal to gain access to the <code>psql</code> command. Let’s try it out.</p>
 <pre><code># open the PostgreSQL CLI

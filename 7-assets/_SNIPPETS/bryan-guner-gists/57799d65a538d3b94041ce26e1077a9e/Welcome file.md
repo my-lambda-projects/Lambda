@@ -439,7 +439,7 @@
 <td align="center"><a href="https://www.oneideaaway.com/ep200-certified-coach-and-motivational-speaker-raia-coach-carey-shift-what-hinders-you-into-what-empowers-you/">https://www.oneideaaway.com/ep200-certified-coach-and-motivational-speaker-raia-coach-carey-shift-what-hinders-you-into-what-empowers-you/</a></td>
 <td><a href="https://www.oneideaaway.com/ep200-certified-coach-and-motivational-speaker-raia-coach-carey-shift-what-hinders-you-into-what-empowers-you/">https://www.oneideaaway.com/ep200-certified-coach-and-motivational-speaker-raia-coach-carey-shift-what-hinders-you-into-what-empowers-you/</a></td>
 <td>1</td>
-<td>EP200 - Certified Coach and Motivational Speaker, Raia “Coach” Carey: Shift What Hinders You Into What Empowers You</td>
+<td>EP200 - Certified Coach and Motivational Speaker, Raia "Coach” Carey: Shift What Hinders You Into What Empowers You</td>
 <td>115</td>
 <td>1077</td>
 <td>0</td>

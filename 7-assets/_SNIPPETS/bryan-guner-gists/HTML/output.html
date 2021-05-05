@@ -303,7 +303,7 @@
 <a class="sourceLine" id="cb26-4" title="4"><span class="st">/:$/&amp;&amp;!f{sub(/:$/,&quot;&quot;);s=$0;f=1;next}</span></a>
 <a class="sourceLine" id="cb26-5" title="5"><span class="st">NF&amp;&amp;f{ print s&quot;/&quot;$0 }&#39;</span><span class="op">&gt;</span>listing.md</a></code></pre></div>
 <h2 id="section-23">——</h2>
-<h1 id="recursivley-remove-from-all-html-files-any-lines-contaning-the-string-badtext">Recursivley remove from all html files any lines contaning the string “badText”</h1>
+<h1 id="recursivley-remove-from-all-html-files-any-lines-contaning-the-string-badtext">Recursivley remove from all html files any lines contaning the string "badText”</h1>
 <div class="sourceCode" id="cb27"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb27-1" title="1"><span class="fu">find</span> . -type f -exec sed -i <span class="st">&#39;/badText/d&#39;</span> ./*.html {} <span class="dt">\;</span></a></code></pre></div>
 <h2 id="section-24">——</h2>
 <p>#install unzip:</p>

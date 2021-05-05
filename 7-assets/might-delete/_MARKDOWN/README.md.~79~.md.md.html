@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="javascript-iv">JavaScript IV</h1>
+<p>This challenge focuses on classes in JavaScript using the new <code>class</code> keyword.</p>
+<h2 id="set-up-the-project-with-git">Set Up The Project With Git</h2>
+<p><strong>Follow these steps to set up and work on your project:</strong></p>
+<ul>
+<li>[ ] Create a forked copy of this project.</li>
+<li>[ ] Add your project manager as collaborator on Github.</li>
+<li>[ ] Clone your OWN version of the repository (Not Lambda’s by mistake!).</li>
+<li>[ ] Create a new branch: git checkout -b <code>&lt;firstName-lastName&gt;</code>.</li>
+<li>[ ] Implement the project on your newly created <code>&lt;firstName-lastName&gt;</code> branch, committing changes regularly.</li>
+<li>[ ] Push commits: git push origin <code>&lt;firstName-lastName&gt;</code>.</li>
+</ul>
+<p><strong>Follow these steps for completing your project.</strong></p>
+<ul>
+<li>[ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student’s Repo). <strong>Please don’t merge your own pull request</strong></li>
+<li>[ ] Add your project manager as a reviewer on the pull-request</li>
+<li>[ ] Your project manager will count the project as complete by merging the branch back into master.</li>
+</ul>
+<h2 id="assignment-description">Assignment Description</h2>
+<p>You already pretty much know all about classes but you’re used to seeing them built in the following context:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">Person</span>(personAttributes)  <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">this</span>.<span class="at">name</span> <span class="op">=</span> <span class="va">personAttributes</span>.<span class="at">name</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="kw">this</span>.<span class="at">age</span> <span class="op">=</span> <span class="va">personAttributes</span>.<span class="at">age</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="kw">this</span>.<span class="at">location</span> <span class="op">=</span> <span class="va">personAttributes</span>.<span class="at">location</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="kw">const</span> fred <span class="op">=</span> <span class="kw">new</span> <span class="at">Person</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb1-8" title="8">  <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;Fred&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-9" title="9">  <span class="dt">age</span><span class="op">:</span> <span class="dv">37</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-10" title="10">  <span class="dt">location</span><span class="op">:</span> <span class="st">&#39;Bedrock&#39;</span></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>Because none of the above code is new, you’re about to see your world get much much easier when dealing with Object Creation and Classical Inheritance as it pertains to JavaScript.</li>
+<li>The Class Keyword makes this SO MUCH EASIER!</li>
+<li><strong>Fork</strong> and clone this repository.</li>
+<li><strong>Complete</strong> all of the exercises found in the assignment files.</li>
+</ul>
+<h2 id="prototype-refactor---take-existing-code-and-make-it-modern."><code>prototype-refactor</code> - Take existing code and make it modern.</h2>
+<ul>
+<li>You’re going to work with your prototypes assignment you built out yesterday.</li>
+<li><code>Challenge:</code> <strong>Convert</strong> all of your constructors into ES6 Classes using the <code>class</code> and <code>extends</code> keywords. You should be able to run your same logs and they should build out the proper expected behaviors.</li>
+</ul>
+<h2 id="lambda-classes---we-need-a-roster-of-lambda-school-personnel.-build-it"><code>lambda-classes</code> - We need a roster of Lambda School personnel. Build it!</h2>
+<ul>
+<li>We have a school to build here! This project will get you used to thinking about classes in JavaScript and building them from a brand new data set.</li>
+<li>Lambda personnel can be broken down into three different types of <code>people</code>.
+<ul>
+<li><strong>Instructors</strong> - extensions of Person</li>
+<li><strong>Students</strong> - extensions of Person</li>
+<li><strong>Project Managers</strong> - extensions of Instructors</li>
+</ul></li>
+<li><strong>IMPORTANT</strong> - You’ll need to create 2 - 3 objects for each class and test them according to their unique Attributes. For example:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> fred <span class="op">=</span> <span class="kw">new</span> <span class="at">Instructor</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;Fred&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="dt">location</span><span class="op">:</span> <span class="st">&#39;Bedrock&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="dt">age</span><span class="op">:</span> <span class="dv">37</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-5" title="5">  <span class="dt">favLanguage</span><span class="op">:</span> <span class="st">&#39;JavaScript&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-6" title="6">  <span class="dt">specialty</span><span class="op">:</span> <span class="st">&#39;Front-end&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-7" title="7">  <span class="dt">catchPhrase</span><span class="op">:</span> <span class="vs">`Don&#39;t forget the homies`</span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h4 id="person">Person</h4>
+<ul>
+<li>First we need a Person class. This will be our <code>base-class</code></li>
+<li>Person receives <code>name</code> <code>age</code> <code>location</code> all as props</li>
+<li>Person receives <code>speak</code> as a method.</li>
+<li>This method logs out a phrase <code>Hello my name is Fred, I am from Bedrock</code> where <code>name</code> and <code>location</code> are the object’s own props</li>
+</ul>
+<h4 id="instructor">Instructor</h4>
+<ul>
+<li>Now that we have a Person as our base class, we’ll build our Instructor class.</li>
+<li>Instructor uses the same attributes that have been set up by Person</li>
+<li>Instructor has the following unique props:
+<ul>
+<li><code>specialty</code> what the Instructor is good at i.e. ‘redux’</li>
+<li><code>favLanguage</code> i.e. ‘JavaScript, Python, Elm etc.’</li>
+<li><code>catchPhrase</code> i.e. <code>Don't forget the homies</code></li>
+</ul></li>
+<li>Instructor has the following methods:
+<ul>
+<li><code>demo</code> receives a <code>subject</code> string as an argument and logs out the phrase ‘Today we are learning about {subject}’ where subject is the param passed in.</li>
+<li><code>grade</code> receives a <code>student</code> object and a <code>subject</code> string as arguments and logs out ‘{student.name} receives a perfect score on {subject}’</li>
+</ul></li>
+</ul>
+<h4 id="student">Student</h4>
+<ul>
+<li>Now we need some students!</li>
+<li>Student uses the same attributes that have been set up by Person</li>
+<li>Student has the following unique props:
+<ul>
+<li><code>previousBackground</code> i.e. what the Student used to do before Lambda School</li>
+<li><code>className</code> i.e. CS132</li>
+<li><code>favSubjects</code>. i.e. an array of the student’s favorite subjects [‘Html’, ‘CSS’, ‘JavaScript’]</li>
+</ul></li>
+<li>Student has the following methods:
+<ul>
+<li><code>listsSubjects</code> a method that logs out all of the student’s favoriteSubjects one by one.</li>
+<li><code>PRAssignment</code> a method that receives a subject as an argument and logs out that the <code>student.name has submitted a PR for {subject}</code></li>
+<li><code>sprintChallenge</code> similar to PRAssignment but logs out <code>student.name has begun sprint challenge on {subject}</code></li>
+</ul></li>
+</ul>
+<h4 id="project-manager">Project Manager</h4>
+<ul>
+<li>Now that we have instructors and students, we’d be nowhere without our PM’s</li>
+<li>ProjectManagers are extensions of Instructors</li>
+<li>ProjectManagers have the following unique props:
+<ul>
+<li><code>gradClassName</code>: i.e. CS1</li>
+<li><code>favInstructor</code>: i.e. Sean</li>
+</ul></li>
+<li>ProjectManagers have the following Methods:
+<ul>
+<li><code>standUp</code> a method that takes in a slack channel and logs <code>{name} announces to {channel}, @channel standy times!</code></li>
+<li><code>debugsCode</code> a method that takes in a student object and a subject and logs out <code>{name} debugs {student.name}'s code on {subject}</code></li>
+</ul></li>
+</ul>
+<h4 id="stretch-problem">Stretch Problem</h4>
+<ul>
+<li>Extend the functionality of the Student by adding a prop called grade and setting it equal to a number between 1-100.</li>
+<li>Now that our students have a grade build out a method on the Instructor (this will be used by <em>BOTH</em> instructors and PM’s) that will randomly add or subtract points to a student’s grade. <em>Math.random</em> will help.</li>
+<li>Add a graduate method to a student.
+<ul>
+<li>This method, when called, will check the grade of the student and see if they’re ready to graduate from Lambda School</li>
+<li>If the student’s grade is above a 70% let them graduate! Otherwise go back to grading their assignments to increase their score.</li>
+</ul></li>
+</ul>
+</body></html>

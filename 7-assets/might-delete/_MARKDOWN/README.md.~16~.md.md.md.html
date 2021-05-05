@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="sprint-challenge-advanced-web-applications---react-bubbles">Sprint Challenge: Advanced Web Applications - React Bubbles</h1>
+<p>This challenge allows you to practice the concepts and techniques learned over the past Sprint and apply them in a concrete project. This Sprint explored Advanced Web Applications, focusing on testing, client-side authentication, hosting web apps, and PUT and DELETE requests.</p>
+<h2 id="instructions">Instructions</h2>
+<p><strong>Read these instructions carefully. Understand exactly what is expected <em>before</em> starting this Sprint Challenge.</strong></p>
+<p>This is an individual assessment. All work must be your own. Your challenge score is a measure of your ability to work independently using the material covered through this sprint. You need to demonstrate proficiency in the concepts and objectives introduced and practiced in preceding days.</p>
+<p>You are not allowed to collaborate during the Sprint Challenge. However, you are encouraged to follow the twenty-minute rule and seek support from your PM and Instructor in your cohort help channel on Slack. Your work reflects your proficiency ReactJS Fundamentals and your command of the concepts and techniques in the Function Components and Class Components.</p>
+<p>You have three hours to complete this challenge. Plan your time accordingly.</p>
+<h2 id="commits">Commits</h2>
+<p>Commit your code regularly and meaningfully. This helps both you (in case you ever need to return to old code for any number of reasons and your project manager).</p>
+<h2 id="description">Description</h2>
+<p>In this project you will create a login page and request a token from the server that you’ll use to send all other requests to the server. You will then be able to fetch the color data array, update data, and delete data, and watch the fun happen!</p>
+<p><strong>Note</strong> You can use the sites like the following to get color hex codes:</p>
+<ul>
+<li><a href="https://www.color-hex.com/">Color-Hex</a></li>
+</ul>
+<h2 id="self-studyessay-questions">Self-Study/Essay Questions</h2>
+<p>Demonstrate your understanding of this Sprint’s concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.</p>
+<ul>
+<li>[ ] Explain what a token is used for.</li>
+</ul>
+<p>The token is used for providing user authentication where after the user enters their private credentials, the client sends a request to the server which then returns a token in a header of the response. The token itself is there for us to ensure that the user is indeed present on a database.</p>
+<ul>
+<li>[ ] What steps can you take in your web apps to keep your data secure?</li>
+</ul>
+<p>Store the freakin’ tokens not on a local or session storage because that is insecure AF since anyone who would have a crawler virus would be able to easily get the token and pretend to be the user in order to collect vulnerable data(like credit card information). A regular thing that is considered to be a good practice for webapps is hacking data when it’s sent back and forth from the client to the server.</p>
+<ul>
+<li>[ ] Describe how web servers work.</li>
+</ul>
+<p>They’re basically a middleman between frontend and a database where the server is constantly sending code back and forth for a N-th amount of users, processing requests and providing frontend with desired derived information from a database.</p>
+<ul>
+<li>[ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.</li>
+</ul>
+<p>GET, POST, PUT, DELETE HTTP methods all interact with APIs/Servers.</p>
+<h2 id="project-set-up">Project Set Up</h2>
+<p>Follow these steps to set up and work on your project:</p>
+<ul>
+<li>[ ] Create a forked copy of this project.</li>
+<li>[ ] Add PM as collaborator on Github.</li>
+<li>[ ] Clone your OWN version of Repo (Not Lambda’s by mistake!).</li>
+<li>[ ] Create a new Branch on the clone: git checkout -b <code>&lt;firstName-lastName&gt;</code>.</li>
+<li>[ ] Implement the project on this Branch, committing changes regularly.</li>
+<li>[ ] Push commits: git push origin <code>&lt;firstName-lastName&gt;</code>.</li>
+<li>[ ] <strong>RUN</strong> <code>yarn install or npm install</code> at the root to retrieve all the dependencies for the node server. You will not need to create any react apps here nor will you need to install any other dependencies. You should have all you need in this repo.</li>
+<li>[ ] <strong>LOOK</strong> at all the files you’ve been given for this project. One important file to note is <code>server.js</code>. This file contains an <strong>API</strong> that you are going to be interfacing with. Below is documentation on how to interact with the <strong>API</strong>.</li>
+<li>[ ] <strong>RUN</strong> <code>yarn start or npm start</code> to get your API up and running on <code>http://localhost:5000</code>. This is the <strong>URL</strong> you’re going to need to use within your React app in order to make AJAX requests for data.</li>
+<li>[ ] <strong>LOOK</strong> at your <code>client</code> directory and notice it’s just a plain ol’ React App that we’ve built using <code>create-react-app</code>.</li>
+<li>[ ] <strong>cd</strong> into <code>client</code> and run <code>yarn install or npm install</code> to retrieve the client side dependencies.</li>
+<li>[ ] <strong>RUN</strong> <code>yarn start or npm start</code> to fire up your React application.</li>
+</ul>
+<p>Follow these steps for completing your project:</p>
+<ul>
+<li>[ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student’s Repo).</li>
+<li>[ ] Add your Project Manager as a Reviewer on the Pull-request</li>
+<li>[ ] PM then will count the HW as done by merging the branch back into master.</li>
+</ul>
+<h2 id="minimum-viable-product">Minimum Viable Product</h2>
+<p>The MVP of this project will be broken up between 2 stages. Follow each step.</p>
+<h3 id="stage-1---authentication">Stage 1 - Authentication</h3>
+<p>Build a login form to authenticate your users.</p>
+<ul>
+<li>[ ] Construct an AXIOS request to retrieve a token from the server. You’ll use this token to interact with the API</li>
+<li>[ ] Save the token to localStorage</li>
+<li>[ ] Build a <code>axiosWithAuth</code> module to create an instance of axios with the authentication header</li>
+<li>[ ] Build a <code>PrivateRoute</code> component and use it to protect a route that renders the <code>BubblesPage</code> component</li>
+</ul>
+<h3 id="stage-2---consuming-the-api">Stage 2 - Consuming the API</h3>
+<ul>
+<li>[ ] When <code>BubblePages</code> renders, make a GET request to fetch the color data for your bubbles.</li>
+<li>[ ] In <code>ColorList.js</code>, complete the <code>saveEdit</code> and <code>deleteColor</code> functions to make AJAX requests to the API to edit/delete data</li>
+<li>[ ] Watch and enjoy as your app responds to updates in the data. Check out <code>Bubbles.js</code> to see how this is built.</li>
+</ul>
+<h3 id="api-documentation">API Documentation</h3>
+<ul>
+<li><strong>[POST]</strong> * to <code>/api/login</code>: returns a token to be added to the header of all other requests. Pass in the following credentials as the <code>body</code> of the request: <code>{ username: 'Lambda School', password: 'i&lt;3Lambd4' }</code></li>
+<li><strong>[GET]</strong> to <code>/api/colors</code>: returns the list of colors and their hex codes.</li>
+<li><strong>[POST]</strong> to <code>/api/colors</code>: creates a new color object. Pass the color as the <code>body</code> of the request (the second argument passed to <code>axios.post</code>).</li>
+<li><strong>[PUT]</strong> to <code>/api/colors/:id</code>: updates the color using the <code>id</code> passed as part of the URL. Send the color object with the updated information as the <code>body</code> of the request (the second argument passed to <code>axios.put</code>).</li>
+<li><strong>[DELETE]</strong> to <code>/api/colors/123</code>: removes the color using the <code>id</code> passed as part of the URL (123 in example).</li>
+</ul>
+<h2 id="stretch-problems">STRETCH PROBLEMS</h2>
+<p><strong>HTTP/Axios Stretch Problems</strong></p>
+<ul>
+<li>[ ] Build a form at the bottom of <code>ColorList.js</code> to add new colors to the colors data</li>
+</ul>
+<p><strong>Data Visualization</strong></p>
+<ul>
+<li>[ ] Look at <a href="https://potion.js.org/">Potion JS</a>. This is the library used to display the color data</li>
+<li>[ ] Play around with the data visualization happening in <code>Bubbles.js</code>. Have fun with this! Try different components from the library, or see if you can add props to change the UI a bit.</li>
+</ul>
+</body></html>

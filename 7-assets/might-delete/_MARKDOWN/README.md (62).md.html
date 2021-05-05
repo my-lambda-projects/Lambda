@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="module-project---recursive-sorting">Module Project - Recursive Sorting</h1>
+<h2 id="algorithms">Algorithms</h2>
+<h2 id="recursive-sorting">Recursive Sorting</h2>
+<h2 id="objectives">Objectives</h2>
+<ul>
+<li>identify when a problem is amenable to a recursive solution and use recursion to solve it</li>
+<li>trace and accurately identify the output of a recursive function call</li>
+<li>write a recursive solution to a problem</li>
+<li>distinguish when to use, classify the performance, and implement code to conduct classic recursive sorting algorithms</li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>During today’s project, you will get a chance to practice the module’s objectives. You will be required to write a recursive merge sort algorithm. Knowing when to and how to use recursion will make you a better programmer and developer. It will give you one more tool in your toolbag whenever you face a problem that you need to solve.</p>
+<p>When you begin interviewing for jobs, you will often encounter problems that have elegant recursive solutions. Being comfortable with recursion and understanding how recursion works at a deep level is essential in ensuring you are ready to impress hiring managers and (ultimately) can contribute to an engineering team in a significant way.</p>
+<h2 id="instructions-andor-completion-requirements">Instructions and/or completion requirements</h2>
+<ul>
+<li>[X] Read through the descriptions of the <code>merge_sort</code> algorithm in <a href="https://learn.lambdaschool.com/cs/module/reccRh9h6ccXghfA4/">Training Kit</a>.</li>
+<li>[X] Implement <code>merge_sort</code> in <a href="src/recursive_sorting/recursive_sorting.py">recursive_sorting.py</a></li>
+<li>[X] Implement an in-place version of <code>merge_sort</code> that does not allocate any additional memory. In other words, the space complexity for this function should be O(1).</li>
+<li>[X] Test your implementation by running <code>test_recursive.py</code></li>
+</ul>
+<h2 id="stretch-goals">Stretch goals</h2>
+<ul>
+<li>[ ] Implement the <code>timsort</code> algorithm, which is a real-world sorting algorithm. It is the sorting algorithm that is used when you run Python’s built-in <code>sort</code> method.</li>
+</ul>
+<h2 id="tests">Tests</h2>
+<p>Make sure you test your implementations by running <code>test_recursive.py</code>.</p>
+<h2 id="faqs">FAQs</h2>
+<h3 id="how-do-you-assess-space-complexity">How do you assess space complexity?</h3>
+<p>Generally speaking, at work and in interviews, people are more interested in time complexity. That said, <em>space complexity</em>, or how much additional space is required to process <em>n</em> elements of data, is also very important. BB Space complexity does <em>not</em> include the space required to hold the data you are going to process. It only includes the <em>additional</em> space requirements of your algorithm.</p>
+<p>Here’s an example with <code>O(1)</code> space requirements:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">def</span> alg(data):</a>
+<a class="sourceLine" id="cb1-2" title="2">    result <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="cf">for</span> v <span class="kw">in</span> data:</a>
+<a class="sourceLine" id="cb1-5" title="5">        result <span class="op">+=</span> v</a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="cf">return</span> result</a></code></pre></div>
+<p>Clearly the <em>time</em> complexity is <code>O(n)</code>. As list <code>data</code> grows, the time it takes to complete the algorithm grows proportionately.</p>
+<p>But the <em>space</em> complexity is <code>O(1)</code>. The additional space required to complete the algorithm was:</p>
+<ul>
+<li><code>result</code>: <code>O(1)</code></li>
+<li><code>v</code>: <code>O(1)</code></li>
+</ul>
+<p>And neither of those change in size regardless of how big list <code>data</code> is. <code>data</code> could have a zillion elements, and the algorithm would still only require space for <code>result</code> and <code>v</code>.</p>
+<p>What about this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">def</span> alg(data):</a>
+<a class="sourceLine" id="cb2-2" title="2">    new_data <span class="op">=</span> data.copy()   <span class="co"># &lt;-- Added this line</span></a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4">    result <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb2-5" title="5"></a>
+<a class="sourceLine" id="cb2-6" title="6">    <span class="cf">for</span> v <span class="kw">in</span> new_data:</a>
+<a class="sourceLine" id="cb2-7" title="7">        result <span class="op">+=</span> v</a>
+<a class="sourceLine" id="cb2-8" title="8"></a>
+<a class="sourceLine" id="cb2-9" title="9">    <span class="cf">return</span> result</a></code></pre></div>
+<p>Here we have more space allocated.</p>
+<ul>
+<li><code>result</code>: <code>O(1)</code></li>
+<li><code>v</code>: <code>O(1)</code></li>
+<li><code>new_data</code>: <code>O(n)</code></li>
+</ul>
+<p><code>new_data</code> gets bigger as <code>data</code> gets bigger, so it’s <code>O(n)</code>. So we have:</p>
+<p><code>O(1) + O(1) + O(n)</code> space requirements. <code>O(n)</code> dominates, so the final result is <code>O(n)</code>.</p>
+<p>Where things get really tricky is when you have a recursive call. Each call to the function allocates space for all the local variables.</p>
+<p>And it gets doubly tricky if you’re making a copy of the data each call, like with a slice.</p>
+<p>Here’s the same algorithm as before that adds all the elements in a list, except this one does it recursively. Recall that the initial iterative version was <code>O(1)</code> space complexity.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">def</span> alg(data):</a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="cf">if</span> data <span class="op">==</span> []:</a>
+<a class="sourceLine" id="cb3-3" title="3">        <span class="cf">return</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5">    first_val <span class="op">=</span> data[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb3-6" title="6"></a>
+<a class="sourceLine" id="cb3-7" title="7">    <span class="cf">return</span> first_val <span class="op">+</span> alg(data[<span class="dv">1</span>:])</a></code></pre></div>
+<p>Every time we make a call into <code>alg()</code>, we get new space for local variables. So any local variable that was <code>O(1)</code> on its own, now gets <em>n</em> copies and becomes <code>O(1*n)</code> or <code>O(n)</code>.</p>
+<p>But that’s not all. When we slice <code>data</code> on the recursive call, we get a new list. So that means every call we’re getting another copy of the list, and each copy is <code>O(n)</code> space as well. And we’re making <em>n</em> recursive calls, so we need <em>n</em> copies of <code>O(n)</code> space, which comes to <code>O(n*n)</code> or <code>O(n^2)</code> space.</p>
+<blockquote>
+<p>Sure, it’s not a <em>complete</em> copy of the list. It’s missing the first element. So each call has a shorter and shorter list, like:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1">[ <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span> ]</a>
+<a class="sourceLine" id="cb4-2" title="2">[ <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span> ]</a>
+<a class="sourceLine" id="cb4-3" title="3">[ <span class="dv">3</span>, <span class="dv">4</span> ]</a>
+<a class="sourceLine" id="cb4-4" title="4">[ <span class="dv">4</span> ]</a>
+<a class="sourceLine" id="cb4-5" title="5">[ ]</a></code></pre></div>
+<p>So that means the first call wasn’t really <code>O(n)</code>, but was more like <code>O(0.8*n)</code>, and the second was <code>O(0.6*n)</code>, and so on.</p>
+<p>But recall that we drop constants with Big-O, so those still just become <code>O(n)</code>.</p>
+</blockquote>
+<p>So we have <em>n</em> recursive calls.</p>
+<p><code>first_val</code> on its own is <code>O(1)</code>. But we recurse <em>n</em> times, so it becomes <code>O(1*n)</code> or just <code>O(n)</code>.</p>
+<p>Each slice of <code>data</code> on its own is <code>O(n)</code>. But we recurse <em>n</em> times, so it becomes <code>O(n*n)</code> or <code>O(n^2)</code>.</p>
+<p>So the total space complexity for this algorithm is:</p>
+<p><code>O(n) + O(n^2)</code>. The <code>O(n^2)</code> dominates, so the final space complexity is just <code>O(n^2)</code>.</p>
+<p>Again, compare to the <code>O(1)</code> space complexity of the initial iterative solution.</p>
+<p>In some languages, notably <a href="https://en.wikipedia.org/wiki/Lisp_(programming_language)">Lisp</a> and other <a href="https://en.wikipedia.org/wiki/Functional_programming">functional programming languages</a>, you can write recursive solutions with <code>O(1)</code> space complexity. These languages take advantage of a feature known as <a href="https://en.wikipedia.org/wiki/Tail_call"><em>tail call optimization</em></a> to make this possible. By coding things correctly, the language can automatically convert your recursive solution into an iterative solution. Stock C and Python do not support tail call optimization.</p>
+<h3 id="both-promises-and-recursion-wait-for-something-to-resolve.-are-they-related">Both promises and recursion wait for something to resolve. Are they related?</h3>
+<p>Not really, though they are similar in that particular way.</p>
+<p>Promises do wait for things to resolve before continuing, which is their primary purpose of existence.</p>
+<p>Recursion does much more, however. It’s great for solving problems that can be split into identical subproblems. It can also be used to replace any looping construct.</p>
+<h3 id="should-we-use-a-languages-built-in-functionality-as-much-as-possible">Should we use a language’s built-in functionality as much as possible?</h3>
+<p>Yes.</p>
+<p>Generally the built-in functionality is better tested and better optimized than something you could write.</p>
+<p>That said, there might be times you want to write your own versions. Maybe the built-in doesn’t do exactly what you need. Or maybe you want to rewrite the built-in as a learning exercise, for example.</p>
+<h3 id="what-are-the-tradeoffs-with-in-place-versus-non-in-place-sorting-solutions">What are the tradeoffs with in-place versus non-in-place sorting solutions?</h3>
+<p>Memory: in-place typically takes less memory since you’re reusing the original storage for the list to hold the finally sorted list. If you allocate more lists to hold the result, that takes more memory.</p>
+<p>Code clarity: in-place sometimes has more complex code making the algorithm harder to understand.</p>
+<p>As an example, here’s a non-in-place Quicksort, which seems to be generally clearer than the in-place variant, but uses far more memory:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">def</span> partition(data):</a>
+<a class="sourceLine" id="cb5-2" title="2">    left <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb5-3" title="3">    pivot <span class="op">=</span> data[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb5-4" title="4">    right <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb5-5" title="5"></a>
+<a class="sourceLine" id="cb5-6" title="6">    <span class="cf">for</span> v <span class="kw">in</span> data[<span class="dv">1</span>:]:</a>
+<a class="sourceLine" id="cb5-7" title="7">        <span class="cf">if</span> v <span class="op">&lt;=</span> pivot:</a>
+<a class="sourceLine" id="cb5-8" title="8">            left.append(v)</a>
+<a class="sourceLine" id="cb5-9" title="9">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb5-10" title="10">            right.append(v)</a>
+<a class="sourceLine" id="cb5-11" title="11"></a>
+<a class="sourceLine" id="cb5-12" title="12">    <span class="cf">return</span> left, pivot, right</a>
+<a class="sourceLine" id="cb5-13" title="13"></a>
+<a class="sourceLine" id="cb5-14" title="14"><span class="kw">def</span> quicksort(data):</a>
+<a class="sourceLine" id="cb5-15" title="15">    <span class="cf">if</span> data <span class="op">==</span> []:</a>
+<a class="sourceLine" id="cb5-16" title="16">        <span class="cf">return</span> data</a>
+<a class="sourceLine" id="cb5-17" title="17"></a>
+<a class="sourceLine" id="cb5-18" title="18">    left, pivot, right <span class="op">=</span> partition(data)</a>
+<a class="sourceLine" id="cb5-19" title="19"></a>
+<a class="sourceLine" id="cb5-20" title="20">    <span class="cf">return</span> quicksort(left) <span class="op">+</span> [pivot] <span class="op">+</span> quicksort(right)</a></code></pre></div>
+<h3 id="how-do-you-keep-track-of-recursion-in-your-head">How do you keep track of recursion in your head?</h3>
+<p>One of the main tricks is to <em>not</em> try to follow the flow of the code.</p>
+<p>This is counterintuitive, because you’re used to reading code and "running” it mentally to follow what it does.</p>
+<p>Unfortunately, with recursion, keeping track of all the calls and returns quickly gets out of hand and human brains can’t handle it. Computers are fine, but people, not so much.</p>
+<p>A better approach is to see how you’re using recursion and try to model it in your head a different way.</p>
+<p>Commonly, recursion is used to break a problem up into identical, smaller subproblems.</p>
+<p>For example, the Fibonacci sequence is:</p>
+<pre><code>0 1 1 2 3 5 8 13 21 34 ...</code></pre>
+<p>where each number is the sum of the previous two numbers. And the <em>0th</em> number is defined to be <code>0</code>, and the <em>1st</em> number is defined to be <code>1</code>.</p>
+<p>We can write that mathematically like so:</p>
+<pre><code>fib(0) = 0
+fib(1) = 1
+fib(n) = fib(n-1) + fib(n-2)</code></pre>
+<p>But look there: it’s a recursive definition! That last line of math says "the <em>nth</em> Fibonacci number is defined to be the sum of the two previous Fibonacci numbers”, just like the original definition of the sequence, we gave above.</p>
+<p>Don’t think of it as something that spirals off into an infinity of calls. Just think of it as "any Fibonacci number is the sum of the previous two”, and leave it at that.</p>
+<p>And that translates to code pretty easily:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">def</span> fib(n):</a>
+<a class="sourceLine" id="cb8-2" title="2">    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb8-3" title="3">        <span class="cf">return</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb8-4" title="4"></a>
+<a class="sourceLine" id="cb8-5" title="5">    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb8-6" title="6">        <span class="cf">return</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb8-7" title="7"></a>
+<a class="sourceLine" id="cb8-8" title="8">    <span class="cf">return</span> fib(n <span class="op">-</span> <span class="dv">1</span>) <span class="op">+</span> fib(n <span class="op">-</span> <span class="dv">2</span>)</a></code></pre></div>
+<p>(Note that the above naive solution runs in <code>O(2^n)</code> time. You can get it down to <code>O(n)</code> using <a href="https://en.wikipedia.org/wiki/Dynamic_programming#Computer_programming"><em>dynamic programming</em></a>.)</p>
+</body></html>

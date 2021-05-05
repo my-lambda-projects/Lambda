@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h2 id="description">Description</h2>
+<p>You are provided with a pre-generated graph consisting of 500 rooms. You are responsible for filling <code>traversal_path</code> with directions that, when walked in order, will visit every room on the map at least once.</p>
+<p>Open <code>adv.py</code>. There are four parts to the provided code:</p>
+<ul>
+<li>World generation code. Do not modify this!</li>
+<li>An incomplete list of directions. Your task is to fill this with valid traversal directions.</li>
+<li>Test code. Run the tests by typing <code>python3 adv.py</code> in your terminal.</li>
+<li>REPL code. You can uncomment this and run <code>python3 adv.py</code> to walk around the map.</li>
+</ul>
+<p>You may find the commands <code>player.current_room.id</code>, <code>player.current_room.get_exits()</code> and <code>player.travel(direction)</code> useful.</p>
+<p>To solve this path, you’ll want to construct your own traversal graph. You start in room <code>0</code>, which contains exits <code>['n', 's', 'w', 'e']</code>. Your starting graph should look something like this:</p>
+<pre><code>{
+  0: {&#39;n&#39;: &#39;?&#39;, &#39;s&#39;: &#39;?&#39;, &#39;w&#39;: &#39;?&#39;, &#39;e&#39;: &#39;?&#39;}
+}</code></pre>
+<p>Try moving south and you will find yourself in room <code>5</code> which contains exits <code>['n', 's', 'e']</code>. You can now fill in some entries in your graph:</p>
+<pre><code>{
+  0: {&#39;n&#39;: &#39;?&#39;, &#39;s&#39;: 5, &#39;w&#39;: &#39;?&#39;, &#39;e&#39;: &#39;?&#39;},
+  5: {&#39;n&#39;: 0, &#39;s&#39;: &#39;?&#39;, &#39;e&#39;: &#39;?&#39;}
+}</code></pre>
+<p>You know you are done when you have exactly 500 entries (0-499) in your graph and no <code>'?'</code> in the adjacency dictionaries. To do this, you will need to write a traversal algorithm that logs the path into <code>traversal_path</code> as it walks.</p>
+<h2 id="hints">Hints</h2>
+<p>There are a few smaller graphs in the file which you can test your traversal method on before committing to the large graph. You may find these easier to debug.</p>
+<p>Start by writing an algorithm that picks a random unexplored direction from the player’s current room, travels and logs that direction, then loops. This should cause your player to walk a depth-first traversal. When you reach a dead-end (i.e. a room with no unexplored paths), walk back to the nearest room that does contain an unexplored path.</p>
+<p>You can find the path to the shortest unexplored room by using a breadth-first search for a room with a <code>'?'</code> for an exit. If you use the <code>bfs</code> code from the homework, you will need to make a few modifications.</p>
+<ol type="1">
+<li><p>Instead of searching for a target vertex, you are searching for an exit with a <code>'?'</code> as the value. If an exit has been explored, you can put it in your BFS queue like normal.</p></li>
+<li><p>BFS will return the path as a list of room IDs. You will need to convert this to a list of n/s/e/w directions before you can add it to your traversal path.</p></li>
+</ol>
+<p>If all paths have been explored, you’re done!</p>
+<h2 id="minimum-viable-product">Minimum Viable Product</h2>
+<ul>
+<li><strong>1</strong>: Tests do not pass</li>
+<li><strong>2</strong>: Tests pass with <code>len(traversal_path) &lt;= 2000</code></li>
+<li><strong>3</strong>: Tests pass with <code>len(traversal_path) &lt; 960</code></li>
+</ul>
+<h2 id="stretch-problems">Stretch Problems</h2>
+<p>It is very difficult to calculate the shortest possible path that traverses the entire graph. Why?</p>
+<p>My best path is 957 moves. Can you find a shorter path?</p>
+<h2 id="rubric">Rubric</h2>
+<table>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 13%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>OBJECTIVE</th>
+<th>TASK</th>
+<th>1 - DOES NOT MEET Expectations</th>
+<th>2 - MEETS Expectations</th>
+<th>3 - EXCEEDS Expectations</th>
+<th>SCORE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Student can demonstrate applied knowledge of Graph Theory by traversing a large map</em></td>
+<td>Complete traversal of a large Graph</td>
+<td>Student unable to produce a valid traversal path of 2000 moves or less</td>
+<td>Student is able to produce a valid traversal path between 960 and 2000</td>
+<td>Student produces a valid traversal path of 959 moves or less</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>FINAL SCORE</strong></td>
+<td></td>
+<td><strong>0-1</strong></td>
+<td><strong>2</strong></td>
+<td><strong>3</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</body></html>

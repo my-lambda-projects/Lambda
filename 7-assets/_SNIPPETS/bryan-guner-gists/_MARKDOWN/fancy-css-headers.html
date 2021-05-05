@@ -20,8 +20,8 @@
 <figure>
 <img src="https://miro.medium.com/max/4416/1*qh8otFfZQQ60V2LepbfP8A.png" alt="Image for post" /><figcaption>Image for post</figcaption>
 </figure>
-<p>The first style we would create is an outlined text, with a 3d text shape behind it. In order to create an “outline” for text, we would need to use the CSS property: <code>-webkit-text-stroke-width</code> and <code>-webkit-text-stroke-color</code> . These two property allow us to create an outline and give it the desired color.</p>
-<p>For the 3d text shape, we could use multiple layer of <code>text-shadow</code> property. Since text-shadow can be stacked, in this example, we could add many layers of pink shadow, where each layer offsetting the previous one for 1px in x and y direction. Giving the whole text-shadow a “3D” shape.</p>
+<p>The first style we would create is an outlined text, with a 3d text shape behind it. In order to create an "outline” for text, we would need to use the CSS property: <code>-webkit-text-stroke-width</code> and <code>-webkit-text-stroke-color</code> . These two property allow us to create an outline and give it the desired color.</p>
+<p>For the 3d text shape, we could use multiple layer of <code>text-shadow</code> property. Since text-shadow can be stacked, in this example, we could add many layers of pink shadow, where each layer offsetting the previous one for 1px in x and y direction. Giving the whole text-shadow a "3D” shape.</p>
 <p>Let jump into the code.</p>
 <p>HTML (as promise, one div):</p>
 <div class="line-text">
@@ -31,7 +31,7 @@ foreign terrace
 <blockquote>
 <p>I create some global variable to store the color and the size, $extra-large is 110px. For the color, check my codepen</p>
 </blockquote>
-<p>This is a fairly easy style, we don’t even need to use a before or after pseudo-element. This is a good place to start as it teaches us two very important property in styling text, <code>text-stroke-width</code> and <code>text-shadow</code>. Say you want a more “3d-looking” text, you could easily add more layer of shadow to it, like so:</p>
+<p>This is a fairly easy style, we don’t even need to use a before or after pseudo-element. This is a good place to start as it teaches us two very important property in styling text, <code>text-stroke-width</code> and <code>text-shadow</code>. Say you want a more "3d-looking” text, you could easily add more layer of shadow to it, like so:</p>
 <figure>
 <img src="https://miro.medium.com/max/60/1*19aEylsHnaRZBCrndxW4eA.png?q=20" alt="Image for post" /><figcaption>Image for post</figcaption>
 </figure>
@@ -46,15 +46,15 @@ foreign terrace
 <figure>
 <img src="https://miro.medium.com/max/5368/1*2-6Srs31u8h6ZEBQ8VWr6A.png" alt="Image for post" /><figcaption>Image for post</figcaption>
 </figure>
-<p>The next style we will create is neon. The text mimic a neon sign by creating lighting effect, also using a more “written” font style.</p>
-<p>The first thing to do is to pick a suitable font for the neon text. I picked “Pacifico” (free font on google font) as it has a nice rounded border, and continuous stroke style. Pretty much like the sign made from a neon tube.</p>
+<p>The next style we will create is neon. The text mimic a neon sign by creating lighting effect, also using a more "written” font style.</p>
+<p>The first thing to do is to pick a suitable font for the neon text. I picked "Pacifico” (free font on google font) as it has a nice rounded border, and continuous stroke style. Pretty much like the sign made from a neon tube.</p>
 <figure>
 <img src="https://miro.medium.com/max/60/1*sSysOkBk0DJJvdNSZcgxqQ.png?q=20" alt="Image for post" /><figcaption>Image for post</figcaption>
 </figure>
 <figure>
 <img src="https://miro.medium.com/max/1744/1*sSysOkBk0DJJvdNSZcgxqQ.png" alt="Image for post" /><figcaption>Image for post</figcaption>
 </figure>
-<p>I believe you have guessed, we would apply <code>-webkit-text-stroke-width</code> and <code>-webkit-text-stroke-color</code> again as our base for the “neon”, <code>text-shadow</code> would be used again for the “glowing” light around the neon. If you look carefully, there are one more set of “outlined-text”, in black color behind the neon. That is the drop shadow of the neon-tube. And we would use a :after pseudo-element to create it.</p>
+<p>I believe you have guessed, we would apply <code>-webkit-text-stroke-width</code> and <code>-webkit-text-stroke-color</code> again as our base for the "neon”, <code>text-shadow</code> would be used again for the "glowing” light around the neon. If you look carefully, there are one more set of "outlined-text”, in black color behind the neon. That is the drop shadow of the neon-tube. And we would use a :after pseudo-element to create it.</p>
 <p>HTML:</p>
 <div class="neon-text">
 underlying wire
@@ -72,7 +72,7 @@ underlying wire
 <img src="https://miro.medium.com/max/4160/1*knpwC9n4XLr-z9GG0K73Rw.png" alt="Image for post" /><figcaption>Image for post</figcaption>
 </figure>
 <p>This style has a lot of thing in common with the first style. Firstly, it also has a white border. And secondly, it has a 3d shaped text shadow. We already know how to use <code>-webkit-text-stroke-width</code> ,<code>-webkit-text-stroke-color</code> and<code>text-shadow</code> to create such pattern. One thing different is the colorful stripe pattern of the text.</p>
-<p>There are no “linear-gradient” available for text (as of June 2020, let me know if it is a thing now!), so we would need a workaround. Instead of making the text itself having color, we will first create a background, and then use the <code>background-clip: text</code> property. This property will “clip” the div by the shape of your text, with a combination of making your text-color transparent, you will end up with text colored with whatever background you are using.</p>
+<p>There are no "linear-gradient” available for text (as of June 2020, let me know if it is a thing now!), so we would need a workaround. Instead of making the text itself having color, we will first create a background, and then use the <code>background-clip: text</code> property. This property will "clip” the div by the shape of your text, with a combination of making your text-color transparent, you will end up with text colored with whatever background you are using.</p>
 <figure>
 <img src="https://miro.medium.com/max/60/1*UnQUNxtvHOel4W4hTz8n9w.png?q=20" alt="Image for post" /><figcaption>Image for post</figcaption>
 </figure>
@@ -80,14 +80,14 @@ underlying wire
 <img src="https://miro.medium.com/max/2060/1*UnQUNxtvHOel4W4hTz8n9w.png" alt="Image for post" /><figcaption>Image for post</figcaption>
 </figure>
 <p>Same thing could be apply to image background, so you could basically give your text whatever texture</p>
-<p>We would also use another font family to complement the overall style. The one I picked is “Catamaran” (also free on google font).</p>
+<p>We would also use another font family to complement the overall style. The one I picked is "Catamaran” (also free on google font).</p>
 <p>HTML:</p>
 <div class="stripe-text">
 quick turnover
 </div>
 <p>SCSS:</p>
 <blockquote>
-<p>You may notice I put the background and <code>background-clip: text</code> in the :after element, instead of the parent. The reason for that is <strong>“background-clip” clip EVERYTHING inside the element</strong>, include :before and :after element. So applying it there <strong>would cause the 3d shadow being clipped as well</strong>. In fact, the HTML don’t need to have the text at all. I am just adding it there for better sizing (as both after and before element are absolute positioned to parent) and demo purpose.</p>
+<p>You may notice I put the background and <code>background-clip: text</code> in the :after element, instead of the parent. The reason for that is <strong>"background-clip” clip EVERYTHING inside the element</strong>, include :before and :after element. So applying it there <strong>would cause the 3d shadow being clipped as well</strong>. In fact, the HTML don’t need to have the text at all. I am just adding it there for better sizing (as both after and before element are absolute positioned to parent) and demo purpose.</p>
 </blockquote>
 <p><strong>Style 4: Cut text</strong></p>
 <figure>
@@ -97,7 +97,7 @@ quick turnover
 <img src="https://miro.medium.com/max/3216/1*byXm5gNu5VXKWdZ9sjZE_Q.png" alt="Image for post" /><figcaption>Image for post</figcaption>
 </figure>
 <p>In all of the style, this one is actually my favourite. It is very different from the other style and our old friend <code>-webkit-text-stroke-width</code> ,<code>-webkit-text-stroke-color</code> and<code>text-shadow</code> won’t be helping us this time (sorry about that).</p>
-<p>In this style, we have a “cut” in the text, making the upper part of text sliding down in the cut angle. The whole design is also very clean and sharp.</p>
+<p>In this style, we have a "cut” in the text, making the upper part of text sliding down in the cut angle. The whole design is also very clean and sharp.</p>
 <p>The concept for creating this style is very simply, we make two pseudo element (before and after), and give them two <code>clip-path</code>, where the two clip path together form a complete rectangle:</p>
 <figure>
 <img src="https://miro.medium.com/max/60/1*PA8pm52sLxNIeKyEI9zWuA.png?q=20" alt="Image for post" /><figcaption>Image for post</figcaption>
@@ -105,14 +105,14 @@ quick turnover
 <figure>
 <img src="https://miro.medium.com/max/2840/1*PA8pm52sLxNIeKyEI9zWuA.png" alt="Image for post" /><figcaption>Image for post</figcaption>
 </figure>
-<p>And then we just add a little bit offset for the upper part element to the right and downward, making the text slide down in the “cut” direction.</p>
+<p>And then we just add a little bit offset for the upper part element to the right and downward, making the text slide down in the "cut” direction.</p>
 <p>HTML:</p>
 <div class="cut-text">
 stolen hour
 </div>
 <p>SCSS:</p>
 <blockquote>
-<p>For the same reason mentioned in last style, we cannot clip path on the parent directly. and you may also notice in the clip-path, I used 110% instead of 100%. The reason being that the text getting clipped at the very end due to using “italic” style. it is solved by changing the clip border from 100% to a higher number.</p>
+<p>For the same reason mentioned in last style, we cannot clip path on the parent directly. and you may also notice in the clip-path, I used 110% instead of 100%. The reason being that the text getting clipped at the very end due to using "italic” style. it is solved by changing the clip border from 100% to a higher number.</p>
 </blockquote>
 <p><strong>Style 5: Cyber text</strong></p>
 <figure>
@@ -121,7 +121,7 @@ stolen hour
 <figure>
 <img src="https://miro.medium.com/max/4148/1*YObcSEoVzWZ_KaHG4_S3lg.png" alt="Image for post" /><figcaption>Image for post</figcaption>
 </figure>
-<p>Despite the fancy name, this style is the easiest. We will be using :before and :after pseudo-element, and transparent text-color overlaying on top of each other to create this “funky” effect. The text look kind of blur but actually it is completely straight if you look closely, it is the mixture of the color and minor offset giving it such behavior.</p>
+<p>Despite the fancy name, this style is the easiest. We will be using :before and :after pseudo-element, and transparent text-color overlaying on top of each other to create this "funky” effect. The text look kind of blur but actually it is completely straight if you look closely, it is the mixture of the color and minor offset giving it such behavior.</p>
 <p>HTML:</p>
 <div class="cyber-text">
 digital highway
@@ -137,8 +137,8 @@ digital highway
 <figure>
 <img src="https://miro.medium.com/max/3900/1*lDBHarduK4EUC41wHNdcvQ.png" alt="Image for post" /><figcaption>Image for post</figcaption>
 </figure>
-<p>This one is basically the same as the “stripe-text” style, as we are again using <code>background-clip: text</code> property. As mentioned, with background-clip property you could easily create any pattern and texture of text, given that you have a background image.</p>
-<p>One little twist of this style is the inner “shadow” of the text. It is in fact created with an after element with (again) <code>-webkit-text-stroke-width</code> ,<code>-webkit-text-stroke-color</code> property.</p>
+<p>This one is basically the same as the "stripe-text” style, as we are again using <code>background-clip: text</code> property. As mentioned, with background-clip property you could easily create any pattern and texture of text, given that you have a background image.</p>
+<p>One little twist of this style is the inner "shadow” of the text. It is in fact created with an after element with (again) <code>-webkit-text-stroke-width</code> ,<code>-webkit-text-stroke-color</code> property.</p>
 <p>HTML:</p>
 <div class="wood-text">
 suitable villa
@@ -154,7 +154,7 @@ suitable villa
 <figure>
 <img src="https://miro.medium.com/max/3824/1*-PluYzXMrwt09anUuBne6Q.png" alt="Image for post" /><figcaption>Image for post</figcaption>
 </figure>
-<p>This comic looking style text resemble old fashion comic text. Everything is heavily outlined, and the stroke are overly decorated. To start with, we will first need a font for this style. I picked “Molle”, again (guess you figure out the pattern by now) a free google font.</p>
+<p>This comic looking style text resemble old fashion comic text. Everything is heavily outlined, and the stroke are overly decorated. To start with, we will first need a font for this style. I picked "Molle”, again (guess you figure out the pattern by now) a free google font.</p>
 <figure>
 <img src="https://miro.medium.com/max/60/1*Q2vMDKRQTPIXfs1EKcTGAQ.png?q=20" alt="Image for post" /><figcaption>Image for post</figcaption>
 </figure>
@@ -178,7 +178,7 @@ square tube!
 <img src="https://miro.medium.com/max/4712/1*_ZOGCf8dCQAFXHk7pMM42A.png" alt="Image for post" /><figcaption>Image for post</figcaption>
 </figure>
 <p>This style also has the word cut in it, but we won’t actually cut it. Instead, we will use a background gradient and <code>background-clip: text</code> property again. We will stack two background, one with color at the top 50%, transparent at the bottom 50%, and another background a white and transparent stripe.</p>
-<p>On top of the text, we would also add a text-shadow, to give more shape to it. Using a shadow on top of the text with dark background, resulting it having a fake “highlight”, which is the original color of the text.</p>
+<p>On top of the text, we would also add a text-shadow, to give more shape to it. Using a shadow on top of the text with dark background, resulting it having a fake "highlight”, which is the original color of the text.</p>
 <p>HTML:</p>
 <div class="horizontal-cut-text">
 vague minority
@@ -202,7 +202,7 @@ entire volume
 </div>
 <p>SCSS:</p>
 <blockquote>
-<p>One side note regarding <code>text-stroke-width</code>, it seems all powerful but has it own limitation. If the font you are using don’t have a beautiful and continuous stroke, your will get a “broken” stroke from the property. Also, be aware that if you set the stroke width too high, there may be unexpected “edge” from the stroke of the text, like below:</p>
+<p>One side note regarding <code>text-stroke-width</code>, it seems all powerful but has it own limitation. If the font you are using don’t have a beautiful and continuous stroke, your will get a "broken” stroke from the property. Also, be aware that if you set the stroke width too high, there may be unexpected "edge” from the stroke of the text, like below:</p>
 </blockquote>
 <figure>
 <img src="https://miro.medium.com/max/52/1*8D039RUBG9sKBsWt7wA6tw.png?q=20" alt="Image for post" /><figcaption>Image for post</figcaption>
@@ -210,7 +210,7 @@ entire volume
 <figure>
 <img src="https://miro.medium.com/max/724/1*8D039RUBG9sKBsWt7wA6tw.png" alt="Image for post" /><figcaption>Image for post</figcaption>
 </figure>
-<p>the edge is coming from the middle stroke of the “E”</p>
+<p>the edge is coming from the middle stroke of the "E”</p>
 <p><a href="https://medium.com/front-end-weekly/9-fancy-title-design-in-css-you-need-to-learn-now-75dd24b48ca">Source</a></p>
 <form>
   <input type="button" value="Go back!" onclick="history.back()">

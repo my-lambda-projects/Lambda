@@ -29,7 +29,7 @@ else {
 
 
 /*
- * 2. “Global” vars used across the polyfill
+ * 2. "Global” vars used across the polyfill
  */
 let isInitialized = false;
 

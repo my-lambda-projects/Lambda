@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="lecture-ii-notes">Lecture II Notes</h1>
+<ol type="a">
+<li><a href="#Additional-Resources">Additional Resources</a><br />
+</li>
+<li><a href="#Divide-and-Conquer">Divide and Conquer</a><br />
+</li>
+<li><a href="#Quick-Sort">Quick Sort</a><br />
+</li>
+<li><a href="#Implementing-Quick-Sort">Implementing Quick Sort</a><br />
+</li>
+<li><a href="#In-Place-Sorting">In Place Sorting</a></li>
+</ol>
+<p><br></p>
+<p>If you feel so inclined, you can contribute to these notes by <a href="buymeacoff.ee/G1stPBuYU">donating coffee to the author</a>, for caffeine-fueled focus during lectures.</p>
+<p><br></p>
+<h1 id="additional-resources">Additional Resources</h1>
+<p><a href="https://www.toptal.com/developers/sorting-algorithms">Sorting Algorithms Animations</a></p>
+<p><a href="https://pythonhow.com/measure-execution-time-python-code/">How to Compare Algorithm Run Time in Python</a></p>
+<p><a href="https://www.geeksforgeeks.org/searching-algorithms/">Sorting Algorithms on Geeks for Geeks</a></p>
+<p><a href="https://python-textbok.readthedocs.io/en/1.0/Sorting_and_Searching_Algorithms.html">How to Analyze Time Complexity of Sort and Search Algorithms</a></p>
+<p><a href="https://visualgo.net/en/sorting?slide=1">Sorting Algorithm Walk Through Visualizations</a></p>
+<p><a href="http://www.pythontutor.com/visualize.html#mode=edit">Python Tutor: Debug Your Code Step By Step</a></p>
+<p>Additional Algorithmic Practice Problems: <a href="practice_algs/find_rotation_point.py">Find the rotation point</a>, <a href="practice_algs/smallest_missing_element.py">Find the smallest missing element</a>, and <a href="practice_algs/sorted_matrix.py">sorted matrix search</a>. Video recording of lecture reviewing these with Sean Chen found <a href="https://youtu.be/2nPItBCCjMA">here</a>.</p>
+<p><br></p>
+<figure>
+<img src="./search_sort_complexities.png" title="Search and Sort Complexities" alt="Search and Sort Complexities" /><figcaption>Search and Sort Complexities</figcaption>
+</figure>
+<p><br> <br></p>
+<h1 id="divide-and-conquer">Divide and Conquer</h1>
+<p><a href="https://www.youtube.com/watch?v=hPQ0gr9cTPc&amp;feature=youtu.be">Lecture II Recording</a></p>
+<p><br></p>
+<blockquote>
+<p>"It’s only a problem if it’s a problem”<br />
+- Beej Jorgensen</p>
+</blockquote>
+<p><br></p>
+<p>When would we use recursive solutions? Tree traversals and quick sort are instances where recursion creates an elegant solution that wouldn’t be as possible iteratively.</p>
+<p>Divide and conquer is when we take a problem, split it into the same type of sub-problem, and run the algorithm on those sub-problems.</p>
+<p><br></p>
+<p>If we have an algorithm that runs on a list, we could break the list into smaller lists and run the algorithm on those smaller lists. We will <em>divide</em> the data into more manageable pieces.</p>
+<p>We break down our algorithm problems into <code>base cases</code> – the smallest possible size of data we can run our algorithm upon to determine the basic way our algorithm should work.</p>
+<p>These solutions can give us better time complexity solutions; however, they wouldn’t work if a portion of the algorithm’s data is <em>dependent</em> upon the rest. If we broke the list into two halves, and one half is required to work on the other half, we could not use recursion.</p>
+<p>Recursion requires independent sub-data.</p>
+<p><br></p>
+<p>Let’s apply recursion to breaking down what a list is. The sum of a list is equal to the first element plus the rest of the list. We could write that like in this <code>add_list</code> function found in <a href="day2_work.py">this file</a>:</p>
+<p><br></p>
+<pre><code>def add_list(l):
+    # The sum of an empty list is 0
+    if l == []:
+        return 0
+
+    return l[0] + add_list(l[1:])
+
+
+l = [1,2,3,4]
+
+print(add_list(l)) # Should print 10
+</code></pre>
+<p><br></p>
+<p>This should print 10, or the sum of the items in our list.</p>
+<p>On each pass, the <code>add_list</code> function is taking the first item and adding the sum of the rest of the list, found by calling <code>add_list</code> on the remainder of the list. This would loop through the rest of the list in this manner, only adding together the elements once the final element was reached.</p>
+<p>Finding a sum like this is not the most time efficient – it would be better to do iteratively. But this allows us to understand how recursion works.</p>
+<p>Often, iterative solutions are easier to read and more performant.</p>
+<p>If we add a print statement into the <code>add_list</code> function:</p>
+<p><br></p>
+<pre><code>
+    print(f&#39;Add {l[0]} to the sum of {l[1:]}&#39;)
+    return l[0] + add_list(l[1:])</code></pre>
+<p><br></p>
+<p>The terminal would print:</p>
+<blockquote>
+<p>Add 1 to the sum of [2, 3, 4]<br />
+Add 2 to the sum of [3, 4]<br />
+Add 3 to the sum of [4]<br />
+Add 4 to the sum of []<br />
+10</p>
+</blockquote>
+<p>This helps us understand what is happening at each recursive step.</p>
+<p>Our base case is an empty list or 0, which is what we handle at the beginning of our function with returning 0 if the list is empty. By filling that in, it gives us our first return, so that each previous <code>add_list</code> call can be resolved based on the sum of the next.</p>
+<p><br></p>
+<p>When we use recursion, it uses a lot of memory, so each recursive calls allocates an amount of memory. We have a pre-set recursion limit in case we write an infinitely recursive algorithm to prevent our computer needing to reboot to end the algorithm.</p>
+<p>With Big O, we’re interested in the number of times we have to run an operation. <code>add_list</code> just runs basic addition, which is a single operation, and it is being called one time for every element in the list, so this is <code>O(n)</code>.</p>
+<p><br> <br></p>
+<h1 id="quick-sort">Quick Sort</h1>
+<p>Quick sort is a great example use case of a recursive appropriate solution.</p>
+<p>We need to include a base case and then call itself.</p>
+<p>Quick sort sorts a list using <code>partitioning</code>. The partitioning process involves splitting up data around the <code>pivot</code>.</p>
+<p>If our list is <code>[5, 3, 9, 4, 8, 1, 7]</code>.</p>
+<p>We’ll choose a pivot point to split the list. Let’s say we choose 5 as the pivot. One list will contain all the numbers less than 5, and the other will contain all the numbers greater than or equal to 5. This results in two lists like so:</p>
+<blockquote>
+<p>[3, 4, 1] 5 [9, 8, 7]</p>
+</blockquote>
+<p>5 is already sorted into the correct place that it needs to be. All the numbers to the right and left of it are in the area they need to, just not yet sorted.</p>
+<p>This process is partitioning.</p>
+<p><br></p>
+<p>Our next step is to repeat this process until we hit our base case, which is an empty list or a list with just one element. When everything is down to one element lists, then we know they are properly sorted.</p>
+<blockquote>
+<p>3 and 9 are our next pivots:<br />
+[1] 3 [4] 5 [8, 7] 9<br />
+Next, 8 is our pivot:<br />
+[1] 3 [4] 5 [7] 8 [] 9<br />
+1 3 4 5 7 8 9</p>
+</blockquote>
+<p>The number of sorted items doubles with each pass through this algorithm, and we have to make one complete pass through the data on each loop. That means each pass is O(n), and we have to make <code>log n</code> passes.</p>
+<p>It takes <code>O(log n)</code> steps to pass through, with each pass taking <code>O(n)</code>, so the <em>average</em> case is <code>O(n log n)</code>, the fastest search we can aim for.</p>
+<p><br></p>
+<p>What would be a bad case for quick sort?</p>
+<p>[1, 2, 3, 4, 5, 6, 7]</p>
+<p>If we look at the order of this on each loop:</p>
+<blockquote>
+<p>[] 1 [2, 3, 4, 5, 6, 7]<br />
+1 [] 2 [3, 4, 5, 6, 7]<br />
+1 2 [] 3 [4, 5, 6, 7]<br />
+1 2 3 [] 4 [5, 6, 7]<br />
+1 2 3 4 [] 5 [6, 7]<br />
+1 2 3 4 5 [] 6 [7]<br />
+1 2 3 4 5 6 7</p>
+</blockquote>
+<p>This took a full 7 passes, for 7 elements, because there was only one sorted item being added with each pass.</p>
+<p>Already sorted lists are the worst case scenario which results in an order <code>O(n^2)</code>.</p>
+<p>Quick sort shines when the first pivot chosen is roughly the median value of the list. Now, since we can’t always choose the median value with the traditional quick sort.</p>
+<p>We could use <code>quick select</code> to find the median at each step – but this slows down our algorithm to <code>O(n)</code> run time on average.</p>
+<p>If we choose a <em>random</em> pivot point, we generally do not pick the worst case pivot with each pass. Randomly selecting a pivot point results in the most time efficient average.</p>
+<p><br> <br></p>
+<h1 id="implementing-quick-sort">Implementing Quick Sort</h1>
+<p>If we were to write out our quick sort algorithm in a basic way, it would look something like this:</p>
+<p><br></p>
+<pre><code>def quicksort(list):
+    # One of our base cases is an empty list or list with one element
+    if len(list) == 0 or len(list) == 1:
+        return list
+
+    # If we have a left list, a pivot point and a right list...
+    left, pivot, right = partition(list)
+    
+    # Our sorted list looks like left + pivot + right, but sorted.
+    # Pivot has to be in brackets to be a list, so python can concatenate all the elements to a single list
+    return quicksort(left) + [pivot] + quicksort(right)</code></pre>
+<p><br></p>
+<p>Let’s define our partition function next:</p>
+<p><br></p>
+<pre><code>def partition(list):
+    left = []
+    pivot = list[0] # Or make random, as a stretch
+    right = []
+
+    for v in list[1:]:
+        if v &lt; pivot:
+            left.append(v)
+        else:
+            right.append(v)
+            
+    return left, pivot, right</code></pre>
+<p><br></p>
+<p>Let’s test out a bunch of possible cases like so:</p>
+<p><br></p>
+<pre><code>print(quicksort([]))
+print(quicksort([1]))
+print(quicksort([1,2]))
+print(quicksort([2,1]))
+print(quicksort([2,2]))
+print(quicksort([5,3,9,4,8,1,7]))
+print(quicksort([1,2,3,4,5,6,7]))
+print(quicksort([9,8,7,6,5,4,3,2,1]))</code></pre>
+<p><br></p>
+<p>We already know off the tops of our heads that we have not setup our algorithm to handle edge cases like an input that is not a list, or is a list full of strings, etc.</p>
+<p>Our terminal returns back:</p>
+<p><br></p>
+<pre><code>[]
+[1]
+[1, 2]
+[1, 2]
+[2, 2]
+[1, 3, 4, 5, 7, 8, 9]
+[1, 2, 3, 4, 5, 6, 7]
+[1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
+<p><br></p>
+<p>So we can see that it handles all of our tests well.</p>
+<p>It’s important to analyze what you know about your incoming data before choosing a type of algorithm. If you know that your list is almost completely sorted, bubble sort would handle that the quickest. If the list is completely garbled, quick sort would be best.</p>
+<p>Even when we aren’t handling sort, we need to customize our algorithmic choices to the data anticipated, <em>especially</em> when dealing with large sets of data where time performance can have a huge impact.</p>
+<p><br> <br></p>
+<h1 id="in-place-sorting">In Place Sorting</h1>
+<p>The quick sort function we wrote is not an in-place solution. When we sort that list, we’re actually returning an entirely <em>new</em> list. It’s not returning the same list.</p>
+<p>This isn’t time or space efficient because it takes time and data to copy lists over to newly allocated spots in memory. It would be more efficient to move items around within the original given list.</p>
+<p>This is <code>in-place sorting</code> – using the original list to sort items within it and returning that same original list, but now sorted. We mutate the original list rather than making new lists.</p>
+<p><br></p>
+<p>To do in-place sorting, we need to be able to pass into the function the bounds of the current part of the list that we’re working on, to ensure that we are only working on certain segments of the list at a time.</p>
+<p>We can give it a low index, and a high index, to indicate the start and stop points of the section of the list to work on.</p>
+<p>As we keep going, the low and high indices will change. Our base case should now change to where if the low and high are the <em>same</em>, then our list is sorted.</p>
+<p>Let’s try it:</p>
+<p><br></p>
+<pre><code>def quicksort2(l, low, high):
+    if len(l) == 0 or len(l) == 1:
+        return l
+    
+    if low &gt;= high:
+        return l
+
+    pivot_index = low
+
+    # Partitioning
+    for i in range(low, high):
+        
+        if l[i] &lt; l[pivot_index]:
+            # If i is less than pivot, we need to swap it with the item after the pivot
+            l[i], l[pivot_index + 1] = l[pivot_index + 1], l[i]
+
+            # Then we&#39;ll swap the pivot with the item after the pivot
+            l[pivot_index], l[pivot_index + 1] = l[pivot_index + 1], l[pivot_index]
+
+            # Update the pivot index:
+            pivot_index += 1
+    
+    # Sort from low to the pivot index
+    quicksort2(l, low, pivot_index)
+    # Sort from the pivot index to high
+    quicksort2(l, pivot_index + 1, high)</code></pre>
+<p><br></p>
+<p>We’re iterating through the list and checking if the item at <code>list[i]</code> is less than the item at <code>list[pivot_index]</code>. If it is, then we need to swap these items.</p>
+<p>That has to happen in two steps. First we swap i with an item one <em>beyond</em> the pivot index. Then we swap the pivot with the item after the pivot.</p>
+<p>Then we update the pivot index to search for the next item to sort in the array.</p>
+<p>In order to call this function without passing in three parameters, we can write a short helper function:</p>
+<p><br></p>
+<pre><code>def in_place_quicksort(l):
+    return quicksort2(l, 0, len(l))
+
+print(in_place_quicksort([]))
+print(in_place_quicksort([1]))
+print(in_place_quicksort([1,2]))
+print(in_place_quicksort([2,1]))
+print(in_place_quicksort([2,2]))
+print(in_place_quicksort([5,3,9,4,8,1,7]))
+print(in_place_quicksort([1,2,3,4,5,6,7]))
+print(in_place_quicksort([9,8,7,6,5,4,3,2,1]))</code></pre>
+<p><br></p>
+<p>Now we can run this function and it sorts our lists without allocating extra memory.</p>
+<p>Let’s add some print statements just to see exactly what is happening at each step on one of the sorts:</p>
+<p><br></p>
+<pre><code>Our starting list is [5,3,9,4,8]. 
+
+Checking against 5. Current list is [5, 3, 9, 4]. 
+
+Checking against 3. Current list is [5, 3, 9, 4]. 
+
+3 is less than 5, so we need to swap l[i] (3) with l[pivot_index + 1] (3).
+Next, we will swap 5 with 3 and increase the pivot index from 0 to 1.
+Now the current list is [3, 5, 9, 4] 
+
+Checking against 9. Current list is [3, 5, 9, 4]. 
+
+Checking against 4. Current list is [3, 5, 9, 4]. 
+
+4 is less than 5, so we need to swap l[i] (4) with l[pivot_index + 1] (9).
+Next, we will swap 5 with 4 and increase the pivot index from 1 to 2.
+Now the current list is [3, 4, 5, 9] 
+
+
+Splitting list to check quicksort([3, 4, 5, 9], 0, 2) and quicksort([3, 4, 5, 9], 3, 4). 
+
+
+Checking against 3. Current list is [3, 4, 5, 9]. 
+
+Checking against 4. Current list is [3, 4, 5, 9]. 
+
+
+
+Splitting list to check quicksort([3, 4, 5, 9], 0, 0) and quicksort([3, 4, 5, 9], 1, 2). 
+
+Checking against 4. Current list is [3, 4, 5, 9]. 
+
+
+
+Splitting list to check quicksort([3, 4, 5, 9], 1, 1) and quicksort([3, 4, 5, 9], 2, 2). 
+
+Checking against 9. Current list is [3, 4, 5, 9]. 
+
+
+
+Splitting list to check quicksort([3, 4, 5, 9], 3, 3) and quicksort([3, 4, 5, 9], 4, 4). 
+
+Our final sorted list is [3, 4, 5, 9]
+</code></pre>
+<p><br></p>
+<p>This helps us visualize why we go through each swapping step and how the list is slowly being sorted, and split apart into smaller sorting lists.</p>
+<p><br> <br></p>
+</body></html>

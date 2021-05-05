@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="sprint-challenge-intro-to-python">Sprint Challenge: Intro to Python</h1>
+<p>In this week’s Sprint you explored the Python programming language as well as object-oriented design principles. This Sprint Challenge aims to assess your comfort in both of these areas through exercises similar to the ones you worked on at the beginning of this week in Intro to Python.</p>
+<h2 id="instructions">Instructions</h2>
+<p><strong>Read these instructions carefully. Understand exactly what is expected <em>before</em> starting this Sprint Challenge.</strong></p>
+<p>This is an individual assessment. All work must be your own. Your challenge score is a measure of your ability to work independently using the material covered through this sprint. You need to demonstrate proficiency in the concepts and objectives introduced and practiced in the preceding days.</p>
+<p>You are not allowed to collaborate during the Sprint Challenge. However, you are encouraged to follow the twenty-minute rule and seek support from your PM and Instructor in your cohort help channel on Slack. Your submitted work reflects your proficiency in the concepts and topics that were covered this week.</p>
+<p>You have three hours to complete this Sprint Challenge. Plan your time accordingly.</p>
+<h2 id="commits">Commits</h2>
+<p>Commit your code regularly and meaningfully. This helps both you (in case you ever need to return to old code for any number of reasons) and it also helps your project manager to more thoroughly assess your work.</p>
+<h2 id="description">Description</h2>
+<p>Complete the programs in the <code>src/</code> directory in any order.</p>
+<ul>
+<li>[X] <code>oop/</code>
+<ul>
+<li>[X] <code>oop1.py</code>: class hierarchies (2 pts)</li>
+<li>[X] <code>oop2.py</code>: subclassing and method overriding (2 pts)</li>
+</ul></li>
+<li>[X] <code>comp/</code>
+<ul>
+<li>[X] <code>comp.py</code>: list comprehensions (8 pts)</li>
+</ul></li>
+<li>[X] <code>cityreader/</code>
+<ul>
+<li>[X] <code>cityreader.py</code>: modules and CSV file reading (6 pts)</li>
+</ul></li>
+</ul>
+<h2 id="testing">Testing</h2>
+<p>Each file has its own associated test file. To test your code, run <code>python [name_of_test_file.py]</code> or <code>python3 [name_of_test_file.py]</code> if your Python 3 command is mapped to <code>python3</code>. Note: <code>cityreader</code> needs to be run from the same directory as the files or it will not be able to find the associated CSV file.</p>
+<p>The <code>cityreader</code> stretch goal has its own test file, <code>test_stretch.py</code>, if you want to take a stab at implementing the stretch problem.</p>
+<p><strong><em>It’s never a bad idea to take a look at the test files in order to see what each test is expecting.</em></strong></p>
+<p>’’’ import os os.chdir(‘E:\projects\LambdaSchool\m6\61c1\src’) exec(open(‘cityreader.py’).read()) python3 ’’’</p>
+<h2 id="minimum-viable-product">Minimum Viable Product</h2>
+<p>In order to meet MVP requirements for this Sprint Challenge, complete all of the exercises posed in each directory by getting the tests for each exercise to pass.</p>
+<p>In your solution, it is essential that you follow best practices and produce clean and professional results. Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work. It is better to submit a challenge that meets the MVP requirements than one that attempts too much and does not.</p>
+<h2 id="stretch-problems">Stretch Problems</h2>
+<p>The <code>cityreader</code> directory poses an stretch problem that builds upon the functionality you are to implement as part of the non-stretch requirements in the <code>cityreader</code> directory.</p>
+<p>There’s a separate test file <code>test_stretch.py</code> for the stretch problem that you can run in order to test your implementation of the stretch problem.</p>
+<h2 id="rubric">Rubric</h2>
+<table>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 13%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>OBJECTIVE</th>
+<th>TASK</th>
+<th>1 - DOES NOT MEET Expectations</th>
+<th>2 - MEETS Expectations</th>
+<th>3 - EXCEEDS Expectations</th>
+<th>SCORE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Student can demonstrate applied knowledge of Python basics by producing list comprehensions in <code>comp.py</code></em></td>
+<td>List Comprehensions: (1 point per problem, 8 max)</td>
+<td>0-5 points</td>
+<td>6-7 points</td>
+<td>8 points</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td><em>Student can demonstrate applied knowledge of Object-Oriented Programming by completing <code>oop1.py</code> and <code>oop2.py</code></em></td>
+<td>OOP: (2 points per file, 4 max)</td>
+<td>0 points</td>
+<td>2 points</td>
+<td>4 points</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td><em>Student can demonstrate applied research and language learning by completing <code>cityreader.py</code></em></td>
+<td>CSV: 6 points for <code>cityreader()</code>, 1 point for <code>cityreader_stretch()</code></td>
+<td>0 points</td>
+<td>6 points</td>
+<td>7 points</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td><strong>FINAL SCORE</strong></td>
+<td></td>
+<td><strong>0-13</strong></td>
+<td><strong>14-18</strong></td>
+<td><strong>19</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</body></html>

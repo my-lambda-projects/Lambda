@@ -6,14 +6,14 @@ These license terms are an agreement between you and Microsoft Corporation (or b
 IF YOU COMPLY WITH THESE LICENSE TERMS, YOU HAVE THE RIGHTS BELOW.
 
 1.	INSTALLATION AND USE RIGHTS.
-    a.	General. You may use a copy of the software with each validly licensed copy of Microsoft Visual Studio Code. You may not use the software if you do not have a license for Microsoft Visual Studio Code. You may copy and install files from the software onto your application development devices, including physical devices and virtual machines or containers on those machines, whether on-premises or remote machines that are owned by you, hosted on Microsoft Azure for you, or dedicated solely to your use (collectively, “Development Devices”). You and others in your organization may use these files on your Development Devices solely to develop and test applications. For clarity, “applications” means applications developed by you and others in your organization who are each licensed to use Microsoft Visual Studio Code.
+    a.	General. You may use a copy of the software with each validly licensed copy of Microsoft Visual Studio Code. You may not use the software if you do not have a license for Microsoft Visual Studio Code. You may copy and install files from the software onto your application development devices, including physical devices and virtual machines or containers on those machines, whether on-premises or remote machines that are owned by you, hosted on Microsoft Azure for you, or dedicated solely to your use (collectively, "Development Devices”). You and others in your organization may use these files on your Development Devices solely to develop and test applications. For clarity, "applications” means applications developed by you and others in your organization who are each licensed to use Microsoft Visual Studio Code.
     b.	Demo Use. The uses permitted above include use of the software in demonstrating your applications.
     c.	Third Party Components.  The software may include third party components with separate legal notices or governed by other agreements, as may be described in the ThirdPartyNotices file(s) accompanying the software.
     d.	Extensions. The software gives you the option to download other Microsoft and third party software packages from our extension marketplace or package managers. Those packages are under their own licenses, and not this agreement. Microsoft does not distribute, license or provide any warranties for any of the third party packages. By accessing or using our extension marketplace, you agree to the extension marketplace terms located at https://aka.ms/vsmarketplace-ToU.
 
 2.	PRE-RELEASE SOFTWARE. The software is a pre-release version. It may not work the way a final version of the software will. Microsoft may change it for the final, commercial version. We also may not release a commercial version. Microsoft is not obligated to provide maintenance, technical support or updates to you for the software.
 
-3.	ONLINE SERVICES IN THE SOFTWARE. Some features of the software make use of online services to provide you with updates to the software or extensions, to download or install additional software to enable use of this software, or to enable you to retrieve content, collaborate with others, or otherwise supplement your development. As used throughout this agreement, the term “software” includes these online service features.
+3.	ONLINE SERVICES IN THE SOFTWARE. Some features of the software make use of online services to provide you with updates to the software or extensions, to download or install additional software to enable use of this software, or to enable you to retrieve content, collaborate with others, or otherwise supplement your development. As used throughout this agreement, the term "software” includes these online service features.
 
 4.	DATA.
     a.	Data Collection. The software may collect information about you and your use of the software, and send that to Microsoft. Microsoft may use this information to provide services and improve our products and services. You may opt-out of many of these scenarios, but not all, as described in the product documentation located at https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting. There may also be some features in the software that may enable you and Microsoft to collect data from users of your applications. If you use these features, you must comply with applicable law, including providing appropriate notices to users of your applications together with Microsoft’s privacy statement. Our privacy statement is located at https://go.microsoft.com/fwlink/?LinkID=824704. You can learn more about data collection and use in the help documentation and our privacy statement. Your use of the software operates as your consent to these practices.
@@ -31,7 +31,7 @@ IF YOU COMPLY WITH THESE LICENSE TERMS, YOU HAVE THE RIGHTS BELOW.
     *	host, share, publish, rent or lease the software; or
     *	provide the software as a stand-alone or integrated offering or combine it with any of your applications for others to use.
 
-8.	SUPPORT SERVICES. Because the software is “as is,” we may not provide support services for it.
+8.	SUPPORT SERVICES. Because the software is "as is,” we may not provide support services for it.
 
 9.	ENTIRE AGREEMENT. This agreement, and the terms for supplements, updates, Internet-based services and support services that you use, are the entire agreement for the software and support services.
 
@@ -49,7 +49,7 @@ IF YOU COMPLY WITH THESE LICENSE TERMS, YOU HAVE THE RIGHTS BELOW.
 
 13.	LEGAL EFFECT. This agreement describes certain legal rights. You may have other rights under the laws of your country. You may also have rights with respect to the party from whom you acquired the software. This agreement does not change your rights under the laws of your country if the laws of your country do not permit it to do so.
 
-14.	DISCLAIMER OF WARRANTY. THE SOFTWARE IS LICENSED “AS-IS.”  YOU BEAR THE RISK OF USING IT. MICROSOFT GIVES NO EXPRESS WARRANTIES, GUARANTEES OR CONDITIONS. TO THE EXTENT PERMITTED UNDER YOUR LOCAL LAWS, MICROSOFT EXCLUDES THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
+14.	DISCLAIMER OF WARRANTY. THE SOFTWARE IS LICENSED "AS-IS.”  YOU BEAR THE RISK OF USING IT. MICROSOFT GIVES NO EXPRESS WARRANTIES, GUARANTEES OR CONDITIONS. TO THE EXTENT PERMITTED UNDER YOUR LOCAL LAWS, MICROSOFT EXCLUDES THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.
 
 15.	LIMITATION ON AND EXCLUSION OF DAMAGES. YOU CAN RECOVER FROM MICROSOFT AND ITS SUPPLIERS ONLY DIRECT DAMAGES UP TO U.S. $5.00. YOU CANNOT RECOVER ANY OTHER DAMAGES, INCLUDING CONSEQUENTIAL, LOST PROFITS, SPECIAL, INDIRECT OR INCIDENTAL DAMAGES.
 

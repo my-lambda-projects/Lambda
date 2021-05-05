@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="json-web-tokens">JSON Web Tokens</h1>
+<p><strong>The Byzantine Fault</strong> - Let’s imagine there are two generals that are surrounding a city waiting to attack it. Their objective is to attack at the same time and failing to do so will result in a lost battle. The only way they can coordinate their attack is by sending messages to one another. - Whilst the generals surround the city, the city sends out spies that can intercept the messages being sent to the generals and change the messages in order to foil the generals’ plan of attack. - How can the generals coordinate successfully and have confidence that the messages they send can be trusted?</p>
+<p><strong>The JWT Way</strong> - For the messages to be trusted both of the generals need to have shared knowledge of some "secret” - General 1 sends message of when to attack and encodes it. - He then appends the secret to a copy of the message and hashes this + encodes this - Both of these parts are added together and sent to General 2: - <code>encode(message) + hash(encode(message + secret)) = verifiable message</code> - General 2 can then decode the message and then verify the message by decoding the hash and comparing it to the result of hashing the secret + message: - <code>decode(general_1_message) = message</code> - <code>compare(general_1_hash &amp; hash(message + secret)) = verify message</code> - Without knowledge of the secret, any tampering of the message will be evident to general 2 - In this example: - The two generals are a server building/verifying a message - That message is a JSON Web Token (JWT) - The spies are potential attackers</p>
+<p><strong>Secrets</strong> - <em>"Committing our secret to local storage would be a total mess”</em> - <em>"Make sure you don’t store your secret in your code. Use environment variables and remove them from source-control (add to .gitignore)”.</em></p>
+<p><strong>Sessions vs Tokens</strong> - Tokens: - Avoid maintaining sessions array - Avoid keeping track of state on server - ~</p>
+<ul>
+<li><em>"Both have strengths and weaknesses, it’s not a settled matter”</em></li>
+<li><em>"Sessions are tried and true, but could be argued to not be truly RESTful”.</em></li>
+<li><em>"Never EVER store anything valuable on the client!”</em></li>
+</ul>
+<p><strong>Storing Tokens: Cookies vs Local Storage</strong> - Some think that local storage is too exposed. - Cookies set via HTTP can disallow clients from editing its contents.</p>
+<p><strong>Using Tokens in Our Express App</strong></p>
+<pre><code>$ yarn add jsonwebtoken</code></pre>
+<pre><code>const jwt = require(&#39;jsonwebtoken&#39;);</code></pre>
+<p>Creating a token:</p>
+<pre><code>const payload = {
+  id: user.id,
+  username: user.username,
+  account_type: user.account_type
+}
+
+const options = {
+  expiresIn: &#39;1h&#39;
+}
+
+const token = jwt.sign(payload, &#39;Secret (Should Not Be In Code)&#39;, options);</code></pre>
+<p>Verifying a token:</p>
+<pre><code>jwt.verify(token, &#39;Secret (Should Not Be In Code)&#39;, (error, decodedToken) =&gt; {
+  if (error) {
+    // Respond with 401 error
+  }
+  else {
+    // Allow access to endpoint
+  }
+});</code></pre>
+<p>Using the payload to conditionally allow endpoint access:</p>
+<pre><code>// &quot;decoded&quot; will contain the decoded payload object.
+const decoded = jwt.verify(token, &#39;Secret (Should Not Be In Code)&#39;);
+
+if (decoded.account_type === &lt;value&gt;) {
+  // Specific endpoint logic here
+}</code></pre>
+<ul>
+<li><em>"Build your own token library from scratch at least once to learn, then use open-source libraries in your projects”.</em></li>
+</ul>
+</body></html>

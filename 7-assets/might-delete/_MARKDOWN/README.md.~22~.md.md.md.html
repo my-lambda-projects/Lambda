@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="building-an-api-using-a-node.js-and-express-middleware">Building an API using a Node.js and Express Middleware</h1>
+<p>In this challenge, you build an API and write custom middleware that satisfies the requirements listed under the <code>Minimum Viable Product</code> section.</p>
+<h2 id="instructions">Instructions</h2>
+<p><strong>Read these instructions carefully. Understand exactly what is expected before starting.</strong></p>
+<p>You are allowed, and <strong>encouraged</strong>, to collaborate with other peers. Please follow the twenty-minute rule, before seeking support from your PM and Instructor.</p>
+<h2 id="project-set-up">Project Set Up</h2>
+<ul>
+<li>[ ] Create a forked copy of this project.</li>
+<li>[ ] Add your project manager as collaborator on Github.</li>
+<li>[ ] Clone your OWN version of the repository.</li>
+<li>[ ] Create a new branch: git checkout -b <code>&lt;firstName-lastName&gt;</code>.</li>
+<li>[ ] Implement the project on your newly created <code>&lt;firstName-lastName&gt;</code> branch, committing changes regularly.</li>
+<li>[ ] Push commits: git push origin <code>&lt;firstName-lastName&gt;</code>.</li>
+</ul>
+<p>Follow these steps for completing your project.</p>
+<ul>
+<li>[ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student’s Repository). <strong>Please don’t merge your own pull request</strong></li>
+<li>[ ] Add your project manager as a reviewer on the pull-request</li>
+<li>[ ] Your project manager will count the project as complete by merging the branch back into master.</li>
+<li>[ ] Do your magic!</li>
+</ul>
+<h2 id="minimum-viable-product">Minimum Viable Product</h2>
+<ol type="1">
+<li>Write and implement four custom <code>middleware</code> functions, detailed below.</li>
+<li>Build an API to let clients perform CRUD operations on <code>users</code>.</li>
+<li>Add endpoints to retrieve the list of <code>posts</code> for a <code>user</code> and to store a new <code>post</code> for a <code>user</code>.</li>
+</ol>
+<h4 id="custom-middleware-requirements">Custom Middleware Requirements</h4>
+<ul>
+<li><code>logger()</code>
+<ul>
+<li><code>logger</code> logs to the console the following information about each request: request method, request url, and a timestamp</li>
+<li>this middleware runs on every request made to the API</li>
+</ul></li>
+<li><code>validateUserId()</code>
+<ul>
+<li><code>validateUserId</code> validates the user id on every request that expects a user id parameter</li>
+<li>if the <code>id</code> parameter is valid, store that user object as <code>req.user</code></li>
+<li>if the <code>id</code> parameter does not match any user id in the database, cancel the request and respond with status <code>400</code> and <code>{ message: "invalid user id" }</code></li>
+</ul></li>
+<li><code>validateUser()</code>
+<ul>
+<li><code>validateUser</code> validates the <code>body</code> on a request to create a new user</li>
+<li>if the request <code>body</code> is missing, cancel the request and respond with status <code>400</code> and <code>{ message: "missing user data" }</code></li>
+<li>if the request <code>body</code> is missing the required <code>name</code> field, cancel the request and respond with status <code>400</code> and <code>{ message: "missing required name field" }</code></li>
+</ul></li>
+<li><code>validatePost()</code>
+<ul>
+<li><code>validatePost</code> validates the <code>body</code> on a request to create a new post</li>
+<li>if the request <code>body</code> is missing, cancel the request and respond with status <code>400</code> and <code>{ message: "missing post data" }</code></li>
+<li>if the request <code>body</code> is missing the required <code>text</code> field, cancel the request and respond with status <code>400</code> and <code>{ message: "missing required text field" }</code></li>
+</ul></li>
+</ul>
+<h3 id="database-persistence-helpers">Database Persistence Helpers</h3>
+<p>There are two helper files that you can use to manage the persistence of <em>users</em> and <em>posts</em> data. These files are <code>users/userDb.js</code> and <code>posts/postDb.js</code>. Both files publish the following api:</p>
+<ul>
+<li><code>get()</code>: calling find returns a promise that resolves to an array of all the <code>resources</code> contained in the database.</li>
+<li><code>getById()</code>: takes an <code>id</code> as the argument and returns a promise that resolves to the <code>resource</code> with that id if found.</li>
+<li><code>insert()</code>: calling insert passing it a <code>resource</code> object will add it to the database and return the new <code>resource</code>.</li>
+<li><code>update()</code>: accepts two arguments, the first is the <code>id</code> of the <code>resource</code> to update and the second is an object with the <code>changes</code> to apply. It returns the count of updated records. If the count is 1 it means the record was updated correctly.</li>
+<li><code>remove()</code>: the remove method accepts an <code>id</code> as it’s first parameter and, upon successfully deleting the <code>resource</code> from the database, returns the number of records deleted.</li>
+</ul>
+<p>The <code>userDb.js</code> helper includes an extra method called <code>getUserPosts()</code> that when passed a user’s <code>id</code>, returns a list of all the <code>posts</code> for the <code>user</code>.</p>
+<p><strong>All helper methods return a promise.</strong></p>
+<h4 id="database-schemas">Database Schemas</h4>
+<p>The <em>Database Schemas</em> for the <code>users</code> and <code>posts</code> resources are:</p>
+<h5 id="users">Users</h5>
+<table>
+<thead>
+<tr class="header">
+<th>field</th>
+<th>data type</th>
+<th>metadata</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>id</td>
+<td>unsigned integer</td>
+<td>primary key, auto-increments, generated by database</td>
+</tr>
+<tr class="even">
+<td>name</td>
+<td>string</td>
+<td>required, unique</td>
+</tr>
+</tbody>
+</table>
+<h5 id="posts">Posts</h5>
+<table>
+<thead>
+<tr class="header">
+<th>field</th>
+<th>data type</th>
+<th>metadata</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>id</td>
+<td>unsigned integer</td>
+<td>primary key, auto-increments, generated by database</td>
+</tr>
+<tr class="even">
+<td>text</td>
+<td>text</td>
+<td>required</td>
+</tr>
+<tr class="odd">
+<td>user_id</td>
+<td>unsigned integer</td>
+<td>required, must be the <code>id</code> of an existing <code>user</code></td>
+</tr>
+</tbody>
+</table>
+<p>We have provided test data for the resources.</p>
+<h2 id="stretch-goals">Stretch Goals</h2>
+<ul>
+<li>Add the Post Router
+<ul>
+<li>Implement all endpoints and middleware within <code>posts/postRouter.js</code></li>
+</ul></li>
+<li>Create a React App
+<ul>
+<li>Use <code>create-react-app</code> to create an application inside the root folder, name it <code>client</code>.</li>
+<li>From the React application connect to the <code>/api/users</code> endpoint in the API and show the list of users.</li>
+<li>Add functionality to show the details of a user, including their posts, when clicking a user name in the list. Use React Router to navigate to a <code>/users/:id</code> route to show the user details.</li>
+<li>Add styling!</li>
+</ul></li>
+</ul>
+</body></html>

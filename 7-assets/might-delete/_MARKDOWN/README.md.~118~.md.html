@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="node-api-1-project-starter-code">Node API 1 Project Starter Code</h1>
+<h2 id="topics">Topics</h2>
+<ul>
+<li>Building a RESTful API.</li>
+<li>Performing CRUD operations.</li>
+<li>Writing API endpoints.</li>
+</ul>
+<h2 id="assignment">Assignment</h2>
+<p>Use Node.js and Express to build an API that performs CRUD operations on users.</p>
+<h3 id="download-project-files-and-install-dependencies">Download Project Files and Install Dependencies</h3>
+<ul>
+<li>[ ] <strong>Fork</strong> and <strong>Clone</strong> this repository.</li>
+<li>[ ] <strong>CD into the folder</strong> where you cloned the repository.</li>
+<li>[ ] Type <code>npm install</code> to download all dependencies listed inside <code>package.json</code>.</li>
+</ul>
+<h3 id="database-access">Database access</h3>
+<p>Database access will be done using the <code>db.js</code> file included inside the <code>data</code> folder. This file publishes the following methods:</p>
+<ul>
+<li><code>find()</code>: calling find returns a promise that resolves to an array of all the users contained in the database.</li>
+<li><code>findById()</code>: this method expects an <code>id</code> as it’s only parameter and returns the user corresponding to the <code>id</code> provided or an empty array if no user with that <code>id</code> is found.</li>
+<li><code>insert()</code>: calling insert passing it a user object will add it to the database and return an object with the <code>id</code> of the inserted user. The object looks like this: <code>{ id: 123 }</code>.</li>
+<li><code>update()</code>: accepts two arguments, the first is the <code>id</code> of the user to update and the second is an object with the <code>changes</code> to apply. It returns the count of updated records. If the count is 1 it means the record was updated correctly.</li>
+<li><code>remove()</code>: the remove method accepts an <code>id</code> as it’s first parameter and upon successfully deleting the user from the database it returns the number of records deleted.</li>
+</ul>
+<p>Now that we have a way to add, update, remove and retrieve data from the provided database, it is time to work on the API.</p>
+<h3 id="start-the-api-and-implement-requirements">Start the API and Implement Requirements</h3>
+<ul>
+<li>[ ] To start the server, type <code>npm run server</code> from the root folder (where the <em>package.json</em> file is). The server is configured to restart automatically as you make changes.</li>
+<li>[ ] Add the code necessary to implement the API requirements.</li>
+<li>[ ] <strong>Test the API using a REST Client like <a href="https://insomnia.rest/download/">insomnia</a> or <a href="https://www.getpostman.com/downloads/">Postman</a> as you work through the exercises.</strong></li>
+</ul>
+<h3 id="user-schema">User Schema</h3>
+<p>Users in the database conform to the following object structure:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;Jane Doe&quot;</span><span class="op">,</span> <span class="co">// String, required</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="dt">bio</span><span class="op">:</span> <span class="st">&quot;Not Tarzan&#39;s Wife, another Jane&quot;</span><span class="op">,</span>  <span class="co">// String, required</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="dt">created_at</span><span class="op">:</span> Mon Aug <span class="dv">14</span> <span class="dv">2017</span> <span class="dv">12</span><span class="op">:</span><span class="dv">50</span><span class="op">:</span><span class="dv">16</span> GMT<span class="dv">-0700</span> (PDT) <span class="co">// Date, defaults to current date</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="dt">updated_at</span><span class="op">:</span> Mon Aug <span class="dv">14</span> <span class="dv">2017</span> <span class="dv">12</span><span class="op">:</span><span class="dv">50</span><span class="op">:</span><span class="dv">16</span> GMT<span class="dv">-0700</span> (PDT) <span class="co">// Date, defaults to current date</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="op">}</span></a></code></pre></div>
+<h3 id="write-endpoints-to-perform-the-following-queries">Write endpoints to perform the following queries</h3>
+<ul>
+<li>[ ] Inside <code>index.js</code> add the code necessary to implement the following <em>endpoints</em>:</li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 4%" />
+<col style="width: 9%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>URL</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>POST</td>
+<td>/api/users</td>
+<td>Creates a user using the information sent inside the <code>request body</code>.</td>
+</tr>
+<tr class="even">
+<td>GET</td>
+<td>/api/users</td>
+<td>Returns an array of all the user objects contained in the database.</td>
+</tr>
+<tr class="odd">
+<td>GET</td>
+<td>/api/users/:id</td>
+<td>Returns the user object with the specified <code>id</code>.</td>
+</tr>
+<tr class="even">
+<td>DELETE</td>
+<td>/api/users/:id</td>
+<td>Removes the user with the specified <code>id</code> and returns the deleted user.</td>
+</tr>
+<tr class="odd">
+<td>PUT</td>
+<td>/api/users/:id</td>
+<td>Updates the user with the specified <code>id</code> using data from the <code>request body</code>. Returns the modified document, <strong>NOT the original</strong>.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="endpoint-specifications">Endpoint Specifications</h4>
+<p>When the client makes a <code>POST</code> request to <code>/api/users</code>:</p>
+<ul>
+<li><p>[ ] If the request body is missing the <code>name</code> or <code>bio</code> property:</p>
+<ul>
+<li>respond with HTTP status code <code>400</code> (Bad Request).</li>
+<li>return the following JSON response: <code>{ errorMessage: "Please provide name and bio for the user." }</code>.</li>
+</ul></li>
+<li><p>[ ] If the information about the <em>user</em> is valid:</p>
+<ul>
+<li>save the new <em>user</em> the the database.</li>
+<li>respond with HTTP status code <code>201</code> (Created).</li>
+<li>return the newly created <em>user document</em>.</li>
+</ul></li>
+<li>[ ] If there’s an error while saving the <em>user</em>:
+<ul>
+<li>respond with HTTP status code <code>500</code> (Server Error).</li>
+<li>return the following JSON object: <code>{ errorMessage: "There was an error while saving the user to the database" }</code>.</li>
+</ul></li>
+</ul>
+<p>When the client makes a <code>GET</code> request to <code>/api/users</code>:</p>
+<ul>
+<li>[ ] If there’s an error in retrieving the <em>users</em> from the database:
+<ul>
+<li>respond with HTTP status code <code>500</code>.</li>
+<li>return the following JSON object: <code>{ errorMessage: "The users information could not be retrieved." }</code>.</li>
+</ul></li>
+</ul>
+<p>When the client makes a <code>GET</code> request to <code>/api/users/:id</code>:</p>
+<ul>
+<li><p>[ ] If the <em>user</em> with the specified <code>id</code> is not found:</p>
+<ul>
+<li>respond with HTTP status code <code>404</code> (Not Found).</li>
+<li>return the following JSON object: <code>{ message: "The user with the specified ID does not exist." }</code>.</li>
+</ul></li>
+<li>[ ] If there’s an error in retrieving the <em>user</em> from the database:
+<ul>
+<li>respond with HTTP status code <code>500</code>.</li>
+<li>return the following JSON object: <code>{ errorMessage: "The user information could not be retrieved." }</code>.</li>
+</ul></li>
+</ul>
+<p>When the client makes a <code>DELETE</code> request to <code>/api/users/:id</code>:</p>
+<ul>
+<li><p>[ ] If the <em>user</em> with the specified <code>id</code> is not found:</p>
+<ul>
+<li>respond with HTTP status code <code>404</code> (Not Found).</li>
+<li>return the following JSON object: <code>{ message: "The user with the specified ID does not exist." }</code>.</li>
+</ul></li>
+<li>[ ] If there’s an error in removing the <em>user</em> from the database:
+<ul>
+<li>respond with HTTP status code <code>500</code>.</li>
+<li>return the following JSON object: <code>{ errorMessage: "The user could not be removed" }</code>.</li>
+</ul></li>
+</ul>
+<p>When the client makes a <code>PUT</code> request to <code>/api/users/:id</code>:</p>
+<ul>
+<li><p>[ ] If the <em>user</em> with the specified <code>id</code> is not found:</p>
+<ul>
+<li>respond with HTTP status code <code>404</code> (Not Found).</li>
+<li>return the following JSON object: <code>{ message: "The user with the specified ID does not exist." }</code>.</li>
+</ul></li>
+<li><p>[ ] If the request body is missing the <code>name</code> or <code>bio</code> property:</p>
+<ul>
+<li>respond with HTTP status code <code>400</code> (Bad Request).</li>
+<li>return the following JSON response: <code>{ errorMessage: "Please provide name and bio for the user." }</code>.</li>
+</ul></li>
+<li><p>[ ] If there’s an error when updating the <em>user</em>:</p>
+<ul>
+<li>respond with HTTP status code <code>500</code>.</li>
+<li>return the following JSON object: <code>{ errorMessage: "The user information could not be modified." }</code>.</li>
+</ul></li>
+<li><p>[ ] If the user is found and the new information is valid:</p>
+<ul>
+<li>update the user document in the database using the new information sent in the <code>request body</code>.</li>
+<li>respond with HTTP status code <code>200</code> (OK).</li>
+<li>return the newly updated <em>user document</em>.</li>
+</ul></li>
+</ul>
+<h2 id="stretch-problems">Stretch Problems</h2>
+<p>To work on the stretch problems you’ll need to enable the <code>cors</code> middleware. Follow these steps:</p>
+<ul>
+<li>[ ] add the <code>cors</code> npm module: <code>npm i cors</code>.</li>
+<li>[ ] add <code>server.use(cors())</code> after <code>server.use(express.json())</code>.</li>
+</ul>
+<p>Create a new React application and connect it to your server:</p>
+<ul>
+<li>[ ] the React application can be anywhere, but, for this project create it inside the folder for the solution.</li>
+<li>[ ] connect to the <code>/api/users</code> endpoint in the API and show the list of users.</li>
+<li>[ ] add a delete button to each displayed user that will remove it from the server.</li>
+<li>[ ] add forms to add and update data.</li>
+<li>[ ] Style the list of users however you see fit.</li>
+</ul>
+</body></html>

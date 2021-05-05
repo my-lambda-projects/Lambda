@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="node-db-2-module-challenge">Node DB 2 Module Challenge</h1>
+<p>In this challenge, you will write an API that can be used to manage <em>Cars</em> stored in a Relational Database.</p>
+<h2 id="project-set-up">Project Set Up</h2>
+<p>Follow these steps for starting your project.</p>
+<ul>
+<li>[X] Fork this repository into your account and <strong>clone your version</strong>.</li>
+<li>[X] Add your <em>Team Lead</em> as collaborator on your repository.</li>
+<li>[X] Create a new branch: git checkout -b <code>&lt;firstName-lastName&gt;</code>.</li>
+<li>[X] Implement the project on your newly created <code>&lt;firstName-lastName&gt;</code> branch, committing changes regularly.</li>
+<li>[X] Push commits: git push origin <code>&lt;firstName-lastName&gt;</code>.</li>
+</ul>
+<p>Follow these steps for completing your project.</p>
+<ul>
+<li>[X] Submit a Pull-Request to merge <code>&lt;firstName-lastName&gt;</code> Branch into master (student’s Repository). <strong>Please don’t merge your own pull request</strong></li>
+<li>[X] Add your <em>Team Lead</em> as a reviewer on the pull-request</li>
+<li>[X] Your <em>Team Lead</em> will count the project as complete by merging the branch back into master.</li>
+</ul>
+<h2 id="minimum-viable-product">Minimum Viable Product</h2>
+<ul>
+<li>[X] Using <code>knex migrations</code>, design and write a schema for the <code>cars</code> table using the specifications below.</li>
+<li>[X] Configure <code>knex</code> to connect to a <code>/data/car-dealer.db3</code> database using the <code>sqlite3</code> npm module.</li>
+<li>[X] Write endpoints to support <code>CREATE</code> and <code>READ</code> operations on the <code>cars</code> resource.</li>
+<li>[X] Use a rest client like <em>Insomnia</em> or <em>Postman</em> to test your API.</li>
+</ul>
+<h2 id="specifications">Specifications</h2>
+<p>The client for this API is a car dealer who has provided the following specs:</p>
+<ul>
+<li>[X] The critical information for each car is the VIN, make, model, and mileage.</li>
+<li>[X] They also track transmission type and status of the title (clean, salvage, etc.), but this information is not always immediately known.</li>
+</ul>
+<h2 id="stretch-problems">Stretch Problems</h2>
+<ul>
+<li>[X] Add seed data to the database using <code>knex seeds</code></li>
+<li>[X] Add <code>UPDATE</code> and <code>DELETE</code> operations to your API.</li>
+<li>[ ] Write a schema file for a <code>sales</code> table. This table should track information on the sale of each car. You may wish to research <code>foreign keys</code> in order to link each sale to the entry in <code>cars</code> which sold.</li>
+</ul>
+</body></html>

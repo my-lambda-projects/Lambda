@@ -101,7 +101,7 @@ plugins: prettierPlugins,
 <a class="sourceLine" id="cb1-40" title="40">21Array.<span class="va">prototype</span>.<span class="at">reverse</span>()</a></code></pre></div>
 <h2 id="in-javascript-an-array-represents-an-ordered-collection-of-values.">In JavaScript, an Array represents an ordered collection of values.</h2>
 <blockquote>
-<p>The array consists of one or more elements, each having a numbered position inside of the array. This is also called the index. Any given array element can hold any type offered by the JavaScript language. In other words, you can mix and match the various types inside of the same array. Just like most programming languages, arrays in JavaScript are zero based. This means they start at 0 and move up from there. Arrays in JavaScript grow and shrink like magic. That is to say, you do not have to specify the array size ahead of time before placing values in the array. As you add elements, the array dynamically grows for you. The same happens when you remove elements. All JavaScript arrays have a link to Array.prototype which is how we get access to all of the very useful functions we’ll cover here in this tutorial. In true JavaScript style, these functions work not only on any array, but also any “array-like” object.</p>
+<p>The array consists of one or more elements, each having a numbered position inside of the array. This is also called the index. Any given array element can hold any type offered by the JavaScript language. In other words, you can mix and match the various types inside of the same array. Just like most programming languages, arrays in JavaScript are zero based. This means they start at 0 and move up from there. Arrays in JavaScript grow and shrink like magic. That is to say, you do not have to specify the array size ahead of time before placing values in the array. As you add elements, the array dynamically grows for you. The same happens when you remove elements. All JavaScript arrays have a link to Array.prototype which is how we get access to all of the very useful functions we’ll cover here in this tutorial. In true JavaScript style, these functions work not only on any array, but also any "array-like” object.</p>
 </blockquote>
 <h2 id="array.prototype.push">2. Array.prototype.push()</h2>
 <blockquote>
@@ -120,7 +120,7 @@ plugins: prettierPlugins,
 <p>``js</p>
 <p>let characters = [‘Darth Vader’, ‘Yoda’, ‘Boba Fett’];</p>
 <p>let total = characters.push(‘Luke Skywalker’, ‘Han Solo’);</p>
-<p>console.log(characters); // [“Darth Vader”, “Yoda”, “Boba Fett”, “Luke Skywalker”, “Han Solo”]</p>
+<p>console.log(characters); // ["Darth Vader”, "Yoda”, "Boba Fett”, "Luke Skywalker”, "Han Solo”]</p>
 <p>console.log(total); // 5</p>
 <p>```</p>
 <ol start="3" type="1">
@@ -467,13 +467,13 @@ plugins: prettierPlugins,
 <p>let legoStarWarsSets = [10188, 75111, 75110, 75109];</p>
 <p>let gamesAndSets = legoStarWarsGames.concat(legoStarWarsSets);</p>
 <p>console.log(gamesAndSets);</p>
-<p>// [“Empire Vs Rebels”, “Ultimate Rebel”, “The Quest for R2-D2”, 10188, 75111, 75110, 75109]</p>
+<p>// ["Empire Vs Rebels”, "Ultimate Rebel”, "The Quest for R2-D2”, 10188, 75111, 75110, 75109]</p>
 <p>let legoStarWarsGames = [‘Empire Vs Rebels’, ‘Ultimate Rebel’, ‘The Quest for R2-D2’];</p>
 <p>let legoStarWarsSets = [10188, 75111, 75110, 75109];</p>
 <p>let availablePlatforms = [‘Wii’, ‘Xbox’, ‘Playstation’];</p>
 <p>let gamesSetsPlatforms = legoStarWarsGames.concat(legoStarWarsSets, availablePlatforms);</p>
 <p>console.log(gamesSetsPlatforms);</p>
-<p>// [“Empire Vs Rebels”, “Ultimate Rebel”, “The Quest for R2-D2”, 10188, 75111, 75110, 75109, “Wii”, “Xbox”, “Playstation”]</p>
+<p>// ["Empire Vs Rebels”, "Ultimate Rebel”, "The Quest for R2-D2”, 10188, 75111, 75110, 75109, "Wii”, "Xbox”, "Playstation”]</p>
 <ol start="11" type="1">
 <li>Array.prototype.shift()</li>
 </ol>
@@ -485,12 +485,12 @@ plugins: prettierPlugins,
 <p>array.shift() function examples</p>
 <p>let starWarsCreatures = [‘Tach’, ‘Kath hound’, ‘Ruggers’, ‘Spice spider’];</p>
 <p>console.log(‘starWarsCreatures before:’ + starWarsCreatures);</p>
-<p>// “starWarsCreatures before: Tach,Kath hound,Ruggers,Spice spider”</p>
+<p>// "starWarsCreatures before: Tach,Kath hound,Ruggers,Spice spider”</p>
 <p>let shifted = starWarsCreatures.shift();</p>
 <p>console.log(‘starWarsCreatures after:’ + starWarsCreatures);</p>
-<p>// “starWarsCreatures after: Kath hound,Ruggers,Spice spider”</p>
+<p>// "starWarsCreatures after: Kath hound,Ruggers,Spice spider”</p>
 <p>console.log(‘Removed this element:’ + shifted);</p>
-<p>// “Removed this element: Tach”</p>
+<p>// "Removed this element: Tach”</p>
 <ol start="12" type="1">
 <li>Array.prototype.unshift()</li>
 </ol>
@@ -537,7 +537,7 @@ plugins: prettierPlugins,
 <p>return element.toUpperCase();</p>
 <p>});</p>
 <p>console.log(swModified);</p>
-<p>// [“STAR WARS”, “THE PHANTOM MENACE”, “THE FORCE AWAKENS”]</p>
+<p>// ["STAR WARS”, "THE PHANTOM MENACE”, "THE FORCE AWAKENS”]</p>
 <p>let one = [3, 5, 7];</p>
 <p>let two = one.map(function (number) {</p>
 <p>return number * number;</p>
@@ -549,7 +549,7 @@ plugins: prettierPlugins,
 <p>return el;</p>
 <p>});</p>
 <p>console.log(str); // The Clone Wars</p>
-<p>console.log(arr); // [“T”, “h”, “e”, " “,”C“,”l“,”o“,”n“,”e“,” “,”W“,”a“,”r“,”s"]</p>
+<p>console.log(arr); // ["T”, "h”, "e”, " ",”C",”l",”o",”n",”e",” ",”W",”a",”r",”s"]</p>
 <ol start="14" type="1">
 <li>Array.prototype.sort()</li>
 </ol>
@@ -571,11 +571,11 @@ plugins: prettierPlugins,
 <p>// In Unicode, numbers come before upper case letters,</p>
 <p>// which come before lower case letters.</p>
 <p>console.log(creatures);</p>
-<p>// [“Oslet”, “Pug jumper”, “Rong boars”, “Wamba”]</p>
+<p>// ["Oslet”, "Pug jumper”, "Rong boars”, "Wamba”]</p>
 <p>console.log(nums);</p>
 <p>// [1, 10, 12, 2, 21, 300, 33, 4, 9]</p>
 <p>console.log(spacecraft);</p>
-<p>// [“4 Tantive”, “Lambda Class Shuttle”, “imperial landing craft”]</p>
+<p>// ["4 Tantive”, "Lambda Class Shuttle”, "imperial landing craft”]</p>
 <p>As we can see from the above example, when you do not supply a callback function to the sort method, ordering may not be what you expect. The rules for ordering in Unicode are a bit unique. For example, numbers come before upper case letters and uppercase letters come before lowercase letters. In addition, an array of numbers is converted to strings before sorting, so this is why we see 33 coming before 4 and 9 in the example above. Here is a callback function example to show ordering numbers how you might expect.</p>
 <p>let nums = [1, 10, 2, 21, 33, 04, 12, 09, 300];</p>
 <p>nums.sort(numsasexpected);</p>
@@ -840,7 +840,7 @@ plugins: prettierPlugins,
 <p>let javascriptArray = [‘eat’, ‘sleep’, ‘breathe’, ‘javascript’];</p>
 <p>javascriptArray.reverse();</p>
 <p>console.log(javascriptArray);</p>
-<p>// [“javascript”, “breathe”, “sleep”, “eat”]</p>
+<p>// ["javascript”, "breathe”, "sleep”, "eat”]</p>
 <p>Most Useful JavaScript Array Functions Summary</p>
 <p>In this episode we took a look at all of the many useful JavaScript Array Functions you’re likely to make use of and find helpful during your JavaScript programming. We used a method of analyzing popular JavaScript source code repositories hosted on Github, the well known open source software sharing and collaboration website. We found that the most useful JavaScript functions according to the number of times they were used in popular JavaScript frameworks to be Array.push(), Array.indexOf(), Array.slice(), Array.toString(), Array.filter(), Array.join(), Array.splice(), Array.forEach(), Array.concat(), Array.shift(), Array.unshift(), Array.map(), Array.sort(), Array.pop(), Array.reduce(), Array.some(), Array.lastIndexOf(), Array.reduceRight(), Array.every(), and finally, Array.reverse(). It would make sense to memorize as many of these as you can, or at least be very familiar with the ones that appear at the top of the list.</p>
 <p>Source</p>

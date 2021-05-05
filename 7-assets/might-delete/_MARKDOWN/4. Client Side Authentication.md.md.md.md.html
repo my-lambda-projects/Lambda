@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="client-side-authentication">Client Side Authentication</h1>
+<p><strong>Transportability</strong> - HTTP headers have a limited character set so that it is compatiple with many systems and cross platform. - We can use encoders and hashing to make data more portable over HTTP</p>
+<p><strong>Encoding &amp; Hashing Javascript</strong> - The Javascript <code>window</code> object comes with built in functions for encoding and decoding base64: - <code>window.btoa()</code> (Binary to ASCII)</p>
+<pre><code>btoa(data);
+// returns =&gt; &lt;base64encodedData&gt;</code></pre>
+<ul>
+<li><code>window.atob()</code> (ASCII to Binary)</li>
+</ul>
+<pre><code>atob(base64encodedData);
+// returns =&gt; &lt;data&gt;</code></pre>
+<ul>
+<li>We can include hashing functions js files and use them globally:</li>
+</ul>
+<pre><code>&lt;script src=&quot;md5.js&quot;&gt;&lt;/script&gt;</code></pre>
+<pre><code>md5(data);
+// returns =&gt; &lt;hashedData&gt;</code></pre>
+<p><strong>Creating a Token in JS</strong> - We can create a basic token by using the building blocks given above:</p>
+<pre><code>function makeToken(payload, secret) {
+    const encodedPayload = btoa(JSON.stringify(payload));
+    const encodedSignature = btoa(md5(encodedPayload + btoa(secret)));
+
+    // concatenate payload and signature with &quot;.&quot; separator
+    return `${encodedPayload}.${encodedSignature}`;
+}</code></pre>
+<ul>
+<li>How do we verify this token?</li>
+</ul>
+<pre><code>function(token, secret) {
+    // destructure the payload and signature
+    const [encodedPayload, encodedSignature] = token.split(&#39;.&#39;);
+
+    // replicate the signature based on the shared secret
+    const signature = btoa(md5(encodedPayload + btoa(secret)));
+
+    // compare the two signatures to verify secret
+    if (signature === encodedSignature) {
+      // decode the payload to use within our app
+      const payload == JSON.parse(atob(encodedPayload));
+      return payload;
+    }
+    else {
+      return &#39;Token not valid.&#39;
+    }
+}</code></pre>
+<ul>
+<li><em>"We would not create or store a secret on the client like this, as nothing is secret in the browser. This is just a demonstration of the algorithm”.</em></li>
+</ul>
+<p><strong>Why Is Encoding, Hashing &amp; Encryption Useful?</strong> - <strong>Encoding</strong>: - Encoding is a two way representation of data - Base64, …, and … are examples - It’s useful to make information portable</p>
+<ul>
+<li><strong>Hashing</strong>:
+<ul>
+<li>Hashing allows us to fingerprint data</li>
+<li>allows us to verify information integrity</li>
+<li>Allows us to create signatures</li>
+</ul></li>
+<li><strong>Symmetric Encryption</strong>
+<ul>
+<li>Uses a shared key to decrypt data</li>
+<li>Example algorithms?</li>
+<li>Useful for …</li>
+</ul></li>
+<li><strong>Asymmetric Encryption</strong>
+<ul>
+<li>Uses key pairs (public &amp; private) to decrypt data</li>
+<li>Example algorithms?</li>
+<li>Useful for …</li>
+</ul></li>
+</ul>
+<p><strong>Verifying Tokens in the Browser</strong> - A method to verify that the tokens on the front end are valid is to have an <code>/api/verify</code> endpoint which a client can hit with its token present in its headers. The back end would then verify the token and return a success or error back to the client. Based on this server response, our front end app can allow or disallow the user to access particular views.</p>
+<ul>
+<li>This is a much more robust method than just checking whether a "token” is present in local storage.</li>
+</ul>
+</body></html>

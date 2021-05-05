@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="module-project-the-reducer-pattern---reducer-todo">Module Project: The Reducer Pattern - Reducer Todo</h1>
+<p>This project allows you to practice the concepts and techniques learned in this module and apply them in a concrete project. This module explored the reducer pattern. During the module, you studied what immutability is, what reducers, actions and dispatch are, and how to use the reducer hook. In your project you will demonstrate proficiency of these subjects and principles by creating an application using each of these.</p>
+<h2 id="instructions">Instructions</h2>
+<p><strong>Read these instructions carefully. Understand exactly what is expected <em>before</em> starting this project.</strong></p>
+<h3 id="commits">Commits</h3>
+<p>Commit your code regularly and meaningfully. This helps both you and your team lead in case you ever need to return to old code for any number of reasons.</p>
+<h3 id="description">Description</h3>
+<p>In this project, you build an app that let’s you display a todo list from reducer state, and update todo items as completed and clear completed todos from the list by dispatching different actions.</p>
+<h2 id="project-set-up">Project Set Up</h2>
+<ul>
+<li>[X] Create a forked copy of this project.</li>
+<li>[X] Add your team lead as collaborator on Github.</li>
+<li>[X] Clone your OWN version of the repository in your terminal</li>
+<li>[X] CD into the project base directory <code>cd reducer-todo</code></li>
+<li>[X] Create a new react app using CRA</li>
+<li>[X] Using the same command tool (yarn or npm) start up the app using <code>yarn start</code> or <code>npm start</code></li>
+<li>[X] Create a new branch: git checkout -b <code>&lt;firstName-lastName&gt;</code>.</li>
+<li>[X] Implement the project on your newly created <code>&lt;firstName-lastName&gt;</code> branch, committing changes regularly.</li>
+<li>[X] Push commits: git push origin <code>&lt;firstName-lastName&gt;</code>.</li>
+</ul>
+<p>Follow these steps for completing your project.</p>
+<ul>
+<li>[X] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student’s Repository). <strong>Please don’t merge your own pull request</strong></li>
+<li>[X] Add your team lead as a reviewer on the pull-request</li>
+<li>[X] Your team lead will count the project as complete by merging the branch back into master.</li>
+<li>[X] Do your magic!</li>
+</ul>
+<h2 id="minimum-viable-product">Minimum Viable Product</h2>
+<ol type="1">
+<li><ul>
+<li>[ ] Set an initial state value through a reducer and render a list of todos from that state</li>
+</ul></li>
+<li><ul>
+<li>[ ] Add a form that dispatches an "ADD_TODO” action to be able to add a todo item to your list</li>
+</ul></li>
+<li><ul>
+<li>[ ] Build a function that let’s you mark todo items as completed when you click on them</li>
+</ul></li>
+<li><ul>
+<li>[ ] Build a function that let’s you clear completed todos when you click on a "Clear Completed” button</li>
+</ul></li>
+</ol>
+<h3 id="step-1---build-a-simple-reducer-and-initial-state">STEP 1 - Build a simple reducer and initial state</h3>
+<ul>
+<li>[X] In a folder called <code>reducers</code> add a reducer file and build out a simple reducer with just a default return for now</li>
+<li>[X] In the same file, build your initial state object that has a list of todos with the following shape:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="dt">item</span><span class="op">:</span> <span class="st">&#39;Learn about reducers&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="dt">completed</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="dt">id</span><span class="op">:</span> <span class="dv">3892987589</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li>[X] Export both the reducer and the initial state object</li>
+</ul>
+<h3 id="step-2---set-up-state-in-your-component">STEP 2 - Set up state in your component</h3>
+<p>You get to choose how you want to set up your components. Please don’t just do this all inside App. I know it is a small and simple project, but you will do yourself a great service by setting your app up as if it were going to be a larger application</p>
+<ul>
+<li>[X] Using the <code>reducer</code> hook, set up state in your component. Think about what you’ll need in order to use the reducer hook, and think about what it returns.</li>
+<li>[X] Now render your list of todos from your reducer in your app</li>
+</ul>
+<h3 id="step-3---adding-todos">STEP 3 - Adding todos</h3>
+<ul>
+<li>[X] Build a form to add todos to your list</li>
+<li>[X] Build a function that will dispatch an action to add a new todo</li>
+<li>[X] Write the <code>case</code> in your reducer for adding a todo (You can create a unique id with <code>new Date()</code>)</li>
+</ul>
+<h3 id="step-4---toggle-the-completed-field">STEP 4 - Toggle the completed field</h3>
+<ul>
+<li>[X] Build a function that will dispatch an action to toggle a todo’s completed field</li>
+<li>[X] Invoke this new function when you click on a todo</li>
+<li>[X] Style your todo to somehow show that it is completed (be creative here!)</li>
+<li>[X] Write the <code>case</code> in your reducer for toggling the completed property</li>
+</ul>
+<h3 id="step-5---clearing-completed-todos">STEP 5 - Clearing completed todos</h3>
+<ul>
+<li>[X] Build a function that will dispatch an action to filter out any completed todos</li>
+<li>[X] Invoke this new function when you click on a "Clear completed” button</li>
+<li>[X] Write the <code>case</code> in your reducer for filtering completed todos</li>
+</ul>
+<h2 id="stretch-problems">Stretch Problems</h2>
+<p>After finishing your required elements, you can push your work further. These goals may or may not be things you have learned in this module but they build on the material you just studied. Time allowing, stretch your limits and see if you can deliver on the following optional goals:</p>
+<ul>
+<li>[ ] Add the moment library to show in "human speak” when a todo was completed</li>
+<li>[ ] Add a property on the todos for when a todo should be completed by. Then display that a todo is "overdue” if it has not been completed by its due date</li>
+<li>[ ] Add "tags” to your todos, and display them with your todo list</li>
+<li>[X] Have fun with the styling. Make this something you’d be proud to show off!</li>
+</ul>
+</body></html>

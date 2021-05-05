@@ -28,7 +28,7 @@ You can store data in a context object instead of prop drilling.
 
 - [X] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
 
-Everything that changes within your app is represented by a single JS object called the store. The store contains state for our application.  When changes are made to our application state, we never write to our store object but rather clone the state object, modify the clone, and replace the original state with the new copy, never mutating the original object.  Reducers are the only place we can update our state. Actions tell our reducers “how” to update the state, and perhaps with what data it should be updated, but only a reducer can actually update the state. 
+Everything that changes within your app is represented by a single JS object called the store. The store contains state for our application.  When changes are made to our application state, we never write to our store object but rather clone the state object, modify the clone, and replace the original state with the new copy, never mutating the original object.  Reducers are the only place we can update our state. Actions tell our reducers "how” to update the state, and perhaps with what data it should be updated, but only a reducer can actually update the state. 
 
 - [X] What is the difference between Application state and Component state? When would be a good time to use one over the other?
 

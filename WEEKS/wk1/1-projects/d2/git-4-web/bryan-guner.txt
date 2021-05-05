@@ -176,7 +176,7 @@ i.e.
 
 --------------------------------------------------------------------------------------
 
-    21. How do we select a p element with a single class of “human””?
+    21. How do we select a p element with a single class of ""human””?
 p.human{
   
 }

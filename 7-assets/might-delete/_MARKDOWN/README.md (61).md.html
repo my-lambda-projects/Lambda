@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="module-project---iterative-sorting">Module Project - Iterative Sorting</h1>
+<h2 id="algorithms">Algorithms</h2>
+<h2 id="iterative-sorting">Iterative Sorting</h2>
+<h2 id="objectives">Objectives</h2>
+<ul>
+<li>describe the differences between Linear and Binary Search algorithms</li>
+<li>define what runtime complexity is, differentiate between various classifications and categorize the performance of an algorithm using Big O notation</li>
+<li>distinguish when to use, classify the performance, and implement code to conduct classic iterative sorting algorithms</li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>In this project, you will be implementing many different solutions to the same problem: sort a list of integers in ascending order. You will also be using your newfound knowledge of complexity analysis to evaluate each implementation for efficiency.</p>
+<p>Although sorting may seem like a trivial task, this project allows you to begin practicing classifying and categorizing the performance of different algorithms. Practicing your ability to classify the performance of these simple algorithms will make it easier for you to classify more sophisticated algorithms as you continue your journey of mastering Computer Science fundamentals. It will also help you to see that even trivial computation tasks embedded in your programs are essential for you to understand. Understanding these details is part of what will make you an excellent programmer and developer.</p>
+<p>As you begin interviewing for jobs, you will often be expected to be able to implement, classify, and deeply understand these classic sorting algorithms.</p>
+<h2 id="instructions-andor-completion-requirements">Instructions and/or completion requirements</h2>
+<ul>
+<li>[X] Open up the <a href="src/iterative_sorting">iterative_sorting</a> directory</li>
+<li>[X] Read through the descriptions of the <code>bubble_sort</code> and <code>selection_sort</code> algorithms</li>
+<li>[ ] Implement <code>bubble_sort</code> and <code>selection_sort</code> in <a href="src/iterative_sorting/iterative_sorting.py">iterative_sorting.py</a></li>
+<li>[ ] Test your implementation by running <code>test_iterative.py</code></li>
+<li>[ ] Implement all the methods in the <a href="src/searching/searching.py">searching.py</a> file in the <a href="src/searching">searching</a> directory.</li>
+<li>[ ] Test your implementation of the searching methods by running <code>test_searching.py</code>.</li>
+</ul>
+<h2 id="stretch-goals">Stretch goals</h2>
+<ul>
+<li>[ ] Implement the <code>count_sort</code> algorithm in the <a href="src/iterative_sorting">iterative_sorting</a> directory.</li>
+<li>[ ] linear search</li>
+<li>[ ] binary search</li>
+</ul>
+<h2 id="tests">Tests</h2>
+<p>Make sure to test your implementations by running <code>test_iterative.py</code> and <code>test_searching.py</code>. To test the stretch goal, you need to uncomment the tests for <code>count_sort</code> in <code>test_iterative.py</code>.</p>
+<h2 id="faqs">FAQs</h2>
+<h3 id="how-do-you-assess-space-complexity">How do you assess space complexity?</h3>
+<p>Generally speaking, at work and in interviews, people are more interested in time complexity. That said, <em>space complexity</em>, or how much additional space is required to process <em>n</em> elements of data, is also very important.</p>
+<p>Space complexity does <em>not</em> include the space required to hold the data you are going to process. It only includes the <em>additional</em> space requirements of your algorithm.</p>
+<p>Here’s an example with <code>O(1)</code> space requirements:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">def</span> alg(data):</a>
+<a class="sourceLine" id="cb1-2" title="2">    result <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="cf">for</span> v <span class="kw">in</span> data:</a>
+<a class="sourceLine" id="cb1-5" title="5">        result <span class="op">+=</span> v</a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="cf">return</span> result</a></code></pre></div>
+<p>Clearly the <em>time</em> complexity is <code>O(n)</code>. As list <code>data</code> grows, the time it takes to complete the algorithm grows proportionately.</p>
+<p>But the <em>space</em> complexity is <code>O(1)</code>. The additional space required to complete the algorithm was:</p>
+<ul>
+<li><code>result</code>: <code>O(1)</code></li>
+<li><code>v</code>: <code>O(1)</code></li>
+</ul>
+<p>And neither of those change in size regardless of how big list <code>data</code> is. <code>data</code> could have a zillion elements, and the algorithm would still only require space for <code>result</code> and <code>v</code>.</p>
+<p>What about this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">def</span> alg(data):</a>
+<a class="sourceLine" id="cb2-2" title="2">    new_data <span class="op">=</span> data.copy()   <span class="co"># &lt;-- Added this line</span></a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4">    result <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb2-5" title="5"></a>
+<a class="sourceLine" id="cb2-6" title="6">    <span class="cf">for</span> v <span class="kw">in</span> new_data:</a>
+<a class="sourceLine" id="cb2-7" title="7">        result <span class="op">+=</span> v</a>
+<a class="sourceLine" id="cb2-8" title="8"></a>
+<a class="sourceLine" id="cb2-9" title="9">    <span class="cf">return</span> result</a></code></pre></div>
+<p>Here we have more space allocated.</p>
+<ul>
+<li><code>result</code>: <code>O(1)</code></li>
+<li><code>v</code>: <code>O(1)</code></li>
+<li><code>new_data</code>: <code>O(n)</code></li>
+</ul>
+<p><code>new_data</code> gets bigger as <code>data</code> gets bigger, so it’s <code>O(n)</code>. So we have:</p>
+<p><code>O(1) + O(1) + O(n)</code> space requirements. <code>O(n)</code> dominates, so the final result is <code>O(n)</code>.</p>
+<p>Where things get really tricky is when you have a recursive call. Each call to the function allocates space for all the local variables.</p>
+<p>And it gets doubly tricky if you’re making a copy of the data each call, like with a slice.</p>
+<p>Here’s the same algorithm as before that adds all the elements in a list, except this one does it recursively. Recall that the initial iterative version was <code>O(1)</code> space complexity.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">def</span> alg(data):</a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="cf">if</span> data <span class="op">==</span> []:</a>
+<a class="sourceLine" id="cb3-3" title="3">        <span class="cf">return</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5">    first_val <span class="op">=</span> data[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb3-6" title="6"></a>
+<a class="sourceLine" id="cb3-7" title="7">    <span class="cf">return</span> first_val <span class="op">+</span> alg(data[<span class="dv">1</span>:])</a></code></pre></div>
+<p>Every time we make a call into <code>alg()</code>, we get new space for local variables. So any local variable that was <code>O(1)</code> on its own, now gets <em>n</em> copies and becomes <code>O(1*n)</code> or <code>O(n)</code>.</p>
+<p>But that’s not all. When we slice <code>data</code> on the recursive call, we get a new list. So that means every call we’re getting another copy of the list, and each copy is <code>O(n)</code> space as well. And we’re making <em>n</em> recursive calls, so we need <em>n</em> copies of <code>O(n)</code> space, which comes to <code>O(n*n)</code> or <code>O(n^2)</code> space.</p>
+<blockquote>
+<p>Sure, it’s not a <em>complete</em> copy of the list. It’s missing the first element. So each call has a shorter and shorter list, like:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1">[ <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span> ]</a>
+<a class="sourceLine" id="cb4-2" title="2">[ <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span> ]</a>
+<a class="sourceLine" id="cb4-3" title="3">[ <span class="dv">3</span>, <span class="dv">4</span> ]</a>
+<a class="sourceLine" id="cb4-4" title="4">[ <span class="dv">4</span> ]</a>
+<a class="sourceLine" id="cb4-5" title="5">[ ]</a></code></pre></div>
+<p>So that means the first call wasn’t really <code>O(n)</code>, but was more like <code>O(0.8*n)</code>, and the second was <code>O(0.6*n)</code>, and so on.</p>
+<p>But recall that we drop constants with Big-O, so those still just become <code>O(n)</code>.</p>
+</blockquote>
+<p>So we have <em>n</em> recursive calls.</p>
+<p><code>first_val</code> on its own is <code>O(1)</code>. But we recurse <em>n</em> times, so it becomes <code>O(1*n)</code> or just <code>O(n)</code>.</p>
+<p>Each slice of <code>data</code> on its own is <code>O(n)</code>. But we recurse <em>n</em> times, so it becomes <code>O(n*n)</code> or <code>O(n^2)</code>.</p>
+<p>So the total space complexity for this algorithm is:</p>
+<p><code>O(n) + O(n^2)</code>. The <code>O(n^2)</code> dominates, so the final space complexity is just <code>O(n^2)</code>.</p>
+<p>Again, compare to the <code>O(1)</code> space complexity of the initial iterative solution.</p>
+<p>In some languages, notably <a href="https://en.wikipedia.org/wiki/Lisp_(programming_language)">Lisp</a> and other <a href="https://en.wikipedia.org/wiki/Functional_programming">functional programming languages</a>, you can write recursive solutions with <code>O(1)</code> space complexity. These languages take advantage of a feature known as <a href="https://en.wikipedia.org/wiki/Tail_call"><em>tail call optimization</em></a> to make this possible. By coding things correctly, the language can automatically convert your recursive solution into an iterative solution. Stock C and Python do not support tail call optimization.</p>
+<h3 id="should-we-use-a-languages-built-in-functionality-as-much-as-possible">Should we use a language’s built-in functionality as much as possible?</h3>
+<p>Yes.</p>
+<p>Generally the built-in functionality is better tested and better optimized than something you could write.</p>
+<p>That said, there might be times you want to write your own versions. Maybe the built-in doesn’t do exactly what you need. Or maybe you want to rewrite the built-in as a learning exercise, for example.</p>
+<h3 id="what-are-the-tradeoffs-with-in-place-versus-non-in-place-sorting-solutions">What are the tradeoffs with in-place versus non-in-place sorting solutions?</h3>
+<p>Memory: in-place typically takes less memory since you’re reusing the original storage for the list to hold the finally sorted list. If you allocate more lists to hold the result, that takes more memory.</p>
+<p>Code clarity: in-place sometimes has more complex code making the algorithm harder to understand.</p>
+<p>As an example, here’s a non-in-place Quicksort, which seems to be generally clearer than the in-place variant, but uses far more memory:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">def</span> partition(data):</a>
+<a class="sourceLine" id="cb5-2" title="2">    left <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb5-3" title="3">    pivot <span class="op">=</span> data[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb5-4" title="4">    right <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb5-5" title="5"></a>
+<a class="sourceLine" id="cb5-6" title="6">    <span class="cf">for</span> v <span class="kw">in</span> data[<span class="dv">1</span>:]:</a>
+<a class="sourceLine" id="cb5-7" title="7">        <span class="cf">if</span> v <span class="op">&lt;=</span> pivot:</a>
+<a class="sourceLine" id="cb5-8" title="8">            left.append(v)</a>
+<a class="sourceLine" id="cb5-9" title="9">        <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb5-10" title="10">            right.append(v)</a>
+<a class="sourceLine" id="cb5-11" title="11"></a>
+<a class="sourceLine" id="cb5-12" title="12">    <span class="cf">return</span> left, pivot, right</a>
+<a class="sourceLine" id="cb5-13" title="13"></a>
+<a class="sourceLine" id="cb5-14" title="14"><span class="kw">def</span> quicksort(data):</a>
+<a class="sourceLine" id="cb5-15" title="15">    <span class="cf">if</span> data <span class="op">==</span> []:</a>
+<a class="sourceLine" id="cb5-16" title="16">        <span class="cf">return</span> data</a>
+<a class="sourceLine" id="cb5-17" title="17"></a>
+<a class="sourceLine" id="cb5-18" title="18">    left, pivot, right <span class="op">=</span> partition(data)</a>
+<a class="sourceLine" id="cb5-19" title="19"></a>
+<a class="sourceLine" id="cb5-20" title="20">    <span class="cf">return</span> quicksort(left) <span class="op">+</span> [pivot] <span class="op">+</span> quicksort(right)</a></code></pre></div>
+</body></html>

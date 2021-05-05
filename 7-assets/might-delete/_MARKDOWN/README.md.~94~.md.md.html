@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="module-project-forms---team-builder">Module Project: Forms - Team Builder</h1>
+<p>This project allows you to practice the concepts and techniques learned in this module and apply them in a concrete project. This module explored Form management in React. You learned about controled inputs, semantic HTML, some ES6 tools like the spread operator and computer properties, and synthetic events. In your project you will demonstrate proficiency of these subjects and principles by creating an application using each of these.</p>
+<h2 id="instructions">Instructions</h2>
+<p><strong>Read these instructions carefully. Understand exactly what is expected <em>before</em> starting this project.</strong></p>
+<h3 id="commits">Commits</h3>
+<p>Commit your code regularly and meaningfully. This helps both you and your team lead in case you ever need to return to old code for any number of reasons.</p>
+<h3 id="description">Description</h3>
+<p>In this project you’ll build an app that will keep track of memebers of a team. You’ll be able to add members to this team as well as edit their details.</p>
+<h2 id="project-set-up">Project Set Up</h2>
+<ul>
+<li>[X] Create a forked copy of this project.</li>
+<li>[X] Add your team lead as collaborator on Github.</li>
+<li>[X] Clone your OWN version of the repository in your terminal</li>
+<li>[X] Use <code>npx create-react-app team-builder</code> or <code>create-react-app team-builder</code> to initiate the project.</li>
+<li>[X] CD into your <code>team-builder</code> directory</li>
+<li>[X] Using the same command tool (yarn or npm) start up the app using <code>yarn start</code> or <code>npm start</code></li>
+<li>[X] Create a new branch: git checkout -b <code>&lt;firstName-lastName&gt;</code>.</li>
+<li>[X] Implement the project on your newly created <code>&lt;firstName-lastName&gt;</code> branch, committing changes regularly.</li>
+<li>[X] Push commits: git push origin <code>&lt;firstName-lastName&gt;</code>.</li>
+</ul>
+<p>Follow these steps for completing your project.</p>
+<ul>
+<li>[ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student’s Repository). <strong>Please don’t merge your own pull request</strong></li>
+<li>[ ] Add your team lead as a reviewer on the pull-request</li>
+<li>[ ] Your team lead will count the project as complete by merging the branch back into master.</li>
+<li>[X] Do your magic!</li>
+</ul>
+<h2 id="minimum-viable-product">Minimum Viable Product</h2>
+<ul>
+<li>[X] Render a list of team members from state</li>
+<li>[X] Build a form to add a new member to the list of members</li>
+</ul>
+<h3 id="step-1---setup-your-state">STEP 1 - Setup your state</h3>
+<ul>
+<li><p>[X] Import the <code>useState</code> hook and set up a state property for your team members list</p></li>
+<li><p>[X] Give the state variable you just declared a default value. You will need to keep track of a list of team members and each team member will have several key/value pairs associated with them.</p></li>
+<li><p>[X] Render your list of team members</p></li>
+</ul>
+<h3 id="step-2---build-your-form">STEP 2 - Build your form</h3>
+<ul>
+<li>[X] In <code>Form.js</code> build out your markup</li>
+<li>[X] Build inputs for <code>name</code>, <code>email</code> and <code>role</code> (backend engineer, frontend engineer, designer, etc. Use your imagination)</li>
+<li>[X] Import the useState hook and utilize what we learned about two-way data binding</li>
+<li>[X] Render your <code>Form</code> component in <code>App</code> and pass a setter method (the <code>set_____</code> method from your team members state in <code>App</code>) down to it so you can add team members to your state.</li>
+</ul>
+<p>Now you are finished with MVP! Move on to the stretch goals at the bottom. The first is to add the functionality to edit members. As this is a very complicated process, steps have been included here to help you through that.</p>
+<h3 id="step-3---add-the-edit-functionality-stretch">STEP 3 - Add the edit functionality (STRETCH)</h3>
+<p>Next we’re going to reuse the <code>Form</code> component to edit team members</p>
+<p><strong>Get App.js ready for editing members</strong> - [ ] Add an edit button, or an edit icon next to each member you are rendering. When the button/icon is clicked, we want to set that member to a state property in <code>App</code> called <code>memberToEdit</code>. The function to do this should live in <code>App</code>, even if the button/icon invoking it are in a different component. Just pass the function down as a prop.</p>
+<p><strong>Get Form.js ready to edit members</strong> - [ ] Pass <code>memberToEdit</code> down to <code>Form.js</code> - [ ] If <code>Form</code> receives <code>props.memberToEdit</code>, then that member object should populate your state object that is controlling your forms. Now, it may be tempting to do something like this: <code>const [member, setMember] = useState(props.memberToEdit || {name: '', email: '', role: ''})</code> for our form to update with whatever member we click on. However, this is a trap that will cause a pretty big bug in our app. If props are used to set state like this, the state property will <em>NOT</em> update when the prop changes. So… what kind of technique have we learned to keep something in sync with props when they change? <code>useEffect</code>! Write an effect that syncs with <code>props.memberToEdit</code>. When <code>props.memberToEdit</code> changes, the effect will update the <code>member</code> state object with the new data. This will populate the inputs with whichever member we are trying to update.</p>
+<p>The flow for editing is hard to conceptualize. It should go something like this:</p>
+<ol type="1">
+<li>Our user clicks the <code>Edit</code> button/icon to start editing a team member</li>
+<li>A function in App is invoked that sets the clicked member to <code>memberToEdit</code> on state</li>
+<li><code>Form.js</code> is receiving <code>memberToEdit</code> as a prop, and if that prop changes, the effect we built will set that object to state and populate the form with that member’s info</li>
+<li>The user updates the member info</li>
+<li>Uh… now what do we do with this new data? If we submit the form, it will just add a new member 😫. Never fear! We will fix this in the next section!</li>
+</ol>
+<h3 id="step-4---form-submit-stretch-cont.">STEP 4 - Form submit (STRETCH CONT.)</h3>
+<p>This is an interesting bit of architecture we’ve done so far. We have built a reusable form that can be used to add a team member, or edit a team member. The last piece of the puzzle is this - when we submit the form, do we run an <code>addMember</code> function, or an <code>editMember</code> function? And how will the form know? Well, our form knows if we are editing a team member by whether or not there is the prop <code>memberToEdit</code>. (P.S. This can also be done with a boolean - something like <code>isEditing</code>…)</p>
+<p>Okay, now that we understand how <code>Form.js</code> knows if we are editing or creating members, we can finish this app!</p>
+<ul>
+<li>[ ] Create a new function in <code>App.js</code> called <code>editMember</code> that will edit one or more of the details of a team member and pass it down to the second form component. You’ll have to find a way to loop over the data in your state, find the specific team member you intend to edit, and finally change the details with the data sent up to you from the second form component. <code>.map()</code> will be your friend for that task. You’ll also want to avoid directly mutating your data. The <code>...</code> spread operator will be your friend there.</li>
+<li>[ ] On form submit, do an <code>if</code> check to see if the <code>memberToEdit</code> prop is there or not, and run the correct functions in the <code>if</code> and <code>else</code> blocks based on that check.</li>
+</ul>
+<p>Observe the power of reusability!</p>
+<h2 id="stretch-problems">Stretch Problems</h2>
+<p>After finishing your required elements, you can push your work further. These goals may or may not be things you have learned in this module but they build on the material you just studied. Time allowing, stretch your limits and see if you can deliver on the following optional goals:</p>
+<ul>
+<li><p>[ ] Follow the steps above to edit members. This is difficult to do, and the architecture is tough. But it is a great skill to practice! Pay attention the the implementation details, and to the architecture. There are many ways to accomplish this. When you finish, can you think of another way?</p></li>
+<li><p>[ ] Build another layer of your App so that you can keep track of multiple teams, each with their own encapsulated list of team members.</p></li>
+<li><p>[ ] Look into the various strategies around form validation. What happens if you try to enter a number as a team-members name? Does your App allow for that? Should it? What happens if you try and enter a function as the value to one of your fields? How could this be dangerous? How might you prevent it?</p></li>
+<li><p>[ ] Style the forms. There are some subtle browser defaults for input tags that might need to be overwritten based on their state (active, focus, hover, etc.); Keep those CSS skill sharp.</p></li>
+</ul>
+</body></html>

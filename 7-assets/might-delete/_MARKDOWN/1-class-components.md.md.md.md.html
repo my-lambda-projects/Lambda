@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="class-components">Class Components</h1>
+<p>🎓🎓🎓</p>
+<h2 id="objectives">Objectives</h2>
+<ul>
+<li>Explain class components, and use a class component to render some state data to the DOM</li>
+<li>Share data between components using state and props</li>
+<li>Respond to events triggered by user interaction and handle user input via forms in React</li>
+<li>Understand the foundations of React by seeing how things work "under the hood”, before Hooks simplified the interface for developers</li>
+<li>(looking ahead to the next sprint) Start getting comfortable with "component-level” vs "application-level” state</li>
+</ul>
+<h2 id="intro-oop-vs-functional-programming">Intro: OOP 😺 vs Functional Programming 😎</h2>
+<p>Broadly speaking, the two most popular software development styles are object-oriented programming (OOP) and functional programming.</p>
+<p>In OOP, programmers design their own advanced data structures called "classes”, often to model something in the real world. At my first summer internship at Shmoop, I wrote very cheesy examples of simple classes in Java for their AP computer science curriculum. For example, an <code>Animal</code> class has methods <code>sleep()</code>, <code>eat()</code> and <code>play()</code>. We can define a "child class” like <code>Dog</code> 🐕 or <code>Bear</code> 🐻 to <strong>inherit</strong> the basic functionality of an <code>Animal</code> and add some more specific behavior as well. Maybe <code>Dog</code> adds a <code>cuddle()</code> method and <code>Bear</code> knows how to <code>maulCarWindowsForPeanutButterSnack()</code>. In OOP parlance, the blueprint for each kind of animal is called a "class” and each individual is called an "object”. When we "instantiate” a new object, it’s like birthing a new animal with all the abilities specified by its class.</p>
+<p>In old-school React, the parent <code>Animal</code> class" is <code>React.Component</code> and it has some built-in methods that are quite useful in component-land. We <code>extend</code> that class to create a "class component” in its image, inheriting the basics before adding our own useful functions and state management.</p>
+<p>Functional programming is decidedly less cuddly and a bit harder to wrap our minds around at first. Functions, rather than objects, are the fundamental building blocks of advanced programs. We build from those functional building blocks using composition and currying rather than inheritance.</p>
+<h2 id="oop-and-fp-in-javascript">OOP and FP in JavaScript</h2>
+<p>Believe it or not, you already have quite a bit of practice with both styles! JavaScript allows both, kinda. A truly OOP language implements a rigorous class-based inheritance system, while a truly functional programming language (e.g., Elm, Elixir, Erlang) has immutable data types and specific requirements around what a function can and cannot do (namely, no "side effects” for pure functions).</p>
+<p>JavaScript, however, does none of these things and is a bit more of a "choose your own adventure”, YOLO 🚀💎 kind of experience. It’s not really OOP – rather than true classes, JavaScript has a simpler protoype-based inherance model (more on that below). And it does have the very cool and powerful feature of treating functions as "first class” objects, but it’s not reaally a functional language either. There are no immutable data structures in JavaScript other than basic primitives like numbers and booleans. For objects, arrays and other data structures we use every day in our programs, <code>const</code> does nothing and the whole thing is pretty loosey-goosey. Keys in an object or the values in an array can be mutated (changed) at will, regardless of <code>const</code> or any other keyword. This causes problems for functional programming approaches, making extra work for the developer.</p>
+<p>Still, JavaScript presents a nice hybrid despite these quirks and has come into its own as a powerful and widely used programming language! In React, we can choose to write OOP-style "class components” based on the ES6 class syntax, or we can use the newer "function component” style along with Hooks for state and side effects.</p>
+<h2 id="so-are-class-components-still-relevant">So, are class components still relevant? 🐢</h2>
+<p>It may sound funny, but this whole thing is really just based on a change in trends and popularity.</p>
+<p>OOP-style programming in JavaScript was trendy when React came out, hence the class component interface. The idea of JavaScript becoming a "real programming language” was exciting, and the ability to also write JavaScript on the server (Node.js) along with flashy new language features like this OOP-style syntax helped make all that possible. But the times are a-changin! Now classes are old school, and functional programming is the hot new thing.</p>
+<p>In a nutshell, that shift in trends is really the reason behind the transition from class components to function components. Perhaps someday bell bottoms will come back into fashion and bring the OOP flower children back with them! I’ll still be here wearing my Birkenstock sandals and listening to Erroll Garner, using whatever paradigm allows me to efficiently <em>build stuff that matters</em>.</p>
+<p>Function components were originally limited in their abilities, but React 16.8 introduced Hooks, allowing function components to "hook into” state and side effects without the need for class components. Most developers prefer writing new components this way, but you’ll also learn something new about the philosophy and principles behind React by learning the "old way” with class components. And of course, in the real world, you’ll usually encounter applications with a mix of class and function components, so it’ll help a lot in your career to fully understand both styles. As of this latest update, in February 2021 I’m still working with class components every single day at my job.</p>
+<h2 id="anatomy-of-a-class-component">Anatomy of a Class Component</h2>
+<p>Here’s a commented example showing all of the pieces of a typipical React class component:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">class</span> Lambda <span class="kw">extends</span> <span class="va">React</span>.<span class="at">Component</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="at">constructor</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">super</span>()<span class="op">;</span> <span class="co">// calls the constructor from React.Component, which intializes this.props</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="co">// initialize state here:</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="kw">this</span>.<span class="at">state</span> <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-6" title="6">      <span class="co">// For each state value that you&#39;d manage with useState in a function component, </span></a>
+<a class="sourceLine" id="cb1-7" title="7">      <span class="co">// create a key here on the class component&#39;s unified state object:</span></a>
+<a class="sourceLine" id="cb1-8" title="8">      <span class="dt">firstName</span><span class="op">:</span> <span class="st">&quot;josh&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-9" title="9">      <span class="dt">lastName</span><span class="op">:</span> <span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb1-10" title="10">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-11" title="11">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-12" title="12">  </a>
+<a class="sourceLine" id="cb1-13" title="13">  <span class="co">// lifecycle methods: </span></a>
+<a class="sourceLine" id="cb1-14" title="14">  <span class="co">// componentDidMount, componentDidUpdate, componentWillUnmount (all three together are equivalent to useEffect)</span></a>
+<a class="sourceLine" id="cb1-15" title="15">  <span class="at">componentDidMount</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-16" title="16">    <span class="co">// Use this.setState() to update state (never use equals assign outside of the constructor!)</span></a>
+<a class="sourceLine" id="cb1-17" title="17">    <span class="co">// setState performs a &quot;shallow merge&quot; on the state object, meaning that only the keys you include are updated. </span></a>
+<a class="sourceLine" id="cb1-18" title="18">    <span class="co">// For example, here we can update lastName while leaving firstName as is:</span></a>
+<a class="sourceLine" id="cb1-19" title="19">    <span class="kw">this</span>.<span class="at">setState</span>(<span class="op">{</span><span class="dt">lastName</span><span class="op">:</span> <span class="st">&quot;jacobson&quot;</span><span class="op">}</span>)<span class="op">;</span> </a>
+<a class="sourceLine" id="cb1-20" title="20">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-21" title="21">  </a>
+<a class="sourceLine" id="cb1-22" title="22">  <span class="at">render</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-23" title="23">    <span class="cf">return</span> <span class="op">&lt;</span>h1<span class="op">&gt;</span>Hello<span class="op">,</span> <span class="op">{</span><span class="kw">this</span>.<span class="va">props</span>.<span class="at">name</span><span class="op">}</span>&lt;/h1<span class="op">&gt;;</span></a>
+<a class="sourceLine" id="cb1-24" title="24">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-25" title="25"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-26" title="26"></a>
+<a class="sourceLine" id="cb1-27" title="27"><span class="im">export</span> <span class="im">default</span> Lambda<span class="op">;</span></a></code></pre></div>
+<p>The base Component class includes built-in functionality for handling state and props, with specific methods that run at various points throughout the component’s "lifecycle” (from mounting in your app, to updating, and eventually unmounting – we’ll study these in the next lecture).</p>
+<p>The default <code>React.Component</code> constructor initializes <code>this.props</code> and other useful things – feel free to look at the <a href="https://github.com/facebook/react/blob/1d25aa5787d4e19704c049c3cfa985d3b5190e0d/packages/react/src/ReactBaseClasses.js#L22">React.Component constructor source code</a> if you’re curious about what that <code>super()</code> call actually does.</p>
+<h2 id="class-components-vs-function-components">Class components 🚂 vs Function components 🚝</h2>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 55%" />
+<col style="width: 31%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Class Components</th>
+<th>Function Components</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>How do we store state?</td>
+<td><code>this.state</code> is an object with a key for each state variable. After initializing it in the constructor, use this.setState to make updates to each key.</td>
+<td>May have one or more state variables, initialized and managed by useState and/or useReducer</td>
+</tr>
+<tr class="even">
+<td>What gets rendered to the DOM?</td>
+<td>JSX returned by the render() class method.</td>
+<td>The component itself is simply a function and its return value is the JSX that gets rendered.</td>
+</tr>
+<tr class="odd">
+<td>How do we manage state and side effects?</td>
+<td>Lifecycle methods</td>
+<td>Hooks</td>
+</tr>
+</tbody>
+</table>
+<p>An important reminder: Hooks cannot be used in class components! (and lifecycle methods are not used in function components)</p>
+<h2 id="bonus-es6-classes-and-function-prototypes-in-javascript">Bonus: ES6 classes and function prototypes in JavaScript 🤓</h2>
+<p>A good random fact to know for your coding interviews is that Javascript is built on "prototype-based inheritance”, a simpler version of the traditional class-based inheritance found in other languages like Java and C++. Though we’re now used to seeing <code>class</code> terminology used in newer ES6 syntax, Javascript does handle things a bit differently under the hood, and it’s worth understanding the differences.</p>
+<p>ES6 has (arguably) changed things for the better, allowing inheritance without having to write a lot of messy, potentially confusing code. You’ll almost always end up just writing ES6 classes because they’re nicer and easier to understand, but just remember that your ES6 code compiles down to vanilla Javascript and it’s the same prototype-based inheritance model at play. Let’s take a look at how object-oriented programming works in JavaScript with and without ES6 classes, and try to demystify thigs a bit.</p>
+<p>These are effectively the same:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// plain old Javascript -- defining a constructor function</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">function</span> <span class="at">Person</span>(name<span class="op">,</span> favoriteGenre) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="kw">this</span>.<span class="at">name</span> <span class="op">=</span> name<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="kw">this</span>.<span class="at">genre</span> <span class="op">=</span> favoriteGenre<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="op">}</span></a>
+<a class="sourceLine" id="cb2-6" title="6"></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="co">// Define methods on the prototype:</span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="va">Person</span>.<span class="va">prototype</span>.<span class="at">listen</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-9" title="9">  <span class="va">console</span>.<span class="at">log</span>(<span class="kw">this</span>.<span class="at">genre</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="op">}</span></a>
+<a class="sourceLine" id="cb2-11" title="11"></a>
+<a class="sourceLine" id="cb2-12" title="12">josh <span class="op">=</span> <span class="kw">new</span> <span class="at">Person</span>(<span class="st">&quot;josh&quot;</span><span class="op">,</span> <span class="st">&quot;jazz&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="va">josh</span>.<span class="at">listen</span>()<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// ES6</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">class</span> Person <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="at">constructor</span>(name<span class="op">,</span> favoriteGenre) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="kw">this</span>.<span class="at">name</span> <span class="op">=</span> name<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-5" title="5">    <span class="kw">this</span>.<span class="at">genre</span> <span class="op">=</span> favoriteGenre<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-6" title="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-7" title="7">  </a>
+<a class="sourceLine" id="cb3-8" title="8">  <span class="co">// ES6 abstracts away the prototype complexity so we can just define a class method right here:</span></a>
+<a class="sourceLine" id="cb3-9" title="9">  listen <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-10" title="10">    <span class="va">console</span>.<span class="at">log</span>(<span class="kw">this</span>.<span class="at">genre</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-11" title="11">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-12" title="12"><span class="op">}</span></a>
+<a class="sourceLine" id="cb3-13" title="13">josh <span class="op">=</span> <span class="kw">new</span> <span class="at">Person</span>(<span class="st">&quot;josh&quot;</span><span class="op">,</span> <span class="st">&quot;jazz&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-14" title="14"><span class="va">josh</span>.<span class="at">listen</span>()<span class="op">;</span></a></code></pre></div>
+<p>ES6 provides a syntax for OOP-style programming that is more familiar to software developers from more traditional object-oriented languages (e.g., C++, Python, Ruby), but at the end of the day it’s only "syntactic sugar”. The nuts and bolts of the language aren’t changed by this newer syntax, and JavaScript’s inheritance model is still based on prototypes and constructor functions rather than actual classes.</p>
+<p>In other languages, a class constructor creates an instance of the class, but a constructor in JavaScript is simply a function that returns an object. You’ve seen constructors like <code>String</code>, <code>Array</code> and <code>Object</code> that are built into JavaScript and we’ve also defined our own. The subtle differences between true class-based OOP and what we do in JavaScript won’t make much difference for our purposes in React, but just know that Babel compiles your ES6 <code>class</code> down to a constructor function and definitions on its prototype.</p>
+<p>In React, when we define a class component that <code>extends React.Component</code> we’re basically just taking that pre-defined base component class and extending it with our own custom behavior.</p>
+<h2 id="helpful-resources">Helpful Resources</h2>
+<p><a href="https://medium.com/@robertgrosse/how-es6-classes-really-work-and-how-to-build-your-own-fd6085eb326a">How ES6 classes really work</a></p>
+<p><a href="https://reactjs.org/docs/react-without-es6.html">React without ES6</a></p>
+<p><a href="https://medium.com/@joespinelli_6190/using-arrow-functions-to-avoid-binding-this-in-react-5d7402eec64">Using arrow functions to avoid binding <code>this</code> in React</a></p>
+<p><a href="https://reactjs.org/docs/react-component.html">React.Component documentation</a></p>
+<p><a href="https://reactjs.org/docs/state-and-lifecycle.html">State and Lifecycle</a></p>
+</body></html>

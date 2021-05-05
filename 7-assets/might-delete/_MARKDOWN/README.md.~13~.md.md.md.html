@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="sprint-challenge-state-management---smurfs">Sprint Challenge: State Management - Smurfs</h1>
+<p>This challenge allows you to practice the concepts and techniques learned over the past Sprint and apply them in a concrete project. This Sprint explored the context API, the reducer pattern, and Redux. In your challenge for this Sprint, you will demonstrate proficiency by creating an application that uses ReactJS to consume live data retrieved from the World Wide Web.</p>
+<p>** Read these instructions carefully. Understand exactly what is expected <em>before</em> starting this Sprint Challenge.**</p>
+<p>This is an individual assessment. All work must be your own. Your challenge score is a measure of your ability to work independently using the material covered through this sprint. You need to demonstrate proficiency in the concepts and objectives introduced and practiced in preceding days.</p>
+<p>You are not allowed to collaborate during the Sprint Challenge. However, you are encouraged to follow the twenty-minute rule and seek support from your PM and Instructor in your cohort help channel on Slack. Your work reflects your proficiency throughout State Management and your command of the concepts and techniques in the the context API, the reducer pattern, and Redux.</p>
+<p>You have three hours to complete this challenge. Plan your time accordingly.</p>
+<h2 id="commits">Commits</h2>
+<p>Commit your code regularly and meaningfully. This helps both you (in case you ever need to return to old code for any number of reasons and your project manager).</p>
+<h2 id="description">Description</h2>
+<p>In this challenge, you are to build the Smurfs village once again, only this time, you will utilize context or Redux as your state management. Don’t use any old code from your previous Smurfs Sprint Challenge. Build this challenge from the ground up using what you have learned about state management.</p>
+<h2 id="self-studyessay-questions">Self-Study/Essay Questions</h2>
+<p>Demonstrate your understanding of this Sprint’s concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.</p>
+<ul>
+<li>[ ] What problem does the context API help solve?</li>
+<li>[ ] In your own words, describe <code>actions</code>, <code>reducers</code> and the <code>store</code> and their role in Redux. What does each piece do? Why is the store known as a ‘single source of truth’ in a redux application?</li>
+<li>[ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?</li>
+<li>[ ] Describe <code>redux-thunk</code>, what does it allow us to do? How does it change our <code>action-creators</code>?</li>
+<li>[ ] What is your favorite state management system you’ve learned and this sprint? Please explain why!</li>
+</ul>
+<h2 id="project-set-up">Project Set Up</h2>
+<p>Follow these steps to set up your project:</p>
+<ul>
+<li>[ ] <code>fork &amp; clone</code> this repository.</li>
+<li>[ ] <code>cd</code> into the forked copy of this repository.</li>
+<li>[ ] <strong>RUN</strong> <code>yarn</code> to retrieve all <code>server-side</code> the dependencies.</li>
+<li>[ ] <strong>RUN</strong> <code>yarn start</code> or <code>npm start</code> to get your API up and running on <code>http://localhost:3333</code>. This is the <strong>URL</strong> you’re going to need to use within your React app in order to make AJAX requests for data.</li>
+<li>[ ] After your API is up and running, you can open chrome and type in <code>http://localhost:3333/smurfs</code>. You should see an empty Array <code>[]</code> returned to you. This is an array that your <strong>API</strong> will be using to store our Smurf Data.</li>
+<li>[ ] <strong>LOOK</strong> at your <code>smurfs</code> directory and notice it’s just a plain ol’ React App that we’ve built using <code>create-react-app</code>.</li>
+<li>[ ] <strong>Open</strong> <code>src/index.js</code> to make sure that your app is ready to roll with the proper middleware.</li>
+<li>[ ] <strong>cd</strong> into <code>smurfs</code> and run <code>yarn</code> to retrieve the client side dependencies.</li>
+<li>[ ] <strong>RUN</strong> <code>yarn start</code> to fire up your React application. There ought to be a pretty little message awaiting you welcoming you to the app. <code>Follow</code> the prompting.</li>
+</ul>
+<p><strong>LOOK</strong> at all the files you’ve been given for this project. One important file to note is <code>server.js</code>. This file contains an <strong>API</strong> that you are going to be interfacing with. Below is documentation on how to interact with the <strong>API</strong>.</p>
+<h2 id="minimum-viable-product">Minimum Viable Product</h2>
+<ul>
+<li>[ ] Plan and implement how you are going to manage your state for your application</li>
+<li>[ ] You <em>must</em> use either context or Redux as your state management system</li>
+<li>[ ] Once you have planned out your state management system, fetch data from the smurf server</li>
+<li>[ ] Add a form to collect info for a new smurf, and make a POST request to the server to add a new smurf to your village</li>
+</ul>
+<h2 id="api-documentation">API documentation</h2>
+<h3 id="get-smurfs">GET ‘/smurfs’</h3>
+<ul>
+<li>[ ] Retrieve an array all the Smurfs in the Smurf DB by writing a <code>GET</code> to the endpoint <code>/smurfs</code>.</li>
+<li>[ ] Double check that your response from the server is an array of smurfs.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1">[</a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;Brainey&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="dt">age</span><span class="op">:</span> <span class="dv">200</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="dt">height</span><span class="op">:</span> <span class="st">&quot;5cm&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="dt">id</span><span class="op">:</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb1-7" title="7">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-8" title="8">]<span class="op">;</span></a></code></pre></div>
+<h3 id="post-smurfs">POST ‘/smurfs’</h3>
+<ul>
+<li>[ ] Design the functionality to add a smurf to the Smurf DB you’ll need all three fields. <code>name</code>, <code>age</code>, and <code>height</code>.</li>
+</ul>
+<p>Example of the shape of data to be sent to the <code>POST</code> endpoint:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;Brainey&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="dt">age</span><span class="op">:</span> <span class="dv">200</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="dt">height</span><span class="op">:</span> <span class="st">&#39;5cm&#39;</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li>[ ] Double check to make sure that a smurf is created correctly once your functionality is built out.</li>
+</ul>
+<p>Initially Brainey will be in the array, but it takes more than one smurf to make the village. Be sure to add a few smurfs to populate our smurf village.</p>
+<p><strong>HINT</strong> if you are going to be working on Stretch Problem, you’ll need to use that unique <code>id</code>.</p>
+<p>Example of object created in Smurf DB:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">[</a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;Brainey&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="dt">age</span><span class="op">:</span> <span class="dv">200</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-5" title="5">    <span class="dt">height</span><span class="op">:</span> <span class="st">&quot;5cm&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-6" title="6">    <span class="dt">id</span><span class="op">:</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb3-7" title="7">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb3-8" title="8">  <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-9" title="9">    <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;Sleepy&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-10" title="10">    <span class="dt">age</span><span class="op">:</span> <span class="dv">200</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-11" title="11">    <span class="dt">height</span><span class="op">:</span> <span class="st">&quot;5cm&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-12" title="12">    <span class="dt">id</span><span class="op">:</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb3-13" title="13">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-14" title="14">]<span class="op">;</span></a></code></pre></div>
+<h2 id="stretch-problem">STRETCH PROBLEM</h2>
+<p>The following two endpoints are here for you if you’d like to push yourselves a little further.</p>
+<h3 id="put-smurfs123-where-123-is-the-id-of-the-smurf-you-want-to-modify">PUT ‘/smurfs/123’, where 123 is the Id of the smurf you want to modify</h3>
+<ul>
+<li>[ ] For this endpoint to work, you’ll need an <code>id</code> added to the URL, and at least one field to update on the Smurf object. <code>name</code> <code>age</code> <code>height</code>.</li>
+</ul>
+<p>Example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1">input<span class="op">:</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="dt">id</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;Grumpy&#39;</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="op">}</span></a>
+<a class="sourceLine" id="cb4-6" title="6">output<span class="op">:</span></a>
+<a class="sourceLine" id="cb4-7" title="7">[</a>
+<a class="sourceLine" id="cb4-8" title="8">  <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-9" title="9">    <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;Grumpy&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-10" title="10">    <span class="dt">age</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-11" title="11">    <span class="dt">height</span><span class="op">:</span> <span class="st">&#39;3cm&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-12" title="12">    <span class="dt">id</span><span class="op">:</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb4-13" title="13">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb4-14" title="14">  <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-15" title="15">    <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;Sleepy&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-16" title="16">    <span class="dt">age</span><span class="op">:</span> <span class="dv">211</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-17" title="17">    <span class="dt">height</span><span class="op">:</span> <span class="st">&#39;2cm&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-18" title="18">    <span class="dt">id</span><span class="op">:</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb4-19" title="19">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-20" title="20">]</a></code></pre></div>
+<h3 id="delete-smurfs123-where-123-is-the-id-of-the-smurf-you-want-to-remove">DELETE ‘/smurfs/123’, where 123 is the Id of the smurf you want to remove</h3>
+<p>For this endpoint to work, all you need is an id sent up as part of the request url.</p>
+<p>If your delete worked, you’ll get a an array back with all of the smurfs but with your requested smurf removed.</p>
+<ul>
+<li>[ ] You don’t need any input beyond the url parameter of the smurf, so if we send up a delete request to <code>/smurfs/123</code> then you’ll remove the smurf by that id.</li>
+</ul>
+<p>Example:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1">output<span class="op">:</span> [</a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;Sleepy&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-4" title="4">    <span class="dt">age</span><span class="op">:</span> <span class="dv">200</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-5" title="5">    <span class="dt">height</span><span class="op">:</span> <span class="st">&quot;5cm&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-6" title="6">    <span class="dt">id</span><span class="op">:</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb5-7" title="7">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-8" title="8">]<span class="op">;</span></a></code></pre></div>
+</body></html>

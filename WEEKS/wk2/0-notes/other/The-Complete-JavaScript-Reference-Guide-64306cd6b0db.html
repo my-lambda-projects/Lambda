@@ -173,7 +173,7 @@
               <h3 name="2a8a" id="2a8a" class="graf graf--h3 graf-after--blockquote">Syntax</h3>
               <p name="e7e2" id="e7e2" class="graf graf--p graf-after--h3">We refer to the exact arrangement of the
                 symbols, characters, and keywords as <strong class="markup--strong markup--p-strong">syntax</strong>.
-                These details matter — your computer will only be able to “understand” proper JavaScript syntax. A
+                These details matter — your computer will only be able to ""understand” proper JavaScript syntax. A
                 programming language is similar to a spoken language. A spoken language like English has grammar rules
                 that we should follow in order to be understood by fellow speakers. In the same way, a programming
                 language like JavaScript has syntax rules that we ought to follow!</p>
@@ -258,8 +258,8 @@
                     class="markup--strong markup--li-strong">double</strong> quotation marks, <em
                     class="markup--em markup--li-em">best to choose one and stick with it for consistency</em>.</li>
                 <li name="f8ad" id="f8ad" class="graf graf--li graf-after--li">If your string contains quotation marks
-                  inside, can layer single or double quotation marks to allow it to work.<br> “That's a great string”;
-                  (valid)<br> <br> ‘Shakespeare wrote, “To be or not to be”'; (valid)<br> <br> ‘That's a bad string';
+                  inside, can layer single or double quotation marks to allow it to work.<br> ""That's a great string”;
+                  (valid)<br> <br> ‘Shakespeare wrote, ""To be or not to be”'; (valid)<br> <br> ‘That's a bad string';
                   (invalid)</li>
                 <li name="b2cb" id="b2cb" class="graf graf--li graf-after--li">Alt. way to add other quotes within
                   strings is to use template literals.<br> `This is a temp'l'ate literal ${function}` // use ${} to
@@ -270,17 +270,17 @@
                 <li name="f633" id="f633" class="graf graf--li graf-after--li">empty strings have a length of zero.</li>
                 <li name="0a07" id="0a07" class="graf graf--li graf-after--li"><strong
                     class="markup--strong markup--li-strong">indices</strong> : indexes of data that begin at 0, can
-                  call upon index by using the bracket notation [ ].<br> console.log(“bootcamp”[0]); // =&gt;
-                  “b”<br> console.log(“bootcamp”[10]); // =&gt; “undefined”<br> console.log(“boots”[1 * 2]); // =&gt;
-                  “o”<br> console.log(“boots”[“boot”.length-1]); // =&gt; “t”</li>
+                  call upon index by using the bracket notation [ ].<br> console.log(""bootcamp”[0]); // =&gt;
+                  ""b”<br> console.log(""bootcamp”[10]); // =&gt; ""undefined”<br> console.log(""boots”[1 * 2]); // =&gt;
+                  ""o”<br> console.log(""boots”[""boot”.length-1]); // =&gt; ""t”</li>
                 <li name="6482" id="6482" class="graf graf--li graf-after--li">we can pass expressions through the
                   brackets as well since JS always evaluates expressions first.</li>
                 <li name="e2f5" id="e2f5" class="graf graf--li graf-after--li">The index of the last character of a
                   string is always one less than it's length.</li>
                 <li name="2271" id="2271" class="graf graf--li graf-after--li"><strong
                     class="markup--strong markup--li-strong">indexOf()</strong> : method used to find the first index of
-                  a given character within a string.<br> console.log(“bagel”.indexOf(“b”)); // =&gt;
-                  0<br> console.log(“bagel”.indexOf(“z”)); // =&gt; -1</li>
+                  a given character within a string.<br> console.log(""bagel”.indexOf(""b”)); // =&gt;
+                  0<br> console.log(""bagel”.indexOf(""z”)); // =&gt; -1</li>
                 <li name="8d68" id="8d68" class="graf graf--li graf-after--li">if the character inside the indexOf()
                   search does not exist in the string, the output will be -1.</li>
                 <li name="d15e" id="d15e" class="graf graf--li graf-after--li">the indexOf() search will return the
@@ -308,9 +308,9 @@
                   then &amp;&amp;, then ||.</li>
                 <li name="99ad" id="99ad" class="graf graf--li graf-after--li"><strong
                     class="markup--strong markup--li-strong">Short-Circuit Evaluation</strong> : Because JS evalutes
-                  from left to right, expressions can “short-circuit”. For example if we have true on the left of an ||
+                  from left to right, expressions can ""short-circuit”. For example if we have true on the left of an ||
                   logical comparison, it will stop evaluating and yield true instead of wasting resources on processing
-                  the rest of the statement.<br> console.log(true || !false) // =&gt; stops after it sees “true ||”</li>
+                  the rest of the statement.<br> console.log(true || !false) // =&gt; stops after it sees ""true ||”</li>
               </ul>
               <p name="d6c3" id="d6c3" class="graf graf--p graf-after--li"><strong
                   class="markup--strong markup--p-strong">Comparison Operators</strong></p>
@@ -332,9 +332,9 @@
                 <li name="b73a" id="b73a" class="graf graf--li graf-after--li"><strong
                     class="markup--strong markup--li-strong">!==</strong> (not equal to)</li>
               </ul>
-              <p name="50be" id="50be" class="graf graf--p graf-after--li">Fun Fact: “a” &lt; “b” is considered valid JS
-                Code because string comparisons are compared lexicographically (meaning dictionary order), so “a” is
-                less than “b” because it appears earlier!</p>
+              <p name="50be" id="50be" class="graf graf--p graf-after--li">Fun Fact: ""a” &lt; ""b” is considered valid JS
+                Code because string comparisons are compared lexicographically (meaning dictionary order), so ""a” is
+                less than ""b” because it appears earlier!</p>
               <p name="a833" id="a833" class="graf graf--p graf-after--p">If there is ever a standstill comparison of
                 two string lexicographically (i.e. app vs apple) the comparison will deem the shorter string lesser.</p>
               <p name="9398" id="9398" class="graf graf--p graf-after--p"><strong
@@ -353,7 +353,7 @@
                 <li name="c73d" id="c73d" class="graf graf--li graf-after--p">We initialize a variable by using the
                   <strong class="markup--strong markup--li-strong">let</strong> keyword and a <strong
                     class="markup--strong markup--li-strong">=</strong> single equals sign (assignment
-                  operator). <br> let bootcamp = “App Academy”;<br> console.log(bootcamp); // “App Academy”</li>
+                  operator). <br> let bootcamp = ""App Academy”;<br> console.log(bootcamp); // ""App Academy”</li>
                 <li name="7849" id="7849" class="graf graf--li graf-after--li">JS variable names can contain any
                   alphanumeric characters, underscores, or dollar signs (cannot being with a number).</li>
                 <li name="ad76" id="ad76" class="graf graf--li graf-after--li">If you do not declare a value for a
@@ -496,7 +496,7 @@
               <p name="484a" id="484a" class="graf graf--p graf-after--h3">Next up in our JavaScript cheat sheet are
                 arrays. Arrays are part of many different programming languages. They are a way of organizing variables
                 and properties into groups. Here's how to create one in JavaScript:</p>
-              <p name="962c" id="962c" class="graf graf--p graf-after--p">var fruit = [“Banana”, “Apple”, “Pear”];</p>
+              <p name="962c" id="962c" class="graf graf--p graf-after--p">var fruit = [""Banana”, ""Apple”, ""Pear”];</p>
               <p name="46fd" id="46fd" class="graf graf--p graf-after--p">Now you have an array called <code
                   class="markup--code markup--p-code">fruit</code> which contains three items that you can use for
                 future operations.</p>
@@ -718,7 +718,7 @@
               <h3 name="f11b" id="f11b" class="graf graf--h3 graf-after--p">Strings</h3>
               <p name="749a" id="749a" class="graf graf--p graf-after--h3">Strings are what JavaScript calls to text
                 that does not perform a function but can appear on the screen.</p>
-              <p name="e87c" id="e87c" class="graf graf--p graf-after--p">var person = “John Doe”;</p>
+              <p name="e87c" id="e87c" class="graf graf--p graf-after--p">var person = ""John Doe”;</p>
               <p name="c838" id="c838" class="graf graf--p graf-after--p">In this case, <code
                   class="markup--code markup--p-code">John Doe</code> is the string.</p>
               <h3 name="1169" id="1169" class="graf graf--h3 graf-after--p">Escape Characters</h3>
@@ -925,7 +925,7 @@
                     class="markup--code markup--li-code">MIN_VALUE</code> — Smallest positive numeric value
                   representable in JavaScript</li>
                 <li name="49e0" id="49e0" class="graf graf--li graf-after--li"><code
-                    class="markup--code markup--li-code">NaN</code> — The “Not-a-Number” value</li>
+                    class="markup--code markup--li-code">NaN</code> — The ""Not-a-Number” value</li>
                 <li name="3024" id="3024" class="graf graf--li graf-after--li"><code
                     class="markup--code markup--li-code">NEGATIVE_INFINITY</code> — The negative Infinity value</li>
                 <li name="0bf4" id="0bf4" class="graf graf--li graf-after--li"><code
@@ -1642,7 +1642,7 @@
                     class="markup--code markup--li-code">EvalError</code> — An error has occurred in the <code
                     class="markup--code markup--li-code">eval()</code> function</li>
                 <li name="570c" id="570c" class="graf graf--li graf-after--li"><code
-                    class="markup--code markup--li-code">RangeError</code> — A number is “out of range”</li>
+                    class="markup--code markup--li-code">RangeError</code> — A number is ""out of range”</li>
                 <li name="2352" id="2352" class="graf graf--li graf-after--li"><code
                     class="markup--code markup--li-code">ReferenceError</code> — An illegal reference has occurred</li>
                 <li name="5019" id="5019" class="graf graf--li graf-after--li"><code
@@ -1678,19 +1678,19 @@
                   class="markup--code markup--p-code">let n = 123456.789;</code></p>
               <p name="3eed" id="3eed" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">n.toFixed(0)</code></p>
-              <p name="21b3" id="21b3" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“123457”</p>
+              <p name="21b3" id="21b3" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""123457”</p>
               <p name="3a3f" id="3a3f" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">n.toFixed(5)</code></p>
-              <p name="4f28" id="4f28" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“123456.78900”</p>
+              <p name="4f28" id="4f28" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""123456.78900”</p>
               <p name="1949" id="1949" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">n.toExponential(3)</code></p>
-              <p name="ee84" id="ee84" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“1.235e+5”</p>
+              <p name="ee84" id="ee84" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""1.235e+5”</p>
               <p name="1462" id="1462" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">n.toPrecision(7)</code></p>
-              <p name="9908" id="9908" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“123456.8”</p>
+              <p name="9908" id="9908" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""123456.8”</p>
               <p name="bd34" id="bd34" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">n.toPrecision(10)</code></p>
-              <p name="57de" id="57de" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“123456.7890”</p>
+              <p name="57de" id="57de" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""123456.7890”</p>
               <p name="a4ac" id="a4ac" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">parseInt(&quot;3 blind mice&quot;)</code></p>
               <p name="af5f" id="af5f" class="graf graf--p graf-after--p">3</p>
@@ -1742,19 +1742,19 @@
                   class="markup--code markup--p-code">let n = 123456.789;</code></p>
               <p name="332b" id="332b" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">n.toFixed(0)</code></p>
-              <p name="b5e6" id="b5e6" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“123457”</p>
+              <p name="b5e6" id="b5e6" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""123457”</p>
               <p name="fde3" id="fde3" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">n.toFixed(5)</code></p>
-              <p name="b105" id="b105" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“123456.78900”</p>
+              <p name="b105" id="b105" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""123456.78900”</p>
               <p name="1db6" id="1db6" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">n.toExponential(3)</code></p>
-              <p name="bd92" id="bd92" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“1.235e+5”</p>
+              <p name="bd92" id="bd92" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""1.235e+5”</p>
               <p name="ac9e" id="ac9e" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">n.toPrecision(7)</code></p>
-              <p name="ff5d" id="ff5d" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“123456.8”</p>
+              <p name="ff5d" id="ff5d" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""123456.8”</p>
               <p name="bc8c" id="bc8c" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">n.toPrecision(10)</code></p>
-              <p name="6b90" id="6b90" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“123456.7890”</p>
+              <p name="6b90" id="6b90" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""123456.7890”</p>
               <p name="5f7c" id="5f7c" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">parseInt(&quot;3 blind mice&quot;)</code></p>
               <p name="4886" id="4886" class="graf graf--p graf-after--p">3</p>
@@ -1778,10 +1778,10 @@
               <p name="68f0" id="68f0" class="graf graf--p graf-after--p">0</p>
               <p name="bd07" id="bd07" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">parseInt(&quot;.1&quot;)</code></p>
-              <p name="3a35" id="3a35" class="graf graf--p graf-after--p">NaN: integers can't start with “.”</p>
+              <p name="3a35" id="3a35" class="graf graf--p graf-after--p">NaN: integers can't start with "".”</p>
               <p name="7690" id="7690" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">parseFloat(&quot;$72.47&quot;)</code></p>
-              <p name="6d68" id="6d68" class="graf graf--p graf-after--p">NaN: numbers can't start with “$”</p>
+              <p name="6d68" id="6d68" class="graf graf--p graf-after--p">NaN: numbers can't start with ""$”</p>
               <p name="d098" id="d098" class="graf graf--p graf-after--p">Supply Radix</p>
               <p name="399f" id="399f" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">parseInt(&quot;11&quot;, 2)</code></p>
@@ -1859,7 +1859,7 @@
               <p name="896c" id="896c" class="graf graf--p graf-after--p">y == [2,3,4]</p>
               <p name="3b14" id="3b14" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">let [first, ...rest] = &quot;Hello&quot;;</code></p>
-              <p name="b185" id="b185" class="graf graf--p graf-after--p">first == “H”; rest ==[“e”,”l”,”l”,”o”]</p>
+              <p name="b185" id="b185" class="graf graf--p graf-after--p">first == ""H”; rest ==[""e”,”l”,”l”,”o”]</p>
               <p name="bab4" id="bab4" class="graf graf--p graf-after--p">Destructuring assignment can also be performed
                 when the righthand side is an object value.</p>
               <p name="53de" id="53de" class="graf graf--p graf-after--p"><code
@@ -1923,7 +1923,7 @@
               <p name="4d39" id="4d39" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">eval(&quot;3+2&quot;)</code></p>
               <p name="d603" id="d603" class="graf graf--p graf-after--p">Because of security issues, some web servers
-                use the HTTP “Content-Security-Policy” header to disable<code
+                use the HTTP ""Content-Security-Policy” header to disable<code
                   class="markup--code markup--p-code"> eval()</code> for an entire website.</p>
               <h3 name="7bc9" id="7bc9" class="graf graf--h3 graf-after--p">First-Defined (??)</h3>
               <p name="b3d6" id="b3d6" class="graf graf--p graf-after--h3">The first-defined operator <code
@@ -1947,7 +1947,7 @@
               <p name="0f3b" id="0f3b" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">let max = maxWidth ?? preferences.maxWidth ?? 500;</code></p>
               <h3 name="ab44" id="ab44" class="graf graf--h3 graf-after--p">delete Operator</h3>
-              <p name="baa3" id="baa3" class="graf graf--p graf-after--h3">Deleting an array element leaves a “hole” in
+              <p name="baa3" id="baa3" class="graf graf--p graf-after--h3">Deleting an array element leaves a ""hole” in
                 the array and does not change the array's length. The resulting array is sparse.</p>
               <h3 name="e555" id="e555" class="graf graf--h3 graf-after--p">void Operator</h3>
               <p name="f00d" id="f00d" class="graf graf--p graf-after--h3">Using the <code
@@ -2093,7 +2093,7 @@
                 when the <code class="markup--code markup--p-code">eval()</code> returns.</p>
               <p name="29de" id="29de" class="graf graf--p graf-after--p">· In strict mode, the Arguments object in a
                 function holds a static copy of the values passed to the function. In non-strict mode, the Arguments
-                object has “magical” behavior in which elements of the array and named function parameters both refer to
+                object has ""magical” behavior in which elements of the array and named function parameters both refer to
                 the same value.</p>
               <p name="a390" id="a390" class="graf graf--p graf-after--p">· In strict mode, a <code
                   class="markup--code markup--p-code">SyntaxError </code>is thrown if the <code
@@ -2364,16 +2364,16 @@
                   class="markup--code markup--p-code">let o = {x: 1, y: {z: [false, null, &quot;&quot;]}};</code></p>
               <p name="a6cb" id="a6cb" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">let s = JSON.stringify(o);</code></p>
-              <p name="656b" id="656b" class="graf graf--p graf-after--p">s == ‘{“x”:1,”y”:{“z”:[false,null,””]}}'</p>
+              <p name="656b" id="656b" class="graf graf--p graf-after--p">s == ‘{""x”:1,”y”:{""z”:[false,null,””]}}'</p>
               <p name="1d09" id="1d09" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">let p = JSON.parse(s);</code></p>
-              <p name="b80d" id="b80d" class="graf graf--p graf-after--p">p == {x: 1, y: {z: [false,null, “”]}}</p>
+              <p name="b80d" id="b80d" class="graf graf--p graf-after--p">p == {x: 1, y: {z: [false,null, ""”]}}</p>
               <h3 name="89c1" id="89c1" class="graf graf--h3 graf-after--p">Object methods</h3>
               <p name="2ae3" id="2ae3" class="graf graf--p graf-after--h3"><code
                   class="markup--code markup--p-code">toString(), valueOf(), loLocaleString(), toJSON()</code></p>
               <p name="be33" id="be33" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">let s = { x: 1, y: 1 }.toString();</code></p>
-              <p name="ee7a" id="ee7a" class="graf graf--p graf-after--p">s == “[object Object]”</p>
+              <p name="ee7a" id="ee7a" class="graf graf--p graf-after--p">s == ""[object Object]”</p>
               <h3 name="a7ab" id="a7ab" class="graf graf--h3 graf-after--p">Extended Object Literal Syntax</h3>
               <h3 name="3b07" id="3b07" class="graf graf--h3 graf-after--h3">Shorthand Properties</h3>
               <pre name="b264" id="b264" class="graf graf--pre graf-after--h3">let x = 1, y = 2;</pre>
@@ -2414,7 +2414,7 @@
                 safely use Symbols as your property names.</p>
               <h3 name="9b7d" id="9b7d" class="graf graf--h3 graf-after--p">Spread Operator</h3>
               <p name="a391" id="a391" class="graf graf--p graf-after--h3">You can copy the properties of an existing
-                object into a new object using the “spread operator” … inside an object literal:</p>
+                object into a new object using the ""spread operator” … inside an object literal:</p>
               <p name="21b8" id="21b8" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">let position = { x: 0, y: 0 };</code><br> <code
                   class="markup--code markup--p-code">let dimensions = { width: 100, height: 75 };</code><br> <code
@@ -2503,14 +2503,14 @@
               <p name="ecaf" id="ecaf" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">let digits = [...&quot;0123456789ABCDEF&quot;];</code></p>
               <p name="70c4" id="70c4" class="graf graf--p graf-after--p">
-                [“0”,”1&quot;,”2&quot;,”3&quot;,”4&quot;,”5&quot;,”6&quot;,”7&quot;,”8&quot;,”9&quot;,”A”,”B”,”C”,”D”,”E”,”F”]
+                [""0”,”1&quot;,”2&quot;,”3&quot;,”4&quot;,”5&quot;,”6&quot;,”7&quot;,”8&quot;,”9&quot;,”A”,”B”,”C”,”D”,”E”,”F”]
               </p>
               <p name="7456" id="7456" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">let letters = [...&quot;hello world&quot;];</code></p>
-              <p name="9a8d" id="9a8d" class="graf graf--p graf-after--p">[“h”,”e”,”l”,”l””o”,””,”w”,”o””r”,”l”,”d”]</p>
+              <p name="9a8d" id="9a8d" class="graf graf--p graf-after--p">[""h”,”e”,”l”,”l””o”,””,”w”,”o””r”,”l”,”d”]</p>
               <p name="04f3" id="04f3" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">[...new Set(letters)]</code></p>
-              <p name="ed37" id="ed37" class="graf graf--p graf-after--p">[“h”,”e”,”l”,”o”,””,”w”,”r”,”d”]</p>
+              <p name="ed37" id="ed37" class="graf graf--p graf-after--p">[""h”,”e”,”l”,”o”,””,”w”,”r”,”d”]</p>
               <h3 name="92ad" id="92ad" class="graf graf--h3 graf-after--p">Array.of()</h3>
               <p name="45f2" id="45f2" class="graf graf--p graf-after--h3">When the <code
                   class="markup--code markup--p-code">Array()</code> constructor function is invoked with one numeric
@@ -2548,7 +2548,7 @@
                 use property names that are non-negative integers , the array automatically maintains the value of the
                 <code class="markup--code markup--p-code">length</code> property for you.</p>
               <p name="4c53" id="4c53" class="graf graf--p graf-after--p">JavaScript converts the numeric array index
-                you specify to a string — the index 1 becomes the string “1”, then uses that string as a property name.
+                you specify to a string — the index 1 becomes the string ""1”, then uses that string as a property name.
               </p>
               <p name="b723" id="b723" class="graf graf--p graf-after--p">It is helpful to clearly distinguish an array
                 index from an object property name. All indexes are property names, but only property names that are
@@ -2561,7 +2561,7 @@
                 a regular object property, not an array index.</p>
               <p name="a3f0" id="a3f0" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">a[-1.23] = true;</code></p>
-              <p name="5d47" id="5d47" class="graf graf--p graf-after--p">This creates a property named “-1.23”</p>
+              <p name="5d47" id="5d47" class="graf graf--p graf-after--p">This creates a property named ""-1.23”</p>
               <p name="a725" id="a725" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">a[&quot;1000&quot;] = 0;</code></p>
               <p name="ad74" id="ad74" class="graf graf--p graf-after--p">This the 1001st element of the array</p>
@@ -2569,7 +2569,7 @@
                   class="markup--code markup--p-code">a[1.000] = 1;</code></p>
               <p name="b2fe" id="b2fe" class="graf graf--p graf-after--p">Array index 1. Same as a[1] = 1;</p>
               <p name="2f54" id="2f54" class="graf graf--p graf-after--p">The fact that array indexes are simply a
-                special type of object property name means that JavaScript arrays have no notion of an “out of bounds”
+                special type of object property name means that JavaScript arrays have no notion of an ""out of bounds”
                 error. When you try to query a nonexistent property of any object, you don't get an error; you simply
                 get <code class="markup--code markup--p-code">undefined</code>.</p>
               <h3 name="6963" id="6963" class="graf graf--h3 graf-after--p">Sparse Arrays</h3>
@@ -2821,8 +2821,8 @@
                   class="markup--code markup--p-code">let phrases = [&quot;hello world&quot;, &quot;the definitive guide&quot;];</code><br> <code
                   class="markup--code markup--p-code">let words = phrases.flatMap(phrase =&gt; phrase.split(&quot; &quot;));</code>
               </p>
-              <p name="5187" id="5187" class="graf graf--p graf-after--p">[“hello”, “world”, “the”, “definitive”,
-                “guide”];</p>
+              <p name="5187" id="5187" class="graf graf--p graf-after--p">[""hello”, ""world”, ""the”, ""definitive”,
+                ""guide”];</p>
               <p name="f90d" id="f90d" class="graf graf--p graf-after--p">Calling <code
                   class="markup--code markup--p-code">a.flatMap(f)</code> is the same as (but more efficient than) <code
                   class="markup--code markup--p-code">a.map(f).flat()</code>:</p>
@@ -2904,7 +2904,7 @@
               <p name="956d" id="956d" class="graf graf--p graf-after--p">[2,3]; a is now [1,4]</p>
               <p name="e266" id="e266" class="graf graf--p graf-after--p">[4]; a is now [1]</p>
               <p name="3e8b" id="3e8b" class="graf graf--p graf-after--p">[]; a is now [1,2,”a”,”b”,3,4,5]</p>
-              <p name="e8b6" id="e8b6" class="graf graf--p graf-after--p">[“a”,”b”]; a is now [1,2,[1,2],3,3,4,5]</p>
+              <p name="e8b6" id="e8b6" class="graf graf--p graf-after--p">[""a”,”b”]; a is now [1,2,[1,2],3,3,4,5]</p>
               <p name="616d" id="616d" class="graf graf--p graf-after--p">FILL()</p>
               <p name="4904" id="4904" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">let a = new Array(5);</code></p>
@@ -3018,27 +3018,27 @@
                   class="markup--code markup--p-code">a.join(&quot; &quot;)</code></p>
               <p name="dea0" id="dea0" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">a.join(&quot;&quot;)</code></p>
-              <p name="4f04" id="4f04" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“1,2,3”</p>
-              <p name="e0b3" id="e0b3" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“1 2 3”</p>
-              <p name="ea47" id="ea47" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“123”</p>
+              <p name="4f04" id="4f04" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""1,2,3”</p>
+              <p name="e0b3" id="e0b3" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""1 2 3”</p>
+              <p name="ea47" id="ea47" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""123”</p>
               <p name="3d96" id="3d96" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">let b = new Array(10);</code></p>
               <p name="ebab" id="ebab" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">b.join(&quot;-&quot;)</code></p>
-              <p name="c70b" id="c70b" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“ — — — — -”</p>
+              <p name="c70b" id="c70b" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">"" — — — — -”</p>
               <p name="5d18" id="5d18" class="graf graf--p graf-after--p">Arrays, like all JavaScript objects, have a
                 <code class="markup--code markup--p-code">toString()</code> method. For an array, this method works just
                 like the <code class="markup--code markup--p-code">join()</code> method with no arguments:</p>
               <p name="b72a" id="b72a" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">[1,2,3].toString()</code></p>
-              <p name="3746" id="3746" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“1,2,3”</p>
+              <p name="3746" id="3746" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""1,2,3”</p>
               <p name="d75f" id="d75f" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;].toString()</code>
               </p>
-              <p name="0e63" id="0e63" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“a,b,c”</p>
+              <p name="0e63" id="0e63" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""a,b,c”</p>
               <p name="a30d" id="a30d" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">[1, [2,&quot;c&quot;]].toString()</code></p>
-              <p name="2759" id="2759" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“1,2,c”</p>
+              <p name="2759" id="2759" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""1,2,c”</p>
               <h3 name="ab9f" id="ab9f" class="graf graf--h3 graf-after--p">Static Array Functions</h3>
               <p name="47cb" id="47cb" class="graf graf--p graf-after--h3"><code
                   class="markup--code markup--p-code">Array.isArray([])</code></p>
@@ -3074,18 +3074,18 @@
               <p name="1493" id="1493" class="graf graf--p graf-after--p">// An array-like object</p>
               <p name="0759" id="0759" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">Array.prototype.join.call(a, &quot;+&quot;)</code></p>
-              <p name="1ce6" id="1ce6" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“a+b+c”</p>
+              <p name="1ce6" id="1ce6" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""a+b+c”</p>
               <p name="e5af" id="e5af" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">Array.prototype.join.call(&quot;JavaScript&quot;, &quot; &quot;)</code>
               </p>
-              <p name="1c80" id="1c80" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“J a v a S c r i p
+              <p name="1c80" id="1c80" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""J a v a S c r i p
                 t”</p>
               <p name="64bf" id="64bf" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">Array.prototype.map.call(a, x =&gt; x.toUpperCase())</code></p>
-              <p name="acee" id="acee" class="graf graf--p graf-after--p">[“A”,”B”,”C”]</p>
+              <p name="acee" id="acee" class="graf graf--p graf-after--p">[""A”,”B”,”C”]</p>
               <p name="1451" id="1451" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">Array.from(a)</code></p>
-              <p name="1ae1" id="1ae1" class="graf graf--p graf-after--p">[“a”,”b”,”c”]</p>
+              <p name="1ae1" id="1ae1" class="graf graf--p graf-after--p">[""a”,”b”,”c”]</p>
               <h3 name="faeb" id="faeb" class="graf graf--h3 graf-after--p">Strings as Arrays</h3>
               <p name="7677" id="7677" class="graf graf--p graf-after--h3"><code
                   class="markup--code markup--p-code">let s = &quot;test&quot;;</code></p>
@@ -3106,7 +3106,7 @@
               <pre name="411d" id="411d" class="graf graf--pre graf-after--pre">}</pre>
               <pre name="ad3f" id="ad3f" class="graf graf--pre graf-after--pre">}</pre>
               <p name="808c" id="808c" class="graf graf--p graf-after--pre">Function declaration statements are
-                “hoisted” to the top of the enclosing script, function, or block so that functions defined in this way
+                ""hoisted” to the top of the enclosing script, function, or block so that functions defined in this way
                 may be invoked from code that appears before the definition.</p>
               <h3 name="e8fc" id="e8fc" class="graf graf--h3 graf-after--p">Function Expressions</h3>
               <p name="feee" id="feee" class="graf graf--p graf-after--h3"><code
@@ -3396,12 +3396,12 @@
               <p name="c004" id="c004" class="graf graf--p graf-after--pre"><code
                   class="markup--code markup--p-code">operate2(&quot;add&quot;, &quot;hello&quot;, operate2(&quot;add&quot;, &quot; &quot;, &quot;world&quot;))</code>
               </p>
-              <p name="73f7" id="73f7" class="graf graf--p graf-after--p">// “hello world”</p>
+              <p name="73f7" id="73f7" class="graf graf--p graf-after--p">// ""hello world”</p>
               <p name="d55b" id="d55b" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">operate2(&quot;pow&quot;, 10, 2)</code></p>
               <p name="c538" id="c538" class="graf graf--p graf-after--p">100</p>
               <h3 name="17a5" id="17a5" class="graf graf--h3 graf-after--p">Defining Your Own Function Properties</h3>
-              <p name="4325" id="4325" class="graf graf--p graf-after--h3">When a function needs a “static” variable
+              <p name="4325" id="4325" class="graf graf--p graf-after--h3">When a function needs a ""static” variable
                 whose value persists across invocations, it is often convenient to use a property of the function
                 itself.</p>
               <p name="8eb9" id="8eb9" class="graf graf--p graf-after--p">For example, suppose you want to write a
@@ -3484,7 +3484,7 @@
               <pre name="3435" id="3435" class="graf graf--pre graf-after--pre">}</pre>
               <p name="e44f" id="e44f" class="graf graf--p graf-after--pre"><code
                   class="markup--code markup--p-code">checkscope()</code></p>
-              <p name="982b" id="982b" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“local scope”</p>
+              <p name="982b" id="982b" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""local scope”</p>
               <pre name="32a8" id="32a8"
                 class="graf graf--pre graf-after--p">let scope = &quot;global scope&quot;;</pre>
               <pre name="beb9" id="beb9" class="graf graf--pre graf-after--pre">function checkscope() {</pre>
@@ -3495,7 +3495,7 @@
               <pre name="d1d6" id="d1d6" class="graf graf--pre graf-after--pre">}</pre>
               <p name="aced" id="aced" class="graf graf--p graf-after--pre"><code
                   class="markup--code markup--p-code">let s = checkscope()();</code></p>
-              <p name="199a" id="199a" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“local scope”</p>
+              <p name="199a" id="199a" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""local scope”</p>
               <p name="b4b4" id="b4b4" class="graf graf--p graf-after--p">Closures capture the local variables of a
                 single function invocation and can use those variables as private state.</p>
               <pre name="0187" id="0187" class="graf graf--pre graf-after--p">let uniqueInteger = (function() {</pre>
@@ -3593,7 +3593,7 @@
                   class="markup--code markup--p-code">o.setName(&quot;Frank&quot;);</code></p>
               <p name="8d38" id="8d38" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">o.getName()</code></p>
-              <p name="39d7" id="39d7" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“Frank”</p>
+              <p name="39d7" id="39d7" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""Frank”</p>
               <p name="e92b" id="e92b" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">o.setName(0);</code></p>
               <p name="faef" id="faef" class="graf graf--p graf-after--p">TypeError: try to set a value ofthe wrong type
@@ -3777,7 +3777,7 @@
               <p name="bce9" id="bce9" class="graf graf--p graf-after--p">true</p>
               <p name="a279" id="a279" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">r.toString()</code></p>
-              <p name="b028" id="b028" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“(1…3)”</p>
+              <p name="b028" id="b028" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""(1…3)”</p>
               <p name="c9d2" id="c9d2" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">[...r]</code></p>
               <p name="4580" id="4580" class="graf graf--p graf-after--p">[1, 2, 3]</p>
@@ -3815,7 +3815,7 @@
               <p name="9ae2" id="9ae2" class="graf graf--p graf-after--p">true</p>
               <p name="fb9e" id="fb9e" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">r.toString()</code></p>
-              <p name="deab" id="deab" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“(1…3)”</p>
+              <p name="deab" id="deab" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""(1…3)”</p>
               <p name="b805" id="b805" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">[...r]</code></p>
               <p name="093c" id="093c" class="graf graf--p graf-after--p">[1, 2, 3]</p>
@@ -4321,7 +4321,7 @@
               </p>
               <p name="81d4" id="81d4" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">[...m]</code></p>
-              <p name="0449" id="0449" class="graf graf--p graf-after--p">[[“x”, 1], [“y”, 2]]</p>
+              <p name="0449" id="0449" class="graf graf--p graf-after--p">[[""x”, 1], [""y”, 2]]</p>
               <p name="8dc0" id="8dc0" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">for(let [key, value] of m) {...}</code></p>
               <p name="ecb6" id="ecb6" class="graf graf--p graf-after--p">Map class iterates in insertion order</p>
@@ -4398,7 +4398,7 @@
               <p name="96ad" id="96ad" class="graf graf--p graf-after--p">10 short integers</p>
               <p name="5b3d" id="5b3d" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">ints.fill(3).map(x=&gt;x*x).join(&quot;&quot;)</code></p>
-              <p name="2604" id="2604" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“9999999999”</p>
+              <p name="2604" id="2604" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""9999999999”</p>
               <p name="d83b" id="d83b" class="graf graf--p graf-after--p">Remember that typed arrays have fixed lengths,
                 so the length property is read-only, and methods that change the length of the array (such as<code
                   class="markup--code markup--p-code"> push(), pop(), unshift(), shift(),</code> and <code
@@ -4511,7 +4511,7 @@
               <p name="b38c" id="b38c" class="graf graf--p graf-after--pre">Match exactly three word characters and an
                 optional digit</p>
               <pre name="95fc" id="95fc" class="graf graf--pre graf-after--p">r = /\s+java\s+/;</pre>
-              <p name="1fd9" id="1fd9" class="graf graf--p graf-after--pre">Match “java” with one or more spaces before
+              <p name="1fd9" id="1fd9" class="graf graf--p graf-after--pre">Match ""java” with one or more spaces before
                 and after</p>
               <pre name="7e48" id="7e48" class="graf graf--pre graf-after--p">r = /[^(]*/;</pre>
               <p name="656c" id="656c" class="graf graf--p graf-after--pre">Match zero or more characters that are not
@@ -4553,27 +4553,27 @@
                   class="markup--code markup--p-code">|</code></p>
               <p name="2895" id="2895" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">/ab|cd|ef/</code></p>
-              <p name="1efd" id="1efd" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“ab” or the string
-                “cd” or the string “ef”.</p>
+              <p name="1efd" id="1efd" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""ab” or the string
+                ""cd” or the string ""ef”.</p>
               <p name="b8e4" id="b8e4" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">/\d{3}|[a-z]{4}/</code></p>
               <p name="c7d5" id="c7d5" class="graf graf--p graf-after--p">either three digits or four lowercase letters.
               </p>
               <p name="9874" id="9874" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">/a|ab/</code></p>
-              <p name="9c39" id="9c39" class="graf graf--p graf-after--p">matches only the first letter “a”</p>
+              <p name="9c39" id="9c39" class="graf graf--p graf-after--p">matches only the first letter ""a”</p>
               <p name="7678" id="7678" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">()</code></p>
               <p name="a431" id="a431" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">/java(script)?/</code></p>
-              <p name="c7fc" id="c7fc" class="graf graf--p graf-after--p">matches “java” followed by the optional
-                “script”</p>
+              <p name="c7fc" id="c7fc" class="graf graf--p graf-after--p">matches ""java” followed by the optional
+                ""script”</p>
               <p name="370d" id="370d" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">/(ab|cd)+|ef/</code></p>
-              <p name="1609" id="1609" class="graf graf--p graf-after--p">matches “java” followed by the optional
-                “script”</p>
+              <p name="1609" id="1609" class="graf graf--p graf-after--p">matches ""java” followed by the optional
+                ""script”</p>
               <p name="1745" id="1745" class="graf graf--p graf-after--p">If the left alternative matches, the right
-                alternative is ignored, even if it would have produced a “better” match</p>
+                alternative is ignored, even if it would have produced a ""better” match</p>
               <p name="ae1a" id="ae1a" class="graf graf--p graf-after--p">Another purpose of parentheses in regular
                 expressions is to define subpatterns within the complete pattern. When a regular expression is
                 successfully matched against a target string, it is possible to extract the portions of the target
@@ -4628,11 +4628,11 @@
                   class="markup--strong markup--p-strong">Example</strong></p>
               <p name="2381" id="2381" class="graf graf--p graf-after--p"><strong
                   class="markup--strong markup--p-strong">Pattern</strong></p>
-              <p name="c74e" id="c74e" class="graf graf--p graf-after--p">match the word “JavaScript” on a line by
+              <p name="c74e" id="c74e" class="graf graf--p graf-after--p">match the word ""JavaScript” on a line by
                 itself</p>
               <p name="9f94" id="9f94" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">/^JavaScript$/</code></p>
-              <p name="da79" id="da79" class="graf graf--p graf-after--p">To search for “Java” as a word by itself you
+              <p name="da79" id="da79" class="graf graf--p graf-after--p">To search for ""Java” as a word by itself you
                 can try the pattern <code class="markup--code markup--p-code">/\sJava\s/</code>, which requires a space
                 before and after the word. But there are two problems with this solution. First, it does not match
                 &quot;Java&quot; at the beginning or the end of a string, but only if it appears with space on either
@@ -4660,9 +4660,9 @@
                 language, but only if it is followed by a colon</p>
               <p name="2f65" id="2f65" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">/[Jj]ava([Ss]cript)?(?=\:)/</code></p>
-              <p name="a4c3" id="a4c3" class="graf graf--p graf-after--p">matches the word “JavaScript” in “JavaScript:
+              <p name="a4c3" id="a4c3" class="graf graf--p graf-after--p">matches the word ""JavaScript” in ""JavaScript:
                 The DefinitiveGuide”</p>
-              <p name="9718" id="9718" class="graf graf--p graf-after--p">does not match “Java” in “Java in a Nutshell”
+              <p name="9718" id="9718" class="graf graf--p graf-after--p">does not match ""Java” in ""Java in a Nutshell”
               </p>
               <p name="bd51" id="bd51" class="graf graf--p graf-after--p">If you instead introduce an assertion with
                 <code class="markup--code markup--p-code">(?!</code>, it is a negative lookahead assertion.</p>
@@ -4675,7 +4675,7 @@
               <p name="dfb6" id="dfb6" class="graf graf--p graf-after--p"><strong
                   class="markup--strong markup--p-strong">Meaning</strong></p>
               <p name="d726" id="d726" class="graf graf--p graf-after--p">g</p>
-              <p name="0ea8" id="0ea8" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“global” — that
+              <p name="0ea8" id="0ea8" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""global” — that
                 is,that we intend to use it to find all matches within a string rather than just finding the first <a
                   href="http://match.it/" data-href="http://match.it/" class="markup--anchor markup--p-anchor"
                   rel="noopener" target="_blank">match.it</a> does alter the behavior of the String <code
@@ -4684,19 +4684,19 @@
               <p name="1207" id="1207" class="graf graf--p graf-after--p">i</p>
               <p name="1801" id="1801" class="graf graf--p graf-after--p">case-insensitive</p>
               <p name="d011" id="d011" class="graf graf--p graf-after--p">m</p>
-              <p name="6076" id="6076" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“multiline” mode
+              <p name="6076" id="6076" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""multiline” mode
               </p>
               <p name="b9a1" id="b9a1" class="graf graf--p graf-after--p">s</p>
               <p name="bdfe" id="bdfe" class="graf graf--p graf-after--p">useful when working with text that includes
-                newlines.Normally, a “.” in a regular expression matches any character except a line terminator. When
-                the s flag is used, however, “.” will match any character, including line terminators.</p>
+                newlines.Normally, a "".” in a regular expression matches any character except a line terminator. When
+                the s flag is used, however, "".” will match any character, including line terminators.</p>
               <p name="37f8" id="37f8" class="graf graf--p graf-after--p">u</p>
               <p name="8425" id="8425" class="graf graf--p graf-after--p">Unicode.</p>
               <p name="b7d7" id="b7d7" class="graf graf--p graf-after--p">Setting the u flag on a RegExp also allows you
                 to use the new <code class="markup--code markup--p-code">\u{...}</code> escape sequence for Unicode
                 character and also enables the \p{...} notation for Unicode character classes.</p>
               <p name="742f" id="742f" class="graf graf--p graf-after--p">y</p>
-              <p name="2062" id="2062" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“sticky”. should
+              <p name="2062" id="2062" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""sticky”. should
                 match at the beginning of a string or at the first character following the previous match</p>
               <h3 name="4bac" id="4bac" class="graf graf--h3 graf-after--p">String Methods for Pattern Matching</h3>
               <h3 name="3180" id="3180" class="graf graf--h3 graf-after--h3">SEARCH()</h3>
@@ -4747,12 +4747,12 @@
                   class="markup--code markup--p-code">let s = &quot;15 times 15 is 225&quot;;</code></p>
               <p name="f2eb" id="f2eb" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">s.replace(/\d+/gu, n =&gt; parseInt(n).toString(16))</code></p>
-              <p name="235e" id="235e" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“f times f is e1”
+              <p name="235e" id="235e" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""f times f is e1”
               </p>
               <h3 name="36ae" id="36ae" class="graf graf--h3 graf-after--p">MATCH()</h3>
               <p name="df0c" id="df0c" class="graf graf--p graf-after--h3"><code
                   class="markup--code markup--p-code">&quot;7 plus 8 equals 15&quot;.match(/\d+/g)</code></p>
-              <p name="b24d" id="b24d" class="graf graf--p graf-after--p">[“7”, “8”, “15”]</p>
+              <p name="b24d" id="b24d" class="graf graf--p graf-after--p">[""7”, ""8”, ""15”]</p>
               <p name="973e" id="973e" class="graf graf--p graf-after--p">If the regular expression does not have the
                 <code class="markup--code markup--p-code">g</code> flag set, <code
                   class="markup--code markup--p-code">match()</code> does not do a global search; it simply searches for
@@ -4772,15 +4772,15 @@
               <p name="1200" id="1200" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre"><a
                   href="http://www.example.com/~david" data-href="http://www.example.com/~david"
                   class="markup--anchor markup--p-anchor" rel="noopener"
-                  target="_blank">“http://www.example.com/~david</a>&quot;</p>
+                  target="_blank">""http://www.example.com/~david</a>&quot;</p>
               <pre name="baf6" id="baf6" class="graf graf--pre graf-after--p">protocol = match[1];</pre>
-              <p name="7701" id="7701" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">“http”</p>
+              <p name="7701" id="7701" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">""http”</p>
               <pre name="bbb7" id="bbb7" class="graf graf--pre graf-after--p">host = match[2];</pre>
               <p name="3dac" id="3dac" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre"><a
                   href="http://www.example.com/" data-href="http://www.example.com/"
-                  class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">“www.example.com</a>&quot;</p>
+                  class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">""www.example.com</a>&quot;</p>
               <pre name="ce0f" id="ce0f" class="graf graf--pre graf-after--p">path = match[3];</pre>
-              <p name="5e7d" id="5e7d" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">“~david”</p>
+              <p name="5e7d" id="5e7d" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">""~david”</p>
               <p name="e008" id="e008" class="graf graf--p graf-after--p">In this non-global case, the array returned by
                 match() also has some object properties in addition to the numbered array elements.</p>
               <p name="c4ac" id="c4ac" class="graf graf--p graf-after--p">input property refers to the string on which
@@ -4802,7 +4802,7 @@
               <p name="5dce" id="5dce" class="graf graf--p graf--startsWithDoubleQuote graf-after--p"><a
                   href="http://www.example.com/~david" data-href="http://www.example.com/~david"
                   class="markup--anchor markup--p-anchor" rel="noopener"
-                  target="_blank">“http://www.example.com/~david</a>&quot;</p>
+                  target="_blank">""http://www.example.com/~david</a>&quot;</p>
               <p name="d001" id="d001" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">match.input</code></p>
               <p name="663b" id="663b" class="graf graf--p graf-after--p">text</p>
@@ -4811,15 +4811,15 @@
               <p name="a4bb" id="a4bb" class="graf graf--p graf-after--p">17</p>
               <p name="ff39" id="ff39" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">match.groups.protocol</code></p>
-              <p name="4177" id="4177" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“http”</p>
+              <p name="4177" id="4177" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""http”</p>
               <p name="8666" id="8666" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">match.groups.host</code></p>
               <p name="4504" id="4504" class="graf graf--p graf--startsWithDoubleQuote graf-after--p"><a
                   href="http://www.example.com/" data-href="http://www.example.com/"
-                  class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">“www.example.com</a>&quot;</p>
+                  class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">""www.example.com</a>&quot;</p>
               <p name="4533" id="4533" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">match.groups.path</code></p>
-              <p name="3448" id="3448" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“~david”</p>
+              <p name="3448" id="3448" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""~david”</p>
               <p name="71f6" id="71f6" class="graf graf--p graf-after--p">There are also important but less dramatic
                 differences in behavior when the y flag is set. Refer to book for examples.</p>
               <h3 name="5022" id="5022" class="graf graf--h3 graf-after--p">MATCHALL()</h3>
@@ -4830,10 +4830,10 @@
               <h3 name="839b" id="839b" class="graf graf--h3 graf-after--p">SPLIT()</h3>
               <p name="61d1" id="61d1" class="graf graf--p graf-after--h3"><code
                   class="markup--code markup--p-code">&quot;123,456,789&quot;.split(&quot;,&quot;)</code></p>
-              <p name="ea7d" id="ea7d" class="graf graf--p graf-after--p">[“123”, “456”,”789&quot;]</p>
+              <p name="ea7d" id="ea7d" class="graf graf--p graf-after--p">[""123”, ""456”,”789&quot;]</p>
               <p name="3460" id="3460" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">&quot;1, 2, 3,\n4, 5&quot;.split(/\s*,\s*/)</code></p>
-              <p name="3a7f" id="3a7f" class="graf graf--p graf-after--p">[“1”, “2”, “3”, “4”,”5&quot;]</p>
+              <p name="3a7f" id="3a7f" class="graf graf--p graf-after--p">[""1”, ""2”, ""3”, ""4”,”5&quot;]</p>
               <p name="0de7" id="0de7" class="graf graf--p graf-after--p">Surprisingly, if you call <code
                   class="markup--code markup--p-code">split()</code> with a RegExp delimiter and the regular expression
                 includes capturing groups, then the text that matches the capturing groups will be included in the
@@ -4842,7 +4842,7 @@
                   class="markup--code markup--p-code">const htmlTag = /&lt;([^&gt;]+)&gt;/;</code></p>
               <p name="6b01" id="6b01" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">&quot;Testing&lt;br/&gt;1,2,3&quot;.split(htmlTag)</code></p>
-              <p name="193a" id="193a" class="graf graf--p graf-after--p">[“Testing”, “br/”,”1,2,3&quot;]</p>
+              <p name="193a" id="193a" class="graf graf--p graf-after--p">[""Testing”, ""br/”,”1,2,3&quot;]</p>
               <h3 name="61fa" id="61fa" class="graf graf--h3 graf-after--p">The RegExp Class</h3>
               <p name="be2b" id="be2b" class="graf graf--p graf-after--h3">The <code
                   class="markup--code markup--p-code">RegExp()</code> constructor is useful when a regular expression is
@@ -4906,7 +4906,7 @@
               <pre name="007c" id="007c" class="graf graf--pre graf-after--pre">}</pre>
               <p name="4165" id="4165" class="graf graf--p graf-after--pre"><code
                   class="markup--code markup--p-code">doubleLetterWords</code></p>
-              <p name="4424" id="4424" class="graf graf--p graf-after--p">[“apple”, “coffee”]: “book” is missing!</p>
+              <p name="4424" id="4424" class="graf graf--p graf-after--p">[""apple”, ""coffee”]: ""book” is missing!</p>
               <p name="5358" id="5358" class="graf graf--p graf-after--p">Because we set the g flag on the RegExp, the
                 <code class="markup--code markup--p-code">lastIndex</code> property is changed after successful matches,
                 and the <code class="markup--code markup--p-code">test()</code> method (which is based on <code
@@ -4978,20 +4978,20 @@
               <pre name="853e" id="853e"
                 class="graf graf--pre graf-after--h3">let d = new Date(2020, 0, 1, 17, 10, 30);</pre>
               <pre name="b193" id="b193" class="graf graf--pre graf-after--pre">d.toString()</pre>
-              <p name="81a9" id="81a9" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">“Wed Jan 01 2020
+              <p name="81a9" id="81a9" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">""Wed Jan 01 2020
                 17:10:30 GMT-0800 (Pacific Standard Time)”</p>
               <pre name="9ee6" id="9ee6" class="graf graf--pre graf-after--p">d.toUTCString()</pre>
-              <p name="b9aa" id="b9aa" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">“Thu, 02 Jan
+              <p name="b9aa" id="b9aa" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">""Thu, 02 Jan
                 2020 01:10:30 GMT”</p>
               <pre name="9745" id="9745" class="graf graf--pre graf-after--p">d.toLocaleDateString()</pre>
-              <p name="db30" id="db30" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">“1/1/2020”:
+              <p name="db30" id="db30" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">""1/1/2020”:
                 ‘en-US' locale</p>
               <pre name="664a" id="664a" class="graf graf--pre graf-after--p">d.toLocaleTimeString()</pre>
-              <p name="2a15" id="2a15" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">“5:10:30 PM”:
+              <p name="2a15" id="2a15" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">""5:10:30 PM”:
                 ‘en-US' locale</p>
               <pre name="7bf8" id="7bf8" class="graf graf--pre graf-after--p">d.toISOString()</pre>
               <p name="516e" id="516e" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">
-                “2020-01-02T01:10:30.000Z”</p>
+                ""2020-01-02T01:10:30.000Z”</p>
               <p name="31ac" id="31ac" class="graf graf--p graf-after--p">there is also a static Date.parse() method
                 that takes a string as its argument, attempts to parse it as a date and time, and returns a timestamp
                 representing that date. <code class="markup--code markup--p-code">Date.parse()</code> is able to parse
@@ -5031,7 +5031,7 @@
               <pre name="c1c0" id="c1c0" class="graf graf--pre graf-after--pre">error.status</pre>
               <p name="76c8" id="76c8" class="graf graf--p graf-after--pre">404</p>
               <pre name="2e8d" id="2e8d" class="graf graf--pre graf-after--p">error.message</pre>
-              <p name="5bcc" id="5bcc" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">“404 Not
+              <p name="5bcc" id="5bcc" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">""404 Not
                 Found:<a href="http://example.com/" data-href="http://example.com/"
                   class="markup--anchor markup--p-anchor" rel="noopener" target="_blank">http://example.com/</a>&quot;
               </p>
@@ -5044,10 +5044,10 @@
               <pre name="a6fc" id="a6fc"
                 class="graf graf--pre graf-after--p">let o = {s: &quot;&quot;, n: 0, a: [true, false, null]};</pre>
               <pre name="81a5" id="81a5" class="graf graf--pre graf-after--pre">let s = JSON.stringify(o);</pre>
-              <p name="d8cb" id="d8cb" class="graf graf--p graf-after--pre">s == ‘{“s”:””,”n”:0,”a”:[true,false,null]}'
+              <p name="d8cb" id="d8cb" class="graf graf--p graf-after--pre">s == ‘{""s”:””,”n”:0,”a”:[true,false,null]}'
               </p>
               <pre name="40d7" id="40d7" class="graf graf--pre graf-after--p">let copy = JSON.parse(s);</pre>
-              <p name="3e98" id="3e98" class="graf graf--p graf-after--pre">copy == {s: “”, n: 0, a:[true, false, null]}
+              <p name="3e98" id="3e98" class="graf graf--p graf-after--pre">copy == {s: ""”, n: 0, a:[true, false, null]}
               </p>
               <p name="503d" id="503d" class="graf graf--p graf-after--p">Inefficient way of creating a deep copy of an
                 object</p>
@@ -5075,7 +5075,7 @@
                   class="markup--code markup--p-code">toJSON()</code>: it returns the same string that <code
                   class="markup--code markup--p-code">toISOString()</code> method does.</p>
               <p name="76d4" id="76d4" class="graf graf--p graf-after--p">If you need to re-create Date objects (or
-                modify the parsed object inany other way), you can pass a “reviver” function as the second argument to
+                modify the parsed object inany other way), you can pass a ""reviver” function as the second argument to
                 <code class="markup--code markup--p-code">JSON.parse()</code>.</p>
               <pre name="15f8" id="15f8"
                 class="graf graf--pre graf-after--p">let data = JSON.parse(text, function(key, value) {</pre>
@@ -5100,30 +5100,30 @@
               <p name="b285" id="b285" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre"><a
                   href="https://example.com:8000/path/name" data-href="https://example.com:8000/path/name"
                   class="markup--anchor markup--p-anchor" rel="noopener"
-                  target="_blank">“https://example.com:8000/path/name</a>?q=term#fragment&quot;</p>
+                  target="_blank">""https://example.com:8000/path/name</a>?q=term#fragment&quot;</p>
               <pre name="3c4e" id="3c4e" class="graf graf--pre graf-after--p">url.origin</pre>
               <p name="b2f4" id="b2f4" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre"><a
                   href="https://example.com:8000/" data-href="https://example.com:8000/"
                   class="markup--anchor markup--p-anchor" rel="noopener"
-                  target="_blank">“https://example.com:8000</a>&quot;</p>
+                  target="_blank">""https://example.com:8000</a>&quot;</p>
               <pre name="b726" id="b726" class="graf graf--pre graf-after--p">url.protocol</pre>
-              <p name="e69c" id="e69c" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">“https:”</p>
+              <p name="e69c" id="e69c" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">""https:”</p>
               <pre name="6f74" id="6f74" class="graf graf--pre graf-after--p">url.host</pre>
               <p name="a559" id="a559" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre"><a
                   href="http://example.com/" data-href="http://example.com/" class="markup--anchor markup--p-anchor"
-                  rel="noopener" target="_blank">“example.com</a>:8000”</p>
+                  rel="noopener" target="_blank">""example.com</a>:8000”</p>
               <pre name="30fa" id="30fa" class="graf graf--pre graf-after--p">url.hostname</pre>
               <p name="22e9" id="22e9" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre"><a
                   href="http://example.com/" data-href="http://example.com/" class="markup--anchor markup--p-anchor"
-                  rel="noopener" target="_blank">“example.com</a>”</p>
+                  rel="noopener" target="_blank">""example.com</a>”</p>
               <pre name="8e76" id="8e76" class="graf graf--pre graf-after--p">url.port</pre>
-              <p name="a4c7" id="a4c7" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">“8000”</p>
+              <p name="a4c7" id="a4c7" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">""8000”</p>
               <pre name="d8de" id="d8de" class="graf graf--pre graf-after--p">url.pathname</pre>
-              <p name="96ac" id="96ac" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">“/path/name”</p>
+              <p name="96ac" id="96ac" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">""/path/name”</p>
               <pre name="9045" id="9045" class="graf graf--pre graf-after--p">url.search</pre>
-              <p name="7bbf" id="7bbf" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">“?q=term”</p>
+              <p name="7bbf" id="7bbf" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">""?q=term”</p>
               <pre name="0fe6" id="0fe6" class="graf graf--pre graf-after--p">url.hash</pre>
-              <p name="9aec" id="9aec" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">“#fragment”</p>
+              <p name="9aec" id="9aec" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">""#fragment”</p>
               <pre name="9eb2" id="9eb2"
                 class="graf graf--pre graf-after--p">let url = new URL(&quot;https://example.com&quot;);</pre>
               <pre name="fdde" id="fdde"
@@ -5135,7 +5135,7 @@
               <p name="3eab" id="3eab" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre"><a
                   href="https://example.com/api/search?q=test" data-href="https://example.com/api/search?q=test"
                   class="markup--anchor markup--p-anchor" rel="noopener"
-                  target="_blank">“https://example.com/api/search?q=test</a>&quot;</p>
+                  target="_blank">""https://example.com/api/search?q=test</a>&quot;</p>
               <p name="c5bc" id="c5bc" class="graf graf--p graf-after--p">One of the important features of the URL class
                 is that it correctly adds punctuation and escapes special characters in URLs when that is needed</p>
               <pre name="99e4" id="99e4"
@@ -5144,17 +5144,17 @@
                 class="graf graf--pre graf-after--pre">url.pathname = &quot;path with spaces&quot;;</pre>
               <pre name="0046" id="0046" class="graf graf--pre graf-after--pre">url.pathname</pre>
               <p name="717c" id="717c" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">
-                “/path%20with%20spaces”</p>
+                ""/path%20with%20spaces”</p>
               <pre name="d493" id="d493" class="graf graf--pre graf-after--p">url.search = &quot;q=foo#bar&quot;;</pre>
               <pre name="16f9" id="16f9" class="graf graf--pre graf-after--pre">url.search</pre>
-              <p name="68c1" id="68c1" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">“?q=foo%23bar”
+              <p name="68c1" id="68c1" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre">""?q=foo%23bar”
               </p>
               <pre name="9ce6" id="9ce6" class="graf graf--pre graf-after--p">url.href</pre>
               <p name="c3a3" id="c3a3" class="graf graf--p graf--startsWithDoubleQuote graf-after--pre"><a
                   href="https://example.com/path%20with%20spaces?q=foo%23bar"
                   data-href="https://example.com/path%20with%20spaces?q=foo%23bar"
                   class="markup--anchor markup--p-anchor" rel="noopener"
-                  target="_blank">“https://example.com/path%20with%20spaces?q=foo%23bar</a>&quot;</p>
+                  target="_blank">""https://example.com/path%20with%20spaces?q=foo%23bar</a>&quot;</p>
               <p name="8818" id="8818" class="graf graf--p graf-after--p">Often, however, HTTP requests encode the
                 values of multiple form fields or multiple API parameters into the query portion of a URL. In this
                 format, the query portion of the URL is a question mark followed by one or more name/value pairs, which
@@ -5167,24 +5167,24 @@
               </p>
               <p name="5326" id="5326" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">url.search</code></p>
-              <p name="10de" id="10de" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“”</p>
+              <p name="10de" id="10de" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""”</p>
               <p name="679d" id="679d" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">url.searchParams.append(&quot;q&quot;, &quot;term&quot;);</code>
               </p>
               <p name="1173" id="1173" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">url.search</code></p>
-              <p name="c5c6" id="c5c6" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“?q=term”</p>
+              <p name="c5c6" id="c5c6" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""?q=term”</p>
               <p name="ccf2" id="ccf2" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">url.searchParams.set(&quot;q&quot;, &quot;x&quot;);</code></p>
               <p name="dab4" id="dab4" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">url.search</code></p>
-              <p name="6bf3" id="6bf3" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“?q=x”</p>
+              <p name="6bf3" id="6bf3" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""?q=x”</p>
               <p name="6edd" id="6edd" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">url.searchParams.append(&quot;opts&quot;, &quot;1&quot;);</code>
               </p>
               <p name="7a0c" id="7a0c" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">url.search</code></p>
-              <p name="3f7d" id="3f7d" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“?q=x&amp;opts=1”
+              <p name="3f7d" id="3f7d" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""?q=x&amp;opts=1”
               </p>
               <p name="85e4" id="85e4" class="graf graf--p graf-after--p">The value of the searchParams property is a
                 URLSearchParams object.</p>
@@ -5199,14 +5199,14 @@
               <p name="18bb" id="18bb" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">params.toString()</code></p>
               <p name="5ea7" id="5ea7" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">
-                “q=term&amp;opts=exact”</p>
+                ""q=term&amp;opts=exact”</p>
               <p name="6ae7" id="6ae7" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">url.search = params;</code></p>
               <p name="28fd" id="28fd" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">url.href</code></p>
               <p name="b54c" id="b54c" class="graf graf--p graf--startsWithDoubleQuote graf-after--p"><a
                   href="http://example.com/" data-href="http://example.com/" class="markup--anchor markup--p-anchor"
-                  rel="noopener" target="_blank">“http://example.com/</a>?q=term&amp;opts=exact&quot;</p>
+                  rel="noopener" target="_blank">""http://example.com/</a>?q=term&amp;opts=exact&quot;</p>
               <h3 name="3033" id="3033" class="graf graf--h3 graf-after--p">Timers</h3>
               <p name="0eaa" id="0eaa" class="graf graf--p graf-after--h3"><code
                   class="markup--code markup--p-code">setTimeout()</code> and<code
@@ -5248,7 +5248,7 @@
               <pre name="a507" id="a507"
                 class="graf graf--pre graf-after--pre">console.log(result.value) // result.value == 99</pre>
               <pre name="f614" id="f614" class="graf graf--pre graf-after--pre">}</pre>
-              <p name="2c72" id="2c72" class="graf graf--p graf-after--pre">When you want to iterate though a “partially
+              <p name="2c72" id="2c72" class="graf graf--p graf-after--pre">When you want to iterate though a ""partially
                 used” iterator:</p>
               <p name="7fbf" id="7fbf" class="graf graf--p graf-after--p"><code
                   class="markup--code markup--p-code">let list = [1,2,3,4,5];</code><br> <code
@@ -5407,7 +5407,7 @@
               <pre name="2800" id="2800" class="graf graf--pre graf-after--pre">};</pre>
               <p name="8d5a" id="8d5a" class="graf graf--p graf-after--pre"><code
                   class="markup--code markup--p-code">[...o.g()]</code></p>
-              <p name="6e0b" id="6e0b" class="graf graf--p graf-after--p">[“x”, “y”, “z”, “g”]</p>
+              <p name="6e0b" id="6e0b" class="graf graf--p graf-after--p">[""x”, ""y”, ""z”, ""g”]</p>
               <p name="9a52" id="9a52" class="graf graf--p graf-after--p">Generators often make it particularly easy to
                 define iterable classes.</p>
               <pre name="fda4" id="fda4" class="graf graf--pre graf-after--p">*[Symbol.iterator]() {</pre>
@@ -5649,13 +5649,13 @@
                 class="graf graf--pre graf-after--pre">.then(callback2); // task 3; returns promise 3</pre>
               <h3 name="fb18" id="fb18" class="graf graf--h3 graf-after--pre">Resolving Promises</h3>
               <p name="66f3" id="66f3" class="graf graf--p graf-after--h3">There is actually a fourth Promise object
-                involved as which brings up the point of what it means for a Promise to be “resolved.”</p>
+                involved as which brings up the point of what it means for a Promise to be ""resolved.”</p>
               <p name="89c3" id="89c3" class="graf graf--p graf-after--p">fetch() returns a Promise object which, when
                 fulfilled, passes a Response object to the callback function we register. This Response object has <code
                   class="markup--code markup--p-code">.text(), .json(),</code> and other methods to request the body of
                 the HTTP response in various forms. But since the body may not yet have arrived, these methods must
                 return Promise objects.</p>
-              <p name="11a7" id="11a7" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">“task 2” calls
+              <p name="11a7" id="11a7" class="graf graf--p graf--startsWithDoubleQuote graf-after--p">""task 2” calls
                 the <code class="markup--code markup--p-code">.json()</code> method and returns its value. This is the
                 fourth Promise object, and it is the return value of the <code
                   class="markup--code markup--p-code">callback1()</code> function.</p>
@@ -5700,10 +5700,10 @@
                 Promise, then p is resolved but not yet fulfilled.</p>
               <p name="0574" id="0574" class="graf graf--p graf-after--p">At this stage, p cannot settle until the
                 Promise v settles. If v is fulfilled, then p will be fulfilled to the same value. If v is rejected, then
-                p will be rejected for the same reason. This is what the “resolved” state of a Promise means</p>
+                p will be rejected for the same reason. This is what the ""resolved” state of a Promise means</p>
               <p name="7df1" id="7df1" class="graf graf--p graf-after--p">the Promise has become associated with, or
-                “locked onto,” another Promise. We don't know yet whether p will be fulfilled or rejected, but our
-                callback c no longer has any control over that. p is “resolved” in the sense that its fate now depends
+                ""locked onto,” another Promise. We don't know yet whether p will be fulfilled or rejected, but our
+                callback c no longer has any control over that. p is ""resolved” in the sense that its fate now depends
                 entirely on what happens to Promise v.</p>
               <p name="9c1c" id="9c1c" class="graf graf--p graf-after--p">Let's bring this back to our URL-fetching
                 example. When c1 returns p4, p2 is resolved. But being resolved is not the same as being fulfilled, so

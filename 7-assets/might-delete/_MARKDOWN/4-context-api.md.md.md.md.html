@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="context-api">Context API</h1>
+<p>The React Context API allows you to easily access data at different levels of a component tree, without having to pass data down through props.</p>
+<h2 id="a-hierarchy-of-state-management">A hierarchy of state management</h2>
+<p>You’ll hear about these three main "levels” of state: * 🌏 Application-level state world * 🏙️ Context-level state * 🏠 Component-level state</p>
+<p>The name "Context” in this case just encapsulates the idea that you’re defining a subtree of components among which to share state, and you can define the top of that tree wherever you like. Your "context” could be your entire application like it is for Redux, or you could have several different contexts that are each relevant to a "subtree” of your React component tree.</p>
+<h2 id="what-is-context-api-and-what-isnt-it">What is Context API? (and what isn’t it?)</h2>
+<p>Context API takes a more modular approach to state management, providing the storage piece and allowing any number of customized approaches to the rest of the architecture. It’s possible to build something that looks like Redux, but there are many other possibilities!</p>
+<p>The Redux architecture as we know it can be broken down into these four pieces: 1. Store (a "state container” acting as the single source of truth for shared application state) 2. Reducers to manage state 3. Action creator functions 4. React Redux to connect components to the store: <code>Provider</code> plus: * <code>connect(mapStateToProps, mapDispatchToProps)</code> (older HOC syntax) * <code>useSelector</code>, <code>useDispatch</code> (new hooks syntax)</p>
+<p>Context API just implements #1, a shared store for a component and its children. <strong>A Context is just a shared container, that’s it. Unlike Redux, Context API is not a comprehensive state management solution and does not require the use of reducers, actions or action creators.</strong></p>
+<h2 id="usecontext-with-usereducer">useContext with useReducer</h2>
+<p>On its own, Context API is <em>not</em> a comprehensive application state management system like Redux. However, it’s surprisingly powerful! We can also store <code>dispatch</code> or setter functions in a Context, allowing components down the tree to not only read, but also update shared state without any need for prop drilling.</p>
+<p>Combining the <code>useContext</code> and <code>useReducer</code> hooks can provide a powerful architecture that is similar to Redux in many ways, and this is becoming increasingly popular as an alternative to Redux due to easier setup and the less opinionated nature of these built-in hooks. But just remember that Context itself is nothing more than a way of sharing state directly from a top level component to any of the child components in its subtree.</p>
+<p>This combination provides a lot of power and predictability for your state mangement, closely modeling the architecture of Redux. All the patterns we’ve been learning throughout this unit are the same here – actions, reducers, and a shared state container (context or store).</p>
+<p>The <code>useContext</code> &amp; <code>useReducer</code> architecture is less opinionated than Redux, and you can choose to add as much abstraction as you’d like but the standard approach is just a bit simpler than Redux. Typically we’ll just consume values from the context with <code>useContext</code> as shown above, and dispatch actions to update the context with <code>useReducer</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> [state<span class="op">,</span> dispatch] <span class="op">=</span> <span class="at">useReducer</span>(reducer<span class="op">,</span> initialState)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="co">// within a component:</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="op">&lt;</span>button onclick<span class="op">={</span>() <span class="kw">=&gt;</span> <span class="at">dispatch</span>(<span class="op">{</span><span class="dt">type</span><span class="op">:</span> <span class="st">&#39;UPDATE_TITLE&#39;</span><span class="op">}</span>)<span class="op">&gt;</span>Update&lt;/button<span class="op">&gt;</span></a></code></pre></div>
+<p>It’s up to you to decide whether you’d like to define actions inline like this, or store them in a dedicated file (often a better choice). You could even recreate the action creators pattern and use the same abstractions as Redux, but using an <em>unopinionated</em> API like this means that those decisions are left up to you.</p>
+<h2 id="shared-state-three-ways-to-do-it">Shared state: three ways to do it</h2>
+<p>To share state among components, there are really two distinct problems to solve: 1. Sharing state from a component to its child components (pass values as props) 2. Allowing child components to <em>update</em> that top-level state (pass setter functions down as props)</p>
+<p>Here are three common approaches that we’ve now learned:</p>
+<h3 id="prop-drilling">Prop drilling:</h3>
+<ol type="1">
+<li>Pass shared state values down the component tree as props</li>
+<li>Also pass setter functions (or <code>dispatch</code>) as props</li>
+</ol>
+<h3 id="redux">Redux:</h3>
+<ol type="1">
+<li>Provide a store as the single source of the truth for application-level state, and use React Redux to connect componoents to read the values they need from the store with either <code>mapStateToProps</code> or <code>useSelector</code></li>
+<li>Handle all state updates with reducers. Write action creator functions to handle the business logic for each action type, and use <code>mapDispatchToProps</code> or <code>useDispatch</code> to allow components to dispatch these actions to the reducer.</li>
+</ol>
+<h3 id="context">Context:</h3>
+<ol type="1">
+<li>Provide a Context (just like a store) to child components, as the single source of the truth for state values relevant to all of those components. Child components can "consume” that context directly to access the values they need, with live updates.</li>
+<li>Context doesn’t solve this part directly. Choose your own adventure – common approaches:
+<ul>
+<li>Pass down setter functions just like you would in a simple non-Redux implementation (prop drilling)</li>
+<li>Store the setter functions along with state values in the Context to avoid prop-drilling</li>
+<li>Also add <code>useReducer</code> to the implementation and store <code>dispatch</code> in the Context (you’ll still have to write out each <code>dispatch</code> directly, no Redux-style abstraction magic here unless you choose to build it yourself or integrate another library that does so).</li>
+</ul></li>
+</ol>
+<h2 id="when-to-use-context">When to use Context</h2>
+<p>As you can see in the comparison above, React’s Context API is more of a simple, modular approach with a very different design philosophy from Redux. It can be used in a variety of ways – you’ll most likely want to centralize all your shared state in a Context, but it’s up to you whether you’d like to also store setter functions or <code>dispatch</code> in the Context, or just pass those as props when it makes sense. You’re always welcome to mix and match, and the interface is also designed with multiple Contexts in mind.</p>
+<p>Rather than a single store with a big branching tree, you can consider each section of your application (auth, user profile, content feed, shop, etc) and create a local Context for each section, sharing state among that subtree of components. Often it makes sense to share state among some components, while simply passing props in another section of the app if there isn’t a lot of shared state. The freedom to mix and match is one of the best things about the Context approach.</p>
+<p>It’s helpful to think of Context API as the "store” part of the architecture, allowing us to share state (and setter functions or dispatch) from the component at the top level of the context tree to any subcomponents that need that data, without having to pass the data through each level of the tree.</p>
+<h2 id="provider-and-consumer">Provider and Consumer</h2>
+<p>The setup of Context API is similar to Redux, just simpler. First we create a context (just like creating a store in Redux), and wrap our components with a Provider:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// Calling createContext creates a Provider and a Consumer</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">const</span> FamilyContext <span class="op">=</span> <span class="va">React</span>.<span class="at">createContext</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="kw">function</span> <span class="at">App</span>()<span class="op">{</span></a>
+<a class="sourceLine" id="cb2-5" title="5">    <span class="cf">return</span> (</a>
+<a class="sourceLine" id="cb2-6" title="6">        <span class="op">&lt;</span><span class="va">FamilyContext</span>.<span class="at">Provider</span> value<span class="op">={</span>value<span class="op">}&gt;</span> <span class="co">// the value stored in our context can be any data type -- object, array, string, number, etc.</span></a>
+<a class="sourceLine" id="cb2-7" title="7">            <span class="op">&lt;</span>ChildComponent /<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb2-8" title="8">        &lt;/<span class="va">FamilyContext</span>.<span class="at">Provider</span><span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb2-9" title="9">    )</a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="op">}</span></a></code></pre></div>
+<p>Rather than <code>connect</code> at the component level, React’s Context API uses a more straightforward pattern of provider and consumer. We can either wrap our view logic with a <code>Consumer</code> or make things easier by using the <code>useContext</code> hook. Here are two ways to consume a context:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// First way: wrap with Consumer, render props pattern</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">const</span> Component <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="cf">return</span> (</a>
+<a class="sourceLine" id="cb3-4" title="4">      <span class="op">&lt;</span><span class="va">FamilyContext</span>.<span class="at">Consumer</span><span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb3-5" title="5">        <span class="op">{</span>value <span class="kw">=&gt;</span> (</a>
+<a class="sourceLine" id="cb3-6" title="6">            <span class="op">&lt;</span>div<span class="op">&gt;{</span>value<span class="op">}</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb3-7" title="7">        )<span class="op">}</span></a>
+<a class="sourceLine" id="cb3-8" title="8">      &lt;/<span class="va">FamilyContext</span>.<span class="at">Consumer</span><span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb3-9" title="9">  )<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="op">};</span></a>
+<a class="sourceLine" id="cb3-11" title="11"></a>
+<a class="sourceLine" id="cb3-12" title="12"></a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="co">// Second way (nicer): useContext</span></a>
+<a class="sourceLine" id="cb3-14" title="14"><span class="kw">function</span> <span class="at">ChildComponent</span>()<span class="op">{</span></a>
+<a class="sourceLine" id="cb3-15" title="15">    <span class="kw">const</span> contextValue <span class="op">=</span> <span class="at">useContext</span>(AppContext)</a>
+<a class="sourceLine" id="cb3-16" title="16">    <span class="cf">return</span> <span class="op">&lt;</span>div<span class="op">&gt;{</span>contextValue<span class="op">}</span>&lt;/div<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb3-17" title="17"><span class="op">}</span></a></code></pre></div>
+<h2 id="redux-or-context">Redux or Context?</h2>
+<p>Redux is still the standard for managing application-level state in large, complex applications. Context API offers a simpler approach that works well for many smaller applications, with less setup time needed. If current trends continue, Context may grow so much in popularity that it eventually gains more robust functionality and replaces Redux in many large applications. These technologies are always evolving, so for now it’s just good to know both and understand the concepts through each lens. A year or two down the road when you may consider the best technology for a new application, everything will be totally different so it’s your deep understanding of the concepts and fundamentals that will really allow you to bring valuable insight to your team.</p>
+<p>Here’s a quick comparison: * Context just handles the "store” piece, rather than proivding a comprehensive, opinionated solution for a completely defined architecture like Redux * You can choose to use Context on its own, or integrate with a number of other frameworks to customize your own solution for state management. A common and powerful combo is <code>useContext</code> with <code>useReducer</code>, which together provide most of the Redux pattern but with less overhead and more flexibility. * Redux is independent of React and can also be used with other frameworks. Context is part of React * Both allow you to share state between components, but Redux also: * comes with a time-traveling debugger * provides a middleware API * defines a complete architecture pattern * Setting up Redux: 1) <code>createStore</code> 2) wrap entire application with <code>&lt;Provider&gt;</code> 3) <code>connect</code> components * Setting up Context: 1) <code>createContext</code> 2) wrap components with <code>&lt;Provider&gt;</code> 3) consume with <code>Context.Consumer</code> or <code>useContext</code> * Redux is built for large scale, currently used in many massive production apps. Context is newer and may eventually replace Redux for many use cases, but Redux has simply been around longer and is still a good, battle-tested choice for many applications (including those built with frameworks other than React)</p>
+<h2 id="helpful-resources">Helpful Resources</h2>
+<ul>
+<li><a href="https://reactjs.org/docs/context.html">Context Docs</a></li>
+<li><a href="https://blog.flexiple.com/provider-pattern-with-react-context-api/">Provider Pattern</a></li>
+<li><a href="https://medium.com/better-programming/how-to-use-reacts-context-api-and-usecontext-hooks-effectively-ed98ad9343b6">How to Use React’s Context API and useContext() Hooks Effectively</a></li>
+<li><a href="https://upmostly.com/tutorials/how-to-use-the-usecontext-hook-in-react">How to use the useContext hook in React</a></li>
+<li><a href="https://kentcdodds.com/blog/how-to-use-react-context-effectively">How to use React Context effecively</a></li>
+<li><a href="https://medium.com/better-programming/you-dont-even-need-react-redux-and-redux-thunk-d9dce6c0a89f">You Don’t Even Need React-Redux and Redux Thunk</a> - read the bottom section for some useful info!</li>
+</ul>
+</body></html>

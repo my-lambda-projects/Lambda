@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="sprint-challenge-node-db-sprint">Sprint Challenge: Node DB Sprint</h1>
+<h2 id="description">Description</h2>
+<p>In this challenge, you design and build a Data Model and a RESTful API that stores data into a Relational Database.</p>
+<h2 id="instructions">Instructions</h2>
+<p><strong>Read these instructions carefully. Understand exactly what is expected <em>before</em> starting this Sprint Challenge.</strong></p>
+<p>This is an individual assessment, please work on it alone. It is an opportunity to demonstrate proficiency in the concepts and objectives introduced and practiced in preceding days.</p>
+<p>If the instructions are not clear, please seek support from your TL and Instructor on Slack.</p>
+<p>The Minimum Viable Product must be completed in three hours.</p>
+<p>Follow these steps to set up and work on your project:</p>
+<ul>
+<li>[X] Create a forked copy of this project.</li>
+<li>[X] Add your <em>Team Lead</em> as collaborator on Github.</li>
+<li>[X] Clone your forked version of the Repository.</li>
+<li>[X] Create a new Branch on the clone: git checkout -b <code>firstName-lastName</code>.</li>
+<li>[X] Implement the project on this Branch, committing changes regularly.</li>
+<li>[X] Push commits: git push origin <code>firstName-lastName</code>.</li>
+</ul>
+<p>Follow these steps for completing your project.</p>
+<ul>
+<li>[X] Submit a Pull-Request to merge <code>firstName-lastName</code> Branch into master on <strong>your fork, don’t make Pull Requests against Lambda’s repository</strong>.</li>
+<li>[X] Please don’t merge your own pull request.</li>
+<li>[X] Add your <em>Team Lead</em> as a Reviewer on the Pull-request</li>
+<li>[ ] Your <em>Team Lead</em> will count the challenge as done by merging the branch into <em>master</em>.</li>
+</ul>
+<h2 id="commits">Commits</h2>
+<p>Commit your code regularly and use descriptive messages. This helps both you (in case you ever need to return to old code) and your Team Lead.</p>
+<h2 id="self-studyessay-questions">Self-Study/Essay Questions</h2>
+<p>Demonstrate your understanding of this week’s concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.</p>
+<ul>
+<li><p>[X] Explain the difference between <code>Relational Databases</code> and <code>SQL</code>.</p>
+<pre><code>  SQL is the language used to access a relational database.</code></pre></li>
+<li><p>[X] Why do tables need a <code>primary key</code>?</p>
+<pre><code>  To uniquely identify each record/row.</code></pre></li>
+<li><p>[X] What is the name given to a table column that references the primary key on another table.</p>
+<pre><code>  Foreign key</code></pre></li>
+<li><p>[X] What do we need in order to have a <em>many to many</em> relationship between two tables.</p>
+<pre><code>  An intermediary table that holds foreign keys that reference the primary key on the related tables. </code></pre></li>
+</ul>
+<h2 id="minimum-viable-product">Minimum Viable Product</h2>
+<p>Take the steps necessary to complete the project from scratch. Start by initializing your project with a <code>package.json</code> and go from there.</p>
+<pre><code>https://dbdesigner.page.link/PPgSVdKY4gioSBGL8</code></pre>
+<p>Complete the following tasks:</p>
+<ul>
+<li>[X] Design the data model and use <em>knex migrations</em> to create the database and tables needed to satisfy the following business rules:</li>
+<li>[X] a <code>project</code> can have multiple <code>tasks</code>.</li>
+<li>[X] a <code>task</code> belongs to only one <code>project</code>.</li>
+<li>[X] a <code>project</code> can use multiple <code>resources</code>. Example of <code>resources</code> are: computer, conference room, microphone, delivery van.</li>
+<li>[X] the same <code>resource</code> can be used in multiple <code>projects</code>.</li>
+<li>[X] when adding <code>projects</code> the client must provide a name, the description is optional.</li>
+<li>[X] when adding <code>resources</code> the client must provide a name, the description is optional.</li>
+<li>[X] when adding a <code>task</code> the client must provide a description, the notes are optional.</li>
+<li>[X] when adding a <code>task</code> the client must provide the <code>id</code> of an existing project.</li>
+<li>[X] for <code>projects</code> and <code>tasks</code> if no value is provided for the <code>completed</code> property, the API should provide a default value of <code>false</code>.</li>
+<li>[X] Build an API with endpoints for:
+<ul>
+<li>[X] adding resources.</li>
+<li>[X] retrieving a list of resources.</li>
+<li>[X] adding projects.</li>
+<li>[X] retrieving a list of projects.</li>
+<li>[X] adding tasks.</li>
+<li>[X] retrieving a list of tasks. <strong>The list of tasks should include the project name and project description</strong>.</li>
+</ul></li>
+</ul>
+<h3 id="entities">Entities</h3>
+<p>A <code>project</code> is what needs to be done. We want to store the following data about a <code>project</code>:</p>
+<ul>
+<li>[X] a unique ID.</li>
+<li>[X] a name. This column is required.</li>
+<li>[X] a description.</li>
+<li>[X] a boolean that indicates if the project has been completed. This column cannot be NULL, the default value should be <code>false</code>.</li>
+</ul>
+<p>A <code>resource</code> is anything needed to complete a project, some examples are: a person, a tool, a meeting room or a software license. We want to store the following data about a <code>resource</code>:</p>
+<ul>
+<li>[X] a unique ID.</li>
+<li>[X] a name. This column is required.</li>
+<li>[X] a description.</li>
+</ul>
+<p>The database should not allow resources with duplicate names.</p>
+<p>A <code>task</code> one of the steps needed to complete the project. We want to store the following data about an <code>task</code>.</p>
+<ul>
+<li>[X] a unique ID.</li>
+<li>[X] a description of what needs to be done. This column is required.</li>
+<li>[X] a notes column to add additional information.</li>
+<li>[X] a boolean that indicates if the task has been completed. This column cannot be NULL, the default value should be <code>false</code>.</li>
+</ul>
+<h2 id="stretch-problem">Stretch Problem</h2>
+<p>This section is <strong>optional</strong> and not counted towards MVP. Start working on it after you’re done with the main assignment.</p>
+<ul>
+<li>[ ] Add an endpoint for retrieving a <code>project</code> by its <code>id</code> that returns an object with the following structure:</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="dt">id</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;project name here&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-4" title="4">  <span class="dt">description</span><span class="op">:</span> <span class="st">&#39;the project description&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-5" title="5">  <span class="dt">completed</span><span class="op">:</span> <span class="kw">false</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-6" title="6">  <span class="co">// or true, the database will return 1 for true and 0 for false, extra code is required to convert a 1 to true and a 0 to false.</span></a>
+<a class="sourceLine" id="cb6-7" title="7">  <span class="dt">tasks</span><span class="op">:</span> [</a>
+<a class="sourceLine" id="cb6-8" title="8">    <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-9" title="9">      <span class="dt">id</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-10" title="10">      <span class="dt">description</span><span class="op">:</span> <span class="st">&#39;task description&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-11" title="11">      <span class="dt">notes</span><span class="op">:</span> <span class="st">&#39;the task notes&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-12" title="12">      <span class="dt">completed</span><span class="op">:</span> <span class="kw">false</span> <span class="co">// or true</span></a>
+<a class="sourceLine" id="cb6-13" title="13">    <span class="op">},</span></a>
+<a class="sourceLine" id="cb6-14" title="14">    <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-15" title="15">      <span class="dt">id</span><span class="op">:</span> <span class="dv">7</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-16" title="16">      <span class="dt">description</span><span class="op">:</span> <span class="st">&#39;another task description&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-17" title="17">      <span class="dt">notes</span><span class="op">:</span> <span class="st">&#39;the task notes&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-18" title="18">      <span class="dt">completed</span><span class="op">:</span> <span class="kw">false</span> <span class="co">// or true</span></a>
+<a class="sourceLine" id="cb6-19" title="19">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-20" title="20">  ]<span class="op">,</span></a>
+<a class="sourceLine" id="cb6-21" title="21">  <span class="dt">resources</span><span class="op">:</span> [</a>
+<a class="sourceLine" id="cb6-22" title="22">    <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-23" title="23">      <span class="dt">id</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-24" title="24">      <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;Lambda Student&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-25" title="25">      <span class="dt">description</span><span class="op">:</span> <span class="st">&#39;a soon to be hired developer&#39;</span></a>
+<a class="sourceLine" id="cb6-26" title="26">    <span class="op">},</span></a>
+<a class="sourceLine" id="cb6-27" title="27">    <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-28" title="28">      <span class="dt">id</span><span class="op">:</span> <span class="dv">2</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-29" title="29">      <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;MacBook Pro #1&#39;</span></a>
+<a class="sourceLine" id="cb6-30" title="30">      <span class="dt">description</span><span class="op">:</span> <span class="st">&#39;an overly expensive laptop computer&#39;</span></a>
+<a class="sourceLine" id="cb6-31" title="31">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-32" title="32">  ]</a>
+<a class="sourceLine" id="cb6-33" title="33"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li><p>[X] Add the remaining CRUD operations for projects and tasks.</p></li>
+<li><p>[X] Use <code>knex</code> to add <em>data seeding</em> scripts for projects and tasks.</p></li>
+<li><p>[X] Add support for the concept of <code>contexts</code>. A context is something like <em>at home</em>, <em>at work</em> or <em>at computer</em>. The idea is that some tasks require one or more <code>contexts</code> in order to be worked on. For example, the task of <em>file income taxes</em> may require that you are <em>at home</em>, <em>at computer</em> and <em>online</em> so if you are <em>at work</em> and look at the list of pending tasks you could do in your current context, filing your taxes will not be one of them.</p></li>
+<li><p>[X] A <code>context</code> can be applied to more than one <code>task</code>. An task can be tied to more than one context, like in the example above.</p></li>
+<li><p>[X] When retrieving an <code>task</code> by <em>id</em>, add a property that lists all the <code>contexts</code> related to that task.</p></li>
+</ul>
+<p><em>Good luck and have fun!</em></p>
+</body></html>

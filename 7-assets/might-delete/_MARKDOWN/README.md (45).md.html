@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="cracking-a-caesar-cipher">Cracking a Caesar Cipher</h1>
+<p>You’re going to use <em>frequency analysis</em> to crack a Caesar cipher to recover the key and the plaintext.</p>
+<h2 id="caesar-ciphers">Caesar Ciphers</h2>
+<p>These are methods of encryption where you take the <em>plaintext</em> (the unencrypted text) and encrypt it by substituting one letter for another to produce the <em>ciphertext</em> (the encrypted text).</p>
+<p>For example, we might have the following mapping (which is the <em>key</em> for unlocking this cipher, not to be confused with a hash table key):</p>
+<pre><code>A -&gt; H   B -&gt; Z   C -&gt; Y   D -&gt; W   E -&gt; O
+F -&gt; R   G -&gt; J   H -&gt; D   I -&gt; P   J -&gt; T
+K -&gt; I   L -&gt; G   M -&gt; L   N -&gt; C   O -&gt; E
+P -&gt; X   Q -&gt; K   R -&gt; U   S -&gt; N   T -&gt; F
+U -&gt; A   V -&gt; M   W -&gt; B   X -&gt; Q   Y -&gt; V
+Z -&gt; S</code></pre>
+<p>So if you have plaintext like <code>HELLO, WORLD!</code>, use the above table and <code>H</code> becomes <code>D</code>, <code>E</code> becomes <code>O</code>, and so on to produce ciphertext <code>DOGGE, BEUGW!</code></p>
+<p>To decode, just do the reverse, <code>D</code> becomes <code>H</code>, etc.</p>
+<p>But what if you evesdrop on some ciphertext, but don’t know the key (the mapping). How can you decode it?</p>
+<h2 id="frequency-analysis">Frequency Analysis</h2>
+<p>Turns out, letters occur in the English language with a known frequency. The letter <code>A</code> is 8.46% of all letters, for example.</p>
+<p>(Disclaimer: these are not the actual frequencies in general english prose. They’re contrived for this specific challenge so that you get a decent result, but they’re quite close to the real percentages.)</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Letter</th>
+<th style="text-align: right;">Percentage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">E</td>
+<td style="text-align: right;">11.53</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">T</td>
+<td style="text-align: right;">9.75</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">A</td>
+<td style="text-align: right;">8.46</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">O</td>
+<td style="text-align: right;">8.08</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">H</td>
+<td style="text-align: right;">7.71</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">N</td>
+<td style="text-align: right;">6.73</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">R</td>
+<td style="text-align: right;">6.29</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">I</td>
+<td style="text-align: right;">5.84</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">S</td>
+<td style="text-align: right;">5.56</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">D</td>
+<td style="text-align: right;">4.74</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">L</td>
+<td style="text-align: right;">3.92</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">W</td>
+<td style="text-align: right;">3.08</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">U</td>
+<td style="text-align: right;">2.59</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">G</td>
+<td style="text-align: right;">2.48</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">F</td>
+<td style="text-align: right;">2.42</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">B</td>
+<td style="text-align: right;">2.19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">M</td>
+<td style="text-align: right;">2.18</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Y</td>
+<td style="text-align: right;">2.02</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">C</td>
+<td style="text-align: right;">1.58</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">P</td>
+<td style="text-align: right;">1.08</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">K</td>
+<td style="text-align: right;">0.84</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">V</td>
+<td style="text-align: right;">0.59</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">Q</td>
+<td style="text-align: right;">0.17</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">J</td>
+<td style="text-align: right;">0.07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">X</td>
+<td style="text-align: right;">0.07</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Z</td>
+<td style="text-align: right;">0.03</td>
+</tr>
+</tbody>
+</table>
+<p>In other words, ordered from most frequently used to least, the letters are:</p>
+<pre><code>&#39;E&#39;, &#39;T&#39;, &#39;A&#39;, &#39;O&#39;, &#39;H&#39;, &#39;N&#39;, &#39;R&#39;, &#39;I&#39;, &#39;S&#39;, &#39;D&#39;, &#39;L&#39;, &#39;W&#39;, &#39;U&#39;,
+&#39;G&#39;, &#39;F&#39;, &#39;B&#39;, &#39;M&#39;, &#39;Y&#39;, &#39;C&#39;, &#39;P&#39;, &#39;K&#39;, &#39;V&#39;, &#39;Q&#39;, &#39;J&#39;, &#39;X&#39;, &#39;Z&#39;</code></pre>
+<p><code>E</code> is the most frequent letter. <code>Z</code> is the least frequent. And <code>M</code> is somewhere in the middle.</p>
+<p>So if you have a large enough block of ciphertext, you can analyze the frequency of letters in there. And if <code>X</code> is the most frequent, then it’s a safe bet that the key includes this mapping:</p>
+<pre><code>E -&gt; X</code></pre>
+<h2 id="challenge">Challenge</h2>
+<p>Write a program that automatically finds the key for the ciphertext in the file <a href="ciphertext.txt"><code>ciphertext.txt</code></a>, then decodes it and shows the plaintext.</p>
+<p>(All non-letters should pass through the decoding as-is, i.e. spaces and punctuation should be preserved. The input will not contain any lowercase letters.)</p>
+<p>No tests are provided for this one, but the result should be readable, with at most a handful of incorrect letters.</p>
+</body></html>

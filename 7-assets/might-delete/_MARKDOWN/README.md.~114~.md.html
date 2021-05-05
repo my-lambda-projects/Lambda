@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="auth-friends">Auth Friends</h1>
+<p>Topics:</p>
+<ul>
+<li>React Router</li>
+<li>Protected Routes</li>
+<li><code>axios</code> package</li>
+<li>AJAX</li>
+<li>Promises</li>
+<li>Authentication tokens</li>
+</ul>
+<h2 id="project-description">Project Description</h2>
+<ul>
+<li>There is an API built that has authentication built into it. The API holds a list of friends and lets you add, edit, or remove friends from that list.</li>
+<li>All of the API endpoints (except the login endpoint) are considered "protected”, meaning you have to make the request with an authentication token in the header or the API will send back a <code>401</code> error.</li>
+<li>Take your examples from the guided project and use them to build a more sophisticated application. Have fun!</li>
+<li>Once your server is up and running, the URL you’ll be able to hit from within your app is <code>http://localhost:5000</code>. You will however need an authentication header on all the calls except the login call.</li>
+<li><p>Take a look at the endpoints that our API has to offer in <code>server.js</code>.</p>
+<ul>
+<li><strong>[POST]</strong> * to <code>/api/login</code>: returns a token to be added to the header of all other requests. Pass in the following credentials as the <code>body</code> of the request: <code>{ username: 'Lambda School', password: 'i&lt;3Lambd4' }</code></li>
+<li><strong>[GET]</strong> to <code>/api/friends</code>: returns the list of friends.</li>
+<li><strong>[GET]</strong> to <code>/api/friends/123</code>: returns the friend with the id passed as part of the URL (123 in example).</li>
+<li><strong>[POST]</strong> to <code>/api/friends</code>: creates a friend and return the new list of friends. Pass the friend as the <code>body</code> of the request (the second argument passed to <code>axios.post</code>).</li>
+<li><strong>[PUT]</strong> to <code>/api/friends/:id</code>: updates the friend using the <code>id</code> passed as part of the URL. Send the an object with the updated information as the <code>body</code> of the request (the second argument passed to <code>axios.put</code>).</li>
+<li><strong>[DELETE]</strong> to <code>/api/friends/123</code>: removes the friend using the <code>id</code> passed as part of the URL (123 in example).</li>
+</ul></li>
+</ul>
+<h2 id="initialize-project">Initialize Project</h2>
+<ul>
+<li>[X] Run <code>yarn</code> or <code>npm i</code> inside the root directory of this project to install dependencies.</li>
+<li>[X] Run <code>yarn start</code> or <code>npm start</code> to start the API server.</li>
+<li>[X] Run <code>create-react-app friends</code> in a separate terminal window in the root directory of the project to create your starter application.</li>
+<li>[X] <code>cd</code> into the <em>friends</em> folder and type <code>yarn add axios react-router-dom</code> which will install the needed dependencies.</li>
+</ul>
+<h2 id="build-the-app">Build the App!</h2>
+<ul>
+<li>[X] Add a route for a login page and build out a simple login form with username and password inputs and a submit button (design this however you would like).</li>
+<li>[X] The login function should save the returned token to localStorage. You can setup <code>isLoading</code> state in your Login component, and show a spinner on your form or in your button while the login request is happening.</li>
+<li>[X] When the request returns, save the token to <code>localStorage</code>, then use the history object in your Login component to navigate your user to your FriendsList route</li>
+<li>[X] Create a <code>&lt;PrivateRoute /&gt;</code> component to protect your other routes. It should check localStorage for a token, and redirect the user to your login route if there is not a token.</li>
+<li>[X] Create a protected route for your friends list. Remember, if the user isn’t logged in, navigating to this protected route will redirect them to the login page.</li>
+<li>[X] In your FriendsList component, rendered with <code>&lt;ProtectedRoute /&gt;</code>, you will create a list of your friends that you get from the API.</li>
+</ul>
+<p><strong>Adding New Friends</strong> - [X] Create a form to collects data for a new friend. - [X] Make a POST request to add a friend to the database - [X] Each <code>friend</code> item that is in the <code>friends</code> array should have the following format:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="dt">id</span><span class="op">:</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;Joe&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="dt">age</span><span class="op">:</span> <span class="dv">24</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="dt">email</span><span class="op">:</span> <span class="st">&#39;joe@lambdaschool.com&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="op">}</span></a></code></pre></div>
+<ul>
+<li>[X] If you’d like, you can create multiple "view” components for your routes. You could have a component who’s sole purpose is to render the login form; one for a form for updating a user; another component who’s sole purpose is for creating users; and then another component who’s sole purpose is to delete a user.</li>
+<li>[X] It really is up to you how you build this project. I suggest writing down the flow you want to follow, and then writing down each individual piece you need for each step in the flow so that this process doesn’t feel as overwhelming.</li>
+</ul>
+<h2 id="stretch-problem">Stretch Problem</h2>
+<ul>
+<li>[X] In the requirements for this project, we implemented a login POST operation, a GET operation, and a "add friend” POST operation. Add two more functions, one for making a PUT request, and the other for making a DELETE request.</li>
+<li>[X] Style the friends list and the input field and make everything look nice.</li>
+<li>[ ] Expand the number of properties that you put on each friend object. Feel free to remove the dummy data on the server or modify it in any way.</li>
+</ul>
+</body></html>

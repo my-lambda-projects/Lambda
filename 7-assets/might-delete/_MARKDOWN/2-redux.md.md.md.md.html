@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="redux">Redux</h1>
+<h2 id="review-reducers">Review: Reducers</h2>
+<p>In the context of React and state management, a reducer is a pure function that takes the previous state and an action, and returns the next state:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1">reducer <span class="op">=</span> (previousState<span class="op">,</span> action) <span class="kw">=&gt;</span> nextState</a></code></pre></div>
+<p>Here are the three main aspects of the reducer pattern: * <strong>Reducer</strong>: takes an action and current state (both objects!) and returns the new state * <strong>Action</strong>: object that includes a string specifying the type of action to be performed, and any data needed by the reducer to properly update state (e.g., the text inputted by a user in a form) * <strong>Dispatch function</strong>: <em>dispatches</em> an action to the reducer</p>
+<h2 id="review-higher-order-components">Review: Higher Order Components</h2>
+<p>A higher-order component (HOC) is a function that takes a component and returns a new component:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> EnhancedComponent <span class="op">=</span> <span class="at">higherOrderComponent</span>(WrappedComponent)<span class="op">;</span></a></code></pre></div>
+<p>In the context of Redux, we’ll be using this pattern with the <code>connect</code> function in order to "enhance” the components of our application with the ability to read values from the Redux store and dispatch actions to update the store.</p>
+<h2 id="managing-shared-state-across-multiple-components">Managing shared state across multiple components</h2>
+<p>Without a state management system like Redux, our only notion of state is at the level of each component and all interactions must be achieved with "prop drilling”, passing data and state management functions down the component tree. Redux is all about consolidating this and managing <strong>application-level state</strong>.</p>
+<p>We can still work with <code>useState</code> for managing state at the component level, but for bigger-picture concerns of our application we’ll make the Redux store our single source of truth.</p>
+<h2 id="the-redux-architecture">The Redux architecture</h2>
+<ol type="1">
+<li>Store - holds the state of your application</li>
+<li>Action - describes the changes in the state of the application</li>
+<li>Reducer - actually carries out the state transition depending on the action</li>
+</ol>
+<p>Redux uses a strict <strong>unidirectional data flow</strong> to keep everything organized:</p>
+<figure>
+<img src="images/redux.gif" alt="Redux gif" /><figcaption>Redux gif</figcaption>
+</figure>
+<h2 id="principles-of-redux">3 principles of Redux</h2>
+<ol type="1">
+<li>Single source of truth: Redux manages the global state of your application within a single store</li>
+<li>State is read-only: The only way to change the state is to emit an action</li>
+<li>To describe how the state tree is transformed by actions, we write pure reducers.</li>
+</ol>
+<h2 id="actions-and-action-creators">Actions and action creators</h2>
+<p>An action is simply an object with this format:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">const</span> action <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="dt">type</span><span class="op">:</span> <span class="st">&#39;UPDATE_TITLE&#39;</span> <span class="co">// action types are UPPER_CASE string constants by convention</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="dt">payload</span><span class="op">:</span> <span class="st">&#39;New Title&#39;</span> <span class="co">// data needed to update state</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="op">}</span></a></code></pre></div>
+<p>In Redux, we take the pattern one step further by defining functions called <em>action creators</em>. These are exactly what they sound like, and their only purpose is to simply return an action.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="co">// updateTitle action creator</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="im">export</span> <span class="kw">const</span> updateTitle <span class="op">=</span> newTitle <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="cf">return</span> <span class="op">{</span> <span class="dt">type</span><span class="op">:</span> <span class="st">&quot;UPDATE_TITLE&quot;</span><span class="op">,</span> <span class="dt">payload</span><span class="op">:</span> newTitle <span class="op">};</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="op">};</span></a></code></pre></div>
+<h2 id="communicating-with-the-redux-store-connect">Communicating with the Redux store: <code>connect</code></h2>
+<p>Since we’ve learned the reducer pattern, we already understand the fundamentals of Redux. The Redux store is just a "state container” that stores application state and uses reducers to update state in a predictable way.</p>
+<p>So how do we interact with the store from our React components? We wrap our application with <code>&lt;Provider&gt;</code> and then use the <code>connect</code> function on each component to make the Redux store available from that component.</p>
+<p><code>connect</code> takes two arguments corresponding to the two direction of communication (receiving values from the store, and updating it). Here’s what they mean: * <code>mapStateToProps</code>: which parts of application-level state are relevant to you (the component)? Let me (Redux) know and I’ll keep you up to date, sending over those values directly as props whenever the store is updated. * <code>mapDispatchToProps</code>: in what specific ways would you (the component) like to be able to update the store? List each action here and I’ll provide a corresponding function for each one, passed to you as props. When you’re looking to update application-level state, just call one of those functions and you’re done. I’ll handle all the reducer-y stuff for you.</p>
+<p>When we <strong>connect</strong> a component to the Redux store, we’re providing a helpful interface to be able to update our component with the latest application-level state, and also trigger updates to the application-level state from our component.</p>
+<p>The way we actually set things up is a bit complex, but the goals behind this pattern are intuitive. Just remember that the whole idea is for components to be able to communicate with the store, to both read and update application state. Our component receives the most up-to-date values from the store as props, and to update the store we just call functions that are also passed to the component as props.</p>
+<h2 id="putting-it-all-together">Putting it all together</h2>
+<p>Here’s a visual summary showing how we set up Redux and <code>connect</code> a component to be able to read state values from the store (<code>mapStatetoProps</code>) and also update the store by dispatching reducer actions (<code>mapDispatchToProps</code>):</p>
+<figure>
+<img src="images/connect.png" alt="Redux gif" /><figcaption>Redux gif</figcaption>
+</figure>
+<p>Both of these arguments are functions that return objects:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">const</span> mapStateToProps <span class="op">=</span> state <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="co">// map each value to be read from the store to a prop</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="cf">return</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-4" title="4">    <span class="dt">editing</span><span class="op">:</span> <span class="va">state</span>.<span class="at">editing</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-5" title="5">    <span class="dt">title</span><span class="op">:</span> <span class="va">state</span>.<span class="at">title</span></a>
+<a class="sourceLine" id="cb5-6" title="6">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="op">};</span></a>
+<a class="sourceLine" id="cb5-8" title="8"></a>
+<a class="sourceLine" id="cb5-9" title="9"><span class="kw">const</span> mapDispatchToProps <span class="op">=</span> dispatch <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-10" title="10">  <span class="co">// build a dispatching function from each action creator</span></a>
+<a class="sourceLine" id="cb5-11" title="11">  <span class="cf">return</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-12" title="12">    <span class="dt">updateTitle</span><span class="op">:</span> newTitle <span class="kw">=&gt;</span> <span class="at">dispatch</span>(<span class="at">updateTitle</span>(newTitle))<span class="op">,</span> </a>
+<a class="sourceLine" id="cb5-13" title="13">    <span class="dt">toggleEditing</span><span class="op">:</span> () <span class="kw">=&gt;</span> <span class="at">dispatch</span>(<span class="at">toggleEditing</span>())<span class="op">,</span></a>
+<a class="sourceLine" id="cb5-14" title="14">    <span class="co">// other actions here</span></a>
+<a class="sourceLine" id="cb5-15" title="15">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb5-16" title="16"></a>
+<a class="sourceLine" id="cb5-17" title="17"><span class="im">export</span> <span class="im">default</span> <span class="at">connect</span>(mapStateToProps<span class="op">,</span>mapDispatchToProps)(Title)<span class="op">;</span></a></code></pre></div>
+<p><code>connect</code> is itself a higher order function that <em>returns</em> a higher order component, which we then immediately invoke on our Title component in order to "enhance” it. (That’s a lot to take in, and if all this functional programming stuff feels like Inception to you, you’re not alone. But the "enhancement” we’re going for with all this is simply the ability to interact with the store.)</p>
+<p>The key idea to remember here is: <strong>we <code>connect</code> commponents so that they can communicate with the Redux store.</strong></p>
+<p>Once we’ve wired up our <code>&lt;Provider&gt;</code> and <code>connect</code> with all of this boilerplate code, most of the complexity is abstracted away and each component is enhanced with this convenient interface to interact with the store: * State values relevant to the component get passed in as props (updated with every application state change) * Functions to update application state also get passed to the component as props. (Each of these functions dispatches a corresponding action to a reducer in order to update the Redux store)</p>
+<h2 id="some-magic-behind-the-scenes-mapdispatchtoprops-shorthand">Some magic behind the scenes: mapDispatchToProps shorthand</h2>
+<p>In Redux we generally use a slightly different pattern than what we saw with the <code>useReducer</code> hook. Rather than dispatching actions directly from our components, we define <em>action creators</em>. Then we use those action creators to define simple functions that our components can call directly in order to update the store. That mapping happens in the second argument to <code>connect</code>, <code>mapDispatchToProps</code>.</p>
+<p>Thanks to <code>connect</code>, we can now just call the function <code>props.updateTitle</code> from within our component, and the right action type and payload will be dispatched to the reducer. This pattern of mapping <em>action creators</em> to functions with the same name allows React Redux to simplify things one step further, working some magic behind the scenes. Rather than writing all of this:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">const</span> mapDispatchToProps <span class="op">=</span> dispatch <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="cf">return</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-3" title="3">    <span class="dt">updateTitle</span><span class="op">:</span> newTitle <span class="kw">=&gt;</span> <span class="at">dispatch</span>(<span class="at">updateTitle</span>(newTitle))<span class="op">,</span> </a>
+<a class="sourceLine" id="cb6-4" title="4">    <span class="dt">toggleEditing</span><span class="op">:</span> () <span class="kw">=&gt;</span> <span class="at">dispatch</span>(<span class="at">toggleEditing</span>())</a>
+<a class="sourceLine" id="cb6-5" title="5">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="op">};</span></a></code></pre></div>
+<p>We can instead use this "object shorthand” format for <code>mapDispatchToProps</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="co">// This works exactly the same as the more verbose version above</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="co">// ES6 object shorthand for {updateTitle: updateTitle, toggleEditing: toggleEditing}</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="kw">const</span> mapDispatchToProps <span class="op">=</span> <span class="op">{</span>updateTitle<span class="op">,</span> toggleEditing<span class="op">};</span></a></code></pre></div>
+<p>(If you’re curious: behind the scenes, React Redux calls <code>bindActionCreators({updateTitle, toggleEditing}, dispatch)</code> to convert the shorthand object into the full mapping function.)</p>
+<p>We’ll almost always just use the shorthand, as it’s useful in making <code>connect</code> easier to use. But understanding what <code>mapDispatchToProps</code> does will help a lot in understanding how Redux works. As you’re starting out, try writing it out the long way a few times and then refactoring to the object shorthand. By doing this you’ll become really comfortable with <code>connect</code> and all of the patterns in play here.</p>
+<h2 id="summary-tldr">Summary / TL;DR</h2>
+<p>Redux is a predictable state container based on the reducer pattern, and it’s often used with React to manage application-level state. To connect our components to the Redux store: 1. Wrap the entire application with a Provider: <code>&lt;Provider&gt;&lt;App/&gt;&lt;/Provider&gt;</code>. The Provider component (from react-redux) <em>provides the store</em>, allowing every component in the app tree to access the Redux store. 2. Call <code>connect</code> on each component that needs to read from and update the store. Most components will need only a small subset of the application state, and many components may not need to use connect at all. We use these two arguments of <code>connect</code> to define the interface between the component and the store: * <code>mapStateToProps</code> (read interface): a function that returns an object, mapping specific values from the Redux state object to props that will be passed into the current component * <code>mapDispatchToProps</code> (write interface): an object containing the relevant <em>action creators</em> your component will use to update the store. The true form of <code>mapDispatchToProps</code> is in a format similar to <code>mapStateToProps</code>, a function that returns an object. But as long as we adhere to the standard pattern with action creators we can use this more convenient object shorthand.</p>
+<h2 id="helpful-resources">Helpful Resources</h2>
+<ul>
+<li><a href="https://redux.js.org/glossary">Redux Glossary</a></li>
+<li><a href="https://redux.js.org/introduction/three-principles">Three Principles of Redux</a></li>
+<li><a href="https://react-redux.js.org/api/connect">React Redux docs: connect, mapStateToProps, mapDispatchToProps</a></li>
+<li><a href="https://www.youtube.com/playlist?list=PLC3y8-rFHvwheJHvseC3I0HuYI2f46oAK">Codevolution React Redux tutorial</a></li>
+<li><a href="https://code-cartoons.com/a-cartoon-intro-to-redux-3afb775501a6">A Cartoon Intro to Redux</a></li>
+</ul>
+</body></html>

@@ -446,7 +446,7 @@
 <a class="sourceLine" id="cb28-4" title="4">  <span class="kw">var</span> hoistedVar <span class="op">=</span> <span class="dv">10</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb28-5" title="5"><span class="op">}</span></a></code></pre></div>
 <ul>
-<li>Even though we initially declared &amp; initizalized our variable underneath the console.log var variables are “hoisted” to the top, but only in declaration.</li>
+<li>Even though we initially declared &amp; initizalized our variable underneath the console.log var variables are ""hoisted” to the top, but only in declaration.</li>
 </ul>
 <p><strong>Block-Scoped Variables</strong></p>
 <p>Things that create block-scopes:</p>
@@ -558,7 +558,7 @@
 <li>If we try to invoke this on our global function in strict mode we will no longer be able to access it and instead just get undefined.</li>
 </ul>
 <p><strong>Changing Context using Bind</strong></p>
-<p>“The simplest use of <strong><code>bind()</code></strong> is to make a function that, no matter how it is called, is called with a particular this value”.</p>
+<p>""The simplest use of <strong><code>bind()</code></strong> is to make a function that, no matter how it is called, is called with a particular this value”.</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">let</span> cat <span class="op">=</span> <span class="op">{</span></a>
 <a class="sourceLine" id="cb32-2" title="2">  <span class="dt">purr</span><span class="op">:</span> <span class="kw">function</span> () <span class="op">{</span></a>
 <a class="sourceLine" id="cb32-3" title="3">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;meow&quot;</span>)<span class="op">;</span></a>

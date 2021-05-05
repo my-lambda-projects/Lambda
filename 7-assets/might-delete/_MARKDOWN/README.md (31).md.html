@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="merging-two-packages">Merging Two Packages</h1>
+<p>Given a package with a weight limit <code>limit</code> and a list <code>weights</code> of item weights, implement a function <code>get_indices_of_item_weights</code> that finds two items whose sum of weights equals the weight limit <code>limit</code>. Your function will return an instance of an <code>Answer</code> tuple that has the following form:</p>
+<pre><code>(zero, one)</code></pre>
+<p>where each element represents the item weights of the two packages. <em><strong>The higher valued index should be placed in the <code>zeroth</code> index and the smaller index should be placed in the <code>first</code> index.</strong></em> If such a pair doesn’t exist for the given inputs, your function should return <code>None</code>.</p>
+<p>Your solution should run in linear time.</p>
+<p>Example:</p>
+<pre><code>input: weights = [ 4, 6, 10, 15, 16 ], length = 5, limit = 21
+output: [ 3, 1 ]  # since these are the indices of weights 15 and 6 whose sum equals 21</code></pre>
+<h2 id="hints">Hints</h2>
+<ul>
+<li><p>A brute-force solution would involve two nested loops, yielding a quadratic-runtime solution. How can we use a hash table in order to implement a solution with a better runtime?</p></li>
+<li><p>Think about what we can store in the hash table in order to help us to solve this problem more efficiently.</p></li>
+<li><p>What if we store each weight in the input list as keys? What would be a useful thing to store as the value for each key?</p></li>
+<li><p>If we store each weight’s list index as its value, we can then check to see if the hash table contains an entry for <code>limit - weight</code>. If it does, then we’ve found the two items whose weights sum up to the <code>limit</code>!</p></li>
+</ul>
+</body></html>

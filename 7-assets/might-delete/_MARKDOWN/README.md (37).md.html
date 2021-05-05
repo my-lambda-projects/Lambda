@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="hash-tables">Hash Tables</h1>
+<h2 id="day-1">Day 1</h2>
+<p>Task: Implement a basic hash table without collision resolution.</p>
+<ol type="1">
+<li><p>[X] Implement a <code>HashTable</code> class and <code>HashTableEntry</code> class.</p></li>
+<li><p>[X] Implement a good hashing function (DJB2 &amp; FNV-1 (64-bit)).</p>
+<p>You are allowed to Google for these hashing functions and implement from psuedocode.</p></li>
+<li><p>[X] Implement the <code>hash_index()</code> that returns an index value fBor a key.</p></li>
+<li><p>[X] Implement the <code>put()</code>, <code>get()</code>, and <code>delete()</code> methods.</p></li>
+</ol>
+<p>You can test this with:</p>
+<pre><code>python test_hashtable_no_collisions.py</code></pre>
+<p>The above test program is <em>unlikely</em> to have collisions, but it’s certainly possible for various hashing functions. With DJB2 (32 bit) and FNV-1 (64 bit) hashing functions, there are no collisions.</p>
+<h2 id="day-2">Day 2</h2>
+<p>Task: Implement linked-list chaining for collision resolution.</p>
+<ol type="1">
+<li><p>[X] Modify <code>put()</code>, <code>get()</code>, and <code>delete()</code> methods to handle collisions.</p></li>
+<li><p>[X] There is no step 2.</p></li>
+</ol>
+<p>You can test this with:</p>
+<pre><code>python test_hashtable.py</code></pre>
+<p>Task: Implement load factor measurements and automatic hashtable size doubling.</p>
+<ol type="1">
+<li><p>[X] Compute and maintain load factor.</p></li>
+<li><p>[X] When load factor increases above <code>0.7</code>, automatically rehash the table to double its previous size.</p></li>
+<li><p>[X] Add the <code>resize()</code> method.</p></li>
+</ol>
+<p>You can test this with both of:</p>
+<pre><code>python test_hashtable.py
+python test_hashtable_resize.py</code></pre>
+<ol start="4" type="1">
+<li>[X] Stretch: When load factor decreases below <code>0.2</code>, automatically rehash the table to half its previous size, down to a minimum of 8 slots.</li>
+</ol>
+<h2 id="day-3-and-day-4">Day 3 and Day 4</h2>
+<p>Work on the hashtable applications directory (in any order you wish–generally arranged from easier to harder, below).</p>
+<p>For these, you can use either the built-in <code>dict</code> type, or the hashtable you built. (Some of these are easier with <code>dict</code> since it’s more full-featured.)</p>
+<ol start="5" type="1">
+<li>[X] <a href="applications/lookup_table/">Lookup Table</a></li>
+<li>[X] <a href="applications/expensive_seq/">Expensive Sequence</a></li>
+<li>[X] <a href="applications/word_count/">Word Count</a></li>
+<li>[X] <a href="applications/no_dups/">No Duplicates</a></li>
+<li>[X] <a href="applications/markov/">Markov Chains</a></li>
+<li>[X] <a href="applications/histo/">Histogram</a></li>
+<li>[X] <a href="applications/crack_caesar/">Cracking Caesar Ciphers</a></li>
+<li>[X] <a href="applications/sumdiff/">Sum and Difference</a></li>
+</ol>
+</body></html>

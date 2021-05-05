@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h4 id="please-add-your-answers-to-the-analysis-of-algorithms-exercises-here.">Please add your answers to the <strong><em>Analysis of Algorithms</em></strong> exercises here.</h4>
+<h2 id="exercise-i">Exercise I</h2>
+<ol type="a">
+<li><p>O(n) because n is the difference between the powers n^2 (worth of each step) and n^3 (max)</p></li>
+<li><p>O(n^2) because there are two nested loops</p></li>
+<li><p>O(n) because it is recursive</p></li>
+</ol>
+<h2 id="exercise-ii">Exercise II</h2>
+<ul>
+<li>loop through 0 to n-1 to represent each story</li>
+<li>you will not actually loop through every story, only up to where the eggs start breaking</li>
+<li>try to drop an egg off of each floor</li>
+<li>if it is successful (no breakage), go to next floor</li>
+<li>if egg breaks, save current story as variable and exit loop</li>
+<li>subtract 1 from current story</li>
+<li>return story</li>
+<li><p>The runtime of this would be O(n) because there is one loop and it is dependent on the number of building stories.</p></li>
+<li>Alternatively, you could do a binary search, start at n/2 and then do upper or lower half depending on if it breaks or not until you get the max floor.</li>
+<li><p>This would be runtime O(log n).</p></li>
+</ul>
+</body></html>

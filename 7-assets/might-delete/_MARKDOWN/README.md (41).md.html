@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="iterative-sorting-algorithms">Iterative Sorting Algorithms</h1>
+<h2 id="bubble-sort">Bubble Sort</h2>
+<p>In <strong>Bubble Sort</strong>, we make a series of swaps between adjacent elements, gradually moving larger elements towards the end of the array (or <em>bubbling</em> larger elements up).</p>
+<h3 id="algorithm">Algorithm</h3>
+<ol type="1">
+<li>Loop through your array
+<ul>
+<li>Compare each element to its neighbor</li>
+<li>If elements in wrong position (relative to each other, swap them)</li>
+</ul></li>
+<li>If no swaps performed, stop. Else, go back to the element at index 0 and repeat step 1.</li>
+</ol>
+<h3 id="real-world-applications">Real-World Applications</h3>
+<p><strong><em>Bubble Sort</em></strong> is not ideal for many real-world applications. If a small element that <em>should</em> be at the beginning of our array is originally located near the end, it will take a long time to move it into its correct position.</p>
+<p>However, it should be noted that if you perform <strong>Bubble Sort</strong> on an array that’s already sorted, it will only require a single pass through the array, making its best-case performance linear. It’s also very simple to implement.</p>
+<h2 id="selection-sort">Selection Sort</h2>
+<p><strong><em>Selection Sort</em></strong> is an algorithm that many of you have probably used before when sorting things in your everyday lives. Imagine that you have several books you want to arrange on a shelf from shortest to tallest. You start off by looking for the shortest book, and when you find it, put it on the far left side of the shelf. Then, you look for the second shortest book and insert it directly to the right of the first book. You repeat this process, selecting the next shortest book and moving it next to the most recently placed book, until you have moved all books into the correct place. This is <strong><em>Selection Sort</em></strong>.</p>
+<p>An example of this algorithm being applied to an array with 10 numerical elements can be seen in the video below.</p>
+<p><a href="https://www.youtube.com/watch?v=Ns4TPTC8whw">(VIDEO) Select-sort with Gypsy folk dance</a></p>
+<p><a href="https://www.youtube.com/watch?v=Ns4TPTC8whw"><img src="https://i.ytimg.com/vi/Ns4TPTC8whw/hqdefault.jpg" alt="(VIDEO) Select-sort with Gypsy folk dance" /></a></p>
+<h3 id="algorithm-1">Algorithm</h3>
+<ol type="1">
+<li><p>Start with current index = 0</p></li>
+<li><p>For all indices EXCEPT the last index:</p>
+<ol type="a">
+<li><p>Loop through elements on right-hand-side of current index and find the smallest element</p></li>
+<li><p>Swap the element at current index with the smallest element found in above loop</p></li>
+</ol></li>
+</ol>
+<h3 id="real-world-applications-1">Real-World Applications</h3>
+<p>While <strong><em>Selection Sort</em></strong> is one of the easier sorting algorithms to understand and implement, it has one major drawback - its efficiency.</p>
+<p>Recall that the runtime complexity of an algorithm, often expressed using <em>Big O notation</em>, tells us how the amount of operations our algorithm requires will grow as the size of our input grows. <strong><em>Selection Sort</em></strong> has a runtime of O(n²), making it impractical to use with many large, real-world data sets.</p>
+</body></html>

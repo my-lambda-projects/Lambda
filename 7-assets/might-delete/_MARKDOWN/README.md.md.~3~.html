@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="introduction">Introduction</h1>
+<p>This sprint challenge combines the knowledge from this week’s Java Fundamentals lessons in order to create a Magical Piggy Bank using Java and the JDK.</p>
+<h1 id="instructions">Instructions</h1>
+<p>We have a magical "piggy bank” (a piggy bank is the traditional name of a place to store coins, bills, money). The piggy bank is magical because it can hold unlimited amounts of money. However, you can not get the money out of it.</p>
+<ul>
+<li>[X] Create a collection (array, arraylist, or hashmap) to represent the piggy bank.</li>
+<li>[X] The collection can hold money.<br />
+This money can be</li>
+<li>[X] A Dollar worth $1.00</li>
+<li>[X] A Quarter worth $0.25</li>
+<li>[X] A Dime worth $0.10</li>
+<li>[X] A Nickel worth $0.05</li>
+<li>[X] A Penny worth $0.01</li>
+</ul>
+<p>When creating a coin object, you can optionally give the number of coins being added. If no number is given, the default is 1 coin being added to the piggy bank.</p>
+<p>Each coin object should know:</p>
+<ul>
+<li>[X] its value</li>
+<li>[X] how many of that coin was added when that object was created</li>
+<li>[X] how to print its total value which is value * number of coins added.</li>
+</ul>
+<p>The main program will look something like this pseudocode: (remember pseudocode is not meant to be syntactically correct but explain the algorithm)</p>
+<ul>
+<li>[X] Create collection</li>
+<li>[X] piggyBank.add(new Quarter())</li>
+<li>[X] piggyBank.add(new Dime())</li>
+<li>[X] piggyBank.add(new Dollar(5))</li>
+<li>[X] piggyBank.add(new Nickel(3))</li>
+<li>[X] piggyBank.add(new Dime(7))</li>
+<li>[X] piggyBank.add(new Dollar())</li>
+<li>[X] piggyBank.add(new Penny(10))</li>
+<li>[ ] Print the contents of the Piggy Bank
+<ul>
+<li>on the console should appear<br />
+[ ] <code>1 Quarter</code><br />
+[ ] <code>1 Dime</code><br />
+[ ] <code>$5</code><br />
+[ ] <code>3 Nickels</code><br />
+[ ] <code>7 Dimes</code><br />
+[ ] <code>$1</code><br />
+[ ] <code>10 Pennies</code></li>
+</ul></li>
+<li>[X] Print the value of the Piggy Bank
+<ul>
+<li><p>[X] on the console should appear</p>
+<p><code>The piggy bank holds $7.30</code></p></li>
+<li>Note:
+<ul>
+<li>In order to format the output appropriately
+<ul>
+<li>[X] You will need to import java.text.DecimalFormat</li>
+<li>[X] At the beginning your program, initialize the format with this statement<br />
+[X] <code>DecimalFormat fp = new DecimalFormat("$###,###.00");</code></li>
+<li>[X] When you ready to print out the piggy bank value, use a statement like<br />
+[X] <code>System.out.println("The piggy bank holds " + fp.format(myValue));</code></li>
+</ul></li>
+<li>Also notice that when you have more than 1 coin, the pural of the coins name is printed.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="stretch-goals">Stretch Goals:</h2>
+<ul>
+<li>[X] Add the ability to remove coins from the piggy bank
+<ul>
+<li>[ ] Prevent taking more coins than present in the piggy bank</li>
+<li>[X] Coins do not have to be removed in the same quantity that were added. For example based on the main program above, removing 3 dimes would be allowed. The Piggy Bank should adjust appropriately.</li>
+<li><p>[X] Just the amount to be removed should be given. The program will figure out which coins to remove.</p></li>
+<li>[ ] subtract(1.50)</li>
+<li>[ ] print contents of the Piggy Bank
+<ul>
+<li>[ ] on the console on possible out come is<br />
+[ ] <code>$4</code><br />
+[ ] <code>7 Dimes</code><br />
+[ ] <code>$1</code><br />
+[ ] <code>10 Pennies</code></li>
+</ul></li>
+</ul></li>
+</ul>
+</body></html>

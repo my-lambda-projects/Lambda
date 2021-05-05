@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="sprint-challenge-single-page-applications">Sprint Challenge: Single Page Applications</h1>
+<h2 id="rick-morty-edition">Rick &amp; Morty Edition</h2>
+<p>This challenge allows you to practice the concepts and techniques learned over the past Sprint and apply them in a concrete project. This Sprint explored Single Page Applications, React Router I - II, and React Forms.</p>
+<h2 id="instructions">Instructions</h2>
+<p><strong>Read these instructions carefully. Understand exactly what is expected <em>before</em> starting this Sprint Challenge.</strong></p>
+<p>This is an individual assessment. All work must be your own. Your challenge score is a measure of your ability to work independently using the material covered through this sprint. You need to demonstrate proficiency in the concepts and objectives introduced and practiced in preceding days.</p>
+<p>You are not allowed to collaborate with students during the Sprint Challenge. However, you are encouraged to follow the twenty-minute rule and seek support by reaching out through DM to your TL. You have <strong>three hours to complete</strong> this challenge. <strong>Plan your time accordingly.</strong></p>
+<h2 id="commits">Commits</h2>
+<p>In case you ever need to return to old code. Remember your <strong>ABC: Always Be Committing!</strong></p>
+<h2 id="description">Description</h2>
+<p>In this challenge, you will create a Single Page Application complete with Client-Side Routing. It must consume a 3rd party API service (based on the TV show <a href="https://rickandmortyapi.com/documentation">Rick and Morty</a>.)</p>
+<h2 id="self-studyessay-questions">Self-Study/Essay Questions</h2>
+<p>Demonstrate your understanding of this Sprint’s concepts by answering the following free-form questions. Edit this document to include your answers after each question.</p>
+<ul>
+<li>[ ] Explain benefit(s) using <code>client-side routing</code>? &gt; Answer: JS manages the data for application within its own memore, if additional data is needed a call to a simple JSON-returning API will be made. Doesn’t refresh the page between routes and it is way faster when commuting between routes.</li>
+<li>[ ] What does AJAX stand for? &gt; Answer: Asynchronous JavaScript and XML</li>
+<li>[ ] What are <code>controlled components</code> in React? &gt; Answer: The React component that renders a form also controls what happens in that form on subsequent user input</li>
+</ul>
+<h2 id="project-set-up">Project Set Up</h2>
+<p>Follow these steps to set up and work on your project:</p>
+<ul>
+<li>[ ] Create a forked copy of this project.</li>
+<li>[ ] Add TL as collaborator on GitHub.</li>
+<li>[ ] Clone your OWN version of Repo (Not Lambda’s by mistake!).</li>
+<li>[ ] Create a new Branch on the clone: <code>git checkout -b &lt;firstName-lastName&gt;</code>.</li>
+<li>[ ] Implement the project on this branch, committing changes regularly.</li>
+<li>[ ] Push commits: <code>git push origin &lt;firstName-lastName&gt;</code>.</li>
+<li>[ ] <strong>LOOK</strong> at your project directory and notice it’s just a plain ol’ React App that we’ve built using <code>create-react-app</code>.</li>
+<li>[ ] <strong>RUN</strong> <code>yarn install</code> or <code>npm install</code> to retrieve the client-side dependencies.</li>
+<li>[ ] <strong>RUN</strong> <code>yarn start</code> or <code>npm start</code> to fire up your React application.</li>
+</ul>
+<h4 id="exceeded-rate-limits">Exceeded rate limits?</h4>
+<details>
+<p><summary>⚠️ Expand for alternate API URL</summary></p>
+<p>If the <a href="https://rickandmortyapi.com/documentation">main API service</a> goes down, or you exceed rate limits, try the following URL:</p>
+<p><a href="https://rick-api.herokuapp.com/api/"><strong>Backup URL:</strong></a> <code>https://rick-api.herokuapp.com/api/</code></p>
+You can still be locked out - watch your <a href="https://developers.google.com/web/tools/chrome-devtools/network/reference">chrome devtools’ network panel</a> to make sure you aren’t making too many requests.
+</details>
+<p><a href="#completing">Instructions to completing</a></p>
+<h2 id="minimum-viable-product-mvp">Minimum Viable Product (MVP)</h2>
+<blockquote>
+<p>The MVP of this project is broken up between a couple parts.</p>
+</blockquote>
+<ol type="1">
+<li>Plan: Divide your allowed time, use either 15, 30 or 60 minute intervals.
+<ol type="1">
+<li>Plan estimated targets or waypoints ("By the ‘1 hour’ mark I’ll have 1 component functionally completed &amp; styled”). <strong>This is mostly about time-boxing.</strong></li>
+<li>If you get stuck - maximize your time: try building another part, going back to previous working commit, or asking your TL for help.</li>
+</ol></li>
+<li>Follow <a href="#part-1">each part</a>.</li>
+<li>Find design resources OR use your design skills make the application look professional.</li>
+</ol>
+<h4 id="mvp-preview">MVP Preview:</h4>
+<figure>
+<img src="https://user-images.githubusercontent.com/397632/61949095-f1d05c80-af66-11e9-9712-80ce3da84675.gif" alt="SPA-Sprint-Challenge-Preview" /><figcaption>SPA-Sprint-Challenge-Preview</figcaption>
+</figure>
+<h3 id="part-1">Part 1</h3>
+<p>Construct a Single Page Application with React incorporating multiple components.</p>
+<p>Keep your components separate and design them before adding in your Router.</p>
+<p>You can test them individually before adding in the Router (<a href="#part-2">Part 2</a>).</p>
+<p>Create 3 page components to display data from 3 API endpoints:</p>
+<ul>
+<li><code>https://rickandmortyapi.com/api/character/</code> - <a href="https://rickandmortyapi.com/documentation/#get-all-characters"><code>docs</code></a></li>
+<li><code>https://rickandmortyapi.com/api/location/</code> - <a href="https://rickandmortyapi.com/documentation/#get-all-locations"><code>docs</code></a></li>
+<li><code>https://rickandmortyapi.com/api/episode/</code> - <a href="https://rickandmortyapi.com/documentation/#get-all-episodes"><code>docs</code></a></li>
+<li>You will need to add a EpisodeList and EpisodeCard component yourself.</li>
+<li>[ ] Read the <a href="https://rickandmortyapi.com/documentation/">Rick &amp; Morty API</a> docs.</li>
+<li>[ ] Create a component to show a grid of data from the API.
+<ul>
+<li>[ ] Include <code>useState</code>, <code>useEffect</code>.</li>
+<li>[ ] Use <code>Axios</code> (or <code>fetch</code>) to make a GET request to the 3 endpoints.</li>
+<li><em>Example API Endpoint: <code>https://rickandmortyapi.com/api/character/</code></em></li>
+<li>[ ] Display API results using a <a href="https://react.semantic-ui.com/views/card/#content-image-card">card</a> grid or <a href="https://react.semantic-ui.com/elements/list/#content-icon">list</a> UI on the page.</li>
+<li>[ ] Design each ‘page’ layout based on the available fields. (See docs for <a href="https://rickandmortyapi.com/documentation/#character-schema">schema</a> details.)</li>
+<li>[ ] Use a styling or component library for part of or all of your application. (Pick at least 1 of: <a href="https://react.semantic-ui.com">Semantic-UI</a>, <a href="https://react-bootstrap.github.io/">React Bootstrap</a>, <a href="https://material-ui.com/">Material-UI</a>, <a href="https://www.styled-components.com/">styled components</a>, <a href="https://emotion.sh/docs/introduction">emotion</a>), etc.</li>
+<li>[ ] Before adding routing, ‘spot’ check each component manually by importing into <code>App.js</code> and adding to JSX.</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>💡<strong>Reminder:</strong> <code>git commit -am 'Card UI Loading Data Successfully'</code></p>
+</blockquote>
+<h3 id="part-2">Part 2</h3>
+<p>Add a Router to this application using <a href="https://reacttraining.com/react-router/web/guides/quick-start">React Router</a>.</p>
+<blockquote>
+<p><strong>Tip:</strong> Review the <a href="https://reacttraining.com/react-router/web/guides/quick-start">examples on the React Router site.</a></p>
+</blockquote>
+<ul>
+<li>[ ] Declare your routes with <code>&lt;Route&gt;</code> components (for each component created above.)
+<ul>
+<li>[ ] Include <code>/character</code>, <code>/location</code> and <code>/episode</code> routes.</li>
+</ul></li>
+<li>[ ] In your <code>App</code> component, add a navigation menu, <a href="https://react.semantic-ui.com/modules/tab/#types-basic">tab bar</a>, or similar. (Hint: Make sure to use React Routers <code>NavLink</code> to link to your different pages.)</li>
+<li><p>[ ] If you have any <code>&lt;a&gt;</code> tags, replace them with <code>&lt;Link&gt;</code> or <code>&lt;NavLink&gt;</code> components.</p></li>
+<li><p>[ ] <strong>Make sure all tasks are complete:</strong> Do a global search (Cmd-Shift-F in VS Code) for the string <code>TODO:</code>.</p></li>
+</ul>
+<blockquote>
+<p>💡<strong>Reminder:</strong> <code>git commit -am 'MVP Completed'</code></p>
+</blockquote>
+<hr />
+<blockquote>
+<p>🚀 <strong>Pro Tip: Complete as many stretch goals as possible!</strong> Even after the Sprint Challenge! You’ll get a head start on important upcoming concepts!</p>
+</blockquote>
+<h2 id="stretch-goals">STRETCH GOALS 💪</h2>
+<p>There’s a range of difficulty in the options below. 😈</p>
+<p><em>Note:</em> The most difficult stretch goal(s) could take an expert an hour or more.</p>
+<p>Start with the most <em>familiar (or fun) sounding</em> stretch goal. Complete search component to your list views. - [ ] Add the <code>&lt;SearchForm /&gt;</code> component (see <code>./components/SearchForm.js</code>). - [ ] Wire up the <code>onSearch(name)</code> callback prop to support <a href="https://rickandmortyapi.com/documentation/#filter-characters">querying the API</a>. (To search for <code>rick</code>, you would request <code>/api/character/?name=rick</code>.) - [ ] <em>Remember:</em> <code>useEffect</code> must reference any state on which it <em>depends</em>.</p>
+<ul>
+<li>[ ] Animate page transition and/or card loading.</li>
+<li>[ ] Persist search form field(s) by using the custom hook <code>useLocalStorage</code>.</li>
+<li>[ ] Add error handling for all async (axios/AJAX) calls. (Including some styled UI.)</li>
+<li>[ ] Add a "details view” and route to show more details for each type of record. (Hint: Look into route parameters or nested routes.)
+<ul>
+<li>[ ] Similar to the "details view” now with a UI twist: use a <a href="https://react.semantic-ui.com/modules/modal/#variations-size">modal</a> component to show item view. (If you can, build <a href="https://codesandbox.io/s/react-router-modal-gallery-classes-example-z98l5">modal with routes</a>.)</li>
+</ul></li>
+<li>[ ] Add <a href="https://react.semantic-ui.com/addons/pagination/#types-pagination">paging support</a> (next/previous links.)</li>
+<li>[ ] Refactor to use as few Components as possible - while still readable to a React Dev. (Hint: research these patterns: HoC, render props, FaaC.)</li>
+<li>[ ] Add additional fields to search form. They are unique for each endpoint. See <a href="https://rickandmortyapi.com/documentation/#filter-characters"><strong>Available parameters</strong>.</a>, etc..</li>
+<li>[ ] Use the <a href="https://rickandmortyapi.com/documentation/#graphql">GraphQL Endpoint</a> with multiple search fields.</li>
+</ul>
+<blockquote>
+<p>💡<strong>Reminder:</strong> <code>git commit -am 'Stretch Progress 💪'</code></p>
+</blockquote>
+<h2 id="completing">Completing</h2>
+<blockquote>
+<p>Follow these steps to complete your project:</p>
+</blockquote>
+<ul>
+<li>[ ] Submit a Pull Request to merge <code>&lt;firstName-lastName&gt;</code> branch into master (student’s repo).</li>
+<li>[ ] Add your TL as a Reviewer on the Pull Request.</li>
+<li>[ ] TL then will count the HW as done by merging the branch into master.</li>
+</ul>
+<!-- TLs: NOTE: use resources to coach, or share over zoom - avoid sharing entire solution folder. Share preview links if available. -->
+<blockquote>
+<p><strong>Note:</strong> AFTER Sprint Challenge: <a href="https://github.com/LambdaSchool/Sprint-Challenge-Single-Page-Apps-Solution/pulls">Solutions to many stretch goals</a> (and live demo URLs) are available from TLs (or GitHub admins.)</p>
+</blockquote>
+<p>There are many ways to implement each of these requirements!</p>
+</body></html>

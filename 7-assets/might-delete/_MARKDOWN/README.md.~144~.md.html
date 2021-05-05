@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="sprint-challenge-authentication---dad-jokes">Sprint Challenge: Authentication - Dad Jokes</h1>
+<h2 id="description">Description</h2>
+<p>In this challenge, you build a real wise-guy application. <em>Dad jokes</em> are all the rage these days. Currently the application is trying to receive some <code>Dad Jokes</code>, however we are locked out.</p>
+<h2 id="instructions">Instructions</h2>
+<p><strong>Read these instructions carefully. Understand exactly what is expected <em>before</em> starting this Sprint Challenge.</strong></p>
+<p>This is an individual assessment, please work on it alone. It is an opportunity to demonstrate proficiency in the concepts and objectives introduced and practiced in preceding days.</p>
+<p>If the instructions are not clear, please seek support from your TL and Instructor on Slack.</p>
+<p>The Minimum Viable Product must be completed in three hours.</p>
+<p>Follow these steps to set up and work on your project:</p>
+<ul>
+<li>[X] Create a forked copy of this project.</li>
+<li>[X] Add your <em>Team Lead</em> as collaborator on Github.</li>
+<li>[X] Clone your forked version of the Repository.</li>
+<li>[X] Create a new Branch on the clone: git checkout -b <code>firstName-lastName</code>.</li>
+<li>[X] Implement the project on this Branch, committing changes regularly.</li>
+<li>[X] Push commits: git push origin <code>firstName-lastName</code>.</li>
+</ul>
+<p>Follow these steps for completing your project.</p>
+<ul>
+<li>[X] Submit a Pull-Request to merge <code>firstName-lastName</code> branch into <code>master</code> on your fork. <strong>Please don’t make Pull Requests against Lambda’s repository</strong>.</li>
+<li>[X] Please don’t merge your own pull request.</li>
+<li>[X] Add your <em>Team Lead</em> as a Reviewer on the Pull-request</li>
+<li>[X] Your <em>Team Lead</em> will count the challenge as done by merging the branch into <em>master</em>.</li>
+</ul>
+<h2 id="commits">Commits</h2>
+<p>Commit your code regularly and use descriptive messages. This helps both you (in case you ever need to return to old code) and your Team Lead.</p>
+<h2 id="self-studyessay-questions">Self-Study/Essay Questions</h2>
+<p>Demonstrate your understanding of this week’s concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.</p>
+<ul>
+<li><p>[X] What is the purpose of using <em>sessions</em>?</p>
+<p>The purpose is to persist data across requests.</p></li>
+<li><p>[X] What does bcrypt do to help us store passwords in a secure manner.</p>
+<p>○ password hashing function. ○ implements salting both manual and automatically. ○ accumulative hashing rounds.</p></li>
+<li><p>[X] What does bcrypt do to slow down attackers?</p>
+<p>Having an algorithm that hashes the information multiple times (rounds) means an attacker needs to have the hash, know the algorithm used, and how many rounds were used to generate the hash in the first place. So it basically makes it a lot more difficult to get somebody’s password.</p></li>
+<li><p>[X] What are the three parts of the JSON Web Token?</p>
+<p>Header, payload, signature</p></li>
+</ul>
+<h2 id="minimum-viable-product">Minimum Viable Product</h2>
+<p>Implement an User Authentication System. Hash user’s passwords before saving them to the database. Use <code>JSON Web Tokens</code> or <code>Sessions and Cookies</code> to persist authentication across requests.</p>
+<ul>
+<li>[X] Implement the <code>register</code> and <code>login</code> functionality inside <code>/auth/auth-router.js</code>. A <code>user</code> has <code>username</code> and <code>password</code>. Both properties are required.</li>
+<li>[X] Implement the <code>authenticate</code> middleware inside <code>/auth/authenticate-middleware.js</code>.</li>
+<li>[X] Write a <strong>minimum o 2 tests</strong> per API endpoint. Write more tests if you have time.</li>
+</ul>
+<p><strong>Note</strong>: the database already has the users table, but if you run into issues, the migrations are available.</p>
+<h2 id="stretch-problem">Stretch Problem</h2>
+<p>Build a front end to show the jokes.</p>
+<ul>
+<li>[X] Add a React client that connects to the API and has pages for <code>Sign Up</code>, <code>Sign In</code> and showing a list of <code>Jokes</code>.</li>
+<li>[X] Once you have the functionality down, style it!</li>
+</ul>
+</body></html>

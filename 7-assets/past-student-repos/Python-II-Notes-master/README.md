@@ -273,7 +273,7 @@ if selection > 0 and selection <= len(my_store.categories)+1:
 
 ##### Inheritance and Association
 
-```Perhaps the most important concept in OOP, a class may inherit from another class. This gives the child class all of the variables and methods found in the parent class, or classes, automatically. Child classes can also override parent methods to define alternate or additional behaviors. Inheritance is also sometimes described as an “is-a” relationship.```
+```Perhaps the most important concept in OOP, a class may inherit from another class. This gives the child class all of the variables and methods found in the parent class, or classes, automatically. Child classes can also override parent methods to define alternate or additional behaviors. Inheritance is also sometimes described as an "is-a” relationship.```
 
 Often clarified by describing one as "is a" versus "has a"
 

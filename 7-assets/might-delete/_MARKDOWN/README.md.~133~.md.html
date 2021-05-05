@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="recipe-book">Recipe Book</h1>
+<h2 id="topics">Topics</h2>
+<ul>
+<li>database modeling.</li>
+<li>migration scripts.</li>
+<li>seeding.</li>
+<li>knex.</li>
+</ul>
+<h2 id="assignment">Assignment</h2>
+<p>Design the <strong>data model</strong> for a <em>recipe book</em> application, then use <code>Knex migrations and seeding</code> functionality to build a <code>SQLite3</code> database based on the model and seed it with test data.</p>
+<p>The requirements for the system, as stated by the client are:</p>
+<ul>
+<li>have a way to manage recipes.</li>
+<li>have a way to manage ingredients.</li>
+<li>a <strong>recipe</strong> could have more than one <strong>ingredient</strong> and the same <strong>ingredient</strong> can be used in multiple recipes. Examples are <em>"cup of corn flour”</em> or <em>"gram of butter”</em>.</li>
+<li>when saving the ingredients for a <strong>recipe</strong> capture the quantity required for that <strong>ingredient</strong> as a floating number.</li>
+<li>have a way to save step by step instructions for preparing a recipe.</li>
+</ul>
+<p><strong>Hint</strong>: Before writing any code, write out all desired tables in the data model and determine all relationships between tables.</p>
+<pre><code>https://dbdesigner.page.link/EVj5c1nyiUBmGpri6</code></pre>
+<h3 id="migrations-and-seeds">Migrations and Seeds</h3>
+<ul>
+<li>[X] Write a migration file that creates all tables necessary to model this data</li>
+<li>[X] Write seed files to populate the tables with test data. <strong>Hint</strong>: Keep your recipes <em>very</em> simple or this step could become extremely time consuming.</li>
+</ul>
+<h3 id="data-access">Data Access</h3>
+<p>In addition to the <code>migrations</code> and <code>seeding</code> scripts, write a data access file that <strong>exports</strong> an object with the following functions:</p>
+<ul>
+<li>[X] <code>getRecipes()</code>: should return a list of all recipes in the database.</li>
+<li>[X] <code>getShoppingList(recipe_id)</code>: should return a list of all ingredients and quantities for a given recipe</li>
+<li>[X] <code>getInstructions(recipe_id)</code>: should return a list of step by step instructions for preparing a recipe</li>
+</ul>
+<p>Organize and name your files anyway you see fit.</p>
+<h2 id="stretch-problem">Stretch Problem</h2>
+<p>Build the following endpoints. Write any additional data access helpers as needed.</p>
+<ul>
+<li>[X] <code>GET /api/recipes/</code>: all recipes (without details about ingredients or steps)</li>
+<li>[X] <code>GET /api/recipes/:id/shoppingList</code>: a list of ingredients and quantites for a single recipe</li>
+<li>[X] <code>GET /api/recipes/:id/instructions</code>: a correctly ordered list of how to prepare a single recipe</li>
+<li>[X] <code>GET /api/ingredients/:id/recipes</code>: all recipes in the system that utilize a single ingredient</li>
+</ul>
+</body></html>

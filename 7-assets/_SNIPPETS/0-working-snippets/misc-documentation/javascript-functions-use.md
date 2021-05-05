@@ -69,7 +69,7 @@ console.log(calculator.result);   // 3
    this.age = age;  
    this.eyeColor = eyeColor;  
    this.name = function() {  
-      **return** this.firstName + “ “ + this.lastName;  
+      **return** this.firstName + " " + this.lastName;  
    };  
 }**const** father = new Person(‘Patrick’, ‘Henry’, 56, ‘blue’);console.log(father.name());  // _'Patrick Henry'_
 
@@ -148,8 +148,8 @@ For example, suppose you want to write a function that **returns a unique intege
 
 You could store this information in a global variable, but that is unnecessary because the information is used only by the function itself. It is better to store the information in a **property of the Function object**.
 
-_/\* Create and initialise the “static” variable. Function declarations are processed before code is executed, so we can do this assignment before the function declaration. \*/_uniqueInteger.counter = 0;_/\* Here’s the function. It returns a different value each time it is called and uses a “static” property of itself to keep track of the last value it returned. \*/_**function** uniqueInteger(){  
-   _// increment and return our “static” variable_ **return** uniqueInteger.counter ++;   
+_/\* Create and initialise the "static” variable. Function declarations are processed before code is executed, so we can do this assignment before the function declaration. \*/_uniqueInteger.counter = 0;_/\* Here’s the function. It returns a different value each time it is called and uses a "static” property of itself to keep track of the last value it returned. \*/_**function** uniqueInteger(){  
+   _// increment and return our "static” variable_ **return** uniqueInteger.counter ++;   
 }const i = uniqueInteger(); _// 0_  
 const j = uniqueInteger(); _// 1_  
 const k = uniqueInteger(); _// 2_  
@@ -226,7 +226,7 @@ In this case, the **call object** for that **one particular invocation** of the 
 
 A _closure_ is therefore the combination of a function and the lexical environment within which that function was **declared**. **This environment consists of any local variables that were in-scope at the time the closure was created** **(its birth scope)**.
 
-The name stems from the fact that a closure “closes over” the _free_ variables of a function. A variable is _free_ if it is not declared within the function — that is, if it comes “from outside.”
+The name stems from the fact that a closure "closes over” the _free_ variables of a function. A variable is _free_ if it is not declared within the function — that is, if it comes "from outside.”
 
 > If a function leaves its scope, it stays connected, through its call object, to the **scope chain that was in existence when it was first defined.**
 
@@ -262,7 +262,7 @@ In this example, there is an **external reference** to the nested function, and 
 }const myBrowser = makeBrowser();  
 myBrowser();  // _'Mozilla'_
 
-In this example, **makeBrowser** is a reference to the instance of the function **displayName** created when **makeBrowser** is run. The instance of **displayName** maintains a reference to its lexical environment, within which the variable **name** exists. For this reason, when **makeBrowser** is invoked, the variable **name** remains available for use and “Mozilla” is logged to the console.
+In this example, **makeBrowser** is a reference to the instance of the function **displayName** created when **makeBrowser** is run. The instance of **displayName** maintains a reference to its lexical environment, within which the variable **name** exists. For this reason, when **makeBrowser** is invoked, the variable **name** remains available for use and "Mozilla” is logged to the console.
 
 **Closure example 3:**
 

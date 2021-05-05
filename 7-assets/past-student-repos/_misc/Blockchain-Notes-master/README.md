@@ -1214,7 +1214,7 @@ Now when we test each server in Postman, the GET `/chain` response matches on ea
 
 ## Notify Nodes
 
->On Bitcoin, it is up to each individual node to decide how they “trust” other nodes.  
+>On Bitcoin, it is up to each individual node to decide how they "trust” other nodes.  
 > Some node reject all connections, some accept all.  
 > Some are somewhere in between depending on services or version, etc.  
 > ALL nodes validate transactions and the blockchain.  

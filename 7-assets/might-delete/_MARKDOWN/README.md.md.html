@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="java-sql">java-sql</h1>
+<p>A student that completes this project shows that they can:</p>
+<ul>
+<li>Query data from a single table</li>
+<li>Query data from multiple tables</li>
+<li>Create a new database using PostgreSQL</li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>Working with SQL</p>
+<h2 id="instructions">Instructions</h2>
+<p>ReImport the Northwind database into PostgreSQL using pgAdmin. This is the same data we used during the guided project.</p>
+<ul>
+<li><p>[X] <strong><em>pgAdmin data refresh</em></strong></p></li>
+<li><p>[X] Select the northwind database created during the guided project.</p></li>
+<li>[X] Tools -&gt; Query Tool
+<ul>
+<li>[X] Open file northwind.sql (you used this script during the guided project)</li>
+<li>[X] Execute</li>
+</ul></li>
+<li>[X] Look under
+<ul>
+<li>[X] northwind -&gt; Schemas -&gt; public -&gt; tables</li>
+</ul></li>
+<li><p>[X] Clear query windows</p></li>
+</ul>
+<h3 id="answer-the-following-data-queries.-keep-track-of-the-sql-you-write-by-pasting-it-into-this-document-under-its-appropriate-header-below-in-the-provided-slq-code-block.-you-will-be-submitting-that-through-the-regular-fork-change-pull-process.">Answer the following data queries. Keep track of the SQL you write by pasting it into this document under its appropriate header below in the provided SLQ code block. You will be submitting that through the regular fork, change, pull process.</h3>
+<ul>
+<li>[X] <strong><em>find all customers that live in London. Returns 6 records</em></strong></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> Customers <span class="kw">WHERE</span> City<span class="op">=</span><span class="st">&#39;London&#39;</span>;</a></code></pre></div>
+<ul>
+<li>[X] <strong><em>find all customers with postal code 1010. Returns 3 customers</em></strong></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">SELECT</span> <span class="op">*</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">FROM</span> Customers</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="kw">WHERE</span> PostalCode<span class="op">=</span><span class="st">&#39;1010&#39;</span>;</a></code></pre></div>
+<ul>
+<li>[X] <strong><em>find the phone number for the supplier with the id 11. Should be (010) 9984510</em></strong></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">SELECT</span> Phone</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">FROM</span> Suppliers</a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="kw">WHERE</span> <span class="kw">id</span><span class="op">=</span><span class="st">&#39;11&#39;</span>;</a></code></pre></div>
+<ul>
+<li>[X] <strong><em>list orders descending by the order date. The order with date 1998-05-06 should be at the top</em></strong></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">SELECT</span> <span class="op">*</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw">FROM</span> ORDERS</a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="kw">ORDER</span> <span class="kw">BY</span> OrderDate <span class="kw">DESC</span>;</a></code></pre></div>
+<ul>
+<li>[X] <strong><em>find all suppliers who have names longer than 20 characters. Returns 11 records</em></strong></li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">SELECT</span> <span class="op">*</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw">FROM</span> Suppliers</a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="kw">WHERE</span> <span class="fu">length</span>(SupplierName) <span class="op">&gt;</span> <span class="dv">20</span>;</a></code></pre></div>
+<ul>
+<li>[X] <strong><em>find all customers that include the word ‘MARKET’ in the contact title. Should return 19 records</em></strong></li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">SELECT</span> <span class="op">*</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">FROM</span> Customers</a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="kw">WHERE</span> Customers.CustomerName <span class="kw">LIKE</span> <span class="st">&#39;%MARKET%&#39;</span>;</a></code></pre></div>
+<ul>
+<li>[X] <strong><em>add a customer record for</em></strong></li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">INSERT</span> <span class="kw">INTO</span> Customers (CustomerName, ContactName, Address, City, PostalCode, Country)</a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="kw">VALUES</span> (<span class="st">&#39;The Shire&#39;</span>, <span class="st">&#39;Bilbo Baggins&#39;</span>, <span class="st">&#39;1 Hobbit-Hole&#39;</span>, <span class="st">&#39;Bag End&#39;</span>, <span class="st">&#39;111&#39;</span>, <span class="st">&#39;Middle Earth&#39;</span>);</a></code></pre></div>
+<ul>
+<li>[X] <strong><em>update <em>Bilbo Baggins</em> record so that the postal code changes to <em>"11122”</em></em></strong></li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">UPDATE</span> Customers</a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="kw">SET</span> PostalCode <span class="op">=</span> <span class="st">&#39;11122&#39;</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="kw">WHERE</span> Customers.ContactName <span class="op">=</span> <span class="st">&#39;Bilbo Baggins&#39;</span>;</a></code></pre></div>
+<ul>
+<li><p>[X] <strong><em>list orders grouped and ordered by customer company name showing the number of orders per customer company name. <em>Rattlesnake Canyon Grocery</em> should have 18 orders</em></strong></p>
+<ul>
+<li>This can be done with SELECT, COUNT, JOIN and GROUP BY clauses. Your count should focus on a field in the Orders table, not the Customer table</li>
+<li>There is more information about the COUNT clause on <a href="https://www.w3schools.com/sql/sql_count_avg_sum.asp">W3 Schools</a></li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">SELECT</span> Customers.CustomerName, <span class="fu">Count</span>(Orders.CustomerID)</a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="kw">FROM</span> Orders</a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="kw">INNER</span> <span class="kw">JOIN</span> Customers <span class="kw">ON</span> Orders.CustomerID<span class="op">=</span>Customers.CustomerID</a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="kw">GROUP</span> <span class="kw">BY</span> Customers.CustomerName</a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="kw">ORDER</span> <span class="kw">BY</span> Customers.CustomerName;</a></code></pre></div>
+<ul>
+<li><p>[X] <strong><em>list customers by contact name and the number of orders per contact name. Sort the list by number of orders in descending order. <em>Jose Pavarotti</em> should be at the top with 31 orders followed by <em>Roland Mendal</em> with 30 orders. Last should be <em>Francisco Chang</em> with 1 order</em></strong></p>
+<ul>
+<li>This can be done by adding an ORDER BY clause to the previous answer and changing the group by field</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">SELECT</span> Customers.CustomerName, <span class="fu">Count</span>(Orders.CustomerID)</a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="kw">FROM</span> Orders</a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="kw">INNER</span> <span class="kw">JOIN</span> Customers <span class="kw">ON</span> Orders.CustomerID<span class="op">=</span>Customers.CustomerID</a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="fu">Count</span>(Orders.CustomerID) <span class="kw">DESC</span>;</a></code></pre></div>
+<ul>
+<li><p>[ ] <strong><em>list orders grouped by customer’s city showing number of orders per city. Returns 69 Records with <em>Aachen</em> showing 6 orders and <em>Albuquerque</em> showing 18 orders</em></strong></p>
+<ul>
+<li>This is very similar to the previous two queries, however, it focuses on the City rather than the Customer Names</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">SELECT</span> Customers.City, <span class="fu">Count</span>(Orders.CustomerID)</a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="kw">FROM</span> Orders</a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="kw">INNER</span> <span class="kw">JOIN</span> Customers <span class="kw">ON</span> Orders.CustomerID<span class="op">=</span>Customers.CustomerID</a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="kw">GROUP</span> <span class="kw">BY</span> Customers.City</a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="kw">ORDER</span> <span class="kw">BY</span> Customers.City;</a></code></pre></div>
+<h2 id="data-normalization">Data Normalization</h2>
+<p>Note: This step does not use PostgreSQL!</p>
+<ul>
+<li>[X] <strong><em>Take the following data and normalize it into a 3NF database</em></strong></li>
+</ul>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Person Name</th>
+<th>Pet Name</th>
+<th>Pet Type</th>
+<th>Pet Name 2</th>
+<th>Pet Type 2</th>
+<th>Pet Name 3</th>
+<th>Pet Type 3</th>
+<th>Fenced Yard</th>
+<th>City Dweller</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Jane</td>
+<td>Ellie</td>
+<td>Dog</td>
+<td>Tiger</td>
+<td>Cat</td>
+<td>Toby</td>
+<td>Turtle</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Bob</td>
+<td>Joe</td>
+<td>Horse</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr class="odd">
+<td>Sam</td>
+<td>Ginger</td>
+<td>Dog</td>
+<td>Miss Kitty</td>
+<td>Cat</td>
+<td>Bubble</td>
+<td>Fish</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>Below are some empty tables to be used to normalize the database</p>
+<ul>
+<li>Not all of the cells will contain data in the final solution</li>
+<li>Feel free to edit these tables as necessary</li>
+</ul>
+<p>Table Name:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Table Name:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Table Name:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Table Name:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="stretch-goals">Stretch Goals</h3>
+<ul>
+<li>[X] <strong><em>delete all customers that have no orders. Should delete 2 (or 3 if you haven’t deleted the record added) records</em></strong></li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sql"><code class="sourceCode sql"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">DELETE</span> <span class="kw">FROM</span> Customers</a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="kw">LEFT</span> <span class="kw">JOIN</span>  Orders <span class="kw">ON</span> Customers.CustomerID <span class="op">=</span> Orders.CustomerID</a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="kw">WHERE</span>      Orders.CustomerID <span class="kw">IS</span> <span class="kw">NULL</span>;</a></code></pre></div>
+<ul>
+<li><p>[X] <strong><em>Create Database and Table: After creating the database, tables, columns, and constraint, generate the script necessary to recreate the database. This script is what you will submit for review</em></strong></p></li>
+<li>use pgAdmin to create a database, naming it <code>budget</code>.</li>
+<li><p>add an <code>accounts</code> table with the following <em>schema</em>:</p>
+<ul>
+<li><code>id</code>, numeric value with no decimal places that should autoincrement.</li>
+<li><code>name</code>, string, add whatever is necessary to make searching by name faster.</li>
+<li><code>budget</code> numeric value.</li>
+</ul></li>
+<li>constraints
+<ul>
+<li>the <code>id</code> should be the primary key for the table.</li>
+<li>account <code>name</code> should be unique.</li>
+<li>account <code>budget</code> is required.</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sql"><code class="sourceCode sql"></code></pre></div>
+<p>To see the script</p>
+<ul>
+<li>Right Click on the database name
+<ul>
+<li>Select Backup…
+<ul>
+<li>Set a filename
+<ul>
+<li>To put the file backup.sql in your home directory, you could use <code>backup.sql</code></li>
+</ul></li>
+<li>Set format to <code>Plain</code></li>
+</ul></li>
+</ul></li>
+<li>The script you want is now in the text file named above.
+<ul>
+<li>Copy the script from the text file into the SQL code block above!</li>
+</ul></li>
+</ul>
+<figure>
+<img src="assets/jx-12-m3-script.gif" alt="Database Script" /><figcaption>Database Script</figcaption>
+</figure>
+</body></html>

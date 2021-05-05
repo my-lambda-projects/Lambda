@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="database-queries">Database Queries</h1>
+<h2 id="find-all-customers-with-postal-code-1010">Find all customers with postal code 1010</h2>
+<p>SELECT * FROM Customers where PostalCode=1010;</p>
+<h2 id="find-the-phone-number-for-the-supplier-with-the-id-11">Find the phone number for the supplier with the id 11</h2>
+<p>SELECT * FROM Suppliers where SupplierID=11;</p>
+<h2 id="list-first-10-orders-ever-places-descending-by-the-order-date">List first 10 orders ever places, descending by the order date</h2>
+<p>SELECT * FROM Orders ORDER BY OrderDate DESC LIMIT 10;</p>
+<h2 id="find-all-customers-that-live-in-london-madrid-or-brazil">Find all customers that live in London, Madrid, or Brazil</h2>
+<p>SELECT * FROM Customers where Country="Brazil” OR City="London” OR City="Madrid”;</p>
+<h2 id="add-a-customer-record-for-the-shire-the-contact-name-is-bilbo-baggins-the-address-is--1-hobbit-hole-in-bag-end-postal-code-111-and-the-country-is-middle-earth">Add a customer record for "The Shire”, the contact name is "Bilbo Baggins” the address is -"1 Hobbit-Hole” in "Bag End”, postal code "111” and the country is "Middle Earth”</h2>
+<p>INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country) VALUES ("The Shire”, "Bilbo Baggins”, "1 Hobbit-Hole”, "Bag End”, "111”, "Middle Earth”);</p>
+<h2 id="update-bilbo-baggins-record-so-that-the-postal-code-changes-to-11122">Update Bilbo Baggins record so that the postal code changes to "11122”</h2>
+<p>UPDATE Customers SET PostalCode="11122” where ContactName="Bilbo Baggins”;</p>
+<h2 id="stretch-find-a-query-to-discover-how-many-different-cities-are-stored-in-the-customers-table.-repeats-should-not-be-double-counted">(Stretch) Find a query to discover how many different cities are stored in the Customers table. Repeats should not be double counted</h2>
+<p>SELECT COUNT (DISTINCT City) FROM Customers;</p>
+<h2 id="stretch-find-all-suppliers-who-have-names-longer-than-20-characters.-you-can-use-lengthsuppliername-to-get-the-length-of-the-name">(Stretch) Find all suppliers who have names longer than 20 characters. You can use <code>length(SupplierName)</code> to get the length of the name</h2>
+<p>SELECT COUNT (*) FROM Suppliers WHERE Length(SupplierName)&gt;20</p>
+</body></html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="stretch-goal-heaps">Stretch Goal: Heaps</h1>
+<h2 id="max-heaps">Max Heaps</h2>
+<ul>
+<li>Should have the methods <code>insert</code>, <code>delete</code>, <code>get_max</code>, <code>_bubble_up</code>, and <code>_sift_down</code>.
+<ul>
+<li><code>insert</code> adds the input value into the heap; this method should ensure that the inserted value is in the correct spot in the heap</li>
+<li><code>delete</code> removes and returns the ‘topmost’ value from the heap; this method needs to ensure that the heap property is maintained after the topmost element has been removed.</li>
+<li><code>get_max</code> returns the maximum value in the heap <em>in constant time</em>.</li>
+<li><code>get_size</code> returns the number of elements stored in the heap.</li>
+<li><code>_bubble_up</code> moves the element at the specified index "up” the heap by swapping it with its parent if the parent’s value is less than the value at the specified index.</li>
+<li><code>_sift_down</code> grabs the indices of this element’s children and determines which child has a larger value. If the larger child’s value is larger than the parent’s value, the child element is swapped with the parent.</li>
+</ul></li>
+</ul>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Max-Heap.svg/501px-Max-Heap.svg.png" alt="Image of a Heap in Tree form" /><figcaption>Image of a Heap in Tree form</figcaption>
+</figure>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Heap-as-array.svg/603px-Heap-as-array.svg.png" alt="Image of a Heap in Array form" /><figcaption>Image of a Heap in Array form</figcaption>
+</figure>
+<h2 id="generic-heaps">Generic Heaps</h2>
+<p>A max heap is pretty useful, but what’s even more useful is to have our heap be generic such that the user can define their own priority function and pass it to the heap to use.</p>
+<p>Augment your heap implementation so that it exhibits this behavior. If no comparator function is passed in to the heap constructor, it should default to being a max heap. Also change the name of the <code>get_max</code> function to <code>get_priority</code>.</p>
+<p>You can test your implementation against the tests in <code>test_generic_heap.py</code>. The test expects your augmented heap implementation lives in a file called <code>generic_heap.py</code>. Feel free to change the import statement to work with your file structure or copy/paste your implementation into a file with the expected name.</p>
+</body></html>

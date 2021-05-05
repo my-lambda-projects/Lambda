@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="sprint-challenge-data-structures">Sprint Challenge: Data Structures</h1>
+<h2 id="description">Description</h2>
+<p>This Sprint Challenge is split into three parts:</p>
+<ol type="1">
+<li>Implement a data structure called a ring buffer (more details below)</li>
+<li>Optimizing some inefficient code</li>
+<li>Reversing the contents of a singly linked list</li>
+</ol>
+<h3 id="minimum-viable-product">Minimum Viable Product</h3>
+<h4 id="task-1.-implement-a-ring-buffer-data-structure">Task 1. Implement a Ring Buffer Data Structure</h4>
+<ul>
+<li>[X] A ring buffer is a non-growable buffer with a fixed size.</li>
+<li>[X] When the ring buffer is full and a new element is inserted, the oldest element in the ring buffer is overwritten with the newest element.</li>
+<li>[X] This kind of data structure is very useful for use cases such as storing logs and history information, where you typically want to store information up until it reaches a certain age, after which you don’t care about it anymore and don’t mind seeing it overwritten by newer data.</li>
+<li>[X] Implement this behavior in the RingBuffer class.</li>
+<li>[X] RingBuffer has two methods, <code>append</code> and <code>get</code>.</li>
+<li>[X] The <code>append</code> method adds the given element to the buffer.</li>
+<li>[X] The <code>get</code> method returns all of the elements in the buffer in a list in their given order.</li>
+<li>[X] It should not return any <code>None</code> values in the list even if they are present in the ring buffer.</li>
+</ul>
+<h4 id="task-2.-runtime-optimization">Task 2. Runtime Optimization</h4>
+<ul>
+<li>[X] Navigate into the <code>names</code> directory. Here you will find two text files containing 10,000 names each, along with a program <code>names.py</code> that compares the two files and prints out duplicate name entries.</li>
+<li>[X] Try running the code with <code>python3 names.py</code>. Be patient because it might take a while: approximately six seconds on my laptop.</li>
+<li>[X] What is the runtime complexity of this code?</li>
+</ul>
+<pre><code>    runtime: 5.663139343261719 seconds
+    complexity:  O(n^2) (polynomial)</code></pre>
+<ul>
+<li>[X] Six seconds is an eternity so you’ve been tasked with speeding up the code. Can you get the runtime to under a second? Under one hundredth of a second?</li>
+</ul>
+<pre><code>    runtime: 0.002018451690673828 seconds
+    complexity:  O(n) (linear)</code></pre>
+<p><em>You may not use the built in Python list, set, or dictionary in your solution for this problem. However, you can and should use the provided <code>duplicates</code> list to return your solution.</em></p>
+<ul>
+<li>[X] (Hint: You might try importing a data structure you built during the week)</li>
+</ul>
+<h4 id="task-3.-reverse-a-linked-list">Task 3. Reverse a Linked List</h4>
+<ul>
+<li>[X] Inside of the <code>reverse</code> directory, you’ll find a basic implementation of a Singly Linked List.</li>
+<li>[X] <em>Without</em> making it a Doubly Linked List (adding a tail attribute), complete the <code>reverse_list()</code> function within <code>reverse/reverse.py</code>.</li>
+<li>[X] Reverse the contents of the list using recursion, <em>not a loop.</em></li>
+</ul>
+<p>For example,</p>
+<pre><code>1-&gt;2-&gt;3-&gt;None</code></pre>
+<p>would become…</p>
+<pre><code>3-&gt;2-&gt;1-&gt;None</code></pre>
+<ul>
+<li>[ ] While credit will be given for a functional solution, only optimal solutions will earn a <strong><em>3</em></strong> on this task.</li>
+</ul>
+<h4 id="stretch">Stretch</h4>
+<ul>
+<li>[X] Say your code from <code>names.py</code> is to run on an embedded computer with very limited RAM. Because of this, memory is extremely constrained and you are only allowed to store names in arrays (i.e. Python lists). How would you go about optimizing the code under these conditions?</li>
+<li>[X] Try it out and compare your solution to the original runtime.</li>
+<li>[X] If this solution is less efficient than your original solution, include both and label the strech solution with a comment</li>
+</ul>
+<pre><code>runtime: 0.00399327278137207 seconds
+complexity:  O(n) (linear)</code></pre>
+<h3 id="rubric">Rubric</h3>
+<table>
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 13%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>OBJECTIVE</th>
+<th>TASK</th>
+<th>1 - DOES NOT MEET Expectations</th>
+<th>2 - MEETS Expectations</th>
+<th>3 - EXCEEDS Expectations</th>
+<th>SCORE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Student should be able to construct a queue and stack and justify the decision to use a linked list instead of an array.</em></td>
+<td>Task 1. Implement a Ring Buffer Data Structure</td>
+<td>Solution in <code>ring_buffer.py</code> DOES NOT run OR it runs but has multiple logical errors, failing 2 or more tests</td>
+<td>Solution in <code>ring_buffer.py</code> runs, but may have one or two logical errors; passes at least 5/6 tests (Note that each function in the test file that begins with <code>test</code> is a test)</td>
+<td>Solution in <code>ring_buffer.py</code> has no syntax or logical errors and passes all tests (Note that each function in the test file that begins with <code>test</code> is a test)</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><em>Student should be able to construct a binary search tree class that can perform basic operations with O(log n) runtime.</em></td>
+<td>Task 2. Runtime Optimization</td>
+<td>Student does NOT correctly identify the runtime of the starter code in <code>name.py</code> and is not able to optimize it to run in under 6 seconds</td>
+<td>Student does not identify the runtime of the starter code in <code>name.py</code>, but optimizes it to run in under 6 seconds, with a solution of O(n log n) or better</td>
+<td>Student does BOTH correctly identify the runtime of the starter code in <code>name.py</code> and optimizes it to run in under 6 seconds, with a solution of 0(n log n) or better</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td><em>Student should be able to construct a linked list and compare the runtime of operations to an array to make the optimal choice between them.</em></td>
+<td>Task 3. Reverse the contents of a Singly Linked List using Recursion</td>
+<td>Student’s solution in <code>reverse.py</code> is failing one or more tests</td>
+<td>Student’s solution in <code>reverse.py</code> is able to correctly print out the contents of the Linked List in reverse order, passing all tests, BUT, the runtime of their solution is not optimal (requires looping through the list more than once)</td>
+<td>Student’s solution in <code>reverse.py</code> is able to correctly print out the contents of the Linked List in reverse order, passing all tests AND it has a runtime of O(n) or better</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h4 id="passing-the-sprint">Passing the Sprint</h4>
+<p>Score ranges for a 1, 2, and 3 are shown in the rubric above. For a student to have <em>passed</em> a sprint challenge, they need to earn an <strong>average of at least 2</strong> for all items on the rubric.</p>
+</body></html>

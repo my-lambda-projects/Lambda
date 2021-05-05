@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="sentence-generation-with-markov-chains">Sentence Generation with Markov Chains</h1>
+<p>This is a fun little technique that you can use to generate gobbledegook sentences that sound real while making absolutely no sense.</p>
+<p>The idea is that you analyze some input text, and for every word, you keep track of all the words that appear <em>after</em> it in the text.</p>
+<p>For example, the paragraph:</p>
+<pre><code>Cats and dogs and birds and fish dogs birds</code></pre>
+<p>could be represented:</p>
+<pre><code>Word     Can be followed by
+-------- ------------------
+Cats     and
+and      dogs birds fish
+dogs     and birds
+birds    and
+fish     dogs</code></pre>
+<p>Once you have that data, you can construct random sentences, by following the chain.</p>
+<p>Choosing a word at random to start, <code>birds</code>, we see it can only be followed by <code>and</code>, so we have:</p>
+<pre><code>birds and</code></pre>
+<p>Then we look at see what <code>and</code> can be followed by. Looks like <code>dogs</code>, <code>birds</code> or <code>fish</code>.</p>
+<p>So we choose one at random, say <code>fish</code>, and we get:</p>
+<pre><code>birds and fish</code></pre>
+<p>And then we see what <code>fish</code> can be followed by, and so on, until we decide to stop.</p>
+<h2 id="tasks">Tasks</h2>
+<ol type="1">
+<li><p>Read the file <code>input.txt</code> and split it into words.</p>
+<p>Don’t worry about changing punctuation or capitalization. For example, a "word” might be <code>"Hello,</code>. Just leave it all in there.</p></li>
+<li><p>Analyze the text, building up the dataset of which words can follow particular words.</p>
+<p>(Hint: leave duplicates in for this part. If a the word <code>and</code> is seen following the word <code>goats</code> multiple times, include all those <code>and</code>s. It’ll give more convincing results because it is modelling the <em>frequency</em> of <em>how often</em> a word follows another word.)</p></li>
+<li><p>Choose a random "start word” to begin.</p></li>
+<li><p>Loop through:</p>
+<ul>
+<li>Print the word.</li>
+<li>If it’s a "stop word”, stop.</li>
+<li>Else randomly choose a word that can follow this one.</li>
+</ul></li>
+</ol>
+<p>Start words are words that begin with a capital, or a <code>"</code> followed by a capital.</p>
+<p>Stop words are words that end in any of the punctuation <code>.?!</code>, or that punctuation followed by a <code>"</code>.</p>
+<p>Hints:</p>
+<ul>
+<li><code>random.choice()</code> can choose a random word out of a list.</li>
+<li><code>print(s, end=" ")</code> will print a space after every word instead of a newline.</li>
+</ul>
+<p>There is no test file for this. Just see if it makes good nonsense.</p>
+<h2 id="example-output">Example Output</h2>
+<pre><code>Alice: &quot;warmer, in some part that was very anxious about Looking-glass
+House, if you&#39;ll only attend, Kitty, they couldn&#39;t, because there are
+the question: it wants plenty of mist now, I wonder if he was through
+the wrong way, beginning to the other,&quot; Alice on as she said afterwards
+that Alice watched the table, and the table by the King took no one paw
+went round the fire, as far better manners! 
+
+Red Queen, looking over him, and tangles, with the White King, so angry,
+Kitty,&quot; Alice picked up snug, you were playing just see one she hardly
+hold you! 
+
+I&#39;ll be quite common and putting out of things?&quot; 
+
+House! 
+
+Well then, and unhappy, and made her sister, who was the autumn, when
+the ashes, &quot;Mind the worsted Alice was so wish I shall never, never
+forget!&quot; </code></pre>
+<h2 id="stretch-goals">Stretch Goals</h2>
+<p>Make sure there is always a close quote for an opening quote in the sentence.</p>
+</body></html>

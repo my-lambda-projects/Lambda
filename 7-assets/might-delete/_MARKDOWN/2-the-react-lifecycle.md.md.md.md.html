@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="the-react-lifecycle">The React Lifecycle</h1>
+<p>🌑🌒🌓🌔🌕</p>
+<h2 id="objectives">Objectives</h2>
+<ul>
+<li>describe the three phases of the React Component Lifecycle (mounting, updating, unmounting)</li>
+<li>properly explain what the <code>constructor</code> and <code>render</code> methods do, and what their place is in the React Component Lifecycle</li>
+<li>use the componentDidMount function to set a component’s state post-render</li>
+<li>understand the order in which components render and "mount”</li>
+<li>bring it all together: use class components and their lifecycle methods to:
+<ul>
+<li>fetch data asynchronously from an external API (we’ll use axios)</li>
+<li>render the data to your app’s UI</li>
+<li>update the UI when state changes</li>
+</ul></li>
+</ul>
+<h2 id="review-class-components">Review: Class Components</h2>
+<p>Here’s the basic format you’ll use when writing class components in React:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">class</span> Lambda <span class="kw">extends</span> <span class="va">React</span>.<span class="at">Component</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="at">constructor</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">super</span>()<span class="op">;</span> <span class="co">// calls the constructor from React.Component, which intializes this.props</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="co">// initialize this.state here</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-6" title="6">  </a>
+<a class="sourceLine" id="cb1-7" title="7">  <span class="co">// lifecycle methods: componentDidMount, componentDidUpdate, componentWillUnmount, etc.</span></a>
+<a class="sourceLine" id="cb1-8" title="8">  </a>
+<a class="sourceLine" id="cb1-9" title="9">  <span class="at">render</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-10" title="10">    <span class="cf">return</span> <span class="op">&lt;</span>h1<span class="op">&gt;</span>Hello<span class="op">,</span> <span class="op">{</span><span class="kw">this</span>.<span class="va">props</span>.<span class="at">name</span><span class="op">}</span>&lt;/h1<span class="op">&gt;;</span></a>
+<a class="sourceLine" id="cb1-11" title="11">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-13" title="13"></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="im">export</span> <span class="im">default</span> Lambda<span class="op">;</span></a></code></pre></div>
+<h2 id="what-are-lifecycle-methods">What are lifecycle methods?</h2>
+<p>This may feel a bit complex at first, especially coming from the more streamlined Hooks approach. An easy way to understand the React lifecycle is that it’s simply "when a component does what it does, and why”.</p>
+<p>Just like a 🌿 or 🦔, a React component has three phases to its "lifecycle”, and different things need to happen at each stage of life: * 🐛 Birth / mounting (<code>componentDidMount</code>) * 🦋 Growth / updating (<code>componentDidUpdate</code>) * 💀 Death / unmounting (<code>componentWillUnmount</code>)</p>
+<p>Sometimes they even render child components 🐣 too! But I may be overextending a questionable metaphor. Moving on…</p>
+<h2 id="render">render()</h2>
+<p>If you were to implement the same component as a function and as a class, the JSX returned from <code>render()</code> is the same as what you return from the function component itself.</p>
+<p>Should be a pure function, meaning that it: * does not modify component state * returns the same result each time it’s invoked * does not directly interact with the browser.</p>
+<h2 id="constructor">constructor()</h2>
+<p>For React class components, constructors are only used for two purposes: * Initializing local state by assigning an object to <code>this.state</code> * Binding event handler methods to an instance.</p>
+<p>If you don’t initialize state and you don’t bind methods, you don’t need to implement a constructor for your React component. Remember that the <code>super()</code> call will happen even if you don’t write a constructor.</p>
+<p>For initialization, in the constructor we assign <code>this.state</code> directly. This is the only place we ever do this! In all other methods, use <code>this.setState()</code>.</p>
+<h2 id="common-lifecycle-methods">Common lifecycle methods</h2>
+<figure>
+<img src="./images/lifecycle-methods.png" alt="Lifecycle methods diagram" /><figcaption>Lifecycle methods diagram</figcaption>
+</figure>
+<p>Together, these three lifecycle methods are equivalent to the <code>useEffect()</code> hook. Let’s look at them in detail:</p>
+<h3 id="componentdidmount"><code>componentDidMount</code></h3>
+<p>invoked after React inserts the component into the DOM. Used to set a component’s state post-render</p>
+<h3 id="componentdidupdate"><code>componentDidUpdate</code></h3>
+<p>Takes arguments prevProps and prevState, and is called immediately after render is finished in each of re-render cycle. Use this for side effects like ajax reqeusts.</p>
+<p>You should always add an if statement to make sure the relevant state/props have actually changed before doing anything here. (Otherwise you’ll end up with infinite loops!)</p>
+<h3 id="componentwillunmount"><code>componentWillUnmount</code></h3>
+<p>perform any cleanup, e.g, removing event listeners, invalidating timers or cleaning up any DOM elements that were created in <code>componentDidMount</code> and <code>componentDidUpdate</code></p>
+<p>Use these to setup listeners, fetching data from an API and ultimately removing listeners before component is removed ("unmounted”) from the DOM.</p>
+<h2 id="in-what-order-do-components-render-and-mount-in-a-react-component-tree">In what order do components render and "mount” in a React component tree?</h2>
+<p>So if you have a bunch of React components, the parent component at the top of the tree renders and "mounts” first, right?</p>
+<p>Not quite! You may be surprised to learn that it actually happens like this: * Parent component renders, recursively rendering all of the child components down the tree * The <strong>child component at the bottom of the tree mounts first</strong>! * Then the "mounting” propogates back <strong>up</strong> the tree * Finally, the parent component at the top of the tree mounts last.</p>
+<p>I like to visualize this initialization process as a "down-up” motion, all happening in the blink of an eye in most cases. So any <code>componentDidMount</code> or <code>useEffect</code> methods toward the top of the tree will actually be called <em>after</em> all the children components have mounted.</p>
+<p>This can present a very sneaky bug when you expect data to have been passed down to a child component but it’s undefined becuase the parents haven’t mounted yet! When a child component renders for the first time, <strong>none of its parent components have mounted yet</strong>. This means that we can’t count on anything from their lifecycle methods being defined yet. This is why we initialize with empty strings and other placeholders in the constructor, to make sure child components don’t ever receive <code>undefined</code> values for their props. When someday you inevitably come across a mystical-sounding error like this: 😿🚳 <code>Uncaught TypeError: Cannot call method 'map' of undefined</code> 😿🚳, checking for undefined props due to this specific render/mount order in React should be your first line of defense.</p>
+<p>To prevent these type errors that randomly crash your app, think about how props will change throughout the lifecycle of your components and build in some safety checks to avoid accessing values that aren’t yet defined. Especially when there are maps and other type-specific methods involved. (Better yet, encourage your team to start using TypeScript! It’s easy to learn, can be added to existing projects incrementally without any heavy lifting, and specifically helps prevent errors like this.)</p>
+<p>Check out the "React Call Order” article below for a great intro to this advanced concept with some helpful diagrams to explain this "down then back up” render and mount order. Understanding this order of operations will save you many hours of debugging the sneakiest bugs in the future!</p>
+<h2 id="rarely-used-lifecycle-methods">Rarely used lifecycle methods 🦖🦕📻📺</h2>
+<ul>
+<li>getDerivedStateFromProps</li>
+<li>shouldComponentUpdate</li>
+<li>getSnapshotBeforeUpdate</li>
+</ul>
+<p>And some others that are deprecated now. Focus on just getting really comfortable with the 3 above, as you’ll mainly just see those in most cases. If you’re curious for more historical context though, feel free to dig into the React.Component API reference linked below.</p>
+<h2 id="understanding-function-components-vs-class-components">Understanding function components vs class components:</h2>
+<p>One simplified way to understand these different styles is that the <code>return</code> of a function component is the same as what we return from the <code>render()</code> method within a class component. In class components we manage state and side effects with these specifically named lifecycle methods, while in a function component we use hooks like useState() and useEffect() to do the same thing.</p>
+<h2 id="more-resources">More Resources</h2>
+<h3 id="videos">Videos</h3>
+<p><a href="https://www.youtube.com/watch?v=KDXZibVdiEI&amp;ab_channel=Codevolution">Codevolution - Component Mounting Lifecycle Methods</a></p>
+<p><a href="https://www.youtube.com/watch?v=deMOuGlpOso&amp;ab_channel=TiffInTech">Tiff in Tech - React Lifecycle Explained</a></p>
+<p><a href="https://www.youtube.com/watch?v=9kSXwj_K-6o&amp;ab_channel=LevelUpTuts">React 16 For Everyone #6 - LifeCycle Methods</a></p>
+<h3 id="articles">Articles</h3>
+<p><a href="https://dev.to/prototyp/react-useeffect-explained-with-lifecycle-methods-296n">useEffect explained with lifecycle methods</a></p>
+<p><a href="https://medium.com/better-programming/understanding-the-useeffect-dependency-array-2913da504c44">Understanding the useEffect Dependency Array</a></p>
+<p><a href="https://reactjs.org/docs/react-component.html">React.Component lifecycle methods - API reference</a></p>
+<p><a href="https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/">Interactive lifecycle method diagram</a></p>
+<p><a href="https://blog.logrocket.com/post-hooks-guide-react-call-order/">React Call Order</a></p>
+<p><a href="https://medium.com/react-ecosystem/react-components-lifecycle-ce09239010df">React component’s lifecycle - Medium article</a></p>
+<p><a href="https://www.notion.so/React-b4e93c23ea164f08a54622c3f6b40912?p=f37ae29e99564a89be8b0918c02ef974">Lifecycle Methods &amp; Side Effects - by TL Megan Miller</a></p>
+<p><a href="https://www.notion.so/this-a82f4b18e0ba427b8e38e6b86daf645c">this - by TL Megan Miller</a></p>
+</body></html>

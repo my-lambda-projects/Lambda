@@ -50,7 +50,7 @@ If we have 12 apples, we might be looking for a way to _count_ the apples and ex
 
 Depending on which base you count with, the final number count may be different, even though the number of apples remains the same. We could also count in letters, returning letter `L` to represent 12. It's still 12 apples, but if we're counting in base _alphabet_, we'd say there are L apples.
 
-It’s important to understand that when you have 12 apples on the table, it’s still the same number of apples regardless of whether or not you say there are “12 apples” (decimal), or “C apples” (hexadecimal), or “1100 apples” (binary).
+It’s important to understand that when you have 12 apples on the table, it’s still the same number of apples regardless of whether or not you say there are "12 apples” (decimal), or "C apples” (hexadecimal), or "1100 apples” (binary).
 
 The count of the number of items doesn’t change just because we refer to it in a numbering system of a different base.
 

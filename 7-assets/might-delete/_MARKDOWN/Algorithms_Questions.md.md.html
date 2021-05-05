@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="analysis-of-algorithms">Analysis of Algorithms</h1>
+<h2 id="exercise-i">Exercise I</h2>
+<p>Give an analysis of the running time of each snippet of pseudocode with respect to the input size n of each of the following:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1">a)  a <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="cf">while</span> (a <span class="op">&lt;</span> n <span class="op">*</span> n <span class="op">*</span> n):</a>
+<a class="sourceLine" id="cb1-3" title="3">      a <span class="op">=</span> a <span class="op">+</span> n <span class="op">*</span> n</a></code></pre></div>
+<pre><code>b)  sum = 0
+    for i in range(n):
+      j = 1
+      while j &lt; n:
+        j *= 2
+        sum += 1</code></pre>
+<pre><code>c)  def bunnyEars(bunnies):
+      if bunnies == 0:
+        return 0
+
+      return 2 + bunnyEars(bunnies-1)</code></pre>
+<h2 id="exercise-ii">Exercise II</h2>
+<p>Suppose that you have an n-story building and plenty of eggs. Suppose also that an egg gets broken if it is thrown off floor f or higher, and doesn’t get broken if dropped off a floor less than floor f. Devise a strategy to determine the value of f such that the number of dropped + broken eggs is minimized.</p>
+<p>Write out your proposed algorithm in plain English or pseudocode AND give the runtime complexity of your solution.</p>
+</body></html>

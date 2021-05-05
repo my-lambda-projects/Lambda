@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="searching-and-generating-graphs">Searching and Generating Graphs</h1>
+<p>This is a multi-stage project to implement a basic graph class and traversals.</p>
+<h2 id="part-1-graph-class">Part 1: Graph Class</h2>
+<p>In the file <code>graph.py</code>, implement a <code>Graph</code> class that supports the API in the example below. In particular, this means there should be a field <code>vertices</code> that contains a dictionary mapping vertex labels to edges. For example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1">{</a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="st">&#39;0&#39;</span>: {<span class="st">&#39;1&#39;</span>, <span class="st">&#39;3&#39;</span>},</a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="st">&#39;1&#39;</span>: {<span class="st">&#39;0&#39;</span>},</a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="st">&#39;2&#39;</span>: <span class="bu">set</span>(),</a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="st">&#39;3&#39;</span>: {<span class="st">&#39;0&#39;</span>}</a>
+<a class="sourceLine" id="cb1-6" title="6">}</a></code></pre></div>
+<p>This represents a graph with four vertices and two total (bidirectional) edges. The vertex <code>'2'</code> has no edges, while <code>'0'</code> is connected to both <code>'1'</code> and <code>'3'</code>.</p>
+<p>You should also create <code>add_vertex</code> and <code>add_edge</code> methods that add the specified entities to the graph. To test your implementation, instantiate an empty graph and then try to run the following:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1">graph <span class="op">=</span> Graph()  <span class="co"># Instantiate your graph</span></a>
+<a class="sourceLine" id="cb2-2" title="2">graph.add_vertex(<span class="st">&#39;0&#39;</span>)</a>
+<a class="sourceLine" id="cb2-3" title="3">graph.add_vertex(<span class="st">&#39;1&#39;</span>)</a>
+<a class="sourceLine" id="cb2-4" title="4">graph.add_vertex(<span class="st">&#39;2&#39;</span>)</a>
+<a class="sourceLine" id="cb2-5" title="5">graph.add_vertex(<span class="st">&#39;3&#39;</span>)</a>
+<a class="sourceLine" id="cb2-6" title="6">graph.add_edge(<span class="st">&#39;0&#39;</span>, <span class="st">&#39;1&#39;</span>)</a>
+<a class="sourceLine" id="cb2-7" title="7">graph.add_edge(<span class="st">&#39;1&#39;</span>, <span class="st">&#39;0&#39;</span>)</a>
+<a class="sourceLine" id="cb2-8" title="8">graph.add_edge(<span class="st">&#39;0&#39;</span>, <span class="st">&#39;3&#39;</span>)</a>
+<a class="sourceLine" id="cb2-9" title="9">graph.add_edge(<span class="st">&#39;3&#39;</span>, <span class="st">&#39;0&#39;</span>)</a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="bu">print</span>(graph.vertices)</a></code></pre></div>
+<p>You should see something like the first example. As a stretch goal, add checks to your graph to ensure that edges to nonexistent vertices are rejected.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># Continuing from previous example</span></a>
+<a class="sourceLine" id="cb3-2" title="2">graph.add_edge(<span class="st">&#39;0&#39;</span>, <span class="st">&#39;4&#39;</span>)  <span class="co"># No &#39;4&#39; vertex, should raise an Exception!</span></a></code></pre></div>
+<h2 id="part-2-implement-breadth-first-traversal">Part 2: Implement Breadth-First Traversal</h2>
+<p>Write a function within your Graph class that takes takes a starting node as an argument, then performs BFT. Your function should print the resulting nodes in the order they were visited. Note that there are multiple valid paths that may be printed.</p>
+<h2 id="part-3-implement-depth-first-traversal-with-a-stack">Part 3: Implement Depth-First Traversal with a Stack</h2>
+<p>Write a function within your Graph class that takes takes a starting node as an argument, then performs DFT. Your function should print the resulting nodes in the order they were visited. Note that there are multiple valid paths that may be printed.</p>
+<h2 id="part-4-implement-depth-first-traversal-using-recursion">Part 4: Implement Depth-First Traversal using Recursion</h2>
+<p>Write a function within your Graph class that takes takes a starting node as an argument, then performs DFT using recursion. Your function should print the resulting nodes in the order they were visited. Note that there are multiple valid paths that may be printed.</p>
+<h2 id="part-5-implement-breadth-first-search">Part 5: Implement Breadth-First Search</h2>
+<p>Write a function within your Graph class that takes takes a starting node and a destination node as an argument, then performs BFS. Your function should return the shortest path from the start node to the destination node. Note that there are multiple valid paths.</p>
+<h2 id="part-6-implement-depth-first-search">Part 6: Implement Depth-First Search</h2>
+<p>Write a function within your Graph class that takes takes a starting node and a destination node as an argument, then performs DFS. Your function should return a valid path (not necessarily the shortest) from the start node to the destination node. Note that there are multiple valid paths.</p>
+<h2 id="part-7-implement-depth-first-search-using-recursion">Part 7: Implement Depth-First Search using Recursion</h2>
+<p>Write a function within your Graph class that takes takes a starting node and a destination node as an argument, then performs DFS using recursion. Your function should return a valid path (not necessarily the shortest) from the start node to the destination node. Note that there are multiple valid paths.</p>
+</body></html>

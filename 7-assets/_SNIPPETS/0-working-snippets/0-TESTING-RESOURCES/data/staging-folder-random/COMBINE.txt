@@ -896,7 +896,7 @@ Related Topics
 <li>Statements &amp; declarations
 <ol>
 <li><a href="Reference/Statements/async_function.html" title="An async function is a function declared with the async keyword. Async functions are instances of the AsyncFunction constructor, and the await keyword is permitted within them. The async and await keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains.">async function</a></li>
-<li><a href="Reference/Statements/block.html" title="A block statement (or compound statement in other languages) is used to group zero or more statements. The block is delimited by a pair of braces (“curly brackets”) and may optionally be labelled:">block</a></li>
+<li><a href="Reference/Statements/block.html" title="A block statement (or compound statement in other languages) is used to group zero or more statements. The block is delimited by a pair of braces ("curly brackets”) and may optionally be labelled:">block</a></li>
 <li><a href="Reference/Statements/break.html" title="The break statement terminates the current loop, switch, or label statement and transfers program control to the statement following the terminated statement.">break</a></li>
 <li><a href="Reference/Statements/class.html" title="The class declaration creates a new class with a given name using prototype-based inheritance.">class</a></li>
 <li><a href="Reference/Statements/const.html" title="Constants are block-scoped, much like variables defined using the let keyword. The value of a constant can&#39;t be changed through reassignment, and it can&#39;t be redeclared.">const</a></li>

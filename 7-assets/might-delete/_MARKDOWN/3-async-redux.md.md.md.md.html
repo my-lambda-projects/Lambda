@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="async-redux">Async Redux</h1>
+<h2 id="goals">Goals</h2>
+<ul>
+<li>describe the Finite State Machine pattern and it’s relationship to building Redux applications</li>
+<li>implement Redux Middleware libraries into a Redux Store using <code>applyMiddleware</code></li>
+<li>effectively use <code>redux-thunk</code> and asynchronous action creators to consume data from external API’s</li>
+<li>(new) introduce React Redux hooks, a modern alternative to <code>connect</code></li>
+</ul>
+<h2 id="a-visual-example">A visual example</h2>
+<p>Here’s the Redux data flow visualized, with the addition of asynchronous API calls: <img src="images/redux_async.gif" alt="async Redux gif" /></p>
+<h2 id="a-real-world-example-️">A real-world example ☕️</h2>
+<p>Back to our coffee shop. Let’s consider just the step where we actually make the coffee.</p>
+<h3 id="part-1-lets-get-thunky">Part 1: let’s get thunky</h3>
+<p>When we dispatch <code>'MAKE_COFFEE'</code>, we’re actually looking to trigger a sequence of coffee-making actions. We could of course break everything down into individual steps, but all actions in Redux are <strong>synchronous</strong> by default. This means that each step has to complete before the next one starts. But would we really want to just watch the beans grind when we could be getting things done more efficently with some multiasking?</p>
+<p>Enter <code>redux-thunk</code>, A <em>middleware</em> that extends the functionality of Redux, allowing our actions to dispatch actions of their own and introduce more advanced behavior like API calls.</p>
+<p>Rather than simply passing an action type and payload to the reducer, we can start multiple processes at once and set up some intelligent multitasking. Start the bean grinder, then steam some milk while the beans grind. Once the beans are ground, then we can start the espresso machine. Once the espresso is brewed and milk frothed, then we can put it all together and serve the drink. All of that work can be divided up in an efficient way, even split among multiple employees and several espresso machines to handle more than one order at once. A production-scale web app may look more like a complex factory than a coffee shop, so this organization and asynchronous behavior becomes essential.</p>
+<h3 id="part-2-an-artisanal-oat-milk-experience">Part 2: an artisanal oat milk experience</h3>
+<p>Here’s how that <code>'MAKE_COFFEE'</code> step might look, as a more complex "asynchronous action” with the newfound power to dispatch actions of its own: * Dispatch <code>'GRIND_BEANS'</code> * Dispatch <code>'FROTH_MILK'</code> * When bean grinding is complete, dispatch <code>'BREW_ESPRESSO'</code> * when <code>'BREW_ESPRESSO'</code> and <code>'FROTH_MILK'</code> are complete, dispatch <code>'PREPARE_MACCHIATO'</code> * when macchiato is complete, update application state with <code>status: "complete"</code></p>
+<p>Note the inherent multitasking involved – this approach allows optimization and higher customer volume, because no one is stopping to stare while the beans grind :)</p>
+<h3 id="part-3-asynchronous-multitasking">Part 3: ‘asynchronous’ = multitasking</h3>
+<p>Note that there’s a specific order of operations, with some actions requiring others to complete before they can begin (for example: you need to grind beans before brewing espresso). <em>Synchronous</em> behavior means that all actions take place in sequential order, each waiting for the previous action to complete before starting. <em>Asynchronous</em> actions, on the other hand, can take place simultaneously and only wait for others when absolutely necessary. This more nuanced order of operations is essential for any kind of efficient process, and we all do this every day without having to think about it. In software development, this is called <em>asynchronous / non-blocking</em> behavior, and it’s a <strong>major 🔑</strong> for building fast, responsive applications backed by an API.</p>
+<p>This kind of thing is common with asynchronous actions like API calls in React applications – start the process, go do something else, then come back to handle the response when it’s complete.</p>
+<h2 id="api-backed-react-app-as-a-state-machine">API-backed React app as a state machine</h2>
+<figure>
+<img src="images/api_states.png" alt="API states diagram" /><figcaption>API states diagram</figcaption>
+</figure>
+<p>When making calls to an API from our React app with Redux, we can use the finite state machine concept (traffic light, locking door, etc) as a mental model for how we think about state changes in the application. In the diagram above, each bubble coresponds to a specific state which we could model with state variables like <code>loading: boolean</code> and <code>error: string</code>. Each arrow represents a state change, achieved by dispatching an action to the reducer. Here are some typical actions that we might dispatch as part of an API call: * FETCHING_START ("refresh” and "fetch” arrows above) * FETCHING_SUCCESS ("success” arrow above) * FETCHING_FAILURE ("failure” arrow above)</p>
+<p>If you’re curious how this is done in larger, more complex applications, feel free to check out options like RxJS and redux-saga. For our purposes here we’ll be focusing on one of the simplest approaches, Redux with thunk middleware.</p>
+<h2 id="redux-middleware">Redux Middleware</h2>
+<p>In the context of Redux, middleware is a way to extend the standard functionality with additional behavior, Middleware provides a third-party extension point after an action is disaptched, before it reaches the reducer:</p>
+<p>Dispatching an action -&gt; middleware -&gt; Action reaching the reducer</p>
+<p>Redux middleware is often used for logging, crash reporting, talking to an asynchronous API, routing, and more. <code>redux-logger</code> and <code>redux-thunk</code> are common examples of middleware used with Redux.</p>
+<p>To apply middleware, Redux provides a function called, of course, <code>applyMiddleware</code>. Here’s how we use it:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> logger <span class="op">=</span> <span class="va">reduxLogger</span>.<span class="at">createLogger</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">const</span> store <span class="op">=</span> <span class="at">createStore</span>(rootReducer<span class="op">,</span> <span class="at">applyMiddleware</span>(logger))<span class="op">;</span></a></code></pre></div>
+<h2 id="putting-it-all-together-redux-redux-thunk-middleware-asynchronous-actions">Putting it all together: Redux + redux-thunk middleware + asynchronous actions</h2>
+<p>In Redux, our reducers are <em>synchronous</em> by default. If we need to perform asynchronous operations, they need to happen before the actions reach the reducers. So this is why we use middleware to handle asynchronous requests.</p>
+<p>"Thunk” is a name for a function that’s returned by another function. In Redux, actions are normally just objects, but Redux-thunk allows us to return functions instead of objects from our action creators, enabling more dynamic behavior. Then those functions can handle side effects like api calls, and also return regular actions to be handled by the reducer.</p>
+<p>Here’s a typical setup: * Use redux-thunk as a middleware, and define async action creators * Within those async actions, use axios to make requests to an api endpoint</p>
+<h2 id="react-redux-hooks-an-alternative-to-connect">React Redux Hooks (an alternative to <code>connect</code>)</h2>
+<p>React Redux has been updated to include a simpler approach to connect components to the Redux store: hooks! Just like React Router includes the <code>useParams</code> and <code>useHistory</code> custom hooks as modern upgrades over the older way of doing things, the React Redux library has joined the hooks party. With the newer hooks syntax, every action creator is basically a "dispatching function” like the ones you write in a longform <code>mapDispatchToProps</code> (or the ones generated by <code>bindActionCreators</code> if you write the shortform version). With dispatch available in that scope, everything is just a bit more clear to understand at a glance, and the functionality we’ve achieved here with thunk is already built-in with no need for middleware!</p>
+<p>Here’s a quick rundown: * <code>useSelector</code> 👀 to read state values from the Redux store (similar to <code>mapStateToProps</code>) * <code>useDispatch</code> 🚀 to update the store (similar to <code>mapDispatchToProps</code>).</p>
+<p>As of 2021, <code>connect</code> is still widely used but hooks are now recommended as the default approach. Learning both is a great way to deepen your knowledge! Just like class components and function components, you’ll be likely to encounter both at some point in your journey. Remember that all these different approaches really just amount to different syntax, so don’t worry about the details too much. The functionality is the same, and the most useful thing to focus on at this stage is building a strong understanding of the underlying concepts.</p>
+<p>From the React Redux docs: &gt; We recommend using the React-Redux hooks API as the default approach in your React components. The existing connect API still works and will continue to be supported, but the hooks API is simpler and works better with TypeScript.</p>
+<h2 id="more-resources">More Resources</h2>
+<h3 id="videos">Videos</h3>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=z2XCUu2wIl0">Codevolution - Redux Thunk Middleware</a> ### Articles</li>
+<li><a href="https://medium.com/better-programming/handling-asynchronous-actions-in-redux-86724ed87c6c">Handling Asynchronous Actions in Redux</a></li>
+<li><a href="https://www.notion.so/Redux-3ac5db784a1e4a1dbe9ecc7c15bbd9fd">Redux by TL Megan Miller</a></li>
+<li><a href="https://redux.js.org/api/applymiddleware">Redux applyMiddleware docs</a></li>
+<li><a href="https://daveceddia.com/what-is-a-thunk/">What is a thunk?</a></li>
+<li><a href="https://github.com/reduxjs/redux-thunk">Redux-thunk</a> ### React Redux hooks articles</li>
+<li><a href="https://react-redux.js.org/api/hooks">React Redux docs - hooks API</a></li>
+<li><a href="https://thoughtbot.com/blog/using-redux-with-react-hooks">Using Redux with React Hooks</a></li>
+</ul>
+</body></html>

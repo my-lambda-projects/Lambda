@@ -31,13 +31,13 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 Many services out in the wild require the client (our React app, for example) to provide proof that it’s authenticated with them. The server running these services can issue a JWT (JSON Web Token) as the authentication token, in exchange for correct login credentials. 
 
 - [X] What steps can you take in your web apps to keep your data secure?
-As we build our web apps, we will most likely have some “protected” routes - routes that we only want to render if the user has logged in and been authenticated by our server. The way this normally works is we make a login request, sending the server the user’s username and password. The server will check those credentials against what is in the database, and if it can authenticate the user, it will return a token. Once we have this token, we can add two layers of protection to our app. One with protected routes, the other by sending an authentication header with our API calls (as we learned in the above objective).
+As we build our web apps, we will most likely have some "protected” routes - routes that we only want to render if the user has logged in and been authenticated by our server. The way this normally works is we make a login request, sending the server the user’s username and password. The server will check those credentials against what is in the database, and if it can authenticate the user, it will return a token. Once we have this token, we can add two layers of protection to our app. One with protected routes, the other by sending an authentication header with our API calls (as we learned in the above objective).
 
 - [X] Describe how web servers work.
-The “world wide web” (which we’ll refer to as “the web”) is just a part of the internet - which is itself a network of interconnected computers. The web is just one way to share data over the internet. It consists of a body of information stored on web servers, ready to be shared across the world.  The term “web server” can mean two things:
+The "world wide web” (which we’ll refer to as "the web”) is just a part of the internet - which is itself a network of interconnected computers. The web is just one way to share data over the internet. It consists of a body of information stored on web servers, ready to be shared across the world.  The term "web server” can mean two things:
   -- a computer that stores the code for a website
   -- a program that runs on such a computer
-The physical computer device that we call a web server is connected to the internet, and stores the code for different websites to be shared across the world at all times. When we load the code for our websites, or web apps, on a server like this, we would say that the server is “hosting” our website/app.
+The physical computer device that we call a web server is connected to the internet, and stores the code for different websites to be shared across the world at all times. When we load the code for our websites, or web apps, on a server like this, we would say that the server is "hosting” our website/app.
 
 - [X] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 Create, Read, Update, Delete

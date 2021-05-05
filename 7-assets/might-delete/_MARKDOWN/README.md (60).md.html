@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="intro-to-python-ii">Intro to Python II</h1>
+<p>Up to this point, you’ve gotten your feet wet by working on a bunch of small Python programs. In this module, we’re going to continue to solidify your Python chops by implementing a full-featured project according to a provided specification.</p>
+<h2 id="what-were-building">What We’re Building</h2>
+<p><a href="https://youtu.be/WaZccFqJUT8">What’s an Adventure Game? <img src="https://tk-assets.lambdaschool.com/7928cdb4-b8a3-45a6-b231-5b9d1fc1e002_ScreenShot2019-03-22at5.47.28PM.png" alt="vid" /></a></p>
+<h2 id="goals">Goals</h2>
+<ul>
+<li><p>Put your Python basics into practice by implementing a text adventure game</p></li>
+<li><p>Practice writing code that conforms to a specification</p></li>
+</ul>
+<h2 id="mvp">MVP</h2>
+<h3 id="day-1-mvp">Day 1 MVP</h3>
+<ul>
+<li>[X] Create the REPL command parser in <code>adv.py</code> which allows the player to move to rooms in the four cardinal directions.</li>
+<li>[X] Fill out Player and Room classes in <code>player.py</code> and <code>room.py</code></li>
+</ul>
+<h3 id="day-2-mvp">Day 2 MVP</h3>
+<ul>
+<li>[X] Make rooms able to hold multiple items</li>
+<li>[X] Make the player able to carry multiple items</li>
+<li>[X] Add items to the game that the user can carry around</li>
+<li>[X] Add <code>get [ITEM_NAME]</code> and <code>drop [ITEM_NAME]</code> commands to the parser</li>
+</ul>
+<h2 id="specification">Specification</h2>
+<p>The <code>/src</code> directory contains the files <code>adv.py</code>, which is where the main logic for the game should live, <code>room.py</code>, which will contain the definition of the Room class, and <code>player.py</code>, which will contain the definition of the Player class.</p>
+<ul>
+<li>[X] Add a REPL parser to <code>adv.py</code> that accepts directional commands to move the player
+<ul>
+<li>[X] After each move, the REPL should print the name and description of the player’s current room</li>
+<li>[X] Valid commands are <code>n</code>, <code>s</code>, <code>e</code> and <code>w</code> which move the player North, South, East or West</li>
+<li>[X] The parser should print an error if the player tries to move where there is no room.</li>
+</ul></li>
+<li><p>[X] Put the Room class in <code>room.py</code> based on what you see in <code>adv.py</code>.</p>
+<ul>
+<li><p>[X] The room should have <code>name</code> and <code>description</code> attributes.</p></li>
+<li><p>[X] The room should also have <code>n_to</code>, <code>s_to</code>, <code>e_to</code>, and <code>w_to</code> attributes which point to the room in that respective direction.</p></li>
+</ul></li>
+<li>[X] Put the Player class in <code>player.py</code>.
+<ul>
+<li>[X] Players should have a <code>name</code> and <code>current_room</code> attributes</li>
+</ul></li>
+<li><p>[X] Create a file called <code>item.py</code> and add an <code>Item</code> class in there.</p>
+<ul>
+<li><p>[X] The item should have <code>name</code> and <code>description</code> attributes.</p>
+<ul>
+<li>[X] Hint: the name should be one word for ease in parsing later.</li>
+</ul></li>
+<li><p>[ ] This will be the <em>base class</em> for specialized item types to be declared later.</p></li>
+</ul></li>
+<li><p>[X] Add the ability to add items to rooms.</p>
+<ul>
+<li><p>[X] The <code>Room</code> class should be extended with a <code>list</code> that holds the <code>Item</code>s that are currently in that room.</p></li>
+<li><p>[X] Add functionality to the main loop that prints out all the items that are visible to the player when they are in that room.</p></li>
+</ul></li>
+<li><p>[X] Add capability to add <code>Item</code>s to the player’s inventory. The inventory can also be a <code>list</code> of items "in” the player, similar to how <code>Item</code>s can be in a <code>Room</code>.</p></li>
+<li><p>[X] Add a new type of sentence the parser can understand: two words.</p>
+<ul>
+<li><p>[X] Until now, the parser could just understand one sentence form:</p>
+<p><code>verb</code></p>
+<p>such as "n” or "q”.</p></li>
+<li><p>[X] But now we want to add the form:</p>
+<p><code>verb</code> <code>object</code></p>
+<p>such as "take coins” or "drop sword”.</p></li>
+<li><p>[X] Split the entered command and see if it has 1 or 2 words in it to determine if it’s the first or second form.</p></li>
+</ul></li>
+<li><p>[X] Implement support for the verb <code>get</code> followed by an <code>Item</code> name. This will be used to pick up <code>Item</code>s.</p>
+<ul>
+<li><p>[X] If the user enters <code>get</code> or <code>take</code> followed by an <code>Item</code> name, look at the contents of the current <code>Room</code> to see if the item is there.</p>
+<ul>
+<li><p>[X] If it is there, remove it from the <code>Room</code> contents, and add it to the <code>Player</code> contents.</p></li>
+<li><p>[X] If it’s not there, print an error message telling the user so.</p></li>
+<li><p>[X] Add an <code>on_take</code> method to <code>Item</code>.</p>
+<ul>
+<li><p>[X] Call this method when the <code>Item</code> is picked up by the player.</p></li>
+<li><p>[X] <code>on_take</code> should print out "You have picked up [NAME]” when you pick up an item.</p></li>
+<li><p>[X] The <code>Item</code> can use this to run additional code when it is picked up.</p></li>
+</ul></li>
+<li><p>[X] Add an <code>on_drop</code> method to <code>Item</code>. Implement it similar to <code>on_take</code>.</p></li>
+</ul></li>
+</ul></li>
+<li><p>[X] Implement support for the verb <code>drop</code> followed by an <code>Item</code> name. This is the opposite of <code>get</code>/<code>take</code>.</p></li>
+<li><p>[X] Add the <code>i</code> and <code>inventory</code> commands that both show a list of items currently carried by the player.</p></li>
+</ul>
+<h2 id="stretch-goals">Stretch Goals</h2>
+<p>In arbitrary order:</p>
+<ul>
+<li><p>[X] Add more rooms</p></li>
+<li><p>[ ] Add scoring</p></li>
+<li><p>[ ] Subclass items into treasures</p></li>
+<li><p>[ ] Add a subclass to <code>Item</code> called <code>LightSource</code>.</p>
+<ul>
+<li><p>[ ] During world creation, add a <code>lamp</code> <code>LightSource</code> to a convenient <code>Room</code>.</p></li>
+<li><p>[ ] Override <code>on_drop</code> in <code>LightSource</code> that tells the player "It’s not wise to drop your source of light!” if the player drops it. (But still lets them drop it.)</p></li>
+<li><p>[ ] Add an attribute to <code>Room</code> called <code>is_light</code> that is <code>True</code> if the <code>Room</code> is naturally illuminated, or <code>False</code> if a <code>LightSource</code> is required to see what is in the room.</p></li>
+<li><p>[ ] Modify the main loop to test if there is light in the <code>Room</code> (i.e. if <code>is_light</code> is <code>True</code> <strong>or</strong> there is a <code>LightSource</code> item in the <code>Room</code>’s contents <strong>or</strong> if there is a <code>LightSource</code> item in the <code>Player</code>’s contents).</p></li>
+<li><p>[ ] If there is light in the room, display name, description, and contents as normal.</p></li>
+<li><p>[ ] If there isn’t, print out "It’s pitch black!” instead.</p></li>
+<li><p>Hint: <code>isinstance</code> might help you figure out if there’s a <code>LightSource</code> among all the nearby <code>Item</code>s.</p></li>
+<li><p>[ ] Modify the <code>get</code>/<code>take</code> code to print "Good luck finding that in the dark!” if the user tries to pick up an <code>Item</code> in the dark.</p></li>
+</ul></li>
+<li><p>[X] Add methods to notify items when they are picked up or dropped</p></li>
+<li><p>[ ] Add light and darkness to the game</p></li>
+<li><p>[X] Add more items to the game.</p></li>
+<li><p>[ ] Add a way to win.</p></li>
+<li><p>[X] Add more to the parser.</p>
+<ul>
+<li><p>[ ] Remember the last <code>Item</code> mentioned and substitute that if the user types "it” later, e.g.</p>
+<pre><code>take sword
+drop it</code></pre></li>
+<li><p>Add <code>Item</code>s with adjectives, like "rusty sword” and "silver sword”.</p>
+<ul>
+<li><p>Modify the parser to handle commands like "take rusty sword” as well as "take sword”.</p>
+<ul>
+<li>If the user is in a room that contains both the rusty sword <em>and</em> silver sword, and they type "take sword”, the parser should say, "I don’t know which you mean: rusty sword or silver sword.”</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><p>[ ] Modify the code that calls <code>on_take</code> to check the return value. If <code>on_take</code> returns <code>False</code>, then don’t continue picking up the object. (I.e. prevent the user from picking it up.)</p>
+<ul>
+<li>[ ] This enables you to add logic to <code>on_take</code> to code things like "don’t allow the user to pick up the dirt unless they’re holding the shovel.</li>
+</ul></li>
+<li><p>[ ] Add monsters.</p></li>
+<li><p>[ ] Add the <code>attack</code> verb that allows you to specify a monster to attack.</p></li>
+<li><p>[ ] Add an <code>on_attack</code> method to the monster class.</p></li>
+<li><p>[ ] Similar to the <code>on_take</code> return value modification, above, have <code>on_attack</code> prevent the attack from succeeding unless the user possesses a <code>sword</code> item.</p></li>
+<li><p>Come up with more stretch goals! The sky’s the limit!</p></li>
+</ul>
+</body></html>

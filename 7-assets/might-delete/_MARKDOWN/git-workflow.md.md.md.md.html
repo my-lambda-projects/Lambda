@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="git-workflow-tips-and-tricks">Git workflow: tips and tricks</h1>
+<p>🚀🚀🚀</p>
+<h2 id="review-command-line-basics-navigating-around-the-filesystem">Review: command line basics, navigating around the filesystem</h2>
+<p><code>cd</code> ("current directory”) helps you move around the file system: * <code>cd project-name</code> navigates into your project folder (you’ll do this every time you clone from GitHub) * <code>cd ..</code> moves up a directory</p>
+<p><code>ls</code> ("list”) lists files in the current directory.</p>
+<h2 id="basic-git-commands">Basic git commands</h2>
+<ul>
+<li>Clone a repo from GitHub <code>git clone {url}</code></li>
+<li>Create a new branch: <code>git checkout -b new-branch-name</code></li>
+<li>Switch to an existing branch (commit or stash your changes first): <code>git checkout branch-name</code></li>
+<li>Show all branches: <code>git branch</code></li>
+</ul>
+<h2 id="a-typical-workflow">A typical workflow</h2>
+<ul>
+<li>Fork to your own repo (remember to do this before you clone!)</li>
+<li>On the GitHub page for your forked repo (you should see your own username up top), copy the git url from the code button</li>
+<li><code>git clone {url}</code></li>
+<li>cd into new directory</li>
+<li>Create a new local branch: <code>git checkout -b feature-branch-name</code></li>
+<li>!CODE! ☕️</li>
+<li>Add your new changes: <code>git add .</code></li>
+<li>Commit your changes: <code>git commit -m 'Add my exciting new feature...'</code></li>
+<li>Everything so far is just on your computer, in your own local git repo. Now, if you’re sure your code is ready to share, push to GitHub:
+<ul>
+<li><code>git push -u origin feature-branch-name</code></li>
+<li>The <code>-u</code> flag sets the upstream branch so you can just say <code>git push</code> and <code>git pull</code> in the future</li>
+</ul></li>
+<li>!CODE SOME MORE!</li>
+<li>Add your new changes: <code>git add .</code> (or <code>git add -p</code> to review changes first)</li>
+<li>Commit your new changes: <code>git commit -m 'Update stuff and fix bugs'</code></li>
+<li>Push to GitHub: <code>git push</code> (this works now without specifiying where you’re pushing, because you already set the upstream branch above!)</li>
+</ul>
+<h2 id="pro-tip-review-your-changes-before-pushing-to-github">Pro tip: review your changes before pushing to GitHub</h2>
+<p>Use <code>git add -p</code> to review your changes before pushing. It’s a helpful line-by-line interface that will help you catch any <code>console.log</code>s, white space errors, and other things you meant to fix before sharing your code with the team.</p>
+<p>Alternatively, you can use <code>git show</code> to see your last commit and <code>git diff main</code> to see all the changes made on your branch (this is what GitHub shows in the UI for the code changes in a pull request). <code>git log</code> is also useful to see a list of your commmit messages and make sure there are no "wip”s or other annoyingly vague placeholders in the commit history.</p>
+<p>There are many good approaches here, but regardless of the workflow you choose, just make sure Either way, be sure to review your own code before sharing! When collaborating on a team, thoughtful review is a better strategy than "huck and pray”</p>
+<h2 id="merging-in-the-latest-changes-from-github">Merging in the latest changes from GitHub</h2>
+<p>When collaborating as part of a team, you’ll often want to pull down the latest changes that have been merged into the main branch on GitHub by other developers while you’ve been working</p>
+<pre><code>git pull origin main</code></pre>
+<p>A less common use case: you and other developers are working on the same feature branch, so you want to pull down the latest changes:</p>
+<pre><code>git pull origin head</code></pre>
+<p>This updates your local codebase with the latest code from GitHub. Once you’re upstream branch is set, you can simply type <code>git pull</code></p>
+<h2 id="naming-commits">Naming commits</h2>
+<p>Make sure your commit messages are clear and concise, so anyone viewing the list of commits can get a bird’s eye view of recent dev work. "First commit on the new feature”, "wip trying to get this working” and "fix the bug” are all examples of vague, unhelpful commits that no one wants to see in the history!</p>
+<p>Every team has their own preferences, and some even have specific requirements for verb tense ("Add booking feature” vs "Added booking feature”) and other phrasing details. Some also like to include an id to reference the feature/bug story on your team’s project tracker, either in commits or when you submit a pull request.</p>
+<p>Though the phrasing of your commit messages will probably never be the most important thing, it’s a subtle cue that, along with other thoughtful approaches to the way you lay out your code and communicate with your team, will make everyone love working with you!</p>
+<h2 id="collaborating-on-github-and-keeping-your-branch-up-to-date">Collaborating on GitHub and keeping your branch up to date</h2>
+<p>The first time you push a new branch, be sure to include the <code>-u</code> flag (or <code>--set-upstream</code>) to make sure git knows that you’d like to map your local branch to a branch of the same name on GitHub. Git is set up for a range of use cases (and existed long before GitHub), so it doesn’t assume this intuitive 1:1 mapping by default. But once you’ve run this command just once, you should be able to <code>git pull</code> and <code>git push</code> without the extra typing in the future.</p>
+<h2 id="amdending-commits">Amdending commits</h2>
+<p>Did you save a "wip” commit before calling it a night? Update the commit message (and optionally add more code changes) with <code>git commit --amend</code></p>
+<p>Note that this is a more advanced approach and may require some knowledge of vim, unless you’ve setup VSCode as your default editor from your shell.</p>
+<h2 id="common-errors">Common errors</h2>
+<p>Have you ever seen an error like this?</p>
+<pre><code>$ git push
+fatal: The current branch test-branch has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin branch-name</code></pre>
+<p>This means you need to set up your local branch to track . Run the command given (or the equivalent <code>-u</code> flag) and you should be good to go!</p>
+<p>Another common mistake is forgetting to fork before you clone. Please make sure you see your own Github name in the top left corner before you clone!</p>
+<p>(Note: many older codebases have a default branch called <code>master</code>, but it’s more common for new apps to call the default branch <code>main</code>. <code>develop</code> and other names are also common for bigger production apps where there may be multiple stages between pushing your code and going live to users.)</p>
+</body></html>

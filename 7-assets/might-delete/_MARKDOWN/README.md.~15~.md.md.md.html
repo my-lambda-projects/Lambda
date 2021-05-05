@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="http-movies---stretch-assignment">HTTP Movies - Stretch Assignment</h1>
+<h2 id="instructions">Instructions</h2>
+<ul>
+<li><strong>Fork</strong> this repository, then clone your fork.</li>
+<li>Run <code>yarn</code> to download dependencies.</li>
+<li>Run the server using <code>yarn start</code> or <code>node server.js</code>.</li>
+<li>In a separate terminal cd into the <code>client</code> folder and run <code>yarn install</code> to download dependencies.</li>
+<li>Still inside the <code>client</code> folder run <code>yarn start</code> to run the client application.</li>
+</ul>
+<h3 id="part-1---updating-a-movie">Part 1 - Updating A Movie:</h3>
+<ul>
+<li>Add a route at the path <code>/update-movie/:id</code></li>
+<li>Create a component with a form to update the chosen movie</li>
+<li>Add a button in the movie component that routes you to your new route with the movies’s id as the URL param</li>
+<li>The form should make a PUT request to the server when submitted</li>
+<li>When the call comes back successfully, reset your form state and route the user to <code>/movies</code> where they will see the updated movie in the list</li>
+</ul>
+<p>Movie object format:</p>
+<pre><code>{
+  id: 5,
+  title: &#39;Tombstone&#39;,
+  director: &#39;George P. Cosmatos&#39;,
+  metascore: 89,
+  stars: [&#39;Kurt Russell&#39;, &#39;Bill Paxton&#39;, &#39;Sam Elliot&#39;],
+}</code></pre>
+<h3 id="part-2---deleting-a-movie">Part 2 - Deleting A Movie:</h3>
+<ul>
+<li>Add a delete button in the movie component that makes a DELETE request</li>
+<li>When the call comes back successfully, route the user to <code>/movies</code> where they will see the updated movie list without the deleted movie</li>
+</ul>
+<h3 id="part-3-stretch---adding-a-movie">Part 3 (Stretch) - Adding A Movie:</h3>
+<ul>
+<li>Add a route at the path <code>/add-movie</code></li>
+<li>Create a component with a form to add a new movie</li>
+<li>Each created movie should have the following format (notice the array of strings - this will test your JS skills, so work through it methodically)</li>
+<li>The form should make a POST request to the server when submitted</li>
+<li>When the call comes back successfully, reset your form state and route the user to <code>/movies</code></li>
+</ul>
+<p>Movie object format:</p>
+<pre><code>{
+  id: 5,
+  title: &#39;Tombstone&#39;,
+  director: &#39;George P. Cosmatos&#39;,
+  metascore: 89,
+  stars: [&#39;Kurt Russell&#39;, &#39;Bill Paxton&#39;, &#39;Sam Elliot&#39;],
+}</code></pre>
+<h2 id="stretch-problem">Stretch Problem</h2>
+<ul>
+<li>See Part 3 above (Adding movies with a POST request)</li>
+<li>Style the app!</li>
+</ul>
+</body></html>

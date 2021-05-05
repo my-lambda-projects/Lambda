@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="node-db-4-guided-project">Node DB 4 Guided Project</h1>
+<p>Guided project for <strong>Node DB 4</strong> Module.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li><a href="https://sqlitestudio.pl/index.rvt?act=download">SQLite Studio</a> installed.</li>
+<li>a rest client like <a href="https://insomnia.rest/download/">Insomnia</a> or <a href="https://www.getpostman.com/downloads/">Postman</a> installed.</li>
+</ul>
+<h2 id="project-setup">Project Setup</h2>
+<ul>
+<li>[ ] <strong>import</strong> and clone this repository.</li>
+<li>[ ] <strong>CD into the folder</strong> where you cloned <strong>your version</strong>.</li>
+<li>[ ] type <code>npm i</code> to download dependencies.</li>
+<li>[ ] type <code>npm run server</code> to start the API.</li>
+</ul>
+<p>Please follow along as the instructor uses Knex migrations and seeding to create a multi-table database schema.</p>
+<h2 id="good-data-model-opinion">Good Data Model (opinion)</h2>
+<ul>
+<li>captures all the data needed by system</li>
+<li>captures only data needed by system</li>
+<li>reflects reality from system’s POV</li>
+<li>is flexible, can evolve with system’s needs</li>
+<li>guarantees data integrity w/o sacrificing too much performance</li>
+<li>is driven by way we access data</li>
+</ul>
+<h2 id="components">Components</h2>
+<ul>
+<li>entities (resources): nouns –&gt; tables</li>
+<li>properties (column, fields, attributes) –&gt; columns</li>
+<li>relationships –&gt; foreign keys</li>
+</ul>
+<h2 id="workflow">Workflow</h2>
+<ul>
+<li>identify entities (resources): nouns –&gt; tables</li>
+<li>identify relationships –&gt; foreign keys</li>
+<li>identify properties (column, fields, attributes) –&gt; columns</li>
+</ul>
+<h2 id="relationships">Relationships</h2>
+<ul>
+<li>one to one: rare</li>
+<li>one to many: most common type</li>
+<li>many to many: smoke and mirrors, a trick</li>
+</ul>
+<h2 id="mantras">Mantras</h2>
+<ul>
+<li>Every table must have primary key</li>
+<li>Work on two or three entities at a time</li>
+<li>One to many relationship requires foreign key</li>
+<li>The foreign key goes on the many side</li>
+<li>Many to many requires a third table</li>
+<li>The third table can have other columns</li>
+</ul>
+</body></html>

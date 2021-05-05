@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="relational-databases-and-sql">Relational Databases and SQL</h1>
+<h2 id="comparing-database-types">Comparing Database Types</h2>
+<p><strong>SQL:</strong> - Data is arranged in rows, columns, schemas, and tables relationality - Very reliable and fast in retrieving data - Well-defined standards to abide by - Easy retrieval and storage</p>
+<p><strong>NOSQL:</strong> - Data is arranged in unstructured documents - High level of flexibility with different data models - Good for large-scale storage of unstructured data such as messaging data, log data, user and session data - Lower Cost &amp; Open Source - Scalability is easier: designed to perform exceptionally well under various conditions - Better redundancy (more likely to have copies of data)</p>
+<p><strong>SQLite vs The Rest</strong> - …</p>
+<h2 id="relational-databases">Relational Databases</h2>
+<p><strong>Relation</strong> = List of Stuff</p>
+<p><strong>One-to-one relation</strong> is where a record on one table is copied to another table (e.g. a user’s email being present on two tables)</p>
+<p><strong>One-to-many relation</strong> is where a record represents/is connected to many different records (e.g. a user may have many orders from a store. An order can only have one user)</p>
+<p><strong>Many-to-many relation</strong> is where many records can relate to many other records. This requires a connecting table to reference the relationships between all the records(e.g. many students may have many different classes that they attend. A connecting table called "enrolments” would contain references to which students go to which classes).</p>
+<p><strong>Tables:</strong> - Data in rows and columns - Column represents a field or attribute that is common to all records - Tables normally have more rows than columns - Tables have Primary Keys that uniquely identify each row. - relationships with other tables are represented by Foreign Keys</p>
+<p><strong>Index:</strong> - Similar to an index in the back of a book - The index lists all the topics in a specified order and then refers to one or more specific records. - An index creates a new data structure that refers to a specific table(s). - It is stored on the database - Used to speed up searching in the database - Indexes can be created or dropped with no effect on the data</p>
+<p><strong>View:</strong> - A view is a virtual table created from the output of an SQL query. - Views allow us to: - Structure data in a user-friendly way. - Control + restrict access to the specific data/allow users to modify exactly what they need and no more. - Summarise data from various tables</p>
+</body></html>

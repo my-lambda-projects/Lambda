@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="http-ajax-ii-put-delete">HTTP / AJAX II: PUT / DELETE</h1>
+<h2 id="objectives">Objectives</h2>
+<p>After today’s guided project, you should be able to: * make PUT requests to an external API using axios * make DELETE requests to an external API using axios</p>
+<h2 id="review-http-crud-and-restful-services">Review: HTTP, CRUD and RESTful services</h2>
+<p>Here’s a cheat sheet for how to interact with server-side web services from a front-end client like the React apps we’re building:</p>
+<table>
+<thead>
+<tr class="header">
+<th>HTTP Verb (axios)</th>
+<th>CRUD naming</th>
+<th>Description</th>
+<th>Happy Path</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>get</td>
+<td>Read</td>
+<td>Read a representation of a resource</td>
+<td>200 (OK)</td>
+</tr>
+<tr class="even">
+<td>post</td>
+<td>Create</td>
+<td>Create new resources</td>
+<td>201 (created)</td>
+</tr>
+<tr class="odd">
+<td><strong>put</strong></td>
+<td>Update</td>
+<td>Update a resource</td>
+<td>200 (OK) or 201 (created)</td>
+</tr>
+<tr class="even">
+<td><strong>delete</strong></td>
+<td>Delete</td>
+<td>Delete a resource</td>
+<td>200 (OK) or 204 (no content)</td>
+</tr>
+</tbody>
+</table>
+<p>Most modern API’s conform to the "representational state transfer” (REST) architecture, with a standardized format for how the "endpoints” (the addresses you send your API calls to) are laid out and how they behave. For example, a typical RESTful resource endpoint might look like this:</p>
+<ul>
+<li>GET /users (get all users)</li>
+<li>GET /users/123 (get user with id ‘123’)</li>
+<li>POST /users (create a new user, with data in payload)</li>
+<li>PUT /users/123 (update user 123 with data in payload)</li>
+<li>DELETE /users/123 (delete user 123)</li>
+</ul>
+<p>HTTP is a <em>protocol</em> that defines how servers and clients communicate over a network, essentially the foundation of the Internet as we know it. REST is an <em>architecture pattern</em> to standardize the way we build HTTP-based web services and clients.</p>
+<p>Side note for the routes shown above: it’s very common for API endpoints to be "namespaced” with something like "v1/” to indicate the api version. Depending on the structure of your app, you might have endpoints with additional nesting, with a URL structure more like "api/v1/users”.</p>
+<h2 id="put-vs-post">PUT vs POST</h2>
+<p>The difference between these two types of requests is fairly straightforward: POST to create a new resource, PUT to update an existing one. If you’re ever unsure which to use, here’s a good rule of thumb.</p>
+<p><strong>Does the resource I’d like to write to the database already exist?</strong> * If <strong>yes</strong>, we’re <strong>updating</strong> that resource so we should use PUT. * If <strong>no</strong>, we’re <strong>creating</strong> a new resource and should use POST.</p>
+<p>For both of these requests, we going the resource id along with data we’d like the API to write to the database. In practice, HTTP (the <em>HyperText Transfer Protocol</em>) doesn’t strictly enforce any of this so it’s up to you as the developer to think in terms of resources and follow the standard patterns of the REST architecture. Whether you’re a front-end, back-end, or full-stack developer, knowing these patterns and best practices is extermely important for being able to write good code.</p>
+<h2 id="delete">DELETE</h2>
+<p>With a delete request, we simply pass the id of the resource to be deleted. It ends up looking quite similar to a GET request for a single resource, hitting the same URL and just using a different verb.</p>
+<ul>
+<li>GET /users/123 (get user with id ‘123’)</li>
+<li>DELETE /users/123 (delete user 123)</li>
+</ul>
+<h2 id="helpful-resources">Helpful Resources</h2>
+<ul>
+<li><a href="https://www.tutorialspoint.com/restful/restful_introduction.htm">RESTful Web Services tutorial</a></li>
+<li><a href="https://www.infoq.com/articles/rest-introduction/">A Brief Introduction to REST</a></li>
+<li><a href="https://www.w3schools.com/xml/ajax_intro.asp">AJAX Intro</a></li>
+</ul>
+</body></html>

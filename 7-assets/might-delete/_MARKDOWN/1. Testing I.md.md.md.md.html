@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="testing-i---js-testing-101">Testing I - JS Testing 101</h1>
+<ul>
+<li><p><em>"Tests need to be super fast as we’ll be running hundreds or even thousands of them on our code”.</em></p></li>
+<li>Basic input output (expect()…toeBe())</li>
+<li>Basic: toEqual()</li>
+<li>Mocking Library Behaviour
+<ul>
+<li><code>__mocks__</code> folder</li>
+<li><code>jest.mock</code> in test file</li>
+<li><em>"Moment.JS is an example of a library that would need to be mocked as the outputs change regularly”.</em></li>
+</ul></li>
+<li>Testing Error Throws
+<ul>
+<li>Wrap in callback before chaining <code>.toThrow()</code></li>
+<li><code>expect(fn).toThrow()</code></li>
+</ul></li>
+<li>Testing Asynchronous Code
+<ul>
+<li><code>jest.runAllTimers()</code></li>
+<li>Testing resolve &amp; reject</li>
+<li><code>jest.advanceTimersByTime(&lt;milliseconds&gt;)</code></li>
+</ul></li>
+<li><p>Jest Cheatsheet: (Link)[https://github.com/sapegin/jest-cheat-sheet/blob/master/Readme.md#mock-functions-1]</p></li>
+</ul>
+</body></html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="the-reducer-pattern">The Reducer Pattern</h1>
+<p>Today well be learning about reducers, a key concept in functional programming that is at the core of Redux. First, well take a step back to learn about data structures in JavaScript and study the idea of <em>immutable state.</em></p>
+<h2 id="fergalicious-definition">Fergalicious definition</h2>
+<p>A reducer is a pure function that takes the previous state and an action, and returns the next state. It "reduces” those two arguments to one output:</p>
+<figure>
+<img src="images/reducer.jpg" alt="Reducer diagram" /><figcaption>Reducer diagram</figcaption>
+</figure>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1">reducer <span class="op">=</span> (previousState<span class="op">,</span> action) <span class="kw">=&gt;</span> nextState</a></code></pre></div>
+<p>Now you may not exactly be <em>lining down the block</em> just to learn about this programming construct, but trust me – reducers are pretty cool! Very helpful for managing state and keeping things organized in larger React apps.</p>
+<h2 id="review-data-types-in-javascript">Review: Data types in JavaScript</h2>
+<p>In Javascript there are several "primitive types” (e.g., <code>Number</code>, <code>String</code>, <code>Boolean</code>), each of which stores a value of a fixed size in memory. For example, a Number type is always exactly 8 bytes of data, to store a 64-bit floating point value.</p>
+<p>Objects, arrays and functions, however, are more advanced data structures and they require a more sophisticated system of memory allocation and management. So an Object actually stores a "pointer” to another memory location, where the right amount of storage space can be dynamically allocated.</p>
+<p><code>Object</code> in Javascript is known as a "reference type” because it stores a reference to another memory location rather than storing it directly. Since all non-primitive data structures (including Array and Function) inherit from this same Object prototype in JavaScript, just about every data structure we ever work with in React is stored by reference in memory.</p>
+<p>That may feel a bit abstract at first, so heres an example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// Using &quot;=&quot; to copy objects just duplicates the pointer, not the object itself</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">const</span> josh <span class="op">=</span> <span class="op">{</span><span class="dt">name</span><span class="op">:</span> <span class="st">&quot;josh&quot;</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">&quot;blue&quot;</span><span class="op">};</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="kw">const</span> josh_two <span class="op">=</span> josh<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="va">josh_two</span>.<span class="at">color</span> <span class="op">=</span> <span class="st">&quot;red&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-5" title="5"></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="va">console</span>.<span class="at">log</span>(josh<span class="op">,</span> josh_two)<span class="op">;</span> <span class="co">// both have color: red</span></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="co">// This invisible mutation leads to unintended side effects! </span></a>
+<a class="sourceLine" id="cb2-8" title="8"></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="co">// So instead we create a new object every time, like this:</span></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="kw">const</span> josh <span class="op">=</span> <span class="op">{</span><span class="dt">name</span><span class="op">:</span> <span class="st">&quot;josh&quot;</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">&quot;blue&quot;</span><span class="op">};</span></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="kw">const</span> josh_two <span class="op">=</span> <span class="op">{</span>...<span class="at">josh</span><span class="op">,</span> <span class="dt">color</span><span class="op">:</span> <span class="st">&quot;red&quot;</span><span class="op">};</span></a>
+<a class="sourceLine" id="cb2-12" title="12"></a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="va">console</span>.<span class="at">log</span>(josh<span class="op">,</span> josh_two)<span class="op">;</span> <span class="co">// different colors</span></a></code></pre></div>
+<h2 id="immutability">Immutability</h2>
+<p>In order to keep state changes and their effects throughtout the application <strong>predictable</strong>, we follow the convention of <strong>immutable state</strong>, creating an entirely new object with every state change. Note how the spread operator <code>...</code> helps streamline the syntax for this. Objects in JavaScript are mutable by nature, so we cannot rely on a language feature like <code>const</code>. Instead, we enforce immutability as a pattern in the way we write our code.</p>
+<p>Weve been following this convention all along, but it becomes especially important in larger applications with more complex and numerous state transitions. Immutable state is one of the core ideas in React, and is necessary for application-level state management with tools like Redux and Context API.</p>
+<h2 id="lets-make-some-artisanal-️-with-actions-and-reducers">Lets make some artisanal ☕️ (with actions and reducers)</h2>
+<p>Say youre starting a local business, like a coffee shop. Throughout the course of a day there are many different <em>actions</em> to be done – grinding beans, making espresso, accepting payments, and so on. Within a single transaction with a customer, there are several state changes that take place and wed like them to take place in a specific order. Once the customer pays well "dispatch” an action to update the state of their order and kick off the process of making their coffee. Heres an example, to help us get comfortable with the language of reducers:</p>
+<ul>
+<li>Initial state: <code>{order: '', cost: null, status: 'ordering'}</code></li>
+<li>Customer orders. Dispatch action <code>'PLACE_ORDER'</code> with payload <code>'oat milk macchiato'</code></li>
+<li>State updated. New state: <code>{order: 'oat milk macchiato', cost: 3.50, status: 'ordered'}</code></li>
+<li>Dispatch action <code>'ACCEPT_PAYMENT'</code></li>
+<li>State updated. New state: <code>{order: 'oat milk macchiato', cost: 3.50, status: 'paid'}</code></li>
+<li>Dispatch action <code>'PREPARE_COFFEE'</code></li>
+<li>State updated. New state: <code>{order: 'oat milk macchiato', cost: 3.50, status: 'preparing'}</code></li>
+<li>making coffee, wait and listen to coffee shop music…</li>
+<li>State updated. New state: <code>{order: 'oat milk macchiato', cost: 3.50, status: 'complete'}</code></li>
+<li>Dispatch action <code>'SERVE_COFFEE'</code></li>
+</ul>
+<p>Even in this coffee example, you can imagine how things get complicated quickly. <code>'PREPARE_COFFEE'</code> is a simplification of what would actually be many separate actions like <code>'GRIND_BEANS'</code>, <code>'BREW_ESPRESSO'</code> and <code>'FROTH_MILK'</code>. For a small menu we could easily have 20+ different actions, with a specific order of oprations where some actions can be multitasked while other actions can only be started once others complete.</p>
+<p>Rather than hiring a new employee for each action, we choose to hire a skilled barista who can juggle all of these different tasks and keep things organized in an efficient process.</p>
+<p>Likewise, in React, we dont need to write a separate function for every possible state transition. Instead, a <strong>reducer</strong> can play the role of barista and handle all of these actions in an organized, predictable way.</p>
+<h2 id="reducers-in-react">Reducers in React</h2>
+<p>So weve learned that a reducer basically handles several functions (now called "actions”) in an efficient way. In a React context, reducers are very helopful for state management, since we can write a single reducer that does the work of several different state management functions, all wrapped into one.</p>
+<p>Here are the three main aspects of the pattern: * <strong>Reducer</strong>: takes an action and current state, returns the new state * <strong>Action</strong>: object that includes a string specifying the type of action to be performed, and any data needed by the reducer to properly update state (e.g., the text inputted by a user in a form) * <strong>Dispatch function</strong>: <em>dispatches</em> an action to the reducer</p>
+<p>An "action” sounds like it should be a function, but in the reducer pattern an action is simply an object with this format:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">const</span> action <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="dt">type</span><span class="op">:</span> <span class="st">&#39;TAKE_ORDER&#39;</span> <span class="co">// action types are UPPER_CASE string constants by convention</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="dt">payload</span><span class="op">:</span> <span class="st">&#39;oat milk macchiato&#39;</span> <span class="co">// data needed to update state</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="op">}</span></a></code></pre></div>
+<h2 id="usereducer-hook">useReducer Hook</h2>
+<p>We can start getting comfortable with the Reducer pattern and all of its conventions by working with the <code>useReducer</code> hook, an alternative to <code>useState</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1">  <span class="kw">const</span> [state<span class="op">,</span> dispatch] <span class="op">=</span> <span class="at">useReducer</span>(reducer<span class="op">,</span> initialState)<span class="op">;</span></a></code></pre></div>
+<p>Heres how it works, with a simplified version of our coffee example:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="co">// A coffee shop with useReducer:</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw">function</span> <span class="at">reducer</span>(state<span class="op">,</span> action) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="cf">switch</span> (<span class="va">action</span>.<span class="at">type</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-4" title="4">    <span class="cf">case</span> <span class="st">&#39;TAKE_ORDER&#39;</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb5-5" title="5">      <span class="cf">return</span> <span class="op">{</span>...<span class="at">state</span><span class="op">,</span> <span class="dt">order</span><span class="op">:</span> <span class="va">action</span>.<span class="at">payload</span><span class="op">,</span> <span class="dt">status</span><span class="op">:</span> <span class="st">&#39;ordered&#39;</span><span class="op">};</span> </a>
+<a class="sourceLine" id="cb5-6" title="6">      <span class="co">// We&#39;d also lookup the order cost and assign it here</span></a>
+<a class="sourceLine" id="cb5-7" title="7">    <span class="cf">case</span> <span class="st">&#39;ACCEPT_PAYMENT&#39;</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb5-8" title="8">      <span class="cf">return</span> <span class="op">{</span>...<span class="at">state</span><span class="op">,</span> <span class="dt">status</span><span class="op">:</span> paid<span class="op">};</span></a>
+<a class="sourceLine" id="cb5-9" title="9">    <span class="co">// other actions</span></a>
+<a class="sourceLine" id="cb5-10" title="10">    <span class="cf">default</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb5-11" title="11">      <span class="cf">throw</span> <span class="kw">new</span> <span class="at">Error</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-12" title="12">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-13" title="13"><span class="op">}</span></a>
+<a class="sourceLine" id="cb5-14" title="14"></a>
+<a class="sourceLine" id="cb5-15" title="15"><span class="co">// Component example with dispatch</span></a>
+<a class="sourceLine" id="cb5-16" title="16"><span class="kw">function</span> <span class="at">Menu</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-17" title="17">  <span class="kw">const</span> intialState <span class="op">=</span> <span class="op">{</span><span class="dt">order</span><span class="op">:</span> <span class="st">&#39;&#39;</span><span class="op">,</span> <span class="dt">cost</span><span class="op">:</span> <span class="kw">null</span><span class="op">,</span> <span class="dt">status</span><span class="op">:</span> <span class="st">&#39;ordering&#39;</span><span class="op">};</span></a>
+<a class="sourceLine" id="cb5-18" title="18">  <span class="kw">const</span> [state<span class="op">,</span> dispatch] <span class="op">=</span> <span class="at">useReducer</span>(reducer<span class="op">,</span> initialState)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-19" title="19">  <span class="cf">return</span> (</a>
+<a class="sourceLine" id="cb5-20" title="20">    <span class="op">&lt;&gt;</span></a>
+<a class="sourceLine" id="cb5-21" title="21">      <span class="op">&lt;</span>h1<span class="op">&gt;</span>Central Perk Menu&lt;/h1<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb5-22" title="22">      <span class="op">&lt;</span>button onClick<span class="op">={</span>() <span class="kw">=&gt;</span> <span class="at">dispatch</span>(<span class="op">{</span><span class="dt">type</span><span class="op">:</span> <span class="st">&#39;TAKE_ORDER&#39;</span><span class="op">,</span> <span class="dt">payload</span><span class="op">:</span> <span class="st">&#39;macchiato&#39;</span><span class="op">}</span>)<span class="op">}&gt;</span>Macchiato&lt;/button<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb5-23" title="23">      <span class="op">&lt;</span>button onClick<span class="op">={</span>() <span class="kw">=&gt;</span> <span class="at">dispatch</span>(<span class="op">{</span><span class="dt">type</span><span class="op">:</span> <span class="st">&#39;TAKE_ORDER&#39;</span><span class="op">,</span> <span class="dt">payload</span><span class="op">:</span> <span class="st">&#39;espresso&#39;</span><span class="op">}</span>)<span class="op">}&gt;</span>Espresso&lt;/button<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb5-24" title="24">      <span class="op">{</span><span class="co">/* more menu items */</span><span class="op">}</span></a>
+<a class="sourceLine" id="cb5-25" title="25">    &lt;/<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb5-26" title="26">  )<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-27" title="27"><span class="op">}</span></a></code></pre></div>
+<p>Redux builds on this pattern to provide a "predictable state container”, and over the next two weeks well be learning about various ways of managing application-level and context-level state with Redux and Context API. Things can get confusing with the amount of abstraction involved, but as long as youre really solid on these fundamentals youll be good to go!</p>
+<h2 id="videos">Videos:</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=qdAThMLtF98&amp;list=PLC3y8-rFHvwheJHvseC3I0HuYI2f46oAK&amp;index=6">Codevolution - Reducers with cake shop example</a></li>
+</ul>
+<h2 id="helpful-articles-docs">Helpful Articles &amp; Docs:</h2>
+<ul>
+<li><a href="https://daveceddia.com/react-redux-immutability-guide/">Immutability Guide</a></li>
+<li><a href="https://www.robinwieruch.de/react-usereducer-vs-usestate">useReducer vs useState</a></li>
+<li><a href="https://reactjs.org/docs/hooks-reference.html#usereducer">useReducer Hook</a></li>
+<li><a href="https://www.notion.so/The-Reducer-Pattern-a779a5bb46e14882b5ae7d130185931b">The Reducer Pattern - notion</a></li>
+<li><a href="https://redux.js.org/basics/reducers">Reducers, from the Redux Docs</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures">JavaScript data types - MDN</a></li>
+<li><a href="https://www.javascripttutorial.net/javascript-primitive-vs-reference-values/">Primitive vs Reference Values</a></li>
+</ul>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="preprocessing-ii-fun-bus-website">Preprocessing II: Fun Bus Website</h1>
+<p>Fun Bus is a travel agency looking for some help on their website. They want a new navigation, new header, and new buttons on the home page. They also want a mobile version of their site styled. Use your preprocessing knowledge to accomplish their tasks.</p>
+<h2 id="task-1-set-up-the-project-with-git">Task 1: Set Up The Project With Git</h2>
+<ul>
+<li>[ ] Create a forked copy of this project.</li>
+<li>[ ] Add your project manager as collaborator on Github.</li>
+<li>[ ] Clone your OWN version of the repository (Not Lambda’s by mistake!).</li>
+<li>[ ] Create a new branch: git checkout -b <code>&lt;firstName-lastName&gt;</code>.</li>
+<li>[ ] Implement the project on your newly created <code>&lt;firstName-lastName&gt;</code> branch, committing changes regularly.</li>
+<li>[ ] Push commits: git push origin <code>&lt;firstName-lastName&gt;</code>.</li>
+</ul>
+<p>Follow these steps for completing your project.</p>
+<ul>
+<li>[ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student’s Repo). <strong>Please don’t merge your own pull request</strong></li>
+<li>[ ] Add your project manager as a reviewer on the pull-request</li>
+<li>[ ] Your project manager will count the project as complete by merging the branch back into master.</li>
+</ul>
+<h2 id="task-2-set-up-your-preprocessor">Task 2: Set up your preprocessor</h2>
+<ul>
+<li>[ ] Verify that you have LESS installed correctly by running <code>lessc -v</code> in your terminal, if you don’t get a version message back, reach out to your project manager for help.</li>
+<li>[ ] Open your terminal and navigate to your preprocessing project by using the <code>cd</code> command</li>
+<li>[ ] Once in your project’s root folder, run the following command <code>less-watch-compiler less css index.less</code></li>
+<li>[ ] Verify your compiler is working correctly by changing the <code>background-color</code> on the <code>html</code> selector to <code>red</code> in your <code>index.less</code> file.</li>
+<li>[ ] Once you see the red screen, you can delete that style and you’re ready to start on the next task</li>
+</ul>
+<h2 id="task-3-import-less-files">Task 3: Import LESS Files</h2>
+<ul>
+<li>[ ] Navigate to your <code>index.less</code> file. Notice the file is blank. In order for you to see the styles for this project you must import them in a certain order. That order is as follows:</li>
+</ul>
+<ol type="1">
+<li><code>variables.less</code></li>
+<li><code>mixins.less</code></li>
+<li><code>reset.less</code></li>
+<li><code>global.less</code></li>
+<li><code>navigation.less</code></li>
+<li><code>footer.less</code></li>
+<li><code>home-page.less</code></li>
+</ol>
+<h2 id="task-4-desktop-updates-needed">Task 4: Desktop Updates Needed</h2>
+<ul>
+<li>[ ] Review the <a href="design-files/fun-bus-desktop.png">desktop design file</a>. Notice the navigation, header, and buttons at the bottom of the page are missing.</li>
+<li>[ ] Navigation: Use the <code>navigation.less</code> file for all your navigation styling</li>
+<li>[ ] Main Header: Use the <code>home-page.less</code> file for the header styling.</li>
+<li>[ ] Buttons: Create a parametric mixin that can create the missing buttons in the design file. Use the <code>mixins.less</code> file to create your mixin.</li>
+</ul>
+<h2 id="task-5-mobile-updates-needed">Task 5: Mobile Updates Needed</h2>
+<ul>
+<li>[ ] Use escaping to create a variable named <code>@mobile</code> that contains this value: <code>(max-width: 500px)</code>. Use the <code>variables.less</code> file to house your styling.</li>
+<li>[ ] Review the <a href="design-files/fun-bus-mobile.png">mobile design file</a>. You will see several design updates that need updating.</li>
+<li>[ ] Match the design file at <code>500px</code> as well as you can</li>
+</ul>
+<h2 id="stretch-goals">Stretch Goals:</h2>
+<ul>
+<li>[ ] Create an animation mixin using parametric mixins</li>
+<li>[ ] Introduce a form with inputs allowing users to select a vacation package and a submit button at the bottom of the page. Introduce inputs for name, email, phone number, and an area for them to leave special instructions.</li>
+<li>[ ] Style the site to look good at all sizes, not just desktop and phone</li>
+</ul>
+</body></html>

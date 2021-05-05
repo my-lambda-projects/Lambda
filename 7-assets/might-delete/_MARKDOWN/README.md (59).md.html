@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="intro-to-graphs">Intro to Graphs</h1>
+<h2 id="objectives">Objectives</h2>
+<ul>
+<li>Learn how to represent a graph as an adjacency list</li>
+<li>Learn how to represent a graph as an adjacency matrix</li>
+<li>Learn the tradeoffs of the respective representations</li>
+</ul>
+<h2 id="graph-representations">Graph Representations</h2>
+<figure>
+<img src="img/representations.PNG" alt="Different ways to represent a graph" /><figcaption>Different ways to represent a graph</figcaption>
+</figure>
+<p>The two most common ways to represent graphs in code are adjacency lists and adjacency matrices, each with its own strengths and weaknesses. When deciding on a graph implementation, it’s important to understand the type of data and operations you will be using.</p>
+<h2 id="adjacency-list">Adjacency List</h2>
+<p>In an adjacency list, the graph stores a list of vertices and for each vertex, a list of each vertex to which it’s connected. So, for the following graph…</p>
+<figure>
+<img src="img/sample-graph.PNG" alt="Different ways to represent a graph" /><figcaption>Different ways to represent a graph</figcaption>
+</figure>
+<p>…an adjacency list in Python could look something like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">class</span> Graph:</a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb1-3" title="3">        <span class="va">self</span>.vertices <span class="op">=</span> {</a>
+<a class="sourceLine" id="cb1-4" title="4">                          <span class="st">&quot;A&quot;</span>: {<span class="st">&quot;B&quot;</span>},</a>
+<a class="sourceLine" id="cb1-5" title="5">                          <span class="st">&quot;B&quot;</span>: {<span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>},</a>
+<a class="sourceLine" id="cb1-6" title="6">                          <span class="st">&quot;C&quot;</span>: {<span class="st">&quot;E&quot;</span>},</a>
+<a class="sourceLine" id="cb1-7" title="7">                          <span class="st">&quot;D&quot;</span>: {<span class="st">&quot;F&quot;</span>, <span class="st">&quot;G&quot;</span>},</a>
+<a class="sourceLine" id="cb1-8" title="8">                          <span class="st">&quot;E&quot;</span>: {<span class="st">&quot;C&quot;</span>},</a>
+<a class="sourceLine" id="cb1-9" title="9">                          <span class="st">&quot;F&quot;</span>: {<span class="st">&quot;C&quot;</span>},</a>
+<a class="sourceLine" id="cb1-10" title="10">                          <span class="st">&quot;G&quot;</span>: {<span class="st">&quot;A&quot;</span>, <span class="st">&quot;F&quot;</span>}</a>
+<a class="sourceLine" id="cb1-11" title="11">                        }</a></code></pre></div>
+<p>Note that this adjacency list doesn’t actually use any lists. The <code>vertices</code> collection is a <code>dictionary</code> which lets us access each collection of edges in O(1) constant time while the edges are contained in a <code>set</code> which lets us check for the existence of edges in O(1) constant time.</p>
+<h2 id="adjacency-matrix">Adjacency Matrix</h2>
+<p>Now, let’s see what this graph might look like as an adjacency matrix:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">class</span> Graph:</a>
+<a class="sourceLine" id="cb2-2" title="2">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb2-3" title="3">        <span class="va">self</span>.edges <span class="op">=</span> [[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb2-4" title="4">                      [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb2-5" title="5">                      [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb2-6" title="6">                      [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>],</a>
+<a class="sourceLine" id="cb2-7" title="7">                      [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb2-8" title="8">                      [<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>],</a>
+<a class="sourceLine" id="cb2-9" title="9">                      [<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>]]</a></code></pre></div>
+<p>We represent this matrix as a two-dimensional array, or a list of lists. With this implementation, we get the benefit of built-in edge weights but do not have an association between the values of our vertices and their index.</p>
+<p>In practice, both of these would probably contain more information by including Vertex or Edge classes.</p>
+<h2 id="tradeoffs">Tradeoffs</h2>
+<p>Both adjacency matrices and adjacency lists have their own strengths and weaknesses. Let’s explore their tradeoffs.</p>
+<p>For the following:</p>
+<pre><code>V: Total number of vertices in the graph
+E: Total number of edges in the graph
+e: Average number of edges per vertex</code></pre>
+<h3 id="space-complexity">Space Complexity</h3>
+<ul>
+<li><p><strong>Adjacency Matrix</strong>: O(V ^ 2)</p></li>
+<li><p><strong>Adjacency List</strong>: O(V + E)</p></li>
+</ul>
+<p>Consider a sparse graph with 100 vertices and only one edge. An adjacency list would have to store all 100 vertices but only needs to keep track of that single edge. The adjacency matrix would need to store 100x100=10,000 possible connections, even though all but one would be 0.</p>
+<p>Now consider a dense graph where each vertex points to each other vertex. In this case, the total number of edges will approach V^2 so the space complexities of each are comparable. However, dictionaries and sets are less space efficient than lists so for dense graphs, the adjacency matrix is more efficient.</p>
+<p>Takeaway: Adjacency lists are more space efficient for <strong>sparse</strong> graphs while adjacency matrices become efficient for <strong>dense</strong> graphs.</p>
+<h3 id="add-vertex">Add Vertex</h3>
+<ul>
+<li><p><strong>Adjacency Matrix</strong>: O(V)</p></li>
+<li><p><strong>Adjacency List</strong>: O(1)</p></li>
+</ul>
+<p>Adding a vertex is extremely simple in an adjacency list:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1"><span class="va">self</span>.vertices[<span class="st">&quot;H&quot;</span>] <span class="op">=</span> <span class="bu">set</span>()</a></code></pre></div>
+<p>Adding a new key to a dictionary is a constant-time operation.</p>
+<p>For an adjacency matrix, we would need to add a new value to the end of each existing row, then add a new row at the end.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1"><span class="cf">for</span> v <span class="kw">in</span> <span class="va">self</span>.edges:</a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="va">self</span>.edges[v].append(<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb5-3" title="3">v.append([<span class="dv">0</span>] <span class="op">*</span> <span class="bu">len</span>(<span class="va">self</span>.edges <span class="op">+</span> <span class="dv">1</span>))</a></code></pre></div>
+<p>Remember that with Python lists, appending to the end of a list is usually O(1) due to over-allocation of memory but can be O(n) when the over-allocated memory fills up. When this occurs, adding the vertex can be O(V^2).</p>
+<p>Takeaway: Adding vertices is very efficient in adjacency lists but very inefficient for adjacency matrices.</p>
+<h3 id="remove-vertex">Remove Vertex</h3>
+<ul>
+<li><p><strong>Adjacency Matrix</strong>: O(V ^ 2)</p></li>
+<li><p><strong>Adjacency List</strong>: O(V)</p></li>
+</ul>
+<p>Removing vertices is pretty inefficient in both representations. In an adjacency matrix, we need to remove the removed vertex’s row, then remove that column from each other row. Removing an element from a list requires moving everything after that element over by one slot which takes an average of V/2 operations. Since we need to do that for every single row in our matrix, that results in a V^2 time complexity. On top of that, we need to reduce the index of each vertex after our removed index by 1 as well which doesn’t add to our quadratic time complexity, but does add extra operations.</p>
+<p>For an adjacency list, we need to visit each vertex and remove all edges pointing to our removed vertex. Removing elements from sets and dictionaries is a O(1) operation, so this results in an overall O(V) time complexity.</p>
+<p>Takeaway: Removing vertices is inefficient in both adjacency matrices and lists but more inefficient in matrices.</p>
+<h3 id="add-edge">Add Edge</h3>
+<ul>
+<li><p><strong>Adjacency Matrix</strong>: O(1)</p></li>
+<li><p><strong>Adjacency List</strong>: O(1)</p></li>
+</ul>
+<p>Adding an edge in an adjacency matrix is quite simple:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1"><span class="va">self</span>.edges[v1][v2] <span class="op">=</span> <span class="dv">1</span></a></code></pre></div>
+<p>Adding an edge in an adjacency list is similarly simple:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" title="1"><span class="va">self</span>.vertices[v1].add(v2)</a></code></pre></div>
+<p>Both are constant-time operations.</p>
+<p>Takeaway: Adding edges to both adjacency lists and matrices is very efficient.</p>
+<h3 id="remove-edge">Remove Edge</h3>
+<ul>
+<li><p><strong>Adjacency Matrix</strong>: O(1)</p></li>
+<li><p><strong>Adjacency List</strong>: O(1)</p></li>
+</ul>
+<p>Removing an edge from an adjacency matrix is quite simple:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" title="1"><span class="va">self</span>.edges[v1][v2] <span class="op">=</span> <span class="dv">0</span></a></code></pre></div>
+<p>Removing an edge from an adjacency list is similarly simple:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" title="1"><span class="va">self</span>.vertices[v1].remove(v2)</a></code></pre></div>
+<p>Both are constant-time operations.</p>
+<p>Takeaway: Removing edges from both adjacency lists and matrices is very efficient.</p>
+<h3 id="find-edge">Find Edge</h3>
+<ul>
+<li><p><strong>Adjacency Matrix</strong>: O(1)</p></li>
+<li><p><strong>Adjacency List</strong>: O(1)</p></li>
+</ul>
+<p>Finding an edge in an adjacency matrix is quite simple:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" title="1"><span class="cf">return</span> <span class="va">self</span>.edges[v1][v2] <span class="op">&gt;</span> <span class="dv">0</span></a></code></pre></div>
+<p>Finding an edge in an adjacency list is similarly simple:</p>
+<pre><code>return v2 in self.vertices[v1]</code></pre>
+<p>Both are constant-time operations.</p>
+<p>Takeaway: Finding edges from both adjacency lists and matrices is very efficient.</p>
+<h3 id="get-all-edges-from-vertex">Get All Edges from Vertex</h3>
+<ul>
+<li><p><strong>Adjacency Matrix</strong>: O(V)</p></li>
+<li><p><strong>Adjacency List</strong>: O(1)</p></li>
+</ul>
+<p>Say you want to know all the edges originating from a particular vertex. With an adjacency list, this is as simple as returning the value from the vertex dictionary:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" title="1"><span class="cf">return</span> <span class="va">self</span>.vertex[v]</a></code></pre></div>
+<p>In an adjacency matrix, however, it’s a bit more complicated. You would need to iterate through the entire row and populate a list based on the results:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb13-1" title="1">v_edges <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb13-2" title="2"><span class="cf">for</span> v2 <span class="kw">in</span> <span class="va">self</span>.edges[v]:</a>
+<a class="sourceLine" id="cb13-3" title="3">    <span class="cf">if</span> <span class="va">self</span>.edges[v][v2] <span class="op">&gt;</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb13-4" title="4">        v_edges.append(v2)</a>
+<a class="sourceLine" id="cb13-5" title="5"><span class="cf">return</span> v_edges</a></code></pre></div>
+<p>Takeaway: Fetching all edges is more efficient in an adjacency list than an adjacency matrix.</p>
+</body></html>

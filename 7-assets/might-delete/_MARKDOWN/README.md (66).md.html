@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="project-the-ls-8-emulator">Project: The LS-8 Emulator</h1>
+<h2 id="implementation-of-the-ls-8-emulator">Implementation of the LS-8 Emulator</h2>
+<p><em>Objective</em>: to gain a deeper understanding of how a CPU functions at a low level.</p>
+<p>We’re going to write an emulator for the world-famous LambdaSchool-8 computer, otherwise known as LS-8! This is an 8-bit computer with 8-bit memory addressing, which is about as simple as it gets.</p>
+<p>An 8 bit CPU is one that only has 8 wires available for addresses (specifying where something is in memory), computations, and instructions. With 8 bits, our CPU has a total of 256 bytes of memory and can only compute values up to 255. The CPU could support 256 instructions, as well, but we won’t need them.</p>
+<p>For starters, we’ll execute code that stores the value 8 in a register, then prints it out:</p>
+<pre><code># print8.ls8: Print the number 8 on the screen
+
+10000010 # LDI R0,8
+00000000
+00001000
+01000111 # PRN R0
+00000000
+00000001 # HLT</code></pre>
+<p>The binary numeric value on the left in the <code>print8.ls8</code> code above is either:</p>
+<ul>
+<li>the machine code value of the instruction (e.g. <code>10000010</code> for <code>LDI</code>), also known as the <em>opcode</em></li>
+</ul>
+<p>or</p>
+<ul>
+<li>one of the opcode’s arguments (e.g. <code>00000000</code> for <code>R0</code> or <code>00001000</code> for the value <code>8</code>), also known as the <em>operands</em>.</li>
+</ul>
+<p>This code above requires the implementation of three instructions:</p>
+<ul>
+<li><code>LDI</code>: load "immediate”, store a value in a register, or "set this register to this value”.</li>
+<li><code>PRN</code>: a pseudo-instruction that prints the numeric value stored in a register.</li>
+<li><code>HLT</code>: halt the CPU and exit the emulator.</li>
+</ul>
+<p>See <a href="../LS8-spec.md">the LS-8 spec</a> for more details.</p>
+<p>The above program is already hardcoded into the source file <code>cpu.py</code>. To run it, you will eventually:</p>
+<pre><code>python3 ls8.py</code></pre>
+<p>but you’ll have to implement those three above instructions first!</p>
+<h2 id="step-0-important-inventory-what-is-here">Step 0: IMPORTANT: inventory what is here!</h2>
+<ul>
+<li>Make a list of files here.</li>
+<li>Write a short 3-10-word description of what each file does.</li>
+<li>Note what has been implemented, and what hasn’t.</li>
+<li>Read this whole file.</li>
+<li>Skim the spec.</li>
+</ul>
+<h2 id="step-1-add-the-constructor-to-cpu.py">Step 1: Add the constructor to <code>cpu.py</code></h2>
+<p>Add list properties to the <code>CPU</code> class to hold 256 bytes of memory and 8 general-purpose registers.</p>
+<blockquote>
+<p>Hint: you can make a list of a certain number of zeros with this syntax:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1">x <span class="op">=</span> [<span class="dv">0</span>] <span class="op">*</span> <span class="dv">25</span>  <span class="co"># x is a list of 25 zeroes</span></a></code></pre></div>
+</blockquote>
+<p>Also add properties for any internal registers you need, e.g. <code>PC</code>.</p>
+<p>Later on, you might do further initialization here, e.g. setting the initial value of the stack pointer.</p>
+<h2 id="step-2-add-ram-functions">Step 2: Add RAM functions</h2>
+<p>In <code>CPU</code>, add method <code>ram_read()</code> and <code>ram_write()</code> that access the RAM inside the <code>CPU</code> object.</p>
+<p><code>ram_read()</code> should accept the address to read and return the value stored there.</p>
+<p><code>ram_write()</code> should accept a value to write, and the address to write it to.</p>
+<blockquote>
+<p>Inside the CPU, there are two internal registers used for memory operations: the <em>Memory Address Register</em> (MAR) and the <em>Memory Data Register</em> (MDR). The MAR contains the address that is being read or written to. The MDR contains the data that was read or the data to write. You don’t need to add the MAR or MDR to your <code>CPU</code> class, but they would make handy parameter names for <code>ram_read()</code> and <code>ram_write()</code>, if you wanted.</p>
+</blockquote>
+<p>We’ll make use of these helper function later.</p>
+<p>Later on, you might do further initialization here, e.g. setting the initial value of the stack pointer.</p>
+<h2 id="step-3-implement-the-core-of-cpus-run-method">Step 3: Implement the core of <code>CPU</code>’s <code>run()</code> method</h2>
+<p>This is the workhorse function of the entire processor. It’s the most difficult part to write.</p>
+<p>It needs to read the memory address that’s stored in register <code>PC</code>, and store that result in <code>IR</code>, the <em>Instruction Register</em>. This can just be a local variable in <code>run()</code>.</p>
+<p>Some instructions requires up to the next two bytes of data <em>after</em> the <code>PC</code> in memory to perform operations on. Sometimes the byte value is a register number, other times it’s a constant value (in the case of <code>LDI</code>). Using <code>ram_read()</code>, read the bytes at <code>PC+1</code> and <code>PC+2</code> from RAM into variables <code>operand_a</code> and <code>operand_b</code> in case the instruction needs them.</p>
+<p>Then, depending on the value of the opcode, perform the actions needed for the instruction per the LS-8 spec. Maybe an <code>if-elif</code> cascade…? There are other options, too.</p>
+<p>After running code for any particular instruction, the <code>PC</code> needs to be updated to point to the next instruction for the next iteration of the loop in <code>run()</code>. The number of bytes an instruction uses can be determined from the two high bits (bits 6-7) of the instruction opcode. See the LS-8 spec for details.</p>
+<h2 id="step-4-implement-the-hlt-instruction-handler">Step 4: Implement the <code>HLT</code> instruction handler</h2>
+<p>Add the <code>HLT</code> instruction definition to <code>cpu.py</code> so that you can refer to it by name instead of by numeric value.</p>
+<p>In <code>run()</code> in your if-else block, exit the loop if a <code>HLT</code> instruction is encountered, regardless of whether or not there are more lines of code in the LS-8 program you loaded.</p>
+<p>We can consider <code>HLT</code> to be similar to Python’s <code>exit()</code> in that we stop whatever we are doing, wherever we are.</p>
+<h2 id="step-5-add-the-ldi-instruction">Step 5: Add the <code>LDI</code> instruction</h2>
+<p>This instruction sets a specified register to a specified value.</p>
+<p>See the LS-8 spec for the details of what this instructions does and its opcode value.</p>
+<h2 id="step-6-add-the-prn-instruction">Step 6: Add the <code>PRN</code> instruction</h2>
+<p>This is a very similar process to adding <code>LDI</code>, but the handler is simpler. See the LS-8 spec.</p>
+<p><em>At this point, you should be able to run the program and have it print <code>8</code> to the console!</em></p>
+<h2 id="step-7-un-hardcode-the-machine-code">Step 7: Un-hardcode the machine code</h2>
+<p>In <code>cpu.py</code>, the LS-8 programs you’ve been running so far have been hardcoded into the source. This isn’t particularly user-friendly.</p>
+<p>Make changes to <code>cpu.py</code> and <code>ls8.py</code> so that the program can be specified on the command line like so:</p>
+<pre><code>python3 ls8.py examples/mult.ls8</code></pre>
+<p>(The programs <code>print8.ls8</code> and <code>mult.ls8</code> are provided in the <code>examples/</code> directory for your convenience.)</p>
+<p>For processing the command line, checkout <code>sys.argv</code>. Try running the following Python program with different arguments on the command line to see how it works:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1"><span class="im">import</span> sys</a>
+<a class="sourceLine" id="cb5-2" title="2"></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="bu">print</span>(sys.argv)</a></code></pre></div>
+<p>Note that <code>sys.argv[0]</code> is the name of the running program itself.</p>
+<p>If the user runs <code>python3 ls8.py examples/mult.ls8</code>, the values in <code>sys.argv</code> will be:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1">sys.argv[<span class="dv">0</span>] <span class="op">==</span> <span class="st">&quot;ls8.py&quot;</span></a>
+<a class="sourceLine" id="cb6-2" title="2">sys.argv[<span class="dv">1</span>] <span class="op">==</span> <span class="st">&quot;examples/mult.ls8&quot;</span></a></code></pre></div>
+<p>so you can look in <code>sys.argv[1]</code> for the name of the file to load.</p>
+<blockquote>
+<p>Bonus: check to make sure the user has put a command line argument where you expect, and print an error and exit if they didn’t.</p>
+</blockquote>
+<p>In <code>load()</code>, you will now want to use those command line arguments to open a file, read in its contents line by line, and save appropriate data into RAM.</p>
+<p>As you process lines from the file, you should be on the lookout for blank lines (ignore them), and you should ignore everything after a <code>#</code>, since that’s a comment.</p>
+<p>You’ll have to convert the binary strings to integer values to store in RAM. The built-in <code>int()</code> function can do that when you specify a number base as the second argument:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" title="1">x <span class="op">=</span> <span class="bu">int</span>(<span class="st">&quot;1010101&quot;</span>, <span class="dv">2</span>)  <span class="co"># Convert binary string to integer</span></a></code></pre></div>
+<h2 id="step-8-implement-a-multiply-and-print-the-result">Step 8: Implement a Multiply and Print the Result</h2>
+<p>Extend your LS8 emulator to support the following program:</p>
+<pre><code># mult.ls8: Multiply 8x9 and print 72
+
+10000010 # LDI R0,8
+00000000
+00001000
+10000010 # LDI R1,9
+00000001
+00001001
+10100010 # MUL R0,R1
+00000000
+00000001
+01000111 # PRN R0
+00000000
+00000001 # HLT</code></pre>
+<p>One you run it with <code>python3 ls8.py examples/mult.ls8</code>, you should see:</p>
+<pre><code>72</code></pre>
+<p>Check the LS-8 spec for what the <code>MUL</code> instruction does.</p>
+<blockquote>
+<p>Note: <code>MUL</code> is the responsiblity of the ALU, so it would be nice if your code eventually called the <code>alu()</code> function with appropriate arguments to get the work done.</p>
+</blockquote>
+<h2 id="step-9-beautify-your-run-loop">Step 9: Beautify your <code>run()</code> loop</h2>
+<p>Do you have a big <code>if-elif</code> block in your <code>cpu_run()</code> function? Is there a way to better modularize your code? There are plenty of them!</p>
+<blockquote>
+<p>What is the time complexity of the <code>if-elif</code> cascade? In the worst case, we’re going to have to check the value in <code>IR</code> against all of the possible opcode values. This is <code>O(n)</code>. It would be a lot better if it we an <code>O(1)</code> process…</p>
+</blockquote>
+<p>One option is to use something called a <em>branch table</em> or <em>dispatch table</em> to simplify the instruction handler dispatch code. This is a list or dictionary of functions that you can index by opcode value. The upshot is that you fetch the instruction value from RAM, then use that value to look up the handler function in the branch table. Then call it.</p>
+<p>Example of a branch table:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" title="1">OP1 <span class="op">=</span> 0b10101010</a>
+<a class="sourceLine" id="cb10-2" title="2">OP2 <span class="op">=</span> 0b11110000</a>
+<a class="sourceLine" id="cb10-3" title="3"></a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="kw">class</span> Foo:</a>
+<a class="sourceLine" id="cb10-5" title="5"></a>
+<a class="sourceLine" id="cb10-6" title="6">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb10-7" title="7">        <span class="co"># Set up the branch table</span></a>
+<a class="sourceLine" id="cb10-8" title="8">        <span class="va">self</span>.branchtable <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb10-9" title="9">        <span class="va">self</span>.branchtable[OP1] <span class="op">=</span> <span class="va">self</span>.handle_op1</a>
+<a class="sourceLine" id="cb10-10" title="10">        <span class="va">self</span>.branchtable[OP2] <span class="op">=</span> <span class="va">self</span>.handle_op2</a>
+<a class="sourceLine" id="cb10-11" title="11"></a>
+<a class="sourceLine" id="cb10-12" title="12">    <span class="kw">def</span> handle_op1(<span class="va">self</span>, a):</a>
+<a class="sourceLine" id="cb10-13" title="13">        <span class="bu">print</span>(<span class="st">&quot;op 1: &quot;</span> <span class="op">+</span> a)</a>
+<a class="sourceLine" id="cb10-14" title="14"></a>
+<a class="sourceLine" id="cb10-15" title="15">    <span class="kw">def</span> handle_op2(<span class="va">self</span>, a):</a>
+<a class="sourceLine" id="cb10-16" title="16">        <span class="bu">print</span>(<span class="st">&quot;op 2: &quot;</span> <span class="op">+</span> a)</a>
+<a class="sourceLine" id="cb10-17" title="17"></a>
+<a class="sourceLine" id="cb10-18" title="18">    <span class="kw">def</span> run(<span class="va">self</span>):</a>
+<a class="sourceLine" id="cb10-19" title="19">        <span class="co"># Example calls into the branch table</span></a>
+<a class="sourceLine" id="cb10-20" title="20">        ir <span class="op">=</span> OP1</a>
+<a class="sourceLine" id="cb10-21" title="21">        <span class="va">self</span>.branchtable[ir](<span class="st">&quot;foo&quot;</span>)</a>
+<a class="sourceLine" id="cb10-22" title="22"></a>
+<a class="sourceLine" id="cb10-23" title="23">        ir <span class="op">=</span> OP2</a>
+<a class="sourceLine" id="cb10-24" title="24">        <span class="va">self</span>.branchtable[ir](<span class="st">&quot;bar&quot;</span>)</a>
+<a class="sourceLine" id="cb10-25" title="25"></a>
+<a class="sourceLine" id="cb10-26" title="26">c <span class="op">=</span> Foo()</a>
+<a class="sourceLine" id="cb10-27" title="27">c.run()</a></code></pre></div>
+<h2 id="step-10-implement-system-stack">Step 10: Implement System Stack</h2>
+<p>All CPUs manage a <em>stack</em> that can be used to store information temporarily. This stack resides in main memory and typically starts at the top of memory (at a high address) and grows <em>downward</em> as things are pushed on. The LS-8 is no exception to this.</p>
+<p>Implement a system stack per the spec. Add <code>PUSH</code> and <code>POP</code> instructions. Read the beginning of the spec to see which register is the stack pointer.</p>
+<ul>
+<li>Values themselves should be saved in the <strong><em>portion of RAM</em></strong> <em>that is allocated for the stack</em>.
+<ul>
+<li>Use the stack pointer to modify the correct block of memory.</li>
+<li>Make sure you update the stack pointer appropriately as you <code>PUSH</code> and <code>POP</code> items to and from the stack.</li>
+</ul></li>
+</ul>
+<p>If you run <code>python3 ls8.py examples/stack.ls8</code> you should see the output:</p>
+<pre><code>2
+4
+1</code></pre>
+<h2 id="step-11-implement-subroutine-calls">Step 11: Implement Subroutine Calls</h2>
+<p>Back in the old days, functions were called <em>subroutines</em>. In machine code, subroutines enable you to jump to any address with the <code>CALL</code> instruction, and then return back to where you called from with the <code>RET</code> instruction. This enables you to create reusable functions.</p>
+<p>Subroutines have many similarities to functions in higher-level languages. Just as a function in C, JavaScript or Python will jump from the function call, to its definition, and then return back to the line of code following the call, subroutines will also allow us to execute instructions non-sequentially.</p>
+<p>The stack is used to hold the return address used by <code>RET</code>, so you <strong>must</strong> implement the stack in step 10, first. Then, add subroutine instructions <code>CALL</code> and <code>RET</code>.</p>
+<ul>
+<li><p>For <code>CALL</code>, you will likely have to modify your handler call in <code>cpu_run()</code>. The problem is that some instructions want to execute and move to the next instruction like normal, but others, like <code>CALL</code> and <code>JMP</code> want to go to a specific address.</p>
+<blockquote>
+<p>Note: <code>CALL</code> is very similar to the <code>JMP</code> instruction. However, there is one key difference between them. Can you find it in the specs?</p>
+</blockquote>
+<ul>
+<li>In <strong>any</strong> case where the instruction handler sets the <code>PC</code> directly, you <em>don’t</em> want to advance the PC to the next instruction. So you’ll have to set up a special case for those types of instructions. This can be a flag you explicitly set per-instruction… but can also be computed from the value in <code>IR</code>. Check out the spec for more.</li>
+</ul></li>
+</ul>
+<p>If you run <code>python3 ls8.py examples/call.ls8</code> you should see the output:</p>
+<pre><code>20
+30
+36
+60</code></pre>
+<h2 id="stretch-goal-timer-interrupts">Stretch Goal: Timer Interrupts</h2>
+<p>Add interrupts to the LS-8 emulator.</p>
+<p><strong>You must have implemented a CPU stack before doing this.</strong></p>
+<p><strong>You must have implmented the <code>ST</code> instruction before doing this.</strong></p>
+<p>See the <a href="https://github.com/LambdaSchool/Computer-Architecture-One/blob/master/LS8-SPEC.md">LS-8 spec</a> for details on implementation.</p>
+<p>The LS-8 should fire a timer interrupt one time per second. This could be implemented by calling <code>datetime.now()</code> (in the <code>datetime</code> module) each iteration of the main loop and checking to see if one second has elapsed.</p>
+<p>When the timer is ready to fire, set bit 0 of the IS register (R6).</p>
+<p>Later in the main instruction loop, you’ll check to see if bit 0 of the IS register is set, and if it is, you’ll push the registers on the stack, look up the interrupt handler address in the interrupt vector table at address <code>0xF8</code>, and set the PC to it. Execution continues in the interrupt handler.</p>
+<p>Then when an <code>IRET</code> instruction is found, the registers and PC are popped off the stack and execution continues normally.</p>
+<h2 id="example">Example</h2>
+<p>This code prints out the letter <code>A</code> from the timer interrupt handler that fires once per second.</p>
+<pre><code># interrupts.ls8
+
+10000010 # LDI R0,0XF8
+00000000
+11111000
+10000010 # LDI R1,INTHANDLER
+00000001
+00010001
+10000100 # ST R0,R1
+00000000
+00000001
+10000010 # LDI R5,1
+00000101
+00000001
+10000010 # LDI R0,LOOP
+00000000
+00001111
+
+# LOOP (address 15):
+01010100 # JMP R0
+00000000
+
+# Timer interrupt Handler
+# When the timer interrupt occurs, output an &#39;A&#39;
+# INTHANDLER (address 17):
+10000010 # LDI R0,65
+00000000
+01000001
+01001000 # PRA R0
+00000000
+00010011 # IRET</code></pre>
+<p>The assembly program is interested in getting timer interrupts, so it sets the IM register to <code>00000001</code> with <code>LDI R5,1</code>.</p>
+<p>The interrupt timer gets to 1 second, and sets bit #0 in IS.</p>
+<p>At the beginning of each <code>cpu_run()</code> loop, the CPU checks to see if interrupts are enabled. If not, it continues processing instructions as normal. Otherwise:</p>
+<p>Bitwise-AND the IM register with the IS register. This masks out all the interrupts we’re not interested in, leaving the ones we are interested in:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" title="1">masked_interrupts <span class="op">=</span> cpu.reg[IM] <span class="op">&amp;</span> cpu.reg[IS]</a></code></pre></div>
+<p>Step through each bit of <code>masked_interrupts</code> and see which interrupts are set.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb15-1" title="1"><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>):</a>
+<a class="sourceLine" id="cb15-2" title="2">  <span class="co"># Right shift interrupts down by i, then mask with 1 to see if that bit was set</span></a>
+<a class="sourceLine" id="cb15-3" title="3">  interrupt_happened <span class="op">=</span> ((masked_interrupts <span class="op">&gt;&gt;</span> i) <span class="op">&amp;</span> <span class="dv">1</span>) <span class="op">==</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb15-4" title="4"></a>
+<a class="sourceLine" id="cb15-5" title="5">  <span class="co"># ...</span></a></code></pre></div>
+<p>(If the no interrupt bits are set, then stop processing interrupts and continue executing the current instruction as per usual.)</p>
+<p>If <code>interrupt_happened</code>, check the LS-8 spec for details on what to do.</p>
+<h2 id="stretch-goal-keyboard-interrupts">Stretch Goal: Keyboard Interrupts</h2>
+<p>This gets tricky because you have to see if a key has been pressed without stopping the program from running otherwise. The easiest way to do this is with <em>polling</em>. ("Was a key hit? What about now? What about now?”)</p>
+<p>Google for <code>python keyboard poll</code> to get some ideas on how to do this. Windows does it differently than Unix/Mac.</p>
+<h2 id="stretch-goal-curve-histogram">Stretch Goal: Curve Histogram</h2>
+<p>Write an LS-8 assembly program that prints this curve on the screen:</p>
+<pre><code>*
+**
+****
+********
+****************
+********************************
+****************************************************************</code></pre>
+<p>Each subsequent line has two-times the number of asterisks as the previous line.</p>
+<p><strong>Use loops to get this done.</strong></p>
+<p>Doing this correctly requires implementing <code>CMP</code>, and some comparative forms of <code>JMP</code>, such as <code>JLT</code> or <code>JNE</code> or <code>JEQ</code>.</p>
+<p>Hint: Look in the <code>asm/</code> directory and learn how to use the <code>asm.js</code> assembler. This way you can write your code in assembly language and use the assembler to build it to machine code and then run it on your emulator.</p>
+</body></html>

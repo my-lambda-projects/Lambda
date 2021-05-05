@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="module-project-advanced-form-management---user-onboarding">Module Project: Advanced Form Management - User Onboarding</h1>
+<h2 id="project-description">Project Description</h2>
+<p>We’ve seen many different styles of form management by now – simple to complex. Today we are going to unleash your inner form-wizard! 🧙</p>
+<h2 id="set-up-the-project">Set Up The Project</h2>
+<ul>
+<li>[ ] Start off by installing a blank React app by using Create React App.</li>
+<li>[ ] Add the following as dependencies inside your React app:
+<ul>
+<li><code>formik</code></li>
+<li><code>yup</code></li>
+<li><code>axios</code></li>
+</ul></li>
+<li>[ ] Create a component file called <code>Form.js</code>, import it into your <code>App.js</code> file, and place the component in your JSX there.</li>
+</ul>
+<h2 id="step-1---create-your-formik-form">STEP 1 - Create Your Formik Form</h2>
+<p>We want to create a form to onboard a new user to our system. We need <em>at least</em> the following pieces of information about our new user:</p>
+<ul>
+<li>Name</li>
+<li>Email</li>
+<li>Password</li>
+<li>Terms of Service (checkbox)</li>
+<li>A Submit button to send our form data to the server.</li>
+</ul>
+<h2 id="step-2---implement-form-validation-and-error-messaging">STEP 2 - Implement Form Validation and Error Messaging</h2>
+<p>Form validation is one of the facets of an application that makes it feel polished and controlled from a user perspective. With that in mind, implement the following:</p>
+<ul>
+<li>Using Yup, set up <em>at least</em> two different validations for each field along with custom error codes that will display on screen when validation fails.</li>
+</ul>
+<h2 id="step-3---make-a-post-request">STEP 3 - Make a POST Request</h2>
+<p>Being able to <code>POST</code> data is a key skill of any developer, no matter your skill level.</p>
+<ul>
+<li>Craft a <code>POST</code> request using <code>axios</code> that sends your form data to the following endpoint: <em>https://reqres.in/api/users</em></li>
+<li>Verify using a <code>console.log()</code> that you are receiving a successful response back</li>
+</ul>
+<p>(Note: For those that are curious, we’re using <a href="https://reqres.in/">reqres.in</a> for this assignment’s API. It’s a free API that allows us to simulate a <code>POST</code> request for any data that we send it. Pretty awesome!)</p>
+<h2 id="step-4---display-returned-data-to-screen">STEP 4 - Display Returned Data to Screen</h2>
+<p>When you get your data back, you will want to do something with it, right? Let’s display a list of users in our app.</p>
+<ul>
+<li>Set up a state property called <code>users</code> that is initialized with an empty array</li>
+<li>Every time you make a <code>POST</code> request, and get that new user data back, update your <code>users</code> state with the new user added to the array</li>
+<li>Render <code>users</code> in your app. This can be done in the <code>Form</code> component, or you can pass the array down to another component and render the <code>users</code> there</li>
+</ul>
+<h2 id="stretch-goals">Stretch Goals</h2>
+<p>The following are stretch goals that you should attempt <em>after</em> you meet MVP for your project:</p>
+<ul>
+<li>Add basic styling to your form in your app. Make it look pretty with any styling method you choose.</li>
+<li>Implement a dropdown menu in your Formik form. Add a <code>role</code> value to your Formik HOC and add a dropdown with different roles for your users.</li>
+<li>Create 3 new inputs inside your Formik form of your choice along with corresponding validation and error messaging</li>
+<li>Add to your existing handling so that, if a user inputs their email as <code>waffle@syrup.com</code>, they receive an error message in their form that says <em>"That email is already taken.”</em></li>
+</ul>
+</body></html>

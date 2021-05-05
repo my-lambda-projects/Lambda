@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="count-the-words-in-an-input-string">Count the words in an input string</h1>
+<h2 id="input">Input</h2>
+<p>This function takes a single string as an argument.</p>
+<pre><code>Hello, my cat. And my cat doesn&#39;t say &quot;hello&quot; back.</code></pre>
+<h2 id="output">Output</h2>
+<p>It returns a dictionary of words and their counts:</p>
+<pre><code>{&#39;hello&#39;: 2, &#39;my&#39;: 2, &#39;cat&#39;: 2, &#39;and&#39;: 1, &quot;doesn&#39;t&quot;: 1, &#39;say&#39;: 1, &#39;back&#39;: 1}</code></pre>
+<p>Case should be ignored. Output keys must be lowercase.</p>
+<p>Key order in the dictionary doesn’t matter.</p>
+<p>Split the strings into words on any whitespace.</p>
+<p>Ignore each of the following characters:</p>
+<pre><code>&quot; : ; , . - + = / \ | [ ] { } ( ) * ^ &amp;</code></pre>
+<p>If the input contains no ignored characters, return an empty dictionary.</p>
+</body></html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="react-router-basic-nav">React Router Basic Nav</h1>
+<p>Topics:</p>
+<ul>
+<li>Single Page Applications</li>
+<li>React Router V4 (react-router-dom)</li>
+<li>Routing, declarative component based routing</li>
+<li>Path and Component</li>
+</ul>
+<h2 id="project-description">Project Description</h2>
+<ul>
+<li>A starter pack project for all things React Router. Learn to set up a basic routing system within an application. Use this application to help guide your learning over the next couple of days.</li>
+<li><strong>Note</strong> that this project has already been boilerplated for you. There is no need to run any installation steps beyond <code>yarn install</code>.</li>
+</ul>
+<h3 id="initialize-project">Initialize Project</h3>
+<ul>
+<li>cd into the repository and run <code>yarn install</code></li>
+<li>run <code>yarn start</code></li>
+</ul>
+<h3 id="steps-for-implementing-react-router">Steps for implementing React Router</h3>
+<ul>
+<li>You’ll notice we’ve already installed react-router-dom for you.</li>
+<li><code>import</code> your BrowserRouter as Router inside your <code>index.js</code> file.</li>
+<li>Wrap your <code>&lt;App /&gt;</code> component that you’re passing to <code>ReactDOM.render()</code> with your new <code>Router</code> component.</li>
+<li>open up your chrome <code>REACT DEV TOOLS</code> and notice your app is now all wrapped in <code>BrowserRouter</code></li>
+<li>inside the <code>REACT DEV TOOLS</code> expand <code>&lt;BrowserRouter&gt;</code> and highlight <code>&lt;Router&gt;</code> and notice that here is a <code>"history"</code> object on props and a <code>"match"</code> object on its state. These two objects are how all of our Router is going to work.</li>
+</ul>
+<h3 id="steps-for-declaring-your-routes">Steps for "Declaring” your routes</h3>
+<ul>
+<li>Inside of your <code>App.js</code> file <code>import { Route } from 'react-router-dom';</code></li>
+<li>This is where we’re going to declare and specify our router.</li>
+<li>Create 3 <code>&lt;Route /&gt;</code> setting their <code>path</code> prop equal to <code>/</code>, <code>/about</code>, <code>/contact</code> with their respective components.</li>
+<li>Be sure to incluce the <code>exact</code> prop on the root component for <code>/</code> to make sure that it’s rendering the exact component and not all the other components.</li>
+</ul>
+<h3 id="steps-for-setting-up-your-navigation">Steps for setting up your Navigation</h3>
+<ul>
+<li>Inside of <code>Navigation.js</code> <code>import { Link } from 'react-router-dom'</code>.</li>
+<li>Declare the <code>to</code> as the href on <code>&lt;Link&gt;</code> and specify the correct routes for your app to navigate towards.</li>
+<li>Head over to your app and start navigating. You should be able to see your URLS changing their paths as you go. Each path should display the proper component.</li>
+</ul>
+<h3 id="resources">Resources</h3>
+<ul>
+<li><a href="https://codesandbox.io/s/n58oqgwmP">Code Sandbox from Lecture</a></li>
+<li><a href="https://reacttraining.com/react-router/web/guides/quick-start">React Router 4 Quick Start Guide</a></li>
+</ul>
+</body></html>

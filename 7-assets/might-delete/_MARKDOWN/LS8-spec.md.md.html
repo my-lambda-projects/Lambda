@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="ls-8-microcomputer-spec-v4.0">LS-8 Microcomputer Spec v4.0</h1>
+<h2 id="registers">Registers</h2>
+<p>8 general-purpose 8-bit numeric registers R0-R7.</p>
+<ul>
+<li>R5 is reserved as the interrupt mask (IM)</li>
+<li>R6 is reserved as the interrupt status (IS)</li>
+<li>R7 is reserved as the stack pointer (SP)</li>
+</ul>
+<blockquote>
+<p>These registers only hold values between 0-255. After performing math on registers in the emulator, bitwise-AND the result with 0xFF (255) to keep the register values in that range.</p>
+</blockquote>
+<h2 id="internal-registers">Internal Registers</h2>
+<ul>
+<li><code>PC</code>: Program Counter, address of the currently executing instruction</li>
+<li><code>IR</code>: Instruction Register, contains a copy of the currently executing instruction</li>
+<li><code>MAR</code>: Memory Address Register, holds the memory address we’re reading or writing</li>
+<li><code>MDR</code>: Memory Data Register, holds the value to write or the value just read</li>
+<li><code>FL</code>: Flags, see below</li>
+</ul>
+<h2 id="flags">Flags</h2>
+<p>The flags register <code>FL</code> holds the current flags status. These flags can change based on the operands given to the <code>CMP</code> opcode.</p>
+<p>The register is made up of 8 bits. If a particular bit is set, that flag is "true”.</p>
+<p><code>FL</code> bits: <code>00000LGE</code></p>
+<ul>
+<li><code>L</code> Less-than: during a <code>CMP</code>, set to 1 if registerA is less than registerB, zero otherwise.</li>
+<li><code>G</code> Greater-than: during a <code>CMP</code>, set to 1 if registerA is greater than registerB, zero otherwise.</li>
+<li><code>E</code> Equal: during a <code>CMP</code>, set to 1 if registerA is equal to registerB, zero otherwise.</li>
+</ul>
+<h2 id="memory">Memory</h2>
+<p>The LS-8 has 8-bit addressing, so can address 256 bytes of RAM total.</p>
+<p>Memory map:</p>
+<pre><code>      top of RAM
++-----------------------+
+| FF  I7 vector         |    Interrupt vector table
+| FE  I6 vector         |
+| FD  I5 vector         |
+| FC  I4 vector         |
+| FB  I3 vector         |
+| FA  I2 vector         |
+| F9  I1 vector         |
+| F8  I0 vector         |
+| F7  Reserved          |
+| F6  Reserved          |
+| F5  Reserved          |
+| F4  Key pressed       |    Holds the most recent key pressed on the keyboard
+| F3  Start of Stack    |
+| F2  [more stack]      |    Stack grows down
+| ...                   |
+| 01  [more program]    |
+| 00  Program entry     |    Program loaded upward in memory starting at 0
++-----------------------+
+    bottom of RAM</code></pre>
+<h2 id="stack">Stack</h2>
+<p>The SP points at the value at the top of the stack (most recently pushed), or at address <code>F4</code> if the stack is empty.</p>
+<h2 id="interrupts">Interrupts</h2>
+<p>There are 8 interrupts, I0-I7.</p>
+<p>When an interrupt occurs from an external source or from an <code>INT</code> instruction, the appropriate bit in the IS register will be set.</p>
+<p>Prior to instruction fetch, the following steps occur:</p>
+<ol type="1">
+<li>The IM register is bitwise AND-ed with the IS register and the results stored as <code>maskedInterrupts</code>.</li>
+<li>Each bit of <code>maskedInterrupts</code> is checked, starting from 0 and going up to the 7th bit, one for each interrupt.</li>
+<li>If a bit is found to be set, follow the next sequence of steps. Stop further checking of <code>maskedInterrupts</code>.</li>
+</ol>
+<p>If a bit is set:</p>
+<ol type="1">
+<li>Disable further interrupts.</li>
+<li>Clear the bit in the IS register.</li>
+<li>The <code>PC</code> register is pushed on the stack.</li>
+<li>The <code>FL</code> register is pushed on the stack.</li>
+<li>Registers R0-R6 are pushed on the stack in that order.</li>
+<li>The address (<em>vector</em> in interrupt terminology) of the appropriate handler is looked up from the interrupt vector table.</li>
+<li>Set the PC is set to the handler address.</li>
+</ol>
+<p>While an interrupt is being serviced (between the handler being called and the <code>IRET</code>), further interrupts are disabled.</p>
+<p>See <code>IRET</code>, below, for returning from an interrupt.</p>
+<h3 id="interrupt-numbers">Interrupt numbers</h3>
+<ul>
+<li>0: Timer interrupt. This interrupt triggers once per second.</li>
+<li>1: Keyboard interrupt. This interrupt triggers when a key is pressed. The value of the key pressed is stored in address <code>0xF4</code>.</li>
+</ul>
+<h2 id="power-on-state">Power on State</h2>
+<p>When the LS-8 is booted, the following steps occur:</p>
+<ul>
+<li><code>R0</code>-<code>R6</code> are cleared to <code>0</code>.</li>
+<li><code>R7</code> is set to <code>0xF4</code>.</li>
+<li><code>PC</code> and <code>FL</code> registers are cleared to <code>0</code>.</li>
+<li>RAM is cleared to <code>0</code>.</li>
+</ul>
+<p>Subsequently, the program can be loaded into RAM starting at address <code>0x00</code>.</p>
+<h2 id="execution-sequence">Execution Sequence</h2>
+<ol type="1">
+<li>The instruction pointed to by the <code>PC</code> is fetched from RAM, decoded, and executed.</li>
+<li>If the instruction does <em>not</em> set the <code>PC</code> itself, the <code>PC</code> is advanced to point to the subsequent instruction.</li>
+<li>If the CPU is not halted by a <code>HLT</code> instruction, go to step 1.</li>
+</ol>
+<p>Some instructions set the PC directly. These are:</p>
+<ul>
+<li>CALL</li>
+<li>INT</li>
+<li>IRET</li>
+<li>JMP</li>
+<li>JNE</li>
+<li>JEQ</li>
+<li>JGT</li>
+<li>JGE</li>
+<li>JLT</li>
+<li>JLE</li>
+<li>RET</li>
+</ul>
+<p>In these cases, the <code>PC</code> does not automatically advance to the next instruction, since it was set explicitly.</p>
+<h2 id="instruction-layout">Instruction Layout</h2>
+<p>Meanings of the bits in the first byte of each instruction: <code>AABCDDDD</code></p>
+<ul>
+<li><code>AA</code> Number of operands for this opcode, 0-2</li>
+<li><code>B</code> 1 if this is an ALU operation</li>
+<li><code>C</code> 1 if this instruction sets the PC</li>
+<li><code>DDDD</code> Instruction identifier</li>
+</ul>
+<p>The number of operands <code>AA</code> is useful to know because the total number of bytes in any instruction is the number of operands + 1 (for the opcode). This allows you to know how far to advance the <code>PC</code> with each instruction.</p>
+<p>It might also be useful to check the other bits in an emulator implementation, but there are other ways to code it that don’t do these checks.</p>
+<h2 id="instruction-set">Instruction Set</h2>
+<p>Glossary:</p>
+<ul>
+<li><strong>immediate</strong>: takes a constant integer value as an argument</li>
+<li><p><strong>register</strong>: takes a register number as an argument</p></li>
+<li><code>iiiiiiii</code>: 8-bit immediate value</li>
+<li><code>00000rrr</code>: Register number</li>
+<li><code>00000aaa</code>: Register number</li>
+<li><p><code>00000bbb</code>: Register number</p></li>
+</ul>
+<p>Machine code values shown in both binary and hexadecimal.</p>
+<h3 id="add">ADD</h3>
+<p><em>This is an instruction handled by the ALU.</em></p>
+<p><code>ADD registerA registerB</code></p>
+<p>Add the value in two registers and store the result in registerA.</p>
+<p>Machine code:</p>
+<pre><code>10100000 00000aaa 00000bbb
+A0 0a 0b</code></pre>
+<h3 id="and">AND</h3>
+<p><em>This is an instruction handled by the ALU.</em></p>
+<p><code>AND registerA registerB</code></p>
+<p>Bitwise-AND the values in registerA and registerB, then store the result in registerA.</p>
+<p>Machine code:</p>
+<pre><code>10101000 00000aaa 00000bbb
+A8 0a 0b</code></pre>
+<h3 id="call-register">CALL register</h3>
+<p><code>CALL register</code></p>
+<p>Calls a subroutine (function) at the address stored in the register.</p>
+<ol type="1">
+<li>The address of the <strong><em>instruction</em></strong> <em>directly after</em> <code>CALL</code> is pushed onto the stack. This allows us to return to where we left off when the subroutine finishes executing.</li>
+<li>The PC is set to the address stored in the given register. We jump to that location in RAM and execute the first instruction in the subroutine. The PC can move forward or backwards from its current location.</li>
+</ol>
+<p>Machine code:</p>
+<pre><code>01010000 00000rrr
+50 0r</code></pre>
+<h3 id="cmp">CMP</h3>
+<p><em>This is an instruction handled by the ALU.</em></p>
+<p><code>CMP registerA registerB</code></p>
+<p>Compare the values in two registers.</p>
+<ul>
+<li><p>If they are equal, set the Equal <code>E</code> flag to 1, otherwise set it to 0.</p></li>
+<li><p>If registerA is less than registerB, set the Less-than <code>L</code> flag to 1, otherwise set it to 0.</p></li>
+<li><p>If registerA is greater than registerB, set the Greater-than <code>G</code> flag to 1, otherwise set it to 0.</p></li>
+</ul>
+<p>Machine code:</p>
+<pre><code>10100111 00000aaa 00000bbb
+A7 0a 0b</code></pre>
+<h3 id="dec">DEC</h3>
+<p><em>This is an instruction handled by the ALU.</em></p>
+<p><code>DEC register</code></p>
+<p>Decrement (subtract 1 from) the value in the given register.</p>
+<p>Machine code:</p>
+<pre><code>01100110 00000rrr
+66 0r</code></pre>
+<h3 id="div">DIV</h3>
+<p><em>This is an instruction handled by the ALU.</em></p>
+<p><code>DIV registerA registerB</code></p>
+<p>Divide the value in the first register by the value in the second, storing the result in registerA.</p>
+<p>If the value in the second register is 0, the system should print an error message and halt.</p>
+<p>Machine code:</p>
+<pre><code>10100011 00000aaa 00000bbb
+A3 0a 0b</code></pre>
+<h3 id="hlt">HLT</h3>
+<p><code>HLT</code></p>
+<p>Halt the CPU (and exit the emulator).</p>
+<p>Machine code:</p>
+<pre><code>00000001 
+01</code></pre>
+<h3 id="inc">INC</h3>
+<p><em>This is an instruction handled by the ALU.</em></p>
+<p><code>INC register</code></p>
+<p>Increment (add 1 to) the value in the given register.</p>
+<p>Machine code:</p>
+<pre><code>01100101 00000rrr
+65 0r</code></pre>
+<h3 id="int">INT</h3>
+<p><code>INT register</code></p>
+<p>Issue the interrupt number stored in the given register.</p>
+<p>This will set the _n_th bit in the <code>IS</code> register to the value in the given register.</p>
+<p>Machine code:</p>
+<pre><code>01010010 00000rrr
+52 0r</code></pre>
+<h3 id="iret">IRET</h3>
+<p><code>IRET</code></p>
+<p>Return from an interrupt handler.</p>
+<p>The following steps are executed:</p>
+<ol type="1">
+<li>Registers R6-R0 are popped off the stack in that order.</li>
+<li>The <code>FL</code> register is popped off the stack.</li>
+<li>The return address is popped off the stack and stored in <code>PC</code>.</li>
+<li>Interrupts are re-enabled</li>
+</ol>
+<p>Machine code:</p>
+<pre><code>00010011
+13</code></pre>
+<h3 id="jeq">JEQ</h3>
+<p><code>JEQ register</code></p>
+<p>If <code>equal</code> flag is set (true), jump to the address stored in the given register.</p>
+<p>Machine code:</p>
+<pre><code>01010101 00000rrr
+55 0r</code></pre>
+<h3 id="jge">JGE</h3>
+<p><code>JGE register</code></p>
+<p>If <code>greater-than</code> flag or <code>equal</code> flag is set (true), jump to the address stored in the given register.</p>
+<pre><code>01011010 00000rrr
+5A 0r</code></pre>
+<h3 id="jgt">JGT</h3>
+<p><code>JGT register</code></p>
+<p>If <code>greater-than</code> flag is set (true), jump to the address stored in the given register.</p>
+<p>Machine code:</p>
+<pre><code>01010111 00000rrr
+57 0r</code></pre>
+<h3 id="jle">JLE</h3>
+<p><code>JLE register</code></p>
+<p>If <code>less-than</code> flag or <code>equal</code> flag is set (true), jump to the address stored in the given register.</p>
+<pre><code>01011001 00000rrr
+59 0r</code></pre>
+<h3 id="jlt">JLT</h3>
+<p><code>JLT register</code></p>
+<p>If <code>less-than</code> flag is set (true), jump to the address stored in the given register.</p>
+<p>Machine code:</p>
+<pre><code>01011000 00000rrr
+58 0r</code></pre>
+<h3 id="jmp">JMP</h3>
+<p><code>JMP register</code></p>
+<p>Jump to the address stored in the given register.</p>
+<p>Set the <code>PC</code> to the address stored in the given register.</p>
+<p>Machine code:</p>
+<pre><code>01010100 00000rrr
+54 0r</code></pre>
+<h3 id="jne">JNE</h3>
+<p><code>JNE register</code></p>
+<p>If <code>E</code> flag is clear (false, 0), jump to the address stored in the given register.</p>
+<p>Machine code:</p>
+<pre><code>01010110 00000rrr
+56 0r</code></pre>
+<h3 id="ld">LD</h3>
+<p><code>LD registerA registerB</code></p>
+<p>Loads registerA with the value at the memory address stored in registerB.</p>
+<p>This opcode reads from memory.</p>
+<p>Machine code:</p>
+<pre><code>10000011 00000aaa 00000bbb
+83 0a 0b</code></pre>
+<h3 id="ldi">LDI</h3>
+<p><code>LDI register immediate</code></p>
+<p>Set the value of a register to an integer.</p>
+<p>Machine code:</p>
+<pre><code>10000010 00000rrr iiiiiiii
+82 0r ii</code></pre>
+<h3 id="mod">MOD</h3>
+<p><em>This is an instruction handled by the ALU.</em></p>
+<p><code>MOD registerA registerB</code></p>
+<p>Divide the value in the first register by the value in the second, storing the <em>remainder</em> of the result in registerA.</p>
+<p>If the value in the second register is 0, the system should print an error message and halt.</p>
+<p>Machine code:</p>
+<pre><code>10100100 00000aaa 00000bbb
+A4 0a 0b</code></pre>
+<h3 id="mul">MUL</h3>
+<p><em>This is an instruction handled by the ALU.</em></p>
+<p><code>MUL registerA registerB</code></p>
+<p>Multiply the values in two registers together and store the result in registerA.</p>
+<p>Machine code:</p>
+<pre><code>10100010 00000aaa 00000bbb
+A2 0a 0b</code></pre>
+<h3 id="nop">NOP</h3>
+<p><code>NOP</code></p>
+<p>No operation. Do nothing for this instruction.</p>
+<p>Machine code:</p>
+<pre><code>00000000
+00</code></pre>
+<h3 id="not">NOT</h3>
+<p><em>This is an instruction handled by the ALU.</em></p>
+<p><code>NOT register</code></p>
+<p>Perform a bitwise-NOT on the value in a register, storing the result in the register.</p>
+<p>Machine code:</p>
+<pre><code>01101001 00000rrr
+69 0r</code></pre>
+<h3 id="or">OR</h3>
+<p><em>This is an instruction handled by the ALU.</em></p>
+<p><code>OR registerA registerB</code></p>
+<p>Perform a bitwise-OR between the values in registerA and registerB, storing the result in registerA.</p>
+<p>Machine code:</p>
+<pre><code>10101010 00000aaa 00000bbb
+AA 0a 0b</code></pre>
+<h3 id="pop">POP</h3>
+<p><code>POP register</code></p>
+<p>Pop the value at the top of the stack into the given register.</p>
+<ol type="1">
+<li>Copy the value from the address pointed to by <code>SP</code> to the given register.</li>
+<li>Increment <code>SP</code>.</li>
+</ol>
+<p>Machine code:</p>
+<pre><code>01000110 00000rrr
+46 0r</code></pre>
+<h3 id="pra">PRA</h3>
+<p><code>PRA register</code> pseudo-instruction</p>
+<p>Print alpha character value stored in the given register.</p>
+<p>Print to the console the ASCII character corresponding to the value in the register.</p>
+<p>Machine code:</p>
+<pre><code>01001000 00000rrr
+48 0r</code></pre>
+<h3 id="prn">PRN</h3>
+<p><code>PRN register</code> pseudo-instruction</p>
+<p>Print numeric value stored in the given register.</p>
+<p>Print to the console the decimal integer value that is stored in the given register.</p>
+<p>Machine code:</p>
+<pre><code>01000111 00000rrr
+47 0r</code></pre>
+<h3 id="push">PUSH</h3>
+<p><code>PUSH register</code></p>
+<p>Push the value in the given register on the stack.</p>
+<ol type="1">
+<li>Decrement the <code>SP</code>.</li>
+<li>Copy the value in the given register to the address pointed to by <code>SP</code>.</li>
+</ol>
+<p>Machine code:</p>
+<pre><code>01000101 00000rrr
+45 0r</code></pre>
+<h3 id="ret">RET</h3>
+<p><code>RET</code></p>
+<p>Return from subroutine.</p>
+<p>Pop the value from the top of the stack and store it in the <code>PC</code>.</p>
+<p>Machine Code:</p>
+<pre><code>00010001
+11</code></pre>
+<h3 id="shl">SHL</h3>
+<p><em>This is an instruction handled by the ALU.</em></p>
+<p>Shift the value in registerA left by the number of bits specified in registerB, filling the low bits with 0.</p>
+<pre><code>10101100 00000aaa 00000bbb
+AC 0a 0b</code></pre>
+<h3 id="shr">SHR</h3>
+<p><em>This is an instruction handled by the ALU.</em></p>
+<p>Shift the value in registerA right by the number of bits specified in registerB, filling the high bits with 0.</p>
+<pre><code>10101101 00000aaa 00000bbb
+AD 0a 0b</code></pre>
+<h3 id="st">ST</h3>
+<p><code>ST registerA registerB</code></p>
+<p>Store value in registerB in the address stored in registerA.</p>
+<p>This opcode writes to memory.</p>
+<p>Machine code:</p>
+<pre><code>10000100 00000aaa 00000bbb
+84 0a 0b</code></pre>
+<h3 id="sub">SUB</h3>
+<p><em>This is an instruction handled by the ALU.</em></p>
+<p><code>SUB registerA registerB</code></p>
+<p>Subtract the value in the second register from the first, storing the result in registerA.</p>
+<p>Machine code:</p>
+<pre><code>10100001 00000aaa 00000bbb
+A1 0a 0b</code></pre>
+<h3 id="xor">XOR</h3>
+<p><em>This is an instruction handled by the ALU.</em></p>
+<p><code>XOR registerA registerB</code></p>
+<p>Perform a bitwise-XOR between the values in registerA and registerB, storing the result in registerA.</p>
+<p>Machine code:</p>
+<pre><code>10101011 00000aaa 00000bbb
+AB 0a 0b</code></pre>
+</body></html>

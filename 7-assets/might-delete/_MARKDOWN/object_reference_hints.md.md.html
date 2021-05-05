@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Remember that multiple variables can refer to the same object.</p>
+<p>In the diagram below, there are only 2 <code>Room</code> objects, total. (There are more in the game, obviously, but in this diagram, there are 2.)</p>
+<p>There are 5 variables. 3 of them point to the one Room object that is the foyer:</p>
+<ul>
+<li><code>room['foyer']</code></li>
+<li><code>room['outside'].n_to</code></li>
+<li><code>player.location</code></li>
+</ul>
+<p>The remaining 2 point to the one Room object that is the outside:</p>
+<ul>
+<li><code>room['outside']</code></li>
+<li><code>room['foyer'].s_to</code></li>
+</ul>
+<pre><code>room[&#39;outside&#39;] -&gt; Room(&quot;Outside Cave Entrance&quot;)
+                               ^
+                               |
+                     room[&#39;foyer&#39;].s_to
+
+
+room[&#39;foyer&#39;] -&gt; Room(&quot;Foyer&quot;) &lt;- player.location
+                     ^
+                     |
+              room[&#39;outside&#39;].n_to</code></pre>
+<p>If you want to move the player (who is in the foyer in the diagram) to another room, you just need to reassign that to any variable that points to that other room.</p>
+<p>So if the player is in the foyer and types <code>s</code> to go south, we could set:</p>
+<pre><code>player.location = room[&#39;foyer&#39;].s_to  # we were in the foyer, then went south</code></pre>
+<p>and after that, the variable references would look like this, with player location pointing to the outside object:</p>
+<pre><code>                        player.location
+                               |
+                               v
+room[&#39;outside&#39;] -&gt; Room(&quot;Outside Cave Entrance&quot;)
+                               ^
+                               |
+                     room[&#39;foyer&#39;].s_to
+
+
+room[&#39;foyer&#39;] -&gt; Room(&quot;Foyer&quot;)
+                     ^
+                     |
+              room[&#39;outside&#39;].n_to</code></pre>
+<p><em>Assigning doesn’t copy the object. It just makes another reference to the same object.</em></p>
+</body></html>

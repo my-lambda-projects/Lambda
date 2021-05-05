@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="authentication-using-json-web-tokens-jwts">Authentication using JSON Web Tokens (JWTs)</h1>
+<h2 id="topics">Topics</h2>
+<ul>
+<li>Authentication.</li>
+<li>Express Middleware.</li>
+<li>JSON Web Tokens (JWTs).</li>
+<li>Hashing Passwords.</li>
+</ul>
+<h2 id="description">Description</h2>
+<p>In this project we’ll implement a full authentication workflow (register/login/logout/restrict endpoint) using <code>Node.js</code>, <code>Express</code>, <code>SQLite</code> and <code>JSON Web Tokens</code> on the server.</p>
+<h3 id="download-project-files">Download Project Files</h3>
+<ul>
+<li><strong>Fork</strong> and <strong>Clone</strong> this repository.</li>
+<li><strong>CD into the folder</strong> where you cloned the repository.</li>
+<li>Do your magic!</li>
+</ul>
+<h2 id="assignment">Assignment</h2>
+<p>Use Node.js, Express and Knex to build an API that provides <em>Authentication</em> functionality using SQLite to store <em>User</em> information.</p>
+<p>The user schema should include: <code>username</code>, <code>password</code> and <code>department</code>. The <code>department</code> should be a string used to group the users. No need for a <code>departments</code> table or setting up relationships.</p>
+<p>Use <strong>JSON Web Tokens</strong> to keep users authenticated across requests.</p>
+<h3 id="design-and-build-the-following-endpoints.">Design and build the following endpoints.</h3>
+<table>
+<colgroup>
+<col style="width: 2%" />
+<col style="width: 4%" />
+<col style="width: 93%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Endpoint</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>POST</td>
+<td>/api/register</td>
+<td>Creates a <code>user</code> using the information sent inside the <code>body</code> of the request. <strong>Hash the password</strong> before saving the user to the database.</td>
+</tr>
+<tr class="even">
+<td>POST</td>
+<td>/api/login</td>
+<td>Use the credentials sent inside the <code>body</code> to authenticate the user. On successful login, create a new JWT with the user id as the subject and send it back to the client. If login fails, respond with the correct status code and the message: ‘You shall not pass!’</td>
+</tr>
+<tr class="odd">
+<td>GET</td>
+<td>/api/users</td>
+<td>If the user is logged in, respond with an array of all the users contained in the database. If the user is not logged in respond with the correct status code and the message: ‘You shall not pass!’.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="stretch-problem">Stretch Problem</h2>
+<ul>
+<li>add the code necessary so that when a client makes a <code>GET</code> request to <code>/api/users</code> the server only returns documents with the <code>same department</code> as the logged in user. For example if the logged in user belongs to the finance department, then only users with the <em>finance</em> department should be returned; if the logged in user is in <em>sales</em> only users on the sales department should be returned.</li>
+<li>implement a React client:
+<ul>
+<li>use <code>create-react-app</code> to generate a application to server as the client for the Web API.</li>
+<li>inside the React application add <strong>client-side routes</strong> and components for <code>signup</code>, <code>signin</code> and showing the <code>list of users</code> stored in the database.</li>
+<li>the <code>/signup</code> route should provide a form to gather <code>username</code>, <code>password</code> and <code>department</code> for the user and make a <code>POST</code> request to the <code>/api/register</code> route on the API. If the user is created successfully, take the returned token, save it to the browser’s local storage and redirect the user to the <code>/users</code> route, where they should see the list of users.</li>
+<li>the <code>/signin</code> route should provide a form to gather <code>username</code> and <code>password</code> for the user and make a <code>POST</code> request to the <code>/api/login</code> route on the API. Upon successful login, persist the returned token to the browser’s local storage and redirect the user to the <code>/users</code> route.</li>
+<li>the <code>/users</code> route should read the token from local storage and make a <code>GET</code> request to the <code>/api/users</code> route on the API attaching the token as the value of the <code>Authorization</code> header.</li>
+<li>provide a button to <code>sign out</code> that will remove the token from local storage.</li>
+</ul></li>
+<li>add any extra functionality to make the application more user friendly like showing a message and redirecting to <code>/signin</code> if an unauthenticated user tries to access the list of users in the <code>/users</code> route.</li>
+</ul>
+</body></html>

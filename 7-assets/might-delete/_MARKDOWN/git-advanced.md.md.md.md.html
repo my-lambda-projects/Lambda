@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="advanced-git-workflow-tips">Advanced git workflow tips</h1>
+<h2 id="rebase">Rebase</h2>
+<p>If there a bunch of new changes on GitHub and you want to make sure your new commits get applied on top, simply run: <code>git rebase origin main</code></p>
+<p>(or <code>master</code> or whatever the main branch is called in your repo). This often results in conflicts that you have to resolve manually, so I like to backup my current changes to another branch before rebasing.</p>
+<h2 id="merging-vs-rebasing">Merging vs Rebasing</h2>
+<p>Here’s the difference: * Merging two branches brings everything together, with your commit histories combined so everything is in order based on when each commit was made * Rebasing is a form of "rewriting history”, putting all of your new changes on top rather than mixing them in</p>
+<p>Every team has their own preferences. I’m personally a fan of rebasing for the cleaner chronology of each new feature in the commit history.</p>
+<h2 id="a-helpful-shortcut-head">A helpful shortcut: <code>head</code></h2>
+<p><code>head</code> points to the latest commit on your current branch.</p>
+<p>Instead of typing out <code>git push origin my-current-branch-name</code> you can simply say <code>git push origin head</code></p>
+<p>As long as you add the <code>-u</code> flag to map to the upstream branch in GitHub the first time you push, you won’t really have to worry about specifying where to push anyhow. But for that first push, it’s easy to make a typo and I prefer to use <code>head</code> because I know it’ll automatically map to a branch with the same name on GitHub.</p>
+<p>So I just always default to this (feel free to assign it to a shorter alias):</p>
+<pre><code>git push -u origin head</code></pre>
+<h2 id="understand-local-remote-and-origin">Understand local, remote and "origin”</h2>
+<p>When you clone a repo from GitHub, git will automatically assign a "remote” repository called origin with the address you cloned from.</p>
+<p>When you create new branches and make commits, that’s all part of your <em>local</em> git repository. Origin is an entirely separate git repository, and you set up a mapping where your local branches track changes from the remote branch (including those made by your collaborators), and you can pull those changes down and also push your own newer changes. Know that it’s possible to have multiple remote branches as well!</p>
+</body></html>

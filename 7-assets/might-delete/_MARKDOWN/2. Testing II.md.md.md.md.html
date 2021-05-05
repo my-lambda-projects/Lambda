@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="testing-ii---testing-in-react">Testing II - Testing in React</h1>
+<p><strong>How Do We Test React Code?</strong> - We are using the React Testing Library <a href="https://testing-library.com/docs/dom-testing-library/cheatsheet">(link)</a> - We use it in conjunction with Jest</p>
+<p><strong>RTL Cheatsheet</strong> 1. Create Test File Next to Component <code>Component.test.jsx</code>. 1. Import React, RTL, &amp; Component To Test 1. Create Describe &amp; It</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="at">describe</span>(<span class="st">&#39;Component&#39;</span><span class="op">,</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="at">it</span>(<span class="st">&#39;outputs &quot;hello world&quot;&#39;</span><span class="op">,</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">      <span class="co">// assertions go here</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="op">}</span>)</a></code></pre></div>
+<p><strong>Tips From Gabe</strong> 1. We need stuff from the library but the wrapper as well 1. remember about cleaning up after each test 1. prefer regular expressions to raw text 1. wrapper exposes different methods that look alike!!!! - get will crash and burn fast if no match - query will return null if no match - find will wait, and only fail after 5s</p>
+<ul>
+<li><em>Would there be a way to dynamically inject data attributes into your components and then add those injection functions to <code>.gitignore</code>?</em>
+<ul>
+<li>Gabe: "I am sure with the right webpack utililty we can do this kind of sorcery: strip out certain attributes from the html For the production bundle. But then I don’t like it: it would mean one can’t run tests against the production code.</li>
+</ul></li>
+</ul>
+<p>But again, there is little harm in having custom <code>data-</code> attributes here and there as long as they don’t contain massive amounts of data" - "Also… if the app is screen-reader accessible (which it should), then it is ridiculously easy to grab any element that matters with the legit selectors (not the data escape hatch), because they all have proper <code>aria</code> attributes”</p>
+</body></html>

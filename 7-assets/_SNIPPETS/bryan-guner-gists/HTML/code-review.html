@@ -59,7 +59,7 @@
 <a class="sourceLine" id="cb2-10" title="10"><span class="op">}</span></a></code></pre></div>
 <h3 id="files-should-be-cohesive-and-ideally-short">Files should be cohesive, and ideally short</h3>
 <p>Just like functions, a file should be about one thing. A file represents a module and a module should do one thing for your codebase.</p>
-<p>For example, if your module is called <code>fake-name-generator</code> it should just be responsible for creating fake names like “Keyser Söze”. If the <code>fake-name-generator</code> also includes a bunch of utility functions for querying a database of names, that should be in a separate module.</p>
+<p>For example, if your module is called <code>fake-name-generator</code> it should just be responsible for creating fake names like "Keyser Söze”. If the <code>fake-name-generator</code> also includes a bunch of utility functions for querying a database of names, that should be in a separate module.</p>
 <p>There’s no rule for how long a file should be, but if it’s long like below <strong>and</strong> includes functions that don’t relate to one another, then it should probably be split apart.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// Line 1</span></a>
 <a class="sourceLine" id="cb3-2" title="2"><span class="im">import</span> _ <span class="im">from</span> <span class="st">&#39;lodash&#39;</span><span class="op">;</span></a>
@@ -282,7 +282,7 @@
 <a class="sourceLine" id="cb17-12" title="12"><span class="co">// What happens if we add 1 billion days?</span></a></code></pre></div>
 <h2 id="miscellaneous">Miscellaneous</h2>
 <blockquote>
-<p><em>“Everything can be filed under miscellaneous”</em></p>
+<p><em>"Everything can be filed under miscellaneous”</em></p>
 </blockquote>
 <blockquote>
 <p>George Bernard Shaw</p>
@@ -290,7 +290,7 @@
 <h3 id="todo-comments-should-be-tracked">TODO comments should be tracked</h3>
 <p>TODO comments are great for letting you and your fellow engineers know that something needs to be fixed later. Sometimes you gotta ship code and wait to fix it later. But eventually you’ll have to clean it up! That’s why you should track it and give a corresponding ID from your issue tracking system so you can schedule it and keep track of where the problem is in your codebase.</p>
 <h3 id="commit-messages-should-be-clear-and-accurately-describe-new-code">Commit messages should be clear and accurately describe new code</h3>
-<p>We’ve all written commit messages like “Changed some crap”, “damn it”, “ugg one more to fix this stupid bug”. These are funny and satisfying, but not helpful when you’re up on a Saturday morning because you pushed code on a Friday night and can’t figure out what the bad code was doing when you <code>git blamed</code> the commit. Write commit messages that describe the code accurately, and include a ticket number from your issue tracking system if you have one. That will make searching through your commit log much easier.</p>
+<p>We’ve all written commit messages like "Changed some crap”, "damn it”, "ugg one more to fix this stupid bug”. These are funny and satisfying, but not helpful when you’re up on a Saturday morning because you pushed code on a Friday night and can’t figure out what the bad code was doing when you <code>git blamed</code> the commit. Write commit messages that describe the code accurately, and include a ticket number from your issue tracking system if you have one. That will make searching through your commit log much easier.</p>
 <h3 id="the-code-should-do-what-its-supposed-to-do">The code should do what it’s supposed to do</h3>
 <p>This seems obvious, but most reviewers don’t have the time or take the time to manually test every user-facing change. It’s important to make sure the business logic of every change is as per design. It’s easy to forget that when you’re just looking for problems in the code!</p>
 <form>

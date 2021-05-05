@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<h1 id="testing-react">Testing React</h1>
+<h2 id="objectives">Objectives</h2>
+<ul>
+<li>test React components as the props change</li>
+<li>use mocks in web application tests</li>
+<li>test asynchronous API calls that are made in a component</li>
+</ul>
+<h2 id="review-why-test">Review: Why Test?</h2>
+<ul>
+<li>Having a comprehensive test suite allows us to trust the code</li>
+<li>Safety net for future changes &amp; refactoring (especially helpful for team collaboration)</li>
+<li>Bugs will immediately be surfaced in the future</li>
+<li>Encourages modular, easy-to understand-code (tangled code is also often difficult to test!)</li>
+<li>Helpful in quality control and deployment</li>
+<li>Tests also act as a form of documentation and enforces best practices</li>
+<li>…and many other reasons. (<em>Not testing</em> is a bad idea, like taking out a high-interest loan of technical debt)</li>
+</ul>
+<h2 id="review-aaa-and-test-categories">Review: AAA and test categories</h2>
+<p>AAA flow of testing: * Arrange * Act * Assert</p>
+<p>And the three most common types of automated tests you’ll use: <img src="images/testing_pyramid.png" alt="Testing pyramid" /></p>
+<ul>
+<li><strong>End to End testing:</strong> simulating an entire user flow from start to finish. If you’re writing an e-commerce app, that flow could be placing items in the cart and completing a purchase. Think of hiring a QA person to go through that whole process and try every edge case they can think of to see if anything breaks. But your QA person is actually a robot. You’ve seen this before with <strong>Enzyme</strong></li>
+<li><strong>Integration testing:</strong> verifying the functionality of a complete piece of application behavior, agnostic of its implementation details. This is similar to E2E but generally focused on more discrete behavior rather than the big picture. For example, an integration test in your e-commerce app might just verify the behavior of adding an item to your cart rather than simulating an entire purchase flow from start to finish.</li>
+<li><strong>Unit testing:</strong> verifying that an individual function or component of your application works as expected</li>
+</ul>
+<p>Higher-level tests (integration and E2E) take longer to run, are more complex and "expensive”. But they also provide the most reliable coverage since they test the actual behavior from a user’s perspective rather than the implementation details.</p>
+<h2 id="integration-testing-with-react-testing-library-and-jest">Integration Testing with React Testing Library and Jest</h2>
+<p>Today we’ll be focusing on integration testing for React applications, using Jest with React Testing Library.</p>
+<p>Here’s some new terminology: * To isolate the behavior of the component we want to test, we can replace other objects and dependencies with <strong>mocks</strong> that simulate the behavior of the real objects. (Entire functions and even external node modules can be mocked too!) * <strong>Spies</strong> help us verify that the things we expect to be called are actually called, in the order we’d expect.</p>
+<p>The main idea to remember with these more advanced testing concepts is that we want to be specific about what we test.</p>
+<h2 id="helpful-resources">Helpful Resources</h2>
+<ul>
+<li><a href="https://kentcdodds.com/blog/write-tests">Write tests. Not too many. Mostly integration.</a></li>
+<li><a href="https://www.robinwieruch.de/react-testing-library">How to Use React Testing Library</a></li>
+<li><a href="https://medium.com/@rickhanlonii/understanding-jest-mocks-f0046c68e53c">Understanding Jest Mocks</a></li>
+<li><a href="https://testing-library.com/docs/react-testing-library/cheatsheet">React Testing Library cheatsheet</a></li>
+<li><a href="https://github.com/sapegin/jest-cheat-sheet/blob/master/Readme.md">Jest Cheat sheet</a></li>
+<li><a href="https://github.com/josh-jacobson/lambda-lecture-notes/blob/master/3-1-advanced-react/4-testing-web-applications.md">Previous testing lecture - more links &amp; notes</a></li>
+</ul>
+</body></html>
