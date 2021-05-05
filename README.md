@@ -33,7 +33,11 @@ hi2
 ![loading](https://github.com/bgoonz/Lambda/blob/master/media-gifs-images/giphy.gif?raw=true)
 
 
+#### Embedable-Nav-Bar
 
+
+
+![nav](https://github.com/bgoonz/Lambda/blob/master/media-gifs-images/nav-bar.gif?raw=true)
 
 
 ## Contents
