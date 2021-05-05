@@ -17,7 +17,7 @@ li {
 }
 
 li:after {
-    content: 'Data ID: ' attr(data-id);
+    content: 'Data ID: 'attr(data-id);
     position: absolute;
     top: -22px;
     left: 10px;
