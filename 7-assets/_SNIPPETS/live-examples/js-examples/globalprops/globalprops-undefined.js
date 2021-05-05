@@ -1,5 +1,5 @@
-function test(t) {
-  if (t === undefined) {
+function test( t ) {
+  if ( t === undefined ) {
     return 'Undefined value!';
   }
   return t;
@@ -7,5 +7,5 @@ function test(t) {
 
 let x;
 
-console.log(test(x));
+console.log( test( x ) );
 // expected output: "Undefined value!"

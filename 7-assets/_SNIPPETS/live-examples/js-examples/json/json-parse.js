@@ -1,8 +1,8 @@
 const json = '{"result":true, "count":42}';
-const obj = JSON.parse(json);
+const obj = JSON.parse( json );
 
-console.log(obj.count);
+console.log( obj.count );
 // expected output: 42
 
-console.log(obj.result);
+console.log( obj.result );
 // expected output: true

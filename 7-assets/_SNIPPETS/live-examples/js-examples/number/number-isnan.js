@@ -1,14 +1,14 @@
-function typeOfNaN(x) {
-  if (Number.isNaN(x)) {
+function typeOfNaN( x ) {
+  if ( Number.isNaN( x ) ) {
     return 'Number NaN';
   }
-  if (isNaN(x)) {
+  if ( isNaN( x ) ) {
     return 'NaN';
   }
 }
 
-console.log(typeOfNaN('100F'));
+console.log( typeOfNaN( '100F' ) );
 // expected output: "NaN"
 
-console.log(typeOfNaN(NaN));
+console.log( typeOfNaN( NaN ) );
 // expected output: "Number NaN"

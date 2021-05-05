@@ -1,6 +1,6 @@
 const language = {
-  set current(name) {
-    this.log.push(name);
+  set current( name ) {
+    this.log.push( name );
   },
   log: []
 };
@@ -8,5 +8,5 @@ const language = {
 language.current = 'EN';
 language.current = 'FA';
 
-console.log(language.log);
+console.log( language.log );
 // expected output: Array ["EN", "FA"]

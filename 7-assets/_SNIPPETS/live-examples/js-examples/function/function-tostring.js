@@ -1,11 +1,11 @@
-function sum(a, b) {
+function sum( a, b ) {
   return a + b;
 }
 
-console.log(sum.toString());
+console.log( sum.toString() );
 // expected output: "function sum(a, b) {
 //                     return a + b;
 //                   }"
 
-console.log(Math.abs.toString());
+console.log( Math.abs.toString() );
 // expected output: "function abs() { [native code] }"

@@ -1,6 +1,6 @@
-function testNum(a) {
+function testNum( a ) {
   let result;
-  if (a > 0) {
+  if ( a > 0 ) {
     result = 'positive';
   } else {
     result = 'NOT positive';
@@ -8,5 +8,5 @@ function testNum(a) {
   return result;
 }
 
-console.log(testNum(-5));
+console.log( testNum( -5 ) );
 // expected output: "NOT positive"

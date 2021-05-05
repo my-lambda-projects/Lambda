@@ -4,18 +4,18 @@ const monster1 = {
 };
 
 const handler1 = {
-  get: function(target, prop, receiver) {
-    if (prop === 'secret') {
+  get: function ( target, prop, receiver ) {
+    if ( prop === 'secret' ) {
       return `${target.secret.substr(0, 4)} ... shhhh!`;
     }
-    return Reflect.get(...arguments);
+    return Reflect.get( ...arguments );
   }
 };
 
-const proxy1 = new Proxy(monster1, handler1);
+const proxy1 = new Proxy( monster1, handler1 );
 
-console.log(proxy1.eyeCount);
+console.log( proxy1.eyeCount );
 // expected output: 4
 
-console.log(proxy1.secret);
+console.log( proxy1.secret );
 // expected output: "easi ... shhhh!"

@@ -1,12 +1,12 @@
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
+function getRandomInt( max ) {
+  return Math.floor( Math.random() * max );
 }
 
-console.log(getRandomInt(3));
+console.log( getRandomInt( 3 ) );
 // expected output: 0, 1 or 2
 
-console.log(getRandomInt(1));
+console.log( getRandomInt( 1 ) );
 // expected output: 0
 
-console.log(Math.random());
+console.log( Math.random() );
 // expected output: a number from 0 to <1

@@ -1,4 +1,5 @@
 void
+
 function test() {
   console.log( 'boo!' );
   // expected output: "boo!"

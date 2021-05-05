@@ -1,8 +1,8 @@
 class Array1 {
-  static [Symbol.hasInstance](instance) {
-    return Array.isArray(instance);
+  static[ Symbol.hasInstance ]( instance ) {
+    return Array.isArray( instance );
   }
 }
 
-console.log([] instanceof Array1);
+console.log( [] instanceof Array1 );
 // expected output: true

@@ -7,7 +7,7 @@ class ClassWithStaticMethod {
 
 }
 
-console.log(ClassWithStaticMethod.staticProperty);
+console.log( ClassWithStaticMethod.staticProperty );
 // output: "someValue"
-console.log(ClassWithStaticMethod.staticMethod());
+console.log( ClassWithStaticMethod.staticMethod() );
 // output: "static method has been called."

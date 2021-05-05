@@ -3,20 +3,20 @@ const monster1 = {
 };
 
 const handler1 = {
-  deleteProperty(target, prop) {
-    if (prop in target) {
-      delete target[prop];
-      console.log(`property removed: ${prop}`);
+  deleteProperty( target, prop ) {
+    if ( prop in target ) {
+      delete target[ prop ];
+      console.log( `property removed: ${prop}` );
       // expected output: "property removed: texture"
     }
   }
 };
 
-console.log(monster1.texture);
+console.log( monster1.texture );
 // expected output: "scaly"
 
-const proxy1 = new Proxy(monster1, handler1);
+const proxy1 = new Proxy( monster1, handler1 );
 delete proxy1.texture;
 
-console.log(monster1.texture);
+console.log( monster1.texture );
 // expected output: undefined

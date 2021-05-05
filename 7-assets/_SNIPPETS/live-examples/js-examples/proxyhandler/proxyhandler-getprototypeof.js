@@ -7,15 +7,15 @@ const monsterPrototype = {
 };
 
 const handler = {
-  getPrototypeOf(target) {
+  getPrototypeOf( target ) {
     return monsterPrototype;
   }
 };
 
-const proxy1 = new Proxy(monster1, handler);
+const proxy1 = new Proxy( monster1, handler );
 
-console.log(Object.getPrototypeOf(proxy1) === monsterPrototype);
+console.log( Object.getPrototypeOf( proxy1 ) === monsterPrototype );
 // expected output: true
 
-console.log(Object.getPrototypeOf(proxy1).eyeCount);
+console.log( Object.getPrototypeOf( proxy1 ).eyeCount );
 // expected output: 2

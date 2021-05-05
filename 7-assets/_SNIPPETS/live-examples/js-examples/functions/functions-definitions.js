@@ -4,5 +4,5 @@ const obj = {
   }
 };
 
-console.log(obj.foo());
+console.log( obj.foo() );
 // expected output: "bar"

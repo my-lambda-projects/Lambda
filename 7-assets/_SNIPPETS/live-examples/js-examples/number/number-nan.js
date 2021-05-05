@@ -1,12 +1,12 @@
-function clean(x) {
-  if (x === Number.NaN) {
+function clean( x ) {
+  if ( x === Number.NaN ) {
     // can never be true
     return null;
   }
-  if (isNaN(x)) {
+  if ( isNaN( x ) ) {
     return 0;
   }
 }
 
-console.log(clean(Number.NaN));
+console.log( clean( Number.NaN ) );
 // expected output: 0

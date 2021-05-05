@@ -6,5 +6,5 @@ class Polygon {
 
 const poly1 = new Polygon();
 
-console.log(poly1.name);
+console.log( poly1.name );
 // expected output: "Polygon"

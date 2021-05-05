@@ -3,10 +3,10 @@ const object1 = {
   y: 2
 };
 
-console.log(Reflect.get(object1, 'x'));
+console.log( Reflect.get( object1, 'x' ) );
 // expected output: 1
 
-const array1 = ['zero', 'one'];
+const array1 = [ 'zero', 'one' ];
 
-console.log(Reflect.get(array1, 1));
+console.log( Reflect.get( array1, 1 ) );
 // expected output: "one"
