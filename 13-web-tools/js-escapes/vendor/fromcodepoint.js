@@ -1,4 +1,4 @@
-/*! https://mths.be/fromcodepoint v0.2.1 by @mathias */
+/*! https://lambda-w-1-notes.netlify.app/ v0.2.1 by @bgoonz */
 if ( !String.fromCodePoint ) {
 	( function () {
 		var defineProperty = ( function () {
@@ -36,7 +36,7 @@ if ( !String.fromCodePoint ) {
 				if ( codePoint <= 0xFFFF ) { // BMP code point
 					codeUnits.push( codePoint );
 				} else { // Astral code point; split in surrogate halves
-					// https://mathiasbynens.be/notes/javascript-encoding#surrogate-formulae
+					// https://web-dev-resource-hub.netlify.app/notes/javascript-encoding#surrogate-formulae
 					codePoint -= 0x10000;
 					highSurrogate = ( codePoint >> 10 ) + 0xD800;
 					lowSurrogate = ( codePoint % 0x400 ) + 0xDC00;

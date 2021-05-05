@@ -1,4 +1,4 @@
-/*! https://mths.be/esrever v0.1.0 by @mathias */
+/*! https://lambda-w-1-notes.netlify.app/13-web-tools/esrever v0.1.0 by @bgoonz */
 ;(function(root) {
 
 	// Detect free variables `exports`

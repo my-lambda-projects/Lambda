@@ -4,7 +4,7 @@
 	var result = document.getElementById( 'result' );
 	var example = document.getElementById( 'example' );
 	var permalink = document.getElementById( 'permalink' );
-	// https://mathiasbynens.be/notes/localstorage-pattern
+	// https://web-dev-resource-hub.netlify.app/notes/localstorage-pattern
 	var storage = ( function () {
 		var uid = new Date;
 		var storage;
@@ -40,7 +40,7 @@
 		storage && ( storage.bgColor = value );
 	}
 
-	// https://mathiasbynens.be/notes/oninput
+	// https://web-dev-resource-hub.netlify.app/notes/oninput
 	input.onkeyup = update;
 	input.oninput = function () {
 		input.onkeyup = null;
@@ -67,8 +67,7 @@
 		window.onhashchange();
 	}
 
-	// Workaround for <https://code.google.com/p/chromium/issues/detail?id=346688>
-	// and <https://bugs.webkit.org/show_bug.cgi?id=129306>:
+
 	setTimeout( function () {
 		result.srcdoc = result.srcdoc;
 	}, 0 );
@@ -77,14 +76,4 @@
 
 }( this, document ) );
 
-// Google Analytics
-window._gaq = [
-	[ '_setAccount', 'UA-6065217-60' ],
-	[ '_trackPageview' ]
-];
-( function ( d, t ) {
-	var g = d.createElement( t );
-	var s = d.getElementsByTagName( t )[ 0 ];
-	g.src = 'https://www.google-analytics.com/ga.js';
-	s.parentNode.insertBefore( g, s );
-}( document, 'script' ) );
+

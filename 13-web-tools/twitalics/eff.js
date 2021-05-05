@@ -10,7 +10,7 @@
 	var italic = checkboxes[3];
 	var bold = checkboxes[4];
 	var permalink = document.getElementById('permalink');
-	// https://mathiasbynens.be/notes/localstorage-pattern
+	// https://web-dev-resource-hub.netlify.app/notes/localstorage-pattern
 	var storage = (function() {
 		var uid = new Date;
 		var storage;
@@ -75,7 +75,7 @@
 
 	// `h` is kind of in a weird place
 	types['serif-italic'].h = '\ud835\ude29';
-	// exceptions for ‘script’: http://www.w3.org/TR/xml-entity-names/script.html
+	// exceptions for ‘script': http://www.w3.org/TR/xml-entity-names/script.html
 	extend(types['serif-script-italic'], {
 		'B': '\u212c',
 		'E': '\u2130',
@@ -122,7 +122,7 @@
 		settings = settings.join('-');
 
 		if (settings && settings != 'serif') {
-			// There are no mathematical serif characters that aren’t also bold, italicized or formatted in a way
+			// There are no mathematical serif characters that aren't also bold, italicized or formatted in a way
 			result = replace(result, types[settings], settings);
 		}
 
@@ -134,7 +134,7 @@
 		permalink.hash = encode(textarea.value);
 	}
 
-	// https://mathiasbynens.be/notes/oninput
+	// https://web-dev-resource-hub.netlify.app/notes/oninput
 	textarea.onkeyup = script.onchange = fraktur.onchange = serif.onchange = italic.onchange = bold.onchange = update;
 	textarea.oninput = function() {
 		textarea.onkeyup = null;
@@ -156,12 +156,4 @@
 	}
 
 }(this, document));
-
-// Google Analytics
-window._gaq = [['_setAccount', 'UA-6065217-60'], ['_trackPageview']];
-(function(d, t) {
-	var g = d.createElement(t);
-	var s = d.getElementsByTagName(t)[0];
-	g.src = 'https://www.google-analytics.com/ga.js';
-	s.parentNode.insertBefore(g, s);
-}(document, 'script'));
+//-------------------------------

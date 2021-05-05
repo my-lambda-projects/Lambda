@@ -1,4 +1,4 @@
-/*! https://mths.be/quoted-printable v0.2.1 by @mathias | MIT license */
+/*! https://lambda-w-1-notes.netlify.app/13-web-tools/quoted-printable v0.2.1 by @bgoonz | MIT license */
 ;(function(root) {
 
 	// Detect free variables `exports`.
@@ -21,9 +21,9 @@
 	var decode = function(input) {
 		return input
 			// http://tools.ietf.org/html/rfc2045#section-6.7, rule 3:
-			// “Therefore, when decoding a `Quoted-Printable` body, any trailing white
+			// "Therefore, when decoding a `Quoted-Printable` body, any trailing white
 			// space on a line must be deleted, as it will necessarily have been added
-			// by intermediate transport agents.”
+			// by intermediate transport agents."
 			.replace(/[\t\x20]$/gm, '')
 			// Remove hard line breaks. Note: this includes `=` followed by a line
 			// break. Proper `Quoted-Printable`-encoded data only contains CRLF line
@@ -97,17 +97,17 @@
 		// the encoded string — every other line ends with `=` anyway.
 		var lastLineLength = buffer.length;
 		if (/[\t\x20]$/.test(buffer)) {
-			// There’s a space or a tab at the end of the last encoded line. Remove
+			// There's a space or a tab at the end of the last encoded line. Remove
 			// this line from the `result` array, as it needs to change.
 			result.pop();
 			if (lastLineLength + 2 <= LINE_LENGTH + 1) {
-				// It’s possible to encode the character without exceeding the line
+				// It's possible to encode the character without exceeding the line
 				// length limit.
 				result.push(
 					handleTrailingCharacters(buffer)
 				);
 			} else {
-				// It’s not possible to encode the character without exceeding the line
+				// It's not possible to encode the character without exceeding the line
 				// length limit. Remvoe the character from the line, and insert a new
 				// line that contains only the encoded character.
 				result.push(

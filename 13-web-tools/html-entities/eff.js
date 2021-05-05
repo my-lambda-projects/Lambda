@@ -7,7 +7,7 @@
 	var encodeSpecialOnly = checkboxes[ 0 ];
 	var useNamedReferences = checkboxes[ 1 ];
 	var permalink = document.getElementById( 'permalink' );
-	// https://mathiasbynens.be/notes/localstorage-pattern
+	// https://web-dev-resource-hub.netlify.app/notes/localstorage-pattern
 	var storage = ( function () {
 		var uid = new Date;
 		var storage;
@@ -46,7 +46,7 @@
 		storage && ( storage.he = value );
 	};
 
-	// https://mathiasbynens.be/notes/oninput
+	// https://web-dev-resource-hub.netlify.app/notes/oninput
 	decoded.onkeyup = encoded.onkeyup = encodeSpecialOnly.onchange = useNamedReferences.onchange = update;
 	decoded.oninput = encoded.oninput = encodeSpecialOnly.onchange = useNamedReferences.onchange = function () {
 		decoded.onkeyup = encoded.onkeyup = null;
@@ -68,15 +68,5 @@
 	}
 
 }( this, document ) );
-
-// Google Analytics
-window._gaq = [
-	[ '_setAccount', 'UA-6065217-60' ],
-	[ '_trackPageview' ]
-];
-( function ( d, t ) {
-	var g = d.createElement( t );
-	var s = d.getElementsByTagName( t )[ 0 ];
-	g.src = 'https://www.google-analytics.com/ga.js';
-	s.parentNode.insertBefore( g, s );
-}( document, 'script' ) );
+//-------------------------------
+//-------------------------------

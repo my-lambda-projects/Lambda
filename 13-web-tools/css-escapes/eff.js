@@ -26,11 +26,11 @@
 		'\"': '\\\"',
 		'\u2028': '\\u2028',
 		'\u2029': '\\u2029',
-		// we’re wrapping the string in single quotes, so escape those too
+		// we're wrapping the string in single quotes, so escape those too
 		'\'': '\\\'',
 		'\\': '\\\\'
 	};
-	// https://mathiasbynens.be/notes/localstorage-pattern
+	// https://web-dev-resource-hub.netlify.app/notes/localstorage-pattern
 	var storage = ( function () {
 		var uid = new Date;
 		var storage;
@@ -65,9 +65,9 @@
 		return array;
 	}
 
-	// https://mathiasbynens.be/notes/css-escapes
+	// https://web-dev-resource-hub.netlify.app/notes/css-escapes
 	function cssEscape( string, escapeNonASCII ) {
-		// Based on `ucs2decode` from https://mths.be/punycode
+		// Based on `ucs2decode` from https://lambda-w-1-notes.netlify.app/13-web-tools/punycode
 		var firstChar = string.charAt( 0 );
 		var output = '';
 		var counter = 0;
@@ -81,7 +81,7 @@
 		while ( counter < length ) {
 			character = string.charAt( counter++ );
 			charCode = character.charCodeAt();
-			// if it’s a non-ASCII character and those need to be escaped
+			// if it's a non-ASCII character and those need to be escaped
 			if ( escapeNonASCII && ( charCode < 0x20 || charCode > 0x7E ) ) {
 				if ( ( charCode & 0xF800 ) == 0xD800 ) {
 					surrogatePairCount++;
@@ -155,7 +155,7 @@
 			surrogatePairCount = escapeResult.surrogatePairCount;
 			// IE 8 can handle leading underscores; no point in escaping them here:
 			qsaValue = doubleSlash( cssValue.replace( /^#\\_/, '#_' ) );
-			// https://mths.be/etago
+			// https://lambda-w-1-notes.netlify.app/13-web-tools/etago
 			jsValue = ( checkbox.checked ? jsesc( value ) : doubleSlash( value ) ).replace( /<\/script/g, '<\\/script' );
 		}
 		var link = '#' + ( +checkbox.checked ) + encode( value );
@@ -169,10 +169,10 @@
 		text( js, jsValue );
 		permalink.href = link;
 		storage && ( storage.cssEscapes = value );
-		example.href = 'data:text/html;charset=utf-8,' + encodeURIComponent( '<!DOCTYPE html><title>Mothereffing CSS escapes example</title><style>pre{background:#eee;padding:.5em}.test{display:none}' + cssValue + '{display:block}.pass{background:lime}.fail{background:red}</style><h1><a href="https://mothereff.in/css-escapes' + link + '">Mothereffing CSS escapes</a> example</h1><pre><code>' + value.replace( /</g, '&lt;' ) + '</code></pre><p id="' + value.replace( /"/g, '&quot;' ) + '" class=test>If you can read this, the escaped CSS selector worked. </p>' + ( surrogatePairCount ? '<p>Standard CSS character escape sequences for supplementary Unicode characters aren’t supported in older versions of WebKit. <strong>This test case will fail in those browsers.</strong> It’s better to leave these characters unescaped.</p>' : '' ) + '<script>var el=document.getElementsByTagName(\'p\')[0];try{document.getElementById(\'' + jsValue + '\').innerHTML += \' <code>document.getElementById</code> worked.\';document.querySelector(\'' + qsaValue + '\').innerHTML+=\' <code>document.querySelector</code> worked.\';el.className=\'pass\'}catch(e){el.innerHTML=\'FAIL\';el.className=\'fail\'}<\/script>' );
+		example.href = 'data:text/html;charset=utf-8,' + encodeURIComponent( '<!DOCTYPE html><title>Mothereffing CSS escapes example</title><style>pre{background:#eee;padding:.5em}.test{display:none}' + cssValue + '{display:block}.pass{background:lime}.fail{background:red}</style><h1><a href="https://mothereff.in/css-escapes' + link + '">Mothereffing CSS escapes</a> example</h1><pre><code>' + value.replace( /</g, '&lt;' ) + '</code></pre><p id="' + value.replace( /"/g, '&quot;' ) + '" class=test>If you can read this, the escaped CSS selector worked. </p>' + ( surrogatePairCount ? '<p>Standard CSS character escape sequences for supplementary Unicode characters aren't supported in older versions of WebKit. <strong>This test case will fail in those browsers.</strong> It's better to leave these characters unescaped.</p>' : '' ) + '<script>var el=document.getElementsByTagName(\'p\')[0];try{document.getElementById(\'' + jsValue + '\').innerHTML += \' <code>document.getElementById</code> worked.\';document.querySelector(\'' + qsaValue + '\').innerHTML+=\' <code>document.querySelector</code> worked.\';el.className=\'pass\'}catch(e){el.innerHTML=\'FAIL\';el.className=\'fail\'}<\/script>' );
 	}
 
-	// https://mathiasbynens.be/notes/oninput
+	// https://web-dev-resource-hub.netlify.app/notes/oninput
 	input.onkeyup = checkbox.onchange = update;
 	input.oninput = function () {
 		this.onkeyup = null;
@@ -203,14 +203,6 @@
 
 }( this, document ) );
 
-// Optimized Google Analytics snippet: https://mths.be/aab */
-window._gaq = [
-	[ '_setAccount', 'UA-6065217-60' ],
-	[ '_trackPageview' ]
-];
-( function ( d, t ) {
-	var g = d.createElement( t );
-	var s = d.getElementsByTagName( t )[ 0 ];
-	g.src = 'https://www.google-analytics.com/ga.js';
-	s.parentNode.insertBefore( g, s );
-}( document, 'script' ) );
+// Optimized Google Analytics snippet: https://lambda-w-1-notes.netlify.app/13-web-tools/aab */
+//-------------------------------
+//-------------------------------

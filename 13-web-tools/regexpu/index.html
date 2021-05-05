@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang=en>
+ <html lang=en> <head>
 <meta charset=utf-8>
 <title>regexpu demo</title>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <link rel=stylesheet href=eff.css>
 <meta name=description content="An online, on-the-fly transpiler for ES6 Unicode regular expressions.">
-<h1>ES6 Unicode regular expression transpiler</h1>
+<body><h1>ES6 Unicode regular expression transpiler</h1>
 <noscript><strong>To use this tool, please <a href=http://enable-javascript.com/>enable JavaScript</a> and reload the page.</strong></noscript>
 <h2>ES6:</h2>
 <textarea autofocus>var string = 'foo&#x1D306;bar';
@@ -21,9 +21,9 @@ var match = string.match(/foo((?:[\0-\t\x0B\f\x0E-\u2027\u202A-\uD7FF\uE000-\uFF
 console.log(match[1]);
 // → '&#x1D306;'</textarea>
 <h2>About this tool</h2>
-<p>This tool uses <a href=https://mths.be/regexpu><i>regexpu</i></a> to transpile <a href=https://mathiasbynens.be/notes/es6-unicode-regex>ES6 Unicode regular expressions (with a <code>u</code> flag)</a> to equivalent ES5.
-<p>The <a href="https://github.com/mathiasbynens/regexpu-core/blob/master/property-escapes.md">Unicode property escapes functionality</a> is <a href="https://github.com/mathiasbynens/es-regexp-unicode-property-escapes">based on a proposal</a> and may or may not reflect what eventually gets specified. The same applies for <a href="https://github.com/mathiasbynens/es-regexp-dotall-flag">the <code>s</code> (<code>dotAll</code>) flag</a>.
-<p id=footer>Made by <a href=https://mathiasbynens.be/>@mathias</a> — <a href=https://github.com/mathiasbynens/mothereff.in/tree/master/regexpu>fork this on GitHub!</a></p>
+<p>This tool uses <a href=https://lambda-w-1-notes.netlify.app/13-web-tools/regexpu><i>regexpu</i></a> to transpile <a href=https://web-dev-resource-hub.netlify.app/notes/es6-unicode-regex>ES6 Unicode regular expressions (with a <code>u</code> flag)</a> to equivalent ES5.
+<p>The <a href="https://github.com/bgoonz/Lambda                                                                   /regexpu-core/blob/master/property-escapes.md">Unicode property escapes functionality</a> is <a href="https://github.com/bgoonz/Lambda                                                                   /es-regexp-unicode-property-escapes">based on a proposal</a> and may or may not reflect what eventually gets specified. The same applies for <a href="https://github.com/bgoonz/Lambda                                                                   /es-regexp-dotall-flag">the <code>s</code> (<code>dotAll</code>) flag</a>.
+<p id=footer>Made by <a href=https://web-dev-resource-hub.netlify.app/>@bgoonz</a> — <a href=https://github.com/bgoonz/Lambda                                                                  /tree/master/regexpu>fork this on GitHub!</a></p>
 <script src=vendor/regexpu-browser.js></script>
 <script src=vendor/url-search-params.js></script>
 <script src=eff.js></script>

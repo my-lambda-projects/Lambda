@@ -8,7 +8,7 @@
 	var regexCharacterReference = /&([0-9a-zA-Z]+);/g;
 	var regexCharacterReferencesThatHaveASemicolonFreeCharacterReferenceAsSubstring;
 	var regexNoSemi;
-	// https://mathiasbynens.be/notes/localstorage-pattern
+	// https://web-dev-resource-hub.netlify.app/notes/localstorage-pattern
 	var storage = ( function () {
 		var uid = new Date;
 		var storage;
@@ -68,7 +68,7 @@
 			}
 			return false;
 		}).map(function(ref) {
-			// remove the leading `&` and trailing `;` — we’ll do that in the regex
+			// remove the leading `&` and trailing `;` — we'll do that in the regex
 			return ref.slice(1, -1);
 		});
 		copy('/&(?:' + charRefsThatHaveASemiFreeCharRefAsSubstring.join('|') + ');/g');
@@ -2223,10 +2223,10 @@
 			semiless = [],
 			semilessCount;
 
-		// This is tricky stuff. Luckily, we don’t need to parse/render anything; just find errors!
+		// This is tricky stuff. Luckily, we don't need to parse/render anything; just find errors!
 		// e.g. `&notin;` is a valid entity
 		// but `&ampfoo;` and `&noti;` should be `invalid`
-		// So… first remove all known character references that end with a semicolon AND that have a substring that is a known semicolon-free character reference (e.g. `&notin;`) — they’re valid anyway
+		// So… first remove all known character references that end with a semicolon AND that have a substring that is a known semicolon-free character reference (e.g. `&notin;`) — they're valid anyway
 		// then look for char refs with missing semicolons (e.g. `&amp`)
 		// then look for ambiguous ampersands (e.g. `&abc;`)
 		value.replace( regexCharacterReferencesThatHaveASemicolonFreeCharacterReferenceAsSubstring, function () {
@@ -2241,11 +2241,13 @@
 		semilessCount = semiless.length;
 		link = '<a href=#' + encode( value ) + '>#</a>';
 		output.className = ambiguousAmpersandCount || semilessCount ? 'fail' : '';
-		output.innerHTML = '<p>' + link + ' Found ' + formatNumber( ambiguousAmpersandCount, 'ambiguous ampersand' ) + ( ambiguousAmpersandCount ? ': <ul><li><code>' + encodeAmpersands( ambiguousAmpersands.join( '</code><li><code>' ) ) + '</code></ul>' : '. ' ) + '<p>Found ' + formatNumber( semilessCount, 'character reference' ) + ' that ' + ( semilessCount == 1 ? 'doesn’t' : 'don’t' ) + ' end with a semicolon' + ( semilessCount ? ': <ul><li><code>' + encodeAmpersands( semiless.join( '</code><li><code>' ) ) + '</code></ul>' : '.' );
+		output.innerHTML = '<p>' + link + ' Found ' + formatNumber( ambiguousAmpersandCount, 'ambiguous ampersand' ) + ( ambiguousAmpersandCount ? ': <ul><li><code>' + encodeAmpersands( ambiguousAmpersands.join( '</code><li><code>' ) ) + '</code></ul>' : '. ' ) + '<p>Found ' + formatNumber( semilessCount, 'character reference' ) + ' that ' + ( semilessCount == 1 ? 'doesn'
+			t ' : '
+			don 't' ) + ' end with a semicolon' + ( semilessCount ? ': <ul><li><code>' + encodeAmpersands( semiless.join( '</code><li><code>' ) ) + '</code></ul>' : '.' );
 		storage && ( storage.ampersandText = value );
 	};
 
-	// https://mathiasbynens.be/notes/oninput
+	// https://web-dev-resource-hub.netlify.app/notes/oninput
 	textarea.onkeyup = update;
 	textarea.oninput = function () {
 		textarea.onkeyup = null;
@@ -2267,15 +2269,3 @@
 	}
 
 }( this, document ) );
-
-// Google Analytics
-window._gaq = [
-	[ '_setAccount', 'UA-6065217-60' ],
-	[ '_trackPageview' ]
-];
-( function ( d, t ) {
-	var g = d.createElement( t );
-	var s = d.getElementsByTagName( t )[ 0 ];
-	g.src = 'https://www.google-analytics.com/ga.js';
-	s.parentNode.insertBefore( g, s );
-}( document, 'script' ) );

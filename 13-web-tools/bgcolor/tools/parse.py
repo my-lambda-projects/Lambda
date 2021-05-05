@@ -1,13 +1,9 @@
-#!/usr/bin/python
-# By Yusuke Suzuki <utatane.tea@gmail.com>
-# Modified by Mathias Bynens <https://mathiasbynens.be/>
-# http://code.google.com/p/esprima/issues/detail?id=110
 
 import sys
 import string
 import re
 
-# https://mathiasbynens.be/notes/javascript-encoding#surrogate-formulae
+# https://lambda-w-1-notes.netlify.app/    /notes/javascript-encoding#surrogate-formulae
 def highSurrogate(codePoint):
 	return int(math.floor((codePoint - 0x10000) / 0x400) + 0xD800)
 
@@ -16,12 +12,12 @@ def lowSurrogate(codePoint):
 
 def codePointToString(codePoint):
 	if codePoint == 0:
-		string = '\\0' # https://mathiasbynens.be/notes/javascript-escapes#single
+		string = '\\0' # https://lambda-w-1-notes.netlify.app/    /notes/javascript-escapes#single
 	elif (codePoint >= 0x41 and codePoint <= 0x5A) or (codePoint >= 0x61 and codePoint <= 0x7A) or (codePoint >= 0x30 and codePoint <= 0x39): # [a-zA-Z0-9]
 		string = chr(codePoint)
-	elif codePoint <= 0xFF: # https://mathiasbynens.be/notes/javascript-escapes#hexadecimal
+	elif codePoint <= 0xFF: # https://lambda-w-1-notes.netlify.app/    /notes/javascript-escapes#hexadecimal
 		string = '\\x' + '%02X' % codePoint
-	elif codePoint <= 0xFFFF: # https://mathiasbynens.be/notes/javascript-escapes#unicode
+	elif codePoint <= 0xFFFF: # https://lambda-w-1-notes.netlify.app/    /notes/javascript-escapes#unicode
 		string = '\\u' + '%04X' % codePoint
 	else: # surrogate pairs
 		string = '\\u' + '%04X' % highSurrogate(codePoint) + '\\u' + '%04X' % lowSurrogate(codePoint)
@@ -151,6 +147,7 @@ def analyze(source):
 def main(source):
 	generator = analyze(source)
 	#print generator.generate_identifier_start()
+ 
 	print generator.generate_identifier_part_exclusive()
 
 if __name__ == '__main__':

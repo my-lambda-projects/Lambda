@@ -45,21 +45,21 @@
 		}
 
 		if ( reservedNames.indexOf( name ) !== -1 ) {
-			return 'The supplied element name is reserved and can’t be used.\nSee <a href=https://html.spec.whatwg.org/multipage/scripting.html#valid-custom-element-name>the specification</a>.';
+			return 'The supplied element name is reserved and can't be used.\nSee <a href=https://html.spec.whatwg.org/multipage/scripting.html#valid-custom-element-name>the specification</a>.';
 		}
 	}
 
 	function hasWarning( name ) {
 		if ( /^polymer-/i.test( name ) ) {
-			return 'custom element names should not start with <code>polymer-</code>.\nSee <a href=http://webcomponents.github.io/articles/how-should-i-name-my-element>“How should I name my element?”</a>.';
+			return 'custom element names should not start with <code>polymer-</code>.\nSee <a href=http://webcomponents.github.io/articles/how-should-i-name-my-element>"How should I name my element?"</a>.';
 		}
 
 		if ( /^x-/i.test( name ) ) {
-			return 'custom element names should not start with <code>x-</code>.\nSee <a href=http://webcomponents.github.io/articles/how-should-i-name-my-element>“How should I name my element?”</a>.';
+			return 'custom element names should not start with <code>x-</code>.\nSee <a href=http://webcomponents.github.io/articles/how-should-i-name-my-element>"How should I name my element?"</a>.';
 		}
 
 		if ( /^ng-/i.test( name ) ) {
-			return 'custom element names should not start with <code>ng-</code>.\nSee <a href=http://docs.angularjs.org/guide/directive#creating-directives>“How to create an AngularJS directive”</a>.';
+			return 'custom element names should not start with <code>ng-</code>.\nSee <a href=http://docs.angularjs.org/guide/directive#creating-directives>"How to create an AngularJS directive"</a>.';
 		}
 
 		if ( /^xml/i.test( name ) ) {

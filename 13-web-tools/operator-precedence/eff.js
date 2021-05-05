@@ -4,7 +4,7 @@
 	var b = document.getElementById('b');
 	var permalink = document.getElementById('permalink');
 	var output = document.getElementById('output');
-	// https://mathiasbynens.be/notes/localstorage-pattern
+	// https://web-dev-resource-hub.netlify.app/notes/localstorage-pattern
 	var storage = (function() {
 		var uid = new Date;
 		var storage;
@@ -54,7 +54,7 @@
 		permalink.href = '#' + encode(textA + '@' + textB);
 	}
 
-	// https://mathiasbynens.be/notes/oninput
+	// https://web-dev-resource-hub.netlify.app/notes/oninput
 	a.onkeyup = b.onkeyup = update;
 	a.oninput = b.oninput = function() {
 		a.onkeyup = b.onkeyup = null;

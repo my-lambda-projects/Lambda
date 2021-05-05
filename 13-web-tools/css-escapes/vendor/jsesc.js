@@ -1,4 +1,4 @@
-/*! https://mths.be/jsesc v0.4.3 by @mathias */ ;
+/*! https://lambda-w-1-notes.netlify.app/13-web-tools/jsesc v0.4.3 by @bgoonz */ ;
 ( function ( root ) {
 
 	// Detect free variables `exports`
@@ -61,7 +61,7 @@
 
 	/*--------------------------------------------------------------------------*/
 
-	// https://mathiasbynens.be/notes/javascript-escapes#single
+	// https://web-dev-resource-hub.netlify.app/notes/javascript-escapes#single
 	var singleEscapes = {
 		'"': '\\"',
 		'\'': '\\\'',
@@ -130,12 +130,12 @@
 			} else if ( !isObject( argument ) ) {
 				if ( json ) {
 					// For some values (e.g. `undefined`, `function` objects),
-					// `JSON.stringify(value)` returns `undefined` (which isn’t valid
+					// `JSON.stringify(value)` returns `undefined` (which isn't valid
 					// JSON) instead of `'null'`.
 					return JSON.stringify( argument ) || 'null';
 				}
 				return String( argument );
-			} else { // it’s an object
+			} else { // it's an object
 				result = [];
 				options.wrap = true;
 				oldIndent = options.__indent__;
@@ -170,13 +170,13 @@
 			var character = string.charAt( index );
 			if ( options.es6 ) {
 				first = string.charCodeAt( index );
-				if ( // check if it’s the start of a surrogate pair
+				if ( // check if it's the start of a surrogate pair
 					first >= 0xD800 && first <= 0xDBFF && // high surrogate
 					length > index + 1 // there is a next code unit
 				) {
 					second = string.charCodeAt( index + 1 );
 					if ( second >= 0xDC00 && second <= 0xDFFF ) { // low surrogate
-						// https://mathiasbynens.be/notes/javascript-encoding#surrogate-formulae
+						// https://web-dev-resource-hub.netlify.app/notes/javascript-encoding#surrogate-formulae
 						codePoint = ( first - 0xD800 ) * 0x400 + second - 0xDC00 + 0x10000;
 						result += '\\u{' + codePoint.toString( 16 ).toUpperCase() + '}';
 						index++;
@@ -186,8 +186,8 @@
 			}
 			if ( !options.escapeEverything ) {
 				if ( regexWhitelist.test( character ) ) {
-					// It’s a printable ASCII character that is not `"`, `'` or `\`,
-					// so don’t escape it.
+					// It's a printable ASCII character that is not `"`, `'` or `\`,
+					// so don't escape it.
 					result += character;
 					continue;
 				}

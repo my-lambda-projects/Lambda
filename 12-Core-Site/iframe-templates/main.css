@@ -1,0 +1,124 @@
+.iframe {
+  border: 3px solid #131C28;
+  overflow: hidden;
+  background: #fff;
+}
+
+.iframe iframe {
+  width: 100%;
+  height: 800px;
+  border: 0;
+  display: block;
+}
+
+.iframe-header {
+  display: none;
+}
+
+.js .iframe-header {
+  display: block;
+}
+
+.iframe-content {
+  /* ipad iframe hack */
+  height: 400px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.iframe-header a {
+  font-size: 15px;
+  color: white;
+  background: #3B4658;
+  display: block;
+  padding: 15px;
+  text-align: center;
+  border-bottom: 3px solid #131C28;
+}
+
+.iframe-header a:hover,
+.iframe-header a:focus {
+  background: #6A798E;
+}
+
+.iframe-full-screen .iframe-header {
+  display: block;
+  position: absolute;
+  height: 50px;
+  width: 100%;
+}
+
+.iframe-full-screen .iframe-content {
+  position: absolute;
+  top: 50px;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+}
+
+.iframe-full-screen .iframe-header a {
+  padding: 0;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  border: 3px solid #131C28;
+}
+
+.iframe-full-screen body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.iframe-full-screen .iframe.iframe-active {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 9999;
+  border: none;
+}
+
+.iframe-full-screen .iframe iframe {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+
+.wrapper {
+  max-width: 1400px;
+  margin: 10px auto;
+  padding: 0 10px;
+  display: flex;
+  flex-wrap: wrap
+}
+
+.item {
+  display: inline-block;
+  flex: 1 350px;
+}
+
+@media all and (max-height: 600px) {
+  .iframe {
+    height: 600px;
+  }
+}
+
+/*
+      For modern Iphone specs
+      
+      */
+@media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) {
+  .wrapper {
+    max-width: 1400px;
+    margin: 10px auto;
+    padding: 0 10px;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+}

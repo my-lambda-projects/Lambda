@@ -1,4 +1,4 @@
-/*! https://mths.be/fromcodepoint v0.2.1 by @mathias */
+/*! https://lambda-w-1-notes.netlify.app/13-web-tools/fromcodepoint v0.2.1 by @bgoonz */
 if ( !String.fromCodePoint ) {
 	( function () {
 		var defineProperty = ( function () {
@@ -36,7 +36,7 @@ if ( !String.fromCodePoint ) {
 				if ( codePoint <= 0xFFFF ) { // BMP code point
 					codeUnits.push( codePoint );
 				} else { // Astral code point; split in surrogate halves
-					// https://mathiasbynens.be/notes/javascript-encoding#surrogate-formulae
+					// https://web-dev-resource-hub.netlify.app/notes/javascript-encoding#surrogate-formulae
 					codePoint -= 0x10000;
 					highSurrogate = ( codePoint >> 10 ) + 0xD800;
 					lowSurrogate = ( codePoint % 0x400 ) + 0xDC00;
@@ -85,9 +85,9 @@ if ( !String.fromCodePoint ) {
 		regexNumber = /^(?![+-])([0-9a-fA-FxX\+\-\.]+)$/,
 		regexSpecialCharacters = /['\\]/g,
 		regexOctalLiteral = /^0[0-7]+$/,
-		// https://mathiasbynens.be/notes/javascript-escapes#unicode
+		// https://web-dev-resource-hub.netlify.app/notes/javascript-escapes#unicode
 		regexUnicodeEscape = /\\u([a-fA-F0-9]{4})/g,
-		// https://mathiasbynens.be/notes/localstorage-pattern
+		// https://web-dev-resource-hub.netlify.app/notes/localstorage-pattern
 		storage = ( function () {
 			var uid = new Date,
 				storage,
@@ -128,7 +128,7 @@ if ( !String.fromCodePoint ) {
 		// Note: the replacement must happen in a single `replace` call.
 		var valueAsUnescapedString = value.replace( /\\u([a-fA-F0-9]{4})|\\u\{([0-9a-fA-F]{1,})\}/g, function ( $0, $1, $2 ) {
 			var codePoint = parseInt( $2 || $1, 16 );
-			// If it’s a surrogate…
+			// If it's a surrogate…
 			if ( codePoint >= 0xD800 && codePoint <= 0xDFFF ) {
 				// Return a character that is never valid in an identifier.
 				// This prevents the surrogate from pairing with another.
@@ -161,7 +161,8 @@ if ( !String.fromCodePoint ) {
 		} else {
 			quotedValue = '\'' + value.replace( regexSpecialCharacters, '\\$&' ) + '\'';
 		}
-		em.innerHTML = needsQuotes ? 'need' : 'don’t have';
+		em.innerHTML = needsQuotes ? 'need' : 'don'
+		t have ';
 		pre1.className = needsQuotes ? 'warning' : '';
 		if ( isIdentifierNameES6 ) {
 			console.log( isIdentifierNameES6, valueAsUnescapedString );
@@ -174,11 +175,17 @@ if ( !String.fromCodePoint ) {
 			}
 		}
 		dot.innerHTML = needsBrackets ?
-			'You can’t use dot notation here; you’ll have to use bracket notation:' :
+			'You can'
+		t use dot notation here;
+		you 'll have to use bracket notation:':
 			es5Warning ?
-			'For backwards compatibility with ES5, you can’t use dot notation here; you’ll have to use bracket notation:' :
+			'For backwards compatibility with ES5, you can'
+		t use dot notation here;
+		you 'll have to use bracket notation:':
 			es3Warning ?
-			'For backwards compatibility with ES3, you can’t use dot notation here; you’ll have to use bracket notation:' :
+			'For backwards compatibility with ES3, you can'
+		t use dot notation here;
+		you 'll have to use bracket notation:':
 			'You can use dot notation here:';
 		pre2.className = needsBrackets || es3Warning ? 'warning' : '';
 		text( mark1, needsQuotes ? quotedValue : value );
@@ -187,7 +194,7 @@ if ( !String.fromCodePoint ) {
 		storage && ( storage.jsProps = value );
 	}
 
-	// https://mathiasbynens.be/notes/oninput
+	// https://web-dev-resource-hub.netlify.app/notes/oninput
 	input.onkeydown = update;
 	input.oninput = function () {
 		this.onkeydown = null;
@@ -209,14 +216,6 @@ if ( !String.fromCodePoint ) {
 
 }( this, document ) );
 
-// Optimized Google Analytics snippet: https://mths.be/aab */
-window._gaq = [
-	[ '_setAccount', 'UA-6065217-60' ],
-	[ '_trackPageview' ]
-];
-( function ( d, t ) {
-	var g = d.createElement( t ),
-		s = d.getElementsByTagName( t )[ 0 ];
-	g.src = 'https://ssl.google-analytics.com/ga.js';
-	s.parentNode.insertBefore( g, s );
-}( document, 'script' ) );
+// Optimized Google Analytics snippet: https://lambda-w-1-notes.netlify.app/13-web-tools/aab */
+//-------------------------------
+//-------------------------------

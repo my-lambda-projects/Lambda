@@ -1,4 +1,4 @@
-/*! https://mths.be/q v1.0.0 by @mathias | MIT license */
+/*! https://lambda-w-1-notes.netlify.app/13-web-tools/q v1.0.0 by @bgoonz | MIT license */
 ;(function(root) {
 
 	// Detect free variables `exports`.
@@ -53,7 +53,7 @@
 				var hexadecimal = codePoint.toString(16).toUpperCase();
 				return '=' + ('0' + hexadecimal).slice(-2);
 			})
-			// Encode spaces as `_`, as it’s shorter than `=20`.
+			// Encode spaces as `_`, as it's shorter than `=20`.
 			.replace(/\x20/g, '_');
 	};
 

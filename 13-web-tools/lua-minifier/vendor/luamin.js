@@ -1,4 +1,4 @@
-/*! https://mths.be/luamin v1.0.2 by @mathias */
+/*! https://lambda-w-1-notes.netlify.app/13-web-tools/luamin v1.0.2 by @bgoonz */
 ;(function(root) {
 
 	// Detect free variables `exports`
@@ -299,7 +299,7 @@
 				// commute in such a way with `/`, but not with `%`
 				// (all three share a precedence). So we test for
 				// all of these conditions and avoid emitting
-				// parentheses in the cases where we don’t have to.
+				// parentheses in the cases where we don't have to.
 				result = '(' + result + ')';
 			}
 

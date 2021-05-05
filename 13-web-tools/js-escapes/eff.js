@@ -9,7 +9,7 @@
 	var checkboxES6 = inputs[ 2 ];
 	var checkboxStringBody = inputs[ 3 ];
 	var permalink = document.getElementById( 'permalink' );
-	// https://mathiasbynens.be/notes/localstorage-pattern
+	// https://web-dev-resource-hub.netlify.app/notes/localstorage-pattern
 	var storage = ( function () {
 		var uid = new Date;
 		var storage;
@@ -45,8 +45,8 @@
 	}
 
 	// Unescape ES6 Unicode code point escapes
-	// https://mathiasbynens.be/notes/javascript-escapes#unicode-code-point
-	// This is for browsers who support ES3/ES5 but haven’t implemented the new
+	// https://web-dev-resource-hub.netlify.app/notes/javascript-escapes#unicode-code-point
+	// This is for browsers who support ES3/ES5 but haven't implemented the new
 	// ES6 escape sequences yet.
 	function unescapeES6( string ) {
 		return string.replace( /\\u\{([a-fA-F0-9]{1,6})\}/g, function ( $0, $1 ) {
@@ -109,7 +109,7 @@
 		permalink.hash = +checkboxOnlyASCII.checked + encode( textarea.value );
 	}
 
-	// https://mathiasbynens.be/notes/oninput
+	// https://web-dev-resource-hub.netlify.app/notes/oninput
 	textarea.onkeyup = checkboxOnlyASCII.onchange = checkboxOutputJSON.onchange = checkboxES6.onchange = checkboxStringBody.onchange = update;
 	textarea.oninput = function () {
 		textarea.onkeyup = null;
@@ -144,15 +144,5 @@
 	}
 
 }( this, document, eval ) );
-
-// Google Analytics
-window._gaq = [
-	[ '_setAccount', 'UA-6065217-60' ],
-	[ '_trackPageview' ]
-];
-( function ( d, t ) {
-	var g = d.createElement( t );
-	var s = d.getElementsByTagName( t )[ 0 ];
-	g.src = 'https://www.google-analytics.com/ga.js';
-	s.parentNode.insertBefore( g, s );
-}( document, 'script' ) );
+//-------------------------------
+//-------------------------------

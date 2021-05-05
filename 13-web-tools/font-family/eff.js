@@ -22,7 +22,7 @@
 	var regexWhitespace = /[\t\n\f\r\x20]/g;
 	// Match valid unescaped identifier characters (even though they may not be valid at the start of the identifier)
 	var regexIdentifierCharacter = /^[a-zA-Z\d\xa0-\uffff_-]+$/;
-	// If this regex matches an “identifier”, it’s an invalid one:
+	// If this regex matches an "identifier", it's an invalid one:
 	var regexInvalidIdentifier = /^(-?\d|--)/;
 	var regexConsecutiveSpaces = /(\\(?:[a-fA-F0-9]{1,6}\x20|\x20))?(\x20{2,})/g;
 	var regexTrailingEscape = /\\[a-fA-F0-9]{0,6}\x20$/;
@@ -31,7 +31,7 @@
 	var regexLineBreak = /\r\n?/g;
 	var regexSimpleEscapeCharacters = /[ !"#$%&'()*+,.\/;<=>?@\[\\\]^`{|}~]/;
 	var regexSpaceAtStart = /^\x20/;
-	// https://mathiasbynens.be/notes/localstorage-pattern
+	// https://web-dev-resource-hub.netlify.app/notes/localstorage-pattern
 	var storage = ( function () {
 		var uid = new Date;
 		var storage;
@@ -81,9 +81,9 @@
 		return '\'' + string.replace( regexSingleQuote, '\\\'' ) + '\'';
 	}
 
-	// https://mathiasbynens.be/notes/css-escapes
+	// https://web-dev-resource-hub.netlify.app/notes/css-escapes
 	function cssEscape( string, escapeForString ) {
-		// Based on `ucs2decode` from https://mths.be/punycode
+		// Based on `ucs2decode` from https://lambda-w-1-notes.netlify.app/13-web-tools/punycode
 		var firstChar = string.charAt( 0 );
 		var output = '';
 		var counter = 0;
@@ -98,7 +98,7 @@
 		while ( counter < length ) {
 			character = string.charAt( counter++ );
 			charCode = character.charCodeAt();
-			// if it’s a non-ASCII character and those need to be escaped
+			// if it's a non-ASCII character and those need to be escaped
 			if ( escapeNonASCII && ( charCode < 32 || charCode > 126 ) ) {
 				if ( ( charCode & 0xF800 ) == 0xD800 ) {
 					surrogatePairCount++;
@@ -163,7 +163,7 @@
 					if ( index == 1 ) { // if this is the first item
 						result.push( escapeResult.output );
 					} else {
-						// if it’s not the first item, we can simply escape the space
+						// if it's not the first item, we can simply escape the space
 						// between the two identifiers to merge them into a single
 						// identifier rather than escaping the start characters of the
 						// second identifier
@@ -171,7 +171,7 @@
 						result.push( cssEscape( string, true ).output );
 					}
 				} else {
-					// the font family name part doesn’t start with two hyphens, a digit,
+					// the font family name part doesn't start with two hyphens, a digit,
 					// or a hyphen followed by a digit
 					result.push( escapeResult.output );
 				}
@@ -201,7 +201,7 @@
 			return ( $1 || '' ) + ' ' + array.join( ' ' );
 		} );
 
-		// Escape trailing spaces unless they’re already part of an escape
+		// Escape trailing spaces unless they're already part of an escape
 		if ( regexTrailingSpace.test( result ) && !regexTrailingEscape.test( result ) ) {
 			result = result.replace( regexTrailingSpace, '\\ ' );
 		}
@@ -235,7 +235,7 @@
 			needsEscaping = escapedOutput != value;
 			escapedString = checkbox.checked && escapeIdentifierSequence( value, true );
 			supplements.className = escaped.surrogatePairCount ? 'show' : 'hide';
-			text( em, value ? 'can' : 'can’t' );
+			text( em, value ? 'can' : 'can't' );
 			text( mark1, escapedOutput );
 			text( mark2, quote( escapedString || value ) );
 			pre1.className = value ? ( needsEscaping ? 'warning' : '' ) : 'fail';
@@ -247,7 +247,7 @@
 		storage && ( storage.fontFamily = value );
 	}
 
-	// https://mathiasbynens.be/notes/oninput
+	// https://web-dev-resource-hub.netlify.app/notes/oninput
 	input.onkeydown = checkbox.onchange = update;
 	input.oninput = function () {
 		this.onkeydown = null;
@@ -270,14 +270,6 @@
 
 }( this, document ) );
 
-// Optimized Google Analytics snippet: https://mths.be/aab */
-window._gaq = [
-	[ '_setAccount', 'UA-6065217-60' ],
-	[ '_trackPageview' ]
-];
-( function ( d, t ) {
-	var g = d.createElement( t );
-	var s = d.getElementsByTagName( t )[ 0 ];
-	g.src = 'https://www.google-analytics.com/ga.js';
-	s.parentNode.insertBefore( g, s );
-}( document, 'script' ) );
+// Optimized Google Analytics snippet: https://lambda-w-1-notes.netlify.app/13-web-tools/aab */
+//-------------------------------
+//-------------------------------

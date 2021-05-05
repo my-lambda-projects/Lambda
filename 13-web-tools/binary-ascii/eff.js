@@ -8,7 +8,7 @@
 	var regexAnyCharacter = /[\s\S]/g;
 	var regexBinary = /^(\s*[01]{8}\s*)*$/;
 	var regexExtendedASCII = /^[\x00-\xff]*$/;
-	// https://mathiasbynens.be/notes/localstorage-pattern
+	// https://web-dev-resource-hub.netlify.app/notes/localstorage-pattern
 	var storage = ( function () {
 		var uid = new Date;
 		var storage;
@@ -66,7 +66,7 @@
 		storage && ( storage.ascii = value );
 	};
 
-	// https://mathiasbynens.be/notes/oninput
+	// https://web-dev-resource-hub.netlify.app/notes/oninput
 	ascii.onkeyup = binary.onkeyup = update;
 	ascii.oninput = binary.oninput = function () {
 		ascii.onkeyup = binary.onkeyup = null;
@@ -88,15 +88,5 @@
 	}
 
 }( this, document ) );
-
-// Google Analytics
-window._gaq = [
-	[ '_setAccount', 'UA-6065217-60' ],
-	[ '_trackPageview' ]
-];
-( function ( d, t ) {
-	var g = d.createElement( t );
-	var s = d.getElementsByTagName( t )[ 0 ];
-	g.src = 'https://www.google-analytics.com/ga.js';
-	s.parentNode.insertBefore( g, s );
-}( document, 'script' ) );
+//-------------------------------
+//-------------------------------

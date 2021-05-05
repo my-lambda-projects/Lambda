@@ -1,4 +1,4 @@
-/*! https://mths.be/he v0.5.0 by @mathias | MIT license */ ;
+/*! https://lambda-w-1-notes.netlify.app/ https://lambda-w-1-notes.netlify.app/by @bgoonz | MIT license */ ;
 ( function ( root ) {
 
 	// Detect free variables `exports`.
@@ -1549,9 +1549,9 @@
 		'&': '&amp;',
 		'\'': '&#x27;',
 		'<': '&lt;',
-		// See https://mathiasbynens.be/notes/ambiguous-ampersands: in HTML, the
-		// following is not strictly necessary unless it’s part of a tag or an
-		// unquoted attribute value. We’re only escaping it to support those
+		// See https://web-dev-resource-hub.netlify.app/notes/ambiguous-ampersands: in HTML, the
+		// following is not strictly necessary unless it's part of a tag or an
+		// unquoted attribute value. We're only escaping it to support those
 		// situations, and for XML support.
 		'>': '&gt;',
 		// In Internet Explorer ≤ 8, the backtick character can be used
@@ -3866,14 +3866,14 @@
 		return result;
 	};
 
-	// Modified version of `ucs2encode`; see https://mths.be/punycode.
+	// Modified version of `ucs2encode`; see https://lambda-w-1-notes.netlify.app/13-web-tools/punycode.
 	var codePointToSymbol = function ( codePoint, strict ) {
 		var output = '';
 		if ( ( codePoint >= 0xD800 && codePoint <= 0xDFFF ) || codePoint > 0x10FFFF ) {
 			// See issue #4:
-			// “Otherwise, if the number is in the range 0xD800 to 0xDFFF or is
+			// "Otherwise, if the number is in the range 0xD800 to 0xDFFF or is
 			// greater than 0x10FFFF, then this is a parse error. Return a U+FFFD
-			// REPLACEMENT CHARACTER.”
+			// REPLACEMENT CHARACTER."
 			if ( strict ) {
 				parseError( 'character reference outside the permissible Unicode range' );
 			}
@@ -3961,14 +3961,14 @@
 				return '&' + encodeMap[ string ] + ';';
 			} );
 		} else if ( !allowUnsafeSymbols ) {
-			// Encode `<>"'&` using hexadecimal escapes, now that they’re not handled
+			// Encode `<>"'&` using hexadecimal escapes, now that they're not handled
 			// using named character references.
 			string = string.replace( regexEscape, hexEscape );
 		}
 		return string
 			// Encode astral symbols.
 			.replace( regexAstralSymbols, function ( $0 ) {
-				// https://mathiasbynens.be/notes/javascript-encoding#surrogate-formulae
+				// https://web-dev-resource-hub.netlify.app/notes/javascript-encoding#surrogate-formulae
 				var high = $0.charCodeAt( 0 );
 				var low = $0.charCodeAt( 1 );
 				var codePoint = ( high - 0xD800 ) * 0x400 + low - 0xDC00 + 0x10000;
@@ -4023,7 +4023,7 @@
 				if ( has( decodeMap, reference ) ) {
 					return decodeMap[ reference ];
 				} else {
-					// Ambiguous ampersand. https://mths.be/notes/ambiguous-ampersands
+					// Ambiguous ampersand. https://lambda-w-1-notes.netlify.app/13-web-tools/notes/ambiguous-ampersands
 					if ( strict ) {
 						parseError(
 							'named character reference was not terminated by a semicolon'
@@ -4032,7 +4032,7 @@
 					return $0;
 				}
 			}
-			// If we’re still here, it’s a legacy reference for sure. No need for an
+			// If we're still here, it's a legacy reference for sure. No need for an
 			// extra `if` check.
 			// Decode named character references without trailing `;`, e.g. `&amp`
 			// This is only a parse error if it gets converted to `&`, or if it is

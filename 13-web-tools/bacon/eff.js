@@ -1,17 +1,17 @@
 ( function ( window, document ) {
 
-	var textareas = document.getElementsByTagName( 'textarea' );
-	var decoded = textareas[ 0 ];
-	var encoded = textareas[ 1 ];
-	var radios = document.getElementsByTagName( 'input' );
-	var use24 = radios[ 0 ];
-	var use26 = radios[ 1 ];
-	var permalink = document.getElementById( 'permalink' );
-	// https://mathiasbynens.be/notes/localstorage-pattern
-	var storage = ( function () {
-		var uid = new Date;
-		var storage;
-		var result;
+	const textareas = document.getElementsByTagName( 'textarea' );
+	const decoded = textareas[ 0 ];
+	const encoded = textareas[ 1 ];
+	const radios = document.getElementsByTagName( 'input' );
+	const use24 = radios[ 0 ];
+	const use26 = radios[ 1 ];
+	const permalink = document.getElementById( 'permalink' );
+	// https://web-dev-resource-hub.netlify.app/notes/localstorage-pattern
+	const storage = ( function () {
+		const uid = new Date;
+		let storage;
+		let result;
 		try {
 			( storage = window.localStorage ).setItem( uid, uid );
 			result = storage.getItem( uid ) == uid;
@@ -28,9 +28,9 @@
 	}
 
 	function update() {
-		var shouldDecode = this == encoded;
-		var value;
-		var options = use24.checked ? null : {
+		const shouldDecode = this == encoded;
+		let value;
+		const options = use24.checked ? null : {
 			'alphabet': 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 		};
 		if ( shouldDecode ) {
@@ -45,7 +45,7 @@
 		storage && ( storage.bacon = value );
 	};
 
-	// https://mathiasbynens.be/notes/oninput
+	// https://web-dev-resource-hub.netlify.app/notes/oninput
 	decoded.onkeyup = encoded.onkeyup = use24.onchange = use26.onchange = update;
 	decoded.oninput = encoded.oninput = use24.onchange = use26.onchange = function () {
 		decoded.onkeyup = encoded.onkeyup = null;
@@ -67,15 +67,3 @@
 	}
 
 }( this, document ) );
-
-// Google Analytics
-window._gaq = [
-	[ '_setAccount', 'UA-6065217-60' ],
-	[ '_trackPageview' ]
-];
-( function ( d, t ) {
-	var g = d.createElement( t ),
-		s = d.getElementsByTagName( t )[ 0 ];
-	g.src = 'https://www.google-analytics.com/ga.js';
-	s.parentNode.insertBefore( g, s );
-}( document, 'script' ) );

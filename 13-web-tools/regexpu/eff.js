@@ -12,7 +12,7 @@
 	var divUseUnicodeFlag = document.getElementsByTagName('div')[2];
 	var run = document.getElementById('run');
 	var permalink = document.getElementById('permalink');
-	// https://mathiasbynens.be/notes/localstorage-pattern
+	// https://web-dev-resource-hub.netlify.app/notes/localstorage-pattern
 	var storage = (function() {
 		var uid = new Date;
 		var storage;
@@ -104,12 +104,4 @@
 	}
 
 }(this, document));
-
-// Google Analytics
-window._gaq = [['_setAccount', 'UA-6065217-60'], ['_trackPageview']];
-(function(d) {
-	var g = d.createElement('script');
-	var s = d.scripts[0];
-	g.src = 'https://www.google-analytics.com/ga.js';
-	s.parentNode.insertBefore(g, s);
-}(document));
+//-------------------------------

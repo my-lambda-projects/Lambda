@@ -1,4 +1,4 @@
-/*! https://mths.be/utf8js v2.0.0 by @mathias */ ;
+/*! https://lambda-w-1-notes.netlify.app/13-web-tools/utf8js v2.0.0 by @bgoonz */ ;
 ( function ( root ) {
 
 	// Detect free variables `exports`
@@ -19,7 +19,7 @@
 
 	var stringFromCharCode = String.fromCharCode;
 
-	// Taken from https://mths.be/punycode
+	// Taken from https://lambda-w-1-notes.netlify.app/13-web-tools/punycode
 	function ucs2decode( string ) {
 		var output = [];
 		var counter = 0;
@@ -46,7 +46,7 @@
 		return output;
 	}
 
-	// Taken from https://mths.be/punycode
+	// Taken from https://lambda-w-1-notes.netlify.app/13-web-tools/punycode
 	function ucs2encode( array ) {
 		var length = array.length;
 		var index = -1;
@@ -116,7 +116,7 @@
 			return continuationByte & 0x3F;
 		}
 
-		// If we end up here, it’s not a continuation byte
+		// If we end up here, it's not a continuation byte
 		throw Error( 'Invalid continuation byte' );
 	}
 

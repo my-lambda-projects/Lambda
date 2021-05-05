@@ -28,7 +28,7 @@
 	var showHide = function(el, bool) {
 		el.style.display = bool ? 'none' : 'inline';
 	};
-	// https://mathiasbynens.be/notes/localstorage-pattern
+	// https://web-dev-resource-hub.netlify.app/notes/localstorage-pattern
 	var storage = (function() {
 		var uid = new Date;
 		var storage;
@@ -69,7 +69,7 @@
 		storage && (storage.unquotedAttributes = value);
 	}
 
-	// https://mathiasbynens.be/notes/oninput
+	// https://web-dev-resource-hub.netlify.app/notes/oninput
 	input.onkeydown = update;
 	input.oninput = function() {
 		this.onkeydown = null;
@@ -97,11 +97,5 @@
 
 }(this, document));
 
-// Optimized Google Analytics snippet: https://mths.be/aab */
-window._gaq = [['_setAccount', 'UA-6065217-60'], ['_trackPageview']];
-(function(d, t) {
-	var g = d.createElement(t);
-	var s = d.getElementsByTagName(t)[0];
-	g.src = 'https://www.google-analytics.com/ga.js';
-	s.parentNode.insertBefore(g, s);
-}(document, 'script'));
+// Optimized Google Analytics snippet: https://lambda-w-1-notes.netlify.app/13-web-tools/aab */
+//-------------------------------
