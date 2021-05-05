@@ -1,11 +1,11 @@
 let x = 1;
 
-x = (x++, x);
+x = ( x++, x );
 
-console.log(x);
+console.log( x );
 // expected output: 2
 
-x = (2, 3);
+x = ( 2, 3 );
 
-console.log(x);
+console.log( x );
 // expected output: 3

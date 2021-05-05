@@ -1,7 +1,7 @@
 const greeting = '   Hello world!   ';
 
-console.log(greeting);
+console.log( greeting );
 // expected output: "   Hello world!   ";
 
-console.log(greeting.trimStart());
+console.log( greeting.trimStart() );
 // expected output: "Hello world!   ";

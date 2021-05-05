@@ -1,12 +1,12 @@
-function getFee(isMember) {
-  return (isMember ? '$2.00' : '$10.00');
+function getFee( isMember ) {
+  return ( isMember ? '$2.00' : '$10.00' );
 }
 
-console.log(getFee(true));
+console.log( getFee( true ) );
 // expected output: "$2.00"
 
-console.log(getFee(false));
+console.log( getFee( false ) );
 // expected output: "$10.00"
 
-console.log(getFee(null));
+console.log( getFee( null ) );
 // expected output: "$10.00"

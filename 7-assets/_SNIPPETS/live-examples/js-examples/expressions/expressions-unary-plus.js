@@ -1,20 +1,20 @@
 const x = 1;
 const y = -1;
 
-console.log(+x);
+console.log( +x );
 // expected output: 1
 
-console.log(+y);
+console.log( +y );
 // expected output: -1
 
-console.log(+'');
+console.log( +'' );
 // expected output: 0
 
-console.log(+true);
+console.log( +true );
 // expected output: 1
 
-console.log(+false);
+console.log( +false );
 // expected output: 0
 
-console.log(+'hello');
+console.log( +'hello' );
 // expected output: NaN

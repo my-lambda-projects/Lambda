@@ -1,7 +1,7 @@
-const stringObj = new String('foo');
+const stringObj = new String( 'foo' );
 
-console.log(stringObj);
+console.log( stringObj );
 // expected output: String { "foo" }
 
-console.log(stringObj.valueOf());
+console.log( stringObj.valueOf() );
 // expected output: "foo"

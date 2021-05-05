@@ -1,11 +1,11 @@
-console.log(typeof 42);
+console.log( typeof 42 );
 // expected output: "number"
 
-console.log(typeof 'blubber');
+console.log( typeof 'blubber' );
 // expected output: "string"
 
-console.log(typeof true);
+console.log( typeof true );
 // expected output: "boolean"
 
-console.log(typeof undeclaredVariable);
+console.log( typeof undeclaredVariable );
 // expected output: "undefined"
