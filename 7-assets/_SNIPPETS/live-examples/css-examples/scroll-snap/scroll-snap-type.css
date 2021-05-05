@@ -18,7 +18,7 @@
     border: 1px solid black;
 }
 
-#example-element > div {
+#example-element>div {
     flex: 0 0 250px;
     width: 250px;
     background-color: rebeccapurple;
@@ -30,7 +30,7 @@
     scroll-snap-align: start;
 }
 
-#example-element > div:nth-child(even) {
+#example-element>div:nth-child(even) {
     background-color: #fff;
     color: rebeccapurple;
 }

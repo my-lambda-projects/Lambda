@@ -5,7 +5,7 @@
     font: 1rem 'Fira Sans', sans-serif;
 }
 
-.forecast > h1,
+.forecast>h1,
 .day-forecast {
     margin: .5rem;
     padding: .3rem;
@@ -13,12 +13,11 @@
 }
 
 .day-forecast {
-    background: right/contain content-box border-box no-repeat
-        url('/media/examples/rain.svg') white;
+    background: right/contain content-box border-box no-repeat url('/media/examples/rain.svg') white;
 }
 
-.day-forecast > h2,
-.day-forecast > p {
+.day-forecast>h2,
+.day-forecast>p {
     margin: .2rem;
     font-size: 1rem;
 }
