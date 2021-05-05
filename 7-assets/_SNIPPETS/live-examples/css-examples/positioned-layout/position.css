@@ -11,7 +11,7 @@
     height: 65px;
 }
 
-.box + .box {
+.box+.box {
     margin-left: 10px;
 }
 

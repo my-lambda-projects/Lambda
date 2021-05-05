@@ -19,7 +19,7 @@
     scroll-snap-type: x mandatory;
 }
 
-.scroller > div {
+.scroller>div {
     flex: 0 0 250px;
     width: 250px;
     background-color: rebeccapurple;
@@ -31,7 +31,7 @@
     scroll-snap-align: end;
 }
 
-.scroller > div:nth-child(even) {
+.scroller>div:nth-child(even) {
     background-color: #fff;
     color: rebeccapurple;
 }

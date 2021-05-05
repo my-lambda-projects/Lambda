@@ -11,10 +11,11 @@
     grid-template-columns: 1fr 2fr;
 }
 
-.example-container h2, p {
+.example-container h2,
+p {
     margin: 0;
 }
-  
+
 .example-container h2 {
     font-size: 33px;
 }

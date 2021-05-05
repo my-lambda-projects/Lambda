@@ -15,7 +15,7 @@
     background: #f1f8ff;
 }
 
-.output section ul.unhighlighted >li {
+.output section ul.unhighlighted>li {
     background: white;
 }
 
@@ -30,6 +30,6 @@
 }
 
 @counter-style space-counter {
-    symbols: "\1F680" "\1F6F8" "\1F6F0" "\1F52D";
+    symbols: "\1F680""\1F6F8""\1F6F0""\1F52D";
     suffix: " "
 }

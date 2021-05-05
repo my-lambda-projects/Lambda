@@ -7,7 +7,7 @@
     display: flex;
 }
 
-.example-container > div {
+.example-container>div {
     background-color: rgba(0, 0, 255, .2);
     border: 3px solid blue;
     margin: 10px;

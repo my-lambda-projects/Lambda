@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Fira Sans';
     src: local('FiraSans-Light'),
-         url('../../../media/fonts/FiraSans-Light.woff2') format('woff2');
+        url('../../../media/fonts/FiraSans-Light.woff2') format('woff2');
     font-weight: 200;
     font-style: normal;
 }
@@ -9,7 +9,7 @@
 @font-face {
     font-family: 'Fira Sans';
     src: local('FiraSans-Regular'),
-         url('../../../media/fonts/FiraSans-Regular.woff2') format('woff2');
+        url('../../../media/fonts/FiraSans-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
@@ -17,7 +17,7 @@
 @font-face {
     font-family: 'Fira Sans';
     src: local('FiraSans-Italic'),
-         url('../../../media/fonts/FiraSans-Italic.woff2') format('woff2');
+        url('../../../media/fonts/FiraSans-Italic.woff2') format('woff2');
     font-weight: normal;
     font-style: italic;
 }
@@ -25,7 +25,7 @@
 @font-face {
     font-family: 'Fira Sans';
     src: local('FiraSans-SemiBoldItalic'),
-         url('../../../media/fonts/FiraSans-SemiBoldItalic.woff2') format('woff2');
+        url('../../../media/fonts/FiraSans-SemiBoldItalic.woff2') format('woff2');
     font-weight: normal;
     font-style: oblique;
 }
@@ -33,7 +33,7 @@
 @font-face {
     font-family: 'Fira Sans';
     src: local('FiraSans-SemiBold'),
-         url('../../../media/fonts/FiraSans-SemiBold.woff2') format('woff2');
+        url('../../../media/fonts/FiraSans-SemiBold.woff2') format('woff2');
     font-weight: bolder;
     font-style: normal;
 }
@@ -41,7 +41,7 @@
 @font-face {
     font-family: 'Fira Sans';
     src: local('FiraSans-Bold'),
-         url('../../../media/fonts/FiraSans-Bold.woff2') format('woff2');
+        url('../../../media/fonts/FiraSans-Bold.woff2') format('woff2');
     font-weight: bold;
     font-style: normal;
 }
@@ -49,7 +49,7 @@
 @font-face {
     font-family: 'Fira Sans';
     src: local('FiraSans-ExtraBold'),
-         url('../../../media/fonts/FiraSans-ExtraBold.woff2') format('woff2');
+        url('../../../media/fonts/FiraSans-ExtraBold.woff2') format('woff2');
     font-weight: 900;
     font-style: normal;
 }

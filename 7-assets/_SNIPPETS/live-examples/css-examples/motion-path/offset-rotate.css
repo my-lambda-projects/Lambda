@@ -7,6 +7,7 @@
   animation-play-state: paused;
   clip-path: polygon(0% 0%, 70% 0%, 100% 50%, 70% 100%, 0% 100%, 30% 50%);
 }
+
 #example-element.running {
   animation-play-state: running;
 }
@@ -22,6 +23,7 @@
   0% {
     offset-distance: 0%;
   }
+
   100% {
     offset-distance: 100%;
   }
