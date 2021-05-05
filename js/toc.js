@@ -35,7 +35,8 @@ muteBtn.setAttribute( 'type', 'button' );
 muteBtn.setAttribute( 'name', 'mute' );
 muteBtn.setAttribute( 'value', 'mute' );
 toc.appendChild( muteBtn );
-
-
 toc.appendChild( tocList );
+muteBtn.addEventListener( 'OnClick', function () {
+  return removeaudio()
+} );
 
