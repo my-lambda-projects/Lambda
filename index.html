@@ -55,6 +55,12 @@
       } );
 
     </script>
+    <!---------------------------------------------------Go Back Button------------------------------------------------------------------------------->
+    <script>
+      $(window).scroll(function(){
+  $("#back").stop().animate({"marginTop": ($(window).scrollTop()) + "px", "marginLeft":($(window).scrollLeft()) + "px"}, "slow" );
+});
+    </script>
     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------->
     <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------->
     <style>
@@ -101,7 +107,11 @@
     <br>
     <br>
     <br>
-
+<div style="width:130px !important;background-color:rgb(255, 0, 0); color:red;font-weight:900;border-radius: 10px;box-shadow: 6px solid #fff;">
+  <form  id="back" style="position:absolute;width:130px !important;background-color:rgb(255, 0, 0); color:red;font-weight:900;border-radius: 10px;box-shadow: 6px solid #fff;">
+ <input style=" color:red;font-weight: 900;background:url(https://media3.giphy.com/media/3o7qDNfxtNRtLVv8qs/source.gif)!important;"  type="button" value="Go back!" onclick="history.back()">
+</form>
+  </div>
     <br>
     <br>
     <br>
@@ -131,9 +141,8 @@
         <div class="my_class" id="ToC"> </div>
         <!---------------------------------------------------------Animated Title---------------------------------------------------------------------------------------->
       <!---------------------------------------------------------Animated Title---------------------------------------------------------------------------------------->
-        <h1 style="color:rgb(84, 172, 226); align-content:center;">This :
-          <span class="txt-rotate" data-period="2000"
-            data-rotate='[ "is Lambda Student Resources", "was created by Bryan Guner" ]'></span>
+<h1 style="color:rgb(84, 172, 226); align-content:center;">This :
+          <span class="txt-rotate" data-period="2000" data-rotate="[ &quot;is Lambda Student Resources&quot;, &quot;was created by Bryan Guner&quot; ]"><span class="wrap">was created by </span></span>
         </h1>
         <!-------------------------------------------------Background Image---------------------------------------------------------------------------------------------------------------------->
       
