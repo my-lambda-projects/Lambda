@@ -76,22 +76,25 @@
         <!-- <script async defer src="./jQuery-min.js"></script> -->
 
         <!--===================================Angolia Search================================================================================================================================-->
-  <script async defer src="./js/angolia-search.js"></script>
-        <script async defer
-            src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"
-            type="text/javascript"></script>
-        <script type="text/javascript">
-            algoliasearchNetlify( {
-                appId: '5UFU8H2XQ2',
-                apiKey: '3882cac807db103c3bbd02d853d9e785',
-                siteId: '0a9e6d86-b295-4037-b04d-88da85c1f6b5',
-                branch: 'master',
-                selector: 'div#search',
-            } );
+ 
 
-        </script>
-
-      
+      <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css" />
+    
+    
+    <script src="//inc.freefind.com/inc/ffse-overlay.min.js" async></script>
+          <script type="text/javascript"
+          src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js">
+      </script>
+      <script type="text/javascript">
+          algoliasearchNetlify( {
+              appId: 'SLAX1OP2C4',
+              apiKey: '724107ed136c87a489c802fc5e2d2f0f',
+              siteId: '0a9e6d86-b295-4037-b04d-88da85c1f6b5',
+              branch: 'master',
+              selector: 'div#search',
+          } );
+      </script>
     </head>
     <!--===================================================================================================================================================================-->
 
@@ -103,15 +106,50 @@
             <h1 style="color:rgb(84, 172, 226); align-content:center;">This is:</h1>
             <!--===================================================================================================================================================================-->
                   <div id="search"></div>
-<div class="ais-InstantSearch">
+          <!-- start of freefind search box html -->
+          <table cellpadding=0 cellspacing=0 border=0>
+              <tr>
+                  <td style="font-family: Arial, Helvetica, sans-serif; font-size: 7.5pt;">
+                      <center>
+                          <table width="90%" cellpadding=0 cellspacing=0 border=0
+                              style="font-family: Arial, Helvetica, sans-serif; font-size: 7.5pt;">
+                              <tr>
+                                  <td style="font-family: Arial, Helvetica, sans-serif; font-size: 7.5pt;" align=left><a
+                                          href="https://search.freefind.com/siteindex.html?si=84021407">index</a></td>
+                                  <td style="font-family: Arial, Helvetica, sans-serif; font-size: 7.5pt;" align=center>
+                                      <a
+                                          href="https://search.freefind.com/find.html?si=84021407&amp;m=0&amp;p=0">sitemap</a>
+                                  </td>
+                                  <td style="font-family: Arial, Helvetica, sans-serif; font-size: 7.5pt;" align=right>
+                                      <a href="https://search.freefind.com/find.html?si=84021407&amp;pid=a">advanced</a>
+                                  </td>
+                              </tr>
+                          </table>
+                      </center>
+                      <form style="margin:0px; margin-top:4px;" action="https://search.freefind.com/find.html"
+                          method="get" accept-charset="utf-8" target="_self">
+                          <input type="hidden" name="si" value="84021407">
+                          <input type="hidden" name="pid" value="r">
+                          <input type="hidden" name="n" value="0">
+                          <input type="hidden" name="_charset_" value="">
+                          <input type="hidden" name="bcd" value="&#247;">
+                          <input type="text" name="query" size="15">
+                          <input type="submit" value="search">
+                      </form>
+                  </td>
+              </tr>
+              <tr>
+                  <td
+                      style="text-align:center; font-family: Arial, Helvetica, sans-serif;	font-size: 7.5pt; padding-top:4px;">
+                      <a style="text-decoration:none; color:rgba(128, 128, 128, 0);" href="https://www.freefind.com" rel="nofollow">search
+                          engine</a><a style="text-decoration:none; color:rgba(128, 128, 128, 0);" href="https://www.freefind.com"
+                          rel="nofollow"> by
+                          <span style="color: #60606000;">freefind</span></a>
+                  </td>
+              </tr>
+          </table>
+          <!-- end of freefind search box html -->
 
-
-    <div class="right-panel">
-        <div id="searchbox"></div>
-        <div id="hits"></div>
-        <div id="pagination"></div>
-    </div>
-</div>
             <!--===================================================================================================================================================================-->
             <br>
             <br>
