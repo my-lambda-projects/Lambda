@@ -5,6 +5,8 @@
 
 [![wakatime](https://wakatime.com/badge/github/Lambda-April/LAMBDA.svg)](https://wakatime.com/badge/github/Lambda-April/LAMBDA)
 
+
+
 # Table of contents
 
 * [Closure-and-Scope](README.md)
