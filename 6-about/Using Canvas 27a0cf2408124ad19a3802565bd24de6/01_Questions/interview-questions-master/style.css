@@ -1,7 +1,0 @@
-body { font-family: arial, sans; font-size: smaller; }
-.title { font-size: medium; }
-.pri, .who { font-size: smaller; color: gray; }
-p.a { margin-bottom: 6em; }
-p.q { margin-top: 0em; margin-bottom: 0em; }
-div.q { page-break-inside: avoid; }
-.followup { margin-top: 0em; }
