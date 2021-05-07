@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://javascript.info/bubbling-and-capturing -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>
+<style>
+  body * {
+    margin: 10px;
+    border: 1px solid blue;
+  }
+</style>
+
+<form onclick="alert(&#39;form&#39;)">FORM
+  <div onclick="alert(&#39;div&#39;)">DIV
+    <p onclick="alert(&#39;p&#39;)">P</p>
+  </div>
+</form>
+</body></html>

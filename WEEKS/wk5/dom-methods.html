@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)https://fundamentals.generalassemb.ly/11_unit/dom-cheatsheet.html -->
+<html lang="en-US" class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Begin Jekyll SEO tag v2.4.0 -->
+<title>fundamentals | WDI prework</title>
+<meta name="generator" content="Jekyll v3.7.3">
+<meta property="og:title" content="fundamentals">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="WDI prework">
+<meta property="og:description" content="WDI prework">
+<link rel="canonical" href="https://fundamentals.generalassemb.ly/11_unit/dom-cheatsheet.html">
+<meta property="og:url" content="https://fundamentals.generalassemb.ly/11_unit/dom-cheatsheet.html">
+<meta property="og:site_name" content="fundamentals">
+<script type="application/ld+json">
+{"description":"WDI prework","@type":"WebPage","url":"https://fundamentals.generalassemb.ly/11_unit/dom-cheatsheet.html","headline":"fundamentals","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="./dom-methods_files/style.css">
+    <script src="./dom-methods_files/scale.fix.js.download"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  <style type="text/css">.fancybox-margin{margin-right:0px;}</style></head>
+  <body data-gclp-initialized="true" data-gistbox-initialized="true">
+    <div class="wrapper">
+      <header>
+        <h1 class="header">fundamentals</h1>
+        <p class="header">WDI prework</p>
+
+        <ul>
+          
+          <li><a class="buttons github" href="https://github.com/Milisant/fundamentals">View On GitHub</a></li>
+        </ul>
+
+        
+          <p class="header">This project is maintained by <a class="header name" href="https://github.com/Milisant">Milisant</a></p>
+        
+
+        
+      </header>
+
+      <section>
+        <p><strong>WDI Fundamentals Unit 11</strong></p>
+
+<hr>
+
+<h1 id="the-dom-cheat-sheet">The DOM Cheat Sheet</h1>
+
+<p>Here are some notes on what’s been covered in this chapter. Feel free to copy this and extend it to make your own cheat sheet.</p>
+
+<h4 id="the-dom">The DOM</h4>
+<p>The browser pulls in HTML documents, parses them, and creates object models of the pages in its memory. This model is the <strong>Document Object Model (DOM)</strong>.</p>
+
+<h4 id="dom-node">DOM Node</h4>
+<p>Each element in the HTML document is represented by a <strong>DOM node</strong>. These nodes can be accessed and changed using JavaScript.</p>
+
+<p>When the model is updated, those changes are reflected on screen.</p>
+
+<p><img src="./dom-methods_files/Slide-17-DOM-Tree-Annotated.svg" alt=""></p>
+
+<h4 id="accessing-elements">Accessing Elements</h4>
+
+<p>Before we can update a page, we need to find, or <strong>select</strong>, the element(s) that we want to update. In order to find an element, we need to search through the document. The syntax for the search looks something like this:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight" data-initialized="true" data-gclp-id="0" data-cacher="true" data-cacher-block-id="2450960784" style="position: relative;"><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'main'</span><span class="p">)</span>
+</code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre></div></div>
+
+<ul>
+  <li>Here are the methods that can be used to select an element or elements:</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Method</th>
+      <th style="text-align: center">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">getElementById()</code></td>
+      <td style="text-align: center">Selects an individual element within a document using a specific id</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">querySelector()</code></td>
+      <td style="text-align: center">Uses CSS selector to select the first matching element within a document</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">getElementsByClassName()</code></td>
+      <td style="text-align: center">Allows you to select all elements with a given class attribute</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">getElementsByTagName()</code></td>
+      <td style="text-align: center">Locates all elements that match a given tag name</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">querySelectorAll()</code></td>
+      <td style="text-align: center">Uses CSS selector to select one or more elements</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="cache">Cache</h4>
+<p>If we’d like to work with that element multiple times, a variable should be used to store, or <strong>cache</strong>, the results of our query.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight" data-initialized="true" data-gclp-id="1" data-cacher="true" data-cacher-block-id="571820994" style="position: relative;"><code><span class="kd">var</span> <span class="nx">sidebar</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'sidebar'</span><span class="p">);</span>
+</code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre></div></div>
+
+<h4 id="traversing-the-dom">Traversing the DOM</h4>
+<p>The process of selecting another element based on its relationship to a previously selected element.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Property</th>
+      <th style="text-align: center">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">parentNode</code></td>
+      <td style="text-align: center">Locates the parent element of an initial selection</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">previousSibling</code></td>
+      <td style="text-align: center">Finds the previous sibling of a selected element</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">nextSibling</code></td>
+      <td style="text-align: center">Finds the next sibling of a selected element</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">firstChild</code></td>
+      <td style="text-align: center">Finds the first child of a selected element</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li>The syntax for using these properties looks like this:</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight" data-initialized="true" data-gclp-id="2" data-cacher="true" data-cacher-block-id="2488279288" style="position: relative;"><code><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'li'</span><span class="p">).</span><span class="nx">parentNode</span>
+</code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre></div></div>
+<h4 id="nodelist">NodeList</h4>
+<p>A <code class="highlighter-rouge">NodeList</code> is a list of node objects numbered similarly to arrays.</p>
+
+<p>To locate the fourth item in this nodeList:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight" data-initialized="true" data-gclp-id="3" data-cacher="true" data-cacher-block-id="340864464" style="position: relative;"><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'li'</span><span class="p">)[</span><span class="mi">3</span><span class="p">];</span>
+</code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre></div></div>
+
+<h4 id="accessing-and-updating-content">Accessing and Updating Content</h4>
+
+<p>The <code class="highlighter-rouge">innerHTML</code> and <code class="highlighter-rouge">textContent</code> properties can be used to access or update content:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Property</th>
+      <th style="text-align: center">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">innerHTML</code></td>
+      <td style="text-align: center">Get or set the HTML content of an element.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">textContent</code></td>
+      <td style="text-align: center">Get or set the text content of an element.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The syntax for getting content looks like this:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight" data-initialized="true" data-gclp-id="4" data-cacher="true" data-cacher-block-id="3565423256" style="position: relative;"><code><span class="kd">var</span> <span class="nx">firstListItem</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'li'</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">;</span>
+<span class="c1">// Remember, `querySelector()` selects the first element that matches the provided selector.</span>
+</code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre></div></div>
+
+<p>The syntax for updating content looks like this:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight" data-initialized="true" data-gclp-id="5" data-cacher="true" data-cacher-block-id="2402058441" style="position: relative;"><code><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'li'</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">'Email &lt;a href="mom@gmail.com"&gt;Mom&lt;/a&gt;.'</span><span class="p">;</span>
+</code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre></div></div>
+
+<h4 id="adding-content">Adding Content</h4>
+
+<p>To add new elements to the page, we’ll need to use a three step process:</p>
+
+<ol>
+  <li>We will use the <code class="highlighter-rouge">createElement()</code> method to create a new element, which can then be added to the page. When this node is created, it will be <em>empty</em>. This element will be stored in a variable.</li>
+  <li>Next we will add content to the element using the <code class="highlighter-rouge">innerHTML</code> or <code class="highlighter-rouge">textContent</code> properties.</li>
+  <li>Now that our element has been created, we can add it as a child of an element using the <code class="highlighter-rouge">appendChild()</code> method. This will add an element as the last child of the parent element.</li>
+</ol>
+
+<p>To add a sixth item to our list we can execute the following code:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight" data-initialized="true" data-gclp-id="6" data-cacher="true" data-cacher-block-id="2221137458" style="position: relative;"><code><span class="c1">// First up, let's create a new list item and store it in a variable.</span>
+<span class="kd">var</span> <span class="nx">newListItem</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">'li'</span><span class="p">);</span>
+
+<span class="c1">// Now let's update the text content of that list item.</span>
+<span class="nx">newListItem</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="s1">'Jalapenos'</span><span class="p">;</span>
+
+<span class="c1">// And finally, let's add that list item as a child of the ul.</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">'ul'</span><span class="p">).</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">newListItem</span><span class="p">);</span>
+</code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre></div></div>
+
+<h4 id="getting-and-setting-attributes">Getting and Setting Attributes</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Property</th>
+      <th style="text-align: center">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">className</code></td>
+      <td style="text-align: center">Change the value of the class attribute for an element</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight" data-initialized="true" data-gclp-id="7" data-cacher="true" data-cacher-block-id="2661569156" style="position: relative;"><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'important'</span><span class="p">).</span><span class="nx">className</span> <span class="o">=</span> <span class="s1">'highlight'</span><span class="p">;</span>
+</code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Method</th>
+      <th style="text-align: center">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">setAttribute()</code></td>
+      <td style="text-align: center">Sets an attribute of an element</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">removeAttribute()</code></td>
+      <td style="text-align: center">Removes an attribute from an element</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight" data-initialized="true" data-gclp-id="8" data-cacher="true" data-cacher-block-id="2810338734" style="position: relative;"><code><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">'href'</span><span class="p">,</span> <span class="s1">'http://newurl.com'</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">removeAttribute</span><span class="p">(</span><span class="s1">'id'</span><span class="p">);</span>
+</code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre></div></div>
+
+<h4 id="events">Events</h4>
+<p>Actions taken by a user that can trigger updates in the DOM.</p>
+
+<p>For example, when a user clicks on a website’s menu icon, a sidebar menu should slide out from the side of the page. Or, if the user has typed an incorrect format into a form field, the field should become outlined in red.</p>
+
+<h4 id="event-handler">Event Handler</h4>
+<p>We can set up <strong>event handlers</strong> in our scripts that will <strong>listen</strong>, or wait, for an event to occur and then trigger a function.</p>
+
+<p>The syntax for setting up an event handler looks like this:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight" data-initialized="true" data-gclp-id="9" data-cacher="true" data-cacher-block-id="2897716776" style="position: relative;"><code><span class="nx">element</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'nameOfEvent'</span><span class="p">,</span> <span class="nx">functionToRun</span><span class="p">);</span>
+</code><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre></div></div>
+
+<h4 id="types-of-events">Types of Events</h4>
+
+<p>There are many events that can trigger a function. Here are a few:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Event</th>
+      <th style="text-align: center">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">'click'</code></td>
+      <td style="text-align: center">When a button (usually a mouse button) is pressed and released on a single element.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">'keydown'</code></td>
+      <td style="text-align: center">When the user first presses a key on the keyboard.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">'keyup'</code></td>
+      <td style="text-align: center">When the user releases a key on the keyboard.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">'focus'</code></td>
+      <td style="text-align: center">When an element has received focus.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">'blur'</code></td>
+      <td style="text-align: center">When an element loses focus.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">'submit'</code></td>
+      <td style="text-align: center">When the user submits a form.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">'load'</code></td>
+      <td style="text-align: center">When the page has finished loading.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">'resize'</code></td>
+      <td style="text-align: center">When the browser window has been resized.</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="highlighter-rouge">'scroll'</code></td>
+      <td style="text-align: center">When the user scrolls up or down on the page.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="this">This</h4>
+
+<p>###<code class="highlighter-rouge">this</code>
+A term used in event handling functions to refer to the specific object with which the user interacted.</p>
+
+<hr>
+<p><a href="https://fundamentals.generalassemb.ly/11_unit/dom-assignment.html">Let’s put this into practice!</a></p>
+
+      </section>
+
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com/">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  
+
+<form id="gclp-frame-form" target="gclp-frame" method="post" style="display: none;"></form><div class="gclp-code-grabber" data-gclp-id="0" data-hasqtip="true" style="left: 930px; top: 702.778px; display: none;"></div><div class="gclp-code-grabber" data-gclp-id="1" data-hasqtip="true" style="left: 930px; top: 1292.98px; display: none;"></div><div class="gclp-code-grabber" data-gclp-id="2" data-hasqtip="true" style="left: 930px; top: 1763.67px; display: none;"></div><div class="gclp-code-grabber" data-gclp-id="3" data-hasqtip="true" style="left: 930px; top: 1963.36px; display: none;"></div><div class="gclp-code-grabber" data-gclp-id="4" data-hasqtip="true" style="left: 930px; top: 2340.23px; display: none;"></div><div class="gclp-code-grabber" data-gclp-id="5" data-hasqtip="true" style="left: 930px; top: 2499.98px; display: none;"></div><div class="gclp-code-grabber" data-gclp-id="6" data-hasqtip="true" style="left: 930px; top: 2868.83px; display: none;"></div><div class="gclp-code-grabber" data-gclp-id="7" data-hasqtip="true" style="left: 930px; top: 3276.77px; display: none;"></div><div class="gclp-code-grabber" data-gclp-id="8" data-hasqtip="true" style="left: 930px; top: 3520.6px; display: none;"></div><div class="gclp-code-grabber" data-gclp-id="9" data-hasqtip="true" style="left: 930px; top: 3981.85px; display: none;"></div><div class="cacher-save" style="left: 930.018px; top: 676.778px;" data-block-id="2450960784"><svg height="10" viewBox="0 0 17 10" width="17" xmlns="http://www.w3.org/2000/svg"><path d="m9.7458227 11.5498785v.0367541l3.5283996 1.2435158v1.6661887l-5.2742223-2.2481295v-1.3905325l5.2742223-2.2420039v1.6661887zm5.2803479 4.1348432h-1.3231498l3.2711204-9.6847217h1.3231499zm7.620363-4.0674606v-.0367542l-3.5835308-1.2618929v-1.64781156l5.3354792 2.24200386v1.3905325l-5.3354792 2.2481296v-1.6539373z" fill="#fff" fill-rule="evenodd" transform="translate(-8 -6)"></path></svg><span>Save to Cacher</span></div><div class="cacher-save" style="left: 930.018px; top: 1266.98px;" data-block-id="571820994"><svg height="10" viewBox="0 0 17 10" width="17" xmlns="http://www.w3.org/2000/svg"><path d="m9.7458227 11.5498785v.0367541l3.5283996 1.2435158v1.6661887l-5.2742223-2.2481295v-1.3905325l5.2742223-2.2420039v1.6661887zm5.2803479 4.1348432h-1.3231498l3.2711204-9.6847217h1.3231499zm7.620363-4.0674606v-.0367542l-3.5835308-1.2618929v-1.64781156l5.3354792 2.24200386v1.3905325l-5.3354792 2.2481296v-1.6539373z" fill="#fff" fill-rule="evenodd" transform="translate(-8 -6)"></path></svg><span>Save to Cacher</span></div><div class="cacher-save" style="left: 930.018px; top: 1737.67px;" data-block-id="2488279288"><svg height="10" viewBox="0 0 17 10" width="17" xmlns="http://www.w3.org/2000/svg"><path d="m9.7458227 11.5498785v.0367541l3.5283996 1.2435158v1.6661887l-5.2742223-2.2481295v-1.3905325l5.2742223-2.2420039v1.6661887zm5.2803479 4.1348432h-1.3231498l3.2711204-9.6847217h1.3231499zm7.620363-4.0674606v-.0367542l-3.5835308-1.2618929v-1.64781156l5.3354792 2.24200386v1.3905325l-5.3354792 2.2481296v-1.6539373z" fill="#fff" fill-rule="evenodd" transform="translate(-8 -6)"></path></svg><span>Save to Cacher</span></div><div class="cacher-save" style="left: 930.018px; top: 1937.36px;" data-block-id="340864464"><svg height="10" viewBox="0 0 17 10" width="17" xmlns="http://www.w3.org/2000/svg"><path d="m9.7458227 11.5498785v.0367541l3.5283996 1.2435158v1.6661887l-5.2742223-2.2481295v-1.3905325l5.2742223-2.2420039v1.6661887zm5.2803479 4.1348432h-1.3231498l3.2711204-9.6847217h1.3231499zm7.620363-4.0674606v-.0367542l-3.5835308-1.2618929v-1.64781156l5.3354792 2.24200386v1.3905325l-5.3354792 2.2481296v-1.6539373z" fill="#fff" fill-rule="evenodd" transform="translate(-8 -6)"></path></svg><span>Save to Cacher</span></div><div class="cacher-save" style="left: 930.018px; top: 2314.23px;" data-block-id="3565423256"><svg height="10" viewBox="0 0 17 10" width="17" xmlns="http://www.w3.org/2000/svg"><path d="m9.7458227 11.5498785v.0367541l3.5283996 1.2435158v1.6661887l-5.2742223-2.2481295v-1.3905325l5.2742223-2.2420039v1.6661887zm5.2803479 4.1348432h-1.3231498l3.2711204-9.6847217h1.3231499zm7.620363-4.0674606v-.0367542l-3.5835308-1.2618929v-1.64781156l5.3354792 2.24200386v1.3905325l-5.3354792 2.2481296v-1.6539373z" fill="#fff" fill-rule="evenodd" transform="translate(-8 -6)"></path></svg><span>Save to Cacher</span></div><div class="cacher-save" style="left: 930.018px; top: 2473.98px;" data-block-id="2402058441"><svg height="10" viewBox="0 0 17 10" width="17" xmlns="http://www.w3.org/2000/svg"><path d="m9.7458227 11.5498785v.0367541l3.5283996 1.2435158v1.6661887l-5.2742223-2.2481295v-1.3905325l5.2742223-2.2420039v1.6661887zm5.2803479 4.1348432h-1.3231498l3.2711204-9.6847217h1.3231499zm7.620363-4.0674606v-.0367542l-3.5835308-1.2618929v-1.64781156l5.3354792 2.24200386v1.3905325l-5.3354792 2.2481296v-1.6539373z" fill="#fff" fill-rule="evenodd" transform="translate(-8 -6)"></path></svg><span>Save to Cacher</span></div><div class="cacher-save" style="left: 930.018px; top: 2842.83px;" data-block-id="2221137458"><svg height="10" viewBox="0 0 17 10" width="17" xmlns="http://www.w3.org/2000/svg"><path d="m9.7458227 11.5498785v.0367541l3.5283996 1.2435158v1.6661887l-5.2742223-2.2481295v-1.3905325l5.2742223-2.2420039v1.6661887zm5.2803479 4.1348432h-1.3231498l3.2711204-9.6847217h1.3231499zm7.620363-4.0674606v-.0367542l-3.5835308-1.2618929v-1.64781156l5.3354792 2.24200386v1.3905325l-5.3354792 2.2481296v-1.6539373z" fill="#fff" fill-rule="evenodd" transform="translate(-8 -6)"></path></svg><span>Save to Cacher</span></div><div class="cacher-save" style="left: 930.018px; top: 3250.77px;" data-block-id="2661569156"><svg height="10" viewBox="0 0 17 10" width="17" xmlns="http://www.w3.org/2000/svg"><path d="m9.7458227 11.5498785v.0367541l3.5283996 1.2435158v1.6661887l-5.2742223-2.2481295v-1.3905325l5.2742223-2.2420039v1.6661887zm5.2803479 4.1348432h-1.3231498l3.2711204-9.6847217h1.3231499zm7.620363-4.0674606v-.0367542l-3.5835308-1.2618929v-1.64781156l5.3354792 2.24200386v1.3905325l-5.3354792 2.2481296v-1.6539373z" fill="#fff" fill-rule="evenodd" transform="translate(-8 -6)"></path></svg><span>Save to Cacher</span></div><div class="cacher-save" style="left: 930.018px; top: 3494.6px;" data-block-id="2810338734"><svg height="10" viewBox="0 0 17 10" width="17" xmlns="http://www.w3.org/2000/svg"><path d="m9.7458227 11.5498785v.0367541l3.5283996 1.2435158v1.6661887l-5.2742223-2.2481295v-1.3905325l5.2742223-2.2420039v1.6661887zm5.2803479 4.1348432h-1.3231498l3.2711204-9.6847217h1.3231499zm7.620363-4.0674606v-.0367542l-3.5835308-1.2618929v-1.64781156l5.3354792 2.24200386v1.3905325l-5.3354792 2.2481296v-1.6539373z" fill="#fff" fill-rule="evenodd" transform="translate(-8 -6)"></path></svg><span>Save to Cacher</span></div><div class="cacher-save" style="left: 930.018px; top: 3955.85px;" data-block-id="2897716776"><svg height="10" viewBox="0 0 17 10" width="17" xmlns="http://www.w3.org/2000/svg"><path d="m9.7458227 11.5498785v.0367541l3.5283996 1.2435158v1.6661887l-5.2742223-2.2481295v-1.3905325l5.2742223-2.2420039v1.6661887zm5.2803479 4.1348432h-1.3231498l3.2711204-9.6847217h1.3231499zm7.620363-4.0674606v-.0367542l-3.5835308-1.2618929v-1.64781156l5.3354792 2.24200386v1.3905325l-5.3354792 2.2481296v-1.6539373z" fill="#fff" fill-rule="evenodd" transform="translate(-8 -6)"></path></svg><span>Save to Cacher</span></div><span style="margin: 0px auto; border: 2px dotted rgb(0, 0, 0); position: absolute; z-index: 2147483647; visibility: hidden; left: 1185px; width: 0px; top: 4288px; height: 0px;"></span><span style="z-index: 2147483647; position: absolute; visibility: hidden; left: 1170px; width: 50px; top: 4273px; height: 20px; font-size: 10px; color: black;"></span></body></html>
