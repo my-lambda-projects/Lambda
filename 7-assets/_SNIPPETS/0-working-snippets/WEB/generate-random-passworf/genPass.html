@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="random-password">
+      <input type="text" id="password" /> <button id="copy">Copy</button>
+      <div id="settings">
+        <label for="length">Length</label>
+        <input type="number" id="length" value="16" min="8" max="64" />
+        <label for="numbers">Include Numbers</label>
+        <input type="checkbox" id="numbers" checked />
+        <label for="symbols">Include Symbols</label>
+        <input type="checkbox" id="symbols" checked />
+      </div>
+      <button id="generate">Generate Password</button>
+    </div>
+    <script>
+      const alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      const numbers = "0123456789";
+      const symbols = "!@#$%^&*_-+=";
+
+      const passwordTxt = document.getElementById( "password" );
+      const length = document.getElementById( "length" );
+      const incNumbers = document.getElementById( "numbers" );
+      const incSymbols = document.getElementById( "symbols" );
+      const generateBtn = document.getElementById( "generate" );
+
+
+
+      enerateBtn.addEventListener( "click", () => {
+        let characters = alpha;
+        incNumbers.checked ? ( characters += numbers ) : "";
+        incSymbols.checked ? ( characters += symbols ) : "";
+        passwordTxt.value = generatePassword( length.value, characters );
+      } );
+
+
+
+
+
+      const generatePassword = ( length, characters ) => {
+        let password = "";
+        for ( let i = 0; i < length; i++ ) {
+          password += characters.charAt( Math.floor( Math.random() * characters.length ) );
+        }
+        return password;
+      };
+
+      const copyBtn = document.getElementById( "copy" );
+      copyBtn.addEventListener( "click", () => {
+        passwordTxt.select();
+        document.execCommand( "copy" );
+        alert( "Password Copied" );
+      } );
+
+    </script>
+  </body>
+
+</html>
