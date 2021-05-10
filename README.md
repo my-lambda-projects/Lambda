@@ -3,7 +3,6 @@
 
 >Disclaimer: this repo is 2GB as of this writing and growing fast.... download at your own discretion.... if you want to download it but don't have the space the icloud storage section located at the top of the deployed website contains the entire contents of this repo as well as bonus materials!
 
-[![wakatime](https://wakatime.com/badge/github/Lambda-April/LAMBDA.svg)](https://wakatime.com/badge/github/Lambda-April/LAMBDA)
 
 
 
