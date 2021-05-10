@@ -1,0 +1,132 @@
+<h1 id="iterables">Iterables</h1>
+<p><em>Iterable</em> objects are a generalization of arrays. That’s a concept that allows us to make any object useable in a <code>for..of</code> loop.</p>
+<p>Of course, Arrays are iterable. But there are many other built-in objects, that are iterable as well. For instance, strings are also iterable.</p>
+<p>If an object isn’t technically an array, but represents a collection (list, set) of something, then <code>for..of</code> is a great syntax to loop over it, so let’s see how to make it work.</p>
+<h2 id="symbol.iterator">Symbol.iterator</h2>
+<p>We can easily grasp the concept of iterables by making one of our own.</p>
+<p>For instance, we have an object that is not an array, but looks suitable for <code>for..of</code>.</p>
+<p>Like a <code>range</code> object that represents an interval of numbers:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> range <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="dt">from</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="dt">to</span><span class="op">:</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="op">};</span></a>
+<a class="sourceLine" id="cb1-5" title="5"></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="co">// We want the for..of to work:</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="co">// for(let num of range) ... num=1,2,3,4,5</span></a></code></pre></div>
+<p>To make the <code>range</code> object iterable (and thus let <code>for..of</code> work) we need to add a method to the object named <code>Symbol.iterator</code> (a special built-in symbol just for that).</p>
+<ol type="1">
+<li>When <code>for..of</code> starts, it calls that method once (or errors if not found). The method must return an <em>iterator</em> – an object with the method <code>next</code>.</li>
+<li>Onward, <code>for..of</code> works <em>only with that returned object</em>.</li>
+<li>When <code>for..of</code> wants the next value, it calls <code>next()</code> on that object.</li>
+<li>The result of <code>next()</code> must have the form <code>{done: Boolean, value: any}</code>, where <code>done=true</code> means that the iteration is finished, otherwise <code>value</code> is the next value.</li>
+</ol>
+<p>Here’s the full implementation for <code>range</code> with remarks:</p>
+<p>```js run let range = { from: 1, to: 5 };</p>
+<p>// 1. call to for..of initially calls this range<a href="#symbol.iterator">Symbol.iterator</a> = function() {</p>
+<p>// …it returns the iterator object: // 2. Onward, for..of works only with this iterator, asking it for next values return { current: this.from, last: this.to,</p>
+<pre><code>// 3. next() is called on each iteration by the for..of loop
+next() {
+  // 4. it should return the value as an object {done:.., value :...}
+  if (this.current &lt;= this.last) {
+    return { done: false, value: this.current++ };
+  } else {
+    return { done: true };
+  }
+}</code></pre>
+<p>}; };</p>
+<p>// now it works! for (let num of range) { alert(num); // 1, then 2, 3, 4, 5 } ```</p>
+<p>Please note the core feature of iterables: separation of concerns.</p>
+<ul>
+<li>The <code>range</code> itself does not have the <code>next()</code> method.</li>
+<li>Instead, another object, a so-called “iterator” is created by the call to <code>range[Symbol.iterator]()</code>, and its <code>next()</code> generates values for the iteration.</li>
+</ul>
+<p>So, the iterator object is separate from the object it iterates over.</p>
+<p>Technically, we may merge them and use <code>range</code> itself as the iterator to make the code simpler.</p>
+<p>Like this:</p>
+<p>```js run let range = { from: 1, to: 5,</p>
+<p><a href="">Symbol.iterator</a> { this.current = this.from; return this; },</p>
+<p>next() { if (this.current &lt;= this.to) { return { done: false, value: this.current++ }; } else { return { done: true }; } } };</p>
+<p>for (let num of range) { alert(num); // 1, then 2, 3, 4, 5 } ```</p>
+<p>Now <code>range[Symbol.iterator]()</code> returns the <code>range</code> object itself: it has the necessary <code>next()</code> method and remembers the current iteration progress in <code>this.current</code>. Shorter? Yes. And sometimes that’s fine too.</p>
+<p>The downside is that now it’s impossible to have two <code>for..of</code> loops running over the object simultaneously: they’ll share the iteration state, because there’s only one iterator – the object itself. But two parallel for-ofs is a rare thing, even in async scenarios.</p>
+<p>``<code>smart header="Infinite iterators" Infinite iterators are also possible. For instance, the</code>range<code>becomes infinite for</code>range.to = Infinity`. Or we can make an iterable object that generates an infinite sequence of pseudorandom numbers. Also can be useful.</p>
+<p>There are no limitations on <code>next</code>, it can return more and more values, that’s normal.</p>
+<p>Of course, the <code>for..of</code> loop over such an iterable would be endless. But we can always stop it using <code>break</code>. ```</p>
+<h2 id="string-is-iterable">String is iterable</h2>
+<p>Arrays and strings are most widely used built-in iterables.</p>
+<p>For a string, <code>for..of</code> loops over its characters:</p>
+<p><code>js run for (let char of "test") {   // triggers 4 times: once for each character   alert( char ); // t, then e, then s, then t }</code></p>
+<p>And it works correctly with surrogate pairs!</p>
+<p><code>js run let str = '𝒳😂'; for (let char of str) {     alert( char ); // 𝒳, and then 😂 }</code></p>
+<h2 id="calling-an-iterator-explicitly">Calling an iterator explicitly</h2>
+<p>For deeper understanding, let’s see how to use an iterator explicitly.</p>
+<p>We’ll iterate over a string in exactly the same way as <code>for..of</code>, but with direct calls. This code creates a string iterator and gets values from it “manually”:</p>
+<p>```js run let str = “Hello”;</p>
+<p>// does the same as // for (let char of str) alert(char);</p>
+<p><em>!</em> let iterator = str<a href="">Symbol.iterator</a>; <em>/!</em></p>
+<p>while (true) { let result = iterator.next(); if (result.done) break; alert(result.value); // outputs characters one by one } ```</p>
+<p>That is rarely needed, but gives us more control over the process than <code>for..of</code>. For instance, we can split the iteration process: iterate a bit, then stop, do something else, and then resume later.</p>
+<h2 id="iterables-and-array-likes-array-like">Iterables and array-likes [#array-like]</h2>
+<p>Two official terms look similar, but are very different. Please make sure you understand them well to avoid the confusion.</p>
+<ul>
+<li><em>Iterables</em> are objects that implement the <code>Symbol.iterator</code> method, as described above.</li>
+<li><em>Array-likes</em> are objects that have indexes and <code>length</code>, so they look like arrays.</li>
+</ul>
+<p>When we use JavaScript for practical tasks in a browser or any other environment, we may meet objects that are iterables or array-likes, or both.</p>
+<p>For instance, strings are both iterable (<code>for..of</code> works on them) and array-like (they have numeric indexes and <code>length</code>).</p>
+<p>But an iterable may be not array-like. And vice versa an array-like may be not iterable.</p>
+<p>For example, the <code>range</code> in the example above is iterable, but not array-like, because it does not have indexed properties and <code>length</code>.</p>
+<p>And here’s the object that is array-like, but not iterable:</p>
+<p>```js run let arrayLike = { // has indexes and length =&gt; array-like 0: “Hello”, 1: “World”, length: 2 };</p>
+<p><em>!</em> // Error (no Symbol.iterator) for (let item of arrayLike) {} <em>/!</em> ```</p>
+<p>Both iterables and array-likes are usually <em>not arrays</em>, they don’t have <code>push</code>, <code>pop</code> etc. That’s rather inconvenient if we have such an object and want to work with it as with an array. E.g. we would like to work with <code>range</code> using array methods. How to achieve that?</p>
+<h2 id="array.from">Array.from</h2>
+<p>There’s a universal method <a href="mdn:js/Array/from">Array.from</a> that takes an iterable or array-like value and makes a “real” <code>Array</code> from it. Then we can call array methods on it.</p>
+<p>For instance:</p>
+<p>```js run let arrayLike = { 0: “Hello”, 1: “World”, length: 2 };</p>
+<p><em>!</em> let arr = Array.from(arrayLike); // (<em>) </em>/!* alert(arr.pop()); // World (method works) ```</p>
+<p><code>Array.from</code> at the line <code>(*)</code> takes the object, examines it for being an iterable or array-like, then makes a new array and copies all items to it.</p>
+<p>The same happens for an iterable:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// assuming that range is taken from the example above</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">let</span> arr <span class="op">=</span> <span class="va">Array</span>.<span class="at">from</span>(range)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="at">alert</span>(arr)<span class="op">;</span> <span class="co">// 1,2,3,4,5 (array toString conversion works)</span></a></code></pre></div>
+<p>The full syntax for <code>Array.from</code> also allows us to provide an optional “mapping” function:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">Array</span>.<span class="at">from</span>(obj[<span class="op">,</span> mapFn<span class="op">,</span> thisArg])</a></code></pre></div>
+<p>The optional second argument <code>mapFn</code> can be a function that will be applied to each element before adding it to the array, and <code>thisArg</code> allows us to set <code>this</code> for it.</p>
+<p>For instance:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="co">// assuming that range is taken from the example above</span></a>
+<a class="sourceLine" id="cb5-2" title="2"></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="co">// square each number</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="kw">let</span> arr <span class="op">=</span> <span class="va">Array</span>.<span class="at">from</span>(range<span class="op">,</span> num <span class="kw">=&gt;</span> num <span class="op">*</span> num)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-5" title="5"></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="at">alert</span>(arr)<span class="op">;</span> <span class="co">// 1,4,9,16,25</span></a></code></pre></div>
+<p>Here we use <code>Array.from</code> to turn a string into an array of characters:</p>
+<p>```js run let str = ‘𝒳😂’;</p>
+<p>// splits str into array of characters let chars = Array.from(str);</p>
+<p>alert(chars[0]); // 𝒳 alert(chars[1]); // 😂 alert(chars.length); // 2 ```</p>
+<p>Unlike <code>str.split</code>, it relies on the iterable nature of the string and so, just like <code>for..of</code>, correctly works with surrogate pairs.</p>
+<p>Technically here it does the same as:</p>
+<p>```js run let str = ‘𝒳😂’;</p>
+<p>let chars = []; // Array.from internally does the same loop for (let char of str) { chars.push(char); }</p>
+<p>alert(chars); ```</p>
+<p>…But it is shorter.</p>
+<p>We can even build surrogate-aware <code>slice</code> on it:</p>
+<p>```js run function slice(str, start, end) { return Array.from(str).slice(start, end).join(’’); }</p>
+<p>let str = ‘𝒳😂𩷶’;</p>
+<p>alert( slice(str, 1, 3) ); // 😂𩷶</p>
+<p>// the native method does not support surrogate pairs alert( str.slice(1, 3) ); // garbage (two pieces from different surrogate pairs) ```</p>
+<h2 id="summary">Summary</h2>
+<p>Objects that can be used in <code>for..of</code> are called <em>iterable</em>.</p>
+<ul>
+<li>Technically, iterables must implement the method named <code>Symbol.iterator</code>.
+<ul>
+<li>The result of <code>obj[Symbol.iterator]()</code> is called an <em>iterator</em>. It handles further iteration process.</li>
+<li>An iterator must have the method named <code>next()</code> that returns an object <code>{done: Boolean, value: any}</code>, here <code>done:true</code> denotes the end of the iteration process, otherwise the <code>value</code> is the next value.</li>
+</ul></li>
+<li>The <code>Symbol.iterator</code> method is called automatically by <code>for..of</code>, but we also can do it directly.</li>
+<li>Built-in iterables like strings or arrays, also implement <code>Symbol.iterator</code>.</li>
+<li>String iterator knows about surrogate pairs.</li>
+</ul>
+<p>Objects that have indexed properties and <code>length</code> are called <em>array-like</em>. Such objects may also have other properties and methods, but lack the built-in methods of arrays.</p>
+<p>If we look inside the specification – we’ll see that most built-in methods assume that they work with iterables or array-likes instead of “real” arrays, because that’s more abstract.</p>
+<p><code>Array.from(obj[, mapFn, thisArg])</code> makes a real <code>Array</code> from an iterable or array-like <code>obj</code>, and we can then use array methods on it. The optional arguments <code>mapFn</code> and <code>thisArg</code> allow us to apply a function to each item.</p>

@@ -1,0 +1,113 @@
+<h1 id="logical-operators">Logical operators</h1>
+<p>There are four logical operators in JavaScript: <code>||</code> (OR), <code>&amp;&amp;</code> (AND), <code>!</code> (NOT), <code>??</code> (Nullish Coalescing). Here we cover the first three, the <code>??</code> operator is in the next article.</p>
+<p>Although they are called “logical”, they can be applied to values of any type, not only boolean. Their result can also be of any type.</p>
+<p>Let’s see the details.</p>
+<h2 id="or">|| (OR)</h2>
+<p>The “OR” operator is represented with two vertical line symbols:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1">result <span class="op">=</span> a <span class="op">||</span> b<span class="op">;</span></a></code></pre></div>
+<p>In classical programming, the logical OR is meant to manipulate boolean values only. If any of its arguments are <code>true</code>, it returns <code>true</code>, otherwise it returns <code>false</code>.</p>
+<p>In JavaScript, the operator is a little bit trickier and more powerful. But first, let’s see what happens with boolean values.</p>
+<p>There are four possible logical combinations:</p>
+<p><code>js run alert( true || true );   // true alert( false || true );  // true alert( true || false );  // true alert( false || false ); // false</code></p>
+<p>As we can see, the result is always <code>true</code> except for the case when both operands are <code>false</code>.</p>
+<p>If an operand is not a boolean, it’s converted to a boolean for the evaluation.</p>
+<p>For instance, the number <code>1</code> is treated as <code>true</code>, the number <code>0</code> as <code>false</code>:</p>
+<p><code>js run if (1 || 0) { // works just like if( true || false )   alert( 'truthy!' ); }</code></p>
+<p>Most of the time, OR <code>||</code> is used in an <code>if</code> statement to test if <em>any</em> of the given conditions is <code>true</code>.</p>
+<p>For example:</p>
+<p>```js run let hour = 9;</p>
+<p><em>!</em> if (hour &lt; 10 || hour &gt; 18) { <em>/!</em> alert( ‘The office is closed.’ ); } ```</p>
+<p>We can pass more conditions:</p>
+<p>```js run let hour = 12; let isWeekend = true;</p>
+<p>if (hour &lt; 10 || hour &gt; 18 || isWeekend) { alert( ‘The office is closed.’ ); // it is the weekend } ```</p>
+<h2 id="or-finds-the-first-truthy-value-or-finds-the-first-truthy-value">OR “||” finds the first truthy value [#or-finds-the-first-truthy-value]</h2>
+<p>The logic described above is somewhat classical. Now, let’s bring in the “extra” features of JavaScript.</p>
+<p>The extended algorithm works as follows.</p>
+<p>Given multiple OR’ed values:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1">result <span class="op">=</span> value1 <span class="op">||</span> value2 <span class="op">||</span> value3<span class="op">;</span></a></code></pre></div>
+<p>The OR <code>||</code> operator does the following:</p>
+<ul>
+<li>Evaluates operands from left to right.</li>
+<li>For each operand, converts it to boolean. If the result is <code>true</code>, stops and returns the original value of that operand.</li>
+<li>If all operands have been evaluated (i.e. all were <code>false</code>), returns the last operand.</li>
+</ul>
+<p>A value is returned in its original form, without the conversion.</p>
+<p>In other words, a chain of OR <code>||</code> returns the first truthy value or the last one if no truthy value is found.</p>
+<p>For instance:</p>
+<p>```js run alert( 1 || 0 ); // 1 (1 is truthy)</p>
+<p>alert( null || 1 ); // 1 (1 is the first truthy value) alert( null || 0 || 1 ); // 1 (the first truthy value)</p>
+<p>alert( undefined || null || 0 ); // 0 (all falsy, returns the last value) ```</p>
+<p>This leads to some interesting usage compared to a “pure, classical, boolean-only OR”.</p>
+<ol type="1">
+<li><p><strong>Getting the first truthy value from a list of variables or expressions.</strong></p>
+<p>For instance, we have <code>firstName</code>, <code>lastName</code> and <code>nickName</code> variables, all optional (i.e. can be undefined or have falsy values).</p>
+<p>Let’s use OR <code>||</code> to choose the one that has the data and show it (or <code>"Anonymous"</code> if nothing set):</p>
+<p>```js run let firstName = "“; let lastName =”“; let nickName =”SuperCoder";</p>
+<p><em>!</em> alert( firstName || lastName || nickName || “Anonymous”); // SuperCoder <em>/!</em> ```</p>
+<p>If all variables were falsy, <code>"Anonymous"</code> would show up.</p></li>
+<li><p><strong>Short-circuit evaluation.</strong></p>
+<p>Another feature of OR <code>||</code> operator is the so-called “short-circuit” evaluation.</p>
+<p>It means that <code>||</code> processes its arguments until the first truthy value is reached, and then the value is returned immediately, without even touching the other argument.</p>
+<p>That importance of this feature becomes obvious if an operand isn’t just a value, but an expression with a side effect, such as a variable assignment or a function call.</p>
+<p>In the example below, only the second message is printed:</p>
+<p><code>js run no-beautify  *!*true*/!* || alert("not printed");  *!*false*/!* || alert("printed");</code></p>
+<p>In the first line, the OR <code>||</code> operator stops the evaluation immediately upon seeing <code>true</code>, so the <code>alert</code> isn’t run.</p>
+<p>Sometimes, people use this feature to execute commands only if the condition on the left part is falsy.</p></li>
+</ol>
+<h2 id="and">&amp;&amp; (AND)</h2>
+<p>The AND operator is represented with two ampersands <code>&amp;&amp;</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">result <span class="op">=</span> a <span class="op">&amp;&amp;</span> b<span class="op">;</span></a></code></pre></div>
+<p>In classical programming, AND returns <code>true</code> if both operands are truthy and <code>false</code> otherwise:</p>
+<p><code>js run alert( true &amp;&amp; true );   // true alert( false &amp;&amp; true );  // false alert( true &amp;&amp; false );  // false alert( false &amp;&amp; false ); // false</code></p>
+<p>An example with <code>if</code>:</p>
+<p>```js run let hour = 12; let minute = 30;</p>
+<p>if (hour == 12 &amp;&amp; minute == 30) { alert( ‘The time is 12:30’ ); } ```</p>
+<p>Just as with OR, any value is allowed as an operand of AND:</p>
+<p><code>js run if (1 &amp;&amp; 0) { // evaluated as true &amp;&amp; false   alert( "won't work, because the result is falsy" ); }</code></p>
+<h2 id="and-finds-the-first-falsy-value">AND “&amp;&amp;” finds the first falsy value</h2>
+<p>Given multiple AND’ed values:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1">result <span class="op">=</span> value1 <span class="op">&amp;&amp;</span> value2 <span class="op">&amp;&amp;</span> value3<span class="op">;</span></a></code></pre></div>
+<p>The AND <code>&amp;&amp;</code> operator does the following:</p>
+<ul>
+<li>Evaluates operands from left to right.</li>
+<li>For each operand, converts it to a boolean. If the result is <code>false</code>, stops and returns the original value of that operand.</li>
+<li>If all operands have been evaluated (i.e. all were truthy), returns the last operand.</li>
+</ul>
+<p>In other words, AND returns the first falsy value or the last value if none were found.</p>
+<p>The rules above are similar to OR. The difference is that AND returns the first <em>falsy</em> value while OR returns the first <em>truthy</em> one.</p>
+<p>Examples:</p>
+<p>```js run // if the first operand is truthy, // AND returns the second operand: alert( 1 &amp;&amp; 0 ); // 0 alert( 1 &amp;&amp; 5 ); // 5</p>
+<p>// if the first operand is falsy, // AND returns it. The second operand is ignored alert( null &amp;&amp; 5 ); // null alert( 0 &amp;&amp; “no matter what” ); // 0 ```</p>
+<p>We can also pass several values in a row. See how the first falsy one is returned:</p>
+<p><code>js run alert( 1 &amp;&amp; 2 &amp;&amp; null &amp;&amp; 3 ); // null</code></p>
+<p>When all values are truthy, the last value is returned:</p>
+<p><code>js run alert( 1 &amp;&amp; 2 &amp;&amp; 3 ); // 3, the last one</code></p>
+<p>```<code>smart header="Precedence of AND</code>&amp;&amp;<code>is higher than OR</code>||<code>" The precedence of AND</code>&amp;&amp;<code>operator is higher than OR</code>||`.</p>
+<p>So the code <code>a &amp;&amp; b || c &amp;&amp; d</code> is essentially the same as if the <code>&amp;&amp;</code> expressions were in parentheses: <code>(a &amp;&amp; b) || (c &amp;&amp; d)</code>. ````</p>
+<p>```<code>warn header="Don't replace</code>if<code>with</code>||<code>or</code>&amp;&amp;<code>" Sometimes, people use the AND</code>&amp;&amp;<code>operator as a "shorter way to write</code>if`".</p>
+<p>For instance:</p>
+<p>```js run let x = 1;</p>
+<p>(x &gt; 0) &amp;&amp; alert( ‘Greater than zero!’ ); ```</p>
+<p>The action in the right part of <code>&amp;&amp;</code> would execute only if the evaluation reaches it. That is, only if <code>(x &gt; 0)</code> is true.</p>
+<p>So we basically have an analogue for:</p>
+<p>```js run let x = 1;</p>
+<p>if (x &gt; 0) alert( ‘Greater than zero!’ );</p>
+<pre><code>
+Although, the variant with `&amp;&amp;` appears shorter, `if` is more obvious and tends to be a little bit more readable. So we recommend using every construct for its purpose: use `if` if we want `if` and use `&amp;&amp;` if we want AND.</code></pre>
+<h2 id="not">! (NOT)</h2>
+<p>The boolean NOT operator is represented with an exclamation sign <code>!</code>.</p>
+<p>The syntax is pretty simple:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1">result <span class="op">=</span> <span class="op">!</span>value<span class="op">;</span></a></code></pre></div>
+<p>The operator accepts a single argument and does the following:</p>
+<ol type="1">
+<li>Converts the operand to boolean type: <code>true/false</code>.</li>
+<li>Returns the inverse value.</li>
+</ol>
+<p>For instance:</p>
+<p><code>js run alert( !true ); // false alert( !0 ); // true</code></p>
+<p>A double NOT <code>!!</code> is sometimes used for converting a value to boolean type:</p>
+<p><code>js run alert( !!"non-empty string" ); // true alert( !!null ); // false</code></p>
+<p>That is, the first NOT converts the value to boolean and returns the inverse, and the second NOT inverses it again. In the end, we have a plain value-to-boolean conversion.</p>
+<p>There’s a little more verbose way to do the same thing – a built-in <code>Boolean</code> function:</p>
+<p><code>js run alert( Boolean("non-empty string") ); // true alert( Boolean(null) ); // false</code></p>
+<p>The precedence of NOT <code>!</code> is the highest of all logical operators, so it always executes first, before <code>&amp;&amp;</code> or <code>||</code>.</p>

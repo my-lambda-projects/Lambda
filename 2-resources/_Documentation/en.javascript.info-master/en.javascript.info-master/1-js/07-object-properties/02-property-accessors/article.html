@@ -1,0 +1,92 @@
+<h1 id="property-getters-and-setters">Property getters and setters</h1>
+<p>There are two kinds of object properties.</p>
+<p>The first kind is <em>data properties</em>. We already know how to work with them. All properties that we’ve been using until now were data properties.</p>
+<p>The second type of properties is something new. It’s <em>accessor properties</em>. They are essentially functions that execute on getting and setting a value, but look like regular properties to an external code.</p>
+<h2 id="getters-and-setters">Getters and setters</h2>
+<p>Accessor properties are represented by “getter” and “setter” methods. In an object literal they are denoted by <code>get</code> and <code>set</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> obj <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="op">*!*</span>get <span class="at">propName</span>()<span class="op">*</span><span class="ss">/!</span><span class="sc">*</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="ss">    // getter, the code executed on getting obj.propName</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="ss">  },</span></a>
+<a class="sourceLine" id="cb1-5" title="5"></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="ss">  </span><span class="sc">*</span><span class="ss">!</span><span class="sc">*</span><span class="ss">set propName</span><span class="sc">(</span><span class="ss">value</span><span class="sc">)*</span><span class="ss">/</span><span class="op">!*</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="co">// setter, the code executed on setting obj.propName = value</span></a>
+<a class="sourceLine" id="cb1-8" title="8">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="op">};</span></a></code></pre></div>
+<p>The getter works when <code>obj.propName</code> is read, the setter – when it is assigned.</p>
+<p>For instance, we have a <code>user</code> object with <code>name</code> and <code>surname</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> user <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;John&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="dt">surname</span><span class="op">:</span> <span class="st">&quot;Smith&quot;</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="op">};</span></a></code></pre></div>
+<p>Now we want to add a <code>fullName</code> property, that should be <code>"John Smith"</code>. Of course, we don’t want to copy-paste existing information, so we can implement it as an accessor:</p>
+<p>```js run let user = { name: “John”, surname: “Smith”,</p>
+<p><em>!</em> get fullName() { return <code>${this.name} ${this.surname}</code>; } <em>/!</em> };</p>
+<p><em>!</em> alert(user.fullName); // John Smith <em>/!</em> ```</p>
+<p>From the outside, an accessor property looks like a regular one. That’s the idea of accessor properties. We don’t <em>call</em> <code>user.fullName</code> as a function, we <em>read</em> it normally: the getter runs behind the scenes.</p>
+<p>As of now, <code>fullName</code> has only a getter. If we attempt to assign <code>user.fullName=</code>, there will be an error:</p>
+<p>``<code>js run let user = {   get fullName() {     return</code>…`; } };</p>
+<p><em>!</em> user.fullName = “Test”; // Error (property has only a getter) <em>/!</em> ```</p>
+<p>Let’s fix it by adding a setter for <code>user.fullName</code>:</p>
+<p>```js run let user = { name: “John”, surname: “Smith”,</p>
+<p>get fullName() { return <code>${this.name} ${this.surname}</code>; },</p>
+<p><em>!</em> set fullName(value) { [this.name, this.surname] = value.split(" "); } <em>/!</em> };</p>
+<p>// set fullName is executed with the given value. user.fullName = “Alice Cooper”;</p>
+<p>alert(user.name); // Alice alert(user.surname); // Cooper ```</p>
+<p>As the result, we have a “virtual” property <code>fullName</code>. It is readable and writable.</p>
+<h2 id="accessor-descriptors">Accessor descriptors</h2>
+<p>Descriptors for accessor properties are different from those for data properties.</p>
+<p>For accessor properties, there is no <code>value</code> or <code>writable</code>, but instead there are <code>get</code> and <code>set</code> functions.</p>
+<p>That is, an accessor descriptor may have:</p>
+<ul>
+<li><strong><code>get</code></strong> – a function without arguments, that works when a property is read,</li>
+<li><strong><code>set</code></strong> – a function with one argument, that is called when the property is set,</li>
+<li><strong><code>enumerable</code></strong> – same as for data properties,</li>
+<li><strong><code>configurable</code></strong> – same as for data properties.</li>
+</ul>
+<p>For instance, to create an accessor <code>fullName</code> with <code>defineProperty</code>, we can pass a descriptor with <code>get</code> and <code>set</code>:</p>
+<p>```js run let user = { name: “John”, surname: “Smith” };</p>
+<p><em>!</em> Object.defineProperty(user, ‘fullName’, { get() { return <code>${this.name} ${this.surname}</code>; },</p>
+<p>set(value) { [this.name, this.surname] = value.split(" "); } <em>/!</em> });</p>
+<p>alert(user.fullName); // John Smith</p>
+<p>for(let key in user) alert(key); // name, surname ```</p>
+<p>Please note that a property can be either an accessor (has <code>get/set</code> methods) or a data property (has a <code>value</code>), not both.</p>
+<p>If we try to supply both <code>get</code> and <code>value</code> in the same descriptor, there will be an error:</p>
+<p>```js run <em>!</em> // Error: Invalid property descriptor. <em>/!</em> Object.defineProperty({}, ‘prop’, { get() { return 1 },</p>
+<p>value: 2 }); ```</p>
+<h2 id="smarter-getterssetters">Smarter getters/setters</h2>
+<p>Getters/setters can be used as wrappers over “real” property values to gain more control over operations with them.</p>
+<p>For instance, if we want to forbid too short names for <code>user</code>, we can have a setter <code>name</code> and keep the value in a separate property <code>_name</code>:</p>
+<p>```js run let user = { get name() { return this._name; },</p>
+<p>set name(value) { if (value.length &lt; 4) { alert(“Name is too short, need at least 4 characters”); return; } this._name = value; } };</p>
+<p>user.name = “Pete”; alert(user.name); // Pete</p>
+<p>user.name = ""; // Name is too short… ```</p>
+<p>So, the name is stored in <code>_name</code> property, and the access is done via getter and setter.</p>
+<p>Technically, external code is able to access the name directly by using <code>user._name</code>. But there is a widely known convention that properties starting with an underscore <code>"_"</code> are internal and should not be touched from outside the object.</p>
+<h2 id="using-for-compatibility">Using for compatibility</h2>
+<p>One of the great uses of accessors is that they allow to take control over a “regular” data property at any moment by replacing it with a getter and a setter and tweak its behavior.</p>
+<p>Imagine we started implementing user objects using data properties <code>name</code> and <code>age</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">function</span> <span class="at">User</span>(name<span class="op">,</span> age) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="kw">this</span>.<span class="at">name</span> <span class="op">=</span> name<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="kw">this</span>.<span class="at">age</span> <span class="op">=</span> age<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="op">}</span></a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="kw">let</span> john <span class="op">=</span> <span class="kw">new</span> <span class="at">User</span>(<span class="st">&quot;John&quot;</span><span class="op">,</span> <span class="dv">25</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-7" title="7"></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="at">alert</span>( <span class="va">john</span>.<span class="at">age</span> )<span class="op">;</span> <span class="co">// 25</span></a></code></pre></div>
+<p>…But sooner or later, things may change. Instead of <code>age</code> we may decide to store <code>birthday</code>, because it’s more precise and convenient:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">function</span> <span class="at">User</span>(name<span class="op">,</span> birthday) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="kw">this</span>.<span class="at">name</span> <span class="op">=</span> name<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="kw">this</span>.<span class="at">birthday</span> <span class="op">=</span> birthday<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="op">}</span></a>
+<a class="sourceLine" id="cb4-5" title="5"></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="kw">let</span> john <span class="op">=</span> <span class="kw">new</span> <span class="at">User</span>(<span class="st">&quot;John&quot;</span><span class="op">,</span> <span class="kw">new</span> <span class="at">Date</span>(<span class="dv">1992</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">1</span>))<span class="op">;</span></a></code></pre></div>
+<p>Now what to do with the old code that still uses <code>age</code> property?</p>
+<p>We can try to find all such places and fix them, but that takes time and can be hard to do if that code is used by many other people. And besides, <code>age</code> is a nice thing to have in <code>user</code>, right?</p>
+<p>Let’s keep it.</p>
+<p>Adding a getter for <code>age</code> solves the problem:</p>
+<p>```js run no-beautify function User(name, birthday) { this.name = name; this.birthday = birthday;</p>
+<p><em>!</em> // age is calculated from the current date and birthday Object.defineProperty(this, “age”, { get() { let todayYear = new Date().getFullYear(); return todayYear - this.birthday.getFullYear(); } }); <em>/!</em> }</p>
+<p>let john = new User(“John”, new Date(1992, 6, 1));</p>
+<p>alert( john.birthday ); // birthday is available alert( john.age ); // …as well as the age ```</p>
+<p>Now the old code works too and we’ve got a nice additional property.</p>

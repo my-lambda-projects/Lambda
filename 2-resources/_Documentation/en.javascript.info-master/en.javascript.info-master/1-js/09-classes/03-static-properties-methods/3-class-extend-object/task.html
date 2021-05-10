@@ -1,0 +1,20 @@
+<p>importance: 3</p>
+<hr />
+<h1 id="class-extends-object">Class extends Object?</h1>
+<p>As we know, all objects normally inherit from <code>Object.prototype</code> and get access to “generic” object methods like <code>hasOwnProperty</code> etc.</p>
+<p>For instance:</p>
+<p>```js run class Rabbit { constructor(name) { this.name = name; } }</p>
+<p>let rabbit = new Rabbit(“Rab”);</p>
+<p><em>!</em> // hasOwnProperty method is from Object.prototype alert( rabbit.hasOwnProperty(‘name’) ); // true <em>/!</em> ```</p>
+<p>But if we spell it out explicitly like <code>"class Rabbit extends Object"</code>, then the result would be different from a simple <code>"class Rabbit"</code>?</p>
+<p>What’s the difference?</p>
+<p>Here’s an example of such code (it doesn’t work – why? fix it?):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">class</span> Rabbit <span class="kw">extends</span> Object <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="at">constructor</span>(name) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">this</span>.<span class="at">name</span> <span class="op">=</span> name<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="kw">let</span> rabbit <span class="op">=</span> <span class="kw">new</span> <span class="at">Rabbit</span>(<span class="st">&quot;Rab&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-8" title="8"></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="at">alert</span>( <span class="va">rabbit</span>.<span class="at">hasOwnProperty</span>(<span class="st">&#39;name&#39;</span>) )<span class="op">;</span> <span class="co">// Error</span></a></code></pre></div>

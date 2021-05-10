@@ -1,0 +1,25 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="searching-algorithm">Searching algorithm</h1>
+<p>The task has two parts.</p>
+<p>Given the following objects:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> head <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="dt">glasses</span><span class="op">:</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="op">};</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="kw">let</span> table <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-6" title="6">  <span class="dt">pen</span><span class="op">:</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="op">};</span></a>
+<a class="sourceLine" id="cb1-8" title="8"></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="kw">let</span> bed <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-10" title="10">  <span class="dt">sheet</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-11" title="11">  <span class="dt">pillow</span><span class="op">:</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="op">};</span></a>
+<a class="sourceLine" id="cb1-13" title="13"></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="kw">let</span> pockets <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-15" title="15">  <span class="dt">money</span><span class="op">:</span> <span class="dv">2000</span></a>
+<a class="sourceLine" id="cb1-16" title="16"><span class="op">};</span></a></code></pre></div>
+<ol type="1">
+<li>Use <code>__proto__</code> to assign prototypes in a way that any property lookup will follow the path: <code>pockets</code> -&gt; <code>bed</code> -&gt; <code>table</code> -&gt; <code>head</code>. For instance, <code>pockets.pen</code> should be <code>3</code> (found in <code>table</code>), and <code>bed.glasses</code> should be <code>1</code> (found in <code>head</code>).</li>
+<li>Answer the question: is it faster to get <code>glasses</code> as <code>pockets.glasses</code> or <code>head.glasses</code>? Benchmark if needed.</li>
+</ol>

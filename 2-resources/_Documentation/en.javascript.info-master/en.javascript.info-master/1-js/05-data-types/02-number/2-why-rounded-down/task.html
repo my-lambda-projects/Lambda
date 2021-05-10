@@ -1,0 +1,9 @@
+<p>importance: 4</p>
+<hr />
+<h1 id="why-6.35.tofixed1-6.3">Why 6.35.toFixed(1) == 6.3?</h1>
+<p>According to the documentation <code>Math.round</code> and <code>toFixed</code> both round to the nearest number: <code>0..4</code> lead down while <code>5..9</code> lead up.</p>
+<p>For instance:</p>
+<p><code>js run alert( 1.35.toFixed(1) ); // 1.4</code></p>
+<p>In the similar example below, why is <code>6.35</code> rounded to <code>6.3</code>, not <code>6.4</code>?</p>
+<p><code>js run alert( 6.35.toFixed(1) ); // 6.3</code></p>
+<p>How to round <code>6.35</code> the right way?</p>

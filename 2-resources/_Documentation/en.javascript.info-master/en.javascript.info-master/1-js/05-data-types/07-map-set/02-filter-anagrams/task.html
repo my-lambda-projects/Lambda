@@ -1,0 +1,14 @@
+<p>importance: 4</p>
+<hr />
+<h1 id="filter-anagrams">Filter anagrams</h1>
+<p><a href="https://en.wikipedia.org/wiki/Anagram">Anagrams</a> are words that have the same number of same letters, but in different order.</p>
+<p>For instance:</p>
+<pre><code>nap - pan
+ear - are - era
+cheaters - hectares - teachers</code></pre>
+<p>Write a function <code>aclean(arr)</code> that returns an array cleaned from anagrams.</p>
+<p>For instance:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> arr <span class="op">=</span> [<span class="st">&quot;nap&quot;</span><span class="op">,</span> <span class="st">&quot;teachers&quot;</span><span class="op">,</span> <span class="st">&quot;cheaters&quot;</span><span class="op">,</span> <span class="st">&quot;PAN&quot;</span><span class="op">,</span> <span class="st">&quot;ear&quot;</span><span class="op">,</span> <span class="st">&quot;era&quot;</span><span class="op">,</span> <span class="st">&quot;hectares&quot;</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="at">alert</span>( <span class="at">aclean</span>(arr) )<span class="op">;</span> <span class="co">// &quot;nap,teachers,ear&quot; or &quot;PAN,cheaters,era&quot;</span></a></code></pre></div>
+<p>From every anagram group should remain only one word, no matter which one.</p>

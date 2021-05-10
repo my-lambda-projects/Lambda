@@ -1,0 +1,12 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="army-of-functions">Army of functions</h1>
+<p>The following code creates an array of <code>shooters</code>.</p>
+<p>Every function is meant to output its number. But something is wrong…</p>
+<p>```js run function makeArmy() { let shooters = [];</p>
+<p>let i = 0; while (i &lt; 10) { let shooter = function() { // create a shooter function, alert( i ); // that should show its number }; shooters.push(shooter); // and add it to the array i++; }</p>
+<p>// …and return the array of shooters return shooters; }</p>
+<p>let army = makeArmy();</p>
+<p><em>!</em> // all shooters show 10 instead of their numbers 0, 1, 2, 3… army<a href="">0</a>; // 10 from the shooter number 0 army<a href="">1</a>; // 10 from the shooter number 1 army<a href="">2</a>; // 10 …and so on. <em>/!</em> ```</p>
+<p>Why do all of the shooters show the same value?</p>
+<p>Fix the code so that they work as intended.</p>

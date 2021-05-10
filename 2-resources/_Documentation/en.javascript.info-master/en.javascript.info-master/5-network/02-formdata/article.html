@@ -1,0 +1,137 @@
+<h1 id="formdata">FormData</h1>
+<p>This chapter is about sending HTML forms: with or without files, with additional fields and so on.</p>
+<p><a href="https://xhr.spec.whatwg.org/#interface-formdata">FormData</a> objects can help with that. As you might have guessed, it’s the object to represent HTML form data.</p>
+<p>The constructor is:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> formData <span class="op">=</span> <span class="kw">new</span> <span class="at">FormData</span>([form])<span class="op">;</span></a></code></pre></div>
+<p>If HTML <code>form</code> element is provided, it automatically captures its fields.</p>
+<p>The special thing about <code>FormData</code> is that network methods, such as <code>fetch</code>, can accept a <code>FormData</code> object as a body. It’s encoded and sent out with <code>Content-Type: multipart/form-data</code>.</p>
+<p>From the server point of view, that looks like a usual form submission.</p>
+<h2 id="sending-a-simple-form">Sending a simple form</h2>
+<p>Let’s send a simple form first.</p>
+<p>As you can see, that’s almost one-liner:</p>
+```html run autorun
+<form id="formElem">
+<input type="text" name="name" value="John"> <input type="text" name="surname" value="Smith"> <input type="submit">
+</form>
+<script>
+  formElem.onsubmit = async (e) => {
+    e.preventDefault();
+
+    let response = await fetch('/article/formdata/post/user', {
+      method: 'POST',
+*!*
+      body: new FormData(formElem)
+*/!*
+    });
+
+    let result = await response.json();
+
+    alert(result.message);
+  };
+</script>
+<p>```</p>
+<p>In this example, the server code is not presented, as it’s beyond our scope. The server accepts the POST request and replies “User saved”.</p>
+<h2 id="formdata-methods">FormData Methods</h2>
+<p>We can modify fields in <code>FormData</code> with methods:</p>
+<ul>
+<li><code>formData.append(name, value)</code> - add a form field with the given <code>name</code> and <code>value</code>,</li>
+<li><code>formData.append(name, blob, fileName)</code> - add a field as if it were <code>&lt;input type="file"&gt;</code>, the third argument <code>fileName</code> sets file name (not form field name), as it were a name of the file in user’s filesystem,</li>
+<li><code>formData.delete(name)</code> - remove the field with the given <code>name</code>,</li>
+<li><code>formData.get(name)</code> - get the value of the field with the given <code>name</code>,</li>
+<li><code>formData.has(name)</code> - if there exists a field with the given <code>name</code>, returns <code>true</code>, otherwise <code>false</code></li>
+</ul>
+<p>A form is technically allowed to have many fields with the same <code>name</code>, so multiple calls to <code>append</code> add more same-named fields.</p>
+<p>There’s also method <code>set</code>, with the same syntax as <code>append</code>. The difference is that <code>.set</code> removes all fields with the given <code>name</code>, and then appends a new field. So it makes sure there’s only one field with such <code>name</code>, the rest is just like <code>append</code>:</p>
+<ul>
+<li><code>formData.set(name, value)</code>,</li>
+<li><code>formData.set(name, blob, fileName)</code>.</li>
+</ul>
+<p>Also we can iterate over formData fields using <code>for..of</code> loop:</p>
+<p>```js run let formData = new FormData(); formData.append(‘key1’, ‘value1’); formData.append(‘key2’, ‘value2’);</p>
+<p>// List key/value pairs for(let [name, value] of formData) { alert(<code>${name} = ${value}</code>); // key1 = value1, then key2 = value2 } ```</p>
+<h2 id="sending-a-form-with-a-file">Sending a form with a file</h2>
+<p>The form is always sent as <code>Content-Type: multipart/form-data</code>, this encoding allows to send files. So, <code>&lt;input type="file"&gt;</code> fields are sent also, similar to a usual form submission.</p>
+<p>Here’s an example with such form:</p>
+```html run autorun
+<form id="formElem">
+<input type="text" name="firstName" value="John"> Picture: <input type="file" name="picture" accept="image/*"> <input type="submit">
+</form>
+<script>
+  formElem.onsubmit = async (e) => {
+    e.preventDefault();
+
+    let response = await fetch('/article/formdata/post/user-avatar', {
+      method: 'POST',
+*!*
+      body: new FormData(formElem)
+*/!*
+    });
+
+    let result = await response.json();
+
+    alert(result.message);
+  };
+</script>
+<p>```</p>
+<h2 id="sending-a-form-with-blob-data">Sending a form with Blob data</h2>
+<p>As we’ve seen in the chapter <a href="info:fetch" class="uri">info:fetch</a>, it’s easy to send dynamically generated binary data e.g. an image, as <code>Blob</code>. We can supply it directly as <code>fetch</code> parameter <code>body</code>.</p>
+<p>In practice though, it’s often convenient to send an image not separately, but as a part of the form, with additional fields, such as “name” and other metadata.</p>
+<p>Also, servers are usually more suited to accept multipart-encoded forms, rather than raw binary data.</p>
+<p>This example submits an image from <code>&lt;canvas&gt;</code>, along with some other fields, as a form, using <code>FormData</code>:</p>
+```html run autorun height=“90”
+<body style="margin:0">
+<canvas id="canvasElem" width="100" height="80" style="border:1px solid">
+</canvas>
+<p><input type="button" value="Submit" onclick="submit()"></p>
+<script>
+    canvasElem.onmousemove = function(e) {
+      let ctx = canvasElem.getContext('2d');
+      ctx.lineTo(e.clientX, e.clientY);
+      ctx.stroke();
+    };
+
+    async function submit() {
+      let imageBlob = await new Promise(resolve => canvasElem.toBlob(resolve, 'image/png'));
+
+*!*
+      let formData = new FormData();
+      formData.append("firstName", "John");
+      formData.append("image", imageBlob, "image.png");
+*/!*    
+
+      let response = await fetch('/article/formdata/post/image-form', {
+        method: 'POST',
+        body: formData
+      });
+      let result = await response.json();
+      alert(result.message);
+    }
+
+  </script>
+</body>
+<p>```</p>
+<p>Please note how the image <code>Blob</code> is added:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">formData</span>.<span class="at">append</span>(<span class="st">&quot;image&quot;</span><span class="op">,</span> imageBlob<span class="op">,</span> <span class="st">&quot;image.png&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<p>That’s same as if there were <code>&lt;input type="file" name="image"&gt;</code> in the form, and the visitor submitted a file named <code>"image.png"</code> (3rd argument) with the data <code>imageBlob</code> (2nd argument) from their filesystem.</p>
+<p>The server reads form data and the file, as if it were a regular form submission.</p>
+<h2 id="summary">Summary</h2>
+<p><a href="https://xhr.spec.whatwg.org/#interface-formdata">FormData</a> objects are used to capture HTML form and submit it using <code>fetch</code> or another network method.</p>
+<p>We can either create <code>new FormData(form)</code> from an HTML form, or create a object without a form at all, and then append fields with methods:</p>
+<ul>
+<li><code>formData.append(name, value)</code></li>
+<li><code>formData.append(name, blob, fileName)</code></li>
+<li><code>formData.set(name, value)</code></li>
+<li><code>formData.set(name, blob, fileName)</code></li>
+</ul>
+<p>Let’s note two peculiarities here:</p>
+<ol type="1">
+<li>The <code>set</code> method removes fields with the same name, <code>append</code> doesn’t. That’s the only difference between them.</li>
+<li>To send a file, 3-argument syntax is needed, the last argument is a file name, that normally is taken from user filesystem for <code>&lt;input type="file"&gt;</code>.</li>
+</ol>
+<p>Other methods are:</p>
+<ul>
+<li><code>formData.delete(name)</code></li>
+<li><code>formData.get(name)</code></li>
+<li><code>formData.has(name)</code></li>
+</ul>
+<p>That’s it!</p>

@@ -1,0 +1,22 @@
+<h1 id="outer-corners">Outer corners</h1>
+<p>Outer corners are basically what we get from <a href="https://developer.mozilla.org/en-US/docs/DOM/element.getBoundingClientRect">elem.getBoundingClientRect()</a>.</p>
+<p>Coordinates of the upper-left corner <code>answer1</code> and the bottom-right corner <code>answer2</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> coords <span class="op">=</span> <span class="va">elem</span>.<span class="at">getBoundingClientRect</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">let</span> answer1 <span class="op">=</span> [<span class="va">coords</span>.<span class="at">left</span><span class="op">,</span> <span class="va">coords</span>.<span class="at">top</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">let</span> answer2 <span class="op">=</span> [<span class="va">coords</span>.<span class="at">right</span><span class="op">,</span> <span class="va">coords</span>.<span class="at">bottom</span>]<span class="op">;</span></a></code></pre></div>
+<h1 id="left-upper-inner-corner">Left-upper inner corner</h1>
+<p>That differs from the outer corner by the border width. A reliable way to get the distance is <code>clientLeft/clientTop</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> answer3 <span class="op">=</span> [<span class="va">coords</span>.<span class="at">left</span> <span class="op">+</span> <span class="va">field</span>.<span class="at">clientLeft</span><span class="op">,</span> <span class="va">coords</span>.<span class="at">top</span> <span class="op">+</span> <span class="va">field</span>.<span class="at">clientTop</span>]<span class="op">;</span></a></code></pre></div>
+<h1 id="right-bottom-inner-corner">Right-bottom inner corner</h1>
+<p>In our case we need to substract the border size from the outer coordinates.</p>
+<p>We could use CSS way:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> answer4 <span class="op">=</span> [</a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="va">coords</span>.<span class="at">right</span> <span class="op">-</span> <span class="at">parseInt</span>(<span class="at">getComputedStyle</span>(field).<span class="at">borderRightWidth</span>)<span class="op">,</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="va">coords</span>.<span class="at">bottom</span> <span class="op">-</span> <span class="at">parseInt</span>(<span class="at">getComputedStyle</span>(field).<span class="at">borderBottomWidth</span>)</a>
+<a class="sourceLine" id="cb3-4" title="4">]<span class="op">;</span></a></code></pre></div>
+<p>An alternative way would be to add <code>clientWidth/clientHeight</code> to coordinates of the left-upper corner. That’s probably even better:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">let</span> answer4 <span class="op">=</span> [</a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="va">coords</span>.<span class="at">left</span> <span class="op">+</span> <span class="va">elem</span>.<span class="at">clientLeft</span> <span class="op">+</span> <span class="va">elem</span>.<span class="at">clientWidth</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="va">coords</span>.<span class="at">top</span> <span class="op">+</span> <span class="va">elem</span>.<span class="at">clientTop</span> <span class="op">+</span> <span class="va">elem</span>.<span class="at">clientHeight</span></a>
+<a class="sourceLine" id="cb4-4" title="4">]<span class="op">;</span></a></code></pre></div>

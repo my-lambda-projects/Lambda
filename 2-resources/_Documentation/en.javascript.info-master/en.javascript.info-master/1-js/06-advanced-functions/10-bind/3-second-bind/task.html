@@ -1,0 +1,8 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="second-bind">Second bind</h1>
+<p>Can we change <code>this</code> by additional binding?</p>
+<p>What will be the output?</p>
+<p>```js no-beautify function f() { alert(this.name); }</p>
+<p>f = f.bind( {name: “John”} ).bind( {name: “Ann” } );</p>
+<p>f(); ```</p>

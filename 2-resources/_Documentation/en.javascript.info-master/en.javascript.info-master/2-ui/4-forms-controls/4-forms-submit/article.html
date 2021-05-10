@@ -1,0 +1,26 @@
+<h1 id="forms-event-and-method-submit">Forms: event and method submit</h1>
+<p>The <code>submit</code> event triggers when the form is submitted, it is usually used to validate the form before sending it to the server or to abort the submission and process it in JavaScript.</p>
+<p>The method <code>form.submit()</code> allows to initiate form sending from JavaScript. We can use it to dynamically create and send our own forms to server.</p>
+<p>Let’s see more details of them.</p>
+<h2 id="event-submit">Event: submit</h2>
+<p>There are two main ways to submit a form:</p>
+<ol type="1">
+<li>The first – to click <code>&lt;input type="submit"&gt;</code> or <code>&lt;input type="image"&gt;</code>.</li>
+<li>The second – press <code>key:Enter</code> on an input field.</li>
+</ol>
+<p>Both actions lead to <code>submit</code> event on the form. The handler can check the data, and if there are errors, show them and call <code>event.preventDefault()</code>, then the form won’t be sent to the server.</p>
+<p>In the form below: 1. Go into the text field and press <code>key:Enter</code>. 2. Click <code>&lt;input type="submit"&gt;</code>.</p>
+<p>Both actions show <code>alert</code> and the form is not sent anywhere due to <code>return false</code>:</p>
+<p><code>html autorun height=60 no-beautify &lt;form onsubmit="alert('submit!');return false"&gt;   First: Enter in the input field &lt;input type="text" value="text"&gt;&lt;br&gt;   Second: Click "submit": &lt;input type="submit" value="Submit"&gt; &lt;/form&gt;</code></p>
+<p>```<code>smart header="Relation between</code>submit<code>and</code>click<code>" When a form is sent using</code>key:Enter<code>on an input field, a</code>click<code>event triggers on the</code><input type="submit">`.</p>
+<p>That’s rather funny, because there was no click at all.</p>
+<p>Here’s the demo: <code>html autorun height=60 &lt;form onsubmit="return false"&gt;  &lt;input type="text" size="30" value="Focus here and press enter"&gt;  &lt;input type="submit" value="Submit" *!*onclick="alert('click')"*/!*&gt; &lt;/form&gt;</code></p>
+<p>````</p>
+<h2 id="method-submit">Method: submit</h2>
+<p>To submit a form to the server manually, we can call <code>form.submit()</code>.</p>
+<p>Then the <code>submit</code> event is not generated. It is assumed that if the programmer calls <code>form.submit()</code>, then the script already did all related processing.</p>
+<p>Sometimes that’s used to manually create and send a form, like this:</p>
+<p>```js run let form = document.createElement(‘form’); form.action = ‘https://google.com/search’; form.method = ‘GET’;</p>
+<p>form.innerHTML = ‘<input name="q" value="test">’;</p>
+<p>// the form must be in the document to submit it document.body.append(form);</p>
+<p>form.submit(); ```</p>

@@ -1,0 +1,16 @@
+<p>Let’s store read messages in <code>WeakSet</code>:</p>
+<p>```js run let messages = [ {text: “Hello”, from: “John”}, {text: “How goes?”, from: “John”}, {text: “See you soon”, from: “Alice”}];</p>
+<p>let readMessages = new WeakSet();</p>
+<p>// two messages have been read readMessages.add(messages[0]); readMessages.add(messages[1]); // readMessages has 2 elements</p>
+<p>// …let’s read the first message again! readMessages.add(messages[0]); // readMessages still has 2 unique elements</p>
+<p>// answer: was the message[0] read? alert(“Read message 0:” + readMessages.has(messages[0])); // true</p>
+<p>messages.shift(); // now readMessages has 1 element (technically memory may be cleaned later) ```</p>
+<p>The <code>WeakSet</code> allows to store a set of messages and easily check for the existence of a message in it.</p>
+<p>It cleans up itself automatically. The tradeoff is that we can’t iterate over it, can’t get “all read messages” from it directly. But we can do it by iterating over all messages and filtering those that are in the set.</p>
+<p>Another, different solution could be to add a property like <code>message.isRead=true</code> to a message after it’s read. As messages objects are managed by another code, that’s generally discouraged, but we can use a symbolic property to avoid conflicts.</p>
+<p>Like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// the symbolic property is only known to our code</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">let</span> isRead <span class="op">=</span> <span class="at">Symbol</span>(<span class="st">&quot;isRead&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">messages[<span class="dv">0</span>][isRead] <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></a></code></pre></div>
+<p>Now third-party code probably won’t see our extra property.</p>
+<p>Although symbols allow to lower the probability of problems, using <code>WeakSet</code> is better from the architectural point of view.</p>

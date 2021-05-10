@@ -1,0 +1,11 @@
+<p>```js run demo function sumSalaries(salaries) {</p>
+<p>let sum = 0; for (let salary of Object.values(salaries)) { sum += salary; }</p>
+<p>return sum; // 650 }</p>
+<p>let salaries = { “John”: 100, “Pete”: 300, “Mary”: 250 };</p>
+<p>alert( sumSalaries(salaries) ); // 650 ``<code>Or, optionally, we could also get the sum using</code>Object.values<code>and</code>reduce`:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// reduce loops over array of salaries,</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="co">// adding them up</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="co">// and returns the result</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">function</span> <span class="at">sumSalaries</span>(salaries) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="cf">return</span> <span class="va">Object</span>.<span class="at">values</span>(salaries).<span class="at">reduce</span>((a<span class="op">,</span> b) <span class="kw">=&gt;</span> a <span class="op">+</span> b<span class="op">,</span> <span class="dv">0</span>) <span class="co">// 650</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="op">}</span></a></code></pre></div>

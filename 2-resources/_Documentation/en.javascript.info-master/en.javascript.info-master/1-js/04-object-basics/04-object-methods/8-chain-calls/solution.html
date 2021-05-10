@@ -1,0 +1,11 @@
+<p>The solution is to return the object itself from every call.</p>
+<p>```js run demo let ladder = { step: 0, up() { this.step++; <em>!</em> return this; <em>/!</em> }, down() { this.step–; <em>!</em> return this; <em>/!</em> }, showStep() { alert( this.step ); <em>!</em> return this; <em>/!</em> } };</p>
+<p>ladder.up().up().down().up().down().showStep(); // 1 ```</p>
+<p>We also can write a single call per line. For long chains it’s more readable:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1">ladder</a>
+<a class="sourceLine" id="cb1-2" title="2">  .<span class="at">up</span>()</a>
+<a class="sourceLine" id="cb1-3" title="3">  .<span class="at">up</span>()</a>
+<a class="sourceLine" id="cb1-4" title="4">  .<span class="at">down</span>()</a>
+<a class="sourceLine" id="cb1-5" title="5">  .<span class="at">up</span>()</a>
+<a class="sourceLine" id="cb1-6" title="6">  .<span class="at">down</span>()</a>
+<a class="sourceLine" id="cb1-7" title="7">  .<span class="at">showStep</span>()<span class="op">;</span> <span class="co">// 1</span></a></code></pre></div>

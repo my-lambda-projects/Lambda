@@ -1,0 +1,45 @@
+<h1 id="escaping-special-characters">Escaping, special characters</h1>
+<p>As we’ve seen, a backslash <code>pattern:\</code> is used to denote character classes, e.g. <code>pattern:\d</code>. So it’s a special character in regexps (just like in regular strings).</p>
+<p>There are other special characters as well, that have special meaning in a regexp. They are used to do more powerful searches. Here’s a full list of them: <code>pattern:[ \ ^ $ . | ? * + ( )</code>.</p>
+<p>Don’t try to remember the list – soon we’ll deal with each of them separately and you’ll know them by heart automatically.</p>
+<h2 id="escaping">Escaping</h2>
+<p>Let’s say we want to find literally a dot. Not “any character”, but just a dot.</p>
+<p>To use a special character as a regular one, prepend it with a backslash: <code>pattern:\.</code>.</p>
+<p>That’s also called “escaping a character”.</p>
+<p>For example: <code>js run alert( "Chapter 5.1".match(/\d\.\d/) ); // 5.1 (match!) alert( "Chapter 511".match(/\d\.\d/) ); // null (looking for a real dot \.)</code></p>
+<p>Parentheses are also special characters, so if we want them, we should use <code>pattern:\(</code>. The example below looks for a string <code>"g()"</code>:</p>
+<p><code>js run alert( "function g()".match(/g\(\)/) ); // "g()"</code></p>
+<p>If we’re looking for a backslash <code>\</code>, it’s a special character in both regular strings and regexps, so we should double it.</p>
+<p><code>js run alert( "1\\2".match(/\\/) ); // '\'</code></p>
+<h2 id="a-slash">A slash</h2>
+<p>A slash symbol <code>'/'</code> is not a special character, but in JavaScript it is used to open and close the regexp: <code>pattern:/...pattern.../</code>, so we should escape it too.</p>
+<p>Here’s what a search for a slash <code>'/'</code> looks like:</p>
+<p><code>js run alert( "/".match(/\//) ); // '/'</code></p>
+<p>On the other hand, if we’re not using <code>pattern:/.../</code>, but create a regexp using <code>new RegExp</code>, then we don’t need to escape it:</p>
+<p><code>js run alert( "/".match(new RegExp("/")) ); // finds /</code></p>
+<h2 id="new-regexp">new RegExp</h2>
+<p>If we are creating a regular expression with <code>new RegExp</code>, then we don’t have to escape <code>/</code>, but need to do some other escaping.</p>
+<p>For instance, consider this:</p>
+<p>```js run let regexp = new RegExp(");</p>
+<p>alert( “Chapter 5.1”.match(regexp) ); // null ```</p>
+<p>The similar search in one of previous examples worked with <code>pattern:/\d\.\d/</code>, but <code>new RegExp("\d\.\d")</code> doesn’t work, why?</p>
+<p>The reason is that backslashes are “consumed” by a string. As we may recall, regular strings have their own special characters, such as <code>\n</code>, and a backslash is used for escaping.</p>
+<p>Here’s how " is preceived:</p>
+<p><code>js run alert("\d\.\d"); // d.d</code></p>
+<p>String quotes “consume” backslashes and interpret them on their own, for instance:</p>
+<ul>
+<li><code>\n</code> – becomes a newline character,</li>
+<li><code>\u1234</code> – becomes the Unicode character with such code,</li>
+<li>…And when there’s no special meaning: like <code>pattern:\d</code> or <code>\z</code>, then the backslash is simply removed.</li>
+</ul>
+<p>So <code>new RegExp</code> gets a string without backslashes. That’s why the search doesn’t work!</p>
+<p>To fix it, we need to double backslashes, because string quotes turn <code>\\</code> into <code>\</code>:</p>
+<p>```js run <em>!</em> let regStr = “\d\.\d”; <em>/!</em> alert(regStr); // correct now)</p>
+<p>let regexp = new RegExp(regStr);</p>
+<p>alert( “Chapter 5.1”.match(regexp) ); // 5.1 ```</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>To search for special characters <code>pattern:[ \ ^ $ . | ? * + ( )</code> literally, we need to prepend them with a backslash <code>\</code> (“escape them”).</li>
+<li>We also need to escape <code>/</code> if we’re inside <code>pattern:/.../</code> (but not inside <code>new RegExp</code>).</li>
+<li>When passing a string to <code>new RegExp</code>, we need to double backslashes <code>\\</code>, cause string quotes consume one of them.</li>
+</ul>

@@ -1,0 +1,9 @@
+<p>The images ribbon can be represented as <code>ul/li</code> list of images <code>&lt;img&gt;</code>.</p>
+<p>Normally, such a ribbon is wide, but we put a fixed-size <code>&lt;div&gt;</code> around to “cut” it, so that only a part of the ribbon is visible:</p>
+<p><img src="carousel1.svg" /></p>
+<p>To make the list show horizontally we need to apply correct CSS properties for <code>&lt;li&gt;</code>, like <code>display: inline-block</code>.</p>
+<p>For <code>&lt;img&gt;</code> we should also adjust <code>display</code>, because by default it’s <code>inline</code>. There’s extra space reserved under <code>inline</code> elements for “letter tails”, so we can use <code>display:block</code> to remove it.</p>
+<p>To do the scrolling, we can shift <code>&lt;ul&gt;</code>. There are many ways to do it, for instance by changing <code>margin-left</code> or (better performance) use <code>transform: translateX()</code>:</p>
+<p><img src="carousel2.svg" /></p>
+<p>The outer <code>&lt;div&gt;</code> has a fixed width, so “extra” images are cut.</p>
+<p>The whole carousel is a self-contained “graphical component” on the page, so we’d better wrap it into a single <code>&lt;div class="carousel"&gt;</code> and style things inside it.</p>

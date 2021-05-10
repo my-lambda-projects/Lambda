@@ -1,0 +1,5 @@
+<p>We need <code>Origin</code>, because sometimes <code>Referer</code> is absent. For instance, when we <code>fetch</code> HTTP-page from HTTPS (access less secure from more secure), then there’s no <code>Referer</code>.</p>
+<p>The <a href="http://en.wikipedia.org/wiki/Content_Security_Policy">Content Security Policy</a> may forbid sending a <code>Referer</code>.</p>
+<p>As we’ll see, <code>fetch</code> has options that prevent sending the <code>Referer</code> and even allow to change it (within the same site).</p>
+<p>By specification, <code>Referer</code> is an optional HTTP-header.</p>
+<p>Exactly because <code>Referer</code> is unreliable, <code>Origin</code> was invented. The browser guarantees correct <code>Origin</code> for cross-origin requests.</p>

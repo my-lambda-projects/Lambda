@@ -1,0 +1,10 @@
+<ol type="1">
+<li><p>Let’s add <code>__proto__</code>:</p>
+<p>```js run let head = { glasses: 1 };</p>
+<p>let table = { pen: 3, <strong>proto</strong>: head };</p>
+<p>let bed = { sheet: 1, pillow: 2, <strong>proto</strong>: table };</p>
+<p>let pockets = { money: 2000, <strong>proto</strong>: bed };</p>
+<p>alert( pockets.pen ); // 3 alert( bed.glasses ); // 1 alert( table.money ); // undefined ```</p></li>
+<li><p>In modern engines, performance-wise, there’s no difference whether we take a property from an object or its prototype. They remember where the property was found and reuse it in the next request.</p>
+<p>For instance, for <code>pockets.glasses</code> they remember where they found <code>glasses</code> (in <code>head</code>), and next time will search right there. They are also smart enough to update internal caches if something changes, so that optimization is safe.</p></li>
+</ol>

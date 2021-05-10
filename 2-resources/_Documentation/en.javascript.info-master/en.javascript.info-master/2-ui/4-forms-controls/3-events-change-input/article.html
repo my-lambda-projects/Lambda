@@ -1,0 +1,61 @@
+<h1 id="events-change-input-cut-copy-paste">Events: change, input, cut, copy, paste</h1>
+<p>Let’s cover various events that accompany data updates.</p>
+<h2 id="event-change">Event: change</h2>
+<p>The <code>change</code> event triggers when the element has finished changing.</p>
+<p>For text inputs that means that the event occurs when it loses focus.</p>
+<p>For instance, while we are typing in the text field below – there’s no event. But when we move the focus somewhere else, for instance, click on a button – there will be a <code>change</code> event:</p>
+<p><code>html autorun height=40 run &lt;input type="text" onchange="alert(this.value)"&gt; &lt;input type="button" value="Button"&gt;</code></p>
+<p>For other elements: <code>select</code>, <code>input type=checkbox/radio</code> it triggers right after the selection changes:</p>
+<p><code>html autorun height=40 run &lt;select onchange="alert(this.value)"&gt;   &lt;option value=""&gt;Select something&lt;/option&gt;   &lt;option value="1"&gt;Option 1&lt;/option&gt;   &lt;option value="2"&gt;Option 2&lt;/option&gt;   &lt;option value="3"&gt;Option 3&lt;/option&gt; &lt;/select&gt;</code></p>
+<h2 id="event-input">Event: input</h2>
+<p>The <code>input</code> event triggers every time after a value is modified by the user.</p>
+<p>Unlike keyboard events, it triggers on any value change, even those that does not involve keyboard actions: pasting with a mouse or using speech recognition to dictate the text.</p>
+<p>For instance:</p>
+<p><code>html autorun height=40 run &lt;input type="text" id="input"&gt; oninput: &lt;span id="result"&gt;&lt;/span&gt; &lt;script&gt;   input.oninput = function() {     result.innerHTML = input.value;   }; &lt;/script&gt;</code></p>
+<p>If we want to handle every modification of an <code>&lt;input&gt;</code> then this event is the best choice.</p>
+<p>On the other hand, <code>input</code> event doesn’t trigger on keyboard input and other actions that do not involve value change, e.g. pressing arrow keys <code>key:⇦</code> <code>key:⇨</code> while in the input.</p>
+<p>``<code>smart header="Can't prevent anything in</code>oninput<code>" The</code>input` event occurs after the value is modified.</p>
+<p>So we can’t use <code>event.preventDefault()</code> there – it’s just too late, there would be no effect. ```</p>
+<h2 id="events-cut-copy-paste">Events: cut, copy, paste</h2>
+<p>These events occur on cutting/copying/pasting a value.</p>
+<p>They belong to <a href="https://www.w3.org/TR/clipboard-apis/#clipboard-event-interfaces">ClipboardEvent</a> class and provide access to the data that is copied/pasted.</p>
+<p>We also can use <code>event.preventDefault()</code> to abort the action, then nothing gets copied/pasted.</p>
+<p>For instance, the code below prevents all such events and shows what we are trying to cut/copy/paste:</p>
+<p><code>html autorun height=40 run &lt;input type="text" id="input"&gt; &lt;script&gt;   input.oncut = input.oncopy = input.onpaste = function(event) {     alert(event.type + ' - ' + event.clipboardData.getData('text/plain'));     return false;   }; &lt;/script&gt;</code></p>
+<p>Please note, that it’s possible to copy/paste not just text, but everything. For instance, we can copy a file in the OS file manager, and paste it.</p>
+<p>That’s because <code>clipboardData</code> implements <code>DataTransfer</code> interface, commonly used for drag’n’drop and copy/pasting. It’s bit beyound our scope now, but you can find its methods <a href="https://html.spec.whatwg.org/multipage/dnd.html#the-datatransfer-interface">in the specification</a>.</p>
+<p>``<code>warn header="ClipboardAPI: user safety restrictions" The clipboard is a "global" OS-level thing. So most browsers allow read/write access to the clipboard only in the scope of certain user actions for the safety, e.g. in</code>onclick` event handlers.</p>
+<p>Also it’s forbidden to generate “custom” clipboard events with <code>dispatchEvent</code> in all browsers except Firefox. ```</p>
+<h2 id="summary">Summary</h2>
+<p>Data change events:</p>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 31%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Event</th>
+<th>Description</th>
+<th>Specials</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>change</code></td>
+<td>A value was changed.</td>
+<td>For text inputs triggers on focus loss.</td>
+</tr>
+<tr class="even">
+<td><code>input</code></td>
+<td>For text inputs on every change.</td>
+<td>Triggers immediately unlike <code>change</code>.</td>
+</tr>
+<tr class="odd">
+<td><code>cut/copy/paste</code></td>
+<td>Cut/copy/paste actions.</td>
+<td>The action can be prevented. The <code>event.clipboardData</code> property gives read/write access to the clipboard.</td>
+</tr>
+</tbody>
+</table>

@@ -1,0 +1,18 @@
+<p>importance: 4</p>
+<hr />
+<h1 id="rewrite-the-function-using-or">Rewrite the function using ‘?’ or ‘||’</h1>
+<p>The following function returns <code>true</code> if the parameter <code>age</code> is greater than <code>18</code>.</p>
+<p>Otherwise it asks for a confirmation and returns its result.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">checkAge</span>(age) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="cf">if</span> (age <span class="op">&gt;</span> <span class="dv">18</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="cf">return</span> <span class="at">confirm</span>(<span class="st">&#39;Did parents allow you?&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="op">}</span></a></code></pre></div>
+<p>Rewrite it, to perform the same, but without <code>if</code>, in a single line.</p>
+<p>Make two variants of <code>checkAge</code>:</p>
+<ol type="1">
+<li>Using a question mark operator <code>?</code></li>
+<li>Using OR <code>||</code></li>
+</ol>

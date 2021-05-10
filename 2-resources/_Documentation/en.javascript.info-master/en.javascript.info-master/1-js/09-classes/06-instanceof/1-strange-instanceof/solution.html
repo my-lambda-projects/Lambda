@@ -1,0 +1,4 @@
+<p>Yeah, looks strange indeed.</p>
+<p>But <code>instanceof</code> does not care about the function, but rather about its <code>prototype</code>, that it matches against the prototype chain.</p>
+<p>And here <code>a.__proto__ == B.prototype</code>, so <code>instanceof</code> returns <code>true</code>.</p>
+<p>So, by the logic of <code>instanceof</code>, the <code>prototype</code> actually defines the type, not the constructor function.</p>

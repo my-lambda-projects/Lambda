@@ -1,0 +1,120 @@
+<h1 id="symbol-type">Symbol type</h1>
+<p>By specification, object property keys may be either of string type, or of symbol type. Not numbers, not booleans, only strings or symbols, these two types.</p>
+<p>Till now we’ve been using only strings. Now let’s see the benefits that symbols can give us.</p>
+<h2 id="symbols">Symbols</h2>
+<p>A “symbol” represents a unique identifier.</p>
+<p>A value of this type can be created using <code>Symbol()</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// id is a new symbol</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">let</span> id <span class="op">=</span> <span class="at">Symbol</span>()<span class="op">;</span></a></code></pre></div>
+<p>Upon creation, we can give symbol a description (also called a symbol name), mostly useful for debugging purposes:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// id is a symbol with the description &quot;id&quot;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">let</span> id <span class="op">=</span> <span class="at">Symbol</span>(<span class="st">&quot;id&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<p>Symbols are guaranteed to be unique. Even if we create many symbols with the same description, they are different values. The description is just a label that doesn’t affect anything.</p>
+<p>For instance, here are two symbols with the same description – they are not equal:</p>
+<p>```js run let id1 = Symbol(“id”); let id2 = Symbol(“id”);</p>
+<p><em>!</em> alert(id1 == id2); // false <em>/!</em> ```</p>
+<p>If you are familiar with Ruby or another language that also has some sort of “symbols” – please don’t be misguided. JavaScript symbols are different.</p>
+<p>```<code>warn header="Symbols don't auto-convert to a string" Most values in JavaScript support implicit conversion to a string. For instance, we can</code>alert` almost any value, and it will work. Symbols are special. They don’t auto-convert.</p>
+<p>For instance, this <code>alert</code> will show an error:</p>
+<p><code>js run let id = Symbol("id"); *!* alert(id); // TypeError: Cannot convert a Symbol value to a string */!*</code></p>
+<p>That’s a “language guard” against messing up, because strings and symbols are fundamentally different and should not accidentally convert one into another.</p>
+<p>If we really want to show a symbol, we need to explicitly call <code>.toString()</code> on it, like here: <code>js run let id = Symbol("id"); *!* alert(id.toString()); // Symbol(id), now it works */!*</code></p>
+<p>Or get <code>symbol.description</code> property to show the description only: <code>js run let id = Symbol("id"); *!* alert(id.description); // id */!*</code></p>
+<p>````</p>
+<h2 id="hidden-properties">“Hidden” properties</h2>
+<p>Symbols allow us to create “hidden” properties of an object, that no other part of code can accidentally access or overwrite.</p>
+<p>For instance, if we’re working with <code>user</code> objects, that belong to a third-party code. We’d like to add identifiers to them.</p>
+<p>Let’s use a symbol key for it:</p>
+<p>```js run let user = { // belongs to another code name: “John” };</p>
+<p>let id = Symbol(“id”);</p>
+<p>user[id] = 1;</p>
+<p>alert( user[id] ); // we can access the data using the symbol as the key ```</p>
+<p>What’s the benefit of using <code>Symbol("id")</code> over a string <code>"id"</code>?</p>
+<p>As <code>user</code> objects belongs to another code, and that code also works with them, we shouldn’t just add any fields to it. That’s unsafe. But a symbol cannot be accessed accidentally, the third-party code probably won’t even see it, so it’s probably all right to do.</p>
+<p>Also, imagine that another script wants to have its own identifier inside <code>user</code>, for its own purposes. That may be another JavaScript library, so that the scripts are completely unaware of each other.</p>
+<p>Then that script can create its own <code>Symbol("id")</code>, like this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// ...</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">let</span> id <span class="op">=</span> <span class="at">Symbol</span>(<span class="st">&quot;id&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"></a>
+<a class="sourceLine" id="cb3-4" title="4">user[id] <span class="op">=</span> <span class="st">&quot;Their id value&quot;</span><span class="op">;</span></a></code></pre></div>
+<p>There will be no conflict between our and their identifiers, because symbols are always different, even if they have the same name.</p>
+<p>…But if we used a string <code>"id"</code> instead of a symbol for the same purpose, then there <em>would</em> be a conflict:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">let</span> user <span class="op">=</span> <span class="op">{</span> <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;John&quot;</span> <span class="op">};</span></a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="co">// Our script uses &quot;id&quot; property</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="va">user</span>.<span class="at">id</span> <span class="op">=</span> <span class="st">&quot;Our id value&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-5" title="5"></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="co">// ...Another script also wants &quot;id&quot; for its purposes...</span></a>
+<a class="sourceLine" id="cb4-7" title="7"></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="va">user</span>.<span class="at">id</span> <span class="op">=</span> <span class="st">&quot;Their id value&quot;</span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="co">// Boom! overwritten by another script!</span></a></code></pre></div>
+<h3 id="symbols-in-an-object-literal">Symbols in an object literal</h3>
+<p>If we want to use a symbol in an object literal <code>{...}</code>, we need square brackets around it.</p>
+<p>Like this:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">let</span> id <span class="op">=</span> <span class="at">Symbol</span>(<span class="st">&quot;id&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-2" title="2"></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="kw">let</span> user <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-4" title="4">  <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;John&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb5-6" title="6">  [id]<span class="op">:</span> <span class="dv">123</span> <span class="co">// not &quot;id&quot;: 123</span></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb5-8" title="8"><span class="ss">};</span></a></code></pre></div>
+<p>That’s because we need the value from the variable <code>id</code> as the key, not the string “id”.</p>
+<h3 id="symbols-are-skipped-by-for..in">Symbols are skipped by for..in</h3>
+<p>Symbolic properties do not participate in <code>for..in</code> loop.</p>
+<p>For instance:</p>
+<p>```js run let id = Symbol(“id”); let user = { name: “John”, age: 30, [id]: 123 };</p>
+<p><em>!</em> for (let key in user) alert(key); // name, age (no symbols) <em>/!</em></p>
+<p>// the direct access by the symbol works alert( “Direct:” + user[id] ); ```</p>
+<p><code>Object.keys(user)</code> also ignores them. That’s a part of the general “hiding symbolic properties” principle. If another script or a library loops over our object, it won’t unexpectedly access a symbolic property.</p>
+<p>In contrast, <a href="mdn:js/Object/assign">Object.assign</a> copies both string and symbol properties:</p>
+<p>```js run let id = Symbol(“id”); let user = { [id]: 123 };</p>
+<p>let clone = Object.assign({}, user);</p>
+<p>alert( clone[id] ); // 123 ```</p>
+<p>There’s no paradox here. That’s by design. The idea is that when we clone an object or merge objects, we usually want <em>all</em> properties to be copied (including symbols like <code>id</code>).</p>
+<h2 id="global-symbols">Global symbols</h2>
+<p>As we’ve seen, usually all symbols are different, even if they have the same name. But sometimes we want same-named symbols to be same entities. For instance, different parts of our application want to access symbol <code>"id"</code> meaning exactly the same property.</p>
+<p>To achieve that, there exists a <em>global symbol registry</em>. We can create symbols in it and access them later, and it guarantees that repeated accesses by the same name return exactly the same symbol.</p>
+<p>In order to read (create if absent) a symbol from the registry, use <code>Symbol.for(key)</code>.</p>
+<p>That call checks the global registry, and if there’s a symbol described as <code>key</code>, then returns it, otherwise creates a new symbol <code>Symbol(key)</code> and stores it in the registry by the given <code>key</code>.</p>
+<p>For instance:</p>
+<p>```js run // read from the global registry let id = Symbol.for(“id”); // if the symbol did not exist, it is created</p>
+<p>// read it again (maybe from another part of the code) let idAgain = Symbol.for(“id”);</p>
+<p>// the same symbol alert( id === idAgain ); // true ```</p>
+<p>Symbols inside the registry are called <em>global symbols</em>. If we want an application-wide symbol, accessible everywhere in the code – that’s what they are for.</p>
+<p>```smart header=“That sounds like Ruby” In some programming languages, like Ruby, there’s a single symbol per name.</p>
+<p>In JavaScript, as we can see, that’s right for global symbols. ```</p>
+<h3 id="symbol.keyfor">Symbol.keyFor</h3>
+<p>For global symbols, not only <code>Symbol.for(key)</code> returns a symbol by name, but there’s a reverse call: <code>Symbol.keyFor(sym)</code>, that does the reverse: returns a name by a global symbol.</p>
+<p>For instance:</p>
+<p>```js run // get symbol by name let sym = Symbol.for(“name”); let sym2 = Symbol.for(“id”);</p>
+<p>// get name by symbol alert( Symbol.keyFor(sym) ); // name alert( Symbol.keyFor(sym2) ); // id ```</p>
+<p>The <code>Symbol.keyFor</code> internally uses the global symbol registry to look up the key for the symbol. So it doesn’t work for non-global symbols. If the symbol is not global, it won’t be able to find it and returns <code>undefined</code>.</p>
+<p>That said, any symbols have <code>description</code> property.</p>
+<p>For instance:</p>
+<p>```js run let globalSymbol = Symbol.for(“name”); let localSymbol = Symbol(“name”);</p>
+<p>alert( Symbol.keyFor(globalSymbol) ); // name, global symbol alert( Symbol.keyFor(localSymbol) ); // undefined, not global</p>
+<p>alert( localSymbol.description ); // name ```</p>
+<h2 id="system-symbols">System symbols</h2>
+<p>There exist many “system” symbols that JavaScript uses internally, and we can use them to fine-tune various aspects of our objects.</p>
+<p>They are listed in the specification in the <a href="https://tc39.github.io/ecma262/#sec-well-known-symbols">Well-known symbols</a> table:</p>
+<ul>
+<li><code>Symbol.hasInstance</code></li>
+<li><code>Symbol.isConcatSpreadable</code></li>
+<li><code>Symbol.iterator</code></li>
+<li><code>Symbol.toPrimitive</code></li>
+<li>…and so on.</li>
+</ul>
+<p>For instance, <code>Symbol.toPrimitive</code> allows us to describe object to primitive conversion. We’ll see its use very soon.</p>
+<p>Other symbols will also become familiar when we study the corresponding language features.</p>
+<h2 id="summary">Summary</h2>
+<p><code>Symbol</code> is a primitive type for unique identifiers.</p>
+<p>Symbols are created with <code>Symbol()</code> call with an optional description (name).</p>
+<p>Symbols are always different values, even if they have the same name. If we want same-named symbols to be equal, then we should use the global registry: <code>Symbol.for(key)</code> returns (creates if needed) a global symbol with <code>key</code> as the name. Multiple calls of <code>Symbol.for</code> with the same <code>key</code> return exactly the same symbol.</p>
+<p>Symbols have two main use cases:</p>
+<ol type="1">
+<li><p>“Hidden” object properties. If we want to add a property into an object that “belongs” to another script or a library, we can create a symbol and use it as a property key. A symbolic property does not appear in <code>for..in</code>, so it won’t be accidentally processed together with other properties. Also it won’t be accessed directly, because another script does not have our symbol. So the property will be protected from accidental use or overwrite.</p>
+<p>So we can “covertly” hide something into objects that we need, but others should not see, using symbolic properties.</p></li>
+<li><p>There are many system symbols used by JavaScript which are accessible as <code>Symbol.*</code>. We can use them to alter some built-in behaviors. For instance, later in the tutorial we’ll use <code>Symbol.iterator</code> for <a href="info:iterable">iterables</a>, <code>Symbol.toPrimitive</code> to setup <a href="info:object-toprimitive">object-to-primitive conversion</a> and so on.</p></li>
+</ol>
+<p>Technically, symbols are not 100% hidden. There is a built-in method <a href="mdn:js/Object/getOwnPropertySymbols">Object.getOwnPropertySymbols(obj)</a> that allows us to get all symbols. Also there is a method named <a href="mdn:js/Reflect/ownKeys">Reflect.ownKeys(obj)</a> that returns <em>all</em> keys of an object including symbolic ones. So they are not really hidden. But most libraries, built-in functions and syntax constructs don’t use these methods.</p>

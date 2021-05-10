@@ -1,0 +1,13 @@
+<p>importance: 4</p>
+<hr />
+<h1 id="load-visible-images">Load visible images</h1>
+<p>Let’s say we have a slow-speed client and want to save their mobile traffic.</p>
+<p>For that purpose we decide not to show images immediately, but rather replace them with placeholders, like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;img</span><span class="ot"> *</span><span class="er">!*src</span><span class="ot">=</span><span class="st">&quot;placeholder.svg&quot;</span><span class="er">*/!*</span><span class="ot"> width=</span><span class="st">&quot;128&quot;</span><span class="ot"> height=</span><span class="st">&quot;128&quot;</span><span class="ot"> *</span><span class="er">!*data-src</span><span class="ot">=</span><span class="st">&quot;real.jpg&quot;</span><span class="er">*/!*</span><span class="kw">&gt;</span></a></code></pre></div>
+<p>So, initially all images are <code>placeholder.svg</code>. When the page scrolls to the position where the user can see the image – we change <code>src</code> to the one in <code>data-src</code>, and so the image loads.</p>
+<p>Here’s an example in <code>iframe</code>:</p>
+<p>[iframe src=“solution”]</p>
+<p>Scroll it to see images load “on-demand”.</p>
+<p>Requirements: - When the page loads, those images that are on-screen should load immediately, prior to any scrolling. - Some images may be regular, without <code>data-src</code>. The code should not touch them. - Once an image is loaded, it should not reload any more when scrolled in/out.</p>
+<p>P.S. If you can, make a more advanced solution that would “preload” images that are one page below/after the current position.</p>
+<p>P.P.S. Only vertical scroll is to be handled, no horizontal scrolling.</p>

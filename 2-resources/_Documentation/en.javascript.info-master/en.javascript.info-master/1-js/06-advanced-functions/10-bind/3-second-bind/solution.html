@@ -1,0 +1,6 @@
+<p>The answer: <strong>John</strong>.</p>
+<p>```js run no-beautify function f() { alert(this.name); }</p>
+<p>f = f.bind( {name: “John”} ).bind( {name: “Pete”} );</p>
+<p>f(); // John ```</p>
+<p>The exotic <a href="https://tc39.github.io/ecma262/#sec-bound-function-exotic-objects">bound function</a> object returned by <code>f.bind(...)</code> remembers the context (and arguments if provided) only at creation time.</p>
+<p>A function cannot be re-bound.</p>

@@ -1,0 +1,187 @@
+<h1 id="styles-and-classes">Styles and classes</h1>
+<p>Before we get into JavaScript’s ways of dealing with styles and classes – here’s an important rule. Hopefully it’s obvious enough, but we still have to mention it.</p>
+<p>There are generally two ways to style an element:</p>
+<ol type="1">
+<li>Create a class in CSS and add it: <code>&lt;div class="..."&gt;</code></li>
+<li>Write properties directly into <code>style</code>: <code>&lt;div style="..."&gt;</code>.</li>
+</ol>
+<p>JavaScript can modify both classes and <code>style</code> properties.</p>
+<p>We should always prefer CSS classes to <code>style</code>. The latter should only be used if classes “can’t handle it”.</p>
+<p>For example, <code>style</code> is acceptable if we calculate coordinates of an element dynamically and want to set them from JavaScript, like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> top <span class="op">=</span> <span class="co">/* complex calculations */</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">let</span> left <span class="op">=</span> <span class="co">/* complex calculations */</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="va">elem</span>.<span class="va">style</span>.<span class="at">left</span> <span class="op">=</span> left<span class="op">;</span> <span class="co">// e.g &#39;123px&#39;, calculated at run-time</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="va">elem</span>.<span class="va">style</span>.<span class="at">top</span> <span class="op">=</span> top<span class="op">;</span> <span class="co">// e.g &#39;456px&#39;</span></a></code></pre></div>
+<p>For other cases, like making the text red, adding a background icon – describe that in CSS and then add the class (JavaScript can do that). That’s more flexible and easier to support.</p>
+<h2 id="classname-and-classlist">className and classList</h2>
+<p>Changing a class is one of the most often used actions in scripts.</p>
+<p>In the ancient time, there was a limitation in JavaScript: a reserved word like <code>"class"</code> could not be an object property. That limitation does not exist now, but at that time it was impossible to have a <code>"class"</code> property, like <code>elem.class</code>.</p>
+<p>So for classes the similar-looking property <code>"className"</code> was introduced: the <code>elem.className</code> corresponds to the <code>"class"</code> attribute.</p>
+<p>For instance:</p>
+<p><code>html run &lt;body class="main page"&gt;   &lt;script&gt;     alert(document.body.className); // main page   &lt;/script&gt; &lt;/body&gt;</code></p>
+<p>If we assign something to <code>elem.className</code>, it replaces the whole string of classes. Sometimes that’s what we need, but often we want to add/remove a single class.</p>
+<p>There’s another property for that: <code>elem.classList</code>.</p>
+<p>The <code>elem.classList</code> is a special object with methods to <code>add/remove/toggle</code> a single class.</p>
+<p>For instance:</p>
+```html run
+<body class="main page">
+<script>
+*!*
+    // add a class
+    document.body.classList.add('article');
+*/!*
+
+    alert(document.body.className); // main page article
+  </script>
+</body>
+<p>```</p>
+<p>So we can operate both on the full class string using <code>className</code> or on individual classes using <code>classList</code>. What we choose depends on our needs.</p>
+<p>Methods of <code>classList</code>:</p>
+<ul>
+<li><code>elem.classList.add/remove("class")</code> – adds/removes the class.</li>
+<li><code>elem.classList.toggle("class")</code> – adds the class if it doesn’t exist, otherwise removes it.</li>
+<li><code>elem.classList.contains("class")</code> – checks for the given class, returns <code>true/false</code>.</li>
+</ul>
+<p>Besides, <code>classList</code> is iterable, so we can list all classes with <code>for..of</code>, like this:</p>
+<p><code>html run &lt;body class="main page"&gt;   &lt;script&gt;     for (let name of document.body.classList) {       alert(name); // main, and then page     }   &lt;/script&gt; &lt;/body&gt;</code></p>
+<h2 id="element-style">Element style</h2>
+<p>The property <code>elem.style</code> is an object that corresponds to what’s written in the <code>"style"</code> attribute. Setting <code>elem.style.width="100px"</code> works the same as if we had in the attribute <code>style</code> a string <code>width:100px</code>.</p>
+<p>For multi-word property the camelCase is used:</p>
+<p><code>js no-beautify background-color  =&gt; elem.style.backgroundColor z-index           =&gt; elem.style.zIndex border-left-width =&gt; elem.style.borderLeftWidth</code></p>
+<p>For instance:</p>
+<p><code>js run document.body.style.backgroundColor = prompt('background color?', 'green');</code></p>
+<p>```<code>smart header="Prefixed properties" Browser-prefixed properties like</code>-moz-border-radius<code>,</code>-webkit-border-radius` also follow the same rule: a dash means upper case.</p>
+<p>For instance:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">button</span>.<span class="va">style</span>.<span class="at">MozBorderRadius</span> <span class="op">=</span> <span class="st">&#39;5px&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="va">button</span>.<span class="va">style</span>.<span class="at">WebkitBorderRadius</span> <span class="op">=</span> <span class="st">&#39;5px&#39;</span><span class="op">;</span></a></code></pre></div>
+<p>````</p>
+<h2 id="resetting-the-style-property">Resetting the style property</h2>
+<p>Sometimes we want to assign a style property, and later remove it.</p>
+<p>For instance, to hide an element, we can set <code>elem.style.display = "none"</code>.</p>
+<p>Then later we may want to remove the <code>style.display</code> as if it were not set. Instead of <code>delete elem.style.display</code> we should assign an empty string to it: <code>elem.style.display = ""</code>.</p>
+```js run // if we run this code, the
+<body>
+<p>will blink document.body.style.display = “none”; // hide</p>
+<p>setTimeout(() =&gt; document.body.style.display = "", 1000); // back to normal ```</p>
+<p>If we set <code>style.display</code> to an empty string, then the browser applies CSS classes and its built-in styles normally, as if there were no such <code>style.display</code> property at all.</p>
+<p>```<code>smart header="Full rewrite with</code>style.cssText<code>" Normally, we use</code>style.*<code>to assign individual style properties. We can't set the full style like</code>div.style=“color: red; width: 100px”<code>, because</code>div.style` is an object, and it’s read-only.</p>
+<p>To set the full style as a string, there’s a special property <code>style.cssText</code>:</p>
+```html run
+<div id="div">
+Button
+</div>
+<script>
+  // we can set special style flags like "important" here
+  div.style.cssText=`color: red !important;
+    background-color: yellow;
+    width: 100px;
+    text-align: center;
+  `;
+
+  alert(div.style.cssText);
+</script>
+<pre><code>
+This property is rarely used, because such assignment removes all existing styles: it does not add, but replaces them. May occasionally delete something needed. But we can safely use it for new elements, when we know we won&#39;t delete an existing style.
+
+The same can be accomplished by setting an attribute: `div.setAttribute(&#39;style&#39;, &#39;color: red...&#39;)`.</code></pre>
+<h2 id="mind-the-units">Mind the units</h2>
+<p>Don’t forget to add CSS units to values.</p>
+<p>For instance, we should not set <code>elem.style.top</code> to <code>10</code>, but rather to <code>10px</code>. Otherwise it wouldn’t work:</p>
+```html run height=100
+<body>
+<script>
+  *!*
+    // doesn't work!
+    document.body.style.margin = 20;
+    alert(document.body.style.margin); // '' (empty string, the assignment is ignored)
+  */!*
+
+    // now add the CSS unit (px) - and it works
+    document.body.style.margin = '20px';
+    alert(document.body.style.margin); // 20px
+
+    alert(document.body.style.marginTop); // 20px
+    alert(document.body.style.marginLeft); // 20px
+  </script>
+</body>
+<p>```</p>
+<p>Please note: the browser “unpacks” the property <code>style.margin</code> in the last lines and infers <code>style.marginLeft</code> and <code>style.marginTop</code> from it.</p>
+<h2 id="computed-styles-getcomputedstyle">Computed styles: getComputedStyle</h2>
+<p>So, modifying a style is easy. But how to <em>read</em> it?</p>
+<p>For instance, we want to know the size, margins, the color of an element. How to do it?</p>
+<p><strong>The <code>style</code> property operates only on the value of the <code>"style"</code> attribute, without any CSS cascade.</strong></p>
+<p>So we can’t read anything that comes from CSS classes using <code>elem.style</code>.</p>
+<p>For instance, here <code>style</code> doesn’t see the margin:</p>
+```html run height=60 no-beautify
+<head>
+<style> body { color: red; margin: 5px } </style>
+</head>
+<body>
+The red text
+<script>
+*!*
+    alert(document.body.style.color); // empty
+    alert(document.body.style.marginTop); // empty
+*/!*
+  </script>
+</body>
+<p>```</p>
+<p>…But what if we need, say, to increase the margin by <code>20px</code>? We would want the current value of it.</p>
+<p>There’s another method for that: <code>getComputedStyle</code>.</p>
+<p>The syntax is:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">getComputedStyle</span>(element<span class="op">,</span> [pseudo])</a></code></pre></div>
+<dl>
+<dt>element</dt>
+<dd>Element to read the value for.
+</dd>
+<dt>pseudo</dt>
+<dd>A pseudo-element if required, for instance <code>::before</code>. An empty string or no argument means the element itself.
+</dd>
+</dl>
+<p>The result is an object with styles, like <code>elem.style</code>, but now with respect to all CSS classes.</p>
+<p>For instance:</p>
+```html run height=100
+<head>
+<style> body { color: red; margin: 5px } </style>
+</head>
+<body>
+<script>
+    let computedStyle = getComputedStyle(document.body);
+
+    // now we can read the margin and the color from it
+
+    alert( computedStyle.marginTop ); // 5px
+    alert( computedStyle.color ); // rgb(255, 0, 0)
+  </script>
+</body>
+<p>```</p>
+<p>```smart header=“Computed and resolved values” There are two concepts in <a href="https://drafts.csswg.org/cssom/#resolved-values">CSS</a>:</p>
+<ol type="1">
+<li>A <em>computed</em> style value is the value after all CSS rules and CSS inheritance is applied, as the result of the CSS cascade. It can look like <code>height:1em</code> or <code>font-size:125%</code>.</li>
+<li>A <em>resolved</em> style value is the one finally applied to the element. Values like <code>1em</code> or <code>125%</code> are relative. The browser takes the computed value and makes all units fixed and absolute, for instance: <code>height:20px</code> or <code>font-size:16px</code>. For geometry properties resolved values may have a floating point, like <code>width:50.5px</code>.</li>
+</ol>
+<p>A long time ago <code>getComputedStyle</code> was created to get computed values, but it turned out that resolved values are much more convenient, and the standard changed.</p>
+<p>So nowadays <code>getComputedStyle</code> actually returns the resolved value of the property, usually in <code>px</code> for geometry. ```</p>
+<p>```<code>warn header="</code>getComputedStyle<code>requires the full property name" We should always ask for the exact property that we want, like</code>paddingLeft<code>or</code>marginTop<code>or</code>borderTopWidth`. Otherwise the correct result is not guaranteed.</p>
+<p>For instance, if there are properties <code>paddingLeft/paddingTop</code>, then what should we get for <code>getComputedStyle(elem).padding</code>? Nothing, or maybe a “generated” value from known paddings? There’s no standard rule here.</p>
+<p>There are other inconsistencies. As an example, some browsers (Chrome) show <code>10px</code> in the document below, and some of them (Firefox) – do not:</p>
+<p><code>html run &lt;style&gt;   body {     margin: 10px;   } &lt;/style&gt; &lt;script&gt;   let style = getComputedStyle(document.body);   alert(style.margin); // empty string in Firefox &lt;/script&gt;</code> ````</p>
+<p>``<code>smart header="Styles applied to</code>:visited<code>links are hidden!" Visited links may be colored using</code>:visited` CSS pseudoclass.</p>
+<p>But <code>getComputedStyle</code> does not give access to that color, because otherwise an arbitrary page could find out whether the user visited a link by creating it on the page and checking the styles.</p>
+<p>JavaScript may not see the styles applied by <code>:visited</code>. And also, there’s a limitation in CSS that forbids applying geometry-changing styles in <code>:visited</code>. That’s to guarantee that there’s no side way for an evil page to test if a link was visited and hence to break the privacy. ```</p>
+<h2 id="summary">Summary</h2>
+<p>To manage classes, there are two DOM properties:</p>
+<ul>
+<li><code>className</code> – the string value, good to manage the whole set of classes.</li>
+<li><code>classList</code> – the object with methods <code>add/remove/toggle/contains</code>, good for individual classes.</li>
+</ul>
+<p>To change the styles:</p>
+<ul>
+<li><p>The <code>style</code> property is an object with camelCased styles. Reading and writing to it has the same meaning as modifying individual properties in the <code>"style"</code> attribute. To see how to apply <code>important</code> and other rare stuff – there’s a list of methods at <a href="mdn:api/CSSStyleDeclaration">MDN</a>.</p></li>
+<li><p>The <code>style.cssText</code> property corresponds to the whole <code>"style"</code> attribute, the full string of styles.</p></li>
+</ul>
+<p>To read the resolved styles (with respect to all classes, after all CSS is applied and final values are calculated):</p>
+<ul>
+<li>The <code>getComputedStyle(elem, [pseudo])</code> returns the style-like object with them. Read-only.</li>
+</ul>

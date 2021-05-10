@@ -1,0 +1,97 @@
+<p>libs: - lodash</p>
+<hr />
+<h1 id="currying">Currying</h1>
+<p><a href="https://en.wikipedia.org/wiki/Currying">Currying</a> is an advanced technique of working with functions. It’s used not only in JavaScript, but in other languages as well.</p>
+<p>Currying is a transformation of functions that translates a function from callable as <code>f(a, b, c)</code> into callable as <code>f(a)(b)(c)</code>.</p>
+<p>Currying doesn’t call a function. It just transforms it.</p>
+<p>Let’s see an example first, to better understand what we’re talking about, and then practical applications.</p>
+<p>We’ll create a helper function <code>curry(f)</code> that performs currying for a two-argument <code>f</code>. In other words, <code>curry(f)</code> for two-argument <code>f(a, b)</code> translates it into a function that runs as <code>f(a)(b)</code>:</p>
+<p>```js run <em>!</em> function curry(f) { // curry(f) does the currying transform return function(a) { return function(b) { return f(a, b); }; }; } <em>/!</em></p>
+<p>// usage function sum(a, b) { return a + b; }</p>
+<p>let curriedSum = curry(sum);</p>
+<p>alert( curriedSum(1)(2) ); // 3 ```</p>
+<p>As you can see, the implementation is straightforward: it’s just two wrappers.</p>
+<ul>
+<li>The result of <code>curry(func)</code> is a wrapper <code>function(a)</code>.</li>
+<li>When it is called like <code>curriedSum(1)</code>, the argument is saved in the Lexical Environment, and a new wrapper is returned <code>function(b)</code>.</li>
+<li>Then this wrapper is called with <code>2</code> as an argument, and it passes the call to the original <code>sum</code>.</li>
+</ul>
+<p>More advanced implementations of currying, such as <a href="https://lodash.com/docs#curry">_.curry</a> from lodash library, return a wrapper that allows a function to be called both normally and partially:</p>
+<p>```js run function sum(a, b) { return a + b; }</p>
+<p>let curriedSum = <em>.curry(sum); // using </em>.curry from lodash library</p>
+<p>alert( curriedSum(1, 2) ); // 3, still callable normally alert( curriedSum(1)(2) ); // 3, called partially ```</p>
+<h2 id="currying-what-for">Currying? What for?</h2>
+<p>To understand the benefits we need a worthy real-life example.</p>
+<p>For instance, we have the logging function <code>log(date, importance, message)</code> that formats and outputs the information. In real projects such functions have many useful features like sending logs over the network, here we’ll just use <code>alert</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">log</span>(date<span class="op">,</span> importance<span class="op">,</span> message) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="at">alert</span>(<span class="vs">`[</span><span class="sc">${</span><span class="va">date</span>.<span class="at">getHours</span>()<span class="sc">}</span><span class="vs">:</span><span class="sc">${</span><span class="va">date</span>.<span class="at">getMinutes</span>()<span class="sc">}</span><span class="vs">] [</span><span class="sc">${</span>importance<span class="sc">}</span><span class="vs">] </span><span class="sc">${</span>message<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>Let’s curry it!</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1">log <span class="op">=</span> <span class="va">_</span>.<span class="at">curry</span>(log)<span class="op">;</span></a></code></pre></div>
+<p>After that <code>log</code> works normally:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">log</span>(<span class="kw">new</span> <span class="at">Date</span>()<span class="op">,</span> <span class="st">&quot;DEBUG&quot;</span><span class="op">,</span> <span class="st">&quot;some debug&quot;</span>)<span class="op">;</span> <span class="co">// log(a, b, c)</span></a></code></pre></div>
+<p>…But also works in the curried form:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">log</span>(<span class="kw">new</span> <span class="at">Date</span>())(<span class="st">&quot;DEBUG&quot;</span>)(<span class="st">&quot;some debug&quot;</span>)<span class="op">;</span> <span class="co">// log(a)(b)(c)</span></a></code></pre></div>
+<p>Now we can easily make a convenience function for current logs:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="co">// logNow will be the partial of log with fixed first argument</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw">let</span> logNow <span class="op">=</span> <span class="at">log</span>(<span class="kw">new</span> <span class="at">Date</span>())<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-3" title="3"></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="co">// use it</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="at">logNow</span>(<span class="st">&quot;INFO&quot;</span><span class="op">,</span> <span class="st">&quot;message&quot;</span>)<span class="op">;</span> <span class="co">// [HH:mm] INFO message</span></a></code></pre></div>
+<p>Now <code>logNow</code> is <code>log</code> with fixed first argument, in other words “partially applied function” or “partial” for short.</p>
+<p>We can go further and make a convenience function for current debug logs:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">let</span> debugNow <span class="op">=</span> <span class="at">logNow</span>(<span class="st">&quot;DEBUG&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-2" title="2"></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="at">debugNow</span>(<span class="st">&quot;message&quot;</span>)<span class="op">;</span> <span class="co">// [HH:mm] DEBUG message</span></a></code></pre></div>
+<p>So: 1. We didn’t lose anything after currying: <code>log</code> is still callable normally. 2. We can easily generate partial functions such as for today’s logs.</p>
+<h2 id="advanced-curry-implementation">Advanced curry implementation</h2>
+<p>In case you’d like to get in to the details, here’s the “advanced” curry implementation for multi-argument functions that we could use above.</p>
+<p>It’s pretty short:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">function</span> <span class="at">curry</span>(func) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2"></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="cf">return</span> <span class="kw">function</span> <span class="at">curried</span>(...<span class="at">args</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-4" title="4">    <span class="cf">if</span> (<span class="va">args</span>.<span class="at">length</span> <span class="op">&gt;=</span> <span class="va">func</span>.<span class="at">length</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-5" title="5">      <span class="cf">return</span> <span class="va">func</span>.<span class="at">apply</span>(<span class="kw">this</span><span class="op">,</span> args)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-6" title="6">    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-7" title="7">      <span class="cf">return</span> <span class="kw">function</span>(...<span class="at">args2</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-8" title="8">        <span class="cf">return</span> <span class="va">curried</span>.<span class="at">apply</span>(<span class="kw">this</span><span class="op">,</span> <span class="va">args</span>.<span class="at">concat</span>(args2))<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-9" title="9">      <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-10" title="10">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-11" title="11">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb7-12" title="12"></a>
+<a class="sourceLine" id="cb7-13" title="13"><span class="op">}</span></a></code></pre></div>
+<p>Usage examples:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">function</span> <span class="at">sum</span>(a<span class="op">,</span> b<span class="op">,</span> c) <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2">  <span class="cf">return</span> a <span class="op">+</span> b <span class="op">+</span> c<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb8-4" title="4"></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="kw">let</span> curriedSum <span class="op">=</span> <span class="at">curry</span>(sum)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-6" title="6"></a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="at">alert</span>( <span class="at">curriedSum</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>) )<span class="op">;</span> <span class="co">// 6, still callable normally</span></a>
+<a class="sourceLine" id="cb8-8" title="8"><span class="at">alert</span>( <span class="at">curriedSum</span>(<span class="dv">1</span>)(<span class="dv">2</span><span class="op">,</span><span class="dv">3</span>) )<span class="op">;</span> <span class="co">// 6, currying of 1st arg</span></a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="at">alert</span>( <span class="at">curriedSum</span>(<span class="dv">1</span>)(<span class="dv">2</span>)(<span class="dv">3</span>) )<span class="op">;</span> <span class="co">// 6, full currying</span></a></code></pre></div>
+<p>The new <code>curry</code> may look complicated, but it’s actually easy to understand.</p>
+<p>The result of <code>curry(func)</code> call is the wrapper <code>curried</code> that looks like this:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="co">// func is the function to transform</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="kw">function</span> <span class="at">curried</span>(...<span class="at">args</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-3" title="3">  <span class="cf">if</span> (<span class="va">args</span>.<span class="at">length</span> <span class="op">&gt;=</span> <span class="va">func</span>.<span class="at">length</span>) <span class="op">{</span> <span class="co">// (1)</span></a>
+<a class="sourceLine" id="cb9-4" title="4">    <span class="cf">return</span> <span class="va">func</span>.<span class="at">apply</span>(<span class="kw">this</span><span class="op">,</span> args)<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-5" title="5">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-6" title="6">    <span class="cf">return</span> <span class="kw">function</span>(...<span class="at">args2</span>) <span class="op">{</span> <span class="co">// (2)</span></a>
+<a class="sourceLine" id="cb9-7" title="7">      <span class="cf">return</span> <span class="va">curried</span>.<span class="at">apply</span>(<span class="kw">this</span><span class="op">,</span> <span class="va">args</span>.<span class="at">concat</span>(args2))<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-8" title="8">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb9-9" title="9">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb9-10" title="10"><span class="op">};</span></a></code></pre></div>
+<p>When we run it, there are two <code>if</code> execution branches:</p>
+<ol type="1">
+<li>If passed <code>args</code> count is the same or more than the original function has in its definition (<code>func.length</code>) , then just pass the call to it using <code>func.apply</code>.</li>
+<li>Otherwise, get a partial: we don’t call <code>func</code> just yet. Instead, another wrapper is returned, that will re-apply <code>curried</code> providing previous arguments together with the new ones.</li>
+</ol>
+<p>Then, if we call it, again, we’ll get either a new partial (if not enough arguments) or, finally, the result.</p>
+<p>```smart header=“Fixed-length functions only” The currying requires the function to have a fixed number of arguments.</p>
+<p>A function that uses rest parameters, such as <code>f(...args)</code>, can’t be curried this way. ```</p>
+<p>``<code>smart header="A little more than currying" By definition, currying should convert</code>sum(a, b, c)<code>into</code>sum(a)(b)(c)`.</p>
+<p>But most implementations of currying in JavaScript are advanced, as described: they also keep the function callable in the multi-argument variant. ```</p>
+<h2 id="summary">Summary</h2>
+<p><em>Currying</em> is a transform that makes <code>f(a,b,c)</code> callable as <code>f(a)(b)(c)</code>. JavaScript implementations usually both keep the function callable normally and return the partial if the arguments count is not enough.</p>
+<p>Currying allows us to easily get partials. As we’ve seen in the logging example, after currying the three argument universal function <code>log(date, importance, message)</code> gives us partials when called with one argument (like <code>log(date)</code>) or two arguments (like <code>log(date, importance)</code>).</p>

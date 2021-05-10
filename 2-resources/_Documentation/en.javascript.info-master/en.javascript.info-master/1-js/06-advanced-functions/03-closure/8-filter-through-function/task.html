@@ -1,0 +1,21 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="filter-through-function">Filter through function</h1>
+<p>We have a built-in method <code>arr.filter(f)</code> for arrays. It filters all elements through the function <code>f</code>. If it returns <code>true</code>, then that element is returned in the resulting array.</p>
+<p>Make a set of “ready to use” filters:</p>
+<ul>
+<li><code>inBetween(a, b)</code> – between <code>a</code> and <code>b</code> or equal to them (inclusively).</li>
+<li><code>inArray([...])</code> – in the given array.</li>
+</ul>
+<p>The usage must be like this:</p>
+<ul>
+<li><code>arr.filter(inBetween(3,6))</code> – selects only values between 3 and 6.</li>
+<li><code>arr.filter(inArray([1,2,3]))</code> – selects only elements matching with one of the members of <code>[1,2,3]</code>.</li>
+</ul>
+<p>For instance:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">/* .. your code for inBetween and inArray */</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">let</span> arr <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">7</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="at">alert</span>( <span class="va">arr</span>.<span class="at">filter</span>(<span class="at">inBetween</span>(<span class="dv">3</span><span class="op">,</span> <span class="dv">6</span>)) )<span class="op">;</span> <span class="co">// 3,4,5,6</span></a>
+<a class="sourceLine" id="cb1-5" title="5"></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="at">alert</span>( <span class="va">arr</span>.<span class="at">filter</span>(<span class="at">inArray</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">10</span>])) )<span class="op">;</span> <span class="co">// 1,2</span></a></code></pre></div>

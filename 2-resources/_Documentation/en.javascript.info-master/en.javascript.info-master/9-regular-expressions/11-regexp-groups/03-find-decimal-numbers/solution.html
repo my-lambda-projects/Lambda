@@ -1,0 +1,5 @@
+<p>A positive number with an optional decimal part is: <code>pattern:\d+(\.\d+)?</code>.</p>
+<p>Let’s add the optional <code>pattern:-</code> in the beginning:</p>
+<p>```js run let regexp = /-?(.)?/g;</p>
+<p>let str = “-1.5 0 2 -123.4.”;</p>
+<p>alert( str.match(regexp) ); // -1.5, 0, 2, -123.4 ```</p>

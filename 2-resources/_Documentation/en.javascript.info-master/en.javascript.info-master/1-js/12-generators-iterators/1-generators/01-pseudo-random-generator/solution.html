@@ -1,0 +1,11 @@
+<p>```js run demo function* pseudoRandom(seed) { let value = seed;</p>
+<p>while(true) { value = value * 16807 % 2147483647 yield value; }</p>
+<p>};</p>
+<p>let generator = pseudoRandom(1);</p>
+<p>alert(generator.next().value); // 16807 alert(generator.next().value); // 282475249 alert(generator.next().value); // 1622650073 ```</p>
+<p>Please note, the same can be done with a regular function, like this:</p>
+<p>```js run function pseudoRandom(seed) { let value = seed;</p>
+<p>return function() { value = value * 16807 % 2147483647; return value; } }</p>
+<p>let generator = pseudoRandom(1);</p>
+<p>alert(generator()); // 16807 alert(generator()); // 282475249 alert(generator()); // 1622650073 ```</p>
+<p>That also works. But then we lose ability to iterate with <code>for..of</code> and to use generator composition, that may be useful elsewhere.</p>

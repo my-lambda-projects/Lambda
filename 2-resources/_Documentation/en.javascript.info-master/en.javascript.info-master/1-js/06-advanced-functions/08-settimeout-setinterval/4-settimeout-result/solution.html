@@ -1,0 +1,5 @@
+<p>Any <code>setTimeout</code> will run only after the current code has finished.</p>
+<p>The <code>i</code> will be the last one: <code>100000000</code>.</p>
+<p>```js run let i = 0;</p>
+<p>setTimeout(() =&gt; alert(i), 100); // 100000000</p>
+<p>// assume that the time to execute this function is &gt;100ms for(let j = 0; j &lt; 100000000; j++) { i++; } ```</p>

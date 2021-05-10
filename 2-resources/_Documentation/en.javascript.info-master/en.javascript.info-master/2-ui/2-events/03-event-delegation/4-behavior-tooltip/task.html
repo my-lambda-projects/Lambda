@@ -1,0 +1,22 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="tooltip-behavior">Tooltip behavior</h1>
+<p>Create JS-code for the tooltip behavior.</p>
+<p>When a mouse comes over an element with <code>data-tooltip</code>, the tooltip should appear over it, and when it’s gone then hide.</p>
+<p>An example of annotated HTML:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;button</span><span class="ot"> data-tooltip=</span><span class="st">&quot;the tooltip is longer than the element&quot;</span><span class="kw">&gt;</span>Short button<span class="kw">&lt;/button&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">&lt;button</span><span class="ot"> data-tooltip=</span><span class="st">&quot;HTML</span><span class="er">&lt;</span><span class="st">br&gt;tooltip&quot;</span><span class="kw">&gt;</span>One more button<span class="kw">&lt;/button&gt;</span></a></code></pre></div>
+<p>Should work like this:</p>
+<p>[iframe src=“solution” height=200 border=1]</p>
+<p>In this task we assume that all elements with <code>data-tooltip</code> have only text inside. No nested tags (yet).</p>
+<p>Details:</p>
+<ul>
+<li>The distance between the element and the tooltip should be <code>5px</code>.</li>
+<li>The tooltip should be centered relative to the element, if possible.</li>
+<li>The tooltip should not cross window edges. Normally it should be above the element, but if the element is at the page top and there’s no space for the tooltip, then below it.</li>
+<li>The tooltip content is given in the <code>data-tooltip</code> attribute. It can be arbitrary HTML.</li>
+</ul>
+<p>You’ll need two events here: - <code>mouseover</code> triggers when a pointer comes over an element. - <code>mouseout</code> triggers when a pointer leaves an element.</p>
+<p>Please use event delegation: set up two handlers on <code>document</code> to track all “overs” and “outs” from elements with <code>data-tooltip</code> and manage tooltips from there.</p>
+<p>After the behavior is implemented, even people unfamiliar with JavaScript can add annotated elements.</p>
+<p>P.S. Only one tooltip may show up at a time.</p>

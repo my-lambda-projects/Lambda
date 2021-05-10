@@ -1,0 +1,27 @@
+<p>The ball has <code>position:absolute</code>. It means that its <code>left/top</code> coordinates are measured from the nearest positioned element, that is <code>#field</code> (because it has <code>position:relative</code>).</p>
+<p>The coordinates start from the inner left-upper corner of the field:</p>
+<p><img src="field.svg" /></p>
+<p>The inner field width/height is <code>clientWidth/clientHeight</code>. So the field center has coordinates <code>(clientWidth/2, clientHeight/2)</code>.</p>
+<p>…But if we set <code>ball.style.left/top</code> to such values, then not the ball as a whole, but the left-upper edge of the ball would be in the center:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">ball</span>.<span class="va">style</span>.<span class="at">left</span> <span class="op">=</span> <span class="va">Math</span>.<span class="at">round</span>(<span class="va">field</span>.<span class="at">clientWidth</span> / <span class="dv">2</span>) <span class="op">+</span> <span class="st">&#39;px&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="va">ball</span>.<span class="va">style</span>.<span class="at">top</span> <span class="op">=</span> <span class="va">Math</span>.<span class="at">round</span>(<span class="va">field</span>.<span class="at">clientHeight</span> / <span class="dv">2</span>) <span class="op">+</span> <span class="st">&#39;px&#39;</span><span class="op">;</span></a></code></pre></div>
+<p>Here’s how it looks:</p>
+<p>[iframe height=180 src=“ball-half”]</p>
+<p>To align the ball center with the center of the field, we should move the ball to the half of its width to the left and to the half of its height to the top:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">ball</span>.<span class="va">style</span>.<span class="at">left</span> <span class="op">=</span> <span class="va">Math</span>.<span class="at">round</span>(<span class="va">field</span>.<span class="at">clientWidth</span> / <span class="dv">2</span> <span class="op">-</span> <span class="va">ball</span>.<span class="at">offsetWidth</span> / <span class="dv">2</span>) <span class="op">+</span> <span class="st">&#39;px&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="va">ball</span>.<span class="va">style</span>.<span class="at">top</span> <span class="op">=</span> <span class="va">Math</span>.<span class="at">round</span>(<span class="va">field</span>.<span class="at">clientHeight</span> / <span class="dv">2</span> <span class="op">-</span> <span class="va">ball</span>.<span class="at">offsetHeight</span> / <span class="dv">2</span>) <span class="op">+</span> <span class="st">&#39;px&#39;</span><span class="op">;</span></a></code></pre></div>
+<p>Now the ball is finally centered.</p>
+<p>````warn header=“Attention: the pitfall!”</p>
+<p>The code won’t work reliably while <code>&lt;img&gt;</code> has no width/height:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;ball.png&quot;</span><span class="ot"> id=</span><span class="st">&quot;ball&quot;</span><span class="kw">&gt;</span></a></code></pre></div>
+<p>````</p>
+<p>When the browser does not know the width/height of an image (from tag attributes or CSS), then it assumes them to equal <code>0</code> until the image finishes loading.</p>
+<p>So the value of <code>ball.offsetWidth</code> will be <code>0</code> until the image loads. That leads to wrong coordinates in the code above.</p>
+<p>After the first load, the browser usually caches the image, and on reloads it will have the size immediately. But on the first load the value of <code>ball.offsetWidth</code> is <code>0</code>.</p>
+<p>We should fix that by adding <code>width/height</code> to <code>&lt;img&gt;</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;ball.png&quot;</span><span class="ot"> *</span><span class="er">!*width</span><span class="ot">=</span><span class="st">&quot;40&quot;</span><span class="ot"> height=</span><span class="st">&quot;40&quot;</span><span class="er">*/!*</span><span class="ot"> id=</span><span class="st">&quot;ball&quot;</span><span class="kw">&gt;</span></a></code></pre></div>
+<p>…Or provide the size in CSS:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb5-1" title="1"><span class="pp">#ball</span> {</a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="kw">width</span>: <span class="dv">40</span><span class="dt">px</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="kw">height</span>: <span class="dv">40</span><span class="dt">px</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-4" title="4">}</a></code></pre></div>

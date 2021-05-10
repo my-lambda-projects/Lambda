@@ -1,0 +1,12 @@
+<p>importance: 4</p>
+<hr />
+<h1 id="which-day-of-month-was-many-days-ago">Which day of month was many days ago?</h1>
+<p>Create a function <code>getDateAgo(date, days)</code> to return the day of month <code>days</code> ago from the <code>date</code>.</p>
+<p>For instance, if today is 20th, then <code>getDateAgo(new Date(), 1)</code> should be 19th and <code>getDateAgo(new Date(), 2)</code> should be 18th.</p>
+<p>Should work reliably for <code>days=365</code> or more:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> date <span class="op">=</span> <span class="kw">new</span> <span class="at">Date</span>(<span class="dv">2015</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">2</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="at">alert</span>( <span class="at">getDateAgo</span>(date<span class="op">,</span> <span class="dv">1</span>) )<span class="op">;</span> <span class="co">// 1, (1 Jan 2015)</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="at">alert</span>( <span class="at">getDateAgo</span>(date<span class="op">,</span> <span class="dv">2</span>) )<span class="op">;</span> <span class="co">// 31, (31 Dec 2014)</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="at">alert</span>( <span class="at">getDateAgo</span>(date<span class="op">,</span> <span class="dv">365</span>) )<span class="op">;</span> <span class="co">// 2, (2 Jan 2014)</span></a></code></pre></div>
+<p>P.S. The function should not modify the given <code>date</code>.</p>

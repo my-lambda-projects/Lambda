@@ -1,0 +1,57 @@
+<h1 id="arrow-functions-revisited">Arrow functions revisited</h1>
+<p>Let’s revisit arrow functions.</p>
+<p>Arrow functions are not just a “shorthand” for writing small stuff. They have some very specific and useful features.</p>
+<p>JavaScript is full of situations where we need to write a small function that’s executed somewhere else.</p>
+<p>For instance:</p>
+<ul>
+<li><code>arr.forEach(func)</code> – <code>func</code> is executed by <code>forEach</code> for every array item.</li>
+<li><code>setTimeout(func)</code> – <code>func</code> is executed by the built-in scheduler.</li>
+<li>…there are more.</li>
+</ul>
+<p>It’s in the very spirit of JavaScript to create a function and pass it somewhere.</p>
+<p>And in such functions we usually don’t want to leave the current context. That’s where arrow functions come in handy.</p>
+<h2 id="arrow-functions-have-no-this">Arrow functions have no “this”</h2>
+<p>As we remember from the chapter <a href="info:object-methods" class="uri">info:object-methods</a>, arrow functions do not have <code>this</code>. If <code>this</code> is accessed, it is taken from the outside.</p>
+<p>For instance, we can use it to iterate inside an object method:</p>
+<p>```js run let group = { title: “Our Group”, students: [“John”, “Pete”, “Alice”],</p>
+<p>showList() { <em>!</em> this.students.forEach( student =&gt; alert(this.title + ‘:’ + student) ); <em>/!</em> } };</p>
+<p>group.showList(); ```</p>
+<p>Here in <code>forEach</code>, the arrow function is used, so <code>this.title</code> in it is exactly the same as in the outer method <code>showList</code>. That is: <code>group.title</code>.</p>
+<p>If we used a “regular” function, there would be an error:</p>
+<p>```js run let group = { title: “Our Group”, students: [“John”, “Pete”, “Alice”],</p>
+<p>showList() { <em>!</em> this.students.forEach(function(student) { // Error: Cannot read property ‘title’ of undefined alert(this.title + ‘:’ + student); }); <em>/!</em> } };</p>
+<p>group.showList(); ```</p>
+<p>The error occurs because <code>forEach</code> runs functions with <code>this=undefined</code> by default, so the attempt to access <code>undefined.title</code> is made.</p>
+<p>That doesn’t affect arrow functions, because they just don’t have <code>this</code>.</p>
+<p><code>warn header="Arrow functions can't run with `new`" Not having `this` naturally means another limitation: arrow functions can't be used as constructors. They can't be called with `new`.</code></p>
+<p>``<code>smart header="Arrow functions VS bind" There's a subtle difference between an arrow function</code>=&gt;<code>and a regular function called with</code>.bind(this)`:</p>
+<ul>
+<li><code>.bind(this)</code> creates a “bound version” of the function.</li>
+<li>The arrow <code>=&gt;</code> doesn’t create any binding. The function simply doesn’t have <code>this</code>. The lookup of <code>this</code> is made exactly the same way as a regular variable search: in the outer lexical environment. ```</li>
+</ul>
+<h2 id="arrows-have-no-arguments">Arrows have no “arguments”</h2>
+<p>Arrow functions also have no <code>arguments</code> variable.</p>
+<p>That’s great for decorators, when we need to forward a call with the current <code>this</code> and <code>arguments</code>.</p>
+<p>For instance, <code>defer(f, ms)</code> gets a function and returns a wrapper around it that delays the call by <code>ms</code> milliseconds:</p>
+<p>```js run function defer(f, ms) { return function() { setTimeout(() =&gt; f.apply(this, arguments), ms); }; }</p>
+<p>function sayHi(who) { alert(‘Hello,’ + who); }</p>
+<p>let sayHiDeferred = defer(sayHi, 2000); sayHiDeferred(“John”); // Hello, John after 2 seconds ```</p>
+<p>The same without an arrow function would look like:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">defer</span>(f<span class="op">,</span> ms) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="cf">return</span> <span class="kw">function</span>(...<span class="at">args</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">let</span> ctx <span class="op">=</span> <span class="kw">this</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="at">setTimeout</span>(<span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-5" title="5">      <span class="cf">return</span> <span class="va">f</span>.<span class="at">apply</span>(ctx<span class="op">,</span> args)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="op">},</span> ms)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="op">}</span></a></code></pre></div>
+<p>Here we had to create additional variables <code>args</code> and <code>ctx</code> so that the function inside <code>setTimeout</code> could take them.</p>
+<h2 id="summary">Summary</h2>
+<p>Arrow functions:</p>
+<ul>
+<li>Do not have <code>this</code></li>
+<li>Do not have <code>arguments</code></li>
+<li>Can’t be called with <code>new</code></li>
+<li>They also don’t have <code>super</code>, but we didn’t study it yet. We will on the chapter <a href="info:class-inheritance" class="uri">info:class-inheritance</a></li>
+</ul>
+<p>That’s because they are meant for short pieces of code that do not have their own “context”, but rather work in the current one. And they really shine in that use case.</p>

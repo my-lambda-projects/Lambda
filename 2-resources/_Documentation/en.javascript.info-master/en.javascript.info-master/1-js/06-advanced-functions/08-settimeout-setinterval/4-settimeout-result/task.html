@@ -1,0 +1,19 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="what-will-settimeout-show">What will setTimeout show?</h1>
+<p>In the code below there’s a <code>setTimeout</code> call scheduled, then a heavy calculation is run, that takes more than 100ms to finish.</p>
+<p>When will the scheduled function run?</p>
+<ol type="1">
+<li>After the loop.</li>
+<li>Before the loop.</li>
+<li>In the beginning of the loop.</li>
+</ol>
+<p>What is <code>alert</code> going to show?</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="at">setTimeout</span>(() <span class="kw">=&gt;</span> <span class="at">alert</span>(i)<span class="op">,</span> <span class="dv">100</span>)<span class="op">;</span> <span class="co">// ?</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="co">// assume that the time to execute this function is &gt;100ms</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="cf">for</span>(<span class="kw">let</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> <span class="dv">100000000</span><span class="op">;</span> j<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-7" title="7">  i<span class="op">++;</span> </a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="op">}</span></a></code></pre></div>

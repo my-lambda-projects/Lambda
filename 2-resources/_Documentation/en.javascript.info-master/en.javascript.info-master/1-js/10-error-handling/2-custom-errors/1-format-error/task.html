@@ -1,0 +1,14 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="inherit-from-syntaxerror">Inherit from SyntaxError</h1>
+<p>Create a class <code>FormatError</code> that inherits from the built-in <code>SyntaxError</code> class.</p>
+<p>It should support <code>message</code>, <code>name</code> and <code>stack</code> properties.</p>
+<p>Usage example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> err <span class="op">=</span> <span class="kw">new</span> <span class="at">FormatError</span>(<span class="st">&quot;formatting error&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="at">alert</span>( <span class="va">err</span>.<span class="at">message</span> )<span class="op">;</span> <span class="co">// formatting error</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="at">alert</span>( <span class="va">err</span>.<span class="at">name</span> )<span class="op">;</span> <span class="co">// FormatError</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="at">alert</span>( <span class="va">err</span>.<span class="at">stack</span> )<span class="op">;</span> <span class="co">// stack</span></a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="at">alert</span>( err <span class="kw">instanceof</span> FormatError )<span class="op">;</span> <span class="co">// true</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="at">alert</span>( err <span class="kw">instanceof</span> SyntaxError )<span class="op">;</span> <span class="co">// true (because inherits from SyntaxError)</span></a></code></pre></div>

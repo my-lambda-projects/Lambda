@@ -1,0 +1,7 @@
+<h1 id="find-the-full-tag">Find the full tag</h1>
+<p>Write a regexp to find the tag <code>&lt;style...&gt;</code>. It should match the full tag: it may have no attributes <code>&lt;style&gt;</code> or have several of them <code>&lt;style type="..." id="..."&gt;</code>.</p>
+<p>…But the regexp should not match <code>&lt;styler&gt;</code>!</p>
+<p>For instance:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> regexp <span class="op">=</span> <span class="ss">/your regexp/g</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="at">alert</span>( <span class="st">&#39;&lt;style&gt; &lt;styler&gt; &lt;style test=&quot;...&quot;&gt;&#39;</span>.<span class="at">match</span>(regexp) )<span class="op">;</span> <span class="co">// &lt;style&gt;, &lt;style test=&quot;...&quot;&gt;</span></a></code></pre></div>

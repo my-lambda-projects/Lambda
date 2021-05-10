@@ -1,0 +1,134 @@
+<h1 id="type-conversions">Type Conversions</h1>
+<p>Most of the time, operators and functions automatically convert the values given to them to the right type.</p>
+<p>For example, <code>alert</code> automatically converts any value to a string to show it. Mathematical operations convert values to numbers.</p>
+<p>There are also cases when we need to explicitly convert a value to the expected type.</p>
+<p>```smart header=“Not talking about objects yet” In this chapter, we won’t cover objects. For now we’ll just be talking about primitives.</p>
+<p>Later, after we learn about objects, in the chapter <a href="info:object-toprimitive" class="uri">info:object-toprimitive</a> we’ll see how objects fit in. ```</p>
+<h2 id="string-conversion">String Conversion</h2>
+<p>String conversion happens when we need the string form of a value.</p>
+<p>For example, <code>alert(value)</code> does it to show the value.</p>
+<p>We can also call the <code>String(value)</code> function to convert a value to a string:</p>
+<p>```js run let value = true; alert(typeof value); // boolean</p>
+<p><em>!</em> value = String(value); // now value is a string “true” alert(typeof value); // string <em>/!</em> ```</p>
+<p>String conversion is mostly obvious. A <code>false</code> becomes <code>"false"</code>, <code>null</code> becomes <code>"null"</code>, etc.</p>
+<h2 id="numeric-conversion">Numeric Conversion</h2>
+<p>Numeric conversion happens in mathematical functions and expressions automatically.</p>
+<p>For example, when division <code>/</code> is applied to non-numbers:</p>
+<p><code>js run alert( "6" / "2" ); // 3, strings are converted to numbers</code></p>
+<p>We can use the <code>Number(value)</code> function to explicitly convert a <code>value</code> to a number:</p>
+<p>```js run let str = “123”; alert(typeof str); // string</p>
+<p>let num = Number(str); // becomes a number 123</p>
+<p>alert(typeof num); // number ```</p>
+<p>Explicit conversion is usually required when we read a value from a string-based source like a text form but expect a number to be entered.</p>
+<p>If the string is not a valid number, the result of such a conversion is <code>NaN</code>. For instance:</p>
+<p>```js run let age = Number(“an arbitrary string instead of a number”);</p>
+<p>alert(age); // NaN, conversion failed ```</p>
+<p>Numeric conversion rules:</p>
+<table>
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Value</th>
+<th>Becomes…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>undefined</code></td>
+<td><code>NaN</code></td>
+</tr>
+<tr class="even">
+<td><code>null</code></td>
+<td><code>0</code></td>
+</tr>
+<tr class="odd">
+<td><code>true and false</code></td>
+<td><code>1</code> and <code>0</code></td>
+</tr>
+<tr class="even">
+<td><code>string</code></td>
+<td>Whitespaces from the start and end are removed. If the remaining string is empty, the result is <code>0</code>. Otherwise, the number is “read” from the string. An error gives <code>NaN</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Examples:</p>
+<p><code>js run alert( Number("   123   ") ); // 123 alert( Number("123z") );      // NaN (error reading a number at "z") alert( Number(true) );        // 1 alert( Number(false) );       // 0</code></p>
+<p>Please note that <code>null</code> and <code>undefined</code> behave differently here: <code>null</code> becomes zero while <code>undefined</code> becomes <code>NaN</code>.</p>
+<p>Most mathematical operators also perform such conversion, we’ll see that in the next chapter.</p>
+<h2 id="boolean-conversion">Boolean Conversion</h2>
+<p>Boolean conversion is the simplest one.</p>
+<p>It happens in logical operations (later we’ll meet condition tests and other similar things) but can also be performed explicitly with a call to <code>Boolean(value)</code>.</p>
+<p>The conversion rule:</p>
+<ul>
+<li>Values that are intuitively “empty”, like <code>0</code>, an empty string, <code>null</code>, <code>undefined</code>, and <code>NaN</code>, become <code>false</code>.</li>
+<li>Other values become <code>true</code>.</li>
+</ul>
+<p>For instance:</p>
+<p>```js run alert( Boolean(1) ); // true alert( Boolean(0) ); // false</p>
+<p>alert( Boolean(“hello”) ); // true alert( Boolean("") ); // false ```</p>
+<p>```<code>warn header="Please note: the string with zero</code>"0"<code>is</code>true<code>" Some languages (namely PHP) treat</code>“0”<code>as</code>false<code>. But in JavaScript, a non-empty string is always</code>true`.</p>
+<p><code>js run alert( Boolean("0") ); // true alert( Boolean(" ") ); // spaces, also true (any non-empty string is true)</code> ````</p>
+<h2 id="summary">Summary</h2>
+<p>The three most widely used type conversions are to string, to number, and to boolean.</p>
+<p><strong><code>String Conversion</code></strong> – Occurs when we output something. Can be performed with <code>String(value)</code>. The conversion to string is usually obvious for primitive values.</p>
+<p><strong><code>Numeric Conversion</code></strong> – Occurs in math operations. Can be performed with <code>Number(value)</code>.</p>
+<p>The conversion follows the rules:</p>
+<table>
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Value</th>
+<th>Becomes…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>undefined</code></td>
+<td><code>NaN</code></td>
+</tr>
+<tr class="even">
+<td><code>null</code></td>
+<td><code>0</code></td>
+</tr>
+<tr class="odd">
+<td><code>true / false</code></td>
+<td><code>1 / 0</code></td>
+</tr>
+<tr class="even">
+<td><code>string</code></td>
+<td>The string is read “as is”, whitespaces from both sides are ignored. An empty string becomes <code>0</code>. An error gives <code>NaN</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>Boolean Conversion</code></strong> – Occurs in logical operations. Can be performed with <code>Boolean(value)</code>.</p>
+<p>Follows the rules:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Value</th>
+<th>Becomes…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>0</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code>, <code>""</code></td>
+<td><code>false</code></td>
+</tr>
+<tr class="even">
+<td>any other value</td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<p>Most of these rules are easy to understand and memorize. The notable exceptions where people usually make mistakes are:</p>
+<ul>
+<li><code>undefined</code> is <code>NaN</code> as a number, not <code>0</code>.</li>
+<li><code>"0"</code> and space-only strings like <code>"   "</code> are true as a boolean.</li>
+</ul>
+<p>Objects aren’t covered here. We’ll return to them later in the chapter <a href="info:object-toprimitive" class="uri">info:object-toprimitive</a> that is devoted exclusively to objects after we learn more basic things about JavaScript.</p>

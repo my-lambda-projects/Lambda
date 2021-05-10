@@ -1,0 +1,6 @@
+<p>The answer: <code>null</code>.</p>
+<p>```js run function f() { alert( this ); // null }</p>
+<p>let user = { g: f.bind(null) };</p>
+<p>user.g(); ```</p>
+<p>The context of a bound function is hard-fixed. There’s just no way to further change it.</p>
+<p>So even while we run <code>user.g()</code>, the original function is called with <code>this=null</code>.</p>

@@ -1,0 +1,22 @@
+<p>importance: 1</p>
+<hr />
+<h1 id="why-does-aaa-remain">Why does “aaa” remain?</h1>
+<p>In the example below, the call <code>table.remove()</code> removes the table from the document.</p>
+<p>But if you run it, you can see that the text <code>"aaa"</code> is still visible.</p>
+<p>Why does that happen?</p>
+```html height=100 run
+<table id="table">
+aaa
+<tr>
+<td>
+Test
+</td>
+</tr>
+</table>
+<script>
+  alert(table); // the table, as it should be
+
+  table.remove();
+  // why there's still aaa in the document?
+</script>
+<p>```</p>

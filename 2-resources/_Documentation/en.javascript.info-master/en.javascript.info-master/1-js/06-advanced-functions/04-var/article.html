@@ -1,0 +1,112 @@
+<h1 id="the-old-var">The old “var”</h1>
+<p>```smart header=“This article is for understanding old scripts” The information in this article is useful for understanding old scripts.</p>
+<p>That’s not how we write a new code. ```</p>
+<p>In the very first chapter about <a href="info:variables">variables</a>, we mentioned three ways of variable declaration:</p>
+<ol type="1">
+<li><code>let</code></li>
+<li><code>const</code></li>
+<li><code>var</code></li>
+</ol>
+<p>The <code>var</code> declaration is similar to <code>let</code>. Most of the time we can replace <code>let</code> by <code>var</code> or vice-versa and expect things to work:</p>
+<p><code>js run var message = "Hi"; alert(message); // Hi</code></p>
+<p>But internally <code>var</code> is a very different beast, that originates from very old times. It’s generally not used in modern scripts, but still lurks in the old ones.</p>
+<p>If you don’t plan on meeting such scripts you may even skip this chapter or postpone it.</p>
+<p>On the other hand, it’s important to understand differences when migrating old scripts from <code>var</code> to <code>let</code>, to avoid odd errors.</p>
+<h2 id="var-has-no-block-scope">“var” has no block scope</h2>
+<p>Variables, declared with <code>var</code>, are either function-scoped or global-scoped. They are visible through blocks.</p>
+<p>For instance:</p>
+<p>```js run if (true) { var test = true; // use “var” instead of “let” }</p>
+<p><em>!</em> alert(test); // true, the variable lives after if <em>/!</em> ```</p>
+<p>As <code>var</code> ignores code blocks, we’ve got a global variable <code>test</code>.</p>
+<p>If we used <code>let test</code> instead of <code>var test</code>, then the variable would only be visible inside <code>if</code>:</p>
+<p>```js run if (true) { let test = true; // use “let” }</p>
+<p><em>!</em> alert(test); // ReferenceError: test is not defined <em>/!</em> ```</p>
+<p>The same thing for loops: <code>var</code> cannot be block- or loop-local:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">var</span> one <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-5" title="5"></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="at">alert</span>(i)<span class="op">;</span>   <span class="co">// 10, &quot;i&quot; is visible after loop, it&#39;s a global variable</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="at">alert</span>(one)<span class="op">;</span> <span class="co">// 1, &quot;one&quot; is visible after loop, it&#39;s a global variable</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a></code></pre></div>
+<p>If a code block is inside a function, then <code>var</code> becomes a function-level variable:</p>
+<p>```js run function sayHi() { if (true) { var phrase = “Hello”; }</p>
+<p>alert(phrase); // works }</p>
+<p>sayHi(); alert(phrase); // ReferenceError: phrase is not defined ```</p>
+<p>As we can see, <code>var</code> pierces through <code>if</code>, <code>for</code> or other code blocks. That’s because a long time ago in JavaScript, blocks had no Lexical Environments, and <code>var</code> is a remnant of that.</p>
+<h2 id="var-tolerates-redeclarations">“var” tolerates redeclarations</h2>
+<p>If we declare the same variable with <code>let</code> twice in the same scope, that’s an error:</p>
+<p><code>js run let user; let user; // SyntaxError: 'user' has already been declared</code></p>
+<p>With <code>var</code>, we can redeclare a variable any number of times. If we use <code>var</code> with an already-declared variable, it’s just ignored:</p>
+<p>```js run var user = “Pete”;</p>
+<p>var user = “John”; // this “var” does nothing (already declared) // …it doesn’t trigger an error</p>
+<p>alert(user); // John ```</p>
+<h2 id="var-variables-can-be-declared-below-their-use">“var” variables can be declared below their use</h2>
+<p><code>var</code> declarations are processed when the function starts (or script starts for globals).</p>
+<p>In other words, <code>var</code> variables are defined from the beginning of the function, no matter where the definition is (assuming that the definition is not in the nested function).</p>
+<p>So this code:</p>
+<p>```js run function sayHi() { phrase = “Hello”;</p>
+<p>alert(phrase);</p>
+<p><em>!</em> var phrase; <em>/!</em> } sayHi(); ```</p>
+<p>…Is technically the same as this (moved <code>var phrase</code> above):</p>
+<p>```js run function sayHi() { <em>!</em> var phrase; <em>/!</em></p>
+<p>phrase = “Hello”;</p>
+<p>alert(phrase); } sayHi(); ```</p>
+<p>…Or even as this (remember, code blocks are ignored):</p>
+<p>```js run function sayHi() { phrase = “Hello”; // (*)</p>
+<p><em>!</em> if (false) { var phrase; } <em>/!</em></p>
+<p>alert(phrase); } sayHi(); ```</p>
+<p>People also call such behavior “hoisting” (raising), because all <code>var</code> are “hoisted” (raised) to the top of the function.</p>
+<p>So in the example above, <code>if (false)</code> branch never executes, but that doesn’t matter. The <code>var</code> inside it is processed in the beginning of the function, so at the moment of <code>(*)</code> the variable exists.</p>
+<p><strong>Declarations are hoisted, but assignments are not.</strong></p>
+<p>That’s best demonstrated with an example:</p>
+<p>```js run function sayHi() { alert(phrase);</p>
+<p><em>!</em> var phrase = “Hello”; <em>/!</em> }</p>
+<p>sayHi(); ```</p>
+<p>The line <code>var phrase = "Hello"</code> has two actions in it:</p>
+<ol type="1">
+<li>Variable declaration <code>var</code></li>
+<li>Variable assignment <code>=</code>.</li>
+</ol>
+<p>The declaration is processed at the start of function execution (“hoisted”), but the assignment always works at the place where it appears. So the code works essentially like this:</p>
+<p>```js run function sayHi() { <em>!</em> var phrase; // declaration works at the start… <em>/!</em></p>
+<p>alert(phrase); // undefined</p>
+<p><em>!</em> phrase = “Hello”; // …assignment - when the execution reaches it. <em>/!</em> }</p>
+<p>sayHi(); ```</p>
+<p>Because all <code>var</code> declarations are processed at the function start, we can reference them at any place. But variables are undefined until the assignments.</p>
+<p>In both examples above, <code>alert</code> runs without an error, because the variable <code>phrase</code> exists. But its value is not yet assigned, so it shows <code>undefined</code>.</p>
+<h2 id="iife">IIFE</h2>
+<p>In the past, as there was only <code>var</code>, and it has no block-level visibility, programmers invented a way to emulate it. What they did was called “immediately-invoked function expressions” (abbreviated as IIFE).</p>
+<p>That’s not something we should use nowadays, but you can find them in old scripts.</p>
+<p>An IIFE looks like this:</p>
+<p>```js run (function() {</p>
+<p>var message = “Hello”;</p>
+<p>alert(message); // Hello</p>
+<p>})(); ```</p>
+<p>Here, a Function Expression is created and immediately called. So the code executes right away and has its own private variables.</p>
+<p>The Function Expression is wrapped with parenthesis <code>(function {...})</code>, because when JavaScript engine encounters <code>"function"</code> in the main code, it understands it as the start of a Function Declaration. But a Function Declaration must have a name, so this kind of code will give an error:</p>
+<p>```js run // Tries to declare and immediately call a function function() { // &lt;– SyntaxError: Function statements require a function name</p>
+<p>var message = “Hello”;</p>
+<p>alert(message); // Hello</p>
+<p>}(); ```</p>
+<p>Even if we say: “okay, let’s add a name”, that won’t work, as JavaScript does not allow Function Declarations to be called immediately:</p>
+<p>```js run // syntax error because of parentheses below function go() {</p>
+<p>}(); // &lt;– can’t call Function Declaration immediately ```</p>
+<p>So, the parentheses around the function is a trick to show JavaScript that the function is created in the context of another expression, and hence it’s a Function Expression: it needs no name and can be called immediately.</p>
+<p>There exist other ways besides parentheses to tell JavaScript that we mean a Function Expression:</p>
+<p>```js run // Ways to create IIFE</p>
+<p>(function() { alert(“Parentheses around the function”); }<em>!</em>)<em>/!</em>();</p>
+<p>(function() { alert(“Parentheses around the whole thing”); }()<em>!</em>)<em>/!</em>;</p>
+<p><em>!</em>!<em>/!</em>function() { alert(“Bitwise NOT operator starts the expression”); }();</p>
+<p><em>!</em>+<em>/!</em>function() { alert(“Unary plus starts the expression”); }(); ```</p>
+<p>In all the above cases we declare a Function Expression and run it immediately. Let’s note again: nowadays there’s no reason to write such code.</p>
+<h2 id="summary">Summary</h2>
+<p>There are two main differences of <code>var</code> compared to <code>let/const</code>:</p>
+<ol type="1">
+<li><code>var</code> variables have no block scope, their visibility is scoped to current function, or global, if declared outside function.</li>
+<li><code>var</code> declarations are processed at function start (script start for globals).</li>
+</ol>
+<p>There’s one more very minor difference related to the global object, that we’ll cover in the next chapter.</p>
+<p>These differences make <code>var</code> worse than <code>let</code> most of the time. Block-level variables is such a great thing. That’s why <code>let</code> was introduced in the standard long ago, and is now a major way (along with <code>const</code>) to declare a variable.</p>

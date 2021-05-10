@@ -1,0 +1,25 @@
+<h1 id="word-boundary-word-boundary-patternb-is-a-test-just-like-pattern-and-pattern.">Word boundary:  word boundary <code>pattern:\b</code> is a test, just like <code>pattern:^</code> and <code>pattern:$</code>.</h1>
+<p>When the regexp engine (program module that implements searching for regexps) comes across <code>pattern:\b</code>, it checks that the position in the string is a word boundary.</p>
+<p>There are three different positions that qualify as word boundaries:</p>
+<ul>
+<li>At string start, if the first string character is a word character <code>pattern:\w</code>.</li>
+<li>Between two characters in the string, where one is a word character <code>pattern:\w</code> and the other is not.</li>
+<li>At string end, if the last string character is a word character <code>pattern:\w</code>.</li>
+</ul>
+<p>For instance, regexp <code>pattern:\bJava\b</code> will be found in <code>subject:Hello, Java!</code>, where <code>subject:Java</code> is a standalone word, but not in <code>subject:Hello, JavaScript!</code>.</p>
+<p><code>js run alert( "Hello, Java!".match(/\bJava\b/) ); // Java alert( "Hello, JavaScript!".match(/\bJava\b/) ); // null</code></p>
+<p>In the string <code>subject:Hello, Java!</code> following positions correspond to <code>pattern:\b</code>:</p>
+<p><img src="hello-java-boundaries.svg" /></p>
+<p>So, it matches the pattern <code>pattern:\bHello\b</code>, because:</p>
+<ol type="1">
+<li>At the beginning of the string matches the first test <code>pattern:\b</code>.</li>
+<li>Then matches the word <code>pattern:Hello</code>.</li>
+<li>Then the test <code>pattern:\b</code> matches again, as we’re between <code>subject:o</code> and a comma.</li>
+</ol>
+<p>So the pattern <code>pattern:\bHello\b</code> would match, but not <code>pattern:\bHell\b</code> (because there’s no word boundary after <code>l</code>) and not <code>Java!\b</code> (because the exclamation sign is not a wordly character <code>pattern:\w</code>, so there’s no word boundary after it).</p>
+<p><code>js run alert( "Hello, Java!".match(/\bHello\b/) ); // Hello alert( "Hello, Java!".match(/\bJava\b/) );  // Java alert( "Hello, Java!".match(/\bHell\b/) );  // null (no match) alert( "Hello, Java!".match(/\bJava!\b/) ); // null (no match)</code></p>
+<p>We can use <code>pattern:\b</code> not only with words, but with digits as well.</p>
+<p>For example, the pattern <code>pattern:\b\d\d\b</code> looks for standalone 2-digit numbers. In other words, it looks for 2-digit numbers that are surrounded by characters different from <code>pattern:\w</code>, such as spaces or punctuation (or text start/end).</p>
+<p><code>js run alert( "1 23 456 78".match(/\b\d\d\b/g) ); // 23,78 alert( "12,34,56".match(/\b\d\d\b/g) ); // 12,34,56</code></p>
+<p>``<code>warn header="Word boundary</code>pattern: doesn’t work for non-latin alphabets" The word boundary test <code>pattern:\b</code> checks that there should be <code>pattern:\w</code> on the one side from the position and “not <code>pattern:\w</code>” - on the other side.</p>
+<p>But <code>pattern:\w</code> means a latin letter <code>a-z</code> (or a digit or an underscore), so the test doesn’t work for other characters, e.g. cyrillic letters or hieroglyphs. ```</p>

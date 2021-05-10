@@ -1,0 +1,15 @@
+<h1 id="find-quoted-strings">Find quoted strings</h1>
+<p>Create a regexp to find strings in double quotes <code>subject:"..."</code>.</p>
+<p>The strings should support escaping, the same way as JavaScript strings do. For instance, quotes can be inserted as <code>subject:\"</code> a newline as <code>subject:\n</code>, and the slash itself as <code>subject:\\</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> str <span class="op">=</span> <span class="st">&quot;Just like </span><span class="sc">\&quot;</span><span class="st">here</span><span class="sc">\&quot;</span><span class="st">.&quot;</span><span class="op">;</span></a></code></pre></div>
+<p>Please note, in particular, that an escaped quote <code>subject:\"</code> does not end a string.</p>
+<p>So we should search from one quote to the other ignoring escaped quotes on the way.</p>
+<p>That’s the essential part of the task, otherwise it would be trivial.</p>
+<p>Examples of strings to match:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1">.. <span class="op">*!*</span><span class="st">&quot;test me&quot;</span><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span><span class="ss"> ..  </span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="ss">.. </span><span class="sc">*</span><span class="ss">!</span><span class="sc">*</span><span class="ss">&quot;Say </span><span class="sc">\&quot;</span><span class="ss">Hello</span><span class="sc">\&quot;</span><span class="ss">!&quot;</span><span class="sc">*</span><span class="ss">/</span><span class="op">!*</span> ... (escaped quotes inside)</a>
+<a class="sourceLine" id="cb2-3" title="3">.. <span class="op">*!*</span><span class="st">&quot;</span><span class="sc">\\</span><span class="st">&quot;</span><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span><span class="ss"> ..  </span><span class="sc">(</span><span class="ss">double slash inside</span><span class="sc">)</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="ss">.. </span><span class="sc">*</span><span class="ss">!</span><span class="sc">*</span><span class="ss">&quot;</span><span class="sc">\\</span><span class="ss"> </span><span class="sc">\&quot;</span><span class="ss">&quot;</span><span class="sc">*</span><span class="ss">/</span><span class="op">!*</span> ..  (double slash and an escaped quote inside)</a></code></pre></div>
+<p>In JavaScript we need to double the slashes to pass them right into the string, like this:</p>
+<p>```js run let str = ’ .. “test me” .. “Say \”Hello\“!” .. “\\ \”" .. ’;</p>
+<p>// the in-memory string alert(str); // .. “test me” .. “Say "Hello"!” .. “\ "” .. ```</p>

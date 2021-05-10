@@ -1,0 +1,47 @@
+<p>First, let’s see why the latter code doesn’t work.</p>
+<p>The reason becomes obvious if we try to run it. An inheriting class constructor must call <code>super()</code>. Otherwise <code>"this"</code> won’t be “defined”.</p>
+<p>So here’s the fix:</p>
+<p>```js run class Rabbit extends Object { constructor(name) { <em>!</em> super(); // need to call the parent constructor when inheriting <em>/!</em> this.name = name; } }</p>
+<p>let rabbit = new Rabbit(“Rab”);</p>
+<p>alert( rabbit.hasOwnProperty(‘name’) ); // true ```</p>
+<p>But that’s not all yet.</p>
+<p>Even after the fix, there’s still important difference in <code>"class Rabbit extends Object"</code> versus <code>class Rabbit</code>.</p>
+<p>As we know, the “extends” syntax sets up two prototypes:</p>
+<ol type="1">
+<li>Between <code>"prototype"</code> of the constructor functions (for methods).</li>
+<li>Between the constructor functions themselves (for static methods).</li>
+</ol>
+<p>In our case, for <code>class Rabbit extends Object</code> it means:</p>
+<p>```js run class Rabbit extends Object {}</p>
+<p>alert( Rabbit.prototype.__proto__ === Object.prototype ); // (1) true alert( Rabbit.__proto__ === Object ); // (2) true ```</p>
+<p>So <code>Rabbit</code> now provides access to static methods of <code>Object</code> via <code>Rabbit</code>, like this:</p>
+<p>```js run class Rabbit extends Object {}</p>
+<p><em>!</em> // normally we call Object.getOwnPropertyNames alert ( Rabbit.getOwnPropertyNames({a: 1, b: 2})); // a,b <em>/!</em> ```</p>
+<p>But if we don’t have <code>extends Object</code>, then <code>Rabbit.__proto__</code> is not set to <code>Object</code>.</p>
+<p>Here’s the demo:</p>
+<p>```js run class Rabbit {}</p>
+<p>alert( Rabbit.prototype.__proto__ === Object.prototype ); // (1) true alert( Rabbit.__proto__ === Object ); // (2) false (!) alert( Rabbit.__proto__ === Function.prototype ); // as any function by default</p>
+<p><em>!</em> // error, no such function in Rabbit alert ( Rabbit.getOwnPropertyNames({a: 1, b: 2})); // Error <em>/!</em> ```</p>
+<p>So <code>Rabbit</code> doesn’t provide access to static methods of <code>Object</code> in that case.</p>
+<p>By the way, <code>Function.prototype</code> has “generic” function methods, like <code>call</code>, <code>bind</code> etc. They are ultimately available in both cases, because for the built-in <code>Object</code> constructor, <code>Object.__proto__ === Function.prototype</code>.</p>
+<p>Here’s the picture:</p>
+<p><img src="rabbit-extends-object.svg" /></p>
+<p>So, to put it short, there are two differences:</p>
+<table>
+<thead>
+<tr class="header">
+<th>class Rabbit</th>
+<th>class Rabbit extends Object</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>–</td>
+<td>needs to call <code>super()</code> in constructor</td>
+</tr>
+<tr class="even">
+<td><code>Rabbit.__proto__ === Function.prototype</code></td>
+<td><code>Rabbit.__proto__ === Object</code></td>
+</tr>
+</tbody>
+</table>

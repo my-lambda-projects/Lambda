@@ -1,0 +1,12 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="fix-a-function-that-loses-this">Fix a function that loses “this”</h1>
+<p>The call to <code>askPassword()</code> in the code below should check the password and then call <code>user.loginOk/loginFail</code> depending on the answer.</p>
+<p>But it leads to an error. Why?</p>
+<p>Fix the highlighted line for everything to start working right (other lines are not to be changed).</p>
+<p>```js run function askPassword(ok, fail) { let password = prompt(“Password?”, ’’); if (password == “rockstar”) ok(); else fail(); }</p>
+<p>let user = { name: ‘John’,</p>
+<p>loginOk() { alert(<code>${this.name} logged in</code>); },</p>
+<p>loginFail() { alert(<code>${this.name} failed to log in</code>); },</p>
+<p>};</p>
+<p><em>!</em> askPassword(user.loginOk, user.loginFail); <em>/!</em> ```</p>

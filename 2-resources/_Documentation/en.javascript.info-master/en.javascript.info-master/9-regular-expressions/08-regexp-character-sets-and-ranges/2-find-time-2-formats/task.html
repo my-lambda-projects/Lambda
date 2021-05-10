@@ -1,0 +1,6 @@
+<h1 id="find-the-time-as-hhmm-or-hh-mm">Find the time as hh:mm or hh-mm</h1>
+<p>The time can be in the format <code>hours:minutes</code> or <code>hours-minutes</code>. Both hours and minutes have 2 digits: <code>09:00</code> or <code>21-30</code>.</p>
+<p>Write a regexp to find time:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> regexp <span class="op">=</span> <span class="ss">/your regexp/g</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="at">alert</span>( <span class="st">&quot;Breakfast at 09:00. Dinner at 21-30&quot;</span>.<span class="at">match</span>(regexp) )<span class="op">;</span> <span class="co">// 09:00, 21-30</span></a></code></pre></div>
+<p>P.S. In this task we assume that the time is always correct, there’s no need to filter out bad strings like “45:67”. Later we’ll deal with that too.</p>

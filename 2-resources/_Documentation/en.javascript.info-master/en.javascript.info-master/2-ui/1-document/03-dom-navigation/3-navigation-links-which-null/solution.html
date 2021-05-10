@@ -1,0 +1,6 @@
+<ol type="1">
+<li>Yes, true. The element <code>elem.lastChild</code> is always the last one, it has no <code>nextSibling</code>.</li>
+<li>No, wrong, because <code>elem.children[0]</code> is the first child <em>among elements</em>. But there may exist non-element nodes before it. So <code>previousSibling</code> may be a text node.</li>
+</ol>
+<p>Please note: for both cases if there are no children, then there will be an error.</p>
+<p>If there are no children, <code>elem.lastChild</code> is <code>null</code>, so we can’t access <code>elem.lastChild.nextSibling</code>. And the collection <code>elem.children</code> is empty (like an empty array <code>[]</code>).</p>

@@ -1,0 +1,6 @@
+<p>Yes, it’s possible.</p>
+<p>If a function returns an object then <code>new</code> returns it instead of <code>this</code>.</p>
+<p>So they can, for instance, return the same externally defined object <code>obj</code>:</p>
+<p>```js run no-beautify let obj = {};</p>
+<p>function A() { return obj; } function B() { return obj; }</p>
+<p>alert( new A() == new B() ); // true ```</p>

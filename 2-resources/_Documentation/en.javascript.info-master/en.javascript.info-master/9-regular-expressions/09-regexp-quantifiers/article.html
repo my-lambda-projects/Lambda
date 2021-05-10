@@ -1,0 +1,71 @@
+<h1 id="quantifiers-and-n">Quantifiers +, *, ? and {n}</h1>
+<p>Let’s say we have a string like <code>+7(903)-123-45-67</code> and want to find all numbers in it. But unlike before, we are interested not in single digits, but full numbers: <code>7, 903, 123, 45, 67</code>.</p>
+<p>A number is a sequence of 1 or more digits <code>pattern:\d</code>. To mark how many we need, we can append a <em>quantifier</em>.</p>
+<h2 id="quantity-n">Quantity {n}</h2>
+<p>The simplest quantifier is a number in curly braces: <code>pattern:{n}</code>.</p>
+<p>A quantifier is appended to a character (or a character class, or a <code>[...]</code> set etc) and specifies how many we need.</p>
+<p>It has a few advanced forms, let’s see examples:</p>
+<dl>
+<dt>The exact count: <code>pattern:{5}</code></dt>
+<dd><p><code>pattern:\d{5}</code> denotes exactly 5 digits, the same as <code>pattern:\d\d\d\d\d</code>.</p>
+<p>The example below looks for a 5-digit number:</p>
+<p><code>js run alert( "I'm 12345 years old".match(/\d{5}/) ); //  "12345"</code></p>
+<p>We can add <code>\b</code> to exclude longer numbers: <code>pattern:\b\d{5}\b</code>.</p>
+</dd>
+<dt>The range: <code>pattern:{3,5}</code>, match 3-5 times</dt>
+<dd><p>To find numbers from 3 to 5 digits we can put the limits into curly braces: <code>pattern:\d{3,5}</code></p>
+<p><code>js run alert( "I'm not 12, but 1234 years old".match(/\d{3,5}/) ); // "1234"</code></p>
+<p>We can omit the upper limit.</p>
+<p>Then a regexp <code>pattern:\d{3,}</code> looks for sequences of digits of length <code>3</code> or more:</p>
+<p><code>js run alert( "I'm not 12, but 345678 years old".match(/\d{3,}/) ); // "345678"</code></p>
+</dd>
+</dl>
+<p>Let’s return to the string <code>+7(903)-123-45-67</code>.</p>
+<p>A number is a sequence of one or more digits in a row. So the regexp is <code>pattern:\d{1,}</code>:</p>
+<p>```js run let str = “+7(903)-123-45-67”;</p>
+<p>let numbers = str.match(//g);</p>
+<p>alert(numbers); // 7,903,123,45,67 ```</p>
+<h2 id="shorthands">Shorthands</h2>
+<p>There are shorthands for most used quantifiers:</p>
+<dl>
+<dt><code>pattern:+</code></dt>
+<dd><p>Means “one or more”, the same as <code>pattern:{1,}</code>.</p>
+<p>For instance, <code>pattern:\d+</code> looks for numbers:</p>
+<p>```js run let str = “+7(903)-123-45-67”;</p>
+<p>alert( str.match(//g) ); // 7,903,123,45,67 ```</p>
+</dd>
+<dt><code>pattern:?</code></dt>
+<dd><p>Means “zero or one”, the same as <code>pattern:{0,1}</code>. In other words, it makes the symbol optional.</p>
+<p>For instance, the pattern <code>pattern:ou?r</code> looks for <code>match:o</code> followed by zero or one <code>match:u</code>, and then <code>match:r</code>.</p>
+<p>So, <code>pattern:colou?r</code> finds both <code>match:color</code> and <code>match:colour</code>:</p>
+<p>```js run let str = “Should I write color or colour?”;</p>
+<p>alert( str.match(/colou?r/g) ); // color, colour ```</p>
+</dd>
+<dt><code>pattern:*</code></dt>
+<dd><p>Means “zero or more”, the same as <code>pattern:{0,}</code>. That is, the character may repeat any times or be absent.</p>
+<p>For example, <code>pattern:\d0*</code> looks for a digit followed by any number of zeroes (may be many or none):</p>
+<p><code>js run alert( "100 10 1".match(/\d0*/g) ); // 100, 10, 1</code></p>
+<p>Compare it with <code>pattern:+</code> (one or more):</p>
+<p><code>js run alert( "100 10 1".match(/\d0+/g) ); // 100, 10 // 1 not matched, as 0+ requires at least one zero</code></p>
+</dd>
+</dl>
+<h2 id="more-examples">More examples</h2>
+<p>Quantifiers are used very often. They serve as the main “building block” of complex regular expressions, so let’s see more examples.</p>
+<p><strong>Regexp for decimal fractions (a number with a floating point): <code>pattern:\d+\.\d+</code></strong></p>
+<p>In action: <code>js run alert( "0 1 12.345 7890".match(/\d+\.\d+/g) ); // 12.345</code></p>
+<p><strong>Regexp for an “opening HTML-tag without attributes”, such as <code>&lt;span&gt;</code> or <code>&lt;p&gt;</code>.</strong></p>
+<ol type="1">
+<li><p>The simplest one: <code>pattern:/&lt;[a-z]+&gt;/i</code></p>
+<p><code>js run  alert( "&lt;body&gt; ... &lt;/body&gt;".match(/&lt;[a-z]+&gt;/gi) ); // &lt;body&gt;</code></p>
+<p>The regexp looks for character <code>pattern:'&lt;'</code> followed by one or more Latin letters, and then <code>pattern:'&gt;'</code>.</p></li>
+<li><p>Improved: <code>pattern:/&lt;[a-z][a-z0-9]*&gt;/i</code></p>
+<p>According to the standard, HTML tag name may have a digit at any position except the first one, like <code>&lt;h1&gt;</code>.</p>
+<p><code>js run  alert( "&lt;h1&gt;Hi!&lt;/h1&gt;".match(/&lt;[a-z][a-z0-9]*&gt;/gi) ); // &lt;h1&gt;</code></p></li>
+</ol>
+<p><strong>Regexp “opening or closing HTML-tag without attributes”: <code>pattern:/&lt;\/?[a-z][a-z0-9]*&gt;/i</code></strong></p>
+<p>We added an optional slash <code>pattern:/?</code> near the beginning of the pattern. Had to escape it with a backslash, otherwise JavaScript would think it is the pattern end.</p>
+<p><code>js run alert( "&lt;h1&gt;Hi!&lt;/h1&gt;".match(/&lt;\/?[a-z][a-z0-9]*&gt;/gi) ); // &lt;h1&gt;, &lt;/h1&gt;</code></p>
+<p>```smart header=“To make a regexp more precise, we often need make it more complex” We can see one common rule in these examples: the more precise is the regular expression – the longer and more complex it is.</p>
+<p>For instance, for HTML tags we could use a simpler regexp: <code>pattern:&lt;\w+&gt;</code>. But as HTML has stricter restrictions for a tag name, <code>pattern:&lt;[a-z][a-z0-9]*&gt;</code> is more reliable.</p>
+<p>Can we use <code>pattern:&lt;\w+&gt;</code> or we need <code>pattern:&lt;[a-z][a-z0-9]*&gt;</code>?</p>
+<p>In real life both variants are acceptable. Depends on how tolerant we can be to “extra” matches and whether it’s difficult or not to remove them from the result by other means. ```</p>

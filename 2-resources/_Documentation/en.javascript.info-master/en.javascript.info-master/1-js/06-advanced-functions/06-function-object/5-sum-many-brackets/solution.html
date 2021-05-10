@@ -1,0 +1,26 @@
+<ol type="1">
+<li>For the whole thing to work <em>anyhow</em>, the result of <code>sum</code> must be function.</li>
+<li>That function must keep in memory the current value between calls.</li>
+<li>According to the task, the function must become the number when used in <code>==</code>. Functions are objects, so the conversion happens as described in the chapter <a href="info:object-toprimitive" class="uri">info:object-toprimitive</a>, and we can provide our own method that returns the number.</li>
+</ol>
+<p>Now the code:</p>
+<p>```js demo run function sum(a) {</p>
+<p>let currentSum = a;</p>
+<p>function f(b) { currentSum += b; return f; }</p>
+<p>f.toString = function() { return currentSum; };</p>
+<p>return f; }</p>
+<p>alert( sum(1)(2) ); // 3 alert( sum(5)(-1)(2) ); // 6 alert( sum(6)(-1)(-2)(-3) ); // 0 alert( sum(0)(1)(2)(3)(4)(5) ); // 15 ```</p>
+<p>Please note that the <code>sum</code> function actually works only once. It returns function <code>f</code>.</p>
+<p>Then, on each subsequent call, <code>f</code> adds its parameter to the sum <code>currentSum</code>, and returns itself.</p>
+<p><strong>There is no recursion in the last line of <code>f</code>.</strong></p>
+<p>Here is what recursion looks like:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">f</span>(b) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  currentSum <span class="op">+=</span> b<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="cf">return</span> <span class="at">f</span>()<span class="op">;</span> <span class="co">// &lt;-- recursive call</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="op">}</span></a></code></pre></div>
+<p>And in our case, we just return the function, without calling it:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">function</span> <span class="at">f</span>(b) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  currentSum <span class="op">+=</span> b<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="cf">return</span> f<span class="op">;</span> <span class="co">// &lt;-- does not call itself, returns itself</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="op">}</span></a></code></pre></div>
+<p>This <code>f</code> will be used in the next call, again return itself, as many times as needed. Then, when used as a number or a string – the <code>toString</code> returns the <code>currentSum</code>. We could also use <code>Symbol.toPrimitive</code> or <code>valueOf</code> here for the conversion.</p>

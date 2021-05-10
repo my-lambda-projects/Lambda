@@ -1,0 +1,14 @@
+<h1 id="call-async-from-non-async">Call async from non-async</h1>
+<p>We have a “regular” function called <code>f</code>. How can you call the <code>async</code> function <code>wait()</code> and use its result inside of <code>f</code>?</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">async</span> <span class="kw">function</span> <span class="at">wait</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="cf">await</span> <span class="kw">new</span> <span class="at">Promise</span>(resolve <span class="kw">=&gt;</span> <span class="at">setTimeout</span>(resolve<span class="op">,</span> <span class="dv">1000</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="cf">return</span> <span class="dv">10</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="kw">function</span> <span class="at">f</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-8" title="8">  <span class="co">// ...what should you write here?</span></a>
+<a class="sourceLine" id="cb1-9" title="9">  <span class="co">// we need to call async wait() and wait to get 10</span></a>
+<a class="sourceLine" id="cb1-10" title="10">  <span class="co">// remember, we can&#39;t use &quot;await&quot;</span></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="op">}</span></a></code></pre></div>
+<p>P.S. The task is technically very simple, but the question is quite common for developers new to async/await.</p>

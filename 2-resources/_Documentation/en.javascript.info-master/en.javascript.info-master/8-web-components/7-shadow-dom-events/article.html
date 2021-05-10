@@ -1,0 +1,144 @@
+<h1 id="shadow-dom-and-events">Shadow DOM and events</h1>
+<p>The idea behind shadow tree is to encapsulate internal implementation details of a component.</p>
+<p>Let’s say, a click event happens inside a shadow DOM of <code>&lt;user-card&gt;</code> component. But scripts in the main document have no idea about the shadow DOM internals, especially if the component comes from a 3rd-party library.</p>
+<p>So, to keep the details encapsulated, the browser <em>retargets</em> the event.</p>
+<p><strong>Events that happen in shadow DOM have the host element as the target, when caught outside of the component.</strong></p>
+<p>Here’s a simple example:</p>
+<p>```html run autorun=“no-epub” untrusted height=60 <user-card></user-card></p>
+<script>
+customElements.define('user-card', class extends HTMLElement {
+  connectedCallback() {
+    this.attachShadow({mode: 'open'});
+    this.shadowRoot.innerHTML = `<p>
+      <button>Click me</button>
+    </p>`;
+    this.shadowRoot.firstElementChild.onclick =
+      e => alert("Inner target: " + e.target.tagName);
+  }
+});
+
+document.onclick =
+  e => alert("Outer target: " + e.target.tagName);
+</script>
+<p>```</p>
+<p>If you click on the button, the messages are:</p>
+<ol type="1">
+<li>Inner target: <code>BUTTON</code> – internal event handler gets the correct target, the element inside shadow DOM.</li>
+<li>Outer target: <code>USER-CARD</code> – document event handler gets shadow host as the target.</li>
+</ol>
+<p>Event retargeting is a great thing to have, because the outer document doesn’t have to know about component internals. From its point of view, the event happened on <code>&lt;user-card&gt;</code>.</p>
+<p><strong>Retargeting does not occur if the event occurs on a slotted element, that physically lives in the light DOM.</strong></p>
+<p>For example, if a user clicks on <code>&lt;span slot="username"&gt;</code> in the example below, the event target is exactly this <code>span</code> element, for both shadow and light handlers:</p>
+<p>```html run autorun=“no-epub” untrusted height=60 <user-card id="userCard"> <em>!</em> <span slot="username">John Smith</span> <em>/!</em> </user-card></p>
+<script>
+customElements.define('user-card', class extends HTMLElement {
+  connectedCallback() {
+    this.attachShadow({mode: 'open'});
+    this.shadowRoot.innerHTML = `<div>
+      <b>Name:</b> <slot name="username"></slot>
+    </div>`;
+
+    this.shadowRoot.firstElementChild.onclick =
+      e => alert("Inner target: " + e.target.tagName);
+  }
+});
+
+userCard.onclick = e => alert(`Outer target: ${e.target.tagName}`);
+</script>
+<p>```</p>
+<p>If a click happens on <code>"John Smith"</code>, for both inner and outer handlers the target is <code>&lt;span slot="username"&gt;</code>. That’s an element from the light DOM, so no retargeting.</p>
+<p>On the other hand, if the click occurs on an element originating from shadow DOM, e.g. on <code>&lt;b&gt;Name&lt;/b&gt;</code>, then, as it bubbles out of the shadow DOM, its <code>event.target</code> is reset to <code>&lt;user-card&gt;</code>.</p>
+<h2 id="bubbling-event.composedpath">Bubbling, event.composedPath()</h2>
+<p>For purposes of event bubbling, flattened DOM is used.</p>
+<p>So, if we have a slotted element, and an event occurs somewhere inside it, then it bubbles up to the <code>&lt;slot&gt;</code> and upwards.</p>
+<p>The full path to the original event target, with all the shadow elements, can be obtained using <code>event.composedPath()</code>. As we can see from the name of the method, that path is taken after the composition.</p>
+<p>In the example above, the flattened DOM is:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;user-card</span><span class="ot"> id=</span><span class="st">&quot;userCard&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  #shadow-root</a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;div&gt;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">      <span class="kw">&lt;b&gt;</span>Name:<span class="kw">&lt;/b&gt;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">      <span class="kw">&lt;slot</span><span class="ot"> name=</span><span class="st">&quot;username&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb1-6" title="6">        <span class="kw">&lt;span</span><span class="ot"> slot=</span><span class="st">&quot;username&quot;</span><span class="kw">&gt;</span>John Smith<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb1-7" title="7">      <span class="kw">&lt;/slot&gt;</span></a>
+<a class="sourceLine" id="cb1-8" title="8">    <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="kw">&lt;/user-card&gt;</span></a></code></pre></div>
+<p>So, for a click on <code>&lt;span slot="username"&gt;</code>, a call to <code>event.composedPath()</code> returns an array: [<code>span</code>, <code>slot</code>, <code>div</code>, <code>shadow-root</code>, <code>user-card</code>, <code>body</code>, <code>html</code>, <code>document</code>, <code>window</code>]. That’s exactly the parent chain from the target element in the flattened DOM, after the composition.</p>
+<p>``<code>warn header="Shadow tree details are only provided for</code>{mode:‘open’}<code>trees" If the shadow tree was created with</code>{mode: ‘closed’}<code>, then the composed path starts from the host:</code>user-card` and upwards.</p>
+<p>That’s the similar principle as for other methods that work with shadow DOM. Internals of closed trees are completely hidden. ```</p>
+<h2 id="event.composed">event.composed</h2>
+<p>Most events successfully bubble through a shadow DOM boundary. There are few events that do not.</p>
+<p>This is governed by the <code>composed</code> event object property. If it’s <code>true</code>, then the event does cross the boundary. Otherwise, it only can be caught from inside the shadow DOM.</p>
+<p>If you take a look at <a href="https://www.w3.org/TR/uievents">UI Events specification</a>, most events have <code>composed: true</code>:</p>
+<ul>
+<li><code>blur</code>, <code>focus</code>, <code>focusin</code>, <code>focusout</code>,</li>
+<li><code>click</code>, <code>dblclick</code>,</li>
+<li><code>mousedown</code>, <code>mouseup</code> <code>mousemove</code>, <code>mouseout</code>, <code>mouseover</code>,</li>
+<li><code>wheel</code>,</li>
+<li><code>beforeinput</code>, <code>input</code>, <code>keydown</code>, <code>keyup</code>.</li>
+</ul>
+<p>All touch events and pointer events also have <code>composed: true</code>.</p>
+<p>There are some events that have <code>composed: false</code> though:</p>
+<ul>
+<li><code>mouseenter</code>, <code>mouseleave</code> (they do not bubble at all),</li>
+<li><code>load</code>, <code>unload</code>, <code>abort</code>, <code>error</code>,</li>
+<li><code>select</code>,</li>
+<li><code>slotchange</code>.</li>
+</ul>
+<p>These events can be caught only on elements within the same DOM, where the event target resides.</p>
+<h2 id="custom-events">Custom events</h2>
+<p>When we dispatch custom events, we need to set both <code>bubbles</code> and <code>composed</code> properties to <code>true</code> for it to bubble up and out of the component.</p>
+<p>For example, here we create <code>div#inner</code> in the shadow DOM of <code>div#outer</code> and trigger two events on it. Only the one with <code>composed: true</code> makes it outside to the document:</p>
+```html run untrusted height=0
+<div id="outer">
+
+</div>
+<script>
+outer.attachShadow({mode: 'open'});
+
+let inner = document.createElement('div');
+outer.shadowRoot.append(inner);
+
+/*
+div(id=outer)
+  #shadow-dom
+    div(id=inner)
+*/
+
+document.addEventListener('test', event => alert(event.detail));
+
+inner.dispatchEvent(new CustomEvent('test', {
+  bubbles: true,
+*!*
+  composed: true,
+*/!*
+  detail: "composed"
+}));
+
+inner.dispatchEvent(new CustomEvent('test', {
+  bubbles: true,
+*!*
+  composed: false,
+*/!*
+  detail: "not composed"
+}));
+</script>
+<p>```</p>
+<h2 id="summary">Summary</h2>
+<p>Events only cross shadow DOM boundaries if their <code>composed</code> flag is set to <code>true</code>.</p>
+<p>Built-in events mostly have <code>composed: true</code>, as described in the relevant specifications:</p>
+<ul>
+<li>UI Events <a href="https://www.w3.org/TR/uievents" class="uri">https://www.w3.org/TR/uievents</a>.</li>
+<li>Touch Events <a href="https://w3c.github.io/touch-events" class="uri">https://w3c.github.io/touch-events</a>.</li>
+<li>Pointer Events <a href="https://www.w3.org/TR/pointerevents" class="uri">https://www.w3.org/TR/pointerevents</a>.</li>
+<li>…And so on.</li>
+</ul>
+<p>Some built-in events that have <code>composed: false</code>:</p>
+<ul>
+<li><code>mouseenter</code>, <code>mouseleave</code> (also do not bubble),</li>
+<li><code>load</code>, <code>unload</code>, <code>abort</code>, <code>error</code>,</li>
+<li><code>select</code>,</li>
+<li><code>slotchange</code>.</li>
+</ul>
+<p>These events can be caught only on elements within the same DOM.</p>
+<p>If we dispatch a <code>CustomEvent</code>, then we should explicitly set <code>composed: true</code>.</p>
+<p>Please note that in case of nested components, one shadow DOM may be nested into another. In that case composed events bubble through all shadow DOM boundaries. So, if an event is intended only for the immediate enclosing component, we can also dispatch it on the shadow host and set <code>composed: false</code>. Then it’s out of the component shadow DOM, but won’t bubble up to higher-level DOM.</p>

@@ -1,0 +1,202 @@
+<h1 id="introduction-callbacks">Introduction: callbacks</h1>
+<p>```warn header=“We use browser methods in examples here” To demonstrate the use of callbacks, promises and other abstract concepts, we’ll be using some browser methods: specifically, loading scripts and performing simple document manipulations.</p>
+<p>If you’re not familiar with these methods, and their usage in the examples is confusing, you may want to read a few chapters from the <a href="/document">next part</a> of the tutorial.</p>
+<p>Although, we’ll try to make things clear anyway. There won’t be anything really complex browser-wise. ```</p>
+<p>Many functions are provided by JavaScript host environments that allow you to schedule <em>asynchronous</em> actions. In other words, actions that we initiate now, but they finish later.</p>
+<p>For instance, one such function is the <code>setTimeout</code> function.</p>
+<p>There are other real-world examples of asynchronous actions, e.g. loading scripts and modules (we’ll cover them in later chapters).</p>
+<p>Take a look at the function <code>loadScript(src)</code>, that loads a script with the given <code>src</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">loadScript</span>(src) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="co">// creates a &lt;script&gt; tag and append it to the page</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="co">// this causes the script with given src to start loading and run when complete</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="kw">let</span> script <span class="op">=</span> <span class="va">document</span>.<span class="at">createElement</span>(<span class="st">&#39;script&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="va">script</span>.<span class="at">src</span> <span class="op">=</span> src<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6">  <span class="va">document</span>.<span class="va">head</span>.<span class="at">append</span>(script)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="op">}</span></a></code></pre></div>
+<p>It appends to the document the new, dynamically created, tag <code>&lt;script src="…"&gt;</code> with given <code>src</code>. The browser automatically starts loading it and executes when complete.</p>
+<p>We can use this function like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// load and execute the script at the given path</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">loadScript</span>(<span class="st">&#39;/my/script.js&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p>The script is executed “asynchronously”, as it starts loading now, but runs later, when the function has already finished.</p>
+<p>If there’s any code below <code>loadScript(…)</code>, it doesn’t wait until the script loading finishes.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">loadScript</span>(<span class="st">&#39;/my/script.js&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="co">// the code below loadScript</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="co">// doesn&#39;t wait for the script loading to finish</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="co">// ...</span></a></code></pre></div>
+<p>Let’s say we need to use the new script as soon as it loads. It declares new functions, and we want to run them.</p>
+<p>But if we do that immediately after the <code>loadScript(…)</code> call, that wouldn’t work:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">loadScript</span>(<span class="st">&#39;/my/script.js&#39;</span>)<span class="op">;</span> <span class="co">// the script has &quot;function newFunction() {…}&quot;</span></a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="at">newFunction</span>()<span class="op">;</span> <span class="co">// no such function!</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a></code></pre></div>
+<p>Naturally, the browser probably didn’t have time to load the script. As of now, the <code>loadScript</code> function doesn’t provide a way to track the load completion. The script loads and eventually runs, that’s all. But we’d like to know when it happens, to use new functions and variables from that script.</p>
+<p>Let’s add a <code>callback</code> function as a second argument to <code>loadScript</code> that should execute when the script loads:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">function</span> <span class="at">loadScript</span>(src<span class="op">,</span> <span class="op">*!*</span>callback<span class="op">*</span><span class="ss">/!</span><span class="sc">*)</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="ss">  let script = document.createElement</span><span class="sc">(</span><span class="ss">&#39;script&#39;</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="ss">  script.src = src;</span></a>
+<a class="sourceLine" id="cb5-4" title="4"></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="sc">*</span><span class="ss">!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="ss">  script.onload = </span><span class="sc">()</span><span class="ss"> =&gt; callback</span><span class="sc">(</span><span class="ss">script</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="sc">*</span><span class="ss">/</span><span class="op">!*</span></a>
+<a class="sourceLine" id="cb5-8" title="8"></a>
+<a class="sourceLine" id="cb5-9" title="9">  <span class="va">document</span>.<span class="va">head</span>.<span class="at">append</span>(script)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-10" title="10">}</a></code></pre></div>
+<p>Now if we want to call new functions from the script, we should write that in the callback:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="at">loadScript</span>(<span class="st">&#39;/my/script.js&#39;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="co">// the callback runs after the script is loaded</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  <span class="at">newFunction</span>()<span class="op">;</span> <span class="co">// so now it works</span></a>
+<a class="sourceLine" id="cb6-4" title="4">  ...</a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>That’s the idea: the second argument is a function (usually anonymous) that runs when the action is completed.</p>
+<p>Here’s a runnable example with a real script:</p>
+<p>```js run function loadScript(src, callback) { let script = document.createElement(‘script’); script.src = src; script.onload = () =&gt; callback(script); document.head.append(script); }</p>
+<p><em>!</em> loadScript(‘https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.2.0/lodash.js’, script =&gt; { alert(<code>Cool, the script ${script.src} is loaded</code>); alert( _ ); // function declared in the loaded script }); <em>/!</em> ```</p>
+<p>That’s called a “callback-based” style of asynchronous programming. A function that does something asynchronously should provide a <code>callback</code> argument where we put the function to run after it’s complete.</p>
+<p>Here we did it in <code>loadScript</code>, but of course it’s a general approach.</p>
+<h2 id="callback-in-callback">Callback in callback</h2>
+<p>How can we load two scripts sequentially: the first one, and then the second one after it?</p>
+<p>The natural solution would be to put the second <code>loadScript</code> call inside the callback, like this:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="at">loadScript</span>(<span class="st">&#39;/my/script.js&#39;</span><span class="op">,</span> <span class="kw">function</span>(script) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2"></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="at">alert</span>(<span class="vs">`Cool, the </span><span class="sc">${</span><span class="va">script</span>.<span class="at">src</span><span class="sc">}</span><span class="vs"> is loaded, let&#39;s load one more`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-4" title="4"></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb7-6" title="6">  <span class="at">loadScript</span>(<span class="st">&#39;/my/script2.js&#39;</span><span class="op">,</span> <span class="kw">function</span>(script) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-7" title="7">    <span class="at">alert</span>(<span class="vs">`Cool, the second script is loaded`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-8" title="8">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-9" title="9"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb7-10" title="10"></a>
+<a class="sourceLine" id="cb7-11" title="11"><span class="ss">}</span><span class="sc">)</span><span class="ss">;</span></a></code></pre></div>
+<p>After the outer <code>loadScript</code> is complete, the callback initiates the inner one.</p>
+<p>What if we want one more script…?</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="at">loadScript</span>(<span class="st">&#39;/my/script.js&#39;</span><span class="op">,</span> <span class="kw">function</span>(script) <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2"></a>
+<a class="sourceLine" id="cb8-3" title="3">  <span class="at">loadScript</span>(<span class="st">&#39;/my/script2.js&#39;</span><span class="op">,</span> <span class="kw">function</span>(script) <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-4" title="4"></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb8-6" title="6">    <span class="at">loadScript</span>(<span class="st">&#39;/my/script3.js&#39;</span><span class="op">,</span> <span class="kw">function</span>(script) <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-7" title="7">      <span class="co">// ...continue after all scripts are loaded</span></a>
+<a class="sourceLine" id="cb8-8" title="8">    <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb8-10" title="10"></a>
+<a class="sourceLine" id="cb8-11" title="11"><span class="ss">  }</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb8-12" title="12"></a>
+<a class="sourceLine" id="cb8-13" title="13"><span class="ss">}</span><span class="sc">)</span><span class="ss">;</span></a></code></pre></div>
+<p>So, every new action is inside a callback. That’s fine for few actions, but not good for many, so we’ll see other variants soon.</p>
+<h2 id="handling-errors">Handling errors</h2>
+<p>In the above examples we didn’t consider errors. What if the script loading fails? Our callback should be able to react on that.</p>
+<p>Here’s an improved version of <code>loadScript</code> that tracks loading errors:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">function</span> <span class="at">loadScript</span>(src<span class="op">,</span> callback) <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="kw">let</span> script <span class="op">=</span> <span class="va">document</span>.<span class="at">createElement</span>(<span class="st">&#39;script&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-3" title="3">  <span class="va">script</span>.<span class="at">src</span> <span class="op">=</span> src<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-4" title="4"></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb9-6" title="6">  <span class="va">script</span>.<span class="at">onload</span> <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="at">callback</span>(<span class="kw">null</span><span class="op">,</span> script)<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-7" title="7">  <span class="va">script</span>.<span class="at">onerror</span> <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="at">callback</span>(<span class="kw">new</span> <span class="at">Error</span>(<span class="vs">`Script load error for </span><span class="sc">${</span>src<span class="sc">}</span><span class="vs">`</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-8" title="8"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb9-9" title="9"></a>
+<a class="sourceLine" id="cb9-10" title="10"><span class="ss">  document.head.append</span><span class="sc">(</span><span class="ss">script</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb9-11" title="11"><span class="ss">}</span></a></code></pre></div>
+<p>It calls <code>callback(null, script)</code> for successful load and <code>callback(error)</code> otherwise.</p>
+<p>The usage:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="at">loadScript</span>(<span class="st">&#39;/my/script.js&#39;</span><span class="op">,</span> <span class="kw">function</span>(error<span class="op">,</span> script) <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-2" title="2">  <span class="cf">if</span> (error) <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-3" title="3">    <span class="co">// handle error</span></a>
+<a class="sourceLine" id="cb10-4" title="4">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-5" title="5">    <span class="co">// script loaded successfully</span></a>
+<a class="sourceLine" id="cb10-6" title="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb10-7" title="7"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>Once again, the recipe that we used for <code>loadScript</code> is actually quite common. It’s called the “error-first callback” style.</p>
+<p>The convention is: 1. The first argument of the <code>callback</code> is reserved for an error if it occurs. Then <code>callback(err)</code> is called. 2. The second argument (and the next ones if needed) are for the successful result. Then <code>callback(null, result1, result2…)</code> is called.</p>
+<p>So the single <code>callback</code> function is used both for reporting errors and passing back results.</p>
+<h2 id="pyramid-of-doom">Pyramid of Doom</h2>
+<p>From the first look, it’s a viable way of asynchronous coding. And indeed it is. For one or maybe two nested calls it looks fine.</p>
+<p>But for multiple asynchronous actions that follow one after another we’ll have code like this:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="at">loadScript</span>(<span class="st">&#39;1.js&#39;</span><span class="op">,</span> <span class="kw">function</span>(error<span class="op">,</span> script) <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-2" title="2"></a>
+<a class="sourceLine" id="cb11-3" title="3">  <span class="cf">if</span> (error) <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-4" title="4">    <span class="at">handleError</span>(error)<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-5" title="5">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-6" title="6">    <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb11-7" title="7">    <span class="at">loadScript</span>(<span class="st">&#39;2.js&#39;</span><span class="op">,</span> <span class="kw">function</span>(error<span class="op">,</span> script) <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-8" title="8">      <span class="cf">if</span> (error) <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-9" title="9">        <span class="at">handleError</span>(error)<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-10" title="10">      <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-11" title="11">        <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb11-12" title="12">        <span class="at">loadScript</span>(<span class="st">&#39;3.js&#39;</span><span class="op">,</span> <span class="kw">function</span>(error<span class="op">,</span> script) <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-13" title="13">          <span class="cf">if</span> (error) <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-14" title="14">            <span class="at">handleError</span>(error)<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-15" title="15">          <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-16" title="16">  <span class="op">*!*</span></a>
+<a class="sourceLine" id="cb11-17" title="17">            <span class="co">// ...continue after all scripts are loaded (*)</span></a>
+<a class="sourceLine" id="cb11-18" title="18">  <span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb11-19" title="19"><span class="ss">          }</span></a>
+<a class="sourceLine" id="cb11-20" title="20"><span class="ss">        }</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb11-21" title="21"></a>
+<a class="sourceLine" id="cb11-22" title="22"><span class="ss">      }</span></a>
+<a class="sourceLine" id="cb11-23" title="23"><span class="ss">    }</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb11-24" title="24"><span class="ss">  }</span></a>
+<a class="sourceLine" id="cb11-25" title="25"><span class="ss">}</span><span class="sc">)</span><span class="ss">;</span></a></code></pre></div>
+<p>In the code above: 1. We load <code>1.js</code>, then if there’s no error. 2. We load <code>2.js</code>, then if there’s no error. 3. We load <code>3.js</code>, then if there’s no error – do something else <code>(*)</code>.</p>
+<p>As calls become more nested, the code becomes deeper and increasingly more difficult to manage, especially if we have real code instead of <code>...</code> that may include more loops, conditional statements and so on.</p>
+<p>That’s sometimes called “callback hell” or “pyramid of doom.”</p>
+<!--
+loadScript('1.js', function(error, script) {
+  if (error) {
+    handleError(error);
+  } else {
+    // ...
+    loadScript('2.js', function(error, script) {
+      if (error) {
+        handleError(error);
+      } else {
+        // ...
+        loadScript('3.js', function(error, script) {
+          if (error) {
+            handleError(error);
+          } else {
+            // ...
+          }
+        });
+      }
+    });
+  }
+});
+-->
+<p><img src="callback-hell.svg" /></p>
+<p>The “pyramid” of nested calls grows to the right with every asynchronous action. Soon it spirals out of control.</p>
+<p>So this way of coding isn’t very good.</p>
+<p>We can try to alleviate the problem by making every action a standalone function, like this:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="at">loadScript</span>(<span class="st">&#39;1.js&#39;</span><span class="op">,</span> step1)<span class="op">;</span></a>
+<a class="sourceLine" id="cb12-2" title="2"></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="kw">function</span> <span class="at">step1</span>(error<span class="op">,</span> script) <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-4" title="4">  <span class="cf">if</span> (error) <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-5" title="5">    <span class="at">handleError</span>(error)<span class="op">;</span></a>
+<a class="sourceLine" id="cb12-6" title="6">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-7" title="7">    <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb12-8" title="8">    <span class="at">loadScript</span>(<span class="st">&#39;2.js&#39;</span><span class="op">,</span> step2)<span class="op">;</span></a>
+<a class="sourceLine" id="cb12-9" title="9">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb12-10" title="10"><span class="op">}</span></a>
+<a class="sourceLine" id="cb12-11" title="11"></a>
+<a class="sourceLine" id="cb12-12" title="12"><span class="kw">function</span> <span class="at">step2</span>(error<span class="op">,</span> script) <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-13" title="13">  <span class="cf">if</span> (error) <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-14" title="14">    <span class="at">handleError</span>(error)<span class="op">;</span></a>
+<a class="sourceLine" id="cb12-15" title="15">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-16" title="16">    <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb12-17" title="17">    <span class="at">loadScript</span>(<span class="st">&#39;3.js&#39;</span><span class="op">,</span> step3)<span class="op">;</span></a>
+<a class="sourceLine" id="cb12-18" title="18">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb12-19" title="19"><span class="op">}</span></a>
+<a class="sourceLine" id="cb12-20" title="20"></a>
+<a class="sourceLine" id="cb12-21" title="21"><span class="kw">function</span> <span class="at">step3</span>(error<span class="op">,</span> script) <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-22" title="22">  <span class="cf">if</span> (error) <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-23" title="23">    <span class="at">handleError</span>(error)<span class="op">;</span></a>
+<a class="sourceLine" id="cb12-24" title="24">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-25" title="25">    <span class="co">// ...continue after all scripts are loaded (*)</span></a>
+<a class="sourceLine" id="cb12-26" title="26">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb12-27" title="27"><span class="op">}</span></a></code></pre></div>
+<p>See? It does the same, and there’s no deep nesting now because we made every action a separate top-level function.</p>
+<p>It works, but the code looks like a torn apart spreadsheet. It’s difficult to read, and you probably noticed that one needs to eye-jump between pieces while reading it. That’s inconvenient, especially if the reader is not familiar with the code and doesn’t know where to eye-jump.</p>
+<p>Also, the functions named <code>step*</code> are all of single use, they are created only to avoid the “pyramid of doom.” No one is going to reuse them outside of the action chain. So there’s a bit of namespace cluttering here.</p>
+<p>We’d like to have something better.</p>
+<p>Luckily, there are other ways to avoid such pyramids. One of the best ways is to use “promises,” described in the next chapter.</p>

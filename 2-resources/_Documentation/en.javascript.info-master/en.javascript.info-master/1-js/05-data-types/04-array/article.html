@@ -1,0 +1,238 @@
+<h1 id="arrays">Arrays</h1>
+<p>Objects allow you to store keyed collections of values. That’s fine.</p>
+<p>But quite often we find that we need an <em>ordered collection</em>, where we have a 1st, a 2nd, a 3rd element and so on. For example, we need that to store a list of something: users, goods, HTML elements etc.</p>
+<p>It is not convenient to use an object here, because it provides no methods to manage the order of elements. We can’t insert a new property “between” the existing ones. Objects are just not meant for such use.</p>
+<p>There exists a special data structure named <code>Array</code>, to store ordered collections.</p>
+<h2 id="declaration">Declaration</h2>
+<p>There are two syntaxes for creating an empty array:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> arr <span class="op">=</span> <span class="kw">new</span> <span class="at">Array</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">let</span> arr <span class="op">=</span> []<span class="op">;</span></a></code></pre></div>
+<p>Almost all the time, the second syntax is used. We can supply initial elements in the brackets:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> fruits <span class="op">=</span> [<span class="st">&quot;Apple&quot;</span><span class="op">,</span> <span class="st">&quot;Orange&quot;</span><span class="op">,</span> <span class="st">&quot;Plum&quot;</span>]<span class="op">;</span></a></code></pre></div>
+<p>Array elements are numbered, starting with zero.</p>
+<p>We can get an element by its number in square brackets:</p>
+<p>```js run let fruits = [“Apple”, “Orange”, “Plum”];</p>
+<p>alert( fruits[0] ); // Apple alert( fruits[1] ); // Orange alert( fruits[2] ); // Plum ```</p>
+<p>We can replace an element:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">fruits[<span class="dv">2</span>] <span class="op">=</span> <span class="st">&#39;Pear&#39;</span><span class="op">;</span> <span class="co">// now [&quot;Apple&quot;, &quot;Orange&quot;, &quot;Pear&quot;]</span></a></code></pre></div>
+<p>…Or add a new one to the array:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1">fruits[<span class="dv">3</span>] <span class="op">=</span> <span class="st">&#39;Lemon&#39;</span><span class="op">;</span> <span class="co">// now [&quot;Apple&quot;, &quot;Orange&quot;, &quot;Pear&quot;, &quot;Lemon&quot;]</span></a></code></pre></div>
+<p>The total count of the elements in the array is its <code>length</code>:</p>
+<p>```js run let fruits = [“Apple”, “Orange”, “Plum”];</p>
+<p>alert( fruits.length ); // 3 ```</p>
+<p>We can also use <code>alert</code> to show the whole array.</p>
+<p>```js run let fruits = [“Apple”, “Orange”, “Plum”];</p>
+<p>alert( fruits ); // Apple,Orange,Plum ```</p>
+<p>An array can store elements of any type.</p>
+<p>For instance:</p>
+<p>```js run no-beautify // mix of values let arr = [ ‘Apple’, { name: ‘John’ }, true, function() { alert(‘hello’); } ];</p>
+<p>// get the object at index 1 and then show its name alert( arr[1].name ); // John</p>
+<p>// get the function at index 3 and run it arr<a href="">3</a>; // hello ```</p>
+<p>`<code>smart header="Trailing comma" An array, just like an object, may end with a comma:</code>js let fruits = [ “Apple”, “Orange”, “Plum”<em>!</em>,<em>/!</em>];</p>
+<pre><code>
+The &quot;trailing comma&quot; style makes it easier to insert/remove items, because all lines become alike.</code></pre>
+<h2 id="methods-poppush-shiftunshift">Methods pop/push, shift/unshift</h2>
+<p>A <a href="https://en.wikipedia.org/wiki/Queue_(abstract_data_type)">queue</a> is one of the most common uses of an array. In computer science, this means an ordered collection of elements which supports two operations:</p>
+<ul>
+<li><code>push</code> appends an element to the end.</li>
+<li><code>shift</code> get an element from the beginning, advancing the queue, so that the 2nd element becomes the 1st.</li>
+</ul>
+<p><img src="queue.svg" /></p>
+<p>Arrays support both operations.</p>
+<p>In practice we need it very often. For example, a queue of messages that need to be shown on-screen.</p>
+<p>There’s another use case for arrays – the data structure named <a href="https://en.wikipedia.org/wiki/Stack_(abstract_data_type)">stack</a>.</p>
+<p>It supports two operations:</p>
+<ul>
+<li><code>push</code> adds an element to the end.</li>
+<li><code>pop</code> takes an element from the end.</li>
+</ul>
+<p>So new elements are added or taken always from the “end”.</p>
+<p>A stack is usually illustrated as a pack of cards: new cards are added to the top or taken from the top:</p>
+<p><img src="stack.svg" /></p>
+<p>For stacks, the latest pushed item is received first, that’s also called LIFO (Last-In-First-Out) principle. For queues, we have FIFO (First-In-First-Out).</p>
+<p>Arrays in JavaScript can work both as a queue and as a stack. They allow you to add/remove elements both to/from the beginning or the end.</p>
+<p>In computer science the data structure that allows this, is called <a href="https://en.wikipedia.org/wiki/Double-ended_queue">deque</a>.</p>
+<p><strong>Methods that work with the end of the array:</strong></p>
+<dl>
+<dt><code>pop</code></dt>
+<dd><p>Extracts the last element of the array and returns it:</p>
+<p>```js run let fruits = [“Apple”, “Orange”, “Pear”];</p>
+<p>alert( fruits.pop() ); // remove “Pear” and alert it</p>
+<p>alert( fruits ); // Apple, Orange ```</p>
+</dd>
+<dt><code>push</code></dt>
+<dd><p>Append the element to the end of the array:</p>
+<p>```js run let fruits = [“Apple”, “Orange”];</p>
+<p>fruits.push(“Pear”);</p>
+<p>alert( fruits ); // Apple, Orange, Pear ```</p>
+<p>The call <code>fruits.push(...)</code> is equal to <code>fruits[fruits.length] = ...</code>.</p>
+</dd>
+</dl>
+<p><strong>Methods that work with the beginning of the array:</strong></p>
+<dl>
+<dt><code>shift</code></dt>
+<dd><p>Extracts the first element of the array and returns it:</p>
+<p>```js run let fruits = [“Apple”, “Orange”, “Pear”];</p>
+<p>alert( fruits.shift() ); // remove Apple and alert it</p>
+<p>alert( fruits ); // Orange, Pear ```</p>
+</dd>
+<dt><code>unshift</code></dt>
+<dd><p>Add the element to the beginning of the array:</p>
+<p>```js run let fruits = [“Orange”, “Pear”];</p>
+<p>fruits.unshift(‘Apple’);</p>
+<p>alert( fruits ); // Apple, Orange, Pear ```</p>
+</dd>
+</dl>
+<p>Methods <code>push</code> and <code>unshift</code> can add multiple elements at once:</p>
+<p>```js run let fruits = [“Apple”];</p>
+<p>fruits.push(“Orange”, “Peach”); fruits.unshift(“Pineapple”, “Lemon”);</p>
+<p>// [“Pineapple”, “Lemon”, “Apple”, “Orange”, “Peach”] alert( fruits ); ```</p>
+<h2 id="internals">Internals</h2>
+<p>An array is a special kind of object. The square brackets used to access a property <code>arr[0]</code> actually come from the object syntax. That’s essentially the same as <code>obj[key]</code>, where <code>arr</code> is the object, while numbers are used as keys.</p>
+<p>They extend objects providing special methods to work with ordered collections of data and also the <code>length</code> property. But at the core it’s still an object.</p>
+<p>Remember, there are only eight basic data types in JavaScript (see the <a href="info:types">Data types</a> chapter for more info). Array is an object and thus behaves like an object.</p>
+<p>For instance, it is copied by reference:</p>
+<p>```js run let fruits = [“Banana”]</p>
+<p>let arr = fruits; // copy by reference (two variables reference the same array)</p>
+<p>alert( arr === fruits ); // true</p>
+<p>arr.push(“Pear”); // modify the array by reference</p>
+<p>alert( fruits ); // Banana, Pear - 2 items now ```</p>
+<p>…But what makes arrays really special is their internal representation. The engine tries to store its elements in the contiguous memory area, one after another, just as depicted on the illustrations in this chapter, and there are other optimizations as well, to make arrays work really fast.</p>
+<p>But they all break if we quit working with an array as with an “ordered collection” and start working with it as if it were a regular object.</p>
+<p>For instance, technically we can do this:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">let</span> fruits <span class="op">=</span> []<span class="op">;</span> <span class="co">// make an array</span></a>
+<a class="sourceLine" id="cb6-2" title="2"></a>
+<a class="sourceLine" id="cb6-3" title="3">fruits[<span class="dv">99999</span>] <span class="op">=</span> <span class="dv">5</span><span class="op">;</span> <span class="co">// assign a property with the index far greater than its length</span></a>
+<a class="sourceLine" id="cb6-4" title="4"></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="va">fruits</span>.<span class="at">age</span> <span class="op">=</span> <span class="dv">25</span><span class="op">;</span> <span class="co">// create a property with an arbitrary name</span></a></code></pre></div>
+<p>That’s possible, because arrays are objects at their base. We can add any properties to them.</p>
+<p>But the engine will see that we’re working with the array as with a regular object. Array-specific optimizations are not suited for such cases and will be turned off, their benefits disappear.</p>
+<p>The ways to misuse an array:</p>
+<ul>
+<li>Add a non-numeric property like <code>arr.test = 5</code>.</li>
+<li>Make holes, like: add <code>arr[0]</code> and then <code>arr[1000]</code> (and nothing between them).</li>
+<li>Fill the array in the reverse order, like <code>arr[1000]</code>, <code>arr[999]</code> and so on.</li>
+</ul>
+<p>Please think of arrays as special structures to work with the <em>ordered data</em>. They provide special methods for that. Arrays are carefully tuned inside JavaScript engines to work with contiguous ordered data, please use them this way. And if you need arbitrary keys, chances are high that you actually require a regular object <code>{}</code>.</p>
+<h2 id="performance">Performance</h2>
+<p>Methods <code>push/pop</code> run fast, while <code>shift/unshift</code> are slow.</p>
+<p><img src="array-speed.svg" /></p>
+<p>Why is it faster to work with the end of an array than with its beginning? Let’s see what happens during the execution:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="va">fruits</span>.<span class="at">shift</span>()<span class="op">;</span> <span class="co">// take 1 element from the start</span></a></code></pre></div>
+<p>It’s not enough to take and remove the element with the number <code>0</code>. Other elements need to be renumbered as well.</p>
+<p>The <code>shift</code> operation must do 3 things:</p>
+<ol type="1">
+<li>Remove the element with the index <code>0</code>.</li>
+<li>Move all elements to the left, renumber them from the index <code>1</code> to <code>0</code>, from <code>2</code> to <code>1</code> and so on.</li>
+<li>Update the <code>length</code> property.</li>
+</ol>
+<p><img src="array-shift.svg" /></p>
+<p><strong>The more elements in the array, the more time to move them, more in-memory operations.</strong></p>
+<p>The similar thing happens with <code>unshift</code>: to add an element to the beginning of the array, we need first to move existing elements to the right, increasing their indexes.</p>
+<p>And what’s with <code>push/pop</code>? They do not need to move anything. To extract an element from the end, the <code>pop</code> method cleans the index and shortens <code>length</code>.</p>
+<p>The actions for the <code>pop</code> operation:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="va">fruits</span>.<span class="at">pop</span>()<span class="op">;</span> <span class="co">// take 1 element from the end</span></a></code></pre></div>
+<p><img src="array-pop.svg" /></p>
+<p><strong>The <code>pop</code> method does not need to move anything, because other elements keep their indexes. That’s why it’s blazingly fast.</strong></p>
+<p>The similar thing with the <code>push</code> method.</p>
+<h2 id="loops">Loops</h2>
+<p>One of the oldest ways to cycle array items is the <code>for</code> loop over indexes:</p>
+<p>```js run let arr = [“Apple”, “Orange”, “Pear”];</p>
+<p><em>!</em> for (let i = 0; i &lt; arr.length; i++) { <em>/!</em> alert( arr[i] ); } ```</p>
+<p>But for arrays there is another form of loop, <code>for..of</code>:</p>
+<p>```js run let fruits = [“Apple”, “Orange”, “Plum”];</p>
+<p>// iterates over array elements for (let fruit of fruits) { alert( fruit ); } ```</p>
+<p>The <code>for..of</code> doesn’t give access to the number of the current element, just its value, but in most cases that’s enough. And it’s shorter.</p>
+<p>Technically, because arrays are objects, it is also possible to use <code>for..in</code>:</p>
+<p>```js run let arr = [“Apple”, “Orange”, “Pear”];</p>
+<p><em>!</em> for (let key in arr) { <em>/!</em> alert( arr[key] ); // Apple, Orange, Pear } ```</p>
+<p>But that’s actually a bad idea. There are potential problems with it:</p>
+<ol type="1">
+<li><p>The loop <code>for..in</code> iterates over <em>all properties</em>, not only the numeric ones.</p>
+<p>There are so-called “array-like” objects in the browser and in other environments, that <em>look like arrays</em>. That is, they have <code>length</code> and indexes properties, but they may also have other non-numeric properties and methods, which we usually don’t need. The <code>for..in</code> loop will list them though. So if we need to work with array-like objects, then these “extra” properties can become a problem.</p></li>
+<li><p>The <code>for..in</code> loop is optimized for generic objects, not arrays, and thus is 10-100 times slower. Of course, it’s still very fast. The speedup may only matter in bottlenecks. But still we should be aware of the difference.</p></li>
+</ol>
+<p>Generally, we shouldn’t use <code>for..in</code> for arrays.</p>
+<h2 id="a-word-about-length">A word about “length”</h2>
+<p>The <code>length</code> property automatically updates when we modify the array. To be precise, it is actually not the count of values in the array, but the greatest numeric index plus one.</p>
+<p>For instance, a single element with a large index gives a big length:</p>
+<p>```js run let fruits = []; fruits[123] = “Apple”;</p>
+<p>alert( fruits.length ); // 124 ```</p>
+<p>Note that we usually don’t use arrays like that.</p>
+<p>Another interesting thing about the <code>length</code> property is that it’s writable.</p>
+<p>If we increase it manually, nothing interesting happens. But if we decrease it, the array is truncated. The process is irreversible, here’s the example:</p>
+<p>```js run let arr = [1, 2, 3, 4, 5];</p>
+<p>arr.length = 2; // truncate to 2 elements alert( arr ); // [1, 2]</p>
+<p>arr.length = 5; // return length back alert( arr[3] ); // undefined: the values do not return ```</p>
+<p>So, the simplest way to clear the array is: <code>arr.length = 0;</code>.</p>
+<h2 id="new-array-new-array">new Array() [#new-array]</h2>
+<p>There is one more syntax to create an array:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">let</span> arr <span class="op">=</span> <span class="op">*!*</span><span class="kw">new</span> Array<span class="op">*</span><span class="ss">/!</span><span class="sc">*(</span><span class="ss">&quot;Apple&quot;, &quot;Pear&quot;, &quot;etc&quot;</span><span class="sc">)</span><span class="ss">;</span></a></code></pre></div>
+<p>It’s rarely used, because square brackets <code>[]</code> are shorter. Also there’s a tricky feature with it.</p>
+<p>If <code>new Array</code> is called with a single argument which is a number, then it creates an array <em>without items, but with the given length</em>.</p>
+<p>Let’s see how one can shoot themself in the foot:</p>
+<p>```js run let arr = new Array(2); // will it create an array of [2] ?</p>
+<p>alert( arr[0] ); // undefined! no elements.</p>
+<p>alert( arr.length ); // length 2 ```</p>
+<p>In the code above, <code>new Array(number)</code> has all elements <code>undefined</code>.</p>
+<p>To evade such surprises, we usually use square brackets, unless we really know what we’re doing.</p>
+<h2 id="multidimensional-arrays">Multidimensional arrays</h2>
+<p>Arrays can have items that are also arrays. We can use it for multidimensional arrays, for example to store matrices:</p>
+<p>```js run let matrix = [ [1, 2, 3], [4, 5, 6], [7, 8, 9]];</p>
+<p>alert( matrix[1][1] ); // 5, the central element ```</p>
+<h2 id="tostring">toString</h2>
+<p>Arrays have their own implementation of <code>toString</code> method that returns a comma-separated list of elements.</p>
+<p>For instance:</p>
+<p>```js run let arr = [1, 2, 3];</p>
+<p>alert( arr ); // 1,2,3 alert( String(arr) === ‘1,2,3’ ); // true ```</p>
+<p>Also, let’s try this:</p>
+<p><code>js run alert( [] + 1 ); // "1" alert( [1] + 1 ); // "11" alert( [1,2] + 1 ); // "1,21"</code></p>
+<p>Arrays do not have <code>Symbol.toPrimitive</code>, neither a viable <code>valueOf</code>, they implement only <code>toString</code> conversion, so here <code>[]</code> becomes an empty string, <code>[1]</code> becomes <code>"1"</code> and <code>[1,2]</code> becomes <code>"1,2"</code>.</p>
+<p>When the binary plus <code>"+"</code> operator adds something to a string, it converts it to a string as well, so the next step looks like this:</p>
+<p><code>js run alert( "" + 1 ); // "1" alert( "1" + 1 ); // "11" alert( "1,2" + 1 ); // "1,21"</code></p>
+<h2 id="dont-compare-arrays-with">Don’t compare arrays with ==</h2>
+<p>Arrays in JavaScript, unlike some other programming languages, shouldn’t be compared with operator <code>==</code>.</p>
+<p>This operator has no special treatment for arrays, it works with them as with any objects.</p>
+<p>Let’s recall the rules:</p>
+<ul>
+<li>Two objects are equal <code>==</code> only if they’re references to the same object.</li>
+<li>If one of the arguments of <code>==</code> is an object, and the other one is a primitive, then the object gets converted to primitive, as explained in the chapter <a href="info:object-toprimitive" class="uri">info:object-toprimitive</a>.</li>
+<li>…With an exception of <code>null</code> and <code>undefined</code> that equal <code>==</code> each other and nothing else.</li>
+</ul>
+<p>The strict comparison <code>===</code> is even simpler, as it doesn’t convert types.</p>
+<p>So, if we compare arrays with <code>==</code>, they are never the same, unless we compare two variables that reference exactly the same array.</p>
+<p>For example: <code>js run alert( [] == [] ); // false alert( [0] == [0] ); // false</code></p>
+<p>These arrays are technically different objects. So they aren’t equal. The <code>==</code> operator doesn’t do item-by-item comparison.</p>
+<p>Comparison with primitives may give seemingly strange results as well:</p>
+<p>```js run alert( 0 == [] ); // true</p>
+<p>alert(‘0’ == [] ); // false ```</p>
+<p>Here, in both cases, we compare a primitive with an array object. So the array <code>[]</code> gets converted to primitive for the purpose of comparison and becomes an empty string <code>''</code>.</p>
+<p>Then the comparison process goes on with the primitives, as described in the chapter <a href="info:type-conversions" class="uri">info:type-conversions</a>:</p>
+<p>```js run // after [] was converted to ’’ alert( 0 == ’’ ); // true, as ’’ becomes converted to number 0</p>
+<p>alert(‘0’ == ’’ ); // false, no type conversion, different strings ```</p>
+<p>So, how to compare arrays?</p>
+<p>That’s simple: don’t use the <code>==</code> operator. Instead, compare them item-by-item in a loop or using iteration methods explained in the next chapter.</p>
+<h2 id="summary">Summary</h2>
+<p>Array is a special kind of object, suited to storing and managing ordered data items.</p>
+<ul>
+<li><p>The declaration:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="co">// square brackets (usual)</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="kw">let</span> arr <span class="op">=</span> [item1<span class="op">,</span> <span class="va">item2</span>...]<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-3" title="3"></a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="co">// new Array (exceptionally rare)</span></a>
+<a class="sourceLine" id="cb10-5" title="5"><span class="kw">let</span> arr <span class="op">=</span> <span class="kw">new</span> <span class="at">Array</span>(item1<span class="op">,</span> <span class="va">item2</span>...)<span class="op">;</span></a></code></pre></div>
+<p>The call to <code>new Array(number)</code> creates an array with the given length, but without elements.</p></li>
+<li>The <code>length</code> property is the array length or, to be precise, its last numeric index plus one. It is auto-adjusted by array methods.</li>
+<li><p>If we shorten <code>length</code> manually, the array is truncated.</p></li>
+</ul>
+<p>We can use an array as a deque with the following operations:</p>
+<ul>
+<li><code>push(...items)</code> adds <code>items</code> to the end.</li>
+<li><code>pop()</code> removes the element from the end and returns it.</li>
+<li><code>shift()</code> removes the element from the beginning and returns it.</li>
+<li><code>unshift(...items)</code> adds <code>items</code> to the beginning.</li>
+</ul>
+<p>To loop over the elements of the array: - <code>for (let i=0; i&lt;arr.length; i++)</code> – works fastest, old-browser-compatible. - <code>for (let item of arr)</code> – the modern syntax for items only, - <code>for (let i in arr)</code> – never use.</p>
+<p>To compare arrays, don’t use the <code>==</code> operator (as well as <code>&gt;</code>, <code>&lt;</code> and others), as they have no special treatment for arrays. They handle them as any objects, and it’s not what we usually want.</p>
+<p>Instead you can use <code>for..of</code> loop to compare arrays item-by-item.</p>
+<p>We will continue with arrays and study more methods to add, remove, extract elements and sort arrays in the next chapter <a href="info:array-methods" class="uri">info:array-methods</a>.</p>

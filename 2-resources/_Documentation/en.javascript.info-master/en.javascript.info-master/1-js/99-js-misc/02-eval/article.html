@@ -1,0 +1,39 @@
+<h1 id="eval-run-a-code-string">Eval: run a code string</h1>
+<p>The built-in <code>eval</code> function allows to execute a string of code.</p>
+<p>The syntax is:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> result <span class="op">=</span> <span class="at">eval</span>(code)<span class="op">;</span></a></code></pre></div>
+<p>For example:</p>
+<p><code>js run let code = 'alert("Hello")'; eval(code); // Hello</code></p>
+<p>A string of code may be long, contain line breaks, function declarations, variables and so on.</p>
+<p>The result of <code>eval</code> is the result of the last statement.</p>
+<p>For example: <code>js run let value = eval('1+1'); alert(value); // 2</code></p>
+<p><code>js run let value = eval('let i = 0; ++i'); alert(value); // 1</code></p>
+<p>The eval’ed code is executed in the current lexical environment, so it can see outer variables:</p>
+<p>```js run no-beautify let a = 1;</p>
+<p>function f() { let a = 2;</p>
+<p><em>!</em> eval(‘alert(a)’); // 2 <em>/!</em> }</p>
+<p>f(); ```</p>
+<p>It can change outer variables as well:</p>
+<p><code>js untrusted refresh run let x = 5; eval("x = 10"); alert(x); // 10, value modified</code></p>
+<p>In strict mode, <code>eval</code> has its own lexical environment. So functions and variables, declared inside eval, are not visible outside:</p>
+<p>```js untrusted refresh run // reminder: ‘use strict’ is enabled in runnable examples by default</p>
+<p>eval(“let x = 5; function f() {}”);</p>
+<p>alert(typeof x); // undefined (no such variable) // function f is also not visible ```</p>
+<p>Without <code>use strict</code>, <code>eval</code> doesn’t have its own lexical environment, so we would see <code>x</code> and <code>f</code> outside.</p>
+<h2 id="using-eval">Using “eval”</h2>
+<p>In modern programming <code>eval</code> is used very sparingly. It’s often said that “eval is evil”.</p>
+<p>The reason is simple: long, long time ago JavaScript was a much weaker language, many things could only be done with <code>eval</code>. But that time passed a decade ago.</p>
+<p>Right now, there’s almost no reason to use <code>eval</code>. If someone is using it, there’s a good chance they can replace it with a modern language construct or a <a href="info:modules">JavaScript Module</a>.</p>
+<p>Please note that its ability to access outer variables has side-effects.</p>
+<p>Code minifiers (tools used before JS gets to production, to compress it) rename local variables into shorter ones (like <code>a</code>, <code>b</code> etc) to make the code smaller. That’s usually safe, but not if <code>eval</code> is used, as local variables may be accessed from eval’ed code string. So minifiers don’t do that renaming for all variables potentially visible from <code>eval</code>. That negatively affects code compression ratio.</p>
+<p>Using outer local variables inside <code>eval</code> is also considered a bad programming practice, as it makes maintaining the code more difficult.</p>
+<p>There are two ways how to be totally safe from such problems.</p>
+<p><strong>If eval’ed code doesn’t use outer variables, please call <code>eval</code> as <code>window.eval(...)</code>:</strong></p>
+<p>This way the code is executed in the global scope:</p>
+<p><code>js untrusted refresh run let x = 1; {   let x = 5;   window.eval('alert(x)'); // 1 (global variable) }</code></p>
+<p><strong>If eval’ed code needs local variables, change <code>eval</code> to <code>new Function</code> and pass them as arguments:</strong></p>
+<p>```js run let f = new Function(‘a’, ‘alert(a)’);</p>
+<p>f(5); // 5 ```</p>
+<p>The <code>new Function</code> construct is explained in the chapter <a href="info:new-function" class="uri">info:new-function</a>. It creates a function from a string, also in the global scope. So it can’t see local variables. But it’s so much clearer to pass them explicitly as arguments, like in the example above.</p>
+<h2 id="summary">Summary</h2>
+<p>A call to <code>eval(code)</code> runs the string of code and returns the result of the last statement. - Rarely used in modern JavaScript, as there’s usually no need. - Can access outer local variables. That’s considered bad practice. - Instead, to <code>eval</code> the code in the global scope, use <code>window.eval(code)</code>. - Or, if your code needs some data from the outer scope, use <code>new Function</code> and pass it as arguments.</p>

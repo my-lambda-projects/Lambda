@@ -1,0 +1,193 @@
+<h1 id="json-methods-tojson">JSON methods, toJSON</h1>
+<p>Let’s say we have a complex object, and we’d like to convert it into a string, to send it over a network, or just to output it for logging purposes.</p>
+<p>Naturally, such a string should include all important properties.</p>
+<p>We could implement the conversion like this:</p>
+<p>```js run let user = { name: “John”, age: 30,</p>
+<p><em>!</em> toString() { return <code>{name: "${this.name}", age: ${this.age}}</code>; } <em>/!</em> };</p>
+<p>alert(user); // {name: “John”, age: 30} ```</p>
+<p>…But in the process of development, new properties are added, old properties are renamed and removed. Updating such <code>toString</code> every time can become a pain. We could try to loop over properties in it, but what if the object is complex and has nested objects in properties? We’d need to implement their conversion as well.</p>
+<p>Luckily, there’s no need to write the code to handle all this. The task has been solved already.</p>
+<h2 id="json.stringify">JSON.stringify</h2>
+<p>The <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> (JavaScript Object Notation) is a general format to represent values and objects. It is described as in <a href="http://tools.ietf.org/html/rfc4627">RFC 4627</a> standard. Initially it was made for JavaScript, but many other languages have libraries to handle it as well. So it’s easy to use JSON for data exchange when the client uses JavaScript and the server is written on Ruby/PHP/Java/Whatever.</p>
+<p>JavaScript provides methods:</p>
+<ul>
+<li><code>JSON.stringify</code> to convert objects into JSON.</li>
+<li><code>JSON.parse</code> to convert JSON back into an object.</li>
+</ul>
+<p>For instance, here we <code>JSON.stringify</code> a student: ```js run let student = { name: ‘John’, age: 30, isAdmin: false, courses: [‘html’, ‘css’, ‘js’], wife: null };</p>
+<p><em>!</em> let json = JSON.stringify(student); <em>/!</em></p>
+<p>alert(typeof json); // we’ve got a string!</p>
+<p>alert(json); <em>!</em> /* JSON-encoded object: { “name”: “John”, “age”: 30, “isAdmin”: false, “courses”: [“html”, “css”, “js”], “wife”: null } <em>/ </em>/!* ```</p>
+<p>The method <code>JSON.stringify(student)</code> takes the object and converts it into a string.</p>
+<p>The resulting <code>json</code> string is called a <em>JSON-encoded</em> or <em>serialized</em> or <em>stringified</em> or <em>marshalled</em> object. We are ready to send it over the wire or put into a plain data store.</p>
+<p>Please note that a JSON-encoded object has several important differences from the object literal:</p>
+<ul>
+<li>Strings use double quotes. No single quotes or backticks in JSON. So <code>'John'</code> becomes <code>"John"</code>.</li>
+<li>Object property names are double-quoted also. That’s obligatory. So <code>age:30</code> becomes <code>"age":30</code>.</li>
+</ul>
+<p><code>JSON.stringify</code> can be applied to primitives as well.</p>
+<p>JSON supports following data types:</p>
+<ul>
+<li>Objects <code>{ ... }</code></li>
+<li>Arrays <code>[ ... ]</code></li>
+<li>Primitives:
+<ul>
+<li>strings,</li>
+<li>numbers,</li>
+<li>boolean values <code>true/false</code>,</li>
+<li><code>null</code>.</li>
+</ul></li>
+</ul>
+<p>For instance:</p>
+<p>```js run // a number in JSON is just a number alert( JSON.stringify(1) ) // 1</p>
+<p>// a string in JSON is still a string, but double-quoted alert( JSON.stringify(‘test’) ) // “test”</p>
+<p>alert( JSON.stringify(true) ); // true</p>
+<p>alert( JSON.stringify([1, 2, 3]) ); // [1,2,3] ```</p>
+<p>JSON is data-only language-independent specification, so some JavaScript-specific object properties are skipped by <code>JSON.stringify</code>.</p>
+<p>Namely:</p>
+<ul>
+<li>Function properties (methods).</li>
+<li>Symbolic keys and values.</li>
+<li>Properties that store <code>undefined</code>.</li>
+</ul>
+<p>```js run let user = { sayHi() { // ignored alert(“Hello”); }, [Symbol(“id”)]: 123, // ignored something: undefined // ignored };</p>
+<p>alert( JSON.stringify(user) ); // {} (empty object) ```</p>
+<p>Usually that’s fine. If that’s not what we want, then soon we’ll see how to customize the process.</p>
+<p>The great thing is that nested objects are supported and converted automatically.</p>
+<p>For instance:</p>
+<p>```js run let meetup = { title: “Conference”, <em>!</em> room: { number: 23, participants: [“john”, “ann”] } <em>/!</em> };</p>
+<p>alert( JSON.stringify(meetup) ); /* The whole structure is stringified: { “title”:“Conference”, “room”:{“number”:23,“participants”:[“john”,“ann”]}, } */ ```</p>
+<p>The important limitation: there must be no circular references.</p>
+<p>For instance:</p>
+<p>```js run let room = { number: 23 };</p>
+<p>let meetup = { title: “Conference”, participants: [“john”, “ann”] };</p>
+<p>meetup.place = room; // meetup references room room.occupiedBy = meetup; // room references meetup</p>
+<p><em>!</em> JSON.stringify(meetup); // Error: Converting circular structure to JSON <em>/!</em> ```</p>
+<p>Here, the conversion fails, because of circular reference: <code>room.occupiedBy</code> references <code>meetup</code>, and <code>meetup.place</code> references <code>room</code>:</p>
+<p><img src="json-meetup.svg" /></p>
+<h2 id="excluding-and-transforming-replacer">Excluding and transforming: replacer</h2>
+<p>The full syntax of <code>JSON.stringify</code> is:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> json <span class="op">=</span> <span class="va">JSON</span>.<span class="at">stringify</span>(value[<span class="op">,</span> replacer<span class="op">,</span> space])</a></code></pre></div>
+<dl>
+<dt>value</dt>
+<dd>A value to encode.
+</dd>
+<dt>replacer</dt>
+<dd>Array of properties to encode or a mapping function <code>function(key, value)</code>.
+</dd>
+<dt>space</dt>
+<dd>Amount of space to use for formatting
+</dd>
+</dl>
+<p>Most of the time, <code>JSON.stringify</code> is used with the first argument only. But if we need to fine-tune the replacement process, like to filter out circular references, we can use the second argument of <code>JSON.stringify</code>.</p>
+<p>If we pass an array of properties to it, only these properties will be encoded.</p>
+<p>For instance:</p>
+<p>```js run let room = { number: 23 };</p>
+<p>let meetup = { title: “Conference”, participants: [{name: “John”}, {name: “Alice”}], place: room // meetup references room };</p>
+<p>room.occupiedBy = meetup; // room references meetup</p>
+<p>alert( JSON.stringify(meetup, <em>!</em>[‘title’, ‘participants’]<em>/!</em>) ); // {“title”:“Conference”,“participants”:[{},{}]} ```</p>
+<p>Here we are probably too strict. The property list is applied to the whole object structure. So the objects in <code>participants</code> are empty, because <code>name</code> is not in the list.</p>
+<p>Let’s include in the list every property except <code>room.occupiedBy</code> that would cause the circular reference:</p>
+<p>```js run let room = { number: 23 };</p>
+<p>let meetup = { title: “Conference”, participants: [{name: “John”}, {name: “Alice”}], place: room // meetup references room };</p>
+<p>room.occupiedBy = meetup; // room references meetup</p>
+<p>alert( JSON.stringify(meetup, <em>!</em>[‘title’, ‘participants’, ‘place’, ‘name’, ‘number’]<em>/!</em>) ); /<em> { “title”:“Conference”, “participants”:[{“name”:“John”},{“name”:“Alice”}], “place”:{“number”:23} } </em>/ ```</p>
+<p>Now everything except <code>occupiedBy</code> is serialized. But the list of properties is quite long.</p>
+<p>Fortunately, we can use a function instead of an array as the <code>replacer</code>.</p>
+<p>The function will be called for every <code>(key, value)</code> pair and should return the “replaced” value, which will be used instead of the original one. Or <code>undefined</code> if the value is to be skipped.</p>
+<p>In our case, we can return <code>value</code> “as is” for everything except <code>occupiedBy</code>. To ignore <code>occupiedBy</code>, the code below returns <code>undefined</code>:</p>
+<p>```js run let room = { number: 23 };</p>
+<p>let meetup = { title: “Conference”, participants: [{name: “John”}, {name: “Alice”}], place: room // meetup references room };</p>
+<p>room.occupiedBy = meetup; // room references meetup</p>
+<p>alert( JSON.stringify(meetup, function replacer(key, value) { alert(<code>${key}: ${value}</code>); return (key == ‘occupiedBy’) ? undefined : value; }));</p>
+<dl>
+<dt>/* key:value pairs that come to replacer:</dt>
+<dd><pre><code>      [object Object]</code></pre>
+title: Conference participants: [object Object],[object Object] 0: [object Object] name: John 1: [object Object] name: Alice place: [object Object] number: 23 occupiedBy: [object Object] */ ```
+</dd>
+</dl>
+<p>Please note that <code>replacer</code> function gets every key/value pair including nested objects and array items. It is applied recursively. The value of <code>this</code> inside <code>replacer</code> is the object that contains the current property.</p>
+<p>The first call is special. It is made using a special “wrapper object”: <code>{"": meetup}</code>. In other words, the first <code>(key, value)</code> pair has an empty key, and the value is the target object as a whole. That’s why the first line is <code>":[object Object]"</code> in the example above.</p>
+<p>The idea is to provide as much power for <code>replacer</code> as possible: it has a chance to analyze and replace/skip even the whole object if necessary.</p>
+<h2 id="formatting-space">Formatting: space</h2>
+<p>The third argument of <code>JSON.stringify(value, replacer, space)</code> is the number of spaces to use for pretty formatting.</p>
+<p>Previously, all stringified objects had no indents and extra spaces. That’s fine if we want to send an object over a network. The <code>space</code> argument is used exclusively for a nice output.</p>
+<p>Here <code>space = 2</code> tells JavaScript to show nested objects on multiple lines, with indentation of 2 spaces inside an object:</p>
+<p>```js run let user = { name: “John”, age: 25, roles: { isAdmin: false, isEditor: true } };</p>
+<p>alert(JSON.stringify(user, null, 2)); /* two-space indents: { “name”: “John”, “age”: 25, “roles”: { “isAdmin”: false, “isEditor”: true } } */</p>
+<p>/* for JSON.stringify(user, null, 4) the result would be more indented: { “name”: “John”, “age”: 25, “roles”: { “isAdmin”: false, “isEditor”: true } } */ ```</p>
+<p>The third argument can also be a string. In this case, the string is used for indentation instead of a number of spaces.</p>
+<p>The <code>space</code> parameter is used solely for logging and nice-output purposes.</p>
+<h2 id="custom-tojson">Custom “toJSON”</h2>
+<p>Like <code>toString</code> for string conversion, an object may provide method <code>toJSON</code> for to-JSON conversion. <code>JSON.stringify</code> automatically calls it if available.</p>
+<p>For instance:</p>
+<p>```js run let room = { number: 23 };</p>
+<p>let meetup = { title: “Conference”, date: new Date(Date.UTC(2017, 0, 1)), room };</p>
+<p>alert( JSON.stringify(meetup) ); /<em> { “title”:“Conference”, </em>!<em> “date”:“2017-01-01T00:00:00.000Z”, // (1) </em>/!<em> “room”: {“number”:23} // (2) } </em>/ ```</p>
+<p>Here we can see that <code>date</code> <code>(1)</code> became a string. That’s because all dates have a built-in <code>toJSON</code> method which returns such kind of string.</p>
+<p>Now let’s add a custom <code>toJSON</code> for our object <code>room</code> <code>(2)</code>:</p>
+<p>```js run let room = { number: 23, <em>!</em> toJSON() { return this.number; } <em>/!</em> };</p>
+<p>let meetup = { title: “Conference”, room };</p>
+<p><em>!</em> alert( JSON.stringify(room) ); // 23 <em>/!</em></p>
+<p>alert( JSON.stringify(meetup) ); /<em> { “title”:“Conference”, </em>!<em> “room”: 23 </em>/!<em> } </em>/ ```</p>
+<p>As we can see, <code>toJSON</code> is used both for the direct call <code>JSON.stringify(room)</code> and when <code>room</code> is nested in another encoded object.</p>
+<h2 id="json.parse">JSON.parse</h2>
+<p>To decode a JSON-string, we need another method named <a href="mdn:js/JSON/parse">JSON.parse</a>.</p>
+<p>The syntax:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> value <span class="op">=</span> <span class="va">JSON</span>.<span class="at">parse</span>(str<span class="op">,</span> [reviver])<span class="op">;</span></a></code></pre></div>
+<dl>
+<dt>str</dt>
+<dd>JSON-string to parse.
+</dd>
+<dt>reviver</dt>
+<dd>Optional function(key,value) that will be called for each <code>(key, value)</code> pair and can transform the value.
+</dd>
+</dl>
+<p>For instance:</p>
+<p>```js run // stringified array let numbers = “[0, 1, 2, 3]”;</p>
+<p>numbers = JSON.parse(numbers);</p>
+<p>alert( numbers[1] ); // 1 ```</p>
+<p>Or for nested objects:</p>
+<p>```js run let userData = ‘{ “name”: “John”, “age”: 35, “isAdmin”: false, “friends”: [0,1,2,3] }’;</p>
+<p>let user = JSON.parse(userData);</p>
+<p>alert( user.friends[1] ); // 1 ```</p>
+<p>The JSON may be as complex as necessary, objects and arrays can include other objects and arrays. But they must obey the same JSON format.</p>
+<p>Here are typical mistakes in hand-written JSON (sometimes we have to write it for debugging purposes):</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">let</span> json <span class="op">=</span> <span class="vs">`{</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="vs">  *!*name*/!*: &quot;John&quot;,                     // mistake: property name without quotes</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="vs">  &quot;surname&quot;: *!*&#39;Smith&#39;*/!*,               // mistake: single quotes in value (must be double)</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="vs">  *!*&#39;isAdmin&#39;*/!*: false                  // mistake: single quotes in key (must be double)</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="vs">  &quot;birthday&quot;: *!*new Date(2000, 2, 3)*/!*, // mistake: no &quot;new&quot; is allowed, only bare values</span></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="vs">  &quot;friends&quot;: [0,1,2,3]              // here all fine</span></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="vs">}`</span><span class="op">;</span></a></code></pre></div>
+<p>Besides, JSON does not support comments. Adding a comment to JSON makes it invalid.</p>
+<p>There’s another format named <a href="http://json5.org/">JSON5</a>, which allows unquoted keys, comments etc. But this is a standalone library, not in the specification of the language.</p>
+<p>The regular JSON is that strict not because its developers are lazy, but to allow easy, reliable and very fast implementations of the parsing algorithm.</p>
+<h2 id="using-reviver">Using reviver</h2>
+<p>Imagine, we got a stringified <code>meetup</code> object from the server.</p>
+<p>It looks like this:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="co">// title: (meetup title), date: (meetup date)</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw">let</span> str <span class="op">=</span> <span class="st">&#39;{&quot;title&quot;:&quot;Conference&quot;,&quot;date&quot;:&quot;2017-11-30T12:00:00.000Z&quot;}&#39;</span><span class="op">;</span></a></code></pre></div>
+<p>…And now we need to <em>deserialize</em> it, to turn back into JavaScript object.</p>
+<p>Let’s do it by calling <code>JSON.parse</code>:</p>
+<p>```js run let str = ‘{“title”:“Conference”,“date”:“2017-11-30T12:00:00.000Z”}’;</p>
+<p>let meetup = JSON.parse(str);</p>
+<p><em>!</em> alert( meetup.date.getDate() ); // Error! <em>/!</em> ```</p>
+<p>Whoops! An error!</p>
+<p>The value of <code>meetup.date</code> is a string, not a <code>Date</code> object. How could <code>JSON.parse</code> know that it should transform that string into a <code>Date</code>?</p>
+<p>Let’s pass to <code>JSON.parse</code> the reviving function as the second argument, that returns all values “as is”, but <code>date</code> will become a <code>Date</code>:</p>
+<p>```js run let str = ‘{“title”:“Conference”,“date”:“2017-11-30T12:00:00.000Z”}’;</p>
+<p><em>!</em> let meetup = JSON.parse(str, function(key, value) { if (key == ‘date’) return new Date(value); return value; }); <em>/!</em></p>
+<p>alert( meetup.date.getDate() ); // now works! ```</p>
+<p>By the way, that works for nested objects as well:</p>
+<p>``<code>js run let schedule =</code>{ “meetups”: [ {“title”:“Conference”,“date”:“2017-11-30T12:00:00.000Z”}, {“title”:“Birthday”,“date”:“2017-04-18T12:00:00.000Z”} ] }`;</p>
+<p>schedule = JSON.parse(schedule, function(key, value) { if (key == ‘date’) return new Date(value); return value; });</p>
+<p><em>!</em> alert( schedule.meetups[1].date.getDate() ); // works! <em>/!</em> ```</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>JSON is a data format that has its own independent standard and libraries for most programming languages.</li>
+<li>JSON supports plain objects, arrays, strings, numbers, booleans, and <code>null</code>.</li>
+<li>JavaScript provides methods <a href="mdn:js/JSON/stringify">JSON.stringify</a> to serialize into JSON and <a href="mdn:js/JSON/parse">JSON.parse</a> to read from JSON.</li>
+<li>Both methods support transformer functions for smart reading/writing.</li>
+<li>If an object has <code>toJSON</code>, then it is called by <code>JSON.stringify</code>.</li>
+</ul>

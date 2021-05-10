@@ -1,0 +1,95 @@
+<h1 id="sets-and-ranges">Sets and ranges […]</h1>
+<p>Several characters or character classes inside square brackets <code>[…]</code> mean to “search for any character among given”.</p>
+<h2 id="sets">Sets</h2>
+<p>For instance, <code>pattern:[eao]</code> means any of the 3 characters: <code>'a'</code>, <code>'e'</code>, or <code>'o'</code>.</p>
+<p>That’s called a <em>set</em>. Sets can be used in a regexp along with regular characters:</p>
+<p><code>js run // find [t or m], and then "op" alert( "Mop top".match(/[tm]op/gi) ); // "Mop", "top"</code></p>
+<p>Please note that although there are multiple characters in the set, they correspond to exactly one character in the match.</p>
+<p>So the example below gives no matches:</p>
+<p><code>js run // find "V", then [o or i], then "la" alert( "Voila".match(/V[oi]la/) ); // null, no matches</code></p>
+<p>The pattern searches for:</p>
+<ul>
+<li><code>pattern:V</code>,</li>
+<li>then <em>one</em> of the letters <code>pattern:[oi]</code>,</li>
+<li>then <code>pattern:la</code>.</li>
+</ul>
+<p>So there would be a match for <code>match:Vola</code> or <code>match:Vila</code>.</p>
+<h2 id="ranges">Ranges</h2>
+<p>Square brackets may also contain <em>character ranges</em>.</p>
+<p>For instance, <code>pattern:[a-z]</code> is a character in range from <code>a</code> to <code>z</code>, and <code>pattern:[0-5]</code> is a digit from <code>0</code> to <code>5</code>.</p>
+<p>In the example below we’re searching for <code>"x"</code> followed by two digits or letters from <code>A</code> to <code>F</code>:</p>
+<p><code>js run alert( "Exception 0xAF".match(/x[0-9A-F][0-9A-F]/g) ); // xAF</code></p>
+<p>Here <code>pattern:[0-9A-F]</code> has two ranges: it searches for a character that is either a digit from <code>0</code> to <code>9</code> or a letter from <code>A</code> to <code>F</code>.</p>
+<p>If we’d like to look for lowercase letters as well, we can add the range <code>a-f</code>: <code>pattern:[0-9A-Fa-f]</code>. Or add the flag <code>pattern:i</code>.</p>
+<p>We can also use character classes inside <code>[…]</code>.</p>
+<p>For instance, if we’d like to look for a wordly character <code>pattern:\w</code> or a hyphen <code>pattern:-</code>, then the set is <code>pattern:[\w-]</code>.</p>
+<p>Combining multiple classes is also possible, e.g. <code>pattern:[\s\d]</code> means “a space character or a digit”.</p>
+<p>```smart header=“Character classes are shorthands for certain character sets” For instance:</p>
+<ul>
+<li>** – is the same as <code>pattern:[0-9]</code>,</li>
+<li>*** – is the same as <code>pattern:[a-zA-Z0-9_]</code>,</li>
+<li>*** – is the same as <code>pattern:[\t\n\v\f\r ]</code>, plus few other rare Unicode space characters. ```</li>
+</ul>
+<h3 id="example-multi-language">Example: multi-language </h3>
+<p>As the character class <code>pattern:\w</code> is a shorthand for <code>pattern:[a-zA-Z0-9_]</code>, it can’t find Chinese hieroglyphs, Cyrillic letters, etc.</p>
+<p>We can write a more universal pattern, that looks for wordly characters in any language. That’s easy with Unicode properties: <code>pattern:[\p{Alpha}\p{M}\p{Nd}\p{Pc}\p{Join_C}]</code>.</p>
+<p>Let’s decipher it. Similar to <code>pattern:\w</code>, we’re making a set of our own that includes characters with following Unicode properties:</p>
+<ul>
+<li><code>Alphabetic</code> (<code>Alpha</code>) - for letters,</li>
+<li><code>Mark</code> (<code>M</code>) - for accents,</li>
+<li><code>Decimal_Number</code> (<code>Nd</code>) - for digits,</li>
+<li><code>Connector_Punctuation</code> (<code>Pc</code>) - for the underscore <code>'_'</code> and similar characters,</li>
+<li><code>Join_Control</code> (<code>Join_C</code>) - two special codes <code>200c</code> and <code>200d</code>, used in ligatures, e.g. in Arabic.</li>
+</ul>
+<p>An example of use:</p>
+<p>```js run let regexp = /[]/gu;</p>
+<p>let str = <code>Hi 你好 12</code>;</p>
+<p>// finds all letters and digits: alert( str.match(regexp) ); // H,i,你,好,1,2 ```</p>
+<p>Of course, we can edit this pattern: add Unicode properties or remove them. Unicode properties are covered in more details in the article <a href="info:regexp-unicode" class="uri">info:regexp-unicode</a>.</p>
+<p>``<code>warn header="Unicode properties aren't supported in IE" Unicode properties</code>pattern:p{…}` are not implemented in IE. If we really need them, we can use library <a href="http://xregexp.com/">XRegExp</a>.</p>
+<p>Or just use ranges of characters in a language that interests us, e.g. <code>pattern:[а-я]</code> for Cyrillic letters. ```</p>
+<h2 id="excluding-ranges">Excluding ranges</h2>
+<p>Besides normal ranges, there are “excluding” ranges that look like <code>pattern:[^…]</code>.</p>
+<p>They are denoted by a caret character <code>^</code> at the start and match any character <em>except the given ones</em>.</p>
+<p>For instance:</p>
+<ul>
+<li><code>pattern:[^aeyo]</code> – any character except <code>'a'</code>, <code>'e'</code>, <code>'y'</code> or <code>'o'</code>.</li>
+<li><code>pattern:[^0-9]</code> – any character except a digit, the same as <code>pattern:\D</code>.</li>
+<li><code>pattern:[^\s]</code> – any non-space character, same as <code>\S</code>.</li>
+</ul>
+<p>The example below looks for any characters except letters, digits and spaces:</p>
+<p><code>js run alert( "alice15@gmail.com".match(/[^\d\sA-Z]/gi) ); // @ and .</code></p>
+<h2 id="escaping-in">Escaping in […]</h2>
+<p>Usually when we want to find exactly a special character, we need to escape it like <code>pattern:\.</code>. And if we need a backslash, then we use <code>pattern:\\</code>, and so on.</p>
+<p>In square brackets we can use the vast majority of special characters without escaping:</p>
+<ul>
+<li>Symbols <code>pattern:. + ( )</code> never need escaping.</li>
+<li>A hyphen <code>pattern:-</code> is not escaped in the beginning or the end (where it does not define a range).</li>
+<li>A caret <code>pattern:^</code> is only escaped in the beginning (where it means exclusion).</li>
+<li>The closing square bracket <code>pattern:]</code> is always escaped (if we need to look for that symbol).</li>
+</ul>
+<p>In other words, all special characters are allowed without escaping, except when they mean something for square brackets.</p>
+<p>A dot <code>.</code> inside square brackets means just a dot. The pattern <code>pattern:[.,]</code> would look for one of characters: either a dot or a comma.</p>
+<p>In the example below the regexp <code>pattern:[-().^+]</code> looks for one of the characters <code>-().^+</code>:</p>
+<p>```js run // No need to escape let regexp = /[-().^+]/g;</p>
+<p>alert( “1 + 2 - 3”.match(regexp) ); // Matches +, - ```</p>
+<p>…But if you decide to escape them “just in case”, then there would be no harm:</p>
+<p>```js run // Escaped everything let regexp = /[-().^+]/g;</p>
+<p>alert( “1 + 2 - 3”.match(regexp) ); // also works: +, - ```</p>
+<h2 id="ranges-and-flag-u">Ranges and flag “u”</h2>
+<p>If there are surrogate pairs in the set, flag <code>pattern:u</code> is required for them to work correctly.</p>
+<p>For instance, let’s look for <code>pattern:[𝒳𝒴]</code> in the string <code>subject:𝒳</code>:</p>
+<p><code>js run alert( '𝒳'.match(/[𝒳𝒴]/) ); // shows a strange character, like [?] // (the search was performed incorrectly, half-character returned)</code></p>
+<p>The result is incorrect, because by default regular expressions “don’t know” about surrogate pairs.</p>
+<p>The regular expression engine thinks that <code>[𝒳𝒴]</code> – are not two, but four characters: 1. left half of <code>𝒳</code> <code>(1)</code>, 2. right half of <code>𝒳</code> <code>(2)</code>, 3. left half of <code>𝒴</code> <code>(3)</code>, 4. right half of <code>𝒴</code> <code>(4)</code>.</p>
+<p>We can see their codes like this:</p>
+<p><code>js run for(let i=0; i&lt;'𝒳𝒴'.length; i++) {   alert('𝒳𝒴'.charCodeAt(i)); // 55349, 56499, 55349, 56500 };</code></p>
+<p>So, the example above finds and shows the left half of <code>𝒳</code>.</p>
+<p>If we add flag <code>pattern:u</code>, then the behavior will be correct:</p>
+<p><code>js run alert( '𝒳'.match(/[𝒳𝒴]/u) ); // 𝒳</code></p>
+<p>The similar situation occurs when looking for a range, such as <code>[𝒳-𝒴]</code>.</p>
+<p>If we forget to add flag <code>pattern:u</code>, there will be an error:</p>
+<p><code>js run '𝒳'.match(/[𝒳-𝒴]/); // Error: Invalid regular expression</code></p>
+<p>The reason is that without flag <code>pattern:u</code> surrogate pairs are perceived as two characters, so <code>[𝒳-𝒴]</code> is interpreted as <code>[&lt;55349&gt;&lt;56499&gt;-&lt;55349&gt;&lt;56500&gt;]</code> (every surrogate pair is replaced with its codes). Now it’s easy to see that the range <code>56499-55349</code> is invalid: its starting code <code>56499</code> is greater than the end <code>55349</code>. That’s the formal reason for the error.</p>
+<p>With the flag <code>pattern:u</code> the pattern works correctly:</p>
+<p><code>js run // look for characters from 𝒳 to 𝒵 alert( '𝒴'.match(/[𝒳-𝒵]/u) ); // 𝒴</code></p>

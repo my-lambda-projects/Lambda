@@ -1,0 +1,14 @@
+<p>importance: 4</p>
+<hr />
+<h1 id="is-variable-visible">Is variable visible?</h1>
+<p>What will be the result of this code?</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> x <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">function</span> <span class="at">func</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="va">console</span>.<span class="at">log</span>(x)<span class="op">;</span> <span class="co">// ?</span></a>
+<a class="sourceLine" id="cb1-5" title="5"></a>
+<a class="sourceLine" id="cb1-6" title="6">  <span class="kw">let</span> x <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-8" title="8"></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="at">func</span>()<span class="op">;</span></a></code></pre></div>
+<p>P.S. There’s a pitfall in this task. The solution is not obvious.</p>

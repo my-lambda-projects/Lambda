@@ -1,0 +1,12 @@
+<p>The reason is that prompt returns user input as a string.</p>
+<p>So variables have values <code>"1"</code> and <code>"2"</code> respectively.</p>
+<p>```js run let a = “1”; // prompt(“First number?”, 1); let b = “2”; // prompt(“Second number?”, 2);</p>
+<p>alert(a + b); // 12 ```</p>
+<p>What we should do is to convert strings to numbers before <code>+</code>. For example, using <code>Number()</code> or prepending them with <code>+</code>.</p>
+<p>For example, right before <code>prompt</code>:</p>
+<p>```js run let a = +prompt(“First number?”, 1); let b = +prompt(“Second number?”, 2);</p>
+<p>alert(a + b); // 3 ```</p>
+<p>Or in the <code>alert</code>:</p>
+<p>```js run let a = prompt(“First number?”, 1); let b = prompt(“Second number?”, 2);</p>
+<p>alert(+a + +b); // 3 ```</p>
+<p>Using both unary and binary <code>+</code> in the latest code. Looks funny, doesn’t it?</p>

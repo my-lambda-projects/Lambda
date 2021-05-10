@@ -1,0 +1,69 @@
+<h1 id="methods-of-primitives">Methods of primitives</h1>
+<p>JavaScript allows us to work with primitives (strings, numbers, etc.) as if they were objects. They also provide methods to call as such. We will study those soon, but first we’ll see how it works because, of course, primitives are not objects (and here we will make it even clearer).</p>
+<p>Let’s look at the key distinctions between primitives and objects.</p>
+<p>A primitive</p>
+<ul>
+<li>Is a value of a primitive type.</li>
+<li>There are 7 primitive types: <code>string</code>, <code>number</code>, <code>bigint</code>, <code>boolean</code>, <code>symbol</code>, <code>null</code> and <code>undefined</code>.</li>
+</ul>
+<p>An object</p>
+<ul>
+<li>Is capable of storing multiple values as properties.</li>
+<li>Can be created with <code>{}</code>, for instance: <code>{name: "John", age: 30}</code>. There are other kinds of objects in JavaScript: functions, for example, are objects.</li>
+</ul>
+<p>One of the best things about objects is that we can store a function as one of its properties.</p>
+<p>```js run let john = { name: “John”, sayHi: function() { alert(“Hi buddy!”); } };</p>
+<p>john.sayHi(); // Hi buddy! ```</p>
+<p>So here we’ve made an object <code>john</code> with the method <code>sayHi</code>.</p>
+<p>Many built-in objects already exist, such as those that work with dates, errors, HTML elements, etc. They have different properties and methods.</p>
+<p>But, these features come with a cost!</p>
+<p>Objects are “heavier” than primitives. They require additional resources to support the internal machinery.</p>
+<h2 id="a-primitive-as-an-object">A primitive as an object</h2>
+<p>Here’s the paradox faced by the creator of JavaScript:</p>
+<ul>
+<li>There are many things one would want to do with a primitive like a string or a number. It would be great to access them as methods.</li>
+<li>Primitives must be as fast and lightweight as possible.</li>
+</ul>
+<p>The solution looks a little bit awkward, but here it is:</p>
+<ol type="1">
+<li>Primitives are still primitive. A single value, as desired.</li>
+<li>The language allows access to methods and properties of strings, numbers, booleans and symbols.</li>
+<li>In order for that to work, a special “object wrapper” that provides the extra functionality is created, and then is destroyed.</li>
+</ol>
+<p>The “object wrappers” are different for each primitive type and are called: <code>String</code>, <code>Number</code>, <code>Boolean</code> and <code>Symbol</code>. Thus, they provide different sets of methods.</p>
+<p>For instance, there exists a string method <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase">str.toUpperCase()</a> that returns a capitalized <code>str</code>.</p>
+<p>Here’s how it works:</p>
+<p>```js run let str = “Hello”;</p>
+<p>alert( str.toUpperCase() ); // HELLO ```</p>
+<p>Simple, right? Here’s what actually happens in <code>str.toUpperCase()</code>:</p>
+<ol type="1">
+<li>The string <code>str</code> is a primitive. So in the moment of accessing its property, a special object is created that knows the value of the string, and has useful methods, like <code>toUpperCase()</code>.</li>
+<li>That method runs and returns a new string (shown by <code>alert</code>).</li>
+<li>The special object is destroyed, leaving the primitive <code>str</code> alone.</li>
+</ol>
+<p>So primitives can provide methods, but they still remain lightweight.</p>
+<p>The JavaScript engine highly optimizes this process. It may even skip the creation of the extra object at all. But it must still adhere to the specification and behave as if it creates one.</p>
+<p>A number has methods of its own, for instance, <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed">toFixed(n)</a> rounds the number to the given precision:</p>
+<p>```js run let n = 1.23456;</p>
+<p>alert( n.toFixed(2) ); // 1.23 ```</p>
+<p>We’ll see more specific methods in chapters <a href="info:number" class="uri">info:number</a> and <a href="info:string" class="uri">info:string</a>.</p>
+<p>```<code>warn header="Constructors</code>String/Number/Boolean<code>are for internal use only" Some languages like Java allow us to explicitly create "wrapper objects" for primitives using a syntax like</code>new Number(1)<code>or</code>new Boolean(false)`.</p>
+<p>In JavaScript, that’s also possible for historical reasons, but highly <strong>unrecommended</strong>. Things will go crazy in several places.</p>
+<p>For instance:</p>
+<p>```js run alert( typeof 0 ); // “number”</p>
+<p>alert( typeof new Number(0) ); // “object”! ```</p>
+<p>Objects are always truthy in <code>if</code>, so here the alert will show up:</p>
+<p>```js run let zero = new Number(0);</p>
+<p>if (zero) { // zero is true, because it’s an object alert( “zero is truthy!?!” ); } ```</p>
+<p>On the other hand, using the same functions <code>String/Number/Boolean</code> without <code>new</code> is a totally sane and useful thing. They convert a value to the corresponding type: to a string, a number, or a boolean (primitive).</p>
+<p>For example, this is entirely valid:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> num <span class="op">=</span> <span class="at">Number</span>(<span class="st">&quot;123&quot;</span>)<span class="op">;</span> <span class="co">// convert a string to number</span></a></code></pre></div>
+<p>````</p>
+<p>```<code>warn header="null/undefined have no methods" The special primitives</code>null<code>and</code>undefined` are exceptions. They have no corresponding “wrapper objects” and provide no methods. In a sense, they are “the most primitive”.</p>
+<p>An attempt to access a property of such value would give the error:</p>
+<p>```js run alert(null.test); // error ````</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Primitives except <code>null</code> and <code>undefined</code> provide many helpful methods. We will study those in the upcoming chapters.</li>
+<li>Formally, these methods work via temporary objects, but JavaScript engines are well tuned to optimize that internally, so they are not expensive to call.</li>
+</ul>

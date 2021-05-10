@@ -1,0 +1,18 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="create-new-accumulator">Create new Accumulator</h1>
+<p>Create a constructor function <code>Accumulator(startingValue)</code>.</p>
+<p>Object that it creates should:</p>
+<ul>
+<li>Store the “current value” in the property <code>value</code>. The starting value is set to the argument of the constructor <code>startingValue</code>.</li>
+<li>The <code>read()</code> method should use <code>prompt</code> to read a new number and add it to <code>value</code>.</li>
+</ul>
+<p>In other words, the <code>value</code> property is the sum of all user-entered values with the initial value <code>startingValue</code>.</p>
+<p>Here’s the demo of the code:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> accumulator <span class="op">=</span> <span class="kw">new</span> <span class="at">Accumulator</span>(<span class="dv">1</span>)<span class="op">;</span> <span class="co">// initial value 1</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="va">accumulator</span>.<span class="at">read</span>()<span class="op">;</span> <span class="co">// adds the user-entered value</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="va">accumulator</span>.<span class="at">read</span>()<span class="op">;</span> <span class="co">// adds the user-entered value</span></a>
+<a class="sourceLine" id="cb1-5" title="5"></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="at">alert</span>(<span class="va">accumulator</span>.<span class="at">value</span>)<span class="op">;</span> <span class="co">// shows the sum of these values</span></a></code></pre></div>
+<p>[demo]</p>

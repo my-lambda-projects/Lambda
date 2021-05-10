@@ -1,0 +1,5 @@
+<h1 id="promise-then-versus-catch">Promise: then versus catch</h1>
+<p>Are these code fragments equal? In other words, do they behave the same way in any circumstances, for any handler functions?</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">promise</span>.<span class="at">then</span>(f1).<span class="at">catch</span>(f2)<span class="op">;</span></a></code></pre></div>
+<p>Versus:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">promise</span>.<span class="at">then</span>(f1<span class="op">,</span> f2)<span class="op">;</span></a></code></pre></div>

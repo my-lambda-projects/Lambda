@@ -1,0 +1,7 @@
+<ol type="1">
+<li><p>Either use a wrapper function, an arrow to be concise:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="at">askPassword</span>(() <span class="kw">=&gt;</span> <span class="va">user</span>.<span class="at">login</span>(<span class="kw">true</span>)<span class="op">,</span> () <span class="kw">=&gt;</span> <span class="va">user</span>.<span class="at">login</span>(<span class="kw">false</span>))<span class="op">;</span> </a></code></pre></div>
+<p>Now it gets <code>user</code> from outer variables and runs it the normal way.</p></li>
+<li><p>Or create a partial function from <code>user.login</code> that uses <code>user</code> as the context and has the correct first argument:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">askPassword</span>(<span class="va">user</span>.<span class="va">login</span>.<span class="at">bind</span>(user<span class="op">,</span> <span class="kw">true</span>)<span class="op">,</span> <span class="va">user</span>.<span class="va">login</span>.<span class="at">bind</span>(user<span class="op">,</span> <span class="kw">false</span>))<span class="op">;</span> </a></code></pre></div></li>
+</ol>

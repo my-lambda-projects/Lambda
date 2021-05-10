@@ -1,0 +1,7 @@
+<p>That’s because <code>map.keys()</code> returns an iterable, but not an array.</p>
+<p>We can convert it into an array using <code>Array.from</code>:</p>
+<p>```js run let map = new Map();</p>
+<p>map.set(“name”, “John”);</p>
+<p><em>!</em> let keys = Array.from(map.keys()); <em>/!</em></p>
+<p>keys.push(“more”);</p>
+<p>alert(keys); // name, more ```</p>

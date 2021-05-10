@@ -1,0 +1,118 @@
+<h1 id="object-references-and-copying">Object references and copying</h1>
+<p>One of the fundamental differences of objects versus primitives is that objects are stored and copied “by reference”, whereas primitive values: strings, numbers, booleans, etc – are always copied “as a whole value”.</p>
+<p>That’s easy to understand if we look a bit under the hood of what happens when we copy a value.</p>
+<p>Let’s start with a primitive, such as a string.</p>
+<p>Here we put a copy of <code>message</code> into <code>phrase</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> message <span class="op">=</span> <span class="st">&quot;Hello!&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">let</span> phrase <span class="op">=</span> message<span class="op">;</span></a></code></pre></div>
+<p>As a result we have two independent variables, each one storing the string <code>"Hello!"</code>.</p>
+<p><img src="variable-copy-value.svg" /></p>
+<p>Quite an obvious result, right?</p>
+<p>Objects are not like that.</p>
+<p><strong>A variable assigned to an object stores not the object itself, but its “address in memory” – in other words “a reference” to it.</strong></p>
+<p>Let’s look at an example of such a variable:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> user <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;John&quot;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="op">};</span></a></code></pre></div>
+<p>And here’s how it’s actually stored in memory:</p>
+<p><img src="variable-contains-reference.svg" /></p>
+<p>The object is stored somewhere in memory (at the right of the picture), while the <code>user</code> variable (at the left) has a “reference” to it.</p>
+<p>We may think of an object variable, such as <code>user</code>, as like a sheet of paper with the address of the object on it.</p>
+<p>When we perform actions with the object, e.g. take a property <code>user.name</code>, the JavaScript engine looks at what’s at that address and performs the operation on the actual object.</p>
+<p>Now here’s why it’s important.</p>
+<p><strong>When an object variable is copied, the reference is copied, but the object itself is not duplicated.</strong></p>
+<p>For instance:</p>
+<p>```js no-beautify let user = { name: “John” };</p>
+<p>let admin = user; // copy the reference ```</p>
+<p>Now we have two variables, each storing a reference to the same object:</p>
+<p><img src="variable-copy-reference.svg" /></p>
+<p>As you can see, there’s still one object, but now with two variables that reference it.</p>
+<p>We can use either variable to access the object and modify its contents:</p>
+<p>```js run let user = { name: ‘John’ };</p>
+<p>let admin = user;</p>
+<p><em>!</em> admin.name = ‘Pete’; // changed by the “admin” reference <em>/!</em></p>
+<p>alert(<em>!</em>user.name<em>/!</em>); // ‘Pete’, changes are seen from the “user” reference ```</p>
+<p>It’s as if we had a cabinet with two keys and used one of them (<code>admin</code>) to get into it and make changes. Then, if we later use another key (<code>user</code>), we are still opening the same cabinet and can access the changed contents.</p>
+<h2 id="comparison-by-reference">Comparison by reference</h2>
+<p>Two objects are equal only if they are the same object.</p>
+<p>For instance, here <code>a</code> and <code>b</code> reference the same object, thus they are equal:</p>
+<p>```js run let a = {}; let b = a; // copy the reference</p>
+<p>alert( a == b ); // true, both variables reference the same object alert( a === b ); // true ```</p>
+<p>And here two independent objects are not equal, even though they look alike (both are empty):</p>
+<p>```js run let a = {}; let b = {}; // two independent objects</p>
+<p>alert( a == b ); // false ```</p>
+<p>For comparisons like <code>obj1 &gt; obj2</code> or for a comparison against a primitive <code>obj == 5</code>, objects are converted to primitives. We’ll study how object conversions work very soon, but to tell the truth, such comparisons are needed very rarely – usually they appear as a result of a programming mistake.</p>
+<h2 id="cloning-and-merging-object.assign-cloning-and-merging-object-assign">Cloning and merging, Object.assign [#cloning-and-merging-object-assign]</h2>
+<p>So, copying an object variable creates one more reference to the same object.</p>
+<p>But what if we need to duplicate an object? Create an independent copy, a clone?</p>
+<p>That’s also doable, but a little bit more difficult, because there’s no built-in method for that in JavaScript. But there is rarely a need – copying by reference is good most of the time.</p>
+<p>But if we really want that, then we need to create a new object and replicate the structure of the existing one by iterating over its properties and copying them on the primitive level.</p>
+<p>Like this:</p>
+<p>```js run let user = { name: “John”, age: 30 };</p>
+<p><em>!</em> let clone = {}; // the new empty object</p>
+<p>// let’s copy all user properties into it for (let key in user) { clone[key] = user[key]; } <em>/!</em></p>
+<p>// now clone is a fully independent object with the same content clone.name = “Pete”; // changed the data in it</p>
+<p>alert( user.name ); // still John in the original object ```</p>
+<p>Also we can use the method <a href="mdn:js/Object/assign">Object.assign</a> for that.</p>
+<p>The syntax is:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">Object</span>.<span class="at">assign</span>(dest<span class="op">,</span> [src1<span class="op">,</span> src2<span class="op">,</span> <span class="va">src3</span>...])</a></code></pre></div>
+<ul>
+<li>The first argument <code>dest</code> is a target object.</li>
+<li>Further arguments <code>src1, ..., srcN</code> (can be as many as needed) are source objects.</li>
+<li>It copies the properties of all source objects <code>src1, ..., srcN</code> into the target <code>dest</code>. In other words, properties of all arguments starting from the second are copied into the first object.</li>
+<li>The call returns <code>dest</code>.</li>
+</ul>
+<p>For instance, we can use it to merge several objects into one:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">let</span> user <span class="op">=</span> <span class="op">{</span> <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;John&quot;</span> <span class="op">};</span></a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="kw">let</span> permissions1 <span class="op">=</span> <span class="op">{</span> <span class="dt">canView</span><span class="op">:</span> <span class="kw">true</span> <span class="op">};</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="kw">let</span> permissions2 <span class="op">=</span> <span class="op">{</span> <span class="dt">canEdit</span><span class="op">:</span> <span class="kw">true</span> <span class="op">};</span></a>
+<a class="sourceLine" id="cb4-5" title="5"></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="co">// copies all properties from permissions1 and permissions2 into user</span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="va">Object</span>.<span class="at">assign</span>(user<span class="op">,</span> permissions1<span class="op">,</span> permissions2)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb4-10" title="10"></a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="ss">// now user = { name: &quot;John&quot;, canView: true, canEdit: true }</span></a></code></pre></div>
+<p>If the copied property name already exists, it gets overwritten:</p>
+<p>```js run let user = { name: “John” };</p>
+<p>Object.assign(user, { name: “Pete” });</p>
+<p>alert(user.name); // now user = { name: “Pete” } ```</p>
+<p>We also can use <code>Object.assign</code> to replace <code>for..in</code> loop for simple cloning:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">let</span> user <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;John&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="dt">age</span><span class="op">:</span> <span class="dv">30</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="op">};</span></a>
+<a class="sourceLine" id="cb5-5" title="5"></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="kw">let</span> clone <span class="op">=</span> <span class="va">Object</span>.<span class="at">assign</span>(<span class="op">{},</span> user)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-8" title="8"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a></code></pre></div>
+<p>It copies all properties of <code>user</code> into the empty object and returns it.</p>
+<p>There are also other methods of cloning an object, e.g. using the <a href="info:rest-parameters-spread">spread syntax</a> <code>clone = {...user}</code>, covered later in the tutorial.</p>
+<h2 id="nested-cloning">Nested cloning</h2>
+<p>Until now we assumed that all properties of <code>user</code> are primitive. But properties can be references to other objects. What to do with them?</p>
+<p>Like this: ```js run let user = { name: “John”, sizes: { height: 182, width: 50 } };</p>
+<p>alert( user.sizes.height ); // 182 ```</p>
+<p>Now it’s not enough to copy <code>clone.sizes = user.sizes</code>, because the <code>user.sizes</code> is an object, it will be copied by reference. So <code>clone</code> and <code>user</code> will share the same sizes:</p>
+<p>Like this:</p>
+<p>```js run let user = { name: “John”, sizes: { height: 182, width: 50 } };</p>
+<p>let clone = Object.assign({}, user);</p>
+<p>alert( user.sizes === clone.sizes ); // true, same object</p>
+<p>// user and clone share sizes user.sizes.width++; // change a property from one place alert(clone.sizes.width); // 51, see the result from the other one ```</p>
+<p>To fix that, we should use a cloning loop that examines each value of <code>user[key]</code> and, if it’s an object, then replicate its structure as well. That is called a “deep cloning”.</p>
+<p>We can use recursion to implement it. Or, to not reinvent the wheel, take an existing implementation, for instance <a href="https://lodash.com/docs#cloneDeep">_.cloneDeep(obj)</a> from the JavaScript library <a href="https://lodash.com">lodash</a>.</p>
+<p>```<code>smart header="Const objects can be modified" An important side effect of storing objects as references is that an object declared as</code>const` <em>can</em> be modified.</p>
+<p>For instance:</p>
+<p>```js run const user = { name: “John” };</p>
+<p><em>!</em> user.name = “Pete”; // (<em>) </em>/!*</p>
+<p>alert(user.name); // Pete</p>
+<pre><code>
+It might seem that the line `(*)` would cause an error, but it does not. The value of `user` is constant, it must always reference the same object, but properties of that object are free to change.
+
+In other words, the `const user` gives an error only if we try to set `user=...` as a whole.
+
+That said, if we really need to make constant object properties, it&#39;s also possible, but using totally different methods. We&#39;ll mention that in the chapter &lt;info:property-descriptors&gt;.</code></pre>
+<h2 id="summary">Summary</h2>
+<p>Objects are assigned and copied by reference. In other words, a variable stores not the “object value”, but a “reference” (address in memory) for the value. So copying such a variable or passing it as a function argument copies that reference, not the object itself.</p>
+<p>All operations via copied references (like adding/removing properties) are performed on the same single object.</p>
+<p>To make a “real copy” (a clone) we can use <code>Object.assign</code> for the so-called “shallow copy” (nested objects are copied by reference) or a “deep cloning” function, such as <a href="https://lodash.com/docs#cloneDeep">_.cloneDeep(obj)</a>.</p>

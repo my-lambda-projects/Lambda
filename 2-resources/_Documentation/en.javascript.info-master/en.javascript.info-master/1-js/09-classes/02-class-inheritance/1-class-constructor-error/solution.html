@@ -1,0 +1,8 @@
+<p>That’s because the child constructor must call <code>super()</code>.</p>
+<p>Here’s the corrected code:</p>
+<p>```js run class Animal {</p>
+<p>constructor(name) { this.name = name; }</p>
+<p>}</p>
+<p>class Rabbit extends Animal { constructor(name) {<br />
+<em>!</em> super(name); <em>/!</em> this.created = Date.now(); } }</p>
+<p><em>!</em> let rabbit = new Rabbit(“White Rabbit”); // ok now <em>/!</em> alert(rabbit.name); // White Rabbit ```</p>

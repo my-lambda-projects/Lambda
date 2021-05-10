@@ -1,0 +1,7 @@
+<p>Differences:</p>
+<ol type="1">
+<li><code>clientWidth</code> is numeric, while <code>getComputedStyle(elem).width</code> returns a string with <code>px</code> at the end.</li>
+<li><code>getComputedStyle</code> may return non-numeric width like <code>"auto"</code> for an inline element.</li>
+<li><code>clientWidth</code> is the inner content area of the element plus paddings, while CSS width (with standard <code>box-sizing</code>) is the inner content area <em>without paddings</em>.</li>
+<li>If there’s a scrollbar and the browser reserves the space for it, some browser substract that space from CSS width (cause it’s not available for content any more), and some do not. The <code>clientWidth</code> property is always the same: scrollbar size is substracted if reserved.</li>
+</ol>

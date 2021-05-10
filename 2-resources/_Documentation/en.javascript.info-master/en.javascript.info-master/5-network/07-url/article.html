@@ -1,0 +1,114 @@
+<h1 id="url-objects">URL objects</h1>
+<p>The built-in <a href="https://url.spec.whatwg.org/#api">URL</a> class provides a convenient interface for creating and parsing URLs.</p>
+<p>There are no networking methods that require exactly a <code>URL</code> object, strings are good enough. So technically we don’t have to use <code>URL</code>. But sometimes it can be really helpful.</p>
+<h2 id="creating-a-url">Creating a URL</h2>
+<p>The syntax to create a new <code>URL</code> object:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">new</span> <span class="at">URL</span>(url<span class="op">,</span> [base])</a></code></pre></div>
+<ul>
+<li><strong><code>url</code></strong> – the full URL or only path (if base is set, see below),</li>
+<li><strong><code>base</code></strong> – an optional base URL: if set and <code>url</code> argument has only path, then the URL is generated relative to <code>base</code>.</li>
+</ul>
+<p>For example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> url <span class="op">=</span> <span class="kw">new</span> <span class="at">URL</span>(<span class="st">&#39;https://javascript.info/profile/admin&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p>These two URLs are same:</p>
+<p>```js run let url1 = new URL(‘https://javascript.info/profile/admin’); let url2 = new URL(‘/profile/admin’, ‘https://javascript.info’);</p>
+<p>alert(url1); // https://javascript.info/profile/admin alert(url2); // https://javascript.info/profile/admin ```</p>
+<p>We can easily create a new URL based on the path relative to an existing URL:</p>
+<p>```js run let url = new URL(‘https://javascript.info/profile/admin’); let newUrl = new URL(‘tester’, url);</p>
+<p>alert(newUrl); // https://javascript.info/profile/tester ```</p>
+<p>The <code>URL</code> object immediately allows us to access its components, so it’s a nice way to parse the url, e.g.:</p>
+<p>```js run let url = new URL(‘https://javascript.info/url’);</p>
+<p>alert(url.protocol); // https: alert(url.host); // javascript.info alert(url.pathname); // /url ```</p>
+<p>Here’s the cheatsheet for URL components:</p>
+<p><img src="url-object.svg" /></p>
+<ul>
+<li><code>href</code> is the full url, same as <code>url.toString()</code></li>
+<li><code>protocol</code> ends with the colon character <code>:</code></li>
+<li><code>search</code> - a string of parameters, starts with the question mark <code>?</code></li>
+<li><code>hash</code> starts with the hash character <code>#</code></li>
+<li>there may be also <code>user</code> and <code>password</code> properties if HTTP authentication is present: <code>http://login:password@site.com</code> (not painted above, rarely used).</li>
+</ul>
+<p>``<code>smart header="We can pass</code>URL<code>objects to networking (and most other) methods instead of a string" We can use a</code>URL<code>object in</code>fetch<code>or</code>XMLHttpRequest`, almost everywhere where a URL-string is expected.</p>
+<p>Generally, the <code>URL</code> object can be passed to any method instead of a string, as most methods will perform the string conversion, that turns a <code>URL</code> object into a string with full URL. ```</p>
+<h2 id="searchparams">SearchParams “?…”</h2>
+<p>Let’s say we want to create a url with given search params, for instance, <code>https://google.com/search?query=JavaScript</code>.</p>
+<p>We can provide them in the URL string:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">new</span> <span class="at">URL</span>(<span class="st">&#39;https://google.com/search?query=JavaScript&#39;</span>)</a></code></pre></div>
+<p>…But parameters need to be encoded if they contain spaces, non-latin letters, etc (more about that below).</p>
+<p>So there’s a URL property for that: <code>url.searchParams</code>, an object of type <a href="https://url.spec.whatwg.org/#urlsearchparams">URLSearchParams</a>.</p>
+<p>It provides convenient methods for search parameters:</p>
+<ul>
+<li><strong><code>append(name, value)</code></strong> – add the parameter by <code>name</code>,</li>
+<li><strong><code>delete(name)</code></strong> – remove the parameter by <code>name</code>,</li>
+<li><strong><code>get(name)</code></strong> – get the parameter by <code>name</code>,</li>
+<li><strong><code>getAll(name)</code></strong> – get all parameters with the same <code>name</code> (that’s possible, e.g. <code>?user=John&amp;user=Pete</code>),</li>
+<li><strong><code>has(name)</code></strong> – check for the existence of the parameter by <code>name</code>,</li>
+<li><strong><code>set(name, value)</code></strong> – set/replace the parameter,</li>
+<li><strong><code>sort()</code></strong> – sort parameters by name, rarely needed,</li>
+<li>…and it’s also iterable, similar to <code>Map</code>.</li>
+</ul>
+<p>An example with parameters that contain spaces and punctuation marks:</p>
+<p>```js run let url = new URL(‘https://google.com/search’);</p>
+<p>url.searchParams.set(‘q’, ‘test me!’); // added parameter with a space and !</p>
+<p>alert(url); // https://google.com/search?q=test+me%21</p>
+<p>url.searchParams.set(‘tbs’, ‘qdr:y’); // added parameter with a colon :</p>
+<p>// parameters are automatically encoded alert(url); // https://google.com/search?q=test+me%21&amp;tbs=qdr%3Ay</p>
+<p>// iterate over search parameters (decoded) for(let [name, value] of url.searchParams) { alert(<code>${name}=${value}</code>); // q=test me!, then tbs=qdr:y } ```</p>
+<h2 id="encoding">Encoding</h2>
+<p>There’s a standard <a href="https://tools.ietf.org/html/rfc3986">RFC3986</a> that defines which characters are allowed in URLs and which are not.</p>
+<p>Those that are not allowed, must be encoded, for instance non-latin letters and spaces - replaced with their UTF-8 codes, prefixed by <code>%</code>, such as <code>%20</code> (a space can be encoded by <code>+</code>, for historical reasons, but that’s an exception).</p>
+<p>The good news is that <code>URL</code> objects handle all that automatically. We just supply all parameters unencoded, and then convert the <code>URL</code> to string:</p>
+<p>```js run // using some cyrillic characters for this example</p>
+<p>let url = new URL(‘https://ru.wikipedia.org/wiki/Тест’);</p>
+<p>url.searchParams.set(‘key’, ‘ъ’); alert(url); //https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D1%81%D1%82?key=%D1%8A</p>
+<pre><code>
+As you can see, both `Тест` in the url path and `ъ` in the parameter are encoded.
+
+The URL became longer, because each cyrillic letter is represented with two bytes in UTF-8, so there are two `%..` entities.
+
+### Encoding strings
+
+In old times, before `URL` objects appeared, people used strings for URLs.
+
+As of now, `URL` objects are often more convenient, but strings can still be used as well. In many cases using a string makes the code shorter.
+
+If we use a string though, we need to encode/decode special characters manually.
+
+There are built-in functions for that:
+
+- [encodeURI](mdn:/JavaScript/Reference/Global_Objects/encodeURI) - encodes URL as a whole.
+- [decodeURI](mdn:/JavaScript/Reference/Global_Objects/decodeURI) - decodes it back.
+- [encodeURIComponent](mdn:/JavaScript/Reference/Global_Objects/encodeURIComponent) - encodes a URL component, such as a search parameter, or a hash, or a pathname.
+- [decodeURIComponent](mdn:/JavaScript/Reference/Global_Objects/decodeURIComponent) - decodes it back.
+
+A natural question is: &quot;What&#39;s the difference between `encodeURIComponent` and `encodeURI`? When we should use either?&quot;
+
+That&#39;s easy to understand if we look at the URL, that&#39;s split into components in the picture above:
+</code></pre>
+<p>https://site.com:8080/path/page?p1=v1&amp;p2=v2#hash ```</p>
+<p>As we can see, characters such as <code>:</code>, <code>?</code>, <code>=</code>, <code>&amp;</code>, <code>#</code> are allowed in URL.</p>
+<p>…On the other hand, if we look at a single URL component, such as a search parameter, these characters must be encoded, not to break the formatting.</p>
+<ul>
+<li><code>encodeURI</code> encodes only characters that are totally forbidden in URL.</li>
+<li><code>encodeURIComponent</code> encodes same characters, and, in addition to them, characters <code>#</code>, <code>$</code>, <code>&amp;</code>, <code>+</code>, <code>,</code>, <code>/</code>, <code>:</code>, <code>;</code>, <code>=</code>, <code>?</code> and <code>@</code>.</li>
+</ul>
+<p>So, for a whole URL we can use <code>encodeURI</code>:</p>
+<p>```js run // using cyrillic characters in url path let url = encodeURI(‘http://site.com/привет’);</p>
+<p>alert(url); // http://site.com/%D0%BF%D1%80%D0%B8%D0%B2%D0%B5%D1%82 ```</p>
+<p>…While for URL parameters we should use <code>encodeURIComponent</code> instead:</p>
+<p>```js run let music = encodeURIComponent(‘Rock&amp;Roll’);</p>
+<p>let url = <code>https://google.com/search?q=${music}</code>; alert(url); // https://google.com/search?q=Rock%26Roll ```</p>
+<p>Compare it with <code>encodeURI</code>:</p>
+<p>```js run let music = encodeURI(‘Rock&amp;Roll’);</p>
+<p>let url = <code>https://google.com/search?q=${music}</code>; alert(url); // https://google.com/search?q=Rock&amp;Roll ```</p>
+<p>As we can see, <code>encodeURI</code> does not encode <code>&amp;</code>, as this is a legit character in URL as a whole.</p>
+<p>But we should encode <code>&amp;</code> inside a search parameter, otherwise, we get <code>q=Rock&amp;Roll</code> - that is actually <code>q=Rock</code> plus some obscure parameter <code>Roll</code>. Not as intended.</p>
+<p>So we should use only <code>encodeURIComponent</code> for each search parameter, to correctly insert it in the URL string. The safest is to encode both name and value, unless we’re absolutely sure that it has only allowed characters.</p>
+<p>```<code>smart header="Encoding difference compared to</code>URL<code>" Classes [URL](https://url.spec.whatwg.org/#url-class) and [URLSearchParams](https://url.spec.whatwg.org/#interface-urlsearchparams) are based on the latest URI specification: [RFC3986](https://tools.ietf.org/html/rfc3986), while</code>encode*` functions are based on the obsolete version <a href="https://www.ietf.org/rfc/rfc2396.txt">RFC2396</a>.</p>
+<p>There are a few differences, e.g. IPv6 addresses are encoded differently:</p>
+<p>```js run // valid url with IPv6 address let url = ‘http://[2607:f8b0:4005:802::1007]/’;</p>
+<p>alert(encodeURI(url)); // http://%5B2607:f8b0:4005:802::1007%5D/ alert(new URL(url)); // http://[2607:f8b0:4005:802::1007]/</p>
+<pre><code>
+As we can see, `encodeURI` replaced square brackets `[...]`, that&#39;s not correct, the reason is: IPv6 urls did not exist at the time of RFC2396 (August 1998).
+
+Such cases are rare, `encode*` functions work well most of the time.</code></pre>

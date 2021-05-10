@@ -1,0 +1,12 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="store-read-dates">Store read dates</h1>
+<p>There’s an array of messages as in the <a href="info:task/recipients-read">previous task</a>. The situation is similar.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> messages <span class="op">=</span> [</a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="op">{</span><span class="dt">text</span><span class="op">:</span> <span class="st">&quot;Hello&quot;</span><span class="op">,</span> <span class="dt">from</span><span class="op">:</span> <span class="st">&quot;John&quot;</span><span class="op">},</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="op">{</span><span class="dt">text</span><span class="op">:</span> <span class="st">&quot;How goes?&quot;</span><span class="op">,</span> <span class="dt">from</span><span class="op">:</span> <span class="st">&quot;John&quot;</span><span class="op">},</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="op">{</span><span class="dt">text</span><span class="op">:</span> <span class="st">&quot;See you soon&quot;</span><span class="op">,</span> <span class="dt">from</span><span class="op">:</span> <span class="st">&quot;Alice&quot;</span><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-5" title="5">]<span class="op">;</span></a></code></pre></div>
+<p>The question now is: which data structure you’d suggest to store the information: “when the message was read?”.</p>
+<p>In the previous task we only needed to store the “yes/no” fact. Now we need to store the date, and it should only remain in memory until the message is garbage collected.</p>
+<p>P.S. Dates can be stored as objects of built-in <code>Date</code> class, that we’ll cover later.</p>

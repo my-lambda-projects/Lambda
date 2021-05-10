@@ -1,0 +1,15 @@
+<p>importance: 4</p>
+<hr />
+<h1 id="calculate-factorial">Calculate factorial</h1>
+<p>The <a href="https://en.wikipedia.org/wiki/Factorial">factorial</a> of a natural number is a number multiplied by <code>"number minus one"</code>, then by <code>"number minus two"</code>, and so on till <code>1</code>. The factorial of <code>n</code> is denoted as <code>n!</code></p>
+<p>We can write a definition of factorial like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1">n<span class="op">!</span> <span class="op">=</span> n <span class="op">*</span> (n <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> (n <span class="op">-</span> <span class="dv">2</span>) <span class="op">*</span> ...<span class="op">*</span><span class="dv">1</span></a></code></pre></div>
+<p>Values of factorials for different <code>n</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="dv">1</span><span class="op">!</span> <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="dv">2</span><span class="op">!</span> <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> <span class="dv">1</span> <span class="op">=</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="dv">3</span><span class="op">!</span> <span class="op">=</span> <span class="dv">3</span> <span class="op">*</span> <span class="dv">2</span> <span class="op">*</span> <span class="dv">1</span> <span class="op">=</span> <span class="dv">6</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="dv">4</span><span class="op">!</span> <span class="op">=</span> <span class="dv">4</span> <span class="op">*</span> <span class="dv">3</span> <span class="op">*</span> <span class="dv">2</span> <span class="op">*</span> <span class="dv">1</span> <span class="op">=</span> <span class="dv">24</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="dv">5</span><span class="op">!</span> <span class="op">=</span> <span class="dv">5</span> <span class="op">*</span> <span class="dv">4</span> <span class="op">*</span> <span class="dv">3</span> <span class="op">*</span> <span class="dv">2</span> <span class="op">*</span> <span class="dv">1</span> <span class="op">=</span> <span class="dv">120</span></a></code></pre></div>
+<p>The task is to write a function <code>factorial(n)</code> that calculates <code>n!</code> using recursive calls.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">alert</span>( <span class="at">factorial</span>(<span class="dv">5</span>) )<span class="op">;</span> <span class="co">// 120</span></a></code></pre></div>
+<p>P.S. Hint: <code>n!</code> can be written as <code>n * (n-1)!</code> For instance: <code>3! = 3*2! = 3*2*1! = 6</code></p>

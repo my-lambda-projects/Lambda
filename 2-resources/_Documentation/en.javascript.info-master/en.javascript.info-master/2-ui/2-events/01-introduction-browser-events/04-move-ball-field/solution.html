@@ -1,0 +1,28 @@
+<p>First we need to choose a method of positioning the ball.</p>
+<p>We can’t use <code>position:fixed</code> for it, because scrolling the page would move the ball from the field.</p>
+<p>So we should use <code>position:absolute</code> and, to make the positioning really solid, make <code>field</code> itself positioned.</p>
+<p>Then the ball will be positioned relatively to the field:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb1-1" title="1"><span class="pp">#field</span> {</a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">width</span>: <span class="dv">200</span><span class="dt">px</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="kw">height</span>: <span class="dv">150</span><span class="dt">px</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="kw">position</span>: <span class="dv">relative</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">}</a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="pp">#ball</span> {</a>
+<a class="sourceLine" id="cb1-8" title="8">  <span class="kw">position</span>: <span class="dv">absolute</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-9" title="9">  <span class="kw">left</span>: <span class="dv">0</span><span class="op">;</span> <span class="co">/* relative to the closest positioned ancestor (field) */</span></a>
+<a class="sourceLine" id="cb1-10" title="10">  <span class="kw">top</span>: <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-11" title="11">  <span class="kw">transition</span>: <span class="dv">1</span><span class="dt">s</span> <span class="dv">all</span><span class="op">;</span> <span class="co">/* CSS animation for left/top makes the ball fly */</span></a>
+<a class="sourceLine" id="cb1-12" title="12">}</a></code></pre></div>
+<p>Next we need to assign the correct <code>ball.style.left/top</code>. They contain field-relative coordinates now.</p>
+<p>Here’s the picture:</p>
+<p><img src="move-ball-coords.svg" /></p>
+<p>We have <code>event.clientX/clientY</code> – window-relative coordinates of the click.</p>
+<p>To get field-relative <code>left</code> coordinate of the click, we can substract the field left edge and the border width:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> left <span class="op">=</span> <span class="va">event</span>.<span class="at">clientX</span> <span class="op">-</span> <span class="va">fieldCoords</span>.<span class="at">left</span> <span class="op">-</span> <span class="va">field</span>.<span class="at">clientLeft</span><span class="op">;</span></a></code></pre></div>
+<p>Normally, <code>ball.style.left</code> means the “left edge of the element” (the ball). So if we assign that <code>left</code>, then the ball edge, not center, would be under the mouse cursor.</p>
+<p>We need to move the ball half-width left and half-height up to make it center.</p>
+<p>So the final <code>left</code> would be:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> left <span class="op">=</span> <span class="va">event</span>.<span class="at">clientX</span> <span class="op">-</span> <span class="va">fieldCoords</span>.<span class="at">left</span> <span class="op">-</span> <span class="va">field</span>.<span class="at">clientLeft</span> <span class="op">-</span> <span class="va">ball</span>.<span class="at">offsetWidth</span>/<span class="dv">2</span><span class="op">;</span></a></code></pre></div>
+<p>The vertical coordinate is calculated using the same logic.</p>
+<p>Please note that the ball width/height must be known at the time we access <code>ball.offsetWidth</code>. Should be specified in HTML or CSS.</p>

@@ -1,0 +1,195 @@
+<h1 id="capturing-groups">Capturing groups</h1>
+<p>A part of a pattern can be enclosed in parentheses <code>pattern:(...)</code>. This is called a “capturing group”.</p>
+<p>That has two effects:</p>
+<ol type="1">
+<li>It allows to get a part of the match as a separate item in the result array.</li>
+<li>If we put a quantifier after the parentheses, it applies to the parentheses as a whole.</li>
+</ol>
+<h2 id="examples">Examples</h2>
+<p>Let’s see how parentheses work in examples.</p>
+<h3 id="example-gogogo">Example: gogogo</h3>
+<p>Without parentheses, the pattern <code>pattern:go+</code> means <code>subject:g</code> character, followed by <code>subject:o</code> repeated one or more times. For instance, <code>match:goooo</code> or <code>match:gooooooooo</code>.</p>
+<p>Parentheses group characters together, so <code>pattern:(go)+</code> means <code>match:go</code>, <code>match:gogo</code>, <code>match:gogogo</code> and so on.</p>
+<p><code>js run alert( 'Gogogo now!'.match(/(go)+/ig) ); // "Gogogo"</code></p>
+<h3 id="example-domain">Example: domain</h3>
+<p>Let’s make something more complex – a regular expression to search for a website domain.</p>
+<p>For example:</p>
+<pre><code>mail.com
+users.mail.com
+smith.users.mail.com</code></pre>
+<p>As we can see, a domain consists of repeated words, a dot after each one except the last one.</p>
+<p>In regular expressions that’s <code>pattern:(\w+\.)+\w+</code>:</p>
+<p>```js run let regexp = /(+.)++/g;</p>
+<p>alert( “site.com my.site.com”.match(regexp) ); // site.com,my.site.com ```</p>
+<p>The search works, but the pattern can’t match a domain with a hyphen, e.g. <code>my-site.com</code>, because the hyphen does not belong to class <code>pattern:\w</code>.</p>
+<p>We can fix it by replacing <code>pattern:\w</code> with <code>pattern:[\w-]</code> in every word except the last one: <code>pattern:([\w-]+\.)+\w+</code>.</p>
+<h3 id="example-email">Example: email</h3>
+<p>The previous example can be extended. We can create a regular expression for emails based on it.</p>
+<p>The email format is: <code>name@domain</code>. Any word can be the name, hyphens and dots are allowed. In regular expressions that’s <code>pattern:[-.\w]+</code>.</p>
+<p>The pattern:</p>
+<p>```js run let regexp = /[-.]+@([-]+.)+[-]+/g;</p>
+<p>alert(“my@mail.com @ his@site.com.uk”.match(regexp)); // my@mail.com, his@site.com.uk ```</p>
+<p>That regexp is not perfect, but mostly works and helps to fix accidental mistypes. The only truly reliable check for an email can only be done by sending a letter.</p>
+<h2 id="parentheses-contents-in-the-match">Parentheses contents in the match</h2>
+<p>Parentheses are numbered from left to right. The search engine memorizes the content matched by each of them and allows to get it in the result.</p>
+<p>The method <code>str.match(regexp)</code>, if <code>regexp</code> has no flag <code>g</code>, looks for the first match and returns it as an array:</p>
+<ol type="1">
+<li>At index <code>0</code>: the full match.</li>
+<li>At index <code>1</code>: the contents of the first parentheses.</li>
+<li>At index <code>2</code>: the contents of the second parentheses.</li>
+<li>…and so on…</li>
+</ol>
+<p>For instance, we’d like to find HTML tags <code>pattern:&lt;.*?&gt;</code>, and process them. It would be convenient to have tag content (what’s inside the angles), in a separate variable.</p>
+<p>Let’s wrap the inner content into parentheses, like this: <code>pattern:&lt;(.*?)&gt;</code>.</p>
+<p>Now we’ll get both the tag as a whole <code>match:&lt;h1&gt;</code> and its contents <code>match:h1</code> in the resulting array:</p>
+```js run let str = ’
+<h1>
+Hello, world!
+</h1>
+<p>’;</p>
+<p>let tag = str.match(/&lt;(.*?)&gt;/);</p>
+alert( tag[0] ); //
+<h1>
+<p>alert( tag[1] ); // h1 ```</p>
+<h3 id="nested-groups">Nested groups</h3>
+<p>Parentheses can be nested. In this case the numbering also goes from left to right.</p>
+<p>For instance, when searching a tag in <code>subject:&lt;span class="my"&gt;</code> we may be interested in:</p>
+<ol type="1">
+<li>The tag content as a whole: <code>match:span class="my"</code>.</li>
+<li>The tag name: <code>match:span</code>.</li>
+<li>The tag attributes: <code>match:class="my"</code>.</li>
+</ol>
+<p>Let’s add parentheses for them: <code>pattern:&lt;(([a-z]+)\s*([^&gt;]*))&gt;</code>.</p>
+<p>Here’s how they are numbered (left to right, by the opening paren):</p>
+<p><img src="regexp-nested-groups-pattern.svg" /></p>
+<p>In action:</p>
+<p>```js run let str = ‘<span class="my">’;</p>
+<p>let regexp = /&lt;(([a-z]+)([^&gt;]*))&gt;/;</p>
+<p>let result = str.match(regexp); alert(result[0]); // <span class="my"> alert(result[1]); // span class=“my” alert(result[2]); // span alert(result[3]); // class=“my” ```</p>
+<p>The zero index of <code>result</code> always holds the full match.</p>
+<p>Then groups, numbered from left to right by an opening paren. The first group is returned as <code>result[1]</code>. Here it encloses the whole tag content.</p>
+<p>Then in <code>result[2]</code> goes the group from the second opening paren <code>pattern:([a-z]+)</code> - tag name, then in <code>result[3]</code> the tag: <code>pattern:([^&gt;]*)</code>.</p>
+<p>The contents of every group in the string:</p>
+<p><img src="regexp-nested-groups-matches.svg" /></p>
+<h3 id="optional-groups">Optional groups</h3>
+<p>Even if a group is optional and doesn’t exist in the match (e.g. has the quantifier <code>pattern:(...)?</code>), the corresponding <code>result</code> array item is present and equals <code>undefined</code>.</p>
+<p>For instance, let’s consider the regexp <code>pattern:a(z)?(c)?</code>. It looks for <code>"a"</code> optionally followed by <code>"z"</code> optionally followed by <code>"c"</code>.</p>
+<p>If we run it on the string with a single letter <code>subject:a</code>, then the result is:</p>
+<p>```js run let match = ‘a’.match(/a(z)?(c)?/);</p>
+<p>alert( match.length ); // 3 alert( match[0] ); // a (whole match) alert( match[1] ); // undefined alert( match[2] ); // undefined ```</p>
+<p>The array has the length of <code>3</code>, but all groups are empty.</p>
+<p>And here’s a more complex match for the string <code>subject:ac</code>:</p>
+<p>```js run let match = ‘ac’.match(/a(z)?(c)?/)</p>
+<p>alert( match.length ); // 3 alert( match[0] ); // ac (whole match) alert( match[1] ); // undefined, because there’s nothing for (z)? alert( match[2] ); // c ```</p>
+<p>The array length is permanent: <code>3</code>. But there’s nothing for the group <code>pattern:(z)?</code>, so the result is <code>["ac", undefined, "c"]</code>.</p>
+<h2 id="searching-for-all-matches-with-groups-matchall">Searching for all matches with groups: matchAll</h2>
+<p>``<code>warn header="</code>matchAll<code>is a new method, polyfill may be needed" The method</code>matchAll` is not supported in old browsers.</p>
+<p>A polyfill may be required, such as <a href="https://github.com/ljharb/String.prototype.matchAll" class="uri">https://github.com/ljharb/String.prototype.matchAll</a>. ```</p>
+<p>When we search for all matches (flag <code>pattern:g</code>), the <code>match</code> method does not return contents for groups.</p>
+<p>For example, let’s find all tags in a string:</p>
+```js run let str = ’
+<h1>
+<h2>
+<p>’;</p>
+<p>let tags = str.match(/&lt;(.*?)&gt;/g);</p>
+alert( tags ); //
+<h1>
+,
+<h2>
+<p>```</p>
+<p>The result is an array of matches, but without details about each of them. But in practice we usually need contents of capturing groups in the result.</p>
+<p>To get them, we should search using the method <code>str.matchAll(regexp)</code>.</p>
+<p>It was added to JavaScript language long after <code>match</code>, as its “new and improved version”.</p>
+<p>Just like <code>match</code>, it looks for matches, but there are 3 differences:</p>
+<ol type="1">
+<li>It returns not an array, but an iterable object.</li>
+<li>When the flag <code>pattern:g</code> is present, it returns every match as an array with groups.</li>
+<li>If there are no matches, it returns not <code>null</code>, but an empty iterable object.</li>
+</ol>
+<p>For instance:</p>
+```js run let results = ’
+<h1>
+<h2>
+<p>’.matchAll(/&lt;(.*?)&gt;/gi);</p>
+<p>// results - is not an array, but an iterable object alert(results); // [object RegExp String Iterator]</p>
+<p>alert(results[0]); // undefined (*)</p>
+<p>results = Array.from(results); // let’s turn it into array</p>
+alert(results[0]); //
+<h1>
+,h1 (1st tag) alert(results[1]); //
+<h2>
+<p>,h2 (2nd tag) ```</p>
+<p>As we can see, the first difference is very important, as demonstrated in the line <code>(*)</code>. We can’t get the match as <code>results[0]</code>, because that object isn’t pseudoarray. We can turn it into a real <code>Array</code> using <code>Array.from</code>. There are more details about pseudoarrays and iterables in the article <a href="info:iterable" class="uri">info:iterable</a>.</p>
+<p>There’s no need in <code>Array.from</code> if we’re looping over results:</p>
+```js run let results = ’
+<h1>
+<h2>
+<p>’.matchAll(/&lt;(.*?)&gt;/gi);</p>
+for(let result of results) { alert(result); // first alert:
+<h1>
+,h1 // second:
+<h2>
+<p>,h2 } ```</p>
+<p>…Or using destructuring:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> [tag1<span class="op">,</span> tag2] <span class="op">=</span> <span class="st">&#39;&lt;h1&gt; &lt;h2&gt;&#39;</span>.<span class="at">matchAll</span>(<span class="ss">/&lt;</span><span class="sc">(</span><span class="ss">.</span><span class="sc">*?)</span><span class="ss">&gt;/gi</span>)<span class="op">;</span></a></code></pre></div>
+<p>Every match, returned by <code>matchAll</code>, has the same format as returned by <code>match</code> without flag <code>pattern:g</code>: it’s an array with additional properties <code>index</code> (match index in the string) and <code>input</code> (source string):</p>
+```js run let results = ’
+<h1>
+<h2>
+<p>’.matchAll(/&lt;(.*?)&gt;/gi);</p>
+<p>let [tag1, tag2] = results;</p>
+alert( tag1[0] ); //
+<h1>
+alert( tag1[1] ); // h1 alert( tag1.index ); // 0 alert( tag1.input ); //
+<h1>
+<h2>
+<p>```</p>
+<p>``<code>smart header="Why is a result of</code>matchAll` an iterable object, not an array?" Why is the method designed like that? The reason is simple - for the optimization.</p>
+<p>The call to <code>matchAll</code> does not perform the search. Instead, it returns an iterable object, without the results initially. The search is performed each time we iterate over it, e.g. in the loop.</p>
+<p>So, there will be found as many results as needed, not more.</p>
+<p>E.g. there are potentially 100 matches in the text, but in a <code>for..of</code> loop we found 5 of them, then decided it’s enough and made a <code>break</code>. Then the engine won’t spend time finding other 95 matches. ```</p>
+<h2 id="named-groups">Named groups</h2>
+<p>Remembering groups by their numbers is hard. For simple patterns it’s doable, but for more complex ones counting parentheses is inconvenient. We have a much better option: give names to parentheses.</p>
+<p>That’s done by putting <code>pattern:?&lt;name&gt;</code> immediately after the opening paren.</p>
+<p>For example, let’s look for a date in the format “year-month-day”:</p>
+<p>```js run <em>!</em> let dateRegexp = /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})/; <em>/!</em> let str = “2019-04-30”;</p>
+<p>let groups = str.match(dateRegexp).groups;</p>
+<p>alert(groups.year); // 2019 alert(groups.month); // 04 alert(groups.day); // 30 ```</p>
+<p>As you can see, the groups reside in the <code>.groups</code> property of the match.</p>
+<p>To look for all dates, we can add flag <code>pattern:g</code>.</p>
+<p>We’ll also need <code>matchAll</code> to obtain full matches, together with groups:</p>
+<p>```js run let dateRegexp = /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})/g;</p>
+<p>let str = “2019-10-30 2020-01-01”;</p>
+<p>let results = str.matchAll(dateRegexp);</p>
+<p>for(let result of results) { let {year, month, day} = result.groups;</p>
+<p>alert(<code>${day}.${month}.${year}</code>); // first alert: 30.10.2019 // second: 01.01.2020 } ```</p>
+<h2 id="capturing-groups-in-replacement">Capturing groups in replacement</h2>
+<p>Method <code>str.replace(regexp, replacement)</code> that replaces all matches with <code>regexp</code> in <code>str</code> allows to use parentheses contents in the <code>replacement</code> string. That’s done using <code>pattern:$n</code>, where <code>pattern:n</code> is the group number.</p>
+<p>For example,</p>
+<p>```js run let str = “John Bull”; let regexp = /(+) (+)/;</p>
+<p>alert( str.replace(regexp, ‘$2, $1’) ); // Bull, John ```</p>
+<p>For named parentheses the reference will be <code>pattern:$&lt;name&gt;</code>.</p>
+<p>For example, let’s reformat dates from “year-month-day” to “day.month.year”:</p>
+<p>```js run let regexp = /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})/g;</p>
+<p>let str = “2019-10-30, 2020-01-01”;</p>
+<p>alert( str.replace(regexp, ‘<span class="math inline"> &lt; <em>d</em><em>a</em><em>y</em> &gt; .</span><month>.$<year>’) ); // 30.10.2019, 01.01.2020 ```</p>
+<h2 id="non-capturing-groups-with">Non-capturing groups with ?:</h2>
+<p>Sometimes we need parentheses to correctly apply a quantifier, but we don’t want their contents in results.</p>
+<p>A group may be excluded by adding <code>pattern:?:</code> in the beginning.</p>
+<p>For instance, if we want to find <code>pattern:(go)+</code>, but don’t want the parentheses contents (<code>go</code>) as a separate array item, we can write: <code>pattern:(?:go)+</code>.</p>
+<p>In the example below we only get the name <code>match:John</code> as a separate member of the match:</p>
+<p>```js run let str = “Gogogo John!”;</p>
+<p><em>!</em> // ?: exludes ‘go’ from capturing let regexp = /(?:go)+ (+)/i; <em>/!</em></p>
+<p>let result = str.match(regexp);</p>
+<p>alert( result[0] ); // Gogogo John (full match) alert( result[1] ); // John alert( result.length ); // 2 (no more items in the array) ```</p>
+<h2 id="summary">Summary</h2>
+<p>Parentheses group together a part of the regular expression, so that the quantifier applies to it as a whole.</p>
+<p>Parentheses groups are numbered left-to-right, and can optionally be named with <code>(?&lt;name&gt;...)</code>.</p>
+<p>The content, matched by a group, can be obtained in the results:</p>
+<ul>
+<li>The method <code>str.match</code> returns capturing groups only without flag <code>pattern:g</code>.</li>
+<li>The method <code>str.matchAll</code> always returns capturing groups.</li>
+</ul>
+<p>If the parentheses have no name, then their contents is available in the match array by its number. Named parentheses are also available in the property <code>groups</code>.</p>
+<p>We can also use parentheses contents in the replacement string in <code>str.replace</code>: by the number <code>$n</code> or the name <code>$&lt;name&gt;</code>.</p>
+<p>A group may be excluded from numbering by adding <code>pattern:?:</code> in its start. That’s used when we need to apply a quantifier to the whole group, but don’t want it as a separate item in the results array. We also can’t reference such parentheses in the replacement string.</p>

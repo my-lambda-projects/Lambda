@@ -1,0 +1,90 @@
+<h1 id="resource-loading-onload-and-onerror">Resource loading: onload and onerror</h1>
+<p>The browser allows us to track the loading of external resources – scripts, iframes, pictures and so on.</p>
+<p>There are two events for it:</p>
+<ul>
+<li><code>onload</code> – successful load,</li>
+<li><code>onerror</code> – an error occurred.</li>
+</ul>
+<h2 id="loading-a-script">Loading a script</h2>
+<p>Let’s say we need to load a third-party script and call a function that resides there.</p>
+<p>We can load it dynamically, like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> script <span class="op">=</span> <span class="va">document</span>.<span class="at">createElement</span>(<span class="st">&#39;script&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="va">script</span>.<span class="at">src</span> <span class="op">=</span> <span class="st">&quot;my.js&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="va">document</span>.<span class="va">head</span>.<span class="at">append</span>(script)<span class="op">;</span></a></code></pre></div>
+<p>…But how to run the function that is declared inside that script? We need to wait until the script loads, and only then we can call it.</p>
+<pre class="smart"><code>For our own scripts we could use [JavaScript modules](info:modules) here, but they are not widely adopted by third-party libraries.</code></pre>
+<h3 id="script.onload">script.onload</h3>
+<p>The main helper is the <code>load</code> event. It triggers after the script was loaded and executed.</p>
+<p>For instance:</p>
+<p>```js run untrusted let script = document.createElement(‘script’);</p>
+<p>// can load any script, from any domain script.src = “https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js” document.head.append(script);</p>
+<p><em>!</em> script.onload = function() { // the script creates a variable "<em>" alert( </em>.VERSION ); // shows library version }; <em>/!</em> ```</p>
+<p>So in <code>onload</code> we can use script variables, run functions etc.</p>
+<p>…And what if the loading failed? For instance, there’s no such script (error 404) or the server is down (unavailable).</p>
+<h3 id="script.onerror">script.onerror</h3>
+<p>Errors that occur during the loading of the script can be tracked in an <code>error</code> event.</p>
+<p>For instance, let’s request a script that doesn’t exist:</p>
+<p>```js run let script = document.createElement(‘script’); script.src = “https://example.com/404.js”; // no such script document.head.append(script);</p>
+<p><em>!</em> script.onerror = function() { alert(“Error loading” + this.src); // Error loading https://example.com/404.js }; <em>/!</em> ```</p>
+<p>Please note that we can’t get HTTP error details here. We don’t know if it was an error 404 or 500 or something else. Just that the loading failed.</p>
+<pre class="warn"><code>Events `onload`/`onerror` track only the loading itself.
+
+Errors that may occur during script processing and execution are out of scope for these events. That is: if a script loaded successfully, then `onload` triggers, even if it has programming errors in it. To track script errors, one can use `window.onerror` global handler.</code></pre>
+<h2 id="other-resources">Other resources</h2>
+<p>The <code>load</code> and <code>error</code> events also work for other resources, basically for any resource that has an external <code>src</code>.</p>
+<p>For example:</p>
+<p>```js run let img = document.createElement(‘img’); img.src = “https://js.cx/clipart/train.gif”; // (*)</p>
+<p>img.onload = function() { alert(<code>Image loaded, size ${img.width}x${img.height}</code>); };</p>
+<p>img.onerror = function() { alert(“Error occurred while loading image”); }; ```</p>
+<p>There are some notes though:</p>
+<ul>
+<li>Most resources start loading when they are added to the document. But <code>&lt;img&gt;</code> is an exception. It starts loading when it gets a src <code>(*)</code>.</li>
+<li>For <code>&lt;iframe&gt;</code>, the <code>iframe.onload</code> event triggers when the iframe loading finished, both for successful load and in case of an error.</li>
+</ul>
+<p>That’s for historical reasons.</p>
+<h2 id="crossorigin-policy">Crossorigin policy</h2>
+<p>There’s a rule: scripts from one site can’t access contents of the other site. So, e.g. a script at <code>https://facebook.com</code> can’t read the user’s mailbox at <code>https://gmail.com</code>.</p>
+<p>Or, to be more precise, one origin (domain/port/protocol triplet) can’t access the content from another one. So even if we have a subdomain, or just another port, these are different origins with no access to each other.</p>
+<p>This rule also affects resources from other domains.</p>
+<p>If we’re using a script from another domain, and there’s an error in it, we can’t get error details.</p>
+<p>For example, let’s take a script <code>error.js</code> that consists of a single (bad) function call:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="co">// 📁 error.js</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="at">noSuchFunction</span>()<span class="op">;</span></a></code></pre></div>
+<p>Now load it from the same site where it’s located:</p>
+<p><code>html run height=0 &lt;script&gt; window.onerror = function(message, url, line, col, errorObj) {   alert(`${message}\n${url}, ${line}:${col}`); }; &lt;/script&gt; &lt;script src="/article/onload-onerror/crossorigin/error.js"&gt;&lt;/script&gt;</code></p>
+<p>We can see a good error report, like this:</p>
+<pre><code>Uncaught ReferenceError: noSuchFunction is not defined
+https://javascript.info/article/onload-onerror/crossorigin/error.js, 1:1</code></pre>
+<p>Now let’s load the same script from another domain:</p>
+<p><code>html run height=0 &lt;script&gt; window.onerror = function(message, url, line, col, errorObj) {   alert(`${message}\n${url}, ${line}:${col}`); }; &lt;/script&gt; &lt;script src="https://cors.javascript.info/article/onload-onerror/crossorigin/error.js"&gt;&lt;/script&gt;</code></p>
+<p>The report is different, like this:</p>
+<pre><code>Script error.
+, 0:0</code></pre>
+<p>Details may vary depending on the browser, but the idea is the same: any information about the internals of a script, including error stack traces, is hidden. Exactly because it’s from another domain.</p>
+<p>Why do we need error details?</p>
+<p>There are many services (and we can build our own) that listen for global errors using <code>window.onerror</code>, save errors and provide an interface to access and analyze them. That’s great, as we can see real errors, triggered by our users. But if a script comes from another origin, then there’s not much information about errors in it, as we’ve just seen.</p>
+<p>Similar cross-origin policy (CORS) is enforced for other types of resources as well.</p>
+<p><strong>To allow cross-origin access, the <code>&lt;script&gt;</code> tag needs to have the <code>crossorigin</code> attribute, plus the remote server must provide special headers.</strong></p>
+<p>There are three levels of cross-origin access:</p>
+<ol type="1">
+<li><strong>No <code>crossorigin</code> attribute</strong> – access prohibited.</li>
+<li><strong><code>crossorigin="anonymous"</code></strong> – access allowed if the server responds with the header <code>Access-Control-Allow-Origin</code> with <code>*</code> or our origin. Browser does not send authorization information and cookies to remote server.</li>
+<li><strong><code>crossorigin="use-credentials"</code></strong> – access allowed if the server sends back the header <code>Access-Control-Allow-Origin</code> with our origin and <code>Access-Control-Allow-Credentials: true</code>. Browser sends authorization information and cookies to remote server.</li>
+</ol>
+<pre class="smart"><code>You can read more about cross-origin access in the chapter &lt;info:fetch-crossorigin&gt;. It describes the `fetch` method for network requests, but the policy is exactly the same.
+
+Such thing as &quot;cookies&quot; is out of our current scope, but you can read about them in the chapter &lt;info:cookie&gt;.</code></pre>
+<p>In our case, we didn’t have any crossorigin attribute. So the cross-origin access was prohibited. Let’s add it.</p>
+<p>We can choose between <code>"anonymous"</code> (no cookies sent, one server-side header needed) and <code>"use-credentials"</code> (sends cookies too, two server-side headers needed).</p>
+<p>If we don’t care about cookies, then <code>"anonymous"</code> is the way to go:</p>
+<p><code>html run height=0 &lt;script&gt; window.onerror = function(message, url, line, col, errorObj) {   alert(`${message}\n${url}, ${line}:${col}`); }; &lt;/script&gt; &lt;script *!*crossorigin="anonymous"*/!* src="https://cors.javascript.info/article/onload-onerror/crossorigin/error.js"&gt;&lt;/script&gt;</code></p>
+<p>Now, assuming that the server provides an <code>Access-Control-Allow-Origin</code> header, everything’s fine. We have the full error report.</p>
+<h2 id="summary">Summary</h2>
+<p>Images <code>&lt;img&gt;</code>, external styles, scripts and other resources provide <code>load</code> and <code>error</code> events to track their loading:</p>
+<ul>
+<li><code>load</code> triggers on a successful load,</li>
+<li><code>error</code> triggers on a failed load.</li>
+</ul>
+<p>The only exception is <code>&lt;iframe&gt;</code>: for historical reasons it always triggers <code>load</code>, for any load completion, even if the page is not found.</p>
+<p>The <code>readystatechange</code> event also works for resources, but is rarely used, because <code>load/error</code> events are simpler.</p>

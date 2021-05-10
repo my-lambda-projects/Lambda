@@ -1,0 +1,11 @@
+<p>importance: 3</p>
+<hr />
+<h1 id="explain-the-value-of-this">Explain the value of “this”</h1>
+<p>In the code below we intend to call <code>obj.go()</code> method 4 times in a row.</p>
+<p>But calls <code>(1)</code> and <code>(2)</code> works differently from <code>(3)</code> and <code>(4)</code>. Why?</p>
+<p>```js run no-beautify let obj, method;</p>
+<p>obj = { go: function() { alert(this); } };</p>
+<p>obj.go(); // (1) [object Object]</p>
+<p>(obj.go)(); // (2) [object Object]</p>
+<p>(method = obj.go)(); // (3) undefined</p>
+<p>(obj.go || obj.stop)(); // (4) undefined ```</p>

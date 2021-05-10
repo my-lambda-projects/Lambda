@@ -1,0 +1,11 @@
+<p>importance: 4</p>
+<hr />
+<h1 id="add-the-decorating-defer-to-functions">Add the decorating “defer()” to functions</h1>
+<p>Add to the prototype of all functions the method <code>defer(ms)</code>, that returns a wrapper, delaying the call by <code>ms</code> milliseconds.</p>
+<p>Here’s an example of how it should work:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">f</span>(a<span class="op">,</span> b) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="at">alert</span>( a <span class="op">+</span> b )<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="va">f</span>.<span class="at">defer</span>(<span class="dv">1000</span>)(<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span>)<span class="op">;</span> <span class="co">// shows 3 after 1 second</span></a></code></pre></div>
+<p>Please note that the arguments should be passed to the original function.</p>

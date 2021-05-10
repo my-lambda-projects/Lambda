@@ -1,0 +1,133 @@
+<h1 id="moving-the-mouse-mouseoverout-mouseenterleave">Moving the mouse: mouseover/out, mouseenter/leave</h1>
+<p>Let’s dive into more details about events that happen when the mouse moves between elements.</p>
+<h2 id="events-mouseovermouseout-relatedtarget">Events mouseover/mouseout, relatedTarget</h2>
+<p>The <code>mouseover</code> event occurs when a mouse pointer comes over an element, and <code>mouseout</code> – when it leaves.</p>
+<p><img src="mouseover-mouseout.svg" /></p>
+<p>These events are special, because they have property <code>relatedTarget</code>. This property complements <code>target</code>. When a mouse leaves one element for another, one of them becomes <code>target</code>, and the other one - <code>relatedTarget</code>.</p>
+<p>For <code>mouseover</code>:</p>
+<ul>
+<li><code>event.target</code> – is the element where the mouse came over.</li>
+<li><code>event.relatedTarget</code> – is the element from which the mouse came (<code>relatedTarget</code> -&gt; <code>target</code>).</li>
+</ul>
+<p>For <code>mouseout</code> the reverse:</p>
+<ul>
+<li><code>event.target</code> – is the element that the mouse left.</li>
+<li><code>event.relatedTarget</code> – is the new under-the-pointer element, that mouse left for (<code>target</code> -&gt; <code>relatedTarget</code>).</li>
+</ul>
+<pre class="online"><code>In the example below each face and its features are separate elements. When you move the mouse, you can see mouse events in the text area.
+
+Each event has the information about both `target` and `relatedTarget`:
+
+[codetabs src=&quot;mouseoverout&quot; height=280]</code></pre>
+<p>``<code>warn header="</code>relatedTarget<code>can be</code>null<code>" The</code>relatedTarget<code>property can be</code>null`.</p>
+<p>That’s normal and just means that the mouse came not from another element, but from out of the window. Or that it left the window.</p>
+<p>We should keep that possibility in mind when using <code>event.relatedTarget</code> in our code. If we access <code>event.relatedTarget.tagName</code>, then there will be an error. ```</p>
+<h2 id="skipping-elements">Skipping elements</h2>
+<p>The <code>mousemove</code> event triggers when the mouse moves. But that doesn’t mean that every pixel leads to an event.</p>
+<p>The browser checks the mouse position from time to time. And if it notices changes then triggers the events.</p>
+<p>That means that if the visitor is moving the mouse very fast then some DOM-elements may be skipped:</p>
+<p><img src="mouseover-mouseout-over-elems.svg" /></p>
+<p>If the mouse moves very fast from <code>#FROM</code> to <code>#TO</code> elements as painted above, then intermediate <code>&lt;div&gt;</code> elements (or some of them) may be skipped. The <code>mouseout</code> event may trigger on <code>#FROM</code> and then immediately <code>mouseover</code> on <code>#TO</code>.</p>
+<p>That’s good for performance, because there may be many intermediate elements. We don’t really want to process in and out of each one.</p>
+<p>On the other hand, we should keep in mind that the mouse pointer doesn’t “visit” all elements along the way. It can “jump”.</p>
+<p>In particular, it’s possible that the pointer jumps right inside the middle of the page from out of the window. In that case <code>relatedTarget</code> is <code>null</code>, because it came from “nowhere”:</p>
+<p><img src="mouseover-mouseout-from-outside.svg" /></p>
+<pre class="online"><code>You can check it out &quot;live&quot; on a teststand below.
+
+Its HTML has two nested elements: the `&lt;div id=&quot;child&quot;&gt;` is inside the `&lt;div id=&quot;parent&quot;&gt;`. If you move the mouse fast over them, then maybe only the child div triggers events, or maybe the parent one, or maybe there will be no events at all.
+
+Also move the pointer into the child `div`, and then move it out quickly down through the parent one. If the movement is fast enough, then the parent element is ignored. The mouse will cross the parent element without noticing it.
+
+[codetabs height=360 src=&quot;mouseoverout-fast&quot;]</code></pre>
+<p><code>smart header="If `mouseover` triggered, there must be `mouseout`" In case of fast mouse movements, intermediate elements may be ignored, but one thing we know for sure: if the pointer "officially" entered an element (`mouseover` event generated), then upon leaving it we always get `mouseout`.</code></p>
+<h2 id="mouseout-when-leaving-for-a-child">Mouseout when leaving for a child</h2>
+<p>An important feature of <code>mouseout</code> – it triggers, when the pointer moves from an element to its descendant, e.g. from <code>#parent</code> to <code>#child</code> in this HTML:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;parent&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;child&quot;</span><span class="kw">&gt;</span>...<span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<p>If we’re on <code>#parent</code> and then move the pointer deeper into <code>#child</code>, we get <code>mouseout</code> on <code>#parent</code>!</p>
+<p><img src="mouseover-to-child.svg" /></p>
+<p>That may seem strange, but can be easily explained.</p>
+<p><strong>According to the browser logic, the mouse cursor may be only over a <em>single</em> element at any time – the most nested one and top by z-index.</strong></p>
+<p>So if it goes to another element (even a descendant), then it leaves the previous one.</p>
+<p>Please note another important detail of event processing.</p>
+<p>The <code>mouseover</code> event on a descendant bubbles up. So, if <code>#parent</code> has <code>mouseover</code> handler, it triggers:</p>
+<p><img src="mouseover-bubble-nested.svg" /></p>
+<pre class="online"><code>You can see that very well in the example below: `&lt;div id=&quot;child&quot;&gt;` is inside the `&lt;div id=&quot;parent&quot;&gt;`. There are `mouseover/out` handlers on `#parent` element that output event details.
+
+If you move the mouse from `#parent` to `#child`, you see two events on `#parent`:
+1. `mouseout [target: parent]` (left the parent), then
+2. `mouseover [target: child]` (came to the child, bubbled).
+
+[codetabs height=360 src=&quot;mouseoverout-child&quot;]</code></pre>
+<p>As shown, when the pointer moves from <code>#parent</code> element to <code>#child</code>, two handlers trigger on the parent element: <code>mouseout</code> and <code>mouseover</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">parent</span>.<span class="at">onmouseout</span> <span class="op">=</span> <span class="kw">function</span>(event) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="co">/* event.target: parent element */</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="op">};</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="va">parent</span>.<span class="at">onmouseover</span> <span class="op">=</span> <span class="kw">function</span>(event) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-5" title="5">  <span class="co">/* event.target: child element (bubbled) */</span></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="op">};</span></a></code></pre></div>
+<p><strong>If we don’t examine <code>event.target</code> inside the handlers, then it may seem that the mouse pointer left <code>#parent</code> element, and then immediately came back over it.</strong></p>
+<p>But that’s not the case! The pointer is still over the parent, it just moved deeper into the child element.</p>
+<p>If there are some actions upon leaving the parent element, e.g. an animation runs in <code>parent.onmouseout</code>, we usually don’t want it when the pointer just goes deeper into <code>#parent</code>.</p>
+<p>To avoid it, we can check <code>relatedTarget</code> in the handler and, if the mouse is still inside the element, then ignore such event.</p>
+<p>Alternatively we can use other events: <code>mouseenter</code> and <code>mouseleave</code>, that we’ll be covering now, as they don’t have such problems.</p>
+<h2 id="events-mouseenter-and-mouseleave">Events mouseenter and mouseleave</h2>
+<p>Events <code>mouseenter/mouseleave</code> are like <code>mouseover/mouseout</code>. They trigger when the mouse pointer enters/leaves the element.</p>
+<p>But there are two important differences:</p>
+<ol type="1">
+<li>Transitions inside the element, to/from descendants, are not counted.</li>
+<li>Events <code>mouseenter/mouseleave</code> do not bubble.</li>
+</ol>
+<p>These events are extremely simple.</p>
+<p>When the pointer enters an element – <code>mouseenter</code> triggers. The exact location of the pointer inside the element or its descendants doesn’t matter.</p>
+<p>When the pointer leaves an element – <code>mouseleave</code> triggers.</p>
+<pre class="online"><code>This example is similar to the one above, but now the top element has `mouseenter/mouseleave` instead of `mouseover/mouseout`.
+
+As you can see, the only generated events are the ones related to moving the pointer in and out of the top element. Nothing happens when the pointer goes to the child and back. Transitions between descendants are ignored
+
+[codetabs height=340 src=&quot;mouseleave&quot;]</code></pre>
+<h2 id="event-delegation">Event delegation</h2>
+<p>Events <code>mouseenter/leave</code> are very simple and easy to use. But they do not bubble. So we can’t use event delegation with them.</p>
+<p>Imagine we want to handle mouse enter/leave for table cells. And there are hundreds of cells.</p>
+<p>The natural solution would be – to set the handler on <code>&lt;table&gt;</code> and process events there. But <code>mouseenter/leave</code> don’t bubble. So if such event happens on <code>&lt;td&gt;</code>, then only a handler on that <code>&lt;td&gt;</code> is able to catch it.</p>
+<p>Handlers for <code>mouseenter/leave</code> on <code>&lt;table&gt;</code> only trigger when the pointer enters/leaves the table as a whole. It’s impossible to get any information about transitions inside it.</p>
+<p>So, let’s use <code>mouseover/mouseout</code>.</p>
+<p>Let’s start with simple handlers that highlight the element under mouse:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="co">// let&#39;s highlight an element under the pointer</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="va">table</span>.<span class="at">onmouseover</span> <span class="op">=</span> <span class="kw">function</span>(event) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="kw">let</span> target <span class="op">=</span> <span class="va">event</span>.<span class="at">target</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  <span class="va">target</span>.<span class="va">style</span>.<span class="at">background</span> <span class="op">=</span> <span class="st">&#39;pink&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="op">};</span></a>
+<a class="sourceLine" id="cb7-6" title="6"></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="va">table</span>.<span class="at">onmouseout</span> <span class="op">=</span> <span class="kw">function</span>(event) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-8" title="8">  <span class="kw">let</span> target <span class="op">=</span> <span class="va">event</span>.<span class="at">target</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-9" title="9">  <span class="va">target</span>.<span class="va">style</span>.<span class="at">background</span> <span class="op">=</span> <span class="st">&#39;&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-10" title="10"><span class="op">};</span></a></code></pre></div>
+<pre class="online"><code>Here they are in action. As the mouse travels across the elements of this table, the current one is highlighted:
+
+[codetabs height=480 src=&quot;mouseenter-mouseleave-delegation&quot;]</code></pre>
+<p>In our case we’d like to handle transitions between table cells <code>&lt;td&gt;</code>: entering a cell and leaving it. Other transitions, such as inside the cell or outside of any cells, don’t interest us. Let’s filter them out.</p>
+<p>Here’s what we can do:</p>
+<ul>
+<li>Remember the currently highlighted <code>&lt;td&gt;</code> in a variable, let’s call it <code>currentElem</code>.</li>
+<li>On <code>mouseover</code> – ignore the event if we’re still inside the current <code>&lt;td&gt;</code>.</li>
+<li>On <code>mouseout</code> – ignore if we didn’t leave the current <code>&lt;td&gt;</code>.</li>
+</ul>
+<p>Here’s an example of code that accounts for all possible situations:</p>
+<p>[js src=“mouseenter-mouseleave-delegation-2/script.js”]</p>
+<p>Once again, the important features are: 1. It uses event delegation to handle entering/leaving of any <code>&lt;td&gt;</code> inside the table. So it relies on <code>mouseover/out</code> instead of <code>mouseenter/leave</code> that don’t bubble and hence allow no delegation. 2. Extra events, such as moving between descendants of <code>&lt;td&gt;</code> are filtered out, so that <code>onEnter/Leave</code> runs only if the pointer leaves or enters <code>&lt;td&gt;</code> as a whole.</p>
+<pre class="online"><code>Here&#39;s the full example with all details:
+
+[codetabs height=460 src=&quot;mouseenter-mouseleave-delegation-2&quot;]
+
+Try to move the cursor in and out of table cells and inside them. Fast or slow -- doesn&#39;t matter. Only `&lt;td&gt;` as a whole is highlighted, unlike the example before.</code></pre>
+<h2 id="summary">Summary</h2>
+<p>We covered events <code>mouseover</code>, <code>mouseout</code>, <code>mousemove</code>, <code>mouseenter</code> and <code>mouseleave</code>.</p>
+<p>These things are good to note:</p>
+<ul>
+<li>A fast mouse move may skip intermediate elements.</li>
+<li>Events <code>mouseover/out</code> and <code>mouseenter/leave</code> have an additional property: <code>relatedTarget</code>. That’s the element that we are coming from/to, complementary to <code>target</code>.</li>
+</ul>
+<p>Events <code>mouseover/out</code> trigger even when we go from the parent element to a child element. The browser assumes that the mouse can be only over one element at one time – the deepest one.</p>
+<p>Events <code>mouseenter/leave</code> are different in that aspect: they only trigger when the mouse comes in and out the element as a whole. Also they do not bubble.</p>

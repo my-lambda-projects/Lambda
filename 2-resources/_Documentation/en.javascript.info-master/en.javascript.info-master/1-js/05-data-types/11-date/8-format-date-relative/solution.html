@@ -1,0 +1,17 @@
+<p>To get the time from <code>date</code> till now – let’s substract the dates.</p>
+<p>```js run demo function formatDate(date) { let diff = new Date() - date; // the difference in milliseconds</p>
+<p>if (diff &lt; 1000) { // less than 1 second return ‘right now’; }</p>
+<p>let sec = Math.floor(diff / 1000); // convert diff to seconds</p>
+<p>if (sec &lt; 60) { return sec + ’ sec. ago’; }</p>
+<p>let min = Math.floor(diff / 60000); // convert diff to minutes if (min &lt; 60) { return min + ’ min. ago’; }</p>
+<p>// format the date // add leading zeroes to single-digit day/month/hours/minutes let d = date; d = [ ‘0’ + d.getDate(), ‘0’ + (d.getMonth() + 1), ’’ + d.getFullYear(), ‘0’ + d.getHours(), ‘0’ + d.getMinutes() ].map(component =&gt; component.slice(-2)); // take last 2 digits of every component</p>
+<p>// join the components into date return d.slice(0, 3).join(‘.’) + ’ ’ + d.slice(3).join(‘:’); }</p>
+<p>alert( formatDate(new Date(new Date - 1)) ); // “right now”</p>
+<p>alert( formatDate(new Date(new Date - 30 * 1000)) ); // “30 sec. ago”</p>
+<p>alert( formatDate(new Date(new Date - 5 * 60 * 1000)) ); // “5 min. ago”</p>
+<p>// yesterday’s date like 31.12.2016 20:00 alert( formatDate(new Date(new Date - 86400 * 1000)) ); ```</p>
+<p>Alternative solution:</p>
+<p>```js run function formatDate(date) { let dayOfMonth = date.getDate(); let month = date.getMonth() + 1; let year = date.getFullYear(); let hour = date.getHours(); let minutes = date.getMinutes(); let diffMs = new Date() - date; let diffSec = Math.round(diffMs / 1000); let diffMin = diffSec / 60; let diffHour = diffMin / 60;</p>
+<p>// formatting year = year.toString().slice(-2); month = month &lt; 10 ? ‘0’ + month : month; dayOfMonth = dayOfMonth &lt; 10 ? ‘0’ + dayOfMonth : dayOfMonth; hour = hour &lt; 10 ? ‘0’ + hour : hour; minutes = minutes &lt; 10 ? ‘0’ + minutes : minutes;</p>
+<p>if (diffSec &lt; 1) { return ‘right now’;<br />
+} else if (diffMin &lt; 1) { return <code>${diffSec} sec. ago</code> } else if (diffHour &lt; 1) { return <code>${diffMin} min. ago</code> } else { return <code>${dayOfMonth}.${month}.${year} ${hour}:${minutes}</code> } } ```</p>

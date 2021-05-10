@@ -1,0 +1,17 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="the-difference-between-calls">The difference between calls</h1>
+<p>Let’s create a new <code>rabbit</code> object:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">Rabbit</span>(name) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">this</span>.<span class="at">name</span> <span class="op">=</span> name<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="va">Rabbit</span>.<span class="va">prototype</span>.<span class="at">sayHi</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="at">alert</span>(<span class="kw">this</span>.<span class="at">name</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="op">};</span></a>
+<a class="sourceLine" id="cb1-7" title="7"></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="kw">let</span> rabbit <span class="op">=</span> <span class="kw">new</span> <span class="at">Rabbit</span>(<span class="st">&quot;Rabbit&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<p>These calls do the same thing or not?</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">rabbit</span>.<span class="at">sayHi</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="va">Rabbit</span>.<span class="va">prototype</span>.<span class="at">sayHi</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="va">Object</span>.<span class="at">getPrototypeOf</span>(rabbit).<span class="at">sayHi</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="va">rabbit</span>.<span class="va">__proto__</span>.<span class="at">sayHi</span>()<span class="op">;</span></a></code></pre></div>

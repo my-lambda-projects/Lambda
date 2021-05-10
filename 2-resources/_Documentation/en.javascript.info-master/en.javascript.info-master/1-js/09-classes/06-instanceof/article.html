@@ -1,0 +1,110 @@
+<h1 id="class-checking-instanceof">Class checking: “instanceof”</h1>
+<p>The <code>instanceof</code> operator allows to check whether an object belongs to a certain class. It also takes inheritance into account.</p>
+<p>Such a check may be necessary in many cases. For example, it can be used for building a <em>polymorphic</em> function, the one that treats arguments differently depending on their type.</p>
+<h2 id="the-instanceof-operator-ref-instanceof">The instanceof operator [#ref-instanceof]</h2>
+<p>The syntax is:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1">obj <span class="kw">instanceof</span> Class</a></code></pre></div>
+<p>It returns <code>true</code> if <code>obj</code> belongs to the <code>Class</code> or a class inheriting from it.</p>
+<p>For instance:</p>
+<p>```js run class Rabbit {} let rabbit = new Rabbit();</p>
+<p>// is it an object of Rabbit class? <em>!</em> alert( rabbit instanceof Rabbit ); // true <em>/!</em> ```</p>
+<p>It also works with constructor functions:</p>
+<p>```js run <em>!</em> // instead of class function Rabbit() {} <em>/!</em></p>
+<p>alert( new Rabbit() instanceof Rabbit ); // true ```</p>
+<p>…And with built-in classes like <code>Array</code>:</p>
+<p><code>js run let arr = [1, 2, 3]; alert( arr instanceof Array ); // true alert( arr instanceof Object ); // true</code></p>
+<p>Please note that <code>arr</code> also belongs to the <code>Object</code> class. That’s because <code>Array</code> prototypically inherits from <code>Object</code>.</p>
+<p>Normally, <code>instanceof</code> examines the prototype chain for the check. We can also set a custom logic in the static method <code>Symbol.hasInstance</code>.</p>
+<p>The algorithm of <code>obj instanceof Class</code> works roughly as follows:</p>
+<ol type="1">
+<li><p>If there’s a static method <code>Symbol.hasInstance</code>, then just call it: <code>Class[Symbol.hasInstance](obj)</code>. It should return either <code>true</code> or <code>false</code>, and we’re done. That’s how we can customize the behavior of <code>instanceof</code>.</p>
+<p>For example:</p>
+<p>```js run // setup instanceOf check that assumes that // anything with canEat property is an animal class Animal { static <a href="obj">Symbol.hasInstance</a> { if (obj.canEat) return true; } }</p>
+<p>let obj = { canEat: true };</p>
+<p>alert(obj instanceof Animal); // true: Animal<a href="obj">Symbol.hasInstance</a> is called ```</p></li>
+<li><p>Most classes do not have <code>Symbol.hasInstance</code>. In that case, the standard logic is used: <code>obj instanceOf Class</code> checks whether <code>Class.prototype</code> is equal to one of the prototypes in the <code>obj</code> prototype chain.</p>
+<p>In other words, compare one after another: <code>js  obj.__proto__ === Class.prototype?  obj.__proto__.__proto__ === Class.prototype?  obj.__proto__.__proto__.__proto__ === Class.prototype?  ...  // if any answer is true, return true  // otherwise, if we reached the end of the chain, return false</code></p>
+<p>In the example above <code>rabbit.__proto__ === Rabbit.prototype</code>, so that gives the answer immediately.</p>
+<p>In the case of an inheritance, the match will be at the second step:</p>
+<p>```js run class Animal {} class Rabbit extends Animal {}</p>
+<p>let rabbit = new Rabbit(); <em>!</em> alert(rabbit instanceof Animal); // true <em>/!</em></p>
+<p>// rabbit.__proto__ === Rabbit.prototype <em>!</em> // rabbit.__proto__.__proto__ === Animal.prototype (match!) <em>/!</em> ```</p></li>
+</ol>
+<p>Here’s the illustration of what <code>rabbit instanceof Animal</code> compares with <code>Animal.prototype</code>:</p>
+<p><img src="instanceof.svg" /></p>
+<p>By the way, there’s also a method <a href="mdn:js/object/isPrototypeOf">objA.isPrototypeOf(objB)</a>, that returns <code>true</code> if <code>objA</code> is somewhere in the chain of prototypes for <code>objB</code>. So the test of <code>obj instanceof Class</code> can be rephrased as <code>Class.prototype.isPrototypeOf(obj)</code>.</p>
+<p>It’s funny, but the <code>Class</code> constructor itself does not participate in the check! Only the chain of prototypes and <code>Class.prototype</code> matters.</p>
+<p>That can lead to interesting consequences when a <code>prototype</code> property is changed after the object is created.</p>
+<p>Like here:</p>
+<p>```js run function Rabbit() {} let rabbit = new Rabbit();</p>
+<p>// changed the prototype Rabbit.prototype = {};</p>
+<p>// …not a rabbit any more! <em>!</em> alert( rabbit instanceof Rabbit ); // false <em>/!</em> ```</p>
+<h2 id="bonus-object.prototype.tostring-for-the-type">Bonus: Object.prototype.toString for the type</h2>
+<p>We already know that plain objects are converted to string as <code>[object Object]</code>:</p>
+<p>```js run let obj = {};</p>
+<p>alert(obj); // [object Object] alert(obj.toString()); // the same ```</p>
+<p>That’s their implementation of <code>toString</code>. But there’s a hidden feature that makes <code>toString</code> actually much more powerful than that. We can use it as an extended <code>typeof</code> and an alternative for <code>instanceof</code>.</p>
+<p>Sounds strange? Indeed. Let’s demystify.</p>
+<p>By <a href="https://tc39.github.io/ecma262/#sec-object.prototype.tostring">specification</a>, the built-in <code>toString</code> can be extracted from the object and executed in the context of any other value. And its result depends on that value.</p>
+<ul>
+<li>For a number, it will be <code>[object Number]</code></li>
+<li>For a boolean, it will be <code>[object Boolean]</code></li>
+<li>For <code>null</code>: <code>[object Null]</code></li>
+<li>For <code>undefined</code>: <code>[object Undefined]</code></li>
+<li>For arrays: <code>[object Array]</code></li>
+<li>…etc (customizable).</li>
+</ul>
+<p>Let’s demonstrate:</p>
+<p>```js run // copy toString method into a variable for convenience let objectToString = Object.prototype.toString;</p>
+<p>// what type is this? let arr = [];</p>
+<p>alert( objectToString.call(arr) ); // [object <em>!</em>Array<em>/!</em>] ```</p>
+<p>Here we used <a href="mdn:js/function/call">call</a> as described in the chapter <a href="info:call-apply-decorators"></a> to execute the function <code>objectToString</code> in the context <code>this=arr</code>.</p>
+<p>Internally, the <code>toString</code> algorithm examines <code>this</code> and returns the corresponding result. More examples:</p>
+<p>```js run let s = Object.prototype.toString;</p>
+<p>alert( s.call(123) ); // [object Number] alert( s.call(null) ); // [object Null] alert( s.call(alert) ); // [object Function] ```</p>
+<h3 id="symbol.tostringtag">Symbol.toStringTag</h3>
+<p>The behavior of Object <code>toString</code> can be customized using a special object property <code>Symbol.toStringTag</code>.</p>
+<p>For instance:</p>
+<p>```js run let user = { <a href="#symbol.tostringtag">Symbol.toStringTag</a>: “User” };</p>
+<p>alert( {}.toString.call(user) ); // [object User] ```</p>
+<p>For most environment-specific objects, there is such a property. Here are some browser specific examples:</p>
+<p>```js run // toStringTag for the environment-specific object and class: alert( window<a href="#symbol.tostringtag">Symbol.toStringTag</a>); // Window alert( XMLHttpRequest.prototype<a href="#symbol.tostringtag">Symbol.toStringTag</a> ); // XMLHttpRequest</p>
+<p>alert( {}.toString.call(window) ); // [object Window] alert( {}.toString.call(new XMLHttpRequest()) ); // [object XMLHttpRequest] ```</p>
+<p>As you can see, the result is exactly <code>Symbol.toStringTag</code> (if exists), wrapped into <code>[object ...]</code>.</p>
+<p>At the end we have “typeof on steroids” that not only works for primitive data types, but also for built-in objects and even can be customized.</p>
+<p>We can use <code>{}.toString.call</code> instead of <code>instanceof</code> for built-in objects when we want to get the type as a string rather than just to check.</p>
+<h2 id="summary">Summary</h2>
+<p>Let’s summarize the type-checking methods that we know:</p>
+<table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 30%" />
+<col style="width: 34%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>works for</th>
+<th>returns</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>typeof</code></td>
+<td>primitives</td>
+<td>string</td>
+</tr>
+<tr class="even">
+<td><code>{}.toString</code></td>
+<td>primitives, built-in objects, objects with <code>Symbol.toStringTag</code></td>
+<td>string</td>
+</tr>
+<tr class="odd">
+<td><code>instanceof</code></td>
+<td>objects</td>
+<td>true/false</td>
+</tr>
+</tbody>
+</table>
+<p>As we can see, <code>{}.toString</code> is technically a “more advanced” <code>typeof</code>.</p>
+<p>And <code>instanceof</code> operator really shines when we are working with a class hierarchy and want to check for the class taking into account inheritance.</p>

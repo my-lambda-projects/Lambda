@@ -1,0 +1,7 @@
+<h1 id="error-in-settimeout">Error in setTimeout</h1>
+<p>What do you think? Will the <code>.catch</code> trigger? Explain your answer.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">new</span> <span class="at">Promise</span>(<span class="kw">function</span>(resolve<span class="op">,</span> reject) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="at">setTimeout</span>(() <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="cf">throw</span> <span class="kw">new</span> <span class="at">Error</span>(<span class="st">&quot;Whoops!&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="op">},</span> <span class="dv">1000</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="op">}</span>).<span class="at">catch</span>(alert)<span class="op">;</span></a></code></pre></div>

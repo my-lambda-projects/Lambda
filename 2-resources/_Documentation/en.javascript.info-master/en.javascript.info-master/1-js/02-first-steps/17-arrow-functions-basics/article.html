@@ -1,0 +1,47 @@
+<h1 id="arrow-functions-the-basics">Arrow functions, the basics</h1>
+<p>There’s another very simple and concise syntax for creating functions, that’s often better than Function Expressions.</p>
+<p>It’s called “arrow functions”, because it looks like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> func <span class="op">=</span> (arg1<span class="op">,</span> arg2<span class="op">,</span> ...<span class="op">,</span> argN) <span class="kw">=&gt;</span> expression</a></code></pre></div>
+<p>…This creates a function <code>func</code> that accepts arguments <code>arg1..argN</code>, then evaluates the <code>expression</code> on the right side with their use and returns its result.</p>
+<p>In other words, it’s the shorter version of:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> func <span class="op">=</span> <span class="kw">function</span>(arg1<span class="op">,</span> arg2<span class="op">,</span> ...<span class="op">,</span> argN) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="cf">return</span> expression<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="op">};</span></a></code></pre></div>
+<p>Let’s see a concrete example:</p>
+<p>```js run let sum = (a, b) =&gt; a + b;</p>
+<p>/* This arrow function is a shorter form of:</p>
+<p>let sum = function(a, b) { return a + b; }; */</p>
+<p>alert( sum(1, 2) ); // 3 ```</p>
+<p>As you can, see <code>(a, b) =&gt; a + b</code> means a function that accepts two arguments named <code>a</code> and <code>b</code>. Upon the execution, it evaluates the expression <code>a + b</code> and returns the result.</p>
+<ul>
+<li><p>If we have only one argument, then parentheses around parameters can be omitted, making that even shorter.</p>
+<p>For example:</p>
+<p>```js run <em>!</em> let double = n =&gt; n * 2; // roughly the same as: let double = function(n) { return n * 2 } <em>/!</em></p>
+<p>alert( double(3) ); // 6 ```</p></li>
+<li><p>If there are no arguments, parentheses will be empty (but they should be present):</p>
+<p>```js run let sayHi = () =&gt; alert(“Hello!”);</p>
+<p>sayHi(); ```</p></li>
+</ul>
+<p>Arrow functions can be used in the same way as Function Expressions.</p>
+<p>For instance, to dynamically create a function:</p>
+<p>```js run let age = prompt(“What is your age?”, 18);</p>
+<p>let welcome = (age &lt; 18) ? () =&gt; alert(‘Hello’) : () =&gt; alert(“Greetings!”);</p>
+<p>welcome(); ```</p>
+<p>Arrow functions may appear unfamiliar and not very readable at first, but that quickly changes as the eyes get used to the structure.</p>
+<p>They are very convenient for simple one-line actions, when we’re just too lazy to write many words.</p>
+<h2 id="multiline-arrow-functions">Multiline arrow functions</h2>
+<p>The examples above took arguments from the left of <code>=&gt;</code> and evaluated the right-side expression with them.</p>
+<p>Sometimes we need something a little bit more complex, like multiple expressions or statements. It is also possible, but we should enclose them in curly braces. Then use a normal <code>return</code> within them.</p>
+<p>Like this:</p>
+<p>```js run let sum = (a, b) =&gt; { // the curly brace opens a multiline function let result = a + b; <em>!</em> return result; // if we use curly braces, then we need an explicit “return” <em>/!</em> };</p>
+<p>alert( sum(1, 2) ); // 3 ```</p>
+<p>```smart header=“More to come” Here we praised arrow functions for brevity. But that’s not all!</p>
+<p>Arrow functions have other interesting features.</p>
+<p>To study them in-depth, we first need to get to know some other aspects of JavaScript, so we’ll return to arrow functions later in the chapter <a href="info:arrow-functions" class="uri">info:arrow-functions</a>.</p>
+<p>For now, we can already use arrow functions for one-line actions and callbacks. ```</p>
+<h2 id="summary">Summary</h2>
+<p>Arrow functions are handy for one-liners. They come in two flavors:</p>
+<ol type="1">
+<li>Without curly braces: <code>(...args) =&gt; expression</code> – the right side is an expression: the function evaluates it and returns the result.</li>
+<li>With curly braces: <code>(...args) =&gt; { body }</code> – brackets allow us to write multiple statements inside the function, but we need an explicit <code>return</code> to return something.</li>
+</ol>

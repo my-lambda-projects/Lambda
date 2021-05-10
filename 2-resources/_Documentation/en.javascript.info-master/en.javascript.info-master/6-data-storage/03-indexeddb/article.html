@@ -1,0 +1,567 @@
+<p>libs: - ‘https://cdn.jsdelivr.net/npm/idb@3.0.2/build/idb.min.js’</p>
+<hr />
+<h1 id="indexeddb">IndexedDB</h1>
+<p>IndexedDB is a database that is built into browser, much more powerful than <code>localStorage</code>.</p>
+<ul>
+<li>Stores almost any kind of values by keys, multiple key types.</li>
+<li>Supports transactions for reliability.</li>
+<li>Supports key range queries, indexes.</li>
+<li>Can store much bigger volumes of data than <code>localStorage</code>.</li>
+</ul>
+<p>That power is usually excessive for traditional client-server apps. IndexedDB is intended for offline apps, to be combined with ServiceWorkers and other technologies.</p>
+<p>The native interface to IndexedDB, described in the specification <a href="https://www.w3.org/TR/IndexedDB" class="uri">https://www.w3.org/TR/IndexedDB</a>, is event-based.</p>
+<p>We can also use <code>async/await</code> with the help of a promise-based wrapper, like <a href="https://github.com/jakearchibald/idb" class="uri">https://github.com/jakearchibald/idb</a>. That’s pretty convenient, but the wrapper is not perfect, it can’t replace events for all cases. So we’ll start with events, and then, after we gain an understanding of IndexedDb, we’ll use the wrapper.</p>
+<p>```smart header=“Where’s the data?” Technically, the data is usually stored in the visitor’s home directory, along with browser settings, extensions, etc.</p>
+<p>Different browsers and OS-level users have each their own independant storage. ```</p>
+<h2 id="open-database">Open database</h2>
+<p>To start working with IndexedDB, we first need to <code>open</code> (connect to) a database.</p>
+<p>The syntax:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> openRequest <span class="op">=</span> <span class="va">indexedDB</span>.<span class="at">open</span>(name<span class="op">,</span> version)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li><code>name</code> – a string, the database name.</li>
+<li><code>version</code> – a positive integer version, by default <code>1</code> (explained below).</li>
+</ul>
+<p>We can have many databases with different names, but all of them exist within the current origin (domain/protocol/port). Different websites can’t access each other’s databases.</p>
+<p>The call returns <code>openRequest</code> object, we should listen to events on it: - <code>success</code>: database is ready, there’s the “database object” in <code>openRequest.result</code>, we should use it for further calls. - <code>error</code>: opening failed. - <code>upgradeneeded</code>: database is ready, but its version is outdated (see below).</p>
+<p><strong>IndexedDB has a built-in mechanism of “schema versioning”, absent in server-side databases.</strong></p>
+<p>Unlike server-side databases, IndexedDB is client-side, the data is stored in the browser, so we, developers, don’t have full-time access to it. So, when we have published a new version of our app, and the user visits our webpage, we may need to update the database.</p>
+<p>If the local database version is less than specified in <code>open</code>, then a special event <code>upgradeneeded</code> is triggered, and we can compare versions and upgrade data structures as needed.</p>
+<p>The <code>upgradeneeded</code> event also triggers when the database doesn’t yet exist (technically, it’s version is <code>0</code>), so we can perform the initialization.</p>
+<p>Let’s say we published the first version of our app.</p>
+<p>Then we can open the database with version <code>1</code> and perform the initialization in an <code>upgradeneeded</code> handler like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> openRequest <span class="op">=</span> <span class="va">indexedDB</span>.<span class="at">open</span>(<span class="st">&quot;store&quot;</span><span class="op">,</span> <span class="op">*!*</span><span class="dv">1</span><span class="op">*</span><span class="ss">/!</span><span class="sc">*)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="ss">openRequest.onupgradeneeded = function</span><span class="sc">()</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="ss">  // triggers if the client had no database</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="ss">  // ...perform initialization...</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="ss">};</span></a>
+<a class="sourceLine" id="cb2-7" title="7"></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="ss">openRequest.onerror = function</span><span class="sc">()</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="ss">  console.error</span><span class="sc">(</span><span class="ss">&quot;Error&quot;, openRequest.error</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="ss">};</span></a>
+<a class="sourceLine" id="cb2-11" title="11"></a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="ss">openRequest.onsuccess = function</span><span class="sc">()</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="ss">  let db = openRequest.result;</span></a>
+<a class="sourceLine" id="cb2-14" title="14"><span class="ss">  // continue working with database using db object</span></a>
+<a class="sourceLine" id="cb2-15" title="15"><span class="ss">};</span></a></code></pre></div>
+<p>Then, later, we publish the 2nd version.</p>
+<p>We can open it with version <code>2</code> and perform the upgrade like this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> openRequest <span class="op">=</span> <span class="va">indexedDB</span>.<span class="at">open</span>(<span class="st">&quot;store&quot;</span><span class="op">,</span> <span class="op">*!*</span><span class="dv">2</span><span class="op">*</span><span class="ss">/!</span><span class="sc">*)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="ss">openRequest.onupgradeneeded = function</span><span class="sc">(</span><span class="ss">event</span><span class="sc">)</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="ss">  // the existing database version is less than 2 </span><span class="sc">(</span><span class="ss">or it doesn&#39;t exist</span><span class="sc">)</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="ss">  let db = openRequest.result;</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="ss">  switch</span><span class="sc">(</span><span class="ss">event.oldVersion</span><span class="sc">)</span><span class="ss"> { // existing db version</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="ss">    case 0:</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="ss">      // version 0 means that the client had no database</span></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="ss">      // perform initialization</span></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="ss">    case 1:</span></a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="ss">      // client had version 1</span></a>
+<a class="sourceLine" id="cb3-12" title="12"><span class="ss">      // update</span></a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="ss">  }</span></a>
+<a class="sourceLine" id="cb3-14" title="14"><span class="ss">};</span></a></code></pre></div>
+<p>Please note: as our current version is <code>2</code>, the <code>onupgradeneeded</code> handler has a code branch for version <code>0</code>, suitable for users that are accessing for the first time and have no database, and also for version <code>1</code>, for upgrades.</p>
+<p>And then, only if <code>onupgradeneeded</code> handler finishes without errors, <code>openRequest.onsuccess</code> triggers, and the database is considered successfully opened.</p>
+<p>To delete a database:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">let</span> deleteRequest <span class="op">=</span> <span class="va">indexedDB</span>.<span class="at">deleteDatabase</span>(name)</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="co">// deleteRequest.onsuccess/onerror tracks the result</span></a></code></pre></div>
+<p>``<code>warn header="We can't open an older version of the database" If the current user database has a higher version than in the</code>open<code>call, e.g. the existing DB version is</code>3<code>, and we try to</code>open(…2)<code>, then that's an error,</code>openRequest.onerror` triggers.</p>
+<p>That’s rare, but such a thing may happen when a visitor loads outdated JavaScript code, e.g. from a proxy cache. So the code is old, but his database is new.</p>
+<p>To protect from errors, we should check <code>db.version</code> and suggest a page reload. Use proper HTTP caching headers to avoid loading the old code, so that you’ll never have such problems. ```</p>
+<h3 id="parallel-update-problem">Parallel update problem</h3>
+<p>As we’re talking about versioning, let’s tackle a small related problem.</p>
+<p>Let’s say: 1. A visitor opened our site in a browser tab, with database version <code>1</code>. 2. Then we rolled out an update, so our code is newer. 3. And then the same visitor opens our site in another tab.</p>
+<p>So there’s a tab with an open connection to DB version <code>1</code>, while the second one attempts to update it to version <code>2</code> in its <code>upgradeneeded</code> handler.</p>
+<p>The problem is that a database is shared between two tabs, as it’s the same site, same origin. And it can’t be both version <code>1</code> and <code>2</code>. To perform the update to version <code>2</code>, all connections to version 1 must be closed, including the one in the first tab.</p>
+<p>In order to organize that, the <code>versionchange</code> event triggers on the “outdated” database object. We should listen for it and close the old database connection (and probably suggest a page reload, to load the updated code).</p>
+<p>If we don’t listen for the <code>versionchange</code> event and don’t close the old connection, then the second, new connection won’t be made. The <code>openRequest</code> object will emit the <code>blocked</code> event instead of <code>success</code>. So the second tab won’t work.</p>
+<p>Here’s the code to correctly handle the parallel upgrade. It installs the <code>onversionchange</code> handler, that triggers if the current database connection becomes outdated (db version is updated elsewhere) and closes the connection.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">let</span> openRequest <span class="op">=</span> <span class="va">indexedDB</span>.<span class="at">open</span>(<span class="st">&quot;store&quot;</span><span class="op">,</span> <span class="dv">2</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-2" title="2"></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="va">openRequest</span>.<span class="at">onupgradeneeded</span> <span class="op">=</span> ...<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="va">openRequest</span>.<span class="at">onerror</span> <span class="op">=</span> ...<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-5" title="5"></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="va">openRequest</span>.<span class="at">onsuccess</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-7" title="7">  <span class="kw">let</span> db <span class="op">=</span> <span class="va">openRequest</span>.<span class="at">result</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-8" title="8"></a>
+<a class="sourceLine" id="cb5-9" title="9">  <span class="op">*!*</span></a>
+<a class="sourceLine" id="cb5-10" title="10">  <span class="va">db</span>.<span class="at">onversionchange</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-11" title="11">    <span class="va">db</span>.<span class="at">close</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-12" title="12">    <span class="at">alert</span>(<span class="st">&quot;Database is outdated, please reload the page.&quot;</span>)</a>
+<a class="sourceLine" id="cb5-13" title="13">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb5-14" title="14">  <span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb5-15" title="15"></a>
+<a class="sourceLine" id="cb5-16" title="16"><span class="ss">  // ...the db is ready, use it...</span></a>
+<a class="sourceLine" id="cb5-17" title="17"><span class="ss">};</span></a>
+<a class="sourceLine" id="cb5-18" title="18"></a>
+<a class="sourceLine" id="cb5-19" title="19"><span class="sc">*</span><span class="ss">!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb5-20" title="20"><span class="ss">openRequest.onblocked = function</span><span class="sc">()</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb5-21" title="21"><span class="ss">  // this event shouldn&#39;t trigger if we handle onversionchange correctly</span></a>
+<a class="sourceLine" id="cb5-22" title="22"></a>
+<a class="sourceLine" id="cb5-23" title="23"><span class="ss">  // it means that there&#39;s another open connection to the same database</span></a>
+<a class="sourceLine" id="cb5-24" title="24"><span class="ss">  // and it wasn&#39;t closed after db.onversionchange triggered for it</span></a>
+<a class="sourceLine" id="cb5-25" title="25"><span class="ss">};</span></a>
+<a class="sourceLine" id="cb5-26" title="26"><span class="sc">*</span><span class="ss">/</span><span class="op">!*</span></a></code></pre></div>
+<p>…In other words, here we do two things:</p>
+<ol type="1">
+<li>The <code>db.onversionchange</code> listener informs us about a parallel update attempt, if the current database version becomes outdated.</li>
+<li>The <code>openRequest.onblocked</code> listener informs us about the opposite situation: there’s a connection to an outdated version elsewhere, and it doesn’t close, so the newer connection can’t be made.</li>
+</ol>
+<p>We can handle things more gracefully in <code>db.onversionchange</code>, prompt the visitor to save the data before the connection is closed and so on.</p>
+<p>Or, an alternative approach would be to not close the database in <code>db.onversionchange</code>, but instead use the <code>onblocked</code> handler (in the new tab) to alert the visitor, tell him that the newer version can’t be loaded until they close other tabs.</p>
+<p>These update collisions happen rarely, but we should at least have some handling for them, at least an <code>onblocked</code> handler, to prevent our script from dying silently.</p>
+<h2 id="object-store">Object store</h2>
+<p>To store something in IndexedDB, we need an <em>object store</em>.</p>
+<p>An object store is a core concept of IndexedDB. Counterparts in other databases are called “tables” or “collections”. It’s where the data is stored. A database may have multiple stores: one for users, another one for goods, etc.</p>
+<p>Despite being named an “object store”, primitives can be stored too.</p>
+<p><strong>We can store almost any value, including complex objects.</strong></p>
+<p>IndexedDB uses the <a href="https://www.w3.org/TR/html53/infrastructure.html#section-structuredserializeforstorage">standard serialization algorithm</a> to clone-and-store an object. It’s like <code>JSON.stringify</code>, but more powerful, capable of storing much more datatypes.</p>
+<p>An example of an object that can’t be stored: an object with circular references. Such objects are not serializable. <code>JSON.stringify</code> also fails for such objects.</p>
+<p><strong>There must be a unique <code>key</code> for every value in the store.</strong></p>
+<p>A key must be one of these types - number, date, string, binary, or array. It’s a unique identifier, so we can search/remove/update values by the key.</p>
+<p><img src="indexeddb-structure.svg" /></p>
+<p>As we’ll see very soon, we can provide a key when we add a value to the store, similar to <code>localStorage</code>. But when we store objects, IndexedDB allows setting up an object property as the key, which is much more convenient. Or we can auto-generate keys.</p>
+<p>But we need to create an object store first.</p>
+<p>The syntax to create an object store:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="va">db</span>.<span class="at">createObjectStore</span>(name[<span class="op">,</span> keyOptions])<span class="op">;</span></a></code></pre></div>
+<p>Please note, the operation is synchronous, no <code>await</code> needed.</p>
+<ul>
+<li><code>name</code> is the store name, e.g. <code>"books"</code> for books,</li>
+<li><code>keyOptions</code> is an optional object with one of two properties:
+<ul>
+<li><code>keyPath</code> – a path to an object property that IndexedDB will use as the key, e.g. <code>id</code>.</li>
+<li><code>autoIncrement</code> – if <code>true</code>, then the key for a newly stored object is generated automatically, as an ever-incrementing number.</li>
+</ul></li>
+</ul>
+<p>If we don’t supply <code>keyOptions</code>, then we’ll need to provide a key explicitly later, when storing an object.</p>
+<p>For instance, this object store uses <code>id</code> property as the key:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="va">db</span>.<span class="at">createObjectStore</span>(<span class="st">&#39;books&#39;</span><span class="op">,</span> <span class="op">{</span><span class="dt">keyPath</span><span class="op">:</span> <span class="st">&#39;id&#39;</span><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p><strong>An object store can only be created/modified while updating the DB version, in <code>upgradeneeded</code> handler.</strong></p>
+<p>That’s a technical limitation. Outside of the handler we’ll be able to add/remove/update the data, but object stores can only be created/removed/altered during a version update.</p>
+<p>To perform a database version upgrade, there are two main approaches: 1. We can implement per-version upgrade functions: from 1 to 2, from 2 to 3, from 3 to 4 etc. Then, in <code>upgradeneeded</code> we can compare versions (e.g. old 2, now 4) and run per-version upgrades step by step, for every intermediate version (2 to 3, then 3 to 4). 2. Or we can just examine the database: get a list of existing object stores as <code>db.objectStoreNames</code>. That object is a <a href="https://html.spec.whatwg.org/multipage/common-dom-interfaces.html#domstringlist">DOMStringList</a> that provides <code>contains(name)</code> method to check for existance. And then we can do updates depending on what exists and what doesn’t.</p>
+<p>For small databases the second variant may be simpler.</p>
+<p>Here’s the demo of the second approach:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">let</span> openRequest <span class="op">=</span> <span class="va">indexedDB</span>.<span class="at">open</span>(<span class="st">&quot;db&quot;</span><span class="op">,</span> <span class="dv">2</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-2" title="2"></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="co">// create/upgrade the database without version checks</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="va">openRequest</span>.<span class="at">onupgradeneeded</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-5" title="5">  <span class="kw">let</span> db <span class="op">=</span> <span class="va">openRequest</span>.<span class="at">result</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb8-6" title="6">  <span class="cf">if</span> (<span class="op">!</span><span class="va">db</span>.<span class="va">objectStoreNames</span>.<span class="at">contains</span>(<span class="st">&#39;books&#39;</span>)) <span class="op">{</span> <span class="co">// if there&#39;s no &quot;books&quot; store</span></a>
+<a class="sourceLine" id="cb8-7" title="7">    <span class="va">db</span>.<span class="at">createObjectStore</span>(<span class="st">&#39;books&#39;</span><span class="op">,</span> <span class="op">{</span><span class="dt">keyPath</span><span class="op">:</span> <span class="st">&#39;id&#39;</span><span class="op">}</span>)<span class="op">;</span> <span class="co">// create it</span></a>
+<a class="sourceLine" id="cb8-8" title="8">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="op">};</span></a></code></pre></div>
+<p>To delete an object store:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="va">db</span>.<span class="at">deleteObjectStore</span>(<span class="st">&#39;books&#39;</span>)</a></code></pre></div>
+<h2 id="transactions">Transactions</h2>
+<p>The term “transaction” is generic, used in many kinds of databases.</p>
+<p>A transaction is a group of operations, that should either all succeed or all fail.</p>
+<p>For instance, when a person buys something, we need to: 1. Subtract the money from their account. 2. Add the item to their inventory.</p>
+<p>It would be pretty bad if we complete the 1st operation, and then something goes wrong, e.g. lights out, and we fail to do the 2nd. Both should either succeed (purchase complete, good!) or both fail (at least the person kept their money, so they can retry).</p>
+<p>Transactions can guarantee that.</p>
+<p><strong>All data operations must be made within a transaction in IndexedDB.</strong></p>
+<p>To start a transaction:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="va">db</span>.<span class="at">transaction</span>(store[<span class="op">,</span> type])<span class="op">;</span></a></code></pre></div>
+<ul>
+<li><code>store</code> is a store name that the transaction is going to access, e.g. <code>"books"</code>. Can be an array of store names if we’re going to access multiple stores.</li>
+<li><code>type</code> – a transaction type, one of:
+<ul>
+<li><code>readonly</code> – can only read, the default.</li>
+<li><code>readwrite</code> – can only read and write the data, but not create/remove/alter object stores.</li>
+</ul></li>
+</ul>
+<p>There’s also <code>versionchange</code> transaction type: such transactions can do everything, but we can’t create them manually. IndexedDB automatically creates a <code>versionchange</code> transaction when opening the database, for <code>updateneeded</code> handler. That’s why it’s a single place where we can update the database structure, create/remove object stores.</p>
+<p>``<code>smart header="Why are there different types of transactions?" Performance is the reason why transactions need to be labeled either</code>readonly<code>and</code>readwrite`.</p>
+<p>Many <code>readonly</code> transactions are able to access the same store concurrently, but <code>readwrite</code> transactions can’t. A <code>readwrite</code> transaction “locks” the store for writing. The next transaction must wait before the previous one finishes before accessing the same store. ```</p>
+<p>After the transaction is created, we can add an item to the store, like this:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">let</span> transaction <span class="op">=</span> <span class="va">db</span>.<span class="at">transaction</span>(<span class="st">&quot;books&quot;</span><span class="op">,</span> <span class="st">&quot;readwrite&quot;</span>)<span class="op">;</span> <span class="co">// (1)</span></a>
+<a class="sourceLine" id="cb11-2" title="2"></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="co">// get an object store to operate on it</span></a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="kw">let</span> books <span class="op">=</span> <span class="va">transaction</span>.<span class="at">objectStore</span>(<span class="st">&quot;books&quot;</span>)<span class="op">;</span> <span class="co">// (2)</span></a>
+<a class="sourceLine" id="cb11-6" title="6"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb11-7" title="7"></a>
+<a class="sourceLine" id="cb11-8" title="8"><span class="ss">let book = {</span></a>
+<a class="sourceLine" id="cb11-9" title="9"><span class="ss">  id: &#39;js&#39;,</span></a>
+<a class="sourceLine" id="cb11-10" title="10"><span class="ss">  price: 10,</span></a>
+<a class="sourceLine" id="cb11-11" title="11"><span class="ss">  created: new Date</span><span class="sc">()</span></a>
+<a class="sourceLine" id="cb11-12" title="12"><span class="ss">};</span></a>
+<a class="sourceLine" id="cb11-13" title="13"></a>
+<a class="sourceLine" id="cb11-14" title="14"><span class="sc">*</span><span class="ss">!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb11-15" title="15"><span class="ss">let request = books.add</span><span class="sc">(</span><span class="ss">book</span><span class="sc">)</span><span class="ss">; // </span><span class="sc">(</span><span class="ss">3</span><span class="sc">)</span></a>
+<a class="sourceLine" id="cb11-16" title="16"><span class="sc">*</span><span class="ss">/</span><span class="op">!*</span></a>
+<a class="sourceLine" id="cb11-17" title="17"></a>
+<a class="sourceLine" id="cb11-18" title="18"><span class="va">request</span>.<span class="at">onsuccess</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span> <span class="co">// (4)</span></a>
+<a class="sourceLine" id="cb11-19" title="19">  <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;Book added to the store&quot;</span><span class="op">,</span> <span class="va">request</span>.<span class="at">result</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-20" title="20"><span class="op">};</span></a>
+<a class="sourceLine" id="cb11-21" title="21"></a>
+<a class="sourceLine" id="cb11-22" title="22"><span class="va">request</span>.<span class="at">onerror</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-23" title="23">  <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;Error&quot;</span><span class="op">,</span> <span class="va">request</span>.<span class="at">error</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-24" title="24"><span class="op">};</span></a></code></pre></div>
+<p>There were basically four steps:</p>
+<ol type="1">
+<li>Create a transaction, mentioning all the stores it’s going to access, at <code>(1)</code>.</li>
+<li>Get the store object using <code>transaction.objectStore(name)</code>, at <code>(2)</code>.</li>
+<li>Perform the request to the object store <code>books.add(book)</code>, at <code>(3)</code>.</li>
+<li>…Handle request success/error <code>(4)</code>, then we can make other requests if needed, etc.</li>
+</ol>
+<p>Object stores support two methods to store a value:</p>
+<ul>
+<li><p><strong>put(value, [key])</strong> Add the <code>value</code> to the store. The <code>key</code> is supplied only if the object store did not have <code>keyPath</code> or <code>autoIncrement</code> option. If there’s already a value with the same key, it will be replaced.</p></li>
+<li><p><strong>add(value, [key])</strong> Same as <code>put</code>, but if there’s already a value with the same key, then the request fails, and an error with the name <code>"ConstraintError"</code> is generated.</p></li>
+</ul>
+<p>Similar to opening a database, we can send a request: <code>books.add(book)</code>, and then wait for <code>success/error</code> events.</p>
+<ul>
+<li>The <code>request.result</code> for <code>add</code> is the key of the new object.</li>
+<li>The error is in <code>request.error</code> (if any).</li>
+</ul>
+<h2 id="transactions-autocommit">Transactions’ autocommit</h2>
+<p>In the example above we started the transaction and made <code>add</code> request. But as we stated previously, a transaction may have multiple associated requests, that must either all succeed or all fail. How do we mark the transaction as finished, with no more requests to come?</p>
+<p>The short answer is: we don’t.</p>
+<p>In the next version 3.0 of the specification, there will probably be a manual way to finish the transaction, but right now in 2.0 there isn’t.</p>
+<p><strong>When all transaction requests are finished, and the <a href="info:microtask-queue">microtasks queue</a> is empty, it is committed automatically.</strong></p>
+<p>Usually, we can assume that a transaction commits when all its requests are complete, and the current code finishes.</p>
+<p>So, in the example above no special call is needed to finish the transaction.</p>
+<p>Transactions auto-commit principle has an important side effect. We can’t insert an async operation like <code>fetch</code>, <code>setTimeout</code> in the middle of a transaction. IndexedDB will not keep the transaction waiting till these are done.</p>
+<p>In the code below, <code>request2</code> in the line <code>(*)</code> fails, because the transaction is already committed, and can’t make any request in it:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">let</span> request1 <span class="op">=</span> <span class="va">books</span>.<span class="at">add</span>(book)<span class="op">;</span></a>
+<a class="sourceLine" id="cb12-2" title="2"></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="va">request1</span>.<span class="at">onsuccess</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-4" title="4">  <span class="at">fetch</span>(<span class="st">&#39;/&#39;</span>).<span class="at">then</span>(response <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-5" title="5"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb12-6" title="6">    <span class="kw">let</span> request2 <span class="op">=</span> <span class="va">books</span>.<span class="at">add</span>(anotherBook)<span class="op">;</span> <span class="co">// (*)</span></a>
+<a class="sourceLine" id="cb12-7" title="7"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb12-8" title="8"><span class="ss">    request2.onerror = function</span><span class="sc">()</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb12-9" title="9"><span class="ss">      console.log</span><span class="sc">(</span><span class="ss">request2.error.name</span><span class="sc">)</span><span class="ss">; // TransactionInactiveError</span></a>
+<a class="sourceLine" id="cb12-10" title="10"><span class="ss">    };</span></a>
+<a class="sourceLine" id="cb12-11" title="11"><span class="ss">  }</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb12-12" title="12"><span class="ss">};</span></a></code></pre></div>
+<p>That’s because <code>fetch</code> is an asynchronous operation, a macrotask. Transactions are closed before the browser starts doing macrotasks.</p>
+<p>Authors of IndexedDB spec believe that transactions should be short-lived. Mostly for performance reasons.</p>
+<p>Notably, <code>readwrite</code> transactions “lock” the stores for writing. So if one part of the application initiated <code>readwrite</code> on <code>books</code> object store, then another part that wants to do the same has to wait: the new transaction “hangs” till the first one is done. That can lead to strange delays if transactions take a long time.</p>
+<p>So, what to do?</p>
+<p>In the example above we could make a new <code>db.transaction</code> right before the new request <code>(*)</code>.</p>
+<p>But it will be even better, if we’d like to keep the operations together, in one transaction, to split apart IndexedDB transactions and “other” async stuff.</p>
+<p>First, make <code>fetch</code>, prepare the data if needed, afterwards create a transaction and perform all the database requests, it’ll work then.</p>
+<p>To detect the moment of successful completion, we can listen to <code>transaction.oncomplete</code> event:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">let</span> transaction <span class="op">=</span> <span class="va">db</span>.<span class="at">transaction</span>(<span class="st">&quot;books&quot;</span><span class="op">,</span> <span class="st">&quot;readwrite&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb13-2" title="2"></a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="co">// ...perform operations...</span></a>
+<a class="sourceLine" id="cb13-4" title="4"></a>
+<a class="sourceLine" id="cb13-5" title="5"><span class="va">transaction</span>.<span class="at">oncomplete</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-6" title="6">  <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;Transaction is complete&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb13-7" title="7"><span class="op">};</span></a></code></pre></div>
+<p>Only <code>complete</code> guarantees that the transaction is saved as a whole. Individual requests may succeed, but the final write operation may go wrong (e.g. I/O error or something).</p>
+<p>To manually abort the transaction, call:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb14-1" title="1"><span class="va">transaction</span>.<span class="at">abort</span>()<span class="op">;</span></a></code></pre></div>
+<p>That cancels all modification made by the requests in it and triggers <code>transaction.onabort</code> event.</p>
+<h2 id="error-handling">Error handling</h2>
+<p>Write requests may fail.</p>
+<p>That’s to be expected, not only because of possible errors at our side, but also for reasons not related to the transaction itself. For instance, the storage quota may be exceeded. So we must be ready to handle such case.</p>
+<p><strong>A failed request automatically aborts the transaction, canceling all its changes.</strong></p>
+<p>In some situations, we may want to handle the failure (e.g. try another request), without canceling existing changes, and continue the transaction. That’s possible. The <code>request.onerror</code> handler is able to prevent the transaction abort by calling <code>event.preventDefault()</code>.</p>
+<p>In the example below a new book is added with the same key (<code>id</code>) as the existing one. The <code>store.add</code> method generates a <code>"ConstraintError"</code> in that case. We handle it without canceling the transaction:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">let</span> transaction <span class="op">=</span> <span class="va">db</span>.<span class="at">transaction</span>(<span class="st">&quot;books&quot;</span><span class="op">,</span> <span class="st">&quot;readwrite&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb15-2" title="2"></a>
+<a class="sourceLine" id="cb15-3" title="3"><span class="kw">let</span> book <span class="op">=</span> <span class="op">{</span> <span class="dt">id</span><span class="op">:</span> <span class="st">&#39;js&#39;</span><span class="op">,</span> <span class="dt">price</span><span class="op">:</span> <span class="dv">10</span> <span class="op">};</span></a>
+<a class="sourceLine" id="cb15-4" title="4"></a>
+<a class="sourceLine" id="cb15-5" title="5"><span class="kw">let</span> request <span class="op">=</span> <span class="va">transaction</span>.<span class="at">objectStore</span>(<span class="st">&quot;books&quot;</span>).<span class="at">add</span>(book)<span class="op">;</span></a>
+<a class="sourceLine" id="cb15-6" title="6"></a>
+<a class="sourceLine" id="cb15-7" title="7"><span class="va">request</span>.<span class="at">onerror</span> <span class="op">=</span> <span class="kw">function</span>(event) <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-8" title="8">  <span class="co">// ConstraintError occurs when an object with the same id already exists</span></a>
+<a class="sourceLine" id="cb15-9" title="9">  <span class="cf">if</span> (<span class="va">request</span>.<span class="va">error</span>.<span class="at">name</span> <span class="op">==</span> <span class="st">&quot;ConstraintError&quot;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-10" title="10">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;Book with such id already exists&quot;</span>)<span class="op">;</span> <span class="co">// handle the error</span></a>
+<a class="sourceLine" id="cb15-11" title="11">    <span class="va">event</span>.<span class="at">preventDefault</span>()<span class="op">;</span> <span class="co">// don&#39;t abort the transaction</span></a>
+<a class="sourceLine" id="cb15-12" title="12">    <span class="co">// use another key for the book?</span></a>
+<a class="sourceLine" id="cb15-13" title="13">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-14" title="14">    <span class="co">// unexpected error, can&#39;t handle it</span></a>
+<a class="sourceLine" id="cb15-15" title="15">    <span class="co">// the transaction will abort</span></a>
+<a class="sourceLine" id="cb15-16" title="16">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb15-17" title="17"><span class="op">};</span></a>
+<a class="sourceLine" id="cb15-18" title="18"></a>
+<a class="sourceLine" id="cb15-19" title="19"><span class="va">transaction</span>.<span class="at">onabort</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-20" title="20">  <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;Error&quot;</span><span class="op">,</span> <span class="va">transaction</span>.<span class="at">error</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb15-21" title="21"><span class="op">};</span></a></code></pre></div>
+<h3 id="event-delegation">Event delegation</h3>
+<p>Do we need onerror/onsuccess for every request? Not every time. We can use event delegation instead.</p>
+<p><strong>IndexedDB events bubble: <code>request</code> -&gt; <code>transaction</code> -&gt; <code>database</code>.</strong></p>
+<p>All events are DOM events, with capturing and bubbling, but usually only bubbling stage is used.</p>
+<p>So we can catch all errors using <code>db.onerror</code> handler, for reporting or other purposes:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb16-1" title="1"><span class="va">db</span>.<span class="at">onerror</span> <span class="op">=</span> <span class="kw">function</span>(event) <span class="op">{</span></a>
+<a class="sourceLine" id="cb16-2" title="2">  <span class="kw">let</span> request <span class="op">=</span> <span class="va">event</span>.<span class="at">target</span><span class="op">;</span> <span class="co">// the request that caused the error</span></a>
+<a class="sourceLine" id="cb16-3" title="3"></a>
+<a class="sourceLine" id="cb16-4" title="4">  <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;Error&quot;</span><span class="op">,</span> <span class="va">request</span>.<span class="at">error</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-5" title="5"><span class="op">};</span></a></code></pre></div>
+<p>…But what if an error is fully handled? We don’t want to report it in that case.</p>
+<p>We can stop the bubbling and hence <code>db.onerror</code> by using <code>event.stopPropagation()</code> in <code>request.onerror</code>.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb17-1" title="1"><span class="va">request</span>.<span class="at">onerror</span> <span class="op">=</span> <span class="kw">function</span>(event) <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-2" title="2">  <span class="cf">if</span> (<span class="va">request</span>.<span class="va">error</span>.<span class="at">name</span> <span class="op">==</span> <span class="st">&quot;ConstraintError&quot;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-3" title="3">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;Book with such id already exists&quot;</span>)<span class="op">;</span> <span class="co">// handle the error</span></a>
+<a class="sourceLine" id="cb17-4" title="4">    <span class="va">event</span>.<span class="at">preventDefault</span>()<span class="op">;</span> <span class="co">// don&#39;t abort the transaction</span></a>
+<a class="sourceLine" id="cb17-5" title="5">    <span class="va">event</span>.<span class="at">stopPropagation</span>()<span class="op">;</span> <span class="co">// don&#39;t bubble error up, &quot;chew&quot; it</span></a>
+<a class="sourceLine" id="cb17-6" title="6">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-7" title="7">    <span class="co">// do nothing</span></a>
+<a class="sourceLine" id="cb17-8" title="8">    <span class="co">// transaction will be aborted</span></a>
+<a class="sourceLine" id="cb17-9" title="9">    <span class="co">// we can take care of error in transaction.onabort</span></a>
+<a class="sourceLine" id="cb17-10" title="10">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb17-11" title="11"><span class="op">};</span></a></code></pre></div>
+<h2 id="searching">Searching</h2>
+<p>There are two main types of search in an object store:</p>
+<ol type="1">
+<li>By a key value or a key range. In our “books” storage that would be a value or range of values of <code>book.id</code>.</li>
+<li>By another object field, e.g. <code>book.price</code>. This required an additional data structure, named “index”.</li>
+</ol>
+<h3 id="by-key">By key</h3>
+<p>First let’s deal with the first type of search: by key.</p>
+<p>Searching methods support both exact key values and so-called “ranges of values” – <a href="https://www.w3.org/TR/IndexedDB/#keyrange">IDBKeyRange</a> objects that specify an acceptable “key range”.</p>
+<p><code>IDBKeyRange</code> objects are created using following calls:</p>
+<ul>
+<li><code>IDBKeyRange.lowerBound(lower, [open])</code> means: <code>≥lower</code> (or <code>&gt;lower</code> if <code>open</code> is true)</li>
+<li><code>IDBKeyRange.upperBound(upper, [open])</code> means: <code>≤upper</code> (or <code>&lt;upper</code> if <code>open</code> is true)</li>
+<li><code>IDBKeyRange.bound(lower, upper, [lowerOpen], [upperOpen])</code> means: between <code>lower</code> and <code>upper</code>. If the open flags is true, the corresponding key is not included in the range.</li>
+<li><code>IDBKeyRange.only(key)</code> – a range that consists of only one <code>key</code>, rarely used.</li>
+</ul>
+<p>We’ll see practical examples of using them very soon.</p>
+<p>To perform the actual search, there are following methods. They accept a <code>query</code> argument that can be either an exact key or a key range:</p>
+<ul>
+<li><code>store.get(query)</code> – search for the first value by a key or a range.</li>
+<li><code>store.getAll([query], [count])</code> – search for all values, limit by <code>count</code> if given.</li>
+<li><code>store.getKey(query)</code> – search for the first key that satisfies the query, usually a range.</li>
+<li><code>store.getAllKeys([query], [count])</code> – search for all keys that satisfy the query, usually a range, up to <code>count</code> if given.</li>
+<li><code>store.count([query])</code> – get the total count of keys that satisfy the query, usually a range.</li>
+</ul>
+<p>For instance, we have a lot of books in our store. Remember, the <code>id</code> field is the key, so all these methods can search by <code>id</code>.</p>
+<p>Request examples:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb18-1" title="1"><span class="co">// get one book</span></a>
+<a class="sourceLine" id="cb18-2" title="2"><span class="va">books</span>.<span class="at">get</span>(<span class="st">&#39;js&#39;</span>)</a>
+<a class="sourceLine" id="cb18-3" title="3"></a>
+<a class="sourceLine" id="cb18-4" title="4"><span class="co">// get books with &#39;css&#39; &lt;= id &lt;= &#39;html&#39;</span></a>
+<a class="sourceLine" id="cb18-5" title="5"><span class="va">books</span>.<span class="at">getAll</span>(<span class="va">IDBKeyRange</span>.<span class="at">bound</span>(<span class="st">&#39;css&#39;</span><span class="op">,</span> <span class="st">&#39;html&#39;</span>))</a>
+<a class="sourceLine" id="cb18-6" title="6"></a>
+<a class="sourceLine" id="cb18-7" title="7"><span class="co">// get books with id &lt; &#39;html&#39;</span></a>
+<a class="sourceLine" id="cb18-8" title="8"><span class="va">books</span>.<span class="at">getAll</span>(<span class="va">IDBKeyRange</span>.<span class="at">upperBound</span>(<span class="st">&#39;html&#39;</span><span class="op">,</span> <span class="kw">true</span>))</a>
+<a class="sourceLine" id="cb18-9" title="9"></a>
+<a class="sourceLine" id="cb18-10" title="10"><span class="co">// get all books</span></a>
+<a class="sourceLine" id="cb18-11" title="11"><span class="va">books</span>.<span class="at">getAll</span>()</a>
+<a class="sourceLine" id="cb18-12" title="12"></a>
+<a class="sourceLine" id="cb18-13" title="13"><span class="co">// get all keys, where id &gt; &#39;js&#39;</span></a>
+<a class="sourceLine" id="cb18-14" title="14"><span class="va">books</span>.<span class="at">getAllKeys</span>(<span class="va">IDBKeyRange</span>.<span class="at">lowerBound</span>(<span class="st">&#39;js&#39;</span><span class="op">,</span> <span class="kw">true</span>))</a></code></pre></div>
+<p>```smart header=“Object store is always sorted” An object store sorts values by key internally.</p>
+<p>So requests that return many values always return them in sorted by key order. ```</p>
+<h3 id="by-a-field-using-an-index">By a field using an index</h3>
+<p>To search by other object fields, we need to create an additional data structure named “index”.</p>
+<p>An index is an “add-on” to the store that tracks a given object field. For each value of that field, it stores a list of keys for objects that have that value. There will be a more detailed picture below.</p>
+<p>The syntax:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb19-1" title="1"><span class="va">objectStore</span>.<span class="at">createIndex</span>(name<span class="op">,</span> keyPath<span class="op">,</span> [options])<span class="op">;</span></a></code></pre></div>
+<ul>
+<li><strong><code>name</code></strong> – index name,</li>
+<li><strong><code>keyPath</code></strong> – path to the object field that the index should track (we’re going to search by that field),</li>
+<li><strong><code>option</code></strong> – an optional object with properties:
+<ul>
+<li><strong><code>unique</code></strong> – if true, then there may be only one object in the store with the given value at the <code>keyPath</code>. The index will enforce that by generating an error if we try to add a duplicate.</li>
+<li><strong><code>multiEntry</code></strong> – only used if the value on <code>keyPath</code> is an array. In that case, by default, the index will treat the whole array as the key. But if <code>multiEntry</code> is true, then the index will keep a list of store objects for each value in that array. So array members become index keys.</li>
+</ul></li>
+</ul>
+<p>In our example, we store books keyed by <code>id</code>.</p>
+<p>Let’s say we want to search by <code>price</code>.</p>
+<p>First, we need to create an index. It must be done in <code>upgradeneeded</code>, just like an object store:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb20-1" title="1"><span class="va">openRequest</span>.<span class="at">onupgradeneeded</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb20-2" title="2">  <span class="co">// we must create the index here, in versionchange transaction</span></a>
+<a class="sourceLine" id="cb20-3" title="3">  <span class="kw">let</span> books <span class="op">=</span> <span class="va">db</span>.<span class="at">createObjectStore</span>(<span class="st">&#39;books&#39;</span><span class="op">,</span> <span class="op">{</span><span class="dt">keyPath</span><span class="op">:</span> <span class="st">&#39;id&#39;</span><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb20-4" title="4"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb20-5" title="5">  <span class="kw">let</span> index <span class="op">=</span> <span class="va">books</span>.<span class="at">createIndex</span>(<span class="st">&#39;price_idx&#39;</span><span class="op">,</span> <span class="st">&#39;price&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb20-6" title="6"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb20-7" title="7"><span class="ss">};</span></a></code></pre></div>
+<ul>
+<li>The index will track <code>price</code> field.</li>
+<li>The price is not unique, there may be multiple books with the same price, so we don’t set <code>unique</code> option.</li>
+<li>The price is not an array, so <code>multiEntry</code> flag is not applicable.</li>
+</ul>
+<p>Imagine that our <code>inventory</code> has 4 books. Here’s the picture that shows exactly what the <code>index</code> is:</p>
+<p><img src="indexeddb-index.svg" /></p>
+<p>As said, the index for each value of <code>price</code> (second argument) keeps the list of keys that have that price.</p>
+<p>The index keeps itself up to date automatically, we don’t have to care about it.</p>
+<p>Now, when we want to search for a given price, we simply apply the same search methods to the index:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">let</span> transaction <span class="op">=</span> <span class="va">db</span>.<span class="at">transaction</span>(<span class="st">&quot;books&quot;</span>)<span class="op">;</span> <span class="co">// readonly</span></a>
+<a class="sourceLine" id="cb21-2" title="2"><span class="kw">let</span> books <span class="op">=</span> <span class="va">transaction</span>.<span class="at">objectStore</span>(<span class="st">&quot;books&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb21-3" title="3"><span class="kw">let</span> priceIndex <span class="op">=</span> <span class="va">books</span>.<span class="at">index</span>(<span class="st">&quot;price_idx&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb21-4" title="4"></a>
+<a class="sourceLine" id="cb21-5" title="5"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb21-6" title="6"><span class="kw">let</span> request <span class="op">=</span> <span class="va">priceIndex</span>.<span class="at">getAll</span>(<span class="dv">10</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb21-7" title="7"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb21-8" title="8"></a>
+<a class="sourceLine" id="cb21-9" title="9"><span class="ss">request.onsuccess = function</span><span class="sc">()</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb21-10" title="10"><span class="ss">  if </span><span class="sc">(</span><span class="ss">request.result !== undefined</span><span class="sc">)</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb21-11" title="11"><span class="ss">    console.log</span><span class="sc">(</span><span class="ss">&quot;Books&quot;, request.result</span><span class="sc">)</span><span class="ss">; // array of books with price=10</span></a>
+<a class="sourceLine" id="cb21-12" title="12"><span class="ss">  } else {</span></a>
+<a class="sourceLine" id="cb21-13" title="13"><span class="ss">    console.log</span><span class="sc">(</span><span class="ss">&quot;No such books&quot;</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb21-14" title="14"><span class="ss">  }</span></a>
+<a class="sourceLine" id="cb21-15" title="15"><span class="ss">};</span></a></code></pre></div>
+<p>We can also use <code>IDBKeyRange</code> to create ranges and looks for cheap/expensive books:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb22-1" title="1"><span class="co">// find books where price &lt;= 5</span></a>
+<a class="sourceLine" id="cb22-2" title="2"><span class="kw">let</span> request <span class="op">=</span> <span class="va">priceIndex</span>.<span class="at">getAll</span>(<span class="va">IDBKeyRange</span>.<span class="at">upperBound</span>(<span class="dv">5</span>))<span class="op">;</span></a></code></pre></div>
+<p>Indexes are internally sorted by the tracked object field, <code>price</code> in our case. So when we do the search, the results are also sorted by <code>price</code>.</p>
+<h2 id="deleting-from-store">Deleting from store</h2>
+<p>The <code>delete</code> method looks up values to delete by a query, the call format is similar to <code>getAll</code>:</p>
+<ul>
+<li><strong><code>delete(query)</code></strong> – delete matching values by query.</li>
+</ul>
+<p>For instance:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb23-1" title="1"><span class="co">// delete the book with id=&#39;js&#39;</span></a>
+<a class="sourceLine" id="cb23-2" title="2"><span class="va">books</span>.<span class="at">delete</span>(<span class="st">&#39;js&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p>If we’d like to delete books based on a price or another object field, then we should first find the key in the index, and then call <code>delete</code>:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb24-1" title="1"><span class="co">// find the key where price = 5</span></a>
+<a class="sourceLine" id="cb24-2" title="2"><span class="kw">let</span> request <span class="op">=</span> <span class="va">priceIndex</span>.<span class="at">getKey</span>(<span class="dv">5</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb24-3" title="3"></a>
+<a class="sourceLine" id="cb24-4" title="4"><span class="va">request</span>.<span class="at">onsuccess</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb24-5" title="5">  <span class="kw">let</span> id <span class="op">=</span> <span class="va">request</span>.<span class="at">result</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb24-6" title="6">  <span class="kw">let</span> deleteRequest <span class="op">=</span> <span class="va">books</span>.<span class="at">delete</span>(id)<span class="op">;</span></a>
+<a class="sourceLine" id="cb24-7" title="7"><span class="op">};</span></a></code></pre></div>
+<p>To delete everything:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb25-1" title="1"><span class="va">books</span>.<span class="at">clear</span>()<span class="op">;</span> <span class="co">// clear the storage.</span></a></code></pre></div>
+<h2 id="cursors">Cursors</h2>
+<p>Methods like <code>getAll/getAllKeys</code> return an array of keys/values.</p>
+<p>But an object storage can be huge, bigger than the available memory. Then <code>getAll</code> will fail to get all records as an array.</p>
+<p>What to do?</p>
+<p>Cursors provide the means to work around that.</p>
+<p><strong>A <em>cursor</em> is a special object that traverses the object storage, given a query, and returns one key/value at a time, thus saving memory.</strong></p>
+<p>As an object store is sorted internally by key, a cursor walks the store in key order (ascending by default).</p>
+<p>The syntax:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb26-1" title="1"><span class="co">// like getAll, but with a cursor:</span></a>
+<a class="sourceLine" id="cb26-2" title="2"><span class="kw">let</span> request <span class="op">=</span> <span class="va">store</span>.<span class="at">openCursor</span>(query<span class="op">,</span> [direction])<span class="op">;</span></a>
+<a class="sourceLine" id="cb26-3" title="3"></a>
+<a class="sourceLine" id="cb26-4" title="4"><span class="co">// to get keys, not values (like getAllKeys): store.openKeyCursor</span></a></code></pre></div>
+<ul>
+<li><strong><code>query</code></strong> is a key or a key range, same as for <code>getAll</code>.</li>
+<li><strong><code>direction</code></strong> is an optional argument, which order to use:
+<ul>
+<li><code>"next"</code> – the default, the cursor walks up from the record with the lowest key.</li>
+<li><code>"prev"</code> – the reverse order: down from the record with the biggest key.</li>
+<li><code>"nextunique"</code>, <code>"prevunique"</code> – same as above, but skip records with the same key (only for cursors over indexes, e.g. for multiple books with price=5 only the first one will be returned).</li>
+</ul></li>
+</ul>
+<p><strong>The main difference of the cursor is that <code>request.onsuccess</code> triggers multiple times: once for each result.</strong></p>
+<p>Here’s an example of how to use a cursor:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb27-1" title="1"><span class="kw">let</span> transaction <span class="op">=</span> <span class="va">db</span>.<span class="at">transaction</span>(<span class="st">&quot;books&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb27-2" title="2"><span class="kw">let</span> books <span class="op">=</span> <span class="va">transaction</span>.<span class="at">objectStore</span>(<span class="st">&quot;books&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb27-3" title="3"></a>
+<a class="sourceLine" id="cb27-4" title="4"><span class="kw">let</span> request <span class="op">=</span> <span class="va">books</span>.<span class="at">openCursor</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb27-5" title="5"></a>
+<a class="sourceLine" id="cb27-6" title="6"><span class="co">// called for each book found by the cursor</span></a>
+<a class="sourceLine" id="cb27-7" title="7"><span class="va">request</span>.<span class="at">onsuccess</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb27-8" title="8">  <span class="kw">let</span> cursor <span class="op">=</span> <span class="va">request</span>.<span class="at">result</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb27-9" title="9">  <span class="cf">if</span> (cursor) <span class="op">{</span></a>
+<a class="sourceLine" id="cb27-10" title="10">    <span class="kw">let</span> key <span class="op">=</span> <span class="va">cursor</span>.<span class="at">key</span><span class="op">;</span> <span class="co">// book key (id field)</span></a>
+<a class="sourceLine" id="cb27-11" title="11">    <span class="kw">let</span> value <span class="op">=</span> <span class="va">cursor</span>.<span class="at">value</span><span class="op">;</span> <span class="co">// book object</span></a>
+<a class="sourceLine" id="cb27-12" title="12">    <span class="va">console</span>.<span class="at">log</span>(key<span class="op">,</span> value)<span class="op">;</span></a>
+<a class="sourceLine" id="cb27-13" title="13">    <span class="va">cursor</span>.<span class="at">continue</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb27-14" title="14">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb27-15" title="15">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;No more books&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb27-16" title="16">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb27-17" title="17"><span class="op">};</span></a></code></pre></div>
+<p>The main cursor methods are:</p>
+<ul>
+<li><code>advance(count)</code> – advance the cursor <code>count</code> times, skipping values.</li>
+<li><code>continue([key])</code> – advance the cursor to the next value in range matching (or immediately after <code>key</code> if given).</li>
+</ul>
+<p>Whether there are more values matching the cursor or not – <code>onsuccess</code> gets called, and then in <code>result</code> we can get the cursor pointing to the next record, or <code>undefined</code>.</p>
+<p>In the example above the cursor was made for the object store.</p>
+<p>But we also can make a cursor over an index. As we remember, indexes allow to search by an object field. Cursors over indexes do precisely the same as over object stores – they save memory by returning one value at a time.</p>
+<p>For cursors over indexes, <code>cursor.key</code> is the index key (e.g. price), and we should use <code>cursor.primaryKey</code> property for the object key:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb28-1" title="1"><span class="kw">let</span> request <span class="op">=</span> <span class="va">priceIdx</span>.<span class="at">openCursor</span>(<span class="va">IDBKeyRange</span>.<span class="at">upperBound</span>(<span class="dv">5</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb28-2" title="2"></a>
+<a class="sourceLine" id="cb28-3" title="3"><span class="co">// called for each record</span></a>
+<a class="sourceLine" id="cb28-4" title="4"><span class="va">request</span>.<span class="at">onsuccess</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb28-5" title="5">  <span class="kw">let</span> cursor <span class="op">=</span> <span class="va">request</span>.<span class="at">result</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb28-6" title="6">  <span class="cf">if</span> (cursor) <span class="op">{</span></a>
+<a class="sourceLine" id="cb28-7" title="7">    <span class="kw">let</span> primaryKey <span class="op">=</span> <span class="va">cursor</span>.<span class="at">primaryKey</span><span class="op">;</span> <span class="co">// next object store key (id field)</span></a>
+<a class="sourceLine" id="cb28-8" title="8">    <span class="kw">let</span> value <span class="op">=</span> <span class="va">cursor</span>.<span class="at">value</span><span class="op">;</span> <span class="co">// next object store object (book object)</span></a>
+<a class="sourceLine" id="cb28-9" title="9">    <span class="kw">let</span> key <span class="op">=</span> <span class="va">cursor</span>.<span class="at">key</span><span class="op">;</span> <span class="co">// next index key (price)</span></a>
+<a class="sourceLine" id="cb28-10" title="10">    <span class="va">console</span>.<span class="at">log</span>(key<span class="op">,</span> value)<span class="op">;</span></a>
+<a class="sourceLine" id="cb28-11" title="11">    <span class="va">cursor</span>.<span class="at">continue</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb28-12" title="12">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb28-13" title="13">    <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;No more books&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb28-14" title="14">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb28-15" title="15"><span class="op">};</span></a></code></pre></div>
+<h2 id="promise-wrapper">Promise wrapper</h2>
+<p>Adding <code>onsuccess/onerror</code> to every request is quite a cumbersome task. Sometimes we can make our life easier by using event delegation, e.g. set handlers on the whole transactions, but <code>async/await</code> is much more convenient.</p>
+<p>Let’s use a thin promise wrapper <a href="https://github.com/jakearchibald/idb" class="uri">https://github.com/jakearchibald/idb</a> further in this chapter. It creates a global <code>idb</code> object with <a href="info:promisify">promisified</a> IndexedDB methods.</p>
+<p>Then, instead of <code>onsuccess/onerror</code> we can write like this:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb29-1" title="1"><span class="kw">let</span> db <span class="op">=</span> <span class="cf">await</span> <span class="va">idb</span>.<span class="at">openDB</span>(<span class="st">&#39;store&#39;</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> db <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb29-2" title="2">  <span class="cf">if</span> (<span class="va">db</span>.<span class="at">oldVersion</span> <span class="op">==</span> <span class="dv">0</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb29-3" title="3">    <span class="co">// perform the initialization</span></a>
+<a class="sourceLine" id="cb29-4" title="4">    <span class="va">db</span>.<span class="at">createObjectStore</span>(<span class="st">&#39;books&#39;</span><span class="op">,</span> <span class="op">{</span><span class="dt">keyPath</span><span class="op">:</span> <span class="st">&#39;id&#39;</span><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb29-5" title="5">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb29-6" title="6"><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb29-7" title="7"></a>
+<a class="sourceLine" id="cb29-8" title="8"><span class="kw">let</span> transaction <span class="op">=</span> <span class="va">db</span>.<span class="at">transaction</span>(<span class="st">&#39;books&#39;</span><span class="op">,</span> <span class="st">&#39;readwrite&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb29-9" title="9"><span class="kw">let</span> books <span class="op">=</span> <span class="va">transaction</span>.<span class="at">objectStore</span>(<span class="st">&#39;books&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb29-10" title="10"></a>
+<a class="sourceLine" id="cb29-11" title="11"><span class="cf">try</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb29-12" title="12">  <span class="cf">await</span> <span class="va">books</span>.<span class="at">add</span>(...)<span class="op">;</span></a>
+<a class="sourceLine" id="cb29-13" title="13">  <span class="cf">await</span> <span class="va">books</span>.<span class="at">add</span>(...)<span class="op">;</span></a>
+<a class="sourceLine" id="cb29-14" title="14"></a>
+<a class="sourceLine" id="cb29-15" title="15">  <span class="cf">await</span> <span class="va">transaction</span>.<span class="at">complete</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb29-16" title="16"></a>
+<a class="sourceLine" id="cb29-17" title="17">  <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;jsbook saved&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb29-18" title="18"><span class="op">}</span> <span class="cf">catch</span>(err) <span class="op">{</span></a>
+<a class="sourceLine" id="cb29-19" title="19">  <span class="va">console</span>.<span class="at">log</span>(<span class="st">&#39;error&#39;</span><span class="op">,</span> <span class="va">err</span>.<span class="at">message</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb29-20" title="20"><span class="op">}</span></a></code></pre></div>
+<p>So we have all the sweet “plain async code” and “try..catch” stuff.</p>
+<h3 id="error-handling-1">Error handling</h3>
+<p>If we don’t catch an error, then it falls through, till the closest outer <code>try..catch</code>.</p>
+<p>An uncaught error becomes an “unhandled promise rejection” event on <code>window</code> object.</p>
+<p>We can handle such errors like this:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb30-1" title="1"><span class="va">window</span>.<span class="at">addEventListener</span>(<span class="st">&#39;unhandledrejection&#39;</span><span class="op">,</span> event <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb30-2" title="2">  <span class="kw">let</span> request <span class="op">=</span> <span class="va">event</span>.<span class="at">target</span><span class="op">;</span> <span class="co">// IndexedDB native request object</span></a>
+<a class="sourceLine" id="cb30-3" title="3">  <span class="kw">let</span> error <span class="op">=</span> <span class="va">event</span>.<span class="at">reason</span><span class="op">;</span> <span class="co">//  Unhandled error object, same as request.error</span></a>
+<a class="sourceLine" id="cb30-4" title="4">  ...<span class="at">report</span> about the <span class="va">error</span>...</a>
+<a class="sourceLine" id="cb30-5" title="5"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="inactive-transaction-pitfall">“Inactive transaction” pitfall</h3>
+<p>As we already know, a transaction auto-commits as soon as the browser is done with the current code and microtasks. So if we put a <em>macrotask</em> like <code>fetch</code> in the middle of a transaction, then the transaction won’t wait for it to finish. It just auto-commits. So the next request in it would fail.</p>
+<p>For a promise wrapper and <code>async/await</code> the situation is the same.</p>
+<p>Here’s an example of <code>fetch</code> in the middle of the transaction:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb31-1" title="1"><span class="kw">let</span> transaction <span class="op">=</span> <span class="va">db</span>.<span class="at">transaction</span>(<span class="st">&quot;inventory&quot;</span><span class="op">,</span> <span class="st">&quot;readwrite&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb31-2" title="2"><span class="kw">let</span> inventory <span class="op">=</span> <span class="va">transaction</span>.<span class="at">objectStore</span>(<span class="st">&quot;inventory&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb31-3" title="3"></a>
+<a class="sourceLine" id="cb31-4" title="4"><span class="cf">await</span> <span class="va">inventory</span>.<span class="at">add</span>(<span class="op">{</span> <span class="dt">id</span><span class="op">:</span> <span class="st">&#39;js&#39;</span><span class="op">,</span> <span class="dt">price</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> <span class="dt">created</span><span class="op">:</span> <span class="kw">new</span> <span class="at">Date</span>() <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb31-5" title="5"></a>
+<a class="sourceLine" id="cb31-6" title="6"><span class="cf">await</span> <span class="at">fetch</span>(...)<span class="op">;</span> <span class="co">// (*)</span></a>
+<a class="sourceLine" id="cb31-7" title="7"></a>
+<a class="sourceLine" id="cb31-8" title="8"><span class="cf">await</span> <span class="va">inventory</span>.<span class="at">add</span>(<span class="op">{</span> <span class="dt">id</span><span class="op">:</span> <span class="st">&#39;js&#39;</span><span class="op">,</span> <span class="dt">price</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> <span class="dt">created</span><span class="op">:</span> <span class="kw">new</span> <span class="at">Date</span>() <span class="op">}</span>)<span class="op">;</span> <span class="co">// Error</span></a></code></pre></div>
+<p>The next <code>inventory.add</code> after <code>fetch</code> <code>(*)</code> fails with an “inactive transaction” error, because the transaction is already committed and closed at that time.</p>
+<p>The workaround is the same as when working with native IndexedDB: either make a new transaction or just split things apart. 1. Prepare the data and fetch all that’s needed first. 2. Then save in the database.</p>
+<h3 id="getting-native-objects">Getting native objects</h3>
+<p>Internally, the wrapper performs a native IndexedDB request, adding <code>onerror/onsuccess</code> to it, and returns a promise that rejects/resolves with the result.</p>
+<p>That works fine most of the time. The examples are at the lib page <a href="https://github.com/jakearchibald/idb" class="uri">https://github.com/jakearchibald/idb</a>.</p>
+<p>In few rare cases, when we need the original <code>request</code> object, we can access it as <code>promise.request</code> property of the promise:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb32-1" title="1"><span class="kw">let</span> promise <span class="op">=</span> <span class="va">books</span>.<span class="at">add</span>(book)<span class="op">;</span> <span class="co">// get a promise (don&#39;t await for its result)</span></a>
+<a class="sourceLine" id="cb32-2" title="2"></a>
+<a class="sourceLine" id="cb32-3" title="3"><span class="kw">let</span> request <span class="op">=</span> <span class="va">promise</span>.<span class="at">request</span><span class="op">;</span> <span class="co">// native request object</span></a>
+<a class="sourceLine" id="cb32-4" title="4"><span class="kw">let</span> transaction <span class="op">=</span> <span class="va">request</span>.<span class="at">transaction</span><span class="op">;</span> <span class="co">// native transaction object</span></a>
+<a class="sourceLine" id="cb32-5" title="5"></a>
+<a class="sourceLine" id="cb32-6" title="6"><span class="co">// ...do some native IndexedDB voodoo...</span></a>
+<a class="sourceLine" id="cb32-7" title="7"></a>
+<a class="sourceLine" id="cb32-8" title="8"><span class="kw">let</span> result <span class="op">=</span> <span class="cf">await</span> promise<span class="op">;</span> <span class="co">// if still needed</span></a></code></pre></div>
+<h2 id="summary">Summary</h2>
+<p>IndexedDB can be thought of as a “localStorage on steroids”. It’s a simple key-value database, powerful enough for offline apps, yet simple to use.</p>
+<p>The best manual is the specification, <a href="https://www.w3.org/TR/IndexedDB-2/">the current one</a> is 2.0, but few methods from <a href="https://w3c.github.io/IndexedDB/">3.0</a> (it’s not much different) are partially supported.</p>
+<p>The basic usage can be described with a few phrases:</p>
+<ol type="1">
+<li>Get a promise wrapper like <a href="https://github.com/jakearchibald/idb">idb</a>.</li>
+<li>Open a database: <code>idb.openDb(name, version, onupgradeneeded)</code>
+<ul>
+<li>Create object storages and indexes in <code>onupgradeneeded</code> handler or perform version update if needed.</li>
+</ul></li>
+<li>For requests:
+<ul>
+<li>Create transaction <code>db.transaction('books')</code> (readwrite if needed).</li>
+<li>Get the object store <code>transaction.objectStore('books')</code>.</li>
+</ul></li>
+<li>Then, to search by a key, call methods on the object store directly.
+<ul>
+<li>To search by an object field, create an index.</li>
+</ul></li>
+<li>If the data does not fit in memory, use a cursor.</li>
+</ol>
+<p>Here’s a small demo app:</p>
+<p>[codetabs src=“books” current=“index.html”]</p>

@@ -1,0 +1,13 @@
+<p>The solution consists of two parts:</p>
+<ol type="1">
+<li>Whenever <code>.observe(handler)</code> is called, we need to remember the handler somewhere, to be able to call it later. We can store handlers right in the object, using our symbol as the property key.</li>
+<li>We need a proxy with <code>set</code> trap to call handlers in case of any change.</li>
+</ol>
+<p>```js run let handlers = Symbol(‘handlers’);</p>
+<p>function makeObservable(target) { // 1. Initialize handlers store target[handlers] = [];</p>
+<p>// Store the handler function in array for future calls target.observe = function(handler) { this[handlers].push(handler); };</p>
+<p>// 2. Create a proxy to handle changes return new Proxy(target, { set(target, property, value, receiver) { let success = Reflect.set(…arguments); // forward the operation to object if (success) { // if there were no error while setting the property // call all handlers target[handlers].forEach(handler =&gt; handler(property, value)); } return success; } }); }</p>
+<p>let user = {};</p>
+<p>user = makeObservable(user);</p>
+<p>user.observe((key, value) =&gt; { alert(<code>SET ${key}=${value}</code>); });</p>
+<p>user.name = “John”; ```</p>

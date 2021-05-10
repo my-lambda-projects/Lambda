@@ -1,0 +1,251 @@
+<h1 id="class-inheritance">Class inheritance</h1>
+<p>Class inheritance is a way for one class to extend another class.</p>
+<p>So we can create new functionality on top of the existing.</p>
+<h2 id="the-extends-keyword">The “extends” keyword</h2>
+<p>Let’s say we have class <code>Animal</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">class</span> Animal <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="at">constructor</span>(name) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">this</span>.<span class="at">speed</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="kw">this</span>.<span class="at">name</span> <span class="op">=</span> name<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-6" title="6">  <span class="at">run</span>(speed) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="kw">this</span>.<span class="at">speed</span> <span class="op">=</span> speed<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-8" title="8">    <span class="at">alert</span>(<span class="vs">`</span><span class="sc">${</span><span class="kw">this</span>.<span class="at">name</span><span class="sc">}</span><span class="vs"> runs with speed </span><span class="sc">${</span><span class="kw">this</span>.<span class="at">speed</span><span class="sc">}</span><span class="vs">.`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-9" title="9">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-10" title="10">  <span class="at">stop</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-11" title="11">    <span class="kw">this</span>.<span class="at">speed</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-12" title="12">    <span class="at">alert</span>(<span class="vs">`</span><span class="sc">${</span><span class="kw">this</span>.<span class="at">name</span><span class="sc">}</span><span class="vs"> stands still.`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-13" title="13">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-15" title="15"></a>
+<a class="sourceLine" id="cb1-16" title="16"><span class="kw">let</span> animal <span class="op">=</span> <span class="kw">new</span> <span class="at">Animal</span>(<span class="st">&quot;My animal&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<p>Here’s how we can represent <code>animal</code> object and <code>Animal</code> class graphically:</p>
+<p><img src="rabbit-animal-independent-animal.svg" /></p>
+<p>…And we would like to create another <code>class Rabbit</code>.</p>
+<p>As rabbits are animals, <code>Rabbit</code> class should be based on <code>Animal</code>, have access to animal methods, so that rabbits can do what “generic” animals can do.</p>
+<p>The syntax to extend another class is: <code>class Child extends Parent</code>.</p>
+<p>Let’s create <code>class Rabbit</code> that inherits from <code>Animal</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">class</span> Rabbit <span class="kw">extends</span> Animal <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="ss">  hide</span><span class="sc">()</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="ss">    alert</span><span class="sc">(</span><span class="ss">`${this.name} hides!`</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="ss">  }</span></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="ss">}</span></a>
+<a class="sourceLine" id="cb2-8" title="8"></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="ss">let rabbit = new Rabbit</span><span class="sc">(</span><span class="ss">&quot;White Rabbit&quot;</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb2-10" title="10"></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="ss">rabbit.run</span><span class="sc">(</span><span class="ss">5</span><span class="sc">)</span><span class="ss">; // White Rabbit runs with speed 5.</span></a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="ss">rabbit.hide</span><span class="sc">()</span><span class="ss">; // White Rabbit hides!</span></a></code></pre></div>
+<p>Object of <code>Rabbit</code> class have access both to <code>Rabbit</code> methods, such as <code>rabbit.hide()</code>, and also to <code>Animal</code> methods, such as <code>rabbit.run()</code>.</p>
+<p>Internally, <code>extends</code> keyword works using the good old prototype mechanics. It sets <code>Rabbit.prototype.[[Prototype]]</code> to <code>Animal.prototype</code>. So, if a method is not found in <code>Rabbit.prototype</code>, JavaScript takes it from <code>Animal.prototype</code>.</p>
+<p><img src="animal-rabbit-extends.svg" /></p>
+<p>For instance, to find <code>rabbit.run</code> method, the engine checks (bottom-up on the picture): 1. The <code>rabbit</code> object (has no <code>run</code>). 2. Its prototype, that is <code>Rabbit.prototype</code> (has <code>hide</code>, but not <code>run</code>). 3. Its prototype, that is (due to <code>extends</code>) <code>Animal.prototype</code>, that finally has the <code>run</code> method.</p>
+<p>As we can recall from the chapter <a href="info:native-prototypes" class="uri">info:native-prototypes</a>, JavaScript itself uses prototypal inheritance for built-in objects. E.g. <code>Date.prototype.[[Prototype]]</code> is <code>Object.prototype</code>. That’s why dates have access to generic object methods.</p>
+<p>```<code>smart header="Any expression is allowed after</code>extends<code>" Class syntax allows to specify not just a class, but any expression after</code>extends`.</p>
+<p>For instance, a function call that generates the parent class:</p>
+<p>```js run function f(phrase) { return class { sayHi() { alert(phrase); } }; }</p>
+<p><em>!</em> class User extends f(“Hello”) {} <em>/!</em></p>
+<p>new User().sayHi(); // Hello</p>
+<pre><code>Here `class User` inherits from the result of `f(&quot;Hello&quot;)`.
+
+That may be useful for advanced programming patterns when we use functions to generate classes depending on many conditions and can inherit from them.</code></pre>
+<h2 id="overriding-a-method">Overriding a method</h2>
+<p>Now let’s move forward and override a method. By default, all methods that are not specified in <code>class Rabbit</code> are taken directly “as is” from <code>class Animal</code>.</p>
+<p>But if we specify our own method in <code>Rabbit</code>, such as <code>stop()</code> then it will be used instead:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">class</span> Rabbit <span class="kw">extends</span> Animal <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="at">stop</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="co">// ...now this will be used for rabbit.stop()</span></a>
+<a class="sourceLine" id="cb4-4" title="4">    <span class="co">// instead of stop() from class Animal</span></a>
+<a class="sourceLine" id="cb4-5" title="5">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="op">}</span></a></code></pre></div>
+<p>Usually we don’t want to totally replace a parent method, but rather to build on top of it to tweak or extend its functionality. We do something in our method, but call the parent method before/after it or in the process.</p>
+<p>Classes provide <code>"super"</code> keyword for that.</p>
+<ul>
+<li><code>super.method(...)</code> to call a parent method.</li>
+<li><code>super(...)</code> to call a parent constructor (inside our constructor only).</li>
+</ul>
+<p>For instance, let our rabbit autohide when stopped:</p>
+<p>```js run class Animal {</p>
+<p>constructor(name) { this.speed = 0; this.name = name; }</p>
+<p>run(speed) { this.speed = speed; alert(<code>${this.name} runs with speed ${this.speed}.</code>); }</p>
+<p>stop() { this.speed = 0; alert(<code>${this.name} stands still.</code>); }</p>
+<p>}</p>
+<p>class Rabbit extends Animal { hide() { alert(<code>${this.name} hides!</code>); }</p>
+<p><em>!</em> stop() { super.stop(); // call parent stop this.hide(); // and then hide } <em>/!</em> }</p>
+<p>let rabbit = new Rabbit(“White Rabbit”);</p>
+<p>rabbit.run(5); // White Rabbit runs with speed 5. rabbit.stop(); // White Rabbit stands still. White Rabbit hides! ```</p>
+<p>Now <code>Rabbit</code> has the <code>stop</code> method that calls the parent <code>super.stop()</code> in the process.</p>
+<p>```<code>smart header="Arrow functions have no</code>super<code>" As was mentioned in the chapter &lt;info:arrow-functions&gt;, arrow functions do not have</code>super`.</p>
+<p>If accessed, it’s taken from the outer function. For instance:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">class</span> Rabbit <span class="kw">extends</span> Animal <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="at">stop</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="at">setTimeout</span>(() <span class="kw">=&gt;</span> <span class="kw">super</span>.<span class="at">stop</span>()<span class="op">,</span> <span class="dv">1000</span>)<span class="op">;</span> <span class="co">// call parent stop after 1sec</span></a>
+<a class="sourceLine" id="cb5-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="op">}</span></a></code></pre></div>
+<p>The <code>super</code> in the arrow function is the same as in <code>stop()</code>, so it works as intended. If we specified a “regular” function here, there would be an error:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="co">// Unexpected super</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="at">setTimeout</span>(<span class="kw">function</span>() <span class="op">{</span> <span class="kw">super</span>.<span class="at">stop</span>() <span class="op">},</span> <span class="dv">1000</span>)<span class="op">;</span></a></code></pre></div>
+<p>````</p>
+<h2 id="overriding-constructor">Overriding constructor</h2>
+<p>With constructors it gets a little bit tricky.</p>
+<p>Until now, <code>Rabbit</code> did not have its own <code>constructor</code>.</p>
+<p>According to the <a href="https://tc39.github.io/ecma262/#sec-runtime-semantics-classdefinitionevaluation">specification</a>, if a class extends another class and has no <code>constructor</code>, then the following “empty” <code>constructor</code> is generated:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">class</span> Rabbit <span class="kw">extends</span> Animal <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="co">// generated for extending classes without own constructors</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  <span class="at">constructor</span>(...<span class="at">args</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-5" title="5">    <span class="kw">super</span>(...<span class="at">args</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-6" title="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="ss">}</span></a></code></pre></div>
+<p>As we can see, it basically calls the parent <code>constructor</code> passing it all the arguments. That happens if we don’t write a constructor of our own.</p>
+<p>Now let’s add a custom constructor to <code>Rabbit</code>. It will specify the <code>earLength</code> in addition to <code>name</code>:</p>
+<p>```js run class Animal { constructor(name) { this.speed = 0; this.name = name; } // … }</p>
+<p>class Rabbit extends Animal {</p>
+<p><em>!</em> constructor(name, earLength) { this.speed = 0; this.name = name; this.earLength = earLength; } <em>/!</em></p>
+<p>// … }</p>
+<p><em>!</em> // Doesn’t work! let rabbit = new Rabbit(“White Rabbit”, 10); // Error: this is not defined. <em>/!</em> ```</p>
+<p>Whoops! We’ve got an error. Now we can’t create rabbits. What went wrong?</p>
+<p>The short answer is:</p>
+<ul>
+<li><strong>Constructors in inheriting classes must call <code>super(...)</code>, and (!) do it before using <code>this</code>.</strong></li>
+</ul>
+<p>…But why? What’s going on here? Indeed, the requirement seems strange.</p>
+<p>Of course, there’s an explanation. Let’s get into details, so you’ll really understand what’s going on.</p>
+<p>In JavaScript, there’s a distinction between a constructor function of an inheriting class (so-called “derived constructor”) and other functions. A derived constructor has a special internal property <code>[[ConstructorKind]]:"derived"</code>. That’s a special internal label.</p>
+<p>That label affects its behavior with <code>new</code>.</p>
+<ul>
+<li>When a regular function is executed with <code>new</code>, it creates an empty object and assigns it to <code>this</code>.</li>
+<li>But when a derived constructor runs, it doesn’t do this. It expects the parent constructor to do this job.</li>
+</ul>
+<p>So a derived constructor must call <code>super</code> in order to execute its parent (base) constructor, otherwise the object for <code>this</code> won’t be created. And we’ll get an error.</p>
+<p>For the <code>Rabbit</code> constructor to work, it needs to call <code>super()</code> before using <code>this</code>, like here:</p>
+<p>```js run class Animal {</p>
+<p>constructor(name) { this.speed = 0; this.name = name; }</p>
+<p>// … }</p>
+<p>class Rabbit extends Animal {</p>
+<p>constructor(name, earLength) { <em>!</em> super(name); <em>/!</em> this.earLength = earLength; }</p>
+<p>// … }</p>
+<p><em>!</em> // now fine let rabbit = new Rabbit(“White Rabbit”, 10); alert(rabbit.name); // White Rabbit alert(rabbit.earLength); // 10 <em>/!</em> ```</p>
+<h3 id="overriding-class-fields-a-tricky-note">Overriding class fields: a tricky note</h3>
+<p>```warn header=“Advanced note” This note assumes you have a certain experience with classes, maybe in other programming languages.</p>
+<p>It provides better insight into the language and also explains the behavior that might be a source of bugs (but not very often).</p>
+<p>If you find it difficult to understand, just go on, continue reading, then return to it some time later. ```</p>
+<p>We can override not only methods, but also class fields.</p>
+<p>Although, there’s a tricky behavior when we access an overridden field in parent constructor, quite different from most other programming languages.</p>
+<p>Consider this example:</p>
+<p>```js run class Animal { name = ‘animal’;</p>
+<p>constructor() { alert(this.name); // (*) } }</p>
+<p>class Rabbit extends Animal { name = ‘rabbit’; }</p>
+<p>new Animal(); // animal <em>!</em> new Rabbit(); // animal <em>/!</em> ```</p>
+<p>Here, class <code>Rabbit</code> extends <code>Animal</code> and overrides <code>name</code> field with its own value.</p>
+<p>There’s no own constructor in <code>Rabbit</code>, so <code>Animal</code> constructor is called.</p>
+<p>What’s interesting is that in both cases: <code>new Animal()</code> and <code>new Rabbit()</code>, the <code>alert</code> in the line <code>(*)</code> shows <code>animal</code>.</p>
+<p><strong>In other words, parent constructor always uses its own field value, not the overridden one.</strong></p>
+<p>What’s odd about it?</p>
+<p>If it’s not clear yet, please compare with methods.</p>
+<p>Here’s the same code, but instead of <code>this.name</code> field we call <code>this.showName()</code> method:</p>
+<p>```js run class Animal { showName() { // instead of this.name = ‘animal’ alert(‘animal’); }</p>
+<p>constructor() { this.showName(); // instead of alert(this.name); } }</p>
+<p>class Rabbit extends Animal { showName() { alert(‘rabbit’); } }</p>
+<p>new Animal(); // animal <em>!</em> new Rabbit(); // rabbit <em>/!</em> ```</p>
+<p>Please note: now the output is different.</p>
+<p>And that’s what we naturally expect. When the parent constructor is called in the derived class, it uses the overridden method.</p>
+<p>…But for class fields it’s not so. As said, the parent constructor always uses the parent field.</p>
+<p>Why is there the difference?</p>
+<p>Well, the reason is in the field initialization order. The class field is initialized: - Before constructor for the base class (that doesn’t extend anything), - Immediately after <code>super()</code> for the derived class.</p>
+<p>In our case, <code>Rabbit</code> is the derived class. There’s no <code>constructor()</code> in it. As said previously, that’s the same as if there was an empty constructor with only <code>super(...args)</code>.</p>
+<p>So, <code>new Rabbit()</code> calls <code>super()</code>, thus executing the parent constructor, and (per the rule for derived classes) only after that its class fields are initialized. At the time of the parent constructor execution, there are no <code>Rabbit</code> class fields yet, that’s why <code>Animal</code> fields are used.</p>
+<p>This subtle difference between fields and methods is specific to JavaScript</p>
+<p>Luckily, this behavior only reveals itself if an overridden field is used in the parent constructor. Then it may be difficult to understand what’s going on, so we’re explaining it here.</p>
+<p>If it becomes a problem, one can fix it by using methods or getters/setters instead of fields.</p>
+<h2 id="super-internals-homeobject">Super: internals, [[HomeObject]]</h2>
+<p>```warn header=“Advanced information” If you’re reading the tutorial for the first time - this section may be skipped.</p>
+<p>It’s about the internal mechanisms behind inheritance and <code>super</code>. ```</p>
+<p>Let’s get a little deeper under the hood of <code>super</code>. We’ll see some interesting things along the way.</p>
+<p>First to say, from all that we’ve learned till now, it’s impossible for <code>super</code> to work at all!</p>
+<p>Yeah, indeed, let’s ask ourselves, how it should technically work? When an object method runs, it gets the current object as <code>this</code>. If we call <code>super.method()</code> then, the engine needs to get the <code>method</code> from the prototype of the current object. But how?</p>
+<p>The task may seem simple, but it isn’t. The engine knows the current object <code>this</code>, so it could get the parent <code>method</code> as <code>this.__proto__.method</code>. Unfortunately, such a “naive” solution won’t work.</p>
+<p>Let’s demonstrate the problem. Without classes, using plain objects for the sake of simplicity.</p>
+<p>You may skip this part and go below to the <code>[[HomeObject]]</code> subsection if you don’t want to know the details. That won’t harm. Or read on if you’re interested in understanding things in-depth.</p>
+<p>In the example below, <code>rabbit.__proto__ = animal</code>. Now let’s try: in <code>rabbit.eat()</code> we’ll call <code>animal.eat()</code>, using <code>this.__proto__</code>:</p>
+<p>``<code>js run let animal = {   name: "Animal",   eat() {     alert(</code>${this.name} eats.`); } };</p>
+<p>let rabbit = { <strong>proto</strong>: animal, name: “Rabbit”, eat() { <em>!</em> // that’s how super.eat() could presumably work this.__proto__.eat.call(this); // (<em>) </em>/!* } };</p>
+<p>rabbit.eat(); // Rabbit eats. ```</p>
+<p>At the line <code>(*)</code> we take <code>eat</code> from the prototype (<code>animal</code>) and call it in the context of the current object. Please note that <code>.call(this)</code> is important here, because a simple <code>this.__proto__.eat()</code> would execute parent <code>eat</code> in the context of the prototype, not the current object.</p>
+<p>And in the code above it actually works as intended: we have the correct <code>alert</code>.</p>
+<p>Now let’s add one more object to the chain. We’ll see how things break:</p>
+<p>``<code>js run let animal = {   name: "Animal",   eat() {     alert(</code>${this.name} eats.`); } };</p>
+<p>let rabbit = { <strong>proto</strong>: animal, eat() { // …bounce around rabbit-style and call parent (animal) method this.__proto__.eat.call(this); // (*) } };</p>
+<p>let longEar = { <strong>proto</strong>: rabbit, eat() { // …do something with long ears and call parent (rabbit) method this.__proto__.eat.call(this); // (**) } };</p>
+<p><em>!</em> longEar.eat(); // Error: Maximum call stack size exceeded <em>/!</em> ```</p>
+<p>The code doesn’t work anymore! We can see the error trying to call <code>longEar.eat()</code>.</p>
+<p>It may be not that obvious, but if we trace <code>longEar.eat()</code> call, then we can see why. In both lines <code>(*)</code> and <code>(**)</code> the value of <code>this</code> is the current object (<code>longEar</code>). That’s essential: all object methods get the current object as <code>this</code>, not a prototype or something.</p>
+<p>So, in both lines <code>(*)</code> and <code>(**)</code> the value of <code>this.__proto__</code> is exactly the same: <code>rabbit</code>. They both call <code>rabbit.eat</code> without going up the chain in the endless loop.</p>
+<p>Here’s the picture of what happens:</p>
+<p><img src="this-super-loop.svg" /></p>
+<ol type="1">
+<li>Inside <code>longEar.eat()</code>, the line <code>(**)</code> calls <code>rabbit.eat</code> providing it with <code>this=longEar</code>. <code>js  // inside longEar.eat() we have this = longEar  this.__proto__.eat.call(this) // (**)  // becomes  longEar.__proto__.eat.call(this)  // that is  rabbit.eat.call(this);</code></li>
+<li><p>Then in the line <code>(*)</code> of <code>rabbit.eat</code>, we’d like to pass the call even higher in the chain, but <code>this=longEar</code>, so <code>this.__proto__.eat</code> is again <code>rabbit.eat</code>!</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="co">// inside rabbit.eat() we also have this = longEar</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="kw">this</span>.<span class="va">__proto__</span>.<span class="va">eat</span>.<span class="at">call</span>(<span class="kw">this</span>) <span class="co">// (*)</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="co">// becomes</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="va">longEar</span>.<span class="va">__proto__</span>.<span class="va">eat</span>.<span class="at">call</span>(<span class="kw">this</span>)</a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="co">// or (again)</span></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="va">rabbit</span>.<span class="va">eat</span>.<span class="at">call</span>(<span class="kw">this</span>)<span class="op">;</span></a></code></pre></div></li>
+<li><p>…So <code>rabbit.eat</code> calls itself in the endless loop, because it can’t ascend any further.</p></li>
+</ol>
+<p>The problem can’t be solved by using <code>this</code> alone.</p>
+<h3 id="homeobject"><code>[[HomeObject]]</code></h3>
+<p>To provide the solution, JavaScript adds one more special internal property for functions: <code>[[HomeObject]]</code>.</p>
+<p>When a function is specified as a class or object method, its <code>[[HomeObject]]</code> property becomes that object.</p>
+<p>Then <code>super</code> uses it to resolve the parent prototype and its methods.</p>
+<p>Let’s see how it works, first with plain objects:</p>
+<p>``<code>js run let animal = {   name: "Animal",   eat() {         // animal.eat.[[HomeObject]] == animal     alert(</code>${this.name} eats.`); } };</p>
+<p>let rabbit = { <strong>proto</strong>: animal, name: “Rabbit”, eat() { // rabbit.eat.[[HomeObject]] == rabbit super.eat(); } };</p>
+<p>let longEar = { <strong>proto</strong>: rabbit, name: “Long Ear”, eat() { // longEar.eat.[[HomeObject]] == longEar super.eat(); } };</p>
+<p><em>!</em> // works correctly longEar.eat(); // Long Ear eats. <em>/!</em> ```</p>
+<p>It works as intended, due to <code>[[HomeObject]]</code> mechanics. A method, such as <code>longEar.eat</code>, knows its <code>[[HomeObject]]</code> and takes the parent method from its prototype. Without any use of <code>this</code>.</p>
+<h3 id="methods-are-not-free">Methods are not “free”</h3>
+<p>As we’ve known before, generally functions are “free”, not bound to objects in JavaScript. So they can be copied between objects and called with another <code>this</code>.</p>
+<p>The very existence of <code>[[HomeObject]]</code> violates that principle, because methods remember their objects. <code>[[HomeObject]]</code> can’t be changed, so this bond is forever.</p>
+<p>The only place in the language where <code>[[HomeObject]]</code> is used – is <code>super</code>. So, if a method does not use <code>super</code>, then we can still consider it free and copy between objects. But with <code>super</code> things may go wrong.</p>
+<p>Here’s the demo of a wrong <code>super</code> result after copying:</p>
+<p>``<code>js run let animal = {   sayHi() {     alert(</code>I’m an animal`); } };</p>
+<p>// rabbit inherits from animal let rabbit = { <strong>proto</strong>: animal, sayHi() { super.sayHi(); } };</p>
+<p>let plant = { sayHi() { alert(“I’m a plant”); } };</p>
+<p>// tree inherits from plant let tree = { <strong>proto</strong>: plant, <em>!</em> sayHi: rabbit.sayHi // (<em>) </em>/!* };</p>
+<p><em>!</em> tree.sayHi(); // I’m an animal (?!?) <em>/!</em> ```</p>
+<p>A call to <code>tree.sayHi()</code> shows “I’m an animal”. Definitely wrong.</p>
+<p>The reason is simple: - In the line <code>(*)</code>, the method <code>tree.sayHi</code> was copied from <code>rabbit</code>. Maybe we just wanted to avoid code duplication? - Its <code>[[HomeObject]]</code> is <code>rabbit</code>, as it was created in <code>rabbit</code>. There’s no way to change <code>[[HomeObject]]</code>. - The code of <code>tree.sayHi()</code> has <code>super.sayHi()</code> inside. It goes up from <code>rabbit</code> and takes the method from <code>animal</code>.</p>
+<p>Here’s the diagram of what happens:</p>
+<p><img src="super-homeobject-wrong.svg" /></p>
+<h3 id="methods-not-function-properties">Methods, not function properties</h3>
+<p><code>[[HomeObject]]</code> is defined for methods both in classes and in plain objects. But for objects, methods must be specified exactly as <code>method()</code>, not as <code>"method: function()"</code>.</p>
+<p>The difference may be non-essential for us, but it’s important for JavaScript.</p>
+<p>In the example below a non-method syntax is used for comparison. <code>[[HomeObject]]</code> property is not set and the inheritance doesn’t work:</p>
+<p>```js run let animal = { eat: function() { // intentionally writing like this instead of eat() {… // … } };</p>
+<p>let rabbit = { <strong>proto</strong>: animal, eat: function() { super.eat(); } };</p>
+<p><em>!</em> rabbit.eat(); // Error calling super (because there’s no [[HomeObject]]) <em>/!</em> ```</p>
+<h2 id="summary">Summary</h2>
+<ol type="1">
+<li>To extend a class: <code>class Child extends Parent</code>:
+<ul>
+<li>That means <code>Child.prototype.__proto__</code> will be <code>Parent.prototype</code>, so methods are inherited.</li>
+</ul></li>
+<li>When overriding a constructor:
+<ul>
+<li>We must call parent constructor as <code>super()</code> in <code>Child</code> constructor before using <code>this</code>.</li>
+</ul></li>
+<li>When overriding another method:
+<ul>
+<li>We can use <code>super.method()</code> in a <code>Child</code> method to call <code>Parent</code> method.</li>
+</ul></li>
+<li>Internals:
+<ul>
+<li>Methods remember their class/object in the internal <code>[[HomeObject]]</code> property. That’s how <code>super</code> resolves parent methods.</li>
+<li>So it’s not safe to copy a method with <code>super</code> from one object to another.</li>
+</ul></li>
+</ol>
+<p>Also: - Arrow functions don’t have their own <code>this</code> or <code>super</code>, so they transparently fit into the surrounding context.</p>

@@ -1,0 +1,25 @@
+<p>Let’s look carefully at what’s going on in the call <code>speedy.eat("apple")</code>.</p>
+<ol type="1">
+<li><p>The method <code>speedy.eat</code> is found in the prototype (<code>=hamster</code>), then executed with <code>this=speedy</code> (the object before the dot).</p></li>
+<li><p>Then <code>this.stomach.push()</code> needs to find <code>stomach</code> property and call <code>push</code> on it. It looks for <code>stomach</code> in <code>this</code> (<code>=speedy</code>), but nothing found.</p></li>
+<li><p>Then it follows the prototype chain and finds <code>stomach</code> in <code>hamster</code>.</p></li>
+<li><p>Then it calls <code>push</code> on it, adding the food into <em>the stomach of the prototype</em>.</p></li>
+</ol>
+<p>So all hamsters share a single stomach!</p>
+<p>Both for <code>lazy.stomach.push(...)</code> and <code>speedy.stomach.push()</code>, the property <code>stomach</code> is found in the prototype (as it’s not in the object itself), then the new data is pushed into it.</p>
+<p>Please note that such thing doesn’t happen in case of a simple assignment <code>this.stomach=</code>:</p>
+<p>```js run let hamster = { stomach: [],</p>
+<p>eat(food) { <em>!</em> // assign to this.stomach instead of this.stomach.push this.stomach = [food]; <em>/!</em> } };</p>
+<p>let speedy = { <strong>proto</strong>: hamster };</p>
+<p>let lazy = { <strong>proto</strong>: hamster };</p>
+<p>// Speedy one found the food speedy.eat(“apple”); alert( speedy.stomach ); // apple</p>
+<p>// Lazy one’s stomach is empty alert( lazy.stomach ); // <nothing> ```</p>
+<p>Now all works fine, because <code>this.stomach=</code> does not perform a lookup of <code>stomach</code>. The value is written directly into <code>this</code> object.</p>
+<p>Also we can totally avoid the problem by making sure that each hamster has their own stomach:</p>
+<p>```js run let hamster = { stomach: [],</p>
+<p>eat(food) { this.stomach.push(food); } };</p>
+<p>let speedy = { <strong>proto</strong>: hamster, <em>!</em> stomach: [] <em>/!</em> };</p>
+<p>let lazy = { <strong>proto</strong>: hamster, <em>!</em> stomach: [] <em>/!</em> };</p>
+<p>// Speedy one found the food speedy.eat(“apple”); alert( speedy.stomach ); // apple</p>
+<p>// Lazy one’s stomach is empty alert( lazy.stomach ); // <nothing> ```</p>
+<p>As a common solution, all properties that describe the state of a particular object, like <code>stomach</code> above, should be written into that object. That prevents such problems.</p>

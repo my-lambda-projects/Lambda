@@ -1,0 +1,4 @@
+<p>The answer is: <strong>no, it won’t</strong>:</p>
+<p><code>js run new Promise(function(resolve, reject) {   setTimeout(() =&gt; {     throw new Error("Whoops!");   }, 1000); }).catch(alert);</code></p>
+<p>As said in the chapter, there’s an “implicit <code>try..catch</code>” around the function code. So all synchronous errors are handled.</p>
+<p>But here the error is generated not while the executor is running, but later. So the promise can’t handle it.</p>

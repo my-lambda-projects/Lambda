@@ -1,0 +1,117 @@
+<h1 id="rest-parameters-and-spread-syntax">Rest parameters and spread syntax</h1>
+<p>Many JavaScript built-in functions support an arbitrary number of arguments.</p>
+<p>For instance:</p>
+<ul>
+<li><code>Math.max(arg1, arg2, ..., argN)</code> – returns the greatest of the arguments.</li>
+<li><code>Object.assign(dest, src1, ..., srcN)</code> – copies properties from <code>src1..N</code> into <code>dest</code>.</li>
+<li>…and so on.</li>
+</ul>
+<p>In this chapter we’ll learn how to do the same. And also, how to pass arrays to such functions as parameters.</p>
+<h2 id="rest-parameters-...">Rest parameters <code>...</code></h2>
+<p>A function can be called with any number of arguments, no matter how it is defined.</p>
+<p>Like here: ```js run function sum(a, b) { return a + b; }</p>
+<p>alert( sum(1, 2, 3, 4, 5) ); ```</p>
+<p>There will be no error because of “excessive” arguments. But of course in the result only the first two will be counted.</p>
+<p>The rest of the parameters can be included in the function definition by using three dots <code>...</code> followed by the name of the array that will contain them. The dots literally mean “gather the remaining parameters into an array”.</p>
+<p>For instance, to gather all arguments into array <code>args</code>:</p>
+<p>```js run function sumAll(…args) { // args is the name for the array let sum = 0;</p>
+<p>for (let arg of args) sum += arg;</p>
+<p>return sum; }</p>
+<p>alert( sumAll(1) ); // 1 alert( sumAll(1, 2) ); // 3 alert( sumAll(1, 2, 3) ); // 6 ```</p>
+<p>We can choose to get the first parameters as variables, and gather only the rest.</p>
+<p>Here the first two arguments go into variables and the rest go into <code>titles</code> array:</p>
+<p>```js run function showName(firstName, lastName, …titles) { alert( firstName + ’ ’ + lastName ); // Julius Caesar</p>
+<p>// the rest go into titles array // i.e. titles = [“Consul”, “Imperator”] alert( titles[0] ); // Consul alert( titles[1] ); // Imperator alert( titles.length ); // 2 }</p>
+<p>showName(“Julius”, “Caesar”, “Consul”, “Imperator”); ```</p>
+<p>````warn header=“The rest parameters must be at the end” The rest parameters gather all remaining arguments, so the following does not make sense and causes an error:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">f</span>(arg1<span class="op">,</span> ...<span class="at">rest</span><span class="op">,</span> arg2) <span class="op">{</span> <span class="co">// arg2 after ...rest ?!</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="co">// error</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>The <code>...rest</code> must always be last. ````</p>
+<h2 id="the-arguments-variable">The “arguments” variable</h2>
+<p>There is also a special array-like object named <code>arguments</code> that contains all arguments by their index.</p>
+<p>For instance:</p>
+<p>```js run function showName() { alert( arguments.length ); alert( arguments[0] ); alert( arguments[1] );</p>
+<p>// it’s iterable // for(let arg of arguments) alert(arg); }</p>
+<p>// shows: 2, Julius, Caesar showName(“Julius”, “Caesar”);</p>
+<p>// shows: 1, Ilya, undefined (no second argument) showName(“Ilya”); ```</p>
+<p>In old times, rest parameters did not exist in the language, and using <code>arguments</code> was the only way to get all arguments of the function. And it still works, we can find it in the old code.</p>
+<p>But the downside is that although <code>arguments</code> is both array-like and iterable, it’s not an array. It does not support array methods, so we can’t call <code>arguments.map(...)</code> for example.</p>
+<p>Also, it always contains all arguments. We can’t capture them partially, like we did with rest parameters.</p>
+<p>So when we need these features, then rest parameters are preferred.</p>
+<p>```<code>smart header="Arrow functions do not have</code>"arguments"<code>" If we access the</code>arguments` object from an arrow function, it takes them from the outer “normal” function.</p>
+<p>Here’s an example:</p>
+<p>```js run function f() { let showArg = () =&gt; alert(arguments[0]); showArg(); }</p>
+<p>f(1); // 1</p>
+<pre><code>
+As we remember, arrow functions don&#39;t have their own `this`. Now we know they don&#39;t have the special `arguments` object either.</code></pre>
+<h2 id="spread-syntax-spread-syntax">Spread syntax [#spread-syntax]</h2>
+<p>We’ve just seen how to get an array from the list of parameters.</p>
+<p>But sometimes we need to do exactly the reverse.</p>
+<p>For instance, there’s a built-in function <a href="mdn:js/Math/max">Math.max</a> that returns the greatest number from a list:</p>
+<p><code>js run alert( Math.max(3, 5, 1) ); // 5</code></p>
+<p>Now let’s say we have an array <code>[3, 5, 1]</code>. How do we call <code>Math.max</code> with it?</p>
+<p>Passing it “as is” won’t work, because <code>Math.max</code> expects a list of numeric arguments, not a single array:</p>
+<p>```js run let arr = [3, 5, 1];</p>
+<p><em>!</em> alert( Math.max(arr) ); // NaN <em>/!</em> ```</p>
+<p>And surely we can’t manually list items in the code <code>Math.max(arr[0], arr[1], arr[2])</code>, because we may be unsure how many there are. As our script executes, there could be a lot, or there could be none. And that would get ugly.</p>
+<p><em>Spread syntax</em> to the rescue! It looks similar to rest parameters, also using <code>...</code>, but does quite the opposite.</p>
+<p>When <code>...arr</code> is used in the function call, it “expands” an iterable object <code>arr</code> into the list of arguments.</p>
+<p>For <code>Math.max</code>:</p>
+<p>```js run let arr = [3, 5, 1];</p>
+<p>alert( Math.max(…arr) ); // 5 (spread turns array into a list of arguments) ```</p>
+<p>We also can pass multiple iterables this way:</p>
+<p>```js run let arr1 = [1, -2, 3, 4]; let arr2 = [8, 3, -8, 1];</p>
+<p>alert( Math.max(…arr1, …arr2) ); // 8 ```</p>
+<p>We can even combine the spread syntax with normal values:</p>
+<p>```js run let arr1 = [1, -2, 3, 4]; let arr2 = [8, 3, -8, 1];</p>
+<p>alert( Math.max(1, …arr1, 2, …arr2, 25) ); // 25 ```</p>
+<p>Also, the spread syntax can be used to merge arrays:</p>
+<p>```js run let arr = [3, 5, 1]; let arr2 = [8, 9, 15];</p>
+<p><em>!</em> let merged = [0, …arr, 2, …arr2]; <em>/!</em></p>
+<p>alert(merged); // 0,3,5,1,2,8,9,15 (0, then arr, then 2, then arr2) ```</p>
+<p>In the examples above we used an array to demonstrate the spread syntax, but any iterable will do.</p>
+<p>For instance, here we use the spread syntax to turn the string into array of characters:</p>
+<p>```js run let str = “Hello”;</p>
+<p>alert( […str] ); // H,e,l,l,o ```</p>
+<p>The spread syntax internally uses iterators to gather elements, the same way as <code>for..of</code> does.</p>
+<p>So, for a string, <code>for..of</code> returns characters and <code>...str</code> becomes <code>"H","e","l","l","o"</code>. The list of characters is passed to array initializer <code>[...str]</code>.</p>
+<p>For this particular task we could also use <code>Array.from</code>, because it converts an iterable (like a string) into an array:</p>
+<p>```js run let str = “Hello”;</p>
+<p>// Array.from converts an iterable into an array alert( Array.from(str) ); // H,e,l,l,o ```</p>
+<p>The result is the same as <code>[...str]</code>.</p>
+<p>But there’s a subtle difference between <code>Array.from(obj)</code> and <code>[...obj]</code>:</p>
+<ul>
+<li><code>Array.from</code> operates on both array-likes and iterables.</li>
+<li>The spread syntax works only with iterables.</li>
+</ul>
+<p>So, for the task of turning something into an array, <code>Array.from</code> tends to be more universal.</p>
+<h2 id="copy-an-arrayobject">Copy an array/object</h2>
+<p>Remember when we talked about <code>Object.assign()</code> <a href="info:object-copy#cloning-and-merging-object-assign">in the past</a>?</p>
+<p>It is possible to do the same thing with the spread syntax.</p>
+<p>```js run let arr = [1, 2, 3];</p>
+<p><em>!</em> let arrCopy = […arr]; // spread the array into a list of parameters // then put the result into a new array <em>/!</em></p>
+<p>// do the arrays have the same contents? alert(JSON.stringify(arr) === JSON.stringify(arrCopy)); // true</p>
+<p>// are the arrays equal? alert(arr === arrCopy); // false (not same reference)</p>
+<p>// modifying our initial array does not modify the copy: arr.push(4); alert(arr); // 1, 2, 3, 4 alert(arrCopy); // 1, 2, 3 ```</p>
+<p>Note that it is possible to do the same thing to make a copy of an object:</p>
+<p>```js run let obj = { a: 1, b: 2, c: 3 };</p>
+<p><em>!</em> let objCopy = { …obj }; // spread the object into a list of parameters // then return the result in a new object <em>/!</em></p>
+<p>// do the objects have the same contents? alert(JSON.stringify(obj) === JSON.stringify(objCopy)); // true</p>
+<p>// are the objects equal? alert(obj === objCopy); // false (not same reference)</p>
+<p>// modifying our initial object does not modify the copy: obj.d = 4; alert(JSON.stringify(obj)); // {“a”:1,“b”:2,“c”:3,“d”:4} alert(JSON.stringify(objCopy)); // {“a”:1,“b”:2,“c”:3} ```</p>
+<p>This way of copying an object is much shorter than <code>let objCopy = Object.assign({}, obj)</code> or for an array <code>let arrCopy = Object.assign([], arr)</code> so we prefer to use it whenever we can.</p>
+<h2 id="summary">Summary</h2>
+<p>When we see <code>"..."</code> in the code, it is either rest parameters or the spread syntax.</p>
+<p>There’s an easy way to distinguish between them:</p>
+<ul>
+<li>When <code>...</code> is at the end of function parameters, it’s “rest parameters” and gathers the rest of the list of arguments into an array.</li>
+<li>When <code>...</code> occurs in a function call or alike, it’s called a “spread syntax” and expands an array into a list.</li>
+</ul>
+<p>Use patterns:</p>
+<ul>
+<li>Rest parameters are used to create functions that accept any number of arguments.</li>
+<li>The spread syntax is used to pass an array to functions that normally require a list of many arguments.</li>
+</ul>
+<p>Together they help to travel between a list and an array of parameters with ease.</p>
+<p>All arguments of a function call are also available in “old-style” <code>arguments</code>: array-like iterable object.</p>

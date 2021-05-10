@@ -1,0 +1,155 @@
+<h1 id="weakmap-and-weakset">WeakMap and WeakSet</h1>
+<p>As we know from the chapter <a href="info:garbage-collection" class="uri">info:garbage-collection</a>, JavaScript engine keeps a value in memory while it is “reachable” and can potentially be used.</p>
+<p>For instance:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> john <span class="op">=</span> <span class="op">{</span> <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;John&quot;</span> <span class="op">};</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="co">// the object can be accessed, john is the reference to it</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="co">// overwrite the reference</span></a>
+<a class="sourceLine" id="cb1-6" title="6">john <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7"></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="co">// the object will be removed from memory</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a></code></pre></div>
+<p>Usually, properties of an object or elements of an array or another data structure are considered reachable and kept in memory while that data structure is in memory.</p>
+<p>For instance, if we put an object into an array, then while the array is alive, the object will be alive as well, even if there are no other references to it.</p>
+<p>Like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> john <span class="op">=</span> <span class="op">{</span> <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;John&quot;</span> <span class="op">};</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="kw">let</span> array <span class="op">=</span> [ john ]<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-4" title="4"></a>
+<a class="sourceLine" id="cb2-5" title="5">john <span class="op">=</span> <span class="kw">null</span><span class="op">;</span> <span class="co">// overwrite the reference</span></a>
+<a class="sourceLine" id="cb2-6" title="6"></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="co">// the object previously referenced by john is stored inside the array</span></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="co">// therefore it won&#39;t be garbage-collected</span></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="co">// we can get it as array[0]</span></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a></code></pre></div>
+<p>Similar to that, if we use an object as the key in a regular <code>Map</code>, then while the <code>Map</code> exists, that object exists as well. It occupies memory and may not be garbage collected.</p>
+<p>For instance:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> john <span class="op">=</span> <span class="op">{</span> <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;John&quot;</span> <span class="op">};</span></a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="kw">let</span> map <span class="op">=</span> <span class="kw">new</span> <span class="at">Map</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="va">map</span>.<span class="at">set</span>(john<span class="op">,</span> <span class="st">&quot;...&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6">john <span class="op">=</span> <span class="kw">null</span><span class="op">;</span> <span class="co">// overwrite the reference</span></a>
+<a class="sourceLine" id="cb3-7" title="7"></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="co">// john is stored inside the map,</span></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="co">// we can get it by using map.keys()</span></a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a></code></pre></div>
+<p><code>WeakMap</code> is fundamentally different in this aspect. It doesn’t prevent garbage-collection of key objects.</p>
+<p>Let’s see what it means on examples.</p>
+<h2 id="weakmap">WeakMap</h2>
+<p>The first difference between <code>Map</code> and <code>WeakMap</code> is that keys must be objects, not primitive values:</p>
+<p>```js run let weakMap = new WeakMap();</p>
+<p>let obj = {};</p>
+<p>weakMap.set(obj, “ok”); // works fine (object key)</p>
+<p><em>!</em> // can’t use a string as the key weakMap.set(“test”, “Whoops”); // Error, because “test” is not an object <em>/!</em> ```</p>
+<p>Now, if we use an object as the key in it, and there are no other references to that object – it will be removed from memory (and from the map) automatically.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">let</span> john <span class="op">=</span> <span class="op">{</span> <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;John&quot;</span> <span class="op">};</span></a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="kw">let</span> weakMap <span class="op">=</span> <span class="kw">new</span> <span class="at">WeakMap</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="va">weakMap</span>.<span class="at">set</span>(john<span class="op">,</span> <span class="st">&quot;...&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-5" title="5"></a>
+<a class="sourceLine" id="cb4-6" title="6">john <span class="op">=</span> <span class="kw">null</span><span class="op">;</span> <span class="co">// overwrite the reference</span></a>
+<a class="sourceLine" id="cb4-7" title="7"></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="co">// john is removed from memory!</span></a></code></pre></div>
+<p>Compare it with the regular <code>Map</code> example above. Now if <code>john</code> only exists as the key of <code>WeakMap</code> – it will be automatically deleted from the map (and memory).</p>
+<p><code>WeakMap</code> does not support iteration and methods <code>keys()</code>, <code>values()</code>, <code>entries()</code>, so there’s no way to get all keys or values from it.</p>
+<p><code>WeakMap</code> has only the following methods:</p>
+<ul>
+<li><code>weakMap.get(key)</code></li>
+<li><code>weakMap.set(key, value)</code></li>
+<li><code>weakMap.delete(key)</code></li>
+<li><code>weakMap.has(key)</code></li>
+</ul>
+<p>Why such a limitation? That’s for technical reasons. If an object has lost all other references (like <code>john</code> in the code above), then it is to be garbage-collected automatically. But technically it’s not exactly specified <em>when the cleanup happens</em>.</p>
+<p>The JavaScript engine decides that. It may choose to perform the memory cleanup immediately or to wait and do the cleaning later when more deletions happen. So, technically, the current element count of a <code>WeakMap</code> is not known. The engine may have cleaned it up or not, or did it partially. For that reason, methods that access all keys/values are not supported.</p>
+<p>Now, where do we need such a data structure?</p>
+<h2 id="use-case-additional-data">Use case: additional data</h2>
+<p>The main area of application for <code>WeakMap</code> is an <em>additional data storage</em>.</p>
+<p>If we’re working with an object that “belongs” to another code, maybe even a third-party library, and would like to store some data associated with it, that should only exist while the object is alive - then <code>WeakMap</code> is exactly what’s needed.</p>
+<p>We put the data to a <code>WeakMap</code>, using the object as the key, and when the object is garbage collected, that data will automatically disappear as well.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">weakMap</span>.<span class="at">set</span>(john<span class="op">,</span> <span class="st">&quot;secret documents&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="co">// if john dies, secret documents will be destroyed automatically</span></a></code></pre></div>
+<p>Let’s look at an example.</p>
+<p>For instance, we have code that keeps a visit count for users. The information is stored in a map: a user object is the key and the visit count is the value. When a user leaves (its object gets garbage collected), we don’t want to store their visit count anymore.</p>
+<p>Here’s an example of a counting function with <code>Map</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="co">// 📁 visitsCount.js</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">let</span> visitsCountMap <span class="op">=</span> <span class="kw">new</span> <span class="at">Map</span>()<span class="op">;</span> <span class="co">// map: user =&gt; visits count</span></a>
+<a class="sourceLine" id="cb6-3" title="3"></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="co">// increase the visits count</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="kw">function</span> <span class="at">countUser</span>(user) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-6" title="6">  <span class="kw">let</span> count <span class="op">=</span> <span class="va">visitsCountMap</span>.<span class="at">get</span>(user) <span class="op">||</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-7" title="7">  <span class="va">visitsCountMap</span>.<span class="at">set</span>(user<span class="op">,</span> count <span class="op">+</span> <span class="dv">1</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="op">}</span></a></code></pre></div>
+<p>And here’s another part of the code, maybe another file using it:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="co">// 📁 main.js</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="kw">let</span> john <span class="op">=</span> <span class="op">{</span> <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;John&quot;</span> <span class="op">};</span></a>
+<a class="sourceLine" id="cb7-3" title="3"></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="at">countUser</span>(john)<span class="op">;</span> <span class="co">// count his visits</span></a>
+<a class="sourceLine" id="cb7-5" title="5"></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="co">// later john leaves us</span></a>
+<a class="sourceLine" id="cb7-7" title="7">john <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></a></code></pre></div>
+<p>Now, <code>john</code> object should be garbage collected, but remains in memory, as it’s a key in <code>visitsCountMap</code>.</p>
+<p>We need to clean <code>visitsCountMap</code> when we remove users, otherwise it will grow in memory indefinitely. Such cleaning can become a tedious task in complex architectures.</p>
+<p>We can avoid it by switching to <code>WeakMap</code> instead:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="co">// 📁 visitsCount.js</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="kw">let</span> visitsCountMap <span class="op">=</span> <span class="kw">new</span> <span class="at">WeakMap</span>()<span class="op">;</span> <span class="co">// weakmap: user =&gt; visits count</span></a>
+<a class="sourceLine" id="cb8-3" title="3"></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="co">// increase the visits count</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="kw">function</span> <span class="at">countUser</span>(user) <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-6" title="6">  <span class="kw">let</span> count <span class="op">=</span> <span class="va">visitsCountMap</span>.<span class="at">get</span>(user) <span class="op">||</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb8-7" title="7">  <span class="va">visitsCountMap</span>.<span class="at">set</span>(user<span class="op">,</span> count <span class="op">+</span> <span class="dv">1</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-8" title="8"><span class="op">}</span></a></code></pre></div>
+<p>Now we don’t have to clean <code>visitsCountMap</code>. After <code>john</code> object becomes unreachable, by all means except as a key of <code>WeakMap</code>, it gets removed from memory, along with the information by that key from <code>WeakMap</code>.</p>
+<h2 id="use-case-caching">Use case: caching</h2>
+<p>Another common example is caching. We can store (“cache”) results from a function, so that future calls on the same object can reuse it.</p>
+<p>To achieve that, we can use <code>Map</code> (not optimal scenario):</p>
+<p>```js run // 📁 cache.js let cache = new Map();</p>
+<p>// calculate and remember the result function process(obj) { if (!cache.has(obj)) { let result = /* calculations of the result for */ obj;</p>
+<pre><code>cache.set(obj, result);</code></pre>
+<p>}</p>
+<p>return cache.get(obj); }</p>
+<p><em>!</em> // Now we use process() in another file: <em>/!</em></p>
+<p>// 📁 main.js let obj = {/* let’s say we have an object */};</p>
+<p>let result1 = process(obj); // calculated</p>
+<p>// …later, from another place of the code… let result2 = process(obj); // remembered result taken from cache</p>
+<p>// …later, when the object is not needed any more: obj = null;</p>
+<p>alert(cache.size); // 1 (Ouch! The object is still in cache, taking memory!) ```</p>
+<p>For multiple calls of <code>process(obj)</code> with the same object, it only calculates the result the first time, and then just takes it from <code>cache</code>. The downside is that we need to clean <code>cache</code> when the object is not needed any more.</p>
+<p>If we replace <code>Map</code> with <code>WeakMap</code>, then this problem disappears. The cached result will be removed from memory automatically after the object gets garbage collected.</p>
+<p>```js run // 📁 cache.js <em>!</em> let cache = new WeakMap(); <em>/!</em></p>
+<p>// calculate and remember the result function process(obj) { if (!cache.has(obj)) { let result = /* calculate the result for */ obj;</p>
+<pre><code>cache.set(obj, result);</code></pre>
+<p>}</p>
+<p>return cache.get(obj); }</p>
+<p>// 📁 main.js let obj = {/* some object */};</p>
+<p>let result1 = process(obj); let result2 = process(obj);</p>
+<p>// …later, when the object is not needed any more: obj = null;</p>
+<p>// Can’t get cache.size, as it’s a WeakMap, // but it’s 0 or soon be 0 // When obj gets garbage collected, cached data will be removed as well ```</p>
+<h2 id="weakset">WeakSet</h2>
+<p><code>WeakSet</code> behaves similarly:</p>
+<ul>
+<li>It is analogous to <code>Set</code>, but we may only add objects to <code>WeakSet</code> (not primitives).</li>
+<li>An object exists in the set while it is reachable from somewhere else.</li>
+<li>Like <code>Set</code>, it supports <code>add</code>, <code>has</code> and <code>delete</code>, but not <code>size</code>, <code>keys()</code> and no iterations.</li>
+</ul>
+<p>Being “weak”, it also serves as additional storage. But not for arbitrary data, rather for “yes/no” facts. A membership in <code>WeakSet</code> may mean something about the object.</p>
+<p>For instance, we can add users to <code>WeakSet</code> to keep track of those who visited our site:</p>
+<p>```js run let visitedSet = new WeakSet();</p>
+<p>let john = { name: “John” }; let pete = { name: “Pete” }; let mary = { name: “Mary” };</p>
+<p>visitedSet.add(john); // John visited us visitedSet.add(pete); // Then Pete visitedSet.add(john); // John again</p>
+<p>// visitedSet has 2 users now</p>
+<p>// check if John visited? alert(visitedSet.has(john)); // true</p>
+<p>// check if Mary visited? alert(visitedSet.has(mary)); // false</p>
+<p>john = null;</p>
+<p>// visitedSet will be cleaned automatically ```</p>
+<p>The most notable limitation of <code>WeakMap</code> and <code>WeakSet</code> is the absence of iterations, and the inability to get all current content. That may appear inconvenient, but does not prevent <code>WeakMap/WeakSet</code> from doing their main job – be an “additional” storage of data for objects which are stored/managed at another place.</p>
+<h2 id="summary">Summary</h2>
+<p><code>WeakMap</code> is <code>Map</code>-like collection that allows only objects as keys and removes them together with associated value once they become inaccessible by other means.</p>
+<p><code>WeakSet</code> is <code>Set</code>-like collection that stores only objects and removes them once they become inaccessible by other means.</p>
+<p>Their main advantages are that they have weak reference to objects, so they can easily be removed by garbage collector.</p>
+<p>That comes at the cost of not having support for <code>clear</code>, <code>size</code>, <code>keys</code>, <code>values</code>…</p>
+<p><code>WeakMap</code> and <code>WeakSet</code> are used as “secondary” data structures in addition to the “primary” object storage. Once the object is removed from the primary storage, if it is only found as the key of <code>WeakMap</code> or in a <code>WeakSet</code>, it will be cleaned up automatically.</p>

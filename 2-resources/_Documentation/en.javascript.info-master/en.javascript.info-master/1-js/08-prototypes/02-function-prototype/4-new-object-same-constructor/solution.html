@@ -1,0 +1,19 @@
+<p>We can use such approach if we are sure that <code>"constructor"</code> property has the correct value.</p>
+<p>For instance, if we don’t touch the default <code>"prototype"</code>, then this code works for sure:</p>
+<p>```js run function User(name) { this.name = name; }</p>
+<p>let user = new User(‘John’); let user2 = new user.constructor(‘Pete’);</p>
+<p>alert( user2.name ); // Pete (worked!) ```</p>
+<p>It worked, because <code>User.prototype.constructor == User</code>.</p>
+<p>..But if someone, so to speak, overwrites <code>User.prototype</code> and forgets to recreate <code>constructor</code> to reference <code>User</code>, then it would fail.</p>
+<p>For instance:</p>
+<p>```js run function User(name) { this.name = name; } <em>!</em> User.prototype = {}; // (<em>) </em>/!*</p>
+<p>let user = new User(‘John’); let user2 = new user.constructor(‘Pete’);</p>
+<p>alert( user2.name ); // undefined ```</p>
+<p>Why <code>user2.name</code> is <code>undefined</code>?</p>
+<p>Here’s how <code>new user.constructor('Pete')</code> works:</p>
+<ol type="1">
+<li>First, it looks for <code>constructor</code> in <code>user</code>. Nothing.</li>
+<li>Then it follows the prototype chain. The prototype of <code>user</code> is <code>User.prototype</code>, and it also has nothing.</li>
+<li>The value of <code>User.prototype</code> is a plain object <code>{}</code>, its prototype is <code>Object.prototype</code>. And there is <code>Object.prototype.constructor == Object</code>. So it is used.</li>
+</ol>
+<p>At the end, we have <code>let user2 = new Object('Pete')</code>. The built-in <code>Object</code> constructor ignores arguments, it always creates an empty object, similar to <code>let user2 = {}</code>, that’s what we have in <code>user2</code> after all.</p>

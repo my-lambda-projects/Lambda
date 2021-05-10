@@ -1,0 +1,17 @@
+<p>The first idea can be to list the languages with <code>|</code> in-between.</p>
+<p>But that doesn’t work right:</p>
+<p>```js run let regexp = /Java|JavaScript|PHP|C|C++/g;</p>
+<p>let str = “Java, JavaScript, PHP, C, C++”;</p>
+<p>alert( str.match(regexp) ); // Java,Java,PHP,C,C ```</p>
+<p>The regular expression engine looks for alternations one-by-one. That is: first it checks if we have <code>match:Java</code>, otherwise – looks for <code>match:JavaScript</code> and so on.</p>
+<p>As a result, <code>match:JavaScript</code> can never be found, just because <code>match:Java</code> is checked first.</p>
+<p>The same with <code>match:C</code> and <code>match:C++</code>.</p>
+<p>There are two solutions for that problem:</p>
+<ol type="1">
+<li>Change the order to check the longer match first: <code>pattern:JavaScript|Java|C\+\+|C|PHP</code>.</li>
+<li>Merge variants with the same start: <code>pattern:Java(Script)?|C(\+\+)?|PHP</code>.</li>
+</ol>
+<p>In action:</p>
+<p>```js run let regexp = /Java(Script)?|C(++)?|PHP/g;</p>
+<p>let str = “Java, JavaScript, PHP, C, C++”;</p>
+<p>alert( str.match(regexp) ); // Java,JavaScript,PHP,C,C++ ```</p>

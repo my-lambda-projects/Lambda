@@ -1,0 +1,110 @@
+<p>libs: - lodash</p>
+<hr />
+<h1 id="function-binding">Function binding</h1>
+<p>When passing object methods as callbacks, for instance to <code>setTimeout</code>, there’s a known problem: “losing <code>this</code>”.</p>
+<p>In this chapter we’ll see the ways to fix it.</p>
+<h2 id="losing-this">Losing “this”</h2>
+<p>We’ve already seen examples of losing <code>this</code>. Once a method is passed somewhere separately from the object – <code>this</code> is lost.</p>
+<p>Here’s how it may happen with <code>setTimeout</code>:</p>
+<p>``<code>js run let user = {   firstName: "John",   sayHi() {     alert(</code>Hello, ${this.firstName}!`); } };</p>
+<p><em>!</em> setTimeout(user.sayHi, 1000); // Hello, undefined! <em>/!</em> ```</p>
+<p>As we can see, the output shows not “John” as <code>this.firstName</code>, but <code>undefined</code>!</p>
+<p>That’s because <code>setTimeout</code> got the function <code>user.sayHi</code>, separately from the object. The last line can be rewritten as:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> f <span class="op">=</span> <span class="va">user</span>.<span class="at">sayHi</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="at">setTimeout</span>(f<span class="op">,</span> <span class="dv">1000</span>)<span class="op">;</span> <span class="co">// lost user context</span></a></code></pre></div>
+<p>The method <code>setTimeout</code> in-browser is a little special: it sets <code>this=window</code> for the function call (for Node.js, <code>this</code> becomes the timer object, but doesn’t really matter here). So for <code>this.firstName</code> it tries to get <code>window.firstName</code>, which does not exist. In other similar cases, usually <code>this</code> just becomes <code>undefined</code>.</p>
+<p>The task is quite typical – we want to pass an object method somewhere else (here – to the scheduler) where it will be called. How to make sure that it will be called in the right context?</p>
+<h2 id="solution-1-a-wrapper">Solution 1: a wrapper</h2>
+<p>The simplest solution is to use a wrapping function:</p>
+<p>``<code>js run let user = {   firstName: "John",   sayHi() {     alert(</code>Hello, ${this.firstName}!`); } };</p>
+<p><em>!</em> setTimeout(function() { user.sayHi(); // Hello, John! }, 1000); <em>/!</em> ```</p>
+<p>Now it works, because it receives <code>user</code> from the outer lexical environment, and then calls the method normally.</p>
+<p>The same, but shorter:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="at">setTimeout</span>(() <span class="kw">=&gt;</span> <span class="va">user</span>.<span class="at">sayHi</span>()<span class="op">,</span> <span class="dv">1000</span>)<span class="op">;</span> <span class="co">// Hello, John!</span></a></code></pre></div>
+<p>Looks fine, but a slight vulnerability appears in our code structure.</p>
+<p>What if before <code>setTimeout</code> triggers (there’s one second delay!) <code>user</code> changes value? Then, suddenly, it will call the wrong object!</p>
+<p>``<code>js run let user = {   firstName: "John",   sayHi() {     alert(</code>Hello, ${this.firstName}!`); } };</p>
+<p>setTimeout(() =&gt; user.sayHi(), 1000);</p>
+<p>// …the value of user changes within 1 second user = { sayHi() { alert(“Another user in setTimeout!”); } };</p>
+<p>// Another user in setTimeout! ```</p>
+<p>The next solution guarantees that such thing won’t happen.</p>
+<h2 id="solution-2-bind">Solution 2: bind</h2>
+<p>Functions provide a built-in method <a href="mdn:js/Function/bind">bind</a> that allows to fix <code>this</code>.</p>
+<p>The basic syntax is:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// more complex syntax will come a little later</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">let</span> boundFunc <span class="op">=</span> <span class="va">func</span>.<span class="at">bind</span>(context)<span class="op">;</span></a></code></pre></div>
+<p>The result of <code>func.bind(context)</code> is a special function-like “exotic object”, that is callable as function and transparently passes the call to <code>func</code> setting <code>this=context</code>.</p>
+<p>In other words, calling <code>boundFunc</code> is like <code>func</code> with fixed <code>this</code>.</p>
+<p>For instance, here <code>funcUser</code> passes a call to <code>func</code> with <code>this=user</code>:</p>
+<p>```js run<br />
+let user = { firstName: “John” };</p>
+<p>function func() { alert(this.firstName); }</p>
+<p><em>!</em> let funcUser = func.bind(user); funcUser(); // John<br />
+<em>/!</em> ```</p>
+<p>Here <code>func.bind(user)</code> as a “bound variant” of <code>func</code>, with fixed <code>this=user</code>.</p>
+<p>All arguments are passed to the original <code>func</code> “as is”, for instance:</p>
+<p>```js run<br />
+let user = { firstName: “John” };</p>
+<p>function func(phrase) { alert(phrase + ‘,’ + this.firstName); }</p>
+<p>// bind this to user let funcUser = func.bind(user);</p>
+<p><em>!</em> funcUser(“Hello”); // Hello, John (argument “Hello” is passed, and this=user) <em>/!</em> ```</p>
+<p>Now let’s try with an object method:</p>
+<p>``<code>js run let user = {   firstName: "John",   sayHi() {     alert(</code>Hello, ${this.firstName}!`); } };</p>
+<p><em>!</em> let sayHi = user.sayHi.bind(user); // (<em>) </em>/!*</p>
+<p>// can run it without an object sayHi(); // Hello, John!</p>
+<p>setTimeout(sayHi, 1000); // Hello, John!</p>
+<p>// even if the value of user changes within 1 second // sayHi uses the pre-bound value which is reference to the old user object user = { sayHi() { alert(“Another user in setTimeout!”); } }; ```</p>
+<p>In the line <code>(*)</code> we take the method <code>user.sayHi</code> and bind it to <code>user</code>. The <code>sayHi</code> is a “bound” function, that can be called alone or passed to <code>setTimeout</code> – doesn’t matter, the context will be right.</p>
+<p>Here we can see that arguments are passed “as is”, only <code>this</code> is fixed by <code>bind</code>:</p>
+<p>``<code>js run let user = {   firstName: "John",   say(phrase) {     alert(</code>${phrase}, ${this.firstName}!`); } };</p>
+<p>let say = user.say.bind(user);</p>
+<p>say(“Hello”); // Hello, John (“Hello” argument is passed to say) say(“Bye”); // Bye, John (“Bye” is passed to say) ```</p>
+<p>```<code>smart header="Convenience method:</code>bindAll`" If an object has many methods and we plan to actively pass it around, then we could bind them all in a loop:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="cf">for</span> (<span class="kw">let</span> key <span class="kw">in</span> user) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="cf">if</span> (<span class="kw">typeof</span> user[key] <span class="op">==</span> <span class="st">&#39;function&#39;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3">    user[key] <span class="op">=</span> user[key].<span class="at">bind</span>(user)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="op">}</span></a></code></pre></div>
+<p>JavaScript libraries also provide functions for convenient mass binding , e.g. <a href="http://lodash.com/docs#bindAll">_.bindAll(object, methodNames)</a> in lodash. ````</p>
+<h2 id="partial-functions">Partial functions</h2>
+<p>Until now we have only been talking about binding <code>this</code>. Let’s take it a step further.</p>
+<p>We can bind not only <code>this</code>, but also arguments. That’s rarely done, but sometimes can be handy.</p>
+<p>The full syntax of <code>bind</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">let</span> bound <span class="op">=</span> <span class="va">func</span>.<span class="at">bind</span>(context<span class="op">,</span> [arg1]<span class="op">,</span> [arg2]<span class="op">,</span> ...)<span class="op">;</span></a></code></pre></div>
+<p>It allows to bind context as <code>this</code> and starting arguments of the function.</p>
+<p>For instance, we have a multiplication function <code>mul(a, b)</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">function</span> <span class="at">mul</span>(a<span class="op">,</span> b) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="cf">return</span> a <span class="op">*</span> b<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>Let’s use <code>bind</code> to create a function <code>double</code> on its base:</p>
+<p>```js run function mul(a, b) { return a * b; }</p>
+<p><em>!</em> let double = mul.bind(null, 2); <em>/!</em></p>
+<p>alert( double(3) ); // = mul(2, 3) = 6 alert( double(4) ); // = mul(2, 4) = 8 alert( double(5) ); // = mul(2, 5) = 10 ```</p>
+<p>The call to <code>mul.bind(null, 2)</code> creates a new function <code>double</code> that passes calls to <code>mul</code>, fixing <code>null</code> as the context and <code>2</code> as the first argument. Further arguments are passed “as is”.</p>
+<p>That’s called <a href="https://en.wikipedia.org/wiki/Partial_application">partial function application</a> – we create a new function by fixing some parameters of the existing one.</p>
+<p>Please note that we actually don’t use <code>this</code> here. But <code>bind</code> requires it, so we must put in something like <code>null</code>.</p>
+<p>The function <code>triple</code> in the code below triples the value:</p>
+<p>```js run function mul(a, b) { return a * b; }</p>
+<p><em>!</em> let triple = mul.bind(null, 3); <em>/!</em></p>
+<p>alert( triple(3) ); // = mul(3, 3) = 9 alert( triple(4) ); // = mul(3, 4) = 12 alert( triple(5) ); // = mul(3, 5) = 15 ```</p>
+<p>Why do we usually make a partial function?</p>
+<p>The benefit is that we can create an independent function with a readable name (<code>double</code>, <code>triple</code>). We can use it and not provide the first argument every time as it’s fixed with <code>bind</code>.</p>
+<p>In other cases, partial application is useful when we have a very generic function and want a less universal variant of it for convenience.</p>
+<p>For instance, we have a function <code>send(from, to, text)</code>. Then, inside a <code>user</code> object we may want to use a partial variant of it: <code>sendTo(to, text)</code> that sends from the current user.</p>
+<h2 id="going-partial-without-context">Going partial without context</h2>
+<p>What if we’d like to fix some arguments, but not the context <code>this</code>? For example, for an object method.</p>
+<p>The native <code>bind</code> does not allow that. We can’t just omit the context and jump to arguments.</p>
+<p>Fortunately, a function <code>partial</code> for binding only arguments can be easily implemented.</p>
+<p>Like this:</p>
+<p>```js run <em>!</em> function partial(func, …argsBound) { return function(…args) { // (<em>) return func.call(this, …argsBound, …args); } } </em>/!*</p>
+<p>// Usage: let user = { firstName: “John”, say(time, phrase) { alert(<code>[${time}] ${this.firstName}: ${phrase}!</code>); } };</p>
+<p>// add a partial method with fixed time user.sayNow = partial(user.say, new Date().getHours() + ‘:’ + new Date().getMinutes());</p>
+<p>user.sayNow(“Hello”); // Something like: // [10:00] John: Hello! ```</p>
+<p>The result of <code>partial(func[, arg1, arg2...])</code> call is a wrapper <code>(*)</code> that calls <code>func</code> with: - Same <code>this</code> as it gets (for <code>user.sayNow</code> call it’s <code>user</code>) - Then gives it <code>...argsBound</code> – arguments from the <code>partial</code> call (<code>"10:00"</code>) - Then gives it <code>...args</code> – arguments given to the wrapper (<code>"Hello"</code>)</p>
+<p>So easy to do it with the spread syntax, right?</p>
+<p>Also there’s a ready <a href="https://lodash.com/docs#partial">_.partial</a> implementation from lodash library.</p>
+<h2 id="summary">Summary</h2>
+<p>Method <code>func.bind(context, ...args)</code> returns a “bound variant” of function <code>func</code> that fixes the context <code>this</code> and first arguments if given.</p>
+<p>Usually we apply <code>bind</code> to fix <code>this</code> for an object method, so that we can pass it somewhere. For example, to <code>setTimeout</code>.</p>
+<p>When we fix some arguments of an existing function, the resulting (less universal) function is called <em>partially applied</em> or <em>partial</em>.</p>
+<p>Partials are convenient when we don’t want to repeat the same argument over and over again. Like if we have a <code>send(from, to)</code> function, and <code>from</code> should always be the same for our task, we can get a partial and go on with it.</p>

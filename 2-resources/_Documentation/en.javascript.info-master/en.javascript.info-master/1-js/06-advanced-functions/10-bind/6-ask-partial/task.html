@@ -1,0 +1,24 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="partial-application-for-login">Partial application for login</h1>
+<p>The task is a little more complex variant of <a href="info:task/question-use-bind" class="uri">info:task/question-use-bind</a>.</p>
+<p>The <code>user</code> object was modified. Now instead of two functions <code>loginOk/loginFail</code>, it has a single function <code>user.login(true/false)</code>.</p>
+<p>What should we pass <code>askPassword</code> in the code below, so that it calls <code>user.login(true)</code> as <code>ok</code> and <code>user.login(false)</code> as <code>fail</code>?</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">askPassword</span>(ok<span class="op">,</span> fail) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">let</span> password <span class="op">=</span> <span class="at">prompt</span>(<span class="st">&quot;Password?&quot;</span><span class="op">,</span> <span class="st">&#39;&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="cf">if</span> (password <span class="op">==</span> <span class="st">&quot;rockstar&quot;</span>) <span class="at">ok</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="cf">else</span> <span class="at">fail</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="kw">let</span> user <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-8" title="8">  <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;John&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-9" title="9"></a>
+<a class="sourceLine" id="cb1-10" title="10">  <span class="at">login</span>(result) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-11" title="11">    <span class="at">alert</span>( <span class="kw">this</span>.<span class="at">name</span> <span class="op">+</span> (result <span class="op">?</span> <span class="st">&#39; logged in&#39;</span> : <span class="st">&#39; failed to log in&#39;</span>) )<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-12" title="12">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="op">};</span></a>
+<a class="sourceLine" id="cb1-14" title="14"></a>
+<a class="sourceLine" id="cb1-15" title="15"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb1-16" title="16"><span class="at">askPassword</span>(<span class="op">?,</span> <span class="op">?</span>)<span class="op">;</span> <span class="co">// ?</span></a>
+<a class="sourceLine" id="cb1-17" title="17"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a></code></pre></div>
+<p>Your changes should only modify the highlighted fragment.</p>

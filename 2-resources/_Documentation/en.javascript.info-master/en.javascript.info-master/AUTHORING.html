@@ -1,0 +1,15 @@
+<h1 id="authoring">Authoring</h1>
+<p>This describes important stuff about authoring new articles of the tutorial.</p>
+<h2 id="internal-links">Internal links</h2>
+<p>All tutorial links should start from the root, not including the domain.</p>
+<p>✅ OK:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode md"><code class="sourceCode markdown"><a class="sourceLine" id="cb1-1" title="1">We&#39;ll cover that in the chapter <span class="ot">[about functions](/function-basics)</span></a></code></pre></div>
+<p>❌ Not ok:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode md"><code class="sourceCode markdown"><a class="sourceLine" id="cb2-1" title="1">We&#39;ll cover that in the chapter <span class="ot">[about functions](https://javascript.info/function-basics)</span></a></code></pre></div>
+<p>Also, to reference a chapter, there’s a special “info:” scheme, like this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode md"><code class="sourceCode markdown"><a class="sourceLine" id="cb3-1" title="1">We&#39;ll cover that in the chapter &lt;info:function-basics&gt;.</a></code></pre></div>
+<p>Becomes:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb4-1" title="1">We&#39;ll cover that in the chapter <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;/function-basics&quot;</span><span class="kw">&gt;</span>Function basics<span class="kw">&lt;/a&gt;</span>.</a></code></pre></div>
+<p>The title is auto-inserted from the referenced article. That has the benefit of keeping the right title if the article gets renamed.</p>
+<h2 id="todo">TODO</h2>
+<p>Ask <span class="citation" data-cites="iliakan">@iliakan</span> to for more details.</p>

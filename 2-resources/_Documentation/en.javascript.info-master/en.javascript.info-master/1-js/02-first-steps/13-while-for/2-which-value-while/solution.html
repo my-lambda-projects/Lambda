@@ -1,0 +1,15 @@
+<p>The task demonstrates how postfix/prefix forms can lead to different results when used in comparisons.</p>
+<ol type="1">
+<li><p><strong>From 1 to 4</strong></p>
+<p><code>js run  let i = 0;  while (++i &lt; 5) alert( i );</code></p>
+<p>The first value is <code>i = 1</code>, because <code>++i</code> first increments <code>i</code> and then returns the new value. So the first comparison is <code>1 &lt; 5</code> and the <code>alert</code> shows <code>1</code>.</p>
+<p>Then follow <code>2, 3, 4…</code> – the values show up one after another. The comparison always uses the incremented value, because <code>++</code> is before the variable.</p>
+Finally, <code>i = 4</code> is incremented to <code>5</code>, the comparison <code>while(5 &lt; 5)</code> fails, and the loop stops. So <code>5</code> is not shown.</li>
+<li><p><strong>From 1 to 5</strong></p>
+<p><code>js run  let i = 0;  while (i++ &lt; 5) alert( i );</code></p>
+<p>The first value is again <code>i = 1</code>. The postfix form of <code>i++</code> increments <code>i</code> and then returns the <em>old</em> value, so the comparison <code>i++ &lt; 5</code> will use <code>i = 0</code> (contrary to <code>++i &lt; 5</code>).</p>
+<p>But the <code>alert</code> call is separate. It’s another statement which executes after the increment and the comparison. So it gets the current <code>i = 1</code>.</p>
+<p>Then follow <code>2, 3, 4…</code></p>
+<p>Let’s stop on <code>i = 4</code>. The prefix form <code>++i</code> would increment it and use <code>5</code> in the comparison. But here we have the postfix form <code>i++</code>. So it increments <code>i</code> to <code>5</code>, but returns the old value. Hence the comparison is actually <code>while(4 &lt; 5)</code> – true, and the control goes on to <code>alert</code>.</p>
+<p>The value <code>i = 5</code> is the last one, because on the next step <code>while(5 &lt; 5)</code> is false.</p></li>
+</ol>

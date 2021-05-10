@@ -1,0 +1,230 @@
+<h1 id="coding-style">Coding Style</h1>
+<p>Our code must be as clean and easy to read as possible.</p>
+<p>That is actually the art of programming – to take a complex task and code it in a way that is both correct and human-readable. A good code style greatly assists in that.</p>
+<h2 id="syntax">Syntax</h2>
+<p>Here is a cheat sheet with some suggested rules (see below for more details):</p>
+<p><img src="code-style.svg" /> <!--
+```js
+function pow(x, n) {
+  let result = 1;
+
+  for (let i = 0; i < n; i++) {
+    result *= x;
+  }
+
+  return result;
+}
+
+let x = prompt("x?", "");
+let n = prompt("n?", "");
+
+if (n < 0) {
+  alert(`Power ${n} is not supported,
+    please enter a non-negative integer number`);
+} else {
+  alert( pow(x, n) );
+}
+```
+
+--></p>
+<p>Now let’s discuss the rules and reasons for them in detail.</p>
+<p><code>warn header="There are no \"you must\" rules" Nothing is set in stone here. These are style preferences, not religious dogmas.</code></p>
+<h3 id="curly-braces">Curly Braces</h3>
+<p>In most JavaScript projects curly braces are written in “Egyptian” style with the opening brace on the same line as the corresponding keyword – not on a new line. There should also be a space before the opening bracket, like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="cf">if</span> (condition) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="co">// do this</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="co">// ...and that</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="co">// ...and that</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="op">}</span></a></code></pre></div>
+<p>A single-line construct, such as <code>if (condition) doSomething()</code>, is an important edge case. Should we use braces at all?</p>
+<p>Here are the annotated variants so you can judge their readability for yourself:</p>
+<ol type="1">
+<li>😠 Beginners sometimes do that. Bad! Curly braces are not needed: <code>js  if (n &lt; 0) *!*{*/!*alert(`Power ${n} is not supported`);*!*}*/!*</code></li>
+<li>😠 Split to a separate line without braces. Never do that, easy to make an error when adding new lines: <code>js  if (n &lt; 0)    alert(`Power ${n} is not supported`);</code></li>
+<li>😏 One line without braces - acceptable, if it’s short: <code>js  if (n &lt; 0) alert(`Power ${n} is not supported`);</code></li>
+<li>😃 The best variant: <code>js  if (n &lt; 0) {    alert(`Power ${n} is not supported`);  }</code></li>
+</ol>
+<p>For a very brief code, one line is allowed, e.g. <code>if (cond) return null</code>. But a code block (the last variant) is usually more readable.</p>
+<h3 id="line-length">Line Length</h3>
+<p>No one likes to read a long horizontal line of code. It’s best practice to split them.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// backtick quotes ` allow to split the string into multiple lines</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">let</span> str <span class="op">=</span> <span class="vs">`</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="vs">  ECMA International&#39;s TC39 is a group of JavaScript developers,</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="vs">  implementers, academics, and more, collaborating with the community</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="vs">  to maintain and evolve the definition of JavaScript.</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="vs">`</span><span class="op">;</span></a></code></pre></div>
+<p>And, for <code>if</code> statements:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="cf">if</span> (</a>
+<a class="sourceLine" id="cb3-2" title="2">  id <span class="op">===</span> <span class="dv">123</span> <span class="op">&amp;&amp;</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  moonPhase <span class="op">===</span> <span class="st">&#39;Waning Gibbous&#39;</span> <span class="op">&amp;&amp;</span></a>
+<a class="sourceLine" id="cb3-4" title="4">  zodiacSign <span class="op">===</span> <span class="st">&#39;Libra&#39;</span></a>
+<a class="sourceLine" id="cb3-5" title="5">) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-6" title="6">  <span class="at">letTheSorceryBegin</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="op">}</span></a></code></pre></div>
+<p>The maximum line length should be agreed upon at the team-level. It’s usually 80 or 120 characters.</p>
+<h3 id="indents">Indents</h3>
+<p>There are two types of indents:</p>
+<ul>
+<li><p><strong>Horizontal indents: 2 or 4 spaces.</strong></p>
+<p>A horizontal indentation is made using either 2 or 4 spaces or the horizontal tab symbol (key <code>key:Tab</code>). Which one to choose is an old holy war. Spaces are more common nowadays.</p>
+<p>One advantage of spaces over tabs is that spaces allow more flexible configurations of indents than the tab symbol.</p>
+<p>For instance, we can align the parameters with the opening bracket, like this:</p>
+<p><code>js no-beautify   show(parameters,        aligned, // 5 spaces padding at the left          one,        after,        another     ) {     // ...   }</code></p></li>
+<li><p><strong>Vertical indents: empty lines for splitting code into logical blocks.</strong></p>
+<p>Even a single function can often be divided into logical blocks. In the example below, the initialization of variables, the main loop and returning the result are split vertically:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">function</span> <span class="at">pow</span>(x<span class="op">,</span> n) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="kw">let</span> result <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="co">//              &lt;--</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-5" title="5">    result <span class="op">*=</span> x<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-6" title="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-7" title="7">  <span class="co">//              &lt;--</span></a>
+<a class="sourceLine" id="cb4-8" title="8">  <span class="cf">return</span> result<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="op">}</span></a></code></pre></div>
+<p>Insert an extra newline where it helps to make the code more readable. There should not be more than nine lines of code without a vertical indentation.</p></li>
+</ul>
+<h3 id="semicolons">Semicolons</h3>
+<p>A semicolon should be present after each statement, even if it could possibly be skipped.</p>
+<p>There are languages where a semicolon is truly optional and it is rarely used. In JavaScript, though, there are cases where a line break is not interpreted as a semicolon, leaving the code vulnerable to errors. See more about that in the chapter <a href="info:structure#semicolon" class="uri">info:structure#semicolon</a>.</p>
+<p>If you’re an experienced JavaScript programmer, you may choose a no-semicolon code style like <a href="https://standardjs.com/">StandardJS</a>. Otherwise, it’s best to use semicolons to avoid possible pitfalls. The majority of developers put semicolons.</p>
+<h3 id="nesting-levels">Nesting Levels</h3>
+<p>Try to avoid nesting code too many levels deep.</p>
+<p>For example, in the loop, it’s sometimes a good idea to use the <a href="info:while-for#continue"><code>continue</code></a> directive to avoid extra nesting.</p>
+<p>For example, instead of adding a nested <code>if</code> conditional like this:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="cf">if</span> (cond) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-3" title="3">    ... <span class="co">// &lt;- one more nesting level</span></a>
+<a class="sourceLine" id="cb5-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="op">}</span></a></code></pre></div>
+<p>We can write:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="cf">if</span> (<span class="op">!</span>cond) <span class="op">*!*</span><span class="cf">continue</span><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="ss">  ...  // &lt;- no extra nesting level</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="ss">}</span></a></code></pre></div>
+<p>A similar thing can be done with <code>if/else</code> and <code>return</code>.</p>
+<p>For example, two constructs below are identical.</p>
+<p>Option 1:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">function</span> <span class="at">pow</span>(x<span class="op">,</span> n) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="cf">if</span> (n <span class="op">&lt;</span> <span class="dv">0</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-3" title="3">    <span class="at">alert</span>(<span class="st">&quot;Negative &#39;n&#39; not supported&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-5" title="5">    <span class="kw">let</span> result <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-6" title="6"></a>
+<a class="sourceLine" id="cb7-7" title="7">    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-8" title="8">      result <span class="op">*=</span> x<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-9" title="9">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-10" title="10"></a>
+<a class="sourceLine" id="cb7-11" title="11">    <span class="cf">return</span> result<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-12" title="12">  <span class="op">}</span>  </a>
+<a class="sourceLine" id="cb7-13" title="13"><span class="op">}</span></a></code></pre></div>
+<p>Option 2:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">function</span> <span class="at">pow</span>(x<span class="op">,</span> n) <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2">  <span class="cf">if</span> (n <span class="op">&lt;</span> <span class="dv">0</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-3" title="3">    <span class="at">alert</span>(<span class="st">&quot;Negative &#39;n&#39; not supported&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-4" title="4">    <span class="cf">return</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb8-5" title="5">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb8-6" title="6"></a>
+<a class="sourceLine" id="cb8-7" title="7">  <span class="kw">let</span> result <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb8-8" title="8"></a>
+<a class="sourceLine" id="cb8-9" title="9">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-10" title="10">    result <span class="op">*=</span> x<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-11" title="11">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb8-12" title="12"></a>
+<a class="sourceLine" id="cb8-13" title="13">  <span class="cf">return</span> result<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-14" title="14"><span class="op">}</span></a></code></pre></div>
+<p>The second one is more readable because the “special case” of <code>n &lt; 0</code> is handled early on. Once the check is done we can move on to the “main” code flow without the need for additional nesting.</p>
+<h2 id="function-placement">Function Placement</h2>
+<p>If you are writing several “helper” functions and the code that uses them, there are three ways to organize the functions.</p>
+<ol type="1">
+<li><p>Declare the functions <em>above</em> the code that uses them:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="co">// *!*function declarations*/!*</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="kw">function</span> <span class="at">createElement</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-3" title="3">  ...</a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="op">}</span></a>
+<a class="sourceLine" id="cb9-5" title="5"></a>
+<a class="sourceLine" id="cb9-6" title="6"><span class="kw">function</span> <span class="at">setHandler</span>(elem) <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-7" title="7">  ...</a>
+<a class="sourceLine" id="cb9-8" title="8"><span class="op">}</span></a>
+<a class="sourceLine" id="cb9-9" title="9"></a>
+<a class="sourceLine" id="cb9-10" title="10"><span class="kw">function</span> <span class="at">walkAround</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-11" title="11">  ...</a>
+<a class="sourceLine" id="cb9-12" title="12"><span class="op">}</span></a>
+<a class="sourceLine" id="cb9-13" title="13"></a>
+<a class="sourceLine" id="cb9-14" title="14"><span class="co">// *!*the code which uses them*/!*</span></a>
+<a class="sourceLine" id="cb9-15" title="15"><span class="kw">let</span> elem <span class="op">=</span> <span class="at">createElement</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-16" title="16"><span class="at">setHandler</span>(elem)<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-17" title="17"><span class="at">walkAround</span>()<span class="op">;</span></a></code></pre></div></li>
+<li><p>Code first, then functions</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="co">// *!*the code which uses the functions*/!*</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="kw">let</span> elem <span class="op">=</span> <span class="at">createElement</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="at">setHandler</span>(elem)<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="at">walkAround</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-5" title="5"></a>
+<a class="sourceLine" id="cb10-6" title="6"><span class="co">// --- *!*helper functions*/!* ---</span></a>
+<a class="sourceLine" id="cb10-7" title="7"><span class="kw">function</span> <span class="at">createElement</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-8" title="8">  ...</a>
+<a class="sourceLine" id="cb10-9" title="9"><span class="op">}</span></a>
+<a class="sourceLine" id="cb10-10" title="10"></a>
+<a class="sourceLine" id="cb10-11" title="11"><span class="kw">function</span> <span class="at">setHandler</span>(elem) <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-12" title="12">  ...</a>
+<a class="sourceLine" id="cb10-13" title="13"><span class="op">}</span></a>
+<a class="sourceLine" id="cb10-14" title="14"></a>
+<a class="sourceLine" id="cb10-15" title="15"><span class="kw">function</span> <span class="at">walkAround</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-16" title="16">  ...</a>
+<a class="sourceLine" id="cb10-17" title="17"><span class="op">}</span></a></code></pre></div></li>
+<li><p>Mixed: a function is declared where it’s first used.</p></li>
+</ol>
+<p>Most of time, the second variant is preferred.</p>
+<p>That’s because when reading code, we first want to know <em>what it does</em>. If the code goes first, then it becomes clear from the start. Then, maybe we won’t need to read the functions at all, especially if their names are descriptive of what they actually do.</p>
+<h2 id="style-guides">Style Guides</h2>
+<p>A style guide contains general rules about “how to write” code, e.g. which quotes to use, how many spaces to indent, the maximal line length, etc. A lot of minor things.</p>
+<p>When all members of a team use the same style guide, the code looks uniform, regardless of which team member wrote it.</p>
+<p>Of course, a team can always write their own style guide, but usually there’s no need to. There are many existing guides to choose from.</p>
+<p>Some popular choices:</p>
+<ul>
+<li><a href="https://google.github.io/styleguide/jsguide.html">Google JavaScript Style Guide</a></li>
+<li><a href="https://github.com/airbnb/javascript">Airbnb JavaScript Style Guide</a></li>
+<li><a href="https://github.com/rwaldron/idiomatic.js">Idiomatic.JS</a></li>
+<li><a href="https://standardjs.com/">StandardJS</a></li>
+<li>(plus many more)</li>
+</ul>
+<p>If you’re a novice developer, start with the cheat sheet at the beginning of this chapter. Then you can browse other style guides to pick up more ideas and decide which one you like best.</p>
+<h2 id="automated-linters">Automated Linters</h2>
+<p>Linters are tools that can automatically check the style of your code and make improving suggestions.</p>
+<p>The great thing about them is that style-checking can also find some bugs, like typos in variable or function names. Because of this feature, using a linter is recommended even if you don’t want to stick to one particular “code style”.</p>
+<p>Here are some well-known linting tools:</p>
+<ul>
+<li><a href="http://www.jslint.com/">JSLint</a> – one of the first linters.</li>
+<li><a href="http://www.jshint.com/">JSHint</a> – more settings than JSLint.</li>
+<li><a href="http://eslint.org/">ESLint</a> – probably the newest one.</li>
+</ul>
+<p>All of them can do the job. The author uses <a href="http://eslint.org/">ESLint</a>.</p>
+<p>Most linters are integrated with many popular editors: just enable the plugin in the editor and configure the style.</p>
+<p>For instance, for ESLint you should do the following:</p>
+<ol type="1">
+<li>Install <a href="https://nodejs.org/">Node.js</a>.</li>
+<li>Install ESLint with the command <code>npm install -g eslint</code> (npm is a JavaScript package installer).</li>
+<li>Create a config file named <code>.eslintrc</code> in the root of your JavaScript project (in the folder that contains all your files).</li>
+<li>Install/enable the plugin for your editor that integrates with ESLint. The majority of editors have one.</li>
+</ol>
+<p>Here’s an example of an <code>.eslintrc</code> file:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="op">{</span></a>
+<a class="sourceLine" id="cb11-2" title="2">  <span class="st">&quot;extends&quot;</span><span class="op">:</span> <span class="st">&quot;eslint:recommended&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb11-3" title="3">  <span class="st">&quot;env&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-4" title="4">    <span class="st">&quot;browser&quot;</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb11-5" title="5">    <span class="st">&quot;node&quot;</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb11-6" title="6">    <span class="st">&quot;es6&quot;</span><span class="op">:</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb11-7" title="7">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb11-8" title="8">  <span class="st">&quot;rules&quot;</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-9" title="9">    <span class="st">&quot;no-console&quot;</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb11-10" title="10">    <span class="st">&quot;indent&quot;</span><span class="op">:</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb11-11" title="11">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb11-12" title="12"><span class="op">}</span></a></code></pre></div>
+<p>Here the directive <code>"extends"</code> denotes that the configuration is based on the “eslint:recommended” set of settings. After that, we specify our own.</p>
+<p>It is also possible to download style rule sets from the web and extend them instead. See <a href="http://eslint.org/docs/user-guide/getting-started" class="uri">http://eslint.org/docs/user-guide/getting-started</a> for more details about installation.</p>
+<p>Also certain IDEs have built-in linting, which is convenient but not as customizable as ESLint.</p>
+<h2 id="summary">Summary</h2>
+<p>All syntax rules described in this chapter (and in the style guides referenced) aim to increase the readability of your code. All of them are debatable.</p>
+<p>When we think about writing “better” code, the questions we should ask ourselves are: “What makes the code more readable and easier to understand?” and “What can help us avoid errors?” These are the main things to keep in mind when choosing and debating code styles.</p>
+<p>Reading popular style guides will allow you to keep up to date with the latest ideas about code style trends and best practices.</p>

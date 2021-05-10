@@ -1,0 +1,16 @@
+<h1 id="scrolling">Scrolling</h1>
+<p>The <code>scroll</code> event allows reacting to a page or element scrolling. There are quite a few good things we can do here.</p>
+<p>For instance: - Show/hide additional controls or information depending on where in the document the user is. - Load more data when the user scrolls down till the end of the page.</p>
+<p>Here’s a small function to show the current scroll:</p>
+<p><code>js autorun window.addEventListener('scroll', function() {   document.getElementById('showScroll').innerHTML = window.pageYOffset + 'px'; });</code></p>
+<pre class="online"><code>In action:
+
+Current scroll = &lt;b id=&quot;showScroll&quot;&gt;scroll the window&lt;/b&gt;</code></pre>
+<p>The <code>scroll</code> event works both on the <code>window</code> and on scrollable elements.</p>
+<h2 id="prevent-scrolling">Prevent scrolling</h2>
+<p>How do we make something unscrollable?</p>
+<p>We can’t prevent scrolling by using <code>event.preventDefault()</code> in <code>onscroll</code> listener, because it triggers <em>after</em> the scroll has already happened.</p>
+<p>But we can prevent scrolling by <code>event.preventDefault()</code> on an event that causes the scroll, for instance <code>keydown</code> event for <code>key:pageUp</code> and <code>key:pageDown</code>.</p>
+<p>If we add an event handler to these events and <code>event.preventDefault()</code> in it, then the scroll won’t start.</p>
+<p>There are many ways to initiate a scroll, so it’s more reliable to use CSS, <code>overflow</code> property.</p>
+<p>Here are few tasks that you can solve or look through to see applications of <code>onscroll</code>.</p>

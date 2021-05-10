@@ -1,0 +1,4 @@
+<p>The solution is <code>pattern:&lt;[^&lt;&gt;]+&gt;</code>.</p>
+<p>```js run let regexp = /&lt;[^&lt;&gt;]+&gt;/g;</p>
+<p>let str = ‘&lt;&gt; <a href="/"> <input type="radio" checked> <b>’;</p>
+<p>alert( str.match(regexp) ); // ‘<a href="/">’, ‘<input type="radio" checked>’, ‘<b>’ ```</p>

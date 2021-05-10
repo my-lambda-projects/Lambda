@@ -1,0 +1,77 @@
+<h1 id="nullish-coalescing-operator">Nullish coalescing operator ‘??’</h1>
+<p>[recent browser=“new”]</p>
+<p>The nullish coalescing operator is written as two question marks <code>??</code>.</p>
+<p>As it treats <code>null</code> and <code>undefined</code> similarly, we’ll use a special term here, in this article. We’ll say that an expression is “defined” when it’s neither <code>null</code> nor <code>undefined</code>.</p>
+<p>The result of <code>a ?? b</code> is: - if <code>a</code> is defined, then <code>a</code>, - if <code>a</code> isn’t defined, then <code>b</code>.</p>
+<p>In other words, <code>??</code> returns the first argument if it’s not <code>null/undefined</code>. Otherwise, the second one.</p>
+<p>The nullish coalescing operator isn’t anything completely new. It’s just a nice syntax to get the first “defined” value of the two.</p>
+<p>We can rewrite <code>result = a ?? b</code> using the operators that we already know, like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1">result <span class="op">=</span> (a <span class="op">!==</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> a <span class="op">!==</span> <span class="kw">undefined</span>) <span class="op">?</span> a : b<span class="op">;</span></a></code></pre></div>
+<p>Now it should be absolutely clear what <code>??</code> does. Let’s see where it helps.</p>
+<p>The common use case for <code>??</code> is to provide a default value for a potentially undefined variable.</p>
+<p>For example, here we show <code>user</code> if defined, otherwise <code>Anonymous</code>:</p>
+<p>```js run let user;</p>
+<p>alert(user ?? “Anonymous”); // Anonymous (user not defined) ```</p>
+<p>Here’s the example with <code>user</code> assigned to a name:</p>
+<p>```js run let user = “John”;</p>
+<p>alert(user ?? “Anonymous”); // John (user defined) ```</p>
+<p>We can also use a sequence of <code>??</code> to select the first value from a list that isn’t <code>null/undefined</code>.</p>
+<p>Let’s say we have a user’s data in variables <code>firstName</code>, <code>lastName</code> or <code>nickName</code>. All of them may be not defined, if the user decided not to enter a value.</p>
+<p>We’d like to display the user name using one of these variables, or show “Anonymous” if all of them aren’t defined.</p>
+<p>Let’s use the <code>??</code> operator for that:</p>
+<p>```js run let firstName = null; let lastName = null; let nickName = “Supercoder”;</p>
+<p>// shows the first defined value: <em>!</em> alert(firstName ?? lastName ?? nickName ?? “Anonymous”); // Supercoder <em>/!</em> ```</p>
+<h2 id="comparison-with">Comparison with ||</h2>
+<p>The OR <code>||</code> operator can be used in the same way as <code>??</code>, as it was described in the <a href="info:logical-operators#or-finds-the-first-truthy-value">previous chapter</a>.</p>
+<p>For example, in the code above we could replace <code>??</code> with <code>||</code> and still get the same result:</p>
+<p>```js run let firstName = null; let lastName = null; let nickName = “Supercoder”;</p>
+<p>// shows the first truthy value: <em>!</em> alert(firstName || lastName || nickName || “Anonymous”); // Supercoder <em>/!</em> ```</p>
+<p>Historically, the OR <code>||</code> operator was there first. It exists since the beginning of JavaScript, so developers were using it for such purposes for a long time.</p>
+<p>On the other hand, the nullish coalescing operator <code>??</code> was added to JavaScript only recently, and the reason for that was that people weren’t quite happy with <code>||</code>.</p>
+<p>The important difference between them is that: - <code>||</code> returns the first <em>truthy</em> value. - <code>??</code> returns the first <em>defined</em> value.</p>
+<p>In other words, <code>||</code> doesn’t distinguish between <code>false</code>, <code>0</code>, an empty string <code>""</code> and <code>null/undefined</code>. They are all the same – falsy values. If any of these is the first argument of <code>||</code>, then we’ll get the second argument as the result.</p>
+<p>In practice though, we may want to use default value only when the variable is <code>null/undefined</code>. That is, when the value is really unknown/not set.</p>
+<p>For example, consider this:</p>
+<p>```js run let height = 0;</p>
+<p>alert(height || 100); // 100 alert(height ?? 100); // 0 ```</p>
+<ul>
+<li>The <code>height || 100</code> checks <code>height</code> for being a falsy value, and it’s <code>0</code>, falsy indeed.
+<ul>
+<li>so the result of <code>||</code> is the second argument, <code>100</code>.</li>
+</ul></li>
+<li>The <code>height ?? 100</code> checks <code>height</code> for being <code>null/undefined</code>, and it’s not,
+<ul>
+<li>so the result is <code>height</code> “as is”, that is <code>0</code>.</li>
+</ul></li>
+</ul>
+<p>In practice, the zero height is often a valid value, that shouldn’t be replaced with the default. So <code>??</code> does just the right thing.</p>
+<h2 id="precedence">Precedence</h2>
+<p>The precedence of the <code>??</code> operator is about the same as <code>||</code>, just a bit lower. It equals <code>5</code> in the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence#Table">MDN table</a>, while <code>||</code> is <code>6</code>.</p>
+<p>That means that, just like <code>||</code>, the nullish coalescing operator <code>??</code> is evaluated before <code>=</code> and <code>?</code>, but after most other operations, such as <code>+</code>, <code>*</code>.</p>
+<p>So if we’d like to choose a value with <code>??</code> in an expression with other operators, consider adding parentheses:</p>
+<p>```js run let height = null; let width = null;</p>
+<p>// important: use parentheses let area = (height ?? 100) * (width ?? 50);</p>
+<p>alert(area); // 5000 ```</p>
+<p>Otherwise, if we omit parentheses, then as <code>*</code> has the higher precedence than <code>??</code>, it would execute first, leading to incorrect results.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// without parentheses</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">let</span> area <span class="op">=</span> height <span class="op">??</span> <span class="dv">100</span> <span class="op">*</span> width <span class="op">??</span> <span class="dv">50</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co">// ...works the same as this (probably not what we want):</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="kw">let</span> area <span class="op">=</span> height <span class="op">??</span> (<span class="dv">100</span> <span class="op">*</span> width) <span class="op">??</span> <span class="dv">50</span><span class="op">;</span></a></code></pre></div>
+<h3 id="using-with-or">Using ?? with &amp;&amp; or ||</h3>
+<p>Due to safety reasons, JavaScript forbids using <code>??</code> together with <code>&amp;&amp;</code> and <code>||</code> operators, unless the precedence is explicitly specified with parentheses.</p>
+<p>The code below triggers a syntax error:</p>
+<p><code>js run let x = 1 &amp;&amp; 2 ?? 3; // Syntax error</code></p>
+<p>The limitation is surely debatable, it was added to the language specification with the purpose to avoid programming mistakes, when people start to switch from <code>||</code> to <code>??</code>.</p>
+<p>Use explicit parentheses to work around it:</p>
+<p>```js run <em>!</em> let x = (1 &amp;&amp; 2) ?? 3; // Works <em>/!</em></p>
+<p>alert(x); // 2 ```</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><p>The nullish coalescing operator <code>??</code> provides a short way to choose the first “defined” value from a list.</p>
+<p>It’s used to assign default values to variables:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// set height=100, if height is null or undefined</span></a>
+<a class="sourceLine" id="cb3-2" title="2">height <span class="op">=</span> height <span class="op">??</span> <span class="dv">100</span><span class="op">;</span></a></code></pre></div></li>
+<li>The operator <code>??</code> has a very low precedence, only a bit higher than <code>?</code> and <code>=</code>, so consider adding parentheses when using it in an expression.</li>
+<li><p>It’s forbidden to use it with <code>||</code> or <code>&amp;&amp;</code> without explicit parentheses.</p></li>
+</ul>

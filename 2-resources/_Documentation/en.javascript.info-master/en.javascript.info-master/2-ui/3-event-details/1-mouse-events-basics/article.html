@@ -1,0 +1,153 @@
+<h1 id="mouse-events">Mouse events</h1>
+<p>In this chapter we’ll get into more details about mouse events and their properties.</p>
+<p>Please note: such events may come not only from “mouse devices”, but are also from other devices, such as phones and tablets, where they are emulated for compatibility.</p>
+<h2 id="mouse-event-types">Mouse event types</h2>
+<p>We’ve already seen some of these events:</p>
+<dl>
+<dt><code>mousedown/mouseup</code></dt>
+<dd>Mouse button is clicked/released over an element.
+</dd>
+<dt><code>mouseover/mouseout</code></dt>
+<dd>Mouse pointer comes over/out from an element.
+</dd>
+<dt><code>mousemove</code></dt>
+<dd>Every mouse move over an element triggers that event.
+</dd>
+<dt><code>click</code></dt>
+<dd>Triggers after <code>mousedown</code> and then <code>mouseup</code> over the same element if the left mouse button was used.
+</dd>
+<dt><code>dblclick</code></dt>
+<dd>Triggers after two clicks on the same element within a short timeframe. Rarely used nowadays.
+</dd>
+<dt><code>contextmenu</code></dt>
+<dd>Triggers when the right mouse button is pressed. There are other ways to open a context menu, e.g. using a special keyboard key, it triggers in that case also, so it’s not exactly the mouse event.
+</dd>
+</dl>
+<p>…There are several other events too, we’ll cover them later.</p>
+<h2 id="events-order">Events order</h2>
+<p>As you can see from the list above, a user action may trigger multiple events.</p>
+<p>For instance, a left-button click first triggers <code>mousedown</code>, when the button is pressed, then <code>mouseup</code> and <code>click</code> when it’s released.</p>
+<p>In cases when a single action initiates multiple events, their order is fixed. That is, the handlers are called in the order <code>mousedown</code> -&gt; <code>mouseup</code> -&gt; <code>click</code>.</p>
+<pre class="online"><code>Click the button below and you&#39;ll see the events. Try double-click too.
+
+On the teststand below all mouse events are logged, and if there is more than a 1 second delay between them they are separated by a horizontal ruler.
+
+Also we can see the `button` property that allows to detect the mouse button, it&#39;s explained below.
+
+&lt;input onmousedown=&quot;return logMouse(event)&quot; onmouseup=&quot;return logMouse(event)&quot; onclick=&quot;return logMouse(event)&quot; oncontextmenu=&quot;return logMouse(event)&quot; ondblclick=&quot;return logMouse(event)&quot; value=&quot;Click me with the right or the left mouse button&quot; type=&quot;button&quot;&gt; &lt;input onclick=&quot;logClear(&#39;test&#39;)&quot; value=&quot;Clear&quot; type=&quot;button&quot;&gt; &lt;form id=&quot;testform&quot; name=&quot;testform&quot;&gt; &lt;textarea style=&quot;font-size:12px;height:150px;width:360px;&quot;&gt;&lt;/textarea&gt;&lt;/form&gt;</code></pre>
+<h2 id="mouse-button">Mouse button</h2>
+<p>Click-related events always have the <code>button</code> property, which allows to get the exact mouse button.</p>
+<p>We usually don’t use it for <code>click</code> and <code>contextmenu</code> events, because the former happens only on left-click, and the latter – only on right-click.</p>
+<p>From the other hand, <code>mousedown</code> and <code>mouseup</code> handlers may need <code>event.button</code>, because these events trigger on any button, so <code>button</code> allows to distinguish between “right-mousedown” and “left-mousedown”.</p>
+<p>The possible values of <code>event.button</code> are:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Button state</th>
+<th><code>event.button</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Left button (primary)</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>Middle button (auxiliary)</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Right button (secondary)</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>X1 button (back)</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>X2 button (forward)</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>Most mouse devices only have the left and right buttons, so possible values are <code>0</code> or <code>2</code>. Touch devices also generate similar events when one taps on them.</p>
+<p>Also there’s <code>event.buttons</code> property that has all currently pressed buttons as an integer, one bit per button. In practice this property is very rarely used, you can find details at <a href="mdn:/api/MouseEvent/buttons">MDN</a> if you ever need it.</p>
+<p>``<code>warn header="The outdated</code>event.which<code>" Old code may use</code>event.which` property that’s an old non-standard way of getting a button, with possible values:</p>
+<ul>
+<li><code>event.which == 1</code> – left button,</li>
+<li><code>event.which == 2</code> – middle button,</li>
+<li><code>event.which == 3</code> – right button.</li>
+</ul>
+<p>As of now, <code>event.which</code> is deprecated, we shouldn’t use it. ```</p>
+<h2 id="modifiers-shift-alt-ctrl-and-meta">Modifiers: shift, alt, ctrl and meta</h2>
+<p>All mouse events include the information about pressed modifier keys.</p>
+<p>Event properties:</p>
+<ul>
+<li><code>shiftKey</code>: <code>key:Shift</code></li>
+<li><code>altKey</code>: <code>key:Alt</code> (or <code>key:Opt</code> for Mac)</li>
+<li><code>ctrlKey</code>: <code>key:Ctrl</code></li>
+<li><code>metaKey</code>: <code>key:Cmd</code> for Mac</li>
+</ul>
+<p>They are <code>true</code> if the corresponding key was pressed during the event.</p>
+<p>For instance, the button below only works on <code>key:Alt+Shift</code>+click:</p>
+<p>```html autorun height=60 <button id="button">Alt+Shift+Click on me!</button></p>
+<script>
+  button.onclick = function(event) {
+*!*
+    if (event.altKey && event.shiftKey) {
+*/!*
+      alert('Hooray!');
+    }
+  };
+</script>
+<p>```</p>
+<p>``<code>warn header="Attention: on Mac it's usually</code>Cmd<code>instead of</code>Ctrl<code>" On Windows and Linux there are modifier keys</code>key:Alt<code>,</code>key:Shift<code>and</code>key:Ctrl<code>. On Mac there's one more:</code>key:Cmd<code>, corresponding to the property</code>metaKey`.</p>
+<p>In most applications, when Windows/Linux uses <code>key:Ctrl</code>, on Mac <code>key:Cmd</code> is used.</p>
+<p>That is: where a Windows user presses <code>key:Ctrl+Enter</code> or <code>key:Ctrl+A</code>, a Mac user would press <code>key:Cmd+Enter</code> or <code>key:Cmd+A</code>, and so on.</p>
+<p>So if we want to support combinations like <code>key:Ctrl</code>+click, then for Mac it makes sense to use <code>key:Cmd</code>+click. That’s more comfortable for Mac users.</p>
+<p>Even if we’d like to force Mac users to <code>key:Ctrl</code>+click – that’s kind of difficult. The problem is: a left-click with <code>key:Ctrl</code> is interpreted as a <em>right-click</em> on MacOS, and it generates the <code>contextmenu</code> event, not <code>click</code> like Windows/Linux.</p>
+<p>So if we want users of all operating systems to feel comfortable, then together with <code>ctrlKey</code> we should check <code>metaKey</code>.</p>
+<p>For JS-code it means that we should check <code>if (event.ctrlKey || event.metaKey)</code>. ```</p>
+<p>```warn header=“There are also mobile devices” Keyboard combinations are good as an addition to the workflow. So that if the visitor uses a keyboard – they work.</p>
+<p>But if their device doesn’t have it – then there should be a way to live without modifier keys. ```</p>
+<h2 id="coordinates-clientxy-pagexy">Coordinates: clientX/Y, pageX/Y</h2>
+<p>All mouse events provide coordinates in two flavours:</p>
+<ol type="1">
+<li>Window-relative: <code>clientX</code> and <code>clientY</code>.</li>
+<li>Document-relative: <code>pageX</code> and <code>pageY</code>.</li>
+</ol>
+<p>We already covered the difference between them in the chapter <a href="info:coordinates" class="uri">info:coordinates</a>.</p>
+<p>In short, document-relative coordinates <code>pageX/Y</code> are counted from the left-upper corner of the document, and do not change when the page is scrolled, while <code>clientX/Y</code> are counted from the current window left-upper corner. When the page is scrolled, they change.</p>
+<p>For instance, if we have a window of the size 500x500, and the mouse is in the left-upper corner, then <code>clientX</code> and <code>clientY</code> are <code>0</code>, no matter how the page is scrolled.</p>
+<p>And if the mouse is in the center, then <code>clientX</code> and <code>clientY</code> are <code>250</code>, no matter what place in the document it is. They are similar to <code>position:fixed</code> in that aspect.</p>
+<pre class="online"><code>Move the mouse over the input field to see `clientX/clientY` (the example is in the `iframe`, so coordinates are relative to that `iframe`):
+
+```html autorun height=50
+&lt;input onmousemove=&quot;this.value=event.clientX+&#39;:&#39;+event.clientY&quot; value=&quot;Mouse over me&quot;&gt;
+```</code></pre>
+<h2 id="preventing-selection-on-mousedown">Preventing selection on mousedown</h2>
+<p>Double mouse click has a side-effect that may be disturbing in some interfaces: it selects text.</p>
+<p>For instance, double-clicking on the text below selects it in addition to our handler:</p>
+<p><code>html autorun height=50 &lt;span ondblclick="alert('dblclick')"&gt;Double-click me&lt;/span&gt;</code></p>
+<p>If one presses the left mouse button and, without releasing it, moves the mouse, that also makes the selection, often unwanted.</p>
+<p>There are multiple ways to prevent the selection, that you can read in the chapter <a href="info:selection-range" class="uri">info:selection-range</a>.</p>
+<p>In this particular case the most reasonable way is to prevent the browser action on <code>mousedown</code>. It prevents both these selections:</p>
+<p><code>html autorun height=50 Before... &lt;b ondblclick="alert('Click!')" *!*onmousedown="return false"*/!*&gt;   Double-click me &lt;/b&gt; ...After</code></p>
+<p>Now the bold element is not selected on double clicks, and pressing the left button on it won’t start the selection.</p>
+<p>Please note: the text inside it is still selectable. However, the selection should start not on the text itself, but before or after it. Usually that’s fine for users.</p>
+<p>```<code>smart header="Preventing copying" If we want to disable selection to protect our page content from copy-pasting, then we can use another event:</code>oncopy`.</p>
+<p><code>html autorun height=80 no-beautify &lt;div *!*oncopy="alert('Copying forbidden!');return false"*/!*&gt;   Dear user,   The copying is forbidden for you.   If you know JS or HTML, then you can get everything from the page source though. &lt;/div&gt;</code> If you try to copy a piece of text in the <code>&lt;div&gt;</code>, that won’t work, because the default action <code>oncopy</code> is prevented.</p>
+<p>Surely the user has access to HTML-source of the page, and can take the content from there, but not everyone knows how to do it. ````</p>
+<h2 id="summary">Summary</h2>
+<p>Mouse events have the following properties:</p>
+<ul>
+<li>Button: <code>button</code>.</li>
+<li>Modifier keys (<code>true</code> if pressed): <code>altKey</code>, <code>ctrlKey</code>, <code>shiftKey</code> and <code>metaKey</code> (Mac).
+<ul>
+<li>If you want to handle <code>key:Ctrl</code>, then don’t forget Mac users, they usually use <code>key:Cmd</code>, so it’s better to check <code>if (e.metaKey || e.ctrlKey)</code>.</li>
+</ul></li>
+<li>Window-relative coordinates: <code>clientX/clientY</code>.</li>
+<li>Document-relative coordinates: <code>pageX/pageY</code>.</li>
+</ul>
+<p>The default browser action of <code>mousedown</code> is text selection, if it’s not good for the interface, then it should be prevented.</p>
+<p>In the next chapter we’ll see more details about events that follow pointer movement and how to track element changes under it.</p>

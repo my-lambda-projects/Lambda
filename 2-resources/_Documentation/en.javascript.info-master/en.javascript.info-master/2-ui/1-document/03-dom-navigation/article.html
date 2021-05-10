@@ -1,0 +1,245 @@
+<p>libs: - d3 - domtree</p>
+<hr />
+<h1 id="walking-the-dom">Walking the DOM</h1>
+<p>The DOM allows us to do anything with elements and their contents, but first we need to reach the corresponding DOM object.</p>
+<p>All operations on the DOM start with the <code>document</code> object. That’s the main “entry point” to DOM. From it we can access any node.</p>
+<p>Here’s a picture of links that allow for travel between DOM nodes:</p>
+<p><img src="dom-links.svg" /></p>
+<p>Let’s discuss them in more detail.</p>
+<h2 id="on-top-documentelement-and-body">On top: documentElement and body</h2>
+<p>The topmost tree nodes are available directly as <code>document</code> properties:</p>
+<dl>
+<dt><code>&lt;html&gt;</code> = <code>document.documentElement</code></dt>
+<dd>The topmost document node is <code>document.documentElement</code>. That’s the DOM node of the <code>&lt;html&gt;</code> tag.
+</dd>
+<dt><code>&lt;body&gt;</code> = <code>document.body</code></dt>
+<dd>Another widely used DOM node is the <code>&lt;body&gt;</code> element – <code>document.body</code>.
+</dd>
+<dt><code>&lt;head&gt;</code> = <code>document.head</code></dt>
+<dd>The <code>&lt;head&gt;</code> tag is available as <code>document.head</code>.
+</dd>
+</dl>
+<p>```<code>warn header="There's a catch:</code>document.body<code>can be</code>null`" A script cannot access an element that doesn’t exist at the moment of running.</p>
+<p>In particular, if a script is inside <code>&lt;head&gt;</code>, then <code>document.body</code> is unavailable, because the browser did not read it yet.</p>
+<p>So, in the example below the first <code>alert</code> shows <code>null</code>:</p>
+```html run
+<html>
+<head>
+<script>
+*!*
+    alert( "From HEAD: " + document.body ); // null, there's no <body> yet
+*/!*
+  </script>
+</head>
+<body>
+<script>
+    alert( "From BODY: " + document.body ); // HTMLBodyElement, now it exists
+  </script>
+</body>
+</html>
+<pre><code></code></pre>
+<p><code>smart header="In the DOM world `null` means \"doesn't exist\"" In the DOM, the `null` value means "doesn't exist" or "no such node".</code></p>
+<h2 id="children-childnodes-firstchild-lastchild">Children: childNodes, firstChild, lastChild</h2>
+<p>There are two terms that we’ll use from now on:</p>
+<ul>
+<li><strong>Child nodes (or children)</strong> – elements that are direct children. In other words, they are nested exactly in the given one. For instance, <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> are children of <code>&lt;html&gt;</code> element.</li>
+<li><strong>Descendants</strong> – all elements that are nested in the given one, including children, their children and so on.</li>
+</ul>
+<p>For instance, here <code>&lt;body&gt;</code> has children <code>&lt;div&gt;</code> and <code>&lt;ul&gt;</code> (and few blank text nodes):</p>
+```html run
+<html>
+<body>
+<div>
+Begin
+</div>
+<ul>
+<li>
+<b>Information</b>
+</li>
+</ul>
+</body>
+</html>
+<p>```</p>
+<p>…And descendants of <code>&lt;body&gt;</code> are not only direct children <code>&lt;div&gt;</code>, <code>&lt;ul&gt;</code> but also more deeply nested elements, such as <code>&lt;li&gt;</code> (a child of <code>&lt;ul&gt;</code>) and <code>&lt;b&gt;</code> (a child of <code>&lt;li&gt;</code>) – the entire subtree.</p>
+<p><strong>The <code>childNodes</code> collection lists all child nodes, including text nodes.</strong></p>
+<p>The example below shows children of <code>document.body</code>:</p>
+```html run
+<html>
+<body>
+<div>
+Begin
+</div>
+<ul>
+<li>
+Information
+</li>
+</ul>
+<div>
+End
+</div>
+<script>
+*!*
+    for (let i = 0; i < document.body.childNodes.length; i++) {
+      alert( document.body.childNodes[i] ); // Text, DIV, Text, UL, ..., SCRIPT
+    }
+*/!*
+  </script>
+…more stuff…
+</body>
+</html>
+<p>```</p>
+<p>Please note an interesting detail here. If we run the example above, the last element shown is <code>&lt;script&gt;</code>. In fact, the document has more stuff below, but at the moment of the script execution the browser did not read it yet, so the script doesn’t see it.</p>
+<p><strong>Properties <code>firstChild</code> and <code>lastChild</code> give fast access to the first and last children.</strong></p>
+<p>They are just shorthands. If there exist child nodes, then the following is always true:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">elem</span>.<span class="at">childNodes</span>[<span class="dv">0</span>] <span class="op">===</span> <span class="va">elem</span>.<span class="at">firstChild</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="va">elem</span>.<span class="at">childNodes</span>[<span class="va">elem</span>.<span class="va">childNodes</span>.<span class="at">length</span> <span class="op">-</span> <span class="dv">1</span>] <span class="op">===</span> <span class="va">elem</span>.<span class="at">lastChild</span></a></code></pre></div>
+<p>There’s also a special function <code>elem.hasChildNodes()</code> to check whether there are any child nodes.</p>
+<h3 id="dom-collections">DOM collections</h3>
+<p>As we can see, <code>childNodes</code> looks like an array. But actually it’s not an array, but rather a <em>collection</em> – a special array-like iterable object.</p>
+<p>There are two important consequences:</p>
+<ol type="1">
+<li>We can use <code>for..of</code> to iterate over it:</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">  <span class="cf">for</span> (<span class="kw">let</span> node <span class="kw">of</span> <span class="va">document</span>.<span class="va">body</span>.<span class="at">childNodes</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="at">alert</span>(node)<span class="op">;</span> <span class="co">// shows all nodes from the collection</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="op">}</span></a></code></pre></div>
+<p>That’s because it’s iterable (provides the <code>Symbol.iterator</code> property, as required).</p>
+<ol start="2" type="1">
+<li>Array methods won’t work, because it’s not an array: <code>js run   alert(document.body.childNodes.filter); // undefined (there's no filter method!)</code></li>
+</ol>
+<p>The first thing is nice. The second is tolerable, because we can use <code>Array.from</code> to create a “real” array from the collection, if we want array methods:</p>
+<p><code>js run   alert( Array.from(document.body.childNodes).filter ); // function</code></p>
+<p>```warn header=“DOM collections are read-only” DOM collections, and even more – <em>all</em> navigation properties listed in this chapter are read-only.</p>
+<p>We can’t replace a child by something else by assigning <code>childNodes[i] = ...</code>.</p>
+<p>Changing DOM needs other methods. We will see them in the next chapter. ```</p>
+<p>```warn header=“DOM collections are live” Almost all DOM collections with minor exceptions are <em>live</em>. In other words, they reflect the current state of DOM.</p>
+<p>If we keep a reference to <code>elem.childNodes</code>, and add/remove nodes into DOM, then they appear in the collection automatically. ```</p>
+<p>```<code>warn header="Don't use</code>for..in<code>to loop over collections" Collections are iterable using</code>for..of<code>. Sometimes people try to use</code>for..in` for that.</p>
+<p>Please, don’t. The <code>for..in</code> loop iterates over all enumerable properties. And collections have some “extra” rarely used properties that we usually do not want to get:</p>
+```html run
+<body>
+<script>
+  // shows 0, 1, length, item, values and more.
+  for (let prop in document.body.childNodes) alert(prop);
+</script>
+</body>
+<p>````</p>
+<h2 id="siblings-and-the-parent">Siblings and the parent</h2>
+<p><em>Siblings</em> are nodes that are children of the same parent.</p>
+<p>For instance, here <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code> are siblings:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">&lt;html&gt;</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="kw">&lt;head&gt;</span>...<span class="kw">&lt;/head&gt;&lt;body&gt;</span>...<span class="kw">&lt;/body&gt;</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="kw">&lt;/html&gt;</span></a></code></pre></div>
+<ul>
+<li><code>&lt;body&gt;</code> is said to be the “next” or “right” sibling of <code>&lt;head&gt;</code>,</li>
+<li><code>&lt;head&gt;</code> is said to be the “previous” or “left” sibling of <code>&lt;body&gt;</code>.</li>
+</ul>
+<p>The next sibling is in <code>nextSibling</code> property, and the previous one - in <code>previousSibling</code>.</p>
+<p>The parent is available as <code>parentNode</code>.</p>
+<p>For example:</p>
+```js run // parent of
+<body>
+is
+<html>
+<p>alert( document.body.parentNode === document.documentElement ); // true</p>
+// after
+<head>
+goes
+<body>
+<p>alert( document.head.nextSibling ); // HTMLBodyElement</p>
+// before
+<body>
+goes
+<head>
+<p>alert( document.body.previousSibling ); // HTMLHeadElement ```</p>
+<h2 id="element-only-navigation">Element-only navigation</h2>
+<p>Navigation properties listed above refer to <em>all</em> nodes. For instance, in <code>childNodes</code> we can see both text nodes, element nodes, and even comment nodes if they exist.</p>
+<p>But for many tasks we don’t want text or comment nodes. We want to manipulate element nodes that represent tags and form the structure of the page.</p>
+<p>So let’s see more navigation links that only take <em>element nodes</em> into account:</p>
+<p><img src="dom-links-elements.svg" /></p>
+<p>The links are similar to those given above, just with <code>Element</code> word inside:</p>
+<ul>
+<li><code>children</code> – only those children that are element nodes.</li>
+<li><code>firstElementChild</code>, <code>lastElementChild</code> – first and last element children.</li>
+<li><code>previousElementSibling</code>, <code>nextElementSibling</code> – neighbor elements.</li>
+<li><code>parentElement</code> – parent element.</li>
+</ul>
+<p>```<code>smart header="Why</code>parentElement<code>? Can the parent be *not* an element?" The</code>parentElement<code>property returns the "element" parent, while</code>parentNode` returns “any node” parent. These properties are usually the same: they both get the parent.</p>
+<p>With the one exception of <code>document.documentElement</code>:</p>
+<p><code>js run alert( document.documentElement.parentNode ); // document alert( document.documentElement.parentElement ); // null</code></p>
+<p>The reason is that the root node <code>document.documentElement</code> (<code>&lt;html&gt;</code>) has <code>document</code> as its parent. But <code>document</code> is not an element node, so <code>parentNode</code> returns it and <code>parentElement</code> does not.</p>
+<p>This detail may be useful when we want to travel up from an arbitrary element <code>elem</code> to <code>&lt;html&gt;</code>, but not to the <code>document</code>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="cf">while</span>(elem <span class="op">=</span> <span class="va">elem</span>.<span class="at">parentElement</span>) <span class="op">{</span> <span class="co">// go up till &lt;html&gt;</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="at">alert</span>( elem )<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>````</p>
+<p>Let’s modify one of the examples above: replace <code>childNodes</code> with <code>children</code>. Now it shows only elements:</p>
+```html run
+<html>
+<body>
+<div>
+Begin
+</div>
+<ul>
+<li>
+Information
+</li>
+</ul>
+<div>
+End
+</div>
+<script>
+*!*
+    for (let elem of document.body.children) {
+      alert(elem); // DIV, UL, DIV, SCRIPT
+    }
+*/!*
+  </script>
+…
+</body>
+</html>
+<p>```</p>
+<h2 id="more-links-tables-dom-navigation-tables">More links: tables [#dom-navigation-tables]</h2>
+<p>Till now we described the basic navigation properties.</p>
+<p>Certain types of DOM elements may provide additional properties, specific to their type, for convenience.</p>
+<p>Tables are a great example of that, and represent a particularly important case:</p>
+<p><strong>The <code>&lt;table&gt;</code></strong> element supports (in addition to the given above) these properties: - <code>table.rows</code> – the collection of <code>&lt;tr&gt;</code> elements of the table. - <code>table.caption/tHead/tFoot</code> – references to elements <code>&lt;caption&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code>. - <code>table.tBodies</code> – the collection of <code>&lt;tbody&gt;</code> elements (can be many according to the standard, but there will always be at least one – even if it is not in the source HTML, the browser will put it in the DOM).</p>
+<p><strong><code>&lt;thead&gt;</code>, <code>&lt;tfoot&gt;</code>, <code>&lt;tbody&gt;</code></strong> elements provide the <code>rows</code> property: - <code>tbody.rows</code> – the collection of <code>&lt;tr&gt;</code> inside.</p>
+<p><strong><code>&lt;tr&gt;</code>:</strong> - <code>tr.cells</code> – the collection of <code>&lt;td&gt;</code> and <code>&lt;th&gt;</code> cells inside the given <code>&lt;tr&gt;</code>. - <code>tr.sectionRowIndex</code> – the position (index) of the given <code>&lt;tr&gt;</code> inside the enclosing <code>&lt;thead&gt;/&lt;tbody&gt;/&lt;tfoot&gt;</code>. - <code>tr.rowIndex</code> – the number of the <code>&lt;tr&gt;</code> in the table as a whole (including all table rows).</p>
+<p><strong><code>&lt;td&gt;</code> and <code>&lt;th&gt;</code>:</strong> - <code>td.cellIndex</code> – the number of the cell inside the enclosing <code>&lt;tr&gt;</code>.</p>
+<p>An example of usage:</p>
+```html run height=100
+<table id="table">
+<tr>
+<td>
+one
+</td>
+<td>
+two
+</td>
+</tr>
+<tr>
+<td>
+three
+</td>
+<td>
+four
+</td>
+</tr>
+</table>
+<script>
+  // get td with "two" (first row, second column)
+  let td = table.*!*rows[0].cells[1]*/!*;
+  td.style.backgroundColor = "red"; // highlight it
+</script>
+<p>```</p>
+<p>The specification: <a href="https://html.spec.whatwg.org/multipage/tables.html">tabular data</a>.</p>
+<p>There are also additional navigation properties for HTML forms. We’ll look at them later when we start working with forms.</p>
+<h2 id="summary">Summary</h2>
+<p>Given a DOM node, we can go to its immediate neighbors using navigation properties.</p>
+<p>There are two main sets of them:</p>
+<ul>
+<li>For all nodes: <code>parentNode</code>, <code>childNodes</code>, <code>firstChild</code>, <code>lastChild</code>, <code>previousSibling</code>, <code>nextSibling</code>.</li>
+<li>For element nodes only: <code>parentElement</code>, <code>children</code>, <code>firstElementChild</code>, <code>lastElementChild</code>, <code>previousElementSibling</code>, <code>nextElementSibling</code>.</li>
+</ul>
+<p>Some types of DOM elements, e.g. tables, provide additional properties and collections to access their content.</p>

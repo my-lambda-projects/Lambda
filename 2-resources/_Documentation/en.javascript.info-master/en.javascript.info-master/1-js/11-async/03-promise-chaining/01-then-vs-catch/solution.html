@@ -1,0 +1,7 @@
+<p>The short answer is: <strong>no, they are not equal</strong>:</p>
+<p>The difference is that if an error happens in <code>f1</code>, then it is handled by <code>.catch</code> here:</p>
+<p><code>js run promise   .then(f1)   .catch(f2);</code></p>
+<p>…But not here:</p>
+<p><code>js run promise   .then(f1, f2);</code></p>
+<p>That’s because an error is passed down the chain, and in the second code piece there’s no chain below <code>f1</code>.</p>
+<p>In other words, <code>.then</code> passes results/errors to the next <code>.then/catch</code>. So in the first example, there’s a <code>catch</code> below, and in the second one there isn’t, so the error is unhandled.</p>

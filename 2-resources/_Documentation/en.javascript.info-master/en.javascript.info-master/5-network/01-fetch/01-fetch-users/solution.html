@@ -1,0 +1,11 @@
+<p>To fetch a user we need: <code>fetch('https://api.github.com/users/USERNAME')</code>.</p>
+<p>If the response has status <code>200</code>, call <code>.json()</code> to read the JS object.</p>
+<p>Otherwise, if a <code>fetch</code> fails, or the response has non-200 status, we just return <code>null</code> in the resulting array.</p>
+<p>So here’s the code:</p>
+<p>```js demo async function getUsers(names) { let jobs = [];</p>
+<p>for(let name of names) { let job = fetch(<code>https://api.github.com/users/${name}</code>).then( successResponse =&gt; { if (successResponse.status != 200) { return null; } else { return successResponse.json(); } }, failResponse =&gt; { return null; } ); jobs.push(job); }</p>
+<p>let results = await Promise.all(jobs);</p>
+<p>return results; } ```</p>
+<p>Please note: <code>.then</code> call is attached directly to <code>fetch</code>, so that when we have the response, it doesn’t wait for other fetches, but starts to read <code>.json()</code> immediately.</p>
+<p>If we used <code>await Promise.all(names.map(name =&gt; fetch(...)))</code>, and call <code>.json()</code> on the results, then it would wait for all fetches to respond. By adding <code>.json()</code> directly to each <code>fetch</code>, we ensure that individual fetches start reading data as JSON without waiting for each other.</p>
+<p>That’s an example of how low-level Promise API can still be useful even if we mainly use <code>async/await</code>.</p>

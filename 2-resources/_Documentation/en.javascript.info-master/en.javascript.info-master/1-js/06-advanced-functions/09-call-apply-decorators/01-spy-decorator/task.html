@@ -1,0 +1,21 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="spy-decorator">Spy decorator</h1>
+<p>Create a decorator <code>spy(func)</code> that should return a wrapper that saves all calls to function in its <code>calls</code> property.</p>
+<p>Every call is saved as an array of arguments.</p>
+<p>For instance:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">work</span>(a<span class="op">,</span> b) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="at">alert</span>( a <span class="op">+</span> b )<span class="op">;</span> <span class="co">// work is an arbitrary function or method</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb1-6" title="6">work <span class="op">=</span> <span class="at">spy</span>(work)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb1-8" title="8"></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="ss">work</span><span class="sc">(</span><span class="ss">1, 2</span><span class="sc">)</span><span class="ss">; // 3</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="ss">work</span><span class="sc">(</span><span class="ss">4, 5</span><span class="sc">)</span><span class="ss">; // 9</span></a>
+<a class="sourceLine" id="cb1-11" title="11"></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="ss">for </span><span class="sc">(</span><span class="ss">let args of work.calls</span><span class="sc">)</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="ss">  alert</span><span class="sc">(</span><span class="ss"> &#39;call:&#39; </span><span class="sc">+</span><span class="ss"> args.join</span><span class="sc">()</span><span class="ss"> </span><span class="sc">)</span><span class="ss">; // &quot;call:1,2&quot;, &quot;call:4,5&quot;</span></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="ss">}</span></a></code></pre></div>
+<p>P.S. That decorator is sometimes useful for unit-testing. Its advanced form is <code>sinon.spy</code> in <a href="http://sinonjs.org/">Sinon.JS</a> library.</p>

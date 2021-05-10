@@ -1,0 +1,10 @@
+<h1 id="fetch-users-from-github">Fetch users from GitHub</h1>
+<p>Create an async function <code>getUsers(names)</code>, that gets an array of GitHub logins, fetches the users from GitHub and returns an array of GitHub users.</p>
+<p>The GitHub url with user information for the given <code>USERNAME</code> is: <code>https://api.github.com/users/USERNAME</code>.</p>
+<p>There’s a test example in the sandbox.</p>
+<p>Important details:</p>
+<ol type="1">
+<li>There should be one <code>fetch</code> request per user.</li>
+<li>Requests shouldn’t wait for each other. So that the data arrives as soon as possible.</li>
+<li>If any request fails, or if there’s no such user, the function should return <code>null</code> in the resulting array.</li>
+</ol>

@@ -1,0 +1,178 @@
+<h1 id="javascript-specials">JavaScript specials</h1>
+<p>This chapter briefly recaps the features of JavaScript that we’ve learned by now, paying special attention to subtle moments.</p>
+<h2 id="code-structure">Code structure</h2>
+<p>Statements are delimited with a semicolon:</p>
+<p><code>js run no-beautify alert('Hello'); alert('World');</code></p>
+<p>Usually, a line-break is also treated as a delimiter, so that would also work:</p>
+<p><code>js run no-beautify alert('Hello') alert('World')</code></p>
+<p>That’s called “automatic semicolon insertion”. Sometimes it doesn’t work, for instance:</p>
+<p>```js run alert(“There will be an error after this message”)</p>
+<p>[1, 2].forEach(alert) ```</p>
+<p>Most codestyle guides agree that we should put a semicolon after each statement.</p>
+<p>Semicolons are not required after code blocks <code>{...}</code> and syntax constructs with them like loops:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">f</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="co">// no semicolon needed after function declaration</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="cf">for</span>(<span class="op">;;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-6" title="6">  <span class="co">// no semicolon needed after the loop</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="op">}</span></a></code></pre></div>
+<p>…But even if we can put an “extra” semicolon somewhere, that’s not an error. It will be ignored.</p>
+<p>More in: <a href="info:structure" class="uri">info:structure</a>.</p>
+<h2 id="strict-mode">Strict mode</h2>
+<p>To fully enable all features of modern JavaScript, we should start scripts with <code>"use strict"</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="st">&#39;use strict&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3">...</a></code></pre></div>
+<p>The directive must be at the top of a script or at the beginning of a function body.</p>
+<p>Without <code>"use strict"</code>, everything still works, but some features behave in the old-fashion, “compatible” way. We’d generally prefer the modern behavior.</p>
+<p>Some modern features of the language (like classes that we’ll study in the future) enable strict mode implicitly.</p>
+<p>More in: <a href="info:strict-mode" class="uri">info:strict-mode</a>.</p>
+<h2 id="variables">Variables</h2>
+<p>Can be declared using:</p>
+<ul>
+<li><code>let</code></li>
+<li><code>const</code> (constant, can’t be changed)</li>
+<li><code>var</code> (old-style, will see later)</li>
+</ul>
+<p>A variable name can include: - Letters and digits, but the first character may not be a digit. - Characters <code>$</code> and <code>_</code> are normal, on par with letters. - Non-Latin alphabets and hieroglyphs are also allowed, but commonly not used.</p>
+<p>Variables are dynamically typed. They can store any value:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> x <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-2" title="2">x <span class="op">=</span> <span class="st">&quot;John&quot;</span><span class="op">;</span></a></code></pre></div>
+<p>There are 8 data types:</p>
+<ul>
+<li><code>number</code> for both floating-point and integer numbers,</li>
+<li><code>bigint</code> for integer numbers of arbitrary length,</li>
+<li><code>string</code> for strings,</li>
+<li><code>boolean</code> for logical values: <code>true/false</code>,</li>
+<li><code>null</code> – a type with a single value <code>null</code>, meaning “empty” or “does not exist”,</li>
+<li><code>undefined</code> – a type with a single value <code>undefined</code>, meaning “not assigned”,</li>
+<li><code>object</code> and <code>symbol</code> – for complex data structures and unique identifiers, we haven’t learnt them yet.</li>
+</ul>
+<p>The <code>typeof</code> operator returns the type for a value, with two exceptions:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">typeof</span> <span class="kw">null</span> <span class="op">==</span> <span class="st">&quot;object&quot;</span> <span class="co">// error in the language</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw">typeof</span> <span class="kw">function</span>()<span class="op">{}</span> <span class="op">==</span> <span class="st">&quot;function&quot;</span> <span class="co">// functions are treated specially</span></a></code></pre></div>
+<p>More in: <a href="info:variables" class="uri">info:variables</a> and <a href="info:types" class="uri">info:types</a>.</p>
+<h2 id="interaction">Interaction</h2>
+<p>We’re using a browser as a working environment, so basic UI functions will be:</p>
+<dl>
+<dt><a href="mdn:api/Window/prompt"><code>prompt(question, [default])</code></a></dt>
+<dd>Ask a <code>question</code>, and return either what the visitor entered or <code>null</code> if they clicked “cancel”.
+</dd>
+<dt><a href="mdn:api/Window/confirm"><code>confirm(question)</code></a></dt>
+<dd>Ask a <code>question</code> and suggest to choose between Ok and Cancel. The choice is returned as <code>true/false</code>.
+</dd>
+<dt><a href="mdn:api/Window/alert"><code>alert(message)</code></a></dt>
+<dd>Output a <code>message</code>.
+</dd>
+</dl>
+<p>All these functions are <em>modal</em>, they pause the code execution and prevent the visitor from interacting with the page until they answer.</p>
+<p>For instance:</p>
+<p>```js run let userName = prompt(“Your name?”, “Alice”); let isTeaWanted = confirm(“Do you want some tea?”);</p>
+<p>alert( “Visitor:” + userName ); // Alice alert( “Tea wanted:” + isTeaWanted ); // true ```</p>
+<p>More in: <a href="info:alert-prompt-confirm" class="uri">info:alert-prompt-confirm</a>.</p>
+<h2 id="operators">Operators</h2>
+<p>JavaScript supports the following operators:</p>
+<dl>
+<dt>Arithmetical</dt>
+<dd><p>Regular: <code>* + - /</code>, also <code>%</code> for the remainder and <code>**</code> for power of a number.</p>
+<p>The binary plus <code>+</code> concatenates strings. And if any of the operands is a string, the other one is converted to string too:</p>
+<p><code>js run alert( '1' + 2 ); // '12', string alert( 1 + '2' ); // '12', string</code></p>
+</dd>
+<dt>Assignments</dt>
+<dd>There is a simple assignment: <code>a = b</code> and combined ones like <code>a *= 2</code>.
+</dd>
+<dt>Bitwise</dt>
+<dd>Bitwise operators work with 32-bit integers at the lowest, bit-level: see the <a href="mdn:/JavaScript/Guide/Expressions_and_Operators#Bitwise">docs</a> when they are needed.
+</dd>
+<dt>Conditional</dt>
+<dd>The only operator with three parameters: <code>cond ? resultA : resultB</code>. If <code>cond</code> is truthy, returns <code>resultA</code>, otherwise <code>resultB</code>.
+</dd>
+<dt>Logical operators</dt>
+<dd>Logical AND <code>&amp;&amp;</code> and OR <code>||</code> perform short-circuit evaluation and then return the value where it stopped (not necessary <code>true</code>/<code>false</code>). Logical NOT <code>!</code> converts the operand to boolean type and returns the inverse value.
+</dd>
+<dt>Nullish coalescing operator</dt>
+<dd>The <code>??</code> operator provides a way to choose a defined value from a list of variables. The result of <code>a ?? b</code> is <code>a</code> unless it’s <code>null/undefined</code>, then <code>b</code>.
+</dd>
+<dt>Comparisons</dt>
+<dd><p>Equality check <code>==</code> for values of different types converts them to a number (except <code>null</code> and <code>undefined</code> that equal each other and nothing else), so these are equal:</p>
+<p><code>js run alert( 0 == false ); // true alert( 0 == '' ); // true</code></p>
+<p>Other comparisons convert to a number as well.</p>
+<p>The strict equality operator <code>===</code> doesn’t do the conversion: different types always mean different values for it.</p>
+<p>Values <code>null</code> and <code>undefined</code> are special: they equal <code>==</code> each other and don’t equal anything else.</p>
+<p>Greater/less comparisons compare strings character-by-character, other types are converted to a number.</p>
+</dd>
+<dt>Other operators</dt>
+<dd>There are few others, like a comma operator.
+</dd>
+</dl>
+<p>More in: <a href="info:operators" class="uri">info:operators</a>, <a href="info:comparison" class="uri">info:comparison</a>, <a href="info:logical-operators" class="uri">info:logical-operators</a>, <a href="info:nullish-coalescing-operator" class="uri">info:nullish-coalescing-operator</a>.</p>
+<h2 id="loops">Loops</h2>
+<ul>
+<li><p>We covered 3 types of loops:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="co">// 1</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="cf">while</span> (condition) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  ...</a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="op">}</span></a>
+<a class="sourceLine" id="cb5-5" title="5"></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="co">// 2</span></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="cf">do</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-8" title="8">  ...</a>
+<a class="sourceLine" id="cb5-9" title="9"><span class="op">}</span> <span class="cf">while</span> (condition)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-10" title="10"></a>
+<a class="sourceLine" id="cb5-11" title="11"><span class="co">// 3</span></a>
+<a class="sourceLine" id="cb5-12" title="12"><span class="cf">for</span>(<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-13" title="13">  ...</a>
+<a class="sourceLine" id="cb5-14" title="14"><span class="op">}</span></a></code></pre></div></li>
+<li>The variable declared in <code>for(let...)</code> loop is visible only inside the loop. But we can also omit <code>let</code> and reuse an existing variable.</li>
+<li><p>Directives <code>break/continue</code> allow to exit the whole loop/current iteration. Use labels to break nested loops.</p></li>
+</ul>
+<p>Details in: <a href="info:while-for" class="uri">info:while-for</a>.</p>
+<p>Later we’ll study more types of loops to deal with objects.</p>
+<h2 id="the-switch-construct">The “switch” construct</h2>
+<p>The “switch” construct can replace multiple <code>if</code> checks. It uses <code>===</code> (strict equality) for comparisons.</p>
+<p>For instance:</p>
+<p>```js run let age = prompt(‘Your age?’, 18);</p>
+<p>switch (age) { case 18: alert(“Won’t work”); // the result of prompt is a string, not a number break;</p>
+<p>case “18”: alert(“This works!”); break;</p>
+<p>default: alert(“Any value not equal to one above”); } ```</p>
+<p>Details in: <a href="info:switch" class="uri">info:switch</a>.</p>
+<h2 id="functions">Functions</h2>
+<p>We covered three ways to create a function in JavaScript:</p>
+<ol type="1">
+<li><p>Function Declaration: the function in the main code flow</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">function</span> <span class="at">sum</span>(a<span class="op">,</span> b) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="kw">let</span> result <span class="op">=</span> a <span class="op">+</span> b<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-3" title="3"></a>
+<a class="sourceLine" id="cb6-4" title="4">  <span class="cf">return</span> result<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="op">}</span></a></code></pre></div></li>
+<li><p>Function Expression: the function in the context of an expression</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">let</span> sum <span class="op">=</span> <span class="kw">function</span>(a<span class="op">,</span> b) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="kw">let</span> result <span class="op">=</span> a <span class="op">+</span> b<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-3" title="3"></a>
+<a class="sourceLine" id="cb7-4" title="4">  <span class="cf">return</span> result<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="op">};</span></a></code></pre></div></li>
+<li><p>Arrow functions:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="co">// expression at the right side</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="kw">let</span> sum <span class="op">=</span> (a<span class="op">,</span> b) <span class="kw">=&gt;</span> a <span class="op">+</span> b<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-3" title="3"></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="co">// or multi-line syntax with { ... }, need return here:</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="kw">let</span> sum <span class="op">=</span> (a<span class="op">,</span> b) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-6" title="6">  <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb8-7" title="7">  <span class="cf">return</span> a <span class="op">+</span> b<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-8" title="8"><span class="op">}</span></a>
+<a class="sourceLine" id="cb8-9" title="9"></a>
+<a class="sourceLine" id="cb8-10" title="10"><span class="co">// without arguments</span></a>
+<a class="sourceLine" id="cb8-11" title="11"><span class="kw">let</span> sayHi <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="at">alert</span>(<span class="st">&quot;Hello&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-12" title="12"></a>
+<a class="sourceLine" id="cb8-13" title="13"><span class="co">// with a single argument</span></a>
+<a class="sourceLine" id="cb8-14" title="14"><span class="kw">let</span> double <span class="op">=</span> n <span class="kw">=&gt;</span> n <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></a></code></pre></div></li>
+</ol>
+<ul>
+<li>Functions may have local variables: those declared inside its body or its parameter list. Such variables are only visible inside the function.</li>
+<li>Parameters can have default values: <code>function sum(a = 1, b = 2) {...}</code>.</li>
+<li>Functions always return something. If there’s no <code>return</code> statement, then the result is <code>undefined</code>.</li>
+</ul>
+<p>Details: see <a href="info:function-basics" class="uri">info:function-basics</a>, <a href="info:arrow-functions-basics" class="uri">info:arrow-functions-basics</a>.</p>
+<h2 id="more-to-come">More to come</h2>
+<p>That was a brief list of JavaScript features. As of now we’ve studied only basics. Further in the tutorial you’ll find more specials and advanced features of JavaScript.</p>

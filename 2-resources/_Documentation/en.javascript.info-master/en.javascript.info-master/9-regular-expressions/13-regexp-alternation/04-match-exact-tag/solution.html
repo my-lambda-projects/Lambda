@@ -1,0 +1,15 @@
+<p>The pattern start is obvious: <code>pattern:&lt;style</code>.</p>
+<p>…But then we can’t simply write <code>pattern:&lt;style.*?&gt;</code>, because <code>match:&lt;styler&gt;</code> would match it.</p>
+<p>We need either a space after <code>match:&lt;style</code> and then optionally something else or the ending <code>match:&gt;</code>.</p>
+<p>In the regexp language: <code>pattern:&lt;style(&gt;|\s.*?&gt;)</code>.</p>
+<p>In action:</p>
+<p>```js run let regexp = /&lt;style(&gt;|.*?&gt;)/g;</p>
+alert( ’
+<style>
+<styler>
+<style test="...">
+’.match(regexp) ); //
+<style>
+,
+<style test="...">
+<p>```</p>

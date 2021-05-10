@@ -1,0 +1,21 @@
+<p>Answer: <strong>1 and 3</strong>.</p>
+<p>Both commands result in adding the <code>text</code> “as text” into the <code>elem</code>.</p>
+<p>Here’s an example:</p>
+```html run height=80
+<div id="elem1">
+
+</div>
+<div id="elem2">
+
+</div>
+<div id="elem3">
+
+</div>
+<script>
+  let text = '<b>text</b>';
+
+  elem1.append(document.createTextNode(text));
+  elem2.innerHTML = text;
+  elem3.textContent = text;
+</script>
+<p>```</p>

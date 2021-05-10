@@ -1,0 +1,7 @@
+<h1 id="find-html-tags">Find HTML tags</h1>
+<p>Create a regular expression to find all (opening and closing) HTML tags with their attributes.</p>
+<p>An example of use:</p>
+<p>```js run let regexp = /your regexp/g;</p>
+<p>let str = ‘&lt;&gt; <a href="/"> <input type="radio" checked> <b>’;</p>
+<p>alert( str.match(regexp) ); // ‘<a href="/">’, ‘<input type="radio" checked>’, ‘<b>’ ```</p>
+<p>Here we assume that tag attributes may not contain <code>&lt;</code> and <code>&gt;</code> (inside quotes too), that simplifies things a bit.</p>

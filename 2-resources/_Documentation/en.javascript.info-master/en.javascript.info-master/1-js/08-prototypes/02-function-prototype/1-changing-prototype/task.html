@@ -1,0 +1,62 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="changing-prototype">Changing “prototype”</h1>
+<p>In the code below we create <code>new Rabbit</code>, and then try to modify its prototype.</p>
+<p>In the start, we have this code:</p>
+<p>```js run function Rabbit() {} Rabbit.prototype = { eats: true };</p>
+<p>let rabbit = new Rabbit();</p>
+<p>alert( rabbit.eats ); // true ```</p>
+<ol type="1">
+<li><p>We added one more string (emphasized). What will <code>alert</code> show now?</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">Rabbit</span>() <span class="op">{}</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="va">Rabbit</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="dt">eats</span><span class="op">:</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="op">};</span></a>
+<a class="sourceLine" id="cb1-5" title="5"></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="kw">let</span> rabbit <span class="op">=</span> <span class="kw">new</span> <span class="at">Rabbit</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7"></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="va">Rabbit</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="op">{};</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb1-11" title="11"></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="ss">alert</span><span class="sc">(</span><span class="ss"> rabbit.eats </span><span class="sc">)</span><span class="ss">; // </span><span class="sc">?</span></a></code></pre></div></li>
+<li><p>…And if the code is like this (replaced one line)?</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">function</span> <span class="at">Rabbit</span>() <span class="op">{}</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="va">Rabbit</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="dt">eats</span><span class="op">:</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="op">};</span></a>
+<a class="sourceLine" id="cb2-5" title="5"></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="kw">let</span> rabbit <span class="op">=</span> <span class="kw">new</span> <span class="at">Rabbit</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-7" title="7"></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="va">Rabbit</span>.<span class="va">prototype</span>.<span class="at">eats</span> <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb2-11" title="11"></a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="ss">alert</span><span class="sc">(</span><span class="ss"> rabbit.eats </span><span class="sc">)</span><span class="ss">; // </span><span class="sc">?</span></a></code></pre></div></li>
+<li><p>And like this (replaced one line)?</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">function</span> <span class="at">Rabbit</span>() <span class="op">{}</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="va">Rabbit</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="dt">eats</span><span class="op">:</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="op">};</span></a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="kw">let</span> rabbit <span class="op">=</span> <span class="kw">new</span> <span class="at">Rabbit</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-7" title="7"></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="kw">delete</span> <span class="va">rabbit</span>.<span class="at">eats</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb3-11" title="11"></a>
+<a class="sourceLine" id="cb3-12" title="12"><span class="ss">alert</span><span class="sc">(</span><span class="ss"> rabbit.eats </span><span class="sc">)</span><span class="ss">; // </span><span class="sc">?</span></a></code></pre></div></li>
+<li><p>The last variant:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">function</span> <span class="at">Rabbit</span>() <span class="op">{}</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="va">Rabbit</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="dt">eats</span><span class="op">:</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="op">};</span></a>
+<a class="sourceLine" id="cb4-5" title="5"></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="kw">let</span> rabbit <span class="op">=</span> <span class="kw">new</span> <span class="at">Rabbit</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-7" title="7"></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="kw">delete</span> <span class="va">Rabbit</span>.<span class="va">prototype</span>.<span class="at">eats</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb4-11" title="11"></a>
+<a class="sourceLine" id="cb4-12" title="12"><span class="ss">alert</span><span class="sc">(</span><span class="ss"> rabbit.eats </span><span class="sc">)</span><span class="ss">; // </span><span class="sc">?</span></a></code></pre></div></li>
+</ol>

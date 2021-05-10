@@ -1,0 +1,11 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="catch-links-in-the-element">Catch links in the element</h1>
+<p>Make all links inside the element with <code>id="contents"</code> ask the user if they really want to leave. And if they don’t then don’t follow.</p>
+<p>Like this:</p>
+<p>[iframe height=100 border=1 src=“solution”]</p>
+<p>Details:</p>
+<ul>
+<li>HTML inside the element may be loaded or regenerated dynamically at any time, so we can’t find all links and put handlers on them. Use event delegation.</li>
+<li>The content may have nested tags. Inside links too, like <code>&lt;a href=".."&gt;&lt;i&gt;...&lt;/i&gt;&lt;/a&gt;</code>.</li>
+</ul>

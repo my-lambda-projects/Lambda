@@ -1,0 +1,8 @@
+<p>The method can take all enumerable keys using <code>Object.keys</code> and output their list.</p>
+<p>To make <code>toString</code> non-enumerable, let’s define it using a property descriptor. The syntax of <code>Object.create</code> allows us to provide an object with property descriptors as the second argument.</p>
+<p>```js run <em>!</em> let dictionary = Object.create(null, { toString: { // define toString property value() { // the value is a function return Object.keys(this).join(); } } }); <em>/!</em></p>
+<p>dictionary.apple = “Apple”; dictionary.__proto__ = “test”;</p>
+<p>// apple and <strong>proto</strong> is in the loop for(let key in dictionary) { alert(key); // “apple”, then “<strong>proto</strong>” }</p>
+<p>// comma-separated list of properties by toString alert(dictionary); // “apple,<strong>proto</strong>” ```</p>
+<p>When we create a property using a descriptor, its flags are <code>false</code> by default. So in the code above, <code>dictionary.toString</code> is non-enumerable.</p>
+<p>See the the chapter <a href="info:property-descriptors"></a> for review.</p>

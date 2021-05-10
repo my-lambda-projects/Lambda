@@ -1,0 +1,480 @@
+<h1 id="proxy-and-reflect">Proxy and Reflect</h1>
+<p>A <code>Proxy</code> object wraps another object and intercepts operations, like reading/writing properties and others, optionally handling them on its own, or transparently allowing the object to handle them.</p>
+<p>Proxies are used in many libraries and some browser frameworks. We’ll see many practical applications in this article.</p>
+<h2 id="proxy">Proxy</h2>
+<p>The syntax:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> proxy <span class="op">=</span> <span class="kw">new</span> <span class="at">Proxy</span>(target<span class="op">,</span> handler)</a></code></pre></div>
+<ul>
+<li><code>target</code> – is an object to wrap, can be anything, including functions.</li>
+<li><code>handler</code> – proxy configuration: an object with “traps”, methods that intercept operations. - e.g. <code>get</code> trap for reading a property of <code>target</code>, <code>set</code> trap for writing a property into <code>target</code>, and so on.</li>
+</ul>
+<p>For operations on <code>proxy</code>, if there’s a corresponding trap in <code>handler</code>, then it runs, and the proxy has a chance to handle it, otherwise the operation is performed on <code>target</code>.</p>
+<p>As a starting example, let’s create a proxy without any traps:</p>
+<p>```js run let target = {}; let proxy = new Proxy(target, {}); // empty handler</p>
+<p>proxy.test = 5; // writing to proxy (1) alert(target.test); // 5, the property appeared in target!</p>
+<p>alert(proxy.test); // 5, we can read it from proxy too (2)</p>
+<p>for(let key in proxy) alert(key); // test, iteration works (3) ```</p>
+<p>As there are no traps, all operations on <code>proxy</code> are forwarded to <code>target</code>.</p>
+<ol type="1">
+<li>A writing operation <code>proxy.test=</code> sets the value on <code>target</code>.</li>
+<li>A reading operation <code>proxy.test</code> returns the value from <code>target</code>.</li>
+<li>Iteration over <code>proxy</code> returns values from <code>target</code>.</li>
+</ol>
+<p>As we can see, without any traps, <code>proxy</code> is a transparent wrapper around <code>target</code>.</p>
+<p><img src="proxy.svg" /></p>
+<p><code>Proxy</code> is a special “exotic object”. It doesn’t have own properties. With an empty <code>handler</code> it transparently forwards operations to <code>target</code>.</p>
+<p>To activate more capabilities, let’s add traps.</p>
+<p>What can we intercept with them?</p>
+<p>For most operations on objects, there’s a so-called “internal method” in the JavaScript specification that describes how it works at the lowest level. For instance <code>[[Get]]</code>, the internal method to read a property, <code>[[Set]]</code>, the internal method to write a property, and so on. These methods are only used in the specification, we can’t call them directly by name.</p>
+<p>Proxy traps intercept invocations of these methods. They are listed in the <a href="https://tc39.es/ecma262/#sec-proxy-object-internal-methods-and-internal-slots">Proxy specification</a> and in the table below.</p>
+<p>For every internal method, there’s a trap in this table: the name of the method that we can add to the <code>handler</code> parameter of <code>new Proxy</code> to intercept the operation:</p>
+<table>
+<colgroup>
+<col style="width: 36%" />
+<col style="width: 34%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Internal Method</th>
+<th>Handler Method</th>
+<th>Triggers when…</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>[[Get]]</code></td>
+<td><code>get</code></td>
+<td>reading a property</td>
+</tr>
+<tr class="even">
+<td><code>[[Set]]</code></td>
+<td><code>set</code></td>
+<td>writing to a property</td>
+</tr>
+<tr class="odd">
+<td><code>[[HasProperty]]</code></td>
+<td><code>has</code></td>
+<td><code>in</code> operator</td>
+</tr>
+<tr class="even">
+<td><code>[[Delete]]</code></td>
+<td><code>deleteProperty</code></td>
+<td><code>delete</code> operator</td>
+</tr>
+<tr class="odd">
+<td><code>[[Call]]</code></td>
+<td><code>apply</code></td>
+<td>function call</td>
+</tr>
+<tr class="even">
+<td><code>[[Construct]]</code></td>
+<td><code>construct</code></td>
+<td><code>new</code> operator</td>
+</tr>
+<tr class="odd">
+<td><code>[[GetPrototypeOf]]</code></td>
+<td><code>getPrototypeOf</code></td>
+<td><a href="mdn:/JavaScript/Reference/Global_Objects/Object/getPrototypeOf">Object.getPrototypeOf</a></td>
+</tr>
+<tr class="even">
+<td><code>[[SetPrototypeOf]]</code></td>
+<td><code>setPrototypeOf</code></td>
+<td><a href="mdn:/JavaScript/Reference/Global_Objects/Object/setPrototypeOf">Object.setPrototypeOf</a></td>
+</tr>
+<tr class="odd">
+<td><code>[[IsExtensible]]</code></td>
+<td><code>isExtensible</code></td>
+<td><a href="mdn:/JavaScript/Reference/Global_Objects/Object/isExtensible">Object.isExtensible</a></td>
+</tr>
+<tr class="even">
+<td><code>[[PreventExtensions]]</code></td>
+<td><code>preventExtensions</code></td>
+<td><a href="mdn:/JavaScript/Reference/Global_Objects/Object/preventExtensions">Object.preventExtensions</a></td>
+</tr>
+<tr class="odd">
+<td><code>[[DefineOwnProperty]]</code></td>
+<td><code>defineProperty</code></td>
+<td><a href="mdn:/JavaScript/Reference/Global_Objects/Object/defineProperty">Object.defineProperty</a>, <a href="mdn:/JavaScript/Reference/Global_Objects/Object/defineProperties">Object.defineProperties</a></td>
+</tr>
+<tr class="even">
+<td><code>[[GetOwnProperty]]</code></td>
+<td><code>getOwnPropertyDescriptor</code></td>
+<td><a href="mdn:/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor">Object.getOwnPropertyDescriptor</a>, <code>for..in</code>, <code>Object.keys/values/entries</code></td>
+</tr>
+<tr class="odd">
+<td><code>[[OwnPropertyKeys]]</code></td>
+<td><code>ownKeys</code></td>
+<td><a href="mdn:/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames">Object.getOwnPropertyNames</a>, <a href="mdn:/JavaScript/Reference/Global_Objects/Object/getOwnPropertySymbols">Object.getOwnPropertySymbols</a>, <code>for..in</code>, <code>Object.keys/values/entries</code></td>
+</tr>
+</tbody>
+</table>
+<p>```warn header=“Invariants” JavaScript enforces some invariants – conditions that must be fulfilled by internal methods and traps.</p>
+<p>Most of them are for return values: - <code>[[Set]]</code> must return <code>true</code> if the value was written successfully, otherwise <code>false</code>. - <code>[[Delete]]</code> must return <code>true</code> if the value was deleted successfully, otherwise <code>false</code>. - …and so on, we’ll see more in examples below.</p>
+<p>There are some other invariants, like: - <code>[[GetPrototypeOf]]</code>, applied to the proxy object must return the same value as <code>[[GetPrototypeOf]]</code> applied to the proxy object’s target object. In other words, reading prototype of a proxy must always return the prototype of the target object.</p>
+<p>Traps can intercept these operations, but they must follow these rules.</p>
+<p>Invariants ensure correct and consistent behavior of language features. The full invariants list is in <a href="https://tc39.es/ecma262/#sec-proxy-object-internal-methods-and-internal-slots">the specification</a>. You probably won’t violate them if you’re not doing something weird. ```</p>
+<p>Let’s see how that works in practical examples.</p>
+<h2 id="default-value-with-get-trap">Default value with “get” trap</h2>
+<p>The most common traps are for reading/writing properties.</p>
+<p>To intercept reading, the <code>handler</code> should have a method <code>get(target, property, receiver)</code>.</p>
+<p>It triggers when a property is read, with following arguments:</p>
+<ul>
+<li><code>target</code> – is the target object, the one passed as the first argument to <code>new Proxy</code>,</li>
+<li><code>property</code> – property name,</li>
+<li><code>receiver</code> – if the target property is a getter, then <code>receiver</code> is the object that’s going to be used as <code>this</code> in its call. Usually that’s the <code>proxy</code> object itself (or an object that inherits from it, if we inherit from proxy). Right now we don’t need this argument, so it will be explained in more detail later.</li>
+</ul>
+<p>Let’s use <code>get</code> to implement default values for an object.</p>
+<p>We’ll make a numeric array that returns <code>0</code> for nonexistent values.</p>
+<p>Usually when one tries to get a non-existing array item, they get <code>undefined</code>, but we’ll wrap a regular array into the proxy that traps reading and returns <code>0</code> if there’s no such property:</p>
+<p>```js run let numbers = [0, 1, 2];</p>
+<p>numbers = new Proxy(numbers, { get(target, prop) { if (prop in target) { return target[prop]; } else { return 0; // default value } } });</p>
+<p><em>!</em> alert( numbers[1] ); // 1 alert( numbers[123] ); // 0 (no such item) <em>/!</em> ```</p>
+<p>As we can see, it’s quite easy to do with a <code>get</code> trap.</p>
+<p>We can use <code>Proxy</code> to implement any logic for “default” values.</p>
+<p>Imagine we have a dictionary, with phrases and their translations:</p>
+<p>```js run let dictionary = { ‘Hello’: ‘Hola’, ‘Bye’: ‘Adiós’ };</p>
+<p>alert( dictionary[‘Hello’] ); // Hola alert( dictionary[‘Welcome’] ); // undefined ```</p>
+<p>Right now, if there’s no phrase, reading from <code>dictionary</code> returns <code>undefined</code>. But in practice, leaving a phrase untranslated is usually better than <code>undefined</code>. So let’s make it return an untranslated phrase in that case instead of <code>undefined</code>.</p>
+<p>To achieve that, we’ll wrap <code>dictionary</code> in a proxy that intercepts reading operations:</p>
+<p>```js run let dictionary = { ‘Hello’: ‘Hola’, ‘Bye’: ‘Adiós’ };</p>
+<p>dictionary = new Proxy(dictionary, { <em>!</em> get(target, phrase) { // intercept reading a property from dictionary <em>/!</em> if (phrase in target) { // if we have it in the dictionary return target[phrase]; // return the translation } else { // otherwise, return the non-translated phrase return phrase; } } });</p>
+<p>// Look up arbitrary phrases in the dictionary! // At worst, they’re not translated. alert( dictionary[‘Hello’] ); // Hola <em>!</em> alert( dictionary[‘Welcome to Proxy’]); // Welcome to Proxy (no translation) <em>/!</em> ```</p>
+<pre class="smart"><code>Please note how the proxy overwrites the variable:
+
+```js
+dictionary = new Proxy(dictionary, ...);
+```
+
+The proxy should totally replace the target object everywhere. No one should ever reference the target object after it got proxied. Otherwise it&#39;s easy to mess up.</code></pre>
+<h2 id="validation-with-set-trap">Validation with “set” trap</h2>
+<p>Let’s say we want an array exclusively for numbers. If a value of another type is added, there should be an error.</p>
+<p>The <code>set</code> trap triggers when a property is written.</p>
+<p><code>set(target, property, value, receiver)</code>:</p>
+<ul>
+<li><code>target</code> – is the target object, the one passed as the first argument to <code>new Proxy</code>,</li>
+<li><code>property</code> – property name,</li>
+<li><code>value</code> – property value,</li>
+<li><code>receiver</code> – similar to <code>get</code> trap, matters only for setter properties.</li>
+</ul>
+<p>The <code>set</code> trap should return <code>true</code> if setting is successful, and <code>false</code> otherwise (triggers <code>TypeError</code>).</p>
+<p>Let’s use it to validate new values:</p>
+<p>```js run let numbers = [];</p>
+<p>numbers = new Proxy(numbers, { // (<em>) </em>!<em> set(target, prop, val) { // to intercept property writing </em>/!* if (typeof val == ‘number’) { target[prop] = val; return true; } else { return false; } } });</p>
+<p>numbers.push(1); // added successfully numbers.push(2); // added successfully alert(“Length is:” + numbers.length); // 2</p>
+<p><em>!</em> numbers.push(“test”); // TypeError (‘set’ on proxy returned false) <em>/!</em></p>
+<p>alert(“This line is never reached (error in the line above)”); ```</p>
+<p>Please note: the built-in functionality of arrays is still working! Values are added by <code>push</code>. The <code>length</code> property auto-increases when values are added. Our proxy doesn’t break anything.</p>
+<p>We don’t have to override value-adding array methods like <code>push</code> and <code>unshift</code>, and so on, to add checks in there, because internally they use the <code>[[Set]]</code> operation that’s intercepted by the proxy.</p>
+<p>So the code is clean and concise.</p>
+<p>``<code>warn header="Don't forget to return</code>true`" As said above, there are invariants to be held.</p>
+<p>For <code>set</code>, it must return <code>true</code> for a successful write.</p>
+<p>If we forget to do it or return any falsy value, the operation triggers <code>TypeError</code>. ```</p>
+<h2 id="iteration-with-ownkeys-and-getownpropertydescriptor">Iteration with “ownKeys” and “getOwnPropertyDescriptor”</h2>
+<p><code>Object.keys</code>, <code>for..in</code> loop and most other methods that iterate over object properties use <code>[[OwnPropertyKeys]]</code> internal method (intercepted by <code>ownKeys</code> trap) to get a list of properties.</p>
+<p>Such methods differ in details: - <code>Object.getOwnPropertyNames(obj)</code> returns non-symbol keys. - <code>Object.getOwnPropertySymbols(obj)</code> returns symbol keys. - <code>Object.keys/values()</code> returns non-symbol keys/values with <code>enumerable</code> flag (property flags were explained in the article <a href="info:property-descriptors" class="uri">info:property-descriptors</a>). - <code>for..in</code> loops over non-symbol keys with <code>enumerable</code> flag, and also prototype keys.</p>
+<p>…But all of them start with that list.</p>
+<p>In the example below we use <code>ownKeys</code> trap to make <code>for..in</code> loop over <code>user</code>, and also <code>Object.keys</code> and <code>Object.values</code>, to skip properties starting with an underscore <code>_</code>:</p>
+<p>```js run let user = { name: “John”, age: 30, _password: "***" };</p>
+<p>user = new Proxy(user, { <em>!</em> ownKeys(target) { <em>/!</em> return Object.keys(target).filter(key =&gt; !key.startsWith(’_’)); } });</p>
+<p>// “ownKeys” filters out _password for(let key in user) alert(key); // name, then: age</p>
+<p>// same effect on these methods: alert( Object.keys(user) ); // name,age alert( Object.values(user) ); // John,30 ```</p>
+<p>So far, it works.</p>
+<p>Although, if we return a key that doesn’t exist in the object, <code>Object.keys</code> won’t list it:</p>
+<p>```js run let user = { };</p>
+<p>user = new Proxy(user, { <em>!</em> ownKeys(target) { <em>/!</em> return [‘a’, ‘b’, ‘c’]; } });</p>
+<p>alert( Object.keys(user) ); // <empty> ```</p>
+<p>Why? The reason is simple: <code>Object.keys</code> returns only properties with the <code>enumerable</code> flag. To check for it, it calls the internal method <code>[[GetOwnProperty]]</code> for every property to get <a href="info:property-descriptors">its descriptor</a>. And here, as there’s no property, its descriptor is empty, no <code>enumerable</code> flag, so it’s skipped.</p>
+<p>For <code>Object.keys</code> to return a property, we need it to either exist in the object, with the <code>enumerable</code> flag, or we can intercept calls to <code>[[GetOwnProperty]]</code> (the trap <code>getOwnPropertyDescriptor</code> does it), and return a descriptor with <code>enumerable: true</code>.</p>
+<p>Here’s an example of that:</p>
+<p>```js run let user = { };</p>
+<p>user = new Proxy(user, { ownKeys(target) { // called once to get a list of properties return [‘a’, ‘b’, ‘c’]; },</p>
+<p>getOwnPropertyDescriptor(target, prop) { // called for every property return { enumerable: true, configurable: true /* …other flags, probable “value:…” */ }; }</p>
+<p>});</p>
+<p>alert( Object.keys(user) ); // a, b, c ```</p>
+<p>Let’s note once again: we only need to intercept <code>[[GetOwnProperty]]</code> if the property is absent in the object.</p>
+<h2 id="protected-properties-with-deleteproperty-and-other-traps">Protected properties with “deleteProperty” and other traps</h2>
+<p>There’s a widespread convention that properties and methods prefixed by an underscore <code>_</code> are internal. They shouldn’t be accessed from outside the object.</p>
+<p>Technically that’s possible though:</p>
+<p>```js run let user = { name: “John”, _password: “secret” };</p>
+<p>alert(user._password); // secret ```</p>
+<p>Let’s use proxies to prevent any access to properties starting with <code>_</code>.</p>
+<p>We’ll need the traps: - <code>get</code> to throw an error when reading such property, - <code>set</code> to throw an error when writing, - <code>deleteProperty</code> to throw an error when deleting, - <code>ownKeys</code> to exclude properties starting with <code>_</code> from <code>for..in</code> and methods like <code>Object.keys</code>.</p>
+<p>Here’s the code:</p>
+<p>```js run let user = { name: “John”, _password: "***" };</p>
+<p>user = new Proxy(user, { <em>!</em> get(target, prop) { <em>/!</em> if (prop.startsWith(’_‘)) { throw new Error(“Access denied”); } let value = target[prop]; return (typeof value === ’function’) ? value.bind(target) : value; // (<em>) }, </em>!<em> set(target, prop, val) { // to intercept property writing </em>/!<em> if (prop.startsWith(‘<em>’)) { throw new Error(“Access denied”); } else { target[prop] = val; return true; } }, <em>!</em> deleteProperty(target, prop) { // to intercept property deletion <em>/!</em> if (prop.startsWith(’</em>’)) { throw new Error(“Access denied”); } else { delete target[prop]; return true; } }, </em>!<em> ownKeys(target) { // to intercept property list </em>/!* return Object.keys(target).filter(key =&gt; !key.startsWith(’_’)); } });</p>
+<p>// “get” doesn’t allow to read _password try { alert(user._password); // Error: Access denied } catch(e) { alert(e.message); }</p>
+<p>// “set” doesn’t allow to write _password try { user._password = “test”; // Error: Access denied } catch(e) { alert(e.message); }</p>
+<p>// “deleteProperty” doesn’t allow to delete _password try { delete user._password; // Error: Access denied } catch(e) { alert(e.message); }</p>
+<p>// “ownKeys” filters out _password for(let key in user) alert(key); // name ```</p>
+<p>Please note the important detail in the <code>get</code> trap, in the line <code>(*)</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">get</span>(target<span class="op">,</span> prop) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="kw">let</span> value <span class="op">=</span> target[prop]<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb3-5" title="5">  <span class="cf">return</span> (<span class="kw">typeof</span> value <span class="op">===</span> <span class="st">&#39;function&#39;</span>) <span class="op">?</span> <span class="va">value</span>.<span class="at">bind</span>(target) : value<span class="op">;</span> <span class="co">// (*)</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="ss">}</span></a></code></pre></div>
+<p>Why do we need a function to call <code>value.bind(target)</code>?</p>
+<p>The reason is that object methods, such as <code>user.checkPassword()</code>, must be able to access <code>_password</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1">user <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="at">checkPassword</span>(value) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-4" title="4">    <span class="co">// object method must be able to read _password</span></a>
+<a class="sourceLine" id="cb4-5" title="5">    <span class="cf">return</span> value <span class="op">===</span> <span class="kw">this</span>.<span class="at">_password</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-6" title="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="op">}</span></a></code></pre></div>
+<p>A call to <code>user.checkPassword()</code> gets proxied <code>user</code> as <code>this</code> (the object before dot becomes <code>this</code>), so when it tries to access <code>this._password</code>, the <code>get</code> trap activates (it triggers on any property read) and throws an error.</p>
+<p>So we bind the context of object methods to the original object, <code>target</code>, in the line <code>(*)</code>. Then their future calls will use <code>target</code> as <code>this</code>, without any traps.</p>
+<p>That solution usually works, but isn’t ideal, as a method may pass the unproxied object somewhere else, and then we’ll get messed up: where’s the original object, and where’s the proxied one?</p>
+<p>Besides, an object may be proxied multiple times (multiple proxies may add different “tweaks” to the object), and if we pass an unwrapped object to a method, there may be unexpected consequences.</p>
+<p>So, such a proxy shouldn’t be used everywhere.</p>
+<p>``<code>smart header="Private properties of a class" Modern JavaScript engines natively support private properties in classes, prefixed with</code>#`. They are described in the article <a href="info:private-protected-properties-methods" class="uri">info:private-protected-properties-methods</a>. No proxies required.</p>
+<p>Such properties have their own issues though. In particular, they are not inherited. ```</p>
+<h2 id="in-range-with-has-trap">“In range” with “has” trap</h2>
+<p>Let’s see more examples.</p>
+<p>We have a range object:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">let</span> range <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="dt">start</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="dt">end</span><span class="op">:</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="op">};</span></a></code></pre></div>
+<p>We’d like to use the <code>in</code> operator to check that a number is in <code>range</code>.</p>
+<p>The <code>has</code> trap intercepts <code>in</code> calls.</p>
+<p><code>has(target, property)</code></p>
+<ul>
+<li><code>target</code> – is the target object, passed as the first argument to <code>new Proxy</code>,</li>
+<li><code>property</code> – property name</li>
+</ul>
+<p>Here’s the demo:</p>
+<p>```js run let range = { start: 1, end: 10 };</p>
+<p>range = new Proxy(range, { <em>!</em> has(target, prop) { <em>/!</em> return prop &gt;= target.start &amp;&amp; prop &lt;= target.end; } });</p>
+<p><em>!</em> alert(5 in range); // true alert(50 in range); // false <em>/!</em> ```</p>
+<p>Nice syntactic sugar, isn’t it? And very simple to implement.</p>
+<h2 id="wrapping-functions-apply-proxy-apply">Wrapping functions: “apply” [#proxy-apply]</h2>
+<p>We can wrap a proxy around a function as well.</p>
+<p>The <code>apply(target, thisArg, args)</code> trap handles calling a proxy as function:</p>
+<ul>
+<li><code>target</code> is the target object (function is an object in JavaScript),</li>
+<li><code>thisArg</code> is the value of <code>this</code>.</li>
+<li><code>args</code> is a list of arguments.</li>
+</ul>
+<p>For example, let’s recall <code>delay(f, ms)</code> decorator, that we did in the article <a href="info:call-apply-decorators" class="uri">info:call-apply-decorators</a>.</p>
+<p>In that article we did it without proxies. A call to <code>delay(f, ms)</code> returned a function that forwards all calls to <code>f</code> after <code>ms</code> milliseconds.</p>
+<p>Here’s the previous, function-based implementation:</p>
+<p>```js run function delay(f, ms) { // return a wrapper that passes the call to f after the timeout return function() { // (*) setTimeout(() =&gt; f.apply(this, arguments), ms); }; }</p>
+<p>function sayHi(user) { alert(<code>Hello, ${user}!</code>); }</p>
+<p>// after this wrapping, calls to sayHi will be delayed for 3 seconds sayHi = delay(sayHi, 3000);</p>
+<p>sayHi(“John”); // Hello, John! (after 3 seconds) ```</p>
+<p>As we’ve seen already, that mostly works. The wrapper function <code>(*)</code> performs the call after the timeout.</p>
+<p>But a wrapper function does not forward property read/write operations or anything else. After the wrapping, the access is lost to properties of the original functions, such as <code>name</code>, <code>length</code> and others:</p>
+<p>```js run function delay(f, ms) { return function() { setTimeout(() =&gt; f.apply(this, arguments), ms); }; }</p>
+<p>function sayHi(user) { alert(<code>Hello, ${user}!</code>); }</p>
+<p><em>!</em> alert(sayHi.length); // 1 (function length is the arguments count in its declaration) <em>/!</em></p>
+<p>sayHi = delay(sayHi, 3000);</p>
+<p><em>!</em> alert(sayHi.length); // 0 (in the wrapper declaration, there are zero arguments) <em>/!</em> ```</p>
+<p><code>Proxy</code> is much more powerful, as it forwards everything to the target object.</p>
+<p>Let’s use <code>Proxy</code> instead of a wrapping function:</p>
+<p>```js run function delay(f, ms) { return new Proxy(f, { apply(target, thisArg, args) { setTimeout(() =&gt; target.apply(thisArg, args), ms); } }); }</p>
+<p>function sayHi(user) { alert(<code>Hello, ${user}!</code>); }</p>
+<p>sayHi = delay(sayHi, 3000);</p>
+<p><em>!</em> alert(sayHi.length); // 1 (<em>) proxy forwards “get length” operation to the target </em>/!*</p>
+<p>sayHi(“John”); // Hello, John! (after 3 seconds) ```</p>
+<p>The result is the same, but now not only calls, but all operations on the proxy are forwarded to the original function. So <code>sayHi.length</code> is returned correctly after the wrapping in the line <code>(*)</code>.</p>
+<p>We’ve got a “richer” wrapper.</p>
+<p>Other traps exist: the full list is in the beginning of this article. Their usage pattern is similar to the above.</p>
+<h2 id="reflect">Reflect</h2>
+<p><code>Reflect</code> is a built-in object that simplifies creation of <code>Proxy</code>.</p>
+<p>It was said previously that internal methods, such as <code>[[Get]]</code>, <code>[[Set]]</code> and others are specification-only, they can’t be called directly.</p>
+<p>The <code>Reflect</code> object makes that somewhat possible. Its methods are minimal wrappers around the internal methods.</p>
+<p>Here are examples of operations and <code>Reflect</code> calls that do the same:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Operation</th>
+<th><code>Reflect</code> call</th>
+<th>Internal method</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>obj[prop]</code></td>
+<td><code>Reflect.get(obj, prop)</code></td>
+<td><code>[[Get]]</code></td>
+</tr>
+<tr class="even">
+<td><code>obj[prop] = value</code></td>
+<td><code>Reflect.set(obj, prop, value)</code></td>
+<td><code>[[Set]]</code></td>
+</tr>
+<tr class="odd">
+<td><code>delete obj[prop]</code></td>
+<td><code>Reflect.deleteProperty(obj, prop)</code></td>
+<td><code>[[Delete]]</code></td>
+</tr>
+<tr class="even">
+<td><code>new F(value)</code></td>
+<td><code>Reflect.construct(F, value)</code></td>
+<td><code>[[Construct]]</code></td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>For example:</p>
+<p>```js run let user = {};</p>
+<p>Reflect.set(user, ‘name’, ‘John’);</p>
+<p>alert(user.name); // John ```</p>
+<p>In particular, <code>Reflect</code> allows us to call operators (<code>new</code>, <code>delete</code>…) as functions (<code>Reflect.construct</code>, <code>Reflect.deleteProperty</code>, …). That’s an interesting capability, but here another thing is important.</p>
+<p><strong>For every internal method, trappable by <code>Proxy</code>, there’s a corresponding method in <code>Reflect</code>, with the same name and arguments as the <code>Proxy</code> trap.</strong></p>
+<p>So we can use <code>Reflect</code> to forward an operation to the original object.</p>
+<p>In this example, both traps <code>get</code> and <code>set</code> transparently (as if they didn’t exist) forward reading/writing operations to the object, showing a message:</p>
+<p>```js run let user = { name: “John”, };</p>
+<p>user = new Proxy(user, { get(target, prop, receiver) { alert(<code>GET ${prop}</code>); <em>!</em> return Reflect.get(target, prop, receiver); // (1) <em>/!</em> }, set(target, prop, val, receiver) { alert(<code>SET ${prop}=${val}</code>); <em>!</em> return Reflect.set(target, prop, val, receiver); // (2) <em>/!</em> } });</p>
+<p>let name = user.name; // shows “GET name” user.name = “Pete”; // shows “SET name=Pete” ```</p>
+<p>Here:</p>
+<ul>
+<li><code>Reflect.get</code> reads an object property.</li>
+<li><code>Reflect.set</code> writes an object property and returns <code>true</code> if successful, <code>false</code> otherwise.</li>
+</ul>
+<p>That is, everything’s simple: if a trap wants to forward the call to the object, it’s enough to call <code>Reflect.&lt;method&gt;</code> with the same arguments.</p>
+<p>In most cases we can do the same without <code>Reflect</code>, for instance, reading a property <code>Reflect.get(target, prop, receiver)</code> can be replaced by <code>target[prop]</code>. There are important nuances though.</p>
+<h3 id="proxying-a-getter">Proxying a getter</h3>
+<p>Let’s see an example that demonstrates why <code>Reflect.get</code> is better. And we’ll also see why <code>get/set</code> have the third argument <code>receiver</code>, that we didn’t use before.</p>
+<p>We have an object <code>user</code> with <code>_name</code> property and a getter for it.</p>
+<p>Here’s a proxy around it:</p>
+<p>```js run let user = { _name: “Guest”, get name() { return this._name; } };</p>
+<p><em>!</em> let userProxy = new Proxy(user, { get(target, prop, receiver) { return target[prop]; } }); <em>/!</em></p>
+<p>alert(userProxy.name); // Guest ```</p>
+<p>The <code>get</code> trap is “transparent” here, it returns the original property, and doesn’t do anything else. That’s enough for our example.</p>
+<p>Everything seems to be all right. But let’s make the example a little bit more complex.</p>
+<p>After inheriting another object <code>admin</code> from <code>user</code>, we can observe the incorrect behavior:</p>
+<p>```js run let user = { _name: “Guest”, get name() { return this._name; } };</p>
+<p>let userProxy = new Proxy(user, { get(target, prop, receiver) { return target[prop]; // (*) target = user } });</p>
+<p><em>!</em> let admin = { <strong>proto</strong>: userProxy, _name: “Admin” };</p>
+<p>// Expected: Admin alert(admin.name); // outputs: Guest (?!?) <em>/!</em> ```</p>
+<p>Reading <code>admin.name</code> should return <code>"Admin"</code>, not <code>"Guest"</code>!</p>
+<p>What’s the matter? Maybe we did something wrong with the inheritance?</p>
+<p>But if we remove the proxy, then everything will work as expected.</p>
+<p>The problem is actually in the proxy, in the line <code>(*)</code>.</p>
+<ol type="1">
+<li>When we read <code>admin.name</code>, as <code>admin</code> object doesn’t have such own property, the search goes to its prototype.</li>
+<li>The prototype is <code>userProxy</code>.</li>
+<li><p>When reading <code>name</code> property from the proxy, its <code>get</code> trap triggers and returns it from the original object as <code>target[prop]</code> in the line <code>(*)</code>.</p>
+<p>A call to <code>target[prop]</code>, when <code>prop</code> is a getter, runs its code in the context <code>this=target</code>. So the result is <code>this._name</code> from the original object <code>target</code>, that is: from <code>user</code>.</p></li>
+</ol>
+<p>To fix such situations, we need <code>receiver</code>, the third argument of <code>get</code> trap. It keeps the correct <code>this</code> to be passed to a getter. In our case that’s <code>admin</code>.</p>
+<p>How to pass the context for a getter? For a regular function we could use <code>call/apply</code>, but that’s a getter, it’s not “called”, just accessed.</p>
+<p><code>Reflect.get</code> can do that. Everything will work right if we use it.</p>
+<p>Here’s the corrected variant:</p>
+<p>```js run let user = { _name: “Guest”, get name() { return this._name; } };</p>
+<p>let userProxy = new Proxy(user, { get(target, prop, receiver) { // receiver = admin <em>!</em> return Reflect.get(target, prop, receiver); // (<em>) </em>/!* } });</p>
+<p>let admin = { <strong>proto</strong>: userProxy, _name: “Admin” };</p>
+<p><em>!</em> alert(admin.name); // Admin <em>/!</em> ```</p>
+<p>Now <code>receiver</code> that keeps a reference to the correct <code>this</code> (that is <code>admin</code>), is passed to the getter using <code>Reflect.get</code> in the line <code>(*)</code>.</p>
+<p>We can rewrite the trap even shorter:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="at">get</span>(target<span class="op">,</span> prop<span class="op">,</span> receiver) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="cf">return</span> <span class="va">Reflect</span>.<span class="at">get</span>(<span class="op">*!*</span>...<span class="at">arguments</span><span class="op">*</span><span class="ss">/!</span><span class="sc">*)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="ss">}</span></a></code></pre></div>
+<p><code>Reflect</code> calls are named exactly the same way as traps and accept the same arguments. They were specifically designed this way.</p>
+<p>So, <code>return Reflect...</code> provides a safe no-brainer to forward the operation and make sure we don’t forget anything related to that.</p>
+<h2 id="proxy-limitations">Proxy limitations</h2>
+<p>Proxies provide a unique way to alter or tweak the behavior of the existing objects at the lowest level. Still, it’s not perfect. There are limitations.</p>
+<h3 id="built-in-objects-internal-slots">Built-in objects: Internal slots</h3>
+<p>Many built-in objects, for example <code>Map</code>, <code>Set</code>, <code>Date</code>, <code>Promise</code> and others make use of so-called “internal slots”.</p>
+<p>These are like properties, but reserved for internal, specification-only purposes. For instance, <code>Map</code> stores items in the internal slot <code>[[MapData]]</code>. Built-in methods access them directly, not via <code>[[Get]]/[[Set]]</code> internal methods. So <code>Proxy</code> can’t intercept that.</p>
+<p>Why care? They’re internal anyway!</p>
+<p>Well, here’s the issue. After a built-in object like that gets proxied, the proxy doesn’t have these internal slots, so built-in methods will fail.</p>
+<p>For example:</p>
+<p>```js run let map = new Map();</p>
+<p>let proxy = new Proxy(map, {});</p>
+<p><em>!</em> proxy.set(‘test’, 1); // Error <em>/!</em> ```</p>
+<p>Internally, a <code>Map</code> stores all data in its <code>[[MapData]]</code> internal slot. The proxy doesn’t have such a slot. The <a href="https://tc39.es/ecma262/#sec-map.prototype.set">built-in method <code>Map.prototype.set</code></a> method tries to access the internal property <code>this.[[MapData]]</code>, but because <code>this=proxy</code>, can’t find it in <code>proxy</code> and just fails.</p>
+<p>Fortunately, there’s a way to fix it:</p>
+<p>```js run let map = new Map();</p>
+<p>let proxy = new Proxy(map, { get(target, prop, receiver) { let value = Reflect.get(…arguments); <em>!</em> return typeof value == ‘function’ ? value.bind(target) : value; <em>/!</em> } });</p>
+<p>proxy.set(‘test’, 1); alert(proxy.get(‘test’)); // 1 (works!) ```</p>
+<p>Now it works fine, because <code>get</code> trap binds function properties, such as <code>map.set</code>, to the target object (<code>map</code>) itself.</p>
+<p>Unlike the previous example, the value of <code>this</code> inside <code>proxy.set(...)</code> will be not <code>proxy</code>, but the original <code>map</code>. So when the internal implementation of <code>set</code> tries to access <code>this.[[MapData]]</code> internal slot, it succeeds.</p>
+<p>``<code>smart header="</code>Array<code>has no internal slots" A notable exception: built-in</code>Array` doesn’t use internal slots. That’s for historical reasons, as it appeared so long ago.</p>
+<p>So there’s no such problem when proxying an array. ```</p>
+<h3 id="private-fields">Private fields</h3>
+<p>A similar thing happens with private class fields.</p>
+<p>For example, <code>getName()</code> method accesses the private <code>#name</code> property and breaks after proxying:</p>
+<p>```js run class User { #name = “Guest”;</p>
+<p>getName() { return this.#name; } }</p>
+<p>let user = new User();</p>
+<p>user = new Proxy(user, {});</p>
+<p><em>!</em> alert(user.getName()); // Error <em>/!</em> ```</p>
+<p>The reason is that private fields are implemented using internal slots. JavaScript does not use <code>[[Get]]/[[Set]]</code> when accessing them.</p>
+<p>In the call <code>getName()</code> the value of <code>this</code> is the proxied <code>user</code>, and it doesn’t have the slot with private fields.</p>
+<p>Once again, the solution with binding the method makes it work:</p>
+<p>```js run class User { #name = “Guest”;</p>
+<p>getName() { return this.#name; } }</p>
+<p>let user = new User();</p>
+<p>user = new Proxy(user, { get(target, prop, receiver) { let value = Reflect.get(…arguments); return typeof value == ‘function’ ? value.bind(target) : value; } });</p>
+<p>alert(user.getName()); // Guest ```</p>
+<p>That said, the solution has drawbacks, as explained previously: it exposes the original object to the method, potentially allowing it to be passed further and breaking other proxied functionality.</p>
+<h3 id="proxy-target">Proxy != target</h3>
+<p>The proxy and the original object are different objects. That’s natural, right?</p>
+<p>So if we use the original object as a key, and then proxy it, then the proxy can’t be found:</p>
+<p>```js run let allUsers = new Set();</p>
+<p>class User { constructor(name) { this.name = name; allUsers.add(this); } }</p>
+<p>let user = new User(“John”);</p>
+<p>alert(allUsers.has(user)); // true</p>
+<p>user = new Proxy(user, {});</p>
+<p><em>!</em> alert(allUsers.has(user)); // false <em>/!</em> ```</p>
+<p>As we can see, after proxying we can’t find <code>user</code> in the set <code>allUsers</code>, because the proxy is a different object.</p>
+<p>``<code>warn header="Proxies can't intercept a strict equality test</code>===<code>" Proxies can intercept many operators, such as</code>new<code>(with</code>construct<code>),</code>in<code>(with</code>has<code>),</code>delete<code>(with</code>deleteProperty`) and so on.</p>
+<p>But there’s no way to intercept a strict equality test for objects. An object is strictly equal to itself only, and no other value.</p>
+<p>So all operations and built-in classes that compare objects for equality will differentiate between the object and the proxy. No transparent replacement here. ```</p>
+<h2 id="revocable-proxies">Revocable proxies</h2>
+<p>A <em>revocable</em> proxy is a proxy that can be disabled.</p>
+<p>Let’s say we have a resource, and would like to close access to it any moment.</p>
+<p>What we can do is to wrap it into a revocable proxy, without any traps. Such a proxy will forward operations to object, and we can disable it at any moment.</p>
+<p>The syntax is:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">let</span> <span class="op">{</span>proxy<span class="op">,</span> revoke<span class="op">}</span> <span class="op">=</span> <span class="va">Proxy</span>.<span class="at">revocable</span>(target<span class="op">,</span> handler)</a></code></pre></div>
+<p>The call returns an object with the <code>proxy</code> and <code>revoke</code> function to disable it.</p>
+<p>Here’s an example:</p>
+<p>```js run let object = { data: “Valuable data” };</p>
+<p>let {proxy, revoke} = Proxy.revocable(object, {});</p>
+<p>// pass the proxy somewhere instead of object… alert(proxy.data); // Valuable data</p>
+<p>// later in our code revoke();</p>
+<p>// the proxy isn’t working any more (revoked) alert(proxy.data); // Error ```</p>
+<p>A call to <code>revoke()</code> removes all internal references to the target object from the proxy, so they are no longer connected.</p>
+<p>Initially, <code>revoke</code> is separate from <code>proxy</code>, so that we can pass <code>proxy</code> around while leaving <code>revoke</code> in the current scope.</p>
+<p>We can also bind <code>revoke</code> method to proxy by setting <code>proxy.revoke = revoke</code>.</p>
+<p>Another option is to create a <code>WeakMap</code> that has <code>proxy</code> as the key and the corresponding <code>revoke</code> as the value, that allows to easily find <code>revoke</code> for a proxy:</p>
+<p>```js run <em>!</em> let revokes = new WeakMap(); <em>/!</em></p>
+<p>let object = { data: “Valuable data” };</p>
+<p>let {proxy, revoke} = Proxy.revocable(object, {});</p>
+<p>revokes.set(proxy, revoke);</p>
+<p>// ..somewhere else in our code.. revoke = revokes.get(proxy); revoke();</p>
+<p>alert(proxy.data); // Error (revoked) ```</p>
+<p>We use <code>WeakMap</code> instead of <code>Map</code> here because it won’t block garbage collection. If a proxy object becomes “unreachable” (e.g. no variable references it any more), <code>WeakMap</code> allows it to be wiped from memory together with its <code>revoke</code> that we won’t need any more.</p>
+<h2 id="references">References</h2>
+<ul>
+<li>Specification: <a href="https://tc39.es/ecma262/#sec-proxy-object-internal-methods-and-internal-slots">Proxy</a>.</li>
+<li>MDN: <a href="mdn:/JavaScript/Reference/Global_Objects/Proxy">Proxy</a>.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p><code>Proxy</code> is a wrapper around an object, that forwards operations on it to the object, optionally trapping some of them.</p>
+<p>It can wrap any kind of object, including classes and functions.</p>
+<p>The syntax is:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">let</span> proxy <span class="op">=</span> <span class="kw">new</span> <span class="at">Proxy</span>(target<span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2">  <span class="co">/* traps */</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>…Then we should use <code>proxy</code> everywhere instead of <code>target</code>. A proxy doesn’t have its own properties or methods. It traps an operation if the trap is provided, otherwise forwards it to <code>target</code> object.</p>
+<p>We can trap: - Reading (<code>get</code>), writing (<code>set</code>), deleting (<code>deleteProperty</code>) a property (even a non-existing one). - Calling a function (<code>apply</code> trap). - The <code>new</code> operator (<code>construct</code> trap). - Many other operations (the full list is at the beginning of the article and in the <a href="mdn:/JavaScript/Reference/Global_Objects/Proxy">docs</a>).</p>
+<p>That allows us to create “virtual” properties and methods, implement default values, observable objects, function decorators and so much more.</p>
+<p>We can also wrap an object multiple times in different proxies, decorating it with various aspects of functionality.</p>
+<p>The <a href="mdn:/JavaScript/Reference/Global_Objects/Reflect">Reflect</a> API is designed to complement <a href="mdn:/JavaScript/Reference/Global_Objects/Proxy">Proxy</a>. For any <code>Proxy</code> trap, there’s a <code>Reflect</code> call with same arguments. We should use those to forward calls to target objects.</p>
+<p>Proxies have some limitations:</p>
+<ul>
+<li>Built-in objects have “internal slots”, access to those can’t be proxied. See the workaround above.</li>
+<li>The same holds true for private class fields, as they are internally implemented using slots. So proxied method calls must have the target object as <code>this</code> to access them.</li>
+<li>Object equality tests <code>===</code> can’t be intercepted.</li>
+<li>Performance: benchmarks depend on an engine, but generally accessing a property using a simplest proxy takes a few times longer. In practice that only matters for some “bottleneck” objects though.</li>
+</ul>

@@ -1,0 +1,18 @@
+<p>```js run no-beautify let john = { name: “John”, surname: “Smith”, id: 1 }; let pete = { name: “Pete”, surname: “Hunt”, id: 2 }; let mary = { name: “Mary”, surname: “Key”, id: 3 };</p>
+<p>let users = [ john, pete, mary ];</p>
+<p><em>!</em> let usersMapped = users.map(user =&gt; ({ fullName: <code>${user.name} ${user.surname}</code>, id: user.id })); <em>/!</em></p>
+<p>/<em> usersMapped = [ { fullName: “John Smith”, id: 1 }, { fullName: “Pete Hunt”, id: 2 }, { fullName: “Mary Key”, id: 3 }] </em>/</p>
+<p>alert( usersMapped[0].id ); // 1 alert( usersMapped[0].fullName ); // John Smith ```</p>
+<p>Please note that in the arrow functions we need to use additional brackets.</p>
+<p>We can’t write like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> usersMapped <span class="op">=</span> <span class="va">users</span>.<span class="at">map</span>(user <span class="kw">=&gt;</span> <span class="op">*!*{*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="ss">  fullName: `${user.name} ${user.surname}`,</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="ss">  id: user.id</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="ss">}</span><span class="sc">)</span><span class="ss">;</span></a></code></pre></div>
+<p>As we remember, there are two arrow functions: without body <code>value =&gt; expr</code> and with body <code>value =&gt; {...}</code>.</p>
+<p>Here JavaScript would treat <code>{</code> as the start of function body, not the start of the object. The workaround is to wrap them in the “normal” brackets:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> usersMapped <span class="op">=</span> <span class="va">users</span>.<span class="at">map</span>(user <span class="kw">=&gt;</span> <span class="op">*!*</span>(<span class="op">{*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="ss">  fullName: `${user.name} ${user.surname}`,</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="ss">  id: user.id</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="ss">}</span><span class="sc">))</span><span class="ss">;</span></a></code></pre></div>
+<p>Now fine.</p>

@@ -1,0 +1,62 @@
+<h1 id="long-polling">Long polling</h1>
+<p>Long polling is the simplest way of having persistent connection with server, that doesn’t use any specific protocol like WebSocket or Server Side Events.</p>
+<p>Being very easy to implement, it’s also good enough in a lot of cases.</p>
+<h2 id="regular-polling">Regular Polling</h2>
+<p>The simplest way to get new information from the server is periodic polling. That is, regular requests to the server: “Hello, I’m here, do you have any information for me?”. For example, once every 10 seconds.</p>
+<p>In response, the server first takes a notice to itself that the client is online, and second - sends a packet of messages it got till that moment.</p>
+<p>That works, but there are downsides: 1. Messages are passed with a delay up to 10 seconds (between requests). 2. Even if there are no messages, the server is bombed with requests every 10 seconds, even if the user switched somewhere else or is asleep. That’s quite a load to handle, speaking performance-wise.</p>
+<p>So, if we’re talking about a very small service, the approach may be viable, but generally, it needs an improvement.</p>
+<h2 id="long-polling-1">Long polling</h2>
+<p>So-called “long polling” is a much better way to poll the server.</p>
+<p>It’s also very easy to implement, and delivers messages without delays.</p>
+<p>The flow:</p>
+<ol type="1">
+<li>A request is sent to the server.</li>
+<li>The server doesn’t close the connection until it has a message to send.</li>
+<li>When a message appears - the server responds to the request with it.</li>
+<li>The browser makes a new request immediately.</li>
+</ol>
+<p>The situation when the browser sent a request and has a pending connection with the server, is standard for this method. Only when a message is delivered, the connection is reestablished.</p>
+<p><img src="long-polling.svg" /></p>
+<p>If the connection is lost, because of, say, a network error, the browser immediately sends a new request.</p>
+<p>A sketch of client-side <code>subscribe</code> function that makes long requests:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">async</span> <span class="kw">function</span> <span class="at">subscribe</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">let</span> response <span class="op">=</span> <span class="cf">await</span> <span class="at">fetch</span>(<span class="st">&quot;/subscribe&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="cf">if</span> (<span class="va">response</span>.<span class="at">status</span> <span class="op">==</span> <span class="dv">502</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="co">// Status 502 is a connection timeout error,</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="co">// may happen when the connection was pending for too long,</span></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="co">// and the remote server or a proxy closed it</span></a>
+<a class="sourceLine" id="cb1-8" title="8">    <span class="co">// let&#39;s reconnect</span></a>
+<a class="sourceLine" id="cb1-9" title="9">    <span class="cf">await</span> <span class="at">subscribe</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-10" title="10">  <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (<span class="va">response</span>.<span class="at">status</span> <span class="op">!=</span> <span class="dv">200</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-11" title="11">    <span class="co">// An error - let&#39;s show it</span></a>
+<a class="sourceLine" id="cb1-12" title="12">    <span class="at">showMessage</span>(<span class="va">response</span>.<span class="at">statusText</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-13" title="13">    <span class="co">// Reconnect in one second</span></a>
+<a class="sourceLine" id="cb1-14" title="14">    <span class="cf">await</span> <span class="kw">new</span> <span class="at">Promise</span>(resolve <span class="kw">=&gt;</span> <span class="at">setTimeout</span>(resolve<span class="op">,</span> <span class="dv">1000</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-15" title="15">    <span class="cf">await</span> <span class="at">subscribe</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-16" title="16">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-17" title="17">    <span class="co">// Get and show the message</span></a>
+<a class="sourceLine" id="cb1-18" title="18">    <span class="kw">let</span> message <span class="op">=</span> <span class="cf">await</span> <span class="va">response</span>.<span class="at">text</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-19" title="19">    <span class="at">showMessage</span>(message)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-20" title="20">    <span class="co">// Call subscribe() again to get the next message</span></a>
+<a class="sourceLine" id="cb1-21" title="21">    <span class="cf">await</span> <span class="at">subscribe</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-22" title="22">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-23" title="23"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-24" title="24"></a>
+<a class="sourceLine" id="cb1-25" title="25"><span class="at">subscribe</span>()<span class="op">;</span></a></code></pre></div>
+<p>As you can see, <code>subscribe</code> function makes a fetch, then waits for the response, handles it and calls itself again.</p>
+<p>```warn header=“Server should be ok with many pending connections” The server architecture must be able to work with many pending connections.</p>
+<p>Certain server architectures run one process per connection, resulting in there being as many processes as there are connections, while each process consumes quite a bit of memory. So, too many connections will just consume it all.</p>
+<p>That’s often the case for backends written in languages like PHP and Ruby.</p>
+<p>Servers written using Node.js usually don’t have such problems.</p>
+<p>That said, it isn’t a programming language issue. Most modern languages, including PHP and Ruby allow to implement a proper backend. Just please make sure that your server architecture works fine with many simultaneous connections. ```</p>
+<h2 id="demo-a-chat">Demo: a chat</h2>
+<p>Here’s a demo chat, you can also download it and run locally (if you’re familiar with Node.js and can install modules):</p>
+<p>[codetabs src=“longpoll” height=500]</p>
+<p>Browser code is in <code>browser.js</code>.</p>
+<h2 id="area-of-usage">Area of usage</h2>
+<p>Long polling works great in situations when messages are rare.</p>
+<p>If messages come very often, then the chart of requesting-receiving messages, painted above, becomes saw-like.</p>
+<p>Every message is a separate request, supplied with headers, authentication overhead, and so on.</p>
+<p>So, in this case, another method is preferred, such as <a href="info:websocket">Websocket</a> or <a href="info:server-sent-events">Server Sent Events</a>.</p>

@@ -1,0 +1,107 @@
+<h1 id="custom-errors-extending-error">Custom errors, extending Error</h1>
+<p>When we develop something, we often need our own error classes to reflect specific things that may go wrong in our tasks. For errors in network operations we may need <code>HttpError</code>, for database operations <code>DbError</code>, for searching operations <code>NotFoundError</code> and so on.</p>
+<p>Our errors should support basic error properties like <code>message</code>, <code>name</code> and, preferably, <code>stack</code>. But they also may have other properties of their own, e.g. <code>HttpError</code> objects may have a <code>statusCode</code> property with a value like <code>404</code> or <code>403</code> or <code>500</code>.</p>
+<p>JavaScript allows to use <code>throw</code> with any argument, so technically our custom error classes don’t need to inherit from <code>Error</code>. But if we inherit, then it becomes possible to use <code>obj instanceof Error</code> to identify error objects. So it’s better to inherit from it.</p>
+<p>As the application grows, our own errors naturally form a hierarchy. For instance, <code>HttpTimeoutError</code> may inherit from <code>HttpError</code>, and so on.</p>
+<h2 id="extending-error">Extending Error</h2>
+<p>As an example, let’s consider a function <code>readUser(json)</code> that should read JSON with user data.</p>
+<p>Here’s an example of how a valid <code>json</code> may look:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> json <span class="op">=</span> <span class="vs">`{ &quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30 }`</span><span class="op">;</span></a></code></pre></div>
+<p>Internally, we’ll use <code>JSON.parse</code>. If it receives malformed <code>json</code>, then it throws <code>SyntaxError</code>. But even if <code>json</code> is syntactically correct, that doesn’t mean that it’s a valid user, right? It may miss the necessary data. For instance, it may not have <code>name</code> and <code>age</code> properties that are essential for our users.</p>
+<p>Our function <code>readUser(json)</code> will not only read JSON, but check (“validate”) the data. If there are no required fields, or the format is wrong, then that’s an error. And that’s not a <code>SyntaxError</code>, because the data is syntactically correct, but another kind of error. We’ll call it <code>ValidationError</code> and create a class for it. An error of that kind should also carry the information about the offending field.</p>
+<p>Our <code>ValidationError</code> class should inherit from the built-in <code>Error</code> class.</p>
+<p>That class is built-in, but here’s its approximate code so we can understand what we’re extending:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// The &quot;pseudocode&quot; for the built-in Error class defined by JavaScript itself</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">class</span> Error <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="at">constructor</span>(message) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-4" title="4">    <span class="kw">this</span>.<span class="at">message</span> <span class="op">=</span> message<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-5" title="5">    <span class="kw">this</span>.<span class="at">name</span> <span class="op">=</span> <span class="st">&quot;Error&quot;</span><span class="op">;</span> <span class="co">// (different names for different built-in error classes)</span></a>
+<a class="sourceLine" id="cb2-6" title="6">    <span class="kw">this</span>.<span class="at">stack</span> <span class="op">=</span> <span class="op">&lt;</span>call stack<span class="op">&gt;;</span> <span class="co">// non-standard, but most environments support it</span></a>
+<a class="sourceLine" id="cb2-7" title="7">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="op">}</span></a></code></pre></div>
+<p>Now let’s inherit <code>ValidationError</code> from it and try it in action:</p>
+<p>```js run untrusted <em>!</em> class ValidationError extends Error { <em>/!</em> constructor(message) { super(message); // (1) this.name = “ValidationError”; // (2) } }</p>
+<p>function test() { throw new ValidationError(“Whoops!”); }</p>
+<p>try { test(); } catch(err) { alert(err.message); // Whoops! alert(err.name); // ValidationError alert(err.stack); // a list of nested calls with line numbers for each } ```</p>
+<p>Please note: in the line <code>(1)</code> we call the parent constructor. JavaScript requires us to call <code>super</code> in the child constructor, so that’s obligatory. The parent constructor sets the <code>message</code> property.</p>
+<p>The parent constructor also sets the <code>name</code> property to <code>"Error"</code>, so in the line <code>(2)</code> we reset it to the right value.</p>
+<p>Let’s try to use it in <code>readUser(json)</code>:</p>
+<p>```js run class ValidationError extends Error { constructor(message) { super(message); this.name = “ValidationError”; } }</p>
+<p>// Usage function readUser(json) { let user = JSON.parse(json);</p>
+<p>if (!user.age) { throw new ValidationError(“No field: age”); } if (!user.name) { throw new ValidationError(“No field: name”); }</p>
+<p>return user; }</p>
+<p>// Working example with try..catch</p>
+<p>try { let user = readUser(‘{ “age”: 25 }’); } catch (err) { if (err instanceof ValidationError) { <em>!</em> alert(“Invalid data:” + err.message); // Invalid data: No field: name <em>/!</em> } else if (err instanceof SyntaxError) { // (*) alert(“JSON Syntax Error:” + err.message); } else { throw err; // unknown error, rethrow it (**) } } ```</p>
+<p>The <code>try..catch</code> block in the code above handles both our <code>ValidationError</code> and the built-in <code>SyntaxError</code> from <code>JSON.parse</code>.</p>
+<p>Please take a look at how we use <code>instanceof</code> to check for the specific error type in the line <code>(*)</code>.</p>
+<p>We could also look at <code>err.name</code>, like this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// ...</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="co">// instead of (err instanceof SyntaxError)</span></a>
+<a class="sourceLine" id="cb3-3" title="3">} <span class="cf">else</span> <span class="cf">if</span> (<span class="va">err</span>.<span class="at">name</span> <span class="op">==</span> <span class="st">&quot;SyntaxError&quot;</span>) <span class="op">{</span> <span class="co">// (*)</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="co">// ...</span></a></code></pre></div>
+<p>The <code>instanceof</code> version is much better, because in the future we are going to extend <code>ValidationError</code>, make subtypes of it, like <code>PropertyRequiredError</code>. And <code>instanceof</code> check will continue to work for new inheriting classes. So that’s future-proof.</p>
+<p>Also it’s important that if <code>catch</code> meets an unknown error, then it rethrows it in the line <code>(**)</code>. The <code>catch</code> block only knows how to handle validation and syntax errors, other kinds (due to a typo in the code or other unknown ones) should fall through.</p>
+<h2 id="further-inheritance">Further inheritance</h2>
+<p>The <code>ValidationError</code> class is very generic. Many things may go wrong. The property may be absent or it may be in a wrong format (like a string value for <code>age</code>). Let’s make a more concrete class <code>PropertyRequiredError</code>, exactly for absent properties. It will carry additional information about the property that’s missing.</p>
+<p>```js run class ValidationError extends Error { constructor(message) { super(message); this.name = “ValidationError”; } }</p>
+<p><em>!</em> class PropertyRequiredError extends ValidationError { constructor(property) { super(“No property:” + property); this.name = “PropertyRequiredError”; this.property = property; } } <em>/!</em></p>
+<p>// Usage function readUser(json) { let user = JSON.parse(json);</p>
+<p>if (!user.age) { throw new PropertyRequiredError(“age”); } if (!user.name) { throw new PropertyRequiredError(“name”); }</p>
+<p>return user; }</p>
+<p>// Working example with try..catch</p>
+<p>try { let user = readUser(‘{ “age”: 25 }’); } catch (err) { if (err instanceof ValidationError) { <em>!</em> alert(“Invalid data:” + err.message); // Invalid data: No property: name alert(err.name); // PropertyRequiredError alert(err.property); // name <em>/!</em> } else if (err instanceof SyntaxError) { alert(“JSON Syntax Error:” + err.message); } else { throw err; // unknown error, rethrow it } } ```</p>
+<p>The new class <code>PropertyRequiredError</code> is easy to use: we only need to pass the property name: <code>new PropertyRequiredError(property)</code>. The human-readable <code>message</code> is generated by the constructor.</p>
+<p>Please note that <code>this.name</code> in <code>PropertyRequiredError</code> constructor is again assigned manually. That may become a bit tedious – to assign <code>this.name = &lt;class name&gt;</code> in every custom error class. We can avoid it by making our own “basic error” class that assigns <code>this.name = this.constructor.name</code>. And then inherit all our custom errors from it.</p>
+<p>Let’s call it <code>MyError</code>.</p>
+<p>Here’s the code with <code>MyError</code> and other custom error classes, simplified:</p>
+<p>```js run class MyError extends Error { constructor(message) { super(message); <em>!</em> this.name = this.constructor.name; <em>/!</em> } }</p>
+<p>class ValidationError extends MyError { }</p>
+<p>class PropertyRequiredError extends ValidationError { constructor(property) { super(“No property:” + property); this.property = property; } }</p>
+<p>// name is correct alert( new PropertyRequiredError(“field”).name ); // PropertyRequiredError ```</p>
+<p>Now custom errors are much shorter, especially <code>ValidationError</code>, as we got rid of the <code>"this.name = ..."</code> line in the constructor.</p>
+<h2 id="wrapping-exceptions">Wrapping exceptions</h2>
+<p>The purpose of the function <code>readUser</code> in the code above is “to read the user data”. There may occur different kinds of errors in the process. Right now we have <code>SyntaxError</code> and <code>ValidationError</code>, but in the future <code>readUser</code> function may grow and probably generate other kinds of errors.</p>
+<p>The code which calls <code>readUser</code> should handle these errors. Right now it uses multiple <code>if</code>s in the <code>catch</code> block, that check the class and handle known errors and rethrow the unknown ones.</p>
+<p>The scheme is like this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="cf">try</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  ...</a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="at">readUser</span>()  <span class="co">// the potential error source</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  ...</a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="op">}</span> <span class="cf">catch</span> (err) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-6" title="6">  <span class="cf">if</span> (err <span class="kw">instanceof</span> ValidationError) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-7" title="7">    <span class="co">// handle validation errors</span></a>
+<a class="sourceLine" id="cb4-8" title="8">  <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (err <span class="kw">instanceof</span> SyntaxError) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-9" title="9">    <span class="co">// handle syntax errors</span></a>
+<a class="sourceLine" id="cb4-10" title="10">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-11" title="11">    <span class="cf">throw</span> err<span class="op">;</span> <span class="co">// unknown error, rethrow it</span></a>
+<a class="sourceLine" id="cb4-12" title="12">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-13" title="13"><span class="op">}</span></a></code></pre></div>
+<p>In the code above we can see two types of errors, but there can be more.</p>
+<p>If the <code>readUser</code> function generates several kinds of errors, then we should ask ourselves: do we really want to check for all error types one-by-one every time?</p>
+<p>Often the answer is “No”: we’d like to be “one level above all that”. We just want to know if there was a “data reading error” – why exactly it happened is often irrelevant (the error message describes it). Or, even better, we’d like to have a way to get the error details, but only if we need to.</p>
+<p>The technique that we describe here is called “wrapping exceptions”.</p>
+<ol type="1">
+<li>We’ll make a new class <code>ReadError</code> to represent a generic “data reading” error.</li>
+<li>The function <code>readUser</code> will catch data reading errors that occur inside it, such as <code>ValidationError</code> and <code>SyntaxError</code>, and generate a <code>ReadError</code> instead.</li>
+<li>The <code>ReadError</code> object will keep the reference to the original error in its <code>cause</code> property.</li>
+</ol>
+<p>Then the code that calls <code>readUser</code> will only have to check for <code>ReadError</code>, not for every kind of data reading errors. And if it needs more details of an error, it can check its <code>cause</code> property.</p>
+<p>Here’s the code that defines <code>ReadError</code> and demonstrates its use in <code>readUser</code> and <code>try..catch</code>:</p>
+<p>```js run class ReadError extends Error { constructor(message, cause) { super(message); this.cause = cause; this.name = ‘ReadError’; } }</p>
+<p>class ValidationError extends Error { /<em>…</em>/ } class PropertyRequiredError extends ValidationError { /* … */ }</p>
+<p>function validateUser(user) { if (!user.age) { throw new PropertyRequiredError(“age”); }</p>
+<p>if (!user.name) { throw new PropertyRequiredError(“name”); } }</p>
+<p>function readUser(json) { let user;</p>
+<p>try { user = JSON.parse(json); } catch (err) { <em>!</em> if (err instanceof SyntaxError) { throw new ReadError(“Syntax Error”, err); } else { throw err; } <em>/!</em> }</p>
+<p>try { validateUser(user); } catch (err) { <em>!</em> if (err instanceof ValidationError) { throw new ReadError(“Validation Error”, err); } else { throw err; } <em>/!</em> }</p>
+<p>}</p>
+<p>try { readUser(‘{bad json}’); } catch (e) { if (e instanceof ReadError) { <em>!</em> alert(e); // Original error: SyntaxError: Unexpected token b in JSON at position 1 alert(“Original error:” + e.cause); <em>/!</em> } else { throw e; } } ```</p>
+<p>In the code above, <code>readUser</code> works exactly as described – catches syntax and validation errors and throws <code>ReadError</code> errors instead (unknown errors are rethrown as usual).</p>
+<p>So the outer code checks <code>instanceof ReadError</code> and that’s it. No need to list all possible error types.</p>
+<p>The approach is called “wrapping exceptions”, because we take “low level” exceptions and “wrap” them into <code>ReadError</code> that is more abstract. It is widely used in object-oriented programming.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>We can inherit from <code>Error</code> and other built-in error classes normally. We just need to take care of the <code>name</code> property and don’t forget to call <code>super</code>.</li>
+<li>We can use <code>instanceof</code> to check for particular errors. It also works with inheritance. But sometimes we have an error object coming from a 3rd-party library and there’s no easy way to get its class. Then <code>name</code> property can be used for such checks.</li>
+<li>Wrapping exceptions is a widespread technique: a function handles low-level exceptions and creates higher-level errors instead of various low-level ones. Low-level exceptions sometimes become properties of that object like <code>err.cause</code> in the examples above, but that’s not strictly required.</li>
+</ul>

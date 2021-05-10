@@ -1,0 +1,16 @@
+{
+  "name": "second-edition",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export"
+  },
+  "dependencies": {
+    "next": "^7.0.0",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1"
+  }
+}

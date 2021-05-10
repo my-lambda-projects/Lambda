@@ -1,0 +1,7 @@
+<p>By definition, a factorial <code>n!</code> can be written as <code>n * (n-1)!</code>.</p>
+<p>In other words, the result of <code>factorial(n)</code> can be calculated as <code>n</code> multiplied by the result of <code>factorial(n-1)</code>. And the call for <code>n-1</code> can recursively descend lower, and lower, till <code>1</code>.</p>
+<p>```js run function factorial(n) { return (n != 1) ? n * factorial(n - 1) : 1; }</p>
+<p>alert( factorial(5) ); // 120 ```</p>
+<p>The basis of recursion is the value <code>1</code>. We can also make <code>0</code> the basis here, doesn’t matter much, but gives one more recursive step:</p>
+<p>```js run function factorial(n) { return n ? n * factorial(n - 1) : 1; }</p>
+<p>alert( factorial(5) ); // 120 ```</p>

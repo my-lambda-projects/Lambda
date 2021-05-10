@@ -1,0 +1,175 @@
+<h1 id="event-delegation">Event delegation</h1>
+<p>Capturing and bubbling allow us to implement one of most powerful event handling patterns called <em>event delegation</em>.</p>
+<p>The idea is that if we have a lot of elements handled in a similar way, then instead of assigning a handler to each of them – we put a single handler on their common ancestor.</p>
+<p>In the handler we get <code>event.target</code> to see where the event actually happened and handle it.</p>
+<p>Let’s see an example – the <a href="http://en.wikipedia.org/wiki/Ba_gua">Ba-Gua diagram</a> reflecting the ancient Chinese philosophy.</p>
+<p>Here it is:</p>
+<p>[iframe height=350 src=“bagua” edit link]</p>
+<p>The HTML is like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;table&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">&lt;tr&gt;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">&lt;th</span><span class="ot"> colspan=</span><span class="st">&quot;3&quot;</span><span class="kw">&gt;&lt;em&gt;</span>Bagua<span class="kw">&lt;/em&gt;</span> Chart: Direction, Element, Color, Meaning<span class="kw">&lt;/th&gt;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="kw">&lt;tr&gt;</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;nw&quot;</span><span class="kw">&gt;&lt;strong&gt;</span>Northwest<span class="kw">&lt;/strong&gt;&lt;br&gt;</span>Metal<span class="kw">&lt;br&gt;</span>Silver<span class="kw">&lt;br&gt;</span>Elders<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;n&quot;</span><span class="kw">&gt;</span>...<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb1-8" title="8">    <span class="kw">&lt;td</span><span class="ot"> class=</span><span class="st">&quot;ne&quot;</span><span class="kw">&gt;</span>...<span class="kw">&lt;/td&gt;</span></a>
+<a class="sourceLine" id="cb1-9" title="9">  <span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb1-10" title="10">  <span class="kw">&lt;tr&gt;</span>...2 more lines of this kind...<span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb1-11" title="11">  <span class="kw">&lt;tr&gt;</span>...2 more lines of this kind...<span class="kw">&lt;/tr&gt;</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="kw">&lt;/table&gt;</span></a></code></pre></div>
+<p>The table has 9 cells, but there could be 99 or 9999, doesn’t matter.</p>
+<p><strong>Our task is to highlight a cell <code>&lt;td&gt;</code> on click.</strong></p>
+<p>Instead of assign an <code>onclick</code> handler to each <code>&lt;td&gt;</code> (can be many) – we’ll setup the “catch-all” handler on <code>&lt;table&gt;</code> element.</p>
+<p>It will use <code>event.target</code> to get the clicked element and highlight it.</p>
+<p>The code:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> selectedTd<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="va">table</span>.<span class="at">onclick</span> <span class="op">=</span> <span class="kw">function</span>(event) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-5" title="5">  <span class="kw">let</span> target <span class="op">=</span> <span class="va">event</span>.<span class="at">target</span><span class="op">;</span> <span class="co">// where was the click?</span></a>
+<a class="sourceLine" id="cb2-6" title="6"></a>
+<a class="sourceLine" id="cb2-7" title="7">  <span class="cf">if</span> (<span class="va">target</span>.<span class="at">tagName</span> <span class="op">!=</span> <span class="st">&#39;TD&#39;</span>) <span class="cf">return</span><span class="op">;</span> <span class="co">// not on TD? Then we&#39;re not interested</span></a>
+<a class="sourceLine" id="cb2-8" title="8"></a>
+<a class="sourceLine" id="cb2-9" title="9">  <span class="at">highlight</span>(target)<span class="op">;</span> <span class="co">// highlight it</span></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="op">};</span></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb2-12" title="12"></a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="ss">function highlight</span><span class="sc">(</span><span class="ss">td</span><span class="sc">)</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb2-14" title="14"><span class="ss">  if </span><span class="sc">(</span><span class="ss">selectedTd</span><span class="sc">)</span><span class="ss"> { // remove the existing highlight if any</span></a>
+<a class="sourceLine" id="cb2-15" title="15"><span class="ss">    selectedTd.classList.remove</span><span class="sc">(</span><span class="ss">&#39;highlight&#39;</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb2-16" title="16"><span class="ss">  }</span></a>
+<a class="sourceLine" id="cb2-17" title="17"><span class="ss">  selectedTd = td;</span></a>
+<a class="sourceLine" id="cb2-18" title="18"><span class="ss">  selectedTd.classList.add</span><span class="sc">(</span><span class="ss">&#39;highlight&#39;</span><span class="sc">)</span><span class="ss">; // highlight the new td</span></a>
+<a class="sourceLine" id="cb2-19" title="19"><span class="ss">}</span></a></code></pre></div>
+<p>Such a code doesn’t care how many cells there are in the table. We can add/remove <code>&lt;td&gt;</code> dynamically at any time and the highlighting will still work.</p>
+<p>Still, there’s a drawback.</p>
+<p>The click may occur not on the <code>&lt;td&gt;</code>, but inside it.</p>
+<p>In our case if we take a look inside the HTML, we can see nested tags inside <code>&lt;td&gt;</code>, like <code>&lt;strong&gt;</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">&lt;td&gt;</span></a>
+<a class="sourceLine" id="cb3-2" title="2">*!*</a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="kw">&lt;strong&gt;</span>Northwest<span class="kw">&lt;/strong&gt;</span></a>
+<a class="sourceLine" id="cb3-4" title="4">*/!*</a>
+<a class="sourceLine" id="cb3-5" title="5">  ...</a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="kw">&lt;/td&gt;</span></a></code></pre></div>
+<p>Naturally, if a click happens on that <code>&lt;strong&gt;</code> then it becomes the value of <code>event.target</code>.</p>
+<p><img src="bagua-bubble.svg" /></p>
+<p>In the handler <code>table.onclick</code> we should take such <code>event.target</code> and find out whether the click was inside <code>&lt;td&gt;</code> or not.</p>
+<p>Here’s the improved code:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">table</span>.<span class="at">onclick</span> <span class="op">=</span> <span class="kw">function</span>(event) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="kw">let</span> td <span class="op">=</span> <span class="va">event</span>.<span class="va">target</span>.<span class="at">closest</span>(<span class="st">&#39;td&#39;</span>)<span class="op">;</span> <span class="co">// (1)</span></a>
+<a class="sourceLine" id="cb4-3" title="3"></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="cf">if</span> (<span class="op">!</span>td) <span class="cf">return</span><span class="op">;</span> <span class="co">// (2)</span></a>
+<a class="sourceLine" id="cb4-5" title="5"></a>
+<a class="sourceLine" id="cb4-6" title="6">  <span class="cf">if</span> (<span class="op">!</span><span class="va">table</span>.<span class="at">contains</span>(td)) <span class="cf">return</span><span class="op">;</span> <span class="co">// (3)</span></a>
+<a class="sourceLine" id="cb4-7" title="7"></a>
+<a class="sourceLine" id="cb4-8" title="8">  <span class="at">highlight</span>(td)<span class="op">;</span> <span class="co">// (4)</span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="op">};</span></a></code></pre></div>
+<p>Explanations: 1. The method <code>elem.closest(selector)</code> returns the nearest ancestor that matches the selector. In our case we look for <code>&lt;td&gt;</code> on the way up from the source element. 2. If <code>event.target</code> is not inside any <code>&lt;td&gt;</code>, then the call returns immediately, as there’s nothing to do. 3. In case of nested tables, <code>event.target</code> may be a <code>&lt;td&gt;</code>, but lying outside of the current table. So we check if that’s actually <em>our table’s</em> <code>&lt;td&gt;</code>. 4. And, if it’s so, then highlight it.</p>
+<p>As the result, we have a fast, efficient highlighting code, that doesn’t care about the total number of <code>&lt;td&gt;</code> in the table.</p>
+<h2 id="delegation-example-actions-in-markup">Delegation example: actions in markup</h2>
+<p>There are other uses for event delegation.</p>
+<p>Let’s say, we want to make a menu with buttons “Save”, “Load”, “Search” and so on. And there’s an object with methods <code>save</code>, <code>load</code>, <code>search</code>… How to match them?</p>
+<p>The first idea may be to assign a separate handler to each button. But there’s a more elegant solution. We can add a handler for the whole menu and <code>data-action</code> attributes for buttons that has the method to call:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">&lt;button</span><span class="ot"> *</span><span class="er">!*data-action</span><span class="ot">=</span><span class="st">&quot;save&quot;</span><span class="er">*/!*</span><span class="kw">&gt;</span>Click to Save<span class="kw">&lt;/button&gt;</span></a></code></pre></div>
+<p>The handler reads the attribute and executes the method. Take a look at the working example:</p>
+```html autorun height=60 run untrusted
+<div id="menu">
+<p><button data-action="save">Save</button> <button data-action="load">Load</button> <button data-action="search">Search</button></p>
+</div>
+<script>
+  class Menu {
+    constructor(elem) {
+      this._elem = elem;
+      elem.onclick = this.onClick.bind(this); // (*)
+    }
+
+    save() {
+      alert('saving');
+    }
+
+    load() {
+      alert('loading');
+    }
+
+    search() {
+      alert('searching');
+    }
+
+    onClick(event) {
+*!*
+      let action = event.target.dataset.action;
+      if (action) {
+        this[action]();
+      }
+*/!*
+    };
+  }
+
+  new Menu(menu);
+</script>
+<p>```</p>
+<p>Please note that <code>this.onClick</code> is bound to <code>this</code> in <code>(*)</code>. That’s important, because otherwise <code>this</code> inside it would reference the DOM element (<code>elem</code>), not the <code>Menu</code> object, and <code>this[action]</code> would not be what we need.</p>
+<p>So, what advantages does delegation give us here?</p>
+<pre class="compare"><code>+ We don&#39;t need to write the code to assign a handler to each button. Just make a method and put it in the markup.
++ The HTML structure is flexible, we can add/remove buttons at any time.</code></pre>
+<p>We could also use classes <code>.action-save</code>, <code>.action-load</code>, but an attribute <code>data-action</code> is better semantically. And we can use it in CSS rules too.</p>
+<h2 id="the-behavior-pattern">The “behavior” pattern</h2>
+<p>We can also use event delegation to add “behaviors” to elements <em>declaratively</em>, with special attributes and classes.</p>
+<p>The pattern has two parts: 1. We add a custom attribute to an element that describes its behavior. 2. A document-wide handler tracks events, and if an event happens on an attributed element – performs the action.</p>
+<h3 id="behavior-counter">Behavior: Counter</h3>
+<p>For instance, here the attribute <code>data-counter</code> adds a behavior: “increase value on click” to buttons:</p>
+<p>```html run autorun height=60 Counter: <input type="button" value="1" data-counter> One more counter: <input type="button" value="2" data-counter></p>
+<script>
+  document.addEventListener('click', function(event) {
+
+    if (event.target.dataset.counter != undefined) { // if the attribute exists...
+      event.target.value++;
+    }
+
+  });
+</script>
+<p>```</p>
+<p>If we click a button – its value is increased. Not buttons, but the general approach is important here.</p>
+<p>There can be as many attributes with <code>data-counter</code> as we want. We can add new ones to HTML at any moment. Using the event delegation we “extended” HTML, added an attribute that describes a new behavior.</p>
+<p>``<code>warn header="For document-level handlers -- always</code>addEventListener<code>" When we assign an event handler to the</code>document<code>object, we should always use</code>addEventListener<code>, not</code>document.on<event>`, because the latter will cause conflicts: new handlers overwrite old ones.</p>
+<p>For real projects it’s normal that there are many handlers on <code>document</code> set by different parts of the code. ```</p>
+<h3 id="behavior-toggler">Behavior: Toggler</h3>
+<p>One more example of behavior. A click on an element with the attribute <code>data-toggle-id</code> will show/hide the element with the given <code>id</code>:</p>
+<p>```html autorun run height=60 &lt;button <em>!</em>data-toggle-id=“subscribe-mail”<em>/!</em>&gt; Show the subscription form </button></p>
+<form id="subscribe-mail" hidden>
+Your mail: <input type="email">
+</form>
+<script>
+*!*
+  document.addEventListener('click', function(event) {
+    let id = event.target.dataset.toggleId;
+    if (!id) return;
+
+    let elem = document.getElementById(id);
+
+    elem.hidden = !elem.hidden;
+  });
+*/!*
+</script>
+<p>```</p>
+<p>Let’s note once again what we did. Now, to add toggling functionality to an element – there’s no need to know JavaScript, just use the attribute <code>data-toggle-id</code>.</p>
+<p>That may become really convenient – no need to write JavaScript for every such element. Just use the behavior. The document-level handler makes it work for any element of the page.</p>
+<p>We can combine multiple behaviors on a single element as well.</p>
+<p>The “behavior” pattern can be an alternative to mini-fragments of JavaScript.</p>
+<h2 id="summary">Summary</h2>
+<p>Event delegation is really cool! It’s one of the most helpful patterns for DOM events.</p>
+<p>It’s often used to add the same handling for many similar elements, but not only for that.</p>
+<p>The algorithm:</p>
+<ol type="1">
+<li>Put a single handler on the container.</li>
+<li>In the handler – check the source element <code>event.target</code>.</li>
+<li>If the event happened inside an element that interests us, then handle the event.</li>
+</ol>
+<p>Benefits:</p>
+<pre class="compare"><code>+ Simplifies initialization and saves memory: no need to add many handlers.
++ Less code: when adding or removing elements, no need to add/remove handlers.
++ DOM modifications: we can mass add/remove elements with `innerHTML` and the like.</code></pre>
+<p>The delegation has its limitations of course:</p>
+<pre class="compare"><code>- First, the event must be bubbling. Some events do not bubble. Also, low-level handlers should not use `event.stopPropagation()`.
+- Second, the delegation may add CPU load, because the container-level handler reacts on events in any place of the container, no matter whether they interest us or not. But usually the load is negligible, so we don&#39;t take it into account.</code></pre>

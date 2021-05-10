@@ -1,0 +1,8 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="strange-instanceof">Strange instanceof</h1>
+<p>In the code below, why does <code>instanceof</code> return <code>true</code>? We can easily see that <code>a</code> is not created by <code>B()</code>.</p>
+<p>```js run function A() {} function B() {}</p>
+<p>A.prototype = B.prototype = {};</p>
+<p>let a = new A();</p>
+<p><em>!</em> alert( a instanceof B ); // true <em>/!</em> ```</p>

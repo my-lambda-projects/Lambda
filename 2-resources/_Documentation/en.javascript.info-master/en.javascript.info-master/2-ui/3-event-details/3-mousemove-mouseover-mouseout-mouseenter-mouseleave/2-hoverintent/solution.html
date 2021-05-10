@@ -1,0 +1,7 @@
+<p>The algorithm looks simple: 1. Put <code>onmouseover/out</code> handlers on the element. Also can use <code>onmouseenter/leave</code> here, but they are less universal, won’t work if we introduce delegation. 2. When a mouse cursor entered the element, start measuring the speed on <code>mousemove</code>. 3. If the speed is slow, then run <code>over</code>. 4. When we’re going out of the element, and <code>over</code> was executed, run <code>out</code>.</p>
+<p>But how to measure the speed?</p>
+<p>The first idea can be: run a function every <code>100ms</code> and measure the distance between previous and new coordinates. If it’s small, then the speed is small.</p>
+<p>Unfortunately, there’s no way to get “current mouse coordinates” in JavaScript. There’s no function like <code>getCurrentMouseCoordinates()</code>.</p>
+<p>The only way to get coordinates is to listen for mouse events, like <code>mousemove</code>, and take coordinates from the event object.</p>
+<p>So let’s set a handler on <code>mousemove</code> to track coordinates and remember them. And then compare them, once per <code>100ms</code>.</p>
+<p>P.S. Please note: the solution tests use <code>dispatchEvent</code> to see if the tooltip works right.</p>

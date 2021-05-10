@@ -1,0 +1,11 @@
+<p>The solution: <code>pattern:/"(\\.|[^"\\])*"/g</code>.</p>
+<p>Step by step:</p>
+<ul>
+<li>First we look for an opening quote <code>pattern:"</code></li>
+<li>Then if we have a backslash <code>pattern:\\</code> (we have to double it in the pattern because it is a special character), then any character is fine after it (a dot).</li>
+<li>Otherwise we take any character except a quote (that would mean the end of the string) and a backslash (to prevent lonely backslashes, the backslash is only used with some other symbol after it): <code>pattern:[^"\\]</code></li>
+<li>…And so on till the closing quote.</li>
+</ul>
+<p>In action:</p>
+<p>```js run let regexp = /"(\.|[^"\\])*“/g; let str = ’ ..”test me" .. “Say \”Hello\“!” .. “\\ \”" .. ’;</p>
+<p>alert( str.match(regexp) ); // “test me”,“Say "Hello"!”,“\ "” ```</p>

@@ -1,0 +1,418 @@
+<h1 id="modifying-the-document">Modifying the document</h1>
+<p>DOM modification is the key to creating “live” pages.</p>
+<p>Here we’ll see how to create new elements “on the fly” and modify the existing page content.</p>
+<h2 id="example-show-a-message">Example: show a message</h2>
+<p>Let’s demonstrate using an example. We’ll add a message on the page that looks nicer than <code>alert</code>.</p>
+<p>Here’s how it will look:</p>
+```html autorun height=“80”
+<style>
+.alert {
+  padding: 15px;
+  border: 1px solid #d6e9c6;
+  border-radius: 4px;
+  color: #3c763d;
+  background-color: #dff0d8;
+}
+</style>
+<em>!</em>
+<div class="alert">
+<p><strong>Hi there!</strong> You’ve read an important message.</p>
+</div>
+<p><em>/!</em> ```</p>
+<p>That was the HTML example. Now let’s create the same <code>div</code> with JavaScript (assuming that the styles are in the HTML/CSS already).</p>
+<h2 id="creating-an-element">Creating an element</h2>
+<p>To create DOM nodes, there are two methods:</p>
+<dl>
+<dt><code>document.createElement(tag)</code></dt>
+<dd><p>Creates a new <em>element node</em> with the given tag:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> div <span class="op">=</span> <span class="va">document</span>.<span class="at">createElement</span>(<span class="st">&#39;div&#39;</span>)<span class="op">;</span></a></code></pre></div>
+</dd>
+<dt><code>document.createTextNode(text)</code></dt>
+<dd><p>Creates a new <em>text node</em> with the given text:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> textNode <span class="op">=</span> <span class="va">document</span>.<span class="at">createTextNode</span>(<span class="st">&#39;Here I am&#39;</span>)<span class="op">;</span></a></code></pre></div>
+</dd>
+</dl>
+<p>Most of the time we need to create element nodes, such as the <code>div</code> for the message.</p>
+<h3 id="creating-the-message">Creating the message</h3>
+<p>Creating the message div takes 3 steps:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// 1. Create &lt;div&gt; element</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">let</span> div <span class="op">=</span> <span class="va">document</span>.<span class="at">createElement</span>(<span class="st">&#39;div&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="co">// 2. Set its class to &quot;alert&quot;</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="va">div</span>.<span class="at">className</span> <span class="op">=</span> <span class="st">&quot;alert&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-6" title="6"></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="co">// 3. Fill it with the content</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="va">div</span>.<span class="at">innerHTML</span> <span class="op">=</span> <span class="st">&quot;&lt;strong&gt;Hi there!&lt;/strong&gt; You&#39;ve read an important message.&quot;</span><span class="op">;</span></a></code></pre></div>
+<p>We’ve created the element. But as of now it’s only in a variable named <code>div</code>, not in the page yet. So we can’t see it.</p>
+<h2 id="insertion-methods">Insertion methods</h2>
+<p>To make the <code>div</code> show up, we need to insert it somewhere into <code>document</code>. For instance, into <code>&lt;body&gt;</code> element, referenced by <code>document.body</code>.</p>
+<p>There’s a special method <code>append</code> for that: <code>document.body.append(div)</code>.</p>
+<p>Here’s the full code:</p>
+```html run height=“80”
+<style>
+.alert {
+  padding: 15px;
+  border: 1px solid #d6e9c6;
+  border-radius: 4px;
+  color: #3c763d;
+  background-color: #dff0d8;
+}
+</style>
+<script>
+  let div = document.createElement('div');
+  div.className = "alert";
+  div.innerHTML = "<strong>Hi there!</strong> You've read an important message.";
+
+*!*
+  document.body.append(div);
+*/!*
+</script>
+<p>```</p>
+<p>Here we called <code>append</code> on <code>document.body</code>, but we can call <code>append</code> method on any other element, to put another element into it. For instance, we can append something to <code>&lt;div&gt;</code> by calling <code>div.append(anotherElement)</code>.</p>
+<p>Here are more insertion methods, they specify different places where to insert:</p>
+<ul>
+<li><code>node.append(...nodes or strings)</code> – append nodes or strings <em>at the end</em> of <code>node</code>,</li>
+<li><code>node.prepend(...nodes or strings)</code> – insert nodes or strings <em>at the beginning</em> of <code>node</code>,</li>
+<li><code>node.before(...nodes or strings)</code> –- insert nodes or strings <em>before</em> <code>node</code>,</li>
+<li><code>node.after(...nodes or strings)</code> –- insert nodes or strings <em>after</em> <code>node</code>,</li>
+<li><code>node.replaceWith(...nodes or strings)</code> –- replaces <code>node</code> with the given nodes or strings.</li>
+</ul>
+<p>Arguments of these methods are an arbitrary list of DOM nodes to insert, or text strings (that become text nodes automatically).</p>
+<p>Let’s see them in action.</p>
+<p>Here’s an example of using these methods to add items to a list and the text before/after it:</p>
+```html autorun
+<ol id="ol">
+<li>
+0
+</li>
+<li>
+1
+</li>
+<li>
+2
+</li>
+</ol>
+<script>
+  ol.before('before'); // insert string "before" before <ol>
+  ol.after('after'); // insert string "after" after <ol>
+
+  let liFirst = document.createElement('li');
+  liFirst.innerHTML = 'prepend';
+  ol.prepend(liFirst); // insert liFirst at the beginning of <ol>
+
+  let liLast = document.createElement('li');
+  liLast.innerHTML = 'append';
+  ol.append(liLast); // insert liLast at the end of <ol>
+</script>
+<p>```</p>
+<p>Here’s a visual picture of what the methods do:</p>
+<p><img src="before-prepend-append-after.svg" /></p>
+<p>So the final list will be:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb4-1" title="1">before</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw">&lt;ol</span><span class="ot"> id=</span><span class="st">&quot;ol&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="kw">&lt;li&gt;</span>prepend<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="kw">&lt;li&gt;</span>0<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb4-5" title="5">  <span class="kw">&lt;li&gt;</span>1<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb4-6" title="6">  <span class="kw">&lt;li&gt;</span>2<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb4-7" title="7">  <span class="kw">&lt;li&gt;</span>append<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="kw">&lt;/ol&gt;</span></a>
+<a class="sourceLine" id="cb4-9" title="9">after</a></code></pre></div>
+<p>As said, these methods can insert multiple nodes and text pieces in a single call.</p>
+<p>For instance, here a string and an element are inserted:</p>
+<p><code>html run &lt;div id="div"&gt;&lt;/div&gt; &lt;script&gt;   div.before('&lt;p&gt;Hello&lt;/p&gt;', document.createElement('hr')); &lt;/script&gt;</code></p>
+<p>Please note: the text is inserted “as text”, not “as HTML”, with proper escaping of characters such as <code>&lt;</code>, <code>&gt;</code>.</p>
+<p>So the final HTML is:</p>
+<p><code>html run *!* &amp;lt;p&amp;gt;Hello&amp;lt;/p&amp;gt; */!* &lt;hr&gt; &lt;div id="div"&gt;&lt;/div&gt;</code></p>
+<p>In other words, strings are inserted in a safe way, like <code>elem.textContent</code> does it.</p>
+<p>So, these methods can only be used to insert DOM nodes or text pieces.</p>
+<p>But what if we’d like to insert an HTML string “as html”, with all tags and stuff working, in the same manner as <code>elem.innerHTML</code> does it?</p>
+<h2 id="insertadjacenthtmltextelement">insertAdjacentHTML/Text/Element</h2>
+<p>For that we can use another, pretty versatile method: <code>elem.insertAdjacentHTML(where, html)</code>.</p>
+<p>The first parameter is a code word, specifying where to insert relative to <code>elem</code>. Must be one of the following:</p>
+<ul>
+<li><code>"beforebegin"</code> – insert <code>html</code> immediately before <code>elem</code>,</li>
+<li><code>"afterbegin"</code> – insert <code>html</code> into <code>elem</code>, at the beginning,</li>
+<li><code>"beforeend"</code> – insert <code>html</code> into <code>elem</code>, at the end,</li>
+<li><code>"afterend"</code> – insert <code>html</code> immediately after <code>elem</code>.</li>
+</ul>
+<p>The second parameter is an HTML string, that is inserted “as HTML”.</p>
+<p>For instance:</p>
+<p><code>html run &lt;div id="div"&gt;&lt;/div&gt; &lt;script&gt;   div.insertAdjacentHTML('beforebegin', '&lt;p&gt;Hello&lt;/p&gt;');   div.insertAdjacentHTML('afterend', '&lt;p&gt;Bye&lt;/p&gt;'); &lt;/script&gt;</code></p>
+<p>…Would lead to:</p>
+<p><code>html run &lt;p&gt;Hello&lt;/p&gt; &lt;div id="div"&gt;&lt;/div&gt; &lt;p&gt;Bye&lt;/p&gt;</code></p>
+<p>That’s how we can append arbitrary HTML to the page.</p>
+<p>Here’s the picture of insertion variants:</p>
+<p><img src="insert-adjacent.svg" /></p>
+<p>We can easily notice similarities between this and the previous picture. The insertion points are actually the same, but this method inserts HTML.</p>
+<p>The method has two brothers:</p>
+<ul>
+<li><code>elem.insertAdjacentText(where, text)</code> – the same syntax, but a string of <code>text</code> is inserted “as text” instead of HTML,</li>
+<li><code>elem.insertAdjacentElement(where, elem)</code> – the same syntax, but inserts an element.</li>
+</ul>
+<p>They exist mainly to make the syntax “uniform”. In practice, only <code>insertAdjacentHTML</code> is used most of the time. Because for elements and text, we have methods <code>append/prepend/before/after</code> – they are shorter to write and can insert nodes/text pieces.</p>
+<p>So here’s an alternative variant of showing a message:</p>
+```html run
+<style>
+.alert {
+  padding: 15px;
+  border: 1px solid #d6e9c6;
+  border-radius: 4px;
+  color: #3c763d;
+  background-color: #dff0d8;
+}
+</style>
+<script>
+  document.body.insertAdjacentHTML("afterbegin", `<div class="alert">
+    <strong>Hi there!</strong> You've read an important message.
+  </div>`);
+</script>
+<p>```</p>
+<h2 id="node-removal">Node removal</h2>
+<p>To remove a node, there’s a method <code>node.remove()</code>.</p>
+<p>Let’s make our message disappear after a second:</p>
+```html run untrusted
+<style>
+.alert {
+  padding: 15px;
+  border: 1px solid #d6e9c6;
+  border-radius: 4px;
+  color: #3c763d;
+  background-color: #dff0d8;
+}
+</style>
+<script>
+  let div = document.createElement('div');
+  div.className = "alert";
+  div.innerHTML = "<strong>Hi there!</strong> You've read an important message.";
+
+  document.body.append(div);
+*!*
+  setTimeout(() => div.remove(), 1000);
+*/!*
+</script>
+<p>```</p>
+<p>Please note: if we want to <em>move</em> an element to another place – there’s no need to remove it from the old one.</p>
+<p><strong>All insertion methods automatically remove the node from the old place.</strong></p>
+<p>For instance, let’s swap elements:</p>
+<p><code>html run height=50 &lt;div id="first"&gt;First&lt;/div&gt; &lt;div id="second"&gt;Second&lt;/div&gt; &lt;script&gt;   // no need to call remove   second.after(first); // take #second and after it insert #first &lt;/script&gt;</code></p>
+<h2 id="cloning-nodes-clonenode">Cloning nodes: cloneNode</h2>
+<p>How to insert one more similar message?</p>
+<p>We could make a function and put the code there. But the alternative way would be to <em>clone</em> the existing <code>div</code> and modify the text inside it (if needed).</p>
+<p>Sometimes when we have a big element, that may be faster and simpler.</p>
+<ul>
+<li>The call <code>elem.cloneNode(true)</code> creates a “deep” clone of the element – with all attributes and subelements. If we call <code>elem.cloneNode(false)</code>, then the clone is made without child elements.</li>
+</ul>
+<p>An example of copying the message:</p>
+```html run height=“120”
+<style>
+.alert {
+  padding: 15px;
+  border: 1px solid #d6e9c6;
+  border-radius: 4px;
+  color: #3c763d;
+  background-color: #dff0d8;
+}
+</style>
+<div id="div" class="alert">
+<p><strong>Hi there!</strong> You’ve read an important message.</p>
+</div>
+<script>
+*!*
+  let div2 = div.cloneNode(true); // clone the message
+  div2.querySelector('strong').innerHTML = 'Bye there!'; // change the clone
+
+  div.after(div2); // show the clone after the existing div
+*/!*
+</script>
+<p>```</p>
+<h2 id="documentfragment-document-fragment">DocumentFragment [#document-fragment]</h2>
+<p><code>DocumentFragment</code> is a special DOM node that serves as a wrapper to pass around lists of nodes.</p>
+<p>We can append other nodes to it, but when we insert it somewhere, then its content is inserted instead.</p>
+<p>For example, <code>getListContent</code> below generates a fragment with <code>&lt;li&gt;</code> items, that are later inserted into <code>&lt;ul&gt;</code>:</p>
+```html run
+<ul id="ul">
+</ul>
+<script>
+function getListContent() {
+  let fragment = new DocumentFragment();
+
+  for(let i=1; i<=3; i++) {
+    let li = document.createElement('li');
+    li.append(i);
+    fragment.append(li);
+  }
+
+  return fragment;
+}
+
+*!*
+ul.append(getListContent()); // (*)
+*/!*
+</script>
+<p>```</p>
+<p>Please note, at the last line <code>(*)</code> we append <code>DocumentFragment</code>, but it “blends in”, so the resulting structure will be:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">&lt;ul&gt;</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="kw">&lt;li&gt;</span>1<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="kw">&lt;li&gt;</span>2<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb5-4" title="4">  <span class="kw">&lt;li&gt;</span>3<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="kw">&lt;/ul&gt;</span></a></code></pre></div>
+<p><code>DocumentFragment</code> is rarely used explicitly. Why append to a special kind of node, if we can return an array of nodes instead? Rewritten example:</p>
+```html run
+<ul id="ul">
+</ul>
+<script>
+function getListContent() {
+  let result = [];
+
+  for(let i=1; i<=3; i++) {
+    let li = document.createElement('li');
+    li.append(i);
+    result.push(li);
+  }
+
+  return result;
+}
+
+*!*
+ul.append(...getListContent()); // append + "..." operator = friends!
+*/!*
+</script>
+<p>```</p>
+<p>We mention <code>DocumentFragment</code> mainly because there are some concepts on top of it, like <a href="info:template-element">template</a> element, that we’ll cover much later.</p>
+<h2 id="old-school-insertremove-methods">Old-school insert/remove methods</h2>
+<p>[old]</p>
+<p>There are also “old school” DOM manipulation methods, existing for historical reasons.</p>
+<p>These methods come from really ancient times. Nowadays, there’s no reason to use them, as modern methods, such as <code>append</code>, <code>prepend</code>, <code>before</code>, <code>after</code>, <code>remove</code>, <code>replaceWith</code>, are more flexible.</p>
+<p>The only reason we list these methods here is that you can find them in many old scripts:</p>
+<dl>
+<dt><code>parentElem.appendChild(node)</code></dt>
+<dd><p>Appends <code>node</code> as the last child of <code>parentElem</code>.</p>
+<p>The following example adds a new <code>&lt;li&gt;</code> to the end of <code>&lt;ol&gt;</code>:</p>
+```html run height=100
+<ol id="list">
+<li>
+0
+</li>
+<li>
+1
+</li>
+<li>
+2
+</li>
+</ol>
+<script>
+  let newLi = document.createElement('li');
+  newLi.innerHTML = 'Hello, world!';
+
+  list.appendChild(newLi);
+</script>
+<p>```</p>
+</dd>
+<dt><code>parentElem.insertBefore(node, nextSibling)</code></dt>
+<dd><p>Inserts <code>node</code> before <code>nextSibling</code> into <code>parentElem</code>.</p>
+<p>The following code inserts a new list item before the second <code>&lt;li&gt;</code>:</p>
+```html run height=100
+<ol id="list">
+<li>
+0
+</li>
+<li>
+1
+</li>
+<li>
+2
+</li>
+</ol>
+<script>
+  let newLi = document.createElement('li');
+  newLi.innerHTML = 'Hello, world!';
+
+*!*
+  list.insertBefore(newLi, list.children[1]);
+*/!*
+</script>
+<p>``<code>To insert</code>newLi` as the first element, we can do it like this:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="va">list</span>.<span class="at">insertBefore</span>(newLi<span class="op">,</span> <span class="va">list</span>.<span class="at">firstChild</span>)<span class="op">;</span></a></code></pre></div>
+</dd>
+<dt><code>parentElem.replaceChild(node, oldChild)</code></dt>
+<dd>Replaces <code>oldChild</code> with <code>node</code> among children of <code>parentElem</code>.
+</dd>
+<dt><code>parentElem.removeChild(node)</code></dt>
+<dd><p>Removes <code>node</code> from <code>parentElem</code> (assuming <code>node</code> is its child).</p>
+<p>The following example removes first <code>&lt;li&gt;</code> from <code>&lt;ol&gt;</code>:</p>
+```html run height=100
+<ol id="list">
+<li>
+0
+</li>
+<li>
+1
+</li>
+<li>
+2
+</li>
+</ol>
+<script>
+  let li = list.firstElementChild;
+  list.removeChild(li);
+</script>
+<p>```</p>
+</dd>
+</dl>
+<p>All these methods return the inserted/removed node. In other words, <code>parentElem.appendChild(node)</code> returns <code>node</code>. But usually the returned value is not used, we just run the method.</p>
+<h2 id="a-word-about-document.write">A word about “document.write”</h2>
+<p>There’s one more, very ancient method of adding something to a web-page: <code>document.write</code>.</p>
+<p>The syntax:</p>
+<p><code>html run &lt;p&gt;Somewhere in the page...&lt;/p&gt; *!* &lt;script&gt;   document.write('&lt;b&gt;Hello from JS&lt;/b&gt;'); &lt;/script&gt; */!* &lt;p&gt;The end&lt;/p&gt;</code></p>
+<p>The call to <code>document.write(html)</code> writes the <code>html</code> into page “right here and now”. The <code>html</code> string can be dynamically generated, so it’s kind of flexible. We can use JavaScript to create a full-fledged webpage and write it.</p>
+<p>The method comes from times when there was no DOM, no standards… Really old times. It still lives, because there are scripts using it.</p>
+<p>In modern scripts we can rarely see it, because of the following important limitation:</p>
+<p><strong>The call to <code>document.write</code> only works while the page is loading.</strong></p>
+<p>If we call it afterwards, the existing document content is erased.</p>
+<p>For instance:</p>
+<p><code>html run &lt;p&gt;After one second the contents of this page will be replaced...&lt;/p&gt; *!* &lt;script&gt;   // document.write after 1 second   // that's after the page loaded, so it erases the existing content   setTimeout(() =&gt; document.write('&lt;b&gt;...By this.&lt;/b&gt;'), 1000); &lt;/script&gt; */!*</code></p>
+<p>So it’s kind of unusable at “after loaded” stage, unlike other DOM methods we covered above.</p>
+<p>That’s the downside.</p>
+<p>There’s an upside also. Technically, when <code>document.write</code> is called while the browser is reading (“parsing”) incoming HTML, and it writes something, the browser consumes it just as if it were initially there, in the HTML text.</p>
+<p>So it works blazingly fast, because there’s <em>no DOM modification</em> involved. It writes directly into the page text, while the DOM is not yet built.</p>
+<p>So if we need to add a lot of text into HTML dynamically, and we’re at page loading phase, and the speed matters, it may help. But in practice these requirements rarely come together. And usually we can see this method in scripts just because they are old.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Methods to create new nodes:
+<ul>
+<li><code>document.createElement(tag)</code> – creates an element with the given tag,</li>
+<li><code>document.createTextNode(value)</code> – creates a text node (rarely used),</li>
+<li><code>elem.cloneNode(deep)</code> – clones the element, if <code>deep==true</code> then with all descendants.</li>
+</ul></li>
+<li>Insertion and removal:
+<ul>
+<li><code>node.append(...nodes or strings)</code> – insert into <code>node</code>, at the end,</li>
+<li><code>node.prepend(...nodes or strings)</code> – insert into <code>node</code>, at the beginning,</li>
+<li><code>node.before(...nodes or strings)</code> –- insert right before <code>node</code>,</li>
+<li><code>node.after(...nodes or strings)</code> –- insert right after <code>node</code>,</li>
+<li><code>node.replaceWith(...nodes or strings)</code> –- replace <code>node</code>.</li>
+<li><code>node.remove()</code> –- remove the <code>node</code>.</li>
+</ul>
+<p>Text strings are inserted “as text”.</p></li>
+<li>There are also “old school” methods:
+<ul>
+<li><code>parent.appendChild(node)</code></li>
+<li><code>parent.insertBefore(node, nextSibling)</code></li>
+<li><code>parent.removeChild(node)</code></li>
+<li><code>parent.replaceChild(newElem, node)</code></li>
+</ul>
+<p>All these methods return <code>node</code>.</p></li>
+<li>Given some HTML in <code>html</code>, <code>elem.insertAdjacentHTML(where, html)</code> inserts it depending on the value of <code>where</code>:
+<ul>
+<li><code>"beforebegin"</code> – insert <code>html</code> right before <code>elem</code>,</li>
+<li><code>"afterbegin"</code> – insert <code>html</code> into <code>elem</code>, at the beginning,</li>
+<li><code>"beforeend"</code> – insert <code>html</code> into <code>elem</code>, at the end,</li>
+<li><code>"afterend"</code> – insert <code>html</code> right after <code>elem</code>.</li>
+</ul>
+<p>Also there are similar methods, <code>elem.insertAdjacentText</code> and <code>elem.insertAdjacentElement</code>, that insert text strings and elements, but they are rarely used.</p></li>
+<li>To append HTML to the page before it has finished loading:
+<ul>
+<li><code>document.write(html)</code></li>
+</ul>
+<p>After the page is loaded such a call erases the document. Mostly seen in old scripts.</p></li>
+</ul>

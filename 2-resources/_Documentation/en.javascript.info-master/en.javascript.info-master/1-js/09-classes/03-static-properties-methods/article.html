@@ -1,0 +1,86 @@
+<h1 id="static-properties-and-methods">Static properties and methods</h1>
+<p>We can also assign a method to the class function itself, not to its <code>"prototype"</code>. Such methods are called <em>static</em>.</p>
+<p>In a class, they are prepended by <code>static</code> keyword, like this:</p>
+<p>```js run class User { <em>!</em> static staticMethod() { <em>/!</em> alert(this === User); } }</p>
+<p>User.staticMethod(); // true ```</p>
+<p>That actually does the same as assigning it as a property directly:</p>
+<p>```js run class User { }</p>
+<p>User.staticMethod = function() { alert(this === User); };</p>
+<p>User.staticMethod(); // true ```</p>
+<p>The value of <code>this</code> in <code>User.staticMethod()</code> call is the class constructor <code>User</code> itself (the “object before dot” rule).</p>
+<p>Usually, static methods are used to implement functions that belong to the class, but not to any particular object of it.</p>
+<p>For instance, we have <code>Article</code> objects and need a function to compare them. A natural solution would be to add <code>Article.compare</code> method, like this:</p>
+<p>```js run class Article { constructor(title, date) { this.title = title; this.date = date; }</p>
+<p><em>!</em> static compare(articleA, articleB) { return articleA.date - articleB.date; } <em>/!</em> }</p>
+<p>// usage let articles = [ new Article(“HTML”, new Date(2019, 1, 1)), new Article(“CSS”, new Date(2019, 0, 1)), new Article(“JavaScript”, new Date(2019, 11, 1))];</p>
+<p><em>!</em> articles.sort(Article.compare); <em>/!</em></p>
+<p>alert( articles[0].title ); // CSS ```</p>
+<p>Here <code>Article.compare</code> stands “above” articles, as a means to compare them. It’s not a method of an article, but rather of the whole class.</p>
+<p>Another example would be a so-called “factory” method. Imagine, we need few ways to create an article:</p>
+<ol type="1">
+<li>Create by given parameters (<code>title</code>, <code>date</code> etc).</li>
+<li>Create an empty article with today’s date.</li>
+<li>…or else somehow.</li>
+</ol>
+<p>The first way can be implemented by the constructor. And for the second one we can make a static method of the class.</p>
+<p>Like <code>Article.createTodays()</code> here:</p>
+<p>```js run class Article { constructor(title, date) { this.title = title; this.date = date; }</p>
+<p><em>!</em> static createTodays() { // remember, this = Article return new this(“Today’s digest”, new Date()); } <em>/!</em> }</p>
+<p>let article = Article.createTodays();</p>
+<p>alert( article.title ); // Today’s digest ```</p>
+<p>Now every time we need to create a today’s digest, we can call <code>Article.createTodays()</code>. Once again, that’s not a method of an article, but a method of the whole class.</p>
+<p>Static methods are also used in database-related classes to search/save/remove entries from the database, like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// assuming Article is a special class for managing articles</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="co">// static method to remove the article:</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="va">Article</span>.<span class="at">remove</span>(<span class="op">{</span><span class="dt">id</span><span class="op">:</span> <span class="dv">12345</span><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h2 id="static-properties">Static properties</h2>
+<p>[recent browser=Chrome]</p>
+<p>Static properties are also possible, they look like regular class properties, but prepended by <code>static</code>:</p>
+<p>```js run class Article { static publisher = “Ilya Kantor”; }</p>
+<p>alert( Article.publisher ); // Ilya Kantor ```</p>
+<p>That is the same as a direct assignment to <code>Article</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">Article</span>.<span class="at">publisher</span> <span class="op">=</span> <span class="st">&quot;Ilya Kantor&quot;</span><span class="op">;</span></a></code></pre></div>
+<h2 id="inheritance-of-static-properties-and-methods-statics-and-inheritance">Inheritance of static properties and methods [#statics-and-inheritance]</h2>
+<p>Static properties and methods are inherited.</p>
+<p>For instance, <code>Animal.compare</code> and <code>Animal.planet</code> in the code below are inherited and accessible as <code>Rabbit.compare</code> and <code>Rabbit.planet</code>:</p>
+<p>```js run class Animal { static planet = “Earth”;</p>
+<p>constructor(name, speed) { this.speed = speed; this.name = name; }</p>
+<p>run(speed = 0) { this.speed += speed; alert(<code>${this.name} runs with speed ${this.speed}.</code>); }</p>
+<p><em>!</em> static compare(animalA, animalB) { return animalA.speed - animalB.speed; } <em>/!</em></p>
+<p>}</p>
+<p>// Inherit from Animal class Rabbit extends Animal { hide() { alert(<code>${this.name} hides!</code>); } }</p>
+<p>let rabbits = [ new Rabbit(“White Rabbit”, 10), new Rabbit(“Black Rabbit”, 5)];</p>
+<p><em>!</em> rabbits.sort(Rabbit.compare); <em>/!</em></p>
+<p>rabbits[0].run(); // Black Rabbit runs with speed 5.</p>
+<p>alert(Rabbit.planet); // Earth ```</p>
+<p>Now when we call <code>Rabbit.compare</code>, the inherited <code>Animal.compare</code> will be called.</p>
+<p>How does it work? Again, using prototypes. As you might have already guessed, <code>extends</code> gives <code>Rabbit</code> the <code>[[Prototype]]</code> reference to <code>Animal</code>.</p>
+<p><img src="animal-rabbit-static.svg" /></p>
+<p>So, <code>Rabbit extends Animal</code> creates two <code>[[Prototype]]</code> references:</p>
+<ol type="1">
+<li><code>Rabbit</code> function prototypally inherits from <code>Animal</code> function.</li>
+<li><code>Rabbit.prototype</code> prototypally inherits from <code>Animal.prototype</code>.</li>
+</ol>
+<p>As a result, inheritance works both for regular and static methods.</p>
+<p>Here, let’s check that by code:</p>
+<p>```js run class Animal {} class Rabbit extends Animal {}</p>
+<p>// for statics alert(Rabbit.__proto__ === Animal); // true</p>
+<p>// for regular methods alert(Rabbit.prototype.__proto__ === Animal.prototype); // true ```</p>
+<h2 id="summary">Summary</h2>
+<p>Static methods are used for the functionality that belongs to the class “as a whole”. It doesn’t relate to a concrete class instance.</p>
+<p>For example, a method for comparison <code>Article.compare(article1, article2)</code> or a factory method <code>Article.createTodays()</code>.</p>
+<p>They are labeled by the word <code>static</code> in class declaration.</p>
+<p>Static properties are used when we’d like to store class-level data, also not bound to an instance.</p>
+<p>The syntax is:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">class</span> MyClass <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="kw">static</span> property <span class="op">=</span> ...<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"></a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="kw">static</span> <span class="at">method</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-5" title="5">    ...</a>
+<a class="sourceLine" id="cb3-6" title="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="op">}</span></a></code></pre></div>
+<p>Technically, static declaration is the same as assigning to the class itself:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">MyClass</span>.<span class="at">property</span> <span class="op">=</span> ...</a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="va">MyClass</span>.<span class="at">method</span> <span class="op">=</span> ...</a></code></pre></div>
+<p>Static properties and methods are inherited.</p>
+<p>For <code>class B extends A</code> the prototype of the class <code>B</code> itself points to <code>A</code>: <code>B.[[Prototype]] = A</code>. So if a field is not found in <code>B</code>, the search continues in <code>A</code>.</p>

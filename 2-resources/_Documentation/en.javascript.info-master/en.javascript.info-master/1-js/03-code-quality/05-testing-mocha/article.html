@@ -1,0 +1,271 @@
+<h1 id="automated-testing-with-mocha">Automated testing with Mocha</h1>
+<p>Automated testing will be used in further tasks, and it’s also widely used in real projects.</p>
+<h2 id="why-do-we-need-tests">Why do we need tests?</h2>
+<p>When we write a function, we can usually imagine what it should do: which parameters give which results.</p>
+<p>During development, we can check the function by running it and comparing the outcome with the expected one. For instance, we can do it in the console.</p>
+<p>If something is wrong – then we fix the code, run again, check the result – and so on till it works.</p>
+<p>But such manual “re-runs” are imperfect.</p>
+<p><strong>When testing a code by manual re-runs, it’s easy to miss something.</strong></p>
+<p>For instance, we’re creating a function <code>f</code>. Wrote some code, testing: <code>f(1)</code> works, but <code>f(2)</code> doesn’t work. We fix the code and now <code>f(2)</code> works. Looks complete? But we forgot to re-test <code>f(1)</code>. That may lead to an error.</p>
+<p>That’s very typical. When we develop something, we keep a lot of possible use cases in mind. But it’s hard to expect a programmer to check all of them manually after every change. So it becomes easy to fix one thing and break another one.</p>
+<p><strong>Automated testing means that tests are written separately, in addition to the code. They run our functions in various ways and compare results with the expected.</strong></p>
+<h2 id="behavior-driven-development-bdd">Behavior Driven Development (BDD)</h2>
+<p>Let’s start with a technique named <a href="http://en.wikipedia.org/wiki/Behavior-driven_development">Behavior Driven Development</a> or, in short, BDD.</p>
+<p><strong>BDD is three things in one: tests AND documentation AND examples.</strong></p>
+<p>To understand BDD, we’ll examine a practical case of development.</p>
+<h2 id="development-of-pow-the-spec">Development of “pow”: the spec</h2>
+<p>Let’s say we want to make a function <code>pow(x, n)</code> that raises <code>x</code> to an integer power <code>n</code>. We assume that <code>n≥0</code>.</p>
+<p>That task is just an example: there’s the <code>**</code> operator in JavaScript that can do that, but here we concentrate on the development flow that can be applied to more complex tasks as well.</p>
+<p>Before creating the code of <code>pow</code>, we can imagine what the function should do and describe it.</p>
+<p>Such description is called a <em>specification</em> or, in short, a spec, and contains descriptions of use cases together with tests for them, like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="at">describe</span>(<span class="st">&quot;pow&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="at">it</span>(<span class="st">&quot;raises to n-th power&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="va">assert</span>.<span class="at">equal</span>(<span class="at">pow</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>)<span class="op">,</span> <span class="dv">8</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>A spec has three main building blocks that you can see above:</p>
+<dl>
+<dt><code>describe("title", function() { ... })</code></dt>
+<dd>What functionality we’re describing. In our case we’re describing the function <code>pow</code>. Used to group “workers” – the <code>it</code> blocks.
+</dd>
+<dt><code>it("use case description", function() { ... })</code></dt>
+<dd>In the title of <code>it</code> we <em>in a human-readable way</em> describe the particular use case, and the second argument is a function that tests it.
+</dd>
+<dt><code>assert.equal(value1, value2)</code></dt>
+<dd><p>The code inside <code>it</code> block, if the implementation is correct, should execute without errors.</p>
+<p>Functions <code>assert.*</code> are used to check whether <code>pow</code> works as expected. Right here we’re using one of them – <code>assert.equal</code>, it compares arguments and yields an error if they are not equal. Here it checks that the result of <code>pow(2, 3)</code> equals <code>8</code>. There are other types of comparisons and checks, that we’ll add later.</p>
+</dd>
+</dl>
+<p>The specification can be executed, and it will run the test specified in <code>it</code> block. We’ll see that later.</p>
+<h2 id="the-development-flow">The development flow</h2>
+<p>The flow of development usually looks like this:</p>
+<ol type="1">
+<li>An initial spec is written, with tests for the most basic functionality.</li>
+<li>An initial implementation is created.</li>
+<li>To check whether it works, we run the testing framework <a href="http://mochajs.org/">Mocha</a> (more details soon) that runs the spec. While the functionality is not complete, errors are displayed. We make corrections until everything works.</li>
+<li>Now we have a working initial implementation with tests.</li>
+<li>We add more use cases to the spec, probably not yet supported by the implementations. Tests start to fail.</li>
+<li>Go to 3, update the implementation till tests give no errors.</li>
+<li>Repeat steps 3-6 till the functionality is ready.</li>
+</ol>
+<p>So, the development is <em>iterative</em>. We write the spec, implement it, make sure tests pass, then write more tests, make sure they work etc. At the end we have both a working implementation and tests for it.</p>
+<p>Let’s see this development flow in our practical case.</p>
+<p>The first step is already complete: we have an initial spec for <code>pow</code>. Now, before making the implementation, let’s use few JavaScript libraries to run the tests, just to see that they are working (they will all fail).</p>
+<h2 id="the-spec-in-action">The spec in action</h2>
+<p>Here in the tutorial we’ll be using the following JavaScript libraries for tests:</p>
+<ul>
+<li><a href="http://mochajs.org/">Mocha</a> – the core framework: it provides common testing functions including <code>describe</code> and <code>it</code> and the main function that runs tests.</li>
+<li><a href="http://chaijs.com">Chai</a> – the library with many assertions. It allows to use a lot of different assertions, for now we need only <code>assert.equal</code>.</li>
+<li><a href="http://sinonjs.org/">Sinon</a> – a library to spy over functions, emulate built-in functions and more, we’ll need it much later.</li>
+</ul>
+<p>These libraries are suitable for both in-browser and server-side testing. Here we’ll consider the browser variant.</p>
+<p>The full HTML page with these frameworks and <code>pow</code> spec:</p>
+<p><code>html src="index.html"</code></p>
+<p>The page can be divided into five parts:</p>
+<ol type="1">
+<li>The <code>&lt;head&gt;</code> – add third-party libraries and styles for tests.</li>
+<li>The <code>&lt;script&gt;</code> with the function to test, in our case – with the code for <code>pow</code>.</li>
+<li>The tests – in our case an external script <code>test.js</code> that has <code>describe("pow", ...)</code> from above.</li>
+<li>The HTML element <code>&lt;div id="mocha"&gt;</code> will be used by Mocha to output results.</li>
+<li>The tests are started by the command <code>mocha.run()</code>.</li>
+</ol>
+<p>The result:</p>
+<p>[iframe height=250 src=“pow-1” border=1 edit]</p>
+<p>As of now, the test fails, there’s an error. That’s logical: we have an empty function code in <code>pow</code>, so <code>pow(2,3)</code> returns <code>undefined</code> instead of <code>8</code>.</p>
+<p>For the future, let’s note that there are more high-level test-runners, like <a href="https://karma-runner.github.io/">karma</a> and others, that make it easy to autorun many different tests.</p>
+<h2 id="initial-implementation">Initial implementation</h2>
+<p>Let’s make a simple implementation of <code>pow</code>, for tests to pass:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">function</span> <span class="at">pow</span>(x<span class="op">,</span> n) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="cf">return</span> <span class="dv">8</span><span class="op">;</span> <span class="co">// :) we cheat!</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>Wow, now it works!</p>
+<p>[iframe height=250 src=“pow-min” border=1 edit]</p>
+<h2 id="improving-the-spec">Improving the spec</h2>
+<p>What we’ve done is definitely a cheat. The function does not work: an attempt to calculate <code>pow(3,4)</code> would give an incorrect result, but tests pass.</p>
+<p>…But the situation is quite typical, it happens in practice. Tests pass, but the function works wrong. Our spec is imperfect. We need to add more use cases to it.</p>
+<p>Let’s add one more test to check that <code>pow(3, 4) = 81</code>.</p>
+<p>We can select one of two ways to organize the test here:</p>
+<ol type="1">
+<li><p>The first variant – add one more <code>assert</code> into the same <code>it</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">describe</span>(<span class="st">&quot;pow&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="at">it</span>(<span class="st">&quot;raises to n-th power&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="va">assert</span>.<span class="at">equal</span>(<span class="at">pow</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>)<span class="op">,</span> <span class="dv">8</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb3-6" title="6">    <span class="va">assert</span>.<span class="at">equal</span>(<span class="at">pow</span>(<span class="dv">3</span><span class="op">,</span> <span class="dv">4</span>)<span class="op">,</span> <span class="dv">81</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="ss">  }</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb3-9" title="9"></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="ss">}</span><span class="sc">)</span><span class="ss">;</span></a></code></pre></div></li>
+<li><p>The second – make two tests:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">describe</span>(<span class="st">&quot;pow&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="at">it</span>(<span class="st">&quot;2 raised to power 3 is 8&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-4" title="4">    <span class="va">assert</span>.<span class="at">equal</span>(<span class="at">pow</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>)<span class="op">,</span> <span class="dv">8</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-5" title="5">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-6" title="6"></a>
+<a class="sourceLine" id="cb4-7" title="7">  <span class="at">it</span>(<span class="st">&quot;3 raised to power 4 is 81&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-8" title="8">    <span class="va">assert</span>.<span class="at">equal</span>(<span class="at">pow</span>(<span class="dv">3</span><span class="op">,</span> <span class="dv">4</span>)<span class="op">,</span> <span class="dv">81</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-9" title="9">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-10" title="10"></a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div></li>
+</ol>
+<p>The principal difference is that when <code>assert</code> triggers an error, the <code>it</code> block immediately terminates. So, in the first variant if the first <code>assert</code> fails, then we’ll never see the result of the second <code>assert</code>.</p>
+<p>Making tests separate is useful to get more information about what’s going on, so the second variant is better.</p>
+<p>And besides that, there’s one more rule that’s good to follow.</p>
+<p><strong>One test checks one thing.</strong></p>
+<p>If we look at the test and see two independent checks in it, it’s better to split it into two simpler ones.</p>
+<p>So let’s continue with the second variant.</p>
+<p>The result:</p>
+<p>[iframe height=250 src=“pow-2” edit border=“1”]</p>
+<p>As we could expect, the second test failed. Sure, our function always returns <code>8</code>, while the <code>assert</code> expects <code>81</code>.</p>
+<h2 id="improving-the-implementation">Improving the implementation</h2>
+<p>Let’s write something more real for tests to pass:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">function</span> <span class="at">pow</span>(x<span class="op">,</span> n) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="kw">let</span> result <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-3" title="3"></a>
+<a class="sourceLine" id="cb5-4" title="4">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-5" title="5">    result <span class="op">*=</span> x<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-6" title="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-7" title="7"></a>
+<a class="sourceLine" id="cb5-8" title="8">  <span class="cf">return</span> result<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-9" title="9"><span class="op">}</span></a></code></pre></div>
+<p>To be sure that the function works well, let’s test it for more values. Instead of writing <code>it</code> blocks manually, we can generate them in <code>for</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="at">describe</span>(<span class="st">&quot;pow&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2"></a>
+<a class="sourceLine" id="cb6-3" title="3">  <span class="kw">function</span> <span class="at">makeTest</span>(x) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-4" title="4">    <span class="kw">let</span> expected <span class="op">=</span> x <span class="op">*</span> x <span class="op">*</span> x<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-5" title="5">    <span class="at">it</span>(<span class="vs">`</span><span class="sc">${</span>x<span class="sc">}</span><span class="vs"> in the power 3 is </span><span class="sc">${</span>expected<span class="sc">}</span><span class="vs">`</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-6" title="6">      <span class="va">assert</span>.<span class="at">equal</span>(<span class="at">pow</span>(x<span class="op">,</span> <span class="dv">3</span>)<span class="op">,</span> expected)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-7" title="7">    <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-8" title="8">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-9" title="9"></a>
+<a class="sourceLine" id="cb6-10" title="10">  <span class="cf">for</span> (<span class="kw">let</span> x <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> x <span class="op">&lt;=</span> <span class="dv">5</span><span class="op">;</span> x<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-11" title="11">    <span class="at">makeTest</span>(x)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-12" title="12">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-13" title="13"></a>
+<a class="sourceLine" id="cb6-14" title="14"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>The result:</p>
+<p>[iframe height=250 src=“pow-3” edit border=“1”]</p>
+<h2 id="nested-describe">Nested describe</h2>
+<p>We’re going to add even more tests. But before that let’s note that the helper function <code>makeTest</code> and <code>for</code> should be grouped together. We won’t need <code>makeTest</code> in other tests, it’s needed only in <code>for</code>: their common task is to check how <code>pow</code> raises into the given power.</p>
+<p>Grouping is done with a nested <code>describe</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="at">describe</span>(<span class="st">&quot;pow&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2"></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  <span class="at">describe</span>(<span class="st">&quot;raises x to power 3&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb7-6" title="6"></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="ss">    function makeTest</span><span class="sc">(</span><span class="ss">x</span><span class="sc">)</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="ss">      let expected = x </span><span class="sc">*</span><span class="ss"> x </span><span class="sc">*</span><span class="ss"> x;</span></a>
+<a class="sourceLine" id="cb7-9" title="9"><span class="ss">      it</span><span class="sc">(</span><span class="ss">`${x} in the power 3 is ${expected}`, function</span><span class="sc">()</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb7-10" title="10"><span class="ss">        assert.equal</span><span class="sc">(</span><span class="ss">pow</span><span class="sc">(</span><span class="ss">x, 3</span><span class="sc">)</span><span class="ss">, expected</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb7-11" title="11"><span class="ss">      }</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb7-12" title="12"><span class="ss">    }</span></a>
+<a class="sourceLine" id="cb7-13" title="13"></a>
+<a class="sourceLine" id="cb7-14" title="14"><span class="ss">    for </span><span class="sc">(</span><span class="ss">let x = 1; x &lt;= 5; x</span><span class="sc">++)</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb7-15" title="15"><span class="ss">      makeTest</span><span class="sc">(</span><span class="ss">x</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb7-16" title="16"><span class="ss">    }</span></a>
+<a class="sourceLine" id="cb7-17" title="17"></a>
+<a class="sourceLine" id="cb7-18" title="18"><span class="sc">*</span><span class="ss">!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb7-19" title="19"><span class="ss">  }</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb7-20" title="20"><span class="sc">*</span><span class="ss">/</span><span class="op">!*</span></a>
+<a class="sourceLine" id="cb7-21" title="21"></a>
+<a class="sourceLine" id="cb7-22" title="22">  <span class="co">// ... more tests to follow here, both describe and it can be added</span></a>
+<a class="sourceLine" id="cb7-23" title="23"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>The nested <code>describe</code> defines a new “subgroup” of tests. In the output we can see the titled indentation:</p>
+<p>[iframe height=250 src=“pow-4” edit border=“1”]</p>
+<p>In the future we can add more <code>it</code> and <code>describe</code> on the top level with helper functions of their own, they won’t see <code>makeTest</code>.</p>
+<p>```<code>smart header="</code>before/after<code>and</code>beforeEach/afterEach<code>" We can setup</code>before/after<code>functions that execute before/after running tests, and also</code>beforeEach/afterEach<code>functions that execute before/after *every*</code>it`.</p>
+<p>For instance:</p>
+<p>```js no-beautify describe(“test”, function() {</p>
+<p>before(() =&gt; alert(“Testing started – before all tests”)); after(() =&gt; alert(“Testing finished – after all tests”));</p>
+<p>beforeEach(() =&gt; alert(“Before a test – enter a test”)); afterEach(() =&gt; alert(“After a test – exit a test”));</p>
+<p>it(‘test 1’, () =&gt; alert(1)); it(‘test 2’, () =&gt; alert(2));</p>
+<p>});</p>
+<pre><code>
+The running sequence will be:
+</code></pre>
+<p>Testing started – before all tests (before) Before a test – enter a test (beforeEach) 1 After a test – exit a test (afterEach) Before a test – enter a test (beforeEach) 2 After a test – exit a test (afterEach) Testing finished – after all tests (after)</p>
+<pre><code>
+[edit src=&quot;beforeafter&quot; title=&quot;Open the example in the sandbox.&quot;]
+
+Usually, `beforeEach/afterEach` and `before/after` are used to perform initialization, zero out counters or do something else between the tests (or test groups).</code></pre>
+<h2 id="extending-the-spec">Extending the spec</h2>
+<p>The basic functionality of <code>pow</code> is complete. The first iteration of the development is done. When we’re done celebrating and drinking champagne – let’s go on and improve it.</p>
+<p>As it was said, the function <code>pow(x, n)</code> is meant to work with positive integer values <code>n</code>.</p>
+<p>To indicate a mathematical error, JavaScript functions usually return <code>NaN</code>. Let’s do the same for invalid values of <code>n</code>.</p>
+<p>Let’s first add the behavior to the spec(!):</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="at">describe</span>(<span class="st">&quot;pow&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-2" title="2"></a>
+<a class="sourceLine" id="cb10-3" title="3">  <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb10-4" title="4"></a>
+<a class="sourceLine" id="cb10-5" title="5">  <span class="at">it</span>(<span class="st">&quot;for negative n the result is NaN&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-6" title="6"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb10-7" title="7">    <span class="va">assert</span>.<span class="at">isNaN</span>(<span class="at">pow</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">-1</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-8" title="8"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb10-9" title="9"><span class="ss">  }</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb10-10" title="10"></a>
+<a class="sourceLine" id="cb10-11" title="11"><span class="ss">  it</span><span class="sc">(</span><span class="ss">&quot;for non-integer n the result is NaN&quot;, function</span><span class="sc">()</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb10-12" title="12"><span class="sc">*</span><span class="ss">!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb10-13" title="13"><span class="ss">    assert.isNaN</span><span class="sc">(</span><span class="ss">pow</span><span class="sc">(</span><span class="ss">2, 1.5</span><span class="sc">))</span><span class="ss">;    </span></a>
+<a class="sourceLine" id="cb10-14" title="14"><span class="sc">*</span><span class="ss">/</span><span class="op">!*</span></a>
+<a class="sourceLine" id="cb10-15" title="15">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-16" title="16"></a>
+<a class="sourceLine" id="cb10-17" title="17"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>The result with new tests:</p>
+<p>[iframe height=530 src=“pow-nan” edit border=“1”]</p>
+<p>The newly added tests fail, because our implementation does not support them. That’s how BDD is done: first we write failing tests, and then make an implementation for them.</p>
+<p>``<code>smart header="Other assertions" Please note the assertion</code>assert.isNaN<code>: it checks for</code>NaN`.</p>
+<p>There are other assertions in <a href="http://chaijs.com">Chai</a> as well, for instance:</p>
+<ul>
+<li><code>assert.equal(value1, value2)</code> – checks the equality <code>value1 == value2</code>.</li>
+<li><code>assert.strictEqual(value1, value2)</code> – checks the strict equality <code>value1 === value2</code>.</li>
+<li><code>assert.notEqual</code>, <code>assert.notStrictEqual</code> – inverse checks to the ones above.</li>
+<li><code>assert.isTrue(value)</code> – checks that <code>value === true</code></li>
+<li><code>assert.isFalse(value)</code> – checks that <code>value === false</code></li>
+<li>…the full list is in the <a href="http://chaijs.com/api/assert/">docs</a> ```</li>
+</ul>
+<p>So we should add a couple of lines to <code>pow</code>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">function</span> <span class="at">pow</span>(x<span class="op">,</span> n) <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb11-3" title="3">  <span class="cf">if</span> (n <span class="op">&lt;</span> <span class="dv">0</span>) <span class="cf">return</span> <span class="kw">NaN</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb11-4" title="4">  <span class="cf">if</span> (<span class="va">Math</span>.<span class="at">round</span>(n) <span class="op">!=</span> n) <span class="cf">return</span> <span class="kw">NaN</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb11-6" title="6"></a>
+<a class="sourceLine" id="cb11-7" title="7"><span class="ss">  let result = 1;</span></a>
+<a class="sourceLine" id="cb11-8" title="8"></a>
+<a class="sourceLine" id="cb11-9" title="9"><span class="ss">  for </span><span class="sc">(</span><span class="ss">let i = 0; i &lt; n; i</span><span class="sc">++)</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb11-10" title="10"><span class="ss">    result </span><span class="sc">*</span><span class="ss">= x;</span></a>
+<a class="sourceLine" id="cb11-11" title="11"><span class="ss">  }</span></a>
+<a class="sourceLine" id="cb11-12" title="12"></a>
+<a class="sourceLine" id="cb11-13" title="13"><span class="ss">  return result;</span></a>
+<a class="sourceLine" id="cb11-14" title="14"><span class="ss">}</span></a></code></pre></div>
+<p>Now it works, all tests pass:</p>
+<p>[iframe height=300 src=“pow-full” edit border=“1”]</p>
+<p>[edit src=“pow-full” title=“Open the full final example in the sandbox.”]</p>
+<h2 id="summary">Summary</h2>
+<p>In BDD, the spec goes first, followed by implementation. At the end we have both the spec and the code.</p>
+<p>The spec can be used in three ways:</p>
+<ol type="1">
+<li>As <strong>Tests</strong> - they guarantee that the code works correctly.</li>
+<li>As <strong>Docs</strong> – the titles of <code>describe</code> and <code>it</code> tell what the function does.</li>
+<li>As <strong>Examples</strong> – the tests are actually working examples showing how a function can be used.</li>
+</ol>
+<p>With the spec, we can safely improve, change, even rewrite the function from scratch and make sure it still works right.</p>
+<p>That’s especially important in large projects when a function is used in many places. When we change such a function, there’s just no way to manually check if every place that uses it still works right.</p>
+<p>Without tests, people have two ways:</p>
+<ol type="1">
+<li>To perform the change, no matter what. And then our users meet bugs, as we probably fail to check something manually.</li>
+<li>Or, if the punishment for errors is harsh, as there are no tests, people become afraid to modify such functions, and then the code becomes outdated, no one wants to get into it. Not good for development.</li>
+</ol>
+<p><strong>Automatic testing helps to avoid these problems!</strong></p>
+<p>If the project is covered with tests, there’s just no such problem. After any changes, we can run tests and see a lot of checks made in a matter of seconds.</p>
+<p><strong>Besides, a well-tested code has better architecture.</strong></p>
+<p>Naturally, that’s because auto-tested code is easier to modify and improve. But there’s also another reason.</p>
+<p>To write tests, the code should be organized in such a way that every function has a clearly described task, well-defined input and output. That means a good architecture from the beginning.</p>
+<p>In real life that’s sometimes not that easy. Sometimes it’s difficult to write a spec before the actual code, because it’s not yet clear how it should behave. But in general writing tests makes development faster and more stable.</p>
+<p>Later in the tutorial you will meet many tasks with tests baked-in. So you’ll see more practical examples.</p>
+<p>Writing tests requires good JavaScript knowledge. But we’re just starting to learn it. So, to settle down everything, as of now you’re not required to write tests, but you should already be able to read them even if they are a little bit more complex than in this chapter.</p>

@@ -1,0 +1,7 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="function-property-after-bind">Function property after bind</h1>
+<p>There’s a value in the property of a function. Will it change after <code>bind</code>? Why, or why not?</p>
+<p>```js run function sayHi() { alert( this.name ); } sayHi.test = 5;</p>
+<p><em>!</em> let bound = sayHi.bind({ name: “John” });</p>
+<p>alert( bound.test ); // what will be the output? why? <em>/!</em> ```</p>

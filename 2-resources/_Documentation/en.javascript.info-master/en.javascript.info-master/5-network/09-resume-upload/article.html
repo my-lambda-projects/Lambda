@@ -1,0 +1,33 @@
+<h1 id="resumable-file-upload">Resumable file upload</h1>
+<p>With <code>fetch</code> method it’s fairly easy to upload a file.</p>
+<p>How to resume the upload after lost connection? There’s no built-in option for that, but we have the pieces to implement it.</p>
+<p>Resumable uploads should come with upload progress indication, as we expect big files (if we may need to resume). So, as <code>fetch</code> doesn’t allow to track upload progress, we’ll use <a href="info:xmlhttprequest">XMLHttpRequest</a>.</p>
+<h2 id="not-so-useful-progress-event">Not-so-useful progress event</h2>
+<p>To resume upload, we need to know how much was uploaded till the connection was lost.</p>
+<p>There’s <code>xhr.upload.onprogress</code> to track upload progress.</p>
+<p>Unfortunately, it won’t help us to resume the upload here, as it triggers when the data is <em>sent</em>, but was it received by the server? The browser doesn’t know.</p>
+<p>Maybe it was buffered by a local network proxy, or maybe the remote server process just died and couldn’t process them, or it was just lost in the middle and didn’t reach the receiver.</p>
+<p>That’s why this event is only useful to show a nice progress bar.</p>
+<p>To resume upload, we need to know <em>exactly</em> the number of bytes received by the server. And only the server can tell that, so we’ll make an additional request.</p>
+<h2 id="algorithm">Algorithm</h2>
+<ol type="1">
+<li><p>First, create a file id, to uniquely identify the file we’re going to upload: <code>js  let fileId = file.name + '-' + file.size + '-' + file.lastModified;</code> That’s needed for resume upload, to tell the server what we’re resuming.</p>
+<p>If the name or the size or the last modification date changes, then there’ll be another <code>fileId</code>.</p></li>
+<li><p>Send a request to the server, asking how many bytes it already has, like this: ```js let response = await fetch(‘status’, { headers: { ‘X-File-Id’: fileId } });</p>
+<p>// The server has that many bytes let startByte = +await response.text(); ```</p>
+<p>This assumes that the server tracks file uploads by <code>X-File-Id</code> header. Should be implemented at server-side.</p>
+<p>If the file doesn’t yet exist at the server, then the server response should be <code>0</code></p></li>
+<li><p>Then, we can use <code>Blob</code> method <code>slice</code> to send the file from <code>startByte</code>: ```js xhr.open(“POST”, “upload”, true);</p>
+<p>// File id, so that the server knows which file we upload xhr.setRequestHeader(‘X-File-Id’, fileId);</p>
+<p>// The byte we’re resuming from, so the server knows we’re resuming xhr.setRequestHeader(‘X-Start-Byte’, startByte);</p>
+<p>xhr.upload.onprogress = (e) =&gt; { console.log(<code>Uploaded ${startByte + e.loaded} of ${startByte + e.total}</code>); };</p>
+<p>// file can be from input.files[0] or another source xhr.send(file.slice(startByte)); ```</p>
+<p>Here we send the server both file id as <code>X-File-Id</code>, so it knows which file we’re uploading, and the starting byte as <code>X-Start-Byte</code>, so it knows we’re not uploading it initially, but resuming.</p>
+<p>The server should check its records, and if there was an upload of that file, and the current uploaded size is exactly <code>X-Start-Byte</code>, then append the data to it.</p></li>
+</ol>
+<p>Here’s the demo with both client and server code, written on Node.js.</p>
+<p>It works only partially on this site, as Node.js is behind another server named Nginx, that buffers uploads, passing them to Node.js when fully complete.</p>
+<p>But you can download it and run locally for the full demonstration:</p>
+<p>[codetabs src=“upload-resume” height=200]</p>
+<p>As we can see, modern networking methods are close to file managers in their capabilities – control over headers, progress indicator, sending file parts, etc.</p>
+<p>We can implement resumable upload and much more.</p>

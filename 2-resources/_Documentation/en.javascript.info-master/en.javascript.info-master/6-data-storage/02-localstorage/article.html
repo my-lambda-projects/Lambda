@@ -1,0 +1,143 @@
+<h1 id="localstorage-sessionstorage">LocalStorage, sessionStorage</h1>
+<p>Web storage objects <code>localStorage</code> and <code>sessionStorage</code> allow to save key/value pairs in the browser.</p>
+<p>What’s interesting about them is that the data survives a page refresh (for <code>sessionStorage</code>) and even a full browser restart (for <code>localStorage</code>). We’ll see that very soon.</p>
+<p>We already have cookies. Why additional objects?</p>
+<ul>
+<li>Unlike cookies, web storage objects are not sent to server with each request. Because of that, we can store much more. Most browsers allow at least 2 megabytes of data (or more) and have settings to configure that.</li>
+<li>Also unlike cookies, the server can’t manipulate storage objects via HTTP headers. Everything’s done in JavaScript.</li>
+<li>The storage is bound to the origin (domain/protocol/port triplet). That is, different protocols or subdomains infer different storage objects, they can’t access data from each other.</li>
+</ul>
+<p>Both storage objects provide same methods and properties:</p>
+<ul>
+<li><code>setItem(key, value)</code> – store key/value pair.</li>
+<li><code>getItem(key)</code> – get the value by key.</li>
+<li><code>removeItem(key)</code> – remove the key with its value.</li>
+<li><code>clear()</code> – delete everything.</li>
+<li><code>key(index)</code> – get the key on a given position.</li>
+<li><code>length</code> – the number of stored items.</li>
+</ul>
+<p>As you can see, it’s like a <code>Map</code> collection (<code>setItem/getItem/removeItem</code>), but also allows access by index with <code>key(index)</code>.</p>
+<p>Let’s see how it works.</p>
+<h2 id="localstorage-demo">localStorage demo</h2>
+<p>The main features of <code>localStorage</code> are:</p>
+<ul>
+<li>Shared between all tabs and windows from the same origin.</li>
+<li>The data does not expire. It remains after the browser restart and even OS reboot.</li>
+</ul>
+<p>For instance, if you run this code…</p>
+<p><code>js run localStorage.setItem('test', 1);</code></p>
+<p>…And close/open the browser or just open the same page in a different window, then you can get it like this:</p>
+<p><code>js run alert( localStorage.getItem('test') ); // 1</code></p>
+<p>We only have to be on the same origin (domain/port/protocol), the url path can be different.</p>
+<p>The <code>localStorage</code> is shared between all windows with the same origin, so if we set the data in one window, the change becomes visible in another one.</p>
+<h2 id="object-like-access">Object-like access</h2>
+<p>We can also use a plain object way of getting/setting keys, like this:</p>
+<p>```js run // set key localStorage.test = 2;</p>
+<p>// get key alert( localStorage.test ); // 2</p>
+<p>// remove key delete localStorage.test; ```</p>
+<p>That’s allowed for historical reasons, and mostly works, but generally not recommended, because:</p>
+<ol type="1">
+<li><p>If the key is user-generated, it can be anything, like <code>length</code> or <code>toString</code>, or another built-in method of <code>localStorage</code>. In that case <code>getItem/setItem</code> work fine, while object-like access fails: <code>js run  let key = 'length';  localStorage[key] = 5; // Error, can't assign length</code></p></li>
+<li><p>There’s a <code>storage</code> event, it triggers when we modify the data. That event does not happen for object-like access. We’ll see that later in this chapter.</p></li>
+</ol>
+<h2 id="looping-over-keys">Looping over keys</h2>
+<p>As we’ve seen, the methods provide “get/set/remove by key” functionality. But how to get all saved values or keys?</p>
+<p>Unfortunately, storage objects are not iterable.</p>
+<p>One way is to loop over them as over an array:</p>
+<p><code>js run for(let i=0; i&lt;localStorage.length; i++) {   let key = localStorage.key(i);   alert(`${key}: ${localStorage.getItem(key)}`); }</code></p>
+<p>Another way is to use <code>for key in localStorage</code> loop, just as we do with regular objects.</p>
+<p>It iterates over keys, but also outputs few built-in fields that we don’t need:</p>
+<p><code>js run // bad try for(let key in localStorage) {   alert(key); // shows getItem, setItem and other built-in stuff }</code></p>
+<p>…So we need either to filter fields from the prototype with <code>hasOwnProperty</code> check:</p>
+<p><code>js run for(let key in localStorage) {   if (!localStorage.hasOwnProperty(key)) {     continue; // skip keys like "setItem", "getItem" etc   }   alert(`${key}: ${localStorage.getItem(key)}`); }</code></p>
+<p>…Or just get the “own” keys with <code>Object.keys</code> and then loop over them if needed:</p>
+<p><code>js run let keys = Object.keys(localStorage); for(let key of keys) {   alert(`${key}: ${localStorage.getItem(key)}`); }</code></p>
+<p>The latter works, because <code>Object.keys</code> only returns the keys that belong to the object, ignoring the prototype.</p>
+<h2 id="strings-only">Strings only</h2>
+<p>Please note that both key and value must be strings.</p>
+<p>If were any other type, like a number, or an object, it gets converted to string automatically:</p>
+<p><code>js run sessionStorage.user = {name: "John"}; alert(sessionStorage.user); // [object Object]</code></p>
+<p>We can use <code>JSON</code> to store objects though:</p>
+<p>```js run sessionStorage.user = JSON.stringify({name: “John”});</p>
+<p>// sometime later let user = JSON.parse( sessionStorage.user ); alert( user.name ); // John ```</p>
+<p>Also it is possible to stringify the whole storage object, e.g. for debugging purposes:</p>
+<p><code>js run // added formatting options to JSON.stringify to make the object look nicer alert( JSON.stringify(localStorage, null, 2) );</code></p>
+<h2 id="sessionstorage">sessionStorage</h2>
+<p>The <code>sessionStorage</code> object is used much less often than <code>localStorage</code>.</p>
+<p>Properties and methods are the same, but it’s much more limited:</p>
+<ul>
+<li>The <code>sessionStorage</code> exists only within the current browser tab.
+<ul>
+<li>Another tab with the same page will have a different storage.</li>
+<li>But it is shared between iframes in the same tab (assuming they come from the same origin).</li>
+</ul></li>
+<li>The data survives page refresh, but not closing/opening the tab.</li>
+</ul>
+<p>Let’s see that in action.</p>
+<p>Run this code…</p>
+<p><code>js run sessionStorage.setItem('test', 1);</code></p>
+<p>…Then refresh the page. Now you can still get the data:</p>
+<p><code>js run alert( sessionStorage.getItem('test') ); // after refresh: 1</code></p>
+<p>…But if you open the same page in another tab, and try again there, the code above returns <code>null</code>, meaning “nothing found”.</p>
+<p>That’s exactly because <code>sessionStorage</code> is bound not only to the origin, but also to the browser tab. For that reason, <code>sessionStorage</code> is used sparingly.</p>
+<h2 id="storage-event">Storage event</h2>
+<p>When the data gets updated in <code>localStorage</code> or <code>sessionStorage</code>, <a href="https://www.w3.org/TR/webstorage/#the-storage-event">storage</a> event triggers, with properties:</p>
+<ul>
+<li><code>key</code> – the key that was changed (<code>null</code> if <code>.clear()</code> is called).</li>
+<li><code>oldValue</code> – the old value (<code>null</code> if the key is newly added).</li>
+<li><code>newValue</code> – the new value (<code>null</code> if the key is removed).</li>
+<li><code>url</code> – the url of the document where the update happened.</li>
+<li><code>storageArea</code> – either <code>localStorage</code> or <code>sessionStorage</code> object where the update happened.</li>
+</ul>
+<p>The important thing is: the event triggers on all <code>window</code> objects where the storage is accessible, except the one that caused it.</p>
+<p>Let’s elaborate.</p>
+<p>Imagine, you have two windows with the same site in each. So <code>localStorage</code> is shared between them.</p>
+<pre class="online"><code>You might want to open this page in two browser windows to test the code below.</code></pre>
+<p>If both windows are listening for <code>window.onstorage</code>, then each one will react on updates that happened in the other one.</p>
+<p>```js run // triggers on updates made to the same storage from other documents window.onstorage = event =&gt; { // same as window.addEventListener(‘storage’, event =&gt; { if (event.key != ‘now’) return; alert(event.key + ‘:’ + event.newValue + " at " + event.url); };</p>
+<p>localStorage.setItem(‘now’, Date.now()); ```</p>
+<p>Please note that the event also contains: <code>event.url</code> – the url of the document where the data was updated.</p>
+<p>Also, <code>event.storageArea</code> contains the storage object – the event is the same for both <code>sessionStorage</code> and <code>localStorage</code>, so <code>event.storageArea</code> references the one that was modified. We may even want to set something back in it, to “respond” to a change.</p>
+<p><strong>That allows different windows from the same origin to exchange messages.</strong></p>
+<p>Modern browsers also support <a href="mdn:/api/Broadcast_Channel_API">Broadcast channel API</a>, the special API for same-origin inter-window communication, it’s more full featured, but less supported. There are libraries that polyfill that API, based on <code>localStorage</code>, that make it available everywhere.</p>
+<h2 id="summary">Summary</h2>
+<p>Web storage objects <code>localStorage</code> and <code>sessionStorage</code> allow to store key/value in the browser. - Both <code>key</code> and <code>value</code> must be strings. - The limit is 5mb+, depends on the browser. - They do not expire. - The data is bound to the origin (domain/port/protocol).</p>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><code>localStorage</code></th>
+<th><code>sessionStorage</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Shared between all tabs and windows with the same origin</td>
+<td>Visible within a browser tab, including iframes from the same origin</td>
+</tr>
+<tr class="even">
+<td>Survives browser restart</td>
+<td>Survives page refresh (but not tab close)</td>
+</tr>
+</tbody>
+</table>
+<p>API:</p>
+<ul>
+<li><code>setItem(key, value)</code> – store key/value pair.</li>
+<li><code>getItem(key)</code> – get the value by key.</li>
+<li><code>removeItem(key)</code> – remove the key with its value.</li>
+<li><code>clear()</code> – delete everything.</li>
+<li><code>key(index)</code> – get the key number <code>index</code>.</li>
+<li><code>length</code> – the number of stored items.</li>
+<li>Use <code>Object.keys</code> to get all keys.</li>
+<li>We access keys as object properties, in that case <code>storage</code> event isn’t triggered.</li>
+</ul>
+<p>Storage event:</p>
+<ul>
+<li>Triggers on <code>setItem</code>, <code>removeItem</code>, <code>clear</code> calls.</li>
+<li>Contains all the data about the operation (<code>key/oldValue/newValue</code>), the document <code>url</code> and the storage object <code>storageArea</code>.</li>
+<li>Triggers on all <code>window</code> objects that have access to the storage except the one that generated it (within a tab for <code>sessionStorage</code>, globally for <code>localStorage</code>).</li>
+</ul>

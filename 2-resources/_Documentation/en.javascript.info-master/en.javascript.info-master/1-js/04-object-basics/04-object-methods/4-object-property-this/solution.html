@@ -1,0 +1,16 @@
+<p><strong>Answer: an error.</strong></p>
+<p>Try it: ```js run function makeUser() { return { name: “John”, ref: this }; }</p>
+<p>let user = makeUser();</p>
+<p>alert( user.ref.name ); // Error: Cannot read property ‘name’ of undefined ```</p>
+<p>That’s because rules that set <code>this</code> do not look at object definition. Only the moment of call matters.</p>
+<p>Here the value of <code>this</code> inside <code>makeUser()</code> is <code>undefined</code>, because it is called as a function, not as a method with “dot” syntax.</p>
+<p>The value of <code>this</code> is one for the whole function, code blocks and object literals do not affect it.</p>
+<p>So <code>ref: this</code> actually takes current <code>this</code> of the function.</p>
+<p>We can rewrite the function and return the same <code>this</code> with <code>undefined</code> value:</p>
+<p>```js run function makeUser(){ return this; // this time there’s no object literal }</p>
+<p>alert( makeUser().name ); // Error: Cannot read property ‘name’ of undefined ``<code>As you can see the result of</code>alert( makeUser().name )<code>is the same as the result of</code>alert( user.ref.name )` from the previous example.</p>
+<p>Here’s the opposite case:</p>
+<p>```js run function makeUser() { return { name: “John”, <em>!</em> ref() { return this; } <em>/!</em> }; }</p>
+<p>let user = makeUser();</p>
+<p>alert( user.ref().name ); // John ```</p>
+<p>Now it works, because <code>user.ref()</code> is a method. And the value of <code>this</code> is set to the object before dot <code>.</code>.</p>

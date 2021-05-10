@@ -1,0 +1,42 @@
+<p>The first solution we could try here is the recursive one.</p>
+<p>Fibonacci numbers are recursive by definition:</p>
+<p>```js run function fib(n) { return n &lt;= 1 ? n : fib(n - 1) + fib(n - 2); }</p>
+<p>alert( fib(3) ); // 2 alert( fib(7) ); // 13 // fib(77); // will be extremely slow! ```</p>
+<p>…But for big values of <code>n</code> it’s very slow. For instance, <code>fib(77)</code> may hang up the engine for some time eating all CPU resources.</p>
+<p>That’s because the function makes too many subcalls. The same values are re-evaluated again and again.</p>
+<p>For instance, let’s see a piece of calculations for <code>fib(5)</code>:</p>
+<p><code>js no-beautify ... fib(5) = fib(4) + fib(3) fib(4) = fib(3) + fib(2) ...</code></p>
+<p>Here we can see that the value of <code>fib(3)</code> is needed for both <code>fib(5)</code> and <code>fib(4)</code>. So <code>fib(3)</code> will be called and evaluated two times completely independently.</p>
+<p>Here’s the full recursion tree:</p>
+<figure>
+<img src="fibonacci-recursion-tree.svg" alt="fibonacci recursion tree" /><figcaption>fibonacci recursion tree</figcaption>
+</figure>
+<p>We can clearly notice that <code>fib(3)</code> is evaluated two times and <code>fib(2)</code> is evaluated three times. The total amount of computations grows much faster than <code>n</code>, making it enormous even for <code>n=77</code>.</p>
+<p>We can optimize that by remembering already-evaluated values: if a value of say <code>fib(3)</code> is calculated once, then we can just reuse it in future computations.</p>
+<p>Another variant would be to give up recursion and use a totally different loop-based algorithm.</p>
+<p>Instead of going from <code>n</code> down to lower values, we can make a loop that starts from <code>1</code> and <code>2</code>, then gets <code>fib(3)</code> as their sum, then <code>fib(4)</code> as the sum of two previous values, then <code>fib(5)</code> and goes up and up, till it gets to the needed value. On each step we only need to remember two previous values.</p>
+<p>Here are the steps of the new algorithm in details.</p>
+<p>The start:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// a = fib(1), b = fib(2), these values are by definition 1</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">let</span> a <span class="op">=</span> <span class="dv">1</span><span class="op">,</span> b <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="co">// get c = fib(3) as their sum</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="kw">let</span> c <span class="op">=</span> a <span class="op">+</span> b<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="co">/* we now have fib(1), fib(2), fib(3)</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="co">a  b  c</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="co">1, 1, 2</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="co">*/</span></a></code></pre></div>
+<p>Now we want to get <code>fib(4) = fib(2) + fib(3)</code>.</p>
+<p>Let’s shift the variables: <code>a,b</code> will get <code>fib(2),fib(3)</code>, and <code>c</code> will get their sum:</p>
+<p>```js no-beautify a = b; // now a = fib(2) b = c; // now b = fib(3) c = a + b; // c = fib(4)</p>
+<p>/* now we have the sequence: a b c 1, 1, 2, 3 */ ```</p>
+<p>The next step gives another sequence number:</p>
+<p>```js no-beautify a = b; // now a = fib(3) b = c; // now b = fib(4) c = a + b; // c = fib(5)</p>
+<p>/* now the sequence is (one more number): a b c 1, 1, 2, 3, 5 */ ```</p>
+<p>…And so on until we get the needed value. That’s much faster than recursion and involves no duplicate computations.</p>
+<p>The full code:</p>
+<p>```js run function fib(n) { let a = 1; let b = 1; for (let i = 3; i &lt;= n; i++) { let c = a + b; a = b; b = c; } return b; }</p>
+<p>alert( fib(3) ); // 2 alert( fib(7) ); // 13 alert( fib(77) ); // 5527939700884757 ```</p>
+<p>The loop starts with <code>i=3</code>, because the first and the second sequence values are hard-coded into variables <code>a=1</code>, <code>b=1</code>.</p>
+<p>The approach is called <a href="https://en.wikipedia.org/wiki/Dynamic_programming">dynamic programming bottom-up</a>.</p>

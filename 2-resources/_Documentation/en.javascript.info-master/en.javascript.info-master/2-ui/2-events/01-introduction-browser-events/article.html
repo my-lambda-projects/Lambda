@@ -1,0 +1,251 @@
+<h1 id="introduction-to-browser-events">Introduction to browser events</h1>
+<p><em>An event</em> is a signal that something has happened. All DOM nodes generate such signals (but events are not limited to DOM).</p>
+<p>Here’s a list of the most useful DOM events, just to take a look at:</p>
+<p><strong>Mouse events:</strong> - <code>click</code> – when the mouse clicks on an element (touchscreen devices generate it on a tap). - <code>contextmenu</code> – when the mouse right-clicks on an element. - <code>mouseover</code> / <code>mouseout</code> – when the mouse cursor comes over / leaves an element. - <code>mousedown</code> / <code>mouseup</code> – when the mouse button is pressed / released over an element. - <code>mousemove</code> – when the mouse is moved.</p>
+<p><strong>Keyboard events:</strong> - <code>keydown</code> and <code>keyup</code> – when a keyboard key is pressed and released.</p>
+<p><strong>Form element events:</strong> - <code>submit</code> – when the visitor submits a <code>&lt;form&gt;</code>. - <code>focus</code> – when the visitor focuses on an element, e.g. on an <code>&lt;input&gt;</code>.</p>
+<p><strong>Document events:</strong> - <code>DOMContentLoaded</code> – when the HTML is loaded and processed, DOM is fully built.</p>
+<p><strong>CSS events:</strong> - <code>transitionend</code> – when a CSS-animation finishes.</p>
+<p>There are many other events. We’ll get into more details of particular events in next chapters.</p>
+<h2 id="event-handlers">Event handlers</h2>
+<p>To react on events we can assign a <em>handler</em> – a function that runs in case of an event.</p>
+<p>Handlers are a way to run JavaScript code in case of user actions.</p>
+<p>There are several ways to assign a handler. Let’s see them, starting from the simplest one.</p>
+<h3 id="html-attribute">HTML-attribute</h3>
+<p>A handler can be set in HTML with an attribute named <code>on&lt;event&gt;</code>.</p>
+<p>For instance, to assign a <code>click</code> handler for an <code>input</code>, we can use <code>onclick</code>, like here:</p>
+<p><code>html run &lt;input value="Click me" *!*onclick="alert('Click!')"*/!* type="button"&gt;</code></p>
+<p>On mouse click, the code inside <code>onclick</code> runs.</p>
+<p>Please note that inside <code>onclick</code> we use single quotes, because the attribute itself is in double quotes. If we forget that the code is inside the attribute and use double quotes inside, like this: <code>onclick="alert("Click!")"</code>, then it won’t work right.</p>
+<p>An HTML-attribute is not a convenient place to write a lot of code, so we’d better create a JavaScript function and call it there.</p>
+<p>Here a click runs the function <code>countRabbits()</code>:</p>
+```html autorun height=50
+<script>
+  function countRabbits() {
+    for(let i=1; i<=3; i++) {
+      alert("Rabbit number " + i);
+    }
+  }
+</script>
+<p>&lt;input type=“button” <em>!</em>onclick=“countRabbits()”<em>/!</em> value=“Count rabbits!”&gt; ```</p>
+<p>As we know, HTML attribute names are not case-sensitive, so <code>ONCLICK</code> works as well as <code>onClick</code> and <code>onCLICK</code>… But usually attributes are lowercased: <code>onclick</code>.</p>
+<h3 id="dom-property">DOM property</h3>
+<p>We can assign a handler using a DOM property <code>on&lt;event&gt;</code>.</p>
+<p>For instance, <code>elem.onclick</code>:</p>
+<p><code>html autorun &lt;input id="elem" type="button" value="Click me"&gt; &lt;script&gt; *!*   elem.onclick = function() {     alert('Thank you');   }; */!* &lt;/script&gt;</code></p>
+<p>If the handler is assigned using an HTML-attribute then the browser reads it, creates a new function from the attribute content and writes it to the DOM property.</p>
+<p>So this way is actually the same as the previous one.</p>
+<p>These two code pieces work the same:</p>
+<ol type="1">
+<li><p>Only HTML:</p>
+<code>html autorun height=50  &lt;input type="button" *!*onclick="alert('Click!')"*/!* value="Button"&gt;</code></li>
+<li><p>HTML + JS:</p>
+<p><code>html autorun height=50  &lt;input type="button" id="button" value="Button"&gt;  &lt;script&gt;  *!*    button.onclick = function() {      alert('Click!');    };  */!*  &lt;/script&gt;</code></p></li>
+</ol>
+<p>In the first example, the HTML attribute is used to initialize the <code>button.onclick</code>, while in the second example – the script, that’s all the difference.</p>
+<p><strong>As there’s only one <code>onclick</code> property, we can’t assign more than one event handler.</strong></p>
+<p>In the example below adding a handler with JavaScript overwrites the existing handler:</p>
+<p><code>html run height=50 autorun &lt;input type="button" id="elem" onclick="alert('Before')" value="Click me"&gt; &lt;script&gt; *!*   elem.onclick = function() { // overwrites the existing handler     alert('After'); // only this will be shown   }; */!* &lt;/script&gt;</code></p>
+<p>To remove a handler – assign <code>elem.onclick = null</code>.</p>
+<h2 id="accessing-the-element-this">Accessing the element: this</h2>
+<p>The value of <code>this</code> inside a handler is the element. The one which has the handler on it.</p>
+<p>In the code below <code>button</code> shows its contents using <code>this.innerHTML</code>:</p>
+<p><code>html height=50 autorun &lt;button onclick="alert(this.innerHTML)"&gt;Click me&lt;/button&gt;</code></p>
+<h2 id="possible-mistakes">Possible mistakes</h2>
+<p>If you’re starting to work with events – please note some subtleties.</p>
+<p>We can set an existing function as a handler:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">sayThanks</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="at">alert</span>(<span class="st">&#39;Thanks!&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="va">elem</span>.<span class="at">onclick</span> <span class="op">=</span> sayThanks<span class="op">;</span></a></code></pre></div>
+<p>But be careful: the function should be assigned as <code>sayThanks</code>, not <code>sayThanks()</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// right</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="va">button</span>.<span class="at">onclick</span> <span class="op">=</span> sayThanks<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co">// wrong</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="va">button</span>.<span class="at">onclick</span> <span class="op">=</span> <span class="at">sayThanks</span>()<span class="op">;</span></a></code></pre></div>
+<p>If we add parentheses, then <code>sayThanks()</code> becomes is a function call. So the last line actually takes the <em>result</em> of the function execution, that is <code>undefined</code> (as the function returns nothing), and assigns it to <code>onclick</code>. That doesn’t work.</p>
+<p>…On the other hand, in the markup we do need the parentheses:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">&lt;input</span><span class="ot"> type=</span><span class="st">&quot;button&quot;</span><span class="ot"> id=</span><span class="st">&quot;button&quot;</span><span class="ot"> onclick=</span><span class="st">&quot;sayThanks()&quot;</span><span class="kw">&gt;</span></a></code></pre></div>
+<p>The difference is easy to explain. When the browser reads the attribute, it creates a handler function with body from the attribute content.</p>
+<p>So the markup generates this property:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">button</span>.<span class="at">onclick</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="at">sayThanks</span>()<span class="op">;</span> <span class="co">// &lt;-- the attribute content goes here</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="ss">};</span></a></code></pre></div>
+<p><strong>Don’t use <code>setAttribute</code> for handlers.</strong></p>
+<p>Such a call won’t work:</p>
+<p><code>js run no-beautify // a click on &lt;body&gt; will generate errors, // because attributes are always strings, function becomes a string document.body.setAttribute('onclick', function() { alert(1) });</code></p>
+<p><strong>DOM-property case matters.</strong></p>
+<p>Assign a handler to <code>elem.onclick</code>, not <code>elem.ONCLICK</code>, because DOM properties are case-sensitive.</p>
+<h2 id="addeventlistener">addEventListener</h2>
+<p>The fundamental problem of the aforementioned ways to assign handlers – we can’t assign multiple handlers to one event.</p>
+<p>Let’s say, one part of our code wants to highlight a button on click, and another one wants to show a message on the same click.</p>
+<p>We’d like to assign two event handlers for that. But a new DOM property will overwrite the existing one:</p>
+<p><code>js no-beautify input.onclick = function() { alert(1); } // ... input.onclick = function() { alert(2); } // replaces the previous handler</code></p>
+<p>Developers of web standards understood that long ago and suggested an alternative way of managing handlers using special methods <code>addEventListener</code> and <code>removeEventListener</code>. They are free of such a problem.</p>
+<p>The syntax to add a handler:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">element</span>.<span class="at">addEventListener</span>(event<span class="op">,</span> handler<span class="op">,</span> [options])<span class="op">;</span></a></code></pre></div>
+<dl>
+<dt><code>event</code></dt>
+<dd>Event name, e.g. <code>"click"</code>.
+</dd>
+<dt><code>handler</code></dt>
+<dd>The handler function.
+</dd>
+<dt><code>options</code></dt>
+<dd>An additional optional object with properties: - <code>once</code>: if <code>true</code>, then the listener is automatically removed after it triggers. - <code>capture</code>: the phase where to handle the event, to be covered later in the chapter <a href="info:bubbling-and-capturing" class="uri">info:bubbling-and-capturing</a>. For historical reasons, <code>options</code> can also be <code>false/true</code>, that’s the same as <code>{capture: false/true}</code>. - <code>passive</code>: if <code>true</code>, then the handler will not call <code>preventDefault()</code>, we’ll explain that later in <a href="info:default-browser-action" class="uri">info:default-browser-action</a>.
+</dd>
+</dl>
+<p>To remove the handler, use <code>removeEventListener</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="va">element</span>.<span class="at">removeEventListener</span>(event<span class="op">,</span> handler<span class="op">,</span> [options])<span class="op">;</span></a></code></pre></div>
+<p>````warn header=“Removal requires the same function” To remove a handler we should pass exactly the same function as was assigned.</p>
+<p>This doesn’t work:</p>
+<p><code>js no-beautify elem.addEventListener( "click" , () =&gt; alert('Thanks!')); // .... elem.removeEventListener( "click", () =&gt; alert('Thanks!'));</code></p>
+<p>The handler won’t be removed, because <code>removeEventListener</code> gets another function – with the same code, but that doesn’t matter, as it’s a different function object.</p>
+<p>Here’s the right way:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">function</span> <span class="at">handler</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="at">alert</span>( <span class="st">&#39;Thanks!&#39;</span> )<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb7-4" title="4"></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="va">input</span>.<span class="at">addEventListener</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> handler)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="co">// ....</span></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="va">input</span>.<span class="at">removeEventListener</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> handler)<span class="op">;</span></a></code></pre></div>
+<p>Please note – if we don’t store the function in a variable, then we can’t remove it. There’s no way to “read back” handlers assigned by <code>addEventListener</code>. ````</p>
+<p>Multiple calls to <code>addEventListener</code> allow to add multiple handlers, like this:</p>
+<p>```html run no-beautify <input id="elem" type="button" value="Click me"/></p>
+<script>
+  function handler1() {
+    alert('Thanks!');
+  };
+
+  function handler2() {
+    alert('Thanks again!');
+  }
+
+*!*
+  elem.onclick = () => alert("Hello");
+  elem.addEventListener("click", handler1); // Thanks!
+  elem.addEventListener("click", handler2); // Thanks again!
+*/!*
+</script>
+<p>```</p>
+<p>As we can see in the example above, we can set handlers <em>both</em> using a DOM-property and <code>addEventListener</code>. But generally we use only one of these ways.</p>
+<p>```<code>warn header="For some events, handlers only work with</code>addEventListener<code>" There exist events that can't be assigned via a DOM-property. Only with</code>addEventListener`.</p>
+<p>For instance, the <code>DOMContentLoaded</code> event, that triggers when the document is loaded and DOM is built.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="co">// will never run</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="va">document</span>.<span class="at">onDOMContentLoaded</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-3" title="3">  <span class="at">alert</span>(<span class="st">&quot;DOM built&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="op">};</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="co">// this way it works</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="va">document</span>.<span class="at">addEventListener</span>(<span class="st">&quot;DOMContentLoaded&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-3" title="3">  <span class="at">alert</span>(<span class="st">&quot;DOM built&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>So <code>addEventListener</code> is more universal. Although, such events are an exception rather than the rule. ````</p>
+<h2 id="event-object">Event object</h2>
+<p>To properly handle an event we’d want to know more about what’s happened. Not just a “click” or a “keydown”, but what were the pointer coordinates? Which key was pressed? And so on.</p>
+<p>When an event happens, the browser creates an <em>event object</em>, puts details into it and passes it as an argument to the handler.</p>
+<p>Here’s an example of getting pointer coordinates from the event object:</p>
+<p>```html run <input type="button" value="Click me" id="elem"></p>
+<script>
+  elem.onclick = function(*!*event*/!*) {
+    // show event type, element and coordinates of the click
+    alert(event.type + " at " + event.currentTarget);
+    alert("Coordinates: " + event.clientX + ":" + event.clientY);
+  };
+</script>
+<p>```</p>
+<p>Some properties of <code>event</code> object:</p>
+<dl>
+<dt><code>event.type</code></dt>
+<dd>Event type, here it’s <code>"click"</code>.
+</dd>
+<dt><code>event.currentTarget</code></dt>
+<dd>Element that handled the event. That’s exactly the same as <code>this</code>, unless the handler is an arrow function, or its <code>this</code> is bound to something else, then we can get the element from <code>event.currentTarget</code>.
+</dd>
+<dt><code>event.clientX / event.clientY</code></dt>
+<dd>Window-relative coordinates of the cursor, for pointer events.
+</dd>
+</dl>
+<p>There are more properties. Many of them depend on the event type: keyboard events have one set of properties, pointer events - another one, we’ll study them later when we come to different events in details.</p>
+<p>```<code>smart header="The event object is also available in HTML handlers" If we assign a handler in HTML, we can also use the</code>event` object, like this:</p>
+<p><code>html autorun height=60 &lt;input type="button" onclick="*!*alert(event.type)*/!*" value="Event type"&gt;</code></p>
+<p>That’s possible because when the browser reads the attribute, it creates a handler like this: <code>function(event) { alert(event.type) }</code>. That is: its first argument is called <code>"event"</code>, and the body is taken from the attribute. ````</p>
+<h2 id="object-handlers-handleevent">Object handlers: handleEvent</h2>
+<p>We can assign not just a function, but an object as an event handler using <code>addEventListener</code>. When an event occurs, its <code>handleEvent</code> method is called.</p>
+<p>For instance:</p>
+<p>```html run <button id="elem">Click me</button></p>
+<script>
+  let obj = {
+    handleEvent(event) {
+      alert(event.type + " at " + event.currentTarget);
+    }
+  };
+
+  elem.addEventListener('click', obj);
+</script>
+<p>```</p>
+<p>As we can see, when <code>addEventListener</code> receives an object as the handler, it calls <code>obj.handleEvent(event)</code> in case of an event.</p>
+<p>We could also use a class for that:</p>
+<p>```html run <button id="elem">Click me</button></p>
+<script>
+  class Menu {
+    handleEvent(event) {
+      switch(event.type) {
+        case 'mousedown':
+          elem.innerHTML = "Mouse button pressed";
+          break;
+        case 'mouseup':
+          elem.innerHTML += "...and released.";
+          break;
+      }
+    }
+  }
+
+*!*
+  let menu = new Menu();
+  elem.addEventListener('mousedown', menu);
+  elem.addEventListener('mouseup', menu);
+*/!*
+</script>
+<p>```</p>
+<p>Here the same object handles both events. Please note that we need to explicitly setup the events to listen using <code>addEventListener</code>. The <code>menu</code> object only gets <code>mousedown</code> and <code>mouseup</code> here, not any other types of events.</p>
+<p>The method <code>handleEvent</code> does not have to do all the job by itself. It can call other event-specific methods instead, like this:</p>
+<p>```html run <button id="elem">Click me</button></p>
+<script>
+  class Menu {
+    handleEvent(event) {
+      // mousedown -> onMousedown
+      let method = 'on' + event.type[0].toUpperCase() + event.type.slice(1);
+      this[method](event);
+    }
+
+    onMousedown() {
+      elem.innerHTML = "Mouse button pressed";
+    }
+
+    onMouseup() {
+      elem.innerHTML += "...and released.";
+    }
+  }
+
+  let menu = new Menu();
+  elem.addEventListener('mousedown', menu);
+  elem.addEventListener('mouseup', menu);
+</script>
+<p>```</p>
+<p>Now event handlers are clearly separated, that may be easier to support.</p>
+<h2 id="summary">Summary</h2>
+<p>There are 3 ways to assign event handlers:</p>
+<ol type="1">
+<li>HTML attribute: <code>onclick="..."</code>.</li>
+<li>DOM property: <code>elem.onclick = function</code>.</li>
+<li>Methods: <code>elem.addEventListener(event, handler[, phase])</code> to add, <code>removeEventListener</code> to remove.</li>
+</ol>
+<p>HTML attributes are used sparingly, because JavaScript in the middle of an HTML tag looks a little bit odd and alien. Also can’t write lots of code in there.</p>
+<p>DOM properties are ok to use, but we can’t assign more than one handler of the particular event. In many cases that limitation is not pressing.</p>
+<p>The last way is the most flexible, but it is also the longest to write. There are few events that only work with it, for instance <code>transitionend</code> and <code>DOMContentLoaded</code> (to be covered). Also <code>addEventListener</code> supports objects as event handlers. In that case the method <code>handleEvent</code> is called in case of the event.</p>
+<p>No matter how you assign the handler – it gets an event object as the first argument. That object contains the details about what’s happened.</p>
+<p>We’ll learn more about events in general and about different types of events in the next chapters.</p>

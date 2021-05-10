@@ -1,0 +1,4 @@
+<p>```js run untrusted class FormatError extends SyntaxError { constructor(message) { super(message); this.name = this.constructor.name; } }</p>
+<p>let err = new FormatError(“formatting error”);</p>
+<p>alert( err.message ); // formatting error alert( err.name ); // FormatError alert( err.stack ); // stack</p>
+<p>alert( err instanceof SyntaxError ); // true ```</p>

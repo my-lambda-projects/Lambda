@@ -1,0 +1,41 @@
+<p>First, let’s make HTML/CSS.</p>
+<p>Each component of the time would look great in its own <code>&lt;span&gt;</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;clock&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;hour&quot;</span><span class="kw">&gt;</span>hh<span class="kw">&lt;/span&gt;</span>:<span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;min&quot;</span><span class="kw">&gt;</span>mm<span class="kw">&lt;/span&gt;</span>:<span class="kw">&lt;span</span><span class="ot"> class=</span><span class="st">&quot;sec&quot;</span><span class="kw">&gt;</span>ss<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<p>Also we’ll need CSS to color them.</p>
+<p>The <code>update</code> function will refresh the clock, to be called by <code>setInterval</code> every second:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">function</span> <span class="at">update</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="kw">let</span> clock <span class="op">=</span> <span class="va">document</span>.<span class="at">getElementById</span>(<span class="st">&#39;clock&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="kw">let</span> date <span class="op">=</span> <span class="kw">new</span> <span class="at">Date</span>()<span class="op">;</span> <span class="co">// (*)</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="ss">  let hours = date.getHours</span><span class="sc">()</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="ss">  if </span><span class="sc">(</span><span class="ss">hours &lt; 10</span><span class="sc">)</span><span class="ss"> hours = &#39;0&#39; </span><span class="sc">+</span><span class="ss"> hours;</span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="ss">  clock.children</span><span class="sc">[0]</span><span class="ss">.innerHTML = hours;</span></a>
+<a class="sourceLine" id="cb2-9" title="9"></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="ss">  let minutes = date.getMinutes</span><span class="sc">()</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="ss">  if </span><span class="sc">(</span><span class="ss">minutes &lt; 10</span><span class="sc">)</span><span class="ss"> minutes = &#39;0&#39; </span><span class="sc">+</span><span class="ss"> minutes;</span></a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="ss">  clock.children</span><span class="sc">[1]</span><span class="ss">.innerHTML = minutes;</span></a>
+<a class="sourceLine" id="cb2-13" title="13"></a>
+<a class="sourceLine" id="cb2-14" title="14"><span class="ss">  let seconds = date.getSeconds</span><span class="sc">()</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb2-15" title="15"><span class="ss">  if </span><span class="sc">(</span><span class="ss">seconds &lt; 10</span><span class="sc">)</span><span class="ss"> seconds = &#39;0&#39; </span><span class="sc">+</span><span class="ss"> seconds;</span></a>
+<a class="sourceLine" id="cb2-16" title="16"><span class="ss">  clock.children</span><span class="sc">[2]</span><span class="ss">.innerHTML = seconds;</span></a>
+<a class="sourceLine" id="cb2-17" title="17"><span class="ss">}</span></a></code></pre></div>
+<p>In the line <code>(*)</code> we every time check the current date. The calls to <code>setInterval</code> are not reliable: they may happen with delays.</p>
+<p>The clock-managing functions:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> timerId<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="kw">function</span> <span class="at">clockStart</span>() <span class="op">{</span> <span class="co">// run the clock  </span></a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="cf">if</span> (<span class="op">!</span>timerId) <span class="op">{</span> <span class="co">// only set a new interval if the clock is not running</span></a>
+<a class="sourceLine" id="cb3-5" title="5">    timerId <span class="op">=</span> <span class="at">setInterval</span>(update<span class="op">,</span> <span class="dv">1000</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-6" title="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-7" title="7">  <span class="at">update</span>()<span class="op">;</span> <span class="co">// (*)</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="op">}</span></a>
+<a class="sourceLine" id="cb3-9" title="9"></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="kw">function</span> <span class="at">clockStop</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-11" title="11">  <span class="at">clearInterval</span>(timerId)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-12" title="12">  timerId <span class="op">=</span> <span class="kw">null</span><span class="op">;</span> <span class="co">// (**)</span></a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="op">}</span></a></code></pre></div>
+<p>Please note that the call to <code>update()</code> is not only scheduled in <code>clockStart()</code>, but immediately run in the line <code>(*)</code>. Otherwise the visitor would have to wait till the first execution of <code>setInterval</code>. And the clock would be empty till then.</p>
+<p>Also it is important to set a new interval in <code>clockStart()</code> only when the clock is not running. Otherways clicking the start button several times would set multiple concurrent intervals. Even worse - we would only keep the <code>timerID</code> of the last interval, losing references to all others. Then we wouldn’t be able to stop the clock ever again! Note that we need to clear the <code>timerID</code> when the clock is stopped in the line <code>(**)</code>, so that it can be started again by running <code>clockStart()</code>.</p>

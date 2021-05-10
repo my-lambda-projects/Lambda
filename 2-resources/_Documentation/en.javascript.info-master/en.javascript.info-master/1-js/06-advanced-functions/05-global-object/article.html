@@ -1,0 +1,35 @@
+<h1 id="global-object">Global object</h1>
+<p>The global object provides variables and functions that are available anywhere. By default, those that are built into the language or the environment.</p>
+<p>In a browser it is named <code>window</code>, for Node.js it is <code>global</code>, for other environments it may have another name.</p>
+<p>Recently, <code>globalThis</code> was added to the language, as a standardized name for a global object, that should be supported across all environments. It’s supported in all major browsers.</p>
+<p>We’ll use <code>window</code> here, assuming that our environment is a browser. If your script may run in other environments, it’s better to use <code>globalThis</code> instead.</p>
+<p>All properties of the global object can be accessed directly:</p>
+<p><code>js run alert("Hello"); // is the same as window.alert("Hello");</code></p>
+<p>In a browser, global functions and variables declared with <code>var</code> (not <code>let/const</code>!) become the property of the global object:</p>
+<p>```js run untrusted refresh var gVar = 5;</p>
+<p>alert(window.gVar); // 5 (became a property of the global object) ```</p>
+<p>The same effect have function declarations (statements with <code>function</code> keyword in the main code flow, not function expressions).</p>
+<p>Please don’t rely on that! This behavior exists for compatibility reasons. Modern scripts use <a href="info:modules">JavaScript modules</a> where such a thing doesn’t happen.</p>
+<p>If we used <code>let</code> instead, such thing wouldn’t happen:</p>
+<p>```js run untrusted refresh let gLet = 5;</p>
+<p>alert(window.gLet); // undefined (doesn’t become a property of the global object) ```</p>
+<p>If a value is so important that you’d like to make it available globally, write it directly as a property:</p>
+<p>```js run <em>!</em> // make current user information global, to let all scripts access it window.currentUser = { name: “John” }; <em>/!</em></p>
+<p>// somewhere else in code alert(currentUser.name); // John</p>
+<p>// or, if we have a local variable with the name “currentUser” // get it from window explicitly (safe!) alert(window.currentUser.name); // John ```</p>
+<p>That said, using global variables is generally discouraged. There should be as few global variables as possible. The code design where a function gets “input” variables and produces certain “outcome” is clearer, less prone to errors and easier to test than if it uses outer or global variables.</p>
+<h2 id="using-for-polyfills">Using for polyfills</h2>
+<p>We use the global object to test for support of modern language features.</p>
+<p>For instance, test if a built-in <code>Promise</code> object exists (it doesn’t in really old browsers): <code>js run if (!window.Promise) {   alert("Your browser is really old!"); }</code></p>
+<p>If there’s none (say, we’re in an old browser), we can create “polyfills”: add functions that are not supported by the environment, but exist in the modern standard.</p>
+<p><code>js run if (!window.Promise) {   window.Promise = ... // custom implementation of the modern language feature }</code></p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><p>The global object holds variables that should be available everywhere.</p>
+That includes JavaScript built-ins, such as <code>Array</code> and environment-specific values, such as <code>window.innerHeight</code> – the window height in the browser.</li>
+<li><p>The global object has a universal name <code>globalThis</code>.</p>
+…But more often is referred by “old-school” environment-specific names, such as <code>window</code> (browser) and <code>global</code> (Node.js).</li>
+<li>We should store values in the global object only if they’re truly global for our project. And keep their number at minimum.</li>
+<li>In-browser, unless we’re using <a href="info:modules">modules</a>, global functions and variables declared with <code>var</code> become a property of the global object.</li>
+<li><p>To make our code future-proof and easier to understand, we should access properties of the global object directly, as <code>window.x</code>.</p></li>
+</ul>

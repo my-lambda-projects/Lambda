@@ -1,0 +1,151 @@
+<h1 id="data-types">Data types</h1>
+<p>A value in JavaScript is always of a certain type. For example, a string or a number.</p>
+<p>There are eight basic data types in JavaScript. Here, we’ll cover them in general and in the next chapters we’ll talk about each of them in detail.</p>
+<p>We can put any type in a variable. For example, a variable can at one moment be a string and then store a number:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// no error</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">let</span> message <span class="op">=</span> <span class="st">&quot;hello&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">message <span class="op">=</span> <span class="dv">123456</span><span class="op">;</span></a></code></pre></div>
+<p>Programming languages that allow such things, such as JavaScript, are called “dynamically typed”, meaning that there exist data types, but variables are not bound to any of them.</p>
+<h2 id="number">Number</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> n <span class="op">=</span> <span class="dv">123</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2">n <span class="op">=</span> <span class="fl">12.345</span><span class="op">;</span></a></code></pre></div>
+<p>The <em>number</em> type represents both integer and floating point numbers.</p>
+<p>There are many operations for numbers, e.g. multiplication <code>*</code>, division <code>/</code>, addition <code>+</code>, subtraction <code>-</code>, and so on.</p>
+<p>Besides regular numbers, there are so-called “special numeric values” which also belong to this data type: <code>Infinity</code>, <code>-Infinity</code> and <code>NaN</code>.</p>
+<ul>
+<li><p><code>Infinity</code> represents the mathematical <a href="https://en.wikipedia.org/wiki/Infinity">Infinity</a> ∞. It is a special value that’s greater than any number.</p>
+<p>We can get it as a result of division by zero:</p>
+<p><code>js run   alert( 1 / 0 ); // Infinity</code></p>
+<p>Or just reference it directly:</p>
+<code>js run   alert( Infinity ); // Infinity</code></li>
+<li><p><code>NaN</code> represents a computational error. It is a result of an incorrect or an undefined mathematical operation, for instance:</p>
+<p><code>js run   alert( "not a number" / 2 ); // NaN, such division is erroneous</code></p>
+<p><code>NaN</code> is sticky. Any further operation on <code>NaN</code> returns <code>NaN</code>:</p>
+<p><code>js run   alert( "not a number" / 2 + 5 ); // NaN</code></p>
+<p>So, if there’s a <code>NaN</code> somewhere in a mathematical expression, it propagates to the whole result.</p></li>
+</ul>
+<p>```smart header=“Mathematical operations are safe” Doing maths is “safe” in JavaScript. We can do anything: divide by zero, treat non-numeric strings as numbers, etc.</p>
+<p>The script will never stop with a fatal error (“die”). At worst, we’ll get <code>NaN</code> as the result. ```</p>
+<p>Special numeric values formally belong to the “number” type. Of course they are not numbers in the common sense of this word.</p>
+<p>We’ll see more about working with numbers in the chapter <a href="info:number" class="uri">info:number</a>.</p>
+<h2 id="bigint">BigInt</h2>
+<p>In JavaScript, the “number” type cannot represent integer values larger than <code>(2<sup>53</sup>-1)</code> (that’s <code>9007199254740991</code>), or less than <code>-(2<sup>53</sup>-1)</code> for negatives. It’s a technical limitation caused by their internal representation.</p>
+<p>For most purposes that’s quite enough, but sometimes we need really big numbers, e.g. for cryptography or microsecond-precision timestamps.</p>
+<p><code>BigInt</code> type was recently added to the language to represent integers of arbitrary length.</p>
+<p>A <code>BigInt</code> value is created by appending <code>n</code> to the end of an integer:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// the &quot;n&quot; at the end means it&#39;s a BigInt</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">const</span> bigInt <span class="op">=</span> 1234567890123456789012345678901234567890n<span class="op">;</span></a></code></pre></div>
+<p>As <code>BigInt</code> numbers are rarely needed, we don’t cover them here, but devoted them a separate chapter <a href="info:bigint" class="uri">info:bigint</a>. Read it when you need such big numbers.</p>
+<p><code>smart header="Compatibility issues" Right now, `BigInt` is supported in Firefox/Chrome/Edge/Safari, but not in IE.</code></p>
+<p>You can check <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt#Browser_compatibility"><em>MDN</em> BigInt compatibility table</a> to know which versions of a browser are supported.</p>
+<h2 id="string">String</h2>
+<p>A string in JavaScript must be surrounded by quotes.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">let</span> str <span class="op">=</span> <span class="st">&quot;Hello&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw">let</span> str2 <span class="op">=</span> <span class="st">&#39;Single quotes are ok too&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="kw">let</span> phrase <span class="op">=</span> <span class="vs">`can embed another </span><span class="sc">${</span>str<span class="sc">}</span><span class="vs">`</span><span class="op">;</span></a></code></pre></div>
+<p>In JavaScript, there are 3 types of quotes.</p>
+<ol type="1">
+<li>Double quotes: <code>"Hello"</code>.</li>
+<li>Single quotes: <code>'Hello'</code>.</li>
+<li>Backticks: <code>`Hello`</code>.</li>
+</ol>
+<p>Double and single quotes are “simple” quotes. There’s practically no difference between them in JavaScript.</p>
+<p>Backticks are “extended functionality” quotes. They allow us to embed variables and expressions into a string by wrapping them in <code>${…}</code>, for example:</p>
+<p>```js run let name = “John”;</p>
+<p>// embed a variable alert( <code>Hello, *!*${name}*/!*!</code> ); // Hello, John!</p>
+<p>// embed an expression alert( <code>the result is *!*${1 + 2}*/!*</code> ); // the result is 3 ```</p>
+<p>The expression inside <code>${…}</code> is evaluated and the result becomes a part of the string. We can put anything in there: a variable like <code>name</code> or an arithmetical expression like <code>1 + 2</code> or something more complex.</p>
+<p>Please note that this can only be done in backticks. Other quotes don’t have this embedding functionality! <code>js run alert( "the result is ${1 + 2}" ); // the result is ${1 + 2} (double quotes do nothing)</code></p>
+<p>We’ll cover strings more thoroughly in the chapter <a href="info:string" class="uri">info:string</a>.</p>
+<p>```smart header=“There is no <em>character</em> type.” In some languages, there is a special “character” type for a single character. For example, in the C language and in Java it is called “char”.</p>
+<p>In JavaScript, there is no such type. There’s only one type: <code>string</code>. A string may consist of zero characters (be empty), one character or many of them. ```</p>
+<h2 id="boolean-logical-type">Boolean (logical type)</h2>
+<p>The boolean type has only two values: <code>true</code> and <code>false</code>.</p>
+<p>This type is commonly used to store yes/no values: <code>true</code> means “yes, correct”, and <code>false</code> means “no, incorrect”.</p>
+<p>For instance:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">let</span> nameFieldChecked <span class="op">=</span> <span class="kw">true</span><span class="op">;</span> <span class="co">// yes, name field is checked</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw">let</span> ageFieldChecked <span class="op">=</span> <span class="kw">false</span><span class="op">;</span> <span class="co">// no, age field is not checked</span></a></code></pre></div>
+<p>Boolean values also come as a result of comparisons:</p>
+<p>```js run let isGreater = 4 &gt; 1;</p>
+<p>alert( isGreater ); // true (the comparison result is “yes”) ```</p>
+<p>We’ll cover booleans more deeply in the chapter <a href="info:logical-operators" class="uri">info:logical-operators</a>.</p>
+<h2 id="the-null-value">The “null” value</h2>
+<p>The special <code>null</code> value does not belong to any of the types described above.</p>
+<p>It forms a separate type of its own which contains only the <code>null</code> value:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">let</span> age <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></a></code></pre></div>
+<p>In JavaScript, <code>null</code> is not a “reference to a non-existing object” or a “null pointer” like in some other languages.</p>
+<p>It’s just a special value which represents “nothing”, “empty” or “value unknown”.</p>
+<p>The code above states that <code>age</code> is unknown.</p>
+<h2 id="the-undefined-value">The “undefined” value</h2>
+<p>The special value <code>undefined</code> also stands apart. It makes a type of its own, just like <code>null</code>.</p>
+<p>The meaning of <code>undefined</code> is “value is not assigned”.</p>
+<p>If a variable is declared, but not assigned, then its value is <code>undefined</code>:</p>
+<p>```js run let age;</p>
+<p>alert(age); // shows “undefined” ```</p>
+<p>Technically, it is possible to explicitly assign <code>undefined</code> to a variable:</p>
+<p>```js run let age = 100;</p>
+<p>// change the value to undefined age = undefined;</p>
+<p>alert(age); // “undefined” ```</p>
+<p>…But we don’t recommend doing that. Normally, one uses <code>null</code> to assign an “empty” or “unknown” value to a variable, while <code>undefined</code> is reserved as a default initial value for unassigned things.</p>
+<h2 id="objects-and-symbols">Objects and Symbols</h2>
+<p>The <code>object</code> type is special.</p>
+<p>All other types are called “primitive” because their values can contain only a single thing (be it a string or a number or whatever). In contrast, objects are used to store collections of data and more complex entities.</p>
+<p>Being that important, objects deserve a special treatment. We’ll deal with them later in the chapter <a href="info:object" class="uri">info:object</a>, after we learn more about primitives.</p>
+<p>The <code>symbol</code> type is used to create unique identifiers for objects. We have to mention it here for the sake of completeness, but also postpone the details till we know objects.</p>
+<h2 id="the-typeof-operator-type-typeof">The typeof operator [#type-typeof]</h2>
+<p>The <code>typeof</code> operator returns the type of the argument. It’s useful when we want to process values of different types differently or just want to do a quick check.</p>
+<p>It supports two forms of syntax:</p>
+<ol type="1">
+<li>As an operator: <code>typeof x</code>.</li>
+<li>As a function: <code>typeof(x)</code>.</li>
+</ol>
+<p>In other words, it works with parentheses or without them. The result is the same.</p>
+<p>The call to <code>typeof x</code> returns a string with the type name:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">typeof</span> <span class="kw">undefined</span> <span class="co">// &quot;undefined&quot;</span></a>
+<a class="sourceLine" id="cb7-2" title="2"></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="kw">typeof</span> <span class="dv">0</span> <span class="co">// &quot;number&quot;</span></a>
+<a class="sourceLine" id="cb7-4" title="4"></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="kw">typeof</span> 10n <span class="co">// &quot;bigint&quot;</span></a>
+<a class="sourceLine" id="cb7-6" title="6"></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="kw">typeof</span> <span class="kw">true</span> <span class="co">// &quot;boolean&quot;</span></a>
+<a class="sourceLine" id="cb7-8" title="8"></a>
+<a class="sourceLine" id="cb7-9" title="9"><span class="kw">typeof</span> <span class="st">&quot;foo&quot;</span> <span class="co">// &quot;string&quot;</span></a>
+<a class="sourceLine" id="cb7-10" title="10"></a>
+<a class="sourceLine" id="cb7-11" title="11"><span class="kw">typeof</span> <span class="at">Symbol</span>(<span class="st">&quot;id&quot;</span>) <span class="co">// &quot;symbol&quot;</span></a>
+<a class="sourceLine" id="cb7-12" title="12"></a>
+<a class="sourceLine" id="cb7-13" title="13"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb7-14" title="14"><span class="kw">typeof</span> Math <span class="co">// &quot;object&quot;  (1)</span></a>
+<a class="sourceLine" id="cb7-15" title="15"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb7-16" title="16"></a>
+<a class="sourceLine" id="cb7-17" title="17"><span class="sc">*</span><span class="ss">!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb7-18" title="18"><span class="ss">typeof null // &quot;object&quot;  </span><span class="sc">(</span><span class="ss">2</span><span class="sc">)</span></a>
+<a class="sourceLine" id="cb7-19" title="19"><span class="sc">*</span><span class="ss">/</span><span class="op">!*</span></a>
+<a class="sourceLine" id="cb7-20" title="20"></a>
+<a class="sourceLine" id="cb7-21" title="21"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb7-22" title="22"><span class="kw">typeof</span> alert <span class="co">// &quot;function&quot;  (3)</span></a>
+<a class="sourceLine" id="cb7-23" title="23"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a></code></pre></div>
+<p>The last three lines may need additional explanation:</p>
+<ol type="1">
+<li><code>Math</code> is a built-in object that provides mathematical operations. We will learn it in the chapter <a href="info:number" class="uri">info:number</a>. Here, it serves just as an example of an object.</li>
+<li>The result of <code>typeof null</code> is <code>"object"</code>. That’s an officially recognized error in <code>typeof</code> behavior, coming from the early days of JavaScript and kept for compatibility. Definitely, <code>null</code> is not an object. It is a special value with a separate type of its own.</li>
+<li>The result of <code>typeof alert</code> is <code>"function"</code>, because <code>alert</code> is a function. We’ll study functions in the next chapters where we’ll also see that there’s no special “function” type in JavaScript. Functions belong to the object type. But <code>typeof</code> treats them differently, returning <code>"function"</code>. That also comes from the early days of JavaScript. Technically, such behavior isn’t correct, but can be convenient in practice.</li>
+</ol>
+<h2 id="summary">Summary</h2>
+<p>There are 8 basic data types in JavaScript.</p>
+<ul>
+<li><code>number</code> for numbers of any kind: integer or floating-point, integers are limited by <code>±(2<sup>53</sup>-1)</code>.</li>
+<li><code>bigint</code> is for integer numbers of arbitrary length.</li>
+<li><code>string</code> for strings. A string may have zero or more characters, there’s no separate single-character type.</li>
+<li><code>boolean</code> for <code>true</code>/<code>false</code>.</li>
+<li><code>null</code> for unknown values – a standalone type that has a single value <code>null</code>.</li>
+<li><code>undefined</code> for unassigned values – a standalone type that has a single value <code>undefined</code>.</li>
+<li><code>object</code> for more complex data structures.</li>
+<li><code>symbol</code> for unique identifiers.</li>
+</ul>
+<p>The <code>typeof</code> operator allows us to see which type is stored in a variable.</p>
+<ul>
+<li>Two forms: <code>typeof x</code> or <code>typeof(x)</code>.</li>
+<li>Returns a string with the name of the type, like <code>"string"</code>.</li>
+<li>For <code>null</code> returns <code>"object"</code> – this is an error in the language, it’s not actually an object.</li>
+</ul>
+<p>In the next chapters, we’ll concentrate on primitive values and once we’re familiar with them, we’ll move on to objects.</p>

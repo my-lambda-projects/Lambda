@@ -1,0 +1,25 @@
+<h1 id="slow-solution">Slow solution</h1>
+<p>We can calculate all possible subsums.</p>
+<p>The simplest way is to take every element and calculate sums of all subarrays starting from it.</p>
+<p>For instance, for <code>[-1, 2, 3, -9, 11]</code>:</p>
+<p>```js no-beautify // Starting from -1: -1 -1 + 2 -1 + 2 + 3 -1 + 2 + 3 + (-9) -1 + 2 + 3 + (-9) + 11</p>
+<p>// Starting from 2: 2 2 + 3 2 + 3 + (-9) 2 + 3 + (-9) + 11</p>
+<p>// Starting from 3: 3 3 + (-9) 3 + (-9) + 11</p>
+<p>// Starting from -9 -9 -9 + 11</p>
+<p>// Starting from 11 11 ```</p>
+<p>The code is actually a nested loop: the external loop over array elements, and the internal counts subsums starting with the current element.</p>
+<p>```js run function getMaxSubSum(arr) { let maxSum = 0; // if we take no elements, zero will be returned</p>
+<p>for (let i = 0; i &lt; arr.length; i++) { let sumFixedStart = 0; for (let j = i; j &lt; arr.length; j++) { sumFixedStart += arr[j]; maxSum = Math.max(maxSum, sumFixedStart); } }</p>
+<p>return maxSum; }</p>
+<p>alert( getMaxSubSum([-1, 2, 3, -9]) ); // 5 alert( getMaxSubSum([-1, 2, 3, -9, 11]) ); // 11 alert( getMaxSubSum([-2, -1, 1, 2]) ); // 3 alert( getMaxSubSum([1, 2, 3]) ); // 6 alert( getMaxSubSum([100, -9, 2, -3, 5]) ); // 100 ```</p>
+<p>The solution has a time complexity of <a href="https://en.wikipedia.org/wiki/Big_O_notation">O(n<sup>2</sup>)</a>. In other words, if we increase the array size 2 times, the algorithm will work 4 times longer.</p>
+<p>For big arrays (1000, 10000 or more items) such algorithms can lead to a serious sluggishness.</p>
+<h1 id="fast-solution">Fast solution</h1>
+<p>Let’s walk the array and keep the current partial sum of elements in the variable <code>s</code>. If <code>s</code> becomes negative at some point, then assign <code>s=0</code>. The maximum of all such <code>s</code> will be the answer.</p>
+<p>If the description is too vague, please see the code, it’s short enough:</p>
+<p>```js run demo function getMaxSubSum(arr) { let maxSum = 0; let partialSum = 0;</p>
+<p>for (let item of arr) { // for each item of arr partialSum += item; // add it to partialSum maxSum = Math.max(maxSum, partialSum); // remember the maximum if (partialSum &lt; 0) partialSum = 0; // zero if negative }</p>
+<p>return maxSum; }</p>
+<p>alert( getMaxSubSum([-1, 2, 3, -9]) ); // 5 alert( getMaxSubSum([-1, 2, 3, -9, 11]) ); // 11 alert( getMaxSubSum([-2, -1, 1, 2]) ); // 3 alert( getMaxSubSum([100, -9, 2, -3, 5]) ); // 100 alert( getMaxSubSum([1, 2, 3]) ); // 6 alert( getMaxSubSum([-1, -2, -3]) ); // 0 ```</p>
+<p>The algorithm requires exactly 1 array pass, so the time complexity is O(n).</p>
+<p>You can find more detail information about the algorithm here: <a href="http://en.wikipedia.org/wiki/Maximum_subarray_problem">Maximum subarray problem</a>. If it’s still not obvious why that works, then please trace the algorithm on the examples above, see how it works, that’s better than any words.</p>

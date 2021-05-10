@@ -1,0 +1,284 @@
+<h1 id="javascript-animations">JavaScript animations</h1>
+<p>JavaScript animations can handle things that CSS can’t.</p>
+<p>For instance, moving along a complex path, with a timing function different from Bezier curves, or an animation on a canvas.</p>
+<h2 id="using-setinterval">Using setInterval</h2>
+<p>An animation can be implemented as a sequence of frames – usually small changes to HTML/CSS properties.</p>
+<p>For instance, changing <code>style.left</code> from <code>0px</code> to <code>100px</code> moves the element. And if we increase it in <code>setInterval</code>, changing by <code>2px</code> with a tiny delay, like 50 times per second, then it looks smooth. That’s the same principle as in the cinema: 24 frames per second is enough to make it look smooth.</p>
+<p>The pseudo-code can look like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> timer <span class="op">=</span> <span class="at">setInterval</span>(<span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="cf">if</span> (animation complete) <span class="at">clearInterval</span>(timer)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="cf">else</span> increase <span class="va">style</span>.<span class="at">left</span> by 2px</a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="op">},</span> <span class="dv">20</span>)<span class="op">;</span> <span class="co">// change by 2px every 20ms, about 50 frames per second</span></a></code></pre></div>
+<p>More complete example of the animation:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> start <span class="op">=</span> <span class="va">Date</span>.<span class="at">now</span>()<span class="op">;</span> <span class="co">// remember start time</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="kw">let</span> timer <span class="op">=</span> <span class="at">setInterval</span>(<span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="co">// how much time passed from the start?</span></a>
+<a class="sourceLine" id="cb2-5" title="5">  <span class="kw">let</span> timePassed <span class="op">=</span> <span class="va">Date</span>.<span class="at">now</span>() <span class="op">-</span> start<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-6" title="6"></a>
+<a class="sourceLine" id="cb2-7" title="7">  <span class="cf">if</span> (timePassed <span class="op">&gt;=</span> <span class="dv">2000</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-8" title="8">    <span class="at">clearInterval</span>(timer)<span class="op">;</span> <span class="co">// finish the animation after 2 seconds</span></a>
+<a class="sourceLine" id="cb2-9" title="9">    <span class="cf">return</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-10" title="10">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-11" title="11"></a>
+<a class="sourceLine" id="cb2-12" title="12">  <span class="co">// draw the animation at the moment timePassed</span></a>
+<a class="sourceLine" id="cb2-13" title="13">  <span class="at">draw</span>(timePassed)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-14" title="14"></a>
+<a class="sourceLine" id="cb2-15" title="15"><span class="op">},</span> <span class="dv">20</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-16" title="16"></a>
+<a class="sourceLine" id="cb2-17" title="17"><span class="co">// as timePassed goes from 0 to 2000</span></a>
+<a class="sourceLine" id="cb2-18" title="18"><span class="co">// left gets values from 0px to 400px</span></a>
+<a class="sourceLine" id="cb2-19" title="19"><span class="kw">function</span> <span class="at">draw</span>(timePassed) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-20" title="20">  <span class="va">train</span>.<span class="va">style</span>.<span class="at">left</span> <span class="op">=</span> timePassed / <span class="dv">5</span> <span class="op">+</span> <span class="st">&#39;px&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-21" title="21"><span class="op">}</span></a></code></pre></div>
+<p>Click for the demo:</p>
+<p>[codetabs height=200 src=“move”]</p>
+<h2 id="using-requestanimationframe">Using requestAnimationFrame</h2>
+<p>Let’s imagine we have several animations running simultaneously.</p>
+<p>If we run them separately, then even though each one has <code>setInterval(..., 20)</code>, then the browser would have to repaint much more often than every <code>20ms</code>.</p>
+<p>That’s because they have different starting time, so “every 20ms” differs between different animations. The intervals are not aligned. So we’ll have several independent runs within <code>20ms</code>.</p>
+<p>In other words, this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">setInterval</span>(<span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="at">animate1</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="at">animate2</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="at">animate3</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="op">},</span> <span class="dv">20</span>)</a></code></pre></div>
+<p>…Is lighter than three independent calls:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">setInterval</span>(animate1<span class="op">,</span> <span class="dv">20</span>)<span class="op">;</span> <span class="co">// independent animations</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="at">setInterval</span>(animate2<span class="op">,</span> <span class="dv">20</span>)<span class="op">;</span> <span class="co">// in different places of the script</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="at">setInterval</span>(animate3<span class="op">,</span> <span class="dv">20</span>)<span class="op">;</span></a></code></pre></div>
+<p>These several independent redraws should be grouped together, to make the redraw easier for the browser and hence load less CPU load and look smoother.</p>
+<p>There’s one more thing to keep in mind. Sometimes CPU is overloaded, or there are other reasons to redraw less often (like when the browser tab is hidden), so we really shouldn’t run it every <code>20ms</code>.</p>
+<p>But how do we know about that in JavaScript? There’s a specification <a href="http://www.w3.org/TR/animation-timing/">Animation timing</a> that provides the function <code>requestAnimationFrame</code>. It addresses all these issues and even more.</p>
+<p>The syntax:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">let</span> requestId <span class="op">=</span> <span class="at">requestAnimationFrame</span>(callback)</a></code></pre></div>
+<p>That schedules the <code>callback</code> function to run in the closest time when the browser wants to do animation.</p>
+<p>If we do changes in elements in <code>callback</code> then they will be grouped together with other <code>requestAnimationFrame</code> callbacks and with CSS animations. So there will be one geometry recalculation and repaint instead of many.</p>
+<p>The returned value <code>requestId</code> can be used to cancel the call:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="co">// cancel the scheduled execution of callback</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="at">cancelAnimationFrame</span>(requestId)<span class="op">;</span></a></code></pre></div>
+<p>The <code>callback</code> gets one argument – the time passed from the beginning of the page load in microseconds. This time can also be obtained by calling <a href="mdn:api/Performance/now">performance.now()</a>.</p>
+<p>Usually <code>callback</code> runs very soon, unless the CPU is overloaded or the laptop battery is almost discharged, or there’s another reason.</p>
+<p>The code below shows the time between first 10 runs for <code>requestAnimationFrame</code>. Usually it’s 10-20ms:</p>
+```html run height=40 refresh
+<script>
+  let prev = performance.now();
+  let times = 0;
+
+  requestAnimationFrame(function measure(time) {
+    document.body.insertAdjacentHTML("beforeEnd", Math.floor(time - prev) + " ");
+    prev = time;
+
+    if (times++ < 10) requestAnimationFrame(measure);
+  })
+</script>
+<p>```</p>
+<h2 id="structured-animation">Structured animation</h2>
+<p>Now we can make a more universal animation function based on <code>requestAnimationFrame</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">function</span> <span class="at">animate</span>(<span class="op">{</span>timing<span class="op">,</span> draw<span class="op">,</span> duration<span class="op">}</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2"></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="kw">let</span> start <span class="op">=</span> <span class="va">performance</span>.<span class="at">now</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-4" title="4"></a>
+<a class="sourceLine" id="cb7-5" title="5">  <span class="at">requestAnimationFrame</span>(<span class="kw">function</span> <span class="at">animate</span>(time) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-6" title="6">    <span class="co">// timeFraction goes from 0 to 1</span></a>
+<a class="sourceLine" id="cb7-7" title="7">    <span class="kw">let</span> timeFraction <span class="op">=</span> (time <span class="op">-</span> start) / duration<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-8" title="8">    <span class="cf">if</span> (timeFraction <span class="op">&gt;</span> <span class="dv">1</span>) timeFraction <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-9" title="9"></a>
+<a class="sourceLine" id="cb7-10" title="10">    <span class="co">// calculate the current animation state</span></a>
+<a class="sourceLine" id="cb7-11" title="11">    <span class="kw">let</span> progress <span class="op">=</span> <span class="at">timing</span>(timeFraction)</a>
+<a class="sourceLine" id="cb7-12" title="12"></a>
+<a class="sourceLine" id="cb7-13" title="13">    <span class="at">draw</span>(progress)<span class="op">;</span> <span class="co">// draw it</span></a>
+<a class="sourceLine" id="cb7-14" title="14"></a>
+<a class="sourceLine" id="cb7-15" title="15">    <span class="cf">if</span> (timeFraction <span class="op">&lt;</span> <span class="dv">1</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-16" title="16">      <span class="at">requestAnimationFrame</span>(animate)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-17" title="17">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-18" title="18"></a>
+<a class="sourceLine" id="cb7-19" title="19">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-20" title="20"><span class="op">}</span></a></code></pre></div>
+<p>Function <code>animate</code> accepts 3 parameters that essentially describes the animation:</p>
+<dl>
+<dt><code>duration</code></dt>
+<dd>Total time of animation. Like, <code>1000</code>.
+</dd>
+<dt><code>timing(timeFraction)</code></dt>
+<dd><p>Timing function, like CSS-property <code>transition-timing-function</code> that gets the fraction of time that passed (<code>0</code> at start, <code>1</code> at the end) and returns the animation completion (like <code>y</code> on the Bezier curve).</p>
+<p>For instance, a linear function means that the animation goes on uniformly with the same speed:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">function</span> <span class="at">linear</span>(timeFraction) <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2">  <span class="cf">return</span> timeFraction<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>It’s graph: <img src="linear.svg" /></p>
+<p>That’s just like <code>transition-timing-function: linear</code>. There are more interesting variants shown below.</p>
+</dd>
+<dt><code>draw(progress)</code></dt>
+<dd><p>The function that takes the animation completion state and draws it. The value <code>progress=0</code> denotes the beginning animation state, and <code>progress=1</code> – the end state.</p>
+<p>This is that function that actually draws out the animation.</p>
+<p>It can move the element:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">function</span> <span class="at">draw</span>(progress) <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="va">train</span>.<span class="va">style</span>.<span class="at">left</span> <span class="op">=</span> progress <span class="op">+</span> <span class="st">&#39;px&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>…Or do anything else, we can animate anything, in any way.</p>
+</dd>
+</dl>
+<p>Let’s animate the element <code>width</code> from <code>0</code> to <code>100%</code> using our function.</p>
+<p>Click on the element for the demo:</p>
+<p>[codetabs height=60 src=“width”]</p>
+<p>The code for it:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="at">animate</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb10-2" title="2">  <span class="dt">duration</span><span class="op">:</span> <span class="dv">1000</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb10-3" title="3">  <span class="at">timing</span>(timeFraction) <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-4" title="4">    <span class="cf">return</span> timeFraction<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-5" title="5">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb10-6" title="6">  <span class="at">draw</span>(progress) <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-7" title="7">    <span class="va">elem</span>.<span class="va">style</span>.<span class="at">width</span> <span class="op">=</span> progress <span class="op">*</span> <span class="dv">100</span> <span class="op">+</span> <span class="st">&#39;%&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb10-8" title="8">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb10-9" title="9"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>Unlike CSS animation, we can make any timing function and any drawing function here. The timing function is not limited by Bezier curves. And <code>draw</code> can go beyond properties, create new elements for like fireworks animation or something.</p>
+<h2 id="timing-functions">Timing functions</h2>
+<p>We saw the simplest, linear timing function above.</p>
+<p>Let’s see more of them. We’ll try movement animations with different timing functions to see how they work.</p>
+<h3 id="power-of-n">Power of n</h3>
+<p>If we want to speed up the animation, we can use <code>progress</code> in the power <code>n</code>.</p>
+<p>For instance, a parabolic curve:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">function</span> <span class="at">quad</span>(timeFraction) <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-2" title="2">  <span class="cf">return</span> <span class="va">Math</span>.<span class="at">pow</span>(timeFraction<span class="op">,</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>The graph:</p>
+<p><img src="quad.svg" /></p>
+<p>See in action (click to activate):</p>
+<p>[iframe height=40 src=“quad” link]</p>
+<p>…Or the cubic curve or even greater <code>n</code>. Increasing the power makes it speed up faster.</p>
+<p>Here’s the graph for <code>progress</code> in the power <code>5</code>:</p>
+<p><img src="quint.svg" /></p>
+<p>In action:</p>
+<p>[iframe height=40 src=“quint” link]</p>
+<h3 id="the-arc">The arc</h3>
+<p>Function:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">function</span> <span class="at">circ</span>(timeFraction) <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-2" title="2">  <span class="cf">return</span> <span class="dv">1</span> <span class="op">-</span> <span class="va">Math</span>.<span class="at">sin</span>(<span class="va">Math</span>.<span class="at">acos</span>(timeFraction))<span class="op">;</span></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>The graph:</p>
+<p><img src="circ.svg" /></p>
+<p>[iframe height=40 src=“circ” link]</p>
+<h3 id="back-bow-shooting">Back: bow shooting</h3>
+<p>This function does the “bow shooting”. First we “pull the bowstring”, and then “shoot”.</p>
+<p>Unlike previous functions, it depends on an additional parameter <code>x</code>, the “elasticity coefficient”. The distance of “bowstring pulling” is defined by it.</p>
+<p>The code:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">function</span> <span class="at">back</span>(x<span class="op">,</span> timeFraction) <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-2" title="2">  <span class="cf">return</span> <span class="va">Math</span>.<span class="at">pow</span>(timeFraction<span class="op">,</span> <span class="dv">2</span>) <span class="op">*</span> ((x <span class="op">+</span> <span class="dv">1</span>) <span class="op">*</span> timeFraction <span class="op">-</span> x)</a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p><strong>The graph for <code>x = 1.5</code>:</strong></p>
+<p><img src="back.svg" /></p>
+<p>For animation we use it with a specific value of <code>x</code>. Example for <code>x = 1.5</code>:</p>
+<p>[iframe height=40 src=“back” link]</p>
+<h3 id="bounce">Bounce</h3>
+<p>Imagine we are dropping a ball. It falls down, then bounces back a few times and stops.</p>
+<p>The <code>bounce</code> function does the same, but in the reverse order: “bouncing” starts immediately. It uses few special coefficients for that:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">function</span> <span class="at">bounce</span>(timeFraction) <span class="op">{</span></a>
+<a class="sourceLine" id="cb14-2" title="2">  <span class="cf">for</span> (<span class="kw">let</span> a <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> b <span class="op">=</span> <span class="dv">1</span><span class="op">,</span> result<span class="op">;</span> <span class="dv">1</span><span class="op">;</span> a <span class="op">+=</span> b<span class="op">,</span> b /<span class="op">=</span> <span class="dv">2</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb14-3" title="3">    <span class="cf">if</span> (timeFraction <span class="op">&gt;=</span> (<span class="dv">7</span> <span class="op">-</span> <span class="dv">4</span> <span class="op">*</span> a) / <span class="dv">11</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb14-4" title="4">      <span class="cf">return</span> <span class="op">-</span><span class="va">Math</span>.<span class="at">pow</span>((<span class="dv">11</span> <span class="op">-</span> <span class="dv">6</span> <span class="op">*</span> a <span class="op">-</span> <span class="dv">11</span> <span class="op">*</span> timeFraction) / <span class="dv">4</span><span class="op">,</span> <span class="dv">2</span>) <span class="op">+</span> <span class="va">Math</span>.<span class="at">pow</span>(b<span class="op">,</span> <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb14-5" title="5">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb14-6" title="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb14-7" title="7"><span class="op">}</span></a></code></pre></div>
+<p>In action:</p>
+<p>[iframe height=40 src=“bounce” link]</p>
+<h3 id="elastic-animation">Elastic animation</h3>
+<p>One more “elastic” function that accepts an additional parameter <code>x</code> for the “initial range”.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">function</span> <span class="at">elastic</span>(x<span class="op">,</span> timeFraction) <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-2" title="2">  <span class="cf">return</span> <span class="va">Math</span>.<span class="at">pow</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">10</span> <span class="op">*</span> (timeFraction <span class="op">-</span> <span class="dv">1</span>)) <span class="op">*</span> <span class="va">Math</span>.<span class="at">cos</span>(<span class="dv">20</span> <span class="op">*</span> <span class="va">Math</span>.<span class="at">PI</span> <span class="op">*</span> x / <span class="dv">3</span> <span class="op">*</span> timeFraction)</a>
+<a class="sourceLine" id="cb15-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p><strong>The graph for <code>x=1.5</code>:</strong> <img src="elastic.svg" /></p>
+<p>In action for <code>x=1.5</code>:</p>
+<p>[iframe height=40 src=“elastic” link]</p>
+<h2 id="reversal-ease">Reversal: ease*</h2>
+<p>So we have a collection of timing functions. Their direct application is called “easeIn”.</p>
+<p>Sometimes we need to show the animation in the reverse order. That’s done with the “easeOut” transform.</p>
+<h3 id="easeout">easeOut</h3>
+<p>In the “easeOut” mode the <code>timing</code> function is put into a wrapper <code>timingEaseOut</code>:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb16-1" title="1"><span class="at">timingEaseOut</span>(timeFraction) <span class="op">=</span> <span class="dv">1</span> <span class="op">-</span> <span class="at">timing</span>(<span class="dv">1</span> <span class="op">-</span> timeFraction)</a></code></pre></div>
+<p>In other words, we have a “transform” function <code>makeEaseOut</code> that takes a “regular” timing function and returns the wrapper around it:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb17-1" title="1"><span class="co">// accepts a timing function, returns the transformed variant</span></a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="kw">function</span> <span class="at">makeEaseOut</span>(timing) <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-3" title="3">  <span class="cf">return</span> <span class="kw">function</span>(timeFraction) <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-4" title="4">    <span class="cf">return</span> <span class="dv">1</span> <span class="op">-</span> <span class="at">timing</span>(<span class="dv">1</span> <span class="op">-</span> timeFraction)<span class="op">;</span></a>
+<a class="sourceLine" id="cb17-5" title="5">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb17-6" title="6"><span class="op">}</span></a></code></pre></div>
+<p>For instance, we can take the <code>bounce</code> function described above and apply it:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">let</span> bounceEaseOut <span class="op">=</span> <span class="at">makeEaseOut</span>(bounce)<span class="op">;</span></a></code></pre></div>
+<p>Then the bounce will be not in the beginning, but at the end of the animation. Looks even better:</p>
+<p>[codetabs src=“bounce-easeout”]</p>
+<p>Here we can see how the transform changes the behavior of the function:</p>
+<p><img src="bounce-inout.svg" /></p>
+<p>If there’s an animation effect in the beginning, like bouncing – it will be shown at the end.</p>
+<p>In the graph above the <span style="color:#EE6B47">regular bounce</span> has the red color, and the <span style="color:#62C0DC">easeOut bounce</span> is blue.</p>
+<ul>
+<li>Regular bounce – the object bounces at the bottom, then at the end sharply jumps to the top.</li>
+<li>After <code>easeOut</code> – it first jumps to the top, then bounces there.</li>
+</ul>
+<h3 id="easeinout">easeInOut</h3>
+<p>We also can show the effect both in the beginning and the end of the animation. The transform is called “easeInOut”.</p>
+<p>Given the timing function, we calculate the animation state like this:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb19-1" title="1"><span class="cf">if</span> (timeFraction <span class="op">&lt;=</span> <span class="fl">0.5</span>) <span class="op">{</span> <span class="co">// first half of the animation</span></a>
+<a class="sourceLine" id="cb19-2" title="2">  <span class="cf">return</span> <span class="at">timing</span>(<span class="dv">2</span> <span class="op">*</span> timeFraction) / <span class="dv">2</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb19-3" title="3"><span class="op">}</span> <span class="cf">else</span> <span class="op">{</span> <span class="co">// second half of the animation</span></a>
+<a class="sourceLine" id="cb19-4" title="4">  <span class="cf">return</span> (<span class="dv">2</span> <span class="op">-</span> <span class="at">timing</span>(<span class="dv">2</span> <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> timeFraction))) / <span class="dv">2</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb19-5" title="5"><span class="op">}</span></a></code></pre></div>
+<p>The wrapper code:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb20-1" title="1"><span class="kw">function</span> <span class="at">makeEaseInOut</span>(timing) <span class="op">{</span></a>
+<a class="sourceLine" id="cb20-2" title="2">  <span class="cf">return</span> <span class="kw">function</span>(timeFraction) <span class="op">{</span></a>
+<a class="sourceLine" id="cb20-3" title="3">    <span class="cf">if</span> (timeFraction <span class="op">&lt;</span> <span class="fl">.5</span>)</a>
+<a class="sourceLine" id="cb20-4" title="4">      <span class="cf">return</span> <span class="at">timing</span>(<span class="dv">2</span> <span class="op">*</span> timeFraction) / <span class="dv">2</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb20-5" title="5">    <span class="cf">else</span></a>
+<a class="sourceLine" id="cb20-6" title="6">      <span class="cf">return</span> (<span class="dv">2</span> <span class="op">-</span> <span class="at">timing</span>(<span class="dv">2</span> <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> timeFraction))) / <span class="dv">2</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb20-7" title="7">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb20-8" title="8"><span class="op">}</span></a>
+<a class="sourceLine" id="cb20-9" title="9"></a>
+<a class="sourceLine" id="cb20-10" title="10">bounceEaseInOut <span class="op">=</span> <span class="at">makeEaseInOut</span>(bounce)<span class="op">;</span></a></code></pre></div>
+<p>In action, <code>bounceEaseInOut</code>:</p>
+<p>[codetabs src=“bounce-easeinout”]</p>
+<p>The “easeInOut” transform joins two graphs into one: <code>easeIn</code> (regular) for the first half of the animation and <code>easeOut</code> (reversed) – for the second part.</p>
+<p>The effect is clearly seen if we compare the graphs of <code>easeIn</code>, <code>easeOut</code> and <code>easeInOut</code> of the <code>circ</code> timing function:</p>
+<p><img src="circ-ease.svg" /></p>
+<ul>
+<li><span style="color:#EE6B47">Red</span> is the regular variant of <code>circ</code> (<code>easeIn</code>).</li>
+<li><span style="color:#8DB173">Green</span> – <code>easeOut</code>.</li>
+<li><span style="color:#62C0DC">Blue</span> – <code>easeInOut</code>.</li>
+</ul>
+<p>As we can see, the graph of the first half of the animation is the scaled down <code>easeIn</code>, and the second half is the scaled down <code>easeOut</code>. As a result, the animation starts and finishes with the same effect.</p>
+<h2 id="more-interesting-draw">More interesting “draw”</h2>
+<p>Instead of moving the element we can do something else. All we need is to write the proper <code>draw</code>.</p>
+<p>Here’s the animated “bouncing” text typing:</p>
+<p>[codetabs src=“text”]</p>
+<h2 id="summary">Summary</h2>
+<p>For animations that CSS can’t handle well, or those that need tight control, JavaScript can help. JavaScript animations should be implemented via <code>requestAnimationFrame</code>. That built-in method allows to setup a callback function to run when the browser will be preparing a repaint. Usually that’s very soon, but the exact time depends on the browser.</p>
+<p>When a page is in the background, there are no repaints at all, so the callback won’t run: the animation will be suspended and won’t consume resources. That’s great.</p>
+<p>Here’s the helper <code>animate</code> function to setup most animations:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">function</span> <span class="at">animate</span>(<span class="op">{</span>timing<span class="op">,</span> draw<span class="op">,</span> duration<span class="op">}</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb21-2" title="2"></a>
+<a class="sourceLine" id="cb21-3" title="3">  <span class="kw">let</span> start <span class="op">=</span> <span class="va">performance</span>.<span class="at">now</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb21-4" title="4"></a>
+<a class="sourceLine" id="cb21-5" title="5">  <span class="at">requestAnimationFrame</span>(<span class="kw">function</span> <span class="at">animate</span>(time) <span class="op">{</span></a>
+<a class="sourceLine" id="cb21-6" title="6">    <span class="co">// timeFraction goes from 0 to 1</span></a>
+<a class="sourceLine" id="cb21-7" title="7">    <span class="kw">let</span> timeFraction <span class="op">=</span> (time <span class="op">-</span> start) / duration<span class="op">;</span></a>
+<a class="sourceLine" id="cb21-8" title="8">    <span class="cf">if</span> (timeFraction <span class="op">&gt;</span> <span class="dv">1</span>) timeFraction <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb21-9" title="9"></a>
+<a class="sourceLine" id="cb21-10" title="10">    <span class="co">// calculate the current animation state</span></a>
+<a class="sourceLine" id="cb21-11" title="11">    <span class="kw">let</span> progress <span class="op">=</span> <span class="at">timing</span>(timeFraction)<span class="op">;</span></a>
+<a class="sourceLine" id="cb21-12" title="12"></a>
+<a class="sourceLine" id="cb21-13" title="13">    <span class="at">draw</span>(progress)<span class="op">;</span> <span class="co">// draw it</span></a>
+<a class="sourceLine" id="cb21-14" title="14"></a>
+<a class="sourceLine" id="cb21-15" title="15">    <span class="cf">if</span> (timeFraction <span class="op">&lt;</span> <span class="dv">1</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb21-16" title="16">      <span class="at">requestAnimationFrame</span>(animate)<span class="op">;</span></a>
+<a class="sourceLine" id="cb21-17" title="17">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb21-18" title="18"></a>
+<a class="sourceLine" id="cb21-19" title="19">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb21-20" title="20"><span class="op">}</span></a></code></pre></div>
+<p>Options:</p>
+<ul>
+<li><code>duration</code> – the total animation time in ms.</li>
+<li><code>timing</code> – the function to calculate animation progress. Gets a time fraction from 0 to 1, returns the animation progress, usually from 0 to 1.</li>
+<li><code>draw</code> – the function to draw the animation.</li>
+</ul>
+<p>Surely we could improve it, add more bells and whistles, but JavaScript animations are not applied on a daily basis. They are used to do something interesting and non-standard. So you’d want to add the features that you need when you need them.</p>
+<p>JavaScript animations can use any timing function. We covered a lot of examples and transformations to make them even more versatile. Unlike CSS, we are not limited to Bezier curves here.</p>
+<p>The same is about <code>draw</code>: we can animate anything, not just CSS properties.</p>

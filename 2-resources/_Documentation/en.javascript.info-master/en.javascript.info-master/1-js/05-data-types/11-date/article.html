@@ -1,0 +1,208 @@
+<h1 id="date-and-time">Date and time</h1>
+<p>Let’s meet a new built-in object: <a href="mdn:js/Date">Date</a>. It stores the date, time and provides methods for date/time management.</p>
+<p>For instance, we can use it to store creation/modification times, to measure time, or just to print out the current date.</p>
+<h2 id="creation">Creation</h2>
+<p>To create a new <code>Date</code> object call <code>new Date()</code> with one of the following arguments:</p>
+<dl>
+<dt><code>new Date()</code></dt>
+<dd><p>Without arguments – create a <code>Date</code> object for the current date and time:</p>
+<p><code>js run let now = new Date(); alert( now ); // shows current date/time</code></p>
+</dd>
+<dt><code>new Date(milliseconds)</code></dt>
+<dd><p>Create a <code>Date</code> object with the time equal to number of milliseconds (1/1000 of a second) passed after the Jan 1st of 1970 UTC+0.</p>
+<p>```js run // 0 means 01.01.1970 UTC+0 let Jan01_1970 = new Date(0); alert( Jan01_1970 );</p>
+<p>// now add 24 hours, get 02.01.1970 UTC+0 let Jan02_1970 = new Date(24 * 3600 * 1000); alert( Jan02_1970 ); ```</p>
+<p>An integer number representing the number of milliseconds that has passed since the beginning of 1970 is called a <em>timestamp</em>.</p>
+<p>It’s a lightweight numeric representation of a date. We can always create a date from a timestamp using <code>new Date(timestamp)</code> and convert the existing <code>Date</code> object to a timestamp using the <code>date.getTime()</code> method (see below).</p>
+<p>Dates before 01.01.1970 have negative timestamps, e.g.: <code>js run // 31 Dec 1969 let Dec31_1969 = new Date(-24 * 3600 * 1000); alert( Dec31_1969 );</code></p>
+</dd>
+<dt><code>new Date(datestring)</code></dt>
+<dd><p>If there is a single argument, and it’s a string, then it is parsed automatically. The algorithm is the same as <code>Date.parse</code> uses, we’ll cover it later.</p>
+<p><code>js run let date = new Date("2017-01-26"); alert(date); // The time is not set, so it's assumed to be midnight GMT and // is adjusted according to the timezone the code is run in // So the result could be // Thu Jan 26 2017 11:00:00 GMT+1100 (Australian Eastern Daylight Time) // or // Wed Jan 25 2017 16:00:00 GMT-0800 (Pacific Standard Time)</code></p>
+</dd>
+<dt><code>new Date(year, month, date, hours, minutes, seconds, ms)</code></dt>
+<dd><p>Create the date with the given components in the local time zone. Only the first two arguments are obligatory.</p>
+<ul>
+<li>The <code>year</code> must have 4 digits: <code>2013</code> is okay, <code>98</code> is not.</li>
+<li>The <code>month</code> count starts with <code>0</code> (Jan), up to <code>11</code> (Dec).</li>
+<li>The <code>date</code> parameter is actually the day of month, if absent then <code>1</code> is assumed.</li>
+<li>If <code>hours/minutes/seconds/ms</code> is absent, they are assumed to be equal <code>0</code>.</li>
+</ul>
+<p>For instance:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">new</span> <span class="at">Date</span>(<span class="dv">2011</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span> <span class="co">// 1 Jan 2011, 00:00:00</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">new</span> <span class="at">Date</span>(<span class="dv">2011</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span> <span class="co">// the same, hours etc are 0 by default</span></a></code></pre></div>
+<p>The maximal precision is 1 ms (1/1000 sec):</p>
+<p><code>js run let date = new Date(2011, 0, 1, 2, 3, 4, 567); alert( date ); // 1.01.2011, 02:03:04.567</code></p>
+</dd>
+</dl>
+<h2 id="access-date-components">Access date components</h2>
+<p>There are methods to access the year, month and so on from the <code>Date</code> object:</p>
+<dl>
+<dt><a href="mdn:js/Date/getFullYear">getFullYear()</a></dt>
+<dd>Get the year (4 digits)
+</dd>
+<dt><a href="mdn:js/Date/getMonth">getMonth()</a></dt>
+<dd>Get the month, <strong>from 0 to 11</strong>.
+</dd>
+<dt><a href="mdn:js/Date/getDate">getDate()</a></dt>
+<dd>Get the day of month, from 1 to 31, the name of the method does look a little bit strange.
+</dd>
+<dt><a href="mdn:js/Date/getHours">getHours()</a>, <a href="mdn:js/Date/getMinutes">getMinutes()</a>, <a href="mdn:js/Date/getSeconds">getSeconds()</a>, <a href="mdn:js/Date/getMilliseconds">getMilliseconds()</a></dt>
+<dd>Get the corresponding time components.
+</dd>
+</dl>
+<p><code>warn header="Not `getYear()`, but `getFullYear()`" Many JavaScript engines implement a non-standard method `getYear()`. This method is deprecated. It returns 2-digit year sometimes. Please never use it. There is `getFullYear()` for the year.</code></p>
+<p>Additionally, we can get a day of week:</p>
+<dl>
+<dt><a href="mdn:js/Date/getDay">getDay()</a></dt>
+<dd>Get the day of week, from <code>0</code> (Sunday) to <code>6</code> (Saturday). The first day is always Sunday, in some countries that’s not so, but can’t be changed.
+</dd>
+</dl>
+<p><strong>All the methods above return the components relative to the local time zone.</strong></p>
+<p>There are also their UTC-counterparts, that return day, month, year and so on for the time zone UTC+0: <a href="mdn:js/Date/getUTCFullYear">getUTCFullYear()</a>, <a href="mdn:js/Date/getUTCMonth">getUTCMonth()</a>, <a href="mdn:js/Date/getUTCDay">getUTCDay()</a>. Just insert the <code>"UTC"</code> right after <code>"get"</code>.</p>
+<p>If your local time zone is shifted relative to UTC, then the code below shows different hours:</p>
+<p>```js run // current date let date = new Date();</p>
+<p>// the hour in your current time zone alert( date.getHours() );</p>
+<p>// the hour in UTC+0 time zone (London time without daylight savings) alert( date.getUTCHours() ); ```</p>
+<p>Besides the given methods, there are two special ones that do not have a UTC-variant:</p>
+<dl>
+<dt><a href="mdn:js/Date/getTime">getTime()</a></dt>
+<dd>Returns the timestamp for the date – a number of milliseconds passed from the January 1st of 1970 UTC+0.
+</dd>
+<dt><a href="mdn:js/Date/getTimezoneOffset">getTimezoneOffset()</a></dt>
+<dd><p>Returns the difference between UTC and the local time zone, in minutes:</p>
+<p>```js run // if you are in timezone UTC-1, outputs 60 // if you are in timezone UTC+3, outputs -180 alert( new Date().getTimezoneOffset() );</p>
+<p>```</p>
+</dd>
+</dl>
+<h2 id="setting-date-components">Setting date components</h2>
+<p>The following methods allow to set date/time components:</p>
+<ul>
+<li><a href="mdn:js/Date/setFullYear"><code>setFullYear(year, [month], [date])</code></a></li>
+<li><a href="mdn:js/Date/setMonth"><code>setMonth(month, [date])</code></a></li>
+<li><a href="mdn:js/Date/setDate"><code>setDate(date)</code></a></li>
+<li><a href="mdn:js/Date/setHours"><code>setHours(hour, [min], [sec], [ms])</code></a></li>
+<li><a href="mdn:js/Date/setMinutes"><code>setMinutes(min, [sec], [ms])</code></a></li>
+<li><a href="mdn:js/Date/setSeconds"><code>setSeconds(sec, [ms])</code></a></li>
+<li><a href="mdn:js/Date/setMilliseconds"><code>setMilliseconds(ms)</code></a></li>
+<li><a href="mdn:js/Date/setTime"><code>setTime(milliseconds)</code></a> (sets the whole date by milliseconds since 01.01.1970 UTC)</li>
+</ul>
+<p>Every one of them except <code>setTime()</code> has a UTC-variant, for instance: <code>setUTCHours()</code>.</p>
+<p>As we can see, some methods can set multiple components at once, for example <code>setHours</code>. The components that are not mentioned are not modified.</p>
+<p>For instance:</p>
+<p>```js run let today = new Date();</p>
+<p>today.setHours(0); alert(today); // still today, but the hour is changed to 0</p>
+<p>today.setHours(0, 0, 0, 0); alert(today); // still today, now 00:00:00 sharp. ```</p>
+<h2 id="autocorrection">Autocorrection</h2>
+<p>The <em>autocorrection</em> is a very handy feature of <code>Date</code> objects. We can set out-of-range values, and it will auto-adjust itself.</p>
+<p>For instance:</p>
+<p><code>js run let date = new Date(2013, 0, *!*32*/!*); // 32 Jan 2013 ?!? alert(date); // ...is 1st Feb 2013!</code></p>
+<p>Out-of-range date components are distributed automatically.</p>
+<p>Let’s say we need to increase the date “28 Feb 2016” by 2 days. It may be “2 Mar” or “1 Mar” in case of a leap-year. We don’t need to think about it. Just add 2 days. The <code>Date</code> object will do the rest:</p>
+<p>```js run let date = new Date(2016, 1, 28); <em>!</em> date.setDate(date.getDate() + 2); <em>/!</em></p>
+<p>alert( date ); // 1 Mar 2016 ```</p>
+<p>That feature is often used to get the date after the given period of time. For instance, let’s get the date for “70 seconds after now”:</p>
+<p>```js run let date = new Date(); date.setSeconds(date.getSeconds() + 70);</p>
+<p>alert( date ); // shows the correct date ```</p>
+<p>We can also set zero or even negative values. For example:</p>
+<p>```js run let date = new Date(2016, 0, 2); // 2 Jan 2016</p>
+<p>date.setDate(1); // set day 1 of month alert( date );</p>
+<p>date.setDate(0); // min day is 1, so the last day of the previous month is assumed alert( date ); // 31 Dec 2015 ```</p>
+<h2 id="date-to-number-date-diff">Date to number, date diff</h2>
+<p>When a <code>Date</code> object is converted to number, it becomes the timestamp same as <code>date.getTime()</code>:</p>
+<p><code>js run let date = new Date(); alert(+date); // the number of milliseconds, same as date.getTime()</code></p>
+<p>The important side effect: dates can be subtracted, the result is their difference in ms.</p>
+<p>That can be used for time measurements:</p>
+<p>```js run let start = new Date(); // start measuring time</p>
+<p>// do the job for (let i = 0; i &lt; 100000; i++) { let doSomething = i * i * i; }</p>
+<p>let end = new Date(); // end measuring time</p>
+<p>alert( <code>The loop took ${end - start} ms</code> ); ```</p>
+<h2 id="date.now">Date.now()</h2>
+<p>If we only want to measure time, we don’t need the <code>Date</code> object.</p>
+<p>There’s a special method <code>Date.now()</code> that returns the current timestamp.</p>
+<p>It is semantically equivalent to <code>new Date().getTime()</code>, but it doesn’t create an intermediate <code>Date</code> object. So it’s faster and doesn’t put pressure on garbage collection.</p>
+<p>It is used mostly for convenience or when performance matters, like in games in JavaScript or other specialized applications.</p>
+<p>So this is probably better:</p>
+<p>```js run <em>!</em> let start = Date.now(); // milliseconds count from 1 Jan 1970 <em>/!</em></p>
+<p>// do the job for (let i = 0; i &lt; 100000; i++) { let doSomething = i * i * i; }</p>
+<p><em>!</em> let end = Date.now(); // done <em>/!</em></p>
+<p>alert( <code>The loop took ${end - start} ms</code> ); // subtract numbers, not dates ```</p>
+<h2 id="benchmarking">Benchmarking</h2>
+<p>If we want a reliable benchmark of CPU-hungry function, we should be careful.</p>
+<p>For instance, let’s measure two functions that calculate the difference between two dates: which one is faster?</p>
+<p>Such performance measurements are often called “benchmarks”.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// we have date1 and date2, which function faster returns their difference in ms?</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">function</span> <span class="at">diffSubtract</span>(date1<span class="op">,</span> date2) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="cf">return</span> date2 <span class="op">-</span> date1<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="op">}</span></a>
+<a class="sourceLine" id="cb2-5" title="5"></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="co">// or</span></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="kw">function</span> <span class="at">diffGetTime</span>(date1<span class="op">,</span> date2) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-8" title="8">  <span class="cf">return</span> <span class="va">date2</span>.<span class="at">getTime</span>() <span class="op">-</span> <span class="va">date1</span>.<span class="at">getTime</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="op">}</span></a></code></pre></div>
+<p>These two do exactly the same thing, but one of them uses an explicit <code>date.getTime()</code> to get the date in ms, and the other one relies on a date-to-number transform. Their result is always the same.</p>
+<p>So, which one is faster?</p>
+<p>The first idea may be to run them many times in a row and measure the time difference. For our case, functions are very simple, so we have to do it at least 100000 times.</p>
+<p>Let’s measure:</p>
+<p>```js run function diffSubtract(date1, date2) { return date2 - date1; }</p>
+<p>function diffGetTime(date1, date2) { return date2.getTime() - date1.getTime(); }</p>
+<p>function bench(f) { let date1 = new Date(0); let date2 = new Date();</p>
+<p>let start = Date.now(); for (let i = 0; i &lt; 100000; i++) f(date1, date2); return Date.now() - start; }</p>
+<p>alert( ‘Time of diffSubtract:’ + bench(diffSubtract) + ‘ms’ ); alert( ‘Time of diffGetTime:’ + bench(diffGetTime) + ‘ms’ ); ```</p>
+<p>Wow! Using <code>getTime()</code> is so much faster! That’s because there’s no type conversion, it is much easier for engines to optimize.</p>
+<p>Okay, we have something. But that’s not a good benchmark yet.</p>
+<p>Imagine that at the time of running <code>bench(diffSubtract)</code> CPU was doing something in parallel, and it was taking resources. And by the time of running <code>bench(diffGetTime)</code> that work has finished.</p>
+<p>A pretty real scenario for a modern multi-process OS.</p>
+<p>As a result, the first benchmark will have less CPU resources than the second. That may lead to wrong results.</p>
+<p><strong>For more reliable benchmarking, the whole pack of benchmarks should be rerun multiple times.</strong></p>
+<p>For example, like this:</p>
+<p>```js run function diffSubtract(date1, date2) { return date2 - date1; }</p>
+<p>function diffGetTime(date1, date2) { return date2.getTime() - date1.getTime(); }</p>
+<p>function bench(f) { let date1 = new Date(0); let date2 = new Date();</p>
+<p>let start = Date.now(); for (let i = 0; i &lt; 100000; i++) f(date1, date2); return Date.now() - start; }</p>
+<p>let time1 = 0; let time2 = 0;</p>
+<p><em>!</em> // run bench(diffSubtract) and bench(diffGetTime) each 10 times alternating for (let i = 0; i &lt; 10; i++) { time1 += bench(diffSubtract); time2 += bench(diffGetTime); } <em>/!</em></p>
+<p>alert( ‘Total time for diffSubtract:’ + time1 ); alert( ‘Total time for diffGetTime:’ + time2 ); ```</p>
+<p>Modern JavaScript engines start applying advanced optimizations only to “hot code” that executes many times (no need to optimize rarely executed things). So, in the example above, first executions are not well-optimized. We may want to add a heat-up run:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// added for &quot;heating up&quot; prior to the main loop</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="at">bench</span>(diffSubtract)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="at">bench</span>(diffGetTime)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="co">// now benchmark</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-7" title="7">  time1 <span class="op">+=</span> <span class="at">bench</span>(diffSubtract)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-8" title="8">  time2 <span class="op">+=</span> <span class="at">bench</span>(diffGetTime)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="op">}</span></a></code></pre></div>
+<p>```warn header=“Be careful doing microbenchmarking” Modern JavaScript engines perform many optimizations. They may tweak results of “artificial tests” compared to “normal usage”, especially when we benchmark something very small, such as how an operator works, or a built-in function. So if you seriously want to understand performance, then please study how the JavaScript engine works. And then you probably won’t need microbenchmarks at all.</p>
+<p>The great pack of articles about V8 can be found at <a href="http://mrale.ph" class="uri">http://mrale.ph</a>. ```</p>
+<h2 id="date.parse-from-a-string">Date.parse from a string</h2>
+<p>The method <a href="mdn:js/Date/parse">Date.parse(str)</a> can read a date from a string.</p>
+<p>The string format should be: <code>YYYY-MM-DDTHH:mm:ss.sssZ</code>, where:</p>
+<ul>
+<li><code>YYYY-MM-DD</code> – is the date: year-month-day.</li>
+<li>The character <code>"T"</code> is used as the delimiter.</li>
+<li><code>HH:mm:ss.sss</code> – is the time: hours, minutes, seconds and milliseconds.</li>
+<li>The optional <code>'Z'</code> part denotes the time zone in the format <code>+-hh:mm</code>. A single letter <code>Z</code> would mean UTC+0.</li>
+</ul>
+<p>Shorter variants are also possible, like <code>YYYY-MM-DD</code> or <code>YYYY-MM</code> or even <code>YYYY</code>.</p>
+<p>The call to <code>Date.parse(str)</code> parses the string in the given format and returns the timestamp (number of milliseconds from 1 Jan 1970 UTC+0). If the format is invalid, returns <code>NaN</code>.</p>
+<p>For instance:</p>
+<p>```js run let ms = Date.parse(‘2012-01-26T13:51:50.417-07:00’);</p>
+<p>alert(ms); // 1327611110417 (timestamp) ```</p>
+<p>We can instantly create a <code>new Date</code> object from the timestamp:</p>
+<p>```js run let date = new Date( Date.parse(‘2012-01-26T13:51:50.417-07:00’) );</p>
+<p>alert(date);<br />
+```</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Date and time in JavaScript are represented with the <a href="mdn:js/Date">Date</a> object. We can’t create “only date” or “only time”: <code>Date</code> objects always carry both.</li>
+<li>Months are counted from zero (yes, January is a zero month).</li>
+<li>Days of week in <code>getDay()</code> are also counted from zero (that’s Sunday).</li>
+<li><code>Date</code> auto-corrects itself when out-of-range components are set. Good for adding/subtracting days/months/hours.</li>
+<li>Dates can be subtracted, giving their difference in milliseconds. That’s because a <code>Date</code> becomes the timestamp when converted to a number.</li>
+<li>Use <code>Date.now()</code> to get the current timestamp fast.</li>
+</ul>
+<p>Note that unlike many other systems, timestamps in JavaScript are in milliseconds, not in seconds.</p>
+<p>Sometimes we need more precise time measurements. JavaScript itself does not have a way to measure time in microseconds (1 millionth of a second), but most environments provide it. For instance, browser has <a href="mdn:api/Performance/now">performance.now()</a> that gives the number of milliseconds from the start of page loading with microsecond precision (3 digits after the point):</p>
+<p><code>js run alert(`Loading started ${performance.now()}ms ago`); // Something like: "Loading started 34731.26000000001ms ago" // .26 is microseconds (260 microseconds) // more than 3 digits after the decimal point are precision errors, only the first 3 are correct</code></p>
+<p>Node.js has <code>microtime</code> module and other ways. Technically, almost any device and environment allows to get more precision, it’s just not in <code>Date</code>.</p>

@@ -1,0 +1,57 @@
+<h1 id="browser-environment-specs">Browser environment, specs</h1>
+<p>The JavaScript language was initially created for web browsers. Since then it has evolved and become a language with many uses and platforms.</p>
+<p>A platform may be a browser, or a web-server or another <em>host</em>, even a “smart” coffee machine, if it can run JavaScript. Each of them provides platform-specific functionality. The JavaScript specification calls that a <em>host environment</em>.</p>
+<p>A host environment provides own objects and functions additional to the language core. Web browsers give a means to control web pages. Node.js provides server-side features, and so on.</p>
+<p>Here’s a bird’s-eye view of what we have when JavaScript runs in a web browser:</p>
+<p><img src="windowObjects.svg" /></p>
+<p>There’s a “root” object called <code>window</code>. It has two roles:</p>
+<ol type="1">
+<li>First, it is a global object for JavaScript code, as described in the chapter <a href="info:global-object" class="uri">info:global-object</a>.</li>
+<li>Second, it represents the “browser window” and provides methods to control it.</li>
+</ol>
+<p>For instance, here we use it as a global object:</p>
+<p>```js run function sayHi() { alert(“Hello”); }</p>
+<p>// global functions are methods of the global object: window.sayHi(); ```</p>
+<p>And here we use it as a browser window, to see the window height:</p>
+<p><code>js run alert(window.innerHeight); // inner window height</code></p>
+<p>There are more window-specific methods and properties, we’ll cover them later.</p>
+<h2 id="dom-document-object-model">DOM (Document Object Model)</h2>
+<p>Document Object Model, or DOM for short, represents all page content as objects that can be modified.</p>
+<p>The <code>document</code> object is the main “entry point” to the page. We can change or create anything on the page using it.</p>
+<p>For instance: ```js run // change the background color to red document.body.style.background = “red”;</p>
+<p>// change it back after 1 second setTimeout(() =&gt; document.body.style.background = "", 1000); ```</p>
+<p>Here we used <code>document.body.style</code>, but there’s much, much more. Properties and methods are described in the specification: <a href="https://dom.spec.whatwg.org">DOM Living Standard</a>.</p>
+<p>```smart header=“DOM is not only for browsers” The DOM specification explains the structure of a document and provides objects to manipulate it. There are non-browser instruments that use DOM too.</p>
+<p>For instance, server-side scripts that download HTML pages and process them can also use DOM. They may support only a part of the specification though. ```</p>
+<p>```smart header=“CSSOM for styling” There’s also a separate specification, <a href="https://www.w3.org/TR/cssom-1/">CSS Object Model (CSSOM)</a> for CSS rules and stylesheets, that explains how they are represented as objects, and how to read and write them.</p>
+<p>CSSOM is used together with DOM when we modify style rules for the document. In practice though, CSSOM is rarely required, because we rarely need to modify CSS rules from JavaScript (usually we just add/remove CSS classes, not modify their CSS rules), but that’s also possible. ```</p>
+<h2 id="bom-browser-object-model">BOM (Browser Object Model)</h2>
+<p>The Browser Object Model (BOM) represents additional objects provided by the browser (host environment) for working with everything except the document.</p>
+<p>For instance:</p>
+<ul>
+<li>The <a href="mdn:api/Window/navigator">navigator</a> object provides background information about the browser and the operating system. There are many properties, but the two most widely known are: <code>navigator.userAgent</code> – about the current browser, and <code>navigator.platform</code> – about the platform (can help to differ between Windows/Linux/Mac etc).</li>
+<li>The <a href="mdn:api/Window/location">location</a> object allows us to read the current URL and can redirect the browser to a new one.</li>
+</ul>
+<p>Here’s how we can use the <code>location</code> object:</p>
+<p><code>js run alert(location.href); // shows current URL if (confirm("Go to Wikipedia?")) {   location.href = "https://wikipedia.org"; // redirect the browser to another URL }</code></p>
+<p>Functions <code>alert/confirm/prompt</code> are also a part of BOM: they are directly not related to the document, but represent pure browser methods of communicating with the user.</p>
+<p>```smart header=“Specifications” BOM is the part of the general <a href="https://html.spec.whatwg.org">HTML specification</a>.</p>
+<p>Yes, you heard that right. The HTML spec at <a href="https://html.spec.whatwg.org" class="uri">https://html.spec.whatwg.org</a> is not only about the “HTML language” (tags, attributes), but also covers a bunch of objects, methods and browser-specific DOM extensions. That’s “HTML in broad terms”. Also, some parts have additional specs listed at <a href="https://spec.whatwg.org" class="uri">https://spec.whatwg.org</a>. ```</p>
+<h2 id="summary">Summary</h2>
+<p>Talking about standards, we have:</p>
+<dl>
+<dt>DOM specification</dt>
+<dd>Describes the document structure, manipulations and events, see <a href="https://dom.spec.whatwg.org" class="uri">https://dom.spec.whatwg.org</a>.
+</dd>
+<dt>CSSOM specification</dt>
+<dd>Describes stylesheets and style rules, manipulations with them and their binding to documents, see <a href="https://www.w3.org/TR/cssom-1/" class="uri">https://www.w3.org/TR/cssom-1/</a>.
+</dd>
+<dt>HTML specification</dt>
+<dd>Describes the HTML language (e.g. tags) and also the BOM (browser object model) – various browser functions: <code>setTimeout</code>, <code>alert</code>, <code>location</code> and so on, see <a href="https://html.spec.whatwg.org" class="uri">https://html.spec.whatwg.org</a>. It takes the DOM specification and extends it with many additional properties and methods.
+</dd>
+</dl>
+<p>Additionally, some classes are described separately at <a href="https://spec.whatwg.org/" class="uri">https://spec.whatwg.org/</a>.</p>
+<p>Please note these links, as there’s so much stuff to learn it’s impossible to cover and remember everything.</p>
+<p>When you’d like to read about a property or a method, the Mozilla manual at <a href="https://developer.mozilla.org/en-US/search" class="uri">https://developer.mozilla.org/en-US/search</a> is also a nice resource, but the corresponding spec may be better: it’s more complex and longer to read, but will make your fundamental knowledge sound and complete.</p>
+<p>To find something, it’s often convenient to use an internet search “WHATWG [term]” or “MDN [term]”, e.g <a href="https://google.com?q=whatwg+localstorage" class="uri">https://google.com?q=whatwg+localstorage</a>, <a href="https://google.com?q=mdn+localstorage" class="uri">https://google.com?q=mdn+localstorage</a>.</p>
+<p>Now we’ll get down to learning DOM, because the document plays the central role in the UI.</p>

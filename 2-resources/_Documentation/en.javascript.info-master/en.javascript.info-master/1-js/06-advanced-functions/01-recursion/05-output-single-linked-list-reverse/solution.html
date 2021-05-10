@@ -1,0 +1,18 @@
+<h1 id="using-a-recursion">Using a recursion</h1>
+<p>The recursive logic is a little bit tricky here.</p>
+<p>We need to first output the rest of the list and <em>then</em> output the current one:</p>
+<p>```js run let list = { value: 1, next: { value: 2, next: { value: 3, next: { value: 4, next: null } } } };</p>
+<p>function printReverseList(list) {</p>
+<p>if (list.next) { printReverseList(list.next); }</p>
+<p>alert(list.value); }</p>
+<p>printReverseList(list); ```</p>
+<h1 id="using-a-loop">Using a loop</h1>
+<p>The loop variant is also a little bit more complicated then the direct output.</p>
+<p>There is no way to get the last value in our <code>list</code>. We also can’t “go back”.</p>
+<p>So what we can do is to first go through the items in the direct order and remember them in an array, and then output what we remembered in the reverse order:</p>
+<p>```js run let list = { value: 1, next: { value: 2, next: { value: 3, next: { value: 4, next: null } } } };</p>
+<p>function printReverseList(list) { let arr = []; let tmp = list;</p>
+<p>while (tmp) { arr.push(tmp.value); tmp = tmp.next; }</p>
+<p>for (let i = arr.length - 1; i &gt;= 0; i–) { alert( arr[i] ); } }</p>
+<p>printReverseList(list); ```</p>
+<p>Please note that the recursive solution actually does exactly the same: it follows the list, remembers the items in the chain of nested calls (in the execution context stack), and then outputs them.</p>

@@ -1,0 +1,68 @@
+<h1 id="error-handling-with-promises">Error handling with promises</h1>
+<p>Promise chains are great at error handling. When a promise rejects, the control jumps to the closest rejection handler. That’s very convenient in practice.</p>
+<p>For instance, in the code below the URL to <code>fetch</code> is wrong (no such site) and <code>.catch</code> handles the error:</p>
+<p><code>js run *!* fetch('https://no-such-server.blabla') // rejects */!*   .then(response =&gt; response.json())   .catch(err =&gt; alert(err)) // TypeError: failed to fetch (the text may vary)</code></p>
+<p>As you can see, the <code>.catch</code> doesn’t have to be immediate. It may appear after one or maybe several <code>.then</code>.</p>
+<p>Or, maybe, everything is all right with the site, but the response is not valid JSON. The easiest way to catch all errors is to append <code>.catch</code> to the end of chain:</p>
+<p>``<code>js run fetch('/article/promise-chaining/user.json')   .then(response =&gt; response.json())   .then(user =&gt; fetch(</code>https://api.github.com/users/${user.name}`)) .then(response =&gt; response.json()) .then(githubUser =&gt; new Promise((resolve, reject) =&gt; { let img = document.createElement(‘img’); img.src = githubUser.avatar_url; img.className = “promise-avatar-example”; document.body.append(img);</p>
+<pre><code>setTimeout(() =&gt; {
+  img.remove();
+  resolve(githubUser);
+}, 3000);</code></pre>
+<p>})) <em>!</em> .catch(error =&gt; alert(error.message)); <em>/!</em> ```</p>
+<p>Normally, such <code>.catch</code> doesn’t trigger at all. But if any of the promises above rejects (a network problem or invalid json or whatever), then it would catch it.</p>
+<h2 id="implicit-try..catch">Implicit try..catch</h2>
+<p>The code of a promise executor and promise handlers has an “invisible <code>try..catch</code>” around it. If an exception happens, it gets caught and treated as a rejection.</p>
+<p>For instance, this code:</p>
+<p><code>js run new Promise((resolve, reject) =&gt; { *!*   throw new Error("Whoops!"); */!* }).catch(alert); // Error: Whoops!</code></p>
+<p>…Works exactly the same as this:</p>
+<p><code>js run new Promise((resolve, reject) =&gt; { *!*   reject(new Error("Whoops!")); */!* }).catch(alert); // Error: Whoops!</code></p>
+<p>The “invisible <code>try..catch</code>” around the executor automatically catches the error and turns it into rejected promise.</p>
+<p>This happens not only in the executor function, but in its handlers as well. If we <code>throw</code> inside a <code>.then</code> handler, that means a rejected promise, so the control jumps to the nearest error handler.</p>
+<p>Here’s an example:</p>
+<p><code>js run new Promise((resolve, reject) =&gt; {   resolve("ok"); }).then((result) =&gt; { *!*   throw new Error("Whoops!"); // rejects the promise */!* }).catch(alert); // Error: Whoops!</code></p>
+<p>This happens for all errors, not just those caused by the <code>throw</code> statement. For example, a programming error:</p>
+<p><code>js run new Promise((resolve, reject) =&gt; {   resolve("ok"); }).then((result) =&gt; { *!*   blabla(); // no such function */!* }).catch(alert); // ReferenceError: blabla is not defined</code></p>
+<p>The final <code>.catch</code> not only catches explicit rejections, but also accidental errors in the handlers above.</p>
+<h2 id="rethrowing">Rethrowing</h2>
+<p>As we already noticed, <code>.catch</code> at the end of the chain is similar to <code>try..catch</code>. We may have as many <code>.then</code> handlers as we want, and then use a single <code>.catch</code> at the end to handle errors in all of them.</p>
+<p>In a regular <code>try..catch</code> we can analyze the error and maybe rethrow it if it can’t be handled. The same thing is possible for promises.</p>
+<p>If we <code>throw</code> inside <code>.catch</code>, then the control goes to the next closest error handler. And if we handle the error and finish normally, then it continues to the next closest successful <code>.then</code> handler.</p>
+<p>In the example below the <code>.catch</code> successfully handles the error:</p>
+<p>```js run // the execution: catch -&gt; then new Promise((resolve, reject) =&gt; {</p>
+<p>throw new Error(“Whoops!”);</p>
+<p>}).catch(function(error) {</p>
+<p>alert(“The error is handled, continue normally”);</p>
+<p>}).then(() =&gt; alert(“Next successful handler runs”)); ```</p>
+<p>Here the <code>.catch</code> block finishes normally. So the next successful <code>.then</code> handler is called.</p>
+<p>In the example below we see the other situation with <code>.catch</code>. The handler <code>(*)</code> catches the error and just can’t handle it (e.g. it only knows how to handle <code>URIError</code>), so it throws it again:</p>
+<p>```js run // the execution: catch -&gt; catch new Promise((resolve, reject) =&gt; {</p>
+<p>throw new Error(“Whoops!”);</p>
+<p>}).catch(function(error) { // (*)</p>
+<p>if (error instanceof URIError) { // handle it } else { alert(“Can’t handle such error”);</p>
+<p><em>!</em> throw error; // throwing this or another error jumps to the next catch <em>/!</em> }</p>
+<p>}).then(function() { /* doesn’t run here */ }).catch(error =&gt; { // (**)</p>
+<p>alert(<code>The unknown error has occurred: ${error}</code>); // don’t return anything =&gt; execution goes the normal way</p>
+<p>}); ```</p>
+<p>The execution jumps from the first <code>.catch</code> <code>(*)</code> to the next one <code>(**)</code> down the chain.</p>
+<h2 id="unhandled-rejections">Unhandled rejections</h2>
+<p>What happens when an error is not handled? For instance, we forgot to append <code>.catch</code> to the end of the chain, like here:</p>
+<p><code>js untrusted run refresh new Promise(function() {   noSuchFunction(); // Error here (no such function) })   .then(() =&gt; {     // successful promise handlers, one or more   }); // without .catch at the end!</code></p>
+<p>In case of an error, the promise becomes rejected, and the execution should jump to the closest rejection handler. But there is none. So the error gets “stuck”. There’s no code to handle it.</p>
+<p>In practice, just like with regular unhandled errors in code, it means that something has gone terribly wrong.</p>
+<p>What happens when a regular error occurs and is not caught by <code>try..catch</code>? The script dies with a message in the console. A similar thing happens with unhandled promise rejections.</p>
+<p>The JavaScript engine tracks such rejections and generates a global error in that case. You can see it in the console if you run the example above.</p>
+<p>In the browser we can catch such errors using the event <code>unhandledrejection</code>:</p>
+<p>```js run <em>!</em> window.addEventListener(‘unhandledrejection’, function(event) { // the event object has two special properties: alert(event.promise); // [object Promise] - the promise that generated the error alert(event.reason); // Error: Whoops! - the unhandled error object }); <em>/!</em></p>
+<p>new Promise(function() { throw new Error(“Whoops!”); }); // no catch to handle the error ```</p>
+<p>The event is the part of the <a href="https://html.spec.whatwg.org/multipage/webappapis.html#unhandled-promise-rejections">HTML standard</a>.</p>
+<p>If an error occurs, and there’s no <code>.catch</code>, the <code>unhandledrejection</code> handler triggers, and gets the <code>event</code> object with the information about the error, so we can do something.</p>
+<p>Usually such errors are unrecoverable, so our best way out is to inform the user about the problem and probably report the incident to the server.</p>
+<p>In non-browser environments like Node.js there are other ways to track unhandled errors.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><code>.catch</code> handles errors in promises of all kinds: be it a <code>reject()</code> call, or an error thrown in a handler.</li>
+<li>We should place <code>.catch</code> exactly in places where we want to handle errors and know how to handle them. The handler should analyze errors (custom error classes help) and rethrow unknown ones (maybe they are programming mistakes).</li>
+<li>It’s ok not to use <code>.catch</code> at all, if there’s no way to recover from an error.</li>
+<li>In any case we should have the <code>unhandledrejection</code> event handler (for browsers, and analogs for other environments) to track unhandled errors and inform the user (and probably our server) about them, so that our app never “just dies”.</li>
+</ul>

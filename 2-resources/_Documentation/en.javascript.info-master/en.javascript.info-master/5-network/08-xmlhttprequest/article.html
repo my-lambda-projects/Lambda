@@ -1,0 +1,342 @@
+<h1 id="xmlhttprequest">XMLHttpRequest</h1>
+<p><code>XMLHttpRequest</code> is a built-in browser object that allows to make HTTP requests in JavaScript.</p>
+<p>Despite of having the word “XML” in its name, it can operate on any data, not only in XML format. We can upload/download files, track progress and much more.</p>
+<p>Right now, there’s another, more modern method <code>fetch</code>, that somewhat deprecates <code>XMLHttpRequest</code>.</p>
+<p>In modern web-development <code>XMLHttpRequest</code> is used for three reasons:</p>
+<ol type="1">
+<li>Historical reasons: we need to support existing scripts with <code>XMLHttpRequest</code>.</li>
+<li>We need to support old browsers, and don’t want polyfills (e.g. to keep scripts tiny).</li>
+<li>We need something that <code>fetch</code> can’t do yet, e.g. to track upload progress.</li>
+</ol>
+<p>Does that sound familiar? If yes, then all right, go on with <code>XMLHttpRequest</code>. Otherwise, please head on to <a href="info:fetch" class="uri">info:fetch</a>.</p>
+<h2 id="the-basics">The basics</h2>
+<p>XMLHttpRequest has two modes of operation: synchronous and asynchronous.</p>
+<p>Let’s see the asynchronous first, as it’s used in the majority of cases.</p>
+<p>To do the request, we need 3 steps:</p>
+<ol type="1">
+<li><p>Create <code>XMLHttpRequest</code>: <code>js  let xhr = new XMLHttpRequest();</code> The constructor has no arguments.</p></li>
+<li><p>Initialize it, usually right after <code>new XMLHttpRequest</code>: <code>js  xhr.open(method, URL, [async, user, password])</code></p>
+<p>This method specifies the main parameters of the request:</p>
+<ul>
+<li><code>method</code> – HTTP-method. Usually <code>"GET"</code> or <code>"POST"</code>.</li>
+<li><code>URL</code> – the URL to request, a string, can be <a href="info:url">URL</a> object.</li>
+<li><code>async</code> – if explicitly set to <code>false</code>, then the request is synchronous, we’ll cover that a bit later.</li>
+<li><code>user</code>, <code>password</code> – login and password for basic HTTP auth (if required).</li>
+</ul>
+<p>Please note that <code>open</code> call, contrary to its name, does not open the connection. It only configures the request, but the network activity only starts with the call of <code>send</code>.</p></li>
+<li><p>Send it out.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">xhr</span>.<span class="at">send</span>([body])</a></code></pre></div>
+<p>This method opens the connection and sends the request to server. The optional <code>body</code> parameter contains the request body.</p>
+<p>Some request methods like <code>GET</code> do not have a body. And some of them like <code>POST</code> use <code>body</code> to send the data to the server. We’ll see examples of that later.</p></li>
+<li><p>Listen to <code>xhr</code> events for response.</p>
+These three events are the most widely used:
+<ul>
+<li><code>load</code> – when the request is complete (even if HTTP status is like 400 or 500), and the response is fully downloaded.</li>
+<li><code>error</code> – when the request couldn’t be made, e.g. network down or invalid URL.</li>
+<li><code>progress</code> – triggers periodically while the response is being downloaded, reports how much has been downloaded.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">xhr</span>.<span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="at">alert</span>(<span class="vs">`Loaded: </span><span class="sc">${</span><span class="va">xhr</span>.<span class="at">status</span><span class="sc">}</span><span class="vs"> </span><span class="sc">${</span><span class="va">xhr</span>.<span class="at">response</span><span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="op">};</span></a>
+<a class="sourceLine" id="cb2-4" title="4"></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="va">xhr</span>.<span class="at">onerror</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span> <span class="co">// only triggers if the request couldn&#39;t be made at all</span></a>
+<a class="sourceLine" id="cb2-6" title="6">  <span class="at">alert</span>(<span class="vs">`Network Error`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="op">};</span></a>
+<a class="sourceLine" id="cb2-8" title="8"></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="va">xhr</span>.<span class="at">onprogress</span> <span class="op">=</span> <span class="kw">function</span>(event) <span class="op">{</span> <span class="co">// triggers periodically</span></a>
+<a class="sourceLine" id="cb2-10" title="10">  <span class="co">// event.loaded - how many bytes downloaded</span></a>
+<a class="sourceLine" id="cb2-11" title="11">  <span class="co">// event.lengthComputable = true if the server sent Content-Length header</span></a>
+<a class="sourceLine" id="cb2-12" title="12">  <span class="co">// event.total - total number of bytes (if lengthComputable)</span></a>
+<a class="sourceLine" id="cb2-13" title="13">  <span class="at">alert</span>(<span class="vs">`Received </span><span class="sc">${</span><span class="va">event</span>.<span class="at">loaded</span><span class="sc">}</span><span class="vs"> of </span><span class="sc">${</span><span class="va">event</span>.<span class="at">total</span><span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-14" title="14"><span class="op">};</span></a></code></pre></div></li>
+</ol>
+<p>Here’s a full example. The code below loads the URL at <code>/article/xmlhttprequest/example/load</code> from the server and prints the progress:</p>
+<p>```js run // 1. Create a new XMLHttpRequest object let xhr = new XMLHttpRequest();</p>
+<p>// 2. Configure it: GET-request for the URL /article/…/load xhr.open(‘GET’, ‘/article/xmlhttprequest/example/load’);</p>
+<p>// 3. Send the request over the network xhr.send();</p>
+<p>// 4. This will be called after the response is received xhr.onload = function() { if (xhr.status != 200) { // analyze HTTP status of the response alert(<code>Error ${xhr.status}: ${xhr.statusText}</code>); // e.g. 404: Not Found } else { // show the result alert(<code>Done, got ${xhr.response.length} bytes</code>); // response is the server response } };</p>
+<p>xhr.onprogress = function(event) { if (event.lengthComputable) { alert(<code>Received ${event.loaded} of ${event.total} bytes</code>); } else { alert(<code>Received ${event.loaded} bytes</code>); // no Content-Length }</p>
+<p>};</p>
+<p>xhr.onerror = function() { alert(“Request failed”); }; ```</p>
+<p>Once the server has responded, we can receive the result in the following <code>xhr</code> properties:</p>
+<dl>
+<dt><code>status</code></dt>
+<dd>HTTP status code (a number): <code>200</code>, <code>404</code>, <code>403</code> and so on, can be <code>0</code> in case of a non-HTTP failure.
+</dd>
+<dt><code>statusText</code></dt>
+<dd>HTTP status message (a string): usually <code>OK</code> for <code>200</code>, <code>Not Found</code> for <code>404</code>, <code>Forbidden</code> for <code>403</code> and so on.
+</dd>
+<dt><code>response</code> (old scripts may use <code>responseText</code>)</dt>
+<dd>The server response body.
+</dd>
+</dl>
+<p>We can also specify a timeout using the corresponding property:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">xhr</span>.<span class="at">timeout</span> <span class="op">=</span> <span class="dv">10000</span><span class="op">;</span> <span class="co">// timeout in ms, 10 seconds</span></a></code></pre></div>
+<p>If the request does not succeed within the given time, it gets canceled and <code>timeout</code> event triggers.</p>
+<p>```<code>smart header="URL search parameters" To add parameters to URL, like</code>?name=value`, and ensure the proper encoding, we can use <a href="info:url">URL</a> object:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">let</span> url <span class="op">=</span> <span class="kw">new</span> <span class="at">URL</span>(<span class="st">&#39;https://google.com/search&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="va">url</span>.<span class="va">searchParams</span>.<span class="at">set</span>(<span class="st">&#39;q&#39;</span><span class="op">,</span> <span class="st">&#39;test me!&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-3" title="3"></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="co">// the parameter &#39;q&#39; is encoded</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="va">xhr</span>.<span class="at">open</span>(<span class="st">&#39;GET&#39;</span><span class="op">,</span> url)<span class="op">;</span> <span class="co">// https://google.com/search?q=test+me%21</span></a></code></pre></div>
+<p>````</p>
+<h2 id="response-type">Response Type</h2>
+<p>We can use <code>xhr.responseType</code> property to set the response format:</p>
+<ul>
+<li><code>""</code> (default) – get as string,</li>
+<li><code>"text"</code> – get as string,</li>
+<li><code>"arraybuffer"</code> – get as <code>ArrayBuffer</code> (for binary data, see chapter <a href="info:arraybuffer-binary-arrays" class="uri">info:arraybuffer-binary-arrays</a>),</li>
+<li><code>"blob"</code> – get as <code>Blob</code> (for binary data, see chapter <a href="info:blob" class="uri">info:blob</a>),</li>
+<li><code>"document"</code> – get as XML document (can use XPath and other XML methods) or HTML document (based on the MIME type of the received data),</li>
+<li><code>"json"</code> – get as JSON (parsed automatically).</li>
+</ul>
+<p>For example, let’s get the response as JSON:</p>
+<p>```js run let xhr = new XMLHttpRequest();</p>
+<p>xhr.open(‘GET’, ‘/article/xmlhttprequest/example/json’);</p>
+<p><em>!</em> xhr.responseType = ‘json’; <em>/!</em></p>
+<p>xhr.send();</p>
+<p>// the response is {“message”: “Hello, world!”} xhr.onload = function() { let responseObj = xhr.response; alert(responseObj.message); // Hello, world! }; ```</p>
+<pre class="smart"><code>In the old scripts you may also find `xhr.responseText` and even `xhr.responseXML` properties.
+
+They exist for historical reasons, to get either a string or XML document. Nowadays, we should set the format in `xhr.responseType` and get `xhr.response` as demonstrated above.</code></pre>
+<h2 id="ready-states">Ready states</h2>
+<p><code>XMLHttpRequest</code> changes between states as it progresses. The current state is accessible as <code>xhr.readyState</code>.</p>
+<p>All states, as in <a href="https://xhr.spec.whatwg.org/#states">the specification</a>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1">UNSENT <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="co">// initial state</span></a>
+<a class="sourceLine" id="cb6-2" title="2">OPENED <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> <span class="co">// open called</span></a>
+<a class="sourceLine" id="cb6-3" title="3">HEADERS_RECEIVED <span class="op">=</span> <span class="dv">2</span><span class="op">;</span> <span class="co">// response headers received</span></a>
+<a class="sourceLine" id="cb6-4" title="4">LOADING <span class="op">=</span> <span class="dv">3</span><span class="op">;</span> <span class="co">// response is loading (a data packet is received)</span></a>
+<a class="sourceLine" id="cb6-5" title="5">DONE <span class="op">=</span> <span class="dv">4</span><span class="op">;</span> <span class="co">// request complete</span></a></code></pre></div>
+<p>An <code>XMLHttpRequest</code> object travels them in the order <code>0</code> -&gt; <code>1</code> -&gt; <code>2</code> -&gt; <code>3</code> -&gt; … -&gt; <code>3</code> -&gt; <code>4</code>. State <code>3</code> repeats every time a data packet is received over the network.</p>
+<p>We can track them using <code>readystatechange</code> event:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="va">xhr</span>.<span class="at">onreadystatechange</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="cf">if</span> (<span class="va">xhr</span>.<span class="at">readyState</span> <span class="op">==</span> <span class="dv">3</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-3" title="3">    <span class="co">// loading</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-5" title="5">  <span class="cf">if</span> (<span class="va">xhr</span>.<span class="at">readyState</span> <span class="op">==</span> <span class="dv">4</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-6" title="6">    <span class="co">// request finished</span></a>
+<a class="sourceLine" id="cb7-7" title="7">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="op">};</span></a></code></pre></div>
+<p>You can find <code>readystatechange</code> listeners in really old code, it’s there for historical reasons, as there was a time when there were no <code>load</code> and other events. Nowadays, <code>load/error/progress</code> handlers deprecate it.</p>
+<h2 id="aborting-request">Aborting request</h2>
+<p>We can terminate the request at any time. The call to <code>xhr.abort()</code> does that:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="va">xhr</span>.<span class="at">abort</span>()<span class="op">;</span> <span class="co">// terminate the request</span></a></code></pre></div>
+<p>That triggers <code>abort</code> event, and <code>xhr.status</code> becomes <code>0</code>.</p>
+<h2 id="synchronous-requests">Synchronous requests</h2>
+<p>If in the <code>open</code> method the third parameter <code>async</code> is set to <code>false</code>, the request is made synchronously.</p>
+<p>In other words, JavaScript execution pauses at <code>send()</code> and resumes when the response is received. Somewhat like <code>alert</code> or <code>prompt</code> commands.</p>
+<p>Here’s the rewritten example, the 3rd parameter of <code>open</code> is <code>false</code>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">let</span> xhr <span class="op">=</span> <span class="kw">new</span> <span class="at">XMLHttpRequest</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-2" title="2"></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="va">xhr</span>.<span class="at">open</span>(<span class="st">&#39;GET&#39;</span><span class="op">,</span> <span class="st">&#39;/article/xmlhttprequest/hello.txt&#39;</span><span class="op">,</span> <span class="op">*!*</span><span class="kw">false</span><span class="op">*</span><span class="ss">/!</span><span class="sc">*)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb9-4" title="4"></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="ss">try {</span></a>
+<a class="sourceLine" id="cb9-6" title="6"><span class="ss">  xhr.send</span><span class="sc">()</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb9-7" title="7"><span class="ss">  if </span><span class="sc">(</span><span class="ss">xhr.status != 200</span><span class="sc">)</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb9-8" title="8"><span class="ss">    alert</span><span class="sc">(</span><span class="ss">`Error ${xhr.status}: ${xhr.statusText}`</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb9-9" title="9"><span class="ss">  } else {</span></a>
+<a class="sourceLine" id="cb9-10" title="10"><span class="ss">    alert</span><span class="sc">(</span><span class="ss">xhr.response</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb9-11" title="11"><span class="ss">  }</span></a>
+<a class="sourceLine" id="cb9-12" title="12"><span class="ss">} catch</span><span class="sc">(</span><span class="ss">err</span><span class="sc">)</span><span class="ss"> { // instead of onerror</span></a>
+<a class="sourceLine" id="cb9-13" title="13"><span class="ss">  alert</span><span class="sc">(</span><span class="ss">&quot;Request failed&quot;</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb9-14" title="14"><span class="ss">}</span></a></code></pre></div>
+<p>It might look good, but synchronous calls are used rarely, because they block in-page JavaScript till the loading is complete. In some browsers it becomes impossible to scroll. If a synchronous call takes too much time, the browser may suggest to close the “hanging” webpage.</p>
+<p>Many advanced capabilities of <code>XMLHttpRequest</code>, like requesting from another domain or specifying a timeout, are unavailable for synchronous requests. Also, as you can see, no progress indication.</p>
+<p>Because of all that, synchronous requests are used very sparingly, almost never. We won’t talk about them any more.</p>
+<h2 id="http-headers">HTTP-headers</h2>
+<p><code>XMLHttpRequest</code> allows both to send custom headers and read headers from the response.</p>
+<p>There are 3 methods for HTTP-headers:</p>
+<dl>
+<dt><code>setRequestHeader(name, value)</code></dt>
+<dd><p>Sets the request header with the given <code>name</code> and <code>value</code>.</p>
+<p>For instance:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="va">xhr</span>.<span class="at">setRequestHeader</span>(<span class="st">&#39;Content-Type&#39;</span><span class="op">,</span> <span class="st">&#39;application/json&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p>``<code>warn header="Headers limitations" Several headers are managed exclusively by the browser, e.g.</code>Referer<code>and</code>Host`. The full list is <a href="https://xhr.spec.whatwg.org/#the-setrequestheader()-method">in the specification</a>.</p>
+<p><code>XMLHttpRequest</code> is not allowed to change them, for the sake of user safety and correctness of the request. ```</p>
+<p>```<code>warn header="Can't remove a header" Another peculiarity of</code>XMLHttpRequest<code>is that one can't undo</code>setRequestHeader`.</p>
+<p>Once the header is set, it’s set. Additional calls add information to the header, don’t overwrite it.</p>
+<p>For instance:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="va">xhr</span>.<span class="at">setRequestHeader</span>(<span class="st">&#39;X-Auth&#39;</span><span class="op">,</span> <span class="st">&#39;123&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="va">xhr</span>.<span class="at">setRequestHeader</span>(<span class="st">&#39;X-Auth&#39;</span><span class="op">,</span> <span class="st">&#39;456&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-3" title="3"></a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="co">// the header will be:</span></a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="co">// X-Auth: 123, 456</span></a></code></pre></div>
+<p>````</p>
+</dd>
+<dt><code>getResponseHeader(name)</code></dt>
+<dd><p>Gets the response header with the given <code>name</code> (except <code>Set-Cookie</code> and <code>Set-Cookie2</code>).</p>
+<p>For instance:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="va">xhr</span>.<span class="at">getResponseHeader</span>(<span class="st">&#39;Content-Type&#39;</span>)</a></code></pre></div>
+</dd>
+<dt><code>getAllResponseHeaders()</code></dt>
+<dd><p>Returns all response headers, except <code>Set-Cookie</code> and <code>Set-Cookie2</code>.</p>
+<p>Headers are returned as a single line, e.g.:</p>
+<pre class="http"><code>Cache-Control: max-age=31536000
+Content-Length: 4260
+Content-Type: image/png
+Date: Sat, 08 Sep 2012 16:53:16 GMT</code></pre>
+<p>The line break between headers is always <code>"\r\n"</code> (doesn’t depend on OS), so we can easily split it into individual headers. The separator between the name and the value is always a colon followed by a space <code>": "</code>. That’s fixed in the specification.</p>
+<p>So, if we want to get an object with name/value pairs, we need to throw in a bit JS.</p>
+<p>Like this (assuming that if two headers have the same name, then the latter one overwrites the former one):</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">let</span> headers <span class="op">=</span> xhr</a>
+<a class="sourceLine" id="cb14-2" title="2">  .<span class="at">getAllResponseHeaders</span>()</a>
+<a class="sourceLine" id="cb14-3" title="3">  .<span class="at">split</span>(<span class="st">&#39;</span><span class="sc">\r\n</span><span class="st">&#39;</span>)</a>
+<a class="sourceLine" id="cb14-4" title="4">  .<span class="at">reduce</span>((result<span class="op">,</span> current) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb14-5" title="5">    <span class="kw">let</span> [name<span class="op">,</span> value] <span class="op">=</span> <span class="va">current</span>.<span class="at">split</span>(<span class="st">&#39;: &#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb14-6" title="6">    result[name] <span class="op">=</span> value<span class="op">;</span></a>
+<a class="sourceLine" id="cb14-7" title="7">    <span class="cf">return</span> result<span class="op">;</span></a>
+<a class="sourceLine" id="cb14-8" title="8">  <span class="op">},</span> <span class="op">{}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb14-9" title="9"></a>
+<a class="sourceLine" id="cb14-10" title="10"><span class="co">// headers[&#39;Content-Type&#39;] = &#39;image/png&#39;</span></a></code></pre></div>
+</dd>
+</dl>
+<h2 id="post-formdata">POST, FormData</h2>
+<p>To make a POST request, we can use the built-in <a href="mdn:api/FormData">FormData</a> object.</p>
+<p>The syntax:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">let</span> formData <span class="op">=</span> <span class="kw">new</span> <span class="at">FormData</span>([form])<span class="op">;</span> <span class="co">// creates an object, optionally fill from &lt;form&gt;</span></a>
+<a class="sourceLine" id="cb15-2" title="2"><span class="va">formData</span>.<span class="at">append</span>(name<span class="op">,</span> value)<span class="op">;</span> <span class="co">// appends a field</span></a></code></pre></div>
+<p>We create it, optionally fill from a form, <code>append</code> more fields if needed, and then:</p>
+<ol type="1">
+<li><code>xhr.open('POST', ...)</code> – use <code>POST</code> method.</li>
+<li><code>xhr.send(formData)</code> to submit the form to the server.</li>
+</ol>
+<p>For instance:</p>
+```html run refresh
+<form name="person">
+<input name="name" value="John"> <input name="surname" value="Smith">
+</form>
+<script>
+  // pre-fill FormData from the form
+  let formData = new FormData(document.forms.person);
+
+  // add one more field
+  formData.append("middle", "Lee");
+
+  // send it out
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "/article/xmlhttprequest/post/user");
+  xhr.send(formData);
+
+  xhr.onload = () => alert(xhr.response);
+</script>
+<p>```</p>
+<p>The form is sent with <code>multipart/form-data</code> encoding.</p>
+<p>Or, if we like JSON more, then <code>JSON.stringify</code> and send as a string.</p>
+<p>Just don’t forget to set the header <code>Content-Type: application/json</code>, many server-side frameworks automatically decode JSON with it:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">let</span> xhr <span class="op">=</span> <span class="kw">new</span> <span class="at">XMLHttpRequest</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-2" title="2"></a>
+<a class="sourceLine" id="cb16-3" title="3"><span class="kw">let</span> json <span class="op">=</span> <span class="va">JSON</span>.<span class="at">stringify</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb16-4" title="4">  <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;John&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb16-5" title="5">  <span class="dt">surname</span><span class="op">:</span> <span class="st">&quot;Smith&quot;</span></a>
+<a class="sourceLine" id="cb16-6" title="6"><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-7" title="7"></a>
+<a class="sourceLine" id="cb16-8" title="8"><span class="va">xhr</span>.<span class="at">open</span>(<span class="st">&quot;POST&quot;</span><span class="op">,</span> <span class="st">&#39;/submit&#39;</span>)</a>
+<a class="sourceLine" id="cb16-9" title="9"><span class="va">xhr</span>.<span class="at">setRequestHeader</span>(<span class="st">&#39;Content-type&#39;</span><span class="op">,</span> <span class="st">&#39;application/json; charset=utf-8&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-10" title="10"></a>
+<a class="sourceLine" id="cb16-11" title="11"><span class="va">xhr</span>.<span class="at">send</span>(json)<span class="op">;</span></a></code></pre></div>
+<p>The <code>.send(body)</code> method is pretty omnivore. It can send almost any <code>body</code>, including <code>Blob</code> and <code>BufferSource</code> objects.</p>
+<h2 id="upload-progress">Upload progress</h2>
+<p>The <code>progress</code> event triggers only on the downloading stage.</p>
+<p>That is: if we <code>POST</code> something, <code>XMLHttpRequest</code> first uploads our data (the request body), then downloads the response.</p>
+<p>If we’re uploading something big, then we’re surely more interested in tracking the upload progress. But <code>xhr.onprogress</code> doesn’t help here.</p>
+<p>There’s another object, without methods, exclusively to track upload events: <code>xhr.upload</code>.</p>
+<p>It generates events, similar to <code>xhr</code>, but <code>xhr.upload</code> triggers them solely on uploading:</p>
+<ul>
+<li><code>loadstart</code> – upload started.</li>
+<li><code>progress</code> – triggers periodically during the upload.</li>
+<li><code>abort</code> – upload aborted.</li>
+<li><code>error</code> – non-HTTP error.</li>
+<li><code>load</code> – upload finished successfully.</li>
+<li><code>timeout</code> – upload timed out (if <code>timeout</code> property is set).</li>
+<li><code>loadend</code> – upload finished with either success or error.</li>
+</ul>
+<p>Example of handlers:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb17-1" title="1"><span class="va">xhr</span>.<span class="va">upload</span>.<span class="at">onprogress</span> <span class="op">=</span> <span class="kw">function</span>(event) <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-2" title="2">  <span class="at">alert</span>(<span class="vs">`Uploaded </span><span class="sc">${</span><span class="va">event</span>.<span class="at">loaded</span><span class="sc">}</span><span class="vs"> of </span><span class="sc">${</span><span class="va">event</span>.<span class="at">total</span><span class="sc">}</span><span class="vs"> bytes`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb17-3" title="3"><span class="op">};</span></a>
+<a class="sourceLine" id="cb17-4" title="4"></a>
+<a class="sourceLine" id="cb17-5" title="5"><span class="va">xhr</span>.<span class="va">upload</span>.<span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-6" title="6">  <span class="at">alert</span>(<span class="vs">`Upload finished successfully.`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb17-7" title="7"><span class="op">};</span></a>
+<a class="sourceLine" id="cb17-8" title="8"></a>
+<a class="sourceLine" id="cb17-9" title="9"><span class="va">xhr</span>.<span class="va">upload</span>.<span class="at">onerror</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-10" title="10">  <span class="at">alert</span>(<span class="vs">`Error during the upload: </span><span class="sc">${</span><span class="va">xhr</span>.<span class="at">status</span><span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb17-11" title="11"><span class="op">};</span></a></code></pre></div>
+<p>Here’s a real-life example: file upload with progress indication:</p>
+<p>```html run <input type="file" onchange="upload(this.files[0])"></p>
+<script>
+function upload(file) {
+  let xhr = new XMLHttpRequest();
+
+  // track upload progress
+*!*
+  xhr.upload.onprogress = function(event) {
+    console.log(`Uploaded ${event.loaded} of ${event.total}`);
+  };
+*/!*
+
+  // track completion: both successful or not
+  xhr.onloadend = function() {
+    if (xhr.status == 200) {
+      console.log("success");
+    } else {
+      console.log("error " + this.status);
+    }
+  };
+
+  xhr.open("POST", "/article/xmlhttprequest/post/upload");
+  xhr.send(file);
+}
+</script>
+<p>```</p>
+<h2 id="cross-origin-requests">Cross-origin requests</h2>
+<p><code>XMLHttpRequest</code> can make cross-origin requests, using the same CORS policy as <a href="info:fetch-crossorigin">fetch</a>.</p>
+<p>Just like <code>fetch</code>, it doesn’t send cookies and HTTP-authorization to another origin by default. To enable them, set <code>xhr.withCredentials</code> to <code>true</code>:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb18-1" title="1"><span class="kw">let</span> xhr <span class="op">=</span> <span class="kw">new</span> <span class="at">XMLHttpRequest</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb18-2" title="2"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb18-3" title="3"><span class="va">xhr</span>.<span class="at">withCredentials</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb18-4" title="4"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb18-5" title="5"></a>
+<a class="sourceLine" id="cb18-6" title="6"><span class="ss">xhr.open</span><span class="sc">(</span><span class="ss">&#39;POST&#39;, &#39;http://anywhere.com/request</span><span class="st">&#39;);</span></a>
+<a class="sourceLine" id="cb18-7" title="7">...</a></code></pre></div>
+<p>See the chapter <a href="info:fetch-crossorigin" class="uri">info:fetch-crossorigin</a> for details about cross-origin headers.</p>
+<h2 id="summary">Summary</h2>
+<p>Typical code of the GET-request with <code>XMLHttpRequest</code>:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb19-1" title="1"><span class="kw">let</span> xhr <span class="op">=</span> <span class="kw">new</span> <span class="at">XMLHttpRequest</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb19-2" title="2"></a>
+<a class="sourceLine" id="cb19-3" title="3"><span class="va">xhr</span>.<span class="at">open</span>(<span class="st">&#39;GET&#39;</span><span class="op">,</span> <span class="st">&#39;/my/url&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb19-4" title="4"></a>
+<a class="sourceLine" id="cb19-5" title="5"><span class="va">xhr</span>.<span class="at">send</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb19-6" title="6"></a>
+<a class="sourceLine" id="cb19-7" title="7"><span class="va">xhr</span>.<span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb19-8" title="8">  <span class="cf">if</span> (<span class="va">xhr</span>.<span class="at">status</span> <span class="op">!=</span> <span class="dv">200</span>) <span class="op">{</span> <span class="co">// HTTP error?</span></a>
+<a class="sourceLine" id="cb19-9" title="9">    <span class="co">// handle error</span></a>
+<a class="sourceLine" id="cb19-10" title="10">    <span class="at">alert</span>( <span class="st">&#39;Error: &#39;</span> <span class="op">+</span> <span class="va">xhr</span>.<span class="at">status</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb19-11" title="11">    <span class="cf">return</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb19-12" title="12">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb19-13" title="13"></a>
+<a class="sourceLine" id="cb19-14" title="14">  <span class="co">// get the response from xhr.response</span></a>
+<a class="sourceLine" id="cb19-15" title="15"><span class="op">};</span></a>
+<a class="sourceLine" id="cb19-16" title="16"></a>
+<a class="sourceLine" id="cb19-17" title="17"><span class="va">xhr</span>.<span class="at">onprogress</span> <span class="op">=</span> <span class="kw">function</span>(event) <span class="op">{</span></a>
+<a class="sourceLine" id="cb19-18" title="18">  <span class="co">// report progress</span></a>
+<a class="sourceLine" id="cb19-19" title="19">  <span class="at">alert</span>(<span class="vs">`Loaded </span><span class="sc">${</span><span class="va">event</span>.<span class="at">loaded</span><span class="sc">}</span><span class="vs"> of </span><span class="sc">${</span><span class="va">event</span>.<span class="at">total</span><span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb19-20" title="20"><span class="op">};</span></a>
+<a class="sourceLine" id="cb19-21" title="21"></a>
+<a class="sourceLine" id="cb19-22" title="22"><span class="va">xhr</span>.<span class="at">onerror</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb19-23" title="23">  <span class="co">// handle non-HTTP error (e.g. network down)</span></a>
+<a class="sourceLine" id="cb19-24" title="24"><span class="op">};</span></a></code></pre></div>
+<p>There are actually more events, the <a href="https://xhr.spec.whatwg.org/#events">modern specification</a> lists them (in the lifecycle order):</p>
+<ul>
+<li><code>loadstart</code> – the request has started.</li>
+<li><code>progress</code> – a data packet of the response has arrived, the whole response body at the moment is in <code>response</code>.</li>
+<li><code>abort</code> – the request was canceled by the call <code>xhr.abort()</code>.</li>
+<li><code>error</code> – connection error has occurred, e.g. wrong domain name. Doesn’t happen for HTTP-errors like 404.</li>
+<li><code>load</code> – the request has finished successfully.</li>
+<li><code>timeout</code> – the request was canceled due to timeout (only happens if it was set).</li>
+<li><code>loadend</code> – triggers after <code>load</code>, <code>error</code>, <code>timeout</code> or <code>abort</code>.</li>
+</ul>
+<p>The <code>error</code>, <code>abort</code>, <code>timeout</code>, and <code>load</code> events are mutually exclusive. Only one of them may happen.</p>
+<p>The most used events are load completion (<code>load</code>), load failure (<code>error</code>), or we can use a single <code>loadend</code> handler and check the properties of the request object <code>xhr</code> to see what happened.</p>
+<p>We’ve already seen another event: <code>readystatechange</code>. Historically, it appeared long ago, before the specification settled. Nowadays, there’s no need to use it, we can replace it with newer events, but it can often be found in older scripts.</p>
+<p>If we need to track uploading specifically, then we should listen to same events on <code>xhr.upload</code> object.</p>

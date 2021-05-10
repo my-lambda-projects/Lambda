@@ -1,0 +1,13 @@
+<p>The solution is short, yet may look a bit tricky, so here I provide it with extensive comments:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> sortedRows <span class="op">=</span> <span class="va">Array</span>.<span class="at">from</span>(<span class="va">table</span>.<span class="at">tBodies</span>[<span class="dv">0</span>].<span class="at">rows</span>) <span class="co">// 1</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  .<span class="at">sort</span>((rowA<span class="op">,</span> rowB) <span class="kw">=&gt;</span> <span class="va">rowA</span>.<span class="at">cells</span>[<span class="dv">0</span>].<span class="va">innerHTML</span>.<span class="at">localeCompare</span>(<span class="va">rowB</span>.<span class="at">cells</span>[<span class="dv">0</span>].<span class="at">innerHTML</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="va">table</span>.<span class="at">tBodies</span>[<span class="dv">0</span>].<span class="at">append</span>(...<span class="at">sortedRows</span>)<span class="op">;</span> <span class="co">// (3)</span></a></code></pre></div>
+<p>The step-by-step algorthm:</p>
+<ol type="1">
+<li>Get all <code>&lt;tr&gt;</code>, from <code>&lt;tbody&gt;</code>.</li>
+<li>Then sort them comparing by the content of the first <code>&lt;td&gt;</code> (the name field).</li>
+<li>Now insert nodes in the right order by <code>.append(...sortedRows)</code>.</li>
+</ol>
+<p>We don’t have to remove row elements, just “re-insert”, they leave the old place automatically.</p>
+<p>P.S. In our case, there’s an explicit <code>&lt;tbody&gt;</code> in the table, but even if HTML table doesn’t have <code>&lt;tbody&gt;</code>, the DOM structure always has it.</p>

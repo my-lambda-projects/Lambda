@@ -1,0 +1,178 @@
+<h1 id="promise">Promise</h1>
+<p>Imagine that you’re a top singer, and fans ask day and night for your upcoming song.</p>
+<p>To get some relief, you promise to send it to them when it’s published. You give your fans a list. They can fill in their email addresses, so that when the song becomes available, all subscribed parties instantly receive it. And even if something goes very wrong, say, a fire in the studio, so that you can’t publish the song, they will still be notified.</p>
+<p>Everyone is happy: you, because the people don’t crowd you anymore, and fans, because they won’t miss the song.</p>
+<p>This is a real-life analogy for things we often have in programming:</p>
+<ol type="1">
+<li>A “producing code” that does something and takes time. For instance, some code that loads the data over a network. That’s a “singer”.</li>
+<li>A “consuming code” that wants the result of the “producing code” once it’s ready. Many functions may need that result. These are the “fans”.</li>
+<li>A <em>promise</em> is a special JavaScript object that links the “producing code” and the “consuming code” together. In terms of our analogy: this is the “subscription list”. The “producing code” takes whatever time it needs to produce the promised result, and the “promise” makes that result available to all of the subscribed code when it’s ready.</li>
+</ol>
+<p>The analogy isn’t terribly accurate, because JavaScript promises are more complex than a simple subscription list: they have additional features and limitations. But it’s fine to begin with.</p>
+<p>The constructor syntax for a promise object is:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> promise <span class="op">=</span> <span class="kw">new</span> <span class="at">Promise</span>(<span class="kw">function</span>(resolve<span class="op">,</span> reject) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="co">// executor (the producing code, &quot;singer&quot;)</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>The function passed to <code>new Promise</code> is called the <em>executor</em>. When <code>new Promise</code> is created, the executor runs automatically. It contains the producing code which should eventually produce the result. In terms of the analogy above: the executor is the “singer”.</p>
+<p>Its arguments <code>resolve</code> and <code>reject</code> are callbacks provided by JavaScript itself. Our code is only inside the executor.</p>
+<p>When the executor obtains the result, be it soon or late, doesn’t matter, it should call one of these callbacks:</p>
+<ul>
+<li><code>resolve(value)</code> — if the job is finished successfully, with result <code>value</code>.</li>
+<li><code>reject(error)</code> — if an error has occurred, <code>error</code> is the error object.</li>
+</ul>
+<p>So to summarize: the executor runs automatically and attempts to perform a job. When it is finished with the attempt, it calls <code>resolve</code> if it was successful or <code>reject</code> if there was an error.</p>
+<p>The <code>promise</code> object returned by the <code>new Promise</code> constructor has these internal properties:</p>
+<ul>
+<li><code>state</code> — initially <code>"pending"</code>, then changes to either <code>"fulfilled"</code> when <code>resolve</code> is called or <code>"rejected"</code> when <code>reject</code> is called.</li>
+<li><code>result</code> — initially <code>undefined</code>, then changes to <code>value</code> when <code>resolve(value)</code> called or <code>error</code> when <code>reject(error)</code> is called.</li>
+</ul>
+<p>So the executor eventually moves <code>promise</code> to one of these states:</p>
+<p><img src="promise-resolve-reject.svg" /></p>
+<p>Later we’ll see how “fans” can subscribe to these changes.</p>
+<p>Here’s an example of a promise constructor and a simple executor function with “producing code” that takes time (via <code>setTimeout</code>):</p>
+<p>```js run let promise = new Promise(function(resolve, reject) { // the function is executed automatically when the promise is constructed</p>
+<p>// after 1 second signal that the job is done with the result “done” setTimeout(() =&gt; <em>!</em>resolve(“done”)<em>/!</em>, 1000); }); ```</p>
+<p>We can see two things by running the code above:</p>
+<ol type="1">
+<li>The executor is called automatically and immediately (by <code>new Promise</code>).</li>
+<li><p>The executor receives two arguments: <code>resolve</code> and <code>reject</code>. These functions are pre-defined by the JavaScript engine, so we don’t need to create them. We should only call one of them when ready.</p>
+<p>After one second of “processing” the executor calls <code>resolve("done")</code> to produce the result. This changes the state of the <code>promise</code> object:</p>
+<p><img src="promise-resolve-1.svg" /></p></li>
+</ol>
+<p>That was an example of a successful job completion, a “fulfilled promise”.</p>
+<p>And now an example of the executor rejecting the promise with an error:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> promise <span class="op">=</span> <span class="kw">new</span> <span class="at">Promise</span>(<span class="kw">function</span>(resolve<span class="op">,</span> reject) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="co">// after 1 second signal that the job is finished with an error</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="at">setTimeout</span>(() <span class="kw">=&gt;</span> <span class="op">*!*</span><span class="at">reject</span>(<span class="kw">new</span> <span class="at">Error</span>(<span class="st">&quot;Whoops!&quot;</span>))<span class="op">*</span><span class="ss">/!</span><span class="sc">*</span><span class="ss">, 1000</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="ss">}</span><span class="sc">)</span><span class="ss">;</span></a></code></pre></div>
+<p>The call to <code>reject(...)</code> moves the promise object to <code>"rejected"</code> state:</p>
+<p><img src="promise-reject-1.svg" /></p>
+<p>To summarize, the executor should perform a job (usually something that takes time) and then call <code>resolve</code> or <code>reject</code> to change the state of the corresponding promise object.</p>
+<p>A promise that is either resolved or rejected is called “settled”, as opposed to an initially “pending” promise.</p>
+<p>```<code>smart header="There can be only a single result or an error" The executor should call only one</code>resolve<code>or one</code>reject`. Any state change is final.</p>
+<p>All further calls of <code>resolve</code> and <code>reject</code> are ignored:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> promise <span class="op">=</span> <span class="kw">new</span> <span class="at">Promise</span>(<span class="kw">function</span>(resolve<span class="op">,</span> reject) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="at">resolve</span>(<span class="st">&quot;done&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="ss">  reject</span><span class="sc">(</span><span class="ss">new Error</span><span class="sc">(</span><span class="ss">&quot;…&quot;</span><span class="sc">))</span><span class="ss">; // ignored</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="ss">  setTimeout</span><span class="sc">(()</span><span class="ss"> =&gt; resolve</span><span class="sc">(</span><span class="ss">&quot;…&quot;</span><span class="sc">))</span><span class="ss">; // ignored</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="ss">}</span><span class="sc">)</span><span class="ss">;</span></a></code></pre></div>
+<p>The idea is that a job done by the executor may have only one result or an error.</p>
+<p>Also, <code>resolve</code>/<code>reject</code> expect only one argument (or none) and will ignore additional arguments. ````</p>
+<p><code>smart header="Reject with `Error` objects" In case something goes wrong, the executor should call `reject`. That can be done with any type of argument (just like `resolve`). But it is recommended to use `Error` objects (or objects that inherit from `Error`). The reasoning for that will soon become apparent.</code></p>
+<p>```<code>smart header="Immediately calling</code>resolve<code>/</code>reject<code>" In practice, an executor usually does something asynchronously and calls</code>resolve<code>/</code>reject<code>after some time, but it doesn't have to. We also can call</code>resolve<code>or</code>reject` immediately, like this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">let</span> promise <span class="op">=</span> <span class="kw">new</span> <span class="at">Promise</span>(<span class="kw">function</span>(resolve<span class="op">,</span> reject) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="co">// not taking our time to do the job</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="at">resolve</span>(<span class="dv">123</span>)<span class="op">;</span> <span class="co">// immediately give the result: 123</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>For instance, this might happen when we start to do a job but then see that everything has already been completed and cached.</p>
+<p>That’s fine. We immediately have a resolved promise. ````</p>
+<p><code>smart header="The `state` and `result` are internal" The properties `state` and `result` of the Promise object are internal. We can't directly access them. We can use the methods `.then`/`.catch`/`.finally` for that. They are described below.</code></p>
+<h2 id="consumers-then-catch-finally">Consumers: then, catch, finally</h2>
+<p>A Promise object serves as a link between the executor (the “producing code” or “singer”) and the consuming functions (the “fans”), which will receive the result or error. Consuming functions can be registered (subscribed) using methods <code>.then</code>, <code>.catch</code> and <code>.finally</code>.</p>
+<h3 id="then">then</h3>
+<p>The most important, fundamental one is <code>.then</code>.</p>
+<p>The syntax is:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">promise</span>.<span class="at">then</span>(</a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="kw">function</span>(result) <span class="op">{</span> <span class="op">*!*</span><span class="co">/* handle a successful result */</span><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span><span class="ss"> },</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="ss">  function</span><span class="sc">(</span><span class="ss">error</span><span class="sc">)</span><span class="ss"> { </span><span class="sc">*</span><span class="ss">!</span><span class="sc">*</span><span class="ss">/</span><span class="op">*</span> handle an error <span class="op">*</span><span class="co">/*/!* }</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="co">);</span></a></code></pre></div>
+<p>The first argument of <code>.then</code> is a function that runs when the promise is resolved, and receives the result.</p>
+<p>The second argument of <code>.then</code> is a function that runs when the promise is rejected, and receives the error.</p>
+<p>For instance, here’s a reaction to a successfully resolved promise:</p>
+<p>```js run let promise = new Promise(function(resolve, reject) { setTimeout(() =&gt; resolve(“done!”), 1000); });</p>
+<p>// resolve runs the first function in .then promise.then( <em>!</em> result =&gt; alert(result), // shows “done!” after 1 second <em>/!</em> error =&gt; alert(error) // doesn’t run ); ```</p>
+<p>The first function was executed.</p>
+<p>And in the case of a rejection, the second one:</p>
+<p>```js run let promise = new Promise(function(resolve, reject) { setTimeout(() =&gt; reject(new Error(“Whoops!”)), 1000); });</p>
+<p>// reject runs the second function in .then promise.then( result =&gt; alert(result), // doesn’t run <em>!</em> error =&gt; alert(error) // shows “Error: Whoops!” after 1 second <em>/!</em> ); ```</p>
+<p>If we’re interested only in successful completions, then we can provide only one function argument to <code>.then</code>:</p>
+<p>```js run let promise = new Promise(resolve =&gt; { setTimeout(() =&gt; resolve(“done!”), 1000); });</p>
+<p><em>!</em> promise.then(alert); // shows “done!” after 1 second <em>/!</em> ```</p>
+<h3 id="catch">catch</h3>
+<p>If we’re interested only in errors, then we can use <code>null</code> as the first argument: <code>.then(null, errorHandlingFunction)</code>. Or we can use <code>.catch(errorHandlingFunction)</code>, which is exactly the same:</p>
+<p>```js run let promise = new Promise((resolve, reject) =&gt; { setTimeout(() =&gt; reject(new Error(“Whoops!”)), 1000); });</p>
+<p><em>!</em> // .catch(f) is the same as promise.then(null, f) promise.catch(alert); // shows “Error: Whoops!” after 1 second <em>/!</em> ```</p>
+<p>The call <code>.catch(f)</code> is a complete analog of <code>.then(null, f)</code>, it’s just a shorthand.</p>
+<h3 id="finally">finally</h3>
+<p>Just like there’s a <code>finally</code> clause in a regular <code>try {...} catch {...}</code>, there’s <code>finally</code> in promises.</p>
+<p>The call <code>.finally(f)</code> is similar to <code>.then(f, f)</code> in the sense that <code>f</code> always runs when the promise is settled: be it resolve or reject.</p>
+<p><code>finally</code> is a good handler for performing cleanup, e.g. stopping our loading indicators, as they are not needed anymore, no matter what the outcome is.</p>
+<p>Like this:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">new</span> <span class="at">Promise</span>((resolve<span class="op">,</span> reject) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="co">/* do something that takes time, and then call resolve/reject */</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="op">}</span>)</a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb6-5" title="5">  <span class="co">// runs when the promise is settled, doesn&#39;t matter successfully or not</span></a>
+<a class="sourceLine" id="cb6-6" title="6">  .<span class="at">finally</span>(() <span class="kw">=&gt;</span> stop loading indicator)</a>
+<a class="sourceLine" id="cb6-7" title="7">  <span class="co">// so the loading indicator is always stopped before we process the result/error</span></a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="ss">  .then</span><span class="sc">(</span><span class="ss">result =&gt; show result, err =&gt; show error</span><span class="sc">)</span></a></code></pre></div>
+<p>That said, <code>finally(f)</code> isn’t exactly an alias of <code>then(f,f)</code> though. There are few subtle differences:</p>
+<ol type="1">
+<li>A <code>finally</code> handler has no arguments. In <code>finally</code> we don’t know whether the promise is successful or not. That’s all right, as our task is usually to perform “general” finalizing procedures.</li>
+<li><p>A <code>finally</code> handler passes through results and errors to the next handler.</p>
+<p>For instance, here the result is passed through <code>finally</code> to <code>then</code>: <code>js run  new Promise((resolve, reject) =&gt; {    setTimeout(() =&gt; resolve("result"), 2000)  })    .finally(() =&gt; alert("Promise ready"))    .then(result =&gt; alert(result)); // &lt;-- .then handles the result</code></p>
+<p>And here there’s an error in the promise, passed through <code>finally</code> to <code>catch</code>:</p>
+<p><code>js run  new Promise((resolve, reject) =&gt; {    throw new Error("error");  })    .finally(() =&gt; alert("Promise ready"))    .catch(err =&gt; alert(err));  // &lt;-- .catch handles the error object</code></p></li>
+</ol>
+<p>That’s very convenient, because <code>finally</code> is not meant to process a promise result. So it passes it through.</p>
+<p>We’ll talk more about promise chaining and result-passing between handlers in the next chapter.</p>
+<p>```<code>smart header="We can attach handlers to settled promises" If a promise is pending,</code>.then/catch/finally` handlers wait for it. Otherwise, if a promise has already settled, they just run:</p>
+<p>```js run // the promise becomes resolved immediately upon creation let promise = new Promise(resolve =&gt; resolve(“done!”));</p>
+<p>promise.then(alert); // done! (shows up right now)</p>
+<pre><code>
+Note that this makes promises more powerful than the real life &quot;subscription list&quot; scenario. If the singer has already released their song and then a person signs up on the subscription list, they probably won&#39;t receive that song. Subscriptions in real life must be done prior to the event.
+
+Promises are more flexible. We can add handlers any time: if the result is already there, they just execute.</code></pre>
+<p>Next, let’s see more practical examples of how promises can help us write asynchronous code.</p>
+<h2 id="example-loadscript-loadscript">Example: loadScript [#loadscript]</h2>
+<p>We’ve got the <code>loadScript</code> function for loading a script from the previous chapter.</p>
+<p>Here’s the callback-based variant, just to remind us of it:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">function</span> <span class="at">loadScript</span>(src<span class="op">,</span> callback) <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2">  <span class="kw">let</span> script <span class="op">=</span> <span class="va">document</span>.<span class="at">createElement</span>(<span class="st">&#39;script&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-3" title="3">  <span class="va">script</span>.<span class="at">src</span> <span class="op">=</span> src<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-4" title="4"></a>
+<a class="sourceLine" id="cb8-5" title="5">  <span class="va">script</span>.<span class="at">onload</span> <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="at">callback</span>(<span class="kw">null</span><span class="op">,</span> script)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-6" title="6">  <span class="va">script</span>.<span class="at">onerror</span> <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="at">callback</span>(<span class="kw">new</span> <span class="at">Error</span>(<span class="vs">`Script load error for </span><span class="sc">${</span>src<span class="sc">}</span><span class="vs">`</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-7" title="7"></a>
+<a class="sourceLine" id="cb8-8" title="8">  <span class="va">document</span>.<span class="va">head</span>.<span class="at">append</span>(script)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="op">}</span></a></code></pre></div>
+<p>Let’s rewrite it using Promises.</p>
+<p>The new function <code>loadScript</code> will not require a callback. Instead, it will create and return a Promise object that resolves when the loading is complete. The outer code can add handlers (subscribing functions) to it using <code>.then</code>:</p>
+<p>```js run function loadScript(src) { return new Promise(function(resolve, reject) { let script = document.createElement(‘script’); script.src = src;</p>
+<pre><code>script.onload = () =&gt; resolve(script);
+script.onerror = () =&gt; reject(new Error(`Script load error for ${src}`));
+
+document.head.append(script);</code></pre>
+<p>}); } ```</p>
+<p>Usage:</p>
+<p>```js run let promise = loadScript(“https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js”);</p>
+<p>promise.then( script =&gt; alert(<code>${script.src} is loaded!</code>), error =&gt; alert(<code>Error: ${error.message}</code>) );</p>
+<p>promise.then(script =&gt; alert(‘Another handler…’)); ```</p>
+<p>We can immediately see a few benefits over the callback-based pattern:</p>
+<table>
+<colgroup>
+<col style="width: 47%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Promises</th>
+<th>Callbacks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Promises allow us to do things in the natural order. First, we run <code>loadScript(script)</code>, and <code>.then</code> we write what to do with the result.</td>
+<td>We must have a <code>callback</code> function at our disposal when calling <code>loadScript(script, callback)</code>. In other words, we must know what to do with the result <em>before</em> <code>loadScript</code> is called.</td>
+</tr>
+<tr class="even">
+<td>We can call <code>.then</code> on a Promise as many times as we want. Each time, we’re adding a new “fan”, a new subscribing function, to the “subscription list”. More about this in the next chapter: <a href="info:promise-chaining"></a>.</td>
+<td>There can be only one callback.</td>
+</tr>
+</tbody>
+</table>
+<p>So promises give us better code flow and flexibility. But there’s more. We’ll see that in the next chapters.</p>

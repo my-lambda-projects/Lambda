@@ -1,0 +1,10 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="error-creating-an-instance">Error creating an instance</h1>
+<p>Here’s the code with <code>Rabbit</code> extending <code>Animal</code>.</p>
+<p>Unfortunately, <code>Rabbit</code> objects can’t be created. What’s wrong? Fix it. ```js run class Animal {</p>
+<p>constructor(name) { this.name = name; }</p>
+<p>}</p>
+<p>class Rabbit extends Animal { constructor(name) {<br />
+this.name = name; this.created = Date.now(); } }</p>
+<p><em>!</em> let rabbit = new Rabbit(“White Rabbit”); // Error: this is not defined <em>/!</em> alert(rabbit.name); ```</p>

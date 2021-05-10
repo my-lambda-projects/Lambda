@@ -1,0 +1,29 @@
+<h1 id="backreferences-in-pattern-and-name">Backreferences in pattern: and name&gt;</h1>
+<p>We can use the contents of capturing groups <code>pattern:(...)</code> not only in the result or in the replacement string, but also in the pattern itself.</p>
+<h2 id="backreference-by-number">Backreference by number: </h2>
+<p>A group can be referenced in the pattern using <code>pattern:\N</code>, where <code>N</code> is the group number.</p>
+<p>To make clear why that’s helpful, let’s consider a task.</p>
+<p>We need to find quoted strings: either single-quoted <code>subject:'...'</code> or a double-quoted <code>subject:"..."</code> – both variants should match.</p>
+<p>How to find them?</p>
+<p>We can put both kinds of quotes in the square brackets: <code>pattern:['"](.*?)['"]</code>, but it would find strings with mixed quotes, like <code>match:"...'</code> and <code>match:'..."</code>. That would lead to incorrect matches when one quote appears inside other ones, like in the string <code>subject:"She's the one!"</code>:</p>
+<p>``<code>js run let str =</code>He said: “She’s the one!”.`;</p>
+<p>let regexp = /<a href=".*?">’"</a>[’"]/g;</p>
+<p>// The result is not what we’d like to have alert( str.match(regexp) ); // "She’ ```</p>
+<p>As we can see, the pattern found an opening quote <code>match:"</code>, then the text is consumed till the other quote <code>match:'</code>, that closes the match.</p>
+<p>To make sure that the pattern looks for the closing quote exactly the same as the opening one, we can wrap it into a capturing group and backreference it: <code>pattern:(['"])(.*?)\1</code>.</p>
+<p>Here’s the correct code:</p>
+<p>``<code>js run let str =</code>He said: “She’s the one!”.`;</p>
+<p><em>!</em> let regexp = /([’"])(.<em>?)\1/g; </em>/!*</p>
+<p>alert( str.match(regexp) ); // “She’s the one!” ```</p>
+<p>Now it works! The regular expression engine finds the first quote <code>pattern:(['"])</code> and memorizes its content. That’s the first capturing group.</p>
+<p>Further in the pattern <code>pattern:\1</code> means “find the same text as in the first group”, exactly the same quote in our case.</p>
+<p>Similar to that, <code>pattern:\2</code> would mean the contents of the second group, <code>pattern:\3</code> - the 3rd group, and so on.</p>
+<pre class="smart"><code>If we use `?:` in the group, then we can&#39;t reference it. Groups that are excluded from capturing `(?:...)` are not memorized by the engine.</code></pre>
+<p><code>warn header="Don't mess up: in the pattern `pattern:\1`, in the replacement: `pattern:$1`" In the replacement string we use a dollar sign: `pattern:$1`, while in the pattern - a backslash `pattern:\1`.</code></p>
+<h2 id="backreference-by-name-kname">Backreference by name: <code>\k&lt;name&gt;</code></h2>
+<p>If a regexp has many parentheses, it’s convenient to give them names.</p>
+<p>To reference a named group we can use <code>pattern:\k&lt;name&gt;</code>.</p>
+<p>In the example below the group with quotes is named <code>pattern:?&lt;quote&gt;</code>, so the backreference is <code>pattern:\k&lt;quote&gt;</code>:</p>
+<p>``<code>js run let str =</code>He said: “She’s the one!”.`;</p>
+<p><em>!</em> let regexp = /(?<quote>[’"])(.<em>?)quote&gt;/g; </em>/!*</p>
+<p>alert( str.match(regexp) ); // “She’s the one!” ```</p>

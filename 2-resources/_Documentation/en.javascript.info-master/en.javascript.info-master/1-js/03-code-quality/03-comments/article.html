@@ -1,0 +1,134 @@
+<h1 id="comments">Comments</h1>
+<p>As we know from the chapter <a href="info:structure" class="uri">info:structure</a>, comments can be single-line: starting with <code>//</code> and multiline: <code>/* ... */</code>.</p>
+<p>We normally use them to describe how and why the code works.</p>
+<p>At first sight, commenting might be obvious, but novices in programming often use them wrongly.</p>
+<h2 id="bad-comments">Bad comments</h2>
+<p>Novices tend to use comments to explain “what is going on in the code”. Like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// This code will do this thing (...) and that thing (...)</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="co">// ...and who knows what else...</span></a>
+<a class="sourceLine" id="cb1-3" title="3">very<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">complex<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">code<span class="op">;</span></a></code></pre></div>
+<p>But in good code, the amount of such “explanatory” comments should be minimal. Seriously, the code should be easy to understand without them.</p>
+<p>There’s a great rule about that: “if the code is so unclear that it requires a comment, then maybe it should be rewritten instead”.</p>
+<h3 id="recipe-factor-out-functions">Recipe: factor out functions</h3>
+<p>Sometimes it’s beneficial to replace a code piece with a function, like here:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">function</span> <span class="at">showPrimes</span>(n) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="dt">nextPrime</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">2</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-4" title="4"></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb2-6" title="6">    <span class="co">// check if i is a prime number</span></a>
+<a class="sourceLine" id="cb2-7" title="7">    <span class="cf">for</span> (<span class="kw">let</span> j <span class="op">=</span> <span class="dv">2</span><span class="op">;</span> j <span class="op">&lt;</span> i<span class="op">;</span> j<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-8" title="8">      <span class="cf">if</span> (i <span class="op">%</span> j <span class="op">==</span> <span class="dv">0</span>) <span class="cf">continue</span> nextPrime<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-9" title="9">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb2-11" title="11"></a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="ss">    alert</span><span class="sc">(</span><span class="ss">i</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="ss">  }</span></a>
+<a class="sourceLine" id="cb2-14" title="14"><span class="ss">}</span></a></code></pre></div>
+<p>The better variant, with a factored out function <code>isPrime</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">function</span> <span class="at">showPrimes</span>(n) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">2</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="op">*!*</span><span class="cf">if</span> (<span class="op">!</span><span class="at">isPrime</span>(i)) <span class="cf">continue</span><span class="op">;*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="ss">    alert</span><span class="sc">(</span><span class="ss">i</span><span class="sc">)</span><span class="ss">;  </span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="ss">  }</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="ss">}</span></a>
+<a class="sourceLine" id="cb3-9" title="9"></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="ss">function isPrime</span><span class="sc">(</span><span class="ss">n</span><span class="sc">)</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="ss">  for </span><span class="sc">(</span><span class="ss">let i = 2; i &lt; n; i</span><span class="sc">++)</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb3-12" title="12"><span class="ss">    if </span><span class="sc">(</span><span class="ss">n % i == 0</span><span class="sc">)</span><span class="ss"> return false;</span></a>
+<a class="sourceLine" id="cb3-13" title="13"><span class="ss">  }</span></a>
+<a class="sourceLine" id="cb3-14" title="14"></a>
+<a class="sourceLine" id="cb3-15" title="15"><span class="ss">  return true;</span></a>
+<a class="sourceLine" id="cb3-16" title="16"><span class="ss">}</span></a></code></pre></div>
+<p>Now we can understand the code easily. The function itself becomes the comment. Such code is called <em>self-descriptive</em>.</p>
+<h3 id="recipe-create-functions">Recipe: create functions</h3>
+<p>And if we have a long “code sheet” like this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="co">// here we add whiskey</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="cf">for</span>(<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="kw">let</span> drop <span class="op">=</span> <span class="at">getWhiskey</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="at">smell</span>(drop)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-5" title="5">  <span class="at">add</span>(drop<span class="op">,</span> glass)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="op">}</span></a>
+<a class="sourceLine" id="cb4-7" title="7"></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="co">// here we add juice</span></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="cf">for</span>(<span class="kw">let</span> t <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> t <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> t<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-10" title="10">  <span class="kw">let</span> tomato <span class="op">=</span> <span class="at">getTomato</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-11" title="11">  <span class="at">examine</span>(tomato)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-12" title="12">  <span class="kw">let</span> juice <span class="op">=</span> <span class="at">press</span>(tomato)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-13" title="13">  <span class="at">add</span>(juice<span class="op">,</span> glass)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-14" title="14"><span class="op">}</span></a>
+<a class="sourceLine" id="cb4-15" title="15"></a>
+<a class="sourceLine" id="cb4-16" title="16"><span class="co">// ...</span></a></code></pre></div>
+<p>Then it might be a better variant to refactor it into functions like:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="at">addWhiskey</span>(glass)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="at">addJuice</span>(glass)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-3" title="3"></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="kw">function</span> <span class="at">addWhiskey</span>(container) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-5" title="5">  <span class="cf">for</span>(<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">10</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-6" title="6">    <span class="kw">let</span> drop <span class="op">=</span> <span class="at">getWhiskey</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-7" title="7">    <span class="co">//...</span></a>
+<a class="sourceLine" id="cb5-8" title="8">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-9" title="9"><span class="op">}</span></a>
+<a class="sourceLine" id="cb5-10" title="10"></a>
+<a class="sourceLine" id="cb5-11" title="11"><span class="kw">function</span> <span class="at">addJuice</span>(container) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-12" title="12">  <span class="cf">for</span>(<span class="kw">let</span> t <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> t <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> t<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-13" title="13">    <span class="kw">let</span> tomato <span class="op">=</span> <span class="at">getTomato</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-14" title="14">    <span class="co">//...</span></a>
+<a class="sourceLine" id="cb5-15" title="15">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-16" title="16"><span class="op">}</span></a></code></pre></div>
+<p>Once again, functions themselves tell what’s going on. There’s nothing to comment. And also the code structure is better when split. It’s clear what every function does, what it takes and what it returns.</p>
+<p>In reality, we can’t totally avoid “explanatory” comments. There are complex algorithms. And there are smart “tweaks” for purposes of optimization. But generally we should try to keep the code simple and self-descriptive.</p>
+<h2 id="good-comments">Good comments</h2>
+<p>So, explanatory comments are usually bad. Which comments are good?</p>
+<dl>
+<dt>Describe the architecture</dt>
+<dd>Provide a high-level overview of components, how they interact, what’s the control flow in various situations… In short – the bird’s eye view of the code. There’s a special language <a href="http://wikipedia.org/wiki/Unified_Modeling_Language">UML</a> to build high-level architecture diagrams explaining the code. Definitely worth studying.
+</dd>
+<dt>Document function parameters and usage</dt>
+<dd>There’s a special syntax <a href="http://en.wikipedia.org/wiki/JSDoc">JSDoc</a> to document a function: usage, parameters, returned value.
+</dd>
+</dl>
+<p>For instance:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="co"> * Returns x raised to the n-th power.</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="co"> *</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{number}</span><span class="co"> x The number to raise.</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{number}</span><span class="co"> n The power, must be a natural number.</span></a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="co"> * </span><span class="an">@return</span><span class="co"> {number} x raised to the n-th power.</span></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="kw">function</span> <span class="at">pow</span>(x<span class="op">,</span> n) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-9" title="9">  ...</a>
+<a class="sourceLine" id="cb6-10" title="10"><span class="op">}</span></a></code></pre></div>
+<p>Such comments allow us to understand the purpose of the function and use it the right way without looking in its code.</p>
+<p>By the way, many editors like <a href="https://www.jetbrains.com/webstorm/">WebStorm</a> can understand them as well and use them to provide autocomplete and some automatic code-checking.</p>
+<p>Also, there are tools like <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3</a> that can generate HTML-documentation from the comments. You can read more information about JSDoc at <a href="http://usejsdoc.org/" class="uri">http://usejsdoc.org/</a>.</p>
+<dl>
+<dt>Why is the task solved this way?</dt>
+<dd><p>What’s written is important. But what’s <em>not</em> written may be even more important to understand what’s going on. Why is the task solved exactly this way? The code gives no answer.</p>
+<p>If there are many ways to solve the task, why this one? Especially when it’s not the most obvious one.</p>
+<p>Without such comments the following situation is possible: 1. You (or your colleague) open the code written some time ago, and see that it’s “suboptimal”. 2. You think: “How stupid I was then, and how much smarter I’m now”, and rewrite using the “more obvious and correct” variant. 3. …The urge to rewrite was good. But in the process you see that the “more obvious” solution is actually lacking. You even dimly remember why, because you already tried it long ago. You revert to the correct variant, but the time was wasted.</p>
+<p>Comments that explain the solution are very important. They help to continue development the right way.</p>
+</dd>
+<dt>Any subtle features of the code? Where they are used?</dt>
+<dd>If the code has anything subtle and counter-intuitive, it’s definitely worth commenting.
+</dd>
+</dl>
+<h2 id="summary">Summary</h2>
+<p>An important sign of a good developer is comments: their presence and even their absence.</p>
+<p>Good comments allow us to maintain the code well, come back to it after a delay and use it more effectively.</p>
+<p><strong>Comment this:</strong></p>
+<ul>
+<li>Overall architecture, high-level view.</li>
+<li>Function usage.</li>
+<li>Important solutions, especially when not immediately obvious.</li>
+</ul>
+<p><strong>Avoid comments:</strong></p>
+<ul>
+<li>That tell “how code works” and “what it does”.</li>
+<li>Put them in only if it’s impossible to make the code so simple and self-descriptive that it doesn’t require them.</li>
+</ul>
+<p>Comments are also used for auto-documenting tools like JSDoc3: they read them and generate HTML-docs (or docs in another format).</p>

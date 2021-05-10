@@ -1,0 +1,119 @@
+<h1 id="comparisons">Comparisons</h1>
+<p>We know many comparison operators from maths.</p>
+<p>In JavaScript they are written like this:</p>
+<ul>
+<li>Greater/less than: <code>a &gt; b</code>, <code>a &lt; b</code>.</li>
+<li>Greater/less than or equals: <code>a &gt;= b</code>, <code>a &lt;= b</code>.</li>
+<li>Equals: <code>a == b</code>, please note the double equality sign <code>==</code> means the equality test, while a single one <code>a = b</code> means an assignment.</li>
+<li>Not equals. In maths the notation is <code>≠</code>, but in JavaScript it’s written as <code>a != b</code>.</li>
+</ul>
+<p>In this article we’ll learn more about different types of comparisons, how JavaScript makes them, including important peculiarities.</p>
+<p>At the end you’ll find a good recipe to avoid “JavaScript quirks”-related issues.</p>
+<h2 id="boolean-is-the-result">Boolean is the result</h2>
+<p>All comparison operators return a boolean value:</p>
+<ul>
+<li><code>true</code> – means “yes”, “correct” or “the truth”.</li>
+<li><code>false</code> – means “no”, “wrong” or “not the truth”.</li>
+</ul>
+<p>For example:</p>
+<p><code>js run alert( 2 &gt; 1 );  // true (correct) alert( 2 == 1 ); // false (wrong) alert( 2 != 1 ); // true (correct)</code></p>
+<p>A comparison result can be assigned to a variable, just like any value:</p>
+<p><code>js run let result = 5 &gt; 4; // assign the result of the comparison alert( result ); // true</code></p>
+<h2 id="string-comparison">String comparison</h2>
+<p>To see whether a string is greater than another, JavaScript uses the so-called “dictionary” or “lexicographical” order.</p>
+<p>In other words, strings are compared letter-by-letter.</p>
+<p>For example:</p>
+<p><code>js run alert( 'Z' &gt; 'A' ); // true alert( 'Glow' &gt; 'Glee' ); // true alert( 'Bee' &gt; 'Be' ); // true</code></p>
+<p>The algorithm to compare two strings is simple:</p>
+<ol type="1">
+<li>Compare the first character of both strings.</li>
+<li>If the first character from the first string is greater (or less) than the other string’s, then the first string is greater (or less) than the second. We’re done.</li>
+<li>Otherwise, if both strings’ first characters are the same, compare the second characters the same way.</li>
+<li>Repeat until the end of either string.</li>
+<li>If both strings end at the same length, then they are equal. Otherwise, the longer string is greater.</li>
+</ol>
+<p>In the first example above, the comparison <code>'Z' &gt; 'A'</code> gets to a result at the first step.</p>
+<p>The second comparison <code>'Glow'</code> and <code>'Glee'</code> needs more steps as strings are compared character-by-character:</p>
+<ol type="1">
+<li><code>G</code> is the same as <code>G</code>.</li>
+<li><code>l</code> is the same as <code>l</code>.</li>
+<li><code>o</code> is greater than <code>e</code>. Stop here. The first string is greater.</li>
+</ol>
+<p>```smart header=“Not a real dictionary, but Unicode order” The comparison algorithm given above is roughly equivalent to the one used in dictionaries or phone books, but it’s not exactly the same.</p>
+<p>For instance, case matters. A capital letter <code>"A"</code> is not equal to the lowercase <code>"a"</code>. Which one is greater? The lowercase <code>"a"</code>. Why? Because the lowercase character has a greater index in the internal encoding table JavaScript uses (Unicode). We’ll get back to specific details and consequences of this in the chapter <a href="info:string" class="uri">info:string</a>. ```</p>
+<h2 id="comparison-of-different-types">Comparison of different types</h2>
+<p>When comparing values of different types, JavaScript converts the values to numbers.</p>
+<p>For example:</p>
+<p><code>js run alert( '2' &gt; 1 ); // true, string '2' becomes a number 2 alert( '01' == 1 ); // true, string '01' becomes a number 1</code></p>
+<p>For boolean values, <code>true</code> becomes <code>1</code> and <code>false</code> becomes <code>0</code>.</p>
+<p>For example:</p>
+<p><code>js run alert( true == 1 ); // true alert( false == 0 ); // true</code></p>
+<p>````smart header=“A funny consequence” It is possible that at the same time:</p>
+<ul>
+<li>Two values are equal.</li>
+<li>One of them is <code>true</code> as a boolean and the other one is <code>false</code> as a boolean.</li>
+</ul>
+<p>For example:</p>
+<p>```js run let a = 0; alert( Boolean(a) ); // false</p>
+<p>let b = “0”; alert( Boolean(b) ); // true</p>
+<p>alert(a == b); // true!</p>
+<pre><code>
+From JavaScript&#39;s standpoint, this result is quite normal. An equality check converts values using the numeric conversion (hence `&quot;0&quot;` becomes `0`), while the explicit `Boolean` conversion uses another set of rules.</code></pre>
+<h2 id="strict-equality">Strict equality</h2>
+<p>A regular equality check <code>==</code> has a problem. It cannot differentiate <code>0</code> from <code>false</code>:</p>
+<p><code>js run alert( 0 == false ); // true</code></p>
+<p>The same thing happens with an empty string:</p>
+<p><code>js run alert( '' == false ); // true</code></p>
+<p>This happens because operands of different types are converted to numbers by the equality operator <code>==</code>. An empty string, just like <code>false</code>, becomes a zero.</p>
+<p>What to do if we’d like to differentiate <code>0</code> from <code>false</code>?</p>
+<p><strong>A strict equality operator <code>===</code> checks the equality without type conversion.</strong></p>
+<p>In other words, if <code>a</code> and <code>b</code> are of different types, then <code>a === b</code> immediately returns <code>false</code> without an attempt to convert them.</p>
+<p>Let’s try it:</p>
+<p><code>js run alert( 0 === false ); // false, because the types are different</code></p>
+<p>There is also a “strict non-equality” operator <code>!==</code> analogous to <code>!=</code>.</p>
+<p>The strict equality operator is a bit longer to write, but makes it obvious what’s going on and leaves less room for errors.</p>
+<h2 id="comparison-with-null-and-undefined">Comparison with null and undefined</h2>
+<p>There’s a non-intuitive behavior when <code>null</code> or <code>undefined</code> are compared to other values.</p>
+<dl>
+<dt>For a strict equality check <code>===</code></dt>
+<dd><p>These values are different, because each of them is a different type.</p>
+<p><code>js run alert( null === undefined ); // false</code></p>
+</dd>
+<dt>For a non-strict check <code>==</code></dt>
+<dd><p>There’s a special rule. These two are a “sweet couple”: they equal each other (in the sense of <code>==</code>), but not any other value.</p>
+<p><code>js run alert( null == undefined ); // true</code></p>
+</dd>
+<dt>For maths and other comparisons <code>&lt; &gt; &lt;= &gt;=</code></dt>
+<dd><code>null/undefined</code> are converted to numbers: <code>null</code> becomes <code>0</code>, while <code>undefined</code> becomes <code>NaN</code>.
+</dd>
+</dl>
+<p>Now let’s see some funny things that happen when we apply these rules. And, what’s more important, how to not fall into a trap with them.</p>
+<h3 id="strange-result-null-vs-0">Strange result: null vs 0</h3>
+<p>Let’s compare <code>null</code> with a zero:</p>
+<p><code>js run alert( null &gt; 0 );  // (1) false alert( null == 0 ); // (2) false alert( null &gt;= 0 ); // (3) *!*true*/!*</code></p>
+<p>Mathematically, that’s strange. The last result states that “<code>null</code> is greater than or equal to zero”, so in one of the comparisons above it must be <code>true</code>, but they are both false.</p>
+<p>The reason is that an equality check <code>==</code> and comparisons <code>&gt; &lt; &gt;= &lt;=</code> work differently. Comparisons convert <code>null</code> to a number, treating it as <code>0</code>. That’s why (3) <code>null &gt;= 0</code> is true and (1) <code>null &gt; 0</code> is false.</p>
+<p>On the other hand, the equality check <code>==</code> for <code>undefined</code> and <code>null</code> is defined such that, without any conversions, they equal each other and don’t equal anything else. That’s why (2) <code>null == 0</code> is false.</p>
+<h3 id="an-incomparable-undefined">An incomparable undefined</h3>
+<p>The value <code>undefined</code> shouldn’t be compared to other values:</p>
+<p><code>js run alert( undefined &gt; 0 ); // false (1) alert( undefined &lt; 0 ); // false (2) alert( undefined == 0 ); // false (3)</code></p>
+<p>Why does it dislike zero so much? Always false!</p>
+<p>We get these results because:</p>
+<ul>
+<li>Comparisons <code>(1)</code> and <code>(2)</code> return <code>false</code> because <code>undefined</code> gets converted to <code>NaN</code> and <code>NaN</code> is a special numeric value which returns <code>false</code> for all comparisons.</li>
+<li>The equality check <code>(3)</code> returns <code>false</code> because <code>undefined</code> only equals <code>null</code>, <code>undefined</code>, and no other value.</li>
+</ul>
+<h3 id="avoid-problems">Avoid problems</h3>
+<p>Why did we go over these examples? Should we remember these peculiarities all the time? Well, not really. Actually, these tricky things will gradually become familiar over time, but there’s a solid way to avoid problems with them:</p>
+<ul>
+<li>Treat any comparison with <code>undefined/null</code> except the strict equality <code>===</code> with exceptional care.</li>
+<li>Don’t use comparisons <code>&gt;= &gt; &lt; &lt;=</code> with a variable which may be <code>null/undefined</code>, unless you’re really sure of what you’re doing. If a variable can have these values, check for them separately.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Comparison operators return a boolean value.</li>
+<li>Strings are compared letter-by-letter in the “dictionary” order.</li>
+<li>When values of different types are compared, they get converted to numbers (with the exclusion of a strict equality check).</li>
+<li>The values <code>null</code> and <code>undefined</code> equal <code>==</code> each other and do not equal any other value.</li>
+<li>Be careful when using comparisons like <code>&gt;</code> or <code>&lt;</code> with variables that can occasionally be <code>null/undefined</code>. Checking for <code>null/undefined</code> separately is a good idea.</li>
+</ul>

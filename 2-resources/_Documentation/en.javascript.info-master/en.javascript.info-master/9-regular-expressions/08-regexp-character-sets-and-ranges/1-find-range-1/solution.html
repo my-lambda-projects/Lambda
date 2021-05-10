@@ -1,0 +1,7 @@
+<p>Answers: <strong>no, yes</strong>.</p>
+<ul>
+<li><p>In the script <code>subject:Java</code> it doesn’t match anything, because <code>pattern:[^script]</code> means “any character except given ones”. So the regexp looks for <code>"Java"</code> followed by one such symbol, but there’s a string end, no symbols after it.</p>
+<code>js run   alert( "Java".match(/Java[^script]/) ); // null</code></li>
+<li><p>Yes, because the <code>pattern:[^script]</code> part matches the character <code>"S"</code>. It’s not one of <code>pattern:script</code>. As the regexp is case-sensitive (no <code>pattern:i</code> flag), it treats <code>"S"</code> as a different character from <code>"s"</code>.</p>
+<p><code>js run   alert( "JavaScript".match(/Java[^script]/) ); // "JavaS"</code></p></li>
+</ul>

@@ -1,0 +1,214 @@
+<h1 id="cookies-document.cookie">Cookies, document.cookie</h1>
+<p>Cookies are small strings of data that are stored directly in the browser. They are a part of the HTTP protocol, defined by the <a href="https://tools.ietf.org/html/rfc6265">RFC 6265</a> specification.</p>
+<p>Cookies are usually set by a web-server using the response <code>Set-Cookie</code> HTTP-header. Then, the browser automatically adds them to (almost) every request to the same domain using the <code>Cookie</code> HTTP-header.</p>
+<p>One of the most widespread use cases is authentication:</p>
+<ol type="1">
+<li>Upon sign in, the server uses the <code>Set-Cookie</code> HTTP-header in the response to set a cookie with a unique “session identifier”.</li>
+<li>Next time when the request is sent to the same domain, the browser sends the cookie over the net using the <code>Cookie</code> HTTP-header.</li>
+<li>So the server knows who made the request.</li>
+</ol>
+<p>We can also access cookies from the browser, using <code>document.cookie</code> property.</p>
+<p>There are many tricky things about cookies and their options. In this chapter we’ll cover them in detail.</p>
+<h2 id="reading-from-document.cookie">Reading from document.cookie</h2>
+<pre class="online"><code>Does your browser store any cookies from this site? Let&#39;s see:</code></pre>
+<pre class="offline"><code>Assuming you&#39;re on a website, it&#39;s possible to see the cookies from it, like this:</code></pre>
+<p><code>js run // At javascript.info, we use Google Analytics for statistics, // so there should be some cookies alert( document.cookie ); // cookie1=value1; cookie2=value2;...</code></p>
+<p>The value of <code>document.cookie</code> consists of <code>name=value</code> pairs, delimited by <code>;</code>. Each one is a separate cookie.</p>
+<p>To find a particular cookie, we can split <code>document.cookie</code> by <code>;</code>, and then find the right name. We can use either a regular expression or array functions to do that.</p>
+<p>We leave it as an exercise for the reader. Also, at the end of the chapter you’ll find helper functions to manipulate cookies.</p>
+<h2 id="writing-to-document.cookie">Writing to document.cookie</h2>
+<p>We can write to <code>document.cookie</code>. But it’s not a data property, it’s an accessor (getter/setter). An assignment to it is treated specially.</p>
+<p><strong>A write operation to <code>document.cookie</code> updates only cookies mentioned in it, but doesn’t touch other cookies.</strong></p>
+<p>For instance, this call sets a cookie with the name <code>user</code> and value <code>John</code>:</p>
+<p><code>js run document.cookie = "user=John"; // update only cookie named 'user' alert(document.cookie); // show all cookies</code></p>
+<p>If you run it, then probably you’ll see multiple cookies. That’s because the <code>document.cookie=</code> operation does not overwrite all cookies. It only sets the mentioned cookie <code>user</code>.</p>
+<p>Technically, name and value can have any characters. To keep the valid formatting, they should be escaped using a built-in <code>encodeURIComponent</code> function:</p>
+<p>```js run // special characters (spaces), need encoding let name = “my name”; let value = “John Smith”</p>
+<p>// encodes the cookie as my%20name=John%20Smith document.cookie = encodeURIComponent(name) + ‘=’ + encodeURIComponent(value);</p>
+<p>alert(document.cookie); // …; my%20name=John%20Smith ```</p>
+<p><code>warn header="Limitations" There are few limitations: - The `name=value` pair, after `encodeURIComponent`, should not exceed 4KB. So we can't store anything huge in a cookie. - The total number of cookies per domain is limited to around 20+, the exact limit depends on the browser.</code></p>
+<p>Cookies have several options, many of them are important and should be set.</p>
+<p>The options are listed after <code>key=value</code>, delimited by <code>;</code>, like this:</p>
+<p><code>js run document.cookie = "user=John; path=/; expires=Tue, 19 Jan 2038 03:14:07 GMT"</code></p>
+<h2 id="path">path</h2>
+<ul>
+<li><strong><code>path=/mypath</code></strong></li>
+</ul>
+<p>The url path prefix must be absolute. It makes the cookie accessible for pages under that path. By default, it’s the current path.</p>
+<p>If a cookie is set with <code>path=/admin</code>, it’s visible at pages <code>/admin</code> and <code>/admin/something</code>, but not at <code>/home</code> or <code>/adminpage</code>.</p>
+<p>Usually, we should set <code>path</code> to the root: <code>path=/</code> to make the cookie accessible from all website pages.</p>
+<h2 id="domain">domain</h2>
+<ul>
+<li><strong><code>domain=site.com</code></strong></li>
+</ul>
+<p>A domain defines where the cookie is accessible. In practice though, there are limitations. We can’t set any domain.</p>
+<p>By default, a cookie is accessible only at the domain that set it. So, if the cookie was set by <code>site.com</code>, we won’t get it at <code>other.com</code>.</p>
+<p>…But what’s more tricky, we also won’t get the cookie at a subdomain <code>forum.site.com</code>!</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// at site.com</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="va">document</span>.<span class="at">cookie</span> <span class="op">=</span> <span class="st">&quot;user=John&quot;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="co">// at forum.site.com</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="at">alert</span>(<span class="va">document</span>.<span class="at">cookie</span>)<span class="op">;</span> <span class="co">// no user</span></a></code></pre></div>
+<p><strong>There’s no way to let a cookie be accessible from another 2nd-level domain, so <code>other.com</code> will never receive a cookie set at <code>site.com</code>.</strong></p>
+<p>It’s a safety restriction, to allow us to store sensitive data in cookies, that should be available only on one site.</p>
+<p>…But if we’d like to allow subdomains like <code>forum.site.com</code> to get a cookie, that’s possible. When setting a cookie at <code>site.com</code>, we should explicitly set the <code>domain</code> option to the root domain: <code>domain=site.com</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="co">// at site.com</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="co">// make the cookie accessible on any subdomain *.site.com:</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="va">document</span>.<span class="at">cookie</span> <span class="op">=</span> <span class="st">&quot;user=John; domain=site.com&quot;</span></a>
+<a class="sourceLine" id="cb4-4" title="4"></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="co">// later</span></a>
+<a class="sourceLine" id="cb4-6" title="6"></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="co">// at forum.site.com</span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="at">alert</span>(<span class="va">document</span>.<span class="at">cookie</span>)<span class="op">;</span> <span class="co">// has cookie user=John</span></a></code></pre></div>
+<p>For historical reasons, <code>domain=.site.com</code> (a dot before <code>site.com</code>) also works the same way, allowing access to the cookie from subdomains. That’s an old notation and should be used if we need to support very old browsers.</p>
+<p>So, the <code>domain</code> option allows to make a cookie accessible at subdomains.</p>
+<h2 id="expires-max-age">expires, max-age</h2>
+<p>By default, if a cookie doesn’t have one of these options, it disappears when the browser is closed. Such cookies are called “session cookies”</p>
+<p>To let cookies survive a browser close, we can set either the <code>expires</code> or <code>max-age</code> option.</p>
+<ul>
+<li><strong><code>expires=Tue, 19 Jan 2038 03:14:07 GMT</code></strong></li>
+</ul>
+<p>The cookie expiration date defines the time, when the browser will automatically delete it.</p>
+<p>The date must be exactly in this format, in the GMT timezone. We can use <code>date.toUTCString</code> to get it. For instance, we can set the cookie to expire in 1 day:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="co">// +1 day from now</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw">let</span> date <span class="op">=</span> <span class="kw">new</span> <span class="at">Date</span>(<span class="va">Date</span>.<span class="at">now</span>() <span class="op">+</span> <span class="fl">86400e3</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-3" title="3">date <span class="op">=</span> <span class="va">date</span>.<span class="at">toUTCString</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="va">document</span>.<span class="at">cookie</span> <span class="op">=</span> <span class="st">&quot;user=John; expires=&quot;</span> <span class="op">+</span> date<span class="op">;</span></a></code></pre></div>
+<p>If we set <code>expires</code> to a date in the past, the cookie is deleted.</p>
+<ul>
+<li><strong><code>max-age=3600</code></strong></li>
+</ul>
+<p>Is an alternative to <code>expires</code> and specifies the cookie’s expiration in seconds from the current moment.</p>
+<p>If set to zero or a negative value, the cookie is deleted:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="co">// cookie will die in +1 hour from now</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="va">document</span>.<span class="at">cookie</span> <span class="op">=</span> <span class="st">&quot;user=John; max-age=3600&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-3" title="3"></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="co">// delete cookie (let it expire right now)</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="va">document</span>.<span class="at">cookie</span> <span class="op">=</span> <span class="st">&quot;user=John; max-age=0&quot;</span><span class="op">;</span></a></code></pre></div>
+<h2 id="secure">secure</h2>
+<ul>
+<li><strong><code>secure</code></strong></li>
+</ul>
+<p>The cookie should be transferred only over HTTPS.</p>
+<p><strong>By default, if we set a cookie at <code>http://site.com</code>, then it also appears at <code>https://site.com</code> and vice versa.</strong></p>
+<p>That is, cookies are domain-based, they do not distinguish between the protocols.</p>
+<p>With this option, if a cookie is set by <code>https://site.com</code>, then it doesn’t appear when the same site is accessed by HTTP, as <code>http://site.com</code>. So if a cookie has sensitive content that should never be sent over unencrypted HTTP, the <code>secure</code> flag is the right thing.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="co">// assuming we&#39;re on https:// now</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="co">// set the cookie to be secure (only accessible over HTTPS)</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="va">document</span>.<span class="at">cookie</span> <span class="op">=</span> <span class="st">&quot;user=John; secure&quot;</span><span class="op">;</span></a></code></pre></div>
+<h2 id="samesite">samesite</h2>
+<p>That’s another security attribute <code>samesite</code>. It’s designed to protect from so-called XSRF (cross-site request forgery) attacks.</p>
+<p>To understand how it works and when it’s useful, let’s take a look at XSRF attacks.</p>
+<h3 id="xsrf-attack">XSRF attack</h3>
+<p>Imagine, you are logged into the site <code>bank.com</code>. That is: you have an authentication cookie from that site. Your browser sends it to <code>bank.com</code> with every request, so that it recognizes you and performs all sensitive financial operations.</p>
+<p>Now, while browsing the web in another window, you accidentally come to another site <code>evil.com</code>. That site has JavaScript code that submits a form <code>&lt;form action="https://bank.com/pay"&gt;</code> to <code>bank.com</code> with fields that initiate a transaction to the hacker’s account.</p>
+<p>The browser sends cookies every time you visit the site <code>bank.com</code>, even if the form was submitted from <code>evil.com</code>. So the bank recognizes you and actually performs the payment.</p>
+<p><img src="cookie-xsrf.svg" /></p>
+<p>That’s a so-called “Cross-Site Request Forgery” (in short, XSRF) attack.</p>
+<p>Real banks are protected from it of course. All forms generated by <code>bank.com</code> have a special field, a so-called “XSRF protection token”, that an evil page can’t generate or extract from a remote page. It can submit a form there, but can’t get the data back. The site <code>bank.com</code> checks for such token in every form it receives.</p>
+<p>Such a protection takes time to implement though. We need to ensure that every form has the required token field, and we must also check all requests.</p>
+<h3 id="enter-cookie-samesite-option">Enter cookie samesite option</h3>
+<p>The cookie <code>samesite</code> option provides another way to protect from such attacks, that (in theory) should not require “xsrf protection tokens”.</p>
+<p>It has two possible values:</p>
+<ul>
+<li><strong><code>samesite=strict</code> (same as <code>samesite</code> without value)</strong></li>
+</ul>
+<p>A cookie with <code>samesite=strict</code> is never sent if the user comes from outside the same site.</p>
+<p>In other words, whether a user follows a link from their mail or submits a form from <code>evil.com</code>, or does any operation that originates from another domain, the cookie is not sent.</p>
+<p>If authentication cookies have the <code>samesite</code> option, then a XSRF attack has no chances to succeed, because a submission from <code>evil.com</code> comes without cookies. So <code>bank.com</code> will not recognize the user and will not proceed with the payment.</p>
+<p>The protection is quite reliable. Only operations that come from <code>bank.com</code> will send the <code>samesite</code> cookie, e.g. a form submission from another page at <code>bank.com</code>.</p>
+<p>Although, there’s a small inconvenience.</p>
+<p>When a user follows a legitimate link to <code>bank.com</code>, like from their own notes, they’ll be surprised that <code>bank.com</code> does not recognize them. Indeed, <code>samesite=strict</code> cookies are not sent in that case.</p>
+<p>We could work around that by using two cookies: one for “general recognition”, only for the purposes of saying: “Hello, John”, and the other one for data-changing operations with <code>samesite=strict</code>. Then, a person coming from outside of the site will see a welcome, but payments must be initiated from the bank’s website, for the second cookie to be sent.</p>
+<ul>
+<li><strong><code>samesite=lax</code></strong></li>
+</ul>
+<p>A more relaxed approach that also protects from XSRF and doesn’t break the user experience.</p>
+<p>Lax mode, just like <code>strict</code>, forbids the browser to send cookies when coming from outside the site, but adds an exception.</p>
+<p>A <code>samesite=lax</code> cookie is sent if both of these conditions are true: 1. The HTTP method is “safe” (e.g. GET, but not POST).</p>
+<pre><code>The full list of safe HTTP methods is in the [RFC7231 specification](https://tools.ietf.org/html/rfc7231). Basically, these are the methods that should be used for reading, but not writing the data. They must not perform any data-changing operations. Following a link is always GET, the safe method.</code></pre>
+<ol start="2" type="1">
+<li><p>The operation performs a top-level navigation (changes URL in the browser address bar).</p>
+<p>That’s usually true, but if the navigation is performed in an <code>&lt;iframe&gt;</code>, then it’s not top-level. Also, JavaScript methods for network requests do not perform any navigation, hence they don’t fit.</p></li>
+</ol>
+<p>So, what <code>samesite=lax</code> does, is to basically allow the most common “go to URL” operation to have cookies. E.g. opening a website link from notes that satisfy these conditions.</p>
+<p>But anything more complicated, like a network request from another site or a form submission, loses cookies.</p>
+<p>If that’s fine for you, then adding <code>samesite=lax</code> will probably not break the user experience and add protection.</p>
+<p>Overall, <code>samesite</code> is a great option, but it has an important drawback: - <code>samesite</code> is ignored (not supported) by old browsers, year 2017 or so.</p>
+<p><strong>So if we solely rely on <code>samesite</code> to provide protection, then old browsers will be vulnerable.</strong></p>
+<p>But we surely can use <code>samesite</code> together with other protection measures, like xsrf tokens, to add an additional layer of defence and then, in the future, when old browsers die out, we’ll probably be able to drop xsrf tokens.</p>
+<h2 id="httponly">httpOnly</h2>
+<p>This option has nothing to do with JavaScript, but we have to mention it for completeness.</p>
+<p>The web-server uses the <code>Set-Cookie</code> header to set a cookie. Also, it may set the <code>httpOnly</code> option.</p>
+<p>This option forbids any JavaScript access to the cookie. We can’t see such a cookie or manipulate it using <code>document.cookie</code>.</p>
+<p>That’s used as a precaution measure, to protect from certain attacks when a hacker injects his own JavaScript code into a page and waits for a user to visit that page. That shouldn’t be possible at all, hackers should not be able to inject their code into our site, but there may be bugs that let them do it.</p>
+<p>Normally, if such a thing happens, and a user visits a web-page with hacker’s JavaScript code, then that code executes and gains access to <code>document.cookie</code> with user cookies containing authentication information. That’s bad.</p>
+<p>But if a cookie is <code>httpOnly</code>, then <code>document.cookie</code> doesn’t see it, so it is protected.</p>
+<h2 id="appendix-cookie-functions">Appendix: Cookie functions</h2>
+<p>Here’s a small set of functions to work with cookies, more convenient than a manual modification of <code>document.cookie</code>.</p>
+<p>There exist many cookie libraries for that, so these are for demo purposes. Fully working though.</p>
+<h3 id="getcookiename">getCookie(name)</h3>
+<p>The shortest way to access a cookie is to use a <a href="info:regular-expressions">regular expression</a>.</p>
+<p>The function <code>getCookie(name)</code> returns the cookie with the given <code>name</code>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="co">// returns the cookie with the given name,</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="co">// or undefined if not found</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="kw">function</span> <span class="at">getCookie</span>(name) <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-4" title="4">  <span class="kw">let</span> matches <span class="op">=</span> <span class="va">document</span>.<span class="va">cookie</span>.<span class="at">match</span>(<span class="kw">new</span> <span class="at">RegExp</span>(</a>
+<a class="sourceLine" id="cb9-5" title="5">    <span class="st">&quot;(?:^|; )&quot;</span> <span class="op">+</span> <span class="va">name</span>.<span class="at">replace</span>(<span class="ss">/</span><span class="sc">([\.$?*|{}\(\)\[\]\\\/\+^])</span><span class="ss">/g</span><span class="op">,</span> <span class="st">&#39;</span><span class="sc">\\</span><span class="st">$1&#39;</span>) <span class="op">+</span> <span class="st">&quot;=([^;]*)&quot;</span></a>
+<a class="sourceLine" id="cb9-6" title="6">  ))<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-7" title="7">  <span class="cf">return</span> matches <span class="op">?</span> <span class="at">decodeURIComponent</span>(matches[<span class="dv">1</span>]) : <span class="kw">undefined</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-8" title="8"><span class="op">}</span></a></code></pre></div>
+<p>Here <code>new RegExp</code> is generated dynamically, to match <code>; name=&lt;value&gt;</code>.</p>
+<p>Please note that a cookie value is encoded, so <code>getCookie</code> uses a built-in <code>decodeURIComponent</code> function to decode it.</p>
+<h3 id="setcookiename-value-options">setCookie(name, value, options)</h3>
+<p>Sets the cookie’s <code>name</code> to the given <code>value</code> with <code>path=/</code> by default (can be modified to add other defaults):</p>
+<p>```js run function setCookie(name, value, options = {}) {</p>
+<p>options = { path: ‘/’, // add other defaults here if necessary …options };</p>
+<p>if (options.expires instanceof Date) { options.expires = options.expires.toUTCString(); }</p>
+<p>let updatedCookie = encodeURIComponent(name) + “=” + encodeURIComponent(value);</p>
+<p>for (let optionKey in options) { updatedCookie += “;” + optionKey; let optionValue = options[optionKey]; if (optionValue !== true) { updatedCookie += “=” + optionValue; } }</p>
+<p>document.cookie = updatedCookie; }</p>
+<p>// Example of use: setCookie(‘user’, ‘John’, {secure: true, ‘max-age’: 3600}); ```</p>
+<h3 id="deletecookiename">deleteCookie(name)</h3>
+<p>To delete a cookie, we can call it with a negative expiration date:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">function</span> <span class="at">deleteCookie</span>(name) <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-2" title="2">  <span class="at">setCookie</span>(name<span class="op">,</span> <span class="st">&quot;&quot;</span><span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-3" title="3">    <span class="st">&#39;max-age&#39;</span><span class="op">:</span> <span class="dv">-1</span></a>
+<a class="sourceLine" id="cb10-4" title="4">  <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb10-5" title="5"><span class="op">}</span></a></code></pre></div>
+<p><code>warn header="Updating or deleting must use same path and domain" Please note: when we update or delete a cookie, we should use exactly the same path and domain options as when we set it.</code></p>
+<p>Together: <a href="cookie.js">cookie.js</a>.</p>
+<h2 id="appendix-third-party-cookies">Appendix: Third-party cookies</h2>
+<p>A cookie is called “third-party” if it’s placed by a domain other than the page the user is visiting.</p>
+<p>For instance: 1. A page at <code>site.com</code> loads a banner from another site: <code>&lt;img src="https://ads.com/banner.png"&gt;</code>. 2. Along with the banner, the remote server at <code>ads.com</code> may set the <code>Set-Cookie</code> header with a cookie like <code>id=1234</code>. Such a cookie originates from the <code>ads.com</code> domain, and will only be visible at <code>ads.com</code>:</p>
+<pre><code>![](cookie-third-party.svg)</code></pre>
+<ol start="3" type="1">
+<li><p>Next time when <code>ads.com</code> is accessed, the remote server gets the <code>id</code> cookie and recognizes the user:</p>
+<p><img src="cookie-third-party-2.svg" /></p></li>
+<li><p>What’s even more important is, when the user moves from <code>site.com</code> to another site <code>other.com</code>, which also has a banner, then <code>ads.com</code> gets the cookie, as it belongs to <code>ads.com</code>, thus recognizing the visitor and tracking him as he moves between sites:</p>
+<p><img src="cookie-third-party-3.svg" /></p></li>
+</ol>
+<p>Third-party cookies are traditionally used for tracking and ads services, due to their nature. They are bound to the originating domain, so <code>ads.com</code> can track the same user between different sites, if they all access it.</p>
+<p>Naturally, some people don’t like being tracked, so browsers allow to disable such cookies.</p>
+<p>Also, some modern browsers employ special policies for such cookies: - Safari does not allow third-party cookies at all. - Firefox comes with a “black list” of third-party domains where it blocks third-party cookies.</p>
+<pre class="smart"><code>If we load a script from a third-party domain, like `&lt;script src=&quot;https://google-analytics.com/analytics.js&quot;&gt;`, and that script uses `document.cookie` to set a cookie, then such cookie is not third-party.
+
+If a script sets a cookie, then no matter where the script came from -- the cookie belongs to the domain of the current webpage.</code></pre>
+<h2 id="appendix-gdpr">Appendix: GDPR</h2>
+<p>This topic is not related to JavaScript at all, just something to keep in mind when setting cookies.</p>
+<p>There’s a legislation in Europe called GDPR, that enforces a set of rules for websites to respect the users’ privacy. One of these rules is to require an explicit permission for tracking cookies from the user.</p>
+<p>Please note, that’s only about tracking/identifying/authorizing cookies.</p>
+<p>So, if we set a cookie that just saves some information, but neither tracks nor identifies the user, then we are free to do it.</p>
+<p>But if we are going to set a cookie with an authentication session or a tracking id, then a user must allow that.</p>
+<p>Websites generally have two variants of following GDPR. You must have seen them both already in the web:</p>
+<ol type="1">
+<li><p>If a website wants to set tracking cookies only for authenticated users.</p>
+<p>To do so, the registration form should have a checkbox like “accept the privacy policy” (that describes how cookies are used), the user must check it, and then the website is free to set auth cookies.</p></li>
+<li><p>If a website wants to set tracking cookies for everyone.</p>
+<p>To do so legally, a website shows a modal “splash screen” for newcomers, and requires them to agree to the cookies. Then the website can set them and let people see the content. That can be disturbing for new visitors though. No one likes to see such “must-click” modal splash screens instead of the content. But GDPR requires an explicit agreement.</p></li>
+</ol>
+<p>GDPR is not only about cookies, it’s about other privacy-related issues too, but that’s too much beyond our scope.</p>
+<h2 id="summary">Summary</h2>
+<p><code>document.cookie</code> provides access to cookies - write operations modify only cookies mentioned in it. - name/value must be encoded. - one cookie must not exceed 4KB, 20+ cookies per site (depends on the browser).</p>
+<p>Cookie options: - <code>path=/</code>, by default current path, makes the cookie visible only under that path. - <code>domain=site.com</code>, by default a cookie is visible on the current domain only. If the domain is set explicitly, the cookie becomes visible on subdomains. - <code>expires</code> or <code>max-age</code> sets the cookie expiration time. Without them the cookie dies when the browser is closed. - <code>secure</code> makes the cookie HTTPS-only. - <code>samesite</code> forbids the browser to send the cookie with requests coming from outside the site. This helps to prevent XSRF attacks.</p>
+<p>Additionally: - Third-party cookies may be forbidden by the browser, e.g. Safari does that by default. - When setting a tracking cookie for EU citizens, GDPR requires to ask for permission.</p>

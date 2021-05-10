@@ -1,0 +1,108 @@
+<h1 id="constructor-operator-new">Constructor, operator “new”</h1>
+<p>The regular <code>{...}</code> syntax allows to create one object. But often we need to create many similar objects, like multiple users or menu items and so on.</p>
+<p>That can be done using constructor functions and the <code>"new"</code> operator.</p>
+<h2 id="constructor-function">Constructor function</h2>
+<p>Constructor functions technically are regular functions. There are two conventions though:</p>
+<ol type="1">
+<li>They are named with capital letter first.</li>
+<li>They should be executed only with <code>"new"</code> operator.</li>
+</ol>
+<p>For instance:</p>
+<p>```js run function User(name) { this.name = name; this.isAdmin = false; }</p>
+<p><em>!</em> let user = new User(“Jack”); <em>/!</em></p>
+<p>alert(user.name); // Jack alert(user.isAdmin); // false ```</p>
+<p>When a function is executed with <code>new</code>, it does the following steps:</p>
+<ol type="1">
+<li>A new empty object is created and assigned to <code>this</code>.</li>
+<li>The function body executes. Usually it modifies <code>this</code>, adds new properties to it.</li>
+<li>The value of <code>this</code> is returned.</li>
+</ol>
+<p>In other words, <code>new User(...)</code> does something like:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">User</span>(name) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="co">// this = {};  (implicitly)</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb1-5" title="5"></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="ss">  // add properties to this</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="ss">  this.name = name;</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="ss">  this.isAdmin = false;</span></a>
+<a class="sourceLine" id="cb1-9" title="9"></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="sc">*</span><span class="ss">!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="ss">  // return this;  </span><span class="sc">(</span><span class="ss">implicitly</span><span class="sc">)</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="sc">*</span><span class="ss">/</span><span class="op">!*</span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="op">}</span></a></code></pre></div>
+<p>So <code>let user = new User("Jack")</code> gives the same result as:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> user <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;Jack&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="dt">isAdmin</span><span class="op">:</span> <span class="kw">false</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="op">};</span></a></code></pre></div>
+<p>Now if we want to create other users, we can call <code>new User("Ann")</code>, <code>new User("Alice")</code> and so on. Much shorter than using literals every time, and also easy to read.</p>
+<p>That’s the main purpose of constructors – to implement reusable object creation code.</p>
+<p>Let’s note once again – technically, any function can be used as a constructor. That is: any function can be run with <code>new</code>, and it will execute the algorithm above. The “capital letter first” is a common agreement, to make it clear that a function is to be run with <code>new</code>.</p>
+<p>````smart header=“new function() { … }” If we have many lines of code all about creation of a single complex object, we can wrap them in constructor function, like this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> user <span class="op">=</span> <span class="kw">new</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="kw">this</span>.<span class="at">name</span> <span class="op">=</span> <span class="st">&quot;John&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="kw">this</span>.<span class="at">isAdmin</span> <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5">  <span class="co">// ...other code for user creation</span></a>
+<a class="sourceLine" id="cb3-6" title="6">  <span class="co">// maybe complex logic and statements</span></a>
+<a class="sourceLine" id="cb3-7" title="7">  <span class="co">// local variables etc</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="op">};</span></a></code></pre></div>
+<p>The constructor can’t be called again, because it is not saved anywhere, just created and called. So this trick aims to encapsulate the code that constructs the single object, without future reuse. ````</p>
+<h2 id="constructor-mode-test-new.target">Constructor mode test: new.target</h2>
+<p><code>smart header="Advanced stuff" The syntax from this section is rarely used, skip it unless you want to know everything.</code></p>
+<p>Inside a function, we can check whether it was called with <code>new</code> or without it, using a special <code>new.target</code> property.</p>
+<p>It is undefined for regular calls and equals the function if called with <code>new</code>:</p>
+<p>```js run function User() { alert(new.target); }</p>
+<p>// without “new”: <em>!</em> User(); // undefined <em>/!</em></p>
+<p>// with “new”: <em>!</em> new User(); // function User { … } <em>/!</em> ```</p>
+<p>That can be used inside the function to know whether it was called with <code>new</code>, “in constructor mode”, or without it, “in regular mode”.</p>
+<p>We can also make both <code>new</code> and regular calls to do the same, like this:</p>
+<p>```js run function User(name) { if (!new.target) { // if you run me without new return new User(name); // …I will add new for you }</p>
+<p>this.name = name; }</p>
+<p>let john = User(“John”); // redirects call to new User alert(john.name); // John ```</p>
+<p>This approach is sometimes used in libraries to make the syntax more flexible. So that people may call the function with or without <code>new</code>, and it still works.</p>
+<p>Probably not a good thing to use everywhere though, because omitting <code>new</code> makes it a bit less obvious what’s going on. With <code>new</code> we all know that the new object is being created.</p>
+<h2 id="return-from-constructors">Return from constructors</h2>
+<p>Usually, constructors do not have a <code>return</code> statement. Their task is to write all necessary stuff into <code>this</code>, and it automatically becomes the result.</p>
+<p>But if there is a <code>return</code> statement, then the rule is simple:</p>
+<ul>
+<li>If <code>return</code> is called with an object, then the object is returned instead of <code>this</code>.</li>
+<li>If <code>return</code> is called with a primitive, it’s ignored.</li>
+</ul>
+<p>In other words, <code>return</code> with an object returns that object, in all other cases <code>this</code> is returned.</p>
+<p>For instance, here <code>return</code> overrides <code>this</code> by returning an object:</p>
+<p>```js run function BigUser() {</p>
+<p>this.name = “John”;</p>
+<p>return { name: “Godzilla” }; // &lt;– returns this object }</p>
+<p>alert( new BigUser().name ); // Godzilla, got that object ```</p>
+<p>And here’s an example with an empty <code>return</code> (or we could place a primitive after it, doesn’t matter):</p>
+<p>```js run function SmallUser() {</p>
+<p>this.name = “John”;</p>
+<p>return; // &lt;– returns this }</p>
+<p>alert( new SmallUser().name ); // John ```</p>
+<p>Usually constructors don’t have a <code>return</code> statement. Here we mention the special behavior with returning objects mainly for the sake of completeness.</p>
+<p>```<code>smart header="Omitting parentheses" By the way, we can omit parentheses after</code>new`, if it has no arguments:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">let</span> user <span class="op">=</span> <span class="kw">new</span> User<span class="op">;</span> <span class="co">// &lt;-- no parentheses</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="co">// same as</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="kw">let</span> user <span class="op">=</span> <span class="kw">new</span> <span class="at">User</span>()<span class="op">;</span></a></code></pre></div>
+<p>Omitting parentheses here is not considered a “good style”, but the syntax is permitted by specification. ````</p>
+<h2 id="methods-in-constructor">Methods in constructor</h2>
+<p>Using constructor functions to create objects gives a great deal of flexibility. The constructor function may have parameters that define how to construct the object, and what to put in it.</p>
+<p>Of course, we can add to <code>this</code> not only properties, but methods as well.</p>
+<p>For instance, <code>new User(name)</code> below creates an object with the given <code>name</code> and the method <code>sayHi</code>:</p>
+<p>```js run function User(name) { this.name = name;</p>
+<p>this.sayHi = function() { alert( “My name is:” + this.name ); }; }</p>
+<p><em>!</em> let john = new User(“John”);</p>
+<p>john.sayHi(); // My name is: John <em>/!</em></p>
+<p>/<em> john = { name: “John”, sayHi: function() { … } } </em>/ ```</p>
+<p>To create complex objects, there’s a more advanced syntax, <a href="info:classes">classes</a>, that we’ll cover later.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Constructor functions or, briefly, constructors, are regular functions, but there’s a common agreement to name them with capital letter first.</li>
+<li>Constructor functions should only be called using <code>new</code>. Such a call implies a creation of empty <code>this</code> at the start and returning the populated one at the end.</li>
+</ul>
+<p>We can use constructor functions to make multiple similar objects.</p>
+<p>JavaScript provides constructor functions for many built-in language objects: like <code>Date</code> for dates, <code>Set</code> for sets and others that we plan to study.</p>
+<p>```smart header=“Objects, we’ll be back!” In this chapter we only cover the basics about objects and constructors. They are essential for learning more about data types and functions in the next chapters.</p>
+<p>After we learn that, we return to objects and cover them in-depth in the chapters <a href="info:prototypes" class="uri">info:prototypes</a> and <a href="info:classes" class="uri">info:classes</a>. ```</p>

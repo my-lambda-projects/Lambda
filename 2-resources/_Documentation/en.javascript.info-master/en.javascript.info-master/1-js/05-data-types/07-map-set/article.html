@@ -1,0 +1,153 @@
+<h1 id="map-and-set">Map and Set</h1>
+<p>Till now, we’ve learned about the following complex data structures:</p>
+<ul>
+<li>Objects are used for storing keyed collections.</li>
+<li>Arrays are used for storing ordered collections.</li>
+</ul>
+<p>But that’s not enough for real life. That’s why <code>Map</code> and <code>Set</code> also exist.</p>
+<h2 id="map">Map</h2>
+<p><a href="mdn:js/Map">Map</a> is a collection of keyed data items, just like an <code>Object</code>. But the main difference is that <code>Map</code> allows keys of any type.</p>
+<p>Methods and properties are:</p>
+<ul>
+<li><code>new Map()</code> – creates the map.</li>
+<li><code>map.set(key, value)</code> – stores the value by the key.</li>
+<li><code>map.get(key)</code> – returns the value by the key, <code>undefined</code> if <code>key</code> doesn’t exist in map.</li>
+<li><code>map.has(key)</code> – returns <code>true</code> if the <code>key</code> exists, <code>false</code> otherwise.</li>
+<li><code>map.delete(key)</code> – removes the value by the key.</li>
+<li><code>map.clear()</code> – removes everything from the map.</li>
+<li><code>map.size</code> – returns the current element count.</li>
+</ul>
+<p>For instance:</p>
+<p>```js run let map = new Map();</p>
+<p>map.set(‘1’, ‘str1’); // a string key map.set(1, ‘num1’); // a numeric key map.set(true, ‘bool1’); // a boolean key</p>
+<p>// remember the regular Object? it would convert keys to string // Map keeps the type, so these two are different: alert( map.get(1) ); // ‘num1’ alert( map.get(‘1’) ); // ‘str1’</p>
+<p>alert( map.size ); // 3 ```</p>
+<p>As we can see, unlike objects, keys are not converted to strings. Any type of key is possible.</p>
+<p>``<code>smart header="</code>map[key]<code>isn't the right way to use a</code>Map<code>" Although</code>map[key]<code>also works, e.g. we can set</code>map[key] = 2<code>, this is treating</code>map` as a plain JavaScript object, so it implies all corresponding limitations (only string/symbol keys and so on).</p>
+<p>So we should use <code>map</code> methods: <code>set</code>, <code>get</code> and so on. ```</p>
+<p><strong>Map can also use objects as keys.</strong></p>
+<p>For instance:</p>
+<p>```js run let john = { name: “John” };</p>
+<p>// for every user, let’s store their visits count let visitsCountMap = new Map();</p>
+<p>// john is the key for the map visitsCountMap.set(john, 123);</p>
+<p>alert( visitsCountMap.get(john) ); // 123 ```</p>
+<p>Using objects as keys is one of the most notable and important <code>Map</code> features. The same does not count for <code>Object</code>. String as a key in <code>Object</code> is fine, but we can’t use another <code>Object</code> as a key in <code>Object</code>.</p>
+<p>Let’s try:</p>
+<p>```js run let john = { name: “John” }; let ben = { name: “Ben” };</p>
+<p>let visitsCountObj = {}; // try to use an object</p>
+<p>visitsCountObj[ben] = 234; // try to use ben object as the key visitsCountObj[john] = 123; // try to use john object as the key, ben object will get replaced</p>
+<p><em>!</em> // That’s what got written! alert( visitsCountObj[“[object Object]”] ); // 123 <em>/!</em> ```</p>
+<p>As <code>visitsCountObj</code> is an object, it converts all <code>Object</code> keys, such as <code>john</code> and <code>ben</code> above, to same string <code>"[object Object]"</code>. Definitely not what we want.</p>
+<p>``<code>smart header="How</code>Map<code>compares keys" To test keys for equivalence,</code>Map<code>uses the algorithm [SameValueZero](https://tc39.github.io/ecma262/#sec-samevaluezero). It is roughly the same as strict equality</code>===<code>, but the difference is that</code>NaN<code>is considered equal to</code>NaN<code>. So</code>NaN` can be used as the key as well.</p>
+<p>This algorithm can’t be changed or customized. ```</p>
+<p>```<code>smart header="Chaining" Every</code>map.set` call returns the map itself, so we can “chain” the calls:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">map</span>.<span class="at">set</span>(<span class="st">&#39;1&#39;</span><span class="op">,</span> <span class="st">&#39;str1&#39;</span>)</a>
+<a class="sourceLine" id="cb1-2" title="2">  .<span class="at">set</span>(<span class="dv">1</span><span class="op">,</span> <span class="st">&#39;num1&#39;</span>)</a>
+<a class="sourceLine" id="cb1-3" title="3">  .<span class="at">set</span>(<span class="kw">true</span><span class="op">,</span> <span class="st">&#39;bool1&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p>````</p>
+<h2 id="iteration-over-map">Iteration over Map</h2>
+<p>For looping over a <code>map</code>, there are 3 methods:</p>
+<ul>
+<li><code>map.keys()</code> – returns an iterable for keys,</li>
+<li><code>map.values()</code> – returns an iterable for values,</li>
+<li><code>map.entries()</code> – returns an iterable for entries <code>[key, value]</code>, it’s used by default in <code>for..of</code>.</li>
+</ul>
+<p>For instance:</p>
+<p>```js run let recipeMap = new Map([ [‘cucumber’, 500], [‘tomatoes’, 350], [‘onion’, 50]]);</p>
+<p>// iterate over keys (vegetables) for (let vegetable of recipeMap.keys()) { alert(vegetable); // cucumber, tomatoes, onion }</p>
+<p>// iterate over values (amounts) for (let amount of recipeMap.values()) { alert(amount); // 500, 350, 50 }</p>
+<p>// iterate over [key, value] entries for (let entry of recipeMap) { // the same as of recipeMap.entries() alert(entry); // cucumber,500 (and so on) } ```</p>
+<p><code>smart header="The insertion order is used" The iteration goes in the same order as the values were inserted. `Map` preserves this order, unlike a regular `Object`.</code></p>
+<p>Besides that, <code>Map</code> has a built-in <code>forEach</code> method, similar to <code>Array</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// runs the function for each (key, value) pair</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="va">recipeMap</span>.<span class="at">forEach</span>( (value<span class="op">,</span> key<span class="op">,</span> map) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="at">alert</span>(<span class="vs">`</span><span class="sc">${</span>key<span class="sc">}</span><span class="vs">: </span><span class="sc">${</span>value<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span> <span class="co">// cucumber: 500 etc</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h2 id="object.entries-map-from-object">Object.entries: Map from Object</h2>
+<p>When a <code>Map</code> is created, we can pass an array (or another iterable) with key/value pairs for initialization, like this:</p>
+<p>```js run // array of [key, value] pairs let map = new Map([ [‘1’, ‘str1’], [1, ‘num1’], [true, ‘bool1’]]);</p>
+<p>alert( map.get(‘1’) ); // str1 ```</p>
+<p>If we have a plain object, and we’d like to create a <code>Map</code> from it, then we can use built-in method <a href="mdn:js/Object/entries">Object.entries(obj)</a> that returns an array of key/value pairs for an object exactly in that format.</p>
+<p>So we can create a map from an object like this:</p>
+<p>```js run let obj = { name: “John”, age: 30 };</p>
+<p><em>!</em> let map = new Map(Object.entries(obj)); <em>/!</em></p>
+<p>alert( map.get(‘name’) ); // John ```</p>
+<p>Here, <code>Object.entries</code> returns the array of key/value pairs: <code>[ ["name","John"], ["age", 30] ]</code>. That’s what <code>Map</code> needs.</p>
+<h2 id="object.fromentries-object-from-map">Object.fromEntries: Object from Map</h2>
+<p>We’ve just seen how to create <code>Map</code> from a plain object with <code>Object.entries(obj)</code>.</p>
+<p>There’s <code>Object.fromEntries</code> method that does the reverse: given an array of <code>[key, value]</code> pairs, it creates an object from them:</p>
+<p>```js run let prices = Object.fromEntries([ [‘banana’, 1], [‘orange’, 2], [‘meat’, 4]]);</p>
+<p>// now prices = { banana: 1, orange: 2, meat: 4 }</p>
+<p>alert(prices.orange); // 2 ```</p>
+<p>We can use <code>Object.fromEntries</code> to get a plain object from <code>Map</code>.</p>
+<p>E.g. we store the data in a <code>Map</code>, but we need to pass it to a 3rd-party code that expects a plain object.</p>
+<p>Here we go:</p>
+<p>```js run let map = new Map(); map.set(‘banana’, 1); map.set(‘orange’, 2); map.set(‘meat’, 4);</p>
+<p><em>!</em> let obj = Object.fromEntries(map.entries()); // make a plain object (<em>) </em>/!*</p>
+<p>// done! // obj = { banana: 1, orange: 2, meat: 4 }</p>
+<p>alert(obj.orange); // 2 ```</p>
+<p>A call to <code>map.entries()</code> returns an iterable of key/value pairs, exactly in the right format for <code>Object.fromEntries</code>.</p>
+<p>We could also make line <code>(*)</code> shorter:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> obj <span class="op">=</span> <span class="va">Object</span>.<span class="at">fromEntries</span>(map)<span class="op">;</span> <span class="co">// omit .entries()</span></a></code></pre></div>
+<p>That’s the same, because <code>Object.fromEntries</code> expects an iterable object as the argument. Not necessarily an array. And the standard iteration for <code>map</code> returns same key/value pairs as <code>map.entries()</code>. So we get a plain object with same key/values as the <code>map</code>.</p>
+<h2 id="set">Set</h2>
+<p>A <code>Set</code> is a special type collection - “set of values” (without keys), where each value may occur only once.</p>
+<p>Its main methods are:</p>
+<ul>
+<li><code>new Set(iterable)</code> – creates the set, and if an <code>iterable</code> object is provided (usually an array), copies values from it into the set.</li>
+<li><code>set.add(value)</code> – adds a value, returns the set itself.</li>
+<li><code>set.delete(value)</code> – removes the value, returns <code>true</code> if <code>value</code> existed at the moment of the call, otherwise <code>false</code>.</li>
+<li><code>set.has(value)</code> – returns <code>true</code> if the value exists in the set, otherwise <code>false</code>.</li>
+<li><code>set.clear()</code> – removes everything from the set.</li>
+<li><code>set.size</code> – is the elements count.</li>
+</ul>
+<p>The main feature is that repeated calls of <code>set.add(value)</code> with the same value don’t do anything. That’s the reason why each value appears in a <code>Set</code> only once.</p>
+<p>For example, we have visitors coming, and we’d like to remember everyone. But repeated visits should not lead to duplicates. A visitor must be “counted” only once.</p>
+<p><code>Set</code> is just the right thing for that:</p>
+<p>```js run let set = new Set();</p>
+<p>let john = { name: “John” }; let pete = { name: “Pete” }; let mary = { name: “Mary” };</p>
+<p>// visits, some users come multiple times set.add(john); set.add(pete); set.add(mary); set.add(john); set.add(mary);</p>
+<p>// set keeps only unique values alert( set.size ); // 3</p>
+<p>for (let user of set) { alert(user.name); // John (then Pete and Mary) } ```</p>
+<p>The alternative to <code>Set</code> could be an array of users, and the code to check for duplicates on every insertion using <a href="mdn:js/Array/find">arr.find</a>. But the performance would be much worse, because this method walks through the whole array checking every element. <code>Set</code> is much better optimized internally for uniqueness checks.</p>
+<h2 id="iteration-over-set">Iteration over Set</h2>
+<p>We can loop over a set either with <code>for..of</code> or using <code>forEach</code>:</p>
+<p>```js run let set = new Set([“oranges”, “apples”, “bananas”]);</p>
+<p>for (let value of set) alert(value);</p>
+<p>// the same with forEach: set.forEach((value, valueAgain, set) =&gt; { alert(value); }); ```</p>
+<p>Note the funny thing. The callback function passed in <code>forEach</code> has 3 arguments: a <code>value</code>, then <em>the same value</em> <code>valueAgain</code>, and then the target object. Indeed, the same value appears in the arguments twice.</p>
+<p>That’s for compatibility with <code>Map</code> where the callback passed <code>forEach</code> has three arguments. Looks a bit strange, for sure. But may help to replace <code>Map</code> with <code>Set</code> in certain cases with ease, and vice versa.</p>
+<p>The same methods <code>Map</code> has for iterators are also supported:</p>
+<ul>
+<li><code>set.keys()</code> – returns an iterable object for values,</li>
+<li><code>set.values()</code> – same as <code>set.keys()</code>, for compatibility with <code>Map</code>,</li>
+<li><code>set.entries()</code> – returns an iterable object for entries <code>[value, value]</code>, exists for compatibility with <code>Map</code>.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p><code>Map</code> – is a collection of keyed values.</p>
+<p>Methods and properties:</p>
+<ul>
+<li><code>new Map([iterable])</code> – creates the map, with optional <code>iterable</code> (e.g. array) of <code>[key,value]</code> pairs for initialization.</li>
+<li><code>map.set(key, value)</code> – stores the value by the key, returns the map itself.</li>
+<li><code>map.get(key)</code> – returns the value by the key, <code>undefined</code> if <code>key</code> doesn’t exist in map.</li>
+<li><code>map.has(key)</code> – returns <code>true</code> if the <code>key</code> exists, <code>false</code> otherwise.</li>
+<li><code>map.delete(key)</code> – removes the value by the key, returns <code>true</code> if <code>key</code> existed at the moment of the call, otherwise <code>false</code>.</li>
+<li><code>map.clear()</code> – removes everything from the map.</li>
+<li><code>map.size</code> – returns the current element count.</li>
+</ul>
+<p>The differences from a regular <code>Object</code>:</p>
+<ul>
+<li>Any keys, objects can be keys.</li>
+<li>Additional convenient methods, the <code>size</code> property.</li>
+</ul>
+<p><code>Set</code> – is a collection of unique values.</p>
+<p>Methods and properties:</p>
+<ul>
+<li><code>new Set([iterable])</code> – creates the set, with optional <code>iterable</code> (e.g. array) of values for initialization.</li>
+<li><code>set.add(value)</code> – adds a value (does nothing if <code>value</code> exists), returns the set itself.</li>
+<li><code>set.delete(value)</code> – removes the value, returns <code>true</code> if <code>value</code> existed at the moment of the call, otherwise <code>false</code>.</li>
+<li><code>set.has(value)</code> – returns <code>true</code> if the value exists in the set, otherwise <code>false</code>.</li>
+<li><code>set.clear()</code> – removes everything from the set.</li>
+<li><code>set.size</code> – is the elements count.</li>
+</ul>
+<p>Iteration over <code>Map</code> and <code>Set</code> is always in the insertion order, so we can’t say that these collections are unordered, but we can’t reorder elements or directly get an element by its number.</p>

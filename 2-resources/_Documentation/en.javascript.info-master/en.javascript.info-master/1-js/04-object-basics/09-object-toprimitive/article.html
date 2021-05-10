@@ -1,0 +1,138 @@
+<h1 id="object-to-primitive-conversion">Object to primitive conversion</h1>
+<p>What happens when objects are added <code>obj1 + obj2</code>, subtracted <code>obj1 - obj2</code> or printed using <code>alert(obj)</code>?</p>
+<p>In that case, objects are auto-converted to primitives, and then the operation is carried out.</p>
+<p>In the chapter <a href="info:type-conversions" class="uri">info:type-conversions</a> we’ve seen the rules for numeric, string and boolean conversions of primitives. But we left a gap for objects. Now, as we know about methods and symbols it becomes possible to fill it.</p>
+<ol type="1">
+<li>All objects are <code>true</code> in a boolean context. There are only numeric and string conversions.</li>
+<li>The numeric conversion happens when we subtract objects or apply mathematical functions. For instance, <code>Date</code> objects (to be covered in the chapter <a href="info:date" class="uri">info:date</a>) can be subtracted, and the result of <code>date1 - date2</code> is the time difference between two dates.</li>
+<li>As for the string conversion – it usually happens when we output an object like <code>alert(obj)</code> and in similar contexts.</li>
+</ol>
+<h2 id="toprimitive">ToPrimitive</h2>
+<p>We can fine-tune string and numeric conversion, using special object methods.</p>
+<p>There are three variants of type conversion, so-called “hints”, described in the <a href="https://tc39.github.io/ecma262/#sec-toprimitive">specification</a>:</p>
+<dl>
+<dt><code>"string"</code></dt>
+<dd><p>For an object-to-string conversion, when we’re doing an operation on an object that expects a string, like <code>alert</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// output</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="at">alert</span>(obj)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="co">// using object as a property key</span></a>
+<a class="sourceLine" id="cb1-5" title="5">anotherObj[obj] <span class="op">=</span> <span class="dv">123</span><span class="op">;</span></a></code></pre></div>
+</dd>
+<dt><code>"number"</code></dt>
+<dd><p>For an object-to-number conversion, like when we’re doing maths:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// explicit conversion</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">let</span> num <span class="op">=</span> <span class="at">Number</span>(obj)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co">// maths (except binary plus)</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="kw">let</span> n <span class="op">=</span> <span class="op">+</span>obj<span class="op">;</span> <span class="co">// unary plus</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="kw">let</span> delta <span class="op">=</span> date1 <span class="op">-</span> date2<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-7" title="7"></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="co">// less/greater comparison</span></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="kw">let</span> greater <span class="op">=</span> user1 <span class="op">&gt;</span> user2<span class="op">;</span></a></code></pre></div>
+</dd>
+<dt><code>"default"</code></dt>
+<dd><p>Occurs in rare cases when the operator is “not sure” what type to expect.</p>
+<p>For instance, binary plus <code>+</code> can work both with strings (concatenates them) and numbers (adds them), so both strings and numbers would do. So if a binary plus gets an object as an argument, it uses the <code>"default"</code> hint to convert it.</p>
+<p>Also, if an object is compared using <code>==</code> with a string, number or a symbol, it’s also unclear which conversion should be done, so the <code>"default"</code> hint is used.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// binary plus uses the &quot;default&quot; hint</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">let</span> total <span class="op">=</span> obj1 <span class="op">+</span> obj2<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="co">// obj == number uses the &quot;default&quot; hint</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="cf">if</span> (user <span class="op">==</span> <span class="dv">1</span>) <span class="op">{</span> ... <span class="op">};</span></a></code></pre></div>
+<p>The greater and less comparison operators, such as <code>&lt;</code> <code>&gt;</code>, can work with both strings and numbers too. Still, they use the <code>"number"</code> hint, not <code>"default"</code>. That’s for historical reasons.</p>
+<p>In practice though, we don’t need to remember these peculiar details, because all built-in objects except for one case (<code>Date</code> object, we’ll learn it later) implement <code>"default"</code> conversion the same way as <code>"number"</code>. And we can do the same.</p>
+</dd>
+</dl>
+<p>``<code>smart header="No</code>"boolean"` hint" Please note – there are only three hints. It’s that simple.</p>
+<p>There is no “boolean” hint (all objects are <code>true</code> in boolean context) or anything else. And if we treat <code>"default"</code> and <code>"number"</code> the same, like most built-ins do, then there are only two conversions. ```</p>
+<p><strong>To do the conversion, JavaScript tries to find and call three object methods:</strong></p>
+<ol type="1">
+<li>Call <code>obj[Symbol.toPrimitive](hint)</code> - the method with the symbolic key <code>Symbol.toPrimitive</code> (system symbol), if such method exists,</li>
+<li>Otherwise if hint is <code>"string"</code>
+<ul>
+<li>try <code>obj.toString()</code> and <code>obj.valueOf()</code>, whatever exists.</li>
+</ul></li>
+<li>Otherwise if hint is <code>"number"</code> or <code>"default"</code>
+<ul>
+<li>try <code>obj.valueOf()</code> and <code>obj.toString()</code>, whatever exists.</li>
+</ul></li>
+</ol>
+<h2 id="symbol.toprimitive">Symbol.toPrimitive</h2>
+<p>Let’s start from the first method. There’s a built-in symbol named <code>Symbol.toPrimitive</code> that should be used to name the conversion method, like this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1">obj[<span class="va">Symbol</span>.<span class="at">toPrimitive</span>] <span class="op">=</span> <span class="kw">function</span>(hint) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="co">// must return a primitive value</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="co">// hint = one of &quot;string&quot;, &quot;number&quot;, &quot;default&quot;</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="op">};</span></a></code></pre></div>
+<p>For instance, here <code>user</code> object implements it:</p>
+<p>```js run let user = { name: “John”, money: 1000,</p>
+<p><a href="hint">Symbol.toPrimitive</a> { alert(<code>hint: ${hint}</code>); return hint == “string” ? <code>{name: "${this.name}"}</code> : this.money; } };</p>
+<p>// conversions demo: alert(user); // hint: string -&gt; {name: “John”} alert(+user); // hint: number -&gt; 1000 alert(user + 500); // hint: default -&gt; 1500 ```</p>
+<p>As we can see from the code, <code>user</code> becomes a self-descriptive string or a money amount depending on the conversion. The single method <code>user[Symbol.toPrimitive]</code> handles all conversion cases.</p>
+<h2 id="tostringvalueof">toString/valueOf</h2>
+<p>Methods <code>toString</code> and <code>valueOf</code> come from ancient times. They are not symbols (symbols did not exist that long ago), but rather “regular” string-named methods. They provide an alternative “old-style” way to implement the conversion.</p>
+<p>If there’s no <code>Symbol.toPrimitive</code> then JavaScript tries to find them and try in the order:</p>
+<ul>
+<li><code>toString -&gt; valueOf</code> for “string” hint.</li>
+<li><code>valueOf -&gt; toString</code> otherwise.</li>
+</ul>
+<p>These methods must return a primitive value. If <code>toString</code> or <code>valueOf</code> returns an object, then it’s ignored (same as if there were no method).</p>
+<p>By default, a plain object has following <code>toString</code> and <code>valueOf</code> methods:</p>
+<ul>
+<li>The <code>toString</code> method returns a string <code>"[object Object]"</code>.</li>
+<li>The <code>valueOf</code> method returns the object itself.</li>
+</ul>
+<p>Here’s the demo:</p>
+<p>```js run let user = {name: “John”};</p>
+<p>alert(user); // [object Object] alert(user.valueOf() === user); // true ```</p>
+<p>So if we try to use an object as a string, like in an <code>alert</code> or so, then by default we see <code>[object Object]</code>.</p>
+<p>And the default <code>valueOf</code> is mentioned here only for the sake of completeness, to avoid any confusion. As you can see, it returns the object itself, and so is ignored. Don’t ask me why, that’s for historical reasons. So we can assume it doesn’t exist.</p>
+<p>Let’s implement these methods.</p>
+<p>For instance, here <code>user</code> does the same as above using a combination of <code>toString</code> and <code>valueOf</code> instead of <code>Symbol.toPrimitive</code>:</p>
+<p>```js run let user = { name: “John”, money: 1000,</p>
+<p>// for hint=“string” toString() { return <code>{name: "${this.name}"}</code>; },</p>
+<p>// for hint=“number” or “default” valueOf() { return this.money; }</p>
+<p>};</p>
+<p>alert(user); // toString -&gt; {name: “John”} alert(+user); // valueOf -&gt; 1000 alert(user + 500); // valueOf -&gt; 1500 ```</p>
+<p>As we can see, the behavior is the same as the previous example with <code>Symbol.toPrimitive</code>.</p>
+<p>Often we want a single “catch-all” place to handle all primitive conversions. In this case, we can implement <code>toString</code> only, like this:</p>
+<p>```js run let user = { name: “John”,</p>
+<p>toString() { return this.name; } };</p>
+<p>alert(user); // toString -&gt; John alert(user + 500); // toString -&gt; John500 ```</p>
+<p>In the absence of <code>Symbol.toPrimitive</code> and <code>valueOf</code>, <code>toString</code> will handle all primitive conversions.</p>
+<h2 id="return-types">Return types</h2>
+<p>The important thing to know about all primitive-conversion methods is that they do not necessarily return the “hinted” primitive.</p>
+<p>There is no control whether <code>toString</code> returns exactly a string, or whether <code>Symbol.toPrimitive</code> method returns a number for a hint <code>"number"</code>.</p>
+<p>The only mandatory thing: these methods must return a primitive, not an object.</p>
+<p>``<code>smart header="Historical notes" For historical reasons, if</code>toString<code>or</code>valueOf` returns an object, there’s no error, but such value is ignored (like if the method didn’t exist). That’s because in ancient times there was no good “error” concept in JavaScript.</p>
+<p>In contrast, <code>Symbol.toPrimitive</code> <em>must</em> return a primitive, otherwise there will be an error. ```</p>
+<h2 id="further-conversions">Further conversions</h2>
+<p>As we know already, many operators and functions perform type conversions, e.g. multiplication <code>*</code> converts operands to numbers.</p>
+<p>If we pass an object as an argument, then there are two stages: 1. The object is converted to a primitive (using the rules described above). 2. If the resulting primitive isn’t of the right type, it’s converted.</p>
+<p>For instance:</p>
+<p>```js run let obj = { // toString handles all conversions in the absence of other methods toString() { return “2”; } };</p>
+<p>alert(obj * 2); // 4, object converted to primitive “2”, then multiplication made it a number ```</p>
+<ol type="1">
+<li>The multiplication <code>obj * 2</code> first converts the object to primitive (that’s a string <code>"2"</code>).</li>
+<li>Then <code>"2" * 2</code> becomes <code>2 * 2</code> (the string is converted to number).</li>
+</ol>
+<p>Binary plus will concatenate strings in the same situation, as it gladly accepts a string:</p>
+<p>```js run let obj = { toString() { return “2”; } };</p>
+<p>alert(obj + 2); // 22 (“2” + 2), conversion to primitive returned a string =&gt; concatenation ```</p>
+<h2 id="summary">Summary</h2>
+<p>The object-to-primitive conversion is called automatically by many built-in functions and operators that expect a primitive as a value.</p>
+<p>There are 3 types (hints) of it: - <code>"string"</code> (for <code>alert</code> and other operations that need a string) - <code>"number"</code> (for maths) - <code>"default"</code> (few operators)</p>
+<p>The specification describes explicitly which operator uses which hint. There are very few operators that “don’t know what to expect” and use the <code>"default"</code> hint. Usually for built-in objects <code>"default"</code> hint is handled the same way as <code>"number"</code>, so in practice the last two are often merged together.</p>
+<p>The conversion algorithm is:</p>
+<ol type="1">
+<li>Call <code>obj[Symbol.toPrimitive](hint)</code> if the method exists,</li>
+<li>Otherwise if hint is <code>"string"</code>
+<ul>
+<li>try <code>obj.toString()</code> and <code>obj.valueOf()</code>, whatever exists.</li>
+</ul></li>
+<li>Otherwise if hint is <code>"number"</code> or <code>"default"</code>
+<ul>
+<li>try <code>obj.valueOf()</code> and <code>obj.toString()</code>, whatever exists.</li>
+</ul></li>
+</ol>
+<p>In practice, it’s often enough to implement only <code>obj.toString()</code> as a “catch-all” method for all conversions that return a “human-readable” representation of an object, for logging or debugging purposes.</p>

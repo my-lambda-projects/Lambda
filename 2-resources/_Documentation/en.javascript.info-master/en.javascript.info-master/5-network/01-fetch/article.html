@@ -1,0 +1,183 @@
+<h1 id="fetch">Fetch</h1>
+<p>JavaScript can send network requests to the server and load new information whenever it’s needed.</p>
+<p>For example, we can use a network request to:</p>
+<ul>
+<li>Submit an order,</li>
+<li>Load user information,</li>
+<li>Receive latest updates from the server,</li>
+<li>…etc.</li>
+</ul>
+<p>…And all of that without reloading the page!</p>
+<p>There’s an umbrella term “AJAX” (abbreviated <b>A</b>synchronous <b>J</b>avaScript <b>A</b>nd <b>X</b>ML) for network requests from JavaScript. We don’t have to use XML though: the term comes from old times, that’s why that word is there. You may have heard that term already.</p>
+<p>There are multiple ways to send a network request and get information from the server.</p>
+<p>The <code>fetch()</code> method is modern and versatile, so we’ll start with it. It’s not supported by old browsers (can be polyfilled), but very well supported among the modern ones.</p>
+<p>The basic syntax is:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> promise <span class="op">=</span> <span class="at">fetch</span>(url<span class="op">,</span> [options])</a></code></pre></div>
+<ul>
+<li><strong><code>url</code></strong> – the URL to access.</li>
+<li><strong><code>options</code></strong> – optional parameters: method, headers etc.</li>
+</ul>
+<p>Without <code>options</code>, this is a simple GET request, downloading the contents of the <code>url</code>.</p>
+<p>The browser starts the request right away and returns a promise that the calling code should use to get the result.</p>
+<p>Getting a response is usually a two-stage process.</p>
+<p><strong>First, the <code>promise</code>, returned by <code>fetch</code>, resolves with an object of the built-in <a href="https://fetch.spec.whatwg.org/#response-class">Response</a> class as soon as the server responds with headers.</strong></p>
+<p>At this stage we can check HTTP status, to see whether it is successful or not, check headers, but don’t have the body yet.</p>
+<p>The promise rejects if the <code>fetch</code> was unable to make HTTP-request, e.g. network problems, or there’s no such site. Abnormal HTTP-statuses, such as 404 or 500 do not cause an error.</p>
+<p>We can see HTTP-status in response properties:</p>
+<ul>
+<li><strong><code>status</code></strong> – HTTP status code, e.g. 200.</li>
+<li><strong><code>ok</code></strong> – boolean, <code>true</code> if the HTTP status code is 200-299.</li>
+</ul>
+<p>For example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> response <span class="op">=</span> <span class="cf">await</span> <span class="at">fetch</span>(url)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="cf">if</span> (<span class="va">response</span>.<span class="at">ok</span>) <span class="op">{</span> <span class="co">// if HTTP-status is 200-299</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="co">// get the response body (the method explained below)</span></a>
+<a class="sourceLine" id="cb2-5" title="5">  <span class="kw">let</span> json <span class="op">=</span> <span class="cf">await</span> <span class="va">response</span>.<span class="at">json</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-7" title="7">  <span class="at">alert</span>(<span class="st">&quot;HTTP-Error: &quot;</span> <span class="op">+</span> <span class="va">response</span>.<span class="at">status</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="op">}</span></a></code></pre></div>
+<p><strong>Second, to get the response body, we need to use an additional method call.</strong></p>
+<p><code>Response</code> provides multiple promise-based methods to access the body in various formats:</p>
+<ul>
+<li><strong><code>response.text()</code></strong> – read the response and return as text,</li>
+<li><strong><code>response.json()</code></strong> – parse the response as JSON,</li>
+<li><strong><code>response.formData()</code></strong> – return the response as <code>FormData</code> object (explained in the <a href="info:formdata">next chapter</a>),</li>
+<li><strong><code>response.blob()</code></strong> – return the response as <a href="info:blob">Blob</a> (binary data with type),</li>
+<li><strong><code>response.arrayBuffer()</code></strong> – return the response as <a href="info:arraybuffer-binary-arrays">ArrayBuffer</a> (low-level representation of binary data),</li>
+<li>additionally, <code>response.body</code> is a <a href="https://streams.spec.whatwg.org/#rs-class">ReadableStream</a> object, it allows you to read the body chunk-by-chunk, we’ll see an example later.</li>
+</ul>
+<p>For instance, let’s get a JSON-object with latest commits from GitHub:</p>
+<p>```js run async let url = ‘https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits’; let response = await fetch(url);</p>
+<p><em>!</em> let commits = await response.json(); // read response body and parse as JSON <em>/!</em></p>
+<p>alert(commits[0].author.login); ```</p>
+<p>Or, the same without <code>await</code>, using pure promises syntax:</p>
+<p><code>js run fetch('https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits')   .then(response =&gt; response.json())   .then(commits =&gt; alert(commits[0].author.login));</code></p>
+<p>To get the response text, <code>await response.text()</code> instead of <code>.json()</code>:</p>
+<p>```js run async let response = await fetch(‘https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits’);</p>
+<p>let text = await response.text(); // read response body as text</p>
+<p>alert(text.slice(0, 80) + ‘…’); ```</p>
+<p>As a show-case for reading in binary format, let’s fetch and show a logo image of <a href="https://fetch.spec.whatwg.org">“fetch” specification</a> (see chapter <a href="info:blob">Blob</a> for details about operations on <code>Blob</code>):</p>
+<p>```js async run let response = await fetch(‘/article/fetch/logo-fetch.svg’);</p>
+<p><em>!</em> let blob = await response.blob(); // download as Blob object <em>/!</em></p>
+<p>// create <img> for it let img = document.createElement(‘img’); img.style = ‘position:fixed;top:10px;left:10px;width:100px’; document.body.append(img);</p>
+<p>// show it img.src = URL.createObjectURL(blob);</p>
+<p>setTimeout(() =&gt; { // hide after three seconds img.remove(); URL.revokeObjectURL(img.src); }, 3000); ```</p>
+<pre class="warn"><code>We can choose only one body-reading method.
+
+If we&#39;ve already got the response with `response.text()`, then `response.json()` won&#39;t work, as the body content has already been processed.
+
+```js
+let text = await response.text(); // response body consumed
+let parsed = await response.json(); // fails (already consumed)
+```</code></pre>
+<h2 id="response-headers">Response headers</h2>
+<p>The response headers are available in a Map-like headers object in <code>response.headers</code>.</p>
+<p>It’s not exactly a Map, but it has similar methods to get individual headers by name or iterate over them:</p>
+<p>```js run async let response = await fetch(‘https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits’);</p>
+<p>// get one header alert(response.headers.get(‘Content-Type’)); // application/json; charset=utf-8</p>
+<p>// iterate over all headers for (let [key, value] of response.headers) { alert(<code>${key} = ${value}</code>); } ```</p>
+<h2 id="request-headers">Request headers</h2>
+<p>To set a request header in <code>fetch</code>, we can use the <code>headers</code> option. It has an object with outgoing headers, like this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">let</span> response <span class="op">=</span> <span class="at">fetch</span>(protectedUrl<span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="dt">headers</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="dt">Authentication</span><span class="op">:</span> <span class="st">&#39;secret&#39;</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>…But there’s a list of <a href="https://fetch.spec.whatwg.org/#forbidden-header-name">forbidden HTTP headers</a> that we can’t set:</p>
+<ul>
+<li><code>Accept-Charset</code>, <code>Accept-Encoding</code></li>
+<li><code>Access-Control-Request-Headers</code></li>
+<li><code>Access-Control-Request-Method</code></li>
+<li><code>Connection</code></li>
+<li><code>Content-Length</code></li>
+<li><code>Cookie</code>, <code>Cookie2</code></li>
+<li><code>Date</code></li>
+<li><code>DNT</code></li>
+<li><code>Expect</code></li>
+<li><code>Host</code></li>
+<li><code>Keep-Alive</code></li>
+<li><code>Origin</code></li>
+<li><code>Referer</code></li>
+<li><code>TE</code></li>
+<li><code>Trailer</code></li>
+<li><code>Transfer-Encoding</code></li>
+<li><code>Upgrade</code></li>
+<li><code>Via</code></li>
+<li><code>Proxy-*</code></li>
+<li><code>Sec-*</code></li>
+</ul>
+<p>These headers ensure proper and safe HTTP, so they are controlled exclusively by the browser.</p>
+<h2 id="post-requests">POST requests</h2>
+<p>To make a <code>POST</code> request, or a request with another method, we need to use <code>fetch</code> options:</p>
+<ul>
+<li><strong><code>method</code></strong> – HTTP-method, e.g. <code>POST</code>,</li>
+<li><strong><code>body</code></strong> – the request body, one of:
+<ul>
+<li>a string (e.g. JSON-encoded),</li>
+<li><code>FormData</code> object, to submit the data as <code>form/multipart</code>,</li>
+<li><code>Blob</code>/<code>BufferSource</code> to send binary data,</li>
+<li><a href="info:url">URLSearchParams</a>, to submit the data in <code>x-www-form-urlencoded</code> encoding, rarely used.</li>
+</ul></li>
+</ul>
+<p>The JSON format is used most of the time.</p>
+<p>For example, this code submits <code>user</code> object as JSON:</p>
+<p>```js run async let user = { name: ‘John’, surname: ‘Smith’ };</p>
+<p><em>!</em> let response = await fetch(‘/article/fetch/post/user’, { method: ‘POST’, headers: { ‘Content-Type’: ‘application/json;charset=utf-8’ }, body: JSON.stringify(user) }); <em>/!</em></p>
+<p>let result = await response.json(); alert(result.message); ```</p>
+<p>Please note, if the request <code>body</code> is a string, then <code>Content-Type</code> header is set to <code>text/plain;charset=UTF-8</code> by default.</p>
+<p>But, as we’re going to send JSON, we use <code>headers</code> option to send <code>application/json</code> instead, the correct <code>Content-Type</code> for JSON-encoded data.</p>
+<h2 id="sending-an-image">Sending an image</h2>
+<p>We can also submit binary data with <code>fetch</code> using <code>Blob</code> or <code>BufferSource</code> objects.</p>
+<p>In this example, there’s a <code>&lt;canvas&gt;</code> where we can draw by moving a mouse over it. A click on the “submit” button sends the image to the server:</p>
+```html run autorun height=“90”
+<body style="margin:0">
+<canvas id="canvasElem" width="100" height="80" style="border:1px solid">
+</canvas>
+<p><input type="button" value="Submit" onclick="submit()"></p>
+<script>
+    canvasElem.onmousemove = function(e) {
+      let ctx = canvasElem.getContext('2d');
+      ctx.lineTo(e.clientX, e.clientY);
+      ctx.stroke();
+    };
+
+    async function submit() {
+      let blob = await new Promise(resolve => canvasElem.toBlob(resolve, 'image/png'));
+      let response = await fetch('/article/fetch/post/image', {
+        method: 'POST',
+        body: blob
+      });
+
+      // the server responds with confirmation and the image size
+      let result = await response.json();
+      alert(result.message);
+    }
+
+  </script>
+</body>
+<p>```</p>
+<p>Please note, here we don’t set <code>Content-Type</code> header manually, because a <code>Blob</code> object has a built-in type (here <code>image/png</code>, as generated by <code>toBlob</code>). For <code>Blob</code> objects that type becomes the value of <code>Content-Type</code>.</p>
+<p>The <code>submit()</code> function can be rewritten without <code>async/await</code> like this:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">function</span> <span class="at">submit</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="va">canvasElem</span>.<span class="at">toBlob</span>(<span class="kw">function</span>(blob) <span class="op">{</span>        </a>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="at">fetch</span>(<span class="st">&#39;/article/fetch/post/image&#39;</span><span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-4" title="4">      <span class="dt">method</span><span class="op">:</span> <span class="st">&#39;POST&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-5" title="5">      <span class="dt">body</span><span class="op">:</span> blob</a>
+<a class="sourceLine" id="cb5-6" title="6">    <span class="op">}</span>)</a>
+<a class="sourceLine" id="cb5-7" title="7">      .<span class="at">then</span>(response <span class="kw">=&gt;</span> <span class="va">response</span>.<span class="at">json</span>())</a>
+<a class="sourceLine" id="cb5-8" title="8">      .<span class="at">then</span>(result <span class="kw">=&gt;</span> <span class="at">alert</span>(<span class="va">JSON</span>.<span class="at">stringify</span>(result<span class="op">,</span> <span class="kw">null</span><span class="op">,</span> <span class="dv">2</span>)))</a>
+<a class="sourceLine" id="cb5-9" title="9">  <span class="op">},</span> <span class="st">&#39;image/png&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-10" title="10"><span class="op">}</span></a></code></pre></div>
+<h2 id="summary">Summary</h2>
+<p>A typical fetch request consists of two <code>await</code> calls:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">let</span> response <span class="op">=</span> <span class="cf">await</span> <span class="at">fetch</span>(url<span class="op">,</span> options)<span class="op">;</span> <span class="co">// resolves with response headers</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">let</span> result <span class="op">=</span> <span class="cf">await</span> <span class="va">response</span>.<span class="at">json</span>()<span class="op">;</span> <span class="co">// read body as json</span></a></code></pre></div>
+<p>Or, without <code>await</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="at">fetch</span>(url<span class="op">,</span> options)</a>
+<a class="sourceLine" id="cb7-2" title="2">  .<span class="at">then</span>(response <span class="kw">=&gt;</span> <span class="va">response</span>.<span class="at">json</span>())</a>
+<a class="sourceLine" id="cb7-3" title="3">  .<span class="at">then</span>(result <span class="kw">=&gt;</span> <span class="co">/* process result */</span>)</a></code></pre></div>
+<p>Response properties: - <code>response.status</code> – HTTP code of the response, - <code>response.ok</code> – <code>true</code> is the status is 200-299. - <code>response.headers</code> – Map-like object with HTTP headers.</p>
+<p>Methods to get response body: - <strong><code>response.text()</code></strong> – return the response as text, - <strong><code>response.json()</code></strong> – parse the response as JSON object, - <strong><code>response.formData()</code></strong> – return the response as <code>FormData</code> object (form/multipart encoding, see the next chapter), - <strong><code>response.blob()</code></strong> – return the response as <a href="info:blob">Blob</a> (binary data with type), - <strong><code>response.arrayBuffer()</code></strong> – return the response as <a href="info:arraybuffer-binary-arrays">ArrayBuffer</a> (low-level binary data),</p>
+<p>Fetch options so far: - <code>method</code> – HTTP-method, - <code>headers</code> – an object with request headers (not any header is allowed), - <code>body</code> – the data to send (request body) as <code>string</code>, <code>FormData</code>, <code>BufferSource</code>, <code>Blob</code> or <code>UrlSearchParams</code> object.</p>
+<p>In the next chapters we’ll see more options and use cases of <code>fetch</code>.</p>

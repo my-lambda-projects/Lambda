@@ -1,0 +1,117 @@
+<h1 id="asyncawait">Async/await</h1>
+<p>There’s a special syntax to work with promises in a more comfortable fashion, called “async/await”. It’s surprisingly easy to understand and use.</p>
+<h2 id="async-functions">Async functions</h2>
+<p>Let’s start with the <code>async</code> keyword. It can be placed before a function, like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">async</span> <span class="kw">function</span> <span class="at">f</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>The word “async” before a function means one simple thing: a function always returns a promise. Other values are wrapped in a resolved promise automatically.</p>
+<p>For instance, this function returns a resolved promise with the result of <code>1</code>; let’s test it:</p>
+<p>```js run async function f() { return 1; }</p>
+<p>f().then(alert); // 1 ```</p>
+<p>…We could explicitly return a promise, which would be the same:</p>
+<p>```js run async function f() { return Promise.resolve(1); }</p>
+<p>f().then(alert); // 1 ```</p>
+<p>So, <code>async</code> ensures that the function returns a promise, and wraps non-promises in it. Simple enough, right? But not only that. There’s another keyword, <code>await</code>, that works only inside <code>async</code> functions, and it’s pretty cool.</p>
+<h2 id="await">Await</h2>
+<p>The syntax:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// works only inside async functions</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">let</span> value <span class="op">=</span> <span class="cf">await</span> promise<span class="op">;</span></a></code></pre></div>
+<p>The keyword <code>await</code> makes JavaScript wait until that promise settles and returns its result.</p>
+<p>Here’s an example with a promise that resolves in 1 second: ```js run async function f() {</p>
+<p>let promise = new Promise((resolve, reject) =&gt; { setTimeout(() =&gt; resolve(“done!”), 1000) });</p>
+<p><em>!</em> let result = await promise; // wait until the promise resolves (<em>) </em>/!*</p>
+<p>alert(result); // “done!” }</p>
+<p>f(); ```</p>
+<p>The function execution “pauses” at the line <code>(*)</code> and resumes when the promise settles, with <code>result</code> becoming its result. So the code above shows “done!” in one second.</p>
+<p>Let’s emphasize: <code>await</code> literally suspends the function execution until the promise settles, and then resumes it with the promise result. That doesn’t cost any CPU resources, because the JavaScript engine can do other jobs in the meantime: execute other scripts, handle events, etc.</p>
+<p>It’s just a more elegant syntax of getting the promise result than <code>promise.then</code>. And, it’s easier to read and write.</p>
+<p>```<code>warn header="Can't use</code>await<code>in regular functions" If we try to use</code>await` in a non-async function, there would be a syntax error:</p>
+<p><code>js run function f() {   let promise = Promise.resolve(1); *!*   let result = await promise; // Syntax error */!* }</code></p>
+<p>We may get this error if we forget to put <code>async</code> before a function. As stated earlier, <code>await</code> only works inside an <code>async</code> function. ````</p>
+<p>Let’s take the <code>showAvatar()</code> example from the chapter <a href="info:promise-chaining" class="uri">info:promise-chaining</a> and rewrite it using <code>async/await</code>:</p>
+<ol type="1">
+<li>We’ll need to replace <code>.then</code> calls with <code>await</code>.</li>
+<li>Also we should make the function <code>async</code> for them to work.</li>
+</ol>
+<p>```js run async function showAvatar() {</p>
+<p>// read our JSON let response = await fetch(‘/article/promise-chaining/user.json’); let user = await response.json();</p>
+<p>// read github user let githubResponse = await fetch(<code>https://api.github.com/users/${user.name}</code>); let githubUser = await githubResponse.json();</p>
+<p>// show the avatar let img = document.createElement(‘img’); img.src = githubUser.avatar_url; img.className = “promise-avatar-example”; document.body.append(img);</p>
+<p>// wait 3 seconds await new Promise((resolve, reject) =&gt; setTimeout(resolve, 3000));</p>
+<p>img.remove();</p>
+<p>return githubUser; }</p>
+<p>showAvatar(); ```</p>
+<p>Pretty clean and easy to read, right? Much better than before.</p>
+<p>```<code>smart header="</code>await<code>won't work in the top-level code" People who are just starting to use</code>await<code>tend to forget the fact that we can't use</code>await` in top-level code. For example, this will not work:</p>
+<p><code>js run // syntax error in top-level code let response = await fetch('/article/promise-chaining/user.json'); let user = await response.json();</code></p>
+<p>But we can wrap it into an anonymous async function, like this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">(<span class="kw">async</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="kw">let</span> response <span class="op">=</span> <span class="cf">await</span> <span class="at">fetch</span>(<span class="st">&#39;/article/promise-chaining/user.json&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="kw">let</span> user <span class="op">=</span> <span class="cf">await</span> <span class="va">response</span>.<span class="at">json</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-4" title="4">  ...</a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="op">}</span>)()<span class="op">;</span></a></code></pre></div>
+<p>P.S. New feature: starting from V8 engine version 8.9+, top-level await works in <a href="info:modules">modules</a>. ````</p>
+<p>```<code>smart header="</code>await<code>accepts \"thenables\"" Like</code>promise.then<code>,</code>await<code>allows us to use thenable objects (those with a callable</code>then<code>method). The idea is that a third-party object may not be a promise, but promise-compatible: if it supports</code>.then<code>, that's enough to use it with</code>await`.</p>
+<p>Here’s a demo <code>Thenable</code> class; the <code>await</code> below accepts its instances:</p>
+<p>```js run class Thenable { constructor(num) { this.num = num; } then(resolve, reject) { alert(resolve); // resolve with this.num<em>2 after 1000ms setTimeout(() =&gt; resolve(this.num </em> 2), 1000); // (*) } }</p>
+<p>async function f() { // waits for 1 second, then result becomes 2 let result = await new Thenable(1); alert(result); }</p>
+<p>f();</p>
+<pre><code>
+If `await` gets a non-promise object with `.then`, it calls that method providing the built-in functions `resolve` and `reject` as arguments (just as it does for a regular `Promise` executor). Then `await` waits until one of them is called (in the example above it happens in the line `(*)`) and then proceeds with the result.</code></pre>
+<p>```<code>smart header="Async class methods" To declare an async class method, just prepend it with</code>async`:</p>
+<p>```js run class Waiter { <em>!</em> async wait() { <em>/!</em> return await Promise.resolve(1); } }</p>
+<p>new Waiter() .wait() .then(alert); // 1 (this is the same as (result =&gt; alert(result)))</p>
+<pre><code>The meaning is the same: it ensures that the returned value is a promise and enables `await`.
+</code></pre>
+<h2 id="error-handling">Error handling</h2>
+<p>If a promise resolves normally, then <code>await promise</code> returns the result. But in the case of a rejection, it throws the error, just as if there were a <code>throw</code> statement at that line.</p>
+<p>This code:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">async</span> <span class="kw">function</span> <span class="at">f</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  <span class="cf">await</span> <span class="va">Promise</span>.<span class="at">reject</span>(<span class="kw">new</span> <span class="at">Error</span>(<span class="st">&quot;Whoops!&quot;</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="ss">}</span></a></code></pre></div>
+<p>…is the same as this:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">async</span> <span class="kw">function</span> <span class="at">f</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="cf">throw</span> <span class="kw">new</span> <span class="at">Error</span>(<span class="st">&quot;Whoops!&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="ss">}</span></a></code></pre></div>
+<p>In real situations, the promise may take some time before it rejects. In that case there will be a delay before <code>await</code> throws an error.</p>
+<p>We can catch that error using <code>try..catch</code>, the same way as a regular <code>throw</code>:</p>
+<p>```js run async function f() {</p>
+<p>try { let response = await fetch(‘http://no-such-url’); } catch(err) { <em>!</em> alert(err); // TypeError: failed to fetch <em>/!</em> } }</p>
+<p>f(); ```</p>
+<p>In the case of an error, the control jumps to the <code>catch</code> block. We can also wrap multiple lines:</p>
+<p>```js run async function f() {</p>
+<p>try { let response = await fetch(‘/no-user-here’); let user = await response.json(); } catch(err) { // catches errors both in fetch and response.json alert(err); } }</p>
+<p>f(); ```</p>
+<p>If we don’t have <code>try..catch</code>, then the promise generated by the call of the async function <code>f()</code> becomes rejected. We can append <code>.catch</code> to handle it:</p>
+<p>```js run async function f() { let response = await fetch(‘http://no-such-url’); }</p>
+<p>// f() becomes a rejected promise <em>!</em> f().catch(alert); // TypeError: failed to fetch // (<em>) </em>/!* ```</p>
+<p>If we forget to add <code>.catch</code> there, then we get an unhandled promise error (viewable in the console). We can catch such errors using a global <code>unhandledrejection</code> event handler as described in the chapter <a href="info:promise-error-handling" class="uri">info:promise-error-handling</a>.</p>
+<p>``<code>smart header="</code>async/await<code>and</code>promise.then/catch<code>" When we use</code>async/await<code>, we rarely need</code>.then<code>, because</code>await<code>handles the waiting for us. And we can use a regular</code>try..catch<code>instead of</code>.catch`. That’s usually (but not always) more convenient.</p>
+<p>But at the top level of the code, when we’re outside any <code>async</code> function, we’re syntactically unable to use <code>await</code>, so it’s a normal practice to add <code>.then/catch</code> to handle the final result or falling-through error, like in the line <code>(*)</code> of the example above. ```</p>
+<p>```<code>smart header="</code>async/await<code>works well with</code>Promise.all<code>" When we need to wait for multiple promises, we can wrap them in</code>Promise.all<code>and then</code>await`:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="co">// wait for the array of results</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="kw">let</span> results <span class="op">=</span> <span class="cf">await</span> <span class="va">Promise</span>.<span class="at">all</span>([</a>
+<a class="sourceLine" id="cb8-3" title="3">  <span class="at">fetch</span>(url1)<span class="op">,</span></a>
+<a class="sourceLine" id="cb8-4" title="4">  <span class="at">fetch</span>(url2)<span class="op">,</span></a>
+<a class="sourceLine" id="cb8-5" title="5">  ...</a>
+<a class="sourceLine" id="cb8-6" title="6">])<span class="op">;</span></a></code></pre></div>
+<p>In the case of an error, it propagates as usual, from the failed promise to <code>Promise.all</code>, and then becomes an exception that we can catch using <code>try..catch</code> around the call.</p>
+<p>````</p>
+<h2 id="summary">Summary</h2>
+<p>The <code>async</code> keyword before a function has two effects:</p>
+<ol type="1">
+<li>Makes it always return a promise.</li>
+<li>Allows <code>await</code> to be used in it.</li>
+</ol>
+<p>The <code>await</code> keyword before a promise makes JavaScript wait until that promise settles, and then:</p>
+<ol type="1">
+<li>If it’s an error, the exception is generated — same as if <code>throw error</code> were called at that very place.</li>
+<li>Otherwise, it returns the result.</li>
+</ol>
+<p>Together they provide a great framework to write asynchronous code that is easy to both read and write.</p>
+<p>With <code>async/await</code> we rarely need to write <code>promise.then/catch</code>, but we still shouldn’t forget that they are based on promises, because sometimes (e.g. in the outermost scope) we have to use these methods. Also <code>Promise.all</code> is nice when we are waiting for many tasks simultaneously.</p>

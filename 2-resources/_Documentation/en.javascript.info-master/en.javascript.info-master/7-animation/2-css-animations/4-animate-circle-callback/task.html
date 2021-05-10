@@ -1,0 +1,13 @@
+<h1 id="animated-circle-with-callback">Animated circle with callback</h1>
+<p>In the task <a href="info:task/animate-circle" class="uri">info:task/animate-circle</a> an animated growing circle is shown.</p>
+<p>Now let’s say we need not just a circle, but to show a message inside it. The message should appear <em>after</em> the animation is complete (the circle is fully grown), otherwise it would look ugly.</p>
+<p>In the solution of the task, the function <code>showCircle(cx, cy, radius)</code> draws the circle, but gives no way to track when it’s ready.</p>
+<p>Add a callback argument: <code>showCircle(cx, cy, radius, callback)</code> to be called when the animation is complete. The <code>callback</code> should receive the circle <code>&lt;div&gt;</code> as an argument.</p>
+<p>Here’s the example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="at">showCircle</span>(<span class="dv">150</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">100</span><span class="op">,</span> div <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="va">div</span>.<span class="va">classList</span>.<span class="at">add</span>(<span class="st">&#39;message-ball&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="va">div</span>.<span class="at">append</span>(<span class="st">&quot;Hello, world!&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>Demo:</p>
+<p>[iframe src=“solution” height=260]</p>
+<p>Take the solution of the task <a href="info:task/animate-circle" class="uri">info:task/animate-circle</a> as the base.</p>

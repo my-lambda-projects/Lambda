@@ -1,0 +1,16 @@
+<p>A two-digit hex number is <code>pattern:[0-9a-f]{2}</code> (assuming the flag <code>pattern:i</code> is set).</p>
+<p>We need that number <code>NN</code>, and then <code>:NN</code> repeated 5 times (more numbers);</p>
+<p>The regexp is: <code>pattern:[0-9a-f]{2}(:[0-9a-f]{2}){5}</code></p>
+<p>Now let’s show that the match should capture all the text: start at the beginning and end at the end. That’s done by wrapping the pattern in <code>pattern:^...$</code>.</p>
+<p>Finally:</p>
+<p>```js run let regexp = /<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>{2}(:[0-9a-fA-F]{2}){5}$/i;</p>
+<p>alert( regexp.test(‘01:32:54:67:89:AB’) ); // true</p>
+<p>alert( regexp.test(‘0132546789AB’) ); // false (no colons)</p>
+<p>alert( regexp.test(‘01:32:54:67:89’) ); // false (5 numbers, need 6)</p>
+<p>alert( regexp.test(‘01:32:54:67:89:ZZ’) ) // false (ZZ in the end) ```</p>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>0-9a-fA-F<a href="#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
+</section>

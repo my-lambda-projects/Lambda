@@ -1,0 +1,21 @@
+<h1 id="accessing-array-1">Accessing array[-1]</h1>
+<p>In some programming languages, we can access array elements using negative indexes, counted from the end.</p>
+<p>Like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> array <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3">array[<span class="op">-</span><span class="dv">1</span>]<span class="op">;</span> <span class="co">// 3, the last element</span></a>
+<a class="sourceLine" id="cb1-4" title="4">array[<span class="op">-</span><span class="dv">2</span>]<span class="op">;</span> <span class="co">// 2, one step from the end</span></a>
+<a class="sourceLine" id="cb1-5" title="5">array[<span class="op">-</span><span class="dv">3</span>]<span class="op">;</span> <span class="co">// 1, two steps from the end</span></a></code></pre></div>
+<p>In other words, <code>array[-N]</code> is the same as <code>array[array.length - N]</code>.</p>
+<p>Create a proxy to implement that behavior.</p>
+<p>That’s how it should work:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> array <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3">array <span class="op">=</span> <span class="kw">new</span> <span class="at">Proxy</span>(array<span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="co">/* your code */</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-6" title="6"></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="at">alert</span>( array[<span class="op">-</span><span class="dv">1</span>] )<span class="op">;</span> <span class="co">// 3</span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="at">alert</span>( array[<span class="op">-</span><span class="dv">2</span>] )<span class="op">;</span> <span class="co">// 2</span></a>
+<a class="sourceLine" id="cb2-9" title="9"></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="co">// Other array functionality should be kept &quot;as is&quot;</span></a></code></pre></div>

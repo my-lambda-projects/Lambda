@@ -1,0 +1,80 @@
+<h1 id="f.prototype">F.prototype</h1>
+<p>Remember, new objects can be created with a constructor function, like <code>new F()</code>.</p>
+<p>If <code>F.prototype</code> is an object, then the <code>new</code> operator uses it to set <code>[[Prototype]]</code> for the new object.</p>
+<pre class="smart"><code>JavaScript had prototypal inheritance from the beginning. It was one of the core features of the language.
+
+But in the old times, there was no direct access to it. The only thing that worked reliably was a `&quot;prototype&quot;` property of the constructor function, described in this chapter. So there are many scripts that still use it.</code></pre>
+<p>Please note that <code>F.prototype</code> here means a regular property named <code>"prototype"</code> on <code>F</code>. It sounds something similar to the term “prototype”, but here we really mean a regular property with this name.</p>
+<p>Here’s the example:</p>
+<p>```js run let animal = { eats: true };</p>
+<p>function Rabbit(name) { this.name = name; }</p>
+<p><em>!</em> Rabbit.prototype = animal; <em>/!</em></p>
+<p>let rabbit = new Rabbit(“White Rabbit”); // rabbit.__proto__ == animal</p>
+<p>alert( rabbit.eats ); // true ```</p>
+<p>Setting <code>Rabbit.prototype = animal</code> literally states the following: “When a <code>new Rabbit</code> is created, assign its <code>[[Prototype]]</code> to <code>animal</code>”.</p>
+<p>That’s the resulting picture:</p>
+<p><img src="proto-constructor-animal-rabbit.svg" /></p>
+<p>On the picture, <code>"prototype"</code> is a horizontal arrow, meaning a regular property, and <code>[[Prototype]]</code> is vertical, meaning the inheritance of <code>rabbit</code> from <code>animal</code>.</p>
+<p>``<code>smart header="</code>F.prototype<code>only used at</code>new F<code>time"</code>F.prototype<code>property is only used when</code>new F<code>is called, it assigns</code>[[Prototype]]` of the new object.</p>
+<p>If, after the creation, <code>F.prototype</code> property changes (<code>F.prototype = &lt;another object&gt;</code>), then new objects created by <code>new F</code> will have another object as <code>[[Prototype]]</code>, but already existing objects keep the old one. ```</p>
+<h2 id="default-f.prototype-constructor-property">Default F.prototype, constructor property</h2>
+<p>Every function has the <code>"prototype"</code> property even if we don’t supply it.</p>
+<p>The default <code>"prototype"</code> is an object with the only property <code>constructor</code> that points back to the function itself.</p>
+<p>Like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">function</span> <span class="at">Rabbit</span>() <span class="op">{}</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="co">/* default prototype</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co">Rabbit.prototype = { constructor: Rabbit };</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="co">*/</span></a></code></pre></div>
+<p><img src="function-prototype-constructor.svg" /></p>
+<p>We can check it:</p>
+<p>```js run function Rabbit() {} // by default: // Rabbit.prototype = { constructor: Rabbit }</p>
+<p>alert( Rabbit.prototype.constructor == Rabbit ); // true ```</p>
+<p>Naturally, if we do nothing, the <code>constructor</code> property is available to all rabbits through <code>[[Prototype]]</code>:</p>
+<p>```js run function Rabbit() {} // by default: // Rabbit.prototype = { constructor: Rabbit }</p>
+<p>let rabbit = new Rabbit(); // inherits from {constructor: Rabbit}</p>
+<p>alert(rabbit.constructor == Rabbit); // true (from prototype) ```</p>
+<p><img src="rabbit-prototype-constructor.svg" /></p>
+<p>We can use <code>constructor</code> property to create a new object using the same constructor as the existing one.</p>
+<p>Like here:</p>
+<p>```js run function Rabbit(name) { this.name = name; alert(name); }</p>
+<p>let rabbit = new Rabbit(“White Rabbit”);</p>
+<p><em>!</em> let rabbit2 = new rabbit.constructor(“Black Rabbit”); <em>/!</em> ```</p>
+<p>That’s handy when we have an object, don’t know which constructor was used for it (e.g. it comes from a 3rd party library), and we need to create another one of the same kind.</p>
+<p>But probably the most important thing about <code>"constructor"</code> is that…</p>
+<p><strong>…JavaScript itself does not ensure the right <code>"constructor"</code> value.</strong></p>
+<p>Yes, it exists in the default <code>"prototype"</code> for functions, but that’s all. What happens with it later – is totally on us.</p>
+<p>In particular, if we replace the default prototype as a whole, then there will be no <code>"constructor"</code> in it.</p>
+<p>For instance:</p>
+<p>```js run function Rabbit() {} Rabbit.prototype = { jumps: true };</p>
+<p>let rabbit = new Rabbit(); <em>!</em> alert(rabbit.constructor === Rabbit); // false <em>/!</em> ```</p>
+<p>So, to keep the right <code>"constructor"</code> we can choose to add/remove properties to the default <code>"prototype"</code> instead of overwriting it as a whole:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">function</span> <span class="at">Rabbit</span>() <span class="op">{}</span></a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="co">// Not overwrite Rabbit.prototype totally</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="co">// just add to it</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="va">Rabbit</span>.<span class="va">prototype</span>.<span class="at">jumps</span> <span class="op">=</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="co">// the default Rabbit.prototype.constructor is preserved</span></a></code></pre></div>
+<p>Or, alternatively, recreate the <code>constructor</code> property manually:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">Rabbit</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="dt">jumps</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="dt">constructor</span><span class="op">:</span> Rabbit</a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="ss">};</span></a>
+<a class="sourceLine" id="cb4-7" title="7"></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="ss">// now constructor is also correct, because we added it</span></a></code></pre></div>
+<h2 id="summary">Summary</h2>
+<p>In this chapter we briefly described the way of setting a <code>[[Prototype]]</code> for objects created via a constructor function. Later we’ll see more advanced programming patterns that rely on it.</p>
+<p>Everything is quite simple, just a few notes to make things clear:</p>
+<ul>
+<li>The <code>F.prototype</code> property (don’t mistake it for <code>[[Prototype]]</code>) sets <code>[[Prototype]]</code> of new objects when <code>new F()</code> is called.</li>
+<li>The value of <code>F.prototype</code> should be either an object or <code>null</code>: other values won’t work.</li>
+<li>The <code>"prototype"</code> property only has such a special effect when set on a constructor function, and invoked with <code>new</code>.</li>
+</ul>
+<p>On regular objects the <code>prototype</code> is nothing special:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">let</span> user <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;John&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="dt">prototype</span><span class="op">:</span> <span class="st">&quot;Bla-bla&quot;</span> <span class="co">// no magic at all</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="op">};</span></a></code></pre></div>
+<p>By default all functions have <code>F.prototype = { constructor: F }</code>, so we can get the constructor of an object by accessing its <code>"constructor"</code> property.</p>

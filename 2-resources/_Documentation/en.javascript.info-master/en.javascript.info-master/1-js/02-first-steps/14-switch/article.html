@@ -1,0 +1,54 @@
+<h1 id="the-switch-statement">The “switch” statement</h1>
+<p>A <code>switch</code> statement can replace multiple <code>if</code> checks.</p>
+<p>It gives a more descriptive way to compare a value with multiple variants.</p>
+<h2 id="the-syntax">The syntax</h2>
+<p>The <code>switch</code> has one or more <code>case</code> blocks and an optional default.</p>
+<p>It looks like this:</p>
+<p>```js no-beautify switch(x) { case ‘value1’: // if (x === ‘value1’) … [break]</p>
+<p>case ‘value2’: // if (x === ‘value2’) … [break]</p>
+<p>default: … [break] } ```</p>
+<ul>
+<li>The value of <code>x</code> is checked for a strict equality to the value from the first <code>case</code> (that is, <code>value1</code>) then to the second (<code>value2</code>) and so on.</li>
+<li>If the equality is found, <code>switch</code> starts to execute the code starting from the corresponding <code>case</code>, until the nearest <code>break</code> (or until the end of <code>switch</code>).</li>
+<li>If no case is matched then the <code>default</code> code is executed (if it exists).</li>
+</ul>
+<h2 id="an-example">An example</h2>
+<p>An example of <code>switch</code> (the executed code is highlighted):</p>
+<p>```js run let a = 2 + 2;</p>
+<p>switch (a) { case 3: alert( ‘Too small’ ); break; <em>!</em> case 4: alert( ‘Exactly!’ ); break; <em>/!</em> case 5: alert( ‘Too big’ ); break; default: alert( “I don’t know such values” ); } ```</p>
+<p>Here the <code>switch</code> starts to compare <code>a</code> from the first <code>case</code> variant that is <code>3</code>. The match fails.</p>
+<p>Then <code>4</code>. That’s a match, so the execution starts from <code>case 4</code> until the nearest <code>break</code>.</p>
+<p><strong>If there is no <code>break</code> then the execution continues with the next <code>case</code> without any checks.</strong></p>
+<p>An example without <code>break</code>:</p>
+<p>```js run let a = 2 + 2;</p>
+<p>switch (a) { case 3: alert( ‘Too small’ ); <em>!</em> case 4: alert( ‘Exactly!’ ); case 5: alert( ‘Too big’ ); default: alert( “I don’t know such values” ); <em>/!</em> } ```</p>
+<p>In the example above we’ll see sequential execution of three <code>alert</code>s:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="at">alert</span>( <span class="st">&#39;Exactly!&#39;</span> )<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="at">alert</span>( <span class="st">&#39;Too big&#39;</span> )<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="at">alert</span>( <span class="st">&quot;I don&#39;t know such values&quot;</span> )<span class="op">;</span></a></code></pre></div>
+<p>```<code>smart header="Any expression can be a</code>switch/case<code>argument" Both</code>switch<code>and</code>case` allow arbitrary expressions.</p>
+<p>For example:</p>
+<p>```js run let a = “1”; let b = 0;</p>
+<p>switch (+a) { <em>!</em> case b + 1: alert(“this runs, because +a is 1, exactly equals b+1”); break; <em>/!</em></p>
+<p>default: alert(“this doesn’t run”); }</p>
+<pre><code>Here `+a` gives `1`, that&#39;s compared with `b + 1` in `case`, and the corresponding code is executed.</code></pre>
+<h2 id="grouping-of-case">Grouping of “case”</h2>
+<p>Several variants of <code>case</code> which share the same code can be grouped.</p>
+<p>For example, if we want the same code to run for <code>case 3</code> and <code>case 5</code>:</p>
+<p>```js run no-beautify let a = 3;</p>
+<p>switch (a) { case 4: alert(‘Right!’); break;</p>
+<p><em>!</em> case 3: // (<em>) grouped two cases case 5: alert(‘Wrong!’); alert(“Why don’t you take a math class?”); break; </em>/!*</p>
+<p>default: alert(‘The result is strange. Really.’); } ```</p>
+<p>Now both <code>3</code> and <code>5</code> show the same message.</p>
+<p>The ability to “group” cases is a side-effect of how <code>switch/case</code> works without <code>break</code>. Here the execution of <code>case 3</code> starts from the line <code>(*)</code> and goes through <code>case 5</code>, because there’s no <code>break</code>.</p>
+<h2 id="type-matters">Type matters</h2>
+<p>Let’s emphasize that the equality check is always strict. The values must be of the same type to match.</p>
+<p>For example, let’s consider the code:</p>
+<p>```js run let arg = prompt(“Enter a value?”); switch (arg) { case ‘0’: case ‘1’: alert( ‘One or zero’ ); break;</p>
+<p>case ‘2’: alert( ‘Two’ ); break;</p>
+<p>case 3: alert( ‘Never executes!’ ); break; default: alert( ‘An unknown value’ ); } ```</p>
+<ol type="1">
+<li>For <code>0</code>, <code>1</code>, the first <code>alert</code> runs.</li>
+<li>For <code>2</code> the second <code>alert</code> runs.</li>
+<li>But for <code>3</code>, the result of the <code>prompt</code> is a string <code>"3"</code>, which is not strictly equal <code>===</code> to the number <code>3</code>. So we’ve got a dead code in <code>case 3</code>! The <code>default</code> variant will execute.</li>
+</ol>

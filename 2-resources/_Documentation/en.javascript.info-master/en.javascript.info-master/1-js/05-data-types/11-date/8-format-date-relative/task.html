@@ -1,0 +1,19 @@
+<p>importance: 4</p>
+<hr />
+<h1 id="format-the-relative-date">Format the relative date</h1>
+<p>Write a function <code>formatDate(date)</code> that should format <code>date</code> as follows:</p>
+<ul>
+<li>If since <code>date</code> passed less than 1 second, then <code>"right now"</code>.</li>
+<li>Otherwise, if since <code>date</code> passed less than 1 minute, then <code>"n sec. ago"</code>.</li>
+<li>Otherwise, if less than an hour, then <code>"m min. ago"</code>.</li>
+<li>Otherwise, the full date in the format <code>"DD.MM.YY HH:mm"</code>. That is: <code>"day.month.year hours:minutes"</code>, all in 2-digit format, e.g. <code>31.12.16 10:00</code>.</li>
+</ul>
+<p>For instance:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="at">alert</span>( <span class="at">formatDate</span>(<span class="kw">new</span> <span class="at">Date</span>(<span class="kw">new</span> Date <span class="op">-</span> <span class="dv">1</span>)) )<span class="op">;</span> <span class="co">// &quot;right now&quot;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="at">alert</span>( <span class="at">formatDate</span>(<span class="kw">new</span> <span class="at">Date</span>(<span class="kw">new</span> Date <span class="op">-</span> <span class="dv">30</span> <span class="op">*</span> <span class="dv">1000</span>)) )<span class="op">;</span> <span class="co">// &quot;30 sec. ago&quot;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="at">alert</span>( <span class="at">formatDate</span>(<span class="kw">new</span> <span class="at">Date</span>(<span class="kw">new</span> Date <span class="op">-</span> <span class="dv">5</span> <span class="op">*</span> <span class="dv">60</span> <span class="op">*</span> <span class="dv">1000</span>)) )<span class="op">;</span> <span class="co">// &quot;5 min. ago&quot;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="co">// yesterday&#39;s date like 31.12.16 20:00</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="at">alert</span>( <span class="at">formatDate</span>(<span class="kw">new</span> <span class="at">Date</span>(<span class="kw">new</span> Date <span class="op">-</span> <span class="dv">86400</span> <span class="op">*</span> <span class="dv">1000</span>)) )<span class="op">;</span></a></code></pre></div>

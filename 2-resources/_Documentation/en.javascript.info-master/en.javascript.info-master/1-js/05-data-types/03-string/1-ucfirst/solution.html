@@ -1,0 +1,13 @@
+<p>We can’t “replace” the first character, because strings in JavaScript are immutable.</p>
+<p>But we can make a new string based on the existing one, with the uppercased first character:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> newStr <span class="op">=</span> str[<span class="dv">0</span>].<span class="at">toUpperCase</span>() <span class="op">+</span> <span class="va">str</span>.<span class="at">slice</span>(<span class="dv">1</span>)<span class="op">;</span></a></code></pre></div>
+<p>There’s a small problem though. If <code>str</code> is empty, then <code>str[0]</code> is <code>undefined</code>, and as <code>undefined</code> doesn’t have the <code>toUpperCase()</code> method, we’ll get an error.</p>
+<p>There are two variants here:</p>
+<ol type="1">
+<li>Use <code>str.charAt(0)</code>, as it always returns a string (maybe empty).</li>
+<li>Add a test for an empty string.</li>
+</ol>
+<p>Here’s the 2nd variant:</p>
+<p>```js run demo function ucFirst(str) { if (!str) return str;</p>
+<p>return str[0].toUpperCase() + str.slice(1); }</p>
+<p>alert( ucFirst(“john”) ); // John ```</p>

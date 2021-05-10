@@ -1,0 +1,80 @@
+<h1 id="file-and-filereader">File and FileReader</h1>
+<p>A <a href="https://www.w3.org/TR/FileAPI/#dfn-file">File</a> object inherits from <code>Blob</code> and is extended with filesystem-related capabilities.</p>
+<p>There are two ways to obtain it.</p>
+<p>First, there’s a constructor, similar to <code>Blob</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">new</span> <span class="at">File</span>(fileParts<span class="op">,</span> fileName<span class="op">,</span> [options])</a></code></pre></div>
+<ul>
+<li><strong><code>fileParts</code></strong> – is an array of Blob/BufferSource/String values.</li>
+<li><strong><code>fileName</code></strong> – file name string.</li>
+<li><strong><code>options</code></strong> – optional object:
+<ul>
+<li><strong><code>lastModified</code></strong> – the timestamp (integer date) of last modification.</li>
+</ul></li>
+</ul>
+<p>Second, more often we get a file from <code>&lt;input type="file"&gt;</code> or drag’n’drop or other browser interfaces. In that case, the file gets this information from OS.</p>
+<p>As <code>File</code> inherits from <code>Blob</code>, <code>File</code> objects have the same properties, plus: - <code>name</code> – the file name, - <code>lastModified</code> – the timestamp of last modification.</p>
+<p>That’s how we can get a <code>File</code> object from <code>&lt;input type="file"&gt;</code>:</p>
+<p>```html run <input type="file" onchange="showFile(this)"></p>
+<script>
+function showFile(input) {
+  let file = input.files[0];
+
+  alert(`File name: ${file.name}`); // e.g my.png
+  alert(`Last modified: ${file.lastModified}`); // e.g 1552830408824
+}
+</script>
+<p>```</p>
+<pre class="smart"><code>The input may select multiple files, so `input.files` is an array-like object with them. Here we have only one file, so we just take `input.files[0]`.</code></pre>
+<h2 id="filereader">FileReader</h2>
+<p><a href="https://www.w3.org/TR/FileAPI/#dfn-filereader">FileReader</a> is an object with the sole purpose of reading data from <code>Blob</code> (and hence <code>File</code> too) objects.</p>
+<p>It delivers the data using events, as reading from disk may take time.</p>
+<p>The constructor:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> reader <span class="op">=</span> <span class="kw">new</span> <span class="at">FileReader</span>()<span class="op">;</span> <span class="co">// no arguments</span></a></code></pre></div>
+<p>The main methods:</p>
+<ul>
+<li><strong><code>readAsArrayBuffer(blob)</code></strong> – read the data in binary format <code>ArrayBuffer</code>.</li>
+<li><strong><code>readAsText(blob, [encoding])</code></strong> – read the data as a text string with the given encoding (<code>utf-8</code> by default).</li>
+<li><strong><code>readAsDataURL(blob)</code></strong> – read the binary data and encode it as base64 data url.</li>
+<li><strong><code>abort()</code></strong> – cancel the operation.</li>
+</ul>
+<p>The choice of <code>read*</code> method depends on which format we prefer, how we’re going to use the data.</p>
+<ul>
+<li><code>readAsArrayBuffer</code> – for binary files, to do low-level binary operations. For high-level operations, like slicing, <code>File</code> inherits from <code>Blob</code>, so we can call them directly, without reading.</li>
+<li><code>readAsText</code> – for text files, when we’d like to get a string.</li>
+<li><code>readAsDataURL</code> – when we’d like to use this data in <code>src</code> for <code>img</code> or another tag. There’s an alternative to reading a file for that, as discussed in chapter <a href="info:blob" class="uri">info:blob</a>: <code>URL.createObjectURL(file)</code>.</li>
+</ul>
+<p>As the reading proceeds, there are events: - <code>loadstart</code> – loading started. - <code>progress</code> – occurs during reading. - <code>load</code> – no errors, reading complete. - <code>abort</code> – <code>abort()</code> called. - <code>error</code> – error has occurred. - <code>loadend</code> – reading finished with either success or failure.</p>
+<p>When the reading is finished, we can access the result as: - <code>reader.result</code> is the result (if successful) - <code>reader.error</code> is the error (if failed).</p>
+<p>The most widely used events are for sure <code>load</code> and <code>error</code>.</p>
+<p>Here’s an example of reading a file:</p>
+<p>```html run <input type="file" onchange="readFile(this)"></p>
+<script>
+function readFile(input) {
+  let file = input.files[0];
+
+  let reader = new FileReader();
+
+  reader.readAsText(file);
+
+  reader.onload = function() {
+    console.log(reader.result);
+  };
+
+  reader.onerror = function() {
+    console.log(reader.error);
+  };
+
+}
+</script>
+<p>```</p>
+<p>``<code>smart header="</code>FileReader<code>for blobs" As mentioned in the chapter &lt;info:blob&gt;,</code>FileReader` can read not just files, but any blobs.</p>
+<p>We can use it to convert a blob to another format: - <code>readAsArrayBuffer(blob)</code> – to <code>ArrayBuffer</code>, - <code>readAsText(blob, [encoding])</code> – to string (an alternative to <code>TextDecoder</code>), - <code>readAsDataURL(blob)</code> – to base64 data url. ```</p>
+<p>``<code>smart header="</code>FileReaderSync<code>is available inside Web Workers" For Web Workers, there also exists a synchronous variant of</code>FileReader`, called <a href="https://www.w3.org/TR/FileAPI/#FileReaderSync">FileReaderSync</a>.</p>
+<p>Its reading methods <code>read*</code> do not generate events, but rather return a result, as regular functions do.</p>
+<p>That’s only inside a Web Worker though, because delays in synchronous calls, that are possible while reading from files, in Web Workers are less important. They do not affect the page. ```</p>
+<h2 id="summary">Summary</h2>
+<p><code>File</code> objects inherit from <code>Blob</code>.</p>
+<p>In addition to <code>Blob</code> methods and properties, <code>File</code> objects also have <code>name</code> and <code>lastModified</code> properties, plus the internal ability to read from filesystem. We usually get <code>File</code> objects from user input, like <code>&lt;input&gt;</code> or Drag’n’Drop events (<code>ondragend</code>).</p>
+<p><code>FileReader</code> objects can read from a file or a blob, in one of three formats: - String (<code>readAsText</code>). - <code>ArrayBuffer</code> (<code>readAsArrayBuffer</code>). - Data url, base-64 encoded (<code>readAsDataURL</code>).</p>
+<p>In many cases though, we don’t have to read the file contents. Just as we did with blobs, we can create a short url with <code>URL.createObjectURL(file)</code> and assign it to <code>&lt;a&gt;</code> or <code>&lt;img&gt;</code>. This way the file can be downloaded or shown up as an image, as a part of canvas etc.</p>
+<p>And if we’re going to send a <code>File</code> over a network, that’s also easy: network API like <code>XMLHttpRequest</code> or <code>fetch</code> natively accepts <code>File</code> objects.</p>

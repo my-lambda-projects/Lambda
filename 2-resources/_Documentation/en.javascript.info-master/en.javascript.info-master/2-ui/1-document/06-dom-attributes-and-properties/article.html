@@ -1,0 +1,272 @@
+<h1 id="attributes-and-properties">Attributes and properties</h1>
+<p>When the browser loads the page, it “reads” (another word: “parses”) the HTML and generates DOM objects from it. For element nodes, most standard HTML attributes automatically become properties of DOM objects.</p>
+<p>For instance, if the tag is <code>&lt;body id="page"&gt;</code>, then the DOM object has <code>body.id="page"</code>.</p>
+<p>But the attribute-property mapping is not one-to-one! In this chapter we’ll pay attention to separate these two notions, to see how to work with them, when they are the same, and when they are different.</p>
+<h2 id="dom-properties">DOM properties</h2>
+<p>We’ve already seen built-in DOM properties. There are a lot. But technically no one limits us, and if there aren’t enough, we can add our own.</p>
+<p>DOM nodes are regular JavaScript objects. We can alter them.</p>
+<p>For instance, let’s create a new property in <code>document.body</code>:</p>
+<p>```js run document.body.myData = { name: ‘Caesar’, title: ‘Imperator’ };</p>
+<p>alert(document.body.myData.title); // Imperator ```</p>
+<p>We can add a method as well:</p>
+<p>```js run document.body.sayTagName = function() { alert(this.tagName); };</p>
+<p>document.body.sayTagName(); // BODY (the value of “this” in the method is document.body) ```</p>
+<p>We can also modify built-in prototypes like <code>Element.prototype</code> and add new methods to all elements:</p>
+<p>``<code>js run Element.prototype.sayHi = function() {   alert(</code>Hello, I’m ${this.tagName}`); };</p>
+<p>document.documentElement.sayHi(); // Hello, I’m HTML document.body.sayHi(); // Hello, I’m BODY ```</p>
+<p>So, DOM properties and methods behave just like those of regular JavaScript objects:</p>
+<ul>
+<li>They can have any value.</li>
+<li>They are case-sensitive (write <code>elem.nodeType</code>, not <code>elem.NoDeTyPe</code>).</li>
+</ul>
+<h2 id="html-attributes">HTML attributes</h2>
+<p>In HTML, tags may have attributes. When the browser parses the HTML to create DOM objects for tags, it recognizes <em>standard</em> attributes and creates DOM properties from them.</p>
+<p>So when an element has <code>id</code> or another <em>standard</em> attribute, the corresponding property gets created. But that doesn’t happen if the attribute is non-standard.</p>
+<p>For instance: <code>html run &lt;body id="test" something="non-standard"&gt;   &lt;script&gt;     alert(document.body.id); // test *!*     // non-standard attribute does not yield a property     alert(document.body.something); // undefined */!*   &lt;/script&gt; &lt;/body&gt;</code></p>
+<p>Please note that a standard attribute for one element can be unknown for another one. For instance, <code>"type"</code> is standard for <code>&lt;input&gt;</code> (<a href="https://html.spec.whatwg.org/#htmlinputelement">HTMLInputElement</a>), but not for <code>&lt;body&gt;</code> (<a href="https://html.spec.whatwg.org/#htmlbodyelement">HTMLBodyElement</a>). Standard attributes are described in the specification for the corresponding element class.</p>
+<p>Here we can see it: <code>html run &lt;body id="body" type="..."&gt;   &lt;input id="input" type="text"&gt;   &lt;script&gt;     alert(input.type); // text *!*     alert(body.type); // undefined: DOM property not created, because it's non-standard */!*   &lt;/script&gt; &lt;/body&gt;</code></p>
+<p>So, if an attribute is non-standard, there won’t be a DOM-property for it. Is there a way to access such attributes?</p>
+<p>Sure. All attributes are accessible by using the following methods:</p>
+<ul>
+<li><code>elem.hasAttribute(name)</code> – checks for existence.</li>
+<li><code>elem.getAttribute(name)</code> – gets the value.</li>
+<li><code>elem.setAttribute(name, value)</code> – sets the value.</li>
+<li><code>elem.removeAttribute(name)</code> – removes the attribute.</li>
+</ul>
+<p>These methods operate exactly with what’s written in HTML.</p>
+<p>Also one can read all attributes using <code>elem.attributes</code>: a collection of objects that belong to a built-in <a href="https://dom.spec.whatwg.org/#attr">Attr</a> class, with <code>name</code> and <code>value</code> properties.</p>
+<p>Here’s a demo of reading a non-standard property:</p>
+<p><code>html run &lt;body something="non-standard"&gt;   &lt;script&gt; *!*     alert(document.body.getAttribute('something')); // non-standard */!*   &lt;/script&gt; &lt;/body&gt;</code></p>
+<p>HTML attributes have the following features:</p>
+<ul>
+<li>Their name is case-insensitive (<code>id</code> is same as <code>ID</code>).</li>
+<li>Their values are always strings.</li>
+</ul>
+<p>Here’s an extended demo of working with attributes:</p>
+```html run
+<body>
+<div id="elem" data-about="Elephant">
+
+</div>
+<script>
+    alert( elem.getAttribute('About') ); // (1) 'Elephant', reading
+
+    elem.setAttribute('Test', 123); // (2), writing
+
+    alert( elem.outerHTML ); // (3), see if the attribute is in HTML (yes)
+
+    for (let attr of elem.attributes) { // (4) list all
+      alert( `${attr.name} = ${attr.value}` );
+    }
+  </script>
+</body>
+<p>```</p>
+<p>Please note:</p>
+<ol type="1">
+<li><code>getAttribute('About')</code> – the first letter is uppercase here, and in HTML it’s all lowercase. But that doesn’t matter: attribute names are case-insensitive.</li>
+<li>We can assign anything to an attribute, but it becomes a string. So here we have <code>"123"</code> as the value.</li>
+<li>All attributes including ones that we set are visible in <code>outerHTML</code>.</li>
+<li>The <code>attributes</code> collection is iterable and has all the attributes of the element (standard and non-standard) as objects with <code>name</code> and <code>value</code> properties.</li>
+</ol>
+<h2 id="property-attribute-synchronization">Property-attribute synchronization</h2>
+<p>When a standard attribute changes, the corresponding property is auto-updated, and (with some exceptions) vice versa.</p>
+<p>In the example below <code>id</code> is modified as an attribute, and we can see the property changed too. And then the same backwards:</p>
+<p>```html run <input></p>
+<script>
+  let input = document.querySelector('input');
+
+  // attribute => property
+  input.setAttribute('id', 'id');
+  alert(input.id); // id (updated)
+
+  // property => attribute
+  input.id = 'newId';
+  alert(input.getAttribute('id')); // newId (updated)
+</script>
+<p>```</p>
+<p>But there are exclusions, for instance <code>input.value</code> synchronizes only from attribute -&gt; to property, but not back:</p>
+<p>```html run <input></p>
+<script>
+  let input = document.querySelector('input');
+
+  // attribute => property
+  input.setAttribute('value', 'text');
+  alert(input.value); // text
+
+*!*
+  // NOT property => attribute
+  input.value = 'newValue';
+  alert(input.getAttribute('value')); // text (not updated!)
+*/!*
+</script>
+<p>```</p>
+<p>In the example above: - Changing the attribute <code>value</code> updates the property. - But the property change does not affect the attribute.</p>
+<p>That “feature” may actually come in handy, because the user actions may lead to <code>value</code> changes, and then after them, if we want to recover the “original” value from HTML, it’s in the attribute.</p>
+<h2 id="dom-properties-are-typed">DOM properties are typed</h2>
+<p>DOM properties are not always strings. For instance, the <code>input.checked</code> property (for checkboxes) is a boolean:</p>
+<p>```html run <input id="input" type="checkbox" checked> checkbox</p>
+<script>
+  alert(input.getAttribute('checked')); // the attribute value is: empty string
+  alert(input.checked); // the property value is: true
+</script>
+<p>```</p>
+<p>There are other examples. The <code>style</code> attribute is a string, but the <code>style</code> property is an object:</p>
+```html run
+<div id="div" style="color:red;font-size:120%">
+Hello
+</div>
+<script>
+  // string
+  alert(div.getAttribute('style')); // color:red;font-size:120%
+
+  // object
+  alert(div.style); // [object CSSStyleDeclaration]
+  alert(div.style.color); // red
+</script>
+<p>```</p>
+<p>Most properties are strings though.</p>
+<p>Quite rarely, even if a DOM property type is a string, it may differ from the attribute. For instance, the <code>href</code> DOM property is always a <em>full</em> URL, even if the attribute contains a relative URL or just a <code>#hash</code>.</p>
+<p>Here’s an example:</p>
+```html height=30 run <a id="a" href="#hello">link</a>
+<script>
+  // attribute
+  alert(a.getAttribute('href')); // #hello
+
+  // property
+  alert(a.href ); // full URL in the form http://site.com/page#hello
+</script>
+<p>```</p>
+<p>If we need the value of <code>href</code> or any other attribute exactly as written in the HTML, we can use <code>getAttribute</code>.</p>
+<h2 id="non-standard-attributes-dataset">Non-standard attributes, dataset</h2>
+<p>When writing HTML, we use a lot of standard attributes. But what about non-standard, custom ones? First, let’s see whether they are useful or not? What for?</p>
+<p>Sometimes non-standard attributes are used to pass custom data from HTML to JavaScript, or to “mark” HTML-elements for JavaScript.</p>
+<p>Like this:</p>
+```html run <!-- mark the div to show "name" here --> &lt;div <em>!</em>show-info=“name”<em>/!</em>&gt;
+</div>
+<!-- and age here -->
+<div *!*show-info="age"*/!*></div>
+<script>
+  // the code finds an element with the mark and shows what's requested
+  let user = {
+    name: "Pete",
+    age: 25
+  };
+
+  for(let div of document.querySelectorAll('[show-info]')) {
+    // insert the corresponding info into the field
+    let field = div.getAttribute('show-info');
+    div.innerHTML = user[field]; // first Pete into "name", then 25 into "age"
+  }
+</script>
+<p>```</p>
+<p>Also they can be used to style an element.</p>
+<p>For instance, here for the order state the attribute <code>order-state</code> is used:</p>
+```html run
+<style>
+  /* styles rely on the custom attribute "order-state" */
+  .order[order-state="new"] {
+    color: green;
+  }
+
+  .order[order-state="pending"] {
+    color: blue;
+  }
+
+  .order[order-state="canceled"] {
+    color: red;
+  }
+</style>
+<div class="order" data-order-state="new">
+<p>A new order.</p>
+</div>
+<div class="order" data-order-state="pending">
+<p>A pending order.</p>
+</div>
+<div class="order" data-order-state="canceled">
+<p>A canceled order.</p>
+</div>
+<p>```</p>
+<p>Why would using an attribute be preferable to having classes like <code>.order-state-new</code>, <code>.order-state-pending</code>, <code>.order-state-canceled</code>?</p>
+<p>Because an attribute is more convenient to manage. The state can be changed as easy as:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// a bit simpler than removing old/adding a new class</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="va">div</span>.<span class="at">setAttribute</span>(<span class="st">&#39;order-state&#39;</span><span class="op">,</span> <span class="st">&#39;canceled&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p>But there may be a possible problem with custom attributes. What if we use a non-standard attribute for our purposes and later the standard introduces it and makes it do something? The HTML language is alive, it grows, and more attributes appear to suit the needs of developers. There may be unexpected effects in such case.</p>
+<p>To avoid conflicts, there exist <a href="https://html.spec.whatwg.org/#embedding-custom-non-visible-data-with-the-data-*-attributes">data-*</a> attributes.</p>
+<p><strong>All attributes starting with “data-” are reserved for programmers’ use. They are available in the <code>dataset</code> property.</strong></p>
+<p>For instance, if an <code>elem</code> has an attribute named <code>"data-about"</code>, it’s available as <code>elem.dataset.about</code>.</p>
+<p>Like this:</p>
+<p><code>html run &lt;body data-about="Elephants"&gt; &lt;script&gt;   alert(document.body.dataset.about); // Elephants &lt;/script&gt;</code></p>
+<p>Multiword attributes like <code>data-order-state</code> become camel-cased: <code>dataset.orderState</code>.</p>
+<p>Here’s a rewritten “order state” example:</p>
+```html run
+<style>
+  .order[data-order-state="new"] {
+    color: green;
+  }
+
+  .order[data-order-state="pending"] {
+    color: blue;
+  }
+
+  .order[data-order-state="canceled"] {
+    color: red;
+  }
+</style>
+<div id="order" class="order" data-order-state="new">
+<p>A new order.</p>
+</div>
+<script>
+  // read
+  alert(order.dataset.orderState); // new
+
+  // modify
+  order.dataset.orderState = "pending"; // (*)
+</script>
+<p>```</p>
+<p>Using <code>data-*</code> attributes is a valid, safe way to pass custom data.</p>
+<p>Please note that we can not only read, but also modify data-attributes. Then CSS updates the view accordingly: in the example above the last line <code>(*)</code> changes the color to blue.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Attributes – is what’s written in HTML.</li>
+<li>Properties – is what’s in DOM objects.</li>
+</ul>
+<p>A small comparison:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Properties</th>
+<th>Attributes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Type</td>
+<td>Any value, standard properties have types described in the spec</td>
+<td>A string</td>
+</tr>
+<tr class="even">
+<td>Name</td>
+<td>Name is case-sensitive</td>
+<td>Name is not case-sensitive</td>
+</tr>
+</tbody>
+</table>
+<p>Methods to work with attributes are:</p>
+<ul>
+<li><code>elem.hasAttribute(name)</code> – to check for existence.</li>
+<li><code>elem.getAttribute(name)</code> – to get the value.</li>
+<li><code>elem.setAttribute(name, value)</code> – to set the value.</li>
+<li><code>elem.removeAttribute(name)</code> – to remove the attribute.</li>
+<li><code>elem.attributes</code> is a collection of all attributes.</li>
+</ul>
+<p>For most situations using DOM properties is preferable. We should refer to attributes only when DOM properties do not suit us, when we need exactly attributes, for instance:</p>
+<ul>
+<li>We need a non-standard attribute. But if it starts with <code>data-</code>, then we should use <code>dataset</code>.</li>
+<li>We want to read the value “as written” in HTML. The value of the DOM property may be different, for instance the <code>href</code> property is always a full URL, and we may want to get the “original” value.</li>
+</ul>

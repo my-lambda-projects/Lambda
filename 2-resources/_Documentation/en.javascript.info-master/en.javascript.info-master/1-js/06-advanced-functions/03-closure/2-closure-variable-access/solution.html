@@ -1,0 +1,5 @@
+<p>The answer is: <strong>Pete</strong>.</p>
+<p>The <code>work()</code> function in the code below gets <code>name</code> from the place of its origin through the outer lexical environment reference:</p>
+<p><img src="lexenv-nested-work.svg" /></p>
+<p>So, the result is <code>"Pete"</code> here.</p>
+<p>But if there were no <code>let name</code> in <code>makeWorker()</code>, then the search would go outside and take the global variable as we can see from the chain above. In that case the result would be <code>"John"</code>.</p>

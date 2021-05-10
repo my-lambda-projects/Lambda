@@ -1,0 +1,26 @@
+<p>When the browser reads the <code>on*</code> attribute like <code>onclick</code>, it creates the handler from its content.</p>
+<p>For <code>onclick="handler()"</code> the function will be:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span>(event) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="at">handler</span>() <span class="co">// the content of onclick</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>Now we can see that the value returned by <code>handler()</code> is not used and does not affect the result.</p>
+<p>The fix is simple:</p>
+```html run
+<script>
+  function handler() {
+    alert("...");
+    return false;
+  }
+</script>
+<p><a href="https://w3.org" onclick="*!*return handler()*/!*">w3.org</a> ```</p>
+<p>Also we can use <code>event.preventDefault()</code>, like this:</p>
+```html run
+<script>
+*!*
+  function handler(event) {
+    alert("...");
+    event.preventDefault();
+  }
+*/!*
+</script>
+<p><a href="https://w3.org" onclick="*!*handler(event)*/!*">w3.org</a> ```</p>

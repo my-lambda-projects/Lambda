@@ -1,0 +1,160 @@
+<h1 id="greedy-and-lazy-quantifiers">Greedy and lazy quantifiers</h1>
+<p>Quantifiers are very simple from the first sight, but in fact they can be tricky.</p>
+<p>We should understand how the search works very well if we plan to look for something more complex than <code>pattern:/\d+/</code>.</p>
+<p>Let’s take the following task as an example.</p>
+<p>We have a text and need to replace all quotes <code>"..."</code> with guillemet marks: <code>«...»</code>. They are preferred for typography in many countries.</p>
+<p>For instance: <code>"Hello, world"</code> should become <code>«Hello, world»</code>. There exist other quotes, such as <code>„Witam, świat!”</code> (Polish) or <code>「你好，世界」</code> (Chinese), but for our task let’s choose <code>«...»</code>.</p>
+<p>The first thing to do is to locate quoted strings, and then we can replace them.</p>
+<p>A regular expression like <code>pattern:/".+"/g</code> (a quote, then something, then the other quote) may seem like a good fit, but it isn’t!</p>
+<p>Let’s try it:</p>
+<p>```js run let regexp = /“.+”/g;</p>
+<p>let str = ‘a “witch” and her “broom” is one’;</p>
+<p>alert( str.match(regexp) ); // “witch” and her “broom” ```</p>
+<p>…We can see that it works not as intended!</p>
+<p>Instead of finding two matches <code>match:"witch"</code> and <code>match:"broom"</code>, it finds one: <code>match:"witch" and her "broom"</code>.</p>
+<p>That can be described as “greediness is the cause of all evil”.</p>
+<h2 id="greedy-search">Greedy search</h2>
+<p>To find a match, the regular expression engine uses the following algorithm:</p>
+<ul>
+<li>For every position in the string
+<ul>
+<li>Try to match the pattern at that position.</li>
+<li>If there’s no match, go to the next position.</li>
+</ul></li>
+</ul>
+<p>These common words do not make it obvious why the regexp fails, so let’s elaborate how the search works for the pattern <code>pattern:".+"</code>.</p>
+<ol type="1">
+<li><p>The first pattern character is a quote <code>pattern:"</code>.</p>
+<p>The regular expression engine tries to find it at the zero position of the source string <code>subject:a "witch" and her "broom" is one</code>, but there’s <code>subject:a</code> there, so there’s immediately no match.</p>
+<p>Then it advances: goes to the next positions in the source string and tries to find the first character of the pattern there, fails again, and finally finds the quote at the 3rd position:</p>
+<p><img src="witch_greedy1.svg" /></p></li>
+<li><p>The quote is detected, and then the engine tries to find a match for the rest of the pattern. It tries to see if the rest of the subject string conforms to <code>pattern:.+"</code>.</p>
+<p>In our case the next pattern character is <code>pattern:.</code> (a dot). It denotes “any character except a newline”, so the next string letter <code>match:'w'</code> fits:</p>
+<p><img src="witch_greedy2.svg" /></p></li>
+<li><p>Then the dot repeats because of the quantifier <code>pattern:.+</code>. The regular expression engine adds to the match one character after another.</p>
+<p>…Until when? All characters match the dot, so it only stops when it reaches the end of the string:</p>
+<p><img src="witch_greedy3.svg" /></p></li>
+<li><p>Now the engine finished repeating <code>pattern:.+</code> and tries to find the next character of the pattern. It’s the quote <code>pattern:"</code>. But there’s a problem: the string has finished, there are no more characters!</p>
+<p>The regular expression engine understands that it took too many <code>pattern:.+</code> and starts to <em>backtrack</em>.</p>
+<p>In other words, it shortens the match for the quantifier by one character:</p>
+<p><img src="witch_greedy4.svg" /></p>
+<p>Now it assumes that <code>pattern:.+</code> ends one character before the string end and tries to match the rest of the pattern from that position.</p>
+<p>If there were a quote there, then the search would end, but the last character is <code>subject:'e'</code>, so there’s no match.</p></li>
+<li><p>…So the engine decreases the number of repetitions of <code>pattern:.+</code> by one more character:</p>
+<p><img src="witch_greedy5.svg" /></p>
+<p>The quote <code>pattern:'"'</code> does not match <code>subject:'n'</code>.</p></li>
+<li><p>The engine keep backtracking: it decreases the count of repetition for <code>pattern:'.'</code> until the rest of the pattern (in our case <code>pattern:'"'</code>) matches:</p>
+<p><img src="witch_greedy6.svg" /></p></li>
+<li><p>The match is complete.</p></li>
+<li><p>So the first match is <code>match:"witch" and her "broom"</code>. If the regular expression has flag <code>pattern:g</code>, then the search will continue from where the first match ends. There are no more quotes in the rest of the string <code>subject:is one</code>, so no more results.</p></li>
+</ol>
+<p>That’s probably not what we expected, but that’s how it works.</p>
+<p><strong>In the greedy mode (by default) a quantified character is repeated as many times as possible.</strong></p>
+<p>The regexp engine adds to the match as many characters as it can for <code>pattern:.+</code>, and then shortens that one by one, if the rest of the pattern doesn’t match.</p>
+<p>For our task we want another thing. That’s where a lazy mode can help.</p>
+<h2 id="lazy-mode">Lazy mode</h2>
+<p>The lazy mode of quantifiers is an opposite to the greedy mode. It means: “repeat minimal number of times”.</p>
+<p>We can enable it by putting a question mark <code>pattern:'?'</code> after the quantifier, so that it becomes <code>pattern:*?</code> or <code>pattern:+?</code> or even <code>pattern:??</code> for <code>pattern:'?'</code>.</p>
+<p>To make things clear: usually a question mark <code>pattern:?</code> is a quantifier by itself (zero or one), but if added <em>after another quantifier (or even itself)</em> it gets another meaning – it switches the matching mode from greedy to lazy.</p>
+<p>The regexp <code>pattern:/".+?"/g</code> works as intended: it finds <code>match:"witch"</code> and <code>match:"broom"</code>:</p>
+<p>```js run let regexp = /“.+?”/g;</p>
+<p>let str = ‘a “witch” and her “broom” is one’;</p>
+<p>alert( str.match(regexp) ); // “witch”, “broom” ```</p>
+<p>To clearly understand the change, let’s trace the search step by step.</p>
+<ol type="1">
+<li><p>The first step is the same: it finds the pattern start <code>pattern:'"'</code> at the 3rd position:</p>
+<p><img src="witch_greedy1.svg" /></p></li>
+<li><p>The next step is also similar: the engine finds a match for the dot <code>pattern:'.'</code>:</p>
+<p><img src="witch_greedy2.svg" /></p></li>
+<li><p>And now the search goes differently. Because we have a lazy mode for <code>pattern:+?</code>, the engine doesn’t try to match a dot one more time, but stops and tries to match the rest of the pattern <code>pattern:'"'</code> right now:</p>
+<p><img src="witch_lazy3.svg" /></p>
+If there were a quote there, then the search would end, but there’s <code>'i'</code>, so there’s no match.</li>
+<li><p>Then the regular expression engine increases the number of repetitions for the dot and tries one more time:</p>
+<p><img src="witch_lazy4.svg" /></p>
+Failure again. Then the number of repetitions is increased again and again…</li>
+<li><p>…Till the match for the rest of the pattern is found:</p>
+<p><img src="witch_lazy5.svg" /></p></li>
+<li><p>The next search starts from the end of the current match and yield one more result:</p>
+<p><img src="witch_lazy6.svg" /></p></li>
+</ol>
+<p>In this example we saw how the lazy mode works for <code>pattern:+?</code>. Quantifiers <code>pattern:*?</code> and <code>pattern:??</code> work the similar way – the regexp engine increases the number of repetitions only if the rest of the pattern can’t match on the given position.</p>
+<p><strong>Laziness is only enabled for the quantifier with <code>?</code>.</strong></p>
+<p>Other quantifiers remain greedy.</p>
+<p>For instance:</p>
+<p><code>js run alert( "123 456".match(/\d+ \d+?/) ); // 123 4</code></p>
+<ol type="1">
+<li>The pattern <code>pattern:\d+</code> tries to match as many digits as it can (greedy mode), so it finds <code>match:123</code> and stops, because the next character is a space <code>pattern:' '</code>.</li>
+<li>Then there’s a space in the pattern, it matches.</li>
+<li><p>Then there’s <code>pattern:\d+?</code>. The quantifier is in lazy mode, so it finds one digit <code>match:4</code> and tries to check if the rest of the pattern matches from there.</p>
+<p>…But there’s nothing in the pattern after <code>pattern:\d+?</code>.</p>
+<p>The lazy mode doesn’t repeat anything without a need. The pattern finished, so we’re done. We have a match <code>match:123 4</code>.</p></li>
+</ol>
+<p>```smart header=“Optimizations” Modern regular expression engines can optimize internal algorithms to work faster. So they may work a bit differently from the described algorithm.</p>
+<p>But to understand how regular expressions work and to build regular expressions, we don’t need to know about that. They are only used internally to optimize things.</p>
+<p>Complex regular expressions are hard to optimize, so the search may work exactly as described as well. ```</p>
+<h2 id="alternative-approach">Alternative approach</h2>
+<p>With regexps, there’s often more than one way to do the same thing.</p>
+<p>In our case we can find quoted strings without lazy mode using the regexp <code>pattern:"[^"]+"</code>:</p>
+<p>```js run let regexp = /“[^"]+”/g;</p>
+<p>let str = ‘a “witch” and her “broom” is one’;</p>
+<p>alert( str.match(regexp) ); // “witch”, “broom” ```</p>
+<p>The regexp <code>pattern:"[^"]+"</code> gives correct results, because it looks for a quote <code>pattern:'"'</code> followed by one or more non-quotes <code>pattern:[^"]</code>, and then the closing quote.</p>
+<p>When the regexp engine looks for <code>pattern:[^"]+</code> it stops the repetitions when it meets the closing quote, and we’re done.</p>
+<p>Please note, that this logic does not replace lazy quantifiers!</p>
+<p>It is just different. There are times when we need one or another.</p>
+<p><strong>Let’s see an example where lazy quantifiers fail and this variant works right.</strong></p>
+<p>For instance, we want to find links of the form <code>&lt;a href="..." class="doc"&gt;</code>, with any <code>href</code>.</p>
+<p>Which regular expression to use?</p>
+<p>The first idea might be: <code>pattern:/&lt;a href=".*" class="doc"&gt;/g</code>.</p>
+<p>Let’s check it: ```js run let str = ‘…<a href="link" class="doc">…’; let regexp = /<a href=".*" class="doc">/g;</p>
+<p>// Works! alert( str.match(regexp) ); // <a href="link" class="doc"> ```</p>
+<p>It worked. But let’s see what happens if there are many links in the text?</p>
+<p>```js run let str = ‘…<a href="link1" class="doc">… <a href="link2" class="doc">…’; let regexp = /<a href=".*" class="doc">/g;</p>
+<p>// Whoops! Two links in one match! alert( str.match(regexp) ); // <a href="link1" class="doc">… <a href="link2" class="doc"> ```</p>
+<p>Now the result is wrong for the same reason as our “witches” example. The quantifier <code>pattern:.*</code> took too many characters.</p>
+<p>The match looks like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;.....................................&quot;</span><span class="ot"> class=</span><span class="st">&quot;doc&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;link1&quot;</span><span class="ot"> class=</span><span class="st">&quot;doc&quot;</span><span class="kw">&gt;</span>... <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;link2&quot;</span><span class="ot"> class=</span><span class="st">&quot;doc&quot;</span><span class="kw">&gt;</span></a></code></pre></div>
+<p>Let’s modify the pattern by making the quantifier <code>pattern:.*?</code> lazy:</p>
+<p>```js run let str = ‘…<a href="link1" class="doc">… <a href="link2" class="doc">…’; let regexp = /<a href=".*?" class="doc">/g;</p>
+<p>// Works! alert( str.match(regexp) ); // <a href="link1" class="doc">, <a href="link2" class="doc"> ```</p>
+<p>Now it seems to work, there are two matches:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;.....&quot;</span><span class="ot"> class=</span><span class="st">&quot;doc&quot;</span><span class="kw">&gt;</span>    <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;.....&quot;</span><span class="ot"> class=</span><span class="st">&quot;doc&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;link1&quot;</span><span class="ot"> class=</span><span class="st">&quot;doc&quot;</span><span class="kw">&gt;</span>... <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;link2&quot;</span><span class="ot"> class=</span><span class="st">&quot;doc&quot;</span><span class="kw">&gt;</span></a></code></pre></div>
+<p>…But let’s test it on one more text input:</p>
+```js run let str = ’…<a href="link1" class="wrong">…
+<p style="" class="doc">
+<p>…’; let regexp = /<a href=".*?" class="doc">/g;</p>
+// Wrong match! alert( str.match(regexp) ); // <a href="link1" class="wrong">…
+<p style="" class="doc">
+<p>```</p>
+<p>Now it fails. The match includes not just a link, but also a lot of text after it, including <code>&lt;p...&gt;</code>.</p>
+<p>Why?</p>
+<p>That’s what’s going on:</p>
+<ol type="1">
+<li>First the regexp finds a link start <code>match:&lt;a href="</code>.</li>
+<li>Then it looks for <code>pattern:.*?</code>: takes one character (lazily!), check if there’s a match for <code>pattern:" class="doc"&gt;</code> (none).</li>
+<li>Then takes another character into <code>pattern:.*?</code>, and so on… until it finally reaches <code>match:" class="doc"&gt;</code>.</li>
+</ol>
+<p>But the problem is: that’s already beyond the link <code>&lt;a...&gt;</code>, in another tag <code>&lt;p&gt;</code>. Not what we want.</p>
+<p>Here’s the picture of the match aligned with the text:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;...................................&quot;</span><span class="ot"> class=</span><span class="st">&quot;doc&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;link1&quot;</span><span class="ot"> class=</span><span class="st">&quot;wrong&quot;</span><span class="kw">&gt;</span>... <span class="kw">&lt;p</span><span class="ot"> style=</span><span class="st">&quot;&quot;</span><span class="ot"> class=</span><span class="st">&quot;doc&quot;</span><span class="kw">&gt;</span></a></code></pre></div>
+<p>So, we need the pattern to look for <code>&lt;a href="...something..." class="doc"&gt;</code>, but both greedy and lazy variants have problems.</p>
+<p>The correct variant can be: <code>pattern:href="[^"]*"</code>. It will take all characters inside the <code>href</code> attribute till the nearest quote, just what we need.</p>
+<p>A working example:</p>
+```js run let str1 = ’…<a href="link1" class="wrong">…
+<p style="" class="doc">
+<p>…‘; let str2 =’…<a href="link1" class="doc">… <a href="link2" class="doc">…’; let regexp = /&lt;a href="[^"]*" class=“doc”&gt;/g;</p>
+<p>// Works! alert( str1.match(regexp) ); // null, no matches, that’s correct alert( str2.match(regexp) ); // <a href="link1" class="doc">, <a href="link2" class="doc"> ```</p>
+<h2 id="summary">Summary</h2>
+<p>Quantifiers have two modes of work:</p>
+<dl>
+<dt>Greedy</dt>
+<dd>By default the regular expression engine tries to repeat the quantified character as many times as possible. For instance, <code>pattern:\d+</code> consumes all possible digits. When it becomes impossible to consume more (no more digits or string end), then it continues to match the rest of the pattern. If there’s no match then it decreases the number of repetitions (backtracks) and tries again.
+</dd>
+<dt>Lazy</dt>
+<dd>Enabled by the question mark <code>pattern:?</code> after the quantifier. The regexp engine tries to match the rest of the pattern before each repetition of the quantified character.
+</dd>
+</dl>
+<p>As we’ve seen, the lazy mode is not a “panacea” from the greedy search. An alternative is a “fine-tuned” greedy search, with exclusions, as in the pattern <code>pattern:"[^"]+"</code>.</p>

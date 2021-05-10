@@ -1,0 +1,11 @@
+<p><strong>The answer: from <code>0</code> to <code>4</code> in both cases.</strong></p>
+<p>```js run for (let i = 0; i &lt; 5; ++i) alert( i );</p>
+<p>for (let i = 0; i &lt; 5; i++) alert( i ); ```</p>
+<p>That can be easily deducted from the algorithm of <code>for</code>:</p>
+<ol type="1">
+<li>Execute once <code>i = 0</code> before everything (begin).</li>
+<li>Check the condition <code>i &lt; 5</code></li>
+<li>If <code>true</code> – execute the loop body <code>alert(i)</code>, and then <code>i++</code></li>
+</ol>
+<p>The increment <code>i++</code> is separated from the condition check (2). That’s just another statement.</p>
+<p>The value returned by the increment is not used here, so there’s no difference between <code>i++</code> and <code>++i</code>.</p>

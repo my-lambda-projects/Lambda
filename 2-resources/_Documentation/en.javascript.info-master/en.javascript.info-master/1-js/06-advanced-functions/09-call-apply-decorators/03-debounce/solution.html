@@ -1,0 +1,3 @@
+<p>```js demo function debounce(func, ms) { let timeout; return function() { clearTimeout(timeout); timeout = setTimeout(() =&gt; func.apply(this, arguments), ms); }; }</p>
+<p>```</p>
+<p>A call to <code>debounce</code> returns a wrapper. When called, it schedules the original function call after given <code>ms</code> and cancels the previous such timeout.</p>

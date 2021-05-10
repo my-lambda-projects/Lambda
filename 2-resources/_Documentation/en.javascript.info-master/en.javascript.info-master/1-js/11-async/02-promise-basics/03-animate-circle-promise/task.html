@@ -1,0 +1,8 @@
+<h1 id="animated-circle-with-promise">Animated circle with promise</h1>
+<p>Rewrite the <code>showCircle</code> function in the solution of the task <a href="info:task/animate-circle-callback" class="uri">info:task/animate-circle-callback</a> so that it returns a promise instead of accepting a callback.</p>
+<p>The new usage:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="at">showCircle</span>(<span class="dv">150</span><span class="op">,</span> <span class="dv">150</span><span class="op">,</span> <span class="dv">100</span>).<span class="at">then</span>(div <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="va">div</span>.<span class="va">classList</span>.<span class="at">add</span>(<span class="st">&#39;message-ball&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="va">div</span>.<span class="at">append</span>(<span class="st">&quot;Hello, world!&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>Take the solution of the task <a href="info:task/animate-circle-callback" class="uri">info:task/animate-circle-callback</a> as the base.</p>

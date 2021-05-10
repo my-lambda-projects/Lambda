@@ -1,0 +1,5 @@
+<p>The first call has <code>this == rabbit</code>, the other ones have <code>this</code> equal to <code>Rabbit.prototype</code>, because it’s actually the object before the dot.</p>
+<p>So only the first call shows <code>Rabbit</code>, other ones show <code>undefined</code>:</p>
+<p>```js run function Rabbit(name) { this.name = name; } Rabbit.prototype.sayHi = function() { alert( this.name ); }</p>
+<p>let rabbit = new Rabbit(“Rabbit”);</p>
+<p>rabbit.sayHi(); // Rabbit Rabbit.prototype.sayHi(); // undefined Object.getPrototypeOf(rabbit).sayHi(); // undefined rabbit.__proto__.sayHi(); // undefined ```</p>

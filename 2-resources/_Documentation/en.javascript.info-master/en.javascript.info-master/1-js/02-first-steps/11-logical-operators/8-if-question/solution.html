@@ -1,0 +1,5 @@
+<p>The answer: the first and the third will execute.</p>
+<p>Details:</p>
+<p>```js run // Runs. // The result of -1 || 0 = -1, truthy if (-1 || 0) alert( ‘first’ );</p>
+<p>// Doesn’t run // -1 &amp;&amp; 0 = 0, falsy if (-1 &amp;&amp; 0) alert( ‘second’ );</p>
+<p>// Executes // Operator &amp;&amp; has a higher precedence than || // so -1 &amp;&amp; 1 executes first, giving us the chain: // null || -1 &amp;&amp; 1 -&gt; null || 1 -&gt; 1 if (null || -1 &amp;&amp; 1) alert( ‘third’ ); ```</p>

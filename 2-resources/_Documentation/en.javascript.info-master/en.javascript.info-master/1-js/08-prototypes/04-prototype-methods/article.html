@@ -1,0 +1,94 @@
+<h1 id="prototype-methods-objects-without-proto">Prototype methods, objects without <strong>proto</strong></h1>
+<p>In the first chapter of this section, we mentioned that there are modern methods to setup a prototype.</p>
+<p>The <code>__proto__</code> is considered outdated and somewhat deprecated (in browser-only part of the JavaScript standard).</p>
+<p>The modern methods are:</p>
+<ul>
+<li><a href="mdn:js/Object/create">Object.create(proto, [descriptors])</a> – creates an empty object with given <code>proto</code> as <code>[[Prototype]]</code> and optional property descriptors.</li>
+<li><a href="mdn:js/Object/getPrototypeOf">Object.getPrototypeOf(obj)</a> – returns the <code>[[Prototype]]</code> of <code>obj</code>.</li>
+<li><a href="mdn:js/Object/setPrototypeOf">Object.setPrototypeOf(obj, proto)</a> – sets the <code>[[Prototype]]</code> of <code>obj</code> to <code>proto</code>.</li>
+</ul>
+<p>These should be used instead of <code>__proto__</code>.</p>
+<p>For instance:</p>
+<p>```js run let animal = { eats: true };</p>
+<p>// create a new object with animal as a prototype <em>!</em> let rabbit = Object.create(animal); <em>/!</em></p>
+<p>alert(rabbit.eats); // true</p>
+<p><em>!</em> alert(Object.getPrototypeOf(rabbit) === animal); // true <em>/!</em></p>
+<p><em>!</em> Object.setPrototypeOf(rabbit, {}); // change the prototype of rabbit to {} <em>/!</em> ```</p>
+<p><code>Object.create</code> has an optional second argument: property descriptors. We can provide additional properties to the new object there, like this:</p>
+<p>```js run let animal = { eats: true };</p>
+<p>let rabbit = Object.create(animal, { jumps: { value: true } });</p>
+<p>alert(rabbit.jumps); // true ```</p>
+<p>The descriptors are in the same format as described in the chapter <a href="info:property-descriptors" class="uri">info:property-descriptors</a>.</p>
+<p>We can use <code>Object.create</code> to perform an object cloning more powerful than copying properties in <code>for..in</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> clone <span class="op">=</span> <span class="va">Object</span>.<span class="at">create</span>(<span class="va">Object</span>.<span class="at">getPrototypeOf</span>(obj)<span class="op">,</span> <span class="va">Object</span>.<span class="at">getOwnPropertyDescriptors</span>(obj))<span class="op">;</span></a></code></pre></div>
+<p>This call makes a truly exact copy of <code>obj</code>, including all properties: enumerable and non-enumerable, data properties and setters/getters – everything, and with the right <code>[[Prototype]]</code>.</p>
+<h2 id="brief-history">Brief history</h2>
+<p>If we count all the ways to manage <code>[[Prototype]]</code>, there are a lot! Many ways to do the same thing!</p>
+<p>Why?</p>
+<p>That’s for historical reasons.</p>
+<ul>
+<li>The <code>"prototype"</code> property of a constructor function has worked since very ancient times.</li>
+<li>Later, in the year 2012, <code>Object.create</code> appeared in the standard. It gave the ability to create objects with a given prototype, but did not provide the ability to get/set it. So browsers implemented the non-standard <code>__proto__</code> accessor that allowed the user to get/set a prototype at any time.</li>
+<li>Later, in the year 2015, <code>Object.setPrototypeOf</code> and <code>Object.getPrototypeOf</code> were added to the standard, to perform the same functionality as <code>__proto__</code>. As <code>__proto__</code> was de-facto implemented everywhere, it was kind-of deprecated and made its way to the Annex B of the standard, that is: optional for non-browser environments.</li>
+</ul>
+<p>As of now we have all these ways at our disposal.</p>
+<p>Why was <code>__proto__</code> replaced by the functions <code>getPrototypeOf/setPrototypeOf</code>? That’s an interesting question, requiring us to understand why <code>__proto__</code> is bad. Read on to get the answer.</p>
+<p>``<code>warn header="Don't change</code>[[Prototype]]<code>on existing objects if speed matters" Technically, we can get/set</code>[[Prototype]]<code>at any time. But usually we only set it once at the object creation time and don't modify it anymore:</code>rabbit<code>inherits from</code>animal`, and that is not going to change.</p>
+<p>And JavaScript engines are highly optimized for this. Changing a prototype “on-the-fly” with <code>Object.setPrototypeOf</code> or <code>obj.__proto__=</code> is a very slow operation as it breaks internal optimizations for object property access operations. So avoid it unless you know what you’re doing, or JavaScript speed totally doesn’t matter for you. ```</p>
+<h2 id="very-plain-objects-very-plain">“Very plain” objects [#very-plain]</h2>
+<p>As we know, objects can be used as associative arrays to store key/value pairs.</p>
+<p>…But if we try to store <em>user-provided</em> keys in it (for instance, a user-entered dictionary), we can see an interesting glitch: all keys work fine except <code>"__proto__"</code>.</p>
+<p>Check out the example:</p>
+<p>```js run let obj = {};</p>
+<p>let key = prompt(“What’s the key?”, “<strong>proto</strong>”); obj[key] = “some value”;</p>
+<p>alert(obj[key]); // [object Object], not “some value”! ```</p>
+<p>Here, if the user types in <code>__proto__</code>, the assignment is ignored!</p>
+<p>That shouldn’t surprise us. The <code>__proto__</code> property is special: it must be either an object or <code>null</code>. A string can not become a prototype.</p>
+<p>But we didn’t <em>intend</em> to implement such behavior, right? We want to store key/value pairs, and the key named <code>"__proto__"</code> was not properly saved. So that’s a bug!</p>
+<p>Here the consequences are not terrible. But in other cases we may be assigning object values, and then the prototype may indeed be changed. As a result, the execution will go wrong in totally unexpected ways.</p>
+<p>What’s worse – usually developers do not think about such possibility at all. That makes such bugs hard to notice and even turn them into vulnerabilities, especially when JavaScript is used on server-side.</p>
+<p>Unexpected things also may happen when assigning to <code>toString</code>, which is a function by default, and to other built-in methods.</p>
+<p>How can we avoid this problem?</p>
+<p>First, we can just switch to using <code>Map</code> for storage instead of plain objects, then everything’s fine.</p>
+<p>But <code>Object</code> can also serve us well here, because language creators gave thought to that problem long ago.</p>
+<p><code>__proto__</code> is not a property of an object, but an accessor property of <code>Object.prototype</code>:</p>
+<p><img src="object-prototype-2.svg" /></p>
+<p>So, if <code>obj.__proto__</code> is read or set, the corresponding getter/setter is called from its prototype, and it gets/sets <code>[[Prototype]]</code>.</p>
+<p>As it was said in the beginning of this tutorial section: <code>__proto__</code> is a way to access <code>[[Prototype]]</code>, it is not <code>[[Prototype]]</code> itself.</p>
+<p>Now, if we intend to use an object as an associative array and be free of such problems, we can do it with a little trick:</p>
+<p>```js run <em>!</em> let obj = Object.create(null); <em>/!</em></p>
+<p>let key = prompt(“What’s the key?”, “<strong>proto</strong>”); obj[key] = “some value”;</p>
+<p>alert(obj[key]); // “some value” ```</p>
+<p><code>Object.create(null)</code> creates an empty object without a prototype (<code>[[Prototype]]</code> is <code>null</code>):</p>
+<p><img src="object-prototype-null.svg" /></p>
+<p>So, there is no inherited getter/setter for <code>__proto__</code>. Now it is processed as a regular data property, so the example above works right.</p>
+<p>We can call such objects “very plain” or “pure dictionary” objects, because they are even simpler than the regular plain object <code>{...}</code>.</p>
+<p>A downside is that such objects lack any built-in object methods, e.g. <code>toString</code>:</p>
+<p>```js run <em>!</em> let obj = Object.create(null); <em>/!</em></p>
+<p>alert(obj); // Error (no toString) ```</p>
+<p>…But that’s usually fine for associative arrays.</p>
+<p>Note that most object-related methods are <code>Object.something(...)</code>, like <code>Object.keys(obj)</code> – they are not in the prototype, so they will keep working on such objects:</p>
+<p>```js run let chineseDictionary = Object.create(null); chineseDictionary.hello = “你好”; chineseDictionary.bye = “再见”;</p>
+<p>alert(Object.keys(chineseDictionary)); // hello,bye ```</p>
+<h2 id="summary">Summary</h2>
+<p>Modern methods to set up and directly access the prototype are:</p>
+<ul>
+<li><a href="mdn:js/Object/create">Object.create(proto, [descriptors])</a> – creates an empty object with a given <code>proto</code> as <code>[[Prototype]]</code> (can be <code>null</code>) and optional property descriptors.</li>
+<li><a href="mdn:js/Object/getPrototypeOf">Object.getPrototypeOf(obj)</a> – returns the <code>[[Prototype]]</code> of <code>obj</code> (same as <code>__proto__</code> getter).</li>
+<li><a href="mdn:js/Object/setPrototypeOf">Object.setPrototypeOf(obj, proto)</a> – sets the <code>[[Prototype]]</code> of <code>obj</code> to <code>proto</code> (same as <code>__proto__</code> setter).</li>
+</ul>
+<p>The built-in <code>__proto__</code> getter/setter is unsafe if we’d want to put user-generated keys into an object. Just because a user may enter <code>"__proto__"</code> as the key, and there’ll be an error, with hopefully light, but generally unpredictable consequences.</p>
+<p>So we can either use <code>Object.create(null)</code> to create a “very plain” object without <code>__proto__</code>, or stick to <code>Map</code> objects for that.</p>
+<p>Also, <code>Object.create</code> provides an easy way to shallow-copy an object with all descriptors:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> clone <span class="op">=</span> <span class="va">Object</span>.<span class="at">create</span>(<span class="va">Object</span>.<span class="at">getPrototypeOf</span>(obj)<span class="op">,</span> <span class="va">Object</span>.<span class="at">getOwnPropertyDescriptors</span>(obj))<span class="op">;</span></a></code></pre></div>
+<p>We also made it clear that <code>__proto__</code> is a getter/setter for <code>[[Prototype]]</code> and resides in <code>Object.prototype</code>, just like other methods.</p>
+<p>We can create an object without a prototype by <code>Object.create(null)</code>. Such objects are used as “pure dictionaries”, they have no issues with <code>"__proto__"</code> as the key.</p>
+<p>Other methods:</p>
+<ul>
+<li><a href="mdn:js/Object/keys">Object.keys(obj)</a> / <a href="mdn:js/Object/values">Object.values(obj)</a> / <a href="mdn:js/Object/entries">Object.entries(obj)</a> – returns an array of enumerable own string property names/values/key-value pairs.</li>
+<li><a href="mdn:js/Object/getOwnPropertySymbols">Object.getOwnPropertySymbols(obj)</a> – returns an array of all own symbolic keys.</li>
+<li><a href="mdn:js/Object/getOwnPropertyNames">Object.getOwnPropertyNames(obj)</a> – returns an array of all own string keys.</li>
+<li><a href="mdn:js/Reflect/ownKeys">Reflect.ownKeys(obj)</a> – returns an array of all own keys.</li>
+<li><a href="mdn:js/Object/hasOwnProperty">obj.hasOwnProperty(key)</a>: returns <code>true</code> if <code>obj</code> has its own (not inherited) key named <code>key</code>.</li>
+</ul>
+<p>All methods that return object properties (like <code>Object.keys</code> and others) – return “own” properties. If we want inherited ones, we can use <code>for..in</code>.</p>

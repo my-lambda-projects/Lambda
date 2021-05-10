@@ -1,0 +1,10 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="add-method-f.deferms-to-functions">Add method “f.defer(ms)” to functions</h1>
+<p>Add to the prototype of all functions the method <code>defer(ms)</code>, that runs the function after <code>ms</code> milliseconds.</p>
+<p>After you do it, such code should work:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">f</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="at">alert</span>(<span class="st">&quot;Hello!&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="va">f</span>.<span class="at">defer</span>(<span class="dv">1000</span>)<span class="op">;</span> <span class="co">// shows &quot;Hello!&quot; after 1 second</span></a></code></pre></div>

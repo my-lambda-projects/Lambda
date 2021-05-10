@@ -1,0 +1,12 @@
+<p>importance: 4</p>
+<hr />
+<h1 id="uppercase-const">Uppercase const?</h1>
+<p>Examine the following code:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> birthday <span class="op">=</span> <span class="st">&#39;18.04.1982&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">const</span> age <span class="op">=</span> <span class="at">someCode</span>(birthday)<span class="op">;</span></a></code></pre></div>
+<p>Here we have a constant <code>birthday</code> date and the <code>age</code> is calculated from <code>birthday</code> with the help of some code (it is not provided for shortness, and because details don’t matter here).</p>
+<p>Would it be right to use upper case for <code>birthday</code>? For <code>age</code>? Or even for both?</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">const</span> BIRTHDAY <span class="op">=</span> <span class="st">&#39;18.04.1982&#39;</span><span class="op">;</span> <span class="co">// make uppercase?</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="kw">const</span> AGE <span class="op">=</span> <span class="at">someCode</span>(BIRTHDAY)<span class="op">;</span> <span class="co">// make uppercase?</span></a></code></pre></div>

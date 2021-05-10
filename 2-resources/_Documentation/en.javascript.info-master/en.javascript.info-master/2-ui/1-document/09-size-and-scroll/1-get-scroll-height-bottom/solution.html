@@ -1,0 +1,3 @@
+<p>The solution is:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> scrollBottom <span class="op">=</span> <span class="va">elem</span>.<span class="at">scrollHeight</span> <span class="op">-</span> <span class="va">elem</span>.<span class="at">scrollTop</span> <span class="op">-</span> <span class="va">elem</span>.<span class="at">clientHeight</span><span class="op">;</span></a></code></pre></div>
+<p>In other words: (full height) minus (scrolled out top part) minus (visible part) – that’s exactly the scrolled out bottom part.</p>

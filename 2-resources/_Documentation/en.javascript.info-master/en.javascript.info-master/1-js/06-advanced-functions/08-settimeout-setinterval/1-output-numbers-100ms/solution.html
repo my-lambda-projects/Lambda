@@ -1,0 +1,14 @@
+<p>Using <code>setInterval</code>:</p>
+<p>```js run function printNumbers(from, to) { let current = from;</p>
+<p>let timerId = setInterval(function() { alert(current); if (current == to) { clearInterval(timerId); } current++; }, 1000); }</p>
+<p>// usage: printNumbers(5, 10); ```</p>
+<p>Using nested <code>setTimeout</code>:</p>
+<p>```js run function printNumbers(from, to) { let current = from;</p>
+<p>setTimeout(function go() { alert(current); if (current &lt; to) { setTimeout(go, 1000); } current++; }, 1000); }</p>
+<p>// usage: printNumbers(5, 10); ```</p>
+<p>Note that in both solutions, there is an initial delay before the first output. The function is called after <code>1000ms</code> the first time.</p>
+<p>If we also want the function to run immediately, then we can add an additional call on a separate line, like this:</p>
+<p>```js run function printNumbers(from, to) { let current = from;</p>
+<p>function go() { alert(current); if (current == to) { clearInterval(timerId); } current++; }</p>
+<p><em>!</em> go(); <em>/!</em> let timerId = setInterval(go, 1000); }</p>
+<p>printNumbers(5, 10); ```</p>

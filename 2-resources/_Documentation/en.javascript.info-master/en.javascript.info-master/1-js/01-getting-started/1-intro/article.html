@@ -1,0 +1,81 @@
+<h1 id="an-introduction-to-javascript">An Introduction to JavaScript</h1>
+<p>Let’s see what’s so special about JavaScript, what we can achieve with it, and what other technologies play well with it.</p>
+<h2 id="what-is-javascript">What is JavaScript?</h2>
+<p><em>JavaScript</em> was initially created to “make web pages alive”.</p>
+<p>The programs in this language are called <em>scripts</em>. They can be written right in a web page’s HTML and run automatically as the page loads.</p>
+<p>Scripts are provided and executed as plain text. They don’t need special preparation or compilation to run.</p>
+<p>In this aspect, JavaScript is very different from another language called <a href="https://en.wikipedia.org/wiki/Java_(programming_language)">Java</a>.</p>
+<p>```smart header=“Why is it called <u>Java</u>Script?” When JavaScript was created, it initially had another name: “LiveScript”. But Java was very popular at that time, so it was decided that positioning a new language as a “younger brother” of Java would help.</p>
+<p>But as it evolved, JavaScript became a fully independent language with its own specification called <a href="http://en.wikipedia.org/wiki/ECMAScript">ECMAScript</a>, and now it has no relation to Java at all. ```</p>
+<p>Today, JavaScript can execute not only in the browser, but also on the server, or actually on any device that has a special program called <a href="https://en.wikipedia.org/wiki/JavaScript_engine">the JavaScript engine</a>.</p>
+<p>The browser has an embedded engine sometimes called a “JavaScript virtual machine”.</p>
+<p>Different engines have different “codenames”. For example:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/V8_(JavaScript_engine)">V8</a> – in Chrome and Opera.</li>
+<li><a href="https://en.wikipedia.org/wiki/SpiderMonkey">SpiderMonkey</a> – in Firefox.</li>
+<li>…There are other codenames like “Chakra” for IE, “ChakraCore” for Microsoft Edge, “Nitro” and “SquirrelFish” for Safari, etc.</li>
+</ul>
+<p>The terms above are good to remember because they are used in developer articles on the internet. We’ll use them too. For instance, if “a feature X is supported by V8”, then it probably works in Chrome and Opera.</p>
+<p>```smart header=“How do engines work?”</p>
+<p>Engines are complicated. But the basics are easy.</p>
+<ol type="1">
+<li>The engine (embedded if it’s a browser) reads (“parses”) the script.</li>
+<li>Then it converts (“compiles”) the script to the machine language.</li>
+<li>And then the machine code runs, pretty fast.</li>
+</ol>
+<p>The engine applies optimizations at each step of the process. It even watches the compiled script as it runs, analyzes the data that flows through it, and further optimizes the machine code based on that knowledge. ```</p>
+<h2 id="what-can-in-browser-javascript-do">What can in-browser JavaScript do?</h2>
+<p>Modern JavaScript is a “safe” programming language. It does not provide low-level access to memory or CPU, because it was initially created for browsers which do not require it.</p>
+<p>JavaScript’s capabilities greatly depend on the environment it’s running in. For instance, <a href="https://wikipedia.org/wiki/Node.js">Node.js</a> supports functions that allow JavaScript to read/write arbitrary files, perform network requests, etc.</p>
+<p>In-browser JavaScript can do everything related to webpage manipulation, interaction with the user, and the webserver.</p>
+<p>For instance, in-browser JavaScript is able to:</p>
+<ul>
+<li>Add new HTML to the page, change the existing content, modify styles.</li>
+<li>React to user actions, run on mouse clicks, pointer movements, key presses.</li>
+<li>Send requests over the network to remote servers, download and upload files (so-called <a href="https://en.wikipedia.org/wiki/Ajax_(programming)">AJAX</a> and <a href="https://en.wikipedia.org/wiki/Comet_(programming)">COMET</a> technologies).</li>
+<li>Get and set cookies, ask questions to the visitor, show messages.</li>
+<li>Remember the data on the client-side (“local storage”).</li>
+</ul>
+<h2 id="what-cant-in-browser-javascript-do">What CAN’T in-browser JavaScript do?</h2>
+<p>JavaScript’s abilities in the browser are limited for the sake of the user’s safety. The aim is to prevent an evil webpage from accessing private information or harming the user’s data.</p>
+<p>Examples of such restrictions include:</p>
+<ul>
+<li><p>JavaScript on a webpage may not read/write arbitrary files on the hard disk, copy them or execute programs. It has no direct access to OS functions.</p>
+<p>Modern browsers allow it to work with files, but the access is limited and only provided if the user does certain actions, like “dropping” a file into a browser window or selecting it via an <code>&lt;input&gt;</code> tag.</p>
+There are ways to interact with camera/microphone and other devices, but they require a user’s explicit permission. So a JavaScript-enabled page may not sneakily enable a web-camera, observe the surroundings and send the information to the <a href="https://en.wikipedia.org/wiki/National_Security_Agency">NSA</a>.</li>
+<li><p>Different tabs/windows generally do not know about each other. Sometimes they do, for example when one window uses JavaScript to open the other one. But even in this case, JavaScript from one page may not access the other if they come from different sites (from a different domain, protocol or port).</p>
+<p>This is called the “Same Origin Policy”. To work around that, <em>both pages</em> must agree for data exchange and contain a special JavaScript code that handles it. We’ll cover that in the tutorial.</p>
+This limitation is, again, for the user’s safety. A page from <code>http://anysite.com</code> which a user has opened must not be able to access another browser tab with the URL <code>http://gmail.com</code> and steal information from there.</li>
+<li><p>JavaScript can easily communicate over the net to the server where the current page came from. But its ability to receive data from other sites/domains is crippled. Though possible, it requires explicit agreement (expressed in HTTP headers) from the remote side. Once again, that’s a safety limitation.</p></li>
+</ul>
+<p><img src="limitations.svg" /></p>
+<p>Such limits do not exist if JavaScript is used outside of the browser, for example on a server. Modern browsers also allow plugin/extensions which may ask for extended permissions.</p>
+<h2 id="what-makes-javascript-unique">What makes JavaScript unique?</h2>
+<p>There are at least <em>three</em> great things about JavaScript:</p>
+<pre class="compare"><code>+ Full integration with HTML/CSS.
++ Simple things are done simply.
++ Support by all major browsers and enabled by default.</code></pre>
+<p>JavaScript is the only browser technology that combines these three things.</p>
+<p>That’s what makes JavaScript unique. That’s why it’s the most widespread tool for creating browser interfaces.</p>
+<p>That said, JavaScript also allows to create servers, mobile applications, etc.</p>
+<h2 id="languages-over-javascript">Languages “over” JavaScript</h2>
+<p>The syntax of JavaScript does not suit everyone’s needs. Different people want different features.</p>
+<p>That’s to be expected, because projects and requirements are different for everyone.</p>
+<p>So recently a plethora of new languages appeared, which are <em>transpiled</em> (converted) to JavaScript before they run in the browser.</p>
+<p>Modern tools make the transpilation very fast and transparent, actually allowing developers to code in another language and auto-converting it “under the hood”.</p>
+<p>Examples of such languages:</p>
+<ul>
+<li><a href="http://coffeescript.org/">CoffeeScript</a> is a “syntactic sugar” for JavaScript. It introduces shorter syntax, allowing us to write clearer and more precise code. Usually, Ruby devs like it.</li>
+<li><a href="http://www.typescriptlang.org/">TypeScript</a> is concentrated on adding “strict data typing” to simplify the development and support of complex systems. It is developed by Microsoft.</li>
+<li><a href="http://flow.org/">Flow</a> also adds data typing, but in a different way. Developed by Facebook.</li>
+<li><a href="https://www.dartlang.org/">Dart</a> is a standalone language that has its own engine that runs in non-browser environments (like mobile apps), but also can be transpiled to JavaScript. Developed by Google.</li>
+<li><a href="https://brython.info/">Brython</a> is a Python transpiler to JavaScript that enables the writing of applications in pure Python without JavaScript.</li>
+<li><a href="https://kotlinlang.org/docs/reference/js-overview.html">Kotlin</a> is a modern, concise and safe programming language that can target the browser or Node.</li>
+</ul>
+<p>There are more. Of course, even if we use one of transpiled languages, we should also know JavaScript to really understand what we’re doing.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>JavaScript was initially created as a browser-only language, but it is now used in many other environments as well.</li>
+<li>Today, JavaScript has a unique position as the most widely-adopted browser language with full integration in HTML/CSS.</li>
+<li>There are many languages that get “transpiled” to JavaScript and provide certain features. It is recommended to take a look at them, at least briefly, after mastering JavaScript.</li>
+</ul>

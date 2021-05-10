@@ -1,0 +1,3 @@
+<p>We can use <code>mouse.onclick</code> to handle the click and make the mouse “moveable” with <code>position:fixed</code>, then <code>mouse.onkeydown</code> to handle arrow keys.</p>
+<p>The only pitfall is that <code>keydown</code> only triggers on elements with focus. So we need to add <code>tabindex</code> to the element. As we’re forbidden to change HTML, we can use <code>mouse.tabIndex</code> property for that.</p>
+<p>P.S. We also can replace <code>mouse.onclick</code> with <code>mouse.onfocus</code>.</p>

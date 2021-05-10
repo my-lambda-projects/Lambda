@@ -1,0 +1,77 @@
+<h1 id="fetch-abort">Fetch: Abort</h1>
+<p>As we know, <code>fetch</code> returns a promise. And JavaScript generally has no concept of “aborting” a promise. So how can we cancel an ongoing <code>fetch</code>? E.g. if the user actions on our site indicate that the <code>fetch</code> isn’t needed any more.</p>
+<p>There’s a special built-in object for such purposes: <code>AbortController</code>. It can be used to abort not only <code>fetch</code>, but other asynchronous tasks as well.</p>
+<p>The usage is very straightforward:</p>
+<h2 id="the-abortcontroller-object">The AbortController object</h2>
+<p>Create a controller:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> controller <span class="op">=</span> <span class="kw">new</span> <span class="at">AbortController</span>()<span class="op">;</span></a></code></pre></div>
+<p>A controller is an extremely simple object.</p>
+<ul>
+<li>It has a single method <code>abort()</code>,</li>
+<li>And a single property <code>signal</code> that allows to set event listeners on it.</li>
+</ul>
+<p>When <code>abort()</code> is called: - <code>controller.signal</code> emits the <code>"abort"</code> event. - <code>controller.signal.aborted</code> property becomes <code>true</code>.</p>
+<p>Generally, we have two parties in the process: 1. The one that performs a cancelable operation, it sets a listener on <code>controller.signal</code>. 2. The one that cancels: it calls <code>controller.abort()</code> when needed.</p>
+<p>Here’s the full example (without <code>fetch</code> yet):</p>
+<p>```js run let controller = new AbortController(); let signal = controller.signal;</p>
+<p>// The party that performs a cancelable operation // gets the “signal” object // and sets the listener to trigger when controller.abort() is called signal.addEventListener(‘abort’, () =&gt; alert(“abort!”));</p>
+<p>// The other party, that cancels (at any point later): controller.abort(); // abort!</p>
+<p>// The event triggers and signal.aborted becomes true alert(signal.aborted); // true ```</p>
+<p>As we can see, <code>AbortController</code> is just a mean to pass <code>abort</code> events when <code>abort()</code> is called on it.</p>
+<p>We could implement the same kind of event listening in our code on our own, without the <code>AbortController</code> object.</p>
+<p>But what’s valuable is that <code>fetch</code> knows how to work with the <code>AbortController</code> object. It’s integrated in it.</p>
+<h2 id="using-with-fetch">Using with fetch</h2>
+<p>To be able to cancel <code>fetch</code>, pass the <code>signal</code> property of an <code>AbortController</code> as a <code>fetch</code> option:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> controller <span class="op">=</span> <span class="kw">new</span> <span class="at">AbortController</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">fetch</span>(url<span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="dt">signal</span><span class="op">:</span> <span class="va">controller</span>.<span class="at">signal</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>The <code>fetch</code> method knows how to work with <code>AbortController</code>. It will listen to <code>abort</code> events on <code>signal</code>.</p>
+<p>Now, to abort, call <code>controller.abort()</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">controller</span>.<span class="at">abort</span>()<span class="op">;</span></a></code></pre></div>
+<p>We’re done: <code>fetch</code> gets the event from <code>signal</code> and aborts the request.</p>
+<p>When a fetch is aborted, its promise rejects with an error <code>AbortError</code>, so we should handle it, e.g. in <code>try..catch</code>.</p>
+<p>Here’s the full example with <code>fetch</code> aborted after 1 second:</p>
+<p>```js run async // abort in 1 second let controller = new AbortController(); setTimeout(() =&gt; controller.abort(), 1000);</p>
+<p>try { let response = await fetch(‘/article/fetch-abort/demo/hang’, { signal: controller.signal }); } catch(err) { if (err.name == ‘AbortError’) { // handle abort() alert(“Aborted!”); } else { throw err; } } ```</p>
+<h2 id="abortcontroller-is-scalable">AbortController is scalable</h2>
+<p><code>AbortController</code> is scalable. It allows to cancel multiple fetches at once.</p>
+<p>Here’s a sketch of code that fetches many <code>urls</code> in parallel, and uses a single controller to abort them all:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">let</span> urls <span class="op">=</span> [...]<span class="op">;</span> <span class="co">// a list of urls to fetch in parallel</span></a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="kw">let</span> controller <span class="op">=</span> <span class="kw">new</span> <span class="at">AbortController</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-4" title="4"></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="co">// an array of fetch promises</span></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="kw">let</span> fetchJobs <span class="op">=</span> <span class="va">urls</span>.<span class="at">map</span>(url <span class="kw">=&gt;</span> <span class="at">fetch</span>(url<span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-7" title="7">  <span class="dt">signal</span><span class="op">:</span> <span class="va">controller</span>.<span class="at">signal</span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="op">}</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-9" title="9"></a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="kw">let</span> results <span class="op">=</span> <span class="cf">await</span> <span class="va">Promise</span>.<span class="at">all</span>(fetchJobs)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-11" title="11"></a>
+<a class="sourceLine" id="cb4-12" title="12"><span class="co">// if controller.abort() is called from anywhere,</span></a>
+<a class="sourceLine" id="cb4-13" title="13"><span class="co">// it aborts all fetches</span></a></code></pre></div>
+<p>If we have our own asynchronous tasks, different from <code>fetch</code>, we can use a single <code>AbortController</code> to stop those, together with fetches.</p>
+<p>We just need to listen to its <code>abort</code> event in our tasks:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">let</span> urls <span class="op">=</span> [...]<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw">let</span> controller <span class="op">=</span> <span class="kw">new</span> <span class="at">AbortController</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-3" title="3"></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="kw">let</span> ourJob <span class="op">=</span> <span class="kw">new</span> <span class="at">Promise</span>((resolve<span class="op">,</span> reject) <span class="kw">=&gt;</span> <span class="op">{</span> <span class="co">// our task</span></a>
+<a class="sourceLine" id="cb5-5" title="5">  ...</a>
+<a class="sourceLine" id="cb5-6" title="6">  <span class="va">controller</span>.<span class="va">signal</span>.<span class="at">addEventListener</span>(<span class="st">&#39;abort&#39;</span><span class="op">,</span> reject)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-8" title="8"></a>
+<a class="sourceLine" id="cb5-9" title="9"><span class="kw">let</span> fetchJobs <span class="op">=</span> <span class="va">urls</span>.<span class="at">map</span>(url <span class="kw">=&gt;</span> <span class="at">fetch</span>(url<span class="op">,</span> <span class="op">{</span> <span class="co">// fetches</span></a>
+<a class="sourceLine" id="cb5-10" title="10">  <span class="dt">signal</span><span class="op">:</span> <span class="va">controller</span>.<span class="at">signal</span></a>
+<a class="sourceLine" id="cb5-11" title="11"><span class="op">}</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-12" title="12"></a>
+<a class="sourceLine" id="cb5-13" title="13"><span class="co">// Wait for fetches and our task in parallel</span></a>
+<a class="sourceLine" id="cb5-14" title="14"><span class="kw">let</span> results <span class="op">=</span> <span class="cf">await</span> <span class="va">Promise</span>.<span class="at">all</span>([...<span class="at">fetchJobs</span><span class="op">,</span> ourJob])<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-15" title="15"></a>
+<a class="sourceLine" id="cb5-16" title="16"><span class="co">// if controller.abort() is called from anywhere,</span></a>
+<a class="sourceLine" id="cb5-17" title="17"><span class="co">// it aborts all fetches and ourJob</span></a></code></pre></div>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><code>AbortController</code> is a simple object that generates an <code>abort</code> event on it’s <code>signal</code> property when the <code>abort()</code> method is called (and also sets <code>signal.aborted</code> to <code>true</code>).</li>
+<li><code>fetch</code> integrates with it: we pass the <code>signal</code> property as the option, and then <code>fetch</code> listens to it, so it’s possible to abort the <code>fetch</code>.</li>
+<li>We can use <code>AbortController</code> in our code. The “call <code>abort()</code>” -&gt; “listen to <code>abort</code> event” interaction is simple and universal. We can use it even without <code>fetch</code>.</li>
+</ul>

@@ -1,0 +1,192 @@
+<h1 id="server-sent-events">Server Sent Events</h1>
+<p>The <a href="https://html.spec.whatwg.org/multipage/comms.html#the-eventsource-interface">Server-Sent Events</a> specification describes a built-in class <code>EventSource</code>, that keeps connection with the server and allows to receive events from it.</p>
+<p>Similar to <code>WebSocket</code>, the connection is persistent.</p>
+<p>But there are several important differences:</p>
+<table>
+<colgroup>
+<col style="width: 46%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><code>WebSocket</code></th>
+<th><code>EventSource</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bi-directional: both client and server can exchange messages</td>
+<td>One-directional: only server sends data</td>
+</tr>
+<tr class="even">
+<td>Binary and text data</td>
+<td>Only text</td>
+</tr>
+<tr class="odd">
+<td>WebSocket protocol</td>
+<td>Regular HTTP</td>
+</tr>
+</tbody>
+</table>
+<p><code>EventSource</code> is a less-powerful way of communicating with the server than <code>WebSocket</code>.</p>
+<p>Why should one ever use it?</p>
+<p>The main reason: it’s simpler. In many applications, the power of <code>WebSocket</code> is a little bit too much.</p>
+<p>We need to receive a stream of data from server: maybe chat messages or market prices, or whatever. That’s what <code>EventSource</code> is good at. Also it supports auto-reconnect, something we need to implement manually with <code>WebSocket</code>. Besides, it’s a plain old HTTP, not a new protocol.</p>
+<h2 id="getting-messages">Getting messages</h2>
+<p>To start receiving messages, we just need to create <code>new EventSource(url)</code>.</p>
+<p>The browser will connect to <code>url</code> and keep the connection open, waiting for events.</p>
+<p>The server should respond with status 200 and the header <code>Content-Type: text/event-stream</code>, then keep the connection and write messages into it in the special format, like this:</p>
+<pre><code>data: Message 1
+
+data: Message 2
+
+data: Message 3
+data: of two lines</code></pre>
+<ul>
+<li>A message text goes after <code>data:</code>, the space after the colon is optional.</li>
+<li>Messages are delimited with double line breaks <code>\n\n</code>.</li>
+<li>To send a line break <code>\n</code>, we can immediately send one more <code>data:</code> (3rd message above).</li>
+</ul>
+<p>In practice, complex messages are usually sent JSON-encoded. Line-breaks are encoded as <code>\n</code> within them, so multiline <code>data:</code> messages are not necessary.</p>
+<p>For instance:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1">data<span class="op">:</span> <span class="op">{</span><span class="st">&quot;user&quot;</span><span class="op">:</span><span class="st">&quot;John&quot;</span><span class="op">,</span><span class="st">&quot;message&quot;</span><span class="op">:</span><span class="st">&quot;First line*!*</span><span class="sc">\n</span><span class="st">*/!* Second line&quot;</span><span class="op">}</span></a></code></pre></div>
+<p>…So we can assume that one <code>data:</code> holds exactly one message.</p>
+<p>For each such message, the <code>message</code> event is generated:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> eventSource <span class="op">=</span> <span class="kw">new</span> <span class="at">EventSource</span>(<span class="st">&quot;/events/subscribe&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="va">eventSource</span>.<span class="at">onmessage</span> <span class="op">=</span> <span class="kw">function</span>(event) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;New message&quot;</span><span class="op">,</span> <span class="va">event</span>.<span class="at">data</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-5" title="5">  <span class="co">// will log 3 times for the data stream above</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="op">};</span></a>
+<a class="sourceLine" id="cb3-7" title="7"></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="co">// or eventSource.addEventListener(&#39;message&#39;, ...)</span></a></code></pre></div>
+<h3 id="cross-origin-requests">Cross-origin requests</h3>
+<p><code>EventSource</code> supports cross-origin requests, like <code>fetch</code> and any other networking methods. We can use any URL:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">let</span> source <span class="op">=</span> <span class="kw">new</span> <span class="at">EventSource</span>(<span class="st">&quot;https://another-site.com/events&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<p>The remote server will get the <code>Origin</code> header and must respond with <code>Access-Control-Allow-Origin</code> to proceed.</p>
+<p>To pass credentials, we should set the additional option <code>withCredentials</code>, like this:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">let</span> source <span class="op">=</span> <span class="kw">new</span> <span class="at">EventSource</span>(<span class="st">&quot;https://another-site.com/events&quot;</span><span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="dt">withCredentials</span><span class="op">:</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>Please see the chapter <a href="info:fetch-crossorigin" class="uri">info:fetch-crossorigin</a> for more details about cross-origin headers.</p>
+<h2 id="reconnection">Reconnection</h2>
+<p>Upon creation, <code>new EventSource</code> connects to the server, and if the connection is broken – reconnects.</p>
+<p>That’s very convenient, as we don’t have to care about it.</p>
+<p>There’s a small delay between reconnections, a few seconds by default.</p>
+<p>The server can set the recommended delay using <code>retry:</code> in response (in milliseconds):</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1">retry<span class="op">:</span> <span class="dv">15000</span></a>
+<a class="sourceLine" id="cb6-2" title="2">data<span class="op">:</span> Hello<span class="op">,</span> I set the reconnection delay to <span class="dv">15</span> seconds</a></code></pre></div>
+<p>The <code>retry:</code> may come both together with some data, or as a standalone message.</p>
+<p>The browser should wait that many milliseconds before reconnecting. Or longer, e.g. if the browser knows (from OS) that there’s no network connection at the moment, it may wait until the connection appears, and then retry.</p>
+<ul>
+<li>If the server wants the browser to stop reconnecting, it should respond with HTTP status 204.</li>
+<li>If the browser wants to close the connection, it should call <code>eventSource.close()</code>:</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">let</span> eventSource <span class="op">=</span> <span class="kw">new</span> <span class="at">EventSource</span>(...)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-2" title="2"></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="va">eventSource</span>.<span class="at">close</span>()<span class="op">;</span></a></code></pre></div>
+<p>Also, there will be no reconnection if the response has an incorrect <code>Content-Type</code> or its HTTP status differs from 301, 307, 200 and 204. In such cases the <code>"error"</code> event will be emitted, and the browser won’t reconnect.</p>
+<pre class="smart"><code>When a connection is finally closed, there&#39;s no way to &quot;reopen&quot; it. If we&#39;d like to connect again, just create a new `EventSource`.</code></pre>
+<h2 id="message-id">Message id</h2>
+<p>When a connection breaks due to network problems, either side can’t be sure which messages were received, and which weren’t.</p>
+<p>To correctly resume the connection, each message should have an <code>id</code> field, like this:</p>
+<pre><code>data: Message 1
+id: 1
+
+data: Message 2
+id: 2
+
+data: Message 3
+data: of two lines
+id: 3</code></pre>
+<p>When a message with <code>id:</code> is received, the browser:</p>
+<ul>
+<li>Sets the property <code>eventSource.lastEventId</code> to its value.</li>
+<li>Upon reconnection sends the header <code>Last-Event-ID</code> with that <code>id</code>, so that the server may re-send following messages.</li>
+</ul>
+<p><code>smart header="Put `id:` after `data:`" Please note: the `id` is appended below message `data` by the server, to ensure that `lastEventId` is updated after the message is received.</code></p>
+<h2 id="connection-status-readystate">Connection status: readyState</h2>
+<p>The <code>EventSource</code> object has <code>readyState</code> property, that has one of three values:</p>
+<p><code>js no-beautify EventSource.CONNECTING = 0; // connecting or reconnecting EventSource.OPEN = 1;       // connected EventSource.CLOSED = 2;     // connection closed</code></p>
+<p>When an object is created, or the connection is down, it’s always <code>EventSource.CONNECTING</code> (equals <code>0</code>).</p>
+<p>We can query this property to know the state of <code>EventSource</code>.</p>
+<h2 id="event-types">Event types</h2>
+<p>By default <code>EventSource</code> object generates three events:</p>
+<ul>
+<li><code>message</code> – a message received, available as <code>event.data</code>.</li>
+<li><code>open</code> – the connection is open.</li>
+<li><code>error</code> – the connection could not be established, e.g. the server returned HTTP 500 status.</li>
+</ul>
+<p>The server may specify another type of event with <code>event: ...</code> at the event start.</p>
+<p>For example:</p>
+<pre><code>event: join
+data: Bob
+
+data: Hello
+
+event: leave
+data: Bob</code></pre>
+<p>To handle custom events, we must use <code>addEventListener</code>, not <code>onmessage</code>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="va">eventSource</span>.<span class="at">addEventListener</span>(<span class="st">&#39;join&#39;</span><span class="op">,</span> event <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-2" title="2">  <span class="at">alert</span>(<span class="vs">`Joined </span><span class="sc">${</span><span class="va">event</span>.<span class="at">data</span><span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-4" title="4"></a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="va">eventSource</span>.<span class="at">addEventListener</span>(<span class="st">&#39;message&#39;</span><span class="op">,</span> event <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-6" title="6">  <span class="at">alert</span>(<span class="vs">`Said: </span><span class="sc">${</span><span class="va">event</span>.<span class="at">data</span><span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-7" title="7"><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-8" title="8"></a>
+<a class="sourceLine" id="cb11-9" title="9"><span class="va">eventSource</span>.<span class="at">addEventListener</span>(<span class="st">&#39;leave&#39;</span><span class="op">,</span> event <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-10" title="10">  <span class="at">alert</span>(<span class="vs">`Left </span><span class="sc">${</span><span class="va">event</span>.<span class="at">data</span><span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-11" title="11"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<h2 id="full-example">Full example</h2>
+<p>Here’s the server that sends messages with <code>1</code>, <code>2</code>, <code>3</code>, then <code>bye</code> and breaks the connection.</p>
+<p>Then the browser automatically reconnects.</p>
+<p>[codetabs src=“eventsource”]</p>
+<h2 id="summary">Summary</h2>
+<p><code>EventSource</code> object automatically establishes a persistent connection and allows the server to send messages over it.</p>
+<p>It offers: - Automatic reconnect, with tunable <code>retry</code> timeout. - Message ids to resume events, the last received identifier is sent in <code>Last-Event-ID</code> header upon reconnection. - The current state is in the <code>readyState</code> property.</p>
+<p>That makes <code>EventSource</code> a viable alternative to <code>WebSocket</code>, as the latter is more low-level and lacks such built-in features (though they can be implemented).</p>
+<p>In many real-life applications, the power of <code>EventSource</code> is just enough.</p>
+<p>Supported in all modern browsers (not IE).</p>
+<p>The syntax is:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">let</span> source <span class="op">=</span> <span class="kw">new</span> <span class="at">EventSource</span>(url<span class="op">,</span> [credentials])<span class="op">;</span></a></code></pre></div>
+<p>The second argument has only one possible option: <code>{ withCredentials: true }</code>, it allows sending cross-origin credentials.</p>
+<p>Overall cross-origin security is same as for <code>fetch</code> and other network methods.</p>
+<h3 id="properties-of-an-eventsource-object">Properties of an <code>EventSource</code> object</h3>
+<dl>
+<dt><code>readyState</code></dt>
+<dd>The current connection state: either <code>EventSource.CONNECTING (=0)</code>, <code>EventSource.OPEN (=1)</code> or <code>EventSource.CLOSED (=2)</code>.
+</dd>
+<dt><code>lastEventId</code></dt>
+<dd>The last received <code>id</code>. Upon reconnection the browser sends it in the header <code>Last-Event-ID</code>.
+</dd>
+</dl>
+<h3 id="methods">Methods</h3>
+<dl>
+<dt><code>close()</code></dt>
+<dd>Closes the connection.
+</dd>
+</dl>
+<h3 id="events">Events</h3>
+<dl>
+<dt><code>message</code></dt>
+<dd>Message received, the data is in <code>event.data</code>.
+</dd>
+<dt><code>open</code></dt>
+<dd>The connection is established.
+</dd>
+<dt><code>error</code></dt>
+<dd>In case of an error, including both lost connection (will auto-reconnect) and fatal errors. We can check <code>readyState</code> to see if the reconnection is being attempted.
+</dd>
+</dl>
+<p>The server may set a custom event name in <code>event:</code>. Such events should be handled using <code>addEventListener</code>, not <code>on&lt;event&gt;</code>.</p>
+<h3 id="server-response-format">Server response format</h3>
+<p>The server sends messages, delimited by <code>\n\n</code>.</p>
+<p>A message may have following fields:</p>
+<ul>
+<li><code>data:</code> – message body, a sequence of multiple <code>data</code> is interpreted as a single message, with <code>\n</code> between the parts.</li>
+<li><code>id:</code> – renews <code>lastEventId</code>, sent in <code>Last-Event-ID</code> on reconnect.</li>
+<li><code>retry:</code> – recommends a retry delay for reconnections in ms. There’s no way to set it from JavaScript.</li>
+<li><code>event:</code> – event name, must precede <code>data:</code>.</li>
+</ul>
+<p>A message may include one or more fields in any order, but <code>id:</code> usually goes the last.</p>

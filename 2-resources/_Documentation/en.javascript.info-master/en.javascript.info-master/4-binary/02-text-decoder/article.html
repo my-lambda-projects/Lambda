@@ -1,0 +1,39 @@
+<h1 id="textdecoder-and-textencoder">TextDecoder and TextEncoder</h1>
+<p>What if the binary data is actually a string? For instance, we received a file with textual data.</p>
+<p>The build-in <a href="https://encoding.spec.whatwg.org/#interface-textdecoder">TextDecoder</a> object allows to read the value into an actual JavaScript string, given the buffer and the encoding.</p>
+<p>We first need to create it:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> decoder <span class="op">=</span> <span class="kw">new</span> <span class="at">TextDecoder</span>([label]<span class="op">,</span> [options])<span class="op">;</span></a></code></pre></div>
+<ul>
+<li><strong><code>label</code></strong> – the encoding, <code>utf-8</code> by default, but <code>big5</code>, <code>windows-1251</code> and many other are also supported.</li>
+<li><strong><code>options</code></strong> – optional object:
+<ul>
+<li><strong><code>fatal</code></strong> – boolean, if <code>true</code> then throw an exception for invalid (non-decodable) characters, otherwise (default) replace them with character <code>\uFFFD</code>.</li>
+<li><strong><code>ignoreBOM</code></strong> – boolean, if <code>true</code> then ignore BOM (an optional byte-order Unicode mark), rarely needed.</li>
+</ul></li>
+</ul>
+<p>…And then decode:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> str <span class="op">=</span> <span class="va">decoder</span>.<span class="at">decode</span>([input]<span class="op">,</span> [options])<span class="op">;</span></a></code></pre></div>
+<ul>
+<li><strong><code>input</code></strong> – <code>BufferSource</code> to decode.</li>
+<li><strong><code>options</code></strong> – optional object:
+<ul>
+<li><strong><code>stream</code></strong> – true for decoding streams, when <code>decoder</code> is called repeatedly with incoming chunks of data. In that case a multi-byte character may occasionally split between chunks. This options tells <code>TextDecoder</code> to memorize “unfinished” characters and decode them when the next chunk comes.</li>
+</ul></li>
+</ul>
+<p>For instance:</p>
+<p>```js run let uint8Array = new Uint8Array([72, 101, 108, 108, 111]);</p>
+<p>alert( new TextDecoder().decode(uint8Array) ); // Hello ```</p>
+<p>```js run let uint8Array = new Uint8Array([228, 189, 160, 229, 165, 189]);</p>
+<p>alert( new TextDecoder().decode(uint8Array) ); // 你好 ```</p>
+<p>We can decode a part of the buffer by creating a subarray view for it:</p>
+<p>```js run let uint8Array = new Uint8Array([0, 72, 101, 108, 108, 111, 0]);</p>
+<p>// the string is in the middle // create a new view over it, without copying anything let binaryString = uint8Array.subarray(1, -1);</p>
+<p>alert( new TextDecoder().decode(binaryString) ); // Hello ```</p>
+<h2 id="textencoder">TextEncoder</h2>
+<p><a href="https://encoding.spec.whatwg.org/#interface-textencoder">TextEncoder</a> does the reverse thing – converts a string into bytes.</p>
+<p>The syntax is:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> encoder <span class="op">=</span> <span class="kw">new</span> <span class="at">TextEncoder</span>()<span class="op">;</span></a></code></pre></div>
+<p>The only encoding it supports is “utf-8”.</p>
+<p>It has two methods: - <strong><code>encode(str)</code></strong> – returns <code>Uint8Array</code> from a string. - <strong><code>encodeInto(str, destination)</code></strong> – encodes <code>str</code> into <code>destination</code> that must be <code>Uint8Array</code>.</p>
+<p>```js run let encoder = new TextEncoder();</p>
+<p>let uint8Array = encoder.encode(“Hello”); alert(uint8Array); // 72,101,108,108,111 ```</p>

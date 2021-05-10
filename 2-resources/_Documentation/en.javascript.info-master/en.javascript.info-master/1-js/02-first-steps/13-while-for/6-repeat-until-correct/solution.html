@@ -1,0 +1,8 @@
+<p>```js run demo let num;</p>
+<p>do { num = prompt(“Enter a number greater than 100?”, 0); } while (num &lt;= 100 &amp;&amp; num); ```</p>
+<p>The loop <code>do..while</code> repeats while both checks are truthy:</p>
+<ol type="1">
+<li>The check for <code>num &lt;= 100</code> – that is, the entered value is still not greater than <code>100</code>.</li>
+<li>The check <code>&amp;&amp; num</code> is false when <code>num</code> is <code>null</code> or an empty string. Then the <code>while</code> loop stops too.</li>
+</ol>
+<p>P.S. If <code>num</code> is <code>null</code> then <code>num &lt;= 100</code> is <code>true</code>, so without the 2nd check the loop wouldn’t stop if the user clicks CANCEL. Both checks are required.</p>

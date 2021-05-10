@@ -1,0 +1,23 @@
+<p>You could note the following:</p>
+<p>```js no-beautify function pow(x,n) // &lt;- no space between arguments { // &lt;- figure bracket on a separate line let result=1; // &lt;- no spaces before or after = for(let i=0;i&lt;n;i++) {result*=x;} // &lt;- no spaces // the contents of { … } should be on a new line return result; }</p>
+<p>let x=prompt(“x?”,’‘), n=prompt(“n?”,’’) // &lt;– technically possible, // but better make it 2 lines, also there’s no spaces and missing ; if (n&lt;=0) // &lt;- no spaces inside (n &lt;= 0), and should be extra line above it { // &lt;- figure bracket on a separate line // below - long lines can be split into multiple lines for improved readability alert(<code>Power ${n} is not supported, please enter an integer number greater than zero</code>); } else // &lt;- could write it on a single line like “} else {” { alert(pow(x,n)) // no spaces and missing ; } ```</p>
+<p>The fixed variant:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">pow</span>(x<span class="op">,</span> n) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">let</span> result <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    result <span class="op">*=</span> x<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-7" title="7"></a>
+<a class="sourceLine" id="cb1-8" title="8">  <span class="cf">return</span> result<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-10" title="10"></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="kw">let</span> x <span class="op">=</span> <span class="at">prompt</span>(<span class="st">&quot;x?&quot;</span><span class="op">,</span> <span class="st">&quot;&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="kw">let</span> n <span class="op">=</span> <span class="at">prompt</span>(<span class="st">&quot;n?&quot;</span><span class="op">,</span> <span class="st">&quot;&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-13" title="13"></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="cf">if</span> (n <span class="op">&lt;=</span> <span class="dv">0</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-15" title="15">  <span class="at">alert</span>(<span class="vs">`Power </span><span class="sc">${</span>n<span class="sc">}</span><span class="vs"> is not supported,</span></a>
+<a class="sourceLine" id="cb1-16" title="16"><span class="vs">    please enter an integer number greater than zero`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-17" title="17"><span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-18" title="18">  <span class="at">alert</span>( <span class="at">pow</span>(x<span class="op">,</span> n) )<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-19" title="19"><span class="op">}</span></a></code></pre></div>

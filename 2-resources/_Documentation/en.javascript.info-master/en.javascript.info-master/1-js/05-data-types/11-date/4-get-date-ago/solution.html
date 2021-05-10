@@ -1,0 +1,11 @@
+<p>The idea is simple: to substract given number of days from <code>date</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">getDateAgo</span>(date<span class="op">,</span> days) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="va">date</span>.<span class="at">setDate</span>(<span class="va">date</span>.<span class="at">getDate</span>() <span class="op">-</span> days)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="cf">return</span> <span class="va">date</span>.<span class="at">getDate</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="op">}</span></a></code></pre></div>
+<p>…But the function should not change <code>date</code>. That’s an important thing, because the outer code which gives us the date does not expect it to change.</p>
+<p>To implement it let’s clone the date, like this:</p>
+<p>```js run demo function getDateAgo(date, days) { let dateCopy = new Date(date);</p>
+<p>dateCopy.setDate(date.getDate() - days); return dateCopy.getDate(); }</p>
+<p>let date = new Date(2015, 0, 2);</p>
+<p>alert( getDateAgo(date, 1) ); // 1, (1 Jan 2015) alert( getDateAgo(date, 2) ); // 31, (31 Dec 2014) alert( getDateAgo(date, 365) ); // 2, (2 Jan 2014) ```</p>

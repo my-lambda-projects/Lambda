@@ -1,0 +1,30 @@
+<h1 id="loop-based-solution">Loop-based solution</h1>
+<p>The loop-based variant of the solution:</p>
+<p>```js run let list = { value: 1, next: { value: 2, next: { value: 3, next: { value: 4, next: null } } } };</p>
+<p>function printList(list) { let tmp = list;</p>
+<p>while (tmp) { alert(tmp.value); tmp = tmp.next; }</p>
+<p>}</p>
+<p>printList(list); ```</p>
+<p>Please note that we use a temporary variable <code>tmp</code> to walk over the list. Technically, we could use a function parameter <code>list</code> instead:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">printList</span>(list) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="cf">while</span>(<span class="op">*!*</span>list<span class="op">*</span><span class="ss">/!</span><span class="sc">*)</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="ss">    alert</span><span class="sc">(</span><span class="ss">list.value</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="ss">    list = list.next;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="ss">  }</span></a>
+<a class="sourceLine" id="cb1-7" title="7"></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="ss">}</span></a></code></pre></div>
+<p>…But that would be unwise. In the future we may need to extend a function, do something else with the list. If we change <code>list</code>, then we lose such ability.</p>
+<p>Talking about good variable names, <code>list</code> here is the list itself. The first element of it. And it should remain like that. That’s clear and reliable.</p>
+<p>From the other side, the role of <code>tmp</code> is exclusively a list traversal, like <code>i</code> in the <code>for</code> loop.</p>
+<h1 id="recursive-solution">Recursive solution</h1>
+<p>The recursive variant of <code>printList(list)</code> follows a simple logic: to output a list we should output the current element <code>list</code>, then do the same for <code>list.next</code>:</p>
+<p>```js run let list = { value: 1, next: { value: 2, next: { value: 3, next: { value: 4, next: null } } } };</p>
+<p>function printList(list) {</p>
+<p>alert(list.value); // output the current item</p>
+<p>if (list.next) { printList(list.next); // do the same for the rest of the list }</p>
+<p>}</p>
+<p>printList(list); ```</p>
+<p>Now what’s better?</p>
+<p>Technically, the loop is more effective. These two variants do the same, but the loop does not spend resources for nested function calls.</p>
+<p>From the other side, the recursive variant is shorter and sometimes easier to understand.</p>

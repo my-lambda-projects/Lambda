@@ -1,0 +1,7 @@
+<p>Surely it will work just fine.</p>
+<p>Both nested functions are created within the same outer Lexical Environment, so they share access to the same <code>count</code> variable:</p>
+<p>```js run function Counter() { let count = 0;</p>
+<p>this.up = function() { return ++count; };</p>
+<p>this.down = function() { return –count; }; }</p>
+<p>let counter = new Counter();</p>
+<p>alert( counter.up() ); // 1 alert( counter.up() ); // 2 alert( counter.down() ); // 1 ```</p>

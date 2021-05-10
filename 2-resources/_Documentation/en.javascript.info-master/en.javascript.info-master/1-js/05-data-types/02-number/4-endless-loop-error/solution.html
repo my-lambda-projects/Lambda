@@ -1,0 +1,6 @@
+<p>That’s because <code>i</code> would never equal <code>10</code>.</p>
+<p>Run it to see the <em>real</em> values of <code>i</code>:</p>
+<p><code>js run let i = 0; while (i &lt; 11) {   i += 0.2;   if (i &gt; 9.8 &amp;&amp; i &lt; 10.2) alert( i ); }</code></p>
+<p>None of them is exactly <code>10</code>.</p>
+<p>Such things happen because of the precision losses when adding fractions like <code>0.2</code>.</p>
+<p>Conclusion: evade equality checks when working with decimal fractions.</p>

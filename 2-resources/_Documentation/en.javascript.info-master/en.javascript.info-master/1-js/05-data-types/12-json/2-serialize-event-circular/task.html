@@ -1,0 +1,11 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="exclude-backreferences">Exclude backreferences</h1>
+<p>In simple cases of circular references, we can exclude an offending property from serialization by its name.</p>
+<p>But sometimes we can’t just use the name, as it may be used both in circular references and normal properties. So we can check the property by its value.</p>
+<p>Write <code>replacer</code> function to stringify everything, but remove properties that reference <code>meetup</code>:</p>
+<p>```js run let room = { number: 23 };</p>
+<p>let meetup = { title: “Conference”, occupiedBy: [{name: “John”}, {name: “Alice”}], place: room };</p>
+<p><em>!</em> // circular references room.occupiedBy = meetup; meetup.self = meetup; <em>/!</em></p>
+<p>alert( JSON.stringify(meetup, function replacer(key, value) { /* your code */ }));</p>
+<p>/* result should be: { “title”:“Conference”, “occupiedBy”:[{“name”:“John”},{“name”:“Alice”}], “place”:{“number”:23} } */ ```</p>

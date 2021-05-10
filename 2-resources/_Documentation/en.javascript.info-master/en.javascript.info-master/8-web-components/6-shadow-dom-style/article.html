@@ -1,0 +1,238 @@
+<h1 id="shadow-dom-styling">Shadow DOM styling</h1>
+<p>Shadow DOM may include both <code>&lt;style&gt;</code> and <code>&lt;link rel="stylesheet" href="…"&gt;</code> tags. In the latter case, stylesheets are HTTP-cached, so they are not redownloaded for multiple components that use same template.</p>
+<p>As a general rule, local styles work only inside the shadow tree, and document styles work outside of it. But there are few exceptions.</p>
+<h2 id="host">:host</h2>
+<p>The <code>:host</code> selector allows to select the shadow host (the element containing the shadow tree).</p>
+<p>For instance, we’re making <code>&lt;custom-dialog&gt;</code> element that should be centered. For that we need to style the <code>&lt;custom-dialog&gt;</code> element itself.</p>
+<p>That’s exactly what <code>:host</code> does:</p>
+```html run autorun=“no-epub” untrusted height=80 <template id="tmpl">
+<style>
+    /* the style will be applied from inside to the custom-dialog element */
+    :host {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      display: inline-block;
+      border: 1px solid red;
+      padding: 10px;
+    }
+  </style>
+<p><slot></slot> </template></p>
+<script>
+customElements.define('custom-dialog', class extends HTMLElement {
+  connectedCallback() {
+    this.attachShadow({mode: 'open'}).append(tmpl.content.cloneNode(true));
+  }
+});
+</script>
+<p><custom-dialog> Hello! </custom-dialog> ```</p>
+<h2 id="cascading">Cascading</h2>
+<p>The shadow host (<code>&lt;custom-dialog&gt;</code> itself) resides in the light DOM, so it’s affected by document CSS rules.</p>
+<p>If there’s a property styled both in <code>:host</code> locally, and in the document, then the document style takes precedence.</p>
+<p>For instance, if in the document we had:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;style&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">custom-dialog {</a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="kw">padding</span>: <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">}</a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="kw">&lt;/style&gt;</span></a></code></pre></div>
+<p>…Then the <code>&lt;custom-dialog&gt;</code> would be without padding.</p>
+<p>It’s very convenient, as we can setup “default” component styles in its <code>:host</code> rule, and then easily override them in the document.</p>
+<p>The exception is when a local property is labelled <code>!important</code>, for such properties, local styles take precedence.</p>
+<h2 id="hostselector">:host(selector)</h2>
+<p>Same as <code>:host</code>, but applied only if the shadow host matches the <code>selector</code>.</p>
+<p>For example, we’d like to center the <code>&lt;custom-dialog&gt;</code> only if it has <code>centered</code> attribute:</p>
+```html run autorun=“no-epub” untrusted height=80 <template id="tmpl">
+<style>
+*!*
+    :host([centered]) {
+*/!*
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-color: blue;
+    }
+
+    :host {
+      display: inline-block;
+      border: 1px solid red;
+      padding: 10px;
+    }
+  </style>
+<p><slot></slot> </template></p>
+<script>
+customElements.define('custom-dialog', class extends HTMLElement {
+  connectedCallback() {
+    this.attachShadow({mode: 'open'}).append(tmpl.content.cloneNode(true));
+  }
+});
+</script>
+<p><custom-dialog centered> Centered! </custom-dialog></p>
+<p><custom-dialog> Not centered. </custom-dialog> ```</p>
+<p>Now the additional centering styles are only applied to the first dialog: <code>&lt;custom-dialog centered&gt;</code>.</p>
+<h2 id="host-contextselector">:host-context(selector)</h2>
+<p>Same as <code>:host</code>, but applied only if the shadow host or any of its ancestors in the outer document matches the <code>selector</code>.</p>
+<p>E.g. <code>:host-context(.dark-theme)</code> matches only if there’s <code>dark-theme</code> class on <code>&lt;custom-dialog&gt;</code> on anywhere above it:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;body</span><span class="ot"> class=</span><span class="st">&quot;dark-theme&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="co">&lt;!--</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="co">    :host-context(.dark-theme) applies to custom-dialogs inside .dark-theme</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co">  --&gt;</span></a>
+<a class="sourceLine" id="cb2-5" title="5">  <span class="kw">&lt;custom-dialog&gt;</span>...<span class="kw">&lt;/custom-dialog&gt;</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="kw">&lt;/body&gt;</span></a></code></pre></div>
+<p>To summarize, we can use <code>:host</code>-family of selectors to style the main element of the component, depending on the context. These styles (unless <code>!important</code>) can be overridden by the document.</p>
+<h2 id="styling-slotted-content">Styling slotted content</h2>
+<p>Now let’s consider the situation with slots.</p>
+<p>Slotted elements come from light DOM, so they use document styles. Local styles do not affect slotted content.</p>
+In the example below, slotted <code>&lt;span&gt;</code> is bold, as per document style, but does not take <code>background</code> from the local style: ```html run autorun=“no-epub” untrusted height=80
+<style>
+*!*
+  span { font-weight: bold }
+*/!*
+</style>
+<user-card>
+<div slot="username">
+<em>!</em><span>John Smith</span><em>/!</em>
+</div>
+<p></user-card></p>
+<script>
+customElements.define('user-card', class extends HTMLElement {
+  connectedCallback() {
+    this.attachShadow({mode: 'open'});
+    this.shadowRoot.innerHTML = `
+      <style>
+*!*
+      span { background: red; }
+*/!*
+      </style>
+      Name: <slot name="username"></slot>
+    `;
+  }
+});
+</script>
+<p>```</p>
+<p>The result is bold, but not red.</p>
+<p>If we’d like to style slotted elements in our component, there are two choices.</p>
+<p>First, we can style the <code>&lt;slot&gt;</code> itself and rely on CSS inheritance:</p>
+```html run autorun=“no-epub” untrusted height=80 <user-card>
+<div slot="username">
+<em>!</em><span>John Smith</span><em>/!</em>
+</div>
+<p></user-card></p>
+<script>
+customElements.define('user-card', class extends HTMLElement {
+  connectedCallback() {
+    this.attachShadow({mode: 'open'});
+    this.shadowRoot.innerHTML = `
+      <style>
+*!*
+      slot[name="username"] { font-weight: bold; }
+*/!*
+      </style>
+      Name: <slot name="username"></slot>
+    `;
+  }
+});
+</script>
+<p>```</p>
+<p>Here <code>&lt;p&gt;John Smith&lt;/p&gt;</code> becomes bold, because CSS inheritance is in effect between the <code>&lt;slot&gt;</code> and its contents. But in CSS itself not all properties are inherited.</p>
+<p>Another option is to use <code>::slotted(selector)</code> pseudo-class. It matches elements based on two conditions:</p>
+<ol type="1">
+<li>That’s a slotted element, that comes from the light DOM. Slot name doesn’t matter. Just any slotted element, but only the element itself, not its children.</li>
+<li>The element matches the <code>selector</code>.</li>
+</ol>
+<p>In our example, <code>::slotted(div)</code> selects exactly <code>&lt;div slot="username"&gt;</code>, but not its children:</p>
+```html run autorun=“no-epub” untrusted height=80 <user-card>
+<div slot="username">
+<pre><code>&lt;div&gt;John Smith&lt;/div&gt;</code></pre>
+</div>
+<p></user-card></p>
+<script>
+customElements.define('user-card', class extends HTMLElement {
+  connectedCallback() {
+    this.attachShadow({mode: 'open'});
+    this.shadowRoot.innerHTML = `
+      <style>
+*!*
+      ::slotted(div) { border: 1px solid red; }
+*/!*
+      </style>
+      Name: <slot name="username"></slot>
+    `;
+  }
+});
+</script>
+<p>```</p>
+<p>Please note, <code>::slotted</code> selector can’t descend any further into the slot. These selectors are invalid:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb4-1" title="1"><span class="in">::slotted(div span)</span> {</a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="co">/* our slotted &lt;div&gt; does not match this */</span></a>
+<a class="sourceLine" id="cb4-3" title="3">}</a>
+<a class="sourceLine" id="cb4-4" title="4"></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="in">::slotted(div)</span> p {</a>
+<a class="sourceLine" id="cb4-6" title="6">  <span class="co">/* can&#39;t go inside light DOM */</span></a>
+<a class="sourceLine" id="cb4-7" title="7">}</a></code></pre></div>
+<p>Also, <code>::slotted</code> can only be used in CSS. We can’t use it in <code>querySelector</code>.</p>
+<h2 id="css-hooks-with-custom-properties">CSS hooks with custom properties</h2>
+<p>How do we style internal elements of a component from the main document?</p>
+<p>Selectors like <code>:host</code> apply rules to <code>&lt;custom-dialog&gt;</code> element or <code>&lt;user-card&gt;</code>, but how to style shadow DOM elements inside them?</p>
+<p>There’s no selector that can directly affect shadow DOM styles from the document. But just as we expose methods to interact with our component, we can expose CSS variables (custom CSS properties) to style it.</p>
+<p><strong>Custom CSS properties exist on all levels, both in light and shadow.</strong></p>
+<p>For example, in shadow DOM we can use <code>--user-card-field-color</code> CSS variable to style fields, and the outer document can set its value:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">&lt;style&gt;</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="fu">.field</span> {</a>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="kw">color</span>: <span class="fu">var(</span><span class="va">--user-card-field-color</span><span class="op">,</span> <span class="cn">black</span><span class="fu">)</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-4" title="4">    <span class="co">/* if --user-card-field-color is not defined, use black color */</span></a>
+<a class="sourceLine" id="cb5-5" title="5">  }</a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="kw">&lt;/style&gt;</span></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;field&quot;</span><span class="kw">&gt;</span>Name: <span class="kw">&lt;slot</span><span class="ot"> name=</span><span class="st">&quot;username&quot;</span><span class="kw">&gt;&lt;/slot&gt;&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb5-8" title="8"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;field&quot;</span><span class="kw">&gt;</span>Birthday: <span class="kw">&lt;slot</span><span class="ot"> name=</span><span class="st">&quot;birthday&quot;</span><span class="kw">&gt;&lt;/slot&gt;&lt;/div&gt;</span></a></code></pre></div>
+<p>Then, we can declare this property in the outer document for <code>&lt;user-card&gt;</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb6-1" title="1">user-card {</a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="va">--user-card-field-color</span>: <span class="cn">green</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-3" title="3">}</a></code></pre></div>
+<p>Custom CSS properties pierce through shadow DOM, they are visible everywhere, so the inner <code>.field</code> rule will make use of it.</p>
+<p>Here’s the full example:</p>
+```html run autorun=“no-epub” untrusted height=80
+<style>
+*!*
+  user-card {
+    --user-card-field-color: green;
+  }
+*/!*
+</style>
+<template id="tmpl">
+<style>
+*!*
+    .field {
+      color: var(--user-card-field-color, black);
+    }
+*/!*
+  </style>
+<div class="field">
+Name: <slot name="username"></slot>
+</div>
+<div class="field">
+Birthday: <slot name="birthday"></slot>
+</div>
+<p></template></p>
+<script>
+customElements.define('user-card', class extends HTMLElement {
+  connectedCallback() {
+    this.attachShadow({mode: 'open'});
+    this.shadowRoot.append(document.getElementById('tmpl').content.cloneNode(true));
+  }
+});
+</script>
+<p><user-card> <span slot="username">John Smith</span> <span slot="birthday">01.01.2001</span> </user-card> ```</p>
+<h2 id="summary">Summary</h2>
+<p>Shadow DOM can include styles, such as <code>&lt;style&gt;</code> or <code>&lt;link rel="stylesheet"&gt;</code>.</p>
+<p>Local styles can affect: - shadow tree, - shadow host with <code>:host</code>-family pseudoclasses, - slotted elements (coming from light DOM), <code>::slotted(selector)</code> allows to select slotted elements themselves, but not their children.</p>
+<p>Document styles can affect: - shadow host (as it lives in the outer document) - slotted elements and their contents (as that’s also in the outer document)</p>
+<p>When CSS properties conflict, normally document styles have precedence, unless the property is labelled as <code>!important</code>. Then local styles have precedence.</p>
+<p>CSS custom properties pierce through shadow DOM. They are used as “hooks” to style the component:</p>
+<ol type="1">
+<li>The component uses a custom CSS property to style key elements, such as <code>var(--component-name-title, &lt;default value&gt;)</code>.</li>
+<li>Component author publishes these properties for developers, they are same important as other public component methods.</li>
+<li>When a developer wants to style a title, they assign <code>--component-name-title</code> CSS property for the shadow host or above.</li>
+<li>Profit!</li>
+</ol>

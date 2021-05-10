@@ -1,0 +1,28 @@
+<p>A regexp for a number is: <code>pattern:-?\d+(\.\d+)?</code>. We created it in the previous task.</p>
+<p>An operator is <code>pattern:[-+*/]</code>. The hyphen <code>pattern:-</code> goes first in the square brackets, because in the middle it would mean a character range, while we just want a character <code>-</code>.</p>
+<p>The slash <code>/</code> should be escaped inside a JavaScript regexp <code>pattern:/.../</code>, we’ll do that later.</p>
+<p>We need a number, an operator, and then another number. And optional spaces between them.</p>
+<p>The full regular expression: <code>pattern:-?\d+(\.\d+)?\s*[-+*/]\s*-?\d+(\.\d+)?</code>.</p>
+<p>It has 3 parts, with <code>pattern:\s*</code> between them: 1. <code>pattern:-?\d+(\.\d+)?</code> - the first number, 1. <code>pattern:[-+*/]</code> - the operator, 1. <code>pattern:-?\d+(\.\d+)?</code> - the second number.</p>
+<p>To make each of these parts a separate element of the result array, let’s enclose them in parentheses: <code>pattern:(-?\d+(\.\d+)?)\s*([-+*/])\s*(-?\d+(\.\d+)?)</code>.</p>
+<p>In action:</p>
+<p>```js run let regexp = /(-?(.)?)([-+*/])(-?(.)?)/;</p>
+<p>alert( “1.2 + 12”.match(regexp) ); ```</p>
+<p>The result includes:</p>
+<ul>
+<li><code>result[0] == "1.2 + 12"</code> (full match)</li>
+<li><code>result[1] == "1.2"</code> (first group <code>(-?\d+(\.\d+)?)</code> – the first number, including the decimal part)</li>
+<li><code>result[2] == ".2"</code> (second group<code>(\.\d+)?</code> – the first decimal part)</li>
+<li><code>result[3] == "+"</code> (third group <code>([-+*\/])</code> – the operator)</li>
+<li><code>result[4] == "12"</code> (forth group <code>(-?\d+(\.\d+)?)</code> – the second number)</li>
+<li><code>result[5] == undefined</code> (fifth group <code>(\.\d+)?</code> – the last decimal part is absent, so it’s undefined)</li>
+</ul>
+<p>We only want the numbers and the operator, without the full match or the decimal parts, so let’s “clean” the result a bit.</p>
+<p>The full match (the arrays first item) can be removed by shifting the array <code>result.shift()</code>.</p>
+<p>Groups that contain decimal parts (number 2 and 4) <code>pattern:(.\d+)</code> can be excluded by adding <code>pattern:?:</code> to the beginning: <code>pattern:(?:\.\d+)?</code>.</p>
+<p>The final solution:</p>
+<p>```js run function parse(expr) { let regexp = /(-?(?:.)?)([-+*/])(-?(?:.)?)/;</p>
+<p>let result = expr.match(regexp);</p>
+<p>if (!result) return []; result.shift();</p>
+<p>return result; }</p>
+<p>alert( parse(“-1.23 * 3.45”) ); // -1.23, *, 3.45 ```</p>

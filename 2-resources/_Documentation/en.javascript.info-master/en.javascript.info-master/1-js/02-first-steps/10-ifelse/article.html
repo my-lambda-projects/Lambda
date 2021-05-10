@@ -1,0 +1,107 @@
+<h1 id="conditional-branching-if">Conditional branching: if, ‘?’</h1>
+<p>Sometimes, we need to perform different actions based on different conditions.</p>
+<p>To do that, we can use the <code>if</code> statement and the conditional operator <code>?</code>, that’s also called a “question mark” operator.</p>
+<h2 id="the-if-statement">The “if” statement</h2>
+<p>The <code>if(...)</code> statement evaluates a condition in parentheses and, if the result is <code>true</code>, executes a block of code.</p>
+<p>For example:</p>
+<p>```js run let year = prompt(‘In which year was ECMAScript-2015 specification published?’, ’’);</p>
+<p><em>!</em> if (year == 2015) alert( ‘You are right!’ ); <em>/!</em> ```</p>
+<p>In the example above, the condition is a simple equality check (<code>year == 2015</code>), but it can be much more complex.</p>
+<p>If we want to execute more than one statement, we have to wrap our code block inside curly braces:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="cf">if</span> (year <span class="op">==</span> <span class="dv">2015</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="at">alert</span>( <span class="st">&quot;That&#39;s correct!&quot;</span> )<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="at">alert</span>( <span class="st">&quot;You&#39;re so smart!&quot;</span> )<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="op">}</span></a></code></pre></div>
+<p>We recommend wrapping your code block with curly braces <code>{}</code> every time you use an <code>if</code> statement, even if there is only one statement to execute. Doing so improves readability.</p>
+<h2 id="boolean-conversion">Boolean conversion</h2>
+<p>The <code>if (…)</code> statement evaluates the expression in its parentheses and converts the result to a boolean.</p>
+<p>Let’s recall the conversion rules from the chapter <a href="info:type-conversions" class="uri">info:type-conversions</a>:</p>
+<ul>
+<li>A number <code>0</code>, an empty string <code>""</code>, <code>null</code>, <code>undefined</code>, and <code>NaN</code> all become <code>false</code>. Because of that they are called “falsy” values.</li>
+<li>Other values become <code>true</code>, so they are called “truthy”.</li>
+</ul>
+<p>So, the code under this condition would never execute:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="cf">if</span> (<span class="dv">0</span>) <span class="op">{</span> <span class="co">// 0 is falsy</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  ...</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>…and inside this condition – it always will:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="cf">if</span> (<span class="dv">1</span>) <span class="op">{</span> <span class="co">// 1 is truthy</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  ...</a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>We can also pass a pre-evaluated boolean value to <code>if</code>, like this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">let</span> cond <span class="op">=</span> (year <span class="op">==</span> <span class="dv">2015</span>)<span class="op">;</span> <span class="co">// equality evaluates to true or false</span></a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="cf">if</span> (cond) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  ...</a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="op">}</span></a></code></pre></div>
+<h2 id="the-else-clause">The “else” clause</h2>
+<p>The <code>if</code> statement may contain an optional “else” block. It executes when the condition is falsy.</p>
+<p>For example: ```js run let year = prompt(‘In which year was the ECMAScript-2015 specification published?’, ’’);</p>
+<p>if (year == 2015) { alert( ‘You guessed it right!’ ); } else { alert( ‘How can you be so wrong?’ ); // any value except 2015 } ```</p>
+<h2 id="several-conditions-else-if">Several conditions: “else if”</h2>
+<p>Sometimes, we’d like to test several variants of a condition. The <code>else if</code> clause lets us do that.</p>
+<p>For example:</p>
+<p>```js run let year = prompt(‘In which year was the ECMAScript-2015 specification published?’, ’’);</p>
+<p>if (year &lt; 2015) { alert( ‘Too early…’ ); } else if (year &gt; 2015) { alert( ‘Too late’ ); } else { alert( ‘Exactly!’ ); } ```</p>
+<p>In the code above, JavaScript first checks <code>year &lt; 2015</code>. If that is falsy, it goes to the next condition <code>year &gt; 2015</code>. If that is also falsy, it shows the last <code>alert</code>.</p>
+<p>There can be more <code>else if</code> blocks. The final <code>else</code> is optional.</p>
+<h2 id="conditional-operator">Conditional operator ‘?’</h2>
+<p>Sometimes, we need to assign a variable depending on a condition.</p>
+<p>For instance:</p>
+<p>```js run no-beautify let accessAllowed; let age = prompt(‘How old are you?’, ’’);</p>
+<p><em>!</em> if (age &gt; 18) { accessAllowed = true; } else { accessAllowed = false; } <em>/!</em></p>
+<p>alert(accessAllowed); ```</p>
+<p>The so-called “conditional” or “question mark” operator lets us do that in a shorter and simpler way.</p>
+<p>The operator is represented by a question mark <code>?</code>. Sometimes it’s called “ternary”, because the operator has three operands. It is actually the one and only operator in JavaScript which has that many.</p>
+<p>The syntax is:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">let</span> result <span class="op">=</span> condition <span class="op">?</span> value1 : value2<span class="op">;</span></a></code></pre></div>
+<p>The <code>condition</code> is evaluated: if it’s truthy then <code>value1</code> is returned, otherwise – <code>value2</code>.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">let</span> accessAllowed <span class="op">=</span> (age <span class="op">&gt;</span> <span class="dv">18</span>) <span class="op">?</span> <span class="kw">true</span> : <span class="kw">false</span><span class="op">;</span></a></code></pre></div>
+<p>Technically, we can omit the parentheses around <code>age &gt; 18</code>. The question mark operator has a low precedence, so it executes after the comparison <code>&gt;</code>.</p>
+<p>This example will do the same thing as the previous one:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="co">// the comparison operator &quot;age &gt; 18&quot; executes first anyway</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="co">// (no need to wrap it into parentheses)</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="kw">let</span> accessAllowed <span class="op">=</span> age <span class="op">&gt;</span> <span class="dv">18</span> <span class="op">?</span> <span class="kw">true</span> : <span class="kw">false</span><span class="op">;</span></a></code></pre></div>
+<p>But parentheses make the code more readable, so we recommend using them.</p>
+<pre class="smart"><code>In the example above, you can avoid using the question mark operator because the comparison itself returns `true/false`:
+
+```js
+// the same
+let accessAllowed = age &gt; 18;
+```</code></pre>
+<h2 id="multiple">Multiple ‘?’</h2>
+<p>A sequence of question mark operators <code>?</code> can return a value that depends on more than one condition.</p>
+<p>For instance: ```js run let age = prompt(‘age?’, 18);</p>
+<p>let message = (age &lt; 3) ? ‘Hi, baby!’ : (age &lt; 18) ? ‘Hello!’ : (age &lt; 100) ? ‘Greetings!’ : ‘What an unusual age!’;</p>
+<p>alert( message ); ```</p>
+<p>It may be difficult at first to grasp what’s going on. But after a closer look, we can see that it’s just an ordinary sequence of tests:</p>
+<ol type="1">
+<li>The first question mark checks whether <code>age &lt; 3</code>.</li>
+<li>If true – it returns <code>'Hi, baby!'</code>. Otherwise, it continues to the expression after the colon ‘“:”’, checking <code>age &lt; 18</code>.</li>
+<li>If that’s true – it returns <code>'Hello!'</code>. Otherwise, it continues to the expression after the next colon ‘“:”’, checking <code>age &lt; 100</code>.</li>
+<li>If that’s true – it returns <code>'Greetings!'</code>. Otherwise, it continues to the expression after the last colon ‘“:”’, returning <code>'What an unusual age!'</code>.</li>
+</ol>
+<p>Here’s how this looks using <code>if..else</code>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="cf">if</span> (age <span class="op">&lt;</span> <span class="dv">3</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-2" title="2">  message <span class="op">=</span> <span class="st">&#39;Hi, baby!&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (age <span class="op">&lt;</span> <span class="dv">18</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-4" title="4">  message <span class="op">=</span> <span class="st">&#39;Hello!&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (age <span class="op">&lt;</span> <span class="dv">100</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-6" title="6">  message <span class="op">=</span> <span class="st">&#39;Greetings!&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-7" title="7"><span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-8" title="8">  message <span class="op">=</span> <span class="st">&#39;What an unusual age!&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-9" title="9"><span class="op">}</span></a></code></pre></div>
+<h2 id="non-traditional-use-of">Non-traditional use of ‘?’</h2>
+<p>Sometimes the question mark <code>?</code> is used as a replacement for <code>if</code>:</p>
+<p>```js run no-beautify let company = prompt(‘Which company created JavaScript?’, ’’);</p>
+<p><em>!</em> (company == ‘Netscape’) ? alert(‘Right!’) : alert(‘Wrong.’); <em>/!</em> ```</p>
+<p>Depending on the condition <code>company == 'Netscape'</code>, either the first or the second expression after the <code>?</code> gets executed and shows an alert.</p>
+<p>We don’t assign a result to a variable here. Instead, we execute different code depending on the condition.</p>
+<p><strong>It’s not recommended to use the question mark operator in this way.</strong></p>
+<p>The notation is shorter than the equivalent <code>if</code> statement, which appeals to some programmers. But it is less readable.</p>
+<p>Here is the same code using <code>if</code> for comparison:</p>
+<p>```js run no-beautify let company = prompt(‘Which company created JavaScript?’, ’’);</p>
+<p><em>!</em> if (company == ‘Netscape’) { alert(‘Right!’); } else { alert(‘Wrong.’); } <em>/!</em> ```</p>
+<p>Our eyes scan the code vertically. Code blocks which span several lines are easier to understand than a long, horizontal instruction set.</p>
+<p>The purpose of the question mark operator <code>?</code> is to return one value or another depending on its condition. Please use it for exactly that. Use <code>if</code> when you need to execute different branches of code.</p>

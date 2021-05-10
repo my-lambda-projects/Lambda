@@ -1,0 +1,21 @@
+<h1 id="insert-after-head">Insert After Head</h1>
+<p>We have a string with an HTML Document.</p>
+<p>Write a regular expression that inserts <code>&lt;h1&gt;Hello&lt;/h1&gt;</code> immediately after <code>&lt;body&gt;</code> tag. The tag may have attributes.</p>
+<p>For instance:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> regexp <span class="op">=</span> <span class="ss">/your regular expression/</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">let</span> str <span class="op">=</span> <span class="vs">`</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="vs">&lt;html&gt;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="vs">  &lt;body style=&quot;height: 200px&quot;&gt;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="vs">  ...</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="vs">  &lt;/body&gt;</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="vs">&lt;/html&gt;</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="vs">`</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-10" title="10"></a>
+<a class="sourceLine" id="cb1-11" title="11">str <span class="op">=</span> <span class="va">str</span>.<span class="at">replace</span>(regexp<span class="op">,</span> <span class="vs">`&lt;h1&gt;Hello&lt;/h1&gt;`</span>)<span class="op">;</span></a></code></pre></div>
+<p>After that the value of <code>str</code> should be:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;html&gt;</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="kw">&lt;body</span><span class="ot"> style=</span><span class="st">&quot;height: 200px&quot;</span><span class="kw">&gt;&lt;h1&gt;</span>Hello<span class="kw">&lt;/h1&gt;</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  ...</a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="kw">&lt;/body&gt;</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="kw">&lt;/html&gt;</span></a></code></pre></div>

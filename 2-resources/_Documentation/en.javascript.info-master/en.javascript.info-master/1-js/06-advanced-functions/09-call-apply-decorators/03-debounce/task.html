@@ -1,0 +1,29 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="debounce-decorator">Debounce decorator</h1>
+<p>The result of <code>debounce(f, ms)</code> decorator is a wrapper that suspends calls to <code>f</code> until there’s <code>ms</code> milliseconds of inactivity (no calls, “cooldown period”), then invokes <code>f</code> once with the latest arguments.</p>
+<p>In other words, <code>debounce</code> is like a secretary that accepts “phone calls”, and waits until there’s <code>ms</code> milliseconds of being quiet. And only then it transfers the latest call information to “the boss” (calls the actual <code>f</code>).</p>
+<p>For instance, we had a function <code>f</code> and replaced it with <code>f = debounce(f, 1000)</code>.</p>
+<p>Then if the wrapped function is called at 0ms, 200ms and 500ms, and then there are no calls, then the actual <code>f</code> will be only called once, at 1500ms. That is: after the cooldown period of 1000ms from the last call.</p>
+<p><img src="debounce.svg" /></p>
+<p>…And it will get the arguments of the very last call, other calls are ignored.</p>
+<p>Here’s the code for it (uses the debounce decorator from the <a href="https://lodash.com/docs/4.17.15#debounce">Lodash library</a>):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> f <span class="op">=</span> <span class="va">_</span>.<span class="at">debounce</span>(alert<span class="op">,</span> <span class="dv">1000</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="at">f</span>(<span class="st">&quot;a&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="at">setTimeout</span>( () <span class="kw">=&gt;</span> <span class="at">f</span>(<span class="st">&quot;b&quot;</span>)<span class="op">,</span> <span class="dv">200</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="at">setTimeout</span>( () <span class="kw">=&gt;</span> <span class="at">f</span>(<span class="st">&quot;c&quot;</span>)<span class="op">,</span> <span class="dv">500</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="co">// debounced function waits 1000ms after the last call and then runs: alert(&quot;c&quot;)</span></a></code></pre></div>
+<p>Now a practical example. Let’s say, the user types something, and we’d like to send a request to the server when the input is finished.</p>
+<p>There’s no point in sending the request for every character typed. Instead we’d like to wait, and then process the whole result.</p>
+<p>In a web-browser, we can setup an event handler – a function that’s called on every change of an input field. Normally, an event handler is called very often, for every typed key. But if we <code>debounce</code> it by 1000ms, then it will be only called once, after 1000ms after the last input.</p>
+<pre class="online"><code>
+In this live example, the handler puts the result into a box below, try it:
+
+[iframe border=1 src=&quot;debounce&quot; height=200]
+
+See? The second input calls the debounced function, so its content is processed after 1000ms from the last input.</code></pre>
+<p>So, <code>debounce</code> is a great way to process a sequence of events: be it a sequence of key presses, mouse movements or something else.</p>
+<p>It waits the given time after the last call, and then runs its function, that can process the result.</p>
+<p>The task is to implement <code>debounce</code> decorator.</p>
+<p>Hint: that’s just a few lines if you think about it :)</p>

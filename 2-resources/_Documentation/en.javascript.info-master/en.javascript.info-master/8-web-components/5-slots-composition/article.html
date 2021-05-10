@@ -1,0 +1,314 @@
+<h1 id="shadow-dom-slots-composition">Shadow DOM slots, composition</h1>
+<p>Many types of components, such as tabs, menus, image galleries, and so on, need the content to render.</p>
+<p>Just like built-in browser <code>&lt;select&gt;</code> expects <code>&lt;option&gt;</code> items, our <code>&lt;custom-tabs&gt;</code> may expect the actual tab content to be passed. And a <code>&lt;custom-menu&gt;</code> may expect menu items.</p>
+<p>The code that makes use of <code>&lt;custom-menu&gt;</code> can look like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;custom-menu&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">&lt;title&gt;</span>Candy menu<span class="kw">&lt;/title&gt;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="kw">&lt;item&gt;</span>Lollipop<span class="kw">&lt;/item&gt;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="kw">&lt;item&gt;</span>Fruit Toast<span class="kw">&lt;/item&gt;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="kw">&lt;item&gt;</span>Cup Cake<span class="kw">&lt;/item&gt;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="kw">&lt;/custom-menu&gt;</span></a></code></pre></div>
+<p>…Then our component should render it properly, as a nice menu with given title and items, handle menu events, etc.</p>
+<p>How to implement it?</p>
+<p>We could try to analyze the element content and dynamically copy-rearrange DOM nodes. That’s possible, but if we’re moving elements to shadow DOM, then CSS styles from the document do not apply in there, so the visual styling may be lost. Also that requires some coding.</p>
+<p>Luckily, we don’t have to. Shadow DOM supports <code>&lt;slot&gt;</code> elements, that are automatically filled by the content from light DOM.</p>
+<h2 id="named-slots">Named slots</h2>
+<p>Let’s see how slots work on a simple example.</p>
+<p>Here, <code>&lt;user-card&gt;</code> shadow DOM provides two slots, filled from light DOM:</p>
+``<code>html run autorun="no-epub" untrusted height=80 &lt;script&gt; customElements.define('user-card', class extends HTMLElement {   connectedCallback() {     this.attachShadow({mode: 'open'});     this.shadowRoot.innerHTML =</code>
+<div>
+Name: <em>!</em> <slot name="username"></slot> <em>/!</em>
+</div>
+<pre><code>  &lt;div&gt;Birthday:</code></pre>
+<em>!</em> <slot name="birthday"></slot> <em>/!</em>
+</div>
+<pre><code>`;</code></pre>
+} });
+</script>
+<p><user-card> &lt;span <em>!</em>slot=“username”<em>/!</em>&gt;John Smith</span> &lt;span <em>!</em>slot=“birthday”<em>/!</em>&gt;01.01.2001</span> </user-card> ```</p>
+<p>In the shadow DOM, <code>&lt;slot name="X"&gt;</code> defines an “insertion point”, a place where elements with <code>slot="X"</code> are rendered.</p>
+<p>Then the browser performs “composition”: it takes elements from the light DOM and renders them in corresponding slots of the shadow DOM. At the end, we have exactly what we want – a component that can be filled with data.</p>
+<p>Here’s the DOM structure after the script, not taking composition into account:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">&lt;user-card&gt;</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  #shadow-root</a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="kw">&lt;div&gt;</span>Name:</a>
+<a class="sourceLine" id="cb4-4" title="4">      <span class="kw">&lt;slot</span><span class="ot"> name=</span><span class="st">&quot;username&quot;</span><span class="kw">&gt;&lt;/slot&gt;</span></a>
+<a class="sourceLine" id="cb4-5" title="5">    <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb4-6" title="6">    <span class="kw">&lt;div&gt;</span>Birthday:</a>
+<a class="sourceLine" id="cb4-7" title="7">      <span class="kw">&lt;slot</span><span class="ot"> name=</span><span class="st">&quot;birthday&quot;</span><span class="kw">&gt;&lt;/slot&gt;</span></a>
+<a class="sourceLine" id="cb4-8" title="8">    <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb4-9" title="9">  <span class="kw">&lt;span</span><span class="ot"> slot=</span><span class="st">&quot;username&quot;</span><span class="kw">&gt;</span>John Smith<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb4-10" title="10">  <span class="kw">&lt;span</span><span class="ot"> slot=</span><span class="st">&quot;birthday&quot;</span><span class="kw">&gt;</span>01.01.2001<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="kw">&lt;/user-card&gt;</span></a></code></pre></div>
+<p>We created the shadow DOM, so here it is, under <code>#shadow-root</code>. Now the element has both light and shadow DOM.</p>
+<p>For rendering purposes, for each <code>&lt;slot name="..."&gt;</code> in shadow DOM, the browser looks for <code>slot="..."</code> with the same name in the light DOM. These elements are rendered inside the slots:</p>
+<p><img src="shadow-dom-user-card.svg" /></p>
+<p>The result is called “flattened” DOM:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">&lt;user-card&gt;</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  #shadow-root</a>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="kw">&lt;div&gt;</span>Name:</a>
+<a class="sourceLine" id="cb5-4" title="4">      <span class="kw">&lt;slot</span><span class="ot"> name=</span><span class="st">&quot;username&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb5-5" title="5">        <span class="co">&lt;!-- slotted element is inserted into the slot --&gt;</span></a>
+<a class="sourceLine" id="cb5-6" title="6">        <span class="kw">&lt;span</span><span class="ot"> slot=</span><span class="st">&quot;username&quot;</span><span class="kw">&gt;</span>John Smith<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb5-7" title="7">      <span class="kw">&lt;/slot&gt;</span></a>
+<a class="sourceLine" id="cb5-8" title="8">    <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb5-9" title="9">    <span class="kw">&lt;div&gt;</span>Birthday:</a>
+<a class="sourceLine" id="cb5-10" title="10">      <span class="kw">&lt;slot</span><span class="ot"> name=</span><span class="st">&quot;birthday&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb5-11" title="11">        <span class="kw">&lt;span</span><span class="ot"> slot=</span><span class="st">&quot;birthday&quot;</span><span class="kw">&gt;</span>01.01.2001<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb5-12" title="12">      <span class="kw">&lt;/slot&gt;</span></a>
+<a class="sourceLine" id="cb5-13" title="13">    <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb5-14" title="14"><span class="kw">&lt;/user-card&gt;</span></a></code></pre></div>
+<p>…But the flattened DOM exists only for rendering and event-handling purposes. It’s kind of “virtual”. That’s how things are shown. But the nodes in the document are actually not moved around!</p>
+<p>That can be easily checked if we run <code>querySelectorAll</code>: nodes are still at their places.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="co">// light DOM &lt;span&gt; nodes are still at the same place, under `&lt;user-card&gt;`</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="at">alert</span>( <span class="va">document</span>.<span class="at">querySelectorAll</span>(<span class="st">&#39;user-card span&#39;</span>).<span class="at">length</span> )<span class="op">;</span> <span class="co">// 2</span></a></code></pre></div>
+<p>So, the flattened DOM is derived from shadow DOM by inserting slots. The browser renders it and uses for style inheritance, event propagation (more about that later). But JavaScript still sees the document “as is”, before flattening.</p>
+<p>```<code>warn header="Only top-level children may have slot=\"...\" attribute" The</code>slot=“…”<code>attribute is only valid for direct children of the shadow host (in our example,</code><user-card>` element). For nested elements it’s ignored.</p>
+<p>For example, the second <code>&lt;span&gt;</code> here is ignored (as it’s not a top-level child of <code>&lt;user-card&gt;</code>):</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">&lt;user-card&gt;</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="kw">&lt;span</span><span class="ot"> slot=</span><span class="st">&quot;username&quot;</span><span class="kw">&gt;</span>John Smith<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="kw">&lt;div&gt;</span></a>
+<a class="sourceLine" id="cb7-4" title="4">    <span class="co">&lt;!-- invalid slot, must be direct child of user-card --&gt;</span></a>
+<a class="sourceLine" id="cb7-5" title="5">    <span class="kw">&lt;span</span><span class="ot"> slot=</span><span class="st">&quot;birthday&quot;</span><span class="kw">&gt;</span>01.01.2001<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb7-6" title="6">  <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="kw">&lt;/user-card&gt;</span></a></code></pre></div>
+<p>````</p>
+<p>If there are multiple elements in light DOM with the same slot name, they are appended into the slot, one after another.</p>
+<p>For example, this:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">&lt;user-card&gt;</span></a>
+<a class="sourceLine" id="cb8-2" title="2">  <span class="kw">&lt;span</span><span class="ot"> slot=</span><span class="st">&quot;username&quot;</span><span class="kw">&gt;</span>John<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb8-3" title="3">  <span class="kw">&lt;span</span><span class="ot"> slot=</span><span class="st">&quot;username&quot;</span><span class="kw">&gt;</span>Smith<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="kw">&lt;/user-card&gt;</span></a></code></pre></div>
+<p>Gives this flattened DOM with two elements in <code>&lt;slot name="username"&gt;</code>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">&lt;user-card&gt;</span></a>
+<a class="sourceLine" id="cb9-2" title="2">  #shadow-root</a>
+<a class="sourceLine" id="cb9-3" title="3">    <span class="kw">&lt;div&gt;</span>Name:</a>
+<a class="sourceLine" id="cb9-4" title="4">      <span class="kw">&lt;slot</span><span class="ot"> name=</span><span class="st">&quot;username&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb9-5" title="5">        <span class="kw">&lt;span</span><span class="ot"> slot=</span><span class="st">&quot;username&quot;</span><span class="kw">&gt;</span>John<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb9-6" title="6">        <span class="kw">&lt;span</span><span class="ot"> slot=</span><span class="st">&quot;username&quot;</span><span class="kw">&gt;</span>Smith<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb9-7" title="7">      <span class="kw">&lt;/slot&gt;</span></a>
+<a class="sourceLine" id="cb9-8" title="8">    <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb9-9" title="9">    <span class="kw">&lt;div&gt;</span>Birthday:</a>
+<a class="sourceLine" id="cb9-10" title="10">      <span class="kw">&lt;slot</span><span class="ot"> name=</span><span class="st">&quot;birthday&quot;</span><span class="kw">&gt;&lt;/slot&gt;</span></a>
+<a class="sourceLine" id="cb9-11" title="11">    <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb9-12" title="12"><span class="kw">&lt;/user-card&gt;</span></a></code></pre></div>
+<h2 id="slot-fallback-content">Slot fallback content</h2>
+<p>If we put something inside a <code>&lt;slot&gt;</code>, it becomes the fallback, “default” content. The browser shows it if there’s no corresponding filler in light DOM.</p>
+<p>For example, in this piece of shadow DOM, <code>Anonymous</code> renders if there’s no <code>slot="username"</code> in light DOM.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">&lt;div&gt;</span>Name:</a>
+<a class="sourceLine" id="cb10-2" title="2">  <span class="kw">&lt;slot</span><span class="ot"> name=</span><span class="st">&quot;username&quot;</span><span class="kw">&gt;</span>Anonymous<span class="kw">&lt;/slot&gt;</span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="kw">&lt;/div&gt;</span></a></code></pre></div>
+<h2 id="default-slot-first-unnamed">Default slot: first unnamed</h2>
+<p>The first <code>&lt;slot&gt;</code> in shadow DOM that doesn’t have a name is a “default” slot. It gets all nodes from the light DOM that aren’t slotted elsewhere.</p>
+<p>For example, let’s add the default slot to our <code>&lt;user-card&gt;</code> that shows all unslotted information about the user:</p>
+``<code>html run autorun="no-epub" untrusted height=140 &lt;script&gt; customElements.define('user-card', class extends HTMLElement {   connectedCallback() {     this.attachShadow({mode: 'open'});     this.shadowRoot.innerHTML =</code>
+<div>
+Name: <slot name="username"></slot>
+</div>
+<pre><code>&lt;div&gt;Birthday:
+  &lt;slot name=&quot;birthday&quot;&gt;&lt;/slot&gt;
+&lt;/div&gt;
+&lt;fieldset&gt;
+  &lt;legend&gt;Other information&lt;/legend&gt;</code></pre>
+<em>!</em> <slot></slot> <em>/!</em>
+</fieldset>
+<pre><code>`;</code></pre>
+} });
+</script>
+<user-card> <em>!</em>
+<div>
+I like to swim.
+</div>
+<em>/!</em> <span slot="username">John Smith</span> <span slot="birthday">01.01.2001</span> <em>!</em>
+<div>
+…And play volleyball too!
+</div>
+<p><em>/!</em> </user-card> ```</p>
+<p>All the unslotted light DOM content gets into the “Other information” fieldset.</p>
+<p>Elements are appended to a slot one after another, so both unslotted pieces of information are in the default slot together.</p>
+<p>The flattened DOM looks like this:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">&lt;user-card&gt;</span></a>
+<a class="sourceLine" id="cb13-2" title="2">  #shadow-root</a>
+<a class="sourceLine" id="cb13-3" title="3">    <span class="kw">&lt;div&gt;</span>Name:</a>
+<a class="sourceLine" id="cb13-4" title="4">      <span class="kw">&lt;slot</span><span class="ot"> name=</span><span class="st">&quot;username&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb13-5" title="5">        <span class="kw">&lt;span</span><span class="ot"> slot=</span><span class="st">&quot;username&quot;</span><span class="kw">&gt;</span>John Smith<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb13-6" title="6">      <span class="kw">&lt;/slot&gt;</span></a>
+<a class="sourceLine" id="cb13-7" title="7">    <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb13-8" title="8">    <span class="kw">&lt;div&gt;</span>Birthday:</a>
+<a class="sourceLine" id="cb13-9" title="9">      <span class="kw">&lt;slot</span><span class="ot"> name=</span><span class="st">&quot;birthday&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb13-10" title="10">        <span class="kw">&lt;span</span><span class="ot"> slot=</span><span class="st">&quot;birthday&quot;</span><span class="kw">&gt;</span>01.01.2001<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb13-11" title="11">      <span class="kw">&lt;/slot&gt;</span></a>
+<a class="sourceLine" id="cb13-12" title="12">    <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb13-13" title="13">    <span class="kw">&lt;fieldset&gt;</span></a>
+<a class="sourceLine" id="cb13-14" title="14">      <span class="kw">&lt;legend&gt;</span>Other information<span class="kw">&lt;/legend&gt;</span></a>
+<a class="sourceLine" id="cb13-15" title="15">*!*</a>
+<a class="sourceLine" id="cb13-16" title="16">      <span class="kw">&lt;slot&gt;</span></a>
+<a class="sourceLine" id="cb13-17" title="17">        <span class="kw">&lt;div&gt;</span>I like to swim.<span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb13-18" title="18">        <span class="kw">&lt;div&gt;</span>...And play volleyball too!<span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb13-19" title="19">      <span class="kw">&lt;/slot&gt;</span></a>
+<a class="sourceLine" id="cb13-20" title="20">*/!*</a>
+<a class="sourceLine" id="cb13-21" title="21">    <span class="kw">&lt;/fieldset&gt;</span></a>
+<a class="sourceLine" id="cb13-22" title="22"><span class="kw">&lt;/user-card&gt;</span></a></code></pre></div>
+<h2 id="menu-example">Menu example</h2>
+<p>Now let’s back to <code>&lt;custom-menu&gt;</code>, mentioned at the beginning of the chapter.</p>
+<p>We can use slots to distribute elements.</p>
+<p>Here’s the markup for <code>&lt;custom-menu&gt;</code>:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb14-1" title="1"><span class="kw">&lt;custom-menu&gt;</span></a>
+<a class="sourceLine" id="cb14-2" title="2">  <span class="kw">&lt;span</span><span class="ot"> slot=</span><span class="st">&quot;title&quot;</span><span class="kw">&gt;</span>Candy menu<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb14-3" title="3">  <span class="kw">&lt;li</span><span class="ot"> slot=</span><span class="st">&quot;item&quot;</span><span class="kw">&gt;</span>Lollipop<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb14-4" title="4">  <span class="kw">&lt;li</span><span class="ot"> slot=</span><span class="st">&quot;item&quot;</span><span class="kw">&gt;</span>Fruit Toast<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb14-5" title="5">  <span class="kw">&lt;li</span><span class="ot"> slot=</span><span class="st">&quot;item&quot;</span><span class="kw">&gt;</span>Cup Cake<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb14-6" title="6"><span class="kw">&lt;/custom-menu&gt;</span></a></code></pre></div>
+<p>The shadow DOM template with proper slots:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">&lt;template</span><span class="ot"> id=</span><span class="st">&quot;tmpl&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb15-2" title="2">  <span class="kw">&lt;style&gt;</span> <span class="co">/* menu styles */</span> <span class="kw">&lt;/style&gt;</span></a>
+<a class="sourceLine" id="cb15-3" title="3">  <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;menu&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb15-4" title="4">    <span class="kw">&lt;slot</span><span class="ot"> name=</span><span class="st">&quot;title&quot;</span><span class="kw">&gt;&lt;/slot&gt;</span></a>
+<a class="sourceLine" id="cb15-5" title="5">    <span class="kw">&lt;ul&gt;&lt;slot</span><span class="ot"> name=</span><span class="st">&quot;item&quot;</span><span class="kw">&gt;&lt;/slot&gt;&lt;/ul&gt;</span></a>
+<a class="sourceLine" id="cb15-6" title="6">  <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb15-7" title="7"><span class="kw">&lt;/template&gt;</span></a></code></pre></div>
+<ol type="1">
+<li><code>&lt;span slot="title"&gt;</code> goes into <code>&lt;slot name="title"&gt;</code>.</li>
+<li>There are many <code>&lt;li slot="item"&gt;</code> in the template, but only one <code>&lt;slot name="item"&gt;</code> in the template. So all such <code>&lt;li slot="item"&gt;</code> are appended to <code>&lt;slot name="item"&gt;</code> one after another, thus forming the list.</li>
+</ol>
+<p>The flattened DOM becomes:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb16-1" title="1"><span class="kw">&lt;custom-menu&gt;</span></a>
+<a class="sourceLine" id="cb16-2" title="2">  #shadow-root</a>
+<a class="sourceLine" id="cb16-3" title="3">    <span class="kw">&lt;style&gt;</span> <span class="co">/* menu styles */</span> <span class="kw">&lt;/style&gt;</span></a>
+<a class="sourceLine" id="cb16-4" title="4">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;menu&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb16-5" title="5">      <span class="kw">&lt;slot</span><span class="ot"> name=</span><span class="st">&quot;title&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb16-6" title="6">        <span class="kw">&lt;span</span><span class="ot"> slot=</span><span class="st">&quot;title&quot;</span><span class="kw">&gt;</span>Candy menu<span class="kw">&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb16-7" title="7">      <span class="kw">&lt;/slot&gt;</span></a>
+<a class="sourceLine" id="cb16-8" title="8">      <span class="kw">&lt;ul&gt;</span></a>
+<a class="sourceLine" id="cb16-9" title="9">        <span class="kw">&lt;slot</span><span class="ot"> name=</span><span class="st">&quot;item&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb16-10" title="10">          <span class="kw">&lt;li</span><span class="ot"> slot=</span><span class="st">&quot;item&quot;</span><span class="kw">&gt;</span>Lollipop<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb16-11" title="11">          <span class="kw">&lt;li</span><span class="ot"> slot=</span><span class="st">&quot;item&quot;</span><span class="kw">&gt;</span>Fruit Toast<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb16-12" title="12">          <span class="kw">&lt;li</span><span class="ot"> slot=</span><span class="st">&quot;item&quot;</span><span class="kw">&gt;</span>Cup Cake<span class="kw">&lt;/li&gt;</span></a>
+<a class="sourceLine" id="cb16-13" title="13">        <span class="kw">&lt;/slot&gt;</span></a>
+<a class="sourceLine" id="cb16-14" title="14">      <span class="kw">&lt;/ul&gt;</span></a>
+<a class="sourceLine" id="cb16-15" title="15">    <span class="kw">&lt;/div&gt;</span></a>
+<a class="sourceLine" id="cb16-16" title="16"><span class="kw">&lt;/custom-menu&gt;</span></a></code></pre></div>
+<p>One might notice that, in a valid DOM, <code>&lt;li&gt;</code> must be a direct child of <code>&lt;ul&gt;</code>. But that’s flattened DOM, it describes how the component is rendered, such thing happens naturally here.</p>
+<p>We just need to add a <code>click</code> handler to open/close the list, and the <code>&lt;custom-menu&gt;</code> is ready:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb17-1" title="1"><span class="va">customElements</span>.<span class="at">define</span>(<span class="st">&#39;custom-menu&#39;</span><span class="op">,</span> <span class="kw">class</span> <span class="kw">extends</span> HTMLElement <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-2" title="2">  <span class="at">connectedCallback</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-3" title="3">    <span class="kw">this</span>.<span class="at">attachShadow</span>(<span class="op">{</span><span class="dt">mode</span><span class="op">:</span> <span class="st">&#39;open&#39;</span><span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb17-4" title="4"></a>
+<a class="sourceLine" id="cb17-5" title="5">    <span class="co">// tmpl is the shadow DOM template (above)</span></a>
+<a class="sourceLine" id="cb17-6" title="6">    <span class="kw">this</span>.<span class="va">shadowRoot</span>.<span class="at">append</span>( <span class="va">tmpl</span>.<span class="va">content</span>.<span class="at">cloneNode</span>(<span class="kw">true</span>) )<span class="op">;</span></a>
+<a class="sourceLine" id="cb17-7" title="7"></a>
+<a class="sourceLine" id="cb17-8" title="8">    <span class="co">// we can&#39;t select light DOM nodes, so let&#39;s handle clicks on the slot</span></a>
+<a class="sourceLine" id="cb17-9" title="9">    <span class="kw">this</span>.<span class="va">shadowRoot</span>.<span class="at">querySelector</span>(<span class="st">&#39;slot[name=&quot;title&quot;]&#39;</span>).<span class="at">onclick</span> <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb17-10" title="10">      <span class="co">// open/close the menu</span></a>
+<a class="sourceLine" id="cb17-11" title="11">      <span class="kw">this</span>.<span class="va">shadowRoot</span>.<span class="at">querySelector</span>(<span class="st">&#39;.menu&#39;</span>).<span class="va">classList</span>.<span class="at">toggle</span>(<span class="st">&#39;closed&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb17-12" title="12">    <span class="op">};</span></a>
+<a class="sourceLine" id="cb17-13" title="13">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb17-14" title="14"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>Here’s the full demo:</p>
+<p>[iframe src=“menu” height=140 edit]</p>
+<p>Of course, we can add more functionality to it: events, methods and so on.</p>
+<h2 id="updating-slots">Updating slots</h2>
+<p>What if the outer code wants to add/remove menu items dynamically?</p>
+<p><strong>The browser monitors slots and updates the rendering if slotted elements are added/removed.</strong></p>
+<p>Also, as light DOM nodes are not copied, but just rendered in slots, the changes inside them immediately become visible.</p>
+<p>So we don’t have to do anything to update rendering. But if the component code wants to know about slot changes, then <code>slotchange</code> event is available.</p>
+<p>For example, here the menu item is inserted dynamically after 1 second, and the title changes after 2 seconds:</p>
+<p>```html run untrusted height=80 <custom-menu id="menu"> <span slot="title">Candy menu</span> </custom-menu></p>
+<script>
+customElements.define('custom-menu', class extends HTMLElement {
+  connectedCallback() {
+    this.attachShadow({mode: 'open'});
+    this.shadowRoot.innerHTML = `<div class="menu">
+      <slot name="title"></slot>
+      <ul><slot name="item"></slot></ul>
+    </div>`;
+
+    // shadowRoot can't have event handlers, so using the first child
+    this.shadowRoot.firstElementChild.addEventListener('slotchange',
+      e => alert("slotchange: " + e.target.name)
+    );
+  }
+});
+
+setTimeout(() => {
+  menu.insertAdjacentHTML('beforeEnd', '<li slot="item">Lollipop</li>')
+}, 1000);
+
+setTimeout(() => {
+  menu.querySelector('[slot="title"]').innerHTML = "New menu";
+}, 2000);
+</script>
+<p>```</p>
+<p>The menu rendering updates each time without our intervention.</p>
+<p>There are two <code>slotchange</code> events here:</p>
+<ol type="1">
+<li><p>At initialization:</p>
+<code>slotchange: title</code> triggers immediately, as the <code>slot="title"</code> from the light DOM gets into the corresponding slot.</li>
+<li><p>After 1 second:</p>
+<p><code>slotchange: item</code> triggers, when a new <code>&lt;li slot="item"&gt;</code> is added.</p></li>
+</ol>
+<p>Please note: there’s no <code>slotchange</code> event after 2 seconds, when the content of <code>slot="title"</code> is modified. That’s because there’s no slot change. We modify the content inside the slotted element, that’s another thing.</p>
+<p>If we’d like to track internal modifications of light DOM from JavaScript, that’s also possible using a more generic mechanism: <a href="info:mutation-observer">MutationObserver</a>.</p>
+<h2 id="slot-api">Slot API</h2>
+<p>Finally, let’s mention the slot-related JavaScript methods.</p>
+<p>As we’ve seen before, JavaScript looks at the “real” DOM, without flattening. But, if the shadow tree has <code>{mode: 'open'}</code>, then we can figure out which elements assigned to a slot and, vise-versa, the slot by the element inside it:</p>
+<ul>
+<li><code>node.assignedSlot</code> – returns the <code>&lt;slot&gt;</code> element that the <code>node</code> is assigned to.</li>
+<li><code>slot.assignedNodes({flatten: true/false})</code> – DOM nodes, assigned to the slot. The <code>flatten</code> option is <code>false</code> by default. If explicitly set to <code>true</code>, then it looks more deeply into the flattened DOM, returning nested slots in case of nested components and the fallback content if no node assigned.</li>
+<li><code>slot.assignedElements({flatten: true/false})</code> – DOM elements, assigned to the slot (same as above, but only element nodes).</li>
+</ul>
+<p>These methods are useful when we need not just show the slotted content, but also track it in JavaScript.</p>
+<p>For example, if <code>&lt;custom-menu&gt;</code> component wants to know, what it shows, then it could track <code>slotchange</code> and get the items from <code>slot.assignedElements</code>:</p>
+```html run untrusted height=120 <custom-menu id="menu"> <span slot="title">Candy menu</span>
+<li slot="item">
+Lollipop
+</li>
+<li slot="item">
+Fruit Toast
+</li>
+<p></custom-menu></p>
+<script>
+customElements.define('custom-menu', class extends HTMLElement {
+  items = []
+
+  connectedCallback() {
+    this.attachShadow({mode: 'open'});
+    this.shadowRoot.innerHTML = `<div class="menu">
+      <slot name="title"></slot>
+      <ul><slot name="item"></slot></ul>
+    </div>`;
+
+    // triggers when slot content changes
+*!*
+    this.shadowRoot.firstElementChild.addEventListener('slotchange', e => {
+      let slot = e.target;
+      if (slot.name == 'item') {
+        this.items = slot.assignedElements().map(elem => elem.textContent);
+        alert("Items: " + this.items);
+      }
+    });
+*/!*
+  }
+});
+
+// items update after 1 second
+setTimeout(() => {
+  menu.insertAdjacentHTML('beforeEnd', '<li slot="item">Cup Cake</li>')
+}, 1000);
+</script>
+<p>```</p>
+<h2 id="summary">Summary</h2>
+<p>Usually, if an element has shadow DOM, then its light DOM is not displayed. Slots allow to show elements from light DOM in specified places of shadow DOM.</p>
+<p>There are two kinds of slots:</p>
+<ul>
+<li>Named slots: <code>&lt;slot name="X"&gt;...&lt;/slot&gt;</code> – gets light children with <code>slot="X"</code>.</li>
+<li>Default slot: the first <code>&lt;slot&gt;</code> without a name (subsequent unnamed slots are ignored) – gets unslotted light children.</li>
+<li>If there are many elements for the same slot – they are appended one after another.</li>
+<li>The content of <code>&lt;slot&gt;</code> element is used as a fallback. It’s shown if there are no light children for the slot.</li>
+</ul>
+<p>The process of rendering slotted elements inside their slots is called “composition”. The result is called a “flattened DOM”.</p>
+<p>Composition does not really move nodes, from JavaScript point of view the DOM is still same.</p>
+<p>JavaScript can access slots using methods: - <code>slot.assignedNodes/Elements()</code> – returns nodes/elements inside the <code>slot</code>. - <code>node.assignedSlot</code> – the reverse property, returns slot by a node.</p>
+<p>If we’d like to know what we’re showing, we can track slot contents using: - <code>slotchange</code> event – triggers the first time a slot is filled, and on any add/remove/replace operation of the slotted element, but not its children. The slot is <code>event.target</code>. - <a href="info:mutation-observer">MutationObserver</a> to go deeper into slot content, watch changes inside it.</p>
+<p>Now, as we know how to show elements from light DOM in shadow DOM, let’s see how to style them properly. The basic rule is that shadow elements are styled inside, and light elements – outside, but there are notable exceptions.</p>
+<p>We’ll see the details in the next chapter.</p>

@@ -1,0 +1,242 @@
+<h1 id="fetch-cross-origin-requests">Fetch: Cross-Origin Requests</h1>
+<p>If we send a <code>fetch</code> request to another web-site, it will probably fail.</p>
+<p>For instance, let’s try fetching <code>http://example.com</code>:</p>
+<p><code>js run async try {   await fetch('http://example.com'); } catch(err) {   alert(err); // Failed to fetch }</code></p>
+<p>Fetch fails, as expected.</p>
+<p>The core concept here is <em>origin</em> – a domain/port/protocol triplet.</p>
+<p>Cross-origin requests – those sent to another domain (even a subdomain) or protocol or port – require special headers from the remote side.</p>
+<p>That policy is called “CORS”: Cross-Origin Resource Sharing.</p>
+<h2 id="why-is-cors-needed-a-brief-history">Why is CORS needed? A brief history</h2>
+<p>CORS exists to protect the internet from evil hackers.</p>
+<p>Seriously. Let’s make a very brief historical digression.</p>
+<p><strong>For many years a script from one site could not access the content of another site.</strong></p>
+<p>That simple, yet powerful rule was a foundation of the internet security. E.g. an evil script from website <code>hacker.com</code> could not access the user’s mailbox at website <code>gmail.com</code>. People felt safe.</p>
+<p>JavaScript also did not have any special methods to perform network requests at that time. It was a toy language to decorate a web page.</p>
+<p>But web developers demanded more power. A variety of tricks were invented to work around the limitation and make requests to other websites.</p>
+<h3 id="using-forms">Using forms</h3>
+<p>One way to communicate with another server was to submit a <code>&lt;form&gt;</code> there. People submitted it into <code>&lt;iframe&gt;</code>, just to stay on the current page, like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" title="1"><span class="co">&lt;!-- form target --&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">*!*</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">&lt;iframe</span><span class="ot"> name=</span><span class="st">&quot;iframe&quot;</span><span class="kw">&gt;&lt;/iframe&gt;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">*/!*</a>
+<a class="sourceLine" id="cb1-5" title="5"></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="co">&lt;!-- a form could be dynamically generated and submited by JavaScript --&gt;</span></a>
+<a class="sourceLine" id="cb1-7" title="7">*!*</a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="kw">&lt;form</span><span class="ot"> target=</span><span class="st">&quot;iframe&quot;</span><span class="ot"> method=</span><span class="st">&quot;POST&quot;</span><span class="ot"> action=</span><span class="st">&quot;http://another.com/…&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb1-9" title="9">*/!*</a>
+<a class="sourceLine" id="cb1-10" title="10">  ...</a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="kw">&lt;/form&gt;</span></a></code></pre></div>
+<p>So, it was possible to make a GET/POST request to another site, even without networking methods, as forms can send data anywhere. But as it’s forbidden to access the content of an <code>&lt;iframe&gt;</code> from another site, it wasn’t possible to read the response.</p>
+<p>To be precise, there were actually tricks for that, they required special scripts at both the iframe and the page. So the communication with the iframe was technically possible. Right now there’s no point to go into details, let these dinosaurs rest in peace.</p>
+<h3 id="using-scripts">Using scripts</h3>
+<p>Another trick was to use a <code>script</code> tag. A script could have any <code>src</code>, with any domain, like <code>&lt;script src="http://another.com/…"&gt;</code>. It’s possible to execute a script from any website.</p>
+<p>If a website, e.g. <code>another.com</code> intended to expose data for this kind of access, then a so-called “JSONP (JSON with padding)” protocol was used.</p>
+<p>Here’s how it worked.</p>
+<p>Let’s say we, at our site, need to get the data from <code>http://another.com</code>, such as the weather:</p>
+<ol type="1">
+<li><p>First, in advance, we declare a global function to accept the data, e.g. <code>gotWeather</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// 1. Declare the function to process the weather data</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">function</span> <span class="at">gotWeather</span>(<span class="op">{</span> temperature<span class="op">,</span> humidity <span class="op">}</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="at">alert</span>(<span class="vs">`temperature: </span><span class="sc">${</span>temperature<span class="sc">}</span><span class="vs">, humidity: </span><span class="sc">${</span>humidity<span class="sc">}</span><span class="vs">`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="op">}</span></a></code></pre></div></li>
+<li><p>Then we make a <code>&lt;script&gt;</code> tag with <code>src="http://another.com/weather.json?callback=gotWeather"</code>, using the name of our function as the <code>callback</code> URL-parameter.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> script <span class="op">=</span> <span class="va">document</span>.<span class="at">createElement</span>(<span class="st">&#39;script&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="va">script</span>.<span class="at">src</span> <span class="op">=</span> <span class="vs">`http://another.com/weather.json?callback=gotWeather`</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="va">document</span>.<span class="va">body</span>.<span class="at">append</span>(script)<span class="op">;</span></a></code></pre></div></li>
+<li>The remote server <code>another.com</code> dynamically generates a script that calls <code>gotWeather(...)</code> with the data it wants us to receive. <code>js  // The expected answer from the server looks like this:  gotWeather({    temperature: 25,    humidity: 78  });</code></li>
+<li><p>When the remote script loads and executes, <code>gotWeather</code> runs, and, as it’s our function, we have the data.</p></li>
+</ol>
+<p>That works, and doesn’t violate security, because both sides agreed to pass the data this way. And, when both sides agree, it’s definitely not a hack. There are still services that provide such access, as it works even for very old browsers.</p>
+<p>After a while, networking methods appeared in browser JavaScript.</p>
+<p>At first, cross-origin requests were forbidden. But as a result of long discussions, cross-origin requests were allowed, but with any new capabilities requiring an explicit allowance by the server, expressed in special headers.</p>
+<h2 id="safe-requests">Safe requests</h2>
+<p>There are two types of cross-origin requests:</p>
+<ol type="1">
+<li>Safe requests.</li>
+<li>All the others.</li>
+</ol>
+<p>Safe Requests are simpler to make, so let’s start with them.</p>
+<p>A request is safe if it satisfies two conditions:</p>
+<ol type="1">
+<li><a href="https://fetch.spec.whatwg.org/#cors-safelisted-method">Safe method</a>: GET, POST or HEAD</li>
+<li><a href="https://fetch.spec.whatwg.org/#cors-safelisted-request-header">Safe headers</a> – the only allowed custom headers are:
+<ul>
+<li><code>Accept</code>,</li>
+<li><code>Accept-Language</code>,</li>
+<li><code>Content-Language</code>,</li>
+<li><code>Content-Type</code> with the value <code>application/x-www-form-urlencoded</code>, <code>multipart/form-data</code> or <code>text/plain</code>.</li>
+</ul></li>
+</ol>
+<p>Any other request is considered “unsafe”. For instance, a request with <code>PUT</code> method or with an <code>API-Key</code> HTTP-header does not fit the limitations.</p>
+<p><strong>The essential difference is that a safe request can be made with a <code>&lt;form&gt;</code> or a <code>&lt;script&gt;</code>, without any special methods.</strong></p>
+<p>So, even a very old server should be ready to accept a safe request.</p>
+<p>Contrary to that, requests with non-standard headers or e.g. method <code>DELETE</code> can’t be created this way. For a long time JavaScript was unable to do such requests. So an old server may assume that such requests come from a privileged source, “because a webpage is unable to send them”.</p>
+<p>When we try to make a unsafe request, the browser sends a special “preflight” request that asks the server – does it agree to accept such cross-origin requests, or not?</p>
+<p>And, unless the server explicitly confirms that with headers, an unsafe request is not sent.</p>
+<p>Now we’ll go into details.</p>
+<h2 id="cors-for-safe-requests">CORS for safe requests</h2>
+<p>If a request is cross-origin, the browser always adds the <code>Origin</code> header to it.</p>
+<p>For instance, if we request <code>https://anywhere.com/request</code> from <code>https://javascript.info/page</code>, the headers will look like:</p>
+<pre class="http"><code>GET /request
+Host: anywhere.com
+*!*
+Origin: https://javascript.info
+*/!*
+...</code></pre>
+<p>As you can see, the <code>Origin</code> header contains exactly the origin (domain/protocol/port), without a path.</p>
+<p>The server can inspect the <code>Origin</code> and, if it agrees to accept such a request, add a special header <code>Access-Control-Allow-Origin</code> to the response. That header should contain the allowed origin (in our case <code>https://javascript.info</code>), or a star <code>*</code>. Then the response is successful, otherwise it’s an error.</p>
+<p>The browser plays the role of a trusted mediator here: 1. It ensures that the correct <code>Origin</code> is sent with a cross-origin request. 2. It checks for permitting <code>Access-Control-Allow-Origin</code> in the response, if it exists, then JavaScript is allowed to access the response, otherwise it fails with an error.</p>
+<p><img src="xhr-another-domain.svg" /></p>
+<p>Here’s an example of a permissive server response:</p>
+<pre class="http"><code>200 OK
+Content-Type:text/html; charset=UTF-8
+*!*
+Access-Control-Allow-Origin: https://javascript.info
+*/!*</code></pre>
+<h2 id="response-headers">Response headers</h2>
+<p>For cross-origin request, by default JavaScript may only access so-called “safe” response headers:</p>
+<ul>
+<li><code>Cache-Control</code></li>
+<li><code>Content-Language</code></li>
+<li><code>Content-Type</code></li>
+<li><code>Expires</code></li>
+<li><code>Last-Modified</code></li>
+<li><code>Pragma</code></li>
+</ul>
+<p>Accessing any other response header causes an error.</p>
+<pre class="smart"><code>There&#39;s no `Content-Length` header in the list!
+
+This header contains the full response length. So, if we&#39;re downloading something and would like to track the percentage of progress, then an additional permission is required to access that header (see below).</code></pre>
+<p>To grant JavaScript access to any other response header, the server must send the <code>Access-Control-Expose-Headers</code> header. It contains a comma-separated list of unsafe header names that should be made accessible.</p>
+<p>For example:</p>
+<pre class="http"><code>200 OK
+Content-Type:text/html; charset=UTF-8
+Content-Length: 12345
+API-Key: 2c9de507f2c54aa1
+Access-Control-Allow-Origin: https://javascript.info
+*!*
+Access-Control-Expose-Headers: Content-Length,API-Key
+*/!*</code></pre>
+<p>With such an <code>Access-Control-Expose-Headers</code> header, the script is allowed to read the <code>Content-Length</code> and <code>API-Key</code> headers of the response.</p>
+<h2 id="unsafe-requests">“Unsafe” requests</h2>
+<p>We can use any HTTP-method: not just <code>GET/POST</code>, but also <code>PATCH</code>, <code>DELETE</code> and others.</p>
+<p>Some time ago no one could even imagine that a webpage could make such requests. So there may still exist webservices that treat a non-standard method as a signal: “That’s not a browser”. They can take it into account when checking access rights.</p>
+<p>So, to avoid misunderstandings, any “unsafe” request – that couldn’t be done in the old times, the browser does not make such requests right away. First, it sends a preliminary, so-called “preflight” request, to ask for permission.</p>
+<p>A preflight request uses the method <code>OPTIONS</code>, no body and two headers:</p>
+<ul>
+<li><code>Access-Control-Request-Method</code> header has the method of the unsafe request.</li>
+<li><code>Access-Control-Request-Headers</code> header provides a comma-separated list of its unsafe HTTP-headers.</li>
+</ul>
+<p>If the server agrees to serve the requests, then it should respond with empty body, status 200 and headers:</p>
+<ul>
+<li><code>Access-Control-Allow-Origin</code> must be either <code>*</code> or the requesting origin, such as <code>https://javascript.info</code>, to allow it.</li>
+<li><code>Access-Control-Allow-Methods</code> must have the allowed method.</li>
+<li><code>Access-Control-Allow-Headers</code> must have a list of allowed headers.</li>
+<li>Additionally, the header <code>Access-Control-Max-Age</code> may specify a number of seconds to cache the permissions. So the browser won’t have to send a preflight for subsequent requests that satisfy given permissions.</li>
+</ul>
+<p><img src="xhr-preflight.svg" /></p>
+<p>Let’s see how it works step-by-step on the example of a cross-origin <code>PATCH</code> request (this method is often used to update data):</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">let</span> response <span class="op">=</span> <span class="cf">await</span> <span class="at">fetch</span>(<span class="st">&#39;https://site.com/service.json&#39;</span><span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2">  <span class="dt">method</span><span class="op">:</span> <span class="st">&#39;PATCH&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb8-3" title="3">  <span class="dt">headers</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-4" title="4">    <span class="st">&#39;Content-Type&#39;</span><span class="op">:</span> <span class="st">&#39;application/json&#39;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb8-5" title="5">    <span class="st">&#39;API-Key&#39;</span><span class="op">:</span> <span class="st">&#39;secret&#39;</span></a>
+<a class="sourceLine" id="cb8-6" title="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>There are three reasons why the request is unsafe (one is enough): - Method <code>PATCH</code> - <code>Content-Type</code> is not one of: <code>application/x-www-form-urlencoded</code>, <code>multipart/form-data</code>, <code>text/plain</code>. - “Unsafe” <code>API-Key</code> header.</p>
+<h3 id="step-1-preflight-request">Step 1 (preflight request)</h3>
+<p>Prior to sending such a request, the browser, on its own, sends a preflight request that looks like this:</p>
+<pre class="http"><code>OPTIONS /service.json
+Host: site.com
+Origin: https://javascript.info
+Access-Control-Request-Method: PATCH
+Access-Control-Request-Headers: Content-Type,API-Key</code></pre>
+<ul>
+<li>Method: <code>OPTIONS</code>.</li>
+<li>The path – exactly the same as the main request: <code>/service.json</code>.</li>
+<li>Cross-origin special headers:
+<ul>
+<li><code>Origin</code> – the source origin.</li>
+<li><code>Access-Control-Request-Method</code> – requested method.</li>
+<li><code>Access-Control-Request-Headers</code> – a comma-separated list of “unsafe” headers.</li>
+</ul></li>
+</ul>
+<h3 id="step-2-preflight-response">Step 2 (preflight response)</h3>
+<p>The server should respond with status 200 and the headers: - <code>Access-Control-Allow-Origin: https://javascript.info</code> - <code>Access-Control-Allow-Methods: PATCH</code> - <code>Access-Control-Allow-Headers: Content-Type,API-Key</code>.</p>
+<p>That allows future communication, otherwise an error is triggered.</p>
+<p>If the server expects other methods and headers in the future, it makes sense to allow them in advance by adding them to the list.</p>
+<p>For example, this response also allows <code>PUT</code>, <code>DELETE</code> and additional headers:</p>
+<pre class="http"><code>200 OK
+Access-Control-Allow-Origin: https://javascript.info
+Access-Control-Allow-Methods: PUT,PATCH,DELETE
+Access-Control-Allow-Headers: API-Key,Content-Type,If-Modified-Since,Cache-Control
+Access-Control-Max-Age: 86400</code></pre>
+<p>Now the browser can see that <code>PATCH</code> is in <code>Access-Control-Allow-Methods</code> and <code>Content-Type,API-Key</code> are in the list <code>Access-Control-Allow-Headers</code>, so it sends out the main request.</p>
+<p>If there’s the header <code>Access-Control-Max-Age</code> with a number of seconds, then the preflight permissions are cached for the given time. The response above will be cached for 86400 seconds (one day). Within this timeframe, subsequent requests will not cause a preflight. Assuming that they fit the cached allowances, they will be sent directly.</p>
+<h3 id="step-3-actual-request">Step 3 (actual request)</h3>
+<p>When the preflight is successful, the browser now makes the main request. The process here is the same as for safe requests.</p>
+<p>The main request has the <code>Origin</code> header (because it’s cross-origin):</p>
+<pre class="http"><code>PATCH /service.json
+Host: site.com
+Content-Type: application/json
+API-Key: secret
+Origin: https://javascript.info</code></pre>
+<h3 id="step-4-actual-response">Step 4 (actual response)</h3>
+<p>The server should not forget to add <code>Access-Control-Allow-Origin</code> to the main response. A successful preflight does not relieve from that:</p>
+<pre class="http"><code>Access-Control-Allow-Origin: https://javascript.info</code></pre>
+<p>Then JavaScript is able to read the main server response.</p>
+<pre class="smart"><code>Preflight request occurs &quot;behind the scenes&quot;, it&#39;s invisible to JavaScript.
+
+JavaScript only gets the response to the main request or an error if there&#39;s no server permission.</code></pre>
+<h2 id="credentials">Credentials</h2>
+<p>A cross-origin request initiated by JavaScript code by default does not bring any credentials (cookies or HTTP authentication).</p>
+<p>That’s uncommon for HTTP-requests. Usually, a request to <code>http://site.com</code> is accompanied by all cookies from that domain. Cross-origin requests made by JavaScript methods on the other hand are an exception.</p>
+<p>For example, <code>fetch('http://another.com')</code> does not send any cookies, even those (!) that belong to <code>another.com</code> domain.</p>
+<p>Why?</p>
+<p>That’s because a request with credentials is much more powerful than without them. If allowed, it grants JavaScript the full power to act on behalf of the user and access sensitive information using their credentials.</p>
+<p>Does the server really trust the script that much? Then it must explicitly allow requests with credentials with an additional header.</p>
+<p>To send credentials in <code>fetch</code>, we need to add the option <code>credentials: "include"</code>, like this:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb14-1" title="1"><span class="at">fetch</span>(<span class="st">&#39;http://another.com&#39;</span><span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb14-2" title="2">  <span class="dt">credentials</span><span class="op">:</span> <span class="st">&quot;include&quot;</span></a>
+<a class="sourceLine" id="cb14-3" title="3"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>Now <code>fetch</code> sends cookies originating from <code>another.com</code> with request to that site.</p>
+<p>If the server agrees to accept the request <em>with credentials</em>, it should add a header <code>Access-Control-Allow-Credentials: true</code> to the response, in addition to <code>Access-Control-Allow-Origin</code>.</p>
+<p>For example:</p>
+<pre class="http"><code>200 OK
+Access-Control-Allow-Origin: https://javascript.info
+Access-Control-Allow-Credentials: true</code></pre>
+<p>Please note: <code>Access-Control-Allow-Origin</code> is prohibited from using a star <code>*</code> for requests with credentials. Like shown above, it must provide the exact origin there. That’s an additional safety measure, to ensure that the server really knows who it trusts to make such requests.</p>
+<h2 id="summary">Summary</h2>
+<p>From the browser point of view, there are two kinds of cross-origin requests: “safe” and all the others.</p>
+<p>“Safe” requests must satisfy the following conditions: - Method: GET, POST or HEAD. - Headers – we can set only: - <code>Accept</code> - <code>Accept-Language</code> - <code>Content-Language</code> - <code>Content-Type</code> to the value <code>application/x-www-form-urlencoded</code>, <code>multipart/form-data</code> or <code>text/plain</code>.</p>
+<p>The essential difference is that safe requests were doable since ancient times using <code>&lt;form&gt;</code> or <code>&lt;script&gt;</code> tags, while unsafe were impossible for browsers for a long time.</p>
+<p>So, the practical difference is that safe requests are sent right away, with the <code>Origin</code> header, while for the other ones the browser makes a preliminary “preflight” request, asking for permission.</p>
+<p><strong>For safe requests:</strong></p>
+<ul>
+<li>→ The browser sends the <code>Origin</code> header with the origin.</li>
+<li>← For requests without credentials (not sent by default), the server should set:
+<ul>
+<li><code>Access-Control-Allow-Origin</code> to <code>*</code> or same value as <code>Origin</code></li>
+</ul></li>
+<li>← For requests with credentials, the server should set:
+<ul>
+<li><code>Access-Control-Allow-Origin</code> to same value as <code>Origin</code></li>
+<li><code>Access-Control-Allow-Credentials</code> to <code>true</code></li>
+</ul></li>
+</ul>
+<p>Additionally, to grant JavaScript access to any response headers except <code>Cache-Control</code>, <code>Content-Language</code>, <code>Content-Type</code>, <code>Expires</code>, <code>Last-Modified</code> or <code>Pragma</code>, the server should list the allowed ones in <code>Access-Control-Expose-Headers</code> header.</p>
+<p><strong>For unsafe requests, a preliminary “preflight” request is issued before the requested one:</strong></p>
+<ul>
+<li>→ The browser sends an <code>OPTIONS</code> request to the same URL, with the headers:
+<ul>
+<li><code>Access-Control-Request-Method</code> has requested method.</li>
+<li><code>Access-Control-Request-Headers</code> lists unsafe requested headers.</li>
+</ul></li>
+<li>← The server should respond with status 200 and the headers:
+<ul>
+<li><code>Access-Control-Allow-Methods</code> with a list of allowed methods,</li>
+<li><code>Access-Control-Allow-Headers</code> with a list of allowed headers,</li>
+<li><code>Access-Control-Max-Age</code> with a number of seconds to cache the permissions.</li>
+</ul></li>
+<li>Then the actual request is sent, and the previous “safe” scheme is applied.</li>
+</ul>

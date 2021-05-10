@@ -1,0 +1,4 @@
+<p>The answer: <code>1</code>, and then <code>undefined</code>.</p>
+<p><code>js run alert( alert(1) &amp;&amp; alert(2) );</code></p>
+<p>The call to <code>alert</code> returns <code>undefined</code> (it just shows a message, so there’s no meaningful return).</p>
+<p>Because of that, <code>&amp;&amp;</code> evaluates the left operand (outputs <code>1</code>), and immediately stops, because <code>undefined</code> is a falsy value. And <code>&amp;&amp;</code> looks for a falsy value and returns it, so it’s done.</p>

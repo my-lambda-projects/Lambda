@@ -1,0 +1,33 @@
+{
+  "name": "react-stateful-widgets",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
+    "test": "cypress open"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^5.2.0",
+    "eslint": "^7.9.0",
+    "eslint-plugin-cypress": "^2.11.1",
+    "eslint-plugin-react": "^7.20.6",
+    "less": "^3.12.2",
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LambdaSchool/react-stateful-widgets.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/LambdaSchool/react-stateful-widgets/issues"
+  },
+  "homepage": "https://github.com/LambdaSchool/react-stateful-widgets#readme"
+}

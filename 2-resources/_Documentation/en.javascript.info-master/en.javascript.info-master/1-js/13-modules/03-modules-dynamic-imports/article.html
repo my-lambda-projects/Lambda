@@ -1,0 +1,55 @@
+<h1 id="dynamic-imports">Dynamic imports</h1>
+<p>Export and import statements that we covered in previous chapters are called “static”. The syntax is very simple and strict.</p>
+<p>First, we can’t dynamically generate any parameters of <code>import</code>.</p>
+<p>The module path must be a primitive string, can’t be a function call. This won’t work:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="im">import</span> ... <span class="at">from</span> <span class="op">*!*</span><span class="at">getModuleName</span>()<span class="op">*</span><span class="ss">/!</span><span class="sc">*</span><span class="ss">; // Error, only from &quot;string&quot; is allowed</span></a></code></pre></div>
+<p>Second, we can’t import conditionally or at run-time:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="cf">if</span>(...) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="im">import</span> ...<span class="op">;</span> <span class="co">// Error, not allowed!</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb2-4" title="4"></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="op">{</span></a>
+<a class="sourceLine" id="cb2-6" title="6">  <span class="im">import</span> ...<span class="op">;</span> <span class="co">// Error, we can&#39;t put import in any block</span></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="op">}</span></a></code></pre></div>
+<p>That’s because <code>import</code>/<code>export</code> aim to provide a backbone for the code structure. That’s a good thing, as code structure can be analyzed, modules can be gathered and bundled into one file by special tools, unused exports can be removed (“tree-shaken”). That’s possible only because the structure of imports/exports is simple and fixed.</p>
+<p>But how can we import a module dynamically, on-demand?</p>
+<h2 id="the-import-expression">The import() expression</h2>
+<p>The <code>import(module)</code> expression loads the module and returns a promise that resolves into a module object that contains all its exports. It can be called from any place in the code.</p>
+<p>We can use it dynamically in any place of the code, for instance:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> modulePath <span class="op">=</span> <span class="at">prompt</span>(<span class="st">&quot;Which module to load?&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="im">import</span>(modulePath)</a>
+<a class="sourceLine" id="cb3-4" title="4">  .<span class="at">then</span>(obj <span class="kw">=&gt;</span> <span class="op">&lt;</span>module object<span class="op">&gt;</span>)</a>
+<a class="sourceLine" id="cb3-5" title="5">  .<span class="at">catch</span>(err <span class="kw">=&gt;</span> <span class="op">&lt;</span>loading error<span class="op">,</span> <span class="va">e</span>.<span class="va">g</span>. <span class="at">if</span> no such module<span class="op">&gt;</span>)</a></code></pre></div>
+<p>Or, we could use <code>let module = await import(modulePath)</code> if inside an async function.</p>
+<p>For instance, if we have the following module <code>say.js</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="co">// 📁 say.js</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="im">export</span> <span class="kw">function</span> <span class="at">hi</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="at">alert</span>(<span class="vs">`Hello`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="op">}</span></a>
+<a class="sourceLine" id="cb4-5" title="5"></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="im">export</span> <span class="kw">function</span> <span class="at">bye</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-7" title="7">  <span class="at">alert</span>(<span class="vs">`Bye`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="op">}</span></a></code></pre></div>
+<p>…Then dynamic import can be like this:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">let</span> <span class="op">{</span>hi<span class="op">,</span> bye<span class="op">}</span> <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">&#39;./say.js&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-2" title="2"></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="at">hi</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="at">bye</span>()<span class="op">;</span></a></code></pre></div>
+<p>Or, if <code>say.js</code> has the default export:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="co">// 📁 say.js</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="im">export</span> <span class="im">default</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  <span class="at">alert</span>(<span class="st">&quot;Module loaded (export default)!&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="op">}</span></a></code></pre></div>
+<p>…Then, in order to access it, we can use <code>default</code> property of the module object:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">let</span> obj <span class="op">=</span> <span class="cf">await</span> <span class="im">import</span>(<span class="st">&#39;./say.js&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="kw">let</span> say <span class="op">=</span> <span class="va">obj</span>.<span class="at">default</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="co">// or, in one line: let {default: say} = await import(&#39;./say.js&#39;);</span></a>
+<a class="sourceLine" id="cb7-4" title="4"></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="at">say</span>()<span class="op">;</span></a></code></pre></div>
+<p>Here’s the full example:</p>
+<p>[codetabs src=“say” current=“index.html”]</p>
+<pre class="smart"><code>Dynamic imports work in regular scripts, they don&#39;t require `script type=&quot;module&quot;`.</code></pre>
+<pre class="smart"><code>Although `import()` looks like a function call, it&#39;s a special syntax that just happens to use parentheses (similar to `super()`).
+
+So we can&#39;t copy `import` to a variable or use `call/apply` with it. It&#39;s not a function.</code></pre>

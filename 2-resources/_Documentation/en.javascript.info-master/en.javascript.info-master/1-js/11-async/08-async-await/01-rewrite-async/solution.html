@@ -1,0 +1,16 @@
+<p>The notes are below the code:</p>
+<p>```js run async function loadJson(url) { // (1) let response = await fetch(url); // (2)</p>
+<p>if (response.status == 200) { let json = await response.json(); // (3) return json; }</p>
+<p>throw new Error(response.status); }</p>
+<p>loadJson(‘no-such-user.json’) .catch(alert); // Error: 404 (4) ```</p>
+<p>Notes:</p>
+<ol type="1">
+<li>The function <code>loadJson</code> becomes <code>async</code>.</li>
+<li>All <code>.then</code> inside are replaced with <code>await</code>.</li>
+<li><p>We can <code>return response.json()</code> instead of awaiting for it, like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="cf">if</span> (<span class="va">response</span>.<span class="at">status</span> <span class="op">==</span> <span class="dv">200</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="cf">return</span> <span class="va">response</span>.<span class="at">json</span>()<span class="op">;</span> <span class="co">// (3)</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="op">}</span></a></code></pre></div>
+Then the outer code would have to <code>await</code> for that promise to resolve. In our case it doesn’t matter.</li>
+<li><p>The error thrown from <code>loadJson</code> is handled by <code>.catch</code>. We can’t use <code>await loadJson(…)</code> there, because we’re not in an <code>async</code> function.</p></li>
+</ol>

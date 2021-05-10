@@ -1,0 +1,3 @@
+<p>Answer: <code>pattern:\d\d[-:]\d\d</code>.</p>
+<p><code>js run let regexp = /\d\d[-:]\d\d/g; alert( "Breakfast at 09:00. Dinner at 21-30".match(regexp) ); // 09:00, 21-30</code></p>
+<p>Please note that the dash <code>pattern:'-'</code> has a special meaning in square brackets, but only between other characters, not when it’s in the beginning or at the end, so we don’t need to escape it.</p>

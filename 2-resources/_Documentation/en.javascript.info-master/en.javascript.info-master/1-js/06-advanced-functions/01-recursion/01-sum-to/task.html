@@ -1,0 +1,18 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="sum-all-numbers-till-the-given-one">Sum all numbers till the given one</h1>
+<p>Write a function <code>sumTo(n)</code> that calculates the sum of numbers <code>1 + 2 + ... + n</code>.</p>
+<p>For instance:</p>
+<p><code>js no-beautify sumTo(1) = 1 sumTo(2) = 2 + 1 = 3 sumTo(3) = 3 + 2 + 1 = 6 sumTo(4) = 4 + 3 + 2 + 1 = 10 ... sumTo(100) = 100 + 99 + ... + 2 + 1 = 5050</code></p>
+<p>Make 3 solution variants:</p>
+<ol type="1">
+<li>Using a for loop.</li>
+<li>Using a recursion, cause <code>sumTo(n) = n + sumTo(n-1)</code> for <code>n &gt; 1</code>.</li>
+<li>Using the <a href="https://en.wikipedia.org/wiki/Arithmetic_progression">arithmetic progression</a> formula.</li>
+</ol>
+<p>An example of the result:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">sumTo</span>(n) <span class="op">{</span> <span class="co">/*... your code ... */</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="at">alert</span>( <span class="at">sumTo</span>(<span class="dv">100</span>) )<span class="op">;</span> <span class="co">// 5050</span></a></code></pre></div>
+<p>P.S. Which solution variant is the fastest? The slowest? Why?</p>
+<p>P.P.S. Can we use recursion to count <code>sumTo(100000)</code>?</p>

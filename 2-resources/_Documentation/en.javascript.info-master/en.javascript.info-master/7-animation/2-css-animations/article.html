@@ -1,0 +1,310 @@
+<h1 id="css-animations">CSS-animations</h1>
+<p>CSS animations make it possible to do simple animations without JavaScript at all.</p>
+<p>JavaScript can be used to control CSS animations and make them even better, with little code.</p>
+<h2 id="css-transitions-css-transition">CSS transitions [#css-transition]</h2>
+<p>The idea of CSS transitions is simple. We describe a property and how its changes should be animated. When the property changes, the browser paints the animation.</p>
+<p>That is, all we need is to change the property, and the fluid transition will be done by the browser.</p>
+<p>For instance, the CSS below animates changes of <code>background-color</code> for 3 seconds:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">.animated</span> {</a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">transition-property</span>: background-color<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="kw">transition-duration</span>: <span class="dv">3</span><span class="dt">s</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">}</a></code></pre></div>
+<p>Now if an element has <code>.animated</code> class, any change of <code>background-color</code> is animated during 3 seconds.</p>
+<p>Click the button below to animate the background:</p>
+<p>```html run autorun height=60 <button id="color">Click me</button></p>
+<style>
+  #color {
+    transition-property: background-color;
+    transition-duration: 3s;
+  }
+</style>
+<script>
+  color.onclick = function() {
+    this.style.backgroundColor = 'red';
+  };
+</script>
+<p>```</p>
+<p>There are 4 properties to describe CSS transitions:</p>
+<ul>
+<li><code>transition-property</code></li>
+<li><code>transition-duration</code></li>
+<li><code>transition-timing-function</code></li>
+<li><code>transition-delay</code></li>
+</ul>
+<p>We’ll cover them in a moment, for now let’s note that the common <code>transition</code> property allows declaring them together in the order: <code>property duration timing-function delay</code>, as well as animating multiple properties at once.</p>
+<p>For instance, this button animates both <code>color</code> and <code>font-size</code>:</p>
+<p>```html run height=80 autorun no-beautify <button id="growing">Click me</button></p>
+<style>
+#growing {
+*!*
+  transition: font-size 3s, color 2s;
+*/!*
+}
+</style>
+<script>
+growing.onclick = function() {
+  this.style.fontSize = '36px';
+  this.style.color = 'red';
+};
+</script>
+<p>```</p>
+<p>Now, let’s cover animation properties one by one.</p>
+<h2 id="transition-property">transition-property</h2>
+<p>In <code>transition-property</code>, we write a list of properties to animate, for instance: <code>left</code>, <code>margin-left</code>, <code>height</code>, <code>color</code>. Or we could write <code>all</code>, which means “animate all properties”.</p>
+<p>Do note that, there are properties which can not be animated. However, <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties">most of the generally used properties are animatable</a>.</p>
+<h2 id="transition-duration">transition-duration</h2>
+<p>In <code>transition-duration</code> we can specify how long the animation should take. The time should be in <a href="http://www.w3.org/TR/css3-values/#time">CSS time format</a>: in seconds <code>s</code> or milliseconds <code>ms</code>.</p>
+<h2 id="transition-delay">transition-delay</h2>
+<p>In <code>transition-delay</code> we can specify the delay <em>before</em> the animation. For instance, if <code>transition-delay</code> is <code>1s</code> and <code>transition-duration</code> is <code>2s</code>, then the animation starts 1 second after the property change and the total duration will be 2 seconds.</p>
+<p>Negative values are also possible. Then the animation is shown immediately, but the starting point of the animation will be after given value (time). For example, if <code>transition-delay</code> is <code>-1s</code> and <code>transition-duration</code> is <code>2s</code>, then animation starts from the halfway point and total duration will be 1 second.</p>
+<p>Here the animation shifts numbers from <code>0</code> to <code>9</code> using CSS <code>translate</code> property:</p>
+<p>[codetabs src=“digits”]</p>
+<p>The <code>transform</code> property is animated like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb2-1" title="1"><span class="pp">#stripe</span><span class="fu">.animate</span> {</a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="kw">transform</span>: <span class="fu">translate(</span><span class="dv">-90</span><span class="dt">%</span><span class="fu">)</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="kw">transition-property</span>: transform<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="kw">transition-duration</span>: <span class="dv">9</span><span class="dt">s</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-5" title="5">}</a></code></pre></div>
+<p>In the example above JavaScript adds the class <code>.animate</code> to the element – and the animation starts:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">stripe</span>.<span class="va">classList</span>.<span class="at">add</span>(<span class="st">&#39;animate&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p>We could also start it from somewhere in the middle of the transition, from an exact number, e.g. corresponding to the current second, using a negative <code>transition-delay</code>.</p>
+<p>Here if you click the digit – it starts the animation from the current second:</p>
+<p>[codetabs src=“digits-negative-delay”]</p>
+<p>JavaScript does it with an extra line:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">stripe</span>.<span class="at">onclick</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="kw">let</span> sec <span class="op">=</span> <span class="kw">new</span> <span class="at">Date</span>().<span class="at">getSeconds</span>() <span class="op">%</span> <span class="dv">10</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="co">// for instance, -3s here starts the animation from the 3rd second</span></a>
+<a class="sourceLine" id="cb4-5" title="5">  <span class="va">stripe</span>.<span class="va">style</span>.<span class="at">transitionDelay</span> <span class="op">=</span> <span class="st">&#39;-&#39;</span> <span class="op">+</span> sec <span class="op">+</span> <span class="st">&#39;s&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="ss">  stripe.classList.add</span><span class="sc">(</span><span class="ss">&#39;animate&#39;</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="ss">};</span></a></code></pre></div>
+<h2 id="transition-timing-function">transition-timing-function</h2>
+<p>The timing function describes how the animation process is distributed along its timeline. Will it start slowly and then go fast, or vice versa.</p>
+<p>It appears to be the most complicated property at first. But it becomes very simple if we devote a bit time to it.</p>
+<p>That property accepts two kinds of values: a Bezier curve or steps. Let’s start with the curve, as it’s used more often.</p>
+<h3 id="bezier-curve">Bezier curve</h3>
+<p>The timing function can be set as a <a href="/bezier-curve">Bezier curve</a> with 4 control points that satisfy the conditions:</p>
+<ol type="1">
+<li>First control point: <code>(0,0)</code>.</li>
+<li>Last control point: <code>(1,1)</code>.</li>
+<li>For intermediate points, the values of <code>x</code> must be in the interval <code>0..1</code>, <code>y</code> can be anything.</li>
+</ol>
+<p>The syntax for a Bezier curve in CSS: <code>cubic-bezier(x2, y2, x3, y3)</code>. Here we need to specify only 2nd and 3rd control points, because the 1st one is fixed to <code>(0,0)</code> and the 4th one is <code>(1,1)</code>.</p>
+<p>The timing function describes how fast the animation process goes.</p>
+<ul>
+<li>The <code>x</code> axis is the time: <code>0</code> – the start, <code>1</code> – the end of <code>transition-duration</code>.</li>
+<li>The <code>y</code> axis specifies the completion of the process: <code>0</code> – the starting value of the property, <code>1</code> – the final value.</li>
+</ul>
+<p>The simplest variant is when the animation goes uniformly, with the same linear speed. That can be specified by the curve <code>cubic-bezier(0, 0, 1, 1)</code>.</p>
+<p>Here’s how that curve looks:</p>
+<p><img src="bezier-linear.svg" /></p>
+<p>…As we can see, it’s just a straight line. As the time (<code>x</code>) passes, the completion (<code>y</code>) of the animation steadily goes from <code>0</code> to <code>1</code>.</p>
+<p>The train in the example below goes from left to right with the permanent speed (click it):</p>
+<p>[codetabs src=“train-linear”]</p>
+<p>The CSS <code>transition</code> is based on that curve:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb5-1" title="1"><span class="fu">.train</span> {</a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="kw">left</span>: <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="kw">transition</span>: <span class="dv">left</span> <span class="dv">5</span><span class="dt">s</span> <span class="fu">cubic-bezier(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">1</span><span class="fu">)</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-4" title="4">  <span class="co">/* JavaScript sets left to 450px */</span></a>
+<a class="sourceLine" id="cb5-5" title="5">}</a></code></pre></div>
+<p>…And how can we show a train slowing down?</p>
+<p>We can use another Bezier curve: <code>cubic-bezier(0.0, 0.5, 0.5 ,1.0)</code>.</p>
+<p>The graph:</p>
+<p><img src="train-curve.svg" /></p>
+<p>As we can see, the process starts fast: the curve soars up high, and then slower and slower.</p>
+<p>Here’s the timing function in action (click the train):</p>
+<p>[codetabs src=“train”]</p>
+<p>CSS:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb6-1" title="1"><span class="fu">.train</span> {</a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="kw">left</span>: <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  <span class="kw">transition</span>: <span class="dv">left</span> <span class="dv">5</span><span class="dt">s</span> <span class="fu">cubic-bezier(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">.5</span><span class="op">,</span> <span class="dv">.5</span><span class="op">,</span> <span class="dv">1</span><span class="fu">)</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-4" title="4">  <span class="co">/* JavaScript sets left to 450px */</span></a>
+<a class="sourceLine" id="cb6-5" title="5">}</a></code></pre></div>
+<p>There are several built-in curves: <code>linear</code>, <code>ease</code>, <code>ease-in</code>, <code>ease-out</code> and <code>ease-in-out</code>.</p>
+<p>The <code>linear</code> is a shorthand for <code>cubic-bezier(0, 0, 1, 1)</code> – a straight line, which we described above.</p>
+<p>Other names are shorthands for the following <code>cubic-bezier</code>:</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 21%" />
+<col style="width: 22%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><code>ease</code><sup>*</sup></th>
+<th><code>ease-in</code></th>
+<th><code>ease-out</code></th>
+<th><code>ease-in-out</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>(0.25, 0.1, 0.25, 1.0)</code></td>
+<td><code>(0.42, 0, 1.0, 1.0)</code></td>
+<td><code>(0, 0, 0.58, 1.0)</code></td>
+<td><code>(0.42, 0, 0.58, 1.0)</code></td>
+</tr>
+<tr class="even">
+<td><img src="ease.svg" alt="ease, figure" /></td>
+<td><img src="ease-in.svg" alt="ease-in, figure" /></td>
+<td><img src="ease-out.svg" alt="ease-out, figure" /></td>
+<td><img src="ease-in-out.svg" alt="ease-in-out, figure" /></td>
+</tr>
+</tbody>
+</table>
+<p><code>*</code> – by default, if there’s no timing function, <code>ease</code> is used.</p>
+<p>So we could use <code>ease-out</code> for our slowing down train:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb7-1" title="1"><span class="fu">.train</span> {</a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="kw">left</span>: <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="kw">transition</span>: <span class="dv">left</span> <span class="dv">5</span><span class="dt">s</span> <span class="dv">ease-out</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  <span class="co">/* transition: left 5s cubic-bezier(0, .5, .5, 1); */</span></a>
+<a class="sourceLine" id="cb7-5" title="5">}</a></code></pre></div>
+<p>But it looks a bit differently.</p>
+<p><strong>A Bezier curve can make the animation exceed its range.</strong></p>
+<p>The control points on the curve can have any <code>y</code> coordinates: even negative or huge ones. Then the Bezier curve would also extend very low or high, making the animation go beyond its normal range.</p>
+<p>In the example below the animation code is:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb8-1" title="1"><span class="fu">.train</span> {</a>
+<a class="sourceLine" id="cb8-2" title="2">  <span class="kw">left</span>: <span class="dv">100</span><span class="dt">px</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb8-3" title="3">  <span class="kw">transition</span>: <span class="dv">left</span> <span class="dv">5</span><span class="dt">s</span> <span class="fu">cubic-bezier(</span><span class="dv">.5</span><span class="op">,</span> <span class="dv">-1</span><span class="op">,</span> <span class="dv">.5</span><span class="op">,</span> <span class="dv">2</span><span class="fu">)</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb8-4" title="4">  <span class="co">/* JavaScript sets left to 400px */</span></a>
+<a class="sourceLine" id="cb8-5" title="5">}</a></code></pre></div>
+<p>The property <code>left</code> should animate from <code>100px</code> to <code>400px</code>.</p>
+<p>But if you click the train, you’ll see that:</p>
+<ul>
+<li>First, the train goes <em>back</em>: <code>left</code> becomes less than <code>100px</code>.</li>
+<li>Then it goes forward, a little bit farther than <code>400px</code>.</li>
+<li>And then back again – to <code>400px</code>.</li>
+</ul>
+<p>[codetabs src=“train-over”]</p>
+<p>Why it happens is pretty obvious if we look at the graph of the given Bezier curve:</p>
+<p><img src="bezier-train-over.svg" /></p>
+<p>We moved the <code>y</code> coordinate of the 2nd point below zero, and for the 3rd point we made it over <code>1</code>, so the curve goes out of the “regular” quadrant. The <code>y</code> is out of the “standard” range <code>0..1</code>.</p>
+<p>As we know, <code>y</code> measures “the completion of the animation process”. The value <code>y = 0</code> corresponds to the starting property value and <code>y = 1</code> – the ending value. So values <code>y&lt;0</code> move the property beyond the starting <code>left</code> and <code>y&gt;1</code> – past the final <code>left</code>.</p>
+<p>That’s a “soft” variant for sure. If we put <code>y</code> values like <code>-99</code> and <code>99</code> then the train would jump out of the range much more.</p>
+<p>But how do we make a Bezier curve for a specific task? There are many tools. For instance, we can do it on the site <a href="http://cubic-bezier.com/" class="uri">http://cubic-bezier.com/</a>.</p>
+<h3 id="steps">Steps</h3>
+<p>The timing function <code>steps(number of steps[, start/end])</code> allows splitting an animation into steps.</p>
+<p>Let’s see that in an example with digits.</p>
+<p>Here’s a list of digits, without any animations, just as a source:</p>
+<p>[codetabs src=“step-list”]</p>
+<p>We’ll make the digits appear in a discrete way by making the part of the list outside of the red “window” invisible and shifting the list to the left with each step.</p>
+<p>There will be 9 steps, a step-move for each digit:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb9-1" title="1"><span class="pp">#stripe</span><span class="fu">.animate</span>  {</a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="kw">transform</span>: <span class="fu">translate(</span><span class="dv">-90</span><span class="dt">%</span><span class="fu">)</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-3" title="3">  <span class="kw">transition</span>: transform <span class="dv">9</span><span class="dt">s</span> *<span class="at">!</span>*<span class="fu">steps(</span><span class="dv">9</span><span class="op">,</span> start<span class="fu">)</span>*/<span class="at">!</span>*<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-4" title="4">}</a></code></pre></div>
+<p>In action:</p>
+<p>[codetabs src=“step”]</p>
+<p>The first argument of <code>steps(9, start)</code> is the number of steps. The transform will be split into 9 parts (10% each). The time interval is automatically divided into 9 parts as well, so <code>transition: 9s</code> gives us 9 seconds for the whole animation – 1 second per digit.</p>
+<p>The second argument is one of two words: <code>start</code> or <code>end</code>.</p>
+<p>The <code>start</code> means that in the beginning of animation we need to make the first step immediately.</p>
+<p>We can observe that during the animation: when we click on the digit it changes to <code>1</code> (the first step) immediately, and then changes in the beginning of the next second.</p>
+<p>The process is progressing like this:</p>
+<ul>
+<li><code>0s</code> – <code>-10%</code> (first change in the beginning of the 1st second, immediately)</li>
+<li><code>1s</code> – <code>-20%</code></li>
+<li>…</li>
+<li><code>8s</code> – <code>-80%</code></li>
+<li>(the last second shows the final value).</li>
+</ul>
+<p>The alternative value <code>end</code> would mean that the change should be applied not in the beginning, but at the end of each second.</p>
+<p>So the process would go like this:</p>
+<ul>
+<li><code>0s</code> – <code>0</code></li>
+<li><code>1s</code> – <code>-10%</code> (first change at the end of the 1st second)</li>
+<li><code>2s</code> – <code>-20%</code></li>
+<li>…</li>
+<li><code>9s</code> – <code>-90%</code></li>
+</ul>
+<p>Here’s <code>steps(9, end)</code> in action (note the pause between the first digit change):</p>
+<p>[codetabs src=“step-end”]</p>
+<p>There are also shorthand values:</p>
+<ul>
+<li><code>step-start</code> – is the same as <code>steps(1, start)</code>. That is, the animation starts immediately and takes 1 step. So it starts and finishes immediately, as if there were no animation.</li>
+<li><code>step-end</code> – the same as <code>steps(1, end)</code>: make the animation in a single step at the end of <code>transition-duration</code>.</li>
+</ul>
+<p>These values are rarely used, because that’s not really animation, but rather a single-step change.</p>
+<h2 id="event-transitionend">Event transitionend</h2>
+<p>When the CSS animation finishes the <code>transitionend</code> event triggers.</p>
+<p>It is widely used to do an action after the animation is done. Also we can join animations.</p>
+<p>For instance, the ship in the example below starts to sail there and back when clicked, each time farther and farther to the right:</p>
+<p>[iframe src=“boat” height=300 edit link]</p>
+<p>The animation is initiated by the function <code>go</code> that re-runs each time the transition finishes, and flips the direction:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="va">boat</span>.<span class="at">onclick</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-2" title="2">  <span class="co">//...</span></a>
+<a class="sourceLine" id="cb10-3" title="3">  <span class="kw">let</span> times <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb10-4" title="4"></a>
+<a class="sourceLine" id="cb10-5" title="5">  <span class="kw">function</span> <span class="at">go</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-6" title="6">    <span class="cf">if</span> (times <span class="op">%</span> <span class="dv">2</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-7" title="7">      <span class="co">// sail to the right</span></a>
+<a class="sourceLine" id="cb10-8" title="8">      <span class="va">boat</span>.<span class="va">classList</span>.<span class="at">remove</span>(<span class="st">&#39;back&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-9" title="9">      <span class="va">boat</span>.<span class="va">style</span>.<span class="at">marginLeft</span> <span class="op">=</span> <span class="dv">100</span> <span class="op">*</span> times <span class="op">+</span> <span class="dv">200</span> <span class="op">+</span> <span class="st">&#39;px&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb10-10" title="10">    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-11" title="11">      <span class="co">// sail to the left</span></a>
+<a class="sourceLine" id="cb10-12" title="12">      <span class="va">boat</span>.<span class="va">classList</span>.<span class="at">add</span>(<span class="st">&#39;back&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-13" title="13">      <span class="va">boat</span>.<span class="va">style</span>.<span class="at">marginLeft</span> <span class="op">=</span> <span class="dv">100</span> <span class="op">*</span> times <span class="op">-</span> <span class="dv">200</span> <span class="op">+</span> <span class="st">&#39;px&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb10-14" title="14">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb10-15" title="15"></a>
+<a class="sourceLine" id="cb10-16" title="16">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb10-17" title="17"></a>
+<a class="sourceLine" id="cb10-18" title="18">  <span class="at">go</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-19" title="19"></a>
+<a class="sourceLine" id="cb10-20" title="20">  <span class="va">boat</span>.<span class="at">addEventListener</span>(<span class="st">&#39;transitionend&#39;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-21" title="21">    times<span class="op">++;</span></a>
+<a class="sourceLine" id="cb10-22" title="22">    <span class="at">go</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-23" title="23">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-24" title="24"><span class="op">};</span></a></code></pre></div>
+<p>The event object for <code>transitionend</code> has a few specific properties:</p>
+<dl>
+<dt><code>event.propertyName</code></dt>
+<dd>The property that has finished animating. Can be good if we animate multiple properties simultaneously.
+</dd>
+<dt><code>event.elapsedTime</code></dt>
+<dd>The time (in seconds) that the animation took, without <code>transition-delay</code>.
+</dd>
+</dl>
+<h2 id="keyframes">Keyframes</h2>
+<p>We can join multiple simple animations together using the <code>@keyframes</code> CSS rule.</p>
+<p>It specifies the “name” of the animation and rules - what, when and where to animate. Then using the <code>animation</code> property, we can attach the animation to the element and specify additional parameters for it.</p>
+<p>Here’s an example with explanations:</p>
+```html run height=60 autorun=“no-epub” no-beautify
+<div class="progress">
+
+</div>
+<style>
+*!*
+  @keyframes go-left-right {        /* give it a name: "go-left-right" */
+    from { left: 0px; }             /* animate from left: 0px */
+    to { left: calc(100% - 50px); } /* animate to left: 100%-50px */
+  }
+*/!*
+
+  .progress {
+*!*
+    animation: go-left-right 3s infinite alternate;
+    /* apply the animation "go-left-right" to the element
+       duration 3 seconds
+       number of times: infinite
+       alternate direction every time
+    */
+*/!*
+
+    position: relative;
+    border: 2px solid green;
+    width: 50px;
+    height: 20px;
+    background: lime;
+  }
+</style>
+<p>```</p>
+<p>There are many articles about <code>@keyframes</code> and a <a href="https://drafts.csswg.org/css-animations/">detailed specification</a>.</p>
+<p>You probably won’t need <code>@keyframes</code> often, unless everything is in constant motion on your sites.</p>
+<h2 id="summary">Summary</h2>
+<p>CSS animations allow smoothly (or not) animated changes of one or multiple CSS properties.</p>
+<p>They are good for most animation tasks. We’re also able to use JavaScript for animations, the next chapter is devoted to that.</p>
+<p>Limitations of CSS animations compared to JavaScript animations:</p>
+<p><code>compare plus="CSS animations" minus="JavaScript animations" + Simple things done simply. + Fast and lightweight for CPU. - JavaScript animations are flexible. They can implement any animation logic, like an "explosion" of an element. - Not just property changes. We can create new elements in JavaScript as part of the animation.</code></p>
+<p>The majority of animations can be implemented using CSS as described in this chapter. And the <code>transitionend</code> event allows JavaScript to be run after the animation, so it integrates fine with the code.</p>
+<p>But in the next chapter we’ll do some JavaScript animations to cover more complex cases.</p>

@@ -1,0 +1,6 @@
+<p>We need to find the beginning of the comment <code>match:&lt;!--</code>, then everything till the end of <code>match:--&gt;</code>.</p>
+<p>An acceptable variant is <code>pattern:&lt;!--.*?--&gt;</code> – the lazy quantifier makes the dot stop right before <code>match:--&gt;</code>. We also need to add flag <code>pattern:s</code> for the dot to include newlines.</p>
+<p>Otherwise multiline comments won’t be found:</p>
+<p>```js run let regexp = /<!--.*?-->/gs;</p>
+<p>let str = <code>... &lt;!-- My -- comment  test --&gt; ..  &lt;!----&gt; ..</code>;</p>
+<p>alert( str.match(regexp) ); // ‘<!-- My -- comment \n test -->’, ‘<!---->’ ```</p>

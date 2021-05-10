@@ -1,0 +1,18 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="position-the-note-inside-absolute">Position the note inside (absolute)</h1>
+<p>Extend the previous task <a href="info:task/position-at-absolute" class="uri">info:task/position-at-absolute</a>: teach the function <code>positionAt(anchor, position, elem)</code> to insert <code>elem</code> inside the <code>anchor</code>.</p>
+<p>New values for <code>position</code>:</p>
+<ul>
+<li><code>top-out</code>, <code>right-out</code>, <code>bottom-out</code> – work the same as before, they insert the <code>elem</code> over/right/under <code>anchor</code>.</li>
+<li><code>top-in</code>, <code>right-in</code>, <code>bottom-in</code> – insert <code>elem</code> inside the <code>anchor</code>: stick it to the upper/right/bottom edge.</li>
+</ul>
+<p>For instance:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// shows the note above blockquote</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="at">positionAt</span>(blockquote<span class="op">,</span> <span class="st">&quot;top-out&quot;</span><span class="op">,</span> note)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="co">// shows the note inside blockquote, at the top</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="at">positionAt</span>(blockquote<span class="op">,</span> <span class="st">&quot;top-in&quot;</span><span class="op">,</span> note)<span class="op">;</span></a></code></pre></div>
+<p>The result:</p>
+<p>[iframe src=“solution” height=“310” border=“1” link]</p>
+<p>As the source code, take the solution of the task <a href="info:task/position-at-absolute" class="uri">info:task/position-at-absolute</a>.</p>

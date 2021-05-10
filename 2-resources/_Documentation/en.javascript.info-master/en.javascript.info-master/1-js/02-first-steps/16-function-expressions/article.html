@@ -1,0 +1,157 @@
+<h1 id="function-expressions">Function expressions</h1>
+<p>In JavaScript, a function is not a “magical language structure”, but a special kind of value.</p>
+<p>The syntax that we used before is called a <em>Function Declaration</em>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">sayHi</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="at">alert</span>( <span class="st">&quot;Hello&quot;</span> )<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>There is another syntax for creating a function that is called a <em>Function Expression</em>.</p>
+<p>It looks like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> sayHi <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="at">alert</span>( <span class="st">&quot;Hello&quot;</span> )<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="op">};</span></a></code></pre></div>
+<p>Here, the function is created and assigned to the variable explicitly, like any other value. No matter how the function is defined, it’s just a value stored in the variable <code>sayHi</code>.</p>
+<p>The meaning of these code samples is the same: “create a function and put it into the variable <code>sayHi</code>”.</p>
+<p>We can even print out that value using <code>alert</code>:</p>
+<p>```js run function sayHi() { alert( “Hello” ); }</p>
+<p><em>!</em> alert( sayHi ); // shows the function code <em>/!</em> ```</p>
+<p>Please note that the last line does not run the function, because there are no parentheses after <code>sayHi</code>. There are programming languages where any mention of a function name causes its execution, but JavaScript is not like that.</p>
+<p>In JavaScript, a function is a value, so we can deal with it as a value. The code above shows its string representation, which is the source code.</p>
+<p>Surely, a function is a special value, in the sense that we can call it like <code>sayHi()</code>.</p>
+<p>But it’s still a value. So we can work with it like with other kinds of values.</p>
+<p>We can copy a function to another variable:</p>
+<p>```js run no-beautify function sayHi() { // (1) create alert( “Hello” ); }</p>
+<p>let func = sayHi; // (2) copy</p>
+<p>func(); // Hello // (3) run the copy (it works)! sayHi(); // Hello // this still works too (why wouldn’t it) ```</p>
+<p>Here’s what happens above in detail:</p>
+<ol type="1">
+<li>The Function Declaration <code>(1)</code> creates the function and puts it into the variable named <code>sayHi</code>.</li>
+<li>Line <code>(2)</code> copies it into the variable <code>func</code>. Please note again: there are no parentheses after <code>sayHi</code>. If there were, then <code>func = sayHi()</code> would write <em>the result of the call</em> <code>sayHi()</code> into <code>func</code>, not <em>the function</em> <code>sayHi</code> itself.</li>
+<li>Now the function can be called as both <code>sayHi()</code> and <code>func()</code>.</li>
+</ol>
+<p>Note that we could also have used a Function Expression to declare <code>sayHi</code>, in the first line:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> sayHi <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="at">alert</span>( <span class="st">&quot;Hello&quot;</span> )<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="op">};</span></a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="kw">let</span> func <span class="op">=</span> sayHi<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="co">// ...</span></a></code></pre></div>
+<p>Everything would work the same.</p>
+<p>```<code>smart header="Why is there a semicolon at the end?" You might wonder, why does Function Expression have a semicolon</code>;` at the end, but Function Declaration does not:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">function</span> <span class="at">sayHi</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb4-4" title="4"></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="kw">let</span> sayHi <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-6" title="6">  <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="op">}*!*;*</span><span class="ss">/!</span><span class="sc">*</span></a></code></pre></div>
+<p>The answer is simple: - There’s no need for <code>;</code> at the end of code blocks and syntax structures that use them like <code>if { ... }</code>, <code>for {  }</code>, <code>function f { }</code> etc. - A Function Expression is used inside the statement: <code>let sayHi = ...;</code>, as a value. It’s not a code block, but rather an assignment. The semicolon <code>;</code> is recommended at the end of statements, no matter what the value is. So the semicolon here is not related to the Function Expression itself, it just terminates the statement. ````</p>
+<h2 id="callback-functions">Callback functions</h2>
+<p>Let’s look at more examples of passing functions as values and using function expressions.</p>
+<p>We’ll write a function <code>ask(question, yes, no)</code> with three parameters:</p>
+<dl>
+<dt><code>question</code></dt>
+<dd>Text of the question
+</dd>
+<dt><code>yes</code></dt>
+<dd>Function to run if the answer is “Yes”
+</dd>
+<dt><code>no</code></dt>
+<dd>Function to run if the answer is “No”
+</dd>
+</dl>
+<p>The function should ask the <code>question</code> and, depending on the user’s answer, call <code>yes()</code> or <code>no()</code>:</p>
+<p>```js run <em>!</em> function ask(question, yes, no) { if (confirm(question)) yes() else no(); } <em>/!</em></p>
+<p>function showOk() { alert( “You agreed.” ); }</p>
+<p>function showCancel() { alert( “You canceled the execution.” ); }</p>
+<p>// usage: functions showOk, showCancel are passed as arguments to ask ask(“Do you agree?”, showOk, showCancel); ```</p>
+<p>In practice, such functions are quite useful. The major difference between a real-life <code>ask</code> and the example above is that real-life functions use more complex ways to interact with the user than a simple <code>confirm</code>. In the browser, such function usually draws a nice-looking question window. But that’s another story.</p>
+<p><strong>The arguments <code>showOk</code> and <code>showCancel</code> of <code>ask</code> are called <em>callback functions</em> or just <em>callbacks</em>.</strong></p>
+<p>The idea is that we pass a function and expect it to be “called back” later if necessary. In our case, <code>showOk</code> becomes the callback for “yes” answer, and <code>showCancel</code> for “no” answer.</p>
+<p>We can use Function Expressions to write the same function much shorter:</p>
+<p>```js run no-beautify function ask(question, yes, no) { if (confirm(question)) yes() else no(); }</p>
+<p><em>!</em> ask( “Do you agree?”, function() { alert(“You agreed.”); }, function() { alert(“You canceled the execution.”); } ); <em>/!</em> ```</p>
+<p>Here, functions are declared right inside the <code>ask(...)</code> call. They have no name, and so are called <em>anonymous</em>. Such functions are not accessible outside of <code>ask</code> (because they are not assigned to variables), but that’s just what we want here.</p>
+<p>Such code appears in our scripts very naturally, it’s in the spirit of JavaScript.</p>
+<p>```smart header=“A function is a value representing an "action"” Regular values like strings or numbers represent the <em>data</em>.</p>
+<p>A function can be perceived as an <em>action</em>.</p>
+<p>We can pass it between variables and run when we want. ```</p>
+<h2 id="function-expression-vs-function-declaration">Function Expression vs Function Declaration</h2>
+<p>Let’s formulate the key differences between Function Declarations and Expressions.</p>
+<p>First, the syntax: how to differentiate between them in the code.</p>
+<ul>
+<li><p><em>Function Declaration:</em> a function, declared as a separate statement, in the main code flow.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="co">// Function Declaration</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw">function</span> <span class="at">sum</span>(a<span class="op">,</span> b) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="cf">return</span> a <span class="op">+</span> b<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="op">}</span></a></code></pre></div></li>
+<li><p><em>Function Expression:</em> a function, created inside an expression or inside another syntax construct. Here, the function is created at the right side of the “assignment expression” <code>=</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="co">// Function Expression</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">let</span> sum <span class="op">=</span> <span class="kw">function</span>(a<span class="op">,</span> b) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  <span class="cf">return</span> a <span class="op">+</span> b<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="op">};</span></a></code></pre></div></li>
+</ul>
+<p>The more subtle difference is <em>when</em> a function is created by the JavaScript engine.</p>
+<p><strong>A Function Expression is created when the execution reaches it and is usable only from that moment.</strong></p>
+<p>Once the execution flow passes to the right side of the assignment <code>let sum = function…</code> – here we go, the function is created and can be used (assigned, called, etc. ) from now on.</p>
+<p>Function Declarations are different.</p>
+<p><strong>A Function Declaration can be called earlier than it is defined.</strong></p>
+<p>For example, a global Function Declaration is visible in the whole script, no matter where it is.</p>
+<p>That’s due to internal algorithms. When JavaScript prepares to run the script, it first looks for global Function Declarations in it and creates the functions. We can think of it as an “initialization stage”.</p>
+<p>And after all Function Declarations are processed, the code is executed. So it has access to these functions.</p>
+<p>For example, this works:</p>
+<p>```js run refresh untrusted <em>!</em> sayHi(“John”); // Hello, John <em>/!</em></p>
+<p>function sayHi(name) { alert( <code>Hello, ${name}</code> ); } ```</p>
+<p>The Function Declaration <code>sayHi</code> is created when JavaScript is preparing to start the script and is visible everywhere in it.</p>
+<p>…If it were a Function Expression, then it wouldn’t work:</p>
+<p>```js run refresh untrusted <em>!</em> sayHi(“John”); // error! <em>/!</em></p>
+<p>let sayHi = function(name) { // (*) no magic any more alert( <code>Hello, ${name}</code> ); }; ```</p>
+<p>Function Expressions are created when the execution reaches them. That would happen only in the line <code>(*)</code>. Too late.</p>
+<p>Another special feature of Function Declarations is their block scope.</p>
+<p><strong>In strict mode, when a Function Declaration is within a code block, it’s visible everywhere inside that block. But not outside of it.</strong></p>
+<p>For instance, let’s imagine that we need to declare a function <code>welcome()</code> depending on the <code>age</code> variable that we get during runtime. And then we plan to use it some time later.</p>
+<p>If we use Function Declaration, it won’t work as intended:</p>
+<p>```js run let age = prompt(“What is your age?”, 18);</p>
+<p>// conditionally declare a function if (age &lt; 18) {</p>
+<p>function welcome() { alert(“Hello!”); }</p>
+<p>} else {</p>
+<p>function welcome() { alert(“Greetings!”); }</p>
+<p>}</p>
+<p>// …use it later <em>!</em> welcome(); // Error: welcome is not defined <em>/!</em> ```</p>
+<p>That’s because a Function Declaration is only visible inside the code block in which it resides.</p>
+<p>Here’s another example:</p>
+<p>```js run let age = 16; // take 16 as an example</p>
+<p>if (age &lt; 18) { <em>!</em> welcome(); //   (runs) <em>/!</em> // | function welcome() { // |<br />
+alert(“Hello!”); // | Function Declaration is available } // | everywhere in the block where it’s declared // | <em>!</em> welcome(); // / (runs) <em>/!</em></p>
+<p>} else {</p>
+<p>function welcome() {<br />
+alert(“Greetings!”); } }</p>
+<p>// Here we’re out of curly braces, // so we can not see Function Declarations made inside of them.</p>
+<p><em>!</em> welcome(); // Error: welcome is not defined <em>/!</em> ```</p>
+<p>What can we do to make <code>welcome</code> visible outside of <code>if</code>?</p>
+<p>The correct approach would be to use a Function Expression and assign <code>welcome</code> to the variable that is declared outside of <code>if</code> and has the proper visibility.</p>
+<p>This code works as intended:</p>
+<p>```js run let age = prompt(“What is your age?”, 18);</p>
+<p>let welcome;</p>
+<p>if (age &lt; 18) {</p>
+<p>welcome = function() { alert(“Hello!”); };</p>
+<p>} else {</p>
+<p>welcome = function() { alert(“Greetings!”); };</p>
+<p>}</p>
+<p><em>!</em> welcome(); // ok now <em>/!</em> ```</p>
+<p>Or we could simplify it even further using a question mark operator <code>?</code>:</p>
+<p>```js run let age = prompt(“What is your age?”, 18);</p>
+<p>let welcome = (age &lt; 18) ? function() { alert(“Hello!”); } : function() { alert(“Greetings!”); };</p>
+<p><em>!</em> welcome(); // ok now <em>/!</em> ```</p>
+<p>```smart header=“When to choose Function Declaration versus Function Expression?” As a rule of thumb, when we need to declare a function, the first to consider is Function Declaration syntax. It gives more freedom in how to organize our code, because we can call such functions before they are declared.</p>
+<p>That’s also better for readability, as it’s easier to look up <code>function f(…) {…}</code> in the code than <code>let f = function(…) {…};</code>. Function Declarations are more “eye-catching”.</p>
+<p>…But if a Function Declaration does not suit us for some reason, or we need a conditional declaration (we’ve just seen an example), then Function Expression should be used. ```</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Functions are values. They can be assigned, copied or declared in any place of the code.</li>
+<li>If the function is declared as a separate statement in the main code flow, that’s called a “Function Declaration”.</li>
+<li>If the function is created as a part of an expression, it’s called a “Function Expression”.</li>
+<li>Function Declarations are processed before the code block is executed. They are visible everywhere in the block.</li>
+<li>Function Expressions are created when the execution flow reaches them.</li>
+</ul>
+<p>In most cases when we need to declare a function, a Function Declaration is preferable, because it is visible prior to the declaration itself. That gives us more flexibility in code organization, and is usually more readable.</p>
+<p>So we should use a Function Expression only when a Function Declaration is not fit for the task. We’ve seen a couple of examples of that in this chapter, and will see more in the future.</p>

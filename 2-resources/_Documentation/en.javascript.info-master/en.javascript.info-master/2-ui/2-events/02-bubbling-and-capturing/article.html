@@ -1,0 +1,145 @@
+<h1 id="bubbling-and-capturing">Bubbling and capturing</h1>
+<p>Let’s start with an example.</p>
+<p>This handler is assigned to <code>&lt;div&gt;</code>, but also runs if you click any nested tag like <code>&lt;em&gt;</code> or <code>&lt;code&gt;</code>:</p>
+<p><code>html autorun height=60 &lt;div onclick="alert('The handler!')"&gt;   &lt;em&gt;If you click on &lt;code&gt;EM&lt;/code&gt;, the handler on &lt;code&gt;DIV&lt;/code&gt; runs.&lt;/em&gt; &lt;/div&gt;</code></p>
+<p>Isn’t it a bit strange? Why does the handler on <code>&lt;div&gt;</code> run if the actual click was on <code>&lt;em&gt;</code>?</p>
+<h2 id="bubbling">Bubbling</h2>
+<p>The bubbling principle is simple.</p>
+<p><strong>When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors.</strong></p>
+<p>Let’s say we have 3 nested elements <code>FORM &gt; DIV &gt; P</code> with a handler on each of them:</p>
+```html run autorun
+<style>
+  body * {
+    margin: 10px;
+    border: 1px solid blue;
+  }
+</style>
+<form onclick="alert(&#39;form&#39;)">
+FORM
+<div onclick="alert(&#39;div&#39;)">
+DIV
+<p onclick="alert(&#39;p&#39;)">
+P
+</p>
+</div>
+</form>
+<p>```</p>
+<p>A click on the inner <code>&lt;p&gt;</code> first runs <code>onclick</code>: 1. On that <code>&lt;p&gt;</code>. 2. Then on the outer <code>&lt;div&gt;</code>. 3. Then on the outer <code>&lt;form&gt;</code>. 4. And so on upwards till the <code>document</code> object.</p>
+<p><img src="event-order-bubbling.svg" /></p>
+<p>So if we click on <code>&lt;p&gt;</code>, then we’ll see 3 alerts: <code>p</code> -&gt; <code>div</code> -&gt; <code>form</code>.</p>
+<p>The process is called “bubbling”, because events “bubble” from the inner element up through parents like a bubble in the water.</p>
+<p>```warn header=“<em>Almost</em> all events bubble.” The key word in this phrase is “almost”.</p>
+<p>For instance, a <code>focus</code> event does not bubble. There are other examples too, we’ll meet them. But still it’s an exception, rather than a rule, most events do bubble. ```</p>
+<h2 id="event.target">event.target</h2>
+<p>A handler on a parent element can always get the details about where it actually happened.</p>
+<p><strong>The most deeply nested element that caused the event is called a <em>target</em> element, accessible as <code>event.target</code>.</strong></p>
+<p>Note the differences from <code>this</code> (=<code>event.currentTarget</code>):</p>
+<ul>
+<li><code>event.target</code> – is the “target” element that initiated the event, it doesn’t change through the bubbling process.</li>
+<li><code>this</code> – is the “current” element, the one that has a currently running handler on it.</li>
+</ul>
+<p>For instance, if we have a single handler <code>form.onclick</code>, then it can “catch” all clicks inside the form. No matter where the click happened, it bubbles up to <code>&lt;form&gt;</code> and runs the handler.</p>
+<p>In <code>form.onclick</code> handler:</p>
+<ul>
+<li><code>this</code> (=<code>event.currentTarget</code>) is the <code>&lt;form&gt;</code> element, because the handler runs on it.</li>
+<li><code>event.target</code> is the actual element inside the form that was clicked.</li>
+</ul>
+<p>Check it out:</p>
+<p>[codetabs height=220 src=“bubble-target”]</p>
+<p>It’s possible that <code>event.target</code> could equal <code>this</code> – it happens when the click is made directly on the <code>&lt;form&gt;</code> element.</p>
+<h2 id="stopping-bubbling">Stopping bubbling</h2>
+<p>A bubbling event goes from the target element straight up. Normally it goes upwards till <code>&lt;html&gt;</code>, and then to <code>document</code> object, and some events even reach <code>window</code>, calling all handlers on the path.</p>
+<p>But any handler may decide that the event has been fully processed and stop the bubbling.</p>
+<p>The method for it is <code>event.stopPropagation()</code>.</p>
+<p>For instance, here <code>body.onclick</code> doesn’t work if you click on <code>&lt;button&gt;</code>:</p>
+<p><code>html run autorun height=60 &lt;body onclick="alert(`the bubbling doesn't reach here`)"&gt;   &lt;button onclick="event.stopPropagation()"&gt;Click me&lt;/button&gt; &lt;/body&gt;</code></p>
+<p>```smart header=“event.stopImmediatePropagation()” If an element has multiple event handlers on a single event, then even if one of them stops the bubbling, the other ones still execute.</p>
+<p>In other words, <code>event.stopPropagation()</code> stops the move upwards, but on the current element all other handlers will run.</p>
+<p>To stop the bubbling and prevent handlers on the current element from running, there’s a method <code>event.stopImmediatePropagation()</code>. After it no other handlers execute. ```</p>
+<p>```warn header=“Don’t stop bubbling without a need!” Bubbling is convenient. Don’t stop it without a real need: obvious and architecturally well thought out.</p>
+<p>Sometimes <code>event.stopPropagation()</code> creates hidden pitfalls that later may become problems.</p>
+<p>For instance:</p>
+<ol type="1">
+<li>We create a nested menu. Each submenu handles clicks on its elements and calls <code>stopPropagation</code> so that the outer menu won’t trigger.</li>
+<li>Later we decide to catch clicks on the whole window, to track users’ behavior (where people click). Some analytic systems do that. Usually the code uses <code>document.addEventListener('click'…)</code> to catch all clicks.</li>
+<li>Our analytic won’t work over the area where clicks are stopped by <code>stopPropagation</code>. Sadly, we’ve got a “dead zone”.</li>
+</ol>
+<p>There’s usually no real need to prevent the bubbling. A task that seemingly requires that may be solved by other means. One of them is to use custom events, we’ll cover them later. Also we can write our data into the <code>event</code> object in one handler and read it in another one, so we can pass to handlers on parents information about the processing below. ```</p>
+<h2 id="capturing">Capturing</h2>
+<p>There’s another phase of event processing called “capturing”. It is rarely used in real code, but sometimes can be useful.</p>
+<p>The standard <a href="http://www.w3.org/TR/DOM-Level-3-Events/">DOM Events</a> describes 3 phases of event propagation:</p>
+<ol type="1">
+<li>Capturing phase – the event goes down to the element.</li>
+<li>Target phase – the event reached the target element.</li>
+<li>Bubbling phase – the event bubbles up from the element.</li>
+</ol>
+<p>Here’s the picture of a click on <code>&lt;td&gt;</code> inside a table, taken from the specification:</p>
+<p><img src="eventflow.svg" /></p>
+<p>That is: for a click on <code>&lt;td&gt;</code> the event first goes through the ancestors chain down to the element (capturing phase), then it reaches the target and triggers there (target phase), and then it goes up (bubbling phase), calling handlers on its way.</p>
+<p><strong>Before we only talked about bubbling, because the capturing phase is rarely used. Normally it is invisible to us.</strong></p>
+<p>Handlers added using <code>on&lt;event&gt;</code>-property or using HTML attributes or using two-argument <code>addEventListener(event, handler)</code> don’t know anything about capturing, they only run on the 2nd and 3rd phases.</p>
+<p>To catch an event on the capturing phase, we need to set the handler <code>capture</code> option to <code>true</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">elem</span>.<span class="at">addEventListener</span>(...<span class="op">,</span> <span class="op">{</span><span class="dt">capture</span><span class="op">:</span> <span class="kw">true</span><span class="op">}</span>)</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="co">// or, just &quot;true&quot; is an alias to {capture: true}</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="va">elem</span>.<span class="at">addEventListener</span>(...<span class="op">,</span> <span class="kw">true</span>)</a></code></pre></div>
+<p>There are two possible values of the <code>capture</code> option:</p>
+<ul>
+<li>If it’s <code>false</code> (default), then the handler is set on the bubbling phase.</li>
+<li>If it’s <code>true</code>, then the handler is set on the capturing phase.</li>
+</ul>
+<p>Note that while formally there are 3 phases, the 2nd phase (“target phase”: the event reached the element) is not handled separately: handlers on both capturing and bubbling phases trigger at that phase.</p>
+<p>Let’s see both capturing and bubbling in action:</p>
+```html run autorun height=140 edit
+<style>
+  body * {
+    margin: 10px;
+    border: 1px solid blue;
+  }
+</style>
+<form>
+FORM
+<div>
+DIV
+<p>
+P
+</p>
+</div>
+</form>
+<script>
+  for(let elem of document.querySelectorAll('*')) {
+    elem.addEventListener("click", e => alert(`Capturing: ${elem.tagName}`), true);
+    elem.addEventListener("click", e => alert(`Bubbling: ${elem.tagName}`));
+  }
+</script>
+<p>```</p>
+<p>The code sets click handlers on <em>every</em> element in the document to see which ones are working.</p>
+<p>If you click on <code>&lt;p&gt;</code>, then the sequence is:</p>
+<ol type="1">
+<li><code>HTML</code> -&gt; <code>BODY</code> -&gt; <code>FORM</code> -&gt; <code>DIV</code> (capturing phase, the first listener):</li>
+<li><code>P</code> (target phase, triggers two times, as we’ve set two listeners: capturing and bubbling)</li>
+<li><code>DIV</code> -&gt; <code>FORM</code> -&gt; <code>BODY</code> -&gt; <code>HTML</code> (bubbling phase, the second listener).</li>
+</ol>
+<p>There’s a property <code>event.eventPhase</code> that tells us the number of the phase on which the event was caught. But it’s rarely used, because we usually know it in the handler.</p>
+<p><code>smart header="To remove the handler, `removeEventListener` needs the same phase" If we `addEventListener(..., true)`, then we should mention the same phase in `removeEventListener(..., true)` to correctly remove the handler.</code></p>
+<p>```<code>smart header="Listeners on same element and same phase run in their set order" If we have multiple event handlers on the same phase, assigned to the same element with</code>addEventListener`, they run in the same order as they are created:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">elem</span>.<span class="at">addEventListener</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> e <span class="kw">=&gt;</span> <span class="at">alert</span>(<span class="dv">1</span>))<span class="op">;</span> <span class="co">// guaranteed to trigger first</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="va">elem</span>.<span class="at">addEventListener</span>(<span class="st">&quot;click&quot;</span><span class="op">,</span> e <span class="kw">=&gt;</span> <span class="at">alert</span>(<span class="dv">2</span>))<span class="op">;</span></a></code></pre></div>
+<p>````</p>
+<h2 id="summary">Summary</h2>
+<p>When an event happens – the most nested element where it happens gets labeled as the “target element” (<code>event.target</code>).</p>
+<ul>
+<li>Then the event moves down from the document root to <code>event.target</code>, calling handlers assigned with <code>addEventListener(..., true)</code> on the way (<code>true</code> is a shorthand for <code>{capture: true}</code>).</li>
+<li>Then handlers are called on the target element itself.</li>
+<li>Then the event bubbles up from <code>event.target</code> to the root, calling handlers assigned using <code>on&lt;event&gt;</code>, HTML attributes and <code>addEventListener</code> without the 3rd argument or with the 3rd argument <code>false/{capture:false}</code>.</li>
+</ul>
+<p>Each handler can access <code>event</code> object properties:</p>
+<ul>
+<li><code>event.target</code> – the deepest element that originated the event.</li>
+<li><code>event.currentTarget</code> (=<code>this</code>) – the current element that handles the event (the one that has the handler on it)</li>
+<li><code>event.eventPhase</code> – the current phase (capturing=1, target=2, bubbling=3).</li>
+</ul>
+<p>Any event handler can stop the event by calling <code>event.stopPropagation()</code>, but that’s not recommended, because we can’t really be sure we won’t need it above, maybe for completely different things.</p>
+<p>The capturing phase is used very rarely, usually we handle events on bubbling. And there’s a logic behind that.</p>
+<p>In real world, when an accident happens, local authorities react first. They know best the area where it happened. Then higher-level authorities if needed.</p>
+<p>The same for event handlers. The code that set the handler on a particular element knows maximum details about the element and what it does. A handler on a particular <code>&lt;td&gt;</code> may be suited for that exactly <code>&lt;td&gt;</code>, it knows everything about it, so it should get the chance first. Then its immediate parent also knows about the context, but a little bit less, and so on till the very top element that handles general concepts and runs the last one.</p>
+<p>Bubbling and capturing lay the foundation for “event delegation” – an extremely powerful event handling pattern that we study in the next chapter.</p>

@@ -1,0 +1,6 @@
+<p>```js run let room = { number: 23 };</p>
+<p>let meetup = { title: “Conference”, occupiedBy: [{name: “John”}, {name: “Alice”}], place: room };</p>
+<p>room.occupiedBy = meetup; meetup.self = meetup;</p>
+<p>alert( JSON.stringify(meetup, function replacer(key, value) { return (key != "" &amp;&amp; value == meetup) ? undefined : value; }));</p>
+<p>/* { “title”:“Conference”, “occupiedBy”:[{“name”:“John”},{“name”:“Alice”}], “place”:{“number”:23} } */ ```</p>
+<p>Here we also need to test <code>key==""</code> to exclude the first call where it is normal that <code>value</code> is <code>meetup</code>.</p>

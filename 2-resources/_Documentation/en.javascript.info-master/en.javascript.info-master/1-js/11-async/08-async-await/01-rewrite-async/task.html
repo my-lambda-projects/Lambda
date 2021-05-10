@@ -1,0 +1,4 @@
+<h1 id="rewrite-using-asyncawait">Rewrite using async/await</h1>
+<p>Rewrite this example code from the chapter <a href="info:promise-chaining" class="uri">info:promise-chaining</a> using <code>async/await</code> instead of <code>.then/catch</code>:</p>
+<p>```js run function loadJson(url) { return fetch(url) .then(response =&gt; { if (response.status == 200) { return response.json(); } else { throw new Error(response.status); } }); }</p>
+<p>loadJson(‘no-such-user.json’) .catch(alert); // Error: 404 ```</p>

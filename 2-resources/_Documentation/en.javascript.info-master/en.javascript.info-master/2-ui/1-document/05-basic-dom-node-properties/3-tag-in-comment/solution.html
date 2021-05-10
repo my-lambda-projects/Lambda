@@ -1,0 +1,16 @@
+<p>The answer: <strong><code>BODY</code></strong>.</p>
+```html run
+<script>
+  let body = document.body;
+
+  body.innerHTML = "<!--" + body.tagName + "-->";
+
+  alert( body.firstChild.data ); // BODY
+</script>
+<p>```</p>
+<p>What’s going on step by step:</p>
+<ol type="1">
+<li>The content of <code>&lt;body&gt;</code> is replaced with the comment. The comment is <code>&lt;!--BODY--&gt;</code>, because <code>body.tagName == "BODY"</code>. As we remember, <code>tagName</code> is always uppercase in HTML.</li>
+<li>The comment is now the only child node, so we get it in <code>body.firstChild</code>.</li>
+<li>The <code>data</code> property of the comment is its contents (inside <code>&lt;!--...--&gt;</code>): <code>"BODY"</code>.</li>
+</ol>

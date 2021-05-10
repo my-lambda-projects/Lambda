@@ -1,0 +1,154 @@
+<h1 id="private-and-protected-properties-and-methods">Private and protected properties and methods</h1>
+<p>One of the most important principles of object oriented programming – delimiting internal interface from the external one.</p>
+<p>That is “a must” practice in developing anything more complex than a “hello world” app.</p>
+<p>To understand this, let’s break away from development and turn our eyes into the real world.</p>
+<p>Usually, devices that we’re using are quite complex. But delimiting the internal interface from the external one allows to use them without problems.</p>
+<h2 id="a-real-life-example">A real-life example</h2>
+<p>For instance, a coffee machine. Simple from outside: a button, a display, a few holes…And, surely, the result – great coffee! :)</p>
+<p><img src="coffee.jpg" /></p>
+<p>But inside… (a picture from the repair manual)</p>
+<p><img src="coffee-inside.jpg" /></p>
+<p>A lot of details. But we can use it without knowing anything.</p>
+<p>Coffee machines are quite reliable, aren’t they? We can use one for years, and only if something goes wrong – bring it for repairs.</p>
+<p>The secret of reliability and simplicity of a coffee machine – all details are well-tuned and <em>hidden</em> inside.</p>
+<p>If we remove the protective cover from the coffee machine, then using it will be much more complex (where to press?), and dangerous (it can electrocute).</p>
+<p>As we’ll see, in programming objects are like coffee machines.</p>
+<p>But in order to hide inner details, we’ll use not a protective cover, but rather special syntax of the language and conventions.</p>
+<h2 id="internal-and-external-interface">Internal and external interface</h2>
+<p>In object-oriented programming, properties and methods are split into two groups:</p>
+<ul>
+<li><em>Internal interface</em> – methods and properties, accessible from other methods of the class, but not from the outside.</li>
+<li><em>External interface</em> – methods and properties, accessible also from outside the class.</li>
+</ul>
+<p>If we continue the analogy with the coffee machine – what’s hidden inside: a boiler tube, heating element, and so on – is its internal interface.</p>
+<p>An internal interface is used for the object to work, its details use each other. For instance, a boiler tube is attached to the heating element.</p>
+<p>But from the outside a coffee machine is closed by the protective cover, so that no one can reach those. Details are hidden and inaccessible. We can use its features via the external interface.</p>
+<p>So, all we need to use an object is to know its external interface. We may be completely unaware how it works inside, and that’s great.</p>
+<p>That was a general introduction.</p>
+<p>In JavaScript, there are two types of object fields (properties and methods):</p>
+<ul>
+<li>Public: accessible from anywhere. They comprise the external interface. Until now we were only using public properties and methods.</li>
+<li>Private: accessible only from inside the class. These are for the internal interface.</li>
+</ul>
+<p>In many other languages there also exist “protected” fields: accessible only from inside the class and those extending it (like private, but plus access from inheriting classes). They are also useful for the internal interface. They are in a sense more widespread than private ones, because we usually want inheriting classes to gain access to them.</p>
+<p>Protected fields are not implemented in JavaScript on the language level, but in practice they are very convenient, so they are emulated.</p>
+<p>Now we’ll make a coffee machine in JavaScript with all these types of properties. A coffee machine has a lot of details, we won’t model them to stay simple (though we could).</p>
+<h2 id="protecting-wateramount">Protecting “waterAmount”</h2>
+<p>Let’s make a simple coffee machine class first:</p>
+<p>```js run class CoffeeMachine { waterAmount = 0; // the amount of water inside</p>
+<p>constructor(power) { this.power = power; alert( <code>Created a coffee-machine, power: ${power}</code> ); }</p>
+<p>}</p>
+<p>// create the coffee machine let coffeeMachine = new CoffeeMachine(100);</p>
+<p>// add water coffeeMachine.waterAmount = 200; ```</p>
+<p>Right now the properties <code>waterAmount</code> and <code>power</code> are public. We can easily get/set them from the outside to any value.</p>
+<p>Let’s change <code>waterAmount</code> property to protected to have more control over it. For instance, we don’t want anyone to set it below zero.</p>
+<p><strong>Protected properties are usually prefixed with an underscore <code>_</code>.</strong></p>
+<p>That is not enforced on the language level, but there’s a well-known convention between programmers that such properties and methods should not be accessed from the outside.</p>
+<p>So our property will be called <code>_waterAmount</code>:</p>
+<p>```js run class CoffeeMachine { _waterAmount = 0;</p>
+<p>set waterAmount(value) { if (value &lt; 0) { value = 0; } this._waterAmount = value; }</p>
+<p>get waterAmount() { return this._waterAmount; }</p>
+<p>constructor(power) { this._power = power; }</p>
+<p>}</p>
+<p>// create the coffee machine let coffeeMachine = new CoffeeMachine(100);</p>
+<p>// add water coffeeMachine.waterAmount = -10; // Error: Negative water ```</p>
+<p>Now the access is under control, so setting the water amount below zero becomes impossible.</p>
+<h2 id="read-only-power">Read-only “power”</h2>
+<p>For <code>power</code> property, let’s make it read-only. It sometimes happens that a property must be set at creation time only, and then never modified.</p>
+<p>That’s exactly the case for a coffee machine: power never changes.</p>
+<p>To do so, we only need to make getter, but not the setter:</p>
+<p>```js run class CoffeeMachine { // …</p>
+<p>constructor(power) { this._power = power; }</p>
+<p>get power() { return this._power; }</p>
+<p>}</p>
+<p>// create the coffee machine let coffeeMachine = new CoffeeMachine(100);</p>
+<p>alert(<code>Power is: ${coffeeMachine.power}W</code>); // Power is: 100W</p>
+<p>coffeeMachine.power = 25; // Error (no setter) ```</p>
+<p>````smart header=“Getter/setter functions” Here we used getter/setter syntax.</p>
+<p>But most of the time <code>get.../set...</code> functions are preferred, like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">class</span> CoffeeMachine <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  _waterAmount <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="op">*!*</span><span class="at">setWaterAmount</span>(value)<span class="op">*</span><span class="ss">/!</span><span class="sc">*</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="ss">    if </span><span class="sc">(</span><span class="ss">value &lt; 0</span><span class="sc">)</span><span class="ss"> value = 0;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="ss">    this._waterAmount = value;</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="ss">  }</span></a>
+<a class="sourceLine" id="cb1-8" title="8"></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="ss">  </span><span class="sc">*</span><span class="ss">!</span><span class="sc">*</span><span class="ss">getWaterAmount</span><span class="sc">()*</span><span class="ss">/</span><span class="op">!*</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-10" title="10">    <span class="cf">return</span> <span class="kw">this</span>.<span class="at">_waterAmount</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-11" title="11">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-13" title="13"></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="kw">new</span> <span class="at">CoffeeMachine</span>().<span class="at">setWaterAmount</span>(<span class="dv">100</span>)<span class="op">;</span></a></code></pre></div>
+<p>That looks a bit longer, but functions are more flexible. They can accept multiple arguments (even if we don’t need them right now).</p>
+<p>On the other hand, get/set syntax is shorter, so ultimately there’s no strict rule, it’s up to you to decide. ````</p>
+<p>``<code>smart header="Protected fields are inherited" If we inherit</code>class MegaMachine extends CoffeeMachine<code>, then nothing prevents us from accessing</code>this._waterAmount<code>or</code>this._power` from the methods of the new class.</p>
+<p>So protected fields are naturally inheritable. Unlike private ones that we’ll see below. ```</p>
+<h2 id="private-waterlimit">Private “#waterLimit”</h2>
+<p>[recent browser=none]</p>
+<p>There’s a finished JavaScript proposal, almost in the standard, that provides language-level support for private properties and methods.</p>
+<p>Privates should start with <code>#</code>. They are only accessible from inside the class.</p>
+<p>For instance, here’s a private <code>#waterLimit</code> property and the water-checking private method <code>#checkWater</code>:</p>
+<p>```js run class CoffeeMachine { <em>!</em> #waterLimit = 200; <em>/!</em></p>
+<p><em>!</em> #fixWaterAmount(value) { if (value &lt; 0) return 0; if (value &gt; this.#waterLimit) return this.#waterLimit; } <em>/!</em></p>
+<p>setWaterAmount(value) { this.#waterLimit = this.#fixWaterAmount(value); }</p>
+<p>}</p>
+<p>let coffeeMachine = new CoffeeMachine();</p>
+<p><em>!</em> // can’t access privates from outside of the class coffeeMachine.#fixWaterAmount(123); // Error coffeeMachine.#waterLimit = 1000; // Error <em>/!</em> ```</p>
+<p>On the language level, <code>#</code> is a special sign that the field is private. We can’t access it from outside or from inheriting classes.</p>
+<p>Private fields do not conflict with public ones. We can have both private <code>#waterAmount</code> and public <code>waterAmount</code> fields at the same time.</p>
+<p>For instance, let’s make <code>waterAmount</code> an accessor for <code>#waterAmount</code>:</p>
+<p>```js run class CoffeeMachine {</p>
+<p>#waterAmount = 0;</p>
+<p>get waterAmount() { return this.#waterAmount; }</p>
+<p>set waterAmount(value) { if (value &lt; 0) value = 0; this.#waterAmount = value; } }</p>
+<p>let machine = new CoffeeMachine();</p>
+<p>machine.waterAmount = 100; alert(machine.#waterAmount); // Error ```</p>
+<p>Unlike protected ones, private fields are enforced by the language itself. That’s a good thing.</p>
+<p>But if we inherit from <code>CoffeeMachine</code>, then we’ll have no direct access to <code>#waterAmount</code>. We’ll need to rely on <code>waterAmount</code> getter/setter:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">class</span> MegaCoffeeMachine <span class="kw">extends</span> CoffeeMachine <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="at">method</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb2-4" title="4">    <span class="at">alert</span>( <span class="kw">this</span>.#waterAmount )<span class="op">;</span> <span class="co">// Error: can only access from CoffeeMachine</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="ss">  }</span></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="ss">}</span></a></code></pre></div>
+<p>In many scenarios such limitation is too severe. If we extend a <code>CoffeeMachine</code>, we may have legitimate reasons to access its internals. That’s why protected fields are used more often, even though they are not supported by the language syntax.</p>
+<p>````warn header=“Private fields are not available as this[name]” Private fields are special.</p>
+<p>As we know, usually we can access fields using <code>this[name]</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">class</span> User <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  ...</a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="at">sayHi</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="kw">let</span> fieldName <span class="op">=</span> <span class="st">&quot;name&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-5" title="5">    <span class="at">alert</span>(<span class="vs">`Hello, </span><span class="sc">${</span><span class="op">*!*</span><span class="kw">this</span>[fieldName]<span class="op">*</span><span class="ss">/!</span><span class="sc">*</span><span class="ss">}`</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="ss">  }</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="ss">}</span></a></code></pre></div>
+<p>With private fields that’s impossible: <code>this['#name']</code> doesn’t work. That’s a syntax limitation to ensure privacy. ````</p>
+<h2 id="summary">Summary</h2>
+<p>In terms of OOP, delimiting of the internal interface from the external one is called <a href="https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)">encapsulation</a>.</p>
+<p>It gives the following benefits:</p>
+<dl>
+<dt>Protection for users, so that they don’t shoot themselves in the foot</dt>
+<dd><p>Imagine, there’s a team of developers using a coffee machine. It was made by the “Best CoffeeMachine” company, and works fine, but a protective cover was removed. So the internal interface is exposed.</p>
+<p>All developers are civilized – they use the coffee machine as intended. But one of them, John, decided that he’s the smartest one, and made some tweaks in the coffee machine internals. So the coffee machine failed two days later.</p>
+<p>That’s surely not John’s fault, but rather the person who removed the protective cover and let John do his manipulations.</p>
+<p>The same in programming. If a user of a class will change things not intended to be changed from the outside – the consequences are unpredictable.</p>
+</dd>
+<dt>Supportable</dt>
+<dd><p>The situation in programming is more complex than with a real-life coffee machine, because we don’t just buy it once. The code constantly undergoes development and improvement.</p>
+<p><strong>If we strictly delimit the internal interface, then the developer of the class can freely change its internal properties and methods, even without informing the users.</strong></p>
+<p>If you’re a developer of such class, it’s great to know that private methods can be safely renamed, their parameters can be changed, and even removed, because no external code depends on them.</p>
+<p>For users, when a new version comes out, it may be a total overhaul internally, but still simple to upgrade if the external interface is the same.</p>
+</dd>
+<dt>Hiding complexity</dt>
+<dd><p>People adore using things that are simple. At least from outside. What’s inside is a different thing.</p>
+<p>Programmers are not an exception.</p>
+<p><strong>It’s always convenient when implementation details are hidden, and a simple, well-documented external interface is available.</strong></p>
+</dd>
+</dl>
+<p>To hide an internal interface we use either protected or private properties:</p>
+<ul>
+<li>Protected fields start with <code>_</code>. That’s a well-known convention, not enforced at the language level. Programmers should only access a field starting with <code>_</code> from its class and classes inheriting from it.</li>
+<li>Private fields start with <code>#</code>. JavaScript makes sure we can only access those from inside the class.</li>
+</ul>
+<p>Right now, private fields are not well-supported among browsers, but can be polyfilled.</p>

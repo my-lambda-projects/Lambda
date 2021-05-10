@@ -1,0 +1,52 @@
+<h1 id="the-new-function-syntax">The “new Function” syntax</h1>
+<p>There’s one more way to create a function. It’s rarely used, but sometimes there’s no alternative.</p>
+<h2 id="syntax">Syntax</h2>
+<p>The syntax for creating a function:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> func <span class="op">=</span> <span class="kw">new</span> <span class="at">Function</span> ([arg1<span class="op">,</span> arg2<span class="op">,</span> ...<span class="at">argN</span>]<span class="op">,</span> functionBody)<span class="op">;</span></a></code></pre></div>
+<p>The function is created with the arguments <code>arg1...argN</code> and the given <code>functionBody</code>.</p>
+<p>It’s easier to understand by looking at an example. Here’s a function with two arguments:</p>
+<p>```js run let sum = new Function(‘a’, ‘b’, ‘return a + b’);</p>
+<p>alert( sum(1, 2) ); // 3 ```</p>
+<p>And here there’s a function without arguments, with only the function body:</p>
+<p>```js run let sayHi = new Function(‘alert(“Hello”)’);</p>
+<p>sayHi(); // Hello ```</p>
+<p>The major difference from other ways we’ve seen is that the function is created literally from a string, that is passed at run time.</p>
+<p>All previous declarations required us, programmers, to write the function code in the script.</p>
+<p>But <code>new Function</code> allows to turn any string into a function. For example, we can receive a new function from a server and then execute it:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> str <span class="op">=</span> ... <span class="at">receive</span> the code <span class="im">from</span> a server <span class="va">dynamically</span> ...</a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="kw">let</span> func <span class="op">=</span> <span class="kw">new</span> <span class="at">Function</span>(str)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="at">func</span>()<span class="op">;</span></a></code></pre></div>
+<p>It is used in very specific cases, like when we receive code from a server, or to dynamically compile a function from a template, in complex web-applications.</p>
+<h2 id="closure">Closure</h2>
+<p>Usually, a function remembers where it was born in the special property <code>[[Environment]]</code>. It references the Lexical Environment from where it’s created (we covered that in the chapter <a href="info:closure" class="uri">info:closure</a>).</p>
+<p>But when a function is created using <code>new Function</code>, its <code>[[Environment]]</code> is set to reference not the current Lexical Environment, but the global one.</p>
+<p>So, such function doesn’t have access to outer variables, only to the global ones.</p>
+<p>```js run function getFunc() { let value = “test”;</p>
+<p><em>!</em> let func = new Function(‘alert(value)’); <em>/!</em></p>
+<p>return func; }</p>
+<p>getFunc()(); // error: value is not defined ```</p>
+<p>Compare it with the regular behavior:</p>
+<p>```js run function getFunc() { let value = “test”;</p>
+<p><em>!</em> let func = function() { alert(value); }; <em>/!</em></p>
+<p>return func; }</p>
+<p>getFunc()(); // <em>!</em>“test”<em>/!</em>, from the Lexical Environment of getFunc ```</p>
+<p>This special feature of <code>new Function</code> looks strange, but appears very useful in practice.</p>
+<p>Imagine that we must create a function from a string. The code of that function is not known at the time of writing the script (that’s why we don’t use regular functions), but will be known in the process of execution. We may receive it from the server or from another source.</p>
+<p>Our new function needs to interact with the main script.</p>
+<p>What if it could access the outer variables?</p>
+<p>The problem is that before JavaScript is published to production, it’s compressed using a <em>minifier</em> – a special program that shrinks code by removing extra comments, spaces and – what’s important, renames local variables into shorter ones.</p>
+<p>For instance, if a function has <code>let userName</code>, minifier replaces it with <code>let a</code> (or another letter if this one is occupied), and does it everywhere. That’s usually a safe thing to do, because the variable is local, nothing outside the function can access it. And inside the function, minifier replaces every mention of it. Minifiers are smart, they analyze the code structure, so they don’t break anything. They’re not just a dumb find-and-replace.</p>
+<p>So if <code>new Function</code> had access to outer variables, it would be unable to find renamed <code>userName</code>.</p>
+<p><strong>If <code>new Function</code> had access to outer variables, it would have problems with minifiers.</strong></p>
+<p>Besides, such code would be architecturally bad and prone to errors.</p>
+<p>To pass something to a function, created as <code>new Function</code>, we should use its arguments.</p>
+<h2 id="summary">Summary</h2>
+<p>The syntax:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> func <span class="op">=</span> <span class="kw">new</span> <span class="at">Function</span> ([arg1<span class="op">,</span> arg2<span class="op">,</span> ...<span class="at">argN</span>]<span class="op">,</span> functionBody)<span class="op">;</span></a></code></pre></div>
+<p>For historical reasons, arguments can also be given as a comma-separated list.</p>
+<p>These three declarations mean the same:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">new</span> <span class="at">Function</span>(<span class="st">&#39;a&#39;</span><span class="op">,</span> <span class="st">&#39;b&#39;</span><span class="op">,</span> <span class="st">&#39;return a + b&#39;</span>)<span class="op">;</span> <span class="co">// basic syntax</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw">new</span> <span class="at">Function</span>(<span class="st">&#39;a,b&#39;</span><span class="op">,</span> <span class="st">&#39;return a + b&#39;</span>)<span class="op">;</span> <span class="co">// comma-separated</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="kw">new</span> <span class="at">Function</span>(<span class="st">&#39;a , b&#39;</span><span class="op">,</span> <span class="st">&#39;return a + b&#39;</span>)<span class="op">;</span> <span class="co">// comma-separated with spaces</span></a></code></pre></div>
+<p>Functions created with <code>new Function</code>, have <code>[[Environment]]</code> referencing the global Lexical Environment, not the outer one. Hence, they cannot use outer variables. But that’s actually good, because it insures us from errors. Passing parameters explicitly is a much better method architecturally and causes no problems with minifiers.</p>

@@ -1,0 +1,12 @@
+<p>Let’s make a loop over <code>&lt;li&gt;</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="cf">for</span> (<span class="kw">let</span> li <span class="kw">of</span> <span class="va">document</span>.<span class="at">querySelectorAll</span>(<span class="st">&#39;li&#39;</span>)) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  ...</a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>In the loop we need to get the text inside every <code>li</code>.</p>
+<p>We can read the text from the first child node of <code>li</code>, that is the text node:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="cf">for</span> (<span class="kw">let</span> li <span class="kw">of</span> <span class="va">document</span>.<span class="at">querySelectorAll</span>(<span class="st">&#39;li&#39;</span>)) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="kw">let</span> title <span class="op">=</span> <span class="va">li</span>.<span class="va">firstChild</span>.<span class="at">data</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="co">// title is the text in &lt;li&gt; before any other nodes</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="op">}</span></a></code></pre></div>
+<p>Then we can get the number of descendants as <code>li.getElementsByTagName('li').length</code>.</p>

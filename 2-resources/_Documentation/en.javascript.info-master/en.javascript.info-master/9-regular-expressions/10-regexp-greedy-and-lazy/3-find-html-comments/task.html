@@ -1,0 +1,9 @@
+<h1 id="find-html-comments">Find HTML comments</h1>
+<p>Find all HTML comments in the text:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> regexp <span class="op">=</span> <span class="ss">/your regexp/g</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">let</span> str <span class="op">=</span> <span class="vs">`... &lt;!-- My -- comment</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="vs"> test --&gt; ..  &lt;!----&gt; .. </span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="vs">`</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="at">alert</span>( <span class="va">str</span>.<span class="at">match</span>(regexp) )<span class="op">;</span> <span class="co">// &#39;&lt;!-- My -- comment \n test --&gt;&#39;, &#39;&lt;!----&gt;&#39;</span></a></code></pre></div>

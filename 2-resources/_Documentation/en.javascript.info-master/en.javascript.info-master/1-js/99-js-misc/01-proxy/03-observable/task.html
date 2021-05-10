@@ -1,0 +1,10 @@
+<h1 id="observable">Observable</h1>
+<p>Create a function <code>makeObservable(target)</code> that “makes the object observable” by returning a proxy.</p>
+<p>Here’s how it should work:</p>
+<p>```js run function makeObservable(target) { /* your code */ }</p>
+<p>let user = {}; user = makeObservable(user);</p>
+<p>user.observe((key, value) =&gt; { alert(<code>SET ${key}=${value}</code>); });</p>
+<p>user.name = “John”; // alerts: SET name=John ```</p>
+<p>In other words, an object returned by <code>makeObservable</code> is just like the original one, but also has the method <code>observe(handler)</code> that sets <code>handler</code> function to be called on any property change.</p>
+<p>Whenever a property changes, <code>handler(key, value)</code> is called with the name and value of the property.</p>
+<p>P.S. In this task, please only take care about writing to a property. Other operations can be implemented in a similar way.</p>

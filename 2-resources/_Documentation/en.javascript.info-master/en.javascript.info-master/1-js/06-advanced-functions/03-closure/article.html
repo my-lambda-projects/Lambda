@@ -1,0 +1,225 @@
+<h1 id="variable-scope-closure">Variable scope, closure</h1>
+<p>JavaScript is a very function-oriented language. It gives us a lot of freedom. A function can be created at any moment, passed as an argument to another function, and then called from a totally different place of code later.</p>
+<p>We already know that a function can access variables outside of it (“outer” variables).</p>
+<p>But what happens if outer variables change since a function is created? Will the function get newer values or the old ones?</p>
+<p>And what if a function is passed along as a parameter and called from another place of code, will it get access to outer variables at the new place?</p>
+<p>Let’s expand our knowledge to understand these scenarios and more complex ones.</p>
+<p>``<code>smart header="We'll talk about</code>let/const<code>variables here" In JavaScript, there are 3 ways to declare a variable:</code>let<code>,</code>const<code>(the modern ones), and</code>var` (the remnant of the past).</p>
+<ul>
+<li>In this article we’ll use <code>let</code> variables in examples.</li>
+<li>Variables, declared with <code>const</code>, behave the same, so this article is about <code>const</code> too.</li>
+<li>The old <code>var</code> has some notable differences, they will be covered in the article <a href="info:var" class="uri">info:var</a>. ```</li>
+</ul>
+<h2 id="code-blocks">Code blocks</h2>
+<p>If a variable is declared inside a code block <code>{...}</code>, it’s only visible inside that block.</p>
+<p>For example:</p>
+<p>```js run { // do some job with local variables that should not be seen outside</p>
+<p>let message = “Hello”; // only visible in this block</p>
+<p>alert(message); // Hello }</p>
+<p>alert(message); // Error: message is not defined ```</p>
+<p>We can use this to isolate a piece of code that does its own task, with variables that only belong to it:</p>
+<p>```js run { // show message let message = “Hello”; alert(message); }</p>
+<p>{ // show another message let message = “Goodbye”; alert(message); } ```</p>
+<p>```<code>smart header="There'd be an error without blocks" Please note, without separate blocks there would be an error, if we use</code>let` with the existing variable name:</p>
+<p>```js run // show message let message = “Hello”; alert(message);</p>
+<p>// show another message <em>!</em> let message = “Goodbye”; // Error: variable already declared <em>/!</em> alert(message);</p>
+<pre><code></code></pre>
+<p>For <code>if</code>, <code>for</code>, <code>while</code> and so on, variables declared in <code>{...}</code> are also only visible inside:</p>
+<p>```js run if (true) { let phrase = “Hello!”;</p>
+<p>alert(phrase); // Hello! }</p>
+<p>alert(phrase); // Error, no such variable! ```</p>
+<p>Here, after <code>if</code> finishes, the <code>alert</code> below won’t see the <code>phrase</code>, hence the error.</p>
+<p>That’s great, as it allows us to create block-local variables, specific to an <code>if</code> branch.</p>
+<p>The similar thing holds true for <code>for</code> and <code>while</code> loops:</p>
+<p>```js run for (let i = 0; i &lt; 3; i++) { // the variable i is only visible inside this for alert(i); // 0, then 1, then 2 }</p>
+<p>alert(i); // Error, no such variable ```</p>
+<p>Visually, <code>let i</code> is outside of <code>{...}</code>. But the <code>for</code> construct is special here: the variable, declared inside it, is considered a part of the block.</p>
+<h2 id="nested-functions">Nested functions</h2>
+<p>A function is called “nested” when it is created inside another function.</p>
+<p>It is easily possible to do this with JavaScript.</p>
+<p>We can use it to organize our code, like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">function</span> <span class="at">sayHiBye</span>(firstName<span class="op">,</span> lastName) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="co">// helper nested function to use below</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="kw">function</span> <span class="at">getFullName</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-5" title="5">    <span class="cf">return</span> firstName <span class="op">+</span> <span class="st">&quot; &quot;</span> <span class="op">+</span> lastName<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-6" title="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-7" title="7"></a>
+<a class="sourceLine" id="cb2-8" title="8">  <span class="at">alert</span>( <span class="st">&quot;Hello, &quot;</span> <span class="op">+</span> <span class="at">getFullName</span>() )<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-9" title="9">  <span class="at">alert</span>( <span class="st">&quot;Bye, &quot;</span> <span class="op">+</span> <span class="at">getFullName</span>() )<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-10" title="10"></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="op">}</span></a></code></pre></div>
+<p>Here the <em>nested</em> function <code>getFullName()</code> is made for convenience. It can access the outer variables and so can return the full name. Nested functions are quite common in JavaScript.</p>
+<p>What’s much more interesting, a nested function can be returned: either as a property of a new object or as a result by itself. It can then be used somewhere else. No matter where, it still has access to the same outer variables.</p>
+<p>Below, <code>makeCounter</code> creates the “counter” function that returns the next number on each invocation:</p>
+<p>```js run function makeCounter() { let count = 0;</p>
+<p>return function() { return count++; }; }</p>
+<p>let counter = makeCounter();</p>
+<p>alert( counter() ); // 0 alert( counter() ); // 1 alert( counter() ); // 2 ```</p>
+<p>Despite being simple, slightly modified variants of that code have practical uses, for instance, as a <a href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator">random number generator</a> to generate random values for automated tests.</p>
+<p>How does this work? If we create multiple counters, will they be independent? What’s going on with the variables here?</p>
+<p>Understanding such things is great for the overall knowledge of JavaScript and beneficial for more complex scenarios. So let’s go a bit in-depth.</p>
+<h2 id="lexical-environment">Lexical Environment</h2>
+<p>```warn header=“Here be dragons!” The in-depth technical explanation lies ahead.</p>
+<p>As far as I’d like to avoid low-level language details, any understanding without them would be lacking and incomplete, so get ready. ```</p>
+<p>For clarity, the explanation is split into multiple steps.</p>
+<h3 id="step-1.-variables">Step 1. Variables</h3>
+<p>In JavaScript, every running function, code block <code>{...}</code>, and the script as a whole have an internal (hidden) associated object known as the <em>Lexical Environment</em>.</p>
+<p>The Lexical Environment object consists of two parts:</p>
+<ol type="1">
+<li><em>Environment Record</em> – an object that stores all local variables as its properties (and some other information like the value of <code>this</code>).</li>
+<li>A reference to the <em>outer lexical environment</em>, the one associated with the outer code.</li>
+</ol>
+<p><strong>A “variable” is just a property of the special internal object, <code>Environment Record</code>. “To get or change a variable” means “to get or change a property of that object”.</strong></p>
+<p>In this simple code without functions, there is only one Lexical Environment:</p>
+<figure>
+<img src="lexical-environment-global.svg" alt="lexical environment" /><figcaption>lexical environment</figcaption>
+</figure>
+<p>This is the so-called <em>global</em> Lexical Environment, associated with the whole script.</p>
+<p>On the picture above, the rectangle means Environment Record (variable store) and the arrow means the outer reference. The global Lexical Environment has no outer reference, that’s why the arrow points to <code>null</code>.</p>
+<p>As the code starts executing and goes on, the Lexical Environment changes.</p>
+<p>Here’s a little bit longer code:</p>
+<figure>
+<img src="closure-variable-phrase.svg" alt="lexical environment" /><figcaption>lexical environment</figcaption>
+</figure>
+<p>Rectangles on the right-hand side demonstrate how the global Lexical Environment changes during the execution:</p>
+<ol type="1">
+<li>When the script starts, the Lexical Environment is pre-populated with all declared variables.
+<ul>
+<li>Initially, they are in the “Uninitialized” state. That’s a special internal state, it means that the engine knows about the variable, but it cannot be referenced until it has been declared with <code>let</code>. It’s almost the same as if the variable didn’t exist.</li>
+</ul></li>
+<li>Then <code>let phrase</code> definition appears. There’s no assignment yet, so its value is <code>undefined</code>. We can use the variable from this point forward.</li>
+<li><code>phrase</code> is assigned a value.</li>
+<li><code>phrase</code> changes the value.</li>
+</ol>
+<p>Everything looks simple for now, right?</p>
+<ul>
+<li>A variable is a property of a special internal object, associated with the currently executing block/function/script.</li>
+<li>Working with variables is actually working with the properties of that object.</li>
+</ul>
+<p>```smart header=“Lexical Environment is a specification object” “Lexical Environment” is a specification object: it only exists “theoretically” in the <a href="https://tc39.es/ecma262/#sec-lexical-environments">language specification</a> to describe how things work. We can’t get this object in our code and manipulate it directly.</p>
+<p>JavaScript engines also may optimize it, discard variables that are unused to save memory and perform other internal tricks, as long as the visible behavior remains as described. ```</p>
+<h3 id="step-2.-function-declarations">Step 2. Function Declarations</h3>
+<p>A function is also a value, like a variable.</p>
+<p><strong>The difference is that a Function Declaration is instantly fully initialized.</strong></p>
+<p>When a Lexical Environment is created, a Function Declaration immediately becomes a ready-to-use function (unlike <code>let</code>, that is unusable till the declaration).</p>
+<p>That’s why we can use a function, declared as Function Declaration, even before the declaration itself.</p>
+<p>For example, here’s the initial state of the global Lexical Environment when we add a function:</p>
+<p><img src="closure-function-declaration.svg" /></p>
+<p>Naturally, this behavior only applies to Function Declarations, not Function Expressions where we assign a function to a variable, such as <code>let say = function(name)...</code>.</p>
+<h3 id="step-3.-inner-and-outer-lexical-environment">Step 3. Inner and outer Lexical Environment</h3>
+<p>When a function runs, at the beginning of the call, a new Lexical Environment is created automatically to store local variables and parameters of the call.</p>
+<p>For instance, for <code>say("John")</code>, it looks like this (the execution is at the line, labelled with an arrow):</p>
+<!--
+    ```js
+    let phrase = "Hello";
+
+    function say(name) {
+     alert( `${phrase}, ${name}` );
+    }
+
+    say("John"); // Hello, John
+    ```-->
+<p><img src="lexical-environment-simple.svg" /></p>
+<p>During the function call we have two Lexical Environments: the inner one (for the function call) and the outer one (global):</p>
+<ul>
+<li>The inner Lexical Environment corresponds to the current execution of <code>say</code>. It has a single property: <code>name</code>, the function argument. We called <code>say("John")</code>, so the value of the <code>name</code> is <code>"John"</code>.</li>
+<li>The outer Lexical Environment is the global Lexical Environment. It has the <code>phrase</code> variable and the function itself.</li>
+</ul>
+<p>The inner Lexical Environment has a reference to the <code>outer</code> one.</p>
+<p><strong>When the code wants to access a variable – the inner Lexical Environment is searched first, then the outer one, then the more outer one and so on until the global one.</strong></p>
+<p>If a variable is not found anywhere, that’s an error in strict mode (without <code>use strict</code>, an assignment to a non-existing variable creates a new global variable, for compatibility with old code).</p>
+<p>In this example the search proceeds as follows:</p>
+<ul>
+<li>For the <code>name</code> variable, the <code>alert</code> inside <code>say</code> finds it immediately in the inner Lexical Environment.</li>
+<li>When it wants to access <code>phrase</code>, then there is no <code>phrase</code> locally, so it follows the reference to the outer Lexical Environment and finds it there.</li>
+</ul>
+<figure>
+<img src="lexical-environment-simple-lookup.svg" alt="lexical environment lookup" /><figcaption>lexical environment lookup</figcaption>
+</figure>
+<h3 id="step-4.-returning-a-function">Step 4. Returning a function</h3>
+<p>Let’s return to the <code>makeCounter</code> example.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">function</span> <span class="at">makeCounter</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="kw">let</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"></a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="cf">return</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-5" title="5">    <span class="cf">return</span> count<span class="op">++;</span></a>
+<a class="sourceLine" id="cb3-6" title="6">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="op">}</span></a>
+<a class="sourceLine" id="cb3-8" title="8"></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="kw">let</span> counter <span class="op">=</span> <span class="at">makeCounter</span>()<span class="op">;</span></a></code></pre></div>
+<p>At the beginning of each <code>makeCounter()</code> call, a new Lexical Environment object is created, to store variables for this <code>makeCounter</code> run.</p>
+<p>So we have two nested Lexical Environments, just like in the example above:</p>
+<p><img src="closure-makecounter.svg" /></p>
+<p>What’s different is that, during the execution of <code>makeCounter()</code>, a tiny nested function is created of only one line: <code>return count++</code>. We don’t run it yet, only create.</p>
+<p>All functions remember the Lexical Environment in which they were made. Technically, there’s no magic here: all functions have the hidden property named <code>[[Environment]]</code>, that keeps the reference to the Lexical Environment where the function was created:</p>
+<p><img src="closure-makecounter-environment.svg" /></p>
+<p>So, <code>counter.[[Environment]]</code> has the reference to <code>{count: 0}</code> Lexical Environment. That’s how the function remembers where it was created, no matter where it’s called. The <code>[[Environment]]</code> reference is set once and forever at function creation time.</p>
+<p>Later, when <code>counter()</code> is called, a new Lexical Environment is created for the call, and its outer Lexical Environment reference is taken from <code>counter.[[Environment]]</code>:</p>
+<p><img src="closure-makecounter-nested-call.svg" /></p>
+<p>Now when the code inside <code>counter()</code> looks for <code>count</code> variable, it first searches its own Lexical Environment (empty, as there are no local variables there), then the Lexical Environment of the outer <code>makeCounter()</code> call, where it finds and changes it.</p>
+<p><strong>A variable is updated in the Lexical Environment where it lives.</strong></p>
+<p>Here’s the state after the execution:</p>
+<p><img src="closure-makecounter-nested-call-2.svg" /></p>
+<p>If we call <code>counter()</code> multiple times, the <code>count</code> variable will be increased to <code>2</code>, <code>3</code> and so on, at the same place.</p>
+<p>```smart header=“Closure” There is a general programming term “closure”, that developers generally should know.</p>
+<p>A <a href="https://en.wikipedia.org/wiki/Closure_(computer_programming)">closure</a> is a function that remembers its outer variables and can access them. In some languages, that’s not possible, or a function should be written in a special way to make it happen. But as explained above, in JavaScript, all functions are naturally closures (there is only one exception, to be covered in <a href="info:new-function" class="uri">info:new-function</a>).</p>
+<p>That is: they automatically remember where they were created using a hidden <code>[[Environment]]</code> property, and then their code can access outer variables.</p>
+<p>When on an interview, a frontend developer gets a question about “what’s a closure?”, a valid answer would be a definition of the closure and an explanation that all functions in JavaScript are closures, and maybe a few more words about technical details: the <code>[[Environment]]</code> property and how Lexical Environments work. ```</p>
+<h2 id="garbage-collection">Garbage collection</h2>
+<p>Usually, a Lexical Environment is removed from memory with all the variables after the function call finishes. That’s because there are no references to it. As any JavaScript object, it’s only kept in memory while it’s reachable.</p>
+<p>However, if there’s a nested function that is still reachable after the end of a function, then it has <code>[[Environment]]</code> property that references the lexical environment.</p>
+<p>In that case the Lexical Environment is still reachable even after the completion of the function, so it stays alive.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">function</span> <span class="at">f</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="kw">let</span> value <span class="op">=</span> <span class="dv">123</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-3" title="3"></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="cf">return</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-5" title="5">    <span class="at">alert</span>(value)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-6" title="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="op">}</span></a>
+<a class="sourceLine" id="cb4-8" title="8"></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="kw">let</span> g <span class="op">=</span> <span class="at">f</span>()<span class="op">;</span> <span class="co">// g.[[Environment]] stores a reference to the Lexical Environment</span></a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="co">// of the corresponding f() call</span></a></code></pre></div>
+<p>Please note that if <code>f()</code> is called many times, and resulting functions are saved, then all corresponding Lexical Environment objects will also be retained in memory. In the code below, all 3 of them:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">function</span> <span class="at">f</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="kw">let</span> value <span class="op">=</span> <span class="va">Math</span>.<span class="at">random</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-3" title="3"></a>
+<a class="sourceLine" id="cb5-4" title="4">  <span class="cf">return</span> <span class="kw">function</span>() <span class="op">{</span> <span class="at">alert</span>(value)<span class="op">;</span> <span class="op">};</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="op">}</span></a>
+<a class="sourceLine" id="cb5-6" title="6"></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="co">// 3 functions in array, every one of them links to Lexical Environment</span></a>
+<a class="sourceLine" id="cb5-8" title="8"><span class="co">// from the corresponding f() run</span></a>
+<a class="sourceLine" id="cb5-9" title="9"><span class="kw">let</span> arr <span class="op">=</span> [<span class="at">f</span>()<span class="op">,</span> <span class="at">f</span>()<span class="op">,</span> <span class="at">f</span>()]<span class="op">;</span></a></code></pre></div>
+<p>A Lexical Environment object dies when it becomes unreachable (just like any other object). In other words, it exists only while there’s at least one nested function referencing it.</p>
+<p>In the code below, after the nested function is removed, its enclosing Lexical Environment (and hence the <code>value</code>) is cleaned from memory:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">function</span> <span class="at">f</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="kw">let</span> value <span class="op">=</span> <span class="dv">123</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-3" title="3"></a>
+<a class="sourceLine" id="cb6-4" title="4">  <span class="cf">return</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-5" title="5">    <span class="at">alert</span>(value)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-6" title="6">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="op">}</span></a>
+<a class="sourceLine" id="cb6-8" title="8"></a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="kw">let</span> g <span class="op">=</span> <span class="at">f</span>()<span class="op">;</span> <span class="co">// while g function exists, the value stays in memory</span></a>
+<a class="sourceLine" id="cb6-10" title="10"></a>
+<a class="sourceLine" id="cb6-11" title="11">g <span class="op">=</span> <span class="kw">null</span><span class="op">;</span> <span class="co">// ...and now the memory is cleaned up</span></a></code></pre></div>
+<h3 id="real-life-optimizations">Real-life optimizations</h3>
+<p>As we’ve seen, in theory while a function is alive, all outer variables are also retained.</p>
+<p>But in practice, JavaScript engines try to optimize that. They analyze variable usage and if it’s obvious from the code that an outer variable is not used – it is removed.</p>
+<p><strong>An important side effect in V8 (Chrome, Edge, Opera) is that such variable will become unavailable in debugging.</strong></p>
+<p>Try running the example below in Chrome with the Developer Tools open.</p>
+<p>When it pauses, in the console type <code>alert(value)</code>.</p>
+<p>```js run function f() { let value = Math.random();</p>
+<p>function g() { debugger; // in console: type alert(value); No such variable! }</p>
+<p>return g; }</p>
+<p>let g = f(); g(); ```</p>
+<p>As you could see – there is no such variable! In theory, it should be accessible, but the engine optimized it out.</p>
+<p>That may lead to funny (if not such time-consuming) debugging issues. One of them – we can see a same-named outer variable instead of the expected one:</p>
+<p>```js run global let value = “Surprise!”;</p>
+<p>function f() { let value = “the closest value”;</p>
+<p>function g() { debugger; // in console: type alert(value); Surprise! }</p>
+<p>return g; }</p>
+<p>let g = f(); g(); ```</p>
+<p>This feature of V8 is good to know. If you are debugging with Chrome/Edge/Opera, sooner or later you will meet it.</p>
+<p>That is not a bug in the debugger, but rather a special feature of V8. Perhaps it will be changed sometime. You can always check for it by running the examples on this page.</p>

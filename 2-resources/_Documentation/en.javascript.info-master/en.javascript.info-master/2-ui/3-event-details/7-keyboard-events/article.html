@@ -1,0 +1,132 @@
+<h1 id="keyboard-keydown-and-keyup">Keyboard: keydown and keyup</h1>
+<p>Before we get to keyboard, please note that on modern devices there are other ways to “input something”. For instance, people use speech recognition (especially on mobile devices) or copy/paste with the mouse.</p>
+<p>So if we want to track any input into an <code>&lt;input&gt;</code> field, then keyboard events are not enough. There’s another event named <code>input</code> to track changes of an <code>&lt;input&gt;</code> field, by any means. And it may be a better choice for such task. We’ll cover it later in the chapter <a href="info:events-change-input" class="uri">info:events-change-input</a>.</p>
+<p>Keyboard events should be used when we want to handle keyboard actions (virtual keyboard also counts). For instance, to react on arrow keys <code>key:Up</code> and <code>key:Down</code> or hotkeys (including combinations of keys).</p>
+<h2 id="teststand-keyboard-test-stand">Teststand [#keyboard-test-stand]</h2>
+<pre class="offline"><code>To better understand keyboard events, you can use the [teststand](sandbox:keyboard-dump).</code></pre>
+<pre class="online"><code>To better understand keyboard events, you can use the teststand below.
+
+Try different key combinations in the text field.
+
+[codetabs src=&quot;keyboard-dump&quot; height=480]</code></pre>
+<h2 id="keydown-and-keyup">Keydown and keyup</h2>
+<p>The <code>keydown</code> events happens when a key is pressed down, and then <code>keyup</code> – when it’s released.</p>
+<h3 id="event.code-and-event.key">event.code and event.key</h3>
+<p>The <code>key</code> property of the event object allows to get the character, while the <code>code</code> property of the event object allows to get the “physical key code”.</p>
+<p>For instance, the same key <code>key:Z</code> can be pressed with or without <code>key:Shift</code>. That gives us two different characters: lowercase <code>z</code> and uppercase <code>Z</code>.</p>
+<p>The <code>event.key</code> is exactly the character, and it will be different. But <code>event.code</code> is the same:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th><code>event.key</code></th>
+<th><code>event.code</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>key:Z</code></td>
+<td><code>z</code> (lowercase)</td>
+<td><code>KeyZ</code></td>
+</tr>
+<tr class="even">
+<td><code>key:Shift+Z</code></td>
+<td><code>Z</code> (uppercase)</td>
+<td><code>KeyZ</code></td>
+</tr>
+</tbody>
+</table>
+<p>If a user works with different languages, then switching to another language would make a totally different character instead of <code>"Z"</code>. That will become the value of <code>event.key</code>, while <code>event.code</code> is always the same: <code>"KeyZ"</code>.</p>
+<p>```smart header=“"KeyZ" and other key codes” Every key has the code that depends on its location on the keyboard. Key codes described in the <a href="https://www.w3.org/TR/uievents-code/">UI Events code specification</a>.</p>
+<p>For instance: - Letter keys have codes <code>"Key&lt;letter&gt;"</code>: <code>"KeyA"</code>, <code>"KeyB"</code> etc. - Digit keys have codes: <code>"Digit&lt;number&gt;"</code>: <code>"Digit0"</code>, <code>"Digit1"</code> etc. - Special keys are coded by their names: <code>"Enter"</code>, <code>"Backspace"</code>, <code>"Tab"</code> etc.</p>
+<p>There are several widespread keyboard layouts, and the specification gives key codes for each of them.</p>
+<p>Read the <a href="https://www.w3.org/TR/uievents-code/#key-alphanumeric-section">alphanumeric section of the spec</a> for more codes, or just press a key in the <a href="#keyboard-test-stand">teststand</a> above. ```</p>
+<p>``<code>warn header="Case matters:</code>"KeyZ"<code>, not</code>"keyZ"`" Seems obvious, but people still make mistakes.</p>
+<p>Please evade mistypes: it’s <code>KeyZ</code>, not <code>keyZ</code>. The check like <code>event.code=="keyZ"</code> won’t work: the first letter of <code>"Key"</code> must be uppercase. ```</p>
+<p>What if a key does not give any character? For instance, <code>key:Shift</code> or <code>key:F1</code> or others. For those keys, <code>event.key</code> is approximately the same as <code>event.code</code>:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th><code>event.key</code></th>
+<th><code>event.code</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>key:F1</code></td>
+<td><code>F1</code></td>
+<td><code>F1</code></td>
+</tr>
+<tr class="even">
+<td><code>key:Backspace</code></td>
+<td><code>Backspace</code></td>
+<td><code>Backspace</code></td>
+</tr>
+<tr class="odd">
+<td><code>key:Shift</code></td>
+<td><code>Shift</code></td>
+<td><code>ShiftRight</code> or <code>ShiftLeft</code></td>
+</tr>
+</tbody>
+</table>
+<p>Please note that <code>event.code</code> specifies exactly which key is pressed. For instance, most keyboards have two <code>key:Shift</code> keys: on the left and on the right side. The <code>event.code</code> tells us exactly which one was pressed, and <code>event.key</code> is responsible for the “meaning” of the key: what it is (a “Shift”).</p>
+<p>Let’s say, we want to handle a hotkey: <code>key:Ctrl+Z</code> (or <code>key:Cmd+Z</code> for Mac). Most text editors hook the “Undo” action on it. We can set a listener on <code>keydown</code> and check which key is pressed.</p>
+<p>There’s a dilemma here: in such a listener, should we check the value of <code>event.key</code> or <code>event.code</code>?</p>
+<p>On one hand, the value of <code>event.key</code> is a character, it changes depending on the language. If the visitor has several languages in OS and switches between them, the same key gives different characters. So it makes sense to check <code>event.code</code>, it’s always the same.</p>
+<p>Like this:</p>
+<p><code>js run document.addEventListener('keydown', function(event) {   if (event.code == 'KeyZ' &amp;&amp; (event.ctrlKey || event.metaKey)) {     alert('Undo!')   } });</code></p>
+<p>On the other hand, there’s a problem with <code>event.code</code>. For different keyboard layouts, the same key may have different characters.</p>
+<p>For example, here are US layout (“QWERTY”) and German layout (“QWERTZ”) under it (from Wikipedia):</p>
+<p><img src="us-layout.svg" /></p>
+<p><img src="german-layout.svg" /></p>
+<p>For the same key, US layout has “Z”, while German layout has “Y” (letters are swapped).</p>
+<p>Literally, <code>event.code</code> will equal <code>KeyZ</code> for people with German layout when they press <code>key:Y</code>.</p>
+<p>If we check <code>event.code == 'KeyZ'</code> in our code, then for people with German layout such test will pass when they press <code>key:Y</code>.</p>
+<p>That sounds really odd, but so it is. The <a href="https://www.w3.org/TR/uievents-code/#table-key-code-alphanumeric-writing-system">specification</a> explicitly mentions such behavior.</p>
+<p>So, <code>event.code</code> may match a wrong character for unexpected layout. Same letters in different layouts may map to different physical keys, leading to different codes. Luckily, that happens only with several codes, e.g. <code>keyA</code>, <code>keyQ</code>, <code>keyZ</code> (as we’ve seen), and doesn’t happen with special keys such as <code>Shift</code>. You can find the list in the <a href="https://www.w3.org/TR/uievents-code/#table-key-code-alphanumeric-writing-system">specification</a>.</p>
+<p>To reliably track layout-dependent characters, <code>event.key</code> may be a better way.</p>
+<p>On the other hand, <code>event.code</code> has the benefit of staying always the same, bound to the physical key location, even if the visitor changes languages. So hotkeys that rely on it work well even in case of a language switch.</p>
+<p>Do we want to handle layout-dependant keys? Then <code>event.key</code> is the way to go.</p>
+<p>Or we want a hotkey to work even after a language switch? Then <code>event.code</code> may be better.</p>
+<h2 id="auto-repeat">Auto-repeat</h2>
+<p>If a key is being pressed for a long enough time, it starts to “auto-repeat”: the <code>keydown</code> triggers again and again, and then when it’s released we finally get <code>keyup</code>. So it’s kind of normal to have many <code>keydown</code> and a single <code>keyup</code>.</p>
+<p>For events triggered by auto-repeat, the event object has <code>event.repeat</code> property set to <code>true</code>.</p>
+<h2 id="default-actions">Default actions</h2>
+<p>Default actions vary, as there are many possible things that may be initiated by the keyboard.</p>
+<p>For instance:</p>
+<ul>
+<li>A character appears on the screen (the most obvious outcome).</li>
+<li>A character is deleted (<code>key:Delete</code> key).</li>
+<li>The page is scrolled (<code>key:PageDown</code> key).</li>
+<li>The browser opens the “Save Page” dialog (<code>key:Ctrl+S</code>)</li>
+<li>…and so on.</li>
+</ul>
+<p>Preventing the default action on <code>keydown</code> can cancel most of them, with the exception of OS-based special keys. For instance, on Windows <code>key:Alt+F4</code> closes the current browser window. And there’s no way to stop it by preventing the default action in JavaScript.</p>
+<p>For instance, the <code>&lt;input&gt;</code> below expects a phone number, so it does not accept keys except digits, <code>+</code>, <code>()</code> or <code>-</code>:</p>
+<p><code>html autorun height=60 run &lt;script&gt; function checkPhoneKey(key) {   return (key &gt;= '0' &amp;&amp; key &lt;= '9') || key == '+' || key == '(' || key == ')' || key == '-'; } &lt;/script&gt; &lt;input *!*onkeydown="return checkPhoneKey(event.key)"*/!* placeholder="Phone, please" type="tel"&gt;</code></p>
+<p>Please note that special keys, such as <code>key:Backspace</code>, <code>key:Left</code>, <code>key:Right</code>, <code>key:Ctrl+V</code>, do not work in the input. That’s a side-effect of the strict filter <code>checkPhoneKey</code>.</p>
+<p>Let’s relax it a little bit:</p>
+<p><code>html autorun height=60 run &lt;script&gt; function checkPhoneKey(key) {   return (key &gt;= '0' &amp;&amp; key &lt;= '9') || key == '+' || key == '(' || key == ')' || key == '-' ||     key == 'ArrowLeft' || key == 'ArrowRight' || key == 'Delete' || key == 'Backspace'; } &lt;/script&gt; &lt;input onkeydown="return checkPhoneKey(event.key)" placeholder="Phone, please" type="tel"&gt;</code></p>
+<p>Now arrows and deletion works well.</p>
+<p>…But we still can enter anything by using a mouse and right-click + Paste. So the filter is not 100% reliable. We can just let it be like that, because most of time it works. Or an alternative approach would be to track the <code>input</code> event – it triggers after any modification. There we can check the new value and highlight/modify it when it’s invalid.</p>
+<h2 id="legacy">Legacy</h2>
+<p>In the past, there was a <code>keypress</code> event, and also <code>keyCode</code>, <code>charCode</code>, <code>which</code> properties of the event object.</p>
+<p>There were so many browser incompatibilities while working with them, that developers of the specification had no way, other than deprecating all of them and creating new, modern events (described above in this chapter). The old code still works, as browsers keep supporting them, but there’s totally no need to use those any more.</p>
+<h2 id="mobile-keyboards">Mobile Keyboards</h2>
+<p>When using virtual/mobile keyboards, formally known as IME (Input-Method Editor), the W3C standard states that a KeyboardEvent’s <a href="https://www.w3.org/TR/uievents/#determine-keydown-keyup-keyCode"><code>e.keyCode</code> should be <code>229</code></a> and <a href="https://www.w3.org/TR/uievents-key/#key-attr-values"><code>e.key</code> should be <code>"Unidentified"</code></a>.</p>
+<p>While some of these keyboards might still use the right values for <code>e.key</code>, <code>e.code</code>, <code>e.keyCode</code>… when pressing certain keys such as arrows or backspace, there’s no guarantee, so your keyboard logic might not always work on mobile devices.</p>
+<h2 id="summary">Summary</h2>
+<p>Pressing a key always generates a keyboard event, be it symbol keys or special keys like <code>key:Shift</code> or <code>key:Ctrl</code> and so on. The only exception is <code>key:Fn</code> key that sometimes presents on a laptop keyboard. There’s no keyboard event for it, because it’s often implemented on lower level than OS.</p>
+<p>Keyboard events:</p>
+<ul>
+<li><code>keydown</code> – on pressing the key (auto-repeats if the key is pressed for long),</li>
+<li><code>keyup</code> – on releasing the key.</li>
+</ul>
+<p>Main keyboard event properties:</p>
+<ul>
+<li><code>code</code> – the “key code” (<code>"KeyA"</code>, <code>"ArrowLeft"</code> and so on), specific to the physical location of the key on keyboard.</li>
+<li><code>key</code> – the character (<code>"A"</code>, <code>"a"</code> and so on), for non-character keys, such as <code>key:Esc</code>, usually has the same value as <code>code</code>.</li>
+</ul>
+<p>In the past, keyboard events were sometimes used to track user input in form fields. That’s not reliable, because the input can come from various sources. We have <code>input</code> and <code>change</code> events to handle any input (covered later in the chapter <a href="info:events-change-input" class="uri">info:events-change-input</a>). They trigger after any kind of input, including copy-pasting or speech recognition.</p>
+<p>We should use keyboard events when we really want keyboard. For example, to react on hotkeys or special keys.</p>

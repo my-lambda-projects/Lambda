@@ -1,0 +1,208 @@
+<h1 id="dragndrop-with-mouse-events">Drag’n’Drop with mouse events</h1>
+<p>Drag’n’Drop is a great interface solution. Taking something and dragging and dropping it is a clear and simple way to do many things, from copying and moving documents (as in file managers) to ordering (dropping items into a cart).</p>
+<p>In the modern HTML standard there’s a <a href="https://html.spec.whatwg.org/multipage/interaction.html#dnd">section about Drag and Drop</a> with special events such as <code>dragstart</code>, <code>dragend</code>, and so on.</p>
+<p>These events allow us to support special kinds of drag’n’drop, such as handling dragging a file from OS file-manager and dropping it into the browser window. Then JavaScript can access the contents of such files.</p>
+<p>But native Drag Events also have limitations. For instance, we can’t prevent dragging from a certain area. Also we can’t make the dragging “horizontal” or “vertical” only. And there are many other drag’n’drop tasks that can’t be done using them. Also, mobile device support for such events is very weak.</p>
+<p>So here we’ll see how to implement Drag’n’Drop using mouse events.</p>
+<h2 id="dragndrop-algorithm">Drag’n’Drop algorithm</h2>
+<p>The basic Drag’n’Drop algorithm looks like this:</p>
+<ol type="1">
+<li>On <code>mousedown</code> - prepare the element for moving, if needed (maybe create a clone of it, add a class to it or whatever).</li>
+<li>Then on <code>mousemove</code> move it by changing <code>left/top</code> with <code>position:absolute</code>.</li>
+<li>On <code>mouseup</code> - perform all actions related to finishing the drag’n’drop.</li>
+</ol>
+<p>These are the basics. Later we’ll see how to other features, such as highlighting current underlying elements while we drag over them.</p>
+<p>Here’s the implementation of dragging a ball:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">ball</span>.<span class="at">onmousedown</span> <span class="op">=</span> <span class="kw">function</span>(event) <span class="op">{</span> </a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="co">// (1) prepare to moving: make absolute and on top by z-index</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="va">ball</span>.<span class="va">style</span>.<span class="at">position</span> <span class="op">=</span> <span class="st">&#39;absolute&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="va">ball</span>.<span class="va">style</span>.<span class="at">zIndex</span> <span class="op">=</span> <span class="dv">1000</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"></a>
+<a class="sourceLine" id="cb1-6" title="6">  <span class="co">// move it out of any current parents directly into body</span></a>
+<a class="sourceLine" id="cb1-7" title="7">  <span class="co">// to make it positioned relative to the body</span></a>
+<a class="sourceLine" id="cb1-8" title="8">  <span class="va">document</span>.<span class="va">body</span>.<span class="at">append</span>(ball)<span class="op">;</span>  </a>
+<a class="sourceLine" id="cb1-9" title="9"></a>
+<a class="sourceLine" id="cb1-10" title="10">  <span class="co">// centers the ball at (pageX, pageY) coordinates</span></a>
+<a class="sourceLine" id="cb1-11" title="11">  <span class="kw">function</span> <span class="at">moveAt</span>(pageX<span class="op">,</span> pageY) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-12" title="12">    <span class="va">ball</span>.<span class="va">style</span>.<span class="at">left</span> <span class="op">=</span> pageX <span class="op">-</span> <span class="va">ball</span>.<span class="at">offsetWidth</span> / <span class="dv">2</span> <span class="op">+</span> <span class="st">&#39;px&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-13" title="13">    <span class="va">ball</span>.<span class="va">style</span>.<span class="at">top</span> <span class="op">=</span> pageY <span class="op">-</span> <span class="va">ball</span>.<span class="at">offsetHeight</span> / <span class="dv">2</span> <span class="op">+</span> <span class="st">&#39;px&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-14" title="14">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-15" title="15"></a>
+<a class="sourceLine" id="cb1-16" title="16">  <span class="co">// move our absolutely positioned ball under the pointer</span></a>
+<a class="sourceLine" id="cb1-17" title="17">  <span class="at">moveAt</span>(<span class="va">event</span>.<span class="at">pageX</span><span class="op">,</span> <span class="va">event</span>.<span class="at">pageY</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-18" title="18"></a>
+<a class="sourceLine" id="cb1-19" title="19">  <span class="kw">function</span> <span class="at">onMouseMove</span>(event) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-20" title="20">    <span class="at">moveAt</span>(<span class="va">event</span>.<span class="at">pageX</span><span class="op">,</span> <span class="va">event</span>.<span class="at">pageY</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-21" title="21">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-22" title="22"></a>
+<a class="sourceLine" id="cb1-23" title="23">  <span class="co">// (2) move the ball on mousemove</span></a>
+<a class="sourceLine" id="cb1-24" title="24">  <span class="va">document</span>.<span class="at">addEventListener</span>(<span class="st">&#39;mousemove&#39;</span><span class="op">,</span> onMouseMove)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-25" title="25"></a>
+<a class="sourceLine" id="cb1-26" title="26">  <span class="co">// (3) drop the ball, remove unneeded handlers</span></a>
+<a class="sourceLine" id="cb1-27" title="27">  <span class="va">ball</span>.<span class="at">onmouseup</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-28" title="28">    <span class="va">document</span>.<span class="at">removeEventListener</span>(<span class="st">&#39;mousemove&#39;</span><span class="op">,</span> onMouseMove)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-29" title="29">    <span class="va">ball</span>.<span class="at">onmouseup</span> <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-30" title="30">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb1-31" title="31"></a>
+<a class="sourceLine" id="cb1-32" title="32"><span class="op">};</span></a></code></pre></div>
+<p>If we run the code, we can notice something strange. On the beginning of the drag’n’drop, the ball “forks”: we start dragging its “clone”.</p>
+<pre class="online"><code>Here&#39;s an example in action:
+
+[iframe src=&quot;ball&quot; height=230]
+
+Try to drag&#39;n&#39;drop with the mouse and you&#39;ll see such behavior.</code></pre>
+<p>That’s because the browser has its own drag’n’drop support for images and some other elements. It runs automatically and conflicts with ours.</p>
+<p>To disable it:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">ball</span>.<span class="at">ondragstart</span> <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="op">};</span></a></code></pre></div>
+<p>Now everything will be all right.</p>
+<pre class="online"><code>In action:
+
+[iframe src=&quot;ball2&quot; height=230]</code></pre>
+<p>Another important aspect – we track <code>mousemove</code> on <code>document</code>, not on <code>ball</code>. From the first sight it may seem that the mouse is always over the ball, and we can put <code>mousemove</code> on it.</p>
+<p>But as we remember, <code>mousemove</code> triggers often, but not for every pixel. So after swift move the pointer can jump from the ball somewhere in the middle of document (or even outside of the window).</p>
+<p>So we should listen on <code>document</code> to catch it.</p>
+<h2 id="correct-positioning">Correct positioning</h2>
+<p>In the examples above the ball is always moved so, that it’s center is under the pointer:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">ball</span>.<span class="va">style</span>.<span class="at">left</span> <span class="op">=</span> pageX <span class="op">-</span> <span class="va">ball</span>.<span class="at">offsetWidth</span> / <span class="dv">2</span> <span class="op">+</span> <span class="st">&#39;px&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="va">ball</span>.<span class="va">style</span>.<span class="at">top</span> <span class="op">=</span> pageY <span class="op">-</span> <span class="va">ball</span>.<span class="at">offsetHeight</span> / <span class="dv">2</span> <span class="op">+</span> <span class="st">&#39;px&#39;</span><span class="op">;</span></a></code></pre></div>
+<p>Not bad, but there’s a side-effect. To initiate the drag’n’drop, we can <code>mousedown</code> anywhere on the ball. But if “take” it from its edge, then the ball suddenly “jumps” to become centered under the mouse pointer.</p>
+<p>It would be better if we keep the initial shift of the element relative to the pointer.</p>
+<p>For instance, if we start dragging by the edge of the ball, then the pointer should remain over the edge while dragging.</p>
+<p><img src="ball_shift.svg" /></p>
+<p>Let’s update our algorithm:</p>
+<ol type="1">
+<li><p>When a visitor presses the button (<code>mousedown</code>) - remember the distance from the pointer to the left-upper corner of the ball in variables <code>shiftX/shiftY</code>. We’ll keep that distance while dragging.</p>
+<p>To get these shifts we can substract the coordinates:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="co">// onmousedown</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">let</span> shiftX <span class="op">=</span> <span class="va">event</span>.<span class="at">clientX</span> <span class="op">-</span> <span class="va">ball</span>.<span class="at">getBoundingClientRect</span>().<span class="at">left</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="kw">let</span> shiftY <span class="op">=</span> <span class="va">event</span>.<span class="at">clientY</span> <span class="op">-</span> <span class="va">ball</span>.<span class="at">getBoundingClientRect</span>().<span class="at">top</span><span class="op">;</span></a></code></pre></div></li>
+<li><p>Then while dragging we position the ball on the same shift relative to the pointer, like this:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="co">// onmousemove</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="co">// ball has position:absolute</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="va">ball</span>.<span class="va">style</span>.<span class="at">left</span> <span class="op">=</span> <span class="va">event</span>.<span class="at">pageX</span> <span class="op">-</span> <span class="op">*!*</span>shiftX<span class="op">*</span><span class="ss">/!</span><span class="sc">*</span><span class="ss"> </span><span class="sc">+</span><span class="ss"> &#39;px&#39;;</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="ss">ball.style.top = event.pageY - </span><span class="sc">*</span><span class="ss">!</span><span class="sc">*</span><span class="ss">shiftY</span><span class="sc">*</span><span class="ss">/</span><span class="op">!*</span> <span class="op">+</span> <span class="st">&#39;px&#39;</span><span class="op">;</span></a></code></pre></div></li>
+</ol>
+<p>The final code with better positioning:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="va">ball</span>.<span class="at">onmousedown</span> <span class="op">=</span> <span class="kw">function</span>(event) <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-2" title="2"></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb8-4" title="4">  <span class="kw">let</span> shiftX <span class="op">=</span> <span class="va">event</span>.<span class="at">clientX</span> <span class="op">-</span> <span class="va">ball</span>.<span class="at">getBoundingClientRect</span>().<span class="at">left</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb8-5" title="5">  <span class="kw">let</span> shiftY <span class="op">=</span> <span class="va">event</span>.<span class="at">clientY</span> <span class="op">-</span> <span class="va">ball</span>.<span class="at">getBoundingClientRect</span>().<span class="at">top</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb8-7" title="7"></a>
+<a class="sourceLine" id="cb8-8" title="8"><span class="ss">  ball.style.position = &#39;absolute&#39;;</span></a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="ss">  ball.style.zIndex = 1000;</span></a>
+<a class="sourceLine" id="cb8-10" title="10"><span class="ss">  document.body.append</span><span class="sc">(</span><span class="ss">ball</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb8-11" title="11"></a>
+<a class="sourceLine" id="cb8-12" title="12"><span class="ss">  moveAt</span><span class="sc">(</span><span class="ss">event.pageX, event.pageY</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb8-13" title="13"></a>
+<a class="sourceLine" id="cb8-14" title="14"><span class="ss">  // moves the ball at </span><span class="sc">(</span><span class="ss">pageX, pageY</span><span class="sc">)</span><span class="ss"> coordinates</span></a>
+<a class="sourceLine" id="cb8-15" title="15"><span class="ss">  // taking initial shifts into account</span></a>
+<a class="sourceLine" id="cb8-16" title="16"><span class="ss">  function moveAt</span><span class="sc">(</span><span class="ss">pageX, pageY</span><span class="sc">)</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb8-17" title="17"><span class="ss">    ball.style.left = pageX - </span><span class="sc">*</span><span class="ss">!</span><span class="sc">*</span><span class="ss">shiftX</span><span class="sc">*</span><span class="ss">/</span><span class="op">!*</span> <span class="op">+</span> <span class="st">&#39;px&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb8-18" title="18">    <span class="va">ball</span>.<span class="va">style</span>.<span class="at">top</span> <span class="op">=</span> pageY <span class="op">-</span> <span class="op">*!*</span>shiftY<span class="op">*</span><span class="ss">/!</span><span class="sc">*</span><span class="ss"> </span><span class="sc">+</span><span class="ss"> &#39;px&#39;;</span></a>
+<a class="sourceLine" id="cb8-19" title="19"><span class="ss">  }</span></a>
+<a class="sourceLine" id="cb8-20" title="20"></a>
+<a class="sourceLine" id="cb8-21" title="21"><span class="ss">  function onMouseMove</span><span class="sc">(</span><span class="ss">event</span><span class="sc">)</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb8-22" title="22"><span class="ss">    moveAt</span><span class="sc">(</span><span class="ss">event.pageX, event.pageY</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb8-23" title="23"><span class="ss">  }</span></a>
+<a class="sourceLine" id="cb8-24" title="24"></a>
+<a class="sourceLine" id="cb8-25" title="25"><span class="ss">  // move the ball on mousemove</span></a>
+<a class="sourceLine" id="cb8-26" title="26"><span class="ss">  document.addEventListener</span><span class="sc">(</span><span class="ss">&#39;mousemove&#39;, onMouseMove</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb8-27" title="27"></a>
+<a class="sourceLine" id="cb8-28" title="28"><span class="ss">  // drop the ball, remove unneeded handlers</span></a>
+<a class="sourceLine" id="cb8-29" title="29"><span class="ss">  ball.onmouseup = function</span><span class="sc">()</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb8-30" title="30"><span class="ss">    document.removeEventListener</span><span class="sc">(</span><span class="ss">&#39;mousemove&#39;, onMouseMove</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb8-31" title="31"><span class="ss">    ball.onmouseup = null;</span></a>
+<a class="sourceLine" id="cb8-32" title="32"><span class="ss">  };</span></a>
+<a class="sourceLine" id="cb8-33" title="33"></a>
+<a class="sourceLine" id="cb8-34" title="34"><span class="ss">};</span></a>
+<a class="sourceLine" id="cb8-35" title="35"></a>
+<a class="sourceLine" id="cb8-36" title="36"><span class="ss">ball.ondragstart = function</span><span class="sc">()</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb8-37" title="37"><span class="ss">  return false;</span></a>
+<a class="sourceLine" id="cb8-38" title="38"><span class="ss">};</span></a></code></pre></div>
+<pre class="online"><code>In action (inside `&lt;iframe&gt;`):
+
+[iframe src=&quot;ball3&quot; height=230]</code></pre>
+<p>The difference is especially noticeable if we drag the ball by its right-bottom corner. In the previous example the ball “jumps” under the pointer. Now it fluently follows the pointer from the current position.</p>
+<h2 id="potential-drop-targets-droppables">Potential drop targets (droppables)</h2>
+<p>In previous examples the ball could be dropped just “anywhere” to stay. In real-life we usually take one element and drop it onto another. For instance, a “file” into a “folder” or something else.</p>
+<p>Speaking abstract, we take a “draggable” element and drop it onto “droppable” element.</p>
+<p>We need to know: - where the element was dropped at the end of Drag’n’Drop – to do the corresponding action, - and, preferably, know the droppable we’re dragging over, to highlight it.</p>
+<p>The solution is kind-of interesting and just a little bit tricky, so let’s cover it here.</p>
+<p>What may be the first idea? Probably to set <code>mouseover/mouseup</code> handlers on potential droppables?</p>
+<p>But that doesn’t work.</p>
+<p>The problem is that, while we’re dragging, the draggable element is always above other elements. And mouse events only happen on the top element, not on those below it.</p>
+<p>For instance, below are two <code>&lt;div&gt;</code> elements, red one on top of the blue one (fully covers). There’s no way to catch an event on the blue one, because the red is on top:</p>
+<p><code>html run autorun height=60 &lt;style&gt;   div {     width: 50px;     height: 50px;     position: absolute;     top: 0;   } &lt;/style&gt; &lt;div style="background:blue" onmouseover="alert('never works')"&gt;&lt;/div&gt; &lt;div style="background:red" onmouseover="alert('over red!')"&gt;&lt;/div&gt;</code></p>
+<p>The same with a draggable element. The ball is always on top over other elements, so events happen on it. Whatever handlers we set on lower elements, they won’t work.</p>
+<p>That’s why the initial idea to put handlers on potential droppables doesn’t work in practice. They won’t run.</p>
+<p>So, what to do?</p>
+<p>There’s a method called <code>document.elementFromPoint(clientX, clientY)</code>. It returns the most nested element on given window-relative coordinates (or <code>null</code> if given coordinates are out of the window).</p>
+<p>We can use it in any of our mouse event handlers to detect the potential droppable under the pointer, like this:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="co">// in a mouse event handler</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="va">ball</span>.<span class="at">hidden</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span> <span class="co">// (*) hide the element that we drag</span></a>
+<a class="sourceLine" id="cb10-3" title="3"></a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="kw">let</span> elemBelow <span class="op">=</span> <span class="va">document</span>.<span class="at">elementFromPoint</span>(<span class="va">event</span>.<span class="at">clientX</span><span class="op">,</span> <span class="va">event</span>.<span class="at">clientY</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-5" title="5"><span class="co">// elemBelow is the element below the ball, may be droppable</span></a>
+<a class="sourceLine" id="cb10-6" title="6"></a>
+<a class="sourceLine" id="cb10-7" title="7"><span class="va">ball</span>.<span class="at">hidden</span> <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></a></code></pre></div>
+<p>Please note: we need to hide the ball before the call <code>(*)</code>. Otherwise we’ll usually have a ball on these coordinates, as it’s the top element under the pointer: <code>elemBelow=ball</code>. So we hide it and immediately show again.</p>
+<p>We can use that code to check what element we’re “flying over” at any time. And handle the drop when it happens.</p>
+<p>An extended code of <code>onMouseMove</code> to find “droppable” elements:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="co">// potential droppable that we&#39;re flying over right now</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="kw">let</span> currentDroppable <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb11-3" title="3"></a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="kw">function</span> <span class="at">onMouseMove</span>(event) <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-5" title="5">  <span class="at">moveAt</span>(<span class="va">event</span>.<span class="at">pageX</span><span class="op">,</span> <span class="va">event</span>.<span class="at">pageY</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-6" title="6"></a>
+<a class="sourceLine" id="cb11-7" title="7">  <span class="va">ball</span>.<span class="at">hidden</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb11-8" title="8">  <span class="kw">let</span> elemBelow <span class="op">=</span> <span class="va">document</span>.<span class="at">elementFromPoint</span>(<span class="va">event</span>.<span class="at">clientX</span><span class="op">,</span> <span class="va">event</span>.<span class="at">clientY</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-9" title="9">  <span class="va">ball</span>.<span class="at">hidden</span> <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb11-10" title="10"></a>
+<a class="sourceLine" id="cb11-11" title="11">  <span class="co">// mousemove events may trigger out of the window (when the ball is dragged off-screen)</span></a>
+<a class="sourceLine" id="cb11-12" title="12">  <span class="co">// if clientX/clientY are out of the window, then elementFromPoint returns null</span></a>
+<a class="sourceLine" id="cb11-13" title="13">  <span class="cf">if</span> (<span class="op">!</span>elemBelow) <span class="cf">return</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb11-14" title="14"></a>
+<a class="sourceLine" id="cb11-15" title="15">  <span class="co">// potential droppables are labeled with the class &quot;droppable&quot; (can be other logic)</span></a>
+<a class="sourceLine" id="cb11-16" title="16">  <span class="kw">let</span> droppableBelow <span class="op">=</span> <span class="va">elemBelow</span>.<span class="at">closest</span>(<span class="st">&#39;.droppable&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-17" title="17"></a>
+<a class="sourceLine" id="cb11-18" title="18">  <span class="cf">if</span> (currentDroppable <span class="op">!=</span> droppableBelow) <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-19" title="19">    <span class="co">// we&#39;re flying in or out...</span></a>
+<a class="sourceLine" id="cb11-20" title="20">    <span class="co">// note: both values can be null</span></a>
+<a class="sourceLine" id="cb11-21" title="21">    <span class="co">//   currentDroppable=null if we were not over a droppable before this event (e.g over an empty space)</span></a>
+<a class="sourceLine" id="cb11-22" title="22">    <span class="co">//   droppableBelow=null if we&#39;re not over a droppable now, during this event</span></a>
+<a class="sourceLine" id="cb11-23" title="23"></a>
+<a class="sourceLine" id="cb11-24" title="24">    <span class="cf">if</span> (currentDroppable) <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-25" title="25">      <span class="co">// the logic to process &quot;flying out&quot; of the droppable (remove highlight)</span></a>
+<a class="sourceLine" id="cb11-26" title="26">      <span class="at">leaveDroppable</span>(currentDroppable)<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-27" title="27">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb11-28" title="28">    currentDroppable <span class="op">=</span> droppableBelow<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-29" title="29">    <span class="cf">if</span> (currentDroppable) <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-30" title="30">      <span class="co">// the logic to process &quot;flying in&quot; of the droppable</span></a>
+<a class="sourceLine" id="cb11-31" title="31">      <span class="at">enterDroppable</span>(currentDroppable)<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-32" title="32">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb11-33" title="33">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb11-34" title="34"><span class="op">}</span></a></code></pre></div>
+<p>In the example below when the ball is dragged over the soccer goal, the goal is highlighted.</p>
+<p>[codetabs height=250 src=“ball4”]</p>
+<p>Now we have the current “drop target”, that we’re flying over, in the variable <code>currentDroppable</code> during the whole process and can use it to highlight or any other stuff.</p>
+<h2 id="summary">Summary</h2>
+<p>We considered a basic Drag’n’Drop algorithm.</p>
+<p>The key components:</p>
+<ol type="1">
+<li>Events flow: <code>ball.mousedown</code> -&gt; <code>document.mousemove</code> -&gt; <code>ball.mouseup</code> (don’t forget to cancel native <code>ondragstart</code>).</li>
+<li>At the drag start – remember the initial shift of the pointer relative to the element: <code>shiftX/shiftY</code> and keep it during the dragging.</li>
+<li>Detect droppable elements under the pointer using <code>document.elementFromPoint</code>.</li>
+</ol>
+<p>We can lay a lot on this foundation.</p>
+<ul>
+<li>On <code>mouseup</code> we can intellectually finalize the drop: change data, move elements around.</li>
+<li>We can highlight the elements we’re flying over.</li>
+<li>We can limit dragging by a certain area or direction.</li>
+<li>We can use event delegation for <code>mousedown/up</code>. A large-area event handler that checks <code>event.target</code> can manage Drag’n’Drop for hundreds of elements.</li>
+<li>And so on.</li>
+</ul>
+<p>There are frameworks that build architecture over it: <code>DragZone</code>, <code>Droppable</code>, <code>Draggable</code> and other classes. Most of them do the similar stuff to what’s described above, so it should be easy to understand them now. Or roll your own, as you can see that that’s easy enough to do, sometimes easier than adapting a third-party solution.</p>

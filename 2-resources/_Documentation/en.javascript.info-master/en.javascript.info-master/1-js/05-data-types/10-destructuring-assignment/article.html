@@ -1,0 +1,197 @@
+<h1 id="destructuring-assignment">Destructuring assignment</h1>
+<p>The two most used data structures in JavaScript are <code>Object</code> and <code>Array</code>.</p>
+<ul>
+<li>Objects allow us to create a single entity that stores data items by key.</li>
+<li>Arrays allow us to gather data items into an ordered list.</li>
+</ul>
+<p>Although, when we pass those to a function, it may need not an object/array as a whole. It may need individual pieces.</p>
+<p><em>Destructuring assignment</em> is a special syntax that allows us to “unpack” arrays or objects into a bunch of variables, as sometimes that’s more convenient.</p>
+<p>Destructuring also works great with complex functions that have a lot of parameters, default values, and so on. Soon we’ll see that.</p>
+<h2 id="array-destructuring">Array destructuring</h2>
+<p>Here’s an example of how an array is destructured into variables:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// we have an array with the name and surname</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">let</span> arr <span class="op">=</span> [<span class="st">&quot;John&quot;</span><span class="op">,</span> <span class="st">&quot;Smith&quot;</span>]</a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="co">// destructuring assignment</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="co">// sets firstName = arr[0]</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="co">// and surname = arr[1]</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="kw">let</span> [firstName<span class="op">,</span> surname] <span class="op">=</span> arr<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb1-10" title="10"></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="ss">alert</span><span class="sc">(</span><span class="ss">firstName</span><span class="sc">)</span><span class="ss">; // John</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="ss">alert</span><span class="sc">(</span><span class="ss">surname</span><span class="sc">)</span><span class="ss">;  // Smith</span></a></code></pre></div>
+<p>Now we can work with variables instead of array members.</p>
+<p>It looks great when combined with <code>split</code> or other array-returning methods:</p>
+<p><code>js run let [firstName, surname] = "John Smith".split(' '); alert(firstName); // John alert(surname);  // Smith</code></p>
+<p>As you can see, the syntax is simple. There are several peculiar details though. Let’s see more examples, to better understand it.</p>
+<p>````smart header=“"Destructuring" does not mean "destructive".” It’s called “destructuring assignment,” because it “destructurizes” by copying items into variables. But the array itself is not modified.</p>
+<p>It’s just a shorter way to write:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// let [firstName, surname] = arr;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">let</span> firstName <span class="op">=</span> arr[<span class="dv">0</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="kw">let</span> surname <span class="op">=</span> arr[<span class="dv">1</span>]<span class="op">;</span></a></code></pre></div>
+<p>````</p>
+<p>````smart header=“Ignore elements using commas” Unwanted elements of the array can also be thrown away via an extra comma:</p>
+<p>```js run <em>!</em> // second element is not needed let [firstName, , title] = [“Julius”, “Caesar”, “Consul”, “of the Roman Republic”]; <em>/!</em></p>
+<p>alert( title ); // Consul</p>
+<pre><code>
+In the code above, the second element of the array is skipped, the third one is assigned to `title`, and the rest of the array items is also skipped (as there are no variables for them).</code></pre>
+<p>````smart header=“Works with any iterable on the right-side”</p>
+<p>…Actually, we can use it with any iterable, not only arrays:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">let</span> [a<span class="op">,</span> b<span class="op">,</span> c] <span class="op">=</span> <span class="st">&quot;abc&quot;</span><span class="op">;</span> <span class="co">// [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw">let</span> [one<span class="op">,</span> two<span class="op">,</span> three] <span class="op">=</span> <span class="kw">new</span> <span class="at">Set</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>])<span class="op">;</span></a></code></pre></div>
+<p>That works, because internally a destructuring assignment works by iterating over the right value. It’s kind of syntax sugar for calling <code>for..of</code> over the value to the right of <code>=</code> and assigning the values. ````</p>
+<p>````smart header=“Assign to anything at the left-side” We can use any “assignables” at the left side.</p>
+<p>For instance, an object property: ```js run let user = {}; [user.name, user.surname] = “John Smith”.split(’ ’);</p>
+<p>alert(user.name); // John alert(user.surname); // Smith</p>
+<pre><code></code></pre>
+<p>````smart header=“Looping with .entries()” In the previous chapter we saw the <a href="mdn:js/Object/entries">Object.entries(obj)</a> method.</p>
+<p>We can use it with destructuring to loop over keys-and-values of an object:</p>
+<p>```js run let user = { name: “John”, age: 30 };</p>
+<p>// loop over keys-and-values <em>!</em> for (let [key, value] of Object.entries(user)) { <em>/!</em> alert(<code>${key}:${value}</code>); // name:John, then age:30 } ```</p>
+<p>The similar code for a <code>Map</code> is simpler, as it’s iterable:</p>
+<p>```js run let user = new Map(); user.set(“name”, “John”); user.set(“age”, “30”);</p>
+<p><em>!</em> // Map iterates as [key, value] pairs, very convenient for destructuring for (let [key, value] of user) { <em>/!</em> alert(<code>${key}:${value}</code>); // name:John, then age:30 }</p>
+<pre><code></code></pre>
+<p>````smart header=“Swap variables trick” There’s a well-known trick for swapping values of two variables using a destructuring assignment:</p>
+<p>```js run let guest = “Jane”; let admin = “Pete”;</p>
+<p>// Let’s swap the values: make guest=Pete, admin=Jane <em>!</em> [guest, admin] = [admin, guest]; <em>/!</em></p>
+<p>alert(<code>${guest} ${admin}</code>); // Pete Jane (successfully swapped!)</p>
+<pre><code>
+Here we create a temporary array of two variables and immediately destructure it in swapped order.
+
+We can swap more than two variables this way.</code></pre>
+<h3 id="the-rest">The rest ‘…’</h3>
+<p>Usually, if the array is longer than the list at the left, the “extra” items are omitted.</p>
+<p>For example, here only two items are taken, and the rest is just ignored:</p>
+<p>```js run let [name1, name2] = [“Julius”, “Caesar”, “Consul”, “of the Roman Republic”];</p>
+<p>alert(name1); // Julius alert(name2); // Caesar // Further items aren’t assigned anywhere ```</p>
+<p>If we’d like also to gather all that follows – we can add one more parameter that gets “the rest” using three dots <code>"..."</code>:</p>
+<p>```js run let [name1, name2, <em>!</em>…rest<em>/!</em>] = [“Julius”, “Caesar”, <em>!</em>“Consul”, “of the Roman Republic”<em>/!</em>];</p>
+<p><em>!</em> // rest is array of items, starting from the 3rd one alert(rest[0]); // Consul alert(rest[1]); // of the Roman Republic alert(rest.length); // 2 <em>/!</em> ```</p>
+<p>The value of <code>rest</code> is the array of the remaining array elements.</p>
+<p>We can use any other variable name in place of <code>rest</code>, just make sure it has three dots before it and goes last in the destructuring assignment.</p>
+<p><code>js run let [name1, name2, *!*...titles*/!*] = ["Julius", "Caesar", "Consul", "of the Roman Republic"]; // now titles = ["Consul", "of the Roman Republic"]</code></p>
+<h3 id="default-values">Default values</h3>
+<p>If the array is shorter than the list of variables at the left, there’ll be no errors. Absent values are considered undefined:</p>
+<p>```js run <em>!</em> let [firstName, surname] = []; <em>/!</em></p>
+<p>alert(firstName); // undefined alert(surname); // undefined ```</p>
+<p>If we want a “default” value to replace the missing one, we can provide it using <code>=</code>:</p>
+<p>```js run <em>!</em> // default values let [name = “Guest”, surname = “Anonymous”] = [“Julius”]; <em>/!</em></p>
+<p>alert(name); // Julius (from array) alert(surname); // Anonymous (default used) ```</p>
+<p>Default values can be more complex expressions or even function calls. They are evaluated only if the value is not provided.</p>
+<p>For instance, here we use the <code>prompt</code> function for two defaults:</p>
+<p>```js run // runs only prompt for surname let [name = prompt(‘name?’), surname = prompt(‘surname?’)] = [“Julius”];</p>
+<p>alert(name); // Julius (from array) alert(surname); // whatever prompt gets ```</p>
+<p>Please note: the <code>prompt</code> will run only for the missing value (<code>surname</code>).</p>
+<h2 id="object-destructuring">Object destructuring</h2>
+<p>The destructuring assignment also works with objects.</p>
+<p>The basic syntax is:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">let</span> <span class="op">{</span>var1<span class="op">,</span> var2<span class="op">}</span> <span class="op">=</span> <span class="op">{</span><span class="dt">var1</span><span class="op">:</span>…<span class="op">,</span> <span class="dt">var2</span><span class="op">:</span>…<span class="op">}</span></a></code></pre></div>
+<p>We should have an existing object at the right side, that we want to split into variables. The left side contains an object-like “pattern” for corresponding properties. In the simplest case, that’s a list of variable names in <code>{...}</code>.</p>
+<p>For instance:</p>
+<p>```js run let options = { title: “Menu”, width: 100, height: 200 };</p>
+<p><em>!</em> let {title, width, height} = options; <em>/!</em></p>
+<p>alert(title); // Menu alert(width); // 100 alert(height); // 200 ```</p>
+<p>Properties <code>options.title</code>, <code>options.width</code> and <code>options.height</code> are assigned to the corresponding variables.</p>
+<p>The order does not matter. This works too:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="co">// changed the order in let {...}</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="kw">let</span> <span class="op">{</span>height<span class="op">,</span> width<span class="op">,</span> title<span class="op">}</span> <span class="op">=</span> <span class="op">{</span> <span class="dt">title</span><span class="op">:</span> <span class="st">&quot;Menu&quot;</span><span class="op">,</span> <span class="dt">height</span><span class="op">:</span> <span class="dv">200</span><span class="op">,</span> <span class="dt">width</span><span class="op">:</span> <span class="dv">100</span> <span class="op">}</span></a></code></pre></div>
+<p>The pattern on the left side may be more complex and specify the mapping between properties and variables.</p>
+<p>If we want to assign a property to a variable with another name, for instance, make <code>options.width</code> go into the variable named <code>w</code>, then we can set the variable name using a colon:</p>
+<p>```js run let options = { title: “Menu”, width: 100, height: 200 };</p>
+<p><em>!</em> // { sourceProperty: targetVariable } let {width: w, height: h, title} = options; <em>/!</em></p>
+<p>// width -&gt; w // height -&gt; h // title -&gt; title</p>
+<p>alert(title); // Menu alert(w); // 100 alert(h); // 200 ```</p>
+<p>The colon shows “what : goes where”. In the example above the property <code>width</code> goes to <code>w</code>, property <code>height</code> goes to <code>h</code>, and <code>title</code> is assigned to the same name.</p>
+<p>For potentially missing properties we can set default values using <code>"="</code>, like this:</p>
+<p>```js run let options = { title: “Menu” };</p>
+<p><em>!</em> let {width = 100, height = 200, title} = options; <em>/!</em></p>
+<p>alert(title); // Menu alert(width); // 100 alert(height); // 200 ```</p>
+<p>Just like with arrays or function parameters, default values can be any expressions or even function calls. They will be evaluated if the value is not provided.</p>
+<p>In the code below <code>prompt</code> asks for <code>width</code>, but not for <code>title</code>:</p>
+<p>```js run let options = { title: “Menu” };</p>
+<p><em>!</em> let {width = prompt(“width?”), title = prompt(“title?”)} = options; <em>/!</em></p>
+<p>alert(title); // Menu alert(width); // (whatever the result of prompt is) ```</p>
+<p>We also can combine both the colon and equality:</p>
+<p>```js run let options = { title: “Menu” };</p>
+<p><em>!</em> let {width: w = 100, height: h = 200, title} = options; <em>/!</em></p>
+<p>alert(title); // Menu alert(w); // 100 alert(h); // 200 ```</p>
+<p>If we have a complex object with many properties, we can extract only what we need:</p>
+<p>```js run let options = { title: “Menu”, width: 100, height: 200 };</p>
+<p>// only extract title as a variable let { title } = options;</p>
+<p>alert(title); // Menu ```</p>
+<h3 id="the-rest-pattern">The rest pattern “…”</h3>
+<p>What if the object has more properties than we have variables? Can we take some and then assign the “rest” somewhere?</p>
+<p>We can use the rest pattern, just like we did with arrays. It’s not supported by some older browsers (IE, use Babel to polyfill it), but works in modern ones.</p>
+<p>It looks like this:</p>
+<p>```js run let options = { title: “Menu”, height: 200, width: 100 };</p>
+<p><em>!</em> // title = property named title // rest = object with the rest of properties let {title, …rest} = options; <em>/!</em></p>
+<p>// now title=“Menu”, rest={height: 200, width: 100} alert(rest.height); // 200 alert(rest.width); // 100 ```</p>
+<p>```<code>smart header="Gotcha if there's no</code>let<code>" In the examples above variables were declared right in the assignment:</code>let {…} = {…}<code>. Of course, we could use existing variables too, without</code>let`. But there’s a catch.</p>
+<p>This won’t work: ```js run let title, width, height;</p>
+<p>// error in this line {title, width, height} = {title: “Menu”, width: 200, height: 100}; ```</p>
+<p>The problem is that JavaScript treats <code>{...}</code> in the main code flow (not inside another expression) as a code block. Such code blocks can be used to group statements, like this:</p>
+<p><code>js run {   // a code block   let message = "Hello";   // ...   alert( message ); }</code></p>
+<p>So here JavaScript assumes that we have a code block, that’s why there’s an error. We want destructuring instead.</p>
+<p>To show JavaScript that it’s not a code block, we can wrap the expression in parentheses <code>(...)</code>:</p>
+<p>```js run let title, width, height;</p>
+<p>// okay now <em>!</em>(<em>/!</em>{title, width, height} = {title: “Menu”, width: 200, height: 100}<em>!</em>)<em>/!</em>;</p>
+<p>alert( title ); // Menu</p>
+<pre><code></code></pre>
+<h2 id="nested-destructuring">Nested destructuring</h2>
+<p>If an object or an array contain other nested objects and arrays, we can use more complex left-side patterns to extract deeper portions.</p>
+<p>In the code below <code>options</code> has another object in the property <code>size</code> and an array in the property <code>items</code>. The pattern at the left side of the assignment has the same structure to extract values from them:</p>
+<p>```js run let options = { size: { width: 100, height: 200 }, items: [“Cake”, “Donut”], extra: true<br />
+};</p>
+<p>// destructuring assignment split in multiple lines for clarity let { size: { // put size here width, height }, items: [item1, item2], // assign items here title = “Menu” // not present in the object (default value is used) } = options;</p>
+<p>alert(title); // Menu alert(width); // 100 alert(height); // 200 alert(item1); // Cake alert(item2); // Donut ```</p>
+<p>All properties of <code>options</code> object except <code>extra</code> that is absent in the left part, are assigned to corresponding variables:</p>
+<p><img src="destructuring-complex.svg" /></p>
+<p>Finally, we have <code>width</code>, <code>height</code>, <code>item1</code>, <code>item2</code> and <code>title</code> from the default value.</p>
+<p>Note that there are no variables for <code>size</code> and <code>items</code>, as we take their content instead.</p>
+<h2 id="smart-function-parameters">Smart function parameters</h2>
+<p>There are times when a function has many parameters, most of which are optional. That’s especially true for user interfaces. Imagine a function that creates a menu. It may have a width, a height, a title, items list and so on.</p>
+<p>Here’s a bad way to write such function:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">function</span> <span class="at">showMenu</span>(title <span class="op">=</span> <span class="st">&quot;Untitled&quot;</span><span class="op">,</span> width <span class="op">=</span> <span class="dv">200</span><span class="op">,</span> height <span class="op">=</span> <span class="dv">100</span><span class="op">,</span> items <span class="op">=</span> []) <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-2" title="2">  <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>In real-life, the problem is how to remember the order of arguments. Usually IDEs try to help us, especially if the code is well-documented, but still… Another problem is how to call a function when most parameters are ok by default.</p>
+<p>Like this?</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="co">// undefined where default values are fine</span></a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="at">showMenu</span>(<span class="st">&quot;My Menu&quot;</span><span class="op">,</span> <span class="kw">undefined</span><span class="op">,</span> <span class="kw">undefined</span><span class="op">,</span> [<span class="st">&quot;Item1&quot;</span><span class="op">,</span> <span class="st">&quot;Item2&quot;</span>])</a></code></pre></div>
+<p>That’s ugly. And becomes unreadable when we deal with more parameters.</p>
+<p>Destructuring comes to the rescue!</p>
+<p>We can pass parameters as an object, and the function immediately destructurizes them into variables:</p>
+<p>```js run // we pass object to function let options = { title: “My menu”, items: [“Item1”, “Item2”] };</p>
+<p>// …and it immediately expands it to variables function showMenu(<em>!</em>{title = “Untitled”, width = 200, height = 100, items = []}<em>/!</em>) { // title, items – taken from options, // width, height – defaults used alert( <code>${title} ${width} ${height}</code> ); // My Menu 200 100 alert( items ); // Item1, Item2 }</p>
+<p>showMenu(options); ```</p>
+<p>We can also use more complex destructuring with nested objects and colon mappings:</p>
+<p>```js run let options = { title: “My menu”, items: [“Item1”, “Item2”] };</p>
+<p><em>!</em> function showMenu({ title = “Untitled”, width: w = 100, // width goes to w height: h = 200, // height goes to h items: [item1, item2] // items first element goes to item1, second to item2 }) { <em>/!</em> alert( <code>${title} ${w} ${h}</code> ); // My Menu 100 200 alert( item1 ); // Item1 alert( item2 ); // Item2 }</p>
+<p>showMenu(options); ```</p>
+<p>The full syntax is the same as for a destructuring assignment:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" title="1"><span class="kw">function</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb13-2" title="2">  <span class="dt">incomingProperty</span><span class="op">:</span> varName <span class="op">=</span> defaultValue</a>
+<a class="sourceLine" id="cb13-3" title="3">  ...</a>
+<a class="sourceLine" id="cb13-4" title="4"><span class="op">}</span>)</a></code></pre></div>
+<p>Then, for an object of parameters, there will be a variable <code>varName</code> for property <code>incomingProperty</code>, with <code>defaultValue</code> by default.</p>
+<p>Please note that such destructuring assumes that <code>showMenu()</code> does have an argument. If we want all values by default, then we should specify an empty object:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb14-1" title="1"><span class="at">showMenu</span>(<span class="op">{}</span>)<span class="op">;</span> <span class="co">// ok, all values are default</span></a>
+<a class="sourceLine" id="cb14-2" title="2"></a>
+<a class="sourceLine" id="cb14-3" title="3"><span class="at">showMenu</span>()<span class="op">;</span> <span class="co">// this would give an error</span></a></code></pre></div>
+<p>We can fix this by making <code>{}</code> the default value for the whole object of parameters:</p>
+<p>``<code>js run function showMenu({ title = "Menu", width = 100, height = 200 }*!* = {}*/!*) {   alert(</code>${title} ${width} ${height}` ); }</p>
+<p>showMenu(); // Menu 100 200 ```</p>
+<p>In the code above, the whole arguments object is <code>{}</code> by default, so there’s always something to destructurize.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Destructuring assignment allows for instantly mapping an object or array onto many variables.</li>
+<li><p>The full object syntax: <code>js   let {prop : varName = default, ...rest} = object</code></p>
+<p>This means that property <code>prop</code> should go into the variable <code>varName</code> and, if no such property exists, then the <code>default</code> value should be used.</p>
+<p>Object properties that have no mapping are copied to the <code>rest</code> object.</p></li>
+<li><p>The full array syntax:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">let</span> [item1 <span class="op">=</span> <span class="im">default</span><span class="op">,</span> item2<span class="op">,</span> ...<span class="at">rest</span>] <span class="op">=</span> array</a></code></pre></div>
+<p>The first item goes to <code>item1</code>; the second goes into <code>item2</code>, all the rest makes the array <code>rest</code>.</p></li>
+<li><p>It’s possible to extract data from nested arrays/objects, for that the left side must have the same structure as the right one.</p></li>
+</ul>

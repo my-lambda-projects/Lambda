@@ -1,0 +1,219 @@
+<h1 id="pointer-events">Pointer events</h1>
+<p>Pointer events are a modern way to handle input from a variety of pointing devices, such as a mouse, a pen/stylus, a touchscreen, and so on.</p>
+<h2 id="the-brief-history">The brief history</h2>
+<p>Let’s make a small overview, so that you understand the general picture and the place of Pointer Events among other event types.</p>
+<ul>
+<li><p>Long ago, in the past, there were only mouse events.</p>
+<p>Then touch devices became widespread, phones and tablets in particular. For the existing scripts to work, they generated (and still generate) mouse events. For instance, tapping a touchscreen generates <code>mousedown</code>. So touch devices worked well with web pages.</p>
+<p>But touch devices have more capabilities than a mouse. For example, it’s possible to touch multiple points at once (“multi-touch”). Although, mouse events don’t have necessary properties to handle such multi-touches.</p></li>
+<li><p>So touch events were introduced, such as <code>touchstart</code>, <code>touchend</code>, <code>touchmove</code>, that have touch-specific properties (we don’t cover them in detail here, because pointer events are even better).</p>
+<p>Still, it wasn’t enough, as there are many other devices, such as pens, that have their own features. Also, writing code that listens for both touch and mouse events was cumbersome.</p></li>
+<li><p>To solve these issues, the new standard Pointer Events was introduced. It provides a single set of events for all kinds of pointing devices.</p></li>
+</ul>
+<p>As of now, <a href="https://www.w3.org/TR/pointerevents2/">Pointer Events Level 2</a> specification is supported in all major browsers, while the newer <a href="https://w3c.github.io/pointerevents/">Pointer Events Level 3</a> is in the works and is mostly compartible with Pointer Events level 2.</p>
+<p>Unless you develop for old browsers, such as Internet Explorer 10, or for Safari 12 or below, there’s no point in using mouse or touch events any more – we can switch to pointer events.</p>
+<p>Then your code will work well with both touch and mouse devices.</p>
+<p>That said, there are some important peculiarities that one should know in order to use Pointer Events correctly and avoid surprises. We’ll make note of them in this article.</p>
+<h2 id="pointer-event-types">Pointer event types</h2>
+<p>Pointer events are named similarly to mouse events:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Pointer event</th>
+<th>Similar mouse event</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>pointerdown</code></td>
+<td><code>mousedown</code></td>
+</tr>
+<tr class="even">
+<td><code>pointerup</code></td>
+<td><code>mouseup</code></td>
+</tr>
+<tr class="odd">
+<td><code>pointermove</code></td>
+<td><code>mousemove</code></td>
+</tr>
+<tr class="even">
+<td><code>pointerover</code></td>
+<td><code>mouseover</code></td>
+</tr>
+<tr class="odd">
+<td><code>pointerout</code></td>
+<td><code>mouseout</code></td>
+</tr>
+<tr class="even">
+<td><code>pointerenter</code></td>
+<td><code>mouseenter</code></td>
+</tr>
+<tr class="odd">
+<td><code>pointerleave</code></td>
+<td><code>mouseleave</code></td>
+</tr>
+<tr class="even">
+<td><code>pointercancel</code></td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td><code>gotpointercapture</code></td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td><code>lostpointercapture</code></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>As we can see, for every <code>mouse&lt;event&gt;</code>, there’s a <code>pointer&lt;event&gt;</code> that plays a similar role. Also there are 3 additional pointer events that don’t have a corresponding <code>mouse...</code> counterpart, we’ll explain them soon.</p>
+<p>``<code>smart header="Replacing</code>mouse<event><code>with</code>pointer<event><code>in our code" We can replace</code>mouse<event><code>events with</code>pointer<event>` in our code and expect things to continue working fine with mouse.</p>
+<p>The support for touch devices will also “magically” improve. Although, we may need to add <code>touch-action: none</code> in some places in CSS. We’ll cover it below in the section about <code>pointercancel</code>. ```</p>
+<h2 id="pointer-event-properties">Pointer event properties</h2>
+<p>Pointer events have the same properties as mouse events, such as <code>clientX/Y</code>, <code>target</code>, etc., plus some others:</p>
+<ul>
+<li><p><code>pointerId</code> - the unique identifier of the pointer causing the event.</p>
+Browser-generated. Allows us to handle multiple pointers, such as a touchscreen with stylus and multi-touch (examples will follow).</li>
+<li><p><code>pointerType</code> - the pointing device type. Must be a string, one of: “mouse”, “pen” or “touch”.</p>
+We can use this property to react differently on various pointer types.</li>
+<li><p><code>isPrimary</code> - is <code>true</code> for the primary pointer (the first finger in multi-touch).</p></li>
+</ul>
+<p>Some pointer devices measure contact area and pressure, e.g. for a finger on the touchscreen, there are additional properties for that:</p>
+<ul>
+<li><code>width</code> - the width of the area where the pointer (e.g. a finger) touches the device. Where unsupported, e.g. for a mouse, it’s always <code>1</code>.</li>
+<li><code>height</code> - the height of the area where the pointer touches the device. Where unsupported, it’s always <code>1</code>.</li>
+<li><code>pressure</code> - the pressure of the pointer tip, in range from 0 to 1. For devices that don’t support pressure must be either <code>0.5</code> (pressed) or <code>0</code>.</li>
+<li><code>tangentialPressure</code> - the normalized tangential pressure.</li>
+<li><code>tiltX</code>, <code>tiltY</code>, <code>twist</code> - pen-specific properties that describe how the pen is positioned relative the surface.</li>
+</ul>
+<p>These properties aren’t supported by most devices, so they are rarely used. You can find the details about them in the <a href="https://w3c.github.io/pointerevents/#pointerevent-interface">specification</a> if needed.</p>
+<h2 id="multi-touch">Multi-touch</h2>
+<p>One of the things that mouse events totally don’t support is multi-touch: a user can touch in several places at once on their phone or tablet, or perform special gestures.</p>
+<p>Pointer Events allow handling multi-touch with the help of the <code>pointerId</code> and <code>isPrimary</code> properties.</p>
+<p>Here’s what happens when a user touches a touchscreen in one place, then puts another finger somewhere else on it:</p>
+<ol type="1">
+<li>At the first finger touch:
+<ul>
+<li><code>pointerdown</code> with <code>isPrimary=true</code> and some <code>pointerId</code>.</li>
+</ul></li>
+<li>For the second finger and more fingers (assuming the first one is still touching):
+<ul>
+<li><code>pointerdown</code> with <code>isPrimary=false</code> and a different <code>pointerId</code> for every finger.</li>
+</ul></li>
+</ol>
+<p>Please note: the <code>pointerId</code> is assigned not to the whole device, but for each touching finger. If we use 5 fingers to simultaneously touch the screen, we have 5 <code>pointerdown</code> events, each with their respective coordinates and a different <code>pointerId</code>.</p>
+<p>The events associated with the first finger always have <code>isPrimary=true</code>.</p>
+<p>We can track multiple touching fingers using their <code>pointerId</code>. When the user moves and then removes a finger, we get <code>pointermove</code> and <code>pointerup</code> events with the same <code>pointerId</code> as we had in <code>pointerdown</code>.</p>
+<pre class="online"><code>Here&#39;s the demo that logs `pointerdown` and `pointerup` events:
+
+[iframe src=&quot;multitouch&quot; edit height=200]
+
+Please note: you must be using a touchscreen device, such as a phone or a tablet, to actually see the difference in `pointerId/isPrimary`. For single-touch devices, such as a mouse, there&#39;ll be always same `pointerId` with `isPrimary=true`, for all pointer events.</code></pre>
+<h2 id="event-pointercancel">Event: pointercancel</h2>
+<p>The <code>pointercancel</code> event fires when there’s an ongoing pointer interaction, and then something happens that causes it to be aborted, so that no more pointer events are generated.</p>
+<p>Such causes are: - The pointer device hardware was physically disabled. - The device orientation changed (tablet rotated). - The browser decided to handle the interaction on its own, considering it a mouse gesture or zoom-and-pan action or something else.</p>
+<p>We’ll demonstrate <code>pointercancel</code> on a practical example to see how it affects us.</p>
+<p>Let’s say we’re impelementing drag’n’drop for a ball, just as in the beginning of the article <a href="info:mouse-drag-and-drop" class="uri">info:mouse-drag-and-drop</a>.</p>
+<p>Here is the flow of user actions and the corresponding events:</p>
+<ol type="1">
+<li>The user presses on an image, to start dragging
+<ul>
+<li><code>pointerdown</code> event fires</li>
+</ul></li>
+<li>Then they start moving the pointer (thus dragging the image)
+<ul>
+<li><code>pointermove</code> fires, maybe several times</li>
+</ul></li>
+<li>And then the surprise happens! The browser has native drag’n’drop support for images, that kicks in and takes over the drag’n’drop process, thus generating <code>pointercancel</code> event.
+<ul>
+<li>The browser now handles drag’n’drop of the image on its own. The user may even drag the ball image out of the browser, into their Mail program or a File Manager.</li>
+<li>No more <code>pointermove</code> events for us.</li>
+</ul></li>
+</ol>
+<p>So the issue is that the browser “hijacks” the interaction: <code>pointercancel</code> fires in the beginning of the “drag-and-drop” process, and no more <code>pointermove</code> events are generated.</p>
+<pre class="online"><code>Here&#39;s the drag&#39;n&#39;drop demo with loggin of pointer events (only `up/down`, `move` and `cancel`) in the `textarea`: 
+
+[iframe src=&quot;ball&quot; height=240 edit]</code></pre>
+<p>We’d like to implement the drag’n’drop on our own, so let’s tell the browser not to take it over.</p>
+<p><strong>Prevent the default browser action to avoid <code>pointercancel</code>.</strong></p>
+<p>We need to do two things:</p>
+<ol type="1">
+<li>Prevent native drag’n’drop from happening:
+<ul>
+<li>We can do this by setting <code>ball.ondragstart = () =&gt; false</code>, just as described in the article <a href="info:mouse-drag-and-drop" class="uri">info:mouse-drag-and-drop</a>.</li>
+<li>That works well for mouse events.</li>
+</ul></li>
+<li>For touch devices, there are other touch-related browser actions (besides drag’n’drop). To avoid problems with them too:
+<ul>
+<li>Prevent them by setting <code>#ball { touch-action: none }</code> in CSS.</li>
+<li>Then our code will start working on touch devices.</li>
+</ul></li>
+</ol>
+<p>After we do that, the events will work as intended, the browser won’t hijack the process and doesn’t emit <code>pointercancel</code>.</p>
+<pre class="online"><code>This demo adds these lines:
+
+[iframe src=&quot;ball-2&quot; height=240 edit]
+
+As you can see, there&#39;s no `pointercancel` any more.</code></pre>
+<p>Now we can add the code to actually move the ball, and our drag’n’drop will work for mouse devices and touch devices.</p>
+<h2 id="pointer-capturing">Pointer capturing</h2>
+<p>Pointer capturing is a special feature of pointer events.</p>
+<p>The idea is very simple, but may seem quite odd at first, as nothing like that exists for any other event type.</p>
+<p>The main method is: - <code>elem.setPointerCapture(pointerId)</code> - binds events with the given <code>pointerId</code> to <code>elem</code>. After the call all pointer events with the same <code>pointerId</code> will have <code>elem</code> as the target (as if happened on <code>elem</code>), no matter where in document they really happened.</p>
+<p>In other words, <code>elem.setPointerCapture(pointerId)</code> retargets all subsequent events with the given <code>pointerId</code> to <code>elem</code>.</p>
+<p>The binding is removed: - automatically when <code>pointerup</code> or <code>pointercancel</code> events occur, - automatically when <code>elem</code> is removed from the document, - when <code>elem.releasePointerCapture(pointerId)</code> is called.</p>
+<p><strong>Pointer capturing can be used to simplify drag’n’drop kind of interactions.</strong></p>
+<p>As an example, let’s recall how one can implement a custom slider, described in the <a href="info:mouse-drag-and-drop" class="uri">info:mouse-drag-and-drop</a>.</p>
+<p>We make a slider element with the strip and the “runner” (<code>thumb</code>) inside it.</p>
+<p>Then it works like this:</p>
+<ol type="1">
+<li>The user presses on the slider <code>thumb</code> - <code>pointerdown</code> triggers.</li>
+<li>Then they move the pointer - <code>pointermove</code> triggers, and we move the <code>thumb</code> along.
+<ul>
+<li>…As the pointer moves, it may leave the slider <code>thumb</code>: go above or below it. The <code>thumb</code> should move strictly horizontally, remaining aligned with the pointer.</li>
+</ul></li>
+</ol>
+<p>So, to track all pointer movements, including when it goes above/below the <code>thumb</code>, we had to assign <code>pointermove</code> event handler on the whole <code>document</code>.</p>
+<p>That solution looks a bit “dirty”. One of the problems is that pointer movements around the document may cause side effects, trigger other event handlers, totally not related to the slider.</p>
+<p>Pointer capturing provides a means to bind <code>pointermove</code> to <code>thumb</code> and avoid any such problems:</p>
+<ul>
+<li>We can call <code>thumb.setPointerCapture(event.pointerId)</code> in <code>pointerdown</code> handler,</li>
+<li>Then future pointer events until <code>pointerup/cancel</code> will be retargeted to <code>thumb</code>.</li>
+<li>When <code>pointerup</code> happens (dragging complete), the binding is removed automatically, we don’t need to care about it.</li>
+</ul>
+<p>So, even if the user moves the pointer around the whole document, events handlers will be called on <code>thumb</code>. Besides, coordinate properties of the event objects, such as <code>clientX/clientY</code> will still be correct - the capturing only affects <code>target/currentTarget</code>.</p>
+<p>Here’s the essential code:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">thumb</span>.<span class="at">onpointerdown</span> <span class="op">=</span> <span class="kw">function</span>(event) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="co">// retarget all pointer events (until pointerup) to thumb</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="va">thumb</span>.<span class="at">setPointerCapture</span>(<span class="va">event</span>.<span class="at">pointerId</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="op">};</span></a>
+<a class="sourceLine" id="cb4-5" title="5"></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="va">thumb</span>.<span class="at">onpointermove</span> <span class="op">=</span> <span class="kw">function</span>(event) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-7" title="7">  <span class="co">// moving the slider: listen on the thumb, as all pointer events are retargeted to it</span></a>
+<a class="sourceLine" id="cb4-8" title="8">  <span class="kw">let</span> newLeft <span class="op">=</span> <span class="va">event</span>.<span class="at">clientX</span> <span class="op">-</span> <span class="va">slider</span>.<span class="at">getBoundingClientRect</span>().<span class="at">left</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-9" title="9">  <span class="va">thumb</span>.<span class="va">style</span>.<span class="at">left</span> <span class="op">=</span> newLeft <span class="op">+</span> <span class="st">&#39;px&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="op">};</span></a>
+<a class="sourceLine" id="cb4-11" title="11"></a>
+<a class="sourceLine" id="cb4-12" title="12"><span class="co">// note: no need to call thumb.releasePointerCapture, </span></a>
+<a class="sourceLine" id="cb4-13" title="13"><span class="co">// it happens on pointerup automatically</span></a></code></pre></div>
+<pre class="online"><code>The full demo:
+
+[iframe src=&quot;slider&quot; height=100 edit]</code></pre>
+<p>At the end, pointer capturing gives us two benefits: 1. The code becomes cleaner as we don’t need to add/remove handlers on the whole <code>document</code> any more. The binding is released automatically. 2. If there are any <code>pointermove</code> handlers in the document, they won’t be accidentally triggered by the pointer while the user is dragging the slider.</p>
+<h3 id="pointer-capturing-events">Pointer capturing events</h3>
+<p>There are two associated pointer events:</p>
+<ul>
+<li><code>gotpointercapture</code> fires when an element uses <code>setPointerCapture</code> to enable capturing.</li>
+<li><code>lostpointercapture</code> fires when the capture is released: either explicitly with <code>releasePointerCapture</code> call, or automatically on <code>pointerup</code>/<code>pointercancel</code>.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>Pointer events allow handling mouse, touch and pen events simultaneously, with a single piece of code.</p>
+<p>Pointer events extend mouse events. We can replace <code>mouse</code> with <code>pointer</code> in event names and expect our code to continue working for mouse, with better support for other device types.</p>
+<p>For drag’n’drops and complex touch interactions that the browser may decide to hijack and handle on its own - remember to cancel the default action on events and set <code>touch-events: none</code> in CSS for elements that we engage.</p>
+<p>Additional abilities of pointer events are:</p>
+<ul>
+<li>Multi-touch support using <code>pointerId</code> and <code>isPrimary</code>.</li>
+<li>Device-specific properties, such as <code>pressure</code>, <code>width/height</code>, and others.</li>
+<li>Pointer capturing: we can retarget all pointer events to a specific element until <code>pointerup</code>/<code>pointercancel</code>.</li>
+</ul>
+<p>As of now, pointer events are supported in all major browsers, so we can safely switch to them, especially if IE10- and Safari 12- are not needed. And even with those browsers, there are polyfills that enable the support of pointer events.</p>

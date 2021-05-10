@@ -1,0 +1,34 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="throttle-decorator">Throttle decorator</h1>
+<p>Create a “throttling” decorator <code>throttle(f, ms)</code> – that returns a wrapper.</p>
+<p>When it’s called multiple times, it passes the call to <code>f</code> at maximum once per <code>ms</code> milliseconds.</p>
+<p>The difference with debounce is that it’s completely different decorator: - <code>debounce</code> runs the function once after the “cooldown” period. Good for processing the final result. - <code>throttle</code> runs it not more often than given <code>ms</code> time. Good for regular updates that shouldn’t be very often.</p>
+<p>In other words, <code>throttle</code> is like a secretary that accepts phone calls, but bothers the boss (calls the actual <code>f</code>) not more often than once per <code>ms</code> milliseconds.</p>
+<p>Let’s check the real-life application to better understand that requirement and to see where it comes from.</p>
+<p><strong>For instance, we want to track mouse movements.</strong></p>
+<p>In a browser we can setup a function to run at every mouse movement and get the pointer location as it moves. During an active mouse usage, this function usually runs very frequently, can be something like 100 times per second (every 10 ms). <strong>We’d like to update some information on the web-page when the pointer moves.</strong></p>
+<p>…But updating function <code>update()</code> is too heavy to do it on every micro-movement. There is also no sense in updating more often than once per 100ms.</p>
+<p>So we’ll wrap it into the decorator: use <code>throttle(update, 100)</code> as the function to run on each mouse move instead of the original <code>update()</code>. The decorator will be called often, but forward the call to <code>update()</code> at maximum once per 100ms.</p>
+<p>Visually, it will look like this:</p>
+<ol type="1">
+<li>For the first mouse movement the decorated variant immediately passes the call to <code>update</code>. That’s important, the user sees our reaction to their move immediately.</li>
+<li>Then as the mouse moves on, until <code>100ms</code> nothing happens. The decorated variant ignores calls.</li>
+<li>At the end of <code>100ms</code> – one more <code>update</code> happens with the last coordinates.</li>
+<li>Then, finally, the mouse stops somewhere. The decorated variant waits until <code>100ms</code> expire and then runs <code>update</code> with last coordinates. So, quite important, the final mouse coordinates are processed.</li>
+</ol>
+<p>A code example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">f</span>(a) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="va">console</span>.<span class="at">log</span>(a)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="co">// f1000 passes calls to f at maximum once per 1000 ms</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="kw">let</span> f1000 <span class="op">=</span> <span class="at">throttle</span>(f<span class="op">,</span> <span class="dv">1000</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7"></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="at">f1000</span>(<span class="dv">1</span>)<span class="op">;</span> <span class="co">// shows 1</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="at">f1000</span>(<span class="dv">2</span>)<span class="op">;</span> <span class="co">// (throttling, 1000ms not out yet)</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="at">f1000</span>(<span class="dv">3</span>)<span class="op">;</span> <span class="co">// (throttling, 1000ms not out yet)</span></a>
+<a class="sourceLine" id="cb1-11" title="11"></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="co">// when 1000 ms time out...</span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="co">// ...outputs 3, intermediate value 2 was ignored</span></a></code></pre></div>
+<p>P.S. Arguments and the context <code>this</code> passed to <code>f1000</code> should be passed to the original <code>f</code>.</p>

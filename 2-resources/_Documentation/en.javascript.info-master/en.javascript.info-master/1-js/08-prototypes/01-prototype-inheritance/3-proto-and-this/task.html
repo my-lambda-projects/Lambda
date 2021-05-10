@@ -1,0 +1,16 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="where-does-it-write">Where does it write?</h1>
+<p>We have <code>rabbit</code> inheriting from <code>animal</code>.</p>
+<p>If we call <code>rabbit.eat()</code>, which object receives the <code>full</code> property: <code>animal</code> or <code>rabbit</code>?</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> animal <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="at">eat</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="kw">this</span>.<span class="at">full</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="op">};</span></a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="kw">let</span> rabbit <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-8" title="8">  <span class="dt">__proto__</span><span class="op">:</span> animal</a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="op">};</span></a>
+<a class="sourceLine" id="cb1-10" title="10"></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="va">rabbit</span>.<span class="at">eat</span>()<span class="op">;</span></a></code></pre></div>

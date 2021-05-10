@@ -1,0 +1,154 @@
+<h1 id="scripts-async-defer">Scripts: async, defer</h1>
+<p>In modern websites, scripts are often “heavier” than HTML: their download size is larger, and processing time is also longer.</p>
+<p>When the browser loads HTML and comes across a <code>&lt;script&gt;...&lt;/script&gt;</code> tag, it can’t continue building the DOM. It must execute the script right now. The same happens for external scripts <code>&lt;script src="..."&gt;&lt;/script&gt;</code>: the browser must wait for the script to download, execute the downloaded script, and only then can it process the rest of the page.</p>
+<p>That leads to two important issues:</p>
+<ol type="1">
+<li>Scripts can’t see DOM elements below them, so they can’t add handlers etc.</li>
+<li>If there’s a bulky script at the top of the page, it “blocks the page”. Users can’t see the page content till it downloads and runs:</li>
+</ol>
+```html run height=100
+<p>
+…content before script…
+</p>
+<script src="https://javascript.info/article/script-async-defer/long.js?speed=1"></script>
+<!-- This isn't visible until the script loads -->
+<p>
+…content after script…
+</p>
+<p>```</p>
+<p>There are some workarounds to that. For instance, we can put a script at the bottom of the page. Then it can see elements above it, and it doesn’t block the page content from showing:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;body&gt;</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  ...all content is above the script...</a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;https://javascript.info/article/script-async-defer/long.js?speed=1&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="kw">&lt;/body&gt;</span></a></code></pre></div>
+<p>But this solution is far from perfect. For example, the browser notices the script (and can start downloading it) only after it downloaded the full HTML document. For long HTML documents, that may be a noticeable delay.</p>
+<p>Such things are invisible for people using very fast connections, but many people in the world still have slow internet speeds and use a far-from-perfect mobile internet connection.</p>
+<p>Luckily, there are two <code>&lt;script&gt;</code> attributes that solve the problem for us: <code>defer</code> and <code>async</code>.</p>
+<h2 id="defer">defer</h2>
+<p>The <code>defer</code> attribute tells the browser not to wait for the script. Instead, the browser will continue to process the HTML, build DOM. The script loads “in the background”, and then runs when the DOM is fully built.</p>
+<p>Here’s the same example as above, but with <code>defer</code>:</p>
+```html run height=100
+<p>
+…content before script…
+</p>
+<script defer src="https://javascript.info/article/script-async-defer/long.js?speed=1"></script>
+<!-- visible immediately -->
+<p>
+…content after script…
+</p>
+<p>```</p>
+<p>In other words:</p>
+<ul>
+<li>Scripts with <code>defer</code> never block the page.</li>
+<li>Scripts with <code>defer</code> always execute when the DOM is ready (but before <code>DOMContentLoaded</code> event).</li>
+</ul>
+<p>The following example demonstrates the second part:</p>
+```html run height=100
+<p>
+…content before scripts…
+</p>
+<script>
+  document.addEventListener('DOMContentLoaded', () => alert("DOM ready after defer!"));
+</script>
+<script defer src="https://javascript.info/article/script-async-defer/long.js?speed=1"></script>
+<p>
+…content after scripts…
+</p>
+<p>```</p>
+<ol type="1">
+<li>The page content shows up immediately.</li>
+<li><code>DOMContentLoaded</code> event handler waits for the deferred script. It only triggers when the script is downloaded and executed.</li>
+</ol>
+<p><strong>Deferred scripts keep their relative order, just like regular scripts.</strong></p>
+<p>Let’s say, we have two deferred scripts: the <code>long.js</code> and then <code>small.js</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">&lt;script</span><span class="ot"> defer src=</span><span class="st">&quot;https://javascript.info/article/script-async-defer/long.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="kw">&lt;script</span><span class="ot"> defer src=</span><span class="st">&quot;https://javascript.info/article/script-async-defer/small.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a></code></pre></div>
+<p>Browsers scan the page for scripts and download them in parallel, to improve performance. So in the example above both scripts download in parallel. The <code>small.js</code> probably finishes first.</p>
+<p>…But the <code>defer</code> attribute, besides telling the browser “not to block”, ensures that the relative order is kept. So even though <code>small.js</code> loads first, it still waits and runs after <code>long.js</code> executes.</p>
+<p>That may be important for cases when we need to load a JavaScript library and then a script that depends on it.</p>
+<p><code>smart header="The `defer` attribute is only for external scripts" The `defer` attribute is ignored if the `&lt;script&gt;` tag has no `src`.</code></p>
+<h2 id="async">async</h2>
+<p>The <code>async</code> attribute is somewhat like <code>defer</code>. It also makes the script non-blocking. But it has important differences in the behavior.</p>
+<p>The <code>async</code> attribute means that a script is completely independent:</p>
+<ul>
+<li>The browser doesn’t block on <code>async</code> scripts (like <code>defer</code>).</li>
+<li>Other scripts don’t wait for <code>async</code> scripts, and <code>async</code> scripts don’t wait for them.</li>
+<li><code>DOMContentLoaded</code> and async scripts don’t wait for each other:
+<ul>
+<li><code>DOMContentLoaded</code> may happen both before an async script (if an async script finishes loading after the page is complete)</li>
+<li>…or after an async script (if an async script is short or was in HTTP-cache)</li>
+</ul></li>
+</ul>
+<p>In other words, <code>async</code> scripts load in the background and run when ready. The DOM and other scripts don’t wait for them, and they don’t wait for anything. A fully independent script that runs when loaded. As simple, as it can get, right?</p>
+<p>Here’s an example similar to what we’ve seen with <code>defer</code>: two scripts <code>long.js</code> and <code>small.js</code>, but now with <code>async</code> instead of <code>defer</code>.</p>
+<p>They don’t wait for each other. Whatever loads first (probably <code>small.js</code>) – runs first:</p>
+```html run height=100
+<p>
+…content before scripts…
+</p>
+<script>
+  document.addEventListener('DOMContentLoaded', () => alert("DOM ready!"));
+</script>
+<script async src="https://javascript.info/article/script-async-defer/long.js"></script>
+<script async src="https://javascript.info/article/script-async-defer/small.js"></script>
+<p>
+…content after scripts…
+</p>
+<p>```</p>
+<ul>
+<li>The page content shows up immediately: <code>async</code> doesn’t block it.</li>
+<li><code>DOMContentLoaded</code> may happen both before and after <code>async</code>, no guarantees here.</li>
+<li>A smaller script <code>small.js</code> goes second, but probably loads before <code>long.js</code>, so <code>small.js</code> runs first. Although, it might be that <code>long.js</code> loads first, if cached, then it runs first. In other words, async scripts run in the “load-first” order.</li>
+</ul>
+<p>Async scripts are great when we integrate an independent third-party script into the page: counters, ads and so on, as they don’t depend on our scripts, and our scripts shouldn’t wait for them:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb3-1" title="1"><span class="co">&lt;!-- Google Analytics is usually added like this --&gt;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">&lt;script</span><span class="ot"> async src=</span><span class="st">&quot;https://google-analytics.com/analytics.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a></code></pre></div>
+<h2 id="dynamic-scripts">Dynamic scripts</h2>
+<p>There’s one more important way of adding a script to the page.</p>
+<p>We can create a script and append it to the document dynamically using JavaScript:</p>
+<p><code>js run let script = document.createElement('script'); script.src = "/article/script-async-defer/long.js"; document.body.append(script); // (*)</code></p>
+<p>The script starts loading as soon as it’s appended to the document <code>(*)</code>.</p>
+<p><strong>Dynamic scripts behave as “async” by default.</strong></p>
+<p>That is: - They don’t wait for anything, nothing waits for them. - The script that loads first – runs first (“load-first” order).</p>
+<p>This can be changed if we explicitly set <code>script.async=false</code>. Then scripts will be executed in the document order, just like <code>defer</code>.</p>
+<p>In this example, <code>loadScript(src)</code> function adds a script and also sets <code>async</code> to <code>false</code>.</p>
+<p>So <code>long.js</code> always runs first (as it’s added first):</p>
+<p>```js run function loadScript(src) { let script = document.createElement(‘script’); script.src = src; script.async = false; document.body.append(script); }</p>
+<p>// long.js runs first because of async=false loadScript(“/article/script-async-defer/long.js”); loadScript(“/article/script-async-defer/small.js”); ```</p>
+<p>Without <code>script.async=false</code>, scripts would execute in default, load-first order (the <code>small.js</code> probably first).</p>
+<p>Again, as with the <code>defer</code>, the order matters if we’d like to load a library and then another script that depends on it.</p>
+<h2 id="summary">Summary</h2>
+<p>Both <code>async</code> and <code>defer</code> have one common thing: downloading of such scripts doesn’t block page rendering. So the user can read page content and get acquainted with the page immediately.</p>
+<p>But there are also essential differences between them:</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Order</th>
+<th><code>DOMContentLoaded</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>async</code></td>
+<td><em>Load-first order</em>. Their document order doesn’t matter – which loads first runs first</td>
+<td>Irrelevant. May load and execute while the document has not yet been fully downloaded. That happens if scripts are small or cached, and the document is long enough.</td>
+</tr>
+<tr class="even">
+<td><code>defer</code></td>
+<td><em>Document order</em> (as they go in the document).</td>
+<td>Execute after the document is loaded and parsed (they wait if needed), right before <code>DOMContentLoaded</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>In practice, <code>defer</code> is used for scripts that need the whole DOM and/or their relative execution order is important.</p>
+<p>And <code>async</code> is used for independent scripts, like counters or ads. And their relative execution order does not matter.</p>
+<p>``<code>warn header="Page without scripts should be usable" Please note: if you're using</code>defer<code>or</code>async`, then user will see the the page <em>before</em> the script loads.</p>
+<p>In such case, some graphical components are probably not initialized yet.</p>
+<p>Don’t forget to put “loading” indication and disable buttons that aren’t functional yet. Let the user clearly see what he can do on the page, and what’s still getting ready. ```</p>

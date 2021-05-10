@@ -1,0 +1,145 @@
+<h1 id="unicode-flag-u-and-class">Unicode: flag “u” and class </h1>
+<p>JavaScript uses <a href="https://en.wikipedia.org/wiki/Unicode">Unicode encoding</a> for strings. Most characters are encoded with 2 bytes, but that allows to represent at most 65536 characters.</p>
+<p>That range is not big enough to encode all possible characters, that’s why some rare characters are encoded with 4 bytes, for instance like <code>𝒳</code> (mathematical X) or <code>😄</code> (a smile), some hieroglyphs and so on.</p>
+<p>Here are the Unicode values of some characters:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Character</th>
+<th>Unicode</th>
+<th>Bytes count in Unicode</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>a</td>
+<td><code>0x0061</code></td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>≈</td>
+<td><code>0x2248</code></td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>𝒳</td>
+<td><code>0x1d4b3</code></td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>𝒴</td>
+<td><code>0x1d4b4</code></td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>😄</td>
+<td><code>0x1f604</code></td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>So characters like <code>a</code> and <code>≈</code> occupy 2 bytes, while codes for <code>𝒳</code>, <code>𝒴</code> and <code>😄</code> are longer, they have 4 bytes.</p>
+<p>Long time ago, when JavaScript language was created, Unicode encoding was simpler: there were no 4-byte characters. So, some language features still handle them incorrectly.</p>
+<p>For instance, <code>length</code> thinks that here are two characters:</p>
+<p><code>js run alert('😄'.length); // 2 alert('𝒳'.length); // 2</code></p>
+<p>…But we can see that there’s only one, right? The point is that <code>length</code> treats 4 bytes as two 2-byte characters. That’s incorrect, because they must be considered only together (so-called “surrogate pair”, you can read about them in the article <a href="info:string" class="uri">info:string</a>).</p>
+<p>By default, regular expressions also treat 4-byte “long characters” as a pair of 2-byte ones. And, as it happens with strings, that may lead to odd results. We’ll see that a bit later, in the article <a href="info:regexp-character-sets-and-ranges" class="uri">info:regexp-character-sets-and-ranges</a>.</p>
+<p>Unlike strings, regular expressions have flag <code>pattern:u</code> that fixes such problems. With such flag, a regexp handles 4-byte characters correctly. And also Unicode property search becomes available, we’ll get to it next.</p>
+<h2 id="unicode-properties">Unicode properties </h2>
+<p>Every character in Unicode has a lot of properties. They describe what “category” the character belongs to, contain miscellaneous information about it.</p>
+<p>For instance, if a character has <code>Letter</code> property, it means that the character belongs to an alphabet (of any language). And <code>Number</code> property means that it’s a digit: maybe Arabic or Chinese, and so on.</p>
+<p>We can search for characters with a property, written as <code>pattern:\p{…}</code>. To use <code>pattern:\p{…}</code>, a regular expression must have flag <code>pattern:u</code>.</p>
+<p>For instance, <code>\p{Letter}</code> denotes a letter in any language. We can also use <code>\p{L}</code>, as <code>L</code> is an alias of <code>Letter</code>. There are shorter aliases for almost every property.</p>
+<p>In the example below three kinds of letters will be found: English, Georgian and Korean.</p>
+<p>```js run let str = “A ბ ㄱ”;</p>
+<p>alert( str.match(//gu) ); // A,ბ,ㄱ alert( str.match(//g) ); // null (no matches, doesn’t work without the flag “u”) ```</p>
+<p>Here’s the main character categories and their subcategories:</p>
+<ul>
+<li>Letter <code>L</code>:
+<ul>
+<li>lowercase <code>Ll</code></li>
+<li>modifier <code>Lm</code>,</li>
+<li>titlecase <code>Lt</code>,</li>
+<li>uppercase <code>Lu</code>,</li>
+<li>other <code>Lo</code>.</li>
+</ul></li>
+<li>Number <code>N</code>:
+<ul>
+<li>decimal digit <code>Nd</code>,</li>
+<li>letter number <code>Nl</code>,</li>
+<li>other <code>No</code>.</li>
+</ul></li>
+<li>Punctuation <code>P</code>:
+<ul>
+<li>connector <code>Pc</code>,</li>
+<li>dash <code>Pd</code>,</li>
+<li>initial quote <code>Pi</code>,</li>
+<li>final quote <code>Pf</code>,</li>
+<li>open <code>Ps</code>,</li>
+<li>close <code>Pe</code>,</li>
+<li>other <code>Po</code>.</li>
+</ul></li>
+<li>Mark <code>M</code> (accents etc):
+<ul>
+<li>spacing combining <code>Mc</code>,</li>
+<li>enclosing <code>Me</code>,</li>
+<li>non-spacing <code>Mn</code>.</li>
+</ul></li>
+<li>Symbol <code>S</code>:
+<ul>
+<li>currency <code>Sc</code>,</li>
+<li>modifier <code>Sk</code>,</li>
+<li>math <code>Sm</code>,</li>
+<li>other <code>So</code>.</li>
+</ul></li>
+<li>Separator <code>Z</code>:
+<ul>
+<li>line <code>Zl</code>,</li>
+<li>paragraph <code>Zp</code>,</li>
+<li>space <code>Zs</code>.</li>
+</ul></li>
+<li>Other <code>C</code>:
+<ul>
+<li>control <code>Cc</code>,</li>
+<li>format <code>Cf</code>,</li>
+<li>not assigned <code>Cn</code>,</li>
+<li>private use <code>Co</code>,</li>
+<li>surrogate <code>Cs</code>.</li>
+</ul></li>
+</ul>
+<p>So, e.g. if we need letters in lower case, we can write <code>pattern:\p{Ll}</code>, punctuation signs: <code>pattern:\p{P}</code> and so on.</p>
+<p>There are also other derived categories, like: - <code>Alphabetic</code> (<code>Alpha</code>), includes Letters <code>L</code>, plus letter numbers <code>Nl</code> (e.g. Ⅻ - a character for the roman number 12), plus some other symbols <code>Other_Alphabetic</code> (<code>OAlpha</code>). - <code>Hex_Digit</code> includes hexadecimal digits: <code>0-9</code>, <code>a-f</code>. - …And so on.</p>
+<p>Unicode supports many different properties, their full list would require a lot of space, so here are the references:</p>
+<ul>
+<li>List all properties by a character: <a href="https://unicode.org/cldr/utility/character.jsp" class="uri">https://unicode.org/cldr/utility/character.jsp</a>.</li>
+<li>List all characters by a property: <a href="https://unicode.org/cldr/utility/list-unicodeset.jsp" class="uri">https://unicode.org/cldr/utility/list-unicodeset.jsp</a>.</li>
+<li>Short aliases for properties: <a href="https://www.unicode.org/Public/UCD/latest/ucd/PropertyValueAliases.txt" class="uri">https://www.unicode.org/Public/UCD/latest/ucd/PropertyValueAliases.txt</a>.</li>
+<li>A full base of Unicode characters in text format, with all properties, is here: <a href="https://www.unicode.org/Public/UCD/latest/ucd/" class="uri">https://www.unicode.org/Public/UCD/latest/ucd/</a>.</li>
+</ul>
+<h3 id="example-hexadecimal-numbers">Example: hexadecimal numbers</h3>
+<p>For instance, let’s look for hexadecimal numbers, written as <code>xFF</code>, where <code>F</code> is a hex digit (0..1 or A..F).</p>
+<p>A hex digit can be denoted as <code>pattern:\p{Hex_Digit}</code>:</p>
+<p>```js run let regexp = /x/u;</p>
+<p>alert(“number: xAF”.match(regexp)); // xAF ```</p>
+<h3 id="example-chinese-hieroglyphs">Example: Chinese hieroglyphs</h3>
+<p>Let’s look for Chinese hieroglyphs.</p>
+<p>There’s a Unicode property <code>Script</code> (a writing system), that may have a value: <code>Cyrillic</code>, <code>Greek</code>, <code>Arabic</code>, <code>Han</code> (Chinese) and so on, <a href="https://en.wikipedia.org/wiki/Script_(Unicode)">here’s the full list</a>.</p>
+<p>To look for characters in a given writing system we should use <code>pattern:Script=&lt;value&gt;</code>, e.g. for Cyrillic letters: <code>pattern:\p{sc=Cyrillic}</code>, for Chinese hieroglyphs: <code>pattern:\p{sc=Han}</code>, and so on:</p>
+<p>```js run let regexp = //gu; // returns Chinese hieroglyphs</p>
+<p>let str = <code>Hello Привет 你好 123_456</code>;</p>
+<p>alert( str.match(regexp) ); // 你,好 ```</p>
+<h3 id="example-currency">Example: currency</h3>
+<p>Characters that denote a currency, such as <code>$</code>, <code>€</code>, <code>¥</code>, have Unicode property <code>pattern:\p{Currency_Symbol}</code>, the short alias: <code>pattern:\p{Sc}</code>.</p>
+<p>Let’s use it to look for prices in the format “currency, followed by a digit”:</p>
+<p>```js run let regexp = /gu;</p>
+<p>let str = <code>Prices: $2, €1, ¥9</code>;</p>
+<p>alert( str.match(regexp) ); // $2,€1,¥9 ```</p>
+<p>Later, in the article <a href="info:regexp-quantifiers" class="uri">info:regexp-quantifiers</a> we’ll see how to look for numbers that contain many digits.</p>
+<h2 id="summary">Summary</h2>
+<p>Flag <code>pattern:u</code> enables the support of Unicode in regular expressions.</p>
+<p>That means two things:</p>
+<ol type="1">
+<li>Characters of 4 bytes are handled correctly: as a single character, not two 2-byte characters.</li>
+<li>Unicode properties can be used in the search: <code>\p{…}</code>.</li>
+</ol>
+<p>With Unicode properties we can look for words in given languages, special characters (quotes, currencies) and so on.</p>

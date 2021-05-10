@@ -1,0 +1,40 @@
+<p>The core of the solution is a function that adds more dates to the page (or loads more stuff in real-life) while we’re at the page end.</p>
+<p>We can call it immediately and add as a <code>window.onscroll</code> handler.</p>
+<p>The most important question is: “How do we detect that the page is scrolled to bottom?”</p>
+<p>Let’s use window-relative coordinates.</p>
+<p>The document is represented (and contained) within <code>&lt;html&gt;</code> tag, that is <code>document.documentElement</code>.</p>
+<p>We can get window-relative coordinates of the whole document as <code>document.documentElement.getBoundingClientRect()</code>, the <code>bottom</code> property will be window-relative coordinate of the document bottom.</p>
+<p>For instance, if the height of the whole HTML document is <code>2000px</code>, then:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// when we&#39;re on the top of the page</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="co">// window-relative top = 0</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="va">document</span>.<span class="va">documentElement</span>.<span class="at">getBoundingClientRect</span>().<span class="at">top</span> <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="co">// window-relative bottom = 2000</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="co">// the document is long, so that is probably far beyond the window bottom</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="va">document</span>.<span class="va">documentElement</span>.<span class="at">getBoundingClientRect</span>().<span class="at">bottom</span> <span class="op">=</span> <span class="dv">2000</span></a></code></pre></div>
+<p>If we scroll <code>500px</code> below, then:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// document top is above the window 500px</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="va">document</span>.<span class="va">documentElement</span>.<span class="at">getBoundingClientRect</span>().<span class="at">top</span> <span class="op">=</span> <span class="dv">-500</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="co">// document bottom is 500px closer</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="va">document</span>.<span class="va">documentElement</span>.<span class="at">getBoundingClientRect</span>().<span class="at">bottom</span> <span class="op">=</span> <span class="dv">1500</span></a></code></pre></div>
+<p>When we scroll till the end, assuming that the window height is <code>600px</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// document top is above the window 1400px</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="va">document</span>.<span class="va">documentElement</span>.<span class="at">getBoundingClientRect</span>().<span class="at">top</span> <span class="op">=</span> <span class="dv">-1400</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="co">// document bottom is below the window 600px</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="va">document</span>.<span class="va">documentElement</span>.<span class="at">getBoundingClientRect</span>().<span class="at">bottom</span> <span class="op">=</span> <span class="dv">600</span></a></code></pre></div>
+<p>Please note that the <code>bottom</code> can’t be <code>0</code>, because it never reaches the window top. The lowest limit of the <code>bottom</code> coordinate is the window height (we assumed it to be <code>600</code>), we can’t scroll it any more up.</p>
+<p>We can obtain the window height as <code>document.documentElement.clientHeight</code>.</p>
+<p>For our task, we need to know when the document bottom is not no more than <code>100px</code> away from it (that is: <code>600-700px</code>, if the height is <code>600</code>).</p>
+<p>So here’s the function:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">function</span> <span class="at">populate</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="cf">while</span>(<span class="kw">true</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="co">// document bottom</span></a>
+<a class="sourceLine" id="cb4-4" title="4">    <span class="kw">let</span> windowRelativeBottom <span class="op">=</span> <span class="va">document</span>.<span class="va">documentElement</span>.<span class="at">getBoundingClientRect</span>().<span class="at">bottom</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-5" title="5"></a>
+<a class="sourceLine" id="cb4-6" title="6">    <span class="co">// if the user hasn&#39;t scrolled far enough (&gt;100px to the end)</span></a>
+<a class="sourceLine" id="cb4-7" title="7">    <span class="cf">if</span> (windowRelativeBottom <span class="op">&gt;</span> <span class="va">document</span>.<span class="va">documentElement</span>.<span class="at">clientHeight</span> <span class="op">+</span> <span class="dv">100</span>) <span class="cf">break</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-8" title="8">    </a>
+<a class="sourceLine" id="cb4-9" title="9">    <span class="co">// let&#39;s add more data</span></a>
+<a class="sourceLine" id="cb4-10" title="10">    <span class="va">document</span>.<span class="va">body</span>.<span class="at">insertAdjacentHTML</span>(<span class="st">&quot;beforeend&quot;</span><span class="op">,</span> <span class="vs">`&lt;p&gt;Date: </span><span class="sc">${</span><span class="kw">new</span> <span class="at">Date</span>()<span class="sc">}</span><span class="vs">&lt;/p&gt;`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-11" title="11">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-12" title="12"><span class="op">}</span></a></code></pre></div>

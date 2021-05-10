@@ -1,0 +1,137 @@
+<h1 id="arraybuffer-binary-arrays">ArrayBuffer, binary arrays</h1>
+<p>In web-development we meet binary data mostly while dealing with files (create, upload, download). Another typical use case is image processing.</p>
+<p>That’s all possible in JavaScript, and binary operations are high-performant.</p>
+<p>Although, there’s a bit of confusion, because there are many classes. To name a few: - <code>ArrayBuffer</code>, <code>Uint8Array</code>, <code>DataView</code>, <code>Blob</code>, <code>File</code>, etc.</p>
+<p>Binary data in JavaScript is implemented in a non-standard way, compared to other languages. But when we sort things out, everything becomes fairly simple.</p>
+<p><strong>The basic binary object is <code>ArrayBuffer</code> – a reference to a fixed-length contiguous memory area.</strong></p>
+<p>We create it like this: <code>js run let buffer = new ArrayBuffer(16); // create a buffer of length 16 alert(buffer.byteLength); // 16</code></p>
+<p>This allocates a contiguous memory area of 16 bytes and pre-fills it with zeroes.</p>
+<p><code>warn header="`ArrayBuffer` is not an array of something" Let's eliminate a possible source of confusion. `ArrayBuffer` has nothing in common with `Array`: - It has a fixed length, we can't increase or decrease it. - It takes exactly that much space in the memory. - To access individual bytes, another "view" object is needed, not `buffer[index]`.</code></p>
+<p><code>ArrayBuffer</code> is a memory area. What’s stored in it? It has no clue. Just a raw sequence of bytes.</p>
+<p><strong>To manipulate an <code>ArrayBuffer</code>, we need to use a “view” object.</strong></p>
+<p>A view object does not store anything on it’s own. It’s the “eyeglasses” that give an interpretation of the bytes stored in the <code>ArrayBuffer</code>.</p>
+<p>For instance:</p>
+<ul>
+<li><strong><code>Uint8Array</code></strong> – treats each byte in <code>ArrayBuffer</code> as a separate number, with possible values from 0 to 255 (a byte is 8-bit, so it can hold only that much). Such value is called a “8-bit unsigned integer”.</li>
+<li><strong><code>Uint16Array</code></strong> – treats every 2 bytes as an integer, with possible values from 0 to 65535. That’s called a “16-bit unsigned integer”.</li>
+<li><strong><code>Uint32Array</code></strong> – treats every 4 bytes as an integer, with possible values from 0 to 4294967295. That’s called a “32-bit unsigned integer”.</li>
+<li><strong><code>Float64Array</code></strong> – treats every 8 bytes as a floating point number with possible values from <code>5.0x10<sup>-324</sup></code> to <code>1.8x10<sup>308</sup></code>.</li>
+</ul>
+<p>So, the binary data in an <code>ArrayBuffer</code> of 16 bytes can be interpreted as 16 “tiny numbers”, or 8 bigger numbers (2 bytes each), or 4 even bigger (4 bytes each), or 2 floating-point values with high precision (8 bytes each).</p>
+<p><img src="arraybuffer-views.svg" /></p>
+<p><code>ArrayBuffer</code> is the core object, the root of everything, the raw binary data.</p>
+<p>But if we’re going to write into it, or iterate over it, basically for almost any operation – we must use a view, e.g:</p>
+<p>```js run let buffer = new ArrayBuffer(16); // create a buffer of length 16</p>
+<p><em>!</em> let view = new Uint32Array(buffer); // treat buffer as a sequence of 32-bit integers</p>
+<p>alert(Uint32Array.BYTES_PER_ELEMENT); // 4 bytes per integer <em>/!</em></p>
+<p>alert(view.length); // 4, it stores that many integers alert(view.byteLength); // 16, the size in bytes</p>
+<p>// let’s write a value view[0] = 123456;</p>
+<p>// iterate over values for(let num of view) { alert(num); // 123456, then 0, 0, 0 (4 values total) }</p>
+<p>```</p>
+<h2 id="typedarray">TypedArray</h2>
+<p>The common term for all these views (<code>Uint8Array</code>, <code>Uint32Array</code>, etc) is <a href="https://tc39.github.io/ecma262/#sec-typedarray-objects">TypedArray</a>. They share the same set of methods and properities.</p>
+<p>Please note, there’s no constructor called <code>TypedArray</code>, it’s just a common “umbrella” term to represent one of views over <code>ArrayBuffer</code>: <code>Int8Array</code>, <code>Uint8Array</code> and so on, the full list will soon follow.</p>
+<p>When you see something like <code>new TypedArray</code>, it means any of <code>new Int8Array</code>, <code>new Uint8Array</code>, etc.</p>
+<p>Typed arrays behave like regular arrays: have indexes and are iterable.</p>
+<p>A typed array constructor (be it <code>Int8Array</code> or <code>Float64Array</code>, doesn’t matter) behaves differently depending on argument types.</p>
+<p>There are 5 variants of arguments:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">new</span> <span class="at">TypedArray</span>(buffer<span class="op">,</span> [byteOffset]<span class="op">,</span> [length])<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">new</span> <span class="at">TypedArray</span>(object)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">new</span> <span class="at">TypedArray</span>(typedArray)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">new</span> <span class="at">TypedArray</span>(length)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="kw">new</span> <span class="at">TypedArray</span>()<span class="op">;</span></a></code></pre></div>
+<ol type="1">
+<li><p>If an <code>ArrayBuffer</code> argument is supplied, the view is created over it. We used that syntax already.</p>
+<p>Optionally we can provide <code>byteOffset</code> to start from (0 by default) and the <code>length</code> (till the end of the buffer by default), then the view will cover only a part of the <code>buffer</code>.</p></li>
+<li><p>If an <code>Array</code>, or any array-like object is given, it creates a typed array of the same length and copies the content.</p>
+We can use it to pre-fill the array with the data: <code>js run  *!*  let arr = new Uint8Array([0, 1, 2, 3]);  */!*  alert( arr.length ); // 4, created binary array of the same length  alert( arr[1] ); // 1, filled with 4 bytes (unsigned 8-bit integers) with given values</code></li>
+<li><p>If another <code>TypedArray</code> is supplied, it does the same: creates a typed array of the same length and copies values. Values are converted to the new type in the process, if needed. <code>js run  let arr16 = new Uint16Array([1, 1000]);  *!*  let arr8 = new Uint8Array(arr16);  */!*  alert( arr8[0] ); // 1  alert( arr8[1] ); // 232, tried to copy 1000, but can't fit 1000 into 8 bits (explanations below)</code></p></li>
+<li><p>For a numeric argument <code>length</code> – creates the typed array to contain that many elements. Its byte length will be <code>length</code> multiplied by the number of bytes in a single item <code>TypedArray.BYTES_PER_ELEMENT</code>: <code>js run  let arr = new Uint16Array(4); // create typed array for 4 integers  alert( Uint16Array.BYTES_PER_ELEMENT ); // 2 bytes per integer  alert( arr.byteLength ); // 8 (size in bytes)</code></p></li>
+<li><p>Without arguments, creates an zero-length typed array.</p></li>
+</ol>
+<p>We can create a <code>TypedArray</code> directly, without mentioning <code>ArrayBuffer</code>. But a view cannot exist without an underlying <code>ArrayBuffer</code>, so gets created automatically in all these cases except the first one (when provided).</p>
+<p>To access the <code>ArrayBuffer</code>, there are properties: - <code>arr.buffer</code> – references the <code>ArrayBuffer</code>. - <code>arr.byteLength</code> – the length of the <code>ArrayBuffer</code>.</p>
+<p>So, we can always move from one view to another:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> arr8 <span class="op">=</span> <span class="kw">new</span> <span class="at">Uint8Array</span>([<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>])<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="co">// another view on the same data</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="kw">let</span> arr16 <span class="op">=</span> <span class="kw">new</span> <span class="at">Uint16Array</span>(<span class="va">arr8</span>.<span class="at">buffer</span>)<span class="op">;</span></a></code></pre></div>
+<p>Here’s the list of typed arrays:</p>
+<ul>
+<li><code>Uint8Array</code>, <code>Uint16Array</code>, <code>Uint32Array</code> – for integer numbers of 8, 16 and 32 bits.
+<ul>
+<li><code>Uint8ClampedArray</code> – for 8-bit integers, “clamps” them on assignment (see below).</li>
+</ul></li>
+<li><code>Int8Array</code>, <code>Int16Array</code>, <code>Int32Array</code> – for signed integer numbers (can be negative).</li>
+<li><code>Float32Array</code>, <code>Float64Array</code> – for signed floating-point numbers of 32 and 64 bits.</li>
+</ul>
+<p>``<code>warn header="No</code>int8<code>or similar single-valued types" Please note, despite of the names like</code>Int8Array<code>, there's no single-value type like</code>int<code>, or</code>int8` in JavaScript.</p>
+<p>That’s logical, as <code>Int8Array</code> is not an array of these individual values, but rather a view on <code>ArrayBuffer</code>. ```</p>
+<h3 id="out-of-bounds-behavior">Out-of-bounds behavior</h3>
+<p>What if we attempt to write an out-of-bounds value into a typed array? There will be no error. But extra bits are cut-off.</p>
+<p>For instance, let’s try to put 256 into <code>Uint8Array</code>. In binary form, 256 is <code>100000000</code> (9 bits), but <code>Uint8Array</code> only provides 8 bits per value, that makes the available range from 0 to 255.</p>
+<p>For bigger numbers, only the rightmost (less significant) 8 bits are stored, and the rest is cut off:</p>
+<p><img src="8bit-integer-256.svg" /></p>
+<p>So we’ll get zero.</p>
+<p>For 257, the binary form is <code>100000001</code> (9 bits), the rightmost 8 get stored, so we’ll have <code>1</code> in the array:</p>
+<p><img src="8bit-integer-257.svg" /></p>
+<p>In other words, the number modulo 2<sup>8</sup> is saved.</p>
+<p>Here’s the demo:</p>
+<p>```js run let uint8array = new Uint8Array(16);</p>
+<p>let num = 256; alert(num.toString(2)); // 100000000 (binary representation)</p>
+<p>uint8array[0] = 256; uint8array[1] = 257;</p>
+<p>alert(uint8array[0]); // 0 alert(uint8array[1]); // 1 ```</p>
+<p><code>Uint8ClampedArray</code> is special in this aspect, its behavior is different. It saves 255 for any number that is greater than 255, and 0 for any negative number. That behavior is useful for image processing.</p>
+<h2 id="typedarray-methods">TypedArray methods</h2>
+<p><code>TypedArray</code> has regular <code>Array</code> methods, with notable exceptions.</p>
+<p>We can iterate, <code>map</code>, <code>slice</code>, <code>find</code>, <code>reduce</code> etc.</p>
+<p>There are few things we can’t do though:</p>
+<ul>
+<li>No <code>splice</code> – we can’t “delete” a value, because typed arrays are views on a buffer, and these are fixed, contiguous areas of memory. All we can do is to assign a zero.</li>
+<li>No <code>concat</code> method.</li>
+</ul>
+<p>There are two additional methods:</p>
+<ul>
+<li><code>arr.set(fromArr, [offset])</code> copies all elements from <code>fromArr</code> to the <code>arr</code>, starting at position <code>offset</code> (0 by default).</li>
+<li><code>arr.subarray([begin, end])</code> creates a new view of the same type from <code>begin</code> to <code>end</code> (exclusive). That’s similar to <code>slice</code> method (that’s also supported), but doesn’t copy anything – just creates a new view, to operate on the given piece of data.</li>
+</ul>
+<p>These methods allow us to copy typed arrays, mix them, create new arrays from existing ones, and so on.</p>
+<h2 id="dataview">DataView</h2>
+<p><a href="mdn:/JavaScript/Reference/Global_Objects/DataView">DataView</a> is a special super-flexible “untyped” view over <code>ArrayBuffer</code>. It allows to access the data on any offset in any format.</p>
+<ul>
+<li>For typed arrays, the constructor dictates what the format is. The whole array is supposed to be uniform. The i-th number is <code>arr[i]</code>.</li>
+<li>With <code>DataView</code> we access the data with methods like <code>.getUint8(i)</code> or <code>.getUint16(i)</code>. We choose the format at method call time instead of the construction time.</li>
+</ul>
+<p>The syntax:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">new</span> <span class="at">DataView</span>(buffer<span class="op">,</span> [byteOffset]<span class="op">,</span> [byteLength])</a></code></pre></div>
+<ul>
+<li><strong><code>buffer</code></strong> – the underlying <code>ArrayBuffer</code>. Unlike typed arrays, <code>DataView</code> doesn’t create a buffer on its own. We need to have it ready.</li>
+<li><strong><code>byteOffset</code></strong> – the starting byte position of the view (by default 0).</li>
+<li><strong><code>byteLength</code></strong> – the byte length of the view (by default till the end of <code>buffer</code>).</li>
+</ul>
+<p>For instance, here we extract numbers in different formats from the same buffer:</p>
+<p>```js run // binary array of 4 bytes, all have the maximal value 255 let buffer = new Uint8Array([255, 255, 255, 255]).buffer;</p>
+<p>let dataView = new DataView(buffer);</p>
+<p>// get 8-bit number at offset 0 alert( dataView.getUint8(0) ); // 255</p>
+<p>// now get 16-bit number at offset 0, it consists of 2 bytes, together interpreted as 65535 alert( dataView.getUint16(0) ); // 65535 (biggest 16-bit unsigned int)</p>
+<p>// get 32-bit number at offset 0 alert( dataView.getUint32(0) ); // 4294967295 (biggest 32-bit unsigned int)</p>
+<p>dataView.setUint32(0, 0); // set 4-byte number to zero, thus setting all bytes to 0 ```</p>
+<p><code>DataView</code> is great when we store mixed-format data in the same buffer. For example, when we store a sequence of pairs (16-bit integer, 32-bit float), <code>DataView</code> allows to access them easily.</p>
+<h2 id="summary">Summary</h2>
+<p><code>ArrayBuffer</code> is the core object, a reference to the fixed-length contiguous memory area.</p>
+<p>To do almost any operation on <code>ArrayBuffer</code>, we need a view.</p>
+<ul>
+<li>It can be a <code>TypedArray</code>:
+<ul>
+<li><code>Uint8Array</code>, <code>Uint16Array</code>, <code>Uint32Array</code> – for unsigned integers of 8, 16, and 32 bits.</li>
+<li><code>Uint8ClampedArray</code> – for 8-bit integers, “clamps” them on assignment.</li>
+<li><code>Int8Array</code>, <code>Int16Array</code>, <code>Int32Array</code> – for signed integer numbers (can be negative).</li>
+<li><code>Float32Array</code>, <code>Float64Array</code> – for signed floating-point numbers of 32 and 64 bits.</li>
+</ul></li>
+<li>Or a <code>DataView</code> – the view that uses methods to specify a format, e.g. <code>getUint8(offset)</code>.</li>
+</ul>
+<p>In most cases we create and operate directly on typed arrays, leaving <code>ArrayBuffer</code> under cover, as a “common denominator”. We can access it as <code>.buffer</code> and make another view if needed.</p>
+<p>There are also two additional terms, that are used in descriptions of methods that operate on binary data: - <code>ArrayBufferView</code> is an umbrella term for all these kinds of views. - <code>BufferSource</code> is an umbrella term for <code>ArrayBuffer</code> or <code>ArrayBufferView</code>.</p>
+<p>We’ll see these terms in the next chapters. <code>BufferSource</code> is one of the most common terms, as it means “any kind of binary data” – an <code>ArrayBuffer</code> or a view over it.</p>
+<p>Here’s a cheatsheet:</p>
+<p><img src="arraybuffer-view-buffersource.svg" /></p>

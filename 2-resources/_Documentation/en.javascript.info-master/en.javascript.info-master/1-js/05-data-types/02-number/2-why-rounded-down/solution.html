@@ -1,0 +1,12 @@
+<p>Internally the decimal fraction <code>6.35</code> is an endless binary. As always in such cases, it is stored with a precision loss.</p>
+<p>Let’s see:</p>
+<p><code>js run alert( 6.35.toFixed(20) ); // 6.34999999999999964473</code></p>
+<p>The precision loss can cause both increase and decrease of a number. In this particular case the number becomes a tiny bit less, that’s why it rounded down.</p>
+<p>And what’s for <code>1.35</code>?</p>
+<p><code>js run alert( 1.35.toFixed(20) ); // 1.35000000000000008882</code></p>
+<p>Here the precision loss made the number a little bit greater, so it rounded up.</p>
+<p><strong>How can we fix the problem with <code>6.35</code> if we want it to be rounded the right way?</strong></p>
+<p>We should bring it closer to an integer prior to rounding:</p>
+<p><code>js run alert( (6.35 * 10).toFixed(20) ); // 63.50000000000000000000</code></p>
+<p>Note that <code>63.5</code> has no precision loss at all. That’s because the decimal part <code>0.5</code> is actually <code>1/2</code>. Fractions divided by powers of <code>2</code> are exactly represented in the binary system, now we can round it:</p>
+<p><code>js run alert( Math.round(6.35 * 10) / 10); // 6.35 -&gt; 63.5 -&gt; 64(rounded) -&gt; 6.4</code></p>

@@ -1,0 +1,128 @@
+<h1 id="prototypal-inheritance">Prototypal inheritance</h1>
+<p>In programming, we often want to take something and extend it.</p>
+<p>For instance, we have a <code>user</code> object with its properties and methods, and want to make <code>admin</code> and <code>guest</code> as slightly modified variants of it. We’d like to reuse what we have in <code>user</code>, not copy/reimplement its methods, just build a new object on top of it.</p>
+<p><em>Prototypal inheritance</em> is a language feature that helps in that.</p>
+<h2 id="prototype">[[Prototype]]</h2>
+<p>In JavaScript, objects have a special hidden property <code>[[Prototype]]</code> (as named in the specification), that is either <code>null</code> or references another object. That object is called “a prototype”:</p>
+<figure>
+<img src="object-prototype-empty.svg" alt="prototype" /><figcaption>prototype</figcaption>
+</figure>
+<p>When we read a property from <code>object</code>, and it’s missing, JavaScript automatically takes it from the prototype. In programming, such thing is called “prototypal inheritance”. And soon we’ll study many examples of such inheritance, as well as cooler language features built upon it.</p>
+<p>The property <code>[[Prototype]]</code> is internal and hidden, but there are many ways to set it.</p>
+<p>One of them is to use the special name <code>__proto__</code>, like this:</p>
+<p>```js run let animal = { eats: true }; let rabbit = { jumps: true };</p>
+<p><em>!</em> rabbit.__proto__ = animal; // sets rabbit.[[Prototype]] = animal <em>/!</em> ```</p>
+<p>Now if we read a property from <code>rabbit</code>, and it’s missing, JavaScript will automatically take it from <code>animal</code>.</p>
+<p>For instance:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> animal <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="dt">eats</span><span class="op">:</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="op">};</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">let</span> rabbit <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="dt">jumps</span><span class="op">:</span> <span class="kw">true</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="op">};</span></a>
+<a class="sourceLine" id="cb1-7" title="7"></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="va">rabbit</span>.<span class="at">__proto__</span> <span class="op">=</span> animal<span class="op">;</span> <span class="co">// (*)</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb1-11" title="11"></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="ss">// we can find both properties in rabbit now:</span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="sc">*</span><span class="ss">!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="ss">alert</span><span class="sc">(</span><span class="ss"> rabbit.eats </span><span class="sc">)</span><span class="ss">; // true </span><span class="sc">(**)</span></a>
+<a class="sourceLine" id="cb1-15" title="15"><span class="sc">*</span><span class="ss">/</span><span class="op">!*</span></a>
+<a class="sourceLine" id="cb1-16" title="16"><span class="at">alert</span>( <span class="va">rabbit</span>.<span class="at">jumps</span> )<span class="op">;</span> <span class="co">// true</span></a></code></pre></div>
+<p>Here the line <code>(*)</code> sets <code>animal</code> to be a prototype of <code>rabbit</code>.</p>
+<p>Then, when <code>alert</code> tries to read property <code>rabbit.eats</code> <code>(**)</code>, it’s not in <code>rabbit</code>, so JavaScript follows the <code>[[Prototype]]</code> reference and finds it in <code>animal</code> (look from the bottom up):</p>
+<p><img src="proto-animal-rabbit.svg" /></p>
+<p>Here we can say that “<code>animal</code> is the prototype of <code>rabbit</code>” or “<code>rabbit</code> prototypically inherits from <code>animal</code>”.</p>
+<p>So if <code>animal</code> has a lot of useful properties and methods, then they become automatically available in <code>rabbit</code>. Such properties are called “inherited”.</p>
+<p>If we have a method in <code>animal</code>, it can be called on <code>rabbit</code>:</p>
+<p>```js run let animal = { eats: true, <em>!</em> walk() { alert(“Animal walk”); } <em>/!</em> };</p>
+<p>let rabbit = { jumps: true, <strong>proto</strong>: animal };</p>
+<p>// walk is taken from the prototype <em>!</em> rabbit.walk(); // Animal walk <em>/!</em> ```</p>
+<p>The method is automatically taken from the prototype, like this:</p>
+<p><img src="proto-animal-rabbit-walk.svg" /></p>
+<p>The prototype chain can be longer:</p>
+<p>```js run let animal = { eats: true, walk() { alert(“Animal walk”); } };</p>
+<p>let rabbit = { jumps: true, <em>!</em> <strong>proto</strong>: animal <em>/!</em> };</p>
+<p>let longEar = { earLength: 10, <em>!</em> <strong>proto</strong>: rabbit <em>/!</em> };</p>
+<p>// walk is taken from the prototype chain longEar.walk(); // Animal walk alert(longEar.jumps); // true (from rabbit) ```</p>
+<p><img src="proto-animal-rabbit-chain.svg" /></p>
+<p>Now if we read something from <code>longEar</code>, and it’s missing, JavaScript will look for it in <code>rabbit</code>, and then in <code>animal</code>.</p>
+<p>There are only two limitations:</p>
+<ol type="1">
+<li>The references can’t go in circles. JavaScript will throw an error if we try to assign <code>__proto__</code> in a circle.</li>
+<li>The value of <code>__proto__</code> can be either an object or <code>null</code>. Other types are ignored.</li>
+</ol>
+<p>Also it may be obvious, but still: there can be only one <code>[[Prototype]]</code>. An object may not inherit from two others.</p>
+<p>``<code>smart header="</code><strong>proto</strong><code>is a historical getter/setter for</code>[[Prototype]]`" It’s a common mistake of novice developers not to know the difference between these two.</p>
+<p>Please note that <code>__proto__</code> is <em>not the same</em> as the internal <code>[[Prototype]]</code> property. It’s a getter/setter for <code>[[Prototype]]</code>. Later we’ll see situations where it matters, for now let’s just keep it in mind, as we build our understanding of JavaScript language.</p>
+<p>The <code>__proto__</code> property is a bit outdated. It exists for historical reasons, modern JavaScript suggests that we should use <code>Object.getPrototypeOf/Object.setPrototypeOf</code> functions instead that get/set the prototype. We’ll also cover these functions later.</p>
+<p>By the specification, <code>__proto__</code> must only be supported by browsers. In fact though, all environments including server-side support <code>__proto__</code>, so we’re quite safe using it.</p>
+<p>As the <code>__proto__</code> notation is a bit more intuitively obvious, we use it in the examples. ```</p>
+<h2 id="writing-doesnt-use-prototype">Writing doesn’t use prototype</h2>
+<p>The prototype is only used for reading properties.</p>
+<p>Write/delete operations work directly with the object.</p>
+<p>In the example below, we assign its own <code>walk</code> method to <code>rabbit</code>:</p>
+<p>```js run let animal = { eats: true, walk() { /* this method won’t be used by rabbit */<br />
+} };</p>
+<p>let rabbit = { <strong>proto</strong>: animal };</p>
+<p><em>!</em> rabbit.walk = function() { alert(“Rabbit! Bounce-bounce!”); }; <em>/!</em></p>
+<p>rabbit.walk(); // Rabbit! Bounce-bounce! ```</p>
+<p>From now on, <code>rabbit.walk()</code> call finds the method immediately in the object and executes it, without using the prototype:</p>
+<p><img src="proto-animal-rabbit-walk-2.svg" /></p>
+<p>Accessor properties are an exception, as assignment is handled by a setter function. So writing to such a property is actually the same as calling a function.</p>
+<p>For that reason <code>admin.fullName</code> works correctly in the code below:</p>
+<p>```js run let user = { name: “John”, surname: “Smith”,</p>
+<p>set fullName(value) { [this.name, this.surname] = value.split(" "); },</p>
+<p>get fullName() { return <code>${this.name} ${this.surname}</code>; } };</p>
+<p>let admin = { <strong>proto</strong>: user, isAdmin: true };</p>
+<p>alert(admin.fullName); // John Smith (*)</p>
+<p>// setter triggers! admin.fullName = “Alice Cooper”; // (**)</p>
+<p>alert(admin.fullName); // Alice Cooper, state of admin modified alert(user.fullName); // John Smith, state of user protected ```</p>
+<p>Here in the line <code>(*)</code> the property <code>admin.fullName</code> has a getter in the prototype <code>user</code>, so it is called. And in the line <code>(**)</code> the property has a setter in the prototype, so it is called.</p>
+<h2 id="the-value-of-this">The value of “this”</h2>
+<p>An interesting question may arise in the example above: what’s the value of <code>this</code> inside <code>set fullName(value)</code>? Where are the properties <code>this.name</code> and <code>this.surname</code> written: into <code>user</code> or <code>admin</code>?</p>
+<p>The answer is simple: <code>this</code> is not affected by prototypes at all.</p>
+<p><strong>No matter where the method is found: in an object or its prototype. In a method call, <code>this</code> is always the object before the dot.</strong></p>
+<p>So, the setter call <code>admin.fullName=</code> uses <code>admin</code> as <code>this</code>, not <code>user</code>.</p>
+<p>That is actually a super-important thing, because we may have a big object with many methods, and have objects that inherit from it. And when the inheriting objects run the inherited methods, they will modify only their own states, not the state of the big object.</p>
+<p>For instance, here <code>animal</code> represents a “method storage”, and <code>rabbit</code> makes use of it.</p>
+<p>The call <code>rabbit.sleep()</code> sets <code>this.isSleeping</code> on the <code>rabbit</code> object:</p>
+<p>``<code>js run // animal has methods let animal = {   walk() {     if (!this.isSleeping) {       alert(</code>I walk`); } }, sleep() { this.isSleeping = true; } };</p>
+<p>let rabbit = { name: “White Rabbit”, <strong>proto</strong>: animal };</p>
+<p>// modifies rabbit.isSleeping rabbit.sleep();</p>
+<p>alert(rabbit.isSleeping); // true alert(animal.isSleeping); // undefined (no such property in the prototype) ```</p>
+<p>The resulting picture:</p>
+<p><img src="proto-animal-rabbit-walk-3.svg" /></p>
+<p>If we had other objects, like <code>bird</code>, <code>snake</code>, etc., inheriting from <code>animal</code>, they would also gain access to methods of <code>animal</code>. But <code>this</code> in each method call would be the corresponding object, evaluated at the call-time (before dot), not <code>animal</code>. So when we write data into <code>this</code>, it is stored into these objects.</p>
+<p>As a result, methods are shared, but the object state is not.</p>
+<h2 id="for..in-loop">for..in loop</h2>
+<p>The <code>for..in</code> loop iterates over inherited properties too.</p>
+<p>For instance:</p>
+<p>```js run let animal = { eats: true };</p>
+<p>let rabbit = { jumps: true, <strong>proto</strong>: animal };</p>
+<p><em>!</em> // Object.keys only returns own keys alert(Object.keys(rabbit)); // jumps <em>/!</em></p>
+<p><em>!</em> // for..in loops over both own and inherited keys for(let prop in rabbit) alert(prop); // jumps, then eats <em>/!</em> ```</p>
+<p>If that’s not what we want, and we’d like to exclude inherited properties, there’s a built-in method <a href="mdn:js/Object/hasOwnProperty">obj.hasOwnProperty(key)</a>: it returns <code>true</code> if <code>obj</code> has its own (not inherited) property named <code>key</code>.</p>
+<p>So we can filter out inherited properties (or do something else with them):</p>
+<p>```js run let animal = { eats: true };</p>
+<p>let rabbit = { jumps: true, <strong>proto</strong>: animal };</p>
+<p>for(let prop in rabbit) { let isOwn = rabbit.hasOwnProperty(prop);</p>
+<p>if (isOwn) { alert(<code>Our: ${prop}</code>); // Our: jumps } else { alert(<code>Inherited: ${prop}</code>); // Inherited: eats } } ```</p>
+<p>Here we have the following inheritance chain: <code>rabbit</code> inherits from <code>animal</code>, that inherits from <code>Object.prototype</code> (because <code>animal</code> is a literal object <code>{...}</code>, so it’s by default), and then <code>null</code> above it:</p>
+<p><img src="rabbit-animal-object.svg" /></p>
+<p>Note, there’s one funny thing. Where is the method <code>rabbit.hasOwnProperty</code> coming from? We did not define it. Looking at the chain we can see that the method is provided by <code>Object.prototype.hasOwnProperty</code>. In other words, it’s inherited.</p>
+<p>…But why does <code>hasOwnProperty</code> not appear in the <code>for..in</code> loop like <code>eats</code> and <code>jumps</code> do, if <code>for..in</code> lists inherited properties?</p>
+<p>The answer is simple: it’s not enumerable. Just like all other properties of <code>Object.prototype</code>, it has <code>enumerable:false</code> flag. And <code>for..in</code> only lists enumerable properties. That’s why it and the rest of the <code>Object.prototype</code> properties are not listed.</p>
+<p>``<code>smart header="Almost all other key/value-getting methods ignore inherited properties" Almost all other key/value-getting methods, such as</code>Object.keys<code>,</code>Object.values` and so on ignore inherited properties.</p>
+<p>They only operate on the object itself. Properties from the prototype are <em>not</em> taken into account. ```</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>In JavaScript, all objects have a hidden <code>[[Prototype]]</code> property that’s either another object or <code>null</code>.</li>
+<li>We can use <code>obj.__proto__</code> to access it (a historical getter/setter, there are other ways, to be covered soon).</li>
+<li>The object referenced by <code>[[Prototype]]</code> is called a “prototype”.</li>
+<li>If we want to read a property of <code>obj</code> or call a method, and it doesn’t exist, then JavaScript tries to find it in the prototype.</li>
+<li>Write/delete operations act directly on the object, they don’t use the prototype (assuming it’s a data property, not a setter).</li>
+<li>If we call <code>obj.method()</code>, and the <code>method</code> is taken from the prototype, <code>this</code> still references <code>obj</code>. So methods always work with the current object even if they are inherited.</li>
+<li>The <code>for..in</code> loop iterates over both its own and its inherited properties. All other key/value-getting methods only operate on the object itself.</li>
+</ul>

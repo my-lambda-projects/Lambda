@@ -1,0 +1,12 @@
+<p>```js run demo function filterRangeInPlace(arr, a, b) {</p>
+<p>for (let i = 0; i &lt; arr.length; i++) { let val = arr[i];</p>
+<pre><code>// remove if outside of the interval
+if (val &lt; a || val &gt; b) {
+  arr.splice(i, 1);
+  i--;
+}</code></pre>
+<p>}</p>
+<p>}</p>
+<p>let arr = [5, 3, 8, 1];</p>
+<p>filterRangeInPlace(arr, 1, 4); // removed the numbers except from 1 to 4</p>
+<p>alert( arr ); // [3, 1] ```</p>

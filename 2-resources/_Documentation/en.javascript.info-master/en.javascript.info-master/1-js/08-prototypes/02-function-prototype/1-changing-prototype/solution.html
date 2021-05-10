@@ -1,0 +1,12 @@
+<p>Answers:</p>
+<ol type="1">
+<li><p><code>true</code>.</p>
+<p>The assignment to <code>Rabbit.prototype</code> sets up <code>[[Prototype]]</code> for new objects, but it does not affect the existing ones.</p></li>
+<li><p><code>false</code>.</p>
+<p>Objects are assigned by reference. The object from <code>Rabbit.prototype</code> is not duplicated, it’s still a single object referenced both by <code>Rabbit.prototype</code> and by the <code>[[Prototype]]</code> of <code>rabbit</code>.</p>
+<p>So when we change its content through one reference, it is visible through the other one.</p></li>
+<li><p><code>true</code>.</p>
+<p>All <code>delete</code> operations are applied directly to the object. Here <code>delete rabbit.eats</code> tries to remove <code>eats</code> property from <code>rabbit</code>, but it doesn’t have it. So the operation won’t have any effect.</p></li>
+<li><p><code>undefined</code>.</p>
+<p>The property <code>eats</code> is deleted from the prototype, it doesn’t exist any more.</p></li>
+</ol>

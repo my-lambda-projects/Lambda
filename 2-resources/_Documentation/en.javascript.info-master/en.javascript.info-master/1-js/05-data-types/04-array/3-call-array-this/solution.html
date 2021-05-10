@@ -1,0 +1,6 @@
+<p>The call <code>arr[2]()</code> is syntactically the good old <code>obj[method]()</code>, in the role of <code>obj</code> we have <code>arr</code>, and in the role of <code>method</code> we have <code>2</code>.</p>
+<p>So we have a call of the function <code>arr[2]</code> as an object method. Naturally, it receives <code>this</code> referencing the object <code>arr</code> and outputs the array:</p>
+<p>```js run let arr = [“a”, “b”];</p>
+<p>arr.push(function() { alert( this ); })</p>
+<p>arr<a href="">2</a>; // a,b,function(){…} ```</p>
+<p>The array has 3 values: initially it had two, plus the function.</p>

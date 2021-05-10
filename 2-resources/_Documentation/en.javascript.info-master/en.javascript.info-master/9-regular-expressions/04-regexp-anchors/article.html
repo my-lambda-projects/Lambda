@@ -1,0 +1,20 @@
+<h1 id="anchors-string-start-and-end">Anchors: string start ^ and end $</h1>
+<p>The caret <code>pattern:^</code> and dollar <code>pattern:$</code> characters have special meaning in a regexp. They are called “anchors”.</p>
+<p>The caret <code>pattern:^</code> matches at the beginning of the text, and the dollar <code>pattern:$</code> – at the end.</p>
+<p>For instance, let’s test if the text starts with <code>Mary</code>:</p>
+<p><code>js run let str1 = "Mary had a little lamb"; alert( /^Mary/.test(str1) ); // true</code></p>
+<p>The pattern <code>pattern:^Mary</code> means: “string start and then Mary”.</p>
+<p>Similar to this, we can test if the string ends with <code>snow</code> using <code>pattern:snow$</code>:</p>
+<p><code>js run let str1 = "it's fleece was white as snow"; alert( /snow$/.test(str1) ); // true</code></p>
+<p>In these particular cases we could use string methods <code>startsWith/endsWith</code> instead. Regular expressions should be used for more complex tests.</p>
+<h2 id="testing-for-a-full-match">Testing for a full match</h2>
+<p>Both anchors together <code>pattern:^...$</code> are often used to test whether or not a string fully matches the pattern. For instance, to check if the user input is in the right format.</p>
+<p>Let’s check whether or not a string is a time in <code>12:34</code> format. That is: two digits, then a colon, and then another two digits.</p>
+<p>In regular expressions language that’s <code>pattern:\d\d:\d\d</code>:</p>
+<p>```js run let goodInput = “12:34”; let badInput = “12:345”;</p>
+<p>let regexp = /^\d\d$/; alert( regexp.test(goodInput) ); // true alert( regexp.test(badInput) ); // false ```</p>
+<p>Here the match for <code>pattern:\d\d:\d\d</code> must start exactly after the beginning of the text <code>pattern:^</code>, and the end <code>pattern:$</code> must immediately follow.</p>
+<p>The whole string must be exactly in this format. If there’s any deviation or an extra character, the result is <code>false</code>.</p>
+<p>Anchors behave differently if flag <code>pattern:m</code> is present. We’ll see that in the next article.</p>
+<p>``<code>smart header="Anchors have \"zero width\"" Anchors</code>pattern:^<code>and</code>pattern:$` are tests. They have zero width.</p>
+<p>In other words, they do not match a character, but rather force the regexp engine to check the condition (text start/end). ```</p>

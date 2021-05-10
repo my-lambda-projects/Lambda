@@ -1,0 +1,128 @@
+<h1 id="garbage-collection">Garbage collection</h1>
+<p>Memory management in JavaScript is performed automatically and invisibly to us. We create primitives, objects, functions… All that takes memory.</p>
+<p>What happens when something is not needed any more? How does the JavaScript engine discover it and clean it up?</p>
+<h2 id="reachability">Reachability</h2>
+<p>The main concept of memory management in JavaScript is <em>reachability</em>.</p>
+<p>Simply put, “reachable” values are those that are accessible or usable somehow. They are guaranteed to be stored in memory.</p>
+<ol type="1">
+<li><p>There’s a base set of inherently reachable values, that cannot be deleted for obvious reasons.</p>
+<p>For instance:</p>
+<ul>
+<li>The currently executing function, its local variables and parameters.</li>
+<li>Other functions on the current chain of nested calls, their local variables and parameters.</li>
+<li>Global variables.</li>
+<li>(there are some other, internal ones as well)</li>
+</ul>
+<p>These values are called <em>roots</em>.</p></li>
+<li><p>Any other value is considered reachable if it’s reachable from a root by a reference or by a chain of references.</p>
+<p>For instance, if there’s an object in a global variable, and that object has a property referencing another object, <em>that</em> object is considered reachable. And those that it references are also reachable. Detailed examples to follow.</p></li>
+</ol>
+<p>There’s a background process in the JavaScript engine that is called <a href="https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)">garbage collector</a>. It monitors all objects and removes those that have become unreachable.</p>
+<h2 id="a-simple-example">A simple example</h2>
+<p>Here’s the simplest example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// user has a reference to the object</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">let</span> user <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;John&quot;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="op">};</span></a></code></pre></div>
+<p><img src="memory-user-john.svg" /></p>
+<p>Here the arrow depicts an object reference. The global variable <code>"user"</code> references the object <code>{name: "John"}</code> (we’ll call it John for brevity). The <code>"name"</code> property of John stores a primitive, so it’s painted inside the object.</p>
+<p>If the value of <code>user</code> is overwritten, the reference is lost:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1">user <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></a></code></pre></div>
+<p><img src="memory-user-john-lost.svg" /></p>
+<p>Now John becomes unreachable. There’s no way to access it, no references to it. Garbage collector will junk the data and free the memory.</p>
+<h2 id="two-references">Two references</h2>
+<p>Now let’s imagine we copied the reference from <code>user</code> to <code>admin</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// user has a reference to the object</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">let</span> user <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;John&quot;</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="op">};</span></a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="kw">let</span> admin <span class="op">=</span> user<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a></code></pre></div>
+<p><img src="memory-user-john-admin.svg" /></p>
+<p>Now if we do the same:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1">user <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></a></code></pre></div>
+<p>…Then the object is still reachable via <code>admin</code> global variable, so it’s in memory. If we overwrite <code>admin</code> too, then it can be removed.</p>
+<h2 id="interlinked-objects">Interlinked objects</h2>
+<p>Now a more complex example. The family:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">function</span> <span class="at">marry</span>(man<span class="op">,</span> woman) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="va">woman</span>.<span class="at">husband</span> <span class="op">=</span> man<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="va">man</span>.<span class="at">wife</span> <span class="op">=</span> woman<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-4" title="4"></a>
+<a class="sourceLine" id="cb5-5" title="5">  <span class="cf">return</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-6" title="6">    <span class="dt">father</span><span class="op">:</span> man<span class="op">,</span></a>
+<a class="sourceLine" id="cb5-7" title="7">    <span class="dt">mother</span><span class="op">:</span> woman</a>
+<a class="sourceLine" id="cb5-8" title="8">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-9" title="9"><span class="op">}</span></a>
+<a class="sourceLine" id="cb5-10" title="10"></a>
+<a class="sourceLine" id="cb5-11" title="11"><span class="kw">let</span> family <span class="op">=</span> <span class="at">marry</span>(<span class="op">{</span></a>
+<a class="sourceLine" id="cb5-12" title="12">  <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;John&quot;</span></a>
+<a class="sourceLine" id="cb5-13" title="13"><span class="op">},</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-14" title="14">  <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;Ann&quot;</span></a>
+<a class="sourceLine" id="cb5-15" title="15"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>Function <code>marry</code> “marries” two objects by giving them references to each other and returns a new object that contains them both.</p>
+<p>The resulting memory structure:</p>
+<p><img src="family.svg" /></p>
+<p>As of now, all objects are reachable.</p>
+<p>Now let’s remove two references:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">delete</span> <span class="va">family</span>.<span class="at">father</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">delete</span> <span class="va">family</span>.<span class="va">mother</span>.<span class="at">husband</span><span class="op">;</span></a></code></pre></div>
+<p><img src="family-delete-refs.svg" /></p>
+<p>It’s not enough to delete only one of these two references, because all objects would still be reachable.</p>
+<p>But if we delete both, then we can see that John has no incoming reference any more:</p>
+<p><img src="family-no-father.svg" /></p>
+<p>Outgoing references do not matter. Only incoming ones can make an object reachable. So, John is now unreachable and will be removed from the memory with all its data that also became unaccessible.</p>
+<p>After garbage collection:</p>
+<p><img src="family-no-father-2.svg" /></p>
+<h2 id="unreachable-island">Unreachable island</h2>
+<p>It is possible that the whole island of interlinked objects becomes unreachable and is removed from the memory.</p>
+<p>The source object is the same as above. Then:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1">family <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></a></code></pre></div>
+<p>The in-memory picture becomes:</p>
+<p><img src="family-no-family.svg" /></p>
+<p>This example demonstrates how important the concept of reachability is.</p>
+<p>It’s obvious that John and Ann are still linked, both have incoming references. But that’s not enough.</p>
+<p>The former <code>"family"</code> object has been unlinked from the root, there’s no reference to it any more, so the whole island becomes unreachable and will be removed.</p>
+<h2 id="internal-algorithms">Internal algorithms</h2>
+<p>The basic garbage collection algorithm is called “mark-and-sweep”.</p>
+<p>The following “garbage collection” steps are regularly performed:</p>
+<ul>
+<li>The garbage collector takes roots and “marks” (remembers) them.</li>
+<li>Then it visits and “marks” all references from them.</li>
+<li>Then it visits marked objects and marks <em>their</em> references. All visited objects are remembered, so as not to visit the same object twice in the future.</li>
+<li>…And so on until every reachable (from the roots) references are visited.</li>
+<li>All objects except marked ones are removed.</li>
+</ul>
+<p>For instance, let our object structure look like this:</p>
+<p><img src="garbage-collection-1.svg" /></p>
+<p>We can clearly see an “unreachable island” to the right side. Now let’s see how “mark-and-sweep” garbage collector deals with it.</p>
+<p>The first step marks the roots:</p>
+<p><img src="garbage-collection-2.svg" /></p>
+<p>Then their references are marked:</p>
+<p><img src="garbage-collection-3.svg" /></p>
+<p>…And their references, while possible:</p>
+<p><img src="garbage-collection-4.svg" /></p>
+<p>Now the objects that could not be visited in the process are considered unreachable and will be removed:</p>
+<p><img src="garbage-collection-5.svg" /></p>
+<p>We can also imagine the process as spilling a huge bucket of paint from the roots, that flows through all references and marks all reachable objects. The unmarked ones are then removed.</p>
+<p>That’s the concept of how garbage collection works. JavaScript engines apply many optimizations to make it run faster and not affect the execution.</p>
+<p>Some of the optimizations:</p>
+<ul>
+<li><strong>Generational collection</strong> – objects are split into two sets: “new ones” and “old ones”. Many objects appear, do their job and die fast, they can be cleaned up aggressively. Those that survive for long enough, become “old” and are examined less often.</li>
+<li><strong>Incremental collection</strong> – if there are many objects, and we try to walk and mark the whole object set at once, it may take some time and introduce visible delays in the execution. So the engine tries to split the garbage collection into pieces. Then the pieces are executed one by one, separately. That requires some extra bookkeeping between them to track changes, but we have many tiny delays instead of a big one.</li>
+<li><strong>Idle-time collection</strong> – the garbage collector tries to run only while the CPU is idle, to reduce the possible effect on the execution.</li>
+</ul>
+<p>There exist other optimizations and flavours of garbage collection algorithms. As much as I’d like to describe them here, I have to hold off, because different engines implement different tweaks and techniques. And, what’s even more important, things change as engines develop, so studying deeper “in advance”, without a real need is probably not worth that. Unless, of course, it is a matter of pure interest, then there will be some links for you below.</p>
+<h2 id="summary">Summary</h2>
+<p>The main things to know:</p>
+<ul>
+<li>Garbage collection is performed automatically. We cannot force or prevent it.</li>
+<li>Objects are retained in memory while they are reachable.</li>
+<li>Being referenced is not the same as being reachable (from a root): a pack of interlinked objects can become unreachable as a whole.</li>
+</ul>
+<p>Modern engines implement advanced algorithms of garbage collection.</p>
+<p>A general book “The Garbage Collection Handbook: The Art of Automatic Memory Management” (R. Jones et al) covers some of them.</p>
+<p>If you are familiar with low-level programming, the more detailed information about V8 garbage collector is in the article <a href="http://jayconrod.com/posts/55/a-tour-of-v8-garbage-collection">A tour of V8: Garbage Collection</a>.</p>
+<p><a href="https://v8.dev/">V8 blog</a> also publishes articles about changes in memory management from time to time. Naturally, to learn the garbage collection, you’d better prepare by learning about V8 internals in general and read the blog of <a href="http://mrale.ph">Vyacheslav Egorov</a> who worked as one of V8 engineers. I’m saying: “V8”, because it is best covered with articles in the internet. For other engines, many approaches are similar, but garbage collection differs in many aspects.</p>
+<p>In-depth knowledge of engines is good when you need low-level optimizations. It would be wise to plan that as the next step after you’re familiar with the language.</p>

@@ -1,0 +1,171 @@
+<h1 id="coordinates">Coordinates</h1>
+<p>To move elements around we should be familiar with coordinates.</p>
+<p>Most JavaScript methods deal with one of two coordinate systems:</p>
+<ol type="1">
+<li><strong>Relative to the window</strong> - similar to <code>position:fixed</code>, calculated from the window top/left edge.
+<ul>
+<li>we’ll denote these coordinates as <code>clientX/clientY</code>, the reasoning for such name will become clear later, when we study event properties.</li>
+</ul></li>
+<li><strong>Relative to the document</strong> - similar to <code>position:absolute</code> in the document root, calculated from the document top/left edge.
+<ul>
+<li>we’ll denote them <code>pageX/pageY</code>.</li>
+</ul></li>
+</ol>
+<p>When the page is scrolled to the very beginning, so that the top/left corner of the window is exactly the document top/left corner, these coordinates equal each other. But after the document shifts, window-relative coordinates of elements change, as elements move across the window, while document-relative coordinates remain the same.</p>
+<p>On this picture we take a point in the document and demonstrate its coordinates before the scroll (left) and after it (right):</p>
+<p><img src="document-and-window-coordinates-scrolled.svg" /></p>
+<p>When the document scrolled: - <code>pageY</code> - document-relative coordinate stayed the same, it’s counted from the document top (now scrolled out). - <code>clientY</code> - window-relative coordinate did change (the arrow became shorter), as the same point became closer to window top.</p>
+<h2 id="element-coordinates-getboundingclientrect">Element coordinates: getBoundingClientRect</h2>
+<p>The method <code>elem.getBoundingClientRect()</code> returns window coordinates for a minimal rectangle that encloses <code>elem</code> as an object of built-in <a href="https://www.w3.org/TR/geometry-1/#domrect">DOMRect</a> class.</p>
+<p>Main <code>DOMRect</code> properties:</p>
+<ul>
+<li><code>x/y</code> – X/Y-coordinates of the rectangle origin relative to window,</li>
+<li><code>width/height</code> – width/height of the rectangle (can be negative).</li>
+</ul>
+<p>Additionally, there are derived properties:</p>
+<ul>
+<li><code>top/bottom</code> – Y-coordinate for the top/bottom rectangle edge,</li>
+<li><code>left/right</code> – X-coordinate for the left/right rectangle edge.</li>
+</ul>
+<pre class="online"><code>For instance click this button to see its window coordinates:
+
+&lt;p&gt;&lt;input id=&quot;brTest&quot; type=&quot;button&quot; value=&quot;Get coordinates using button.getBoundingClientRect() for this button&quot; onclick=&#39;showRect(this)&#39;/&gt;&lt;/p&gt;
+
+&lt;script&gt;
+function showRect(elem) {
+  let r = elem.getBoundingClientRect();
+  alert(`x:${r.x}
+y:${r.y}
+width:${r.width}
+height:${r.height}
+top:${r.top}
+bottom:${r.bottom}
+left:${r.left}
+right:${r.right}
+`);
+}
+&lt;/script&gt;
+
+If you scroll the page and repeat, you&#39;ll notice that as window-relative button position changes, its window coordinates (`y/top/bottom` if you scroll vertically) change as well.</code></pre>
+<p>Here’s the picture of <code>elem.getBoundingClientRect()</code> output:</p>
+<p><img src="coordinates.svg" /></p>
+<p>As you can see, <code>x/y</code> and <code>width/height</code> fully describe the rectangle. Derived properties can be easily calculated from them:</p>
+<ul>
+<li><code>left = x</code></li>
+<li><code>top = y</code></li>
+<li><code>right = x + width</code></li>
+<li><code>bottom = y + height</code></li>
+</ul>
+<p>Please note:</p>
+<ul>
+<li>Coordinates may be decimal fractions, such as <code>10.5</code>. That’s normal, internally browser uses fractions in calculations. We don’t have to round them when setting to <code>style.left/top</code>.</li>
+<li>Coordinates may be negative. For instance, if the page is scrolled so that <code>elem</code> is now above the window, then <code>elem.getBoundingClientRect().top</code> is negative.</li>
+</ul>
+<p>``<code>smart header="Why derived properties are needed? Why does</code>top/left<code>exist if there's</code>x/y<code>?" Mathematically, a rectangle is uniquely defined with its starting point</code>(x,y)<code>and the direction vector</code>(width,height)`. So the additional derived properties are for convenience.</p>
+<p>Technically it’s possible for <code>width/height</code> to be negative, that allows for “directed” rectangle, e.g. to represent mouse selection with properly marked start and end.</p>
+<p>Negative <code>width/height</code> values mean that the rectangle starts at its bottom-right corner and then “grows” left-upwards.</p>
+<p>Here’s a rectangle with negative <code>width</code> and <code>height</code> (e.g. <code>width=-200</code>, <code>height=-100</code>):</p>
+<p><img src="coordinates-negative.svg" /></p>
+<p>As you can see, <code>left/top</code> do not equal <code>x/y</code> in such case.</p>
+<p>In practice though, <code>elem.getBoundingClientRect()</code> always returns positive width/height, here we mention negative <code>width/height</code> only for you to understand why these seemingly duplicate properties are not actually duplicates. ```</p>
+<p>``<code>warn header="Internet Explorer: no support for</code>x/y<code>" Internet Explorer doesn't support</code>x/y` properties for historical reasons.</p>
+<p>So we can either make a polyfill (add getters in <code>DomRect.prototype</code>) or just use <code>top/left</code>, as they are always the same as <code>x/y</code> for positive <code>width/height</code>, in particular in the result of <code>elem.getBoundingClientRect()</code>. ```</p>
+<p>``<code>warn header="Coordinates right/bottom are different from CSS position properties" There are obvious similarities between window-relative coordinates and CSS</code>position:fixed`.</p>
+<p>But in CSS positioning, <code>right</code> property means the distance from the right edge, and <code>bottom</code> property means the distance from the bottom edge.</p>
+<p>If we just look at the picture above, we can see that in JavaScript it is not so. All window coordinates are counted from the top-left corner, including these ones. ```</p>
+<h2 id="elementfrompointx-y-elementfrompoint">elementFromPoint(x, y) [#elementFromPoint]</h2>
+<p>The call to <code>document.elementFromPoint(x, y)</code> returns the most nested element at window coordinates <code>(x, y)</code>.</p>
+<p>The syntax is:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> elem <span class="op">=</span> <span class="va">document</span>.<span class="at">elementFromPoint</span>(x<span class="op">,</span> y)<span class="op">;</span></a></code></pre></div>
+<p>For instance, the code below highlights and outputs the tag of the element that is now in the middle of the window:</p>
+<p>```js run let centerX = document.documentElement.clientWidth / 2; let centerY = document.documentElement.clientHeight / 2;</p>
+<p>let elem = document.elementFromPoint(centerX, centerY);</p>
+<p>elem.style.background = “red”; alert(elem.tagName); ```</p>
+<p>As it uses window coordinates, the element may be different depending on the current scroll position.</p>
+<p>```<code>warn header="For out-of-window coordinates the</code>elementFromPoint<code>returns</code>null<code>" The method</code>document.elementFromPoint(x,y)<code>only works if</code>(x,y)` are inside the visible area.</p>
+<p>If any of the coordinates is negative or exceeds the window width/height, then it returns <code>null</code>.</p>
+<p>Here’s a typical error that may occur if we don’t check for it:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> elem <span class="op">=</span> <span class="va">document</span>.<span class="at">elementFromPoint</span>(x<span class="op">,</span> y)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="co">// if the coordinates happen to be out of the window, then elem = null</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="va">elem</span>.<span class="va">style</span>.<span class="at">background</span> <span class="op">=</span> <span class="st">&#39;&#39;</span><span class="op">;</span> <span class="co">// Error!</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a></code></pre></div>
+<p>````</p>
+<h2 id="using-for-fixed-positioning">Using for “fixed” positioning</h2>
+<p>Most of time we need coordinates in order to position something.</p>
+<p>To show something near an element, we can use <code>getBoundingClientRect</code> to get its coordinates, and then CSS <code>position</code> together with <code>left/top</code> (or <code>right/bottom</code>).</p>
+<p>For instance, the function <code>createMessageUnder(elem, html)</code> below shows the message under <code>elem</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">let</span> elem <span class="op">=</span> <span class="va">document</span>.<span class="at">getElementById</span>(<span class="st">&quot;coords-show-mark&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="kw">function</span> <span class="at">createMessageUnder</span>(elem<span class="op">,</span> html) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="co">// create message element</span></a>
+<a class="sourceLine" id="cb4-5" title="5">  <span class="kw">let</span> message <span class="op">=</span> <span class="va">document</span>.<span class="at">createElement</span>(<span class="st">&#39;div&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-6" title="6">  <span class="co">// better to use a css class for the style here</span></a>
+<a class="sourceLine" id="cb4-7" title="7">  <span class="va">message</span>.<span class="va">style</span>.<span class="at">cssText</span> <span class="op">=</span> <span class="st">&quot;position:fixed; color: red&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-8" title="8"></a>
+<a class="sourceLine" id="cb4-9" title="9"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb4-10" title="10">  <span class="co">// assign coordinates, don&#39;t forget &quot;px&quot;!</span></a>
+<a class="sourceLine" id="cb4-11" title="11">  <span class="kw">let</span> coords <span class="op">=</span> <span class="va">elem</span>.<span class="at">getBoundingClientRect</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-12" title="12"></a>
+<a class="sourceLine" id="cb4-13" title="13">  <span class="va">message</span>.<span class="va">style</span>.<span class="at">left</span> <span class="op">=</span> <span class="va">coords</span>.<span class="at">left</span> <span class="op">+</span> <span class="st">&quot;px&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-14" title="14">  <span class="va">message</span>.<span class="va">style</span>.<span class="at">top</span> <span class="op">=</span> <span class="va">coords</span>.<span class="at">bottom</span> <span class="op">+</span> <span class="st">&quot;px&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-15" title="15"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb4-16" title="16"></a>
+<a class="sourceLine" id="cb4-17" title="17"><span class="ss">  message.innerHTML = html;</span></a>
+<a class="sourceLine" id="cb4-18" title="18"></a>
+<a class="sourceLine" id="cb4-19" title="19"><span class="ss">  return message;</span></a>
+<a class="sourceLine" id="cb4-20" title="20"><span class="ss">}</span></a>
+<a class="sourceLine" id="cb4-21" title="21"></a>
+<a class="sourceLine" id="cb4-22" title="22"><span class="ss">// Usage:</span></a>
+<a class="sourceLine" id="cb4-23" title="23"><span class="ss">// add it for 5 seconds in the document</span></a>
+<a class="sourceLine" id="cb4-24" title="24"><span class="ss">let message = createMessageUnder</span><span class="sc">(</span><span class="ss">elem, &#39;Hello, world!&#39;</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb4-25" title="25"><span class="ss">document.body.append</span><span class="sc">(</span><span class="ss">message</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb4-26" title="26"><span class="ss">setTimeout</span><span class="sc">(()</span><span class="ss"> =&gt; message.remove</span><span class="sc">()</span><span class="ss">, 5000</span><span class="sc">)</span><span class="ss">;</span></a></code></pre></div>
+<pre class="online"><code>Click the button to run it:
+
+&lt;button id=&quot;coords-show-mark&quot;&gt;Button with id=&quot;coords-show-mark&quot;, the message will appear under it&lt;/button&gt;</code></pre>
+<p>The code can be modified to show the message at the left, right, below, apply CSS animations to “fade it in” and so on. That’s easy, as we have all the coordinates and sizes of the element.</p>
+<p>But note the important detail: when the page is scrolled, the message flows away from the button.</p>
+<p>The reason is obvious: the message element relies on <code>position:fixed</code>, so it remains at the same place of the window while the page scrolls away.</p>
+<p>To change that, we need to use document-based coordinates and <code>position:absolute</code>.</p>
+<h2 id="document-coordinates-getcoords">Document coordinates [#getCoords]</h2>
+<p>Document-relative coordinates start from the upper-left corner of the document, not the window.</p>
+<p>In CSS, window coordinates correspond to <code>position:fixed</code>, while document coordinates are similar to <code>position:absolute</code> on top.</p>
+<p>We can use <code>position:absolute</code> and <code>top/left</code> to put something at a certain place of the document, so that it remains there during a page scroll. But we need the right coordinates first.</p>
+<p>There’s no standard method to get the document coordinates of an element. But it’s easy to write it.</p>
+<p>The two coordinate systems are connected by the formula: - <code>pageY</code> = <code>clientY</code> + height of the scrolled-out vertical part of the document. - <code>pageX</code> = <code>clientX</code> + width of the scrolled-out horizontal part of the document.</p>
+<p>The function <code>getCoords(elem)</code> will take window coordinates from <code>elem.getBoundingClientRect()</code> and add the current scroll to them:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="co">// get document coordinates of the element</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="kw">function</span> <span class="at">getCoords</span>(elem) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  <span class="kw">let</span> box <span class="op">=</span> <span class="va">elem</span>.<span class="at">getBoundingClientRect</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-4" title="4"></a>
+<a class="sourceLine" id="cb6-5" title="5">  <span class="cf">return</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-6" title="6">    <span class="dt">top</span><span class="op">:</span> <span class="va">box</span>.<span class="at">top</span> <span class="op">+</span> <span class="va">window</span>.<span class="at">pageYOffset</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-7" title="7">    <span class="dt">right</span><span class="op">:</span> <span class="va">box</span>.<span class="at">right</span> <span class="op">+</span> <span class="va">window</span>.<span class="at">pageXOffset</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-8" title="8">    <span class="dt">bottom</span><span class="op">:</span> <span class="va">box</span>.<span class="at">bottom</span> <span class="op">+</span> <span class="va">window</span>.<span class="at">pageYOffset</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-9" title="9">    <span class="dt">left</span><span class="op">:</span> <span class="va">box</span>.<span class="at">left</span> <span class="op">+</span> <span class="va">window</span>.<span class="at">pageXOffset</span></a>
+<a class="sourceLine" id="cb6-10" title="10">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb6-11" title="11"><span class="op">}</span></a></code></pre></div>
+<p>If in the example above we used it with <code>position:absolute</code>, then the message would stay near the element on scroll.</p>
+<p>The modified <code>createMessageUnder</code> function:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">function</span> <span class="at">createMessageUnder</span>(elem<span class="op">,</span> html) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="kw">let</span> message <span class="op">=</span> <span class="va">document</span>.<span class="at">createElement</span>(<span class="st">&#39;div&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="va">message</span>.<span class="va">style</span>.<span class="at">cssText</span> <span class="op">=</span> <span class="st">&quot;*!*position:absolute*/!*; color: red&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-4" title="4"></a>
+<a class="sourceLine" id="cb7-5" title="5">  <span class="kw">let</span> coords <span class="op">=</span> <span class="op">*!*</span><span class="at">getCoords</span>(elem)<span class="op">;*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb7-6" title="6"></a>
+<a class="sourceLine" id="cb7-7" title="7"><span class="ss">  message.style.left = coords.left </span><span class="sc">+</span><span class="ss"> &quot;px&quot;;</span></a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="ss">  message.style.top = coords.bottom </span><span class="sc">+</span><span class="ss"> &quot;px&quot;;</span></a>
+<a class="sourceLine" id="cb7-9" title="9"></a>
+<a class="sourceLine" id="cb7-10" title="10"><span class="ss">  message.innerHTML = html;</span></a>
+<a class="sourceLine" id="cb7-11" title="11"></a>
+<a class="sourceLine" id="cb7-12" title="12"><span class="ss">  return message;</span></a>
+<a class="sourceLine" id="cb7-13" title="13"><span class="ss">}</span></a></code></pre></div>
+<h2 id="summary">Summary</h2>
+<p>Any point on the page has coordinates:</p>
+<ol type="1">
+<li>Relative to the window – <code>elem.getBoundingClientRect()</code>.</li>
+<li>Relative to the document – <code>elem.getBoundingClientRect()</code> plus the current page scroll.</li>
+</ol>
+<p>Window coordinates are great to use with <code>position:fixed</code>, and document coordinates do well with <code>position:absolute</code>.</p>
+<p>Both coordinate systems have their pros and cons; there are times we need one or the other one, just like CSS <code>position</code> <code>absolute</code> and <code>fixed</code>.</p>

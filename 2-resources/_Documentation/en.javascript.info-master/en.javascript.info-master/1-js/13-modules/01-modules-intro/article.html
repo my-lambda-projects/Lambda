@@ -1,0 +1,238 @@
+<h1 id="modules-introduction">Modules, introduction</h1>
+<p>As our application grows bigger, we want to split it into multiple files, so called “modules”. A module may contain a class or a library of functions for a specific purpose.</p>
+<p>For a long time, JavaScript existed without a language-level module syntax. That wasn’t a problem, because initially scripts were small and simple, so there was no need.</p>
+<p>But eventually scripts became more and more complex, so the community invented a variety of ways to organize code into modules, special libraries to load modules on demand.</p>
+<p>To name some (for historical reasons):</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Asynchronous_module_definition">AMD</a> – one of the most ancient module systems, initially implemented by the library <a href="http://requirejs.org/">require.js</a>.</li>
+<li><a href="http://wiki.commonjs.org/wiki/Modules/1.1">CommonJS</a> – the module system created for Node.js server.</li>
+<li><a href="https://github.com/umdjs/umd">UMD</a> – one more module system, suggested as a universal one, compatible with AMD and CommonJS.</li>
+</ul>
+<p>Now all these slowly become a part of history, but we still can find them in old scripts.</p>
+<p>The language-level module system appeared in the standard in 2015, gradually evolved since then, and is now supported by all major browsers and in Node.js. So we’ll study the modern JavaScript modules from now on.</p>
+<h2 id="what-is-a-module">What is a module?</h2>
+<p>A module is just a file. One script is one module. As simple as that.</p>
+<p>Modules can load each other and use special directives <code>export</code> and <code>import</code> to interchange functionality, call functions of one module from another one:</p>
+<ul>
+<li><code>export</code> keyword labels variables and functions that should be accessible from outside the current module.</li>
+<li><code>import</code> allows the import of functionality from other modules.</li>
+</ul>
+<p>For instance, if we have a file <code>sayHi.js</code> exporting a function:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// 📁 sayHi.js</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="im">export</span> <span class="kw">function</span> <span class="at">sayHi</span>(user) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="at">alert</span>(<span class="vs">`Hello, </span><span class="sc">${</span>user<span class="sc">}</span><span class="vs">!`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="op">}</span></a></code></pre></div>
+<p>…Then another file may import and use it:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// 📁 main.js</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="im">import</span> <span class="op">{</span>sayHi<span class="op">}</span> <span class="im">from</span> <span class="st">&#39;./sayHi.js&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="at">alert</span>(sayHi)<span class="op">;</span> <span class="co">// function...</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="at">sayHi</span>(<span class="st">&#39;John&#39;</span>)<span class="op">;</span> <span class="co">// Hello, John!</span></a></code></pre></div>
+<p>The <code>import</code> directive loads the module by path <code>./sayHi.js</code> relative to the current file, and assigns exported function <code>sayHi</code> to the corresponding variable.</p>
+<p>Let’s run the example in-browser.</p>
+<p>As modules support special keywords and features, we must tell the browser that a script should be treated as a module, by using the attribute <code>&lt;script type="module"&gt;</code>.</p>
+<p>Like this:</p>
+<p>[codetabs src=“say” height=“140” current=“index.html”]</p>
+<p>The browser automatically fetches and evaluates the imported module (and its imports if needed), and then runs the script.</p>
+<p><code>warn header="Modules work only via HTTP(s), not in local files" If you try to open a web-page locally, via `file://` protocol, you'll find that `import/export` directives don't work. Use a local web-server, such as [static-server](https://www.npmjs.com/package/static-server#getting-started) or use the "live server" capability of your editor, such as VS Code [Live Server Extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) to test modules.</code></p>
+<h2 id="core-module-features">Core module features</h2>
+<p>What’s different in modules, compared to “regular” scripts?</p>
+<p>There are core features, valid both for browser and server-side JavaScript.</p>
+<h3 id="always-use-strict">Always “use strict”</h3>
+<p>Modules always <code>use strict</code>, by default. E.g. assigning to an undeclared variable will give an error.</p>
+<p><code>html run &lt;script type="module"&gt;   a = 5; // error &lt;/script&gt;</code></p>
+<h3 id="module-level-scope">Module-level scope</h3>
+<p>Each module has its own top-level scope. In other words, top-level variables and functions from a module are not seen in other scripts.</p>
+<p>In the example below, two scripts are imported, and <code>hello.js</code> tries to use <code>user</code> variable declared in <code>user.js</code>, and fails:</p>
+<p>[codetabs src=“scopes” height=“140” current=“index.html”]</p>
+<p>Modules are expected to <code>export</code> what they want to be accessible from outside and <code>import</code> what they need.</p>
+<p>So we should import <code>user.js</code> into <code>hello.js</code> and get the required functionality from it instead of relying on global variables.</p>
+<p>This is the correct variant:</p>
+<p>[codetabs src=“scopes-working” height=“140” current=“hello.js”]</p>
+<p>In the browser, independent top-level scope also exists for each <code>&lt;script type="module"&gt;</code>:</p>
+```html run
+<script type="module">
+  // The variable is only visible in this module script
+  let user = "John";
+</script>
+<script type="module">
+  *!*
+  alert(user); // Error: user is not defined
+  */!*
+</script>
+<p>```</p>
+<p>If we really need to make a window-level global variable, we can explicitly assign it to <code>window</code> and access as <code>window.user</code>. But that’s an exception requiring a good reason.</p>
+<h3 id="a-module-code-is-evaluated-only-the-first-time-when-imported">A module code is evaluated only the first time when imported</h3>
+<p>If the same module is imported into multiple other places, its code is executed only the first time, then exports are given to all importers.</p>
+<p>That has important consequences. Let’s look at them using examples:</p>
+<p>First, if executing a module code brings side-effects, like showing a message, then importing it multiple times will trigger it only once – the first time:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// 📁 alert.js</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="at">alert</span>(<span class="st">&quot;Module is evaluated!&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="co">// Import the same module from different files</span></a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="co">// 📁 1.js</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="im">import</span> <span class="vs">`./alert.js`</span><span class="op">;</span> <span class="co">// Module is evaluated!</span></a>
+<a class="sourceLine" id="cb4-5" title="5"></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="co">// 📁 2.js</span></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="im">import</span> <span class="vs">`./alert.js`</span><span class="op">;</span> <span class="co">// (shows nothing)</span></a></code></pre></div>
+<p>In practice, top-level module code is mostly used for initialization, creation of internal data structures, and if we want something to be reusable – export it.</p>
+<p>Now, a more advanced example.</p>
+<p>Let’s say, a module exports an object:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="co">// 📁 admin.js</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="im">export</span> <span class="kw">let</span> admin <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;John&quot;</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="op">};</span></a></code></pre></div>
+<p>If this module is imported from multiple files, the module is only evaluated the first time, <code>admin</code> object is created, and then passed to all further importers.</p>
+<p>All importers get exactly the one and only <code>admin</code> object:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="co">// 📁 1.js</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="im">import</span> <span class="op">{</span>admin<span class="op">}</span> <span class="im">from</span> <span class="st">&#39;./admin.js&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="va">admin</span>.<span class="at">name</span> <span class="op">=</span> <span class="st">&quot;Pete&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-4" title="4"></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="co">// 📁 2.js</span></a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="im">import</span> <span class="op">{</span>admin<span class="op">}</span> <span class="im">from</span> <span class="st">&#39;./admin.js&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="at">alert</span>(<span class="va">admin</span>.<span class="at">name</span>)<span class="op">;</span> <span class="co">// Pete</span></a>
+<a class="sourceLine" id="cb6-8" title="8"></a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb6-10" title="10"><span class="co">// Both 1.js and 2.js imported the same object</span></a>
+<a class="sourceLine" id="cb6-11" title="11"><span class="co">// Changes made in 1.js are visible in 2.js</span></a>
+<a class="sourceLine" id="cb6-12" title="12"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a></code></pre></div>
+<p>So, let’s reiterate – the module is executed only once. Exports are generated, and then they are shared between importers, so if something changes the <code>admin</code> object, other modules will see that.</p>
+<p>Such behavior allows us to <em>configure</em> modules on first import. We can setup its properties once, and then in further imports it’s ready.</p>
+<p>For instance, the <code>admin.js</code> module may provide certain functionality, but expect the credentials to come into the <code>admin</code> object from outside:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="co">// 📁 admin.js</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="im">export</span> <span class="kw">let</span> admin <span class="op">=</span> <span class="op">{</span> <span class="op">};</span></a>
+<a class="sourceLine" id="cb7-3" title="3"></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="im">export</span> <span class="kw">function</span> <span class="at">sayHi</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-5" title="5">  <span class="at">alert</span>(<span class="vs">`Ready to serve, </span><span class="sc">${</span><span class="va">admin</span>.<span class="at">name</span><span class="sc">}</span><span class="vs">!`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="op">}</span></a></code></pre></div>
+<p>In <code>init.js</code>, the first script of our app, we set <code>admin.name</code>. Then everyone will see it, including calls made from inside <code>admin.js</code> itself:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="co">// 📁 init.js</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="im">import</span> <span class="op">{</span>admin<span class="op">}</span> <span class="im">from</span> <span class="st">&#39;./admin.js&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="va">admin</span>.<span class="at">name</span> <span class="op">=</span> <span class="st">&quot;Pete&quot;</span><span class="op">;</span></a></code></pre></div>
+<p>Another module can also see <code>admin.name</code>:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="co">// 📁 other.js</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="im">import</span> <span class="op">{</span>admin<span class="op">,</span> sayHi<span class="op">}</span> <span class="im">from</span> <span class="st">&#39;./admin.js&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-3" title="3"></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="at">alert</span>(<span class="va">admin</span>.<span class="at">name</span>)<span class="op">;</span> <span class="co">// *!*Pete*/!*</span></a>
+<a class="sourceLine" id="cb9-5" title="5"></a>
+<a class="sourceLine" id="cb9-6" title="6"><span class="at">sayHi</span>()<span class="op">;</span> <span class="co">// Ready to serve, *!*Pete*/!*!</span></a></code></pre></div>
+<h3 id="import.meta">import.meta</h3>
+<p>The object <code>import.meta</code> contains the information about the current module.</p>
+<p>Its content depends on the environment. In the browser, it contains the url of the script, or a current webpage url if inside HTML:</p>
+<p><code>html run height=0 &lt;script type="module"&gt;   alert(import.meta.url); // script url (url of the html page for an inline script) &lt;/script&gt;</code></p>
+<h3 id="in-a-module-this-is-undefined">In a module, “this” is undefined</h3>
+<p>That’s kind of a minor feature, but for completeness we should mention it.</p>
+<p>In a module, top-level <code>this</code> is undefined.</p>
+<p>Compare it to non-module scripts, where <code>this</code> is a global object:</p>
+```html run height=0
+<script>
+  alert(this); // window
+</script>
+<script type="module">
+  alert(this); // undefined
+</script>
+<p>```</p>
+<h2 id="browser-specific-features">Browser-specific features</h2>
+<p>There are also several browser-specific differences of scripts with <code>type="module"</code> compared to regular ones.</p>
+<p>You may want skip this section for now if you’re reading for the first time, or if you don’t use JavaScript in a browser.</p>
+<h3 id="module-scripts-are-deferred">Module scripts are deferred</h3>
+<p>Module scripts are <em>always</em> deferred, same effect as <code>defer</code> attribute (described in the chapter <a href="info:script-async-defer"></a>), for both external and inline scripts.</p>
+<p>In other words: - downloading external module scripts <code>&lt;script type="module" src="..."&gt;</code> doesn’t block HTML processing, they load in parallel with other resources. - module scripts wait until the HTML document is fully ready (even if they are tiny and load faster than HTML), and then run. - relative order of scripts is maintained: scripts that go first in the document, execute first.</p>
+<p>As a side-effect, module scripts always “see” the fully loaded HTML-page, including HTML elements below them.</p>
+<p>For instance:</p>
+```html run
+<script type="module">
+*!*
+  alert(typeof button); // object: the script can 'see' the button below
+*/!*
+  // as modules are deferred, the script runs after the whole page is loaded
+</script>
+<p>Compare to regular script below:</p>
+<script>
+*!*
+  alert(typeof button); // button is undefined, the script can't see elements below
+*/!*
+  // regular scripts run immediately, before the rest of the page is processed
+</script>
+<button id="button">
+Button
+</button>
+<p>```</p>
+<p>Please note: the second script actually runs before the first! So we’ll see <code>undefined</code> first, and then <code>object</code>.</p>
+<p>That’s because modules are deferred, so we wait for the document to be processed. The regular script runs immediately, so we see its output first.</p>
+<p>When using modules, we should be aware that the HTML page shows up as it loads, and JavaScript modules run after that, so the user may see the page before the JavaScript application is ready. Some functionality may not work yet. We should put “loading indicators”, or otherwise ensure that the visitor won’t be confused by that.</p>
+<h3 id="async-works-on-inline-scripts">Async works on inline scripts</h3>
+<p>For non-module scripts, the <code>async</code> attribute only works on external scripts. Async scripts run immediately when ready, independently of other scripts or the HTML document.</p>
+<p>For module scripts, it works on inline scripts as well.</p>
+<p>For example, the inline script below has <code>async</code>, so it doesn’t wait for anything.</p>
+<p>It performs the import (fetches <code>./analytics.js</code>) and runs when ready, even if the HTML document is not finished yet, or if other scripts are still pending.</p>
+<p>That’s good for functionality that doesn’t depend on anything, like counters, ads, document-level event listeners.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb10-1" title="1"><span class="co">&lt;!-- all dependencies are fetched (analytics.js), and the script runs --&gt;</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="co">&lt;!-- doesn&#39;t wait for the document or other &lt;script&gt; tags --&gt;</span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="kw">&lt;script</span><span class="ot"> *</span><span class="er">!*async*/!*</span><span class="ot"> type=</span><span class="st">&quot;module&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb10-4" title="4">  <span class="im">import</span> <span class="op">{</span>counter<span class="op">}</span> <span class="im">from</span> <span class="st">&#39;./analytics.js&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb10-5" title="5"></a>
+<a class="sourceLine" id="cb10-6" title="6">  <span class="va">counter</span>.<span class="at">count</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-7" title="7"><span class="kw">&lt;/script&gt;</span></a></code></pre></div>
+<h3 id="external-scripts">External scripts</h3>
+<p>External scripts that have <code>type="module"</code> are different in two aspects:</p>
+<ol type="1">
+<li><p>External scripts with the same <code>src</code> run only once: <code>html  &lt;!-- the script my.js is fetched and executed only once --&gt;  &lt;script type="module" src="my.js"&gt;&lt;/script&gt;  &lt;script type="module" src="my.js"&gt;&lt;/script&gt;</code></p></li>
+<li><p>External scripts that are fetched from another origin (e.g. another site) require <a href="mdn:Web/HTTP/CORS">CORS</a> headers, as described in the chapter <a href="info:fetch-crossorigin" class="uri">info:fetch-crossorigin</a>. In other words, if a module script is fetched from another origin, the remote server must supply a header <code>Access-Control-Allow-Origin</code> allowing the fetch. <code>html  &lt;!-- another-site.com must supply Access-Control-Allow-Origin --&gt;  &lt;!-- otherwise, the script won't execute --&gt;  &lt;script type="module" src="*!*http://another-site.com/their.js*/!*"&gt;&lt;/script&gt;</code></p>
+<p>That ensures better security by default.</p></li>
+</ol>
+<h3 id="no-bare-modules-allowed">No “bare” modules allowed</h3>
+<p>In the browser, <code>import</code> must get either a relative or absolute URL. Modules without any path are called “bare” modules. Such modules are not allowed in <code>import</code>.</p>
+<p>For instance, this <code>import</code> is invalid:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="im">import</span> <span class="op">{</span>sayHi<span class="op">}</span> <span class="im">from</span> <span class="st">&#39;sayHi&#39;</span><span class="op">;</span> <span class="co">// Error, &quot;bare&quot; module</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="co">// the module must have a path, e.g. &#39;./sayHi.js&#39; or wherever the module is</span></a></code></pre></div>
+<p>Certain environments, like Node.js or bundle tools allow bare modules, without any path, as they have their own ways for finding modules and hooks to fine-tune them. But browsers do not support bare modules yet.</p>
+<h3 id="compatibility-nomodule">Compatibility, “nomodule”</h3>
+<p>Old browsers do not understand <code>type="module"</code>. Scripts of an unknown type are just ignored. For them, it’s possible to provide a fallback using the <code>nomodule</code> attribute:</p>
+```html run
+<script type="module">
+  alert("Runs in modern browsers");
+</script>
+<script nomodule>
+  alert("Modern browsers know both type=module and nomodule, so skip this")
+  alert("Old browsers ignore script with unknown type=module, but execute this.");
+</script>
+<p>```</p>
+<h2 id="build-tools">Build tools</h2>
+<p>In real-life, browser modules are rarely used in their “raw” form. Usually, we bundle them together with a special tool such as <a href="https://webpack.js.org/">Webpack</a> and deploy to the production server.</p>
+<p>One of the benefits of using bundlers – they give more control over how modules are resolved, allowing bare modules and much more, like CSS/HTML modules.</p>
+<p>Build tools do the following:</p>
+<ol type="1">
+<li>Take a “main” module, the one intended to be put in <code>&lt;script type="module"&gt;</code> in HTML.</li>
+<li>Analyze its dependencies: imports and then imports of imports etc.</li>
+<li>Build a single file with all modules (or multiple files, that’s tunable), replacing native <code>import</code> calls with bundler functions, so that it works. “Special” module types like HTML/CSS modules are also supported.</li>
+<li>In the process, other transformations and optimizations may be applied:
+<ul>
+<li>Unreachable code removed.</li>
+<li>Unused exports removed (“tree-shaking”).</li>
+<li>Development-specific statements like <code>console</code> and <code>debugger</code> removed.</li>
+<li>Modern, bleeding-edge JavaScript syntax may be transformed to older one with similar functionality using <a href="https://babeljs.io/">Babel</a>.</li>
+<li>The resulting file is minified (spaces removed, variables replaced with shorter names, etc).</li>
+</ul></li>
+</ol>
+<p>If we use bundle tools, then as scripts are bundled together into a single file (or few files), <code>import/export</code> statements inside those scripts are replaced by special bundler functions. So the resulting “bundled” script does not contain any <code>import/export</code>, it doesn’t require <code>type="module"</code>, and we can put it into a regular script:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb12-1" title="1"><span class="co">&lt;!-- Assuming we got bundle.js from a tool like Webpack --&gt;</span></a>
+<a class="sourceLine" id="cb12-2" title="2"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;bundle.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a></code></pre></div>
+<p>That said, native modules are also usable. So we won’t be using Webpack here: you can configure it later.</p>
+<h2 id="summary">Summary</h2>
+<p>To summarize, the core concepts are:</p>
+<ol type="1">
+<li>A module is a file. To make <code>import/export</code> work, browsers need <code>&lt;script type="module"&gt;</code>. Modules have several differences:
+<ul>
+<li>Deferred by default.</li>
+<li>Async works on inline scripts.</li>
+<li>To load external scripts from another origin (domain/protocol/port), CORS headers are needed.</li>
+<li>Duplicate external scripts are ignored.</li>
+</ul></li>
+<li>Modules have their own, local top-level scope and interchange functionality via <code>import/export</code>.</li>
+<li>Modules always <code>use strict</code>.</li>
+<li>Module code is executed only once. Exports are created once and shared between importers.</li>
+</ol>
+<p>When we use modules, each module implements the functionality and exports it. Then we use <code>import</code> to directly import it where it’s needed. The browser loads and evaluates the scripts automatically.</p>
+<p>In production, people often use bundlers such as <a href="https://webpack.js.org">Webpack</a> to bundle modules together for performance and other reasons.</p>
+<p>In the next chapter we’ll see more examples of modules, and how things can be exported/imported.</p>

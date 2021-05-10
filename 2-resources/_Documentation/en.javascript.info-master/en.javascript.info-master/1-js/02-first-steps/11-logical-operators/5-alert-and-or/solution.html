@@ -1,0 +1,6 @@
+<p>The answer: <code>3</code>.</p>
+<p><code>js run alert( null || 2 &amp;&amp; 3 || 4 );</code></p>
+<p>The precedence of AND <code>&amp;&amp;</code> is higher than <code>||</code>, so it executes first.</p>
+<p>The result of <code>2 &amp;&amp; 3 = 3</code>, so the expression becomes:</p>
+<pre><code>null || 3 || 4</code></pre>
+<p>Now the result is the first truthy value: <code>3</code>.</p>

@@ -1,0 +1,7 @@
+<p>To get the scrollbar width, we can create an element with the scroll, but without borders and paddings.</p>
+<p>Then the difference between its full width <code>offsetWidth</code> and the inner content area width <code>clientWidth</code> will be exactly the scrollbar:</p>
+<p>```js run // create a div with the scroll let div = document.createElement(‘div’);</p>
+<p>div.style.overflowY = ‘scroll’; div.style.width = ‘50px’; div.style.height = ‘50px’;</p>
+<p>// must put it in the document, otherwise sizes will be 0 document.body.append(div); let scrollWidth = div.offsetWidth - div.clientWidth;</p>
+<p>div.remove();</p>
+<p>alert(scrollWidth); ```</p>

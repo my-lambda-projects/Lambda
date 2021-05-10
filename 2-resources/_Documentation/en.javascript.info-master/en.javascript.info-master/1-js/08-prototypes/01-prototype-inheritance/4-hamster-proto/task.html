@@ -1,0 +1,11 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="why-are-both-hamsters-full">Why are both hamsters full?</h1>
+<p>We have two hamsters: <code>speedy</code> and <code>lazy</code> inheriting from the general <code>hamster</code> object.</p>
+<p>When we feed one of them, the other one is also full. Why? How can we fix it?</p>
+<p>```js run let hamster = { stomach: [],</p>
+<p>eat(food) { this.stomach.push(food); } };</p>
+<p>let speedy = { <strong>proto</strong>: hamster };</p>
+<p>let lazy = { <strong>proto</strong>: hamster };</p>
+<p>// This one found the food speedy.eat(“apple”); alert( speedy.stomach ); // apple</p>
+<p>// This one also has it, why? fix please. alert( lazy.stomach ); // apple ```</p>

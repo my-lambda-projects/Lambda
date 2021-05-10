@@ -1,0 +1,12 @@
+<p>There’s a catch here.</p>
+<p>At the time of <code>&lt;script&gt;</code> execution the last DOM node is exactly <code>&lt;script&gt;</code>, because the browser did not process the rest of the page yet.</p>
+<p>So the result is <code>1</code> (element node).</p>
+```html run height=60
+<html>
+<body>
+<script>
+    alert(document.body.lastChild.nodeType);
+  </script>
+</body>
+</html>
+<p>```</p>

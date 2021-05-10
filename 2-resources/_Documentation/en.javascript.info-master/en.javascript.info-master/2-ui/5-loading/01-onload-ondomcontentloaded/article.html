@@ -1,0 +1,176 @@
+<h1 id="page-domcontentloaded-load-beforeunload-unload">Page: DOMContentLoaded, load, beforeunload, unload</h1>
+<p>The lifecycle of an HTML page has three important events:</p>
+<ul>
+<li><code>DOMContentLoaded</code> – the browser fully loaded HTML, and the DOM tree is built, but external resources like pictures <code>&lt;img&gt;</code> and stylesheets may not yet have loaded.<br />
+</li>
+<li><code>load</code> – not only HTML is loaded, but also all the external resources: images, styles etc.</li>
+<li><code>beforeunload/unload</code> – the user is leaving the page.</li>
+</ul>
+<p>Each event may be useful:</p>
+<ul>
+<li><code>DOMContentLoaded</code> event – DOM is ready, so the handler can lookup DOM nodes, initialize the interface.</li>
+<li><code>load</code> event – external resources are loaded, so styles are applied, image sizes are known etc.</li>
+<li><code>beforeunload</code> event – the user is leaving: we can check if the user saved the changes and ask them whether they really want to leave.</li>
+<li><code>unload</code> – the user almost left, but we still can initiate some operations, such as sending out statistics.</li>
+</ul>
+<p>Let’s explore the details of these events.</p>
+<h2 id="domcontentloaded">DOMContentLoaded</h2>
+<p>The <code>DOMContentLoaded</code> event happens on the <code>document</code> object.</p>
+<p>We must use <code>addEventListener</code> to catch it:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">document</span>.<span class="at">addEventListener</span>(<span class="st">&quot;DOMContentLoaded&quot;</span><span class="op">,</span> ready)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="co">// not &quot;document.onDOMContentLoaded = ...&quot;</span></a></code></pre></div>
+<p>For instance:</p>
+```html run height=200 refresh
+<script>
+  function ready() {
+    alert('DOM is ready');
+
+    // image is not yet loaded (unless it was cached), so the size is 0x0
+    alert(`Image size: ${img.offsetWidth}x${img.offsetHeight}`);
+  }
+
+*!*
+  document.addEventListener("DOMContentLoaded", ready);
+*/!*
+</script>
+<p><img id="img" src="https://en.js.cx/clipart/train.gif?speed=1&cache=0"> ```</p>
+<p>In the example the <code>DOMContentLoaded</code> handler runs when the document is loaded, so it can see all the elements, including <code>&lt;img&gt;</code> below.</p>
+<p>But it doesn’t wait for the image to load. So <code>alert</code> shows zero sizes.</p>
+<p>At first sight, the <code>DOMContentLoaded</code> event is very simple. The DOM tree is ready – here’s the event. There are few peculiarities though.</p>
+<h3 id="domcontentloaded-and-scripts">DOMContentLoaded and scripts</h3>
+<p>When the browser processes an HTML-document and comes across a <code>&lt;script&gt;</code> tag, it needs to execute before continuing building the DOM. That’s a precaution, as scripts may want to modify DOM, and even <code>document.write</code> into it, so <code>DOMContentLoaded</code> has to wait.</p>
+<p>So DOMContentLoaded definitely happens after such scripts:</p>
+```html run
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    alert("DOM ready!");
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js"></script>
+<script>
+  alert("Library loaded, inline script executed");
+</script>
+<p>```</p>
+<p>In the example above, we first see “Library loaded…”, and then “DOM ready!” (all scripts are executed).</p>
+<p><code>warn header="Scripts that don't block DOMContentLoaded" There are two exceptions from this rule: 1. Scripts with the `async` attribute, that we'll cover [a bit later](info:script-async-defer), don't block `DOMContentLoaded`. 2. Scripts that are generated dynamically with `document.createElement('script')` and then added to the webpage also don't block this event.</code></p>
+<h3 id="domcontentloaded-and-styles">DOMContentLoaded and styles</h3>
+<p>External style sheets don’t affect DOM, so <code>DOMContentLoaded</code> does not wait for them.</p>
+<p>But there’s a pitfall. If we have a script after the style, then that script must wait until the stylesheet loads:</p>
+<p><code>html run &lt;link type="text/css" rel="stylesheet" href="style.css"&gt; &lt;script&gt;   // the script doesn't not execute until the stylesheet is loaded   alert(getComputedStyle(document.body).marginTop); &lt;/script&gt;</code></p>
+<p>The reason for this is that the script may want to get coordinates and other style-dependent properties of elements, like in the example above. Naturally, it has to wait for styles to load.</p>
+<p>As <code>DOMContentLoaded</code> waits for scripts, it now waits for styles before them as well.</p>
+<h3 id="built-in-browser-autofill">Built-in browser autofill</h3>
+<p>Firefox, Chrome and Opera autofill forms on <code>DOMContentLoaded</code>.</p>
+<p>For instance, if the page has a form with login and password, and the browser remembered the values, then on <code>DOMContentLoaded</code> it may try to autofill them (if approved by the user).</p>
+<p>So if <code>DOMContentLoaded</code> is postponed by long-loading scripts, then autofill also awaits. You probably saw that on some sites (if you use browser autofill) – the login/password fields don’t get autofilled immediately, but there’s a delay till the page fully loads. That’s actually the delay until the <code>DOMContentLoaded</code> event.</p>
+<h2 id="window.onload-window-onload">window.onload [#window-onload]</h2>
+<p>The <code>load</code> event on the <code>window</code> object triggers when the whole page is loaded including styles, images and other resources. This event is available via the <code>onload</code> property.</p>
+<p>The example below correctly shows image sizes, because <code>window.onload</code> waits for all images:</p>
+```html run height=200 refresh
+<script>
+  window.onload = function() { // same as window.addEventListener('load', (event) => {
+    alert('Page loaded');
+
+    // image is loaded at this time
+    alert(`Image size: ${img.offsetWidth}x${img.offsetHeight}`);
+  };
+</script>
+<p><img id="img" src="https://en.js.cx/clipart/train.gif?speed=1&cache=0"> ```</p>
+<h2 id="window.onunload">window.onunload</h2>
+<p>When a visitor leaves the page, the <code>unload</code> event triggers on <code>window</code>. We can do something there that doesn’t involve a delay, like closing related popup windows.</p>
+<p>The notable exception is sending analytics.</p>
+<p>Let’s say we gather data about how the page is used: mouse clicks, scrolls, viewed page areas, and so on.</p>
+<p>Naturally, <code>unload</code> event is when the user leaves us, and we’d like to save the data on our server.</p>
+<p>There exists a special <code>navigator.sendBeacon(url, data)</code> method for such needs, described in the specification <a href="https://w3c.github.io/beacon/" class="uri">https://w3c.github.io/beacon/</a>.</p>
+<p>It sends the data in background. The transition to another page is not delayed: the browser leaves the page, but still performs <code>sendBeacon</code>.</p>
+<p>Here’s how to use it:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> analyticsData <span class="op">=</span> <span class="op">{</span> <span class="co">/* object with gathered data */</span> <span class="op">};</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="va">window</span>.<span class="at">addEventListener</span>(<span class="st">&quot;unload&quot;</span><span class="op">,</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="va">navigator</span>.<span class="at">sendBeacon</span>(<span class="st">&quot;/analytics&quot;</span><span class="op">,</span> <span class="va">JSON</span>.<span class="at">stringify</span>(analyticsData))<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<ul>
+<li>The request is sent as POST.</li>
+<li>We can send not only a string, but also forms and other formats, as described in the chapter <a href="info:fetch" class="uri">info:fetch</a>, but usually it’s a stringified object.</li>
+<li>The data is limited by 64kb.</li>
+</ul>
+<p>When the <code>sendBeacon</code> request is finished, the browser probably has already left the document, so there’s no way to get server response (which is usually empty for analytics).</p>
+<p>There’s also a <code>keepalive</code> flag for doing such “after-page-left” requests in <a href="info:fetch">fetch</a> method for generic network requests. You can find more information in the chapter <a href="info:fetch-api" class="uri">info:fetch-api</a>.</p>
+<p>If we want to cancel the transition to another page, we can’t do it here. But we can use another event – <code>onbeforeunload</code>.</p>
+<h2 id="window.onbeforeunload-window.onbeforeunload">window.onbeforeunload [#window.onbeforeunload]</h2>
+<p>If a visitor initiated navigation away from the page or tries to close the window, the <code>beforeunload</code> handler asks for additional confirmation.</p>
+<p>If we cancel the event, the browser may ask the visitor if they are sure.</p>
+<p>You can try it by running this code and then reloading the page:</p>
+<p><code>js run window.onbeforeunload = function() {   return false; };</code></p>
+<p>For historical reasons, returning a non-empty string also counts as canceling the event. Some time ago browsers used to show it as a message, but as the <a href="https://html.spec.whatwg.org/#unloading-documents">modern specification</a> says, they shouldn’t.</p>
+<p>Here’s an example:</p>
+<p><code>js run window.onbeforeunload = function() {   return "There are unsaved changes. Leave now?"; };</code></p>
+<p>The behavior was changed, because some webmasters abused this event handler by showing misleading and annoying messages. So right now old browsers still may show it as a message, but aside of that – there’s no way to customize the message shown to the user.</p>
+<h2 id="readystate">readyState</h2>
+<p>What happens if we set the <code>DOMContentLoaded</code> handler after the document is loaded?</p>
+<p>Naturally, it never runs.</p>
+<p>There are cases when we are not sure whether the document is ready or not. We’d like our function to execute when the DOM is loaded, be it now or later.</p>
+<p>The <code>document.readyState</code> property tells us about the current loading state.</p>
+<p>There are 3 possible values:</p>
+<ul>
+<li><code>"loading"</code> – the document is loading.</li>
+<li><code>"interactive"</code> – the document was fully read.</li>
+<li><code>"complete"</code> – the document was fully read and all resources (like images) are loaded too.</li>
+</ul>
+<p>So we can check <code>document.readyState</code> and setup a handler or execute the code immediately if it’s ready.</p>
+<p>Like this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">function</span> <span class="at">work</span>() <span class="op">{</span> <span class="co">/*...*/</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="cf">if</span> (<span class="va">document</span>.<span class="at">readyState</span> <span class="op">==</span> <span class="st">&#39;loading&#39;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="co">// still loading, wait for the event</span></a>
+<a class="sourceLine" id="cb3-5" title="5">  <span class="va">document</span>.<span class="at">addEventListener</span>(<span class="st">&#39;DOMContentLoaded&#39;</span><span class="op">,</span> work)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-7" title="7">  <span class="co">// DOM is ready!</span></a>
+<a class="sourceLine" id="cb3-8" title="8">  <span class="at">work</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="op">}</span></a></code></pre></div>
+<p>There’s also the <code>readystatechange</code> event that triggers when the state changes, so we can print all these states like this:</p>
+<p>```js run // current state console.log(document.readyState);</p>
+<p>// print state changes document.addEventListener(‘readystatechange’, () =&gt; console.log(document.readyState)); ```</p>
+<p>The <code>readystatechange</code> event is an alternative mechanics of tracking the document loading state, it appeared long ago. Nowadays, it is rarely used.</p>
+<p>Let’s see the full events flow for the completeness.</p>
+<p>Here’s a document with <code>&lt;iframe&gt;</code>, <code>&lt;img&gt;</code> and handlers that log events:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">&lt;script&gt;</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="at">log</span>(<span class="st">&#39;initial readyState:&#39;</span> <span class="op">+</span> <span class="va">document</span>.<span class="at">readyState</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-3" title="3"></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="va">document</span>.<span class="at">addEventListener</span>(<span class="st">&#39;readystatechange&#39;</span><span class="op">,</span> () <span class="kw">=&gt;</span> <span class="at">log</span>(<span class="st">&#39;readyState:&#39;</span> <span class="op">+</span> <span class="va">document</span>.<span class="at">readyState</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-5" title="5">  <span class="va">document</span>.<span class="at">addEventListener</span>(<span class="st">&#39;DOMContentLoaded&#39;</span><span class="op">,</span> () <span class="kw">=&gt;</span> <span class="at">log</span>(<span class="st">&#39;DOMContentLoaded&#39;</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-6" title="6"></a>
+<a class="sourceLine" id="cb4-7" title="7">  <span class="va">window</span>.<span class="at">onload</span> <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="at">log</span>(<span class="st">&#39;window onload&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="kw">&lt;/script&gt;</span></a>
+<a class="sourceLine" id="cb4-9" title="9"></a>
+<a class="sourceLine" id="cb4-10" title="10"><span class="kw">&lt;iframe</span><span class="ot"> src=</span><span class="st">&quot;iframe.html&quot;</span><span class="ot"> onload=</span><span class="st">&quot;log(&#39;iframe onload&#39;)&quot;</span><span class="kw">&gt;&lt;/iframe&gt;</span></a>
+<a class="sourceLine" id="cb4-11" title="11"></a>
+<a class="sourceLine" id="cb4-12" title="12"><span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;http://en.js.cx/clipart/train.gif&quot;</span><span class="ot"> id=</span><span class="st">&quot;img&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb4-13" title="13"><span class="kw">&lt;script&gt;</span></a>
+<a class="sourceLine" id="cb4-14" title="14">  <span class="va">img</span>.<span class="at">onload</span> <span class="op">=</span> () <span class="kw">=&gt;</span> <span class="at">log</span>(<span class="st">&#39;img onload&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-15" title="15"><span class="kw">&lt;/script&gt;</span></a></code></pre></div>
+<p>The working example is <a href="sandbox:readystate">in the sandbox</a>.</p>
+<p>The typical output: 1. [1] initial readyState:loading 2. [2] readyState:interactive 3. [2] DOMContentLoaded 4. [3] iframe onload 5. [4] img onload 6. [4] readyState:complete 7. [4] window onload</p>
+<p>The numbers in square brackets denote the approximate time of when it happens. Events labeled with the same digit happen approximately at the same time (+- a few ms).</p>
+<ul>
+<li><code>document.readyState</code> becomes <code>interactive</code> right before <code>DOMContentLoaded</code>. These two things actually mean the same.</li>
+<li><code>document.readyState</code> becomes <code>complete</code> when all resources (<code>iframe</code> and <code>img</code>) are loaded. Here we can see that it happens in about the same time as <code>img.onload</code> (<code>img</code> is the last resource) and <code>window.onload</code>. Switching to <code>complete</code> state means the same as <code>window.onload</code>. The difference is that <code>window.onload</code> always works after all other <code>load</code> handlers.</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>Page load events:</p>
+<ul>
+<li>The <code>DOMContentLoaded</code> event triggers on <code>document</code> when the DOM is ready. We can apply JavaScript to elements at this stage.
+<ul>
+<li>Script such as <code>&lt;script&gt;...&lt;/script&gt;</code> or <code>&lt;script src="..."&gt;&lt;/script&gt;</code> block DOMContentLoaded, the browser waits for them to execute.</li>
+<li>Images and other resources may also still continue loading.</li>
+</ul></li>
+<li>The <code>load</code> event on <code>window</code> triggers when the page and all resources are loaded. We rarely use it, because there’s usually no need to wait for so long.</li>
+<li>The <code>beforeunload</code> event on <code>window</code> triggers when the user wants to leave the page. If we cancel the event, browser asks whether the user really wants to leave (e.g we have unsaved changes).</li>
+<li>The <code>unload</code> event on <code>window</code> triggers when the user is finally leaving, in the handler we can only do simple things that do not involve delays or asking a user. Because of that limitation, it’s rarely used. We can send out a network request with <code>navigator.sendBeacon</code>.</li>
+<li><code>document.readyState</code> is the current state of the document, changes can be tracked in the <code>readystatechange</code> event:
+<ul>
+<li><code>loading</code> – the document is loading.</li>
+<li><code>interactive</code> – the document is parsed, happens at about the same time as <code>DOMContentLoaded</code>, but before it.</li>
+<li><code>complete</code> – the document and resources are loaded, happens at about the same time as <code>window.onload</code>, but before it.</li>
+</ul></li>
+</ul>

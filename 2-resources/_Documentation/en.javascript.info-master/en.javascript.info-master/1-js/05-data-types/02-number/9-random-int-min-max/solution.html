@@ -1,0 +1,19 @@
+<h1 id="the-simple-but-wrong-solution">The simple but wrong solution</h1>
+<p>The simplest, but wrong solution would be to generate a value from <code>min</code> to <code>max</code> and round it:</p>
+<p>```js run function randomInteger(min, max) { let rand = min + Math.random() * (max - min); return Math.round(rand); }</p>
+<p>alert( randomInteger(1, 3) ); ```</p>
+<p>The function works, but it is incorrect. The probability to get edge values <code>min</code> and <code>max</code> is two times less than any other.</p>
+<p>If you run the example above many times, you would easily see that <code>2</code> appears the most often.</p>
+<p>That happens because <code>Math.round()</code> gets random numbers from the interval <code>1..3</code> and rounds them as follows:</p>
+<p><code>js no-beautify values from 1    ... to 1.4999999999  become 1 values from 1.5  ... to 2.4999999999  become 2 values from 2.5  ... to 2.9999999999  become 3</code></p>
+<p>Now we can clearly see that <code>1</code> gets twice less values than <code>2</code>. And the same with <code>3</code>.</p>
+<h1 id="the-correct-solution">The correct solution</h1>
+<p>There are many correct solutions to the task. One of them is to adjust interval borders. To ensure the same intervals, we can generate values from <code>0.5 to 3.5</code>, thus adding the required probabilities to the edges:</p>
+<p>```js run <em>!</em> function randomInteger(min, max) { // now rand is from (min-0.5) to (max+0.5) let rand = min - 0.5 + Math.random() * (max - min + 1); return Math.round(rand); } <em>/!</em></p>
+<p>alert( randomInteger(1, 3) ); ```</p>
+<p>An alternative way could be to use <code>Math.floor</code> for a random number from <code>min</code> to <code>max+1</code>:</p>
+<p>```js run <em>!</em> function randomInteger(min, max) { // here rand is from min to (max+1) let rand = min + Math.random() * (max + 1 - min); return Math.floor(rand); } <em>/!</em></p>
+<p>alert( randomInteger(1, 3) ); ```</p>
+<p>Now all intervals are mapped this way:</p>
+<p><code>js no-beautify values from 1  ... to 1.9999999999  become 1 values from 2  ... to 2.9999999999  become 2 values from 3  ... to 3.9999999999  become 3</code></p>
+<p>All intervals have the same length, making the final distribution uniform.</p>

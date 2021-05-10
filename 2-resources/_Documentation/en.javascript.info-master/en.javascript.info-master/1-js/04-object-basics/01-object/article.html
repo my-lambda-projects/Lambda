@@ -1,0 +1,205 @@
+<h1 id="objects">Objects</h1>
+<p>As we know from the chapter <a href="info:types" class="uri">info:types</a>, there are eight data types in JavaScript. Seven of them are called “primitive”, because their values contain only a single thing (be it a string or a number or whatever).</p>
+<p>In contrast, objects are used to store keyed collections of various data and more complex entities. In JavaScript, objects penetrate almost every aspect of the language. So we must understand them first before going in-depth anywhere else.</p>
+<p>An object can be created with figure brackets <code>{…}</code> with an optional list of <em>properties</em>. A property is a “key: value” pair, where <code>key</code> is a string (also called a “property name”), and <code>value</code> can be anything.</p>
+<p>We can imagine an object as a cabinet with signed files. Every piece of data is stored in its file by the key. It’s easy to find a file by its name or add/remove a file.</p>
+<p><img src="object.svg" /></p>
+<p>An empty object (“empty cabinet”) can be created using one of two syntaxes:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> user <span class="op">=</span> <span class="kw">new</span> <span class="at">Object</span>()<span class="op">;</span> <span class="co">// &quot;object constructor&quot; syntax</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">let</span> user <span class="op">=</span> <span class="op">{};</span>  <span class="co">// &quot;object literal&quot; syntax</span></a></code></pre></div>
+<p><img src="object-user-empty.svg" /></p>
+<p>Usually, the figure brackets <code>{...}</code> are used. That declaration is called an <em>object literal</em>.</p>
+<h2 id="literals-and-properties">Literals and properties</h2>
+<p>We can immediately put some properties into <code>{...}</code> as “key: value” pairs:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> user <span class="op">=</span> <span class="op">{</span>     <span class="co">// an object</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;John&quot;</span><span class="op">,</span>  <span class="co">// by key &quot;name&quot; store value &quot;John&quot;</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  <span class="dt">age</span><span class="op">:</span> <span class="dv">30</span>        <span class="co">// by key &quot;age&quot; store value 30</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="op">};</span></a></code></pre></div>
+<p>A property has a key (also known as “name” or “identifier”) before the colon <code>":"</code> and a value to the right of it.</p>
+<p>In the <code>user</code> object, there are two properties:</p>
+<ol type="1">
+<li>The first property has the name <code>"name"</code> and the value <code>"John"</code>.</li>
+<li>The second one has the name <code>"age"</code> and the value <code>30</code>.</li>
+</ol>
+<p>The resulting <code>user</code> object can be imagined as a cabinet with two signed files labeled “name” and “age”.</p>
+<figure>
+<img src="object-user.svg" alt="user object" /><figcaption>user object</figcaption>
+</figure>
+<p>We can add, remove and read files from it any time.</p>
+<p>Property values are accessible using the dot notation:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// get property values of the object:</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="at">alert</span>( <span class="va">user</span>.<span class="at">name</span> )<span class="op">;</span> <span class="co">// John</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="at">alert</span>( <span class="va">user</span>.<span class="at">age</span> )<span class="op">;</span> <span class="co">// 30</span></a></code></pre></div>
+<p>The value can be of any type. Let’s add a boolean one:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">user</span>.<span class="at">isAdmin</span> <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></a></code></pre></div>
+<figure>
+<img src="object-user-isadmin.svg" alt="user object 2" /><figcaption>user object 2</figcaption>
+</figure>
+<p>To remove a property, we can use <code>delete</code> operator:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">delete</span> <span class="va">user</span>.<span class="at">age</span><span class="op">;</span></a></code></pre></div>
+<figure>
+<img src="object-user-delete.svg" alt="user object 3" /><figcaption>user object 3</figcaption>
+</figure>
+<p>We can also use multiword property names, but then they must be quoted:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">let</span> user <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" title="2">  <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;John&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-3" title="3">  <span class="dt">age</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-4" title="4">  <span class="st">&quot;likes birds&quot;</span><span class="op">:</span> <span class="kw">true</span>  <span class="co">// multiword property name must be quoted</span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="op">};</span></a></code></pre></div>
+<p><img src="object-user-props.svg" /></p>
+<p>The last property in the list may end with a comma:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">let</span> user <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;John&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  <span class="dt">age</span><span class="op">:</span> <span class="dv">30</span><span class="op">*!*,*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="ss">}</span></a></code></pre></div>
+<p>That is called a “trailing” or “hanging” comma. Makes it easier to add/remove/move around properties, because all lines become alike.</p>
+<h2 id="square-brackets">Square brackets</h2>
+<p>For multiword properties, the dot access doesn’t work:</p>
+<p><code>js run // this would give a syntax error user.likes birds = true</code></p>
+<p>JavaScript doesn’t understand that. It thinks that we address <code>user.likes</code>, and then gives a syntax error when comes across unexpected <code>birds</code>.</p>
+<p>The dot requires the key to be a valid variable identifier. That implies: contains no spaces, doesn’t start with a digit and doesn’t include special characters (<code>$</code> and <code>_</code> are allowed).</p>
+<p>There’s an alternative “square bracket notation” that works with any string:</p>
+<p>```js run let user = {};</p>
+<p>// set user[“likes birds”] = true;</p>
+<p>// get alert(user[“likes birds”]); // true</p>
+<p>// delete delete user[“likes birds”]; ```</p>
+<p>Now everything is fine. Please note that the string inside the brackets is properly quoted (any type of quotes will do).</p>
+<p>Square brackets also provide a way to obtain the property name as the result of any expression – as opposed to a literal string – like from a variable as follows:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">let</span> key <span class="op">=</span> <span class="st">&quot;likes birds&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb8-2" title="2"></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="co">// same as user[&quot;likes birds&quot;] = true;</span></a>
+<a class="sourceLine" id="cb8-4" title="4">user[key] <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></a></code></pre></div>
+<p>Here, the variable <code>key</code> may be calculated at run-time or depend on the user input. And then we use it to access the property. That gives us a great deal of flexibility.</p>
+<p>For instance:</p>
+<p>```js run let user = { name: “John”, age: 30 };</p>
+<p>let key = prompt(“What do you want to know about the user?”, “name”);</p>
+<p>// access by variable alert( user[key] ); // John (if enter “name”) ```</p>
+<p>The dot notation cannot be used in a similar way:</p>
+<p>```js run let user = { name: “John”, age: 30 };</p>
+<p>let key = “name”; alert( user.key ) // undefined ```</p>
+<h3 id="computed-properties">Computed properties</h3>
+<p>We can use square brackets in an object literal, when creating an object. That’s called <em>computed properties</em>.</p>
+<p>For instance:</p>
+<p>```js run let fruit = prompt(“Which fruit to buy?”, “apple”);</p>
+<p>let bag = { <em>!</em> [fruit]: 5, // the name of the property is taken from the variable fruit <em>/!</em> };</p>
+<p>alert( bag.apple ); // 5 if fruit=“apple” ```</p>
+<p>The meaning of a computed property is simple: <code>[fruit]</code> means that the property name should be taken from <code>fruit</code>.</p>
+<p>So, if a visitor enters <code>"apple"</code>, <code>bag</code> will become <code>{apple: 5}</code>.</p>
+<p>Essentially, that works the same as: ```js run let fruit = prompt(“Which fruit to buy?”, “apple”); let bag = {};</p>
+<p>// take property name from the fruit variable bag[fruit] = 5; ```</p>
+<p>…But looks nicer.</p>
+<p>We can use more complex expressions inside square brackets:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">let</span> fruit <span class="op">=</span> <span class="st">&#39;apple&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="kw">let</span> bag <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-3" title="3">  [fruit <span class="op">+</span> <span class="st">&#39;Computers&#39;</span>]<span class="op">:</span> <span class="dv">5</span> <span class="co">// bag.appleComputers = 5</span></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="op">};</span></a></code></pre></div>
+<p>Square brackets are much more powerful than the dot notation. They allow any property names and variables. But they are also more cumbersome to write.</p>
+<p>So most of the time, when property names are known and simple, the dot is used. And if we need something more complex, then we switch to square brackets.</p>
+<h2 id="property-value-shorthand">Property value shorthand</h2>
+<p>In real code we often use existing variables as values for property names.</p>
+<p>For instance:</p>
+<p>```js run function makeUser(name, age) { return { name: name, age: age, // …other properties }; }</p>
+<p>let user = makeUser(“John”, 30); alert(user.name); // John ```</p>
+<p>In the example above, properties have the same names as variables. The use-case of making a property from a variable is so common, that there’s a special <em>property value shorthand</em> to make it shorter.</p>
+<p>Instead of <code>name:name</code> we can just write <code>name</code>, like this:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">function</span> <span class="at">makeUser</span>(name<span class="op">,</span> age) <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb10-3" title="3">  <span class="cf">return</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-4" title="4">    name<span class="op">,</span> <span class="co">// same as name: name</span></a>
+<a class="sourceLine" id="cb10-5" title="5">    age<span class="op">,</span>  <span class="co">// same as age: age</span></a>
+<a class="sourceLine" id="cb10-6" title="6">    <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb10-7" title="7">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb10-8" title="8"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb10-9" title="9"><span class="ss">}</span></a></code></pre></div>
+<p>We can use both normal properties and shorthands in the same object:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">let</span> user <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-2" title="2">  name<span class="op">,</span>  <span class="co">// same as name:name</span></a>
+<a class="sourceLine" id="cb11-3" title="3">  <span class="dt">age</span><span class="op">:</span> <span class="dv">30</span></a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="op">};</span></a></code></pre></div>
+<h2 id="property-names-limitations">Property names limitations</h2>
+<p>As we already know, a variable cannot have a name equal to one of language-reserved words like “for”, “let”, “return” etc.</p>
+<p>But for an object property, there’s no such restriction:</p>
+<p>```js run // these properties are all right let obj = { for: 1, let: 2, return: 3 };</p>
+<p>alert( obj.for + obj.let + obj.return ); // 6 ```</p>
+<p>In short, there are no limitations on property names. They can be any strings or symbols (a special type for identifiers, to be covered later).</p>
+<p>Other types are automatically converted to strings.</p>
+<p>For instance, a number <code>0</code> becomes a string <code>"0"</code> when used as a property key:</p>
+<p>```js run let obj = { 0: “test” // same as “0”: “test” };</p>
+<p>// both alerts access the same property (the number 0 is converted to string “0”) alert( obj[“0”] ); // test alert( obj[0] ); // test (same property) ```</p>
+<p>There’s a minor gotcha with a special property named <code>__proto__</code>. We can’t set it to a non-object value:</p>
+<p><code>js run let obj = {}; obj.__proto__ = 5; // assign a number alert(obj.__proto__); // [object Object] - the value is an object, didn't work as intended</code></p>
+<p>As we see from the code, the assignment to a primitive <code>5</code> is ignored.</p>
+<p>We’ll cover the special nature of <code>__proto__</code> in <a href="info:prototype-inheritance">subsequent chapters</a>, and suggest the <a href="info:prototype-methods">ways to fix</a> such behavior.</p>
+<h2 id="property-existence-test-in-operator">Property existence test, “in” operator</h2>
+<p>A notable feature of objects in JavaScript, compared to many other languages, is that it’s possible to access any property. There will be no error if the property doesn’t exist!</p>
+<p>Reading a non-existing property just returns <code>undefined</code>. So we can easily test whether the property exists:</p>
+<p>```js run let user = {};</p>
+<p>alert( user.noSuchProperty === undefined ); // true means “no such property” ```</p>
+<p>There’s also a special operator <code>"in"</code> for that.</p>
+<p>The syntax is:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="st">&quot;key&quot;</span> <span class="kw">in</span> object</a></code></pre></div>
+<p>For instance:</p>
+<p>```js run let user = { name: “John”, age: 30 };</p>
+<p>alert( “age” in user ); // true, user.age exists alert( “blabla” in user ); // false, user.blabla doesn’t exist ```</p>
+<p>Please note that on the left side of <code>in</code> there must be a <em>property name</em>. That’s usually a quoted string.</p>
+<p>If we omit quotes, that means a variable, it should contain the actual name to be tested. For instance:</p>
+<p>```js run let user = { age: 30 };</p>
+<p>let key = “age”; alert( <em>!</em>key<em>/!</em> in user ); // true, property “age” exists ```</p>
+<p>Why does the <code>in</code> operator exist? Isn’t it enough to compare against <code>undefined</code>?</p>
+<p>Well, most of the time the comparison with <code>undefined</code> works fine. But there’s a special case when it fails, but <code>"in"</code> works correctly.</p>
+<p>It’s when an object property exists, but stores <code>undefined</code>:</p>
+<p>```js run let obj = { test: undefined };</p>
+<p>alert( obj.test ); // it’s undefined, so - no such property?</p>
+<p>alert( “test” in obj ); // true, the property does exist! ```</p>
+<p>In the code above, the property <code>obj.test</code> technically exists. So the <code>in</code> operator works right.</p>
+<p>Situations like this happen very rarely, because <code>undefined</code> should not be explicitly assigned. We mostly use <code>null</code> for “unknown” or “empty” values. So the <code>in</code> operator is an exotic guest in the code.</p>
+<h2 id="the-for..in-loop">The “for..in” loop</h2>
+<p>To walk over all keys of an object, there exists a special form of the loop: <code>for..in</code>. This is a completely different thing from the <code>for(;;)</code> construct that we studied before.</p>
+<p>The syntax:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" title="1"><span class="cf">for</span> (key <span class="kw">in</span> object) <span class="op">{</span></a>
+<a class="sourceLine" id="cb13-2" title="2">  <span class="co">// executes the body for each key among object properties</span></a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>For instance, let’s output all properties of <code>user</code>:</p>
+<p>```js run let user = { name: “John”, age: 30, isAdmin: true };</p>
+<p>for (let key in user) { // keys alert( key ); // name, age, isAdmin // values for the keys alert( user[key] ); // John, 30, true } ```</p>
+<p>Note that all “for” constructs allow us to declare the looping variable inside the loop, like <code>let key</code> here.</p>
+<p>Also, we could use another variable name here instead of <code>key</code>. For instance, <code>"for (let prop in obj)"</code> is also widely used.</p>
+<h3 id="ordered-like-an-object">Ordered like an object</h3>
+<p>Are objects ordered? In other words, if we loop over an object, do we get all properties in the same order they were added? Can we rely on this?</p>
+<p>The short answer is: “ordered in a special fashion”: integer properties are sorted, others appear in creation order. The details follow.</p>
+<p>As an example, let’s consider an object with the phone codes:</p>
+<p>```js run let codes = { “49”: “Germany”, “41”: “Switzerland”, “44”: “Great Britain”, // .., “1”: “USA” };</p>
+<p><em>!</em> for (let code in codes) { alert(code); // 1, 41, 44, 49 } <em>/!</em> ```</p>
+<p>The object may be used to suggest a list of options to the user. If we’re making a site mainly for German audience then we probably want <code>49</code> to be the first.</p>
+<p>But if we run the code, we see a totally different picture:</p>
+<ul>
+<li>USA (1) goes first</li>
+<li>then Switzerland (41) and so on.</li>
+</ul>
+<p>The phone codes go in the ascending sorted order, because they are integers. So we see <code>1, 41, 44, 49</code>.</p>
+<p>````smart header=“Integer properties? What’s that?” The “integer property” term here means a string that can be converted to-and-from an integer without a change.</p>
+<p>So, “49” is an integer property name, because when it’s transformed to an integer number and back, it’s still the same. But “+49” and “1.2” are not:</p>
+<p><code>js run // Math.trunc is a built-in function that removes the decimal part alert( String(Math.trunc(Number("49"))) ); // "49", same, integer property alert( String(Math.trunc(Number("+49"))) ); // "49", not same "+49" ⇒ not integer property alert( String(Math.trunc(Number("1.2"))) ); // "1", not same "1.2" ⇒ not integer property</code> ````</p>
+<p>…On the other hand, if the keys are non-integer, then they are listed in the creation order, for instance:</p>
+<p>```js run let user = { name: “John”, surname: “Smith” }; user.age = 25; // add one more</p>
+<p><em>!</em> // non-integer properties are listed in the creation order <em>/!</em> for (let prop in user) { alert( prop ); // name, surname, age } ```</p>
+<p>So, to fix the issue with the phone codes, we can “cheat” by making the codes non-integer. Adding a plus <code>"+"</code> sign before each code is enough.</p>
+<p>Like this:</p>
+<p>```js run let codes = { “+49”: “Germany”, “+41”: “Switzerland”, “+44”: “Great Britain”, // .., “+1”: “USA” };</p>
+<p>for (let code in codes) { alert( +code ); // 49, 41, 44, 1 } ```</p>
+<p>Now it works as intended.</p>
+<h2 id="summary">Summary</h2>
+<p>Objects are associative arrays with several special features.</p>
+<p>They store properties (key-value pairs), where: - Property keys must be strings or symbols (usually strings). - Values can be of any type.</p>
+<p>To access a property, we can use: - The dot notation: <code>obj.property</code>. - Square brackets notation <code>obj["property"]</code>. Square brackets allow to take the key from a variable, like <code>obj[varWithKey]</code>.</p>
+<p>Additional operators: - To delete a property: <code>delete obj.prop</code>. - To check if a property with the given key exists: <code>"key" in obj</code>. - To iterate over an object: <code>for (let key in obj)</code> loop.</p>
+<p>What we’ve studied in this chapter is called a “plain object”, or just <code>Object</code>.</p>
+<p>There are many other kinds of objects in JavaScript:</p>
+<ul>
+<li><code>Array</code> to store ordered data collections,</li>
+<li><code>Date</code> to store the information about the date and time,</li>
+<li><code>Error</code> to store the information about an error.</li>
+<li>…And so on.</li>
+</ul>
+<p>They have their special features that we’ll study later. Sometimes people say something like “Array type” or “Date type”, but formally they are not types of their own, but belong to a single “object” data type. And they extend it in various ways.</p>
+<p>Objects in JavaScript are very powerful. Here we’ve just scratched the surface of a topic that is really huge. We’ll be closely working with objects and learning more about them in further parts of the tutorial.</p>

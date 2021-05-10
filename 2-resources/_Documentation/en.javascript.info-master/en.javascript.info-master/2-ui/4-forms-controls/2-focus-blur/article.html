@@ -1,0 +1,157 @@
+<h1 id="focusing-focusblur">Focusing: focus/blur</h1>
+<p>An element receives the focus when the user either clicks on it or uses the <code>key:Tab</code> key on the keyboard. There’s also an <code>autofocus</code> HTML attribute that puts the focus onto an element by default when a page loads and other means of getting the focus.</p>
+<p>Focusing on an element generally means: “prepare to accept the data here”, so that’s the moment when we can run the code to initialize the required functionality.</p>
+<p>The moment of losing the focus (“blur”) can be even more important. That’s when a user clicks somewhere else or presses <code>key:Tab</code> to go to the next form field, or there are other means as well.</p>
+<p>Losing the focus generally means: “the data has been entered”, so we can run the code to check it or even to save it to the server and so on.</p>
+<p>There are important peculiarities when working with focus events. We’ll do the best to cover them further on.</p>
+<h2 id="events-focusblur">Events focus/blur</h2>
+<p>The <code>focus</code> event is called on focusing, and <code>blur</code> – when the element loses the focus.</p>
+<p>Let’s use them for validation of an input field.</p>
+<p>In the example below:</p>
+<ul>
+<li>The <code>blur</code> handler checks if the field has an email entered, and if not – shows an error.</li>
+<li>The <code>focus</code> handler hides the error message (on <code>blur</code> it will be checked again):</li>
+</ul>
+```html run autorun height=60
+<style>
+  .invalid { border-color: red; }
+  #error { color: red }
+</style>
+<p>Your email please: <input type="email" id="input"></p>
+<div id="error">
+
+</div>
+<script>
+*!*input.onblur*/!* = function() {
+  if (!input.value.includes('@')) { // not email
+    input.classList.add('invalid');
+    error.innerHTML = 'Please enter a correct email.'
+  }
+};
+
+*!*input.onfocus*/!* = function() {
+  if (this.classList.contains('invalid')) {
+    // remove the "error" indication, because the user wants to re-enter something
+    this.classList.remove('invalid');
+    error.innerHTML = "";
+  }
+};
+</script>
+<p>```</p>
+<p>Modern HTML allows us to do many validations using input attributes: <code>required</code>, <code>pattern</code> and so on. And sometimes they are just what we need. JavaScript can be used when we want more flexibility. Also we could automatically send the changed value to the server if it’s correct.</p>
+<h2 id="methods-focusblur">Methods focus/blur</h2>
+<p>Methods <code>elem.focus()</code> and <code>elem.blur()</code> set/unset the focus on the element.</p>
+<p>For instance, let’s make the visitor unable to leave the input if the value is invalid:</p>
+```html run autorun height=80
+<style>
+  .error {
+    background: red;
+  }
+</style>
+<p>Your email please: <input type="email" id="input"> <input type="text" style="width:220px" placeholder="make email invalid and try to focus here"></p>
+<script>
+  input.onblur = function() {
+    if (!this.value.includes('@')) { // not email
+      // show the error
+      this.classList.add("error");
+*!*
+      // ...and put the focus back
+      input.focus();
+*/!*
+    } else {
+      this.classList.remove("error");
+    }
+  };
+</script>
+<p>```</p>
+<p>It works in all browsers except Firefox (<a href="https://bugzilla.mozilla.org/show_bug.cgi?id=53579">bug</a>).</p>
+<p>If we enter something into the input and then try to use <code>key:Tab</code> or click away from the <code>&lt;input&gt;</code>, then <code>onblur</code> returns the focus back.</p>
+<p>Please note that we can’t “prevent losing focus” by calling <code>event.preventDefault()</code> in <code>onblur</code>, because <code>onblur</code> works <em>after</em> the element lost the focus.</p>
+<p>```warn header=“JavaScript-initiated focus loss” A focus loss can occur for many reasons.</p>
+<p>One of them is when the visitor clicks somewhere else. But also JavaScript itself may cause it, for instance:</p>
+<ul>
+<li>An <code>alert</code> moves focus to itself, so it causes the focus loss at the element (<code>blur</code> event), and when the <code>alert</code> is dismissed, the focus comes back (<code>focus</code> event).</li>
+<li>If an element is removed from DOM, then it also causes the focus loss. If it is reinserted later, then the focus doesn’t return.</li>
+</ul>
+<p>These features sometimes cause <code>focus/blur</code> handlers to misbehave – to trigger when they are not needed.</p>
+<p>The best recipe is to be careful when using these events. If we want to track user-initiated focus-loss, then we should avoid causing it ourselves. ``` ## Allow focusing on any element: tabindex</p>
+<p>By default many elements do not support focusing.</p>
+<p>The list varies a bit between browsers, but one thing is always correct: <code>focus/blur</code> support is guaranteed for elements that a visitor can interact with: <code>&lt;button&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;select&gt;</code>, <code>&lt;a&gt;</code> and so on.</p>
+<p>On the other hand, elements that exist to format something, such as <code>&lt;div&gt;</code>, <code>&lt;span&gt;</code>, <code>&lt;table&gt;</code> – are unfocusable by default. The method <code>elem.focus()</code> doesn’t work on them, and <code>focus/blur</code> events are never triggered.</p>
+<p>This can be changed using HTML-attribute <code>tabindex</code>.</p>
+<p>Any element becomes focusable if it has <code>tabindex</code>. The value of the attribute is the order number of the element when <code>key:Tab</code> (or something like that) is used to switch between them.</p>
+<p>That is: if we have two elements, the first has <code>tabindex="1"</code>, and the second has <code>tabindex="2"</code>, then pressing <code>key:Tab</code> while in the first element – moves the focus into the second one.</p>
+<p>The switch order is: elements with <code>tabindex</code> from <code>1</code> and above go first (in the <code>tabindex</code> order), and then elements without <code>tabindex</code> (e.g. a regular <code>&lt;input&gt;</code>).</p>
+<p>Elements with matching <code>tabindex</code> are switched in the document source order (the default order).</p>
+<p>There are two special values:</p>
+<ul>
+<li><p><code>tabindex="0"</code> puts an element among those without <code>tabindex</code>. That is, when we switch elements, elements with <code>tabindex=0</code> go after elements with <code>tabindex ≥ 1</code>.</p>
+<p>Usually it’s used to make an element focusable, but keep the default switching order. To make an element a part of the form on par with <code>&lt;input&gt;</code>.</p></li>
+<li><p><code>tabindex="-1"</code> allows only programmatic focusing on an element. The <code>key:Tab</code> key ignores such elements, but method <code>elem.focus()</code> works.</p></li>
+</ul>
+<p>For instance, here’s a list. Click the first item and press <code>key:Tab</code>:</p>
+```html autorun no-beautify Click the first item and press Tab. Keep track of the order. Please note that many subsequent Tabs can move the focus out of the iframe in the example.
+<ul>
+<li tabindex="1">
+One
+</li>
+<li tabindex="0">
+Zero
+</li>
+<li tabindex="2">
+Two
+</li>
+<li tabindex="-1">
+Minus one
+</li>
+</ul>
+<style>
+  li { cursor: pointer; }
+  :focus { outline: 1px dashed green; }
+</style>
+<p>```</p>
+<p>The order is like this: <code>1 - 2 - 0</code>. Normally, <code>&lt;li&gt;</code> does not support focusing, but <code>tabindex</code> full enables it, along with events and styling with <code>:focus</code>.</p>
+<p><code>smart header="The property `elem.tabIndex` works too" We can add `tabindex` from JavaScript by using the `elem.tabIndex` property. That has the same effect.</code></p>
+<h2 id="delegation-focusinfocusout">Delegation: focusin/focusout</h2>
+<p>Events <code>focus</code> and <code>blur</code> do not bubble.</p>
+<p>For instance, we can’t put <code>onfocus</code> on the <code>&lt;form&gt;</code> to highlight it, like this:</p>
+```html autorun height=80 <!-- on focusing in the form -- add the class --> &lt;form <em>!</em>onfocus=“this.className=‘focused’”<em>/!</em>&gt; <input type="text" name="name" value="Name"> <input type="text" name="surname" value="Surname">
+</form>
+<style> .focused { outline: 1px solid red; } </style>
+<p>```</p>
+<p>The example above doesn’t work, because when user focuses on an <code>&lt;input&gt;</code>, the <code>focus</code> event triggers on that input only. It doesn’t bubble up. So <code>form.onfocus</code> never triggers.</p>
+<p>There are two solutions.</p>
+<p>First, there’s a funny historical feature: <code>focus/blur</code> do not bubble up, but propagate down on the capturing phase.</p>
+<p>This will work:</p>
+```html autorun height=80
+<form id="form">
+<input type="text" name="name" value="Name"> <input type="text" name="surname" value="Surname">
+</form>
+<style> .focused { outline: 1px solid red; } </style>
+<script>
+*!*
+  // put the handler on capturing phase (last argument true)
+  form.addEventListener("focus", () => form.classList.add('focused'), true);
+  form.addEventListener("blur", () => form.classList.remove('focused'), true);
+*/!*
+</script>
+<p>```</p>
+<p>Second, there are <code>focusin</code> and <code>focusout</code> events – exactly the same as <code>focus/blur</code>, but they bubble.</p>
+<p>Note that they must be assigned using <code>elem.addEventListener</code>, not <code>on&lt;event&gt;</code>.</p>
+<p>So here’s another working variant:</p>
+```html autorun height=80
+<form id="form">
+<input type="text" name="name" value="Name"> <input type="text" name="surname" value="Surname">
+</form>
+<style> .focused { outline: 1px solid red; } </style>
+<script>
+*!*
+  form.addEventListener("focusin", () => form.classList.add('focused'));
+  form.addEventListener("focusout", () => form.classList.remove('focused'));
+*/!*
+</script>
+<p>```</p>
+<h2 id="summary">Summary</h2>
+<p>Events <code>focus</code> and <code>blur</code> trigger on an element focusing/losing focus.</p>
+<p>Their specials are: - They do not bubble. Can use capturing state instead or <code>focusin/focusout</code>. - Most elements do not support focus by default. Use <code>tabindex</code> to make anything focusable.</p>
+<p>The current focused element is available as <code>document.activeElement</code>.</p>

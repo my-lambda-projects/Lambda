@@ -1,0 +1,3 @@
+<p>The maximal length must be <code>maxlength</code>, so we need to cut it a little shorter, to give space for the ellipsis.</p>
+<p>Note that there is actually a single Unicode character for an ellipsis. That’s not three dots.</p>
+<p><code>js run demo function truncate(str, maxlength) {   return (str.length &gt; maxlength) ?     str.slice(0, maxlength - 1) + '…' : str; }</code></p>

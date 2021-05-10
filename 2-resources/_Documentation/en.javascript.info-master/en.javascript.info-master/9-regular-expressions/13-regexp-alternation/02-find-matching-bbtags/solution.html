@@ -1,0 +1,8 @@
+<p>Opening tag is <code>pattern:\[(b|url|quote)\]</code>.</p>
+<p>Then to find everything till the closing tag – let’s use the pattern <code>pattern:.*?</code> with flag <code>pattern:s</code> to match any character including the newline and then add a backreference to the closing tag.</p>
+<p>The full pattern: <code>pattern:\[(b|url|quote)\].*?\[/\1\]</code>.</p>
+<p>In action:</p>
+<p>```js run let regexp = /[(b|url|quote)].*?[/\1]/gs;</p>
+<p>let str = <code>[b]hello![/b]   [quote]     [url]http://google.com[/url]   [/quote]</code>;</p>
+<p>alert( str.match(regexp) ); // [b]hello[/b],[quote][url]http://google.com[/url][/quote] ```</p>
+<p>Please note that besides escaping <code>pattern:[</code> and <code>pattern:]</code>, we had to escape a slash for the closing tag <code>pattern:[\/\1]</code>, because normally the slash closes the pattern.</p>

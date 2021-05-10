@@ -1,0 +1,12 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="deposit-calculator">Deposit calculator</h1>
+<p>Create an interface that allows to enter a sum of bank deposit and percentage, then calculates how much it will be after given periods of time.</p>
+<p>Here’s the demo:</p>
+<p>[iframe src=“solution” height=“350” border=“1”]</p>
+<p>Any input change should be processed immediately.</p>
+<p>The formula is:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// initial: the initial money sum</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="co">// interest: e.g. 0.05 means 5% per year</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="co">// years: how many years to wait</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">let</span> result <span class="op">=</span> <span class="va">Math</span>.<span class="at">round</span>(initial <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> interest <span class="op">*</span> years))<span class="op">;</span></a></code></pre></div>

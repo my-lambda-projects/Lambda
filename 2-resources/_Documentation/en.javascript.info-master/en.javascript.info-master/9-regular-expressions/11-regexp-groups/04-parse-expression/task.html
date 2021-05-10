@@ -1,0 +1,22 @@
+<h1 id="parse-an-expression">Parse an expression</h1>
+<p>An arithmetical expression consists of 2 numbers and an operator between them, for instance:</p>
+<ul>
+<li><code>1 + 2</code></li>
+<li><code>1.2 * 3.4</code></li>
+<li><code>-3 / -6</code></li>
+<li><code>-2 - 2</code></li>
+</ul>
+<p>The operator is one of: <code>"+"</code>, <code>"-"</code>, <code>"*"</code> or <code>"/"</code>.</p>
+<p>There may be extra spaces at the beginning, at the end or between the parts.</p>
+<p>Create a function <code>parse(expr)</code> that takes an expression and returns an array of 3 items:</p>
+<ol type="1">
+<li>The first number.</li>
+<li>The operator.</li>
+<li>The second number.</li>
+</ol>
+<p>For example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> [a<span class="op">,</span> op<span class="op">,</span> b] <span class="op">=</span> <span class="at">parse</span>(<span class="st">&quot;1.2 * 3.4&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="at">alert</span>(a)<span class="op">;</span> <span class="co">// 1.2</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="at">alert</span>(op)<span class="op">;</span> <span class="co">// *</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="at">alert</span>(b)<span class="op">;</span> <span class="co">// 3.4</span></a></code></pre></div>

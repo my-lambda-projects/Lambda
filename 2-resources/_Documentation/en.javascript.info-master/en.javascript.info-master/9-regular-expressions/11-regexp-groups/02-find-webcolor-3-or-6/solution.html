@@ -1,0 +1,12 @@
+<p>A regexp to search 3-digit color <code>#abc</code>: <code>pattern:/#[a-f0-9]{3}/i</code>.</p>
+<p>We can add exactly 3 more optional hex digits. We don’t need more or less. The color has either 3 or 6 digits.</p>
+<p>Let’s use the quantifier <code>pattern:{1,2}</code> for that: we’ll have <code>pattern:/#([a-f0-9]{3}){1,2}/i</code>.</p>
+<p>Here the pattern <code>pattern:[a-f0-9]{3}</code> is enclosed in parentheses to apply the quantifier <code>pattern:{1,2}</code>.</p>
+<p>In action:</p>
+<p>```js run let regexp = /#([a-f0-9]{3}){1,2}/gi;</p>
+<p>let str = “color: #3f3; background-color: #AA00ef; and: #abcd”;</p>
+<p>alert( str.match(regexp) ); // #3f3 #AA00ef #abc ```</p>
+<p>There’s a minor problem here: the pattern found <code>match:#abc</code> in <code>subject:#abcd</code>. To prevent that we can add <code>pattern:\b</code> to the end:</p>
+<p>```js run let regexp = /#([a-f0-9]{3}){1,2}gi;</p>
+<p>let str = “color: #3f3; background-color: #AA00ef; and: #abcd”;</p>
+<p>alert( str.match(regexp) ); // #3f3 #AA00ef ```</p>

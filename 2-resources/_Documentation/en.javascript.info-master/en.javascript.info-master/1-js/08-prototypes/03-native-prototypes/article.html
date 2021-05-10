@@ -1,0 +1,87 @@
+<h1 id="native-prototypes">Native prototypes</h1>
+<p>The <code>"prototype"</code> property is widely used by the core of JavaScript itself. All built-in constructor functions use it.</p>
+<p>First we’ll see at the details, and then how to use it for adding new capabilities to built-in objects.</p>
+<h2 id="object.prototype">Object.prototype</h2>
+<p>Let’s say we output an empty object:</p>
+<p><code>js run let obj = {}; alert( obj ); // "[object Object]" ?</code></p>
+<p>Where’s the code that generates the string <code>"[object Object]"</code>? That’s a built-in <code>toString</code> method, but where is it? The <code>obj</code> is empty!</p>
+<p>…But the short notation <code>obj = {}</code> is the same as <code>obj = new Object()</code>, where <code>Object</code> is a built-in object constructor function, with its own <code>prototype</code> referencing a huge object with <code>toString</code> and other methods.</p>
+<p>Here’s what’s going on:</p>
+<p><img src="object-prototype.svg" /></p>
+<p>When <code>new Object()</code> is called (or a literal object <code>{...}</code> is created), the <code>[[Prototype]]</code> of it is set to <code>Object.prototype</code> according to the rule that we discussed in the previous chapter:</p>
+<p><img src="object-prototype-1.svg" /></p>
+<p>So then when <code>obj.toString()</code> is called the method is taken from <code>Object.prototype</code>.</p>
+<p>We can check it like this:</p>
+<p>```js run let obj = {};</p>
+<p>alert(obj.__proto__ === Object.prototype); // true</p>
+<p>alert(obj.toString === obj.__proto__.toString); //true alert(obj.toString === Object.prototype.toString); //true ```</p>
+<p>Please note that there is no more <code>[[Prototype]]</code> in the chain above <code>Object.prototype</code>:</p>
+<p><code>js run alert(Object.prototype.__proto__); // null</code></p>
+<h2 id="other-built-in-prototypes">Other built-in prototypes</h2>
+<p>Other built-in objects such as <code>Array</code>, <code>Date</code>, <code>Function</code> and others also keep methods in prototypes.</p>
+<p>For instance, when we create an array <code>[1, 2, 3]</code>, the default <code>new Array()</code> constructor is used internally. So <code>Array.prototype</code> becomes its prototype and provides methods. That’s very memory-efficient.</p>
+<p>By specification, all of the built-in prototypes have <code>Object.prototype</code> on the top. That’s why some people say that “everything inherits from objects”.</p>
+<p>Here’s the overall picture (for 3 built-ins to fit):</p>
+<p><img src="native-prototypes-classes.svg" /></p>
+<p>Let’s check the prototypes manually:</p>
+<p>```js run let arr = [1, 2, 3];</p>
+<p>// it inherits from Array.prototype? alert( arr.__proto__ === Array.prototype ); // true</p>
+<p>// then from Object.prototype? alert( arr.__proto__.__proto__ === Object.prototype ); // true</p>
+<p>// and null on the top. alert( arr.__proto__.__proto__.__proto__ ); // null ```</p>
+<p>Some methods in prototypes may overlap, for instance, <code>Array.prototype</code> has its own <code>toString</code> that lists comma-delimited elements:</p>
+<p><code>js run let arr = [1, 2, 3] alert(arr); // 1,2,3 &lt;-- the result of Array.prototype.toString</code></p>
+<p>As we’ve seen before, <code>Object.prototype</code> has <code>toString</code> as well, but <code>Array.prototype</code> is closer in the chain, so the array variant is used.</p>
+<p><img src="native-prototypes-array-tostring.svg" /></p>
+<p>In-browser tools like Chrome developer console also show inheritance (<code>console.dir</code> may need to be used for built-in objects):</p>
+<p><img src="console_dir_array.png" /></p>
+<p>Other built-in objects also work the same way. Even functions – they are objects of a built-in <code>Function</code> constructor, and their methods (<code>call</code>/<code>apply</code> and others) are taken from <code>Function.prototype</code>. Functions have their own <code>toString</code> too.</p>
+<p>```js run function f() {}</p>
+<p>alert(f.__proto__ == Function.prototype); // true alert(f.__proto__.__proto__ == Object.prototype); // true, inherit from objects ```</p>
+<h2 id="primitives">Primitives</h2>
+<p>The most intricate thing happens with strings, numbers and booleans.</p>
+<p>As we remember, they are not objects. But if we try to access their properties, temporary wrapper objects are created using built-in constructors <code>String</code>, <code>Number</code> and <code>Boolean</code>. They provide the methods and disappear.</p>
+<p>These objects are created invisibly to us and most engines optimize them out, but the specification describes it exactly this way. Methods of these objects also reside in prototypes, available as <code>String.prototype</code>, <code>Number.prototype</code> and <code>Boolean.prototype</code>.</p>
+<p><code>warn header="Values `null` and `undefined` have no object wrappers" Special values `null` and `undefined` stand apart. They have no object wrappers, so methods and properties are not available for them. And there are no corresponding prototypes either.</code></p>
+<h2 id="changing-native-prototypes-native-prototype-change">Changing native prototypes [#native-prototype-change]</h2>
+<p>Native prototypes can be modified. For instance, if we add a method to <code>String.prototype</code>, it becomes available to all strings:</p>
+<p>```js run String.prototype.show = function() { alert(this); };</p>
+<p>“BOOM!”.show(); // BOOM! ```</p>
+<p>During the process of development, we may have ideas for new built-in methods we’d like to have, and we may be tempted to add them to native prototypes. But that is generally a bad idea.</p>
+<pre class="warn"><code>Prototypes are global, so it&#39;s easy to get a conflict. If two libraries add a method `String.prototype.show`, then one of them will be overwriting the method of the other.
+
+So, generally, modifying a native prototype is considered a bad idea.</code></pre>
+<p><strong>In modern programming, there is only one case where modifying native prototypes is approved. That’s polyfilling.</strong></p>
+<p>Polyfilling is a term for making a substitute for a method that exists in the JavaScript specification, but is not yet supported by a particular JavaScript engine.</p>
+<p>We may then implement it manually and populate the built-in prototype with it.</p>
+<p>For instance:</p>
+<p>```js run if (!String.prototype.repeat) { // if there’s no such method // add it to the prototype</p>
+<p>String.prototype.repeat = function(n) { // repeat the string n times</p>
+<pre><code>// actually, the code should be a little bit more complex than that
+// (the full algorithm is in the specification)
+// but even an imperfect polyfill is often considered good enough
+return new Array(n + 1).join(this);</code></pre>
+<p>}; }</p>
+<p>alert( “La”.repeat(3) ); // LaLaLa ```</p>
+<h2 id="borrowing-from-prototypes">Borrowing from prototypes</h2>
+<p>In the chapter <a href="info:call-apply-decorators#method-borrowing" class="uri">info:call-apply-decorators#method-borrowing</a> we talked about method borrowing.</p>
+<p>That’s when we take a method from one object and copy it into another.</p>
+<p>Some methods of native prototypes are often borrowed.</p>
+<p>For instance, if we’re making an array-like object, we may want to copy some <code>Array</code> methods to it.</p>
+<p>E.g.</p>
+<p>```js run let obj = { 0: “Hello”, 1: “world!”, length: 2, };</p>
+<p><em>!</em> obj.join = Array.prototype.join; <em>/!</em></p>
+<p>alert( obj.join(‘,’) ); // Hello,world! ```</p>
+<p>It works because the internal algorithm of the built-in <code>join</code> method only cares about the correct indexes and the <code>length</code> property. It doesn’t check if the object is indeed an array. Many built-in methods are like that.</p>
+<p>Another possibility is to inherit by setting <code>obj.__proto__</code> to <code>Array.prototype</code>, so all <code>Array</code> methods are automatically available in <code>obj</code>.</p>
+<p>But that’s impossible if <code>obj</code> already inherits from another object. Remember, we only can inherit from one object at a time.</p>
+<p>Borrowing methods is flexible, it allows to mix functionalities from different objects if needed.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>All built-in objects follow the same pattern:
+<ul>
+<li>The methods are stored in the prototype (<code>Array.prototype</code>, <code>Object.prototype</code>, <code>Date.prototype</code>, etc.)</li>
+<li>The object itself stores only the data (array items, object properties, the date)</li>
+</ul></li>
+<li>Primitives also store methods in prototypes of wrapper objects: <code>Number.prototype</code>, <code>String.prototype</code> and <code>Boolean.prototype</code>. Only <code>undefined</code> and <code>null</code> do not have wrapper objects</li>
+<li>Built-in prototypes can be modified or populated with new methods. But it’s not recommended to change them. The only allowable case is probably when we add-in a new standard, but it’s not yet supported by the JavaScript engine</li>
+</ul>

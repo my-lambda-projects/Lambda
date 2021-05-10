@@ -1,0 +1,31 @@
+<p>To find all anagrams, let’s split every word to letters and sort them. When letter-sorted, all anagrams are same.</p>
+<p>For instance:</p>
+<pre><code>nap, pan -&gt; anp
+ear, era, are -&gt; aer
+cheaters, hectares, teachers -&gt; aceehrst
+...</code></pre>
+<p>We’ll use the letter-sorted variants as map keys to store only one value per each key:</p>
+<p>```js run function aclean(arr) { let map = new Map();</p>
+<p>for (let word of arr) { // split the word by letters, sort them and join back <em>!</em> let sorted = word.toLowerCase().split(’‘).sort().join(’’); // (<em>) </em>/!* map.set(sorted, word); }</p>
+<p>return Array.from(map.values()); }</p>
+<p>let arr = [“nap”, “teachers”, “cheaters”, “PAN”, “ear”, “era”, “hectares”];</p>
+<p>alert( aclean(arr) ); ```</p>
+<p>Letter-sorting is done by the chain of calls in the line <code>(*)</code>.</p>
+<p>For convenience let’s split it into multiple lines:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> sorted <span class="op">=</span> word <span class="co">// PAN</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  .<span class="at">toLowerCase</span>() <span class="co">// pan</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  .<span class="at">split</span>(<span class="st">&#39;&#39;</span>) <span class="co">// [&#39;p&#39;,&#39;a&#39;,&#39;n&#39;]</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  .<span class="at">sort</span>() <span class="co">// [&#39;a&#39;,&#39;n&#39;,&#39;p&#39;]</span></a>
+<a class="sourceLine" id="cb2-5" title="5">  .<span class="at">join</span>(<span class="st">&#39;&#39;</span>)<span class="op">;</span> <span class="co">// anp</span></a></code></pre></div>
+<p>Two different words <code>'PAN'</code> and <code>'nap'</code> receive the same letter-sorted form <code>'anp'</code>.</p>
+<p>The next line put the word into the map:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">map</span>.<span class="at">set</span>(sorted<span class="op">,</span> word)<span class="op">;</span></a></code></pre></div>
+<p>If we ever meet a word the same letter-sorted form again, then it would overwrite the previous value with the same key in the map. So we’ll always have at maximum one word per letter-form.</p>
+<p>At the end <code>Array.from(map.values())</code> takes an iterable over map values (we don’t need keys in the result) and returns an array of them.</p>
+<p>Here we could also use a plain object instead of the <code>Map</code>, because keys are strings.</p>
+<p>That’s how the solution can look:</p>
+<p>```js run demo function aclean(arr) { let obj = {};</p>
+<p>for (let i = 0; i &lt; arr.length; i++) { let sorted = arr[i].toLowerCase().split("“).sort().join(”"); obj[sorted] = arr[i]; }</p>
+<p>return Object.values(obj); }</p>
+<p>let arr = [“nap”, “teachers”, “cheaters”, “PAN”, “ear”, “era”, “hectares”];</p>
+<p>alert( aclean(arr) ); ```</p>

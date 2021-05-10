@@ -1,0 +1,12 @@
+<p>We need to look for <code>#</code> followed by 6 hexadecimal characters.</p>
+<p>A hexadecimal character can be described as <code>pattern:[0-9a-fA-F]</code>. Or if we use the <code>pattern:i</code> flag, then just <code>pattern:[0-9a-f]</code>.</p>
+<p>Then we can look for 6 of them using the quantifier <code>pattern:{6}</code>.</p>
+<p>As a result, we have the regexp: <code>pattern:/#[a-f0-9]{6}/gi</code>.</p>
+<p>```js run let regexp = /#[a-f0-9]{6}/gi;</p>
+<p>let str = “color:#121212; background-color:#AA00ef bad-colors:f#fddee #fd2”</p>
+<p>alert( str.match(regexp) ); // #121212,#AA00ef ```</p>
+<p>The problem is that it finds the color in longer sequences:</p>
+<p><code>js run alert( "#12345678".match( /#[a-f0-9]{6}/gi ) ) // #123456</code></p>
+<p>To fix that, we can add <code>pattern:\b</code> to the end:</p>
+<p>```js run // color alert( “#123456”.match( /#[a-f0-9]{6}gi ) ); // #123456</p>
+<p>// not a color alert( “#12345678”.match( /#[a-f0-9]{6}gi ) ); // null ```</p>

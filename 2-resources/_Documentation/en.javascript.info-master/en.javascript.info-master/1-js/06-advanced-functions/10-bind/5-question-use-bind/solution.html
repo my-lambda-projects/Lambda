@@ -1,0 +1,15 @@
+<p>The error occurs because <code>ask</code> gets functions <code>loginOk/loginFail</code> without the object.</p>
+<p>When it calls them, they naturally assume <code>this=undefined</code>.</p>
+<p>Let’s <code>bind</code> the context:</p>
+<p>```js run function askPassword(ok, fail) { let password = prompt(“Password?”, ’’); if (password == “rockstar”) ok(); else fail(); }</p>
+<p>let user = { name: ‘John’,</p>
+<p>loginOk() { alert(<code>${this.name} logged in</code>); },</p>
+<p>loginFail() { alert(<code>${this.name} failed to log in</code>); },</p>
+<p>};</p>
+<p><em>!</em> askPassword(user.loginOk.bind(user), user.loginFail.bind(user)); <em>/!</em> ```</p>
+<p>Now it works.</p>
+<p>An alternative solution could be:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">//...</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="at">askPassword</span>(() <span class="kw">=&gt;</span> <span class="va">user</span>.<span class="at">loginOk</span>()<span class="op">,</span> () <span class="kw">=&gt;</span> <span class="va">user</span>.<span class="at">loginFail</span>())<span class="op">;</span></a></code></pre></div>
+<p>Usually that also works and looks good.</p>
+<p>It’s a bit less reliable though in more complex situations where <code>user</code> variable might change <em>after</em> <code>askPassword</code> is called, but <em>before</em> the visitor answers and calls <code>() =&gt; user.loginOk()</code>.</p>

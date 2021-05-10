@@ -1,0 +1,90 @@
+<h1 id="optional-chaining-.">Optional chaining ‘?.’</h1>
+<p>[recent browser=“new”]</p>
+<p>The optional chaining <code>?.</code> is a safe way to access nested object properties, even if an intermediate property doesn’t exist.</p>
+<h2 id="the-non-existing-property-problem">The “non-existing property” problem</h2>
+<p>If you’ve just started to read the tutorial and learn JavaScript, maybe the problem hasn’t touched you yet, but it’s quite common.</p>
+<p>As an example, let’s say we have <code>user</code> objects that hold the information about our users.</p>
+<p>Most of our users have addresses in <code>user.address</code> property, with the street <code>user.address.street</code>, but some did not provide them.</p>
+<p>In such case, when we attempt to get <code>user.address.street</code>, and the user happens to be without an address, we get an error:</p>
+<p>```js run let user = {}; // a user without “address” property</p>
+<p>alert(user.address.street); // Error! ```</p>
+<p>That’s the expected result. JavaScript works like this. As <code>user.address</code> is <code>undefined</code>, an attempt to get <code>user.address.street</code> fails with an error.</p>
+<p>In many practical cases we’d prefer to get <code>undefined</code> instead of an error here (meaning “no street”).</p>
+<p>…And another example. In the web development, we can get an object that corresponds to a web page element using a special method call, such as <code>document.querySelector('.elem')</code>, and it returns <code>null</code> when there’s no such element.</p>
+<p><code>js run // document.querySelector('.elem') is null if there's no element let html = document.querySelector('.elem').innerHTML; // error if it's null</code></p>
+<p>Once again, if the element doesn’t exist, we’ll get an error accessing <code>.innerHTML</code> of <code>null</code>. And in some cases, when the absence of the element is normal, we’d like to avoid the error and just accept <code>html = null</code> as the result.</p>
+<p>How can we do this?</p>
+<p>The obvious solution would be to check the value using <code>if</code> or the conditional operator <code>?</code>, before accessing its property, like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> user <span class="op">=</span> <span class="op">{};</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="at">alert</span>(<span class="va">user</span>.<span class="at">address</span> <span class="op">?</span> <span class="va">user</span>.<span class="va">address</span>.<span class="at">street</span> : <span class="kw">undefined</span>)<span class="op">;</span></a></code></pre></div>
+<p>It works, there’s no error… But it’s quite inelegant. As you can see, the <code>"user.address"</code> appears twice in the code. For more deeply nested properties, that becomes a problem as more repetitions are required.</p>
+<p>E.g. let’s try getting <code>user.address.street.name</code>.</p>
+<p>We need to check both <code>user.address</code> and <code>user.address.street</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> user <span class="op">=</span> <span class="op">{};</span> <span class="co">// user has no address</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="at">alert</span>(<span class="va">user</span>.<span class="at">address</span> <span class="op">?</span> <span class="va">user</span>.<span class="va">address</span>.<span class="at">street</span> <span class="op">?</span> <span class="va">user</span>.<span class="va">address</span>.<span class="va">street</span>.<span class="at">name</span> : <span class="kw">null</span> : <span class="kw">null</span>)<span class="op">;</span></a></code></pre></div>
+<p>That’s just awful, one may even have problems understanding such code.</p>
+<p>Don’t even care to, as there’s a better way to write it, using the <code>&amp;&amp;</code> operator:</p>
+<p>```js run let user = {}; // user has no address</p>
+<p>alert( user.address &amp;&amp; user.address.street &amp;&amp; user.address.street.name ); // undefined (no error) ```</p>
+<p>AND’ing the whole path to the property ensures that all components exist (if not, the evaluation stops), but also isn’t ideal.</p>
+<p>As you can see, property names are still duplicated in the code. E.g. in the code above, <code>user.address</code> appears three times.</p>
+<p>That’s why the optional chaining <code>?.</code> was added to the language. To solve this problem once and for all!</p>
+<h2 id="optional-chaining">Optional chaining</h2>
+<p>The optional chaining <code>?.</code> stops the evaluation if the value before <code>?.</code> is <code>undefined</code> or <code>null</code> and returns <code>undefined</code>.</p>
+<p><strong>Further in this article, for brevity, we’ll be saying that something “exists” if it’s not <code>null</code> and not <code>undefined</code>.</strong></p>
+<p>In other words, <code>value?.prop</code>: - works as <code>value.prop</code>, if <code>value</code> exists, - otherwise (when <code>value</code> is <code>undefined/null</code>) it returns <code>undefined</code>.</p>
+<p>Here’s the safe way to access <code>user.address.street</code> using <code>?.</code>:</p>
+<p>```js run let user = {}; // user has no address</p>
+<p>alert( user?.address?.street ); // undefined (no error) ```</p>
+<p>The code is short and clean, there’s no duplication at all.</p>
+<p>Reading the address with <code>user?.address</code> works even if <code>user</code> object doesn’t exist:</p>
+<p>```js run let user = null;</p>
+<p>alert( user?.address ); // undefined alert( user?.address.street ); // undefined ```</p>
+<p>Please note: the <code>?.</code> syntax makes optional the value before it, but not any further.</p>
+<p>E.g. in <code>user?.address.street.name</code> the <code>?.</code> allows <code>user</code> to safely be <code>null/undefined</code> (and returns <code>undefined</code> in that case), but that’s only for <code>user</code>. Further properties are accessed in a regular way. If we want some of them to be optional, then we’ll need to replace more <code>.</code> with <code>?.</code>.</p>
+<p>``<code>warn header="Don't overuse the optional chaining" We should use</code>?.` only where it’s ok that something doesn’t exist.</p>
+<p>For example, if according to our coding logic <code>user</code> object must exist, but <code>address</code> is optional, then we should write <code>user.address?.street</code>, but not <code>user?.address?.street</code>.</p>
+<p>So, if <code>user</code> happens to be undefined due to a mistake, we’ll see a programming error about it and fix it. Otherwise, coding errors can be silenced where not appropriate, and become more difficult to debug. ```</p>
+<p>```<code>warn header="The variable before</code>?.<code>must be declared" If there's no variable</code>user<code>at all, then</code>user?.anything` triggers an error:</p>
+<p><code>js run // ReferenceError: user is not defined user?.address;</code> The variable must be declared (e.g. <code>let/const/var user</code> or as a function parameter). The optional chaining works only for declared variables. ````</p>
+<h2 id="short-circuiting">Short-circuiting</h2>
+<p>As it was said before, the <code>?.</code> immediately stops (“short-circuits”) the evaluation if the left part doesn’t exist.</p>
+<p>So, if there are any further function calls or side effects, they don’t occur.</p>
+<p>For instance:</p>
+<p>```js run let user = null; let x = 0;</p>
+<p>user?.sayHi(x++); // no “sayHi”, so the execution doesn’t reach x++</p>
+<p>alert(x); // 0, value not incremented ```</p>
+<h2 id="other-variants-.-.">Other variants: ?.(), ?.[]</h2>
+<p>The optional chaining <code>?.</code> is not an operator, but a special syntax construct, that also works with functions and square brackets.</p>
+<p>For example, <code>?.()</code> is used to call a function that may not exist.</p>
+<p>In the code below, some of our users have <code>admin</code> method, and some don’t:</p>
+<p>```js run let userAdmin = { admin() { alert(“I am admin”); } };</p>
+<p>let userGuest = {};</p>
+<p><em>!</em> userAdmin.admin?.(); // I am admin <em>/!</em></p>
+<p><em>!</em> userGuest.admin?.(); // nothing (no such method) <em>/!</em> ```</p>
+<p>Here, in both lines we first use the dot (<code>userAdmin.admin</code>) to get <code>admin</code> property, because we assume that the user object exists, so it’s safe read from it.</p>
+<p>Then <code>?.()</code> checks the left part: if the admin function exists, then it runs (that’s so for <code>userAdmin</code>). Otherwise (for <code>userGuest</code>) the evaluation stops without errors.</p>
+<p>The <code>?.[]</code> syntax also works, if we’d like to use brackets <code>[]</code> to access properties instead of dot <code>.</code>. Similar to previous cases, it allows to safely read a property from an object that may not exist.</p>
+<p>```js run let key = “firstName”;</p>
+<p>let user1 = { firstName: “John” };</p>
+<p>let user2 = null;</p>
+<p>alert( user1?.[key] ); // John alert( user2?.[key] ); // undefined ```</p>
+<p>Also we can use <code>?.</code> with <code>delete</code>:</p>
+<p><code>js run delete user?.name; // delete user.name if user exists</code></p>
+<p>```<code>warn header="We can use</code>?.<code>for safe reading and deleting, but not writing" The optional chaining</code>?.` has no use at the left side of an assignment.</p>
+<p>For example: ```js run let user = null;</p>
+<p>user?.name = “John”; // Error, doesn’t work // because it evaluates to undefined = “John”</p>
+<pre><code>
+It&#39;s just not that smart.</code></pre>
+<h2 id="summary">Summary</h2>
+<p>The optional chaining <code>?.</code> syntax has three forms:</p>
+<ol type="1">
+<li><code>obj?.prop</code> – returns <code>obj.prop</code> if <code>obj</code> exists, otherwise <code>undefined</code>.</li>
+<li><code>obj?.[prop]</code> – returns <code>obj[prop]</code> if <code>obj</code> exists, otherwise <code>undefined</code>.</li>
+<li><code>obj.method?.()</code> – calls <code>obj.method()</code> if <code>obj.method</code> exists, otherwise returns <code>undefined</code>.</li>
+</ol>
+<p>As we can see, all of them are straightforward and simple to use. The <code>?.</code> checks the left part for <code>null/undefined</code> and allows the evaluation to proceed if it’s not so.</p>
+<p>A chain of <code>?.</code> allows to safely access nested properties.</p>
+<p>Still, we should apply <code>?.</code> carefully, only where it’s acceptable that the left part doesn’t exist. So that it won’t hide programming errors from us, if they occur.</p>

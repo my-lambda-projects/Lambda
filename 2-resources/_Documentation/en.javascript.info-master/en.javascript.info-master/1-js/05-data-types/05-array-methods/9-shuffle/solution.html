@@ -1,0 +1,47 @@
+<p>The simple solution could be:</p>
+<p>```js run <em>!</em> function shuffle(array) { array.sort(() =&gt; Math.random() - 0.5); } <em>/!</em></p>
+<p>let arr = [1, 2, 3]; shuffle(arr); alert(arr); ```</p>
+<p>That somewhat works, because <code>Math.random() - 0.5</code> is a random number that may be positive or negative, so the sorting function reorders elements randomly.</p>
+<p>But because the sorting function is not meant to be used this way, not all permutations have the same probability.</p>
+<p>For instance, consider the code below. It runs <code>shuffle</code> 1000000 times and counts appearances of all possible results:</p>
+<p>```js run function shuffle(array) { array.sort(() =&gt; Math.random() - 0.5); }</p>
+<p>// counts of appearances for all possible permutations let count = { ‘123’: 0, ‘132’: 0, ‘213’: 0, ‘231’: 0, ‘321’: 0, ‘312’: 0 };</p>
+<p>for (let i = 0; i &lt; 1000000; i++) { let array = [1, 2, 3]; shuffle(array); count[array.join(’’)]++; }</p>
+<p>// show counts of all possible permutations for (let key in count) { alert(<code>${key}: ${count[key]}</code>); } ```</p>
+<p>An example result (depends on JS engine):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="dv">123</span><span class="op">:</span> <span class="dv">250706</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="dv">132</span><span class="op">:</span> <span class="dv">124425</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="dv">213</span><span class="op">:</span> <span class="dv">249618</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="dv">231</span><span class="op">:</span> <span class="dv">124880</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="dv">312</span><span class="op">:</span> <span class="dv">125148</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="dv">321</span><span class="op">:</span> <span class="dv">125223</span></a></code></pre></div>
+<p>We can see the bias clearly: <code>123</code> and <code>213</code> appear much more often than others.</p>
+<p>The result of the code may vary between JavaScript engines, but we can already see that the approach is unreliable.</p>
+<p>Why it doesn’t work? Generally speaking, <code>sort</code> is a “black box”: we throw an array and a comparison function into it and expect the array to be sorted. But due to the utter randomness of the comparison the black box goes mad, and how exactly it goes mad depends on the concrete implementation that differs between engines.</p>
+<p>There are other good ways to do the task. For instance, there’s a great algorithm called <a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle">Fisher-Yates shuffle</a>. The idea is to walk the array in the reverse order and swap each element with a random one before it:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">function</span> <span class="at">shuffle</span>(array) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="va">array</span>.<span class="at">length</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&gt;</span> <span class="dv">0</span><span class="op">;</span> i<span class="op">--</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-3" title="3">    <span class="kw">let</span> j <span class="op">=</span> <span class="va">Math</span>.<span class="at">floor</span>(<span class="va">Math</span>.<span class="at">random</span>() <span class="op">*</span> (i <span class="op">+</span> <span class="dv">1</span>))<span class="op">;</span> <span class="co">// random index from 0 to i</span></a>
+<a class="sourceLine" id="cb2-4" title="4"></a>
+<a class="sourceLine" id="cb2-5" title="5">    <span class="co">// swap elements array[i] and array[j]</span></a>
+<a class="sourceLine" id="cb2-6" title="6">    <span class="co">// we use &quot;destructuring assignment&quot; syntax to achieve that</span></a>
+<a class="sourceLine" id="cb2-7" title="7">    <span class="co">// you&#39;ll find more details about that syntax in later chapters</span></a>
+<a class="sourceLine" id="cb2-8" title="8">    <span class="co">// same can be written as:</span></a>
+<a class="sourceLine" id="cb2-9" title="9">    <span class="co">// let t = array[i]; array[i] = array[j]; array[j] = t</span></a>
+<a class="sourceLine" id="cb2-10" title="10">    [array[i]<span class="op">,</span> array[j]] <span class="op">=</span> [array[j]<span class="op">,</span> array[i]]<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-11" title="11">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="op">}</span></a></code></pre></div>
+<p>Let’s test it the same way:</p>
+<p>```js run function shuffle(array) { for (let i = array.length - 1; i &gt; 0; i–) { let j = Math.floor(Math.random() * (i + 1)); [array[i], array[j]] = [array[j], array[i]]; } }</p>
+<p>// counts of appearances for all possible permutations let count = { ‘123’: 0, ‘132’: 0, ‘213’: 0, ‘231’: 0, ‘321’: 0, ‘312’: 0 };</p>
+<p>for (let i = 0; i &lt; 1000000; i++) { let array = [1, 2, 3]; shuffle(array); count[array.join(’’)]++; }</p>
+<p>// show counts of all possible permutations for (let key in count) { alert(<code>${key}: ${count[key]}</code>); } ```</p>
+<p>The example output:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="dv">123</span><span class="op">:</span> <span class="dv">166693</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="dv">132</span><span class="op">:</span> <span class="dv">166647</span></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="dv">213</span><span class="op">:</span> <span class="dv">166628</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="dv">231</span><span class="op">:</span> <span class="dv">167517</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="dv">312</span><span class="op">:</span> <span class="dv">166199</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="dv">321</span><span class="op">:</span> <span class="dv">166316</span></a></code></pre></div>
+<p>Looks good now: all permutations appear with the same probability.</p>
+<p>Also, performance-wise the Fisher-Yates algorithm is much better, there’s no “sorting” overhead.</p>

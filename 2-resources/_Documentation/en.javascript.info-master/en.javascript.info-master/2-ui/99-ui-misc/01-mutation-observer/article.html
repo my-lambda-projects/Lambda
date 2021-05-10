@@ -1,0 +1,164 @@
+<h1 id="mutation-observer">Mutation observer</h1>
+<p><code>MutationObserver</code> is a built-in object that observes a DOM element and fires a callback when it detects a change.</p>
+<p>We’ll first take a look at the syntax, and then explore a real-world use case, to see where such thing may be useful.</p>
+<h2 id="syntax">Syntax</h2>
+<p><code>MutationObserver</code> is easy to use.</p>
+<p>First, we create an observer with a callback-function:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> observer <span class="op">=</span> <span class="kw">new</span> <span class="at">MutationObserver</span>(callback)<span class="op">;</span></a></code></pre></div>
+<p>And then attach it to a DOM node:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">observer</span>.<span class="at">observe</span>(node<span class="op">,</span> config)<span class="op">;</span></a></code></pre></div>
+<p><code>config</code> is an object with boolean options “what kind of changes to react on”: - <code>childList</code> – changes in the direct children of <code>node</code>, - <code>subtree</code> – in all descendants of <code>node</code>, - <code>attributes</code> – attributes of <code>node</code>, - <code>attributeFilter</code> – an array of attribute names, to observe only selected ones. - <code>characterData</code> – whether to observe <code>node.data</code> (text content),</p>
+<p>Few other options: - <code>attributeOldValue</code> – if <code>true</code>, pass both the old and the new value of attribute to callback (see below), otherwise only the new one (needs <code>attributes</code> option), - <code>characterDataOldValue</code> – if <code>true</code>, pass both the old and the new value of <code>node.data</code> to callback (see below), otherwise only the new one (needs <code>characterData</code> option).</p>
+<p>Then after any changes, the <code>callback</code> is executed: changes are passed in the first argument as a list of <a href="https://dom.spec.whatwg.org/#mutationrecord">MutationRecord</a> objects, and the observer itself as the second argument.</p>
+<p><a href="https://dom.spec.whatwg.org/#mutationrecord">MutationRecord</a> objects have properties:</p>
+<ul>
+<li><code>type</code> – mutation type, one of
+<ul>
+<li><code>"attributes"</code>: attribute modified</li>
+<li><code>"characterData"</code>: data modified, used for text nodes,</li>
+<li><code>"childList"</code>: child elements added/removed,</li>
+</ul></li>
+<li><code>target</code> – where the change occurred: an element for <code>"attributes"</code>, or text node for <code>"characterData"</code>, or an element for a <code>"childList"</code> mutation,</li>
+<li><code>addedNodes/removedNodes</code> – nodes that were added/removed,</li>
+<li><code>previousSibling/nextSibling</code> – the previous and next sibling to added/removed nodes,</li>
+<li><code>attributeName/attributeNamespace</code> – the name/namespace (for XML) of the changed attribute,</li>
+<li><code>oldValue</code> – the previous value, only for attribute or text changes, if the corresponding option is set <code>attributeOldValue</code>/<code>characterDataOldValue</code>.</li>
+</ul>
+<p>For example, here’s a <code>&lt;div&gt;</code> with a <code>contentEditable</code> attribute. That attribute allows us to focus on it and edit.</p>
+```html run
+<div id="elem" contenteditable="">
+Click and <b>edit</b>, please
+</div>
+<script>
+let observer = new MutationObserver(mutationRecords => {
+  console.log(mutationRecords); // console.log(the changes)
+});
+
+// observe everything except attributes
+observer.observe(elem, {
+  childList: true, // observe direct children
+  subtree: true, // and lower descendants too
+  characterDataOldValue: true // pass old data to callback
+});
+</script>
+<p>```</p>
+<p>If we run this code in the browser, then focus on the given <code>&lt;div&gt;</code> and change the text inside <code>&lt;b&gt;edit&lt;/b&gt;</code>, <code>console.log</code> will show one mutation:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1">mutationRecords <span class="op">=</span> [<span class="op">{</span></a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="dt">type</span><span class="op">:</span> <span class="st">&quot;characterData&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="dt">oldValue</span><span class="op">:</span> <span class="st">&quot;edit&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-4" title="4">  <span class="dt">target</span><span class="op">:</span> <span class="op">&lt;</span>text node<span class="op">&gt;,</span></a>
+<a class="sourceLine" id="cb3-5" title="5">  <span class="co">// other properties empty</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="op">}</span>]<span class="op">;</span></a></code></pre></div>
+<p>If we make more complex editing operations, e.g. remove the <code>&lt;b&gt;edit&lt;/b&gt;</code>, the mutation event may contain multiple mutation records:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1">mutationRecords <span class="op">=</span> [<span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="dt">type</span><span class="op">:</span> <span class="st">&quot;childList&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="dt">target</span><span class="op">:</span> <span class="op">&lt;</span>div#elem<span class="op">&gt;,</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="dt">removedNodes</span><span class="op">:</span> [<span class="op">&lt;</span>b<span class="op">&gt;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb4-5" title="5">  <span class="dt">nextSibling</span><span class="op">:</span> <span class="op">&lt;</span>text node<span class="op">&gt;,</span></a>
+<a class="sourceLine" id="cb4-6" title="6">  <span class="dt">previousSibling</span><span class="op">:</span> <span class="op">&lt;</span>text node<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb4-7" title="7">  <span class="co">// other properties empty</span></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="op">},</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-9" title="9">  <span class="dt">type</span><span class="op">:</span> <span class="st">&quot;characterData&quot;</span></a>
+<a class="sourceLine" id="cb4-10" title="10">  <span class="dt">target</span><span class="op">:</span> <span class="op">&lt;</span>text node<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb4-11" title="11">  <span class="co">// ...mutation details depend on how the browser handles such removal</span></a>
+<a class="sourceLine" id="cb4-12" title="12">  <span class="co">// it may coalesce two adjacent text nodes &quot;edit &quot; and &quot;, please&quot; into one node</span></a>
+<a class="sourceLine" id="cb4-13" title="13">  <span class="co">// or it may leave them separate text nodes</span></a>
+<a class="sourceLine" id="cb4-14" title="14"><span class="op">}</span>]<span class="op">;</span></a></code></pre></div>
+<p>So, <code>MutationObserver</code> allows to react on any changes within DOM subtree.</p>
+<h2 id="usage-for-integration">Usage for integration</h2>
+<p>When such thing may be useful?</p>
+<p>Imagine the situation when you need to add a third-party script that contains useful functionality, but also does something unwanted, e.g. shows ads <code>&lt;div class="ads"&gt;Unwanted ads&lt;/div&gt;</code>.</p>
+<p>Naturally, the third-party script provides no mechanisms to remove it.</p>
+<p>Using <code>MutationObserver</code>, we can detect when the unwanted element appears in our DOM and remove it.</p>
+<p>There are other situations when a third-party script adds something into our document, and we’d like to detect, when it happens, to adapt our page, dynamically resize something etc.</p>
+<p><code>MutationObserver</code> allows to implement this.</p>
+<h2 id="usage-for-architecture">Usage for architecture</h2>
+<p>There are also situations when <code>MutationObserver</code> is good from architectural standpoint.</p>
+<p>Let’s say we’re making a website about programming. Naturally, articles and other materials may contain source code snippets.</p>
+<p>Such snippet in an HTML markup looks like this:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb5-1" title="1">...</a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw">&lt;pre</span><span class="ot"> class=</span><span class="st">&quot;language-javascript&quot;</span><span class="kw">&gt;&lt;code&gt;</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  // here&#39;s the code</a>
+<a class="sourceLine" id="cb5-4" title="4">  let hello = &quot;world&quot;;</a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="kw">&lt;/code&gt;&lt;/pre&gt;</span></a>
+<a class="sourceLine" id="cb5-6" title="6">...</a></code></pre></div>
+<p>For better readability and at the same time, to beautify it, we’ll be using a JavaScript syntax highlighting library on our site, like <a href="https://prismjs.com/">Prism.js</a>. To get syntax highlighting for above snippet in Prism, <code>Prism.highlightElem(pre)</code> is called, which examines the contents of such <code>pre</code> elements and adds special tags and styles for colored syntax highlighting into those elements, similar to what you see in examples here, on this page.</p>
+<p>When exactly should we run that highlighting method? Well, we can do it on <code>DOMContentLoaded</code> event, or put the script at the bottom of the page. The moment our DOM is ready, we can search for elements <code>pre[class*="language"]</code> and call <code>Prism.highlightElem</code> on them:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="co">// highlight all code snippets on the page</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="va">document</span>.<span class="at">querySelectorAll</span>(<span class="st">&#39;pre[class*=&quot;language&quot;]&#39;</span>).<span class="at">forEach</span>(<span class="va">Prism</span>.<span class="at">highlightElem</span>)<span class="op">;</span></a></code></pre></div>
+<p>Everything’s simple so far, right? We find code snippets in HTML and highlight them.</p>
+<p>Now let’s go on. Let’s say we’re going to dynamically fetch materials from a server. We’ll study methods for that <a href="info:fetch">later in the tutorial</a>. For now it only matters that we fetch an HTML article from a webserver and display it on demand:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">let</span> article <span class="op">=</span> <span class="co">/* fetch new content from server */</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="va">articleElem</span>.<span class="at">innerHTML</span> <span class="op">=</span> article<span class="op">;</span></a></code></pre></div>
+<p>The new <code>article</code> HTML may contain code snippets. We need to call <code>Prism.highlightElem</code> on them, otherwise they won’t get highlighted.</p>
+<p><strong>Where and when to call <code>Prism.highlightElem</code> for a dynamically loaded article?</strong></p>
+<p>We could append that call to the code that loads an article, like this:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">let</span> article <span class="op">=</span> <span class="co">/* fetch new content from server */</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="va">articleElem</span>.<span class="at">innerHTML</span> <span class="op">=</span> article<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-3" title="3"></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="kw">let</span> snippets <span class="op">=</span> <span class="va">articleElem</span>.<span class="at">querySelectorAll</span>(<span class="st">&#39;pre[class*=&quot;language-&quot;]&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="va">snippets</span>.<span class="at">forEach</span>(<span class="va">Prism</span>.<span class="at">highlightElem</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a></code></pre></div>
+<p>…But, imagine if we have many places in the code where we load our content - articles, quizzes, forum posts, etc. Do we need to put the highlighting call everywhere, to highlight the code in content after loading? That’s not very convenient.</p>
+<p>And what if the content is loaded by a third-party module? For example, we have a forum written by someone else, that loads content dynamically, and we’d like to add syntax highlighting to it. No one likes patching third-party scripts.</p>
+<p>Luckily, there’s another option.</p>
+<p>We can use <code>MutationObserver</code> to automatically detect when code snippets are inserted into the page and highlight them.</p>
+<p>So we’ll handle the highlighting functionality in one place, relieving us from the need to integrate it.</p>
+<h3 id="dynamic-highlight-demo">Dynamic highlight demo</h3>
+<p>Here’s the working example.</p>
+<p>If you run this code, it starts observing the element below and highlighting any code snippets that appear there:</p>
+<p>```js run let observer = new MutationObserver(mutations =&gt; {</p>
+<p>for(let mutation of mutations) { // examine new nodes, is there anything to highlight?</p>
+<pre><code>for(let node of mutation.addedNodes) {
+  // we track only elements, skip other nodes (e.g. text nodes)
+  if (!(node instanceof HTMLElement)) continue;
+
+  // check the inserted element for being a code snippet
+  if (node.matches(&#39;pre[class*=&quot;language-&quot;]&#39;)) {
+    Prism.highlightElement(node);
+  }
+
+  // or maybe there&#39;s a code snippet somewhere in its subtree?
+  for(let elem of node.querySelectorAll(&#39;pre[class*=&quot;language-&quot;]&#39;)) {
+    Prism.highlightElement(elem);
+  }
+}</code></pre>
+<p>}</p>
+<p>});</p>
+<p>let demoElem = document.getElementById(‘highlight-demo’);</p>
+<p>observer.observe(demoElem, {childList: true, subtree: true}); ```</p>
+<p>Here, below, there’s an HTML-element and JavaScript that dynamically fills it using <code>innerHTML</code>.</p>
+<p>Please run the previous code (above, observes that element), and then the code below. You’ll see how <code>MutationObserver</code> detects and highlights the snippet.</p>
+<p id="highlight-demo" style="border: 1px solid #ddd">
+A demo-element with <code>id=“highlight-demo”</code>, run the code above to observe it.
+</p>
+<p>The following code populates its <code>innerHTML</code>, that causes the <code>MutationObserver</code> to react and highlight its contents:</p>
+<p>```js run let demoElem = document.getElementById(‘highlight-demo’);</p>
+<p>// dynamically insert content with code snippets demoElem.innerHTML = <code>A code snippet is below:   &lt;pre class="language-javascript"&gt;&lt;code&gt; let hello = "world!"; &lt;/code&gt;&lt;/pre&gt;   &lt;div&gt;Another one:&lt;/div&gt;   &lt;div&gt;     &lt;pre class="language-css"&gt;&lt;code&gt;.class { margin: 5px; } &lt;/code&gt;&lt;/pre&gt;   &lt;/div&gt;</code>; ```</p>
+<p>Now we have <code>MutationObserver</code> that can track all highlighting in observed elements or the whole <code>document</code>. We can add/remove code snippets in HTML without thinking about it.</p>
+<h2 id="additional-methods">Additional methods</h2>
+<p>There’s a method to stop observing the node:</p>
+<ul>
+<li><code>observer.disconnect()</code> – stops the observation.</li>
+</ul>
+<p>When we stop the observing, it might be possible that some changes were not yet processed by the observer. In such cases, we use</p>
+<ul>
+<li><code>observer.takeRecords()</code> – gets a list of unprocessed mutation records - those that happened, but the callback has not handled them.</li>
+</ul>
+<p>These methods can be used together, like this:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="co">// get a list of unprocessed mutations</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="co">// should be called before disconnecting,</span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="co">// if you care about possibly unhandled recent mutations</span></a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="kw">let</span> mutationRecords <span class="op">=</span> <span class="va">observer</span>.<span class="at">takeRecords</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-5" title="5"></a>
+<a class="sourceLine" id="cb10-6" title="6"><span class="co">// stop tracking changes</span></a>
+<a class="sourceLine" id="cb10-7" title="7"><span class="va">observer</span>.<span class="at">disconnect</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-8" title="8">...</a></code></pre></div>
+<p><code>smart header="Records returned by `observer.takeRecords()` are removed from the processing queue" The callback won't be called for records, returned by `observer.takeRecords()`.</code></p>
+<p>```smart header=“Garbage collection interaction” Observers use weak references to nodes internally. That is, if a node is removed from the DOM, and becomes unreachable, then it can be garbage collected.</p>
+<p>The mere fact that a DOM node is observed doesn’t prevent the garbage collection. ```</p>
+<h2 id="summary">Summary</h2>
+<p><code>MutationObserver</code> can react to changes in DOM - attributes, text content and adding/removing elements.</p>
+<p>We can use it to track changes introduced by other parts of our code, as well as to integrate with third-party scripts.</p>
+<p><code>MutationObserver</code> can track any changes. The config “what to observe” options are used for optimizations, not to spend resources on unneeded callback invocations.</p>

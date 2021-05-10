@@ -1,0 +1,19 @@
+<p>importance: 4</p>
+<hr />
+<h1 id="load-images-with-a-callback">Load images with a callback</h1>
+<p>Normally, images are loaded when they are created. So when we add <code>&lt;img&gt;</code> to the page, the user does not see the picture immediately. The browser needs to load it first.</p>
+<p>To show an image immediately, we can create it “in advance”, like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> img <span class="op">=</span> <span class="va">document</span>.<span class="at">createElement</span>(<span class="st">&#39;img&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="va">img</span>.<span class="at">src</span> <span class="op">=</span> <span class="st">&#39;my.jpg&#39;</span><span class="op">;</span></a></code></pre></div>
+<p>The browser starts loading the image and remembers it in the cache. Later, when the same image appears in the document (no matter how), it shows up immediately.</p>
+<p><strong>Create a function <code>preloadImages(sources, callback)</code> that loads all images from the array <code>sources</code> and, when ready, runs <code>callback</code>.</strong></p>
+<p>For instance, this will show an <code>alert</code> after the images are loaded:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">function</span> <span class="at">loaded</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="at">alert</span>(<span class="st">&quot;Images loaded&quot;</span>)</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb2-4" title="4"></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="at">preloadImages</span>([<span class="st">&quot;1.jpg&quot;</span><span class="op">,</span> <span class="st">&quot;2.jpg&quot;</span><span class="op">,</span> <span class="st">&quot;3.jpg&quot;</span>]<span class="op">,</span> loaded)<span class="op">;</span></a></code></pre></div>
+<p>In case of an error, the function should still assume the picture “loaded”.</p>
+<p>In other words, the <code>callback</code> is executed when all images are either loaded or errored out.</p>
+<p>The function is useful, for instance, when we plan to show a gallery with many scrollable images, and want to be sure that all images are loaded.</p>
+<p>In the source document you can find links to test images, and also the code to check whether they are loaded or not. It should output <code>300</code>.</p>

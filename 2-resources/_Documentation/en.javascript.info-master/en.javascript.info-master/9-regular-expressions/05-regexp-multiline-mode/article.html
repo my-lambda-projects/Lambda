@@ -1,0 +1,34 @@
+<h1 id="multiline-mode-of-anchors-flag-m">Multiline mode of anchors ^ $, flag “m”</h1>
+<p>The multiline mode is enabled by the flag <code>pattern:m</code>.</p>
+<p>It only affects the behavior of <code>pattern:^</code> and <code>pattern:$</code>.</p>
+<p>In the multiline mode they match not only at the beginning and the end of the string, but also at start/end of line.</p>
+<h2 id="searching-at-line-start">Searching at line start ^</h2>
+<p>In the example below the text has multiple lines. The pattern <code>pattern:/^\d/gm</code> takes a digit from the beginning of each line:</p>
+<p>``<code>js run let str =</code>1st place: Winnie 2nd place: Piglet 3rd place: Eeyore`;</p>
+<p><em>!</em> alert( str.match(/^gm) ); // 1, 2, 3 <em>/!</em> ```</p>
+<p>Without the flag <code>pattern:m</code> only the first digit is matched:</p>
+<p>``<code>js run let str =</code>1st place: Winnie 2nd place: Piglet 3rd place: Eeyore`;</p>
+<p><em>!</em> alert( str.match(/^g) ); // 1 <em>/!</em> ```</p>
+<p>That’s because by default a caret <code>pattern:^</code> only matches at the beginning of the text, and in the multiline mode – at the start of any line.</p>
+<pre class="smart"><code>&quot;Start of a line&quot; formally means &quot;immediately after a line break&quot;: the test  `pattern:^` in multiline mode matches at all positions preceded by a newline character `\n`.
+
+And at the text start.</code></pre>
+<h2 id="searching-at-line-end">Searching at line end $</h2>
+<p>The dollar sign <code>pattern:$</code> behaves similarly.</p>
+<p>The regular expression <code>pattern:\d$</code> finds the last digit in every line</p>
+<p>``<code>js run let str =</code>Winnie: 1 Piglet: 2 Eeyore: 3`;</p>
+<p>alert( str.match(/\d$/gm) ); // 1,2,3 ```</p>
+<p>Without the flag <code>pattern:m</code>, the dollar <code>pattern:$</code> would only match the end of the whole text, so only the very last digit would be found.</p>
+<pre class="smart"><code>&quot;End of a line&quot; formally means &quot;immediately before a line break&quot;: the test  `pattern:$` in multiline mode matches at all positions succeeded by a newline character `\n`.
+
+And at the text end.</code></pre>
+<h2 id="searching-for-instead-of">Searching for instead of ^ $</h2>
+<p>To find a newline, we can use not only anchors <code>pattern:^</code> and <code>pattern:$</code>, but also the newline character <code>\n</code>.</p>
+<p>What’s the difference? Let’s see an example.</p>
+<p>Here we search for <code>pattern:\d\n</code> instead of <code>pattern:\d$</code>:</p>
+<p>``<code>js run let str =</code>Winnie: 1 Piglet: 2 Eeyore: 3`;</p>
+<p>alert( str.match(//gm) ); // 1,2 ```</p>
+<p>As we can see, there are 2 matches instead of 3.</p>
+<p>That’s because there’s no newline after <code>subject:3</code> (there’s text end though, so it matches <code>pattern:$</code>).</p>
+<p>Another difference: now every match includes a newline character <code>match:\n</code>. Unlike the anchors <code>pattern:^</code> <code>pattern:$</code>, that only test the condition (start/end of a line), <code>\n</code> is a character, so it becomes a part of the result.</p>
+<p>So, a <code>\n</code> in the pattern is used when we need newline characters in the result, while anchors are used to find something at the beginning/end of a line.</p>

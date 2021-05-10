@@ -1,0 +1,141 @@
+<h1 id="property-flags-and-descriptors">Property flags and descriptors</h1>
+<p>As we know, objects can store properties.</p>
+<p>Until now, a property was a simple “key-value” pair to us. But an object property is actually a more flexible and powerful thing.</p>
+<p>In this chapter we’ll study additional configuration options, and in the next we’ll see how to invisibly turn them into getter/setter functions.</p>
+<h2 id="property-flags">Property flags</h2>
+<p>Object properties, besides a <strong><code>value</code></strong>, have three special attributes (so-called “flags”):</p>
+<ul>
+<li><strong><code>writable</code></strong> – if <code>true</code>, the value can be changed, otherwise it’s read-only.</li>
+<li><strong><code>enumerable</code></strong> – if <code>true</code>, then listed in loops, otherwise not listed.</li>
+<li><strong><code>configurable</code></strong> – if <code>true</code>, the property can be deleted and these attributes can be modified, otherwise not.</li>
+</ul>
+<p>We didn’t see them yet, because generally they do not show up. When we create a property “the usual way”, all of them are <code>true</code>. But we also can change them anytime.</p>
+<p>First, let’s see how to get those flags.</p>
+<p>The method <a href="mdn:js/Object/getOwnPropertyDescriptor">Object.getOwnPropertyDescriptor</a> allows to query the <em>full</em> information about a property.</p>
+<p>The syntax is:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> descriptor <span class="op">=</span> <span class="va">Object</span>.<span class="at">getOwnPropertyDescriptor</span>(obj<span class="op">,</span> propertyName)<span class="op">;</span></a></code></pre></div>
+<dl>
+<dt><code>obj</code></dt>
+<dd>The object to get information from.
+</dd>
+<dt><code>propertyName</code></dt>
+<dd>The name of the property.
+</dd>
+</dl>
+<p>The returned value is a so-called “property descriptor” object: it contains the value and all the flags.</p>
+<p>For instance:</p>
+<p>```js run let user = { name: “John” };</p>
+<p>let descriptor = Object.getOwnPropertyDescriptor(user, ‘name’);</p>
+<p>alert( JSON.stringify(descriptor, null, 2 ) ); /* property descriptor: { “value”: “John”, “writable”: true, “enumerable”: true, “configurable”: true } */ ```</p>
+<p>To change the flags, we can use <a href="mdn:js/Object/defineProperty">Object.defineProperty</a>.</p>
+<p>The syntax is:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="va">Object</span>.<span class="at">defineProperty</span>(obj<span class="op">,</span> propertyName<span class="op">,</span> descriptor)</a></code></pre></div>
+<dl>
+<dt><code>obj</code>, <code>propertyName</code></dt>
+<dd>The object and its property to apply the descriptor.
+</dd>
+<dt><code>descriptor</code></dt>
+<dd>Property descriptor object to apply.
+</dd>
+</dl>
+<p>If the property exists, <code>defineProperty</code> updates its flags. Otherwise, it creates the property with the given value and flags; in that case, if a flag is not supplied, it is assumed <code>false</code>.</p>
+<p>For instance, here a property <code>name</code> is created with all falsy flags:</p>
+<p>```js run let user = {};</p>
+<p><em>!</em> Object.defineProperty(user, “name”, { value: “John” }); <em>/!</em></p>
+<p>let descriptor = Object.getOwnPropertyDescriptor(user, ‘name’);</p>
+<p>alert( JSON.stringify(descriptor, null, 2 ) ); /<em> { “value”: “John”, </em>!<em> “writable”: false, “enumerable”: false, “configurable”: false </em>/!<em> } </em>/ ```</p>
+<p>Compare it with “normally created” <code>user.name</code> above: now all flags are falsy. If that’s not what we want then we’d better set them to <code>true</code> in <code>descriptor</code>.</p>
+<p>Now let’s see effects of the flags by example.</p>
+<h2 id="non-writable">Non-writable</h2>
+<p>Let’s make <code>user.name</code> non-writable (can’t be reassigned) by changing <code>writable</code> flag:</p>
+<p>```js run let user = { name: “John” };</p>
+<p>Object.defineProperty(user, “name”, { <em>!</em> writable: false <em>/!</em> });</p>
+<p><em>!</em> user.name = “Pete”; // Error: Cannot assign to read only property ‘name’ <em>/!</em> ```</p>
+<p>Now no one can change the name of our user, unless they apply their own <code>defineProperty</code> to override ours.</p>
+<p><code>smart header="Errors appear only in strict mode" In the non-strict mode, no errors occur when writing to non-writable properties and such. But the operation still won't succeed. Flag-violating actions are just silently ignored in non-strict.</code></p>
+<p>Here’s the same example, but the property is created from scratch:</p>
+<p>```js run let user = { };</p>
+<p>Object.defineProperty(user, “name”, { <em>!</em> value: “John”, // for new properties we need to explicitly list what’s true enumerable: true, configurable: true <em>/!</em> });</p>
+<p>alert(user.name); // John user.name = “Pete”; // Error ```</p>
+<h2 id="non-enumerable">Non-enumerable</h2>
+<p>Now let’s add a custom <code>toString</code> to <code>user</code>.</p>
+<p>Normally, a built-in <code>toString</code> for objects is non-enumerable, it does not show up in <code>for..in</code>. But if we add a <code>toString</code> of our own, then by default it shows up in <code>for..in</code>, like this:</p>
+<p>```js run let user = { name: “John”, toString() { return this.name; } };</p>
+<p>// By default, both our properties are listed: for (let key in user) alert(key); // name, toString ```</p>
+<p>If we don’t like it, then we can set <code>enumerable:false</code>. Then it won’t appear in a <code>for..in</code> loop, just like the built-in one:</p>
+<p>```js run let user = { name: “John”, toString() { return this.name; } };</p>
+<p>Object.defineProperty(user, “toString”, { <em>!</em> enumerable: false <em>/!</em> });</p>
+<p><em>!</em> // Now our toString disappears: <em>/!</em> for (let key in user) alert(key); // name ```</p>
+<p>Non-enumerable properties are also excluded from <code>Object.keys</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="at">alert</span>(<span class="va">Object</span>.<span class="at">keys</span>(user))<span class="op">;</span> <span class="co">// name</span></a></code></pre></div>
+<h2 id="non-configurable">Non-configurable</h2>
+<p>The non-configurable flag (<code>configurable:false</code>) is sometimes preset for built-in objects and properties.</p>
+<p>A non-configurable property can not be deleted.</p>
+<p>For instance, <code>Math.PI</code> is non-writable, non-enumerable and non-configurable:</p>
+<p>```js run let descriptor = Object.getOwnPropertyDescriptor(Math, ‘PI’);</p>
+<p>alert( JSON.stringify(descriptor, null, 2 ) ); /<em> { “value”: 3.141592653589793, “writable”: false, “enumerable”: false, “configurable”: false } </em>/ ``<code>So, a programmer is unable to change the value of</code>Math.PI` or overwrite it.</p>
+<p>```js run Math.PI = 3; // Error</p>
+<p>// delete Math.PI won’t work either ```</p>
+<p>Making a property non-configurable is a one-way road. We cannot change it back with <code>defineProperty</code>.</p>
+<p>To be precise, non-configurability imposes several restrictions on <code>defineProperty</code>: 1. Can’t change <code>configurable</code> flag. 2. Can’t change <code>enumerable</code> flag. 3. Can’t change <code>writable: false</code> to <code>true</code> (the other way round works). 4. Can’t change <code>get/set</code> for an accessor property (but can assign them if absent).</p>
+<p><strong>The idea of “configurable: false” is to prevent changes of property flags and its deletion, while allowing to change its value.</strong></p>
+<p>Here <code>user.name</code> is non-configurable, but we can still change it (as it’s writable):</p>
+<p>```js run let user = { name: “John” };</p>
+<p>Object.defineProperty(user, “name”, { configurable: false });</p>
+<p>user.name = “Pete”; // works fine delete user.name; // Error ```</p>
+<p>And here we make <code>user.name</code> a “forever sealed” constant:</p>
+<p>```js run let user = { name: “John” };</p>
+<p>Object.defineProperty(user, “name”, { writable: false, configurable: false });</p>
+<p>// won’t be able to change user.name or its flags // all this won’t work: user.name = “Pete”; delete user.name; Object.defineProperty(user, “name”, { value: “Pete” }); ```</p>
+<h2 id="object.defineproperties">Object.defineProperties</h2>
+<p>There’s a method <a href="mdn:js/Object/defineProperties">Object.defineProperties(obj, descriptors)</a> that allows to define many properties at once.</p>
+<p>The syntax is:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="va">Object</span>.<span class="at">defineProperties</span>(obj<span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-2" title="2">  <span class="dt">prop1</span><span class="op">:</span> descriptor1<span class="op">,</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="dt">prop2</span><span class="op">:</span> descriptor2</a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>For instance:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">Object</span>.<span class="at">defineProperties</span>(user<span class="op">,</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="dt">name</span><span class="op">:</span> <span class="op">{</span> <span class="dt">value</span><span class="op">:</span> <span class="st">&quot;John&quot;</span><span class="op">,</span> <span class="dt">writable</span><span class="op">:</span> <span class="kw">false</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="dt">surname</span><span class="op">:</span> <span class="op">{</span> <span class="dt">value</span><span class="op">:</span> <span class="st">&quot;Smith&quot;</span><span class="op">,</span> <span class="dt">writable</span><span class="op">:</span> <span class="kw">false</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb5-4" title="4">  <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="op">}</span>)<span class="op">;</span></a></code></pre></div>
+<p>So, we can set many properties at once.</p>
+<h2 id="object.getownpropertydescriptors">Object.getOwnPropertyDescriptors</h2>
+<p>To get all property descriptors at once, we can use the method <a href="mdn:js/Object/getOwnPropertyDescriptors">Object.getOwnPropertyDescriptors(obj)</a>.</p>
+<p>Together with <code>Object.defineProperties</code> it can be used as a “flags-aware” way of cloning an object:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">let</span> clone <span class="op">=</span> <span class="va">Object</span>.<span class="at">defineProperties</span>(<span class="op">{},</span> <span class="va">Object</span>.<span class="at">getOwnPropertyDescriptors</span>(obj))<span class="op">;</span></a></code></pre></div>
+<p>Normally when we clone an object, we use an assignment to copy properties, like this:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="cf">for</span> (<span class="kw">let</span> key <span class="kw">in</span> user) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  clone[key] <span class="op">=</span> user[key]</a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>…But that does not copy flags. So if we want a “better” clone then <code>Object.defineProperties</code> is preferred.</p>
+<p>Another difference is that <code>for..in</code> ignores symbolic properties, but <code>Object.getOwnPropertyDescriptors</code> returns <em>all</em> property descriptors including symbolic ones.</p>
+<h2 id="sealing-an-object-globally">Sealing an object globally</h2>
+<p>Property descriptors work at the level of individual properties.</p>
+<p>There are also methods that limit access to the <em>whole</em> object:</p>
+<dl>
+<dt><a href="mdn:js/Object/preventExtensions">Object.preventExtensions(obj)</a></dt>
+<dd>Forbids the addition of new properties to the object.
+</dd>
+<dt><a href="mdn:js/Object/seal">Object.seal(obj)</a></dt>
+<dd>Forbids adding/removing of properties. Sets <code>configurable: false</code> for all existing properties.
+</dd>
+<dt><a href="mdn:js/Object/freeze">Object.freeze(obj)</a></dt>
+<dd>Forbids adding/removing/changing of properties. Sets <code>configurable: false, writable: false</code> for all existing properties.
+</dd>
+</dl>
+<p>And also there are tests for them:</p>
+<dl>
+<dt><a href="mdn:js/Object/isExtensible">Object.isExtensible(obj)</a></dt>
+<dd>Returns <code>false</code> if adding properties is forbidden, otherwise <code>true</code>.
+</dd>
+<dt><a href="mdn:js/Object/isSealed">Object.isSealed(obj)</a></dt>
+<dd>Returns <code>true</code> if adding/removing properties is forbidden, and all existing properties have <code>configurable: false</code>.
+</dd>
+<dt><a href="mdn:js/Object/isFrozen">Object.isFrozen(obj)</a></dt>
+<dd>Returns <code>true</code> if adding/removing/changing properties is forbidden, and all current properties are <code>configurable: false, writable: false</code>.
+</dd>
+</dl>
+<p>These methods are rarely used in practice.</p>

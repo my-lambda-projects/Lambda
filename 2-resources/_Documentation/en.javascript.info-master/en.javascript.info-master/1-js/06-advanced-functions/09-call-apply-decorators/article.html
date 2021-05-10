@@ -1,0 +1,185 @@
+<h1 id="decorators-and-forwarding-callapply">Decorators and forwarding, call/apply</h1>
+<p>JavaScript gives exceptional flexibility when dealing with functions. They can be passed around, used as objects, and now we’ll see how to <em>forward</em> calls between them and <em>decorate</em> them.</p>
+<h2 id="transparent-caching">Transparent caching</h2>
+<p>Let’s say we have a function <code>slow(x)</code> which is CPU-heavy, but its results are stable. In other words, for the same <code>x</code> it always returns the same result.</p>
+<p>If the function is called often, we may want to cache (remember) the results to avoid spending extra-time on recalculations.</p>
+<p>But instead of adding that functionality into <code>slow()</code> we’ll create a wrapper function, that adds caching. As we’ll see, there are many benefits of doing so.</p>
+<p>Here’s the code, and explanations follow:</p>
+<p>``<code>js run function slow(x) {   // there can be a heavy CPU-intensive job here   alert(</code>Called with ${x}`); return x; }</p>
+<p>function cachingDecorator(func) { let cache = new Map();</p>
+<p>return function(x) { if (cache.has(x)) { // if there’s such key in cache return cache.get(x); // read the result from it }</p>
+<pre><code>let result = func(x);  // otherwise call func
+
+cache.set(x, result);  // and cache (remember) the result
+return result;</code></pre>
+<p>}; }</p>
+<p>slow = cachingDecorator(slow);</p>
+<p>alert( slow(1) ); // slow(1) is cached and the result returned alert( “Again:” + slow(1) ); // slow(1) result returned from cache</p>
+<p>alert( slow(2) ); // slow(2) is cached and the result returned alert( “Again:” + slow(2) ); // slow(2) result returned from cache ```</p>
+<p>In the code above <code>cachingDecorator</code> is a <em>decorator</em>: a special function that takes another function and alters its behavior.</p>
+<p>The idea is that we can call <code>cachingDecorator</code> for any function, and it will return the caching wrapper. That’s great, because we can have many functions that could use such a feature, and all we need to do is to apply <code>cachingDecorator</code> to them.</p>
+<p>By separating caching from the main function code we also keep the main code simpler.</p>
+<p>The result of <code>cachingDecorator(func)</code> is a “wrapper”: <code>function(x)</code> that “wraps” the call of <code>func(x)</code> into caching logic:</p>
+<p><img src="decorator-makecaching-wrapper.svg" /></p>
+<p>From an outside code, the wrapped <code>slow</code> function still does the same. It just got a caching aspect added to its behavior.</p>
+<p>To summarize, there are several benefits of using a separate <code>cachingDecorator</code> instead of altering the code of <code>slow</code> itself:</p>
+<ul>
+<li>The <code>cachingDecorator</code> is reusable. We can apply it to another function.</li>
+<li>The caching logic is separate, it did not increase the complexity of <code>slow</code> itself (if there was any).</li>
+<li>We can combine multiple decorators if needed (other decorators will follow).</li>
+</ul>
+<h2 id="using-func.call-for-the-context">Using “func.call” for the context</h2>
+<p>The caching decorator mentioned above is not suited to work with object methods.</p>
+<p>For instance, in the code below <code>worker.slow()</code> stops working after the decoration:</p>
+<p>```js run // we’ll make worker.slow caching let worker = { someMethod() { return 1; },</p>
+<p>slow(x) { // scary CPU-heavy task here<br />
+alert(“Called with” + x); return x * this.someMethod(); // (*) } };</p>
+<p>// same code as before function cachingDecorator(func) { let cache = new Map(); return function(x) { if (cache.has(x)) { return cache.get(x); } <em>!</em> let result = func(x); // (**) <em>/!</em> cache.set(x, result); return result; }; }</p>
+<p>alert( worker.slow(1) ); // the original method works</p>
+<p>worker.slow = cachingDecorator(worker.slow); // now make it caching</p>
+<p><em>!</em> alert( worker.slow(2) ); // Whoops! Error: Cannot read property ‘someMethod’ of undefined <em>/!</em> ```</p>
+<p>The error occurs in the line <code>(*)</code> that tries to access <code>this.someMethod</code> and fails. Can you see why?</p>
+<p>The reason is that the wrapper calls the original function as <code>func(x)</code> in the line <code>(**)</code>. And, when called like that, the function gets <code>this = undefined</code>.</p>
+<p>We would observe a similar symptom if we tried to run:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> func <span class="op">=</span> <span class="va">worker</span>.<span class="at">slow</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="at">func</span>(<span class="dv">2</span>)<span class="op">;</span></a></code></pre></div>
+<p>So, the wrapper passes the call to the original method, but without the context <code>this</code>. Hence the error.</p>
+<p>Let’s fix it.</p>
+<p>There’s a special built-in function method <a href="mdn:js/Function/call">func.call(context, …args)</a> that allows to call a function explicitly setting <code>this</code>.</p>
+<p>The syntax is:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">func</span>.<span class="at">call</span>(context<span class="op">,</span> arg1<span class="op">,</span> arg2<span class="op">,</span> ...)</a></code></pre></div>
+<p>It runs <code>func</code> providing the first argument as <code>this</code>, and the next as the arguments.</p>
+<p>To put it simply, these two calls do almost the same:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="at">func</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="va">func</span>.<span class="at">call</span>(obj<span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>)</a></code></pre></div>
+<p>They both call <code>func</code> with arguments <code>1</code>, <code>2</code> and <code>3</code>. The only difference is that <code>func.call</code> also sets <code>this</code> to <code>obj</code>.</p>
+<p>As an example, in the code below we call <code>sayHi</code> in the context of different objects: <code>sayHi.call(user)</code> runs <code>sayHi</code> providing <code>this=user</code>, and the next line sets <code>this=admin</code>:</p>
+<p>```js run function sayHi() { alert(this.name); }</p>
+<p>let user = { name: “John” }; let admin = { name: “Admin” };</p>
+<p>// use call to pass different objects as “this” sayHi.call( user ); // John sayHi.call( admin ); // Admin ```</p>
+<p>And here we use <code>call</code> to call <code>say</code> with the given context and phrase:</p>
+<p>```js run function say(phrase) { alert(this.name + ‘:’ + phrase); }</p>
+<p>let user = { name: “John” };</p>
+<p>// user becomes this, and “Hello” becomes the first argument say.call( user, “Hello” ); // John: Hello ```</p>
+<p>In our case, we can use <code>call</code> in the wrapper to pass the context to the original function:</p>
+<p>```js run let worker = { someMethod() { return 1; },</p>
+<p>slow(x) { alert(“Called with” + x); return x * this.someMethod(); // (*) } };</p>
+<p>function cachingDecorator(func) { let cache = new Map(); return function(x) { if (cache.has(x)) { return cache.get(x); } <em>!</em> let result = func.call(this, x); // “this” is passed correctly now <em>/!</em> cache.set(x, result); return result; }; }</p>
+<p>worker.slow = cachingDecorator(worker.slow); // now make it caching</p>
+<p>alert( worker.slow(2) ); // works alert( worker.slow(2) ); // works, doesn’t call the original (cached) ```</p>
+<p>Now everything is fine.</p>
+<p>To make it all clear, let’s see more deeply how <code>this</code> is passed along:</p>
+<ol type="1">
+<li>After the decoration <code>worker.slow</code> is now the wrapper <code>function (x) { ... }</code>.</li>
+<li>So when <code>worker.slow(2)</code> is executed, the wrapper gets <code>2</code> as an argument and <code>this=worker</code> (it’s the object before dot).</li>
+<li>Inside the wrapper, assuming the result is not yet cached, <code>func.call(this, x)</code> passes the current <code>this</code> (<code>=worker</code>) and the current argument (<code>=2</code>) to the original method.</li>
+</ol>
+<h2 id="going-multi-argument">Going multi-argument</h2>
+<p>Now let’s make <code>cachingDecorator</code> even more universal. Till now it was working only with single-argument functions.</p>
+<p>Now how to cache the multi-argument <code>worker.slow</code> method?</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">let</span> worker <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="at">slow</span>(min<span class="op">,</span> max) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="cf">return</span> min <span class="op">+</span> max<span class="op">;</span> <span class="co">// scary CPU-hogger is assumed</span></a>
+<a class="sourceLine" id="cb5-4" title="4">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="op">};</span></a>
+<a class="sourceLine" id="cb5-6" title="6"></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="co">// should remember same-argument calls</span></a>
+<a class="sourceLine" id="cb5-8" title="8"><span class="va">worker</span>.<span class="at">slow</span> <span class="op">=</span> <span class="at">cachingDecorator</span>(<span class="va">worker</span>.<span class="at">slow</span>)<span class="op">;</span></a></code></pre></div>
+<p>Previously, for a single argument <code>x</code> we could just <code>cache.set(x, result)</code> to save the result and <code>cache.get(x)</code> to retrieve it. But now we need to remember the result for a <em>combination of arguments</em> <code>(min,max)</code>. The native <code>Map</code> takes single value only as the key.</p>
+<p>There are many solutions possible:</p>
+<ol type="1">
+<li>Implement a new (or use a third-party) map-like data structure that is more versatile and allows multi-keys.</li>
+<li>Use nested maps: <code>cache.set(min)</code> will be a <code>Map</code> that stores the pair <code>(max, result)</code>. So we can get <code>result</code> as <code>cache.get(min).get(max)</code>.</li>
+<li>Join two values into one. In our particular case we can just use a string <code>"min,max"</code> as the <code>Map</code> key. For flexibility, we can allow to provide a <em>hashing function</em> for the decorator, that knows how to make one value from many.</li>
+</ol>
+<p>For many practical applications, the 3rd variant is good enough, so we’ll stick to it.</p>
+<p>Also we need to pass not just <code>x</code>, but all arguments in <code>func.call</code>. Let’s recall that in a <code>function()</code> we can get a pseudo-array of its arguments as <code>arguments</code>, so <code>func.call(this, x)</code> should be replaced with <code>func.call(this, ...arguments)</code>.</p>
+<p>Here’s a more powerful <code>cachingDecorator</code>:</p>
+<p>``<code>js run let worker = {   slow(min, max) {     alert(</code>Called with <span class="math inline"><em>m</em><em>i</em><em>n</em>,</span>{max}`); return min + max; } };</p>
+<p>function cachingDecorator(func, hash) { let cache = new Map(); return function() { <em>!</em> let key = hash(arguments); // (<em>) </em>/!* if (cache.has(key)) { return cache.get(key); }</p>
+<p><em>!</em> let result = func.call(this, …arguments); // (**) <em>/!</em></p>
+<pre><code>cache.set(key, result);
+return result;</code></pre>
+<p>}; }</p>
+<p>function hash(args) { return args[0] + ‘,’ + args[1]; }</p>
+<p>worker.slow = cachingDecorator(worker.slow, hash);</p>
+<p>alert( worker.slow(3, 5) ); // works alert( “Again” + worker.slow(3, 5) ); // same (cached) ```</p>
+<p>Now it works with any number of arguments (though the hash function would also need to be adjusted to allow any number of arguments. An interesting way to handle this will be covered below).</p>
+<p>There are two changes:</p>
+<ul>
+<li>In the line <code>(*)</code> it calls <code>hash</code> to create a single key from <code>arguments</code>. Here we use a simple “joining” function that turns arguments <code>(3, 5)</code> into the key <code>"3,5"</code>. More complex cases may require other hashing functions.</li>
+<li>Then <code>(**)</code> uses <code>func.call(this, ...arguments)</code> to pass both the context and all arguments the wrapper got (not just the first one) to the original function.</li>
+</ul>
+<h2 id="func.apply">func.apply</h2>
+<p>Instead of <code>func.call(this, ...arguments)</code> we could use <code>func.apply(this, arguments)</code>.</p>
+<p>The syntax of built-in method <a href="mdn:js/Function/apply">func.apply</a> is:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="va">func</span>.<span class="at">apply</span>(context<span class="op">,</span> args)</a></code></pre></div>
+<p>It runs the <code>func</code> setting <code>this=context</code> and using an array-like object <code>args</code> as the list of arguments.</p>
+<p>The only syntax difference between <code>call</code> and <code>apply</code> is that <code>call</code> expects a list of arguments, while <code>apply</code> takes an array-like object with them.</p>
+<p>So these two calls are almost equivalent:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="va">func</span>.<span class="at">call</span>(context<span class="op">,</span> ...<span class="at">args</span>)<span class="op">;</span> <span class="co">// pass an array as list with spread syntax</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="va">func</span>.<span class="at">apply</span>(context<span class="op">,</span> args)<span class="op">;</span>   <span class="co">// is same as using call</span></a></code></pre></div>
+<p>There’s only a subtle difference:</p>
+<ul>
+<li>The spread syntax <code>...</code> allows to pass <em>iterable</em> <code>args</code> as the list to <code>call</code>.</li>
+<li>The <code>apply</code> accepts only <em>array-like</em> <code>args</code>.</li>
+</ul>
+<p>So, where we expect an iterable, <code>call</code> works, and where we expect an array-like, <code>apply</code> works.</p>
+<p>And for objects that are both iterable and array-like, like a real array, we can use any of them, but <code>apply</code> will probably be faster, because most JavaScript engines internally optimize it better.</p>
+<p>Passing all arguments along with the context to another function is called <em>call forwarding</em>.</p>
+<p>That’s the simplest form of it:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">let</span> wrapper <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-2" title="2">  <span class="cf">return</span> <span class="va">func</span>.<span class="at">apply</span>(<span class="kw">this</span><span class="op">,</span> <span class="kw">arguments</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="op">};</span></a></code></pre></div>
+<p>When an external code calls such <code>wrapper</code>, it is indistinguishable from the call of the original function <code>func</code>.</p>
+<h2 id="borrowing-a-method-method-borrowing">Borrowing a method [#method-borrowing]</h2>
+<p>Now let’s make one more minor improvement in the hashing function:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">function</span> <span class="at">hash</span>(args) <span class="op">{</span></a>
+<a class="sourceLine" id="cb10-2" title="2">  <span class="cf">return</span> args[<span class="dv">0</span>] <span class="op">+</span> <span class="st">&#39;,&#39;</span> <span class="op">+</span> args[<span class="dv">1</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>As of now, it works only on two arguments. It would be better if it could glue any number of <code>args</code>.</p>
+<p>The natural solution would be to use <a href="mdn:js/Array/join">arr.join</a> method:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">function</span> <span class="at">hash</span>(args) <span class="op">{</span></a>
+<a class="sourceLine" id="cb11-2" title="2">  <span class="cf">return</span> <span class="va">args</span>.<span class="at">join</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>…Unfortunately, that won’t work. Because we are calling <code>hash(arguments)</code>, and <code>arguments</code> object is both iterable and array-like, but not a real array.</p>
+<p>So calling <code>join</code> on it would fail, as we can see below:</p>
+<p>```js run function hash() { <em>!</em> alert( arguments.join() ); // Error: arguments.join is not a function <em>/!</em> }</p>
+<p>hash(1, 2); ```</p>
+<p>Still, there’s an easy way to use array join:</p>
+<p>```js run function hash() { <em>!</em> alert( [].join.call(arguments) ); // 1,2 <em>/!</em> }</p>
+<p>hash(1, 2); ```</p>
+<p>The trick is called <em>method borrowing</em>.</p>
+<p>We take (borrow) a join method from a regular array (<code>[].join</code>) and use <code>[].join.call</code> to run it in the context of <code>arguments</code>.</p>
+<p>Why does it work?</p>
+<p>That’s because the internal algorithm of the native method <code>arr.join(glue)</code> is very simple.</p>
+<p>Taken from the specification almost “as-is”:</p>
+<ol type="1">
+<li>Let <code>glue</code> be the first argument or, if no arguments, then a comma <code>","</code>.</li>
+<li>Let <code>result</code> be an empty string.</li>
+<li>Append <code>this[0]</code> to <code>result</code>.</li>
+<li>Append <code>glue</code> and <code>this[1]</code>.</li>
+<li>Append <code>glue</code> and <code>this[2]</code>.</li>
+<li>…Do so until <code>this.length</code> items are glued.</li>
+<li>Return <code>result</code>.</li>
+</ol>
+<p>So, technically it takes <code>this</code> and joins <code>this[0]</code>, <code>this[1]</code> …etc together. It’s intentionally written in a way that allows any array-like <code>this</code> (not a coincidence, many methods follow this practice). That’s why it also works with <code>this=arguments</code>.</p>
+<h2 id="decorators-and-function-properties">Decorators and function properties</h2>
+<p>It is generally safe to replace a function or a method with a decorated one, except for one little thing. If the original function had properties on it, like <code>func.calledCount</code> or whatever, then the decorated one will not provide them. Because that is a wrapper. So one needs to be careful if one uses them.</p>
+<p>E.g. in the example above if <code>slow</code> function had any properties on it, then <code>cachingDecorator(slow)</code> is a wrapper without them.</p>
+<p>Some decorators may provide their own properties. E.g. a decorator may count how many times a function was invoked and how much time it took, and expose this information via wrapper properties.</p>
+<p>There exists a way to create decorators that keep access to function properties, but this requires using a special <code>Proxy</code> object to wrap a function. We’ll discuss it later in the article <a href="info:proxy#proxy-apply" class="uri">info:proxy#proxy-apply</a>.</p>
+<h2 id="summary">Summary</h2>
+<p><em>Decorator</em> is a wrapper around a function that alters its behavior. The main job is still carried out by the function.</p>
+<p>Decorators can be seen as “features” or “aspects” that can be added to a function. We can add one or add many. And all this without changing its code!</p>
+<p>To implement <code>cachingDecorator</code>, we studied methods:</p>
+<ul>
+<li><a href="mdn:js/Function/call">func.call(context, arg1, arg2…)</a> – calls <code>func</code> with given context and arguments.</li>
+<li><a href="mdn:js/Function/apply">func.apply(context, args)</a> – calls <code>func</code> passing <code>context</code> as <code>this</code> and array-like <code>args</code> into a list of arguments.</li>
+</ul>
+<p>The generic <em>call forwarding</em> is usually done with <code>apply</code>:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">let</span> wrapper <span class="op">=</span> <span class="kw">function</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb12-2" title="2">  <span class="cf">return</span> <span class="va">original</span>.<span class="at">apply</span>(<span class="kw">this</span><span class="op">,</span> <span class="kw">arguments</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="op">};</span></a></code></pre></div>
+<p>We also saw an example of <em>method borrowing</em> when we take a method from an object and <code>call</code> it in the context of another object. It is quite common to take array methods and apply them to <code>arguments</code>. The alternative is to use rest parameters object that is a real array.</p>
+<p>There are many decorators there in the wild. Check how well you got them by solving the tasks of this chapter.</p>

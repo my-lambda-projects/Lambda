@@ -1,0 +1,308 @@
+<h1 id="export-and-import">Export and Import</h1>
+<p>Export and import directives have several syntax variants.</p>
+<p>In the previous article we saw a simple use, now let’s explore more examples.</p>
+<h2 id="export-before-declarations">Export before declarations</h2>
+<p>We can label any declaration as exported by placing <code>export</code> before it, be it a variable, function or a class.</p>
+<p>For instance, here all exports are valid:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// export an array</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="op">*!*</span><span class="im">export</span><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span><span class="ss"> let months = </span><span class="sc">[&#39;Jan&#39;, &#39;Feb&#39;, &#39;Mar&#39;,&#39;Apr&#39;, &#39;Aug&#39;, &#39;Sep&#39;, &#39;Oct&#39;, &#39;Nov&#39;, &#39;Dec&#39;]</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="ss">// export a constant</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="sc">*</span><span class="ss">!</span><span class="sc">*</span><span class="ss">export</span><span class="sc">*</span><span class="ss">/</span><span class="op">!*</span> <span class="kw">const</span> MODULES_BECAME_STANDARD_YEAR <span class="op">=</span> <span class="dv">2015</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="co">// export a class</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="op">*!*</span><span class="im">export</span><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span><span class="ss"> class User {</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="ss">  constructor</span><span class="sc">(</span><span class="ss">name</span><span class="sc">)</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="ss">    this.name = name;</span></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="ss">  }</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="ss">}</span></a></code></pre></div>
+<p>```<code>smart header="No semicolons after export class/function" Please note that</code>export` before a class or a function does not make it a <a href="info:function-expressions">function expression</a>. It’s still a function declaration, albeit exported.</p>
+<p>Most JavaScript style guides don’t recommend semicolons after function and class declarations.</p>
+<p>That’s why there’s no need for a semicolon at the end of <code>export class</code> and <code>export function</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="im">export</span> <span class="kw">function</span> <span class="at">sayHi</span>(user) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  <span class="at">alert</span>(<span class="vs">`Hello, </span><span class="sc">${</span>user<span class="sc">}</span><span class="vs">!`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="op">}</span> <span class="op">*!*</span> <span class="co">// no ; at the end */!*</span></a></code></pre></div>
+<p>````</p>
+<h2 id="export-apart-from-declarations">Export apart from declarations</h2>
+<p>Also, we can put <code>export</code> separately.</p>
+<p>Here we first declare, and then export:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="co">// 📁 say.js</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">function</span> <span class="at">sayHi</span>(user) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="at">alert</span>(<span class="vs">`Hello, </span><span class="sc">${</span>user<span class="sc">}</span><span class="vs">!`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="op">}</span></a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="kw">function</span> <span class="at">sayBye</span>(user) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-7" title="7">  <span class="at">alert</span>(<span class="vs">`Bye, </span><span class="sc">${</span>user<span class="sc">}</span><span class="vs">!`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="op">}</span></a>
+<a class="sourceLine" id="cb3-9" title="9"></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="im">export</span> <span class="op">{</span>sayHi<span class="op">,</span> sayBye<span class="op">};</span> <span class="co">// a list of exported variables</span></a>
+<a class="sourceLine" id="cb3-12" title="12"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a></code></pre></div>
+<p>…Or, technically we could put <code>export</code> above functions as well.</p>
+<h2 id="import">Import *</h2>
+<p>Usually, we put a list of what to import in curly braces <code>import {...}</code>, like this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="co">// 📁 main.js</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="im">import</span> <span class="op">{</span>sayHi<span class="op">,</span> sayBye<span class="op">}</span> <span class="im">from</span> <span class="st">&#39;./say.js&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb4-5" title="5"></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="ss">sayHi</span><span class="sc">(</span><span class="ss">&#39;John&#39;</span><span class="sc">)</span><span class="ss">; // Hello, John!</span></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="ss">sayBye</span><span class="sc">(</span><span class="ss">&#39;John&#39;</span><span class="sc">)</span><span class="ss">; // Bye, John!</span></a></code></pre></div>
+<p>But if there’s a lot to import, we can import everything as an object using <code>import * as &lt;obj&gt;</code>, for instance:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="co">// 📁 main.js</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="im">import</span> <span class="op">*</span> <span class="im">as</span> say <span class="im">from</span> <span class="st">&#39;./say.js&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb5-5" title="5"></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="ss">say.sayHi</span><span class="sc">(</span><span class="ss">&#39;John&#39;</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb5-7" title="7"><span class="ss">say.sayBye</span><span class="sc">(</span><span class="ss">&#39;John&#39;</span><span class="sc">)</span><span class="ss">;</span></a></code></pre></div>
+<p>At first sight, “import everything” seems such a cool thing, short to write, why should we ever explicitly list what we need to import?</p>
+<p>Well, there are few reasons.</p>
+<ol type="1">
+<li><p>Modern build tools (<a href="http://webpack.github.io">webpack</a> and others) bundle modules together and optimize them to speedup loading and remove unused stuff.</p>
+<p>Let’s say, we added a 3rd-party library <code>say.js</code> to our project with many functions: <code>js  // 📁 say.js  export function sayHi() { ... }  export function sayBye() { ... }  export function becomeSilent() { ... }</code></p>
+<p>Now if we only use one of <code>say.js</code> functions in our project: <code>js  // 📁 main.js  import {sayHi} from './say.js';</code> …Then the optimizer will see that and remove the other functions from the bundled code, thus making the build smaller. That is called “tree-shaking”.</p></li>
+<li>Explicitly listing what to import gives shorter names: <code>sayHi()</code> instead of <code>say.sayHi()</code>.</li>
+<li><p>Explicit list of imports gives better overview of the code structure: what is used and where. It makes code support and refactoring easier.</p></li>
+</ol>
+<h2 id="import-as">Import “as”</h2>
+<p>We can also use <code>as</code> to import under different names.</p>
+<p>For instance, let’s import <code>sayHi</code> into the local variable <code>hi</code> for brevity, and import <code>sayBye</code> as <code>bye</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="co">// 📁 main.js</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="im">import</span> <span class="op">{</span>sayHi <span class="im">as</span> hi<span class="op">,</span> sayBye <span class="im">as</span> bye<span class="op">}</span> <span class="im">from</span> <span class="st">&#39;./say.js&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb6-5" title="5"></a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="ss">hi</span><span class="sc">(</span><span class="ss">&#39;John&#39;</span><span class="sc">)</span><span class="ss">; // Hello, John!</span></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="ss">bye</span><span class="sc">(</span><span class="ss">&#39;John&#39;</span><span class="sc">)</span><span class="ss">; // Bye, John!</span></a></code></pre></div>
+<h2 id="export-as">Export “as”</h2>
+<p>The similar syntax exists for <code>export</code>.</p>
+<p>Let’s export functions as <code>hi</code> and <code>bye</code>:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="co">// 📁 say.js</span></a>
+<a class="sourceLine" id="cb7-2" title="2">...</a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="im">export</span> <span class="op">{</span>sayHi <span class="im">as</span> hi<span class="op">,</span> sayBye <span class="im">as</span> bye<span class="op">};</span></a></code></pre></div>
+<p>Now <code>hi</code> and <code>bye</code> are official names for outsiders, to be used in imports:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="co">// 📁 main.js</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="im">import</span> <span class="op">*</span> <span class="im">as</span> say <span class="im">from</span> <span class="st">&#39;./say.js&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb8-3" title="3"></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="va">say</span>.<span class="op">*!*</span>hi<span class="op">*</span><span class="ss">/!</span><span class="sc">*(</span><span class="ss">&#39;John&#39;</span><span class="sc">)</span><span class="ss">; // Hello, John!</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="ss">say.</span><span class="sc">*</span><span class="ss">!</span><span class="sc">*</span><span class="ss">bye</span><span class="sc">*</span><span class="ss">/</span><span class="op">!*</span>(<span class="st">&#39;John&#39;</span>)<span class="op">;</span> <span class="co">// Bye, John!</span></a></code></pre></div>
+<h2 id="export-default">Export default</h2>
+<p>In practice, there are mainly two kinds of modules.</p>
+<ol type="1">
+<li>Modules that contain a library, pack of functions, like <code>say.js</code> above.</li>
+<li>Modules that declare a single entity, e.g. a module <code>user.js</code> exports only <code>class User</code>.</li>
+</ol>
+<p>Mostly, the second approach is preferred, so that every “thing” resides in its own module.</p>
+<p>Naturally, that requires a lot of files, as everything wants its own module, but that’s not a problem at all. Actually, code navigation becomes easier if files are well-named and structured into folders.</p>
+<p>Modules provide a special <code>export default</code> (“the default export”) syntax to make the “one thing per module” way look better.</p>
+<p>Put <code>export default</code> before the entity to export:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb9-1" title="1"><span class="co">// 📁 user.js</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="im">export</span> <span class="op">*!*</span><span class="im">default</span><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span><span class="ss"> class User { // just add &quot;default&quot;</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="ss">  constructor</span><span class="sc">(</span><span class="ss">name</span><span class="sc">)</span><span class="ss"> {</span></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="ss">    this.name = name;</span></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="ss">  }</span></a>
+<a class="sourceLine" id="cb9-6" title="6"><span class="ss">}</span></a></code></pre></div>
+<p>There may be only one <code>export default</code> per file.</p>
+<p>…And then import it without curly braces:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="co">// 📁 main.js</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="im">import</span> <span class="op">*!*</span>User<span class="op">*</span><span class="ss">/!</span><span class="sc">*</span><span class="ss"> from &#39;./user</span>.<span class="at">js</span><span class="st">&#39;; // not {User}, just User</span></a>
+<a class="sourceLine" id="cb10-3" title="3"></a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="kw">new</span> <span class="at">User</span>(<span class="st">&#39;John&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p>Imports without curly braces look nicer. A common mistake when starting to use modules is to forget curly braces at all. So, remember, <code>import</code> needs curly braces for named exports and doesn’t need them for the default one.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Named export</th>
+<th>Default export</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>export class User {...}</code></td>
+<td><code>export default class User {...}</code></td>
+</tr>
+<tr class="even">
+<td><code>import {User} from ...</code></td>
+<td><code>import User from ...</code></td>
+</tr>
+</tbody>
+</table>
+<p>Technically, we may have both default and named exports in a single module, but in practice people usually don’t mix them. A module has either named exports or the default one.</p>
+<p>As there may be at most one default export per file, the exported entity may have no name.</p>
+<p>For instance, these are all perfectly valid default exports:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="im">export</span> <span class="im">default</span> <span class="kw">class</span> <span class="op">{</span> <span class="co">// no class name</span></a>
+<a class="sourceLine" id="cb11-2" title="2">  <span class="at">constructor</span>() <span class="op">{</span> ... <span class="op">}</span></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb12-1" title="1"><span class="im">export</span> <span class="im">default</span> <span class="kw">function</span>(user) <span class="op">{</span> <span class="co">// no function name</span></a>
+<a class="sourceLine" id="cb12-2" title="2">  <span class="at">alert</span>(<span class="vs">`Hello, </span><span class="sc">${</span>user<span class="sc">}</span><span class="vs">!`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb12-3" title="3"><span class="op">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb13-1" title="1"><span class="co">// export a single value, without making a variable</span></a>
+<a class="sourceLine" id="cb13-2" title="2"><span class="im">export</span> <span class="im">default</span> [<span class="st">&#39;Jan&#39;</span><span class="op">,</span> <span class="st">&#39;Feb&#39;</span><span class="op">,</span> <span class="st">&#39;Mar&#39;</span><span class="op">,</span><span class="st">&#39;Apr&#39;</span><span class="op">,</span> <span class="st">&#39;Aug&#39;</span><span class="op">,</span> <span class="st">&#39;Sep&#39;</span><span class="op">,</span> <span class="st">&#39;Oct&#39;</span><span class="op">,</span> <span class="st">&#39;Nov&#39;</span><span class="op">,</span> <span class="st">&#39;Dec&#39;</span>]<span class="op">;</span></a></code></pre></div>
+<p>Not giving a name is fine, because there is only one <code>export default</code> per file, so <code>import</code> without curly braces knows what to import.</p>
+<p>Without <code>default</code>, such an export would give an error:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb14-1" title="1"><span class="im">export</span> <span class="kw">class</span> <span class="op">{</span> <span class="co">// Error! (non-default export needs a name)</span></a>
+<a class="sourceLine" id="cb14-2" title="2">  <span class="at">constructor</span>() <span class="op">{}</span></a>
+<a class="sourceLine" id="cb14-3" title="3"><span class="op">}</span></a></code></pre></div>
+<h3 id="the-default-name">The “default” name</h3>
+<p>In some situations the <code>default</code> keyword is used to reference the default export.</p>
+<p>For example, to export a function separately from its definition:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb15-1" title="1"><span class="kw">function</span> <span class="at">sayHi</span>(user) <span class="op">{</span></a>
+<a class="sourceLine" id="cb15-2" title="2">  <span class="at">alert</span>(<span class="vs">`Hello, </span><span class="sc">${</span>user<span class="sc">}</span><span class="vs">!`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb15-3" title="3"><span class="op">}</span></a>
+<a class="sourceLine" id="cb15-4" title="4"></a>
+<a class="sourceLine" id="cb15-5" title="5"><span class="co">// same as if we added &quot;export default&quot; before the function</span></a>
+<a class="sourceLine" id="cb15-6" title="6"><span class="im">export</span> <span class="op">{</span>sayHi <span class="im">as</span> <span class="im">default</span><span class="op">};</span></a></code></pre></div>
+<p>Or, another situation, let’s say a module <code>user.js</code> exports one main “default” thing, and a few named ones (rarely the case, but it happens):</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb16-1" title="1"><span class="co">// 📁 user.js</span></a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="im">export</span> <span class="im">default</span> <span class="kw">class</span> User <span class="op">{</span></a>
+<a class="sourceLine" id="cb16-3" title="3">  <span class="at">constructor</span>(name) <span class="op">{</span></a>
+<a class="sourceLine" id="cb16-4" title="4">    <span class="kw">this</span>.<span class="at">name</span> <span class="op">=</span> name<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-5" title="5">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb16-6" title="6"><span class="op">}</span></a>
+<a class="sourceLine" id="cb16-7" title="7"></a>
+<a class="sourceLine" id="cb16-8" title="8"><span class="im">export</span> <span class="kw">function</span> <span class="at">sayHi</span>(user) <span class="op">{</span></a>
+<a class="sourceLine" id="cb16-9" title="9">  <span class="at">alert</span>(<span class="vs">`Hello, </span><span class="sc">${</span>user<span class="sc">}</span><span class="vs">!`</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb16-10" title="10"><span class="op">}</span></a></code></pre></div>
+<p>Here’s how to import the default export along with a named one:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb17-1" title="1"><span class="co">// 📁 main.js</span></a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="im">import</span> <span class="op">{*!*</span><span class="im">default</span> <span class="im">as</span> User<span class="op">*</span><span class="ss">/!</span><span class="sc">*</span><span class="ss">, sayHi} from &#39;./user</span>.<span class="at">js</span><span class="st">&#39;;</span></a>
+<a class="sourceLine" id="cb17-3" title="3"></a>
+<a class="sourceLine" id="cb17-4" title="4"><span class="kw">new</span> <span class="at">User</span>(<span class="st">&#39;John&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<p>And, finally, if importing everything <code>*</code> as an object, then the <code>default</code> property is exactly the default export:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb18-1" title="1"><span class="co">// 📁 main.js</span></a>
+<a class="sourceLine" id="cb18-2" title="2"><span class="im">import</span> <span class="op">*</span> <span class="im">as</span> user <span class="im">from</span> <span class="st">&#39;./user.js&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb18-3" title="3"></a>
+<a class="sourceLine" id="cb18-4" title="4"><span class="kw">let</span> User <span class="op">=</span> <span class="va">user</span>.<span class="at">default</span><span class="op">;</span> <span class="co">// the default export</span></a>
+<a class="sourceLine" id="cb18-5" title="5"><span class="kw">new</span> <span class="at">User</span>(<span class="st">&#39;John&#39;</span>)<span class="op">;</span></a></code></pre></div>
+<h3 id="a-word-against-default-exports">A word against default exports</h3>
+<p>Named exports are explicit. They exactly name what they import, so we have that information from them; that’s a good thing.</p>
+<p>Named exports force us to use exactly the right name to import:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb19-1" title="1"><span class="im">import</span> <span class="op">{</span>User<span class="op">}</span> <span class="im">from</span> <span class="st">&#39;./user.js&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb19-2" title="2"><span class="co">// import {MyUser} won&#39;t work, the name must be {User}</span></a></code></pre></div>
+<p>…While for a default export, we always choose the name when importing:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb20-1" title="1"><span class="im">import</span> User <span class="im">from</span> <span class="st">&#39;./user.js&#39;</span><span class="op">;</span> <span class="co">// works</span></a>
+<a class="sourceLine" id="cb20-2" title="2"><span class="im">import</span> MyUser <span class="im">from</span> <span class="st">&#39;./user.js&#39;</span><span class="op">;</span> <span class="co">// works too</span></a>
+<a class="sourceLine" id="cb20-3" title="3"><span class="co">// could be import Anything... and it&#39;ll still work</span></a></code></pre></div>
+<p>So team members may use different names to import the same thing, and that’s not good.</p>
+<p>Usually, to avoid that and keep the code consistent, there’s a rule that imported variables should correspond to file names, e.g:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb21-1" title="1"><span class="im">import</span> User <span class="im">from</span> <span class="st">&#39;./user.js&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb21-2" title="2"><span class="im">import</span> LoginForm <span class="im">from</span> <span class="st">&#39;./loginForm.js&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb21-3" title="3"><span class="im">import</span> func <span class="im">from</span> <span class="st">&#39;/path/to/func.js&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb21-4" title="4">...</a></code></pre></div>
+<p>Still, some teams consider it a serious drawback of default exports. So they prefer to always use named exports. Even if only a single thing is exported, it’s still exported under a name, without <code>default</code>.</p>
+<p>That also makes re-export (see below) a little bit easier.</p>
+<h2 id="re-export">Re-export</h2>
+<p>“Re-export” syntax <code>export ... from ...</code> allows to import things and immediately export them (possibly under another name), like this:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb22-1" title="1"><span class="im">export</span> <span class="op">{</span>sayHi<span class="op">}</span> <span class="im">from</span> <span class="st">&#39;./say.js&#39;</span><span class="op">;</span> <span class="co">// re-export sayHi</span></a>
+<a class="sourceLine" id="cb22-2" title="2"></a>
+<a class="sourceLine" id="cb22-3" title="3"><span class="im">export</span> <span class="op">{</span><span class="im">default</span> <span class="im">as</span> User<span class="op">}</span> <span class="im">from</span> <span class="st">&#39;./user.js&#39;</span><span class="op">;</span> <span class="co">// re-export default</span></a></code></pre></div>
+<p>Why would that be needed? Let’s see a practical use case.</p>
+<p>Imagine, we’re writing a “package”: a folder with a lot of modules, with some of the functionality exported outside (tools like NPM allow us to publish and distribute such packages, but we don’t have to use them), and many modules are just “helpers”, for internal use in other package modules.</p>
+<p>The file structure could be like this:</p>
+<pre><code>auth/
+    index.js  
+    user.js
+    helpers.js
+    tests/
+        login.js
+    providers/
+        github.js
+        facebook.js
+        ...</code></pre>
+<p>We’d like to expose the package functionality via a single entry point.</p>
+<p>In other words, a person who would like to use our package, should import only from the “main file” <code>auth/index.js</code>.</p>
+<p>Like this:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb24-1" title="1"><span class="im">import</span> <span class="op">{</span>login<span class="op">,</span> logout<span class="op">}</span> <span class="im">from</span> <span class="st">&#39;auth/index.js&#39;</span></a></code></pre></div>
+<p>The “main file”, <code>auth/index.js</code> exports all the functionality that we’d like to provide in our package.</p>
+<p>The idea is that outsiders, other programmers who use our package, should not meddle with its internal structure, search for files inside our package folder. We export only what’s necessary in <code>auth/index.js</code> and keep the rest hidden from prying eyes.</p>
+<p>As the actual exported functionality is scattered among the package, we can import it into <code>auth/index.js</code> and export from it:</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb25-1" title="1"><span class="co">// 📁 auth/index.js</span></a>
+<a class="sourceLine" id="cb25-2" title="2"></a>
+<a class="sourceLine" id="cb25-3" title="3"><span class="co">// import login/logout and immediately export them</span></a>
+<a class="sourceLine" id="cb25-4" title="4"><span class="im">import</span> <span class="op">{</span>login<span class="op">,</span> logout<span class="op">}</span> <span class="im">from</span> <span class="st">&#39;./helpers.js&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb25-5" title="5"><span class="im">export</span> <span class="op">{</span>login<span class="op">,</span> logout<span class="op">};</span></a>
+<a class="sourceLine" id="cb25-6" title="6"></a>
+<a class="sourceLine" id="cb25-7" title="7"><span class="co">// import default as User and export it</span></a>
+<a class="sourceLine" id="cb25-8" title="8"><span class="im">import</span> User <span class="im">from</span> <span class="st">&#39;./user.js&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb25-9" title="9"><span class="im">export</span> <span class="op">{</span>User<span class="op">};</span></a>
+<a class="sourceLine" id="cb25-10" title="10">...</a></code></pre></div>
+<p>Now users of our package can <code>import {login} from "auth/index.js"</code>.</p>
+<p>The syntax <code>export ... from ...</code> is just a shorter notation for such import-export:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb26-1" title="1"><span class="co">// 📁 auth/index.js</span></a>
+<a class="sourceLine" id="cb26-2" title="2"><span class="co">// re-export login/logout </span></a>
+<a class="sourceLine" id="cb26-3" title="3"><span class="im">export</span> <span class="op">{</span>login<span class="op">,</span> logout<span class="op">}</span> <span class="im">from</span> <span class="st">&#39;./helpers.js&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb26-4" title="4"></a>
+<a class="sourceLine" id="cb26-5" title="5"><span class="co">// re-export the default export as User</span></a>
+<a class="sourceLine" id="cb26-6" title="6"><span class="im">export</span> <span class="op">{</span><span class="im">default</span> <span class="im">as</span> User<span class="op">}</span> <span class="im">from</span> <span class="st">&#39;./user.js&#39;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb26-7" title="7">...</a></code></pre></div>
+<p>The notable difference of <code>export ... from</code> compared to <code>import/export</code> is that re-exported modules aren’t available in the current file. So inside the above example of <code>auth/index.js</code> we can’t use re-exported <code>login/logout</code> functions.</p>
+<h3 id="re-exporting-the-default-export">Re-exporting the default export</h3>
+<p>The default export needs separate handling when re-exporting.</p>
+<p>Let’s say we have <code>user.js</code> with the <code>export default class User</code> and would like to re-export it:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb27-1" title="1"><span class="co">// 📁 user.js</span></a>
+<a class="sourceLine" id="cb27-2" title="2"><span class="im">export</span> <span class="im">default</span> <span class="kw">class</span> User <span class="op">{</span></a>
+<a class="sourceLine" id="cb27-3" title="3">  <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb27-4" title="4"><span class="op">}</span></a></code></pre></div>
+<p>We can come across two problems with it:</p>
+<ol type="1">
+<li><p><code>export User from './user.js'</code> won’t work. That would lead to a syntax error.</p>
+<p>To re-export the default export, we have to write <code>export {default as User}</code>, as in the example above.</p></li>
+<li><p><code>export * from './user.js'</code> re-exports only named exports, but ignores the default one.</p>
+<p>If we’d like to re-export both named and the default export, then two statements are needed: <code>js  export * from './user.js'; // to re-export named exports  export {default} from './user.js'; // to re-export the default export</code></p></li>
+</ol>
+<p>Such oddities of re-exporting a default export are one of the reasons why some developers don’t like default exports and prefer named ones.</p>
+<h2 id="summary">Summary</h2>
+<p>Here are all types of <code>export</code> that we covered in this and previous articles.</p>
+<p>You can check yourself by reading them and recalling what they mean:</p>
+<ul>
+<li>Before declaration of a class/function/..:
+<ul>
+<li><code>export [default] class/function/variable ...</code></li>
+</ul></li>
+<li>Standalone export:
+<ul>
+<li><code>export {x [as y], ...}</code>.</li>
+</ul></li>
+<li>Re-export:
+<ul>
+<li><code>export {x [as y], ...} from "module"</code></li>
+<li><code>export * from "module"</code> (doesn’t re-export default).</li>
+<li><code>export {default [as y]} from "module"</code> (re-export default).</li>
+</ul></li>
+</ul>
+<p>Import:</p>
+<ul>
+<li>Importing named exports:
+<ul>
+<li><code>import {x [as y], ...} from "module"</code></li>
+</ul></li>
+<li>Importing the default export:
+<ul>
+<li><code>import x from "module"</code></li>
+<li><code>import {default as x} from "module"</code></li>
+</ul></li>
+<li>Import all:
+<ul>
+<li><code>import * as obj from "module"</code></li>
+</ul></li>
+<li>Import the module (its code runs), but do not assign any of its exports to variables:
+<ul>
+<li><code>import "module"</code></li>
+</ul></li>
+</ul>
+<p>We can put <code>import/export</code> statements at the top or at the bottom of a script, that doesn’t matter.</p>
+<p>So, technically this code is fine:</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb28-1" title="1"><span class="at">sayHi</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb28-2" title="2"></a>
+<a class="sourceLine" id="cb28-3" title="3"><span class="co">// ...</span></a>
+<a class="sourceLine" id="cb28-4" title="4"></a>
+<a class="sourceLine" id="cb28-5" title="5"><span class="im">import</span> <span class="op">{</span>sayHi<span class="op">}</span> <span class="im">from</span> <span class="st">&#39;./say.js&#39;</span><span class="op">;</span> <span class="co">// import at the end of the file</span></a></code></pre></div>
+<p>In practice imports are usually at the start of the file, but that’s only for more convenience.</p>
+<p><strong>Please note that import/export statements don’t work if inside <code>{...}</code>.</strong></p>
+<p>A conditional import, like this, won’t work:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb29-1" title="1"><span class="cf">if</span> (something) <span class="op">{</span></a>
+<a class="sourceLine" id="cb29-2" title="2">  <span class="im">import</span> <span class="op">{</span>sayHi<span class="op">}</span> <span class="im">from</span> <span class="st">&quot;./say.js&quot;</span><span class="op">;</span> <span class="co">// Error: import must be at top level</span></a>
+<a class="sourceLine" id="cb29-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>…But what if we really need to import something conditionally? Or at the right time? Like, load a module upon request, when it’s really needed?</p>
+<p>We’ll see dynamic imports in the next article.</p>

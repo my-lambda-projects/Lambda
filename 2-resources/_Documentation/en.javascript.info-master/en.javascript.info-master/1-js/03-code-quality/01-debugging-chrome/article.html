@@ -1,0 +1,113 @@
+<h1 id="debugging-in-chrome">Debugging in Chrome</h1>
+<p>Before writing more complex code, let’s talk about debugging.</p>
+<p><a href="https://en.wikipedia.org/wiki/Debugging">Debugging</a> is the process of finding and fixing errors within a script. All modern browsers and most other environments support debugging tools – a special UI in developer tools that makes debugging much easier. It also allows to trace the code step by step to see what exactly is going on.</p>
+<p>We’ll be using Chrome here, because it has enough features, most other browsers have a similar process.</p>
+<h2 id="the-sources-panel">The “Sources” panel</h2>
+<p>Your Chrome version may look a little bit different, but it still should be obvious what’s there.</p>
+<ul>
+<li>Open the <a href="debugging/index.html">example page</a> in Chrome.</li>
+<li>Turn on developer tools with <code>key:F12</code> (Mac: <code>key:Cmd+Opt+I</code>).</li>
+<li>Select the <code>Sources</code> panel.</li>
+</ul>
+<p>Here’s what you should see if you are doing it for the first time:</p>
+<p><img src="chrome-open-sources.svg" /></p>
+<p>The toggler button <span class="devtools" style="background-position:-172px -98px"></span> opens the tab with files.</p>
+<p>Let’s click it and select <code>hello.js</code> in the tree view. Here’s what should show up:</p>
+<p><img src="chrome-tabs.svg" /></p>
+<p>The Sources panel has 3 parts:</p>
+<ol type="1">
+<li>The <strong>File Navigator</strong> pane lists HTML, JavaScript, CSS and other files, including images that are attached to the page. Chrome extensions may appear here too.</li>
+<li>The <strong>Code Editor</strong> pane shows the source code.</li>
+<li>The <strong>JavaScript Debugging</strong> pane is for debugging, we’ll explore it soon.</li>
+</ol>
+<p>Now you could click the same toggler <span class="devtools" style="background-position:-172px -122px"></span> again to hide the resources list and give the code some space.</p>
+<h2 id="console">Console</h2>
+<p>If we press <code>key:Esc</code>, then a console opens below. We can type commands there and press <code>key:Enter</code> to execute.</p>
+<p>After a statement is executed, its result is shown below.</p>
+<p>For example, here <code>1+2</code> results in <code>3</code>, and <code>hello("debugger")</code> returns nothing, so the result is <code>undefined</code>:</p>
+<p><img src="chrome-sources-console.svg" /></p>
+<h2 id="breakpoints">Breakpoints</h2>
+<p>Let’s examine what’s going on within the code of the <a href="debugging/index.html">example page</a>. In <code>hello.js</code>, click at line number <code>4</code>. Yes, right on the <code>4</code> digit, not on the code.</p>
+<p>Congratulations! You’ve set a breakpoint. Please also click on the number for line <code>8</code>.</p>
+<p>It should look like this (blue is where you should click):</p>
+<p><img src="chrome-sources-breakpoint.svg" /></p>
+<p>A <em>breakpoint</em> is a point of code where the debugger will automatically pause the JavaScript execution.</p>
+<p>While the code is paused, we can examine current variables, execute commands in the console etc. In other words, we can debug it.</p>
+<p>We can always find a list of breakpoints in the right panel. That’s useful when we have many breakpoints in various files. It allows us to: - Quickly jump to the breakpoint in the code (by clicking on it in the right panel). - Temporarily disable the breakpoint by unchecking it. - Remove the breakpoint by right-clicking and selecting Remove. - …And so on.</p>
+<p>```smart header=“Conditional breakpoints” <em>Right click</em> on the line number allows to create a <em>conditional</em> breakpoint. It only triggers when the given expression is truthy.</p>
+<p>That’s handy when we need to stop only for a certain variable value or for certain function parameters. ```</p>
+<h2 id="debugger-command">Debugger command</h2>
+<p>We can also pause the code by using the <code>debugger</code> command in it, like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">hello</span>(name) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">let</span> phrase <span class="op">=</span> <span class="vs">`Hello, </span><span class="sc">${</span>name<span class="sc">}</span><span class="vs">!`</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="op">*!*</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="cf">debugger</span><span class="op">;</span>  <span class="co">// &lt;-- the debugger stops here</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="op">*</span><span class="ss">/!</span><span class="sc">*</span></a>
+<a class="sourceLine" id="cb1-7" title="7"></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="ss">  say</span><span class="sc">(</span><span class="ss">phrase</span><span class="sc">)</span><span class="ss">;</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="ss">}</span></a></code></pre></div>
+<p>That’s very convenient when we are in a code editor and don’t want to switch to the browser and look up the script in developer tools to set the breakpoint.</p>
+<h2 id="pause-and-look-around">Pause and look around</h2>
+<p>In our example, <code>hello()</code> is called during the page load, so the easiest way to activate the debugger (after we’ve set the breakpoints) is to reload the page. So let’s press <code>key:F5</code> (Windows, Linux) or <code>key:Cmd+R</code> (Mac).</p>
+<p>As the breakpoint is set, the execution pauses at the 4th line:</p>
+<p><img src="chrome-sources-debugger-pause.svg" /></p>
+<p>Please open the informational dropdowns to the right (labeled with arrows). They allow you to examine the current code state:</p>
+<ol type="1">
+<li><p><strong><code>Watch</code> – shows current values for any expressions.</strong></p>
+<p>You can click the plus <code>+</code> and input an expression. The debugger will show its value at any moment, automatically recalculating it in the process of execution.</p></li>
+<li><p><strong><code>Call Stack</code> – shows the nested calls chain.</strong></p>
+<p>At the current moment the debugger is inside <code>hello()</code> call, called by a script in <code>index.html</code> (no function there, so it’s called “anonymous”).</p>
+If you click on a stack item (e.g. “anonymous”), the debugger jumps to the corresponding code, and all its variables can be examined as well.</li>
+<li><p><strong><code>Scope</code> – current variables.</strong></p>
+<p><code>Local</code> shows local function variables. You can also see their values highlighted right over the source.</p>
+<p><code>Global</code> has global variables (out of any functions).</p>
+<p>There’s also <code>this</code> keyword there that we didn’t study yet, but we’ll do that soon.</p></li>
+</ol>
+<h2 id="tracing-the-execution">Tracing the execution</h2>
+<p>Now it’s time to <em>trace</em> the script.</p>
+<p>There are buttons for it at the top of the right panel. Let’s engage them. <!-- https://github.com/ChromeDevTools/devtools-frontend/blob/master/front_end/Images/src/largeIcons.svg --> <span class="devtools" style="background-position:-146px -168px"></span> – “Resume”: continue the execution, hotkey <code>key:F8</code>. : Resumes the execution. If there are no additional breakpoints, then the execution just continues and the debugger loses control.</p>
+<pre><code>Here&#39;s what we can see after a click on it:
+
+![](chrome-sources-debugger-trace-1.svg)
+
+The execution has resumed, reached another breakpoint inside `say()` and paused there. Take a look at the &quot;Call Stack&quot; at the right. It has increased by one more call. We&#39;re inside `say()` now.</code></pre>
+<dl>
+<dt><span class="devtools" style="background-position:-200px -190px"></span> – “Step”: run the next command, hotkey <code>key:F9</code>.</dt>
+<dd><p>Run the next statement. If we click it now, <code>alert</code> will be shown.</p>
+<p>Clicking this again and again will step through all script statements one by one.</p>
+</dd>
+<dt><span class="devtools" style="background-position:-62px -192px"></span> – “Step over”: run the next command, but <em>don’t go into a function</em>, hotkey <code>key:F10</code>.</dt>
+<dd><p>Similar to the previous “Step” command, but behaves differently if the next statement is a function call. That is: not a built-in, like <code>alert</code>, but a function of our own.</p>
+<p>The “Step” command goes into it and pauses the execution at its first line, while “Step over” executes the nested function call invisibly, skipping the function internals.</p>
+<p>The execution is then paused immediately after that function.</p>
+<p>That’s good if we’re not interested to see what happens inside the function call.</p>
+</dd>
+<dt><span class="devtools" style="background-position:-4px -194px"></span> – “Step into”, hotkey <code>key:F11</code>.</dt>
+<dd><p>That’s similar to “Step”, but behaves differently in case of asynchronous function calls. If you’re only starting to learn JavaScript, then you can ignore the difference, as we don’t have asynchronous calls yet.</p>
+<p>For the future, just note that “Step” command ignores async actions, such as <code>setTimeout</code> (scheduled function call), that execute later. The “Step into” goes into their code, waiting for them if necessary. See <a href="https://developers.google.com/web/updates/2018/01/devtools#async">DevTools manual</a> for more details.</p>
+</dd>
+<dt><span class="devtools" style="background-position:-32px -194px"></span> – “Step out”: continue the execution till the end of the current function, hotkey <code>key:Shift+F11</code>.</dt>
+<dd>Continue the execution and stop it at the very last line of the current function. That’s handy when we accidentally entered a nested call using <span class="devtools" style="background-position:-200px -190px"></span>, but it does not interest us, and we want to continue to its end as soon as possible.
+</dd>
+<dt><span class="devtools" style="background-position:-61px -74px"></span> – enable/disable all breakpoints.</dt>
+<dd>That button does not move the execution. Just a mass on/off for breakpoints.
+</dd>
+<dt><span class="devtools" style="background-position:-90px -146px"></span> – enable/disable automatic pause in case of an error.</dt>
+<dd>When enabled, and the developer tools is open, a script error automatically pauses the execution. Then we can analyze variables to see what went wrong. So if our script dies with an error, we can open debugger, enable this option and reload the page to see where it dies and what’s the context at that moment.
+</dd>
+</dl>
+<p>```smart header=“Continue to here” Right click on a line of code opens the context menu with a great option called “Continue to here”.</p>
+<p>That’s handy when we want to move multiple steps forward to the line, but we’re too lazy to set a breakpoint. ```</p>
+<h2 id="logging">Logging</h2>
+<p>To output something to console from our code, there’s <code>console.log</code> function.</p>
+<p>For instance, this outputs values from <code>0</code> to <code>4</code> to console:</p>
+<p><code>js run // open console to see for (let i = 0; i &lt; 5; i++) {   console.log("value,", i); }</code></p>
+<p>Regular users don’t see that output, it is in the console. To see it, either open the Console panel of developer tools or press <code>key:Esc</code> while in another panel: that opens the console at the bottom.</p>
+<p>If we have enough logging in our code, then we can see what’s going on from the records, without the debugger.</p>
+<h2 id="summary">Summary</h2>
+<p>As we can see, there are three main ways to pause a script: 1. A breakpoint. 2. The <code>debugger</code> statements. 3. An error (if dev tools are open and the button <span class="devtools" style="background-position:-90px -146px"></span> is “on”).</p>
+<p>When paused, we can debug - examine variables and trace the code to see where the execution goes wrong.</p>
+<p>There are many more options in developer tools than covered here. The full manual is at <a href="https://developers.google.com/web/tools/chrome-devtools" class="uri">https://developers.google.com/web/tools/chrome-devtools</a>.</p>
+<p>The information from this chapter is enough to begin debugging, but later, especially if you do a lot of browser stuff, please go there and look through more advanced capabilities of developer tools.</p>
+<p>Oh, and also you can click at various places of dev tools and just see what’s showing up. That’s probably the fastest route to learn dev tools. Don’t forget about the right click and context menus!</p>

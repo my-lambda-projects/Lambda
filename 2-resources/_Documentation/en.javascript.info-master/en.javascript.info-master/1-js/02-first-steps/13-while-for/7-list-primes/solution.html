@@ -1,0 +1,13 @@
+<p>There are many algorithms for this task.</p>
+<p>Let’s use a nested loop:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1">For each i <span class="kw">in</span> the interval <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  check <span class="cf">if</span> i has a divisor <span class="im">from</span> <span class="dv">1</span>..<span class="at">i</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="cf">if</span> yes <span class="kw">=&gt;</span> the value is not a prime</a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="cf">if</span> no <span class="kw">=&gt;</span> the value is a prime<span class="op">,</span> show it</a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="op">}</span></a></code></pre></div>
+<p>The code using a label:</p>
+<p>```js run let n = 10;</p>
+<p>nextPrime: for (let i = 2; i &lt;= n; i++) { // for each i…</p>
+<p>for (let j = 2; j &lt; i; j++) { // look for a divisor.. if (i % j == 0) continue nextPrime; // not a prime, go next i }</p>
+<p>alert( i ); // a prime } ```</p>
+<p>There’s a lot of space to optimize it. For instance, we could look for the divisors from <code>2</code> to square root of <code>i</code>. But anyway, if we want to be really efficient for large intervals, we need to change the approach and rely on advanced maths and complex algorithms like <a href="https://en.wikipedia.org/wiki/Quadratic_sieve">Quadratic sieve</a>, <a href="https://en.wikipedia.org/wiki/General_number_field_sieve">General number field sieve</a> etc.</p>

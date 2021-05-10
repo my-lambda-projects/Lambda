@@ -1,0 +1,14 @@
+<p>Let’s walk the array items: - For each item we’ll check if the resulting array already has that item. - If it is so, then ignore, otherwise add to results.</p>
+<p>```js run demo function unique(arr) { let result = [];</p>
+<p>for (let str of arr) { if (!result.includes(str)) { result.push(str); } }</p>
+<p>return result; }</p>
+<p>let strings = [“Hare”, “Krishna”, “Hare”, “Krishna”, “Krishna”, “Krishna”, “Hare”, “Hare”, “:-O”];</p>
+<p>alert( unique(strings) ); // Hare, Krishna, :-O ```</p>
+<p>The code works, but there’s a potential performance problem in it.</p>
+<p>The method <code>result.includes(str)</code> internally walks the array <code>result</code> and compares each element against <code>str</code> to find the match.</p>
+<p>So if there are <code>100</code> elements in <code>result</code> and no one matches <code>str</code>, then it will walk the whole <code>result</code> and do exactly <code>100</code> comparisons. And if <code>result</code> is large, like <code>10000</code>, then there would be <code>10000</code> comparisons.</p>
+<p>That’s not a problem by itself, because JavaScript engines are very fast, so walk <code>10000</code> array is a matter of microseconds.</p>
+<p>But we do such test for each element of <code>arr</code>, in the <code>for</code> loop.</p>
+<p>So if <code>arr.length</code> is <code>10000</code> we’ll have something like <code>10000*10000</code> = 100 millions of comparisons. That’s a lot.</p>
+<p>So the solution is only good for small arrays.</p>
+<p>Further in the chapter <a href="info:map-set" class="uri">info:map-set</a> we’ll see how to optimize it.</p>

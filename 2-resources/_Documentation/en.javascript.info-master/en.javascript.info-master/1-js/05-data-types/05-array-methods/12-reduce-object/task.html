@@ -1,0 +1,26 @@
+<p>importance: 4</p>
+<hr />
+<h1 id="create-keyed-object-from-array">Create keyed object from array</h1>
+<p>Let’s say we received an array of users in the form <code>{id:..., name:..., age... }</code>.</p>
+<p>Create a function <code>groupById(arr)</code> that creates an object from it, with <code>id</code> as the key, and array items as values.</p>
+<p>For example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">let</span> users <span class="op">=</span> [</a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="op">{</span><span class="dt">id</span><span class="op">:</span> <span class="st">&#39;john&#39;</span><span class="op">,</span> <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;John Smith&quot;</span><span class="op">,</span> <span class="dt">age</span><span class="op">:</span> <span class="dv">20</span><span class="op">},</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="op">{</span><span class="dt">id</span><span class="op">:</span> <span class="st">&#39;ann&#39;</span><span class="op">,</span> <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;Ann Smith&quot;</span><span class="op">,</span> <span class="dt">age</span><span class="op">:</span> <span class="dv">24</span><span class="op">},</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="op">{</span><span class="dt">id</span><span class="op">:</span> <span class="st">&#39;pete&#39;</span><span class="op">,</span> <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;Pete Peterson&quot;</span><span class="op">,</span> <span class="dt">age</span><span class="op">:</span> <span class="dv">31</span><span class="op">},</span></a>
+<a class="sourceLine" id="cb1-5" title="5">]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="kw">let</span> usersById <span class="op">=</span> <span class="at">groupById</span>(users)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-8" title="8"></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="co">/*</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="co">// after the call we should have:</span></a>
+<a class="sourceLine" id="cb1-11" title="11"></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="co">usersById = {</span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="co">  john: {id: &#39;john&#39;, name: &quot;John Smith&quot;, age: 20},</span></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="co">  ann: {id: &#39;ann&#39;, name: &quot;Ann Smith&quot;, age: 24},</span></a>
+<a class="sourceLine" id="cb1-15" title="15"><span class="co">  pete: {id: &#39;pete&#39;, name: &quot;Pete Peterson&quot;, age: 31},</span></a>
+<a class="sourceLine" id="cb1-16" title="16"><span class="co">}</span></a>
+<a class="sourceLine" id="cb1-17" title="17"><span class="co">*/</span></a></code></pre></div>
+<p>Such function is really handy when working with server data.</p>
+<p>In this task we assume that <code>id</code> is unique. There may be no two array items with the same <code>id</code>.</p>
+<p>Please use array <code>.reduce</code> method in the solution.</p>

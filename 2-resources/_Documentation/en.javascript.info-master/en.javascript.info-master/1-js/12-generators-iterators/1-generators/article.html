@@ -1,0 +1,185 @@
+<h1 id="generators">Generators</h1>
+<p>Regular functions return only one, single value (or nothing).</p>
+<p>Generators can return (“yield”) multiple values, one after another, on-demand. They work great with <a href="info:iterable">iterables</a>, allowing to create data streams with ease.</p>
+<h2 id="generator-functions">Generator functions</h2>
+<p>To create a generator, we need a special syntax construct: <code>function*</code>, so-called “generator function”.</p>
+<p>It looks like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span><span class="op">*</span> <span class="at">generateSequence</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">yield</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="kw">yield</span> <span class="dv">2</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="cf">return</span> <span class="dv">3</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="op">}</span></a></code></pre></div>
+<p>Generator functions behave differently from regular ones. When such function is called, it doesn’t run its code. Instead it returns a special object, called “generator object”, to manage the execution.</p>
+<p>Here, take a look:</p>
+<p>```js run function* generateSequence() { yield 1; yield 2; return 3; }</p>
+<p>// “generator function” creates “generator object” let generator = generateSequence(); <em>!</em> alert(generator); // [object Generator] <em>/!</em> ```</p>
+<p>The function code execution hasn’t started yet:</p>
+<p><img src="generateSequence-1.svg" /></p>
+<p>The main method of a generator is <code>next()</code>. When called, it runs the execution until the nearest <code>yield &lt;value&gt;</code> statement (<code>value</code> can be omitted, then it’s <code>undefined</code>). Then the function execution pauses, and the yielded <code>value</code> is returned to the outer code.</p>
+<p>The result of <code>next()</code> is always an object with two properties: - <code>value</code>: the yielded value. - <code>done</code>: <code>true</code> if the function code has finished, otherwise <code>false</code>.</p>
+<p>For instance, here we create the generator and get its first yielded value:</p>
+<p>```js run function* generateSequence() { yield 1; yield 2; return 3; }</p>
+<p>let generator = generateSequence();</p>
+<p><em>!</em> let one = generator.next(); <em>/!</em></p>
+<p>alert(JSON.stringify(one)); // {value: 1, done: false} ```</p>
+<p>As of now, we got the first value only, and the function execution is on the second line:</p>
+<p><img src="generateSequence-2.svg" /></p>
+<p>Let’s call <code>generator.next()</code> again. It resumes the code execution and returns the next <code>yield</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> two <span class="op">=</span> <span class="va">generator</span>.<span class="at">next</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="at">alert</span>(<span class="va">JSON</span>.<span class="at">stringify</span>(two))<span class="op">;</span> <span class="co">// {value: 2, done: false}</span></a></code></pre></div>
+<p><img src="generateSequence-3.svg" /></p>
+<p>And, if we call it a third time, the execution reaches the <code>return</code> statement that finishes the function:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> three <span class="op">=</span> <span class="va">generator</span>.<span class="at">next</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="at">alert</span>(<span class="va">JSON</span>.<span class="at">stringify</span>(three))<span class="op">;</span> <span class="co">// {value: 3, *!*done: true*/!*}</span></a></code></pre></div>
+<p><img src="generateSequence-4.svg" /></p>
+<p>Now the generator is done. We should see it from <code>done:true</code> and process <code>value:3</code> as the final result.</p>
+<p>New calls to <code>generator.next()</code> don’t make sense any more. If we do them, they return the same object: <code>{done: true}</code>.</p>
+<p>``<code>smart header="</code>function* f(…)<code>or</code>function *f(…)`?" Both syntaxes are correct.</p>
+<p>But usually the first syntax is preferred, as the star <code>*</code> denotes that it’s a generator function, it describes the kind, not the name, so it should stick with the <code>function</code> keyword. ```</p>
+<h2 id="generators-are-iterable">Generators are iterable</h2>
+<p>As you probably already guessed looking at the <code>next()</code> method, generators are <a href="info:iterable">iterable</a>.</p>
+<p>We can loop over their values using <code>for..of</code>:</p>
+<p>```js run function* generateSequence() { yield 1; yield 2; return 3; }</p>
+<p>let generator = generateSequence();</p>
+<p>for(let value of generator) { alert(value); // 1, then 2 } ```</p>
+<p>Looks a lot nicer than calling <code>.next().value</code>, right?</p>
+<p>…But please note: the example above shows <code>1</code>, then <code>2</code>, and that’s all. It doesn’t show <code>3</code>!</p>
+<p>It’s because <code>for..of</code> iteration ignores the last <code>value</code>, when <code>done: true</code>. So, if we want all results to be shown by <code>for..of</code>, we must return them with <code>yield</code>:</p>
+<p>```js run function* generateSequence() { yield 1; yield 2; <em>!</em> yield 3; <em>/!</em> }</p>
+<p>let generator = generateSequence();</p>
+<p>for(let value of generator) { alert(value); // 1, then 2, then 3 } ```</p>
+<p>As generators are iterable, we can call all related functionality, e.g. the spread syntax <code>...</code>:</p>
+<p>```js run function* generateSequence() { yield 1; yield 2; yield 3; }</p>
+<p>let sequence = [0, …generateSequence()];</p>
+<p>alert(sequence); // 0, 1, 2, 3 ```</p>
+<p>In the code above, <code>...generateSequence()</code> turns the iterable generator object into an array of items (read more about the spread syntax in the chapter <a href="info:rest-parameters-spread#spread-syntax"></a>)</p>
+<h2 id="using-generators-for-iterables">Using generators for iterables</h2>
+<p>Some time ago, in the chapter <a href="info:iterable"></a> we created an iterable <code>range</code> object that returns values <code>from..to</code>.</p>
+<p>Here, let’s remember the code:</p>
+<p>```js run let range = { from: 1, to: 5,</p>
+<p>// for..of range calls this method once in the very beginning <a href="">Symbol.iterator</a> { // …it returns the iterator object: // onward, for..of works only with that object, asking it for next values return { current: this.from, last: this.to,</p>
+<pre><code>  // next() is called on each iteration by the for..of loop
+  next() {
+    // it should return the value as an object {done:.., value :...}
+    if (this.current &lt;= this.last) {
+      return { done: false, value: this.current++ };
+    } else {
+      return { done: true };
+    }
+  }
+};</code></pre>
+<p>} };</p>
+<p>// iteration over range returns numbers from range.from to range.to alert([…range]); // 1,2,3,4,5 ```</p>
+<p>We can use a generator function for iteration by providing it as <code>Symbol.iterator</code>.</p>
+<p>Here’s the same <code>range</code>, but much more compact:</p>
+<p>```js run let range = { from: 1, to: 5,</p>
+<p><em><a href="">Symbol.iterator</a> { // a shorthand for [Symbol.iterator]: function</em>() for(let value = this.from; value &lt;= this.to; value++) { yield value; } } };</p>
+<p>alert( […range] ); // 1,2,3,4,5 ```</p>
+<p>That works, because <code>range[Symbol.iterator]()</code> now returns a generator, and generator methods are exactly what <code>for..of</code> expects: - it has a <code>.next()</code> method - that returns values in the form <code>{value: ..., done: true/false}</code></p>
+<p>That’s not a coincidence, of course. Generators were added to JavaScript language with iterators in mind, to implement them easily.</p>
+<p>The variant with a generator is much more concise than the original iterable code of <code>range</code>, and keeps the same functionality.</p>
+<p>```smart header=“Generators may generate values forever” In the examples above we generated finite sequences, but we can also make a generator that yields values forever. For instance, an unending sequence of pseudo-random numbers.</p>
+<p>That surely would require a <code>break</code> (or <code>return</code>) in <code>for..of</code> over such generator. Otherwise, the loop would repeat forever and hang. ```</p>
+<h2 id="generator-composition">Generator composition</h2>
+<p>Generator composition is a special feature of generators that allows to transparently “embed” generators in each other.</p>
+<p>For instance, we have a function that generates a sequence of numbers:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">function</span><span class="op">*</span> <span class="at">generateSequence</span>(start<span class="op">,</span> end) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> start<span class="op">;</span> i <span class="op">&lt;=</span> end<span class="op">;</span> i<span class="op">++</span>) <span class="kw">yield</span> i<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="op">}</span></a></code></pre></div>
+<p>Now we’d like to reuse it to generate a more complex sequence: - first, digits <code>0..9</code> (with character codes 48..57), - followed by uppercase alphabet letters <code>A..Z</code> (character codes 65..90) - followed by lowercase alphabet letters <code>a..z</code> (character codes 97..122)</p>
+<p>We can use this sequence e.g. to create passwords by selecting characters from it (could add syntax characters as well), but let’s generate it first.</p>
+<p>In a regular function, to combine results from multiple other functions, we call them, store the results, and then join at the end.</p>
+<p>For generators, there’s a special <code>yield*</code> syntax to “embed” (compose) one generator into another.</p>
+<p>The composed generator:</p>
+<p>```js run function* generateSequence(start, end) { for (let i = start; i &lt;= end; i++) yield i; }</p>
+<p>function* generatePasswordCodes() {</p>
+<p><em>!</em> // 0..9 yield* generateSequence(48, 57);</p>
+<p>// A..Z yield* generateSequence(65, 90);</p>
+<p>// a..z yield* generateSequence(97, 122); <em>/!</em></p>
+<p>}</p>
+<p>let str = ’’;</p>
+<p>for(let code of generatePasswordCodes()) { str += String.fromCharCode(code); }</p>
+<p>alert(str); // 0..9A..Za..z ```</p>
+<p>The <code>yield*</code> directive <em>delegates</em> the execution to another generator. This term means that <code>yield* gen</code> iterates over the generator <code>gen</code> and transparently forwards its yields outside. As if the values were yielded by the outer generator.</p>
+<p>The result is the same as if we inlined the code from nested generators:</p>
+<p>```js run function* generateSequence(start, end) { for (let i = start; i &lt;= end; i++) yield i; }</p>
+<p>function* generateAlphaNum() {</p>
+<p><em>!</em> // yield* generateSequence(48, 57); for (let i = 48; i &lt;= 57; i++) yield i;</p>
+<p>// yield* generateSequence(65, 90); for (let i = 65; i &lt;= 90; i++) yield i;</p>
+<p>// yield* generateSequence(97, 122); for (let i = 97; i &lt;= 122; i++) yield i; <em>/!</em></p>
+<p>}</p>
+<p>let str = ’’;</p>
+<p>for(let code of generateAlphaNum()) { str += String.fromCharCode(code); }</p>
+<p>alert(str); // 0..9A..Za..z ```</p>
+<p>A generator composition is a natural way to insert a flow of one generator into another. It doesn’t use extra memory to store intermediate results.</p>
+<h2 id="yield-is-a-two-way-street">“yield” is a two-way street</h2>
+<p>Until this moment, generators were similar to iterable objects, with a special syntax to generate values. But in fact they are much more powerful and flexible.</p>
+<p>That’s because <code>yield</code> is a two-way street: it not only returns the result to the outside, but also can pass the value inside the generator.</p>
+<p>To do so, we should call <code>generator.next(arg)</code>, with an argument. That argument becomes the result of <code>yield</code>.</p>
+<p>Let’s see an example:</p>
+<p>```js run function* gen() { <em>!</em> // Pass a question to the outer code and wait for an answer let result = yield “2 + 2 = ?”; // (<em>) </em>/!*</p>
+<p>alert(result); }</p>
+<p>let generator = gen();</p>
+<p>let question = generator.next().value; // &lt;– yield returns the value</p>
+<p>generator.next(4); // –&gt; pass the result into the generator<br />
+```</p>
+<p><img src="genYield2.svg" /></p>
+<ol type="1">
+<li>The first call <code>generator.next()</code> should be always made without an argument (the argument is ignored if passed). It starts the execution and returns the result of the first <code>yield "2+2=?"</code>. At this point the generator pauses the execution, while staying on the line <code>(*)</code>.</li>
+<li>Then, as shown at the picture above, the result of <code>yield</code> gets into the <code>question</code> variable in the calling code.</li>
+<li>On <code>generator.next(4)</code>, the generator resumes, and <code>4</code> gets in as the result: <code>let result = 4</code>.</li>
+</ol>
+<p>Please note, the outer code does not have to immediately call <code>next(4)</code>. It may take time. That’s not a problem: the generator will wait.</p>
+<p>For instance:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb6-1" title="1"><span class="co">// resume the generator after some time</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="at">setTimeout</span>(() <span class="kw">=&gt;</span> <span class="va">generator</span>.<span class="at">next</span>(<span class="dv">4</span>)<span class="op">,</span> <span class="dv">1000</span>)<span class="op">;</span></a></code></pre></div>
+<p>As we can see, unlike regular functions, a generator and the calling code can exchange results by passing values in <code>next/yield</code>.</p>
+<p>To make things more obvious, here’s another example, with more calls:</p>
+<p>```js run function* gen() { let ask1 = yield “2 + 2 = ?”;</p>
+<p>alert(ask1); // 4</p>
+<p>let ask2 = yield “3 * 3 = ?”</p>
+<p>alert(ask2); // 9 }</p>
+<p>let generator = gen();</p>
+<p>alert( generator.next().value ); // “2 + 2 = ?”</p>
+<p>alert( generator.next(4).value ); // “3 * 3 = ?”</p>
+<p>alert( generator.next(9).done ); // true ```</p>
+<p>The execution picture:</p>
+<p><img src="genYield2-2.svg" /></p>
+<ol type="1">
+<li>The first <code>.next()</code> starts the execution… It reaches the first <code>yield</code>.</li>
+<li>The result is returned to the outer code.</li>
+<li>The second <code>.next(4)</code> passes <code>4</code> back to the generator as the result of the first <code>yield</code>, and resumes the execution.</li>
+<li>…It reaches the second <code>yield</code>, that becomes the result of the generator call.</li>
+<li>The third <code>next(9)</code> passes <code>9</code> into the generator as the result of the second <code>yield</code> and resumes the execution that reaches the end of the function, so <code>done: true</code>.</li>
+</ol>
+<p>It’s like a “ping-pong” game. Each <code>next(value)</code> (excluding the first one) passes a value into the generator, that becomes the result of the current <code>yield</code>, and then gets back the result of the next <code>yield</code>.</p>
+<h2 id="generator.throw">generator.throw</h2>
+<p>As we observed in the examples above, the outer code may pass a value into the generator, as the result of <code>yield</code>.</p>
+<p>…But it can also initiate (throw) an error there. That’s natural, as an error is a kind of result.</p>
+<p>To pass an error into a <code>yield</code>, we should call <code>generator.throw(err)</code>. In that case, the <code>err</code> is thrown in the line with that <code>yield</code>.</p>
+<p>For instance, here the yield of <code>"2 + 2 = ?"</code> leads to an error:</p>
+<p>```js run function* gen() { try { let result = yield “2 + 2 = ?”; // (1)</p>
+<pre><code>alert(&quot;The execution does not reach here, because the exception is thrown above&quot;);</code></pre>
+<p>} catch(e) { alert(e); // shows the error } }</p>
+<p>let generator = gen();</p>
+<p>let question = generator.next().value;</p>
+<p><em>!</em> generator.throw(new Error(“The answer is not found in my database”)); // (2) <em>/!</em> ```</p>
+<p>The error, thrown into the generator at line <code>(2)</code> leads to an exception in line <code>(1)</code> with <code>yield</code>. In the example above, <code>try..catch</code> catches it and shows it.</p>
+<p>If we don’t catch it, then just like any exception, it “falls out” the generator into the calling code.</p>
+<p>The current line of the calling code is the line with <code>generator.throw</code>, labelled as <code>(2)</code>. So we can catch it here, like this:</p>
+<p>```js run function* generate() { let result = yield “2 + 2 = ?”; // Error in this line }</p>
+<p>let generator = generate();</p>
+<p>let question = generator.next().value;</p>
+<p><em>!</em> try { generator.throw(new Error(“The answer is not found in my database”)); } catch(e) { alert(e); // shows the error } <em>/!</em> ```</p>
+<p>If we don’t catch the error there, then, as usual, it falls through to the outer calling code (if any) and, if uncaught, kills the script.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>Generators are created by generator functions <code>function* f(…) {…}</code>.</li>
+<li>Inside generators (only) there exists a <code>yield</code> operator.</li>
+<li>The outer code and the generator may exchange results via <code>next/yield</code> calls.</li>
+</ul>
+<p>In modern JavaScript, generators are rarely used. But sometimes they come in handy, because the ability of a function to exchange data with the calling code during the execution is quite unique. And, surely, they are great for making iterable objects.</p>
+<p>Also, in the next chapter we’ll learn async generators, which are used to read streams of asynchronously generated data (e.g paginated fetches over a network) in <code>for await ... of</code> loops.</p>
+<p>In web-programming we often work with streamed data, so that’s another very important use case.</p>

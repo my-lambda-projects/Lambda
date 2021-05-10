@@ -1,0 +1,110 @@
+<h1 id="patterns-and-flags">Patterns and flags</h1>
+<p>Regular expressions are patterns that provide a powerful way to search and replace in text.</p>
+<p>In JavaScript, they are available via the <a href="mdn:js/RegExp">RegExp</a> object, as well as being integrated in methods of strings.</p>
+<h2 id="regular-expressions">Regular Expressions</h2>
+<p>A regular expression (also “regexp”, or just “reg”) consists of a <em>pattern</em> and optional <em>flags</em>.</p>
+<p>There are two syntaxes that can be used to create a regular expression object.</p>
+<p>The “long” syntax:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1">regexp <span class="op">=</span> <span class="kw">new</span> <span class="at">RegExp</span>(<span class="st">&quot;pattern&quot;</span><span class="op">,</span> <span class="st">&quot;flags&quot;</span>)<span class="op">;</span></a></code></pre></div>
+<p>And the “short” one, using slashes <code>"/"</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1">regexp <span class="op">=</span> <span class="ss">/pattern/</span><span class="op">;</span> <span class="co">// no flags</span></a>
+<a class="sourceLine" id="cb2-2" title="2">regexp <span class="op">=</span> <span class="ss">/pattern/gmi</span><span class="op">;</span> <span class="co">// with flags g,m and i (to be covered soon)</span></a></code></pre></div>
+<p>Slashes <code>pattern:/.../</code> tell JavaScript that we are creating a regular expression. They play the same role as quotes for strings.</p>
+<p>In both cases <code>regexp</code> becomes an instance of the built-in <code>RegExp</code> class.</p>
+<p>The main difference between these two syntaxes is that pattern using slashes <code>/.../</code> does not allow for expressions to be inserted (like string template literals with <code>${...}</code>). They are fully static.</p>
+<p>Slashes are used when we know the regular expression at the code writing time – and that’s the most common situation. While <code>new RegExp</code> is more often used when we need to create a regexp “on the fly” from a dynamically generated string. For instance:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">let</span> tag <span class="op">=</span> <span class="at">prompt</span>(<span class="st">&quot;What tag do you want to find?&quot;</span><span class="op">,</span> <span class="st">&quot;h2&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="kw">let</span> regexp <span class="op">=</span> <span class="kw">new</span> <span class="at">RegExp</span>(<span class="vs">`&lt;</span><span class="sc">${</span>tag<span class="sc">}</span><span class="vs">&gt;`</span>)<span class="op">;</span> <span class="co">// same as /&lt;h2&gt;/ if answered &quot;h2&quot; in the prompt above</span></a></code></pre></div>
+<h2 id="flags">Flags</h2>
+<p>Regular expressions may have flags that affect the search.</p>
+<p>There are only 6 of them in JavaScript:</p>
+<dl>
+<dt><code>pattern:i</code></dt>
+<dd>With this flag the search is case-insensitive: no difference between <code>A</code> and <code>a</code> (see the example below).
+</dd>
+<dt><code>pattern:g</code></dt>
+<dd>With this flag the search looks for all matches, without it – only the first match is returned.
+</dd>
+<dt><code>pattern:m</code></dt>
+<dd>Multiline mode (covered in the chapter <a href="info:regexp-multiline-mode" class="uri">info:regexp-multiline-mode</a>).
+</dd>
+<dt><code>pattern:s</code></dt>
+<dd>Enables “dotall” mode, that allows a dot <code>pattern:.</code> to match newline character <code>\n</code> (covered in the chapter <a href="info:regexp-character-classes" class="uri">info:regexp-character-classes</a>).
+</dd>
+<dt><code>pattern:u</code></dt>
+<dd>Enables full Unicode support. The flag enables correct processing of surrogate pairs. More about that in the chapter <a href="info:regexp-unicode" class="uri">info:regexp-unicode</a>.
+</dd>
+<dt><code>pattern:y</code></dt>
+<dd>“Sticky” mode: searching at the exact position in the text (covered in the chapter <a href="info:regexp-sticky" class="uri">info:regexp-sticky</a>)
+</dd>
+</dl>
+<p>```smart header=“Colors” From here on the color scheme is:</p>
+<ul>
+<li>regexp – <code>pattern:red</code></li>
+<li>string (where we search) – <code>subject:blue</code></li>
+<li>result – <code>match:green</code> ```</li>
+</ul>
+<h2 id="searching-str.match">Searching: str.match</h2>
+<p>As mentioned previously, regular expressions are integrated with string methods.</p>
+<p>The method <code>str.match(regexp)</code> finds all matches of <code>regexp</code> in the string <code>str</code>.</p>
+<p>It has 3 working modes:</p>
+<ol type="1">
+<li><p>If the regular expression has flag <code>pattern:g</code>, it returns an array of all matches: ```js run let str = “We will, we will rock you”;</p>
+<p>alert( str.match(/we/gi) ); // We,we (an array of 2 substrings that match) ``<code>Please note that both</code>match:We<code>and</code>match:we<code>are found, because flag</code>pattern:i` makes the regular expression case-insensitive.</p></li>
+<li><p>If there’s no such flag it returns only the first match in the form of an array, with the full match at index <code>0</code> and some additional details in properties: ```js run let str = “We will, we will rock you”;</p>
+<p>let result = str.match(/we/i); // without flag g</p>
+<p>alert( result[0] ); // We (1st match) alert( result.length ); // 1</p>
+<p>// Details: alert( result.index ); // 0 (position of the match) alert( result.input ); // We will, we will rock you (source string) ``<code>The array may have other indexes, besides</code>0` if a part of the regular expression is enclosed in parentheses. We’ll cover that in the chapter <a href="info:regexp-groups" class="uri">info:regexp-groups</a>.</p></li>
+<li><p>And, finally, if there are no matches, <code>null</code> is returned (doesn’t matter if there’s flag <code>pattern:g</code> or not).</p>
+<p>This a very important nuance. If there are no matches, we don’t receive an empty array, but instead receive <code>null</code>. Forgetting about that may lead to errors, e.g.:</p>
+<p>```js run let matches = “JavaScript”.match(/HTML/); // = null</p>
+<p>if (!matches.length) { // Error: Cannot read property ‘length’ of null alert(“Error in the line above”); } ```</p>
+<p>If we’d like the result to always be an array, we can write it this way:</p>
+<p>```js run let matches = “JavaScript”.match(/HTML/)<em>!</em> || []<em>/!</em>;</p>
+<p>if (!matches.length) { alert(“No matches”); // now it works } ```</p></li>
+</ol>
+<h2 id="replacing-str.replace">Replacing: str.replace</h2>
+<p>The method <code>str.replace(regexp, replacement)</code> replaces matches found using <code>regexp</code> in string <code>str</code> with <code>replacement</code> (all matches if there’s flag <code>pattern:g</code>, otherwise, only the first one).</p>
+<p>For instance:</p>
+<p>```js run // no flag g alert( “We will, we will”.replace(/we/i, “I”) ); // I will, we will</p>
+<p>// with flag g alert( “We will, we will”.replace(/we/ig, “I”) ); // I will, I will ```</p>
+<p>The second argument is the <code>replacement</code> string. We can use special character combinations in it to insert fragments of the match:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Symbols</th>
+<th>Action in the replacement string</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>$&amp;</code></td>
+<td>inserts the whole match</td>
+</tr>
+<tr class="even">
+<td><code><span class="math inline">$&amp;#096;&lt;/code&gt;|inserts a part of the string before the match| |`$</span>’<code>|inserts a part of the string after the match| |</code><span class="math inline">$n`|if `n` is a 1-2 digit number, then it inserts the contents of n-th parentheses, more about it in the chapter &lt;info:regexp-groups&gt;| |`$</span><name><code>|inserts the contents of the parentheses with the given</code>name<code>, more about it in the chapter &lt;info:regexp-groups&gt;| |</code>$<span class="math inline">$`|inserts character `$</span>`</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>An example with <code>pattern:$&amp;</code>:</p>
+<p><code>js run alert( "I love HTML".replace(/HTML/, "$&amp; and JavaScript") ); // I love HTML and JavaScript</code></p>
+<h2 id="testing-regexp.test">Testing: regexp.test</h2>
+<p>The method <code>regexp.test(str)</code> looks for at least one match, if found, returns <code>true</code>, otherwise <code>false</code>.</p>
+<p>```js run let str = “I love JavaScript”; let regexp = /LOVE/i;</p>
+<p>alert( regexp.test(str) ); // true ```</p>
+<p>Later in this chapter we’ll study more regular expressions, walk through more examples, and also meet other methods.</p>
+<p>Full information about the methods is given in the article <a href="info:regexp-methods" class="uri">info:regexp-methods</a>.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li>A regular expression consists of a pattern and optional flags: <code>pattern:g</code>, <code>pattern:i</code>, <code>pattern:m</code>, <code>pattern:u</code>, <code>pattern:s</code>, <code>pattern:y</code>.</li>
+<li>Without flags and special symbols (that we’ll study later), the search by a regexp is the same as a substring search.</li>
+<li>The method <code>str.match(regexp)</code> looks for matches: all of them if there’s <code>pattern:g</code> flag, otherwise, only the first one.</li>
+<li>The method <code>str.replace(regexp, replacement)</code> replaces matches found using <code>regexp</code> with <code>replacement</code>: all of them if there’s <code>pattern:g</code> flag, otherwise only the first one.</li>
+<li>The method <code>regexp.test(str)</code> returns <code>true</code> if there’s at least one match, otherwise, it returns <code>false</code>.</li>
+</ul>

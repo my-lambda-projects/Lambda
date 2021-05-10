@@ -1,0 +1,6 @@
+<p>For the second parentheses to work, the first ones must return a function.</p>
+<p>Like this:</p>
+<p>```js run function sum(a) {</p>
+<p>return function(b) { return a + b; // takes “a” from the outer lexical environment };</p>
+<p>}</p>
+<p>alert( sum(1)(2) ); // 3 alert( sum(5)(-1) ); // 4 ```</p>

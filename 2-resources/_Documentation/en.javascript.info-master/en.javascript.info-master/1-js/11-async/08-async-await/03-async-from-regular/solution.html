@@ -1,0 +1,5 @@
+<p>That’s the case when knowing how it works inside is helpful.</p>
+<p>Just treat <code>async</code> call as promise and attach <code>.then</code> to it: ```js run async function wait() { await new Promise(resolve =&gt; setTimeout(resolve, 1000));</p>
+<p>return 10; }</p>
+<p>function f() { // shows 10 after 1 second <em>!</em> wait().then(result =&gt; alert(result)); <em>/!</em> }</p>
+<p>f(); ```</p>

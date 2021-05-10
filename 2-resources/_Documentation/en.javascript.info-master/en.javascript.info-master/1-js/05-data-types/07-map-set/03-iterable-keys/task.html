@@ -1,0 +1,10 @@
+<p>importance: 5</p>
+<hr />
+<h1 id="iterable-keys">Iterable keys</h1>
+<p>We’d like to get an array of <code>map.keys()</code> in a variable and then apply array-specific methods to it, e.g. <code>.push</code>.</p>
+<p>But that doesn’t work:</p>
+<p>```js run let map = new Map();</p>
+<p>map.set(“name”, “John”);</p>
+<p>let keys = map.keys();</p>
+<p><em>!</em> // Error: keys.push is not a function keys.push(“more”); <em>/!</em> ```</p>
+<p>Why? How can we fix the code to make <code>keys.push</code> work?</p>

@@ -1,0 +1,15 @@
+<p>We can see which class it belongs by outputting it, like:</p>
+<p><code>js run alert(document); // [object HTMLDocument]</code></p>
+<p>Or:</p>
+<p><code>js run alert(document.constructor.name); // HTMLDocument</code></p>
+<p>So, <code>document</code> is an instance of <code>HTMLDocument</code> class.</p>
+<p>What’s its place in the hierarchy?</p>
+<p>Yeah, we could browse the specification, but it would be faster to figure out manually.</p>
+<p>Let’s traverse the prototype chain via <code>__proto__</code>.</p>
+<p>As we know, methods of a class are in the <code>prototype</code> of the constructor. For instance, <code>HTMLDocument.prototype</code> has methods for documents.</p>
+<p>Also, there’s a reference to the constructor function inside the <code>prototype</code>:</p>
+<p><code>js run alert(HTMLDocument.prototype.constructor === HTMLDocument); // true</code></p>
+<p>To get a name of the class as a string, we can use <code>constructor.name</code>. Let’s do it for the whole <code>document</code> prototype chain, till class <code>Node</code>:</p>
+<p><code>js run alert(HTMLDocument.prototype.constructor.name); // HTMLDocument alert(HTMLDocument.prototype.__proto__.constructor.name); // Document alert(HTMLDocument.prototype.__proto__.__proto__.constructor.name); // Node</code></p>
+<p>That’s the hierarchy.</p>
+<p>We also could examine the object using <code>console.dir(document)</code> and see these names by opening <code>__proto__</code>. The console takes them from <code>constructor</code> internally.</p>

@@ -1,0 +1,13 @@
+<p>Try running it:</p>
+<p>```js run let str = “Hello”;</p>
+<p>str.test = 5; // (*)</p>
+<p>alert(str.test); ```</p>
+<p>Depending on whether you have <code>use strict</code> or not, the result may be: 1. <code>undefined</code> (no strict mode) 2. An error (strict mode).</p>
+<p>Why? Let’s replay what’s happening at line <code>(*)</code>:</p>
+<ol type="1">
+<li>When a property of <code>str</code> is accessed, a “wrapper object” is created.</li>
+<li>In strict mode, writing into it is an error.</li>
+<li>Otherwise, the operation with the property is carried on, the object gets the <code>test</code> property, but after that the “wrapper object” disappears, so in the last line <code>str</code> has no trace of the property.</li>
+</ol>
+<p><strong>This example clearly shows that primitives are not objects.</strong></p>
+<p>They can’t store additional data.</p>
