@@ -15,6 +15,7 @@
 ## REACT-MD
 
 * [Thinking in React](react-md/untitled-1.md)
+* [Using Web Components in React](react-md/using-web-components-in-react.md)
 * [Glossary](react-md/untitled.md)
 * [REACT ENVIORMENT](react-md/react-enviorment.md)
 * [Hello World](react-md/hello-world.md)
