@@ -14,13 +14,11 @@
 
 ## REACT-MD
 
+* [Thinking in React](react-md/untitled-1.md)
+* [downloads](react-md/downloads.md)
 * [Glossary](react-md/untitled.md)
 * [REACT ENVIORMENT](react-md/react-enviorment.md)
 * [Hello World](react-md/hello-world.md)
 * [Components And Props](react-md/components-and-props.md)
 * [JSX](react-md/jsx.md)
-
----
-
-* [Thinking in React](untitled-1.md)
 
