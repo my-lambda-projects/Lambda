@@ -49,7 +49,5 @@ class XSearch extends HTMLElement {
 customElements.define('x-search', XSearch);
 ```
 
-> Note:
 >
-> This code **will not** work if you transform classes with Babel. See [this issue](https://github.com/w3c/webcomponents/issues/587) for the discussion. Include the [custom-elements-es5-adapter](https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs#custom-elements-es5-adapterjs) before you load your web components to fix this issue.
 
