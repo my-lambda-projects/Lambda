@@ -14,6 +14,7 @@
 
 ## REACT-MD
 
+* [Glossary](react-md/untitled.md)
 * [REACT ENVIORMENT](react-md/react-enviorment.md)
 * [Hello World](react-md/hello-world.md)
 * [Components And Props](react-md/components-and-props.md)
@@ -21,6 +22,5 @@
 
 ---
 
-* [Glossary](untitled.md)
-* [index](untitled-1.md)
+* [Thinking in React](untitled-1.md)
 
