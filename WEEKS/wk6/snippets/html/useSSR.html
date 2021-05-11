@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Checks if the code is running on the browser or the server.</p>
+<ul>
+<li>Create a custom hook that returns an appropriate object.</li>
+<li>Use <code>typeof window</code>, <code>window.document</code> and <code>Document.createElement()</code> to check if the code is running on the browser.</li>
+<li>Use the <code>useState()</code> hook to define the <code>inBrowser</code> state variable.</li>
+<li>Use the <code>useEffect()</code> hook to update the <code>inBrowser</code> state variable and clean up at the end.</li>
+<li>Use the <code>useMemo()</code> hook to memoize the return values of the custom hook.</li>
+</ul>
+<pre class="jsx"><code>const isDOMavailable = !!(
+  typeof window !== &#39;undefined&#39; &amp;&amp;
+  window.document &amp;&amp;
+  window.document.createElement
+);
+
+const useSSR = () =&gt; {
+  const [inBrowser, setInBrowser] = React.useState(isDOMavailable);
+
+  React.useEffect(() =&gt; {
+    setInBrowser(isDOMavailable);
+    return () =&gt; {
+      setInBrowser(false);
+    };
+  }, []);
+
+  const useSSRObject = React.useMemo(
+    () =&gt; ({
+      isBrowser: inBrowser,
+      isServer: !inBrowser,
+      canUseWorkers: typeof Worker !== &#39;undefined&#39;,
+      canUseEventListeners: inBrowser &amp;&amp; !!window.addEventListener,
+      canUseViewport: inBrowser &amp;&amp; !!window.screen
+    }),
+    [inBrowser]
+  );
+
+  return React.useMemo(
+    () =&gt; Object.assign(Object.values(useSSRObject), useSSRObject),
+    [inBrowser]
+  );
+};</code></pre>
+<pre class="jsx"><code>const SSRChecker = props =&gt; {
+  let { isBrowser, isServer } = useSSR();
+
+  return &lt;p&gt;{isBrowser ? &#39;Running on browser&#39; : &#39;Running on server&#39;}&lt;/p&gt;;
+};
+
+ReactDOM.render(&lt;SSRChecker /&gt;, document.getElementById(&#39;root&#39;));</code></pre>
+</body></html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Checks if the client is online or offline.</p>
+<ul>
+<li>Create a function, <code>getOnLineStatus</code>, that uses the <code>NavigatorOnLine</code> web API to get the online status of the client.</li>
+<li>Use the <code>useState()</code> hook to create an appropriate state variable, <code>status</code>, and setter.</li>
+<li>Use the <code>useEffect()</code> hook to add listeners for appropriate events, updating state, and cleanup those listeners when unmounting.</li>
+<li>Finally return the <code>status</code> state variable.</li>
+</ul>
+<pre class="jsx"><code>const getOnLineStatus = () =&gt;
+  typeof navigator !== &#39;undefined&#39; &amp;&amp; typeof navigator.onLine === &#39;boolean&#39;
+    ? navigator.onLine
+    : true;
+
+const useNavigatorOnLine = () =&gt; {
+  const [status, setStatus] = React.useState(getOnLineStatus());
+
+  const setOnline = () =&gt; setStatus(true);
+  const setOffline = () =&gt; setStatus(false);
+
+  React.useEffect(() =&gt; {
+    window.addEventListener(&#39;online&#39;, setOnline);
+    window.addEventListener(&#39;offline&#39;, setOffline);
+
+    return () =&gt; {
+      window.removeEventListener(&#39;online&#39;, setOnline);
+      window.removeEventListener(&#39;offline&#39;, setOffline);
+    };
+  }, []);
+
+  return status;
+};</code></pre>
+<pre class="jsx"><code>const StatusIndicator = () =&gt; {
+  const isOnline = useNavigatorOnLine();
+
+  return &lt;span&gt;You are {isOnline ? &#39;online&#39; : &#39;offline&#39;}.&lt;/span&gt;;
+};
+
+ReactDOM.render(&lt;StatusIndicator /&gt;, document.getElementById(&#39;root&#39;));</code></pre>
+</body></html>

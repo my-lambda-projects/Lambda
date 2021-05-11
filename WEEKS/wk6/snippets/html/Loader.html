@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Renders a spinning loader component.</p>
+<ul>
+<li>Render an SVG, whose <code>height</code> and <code>width</code> are determined by the <code>size</code> prop.</li>
+<li>Use CSS to animate the SVG, creating a spinning animation.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">.loader</span> {</a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">animation</span>: rotate <span class="dv">2</span><span class="dt">s</span> <span class="dv">linear</span> <span class="dv">infinite</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">}</a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="im">@keyframes</span> rotate {</a>
+<a class="sourceLine" id="cb1-6" title="6">  <span class="dv">100%</span> {</a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="kw">transform</span>: <span class="fu">rotate(</span><span class="dv">360</span><span class="dt">deg</span><span class="fu">)</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-8" title="8">  }</a>
+<a class="sourceLine" id="cb1-9" title="9">}</a>
+<a class="sourceLine" id="cb1-10" title="10"></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="fu">.loader</span> circle {</a>
+<a class="sourceLine" id="cb1-12" title="12">  <span class="kw">animation</span>: dash <span class="dv">1.5</span><span class="dt">s</span> <span class="dv">ease-in-out</span> <span class="dv">infinite</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-13" title="13">}</a>
+<a class="sourceLine" id="cb1-14" title="14"></a>
+<a class="sourceLine" id="cb1-15" title="15"><span class="im">@keyframes</span> dash {</a>
+<a class="sourceLine" id="cb1-16" title="16">  <span class="dv">0%</span> {</a>
+<a class="sourceLine" id="cb1-17" title="17">    stroke-dasharray: <span class="dv">1</span><span class="op">,</span> <span class="dv">150</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-18" title="18">    stroke-dashoffset: <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-19" title="19">  }</a>
+<a class="sourceLine" id="cb1-20" title="20">  <span class="dv">50%</span> {</a>
+<a class="sourceLine" id="cb1-21" title="21">    stroke-dasharray: <span class="dv">90</span><span class="op">,</span> <span class="dv">150</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-22" title="22">    stroke-dashoffset: <span class="dv">-35</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-23" title="23">  }</a>
+<a class="sourceLine" id="cb1-24" title="24">  <span class="dv">100%</span> {</a>
+<a class="sourceLine" id="cb1-25" title="25">    stroke-dasharray: <span class="dv">90</span><span class="op">,</span> <span class="dv">150</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-26" title="26">    stroke-dashoffset: <span class="dv">-124</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-27" title="27">  }</a>
+<a class="sourceLine" id="cb1-28" title="28">}</a></code></pre></div>
+<pre class="jsx"><code>const Loader = ({ size }) =&gt; {
+  return (
+    &lt;svg
+      className=&quot;loader&quot;
+      xmlns=&quot;http://www.w3.org/2000/svg&quot;
+      width={size}
+      height={size}
+      viewBox=&quot;0 0 24 24&quot;
+      fill=&quot;none&quot;
+      stroke=&quot;currentColor&quot;
+      strokeWidth=&quot;2&quot;
+      strokeLinecap=&quot;round&quot;
+      strokeLinejoin=&quot;round&quot;
+    &gt;
+      &lt;circle cx=&quot;12&quot; cy=&quot;12&quot; r=&quot;10&quot; /&gt;
+    &lt;/svg&gt;
+  );
+};</code></pre>
+<pre class="jsx"><code>ReactDOM.render(&lt;Loader size={24} /&gt;, document.getElementById(&#39;root&#39;));</code></pre>
+</body></html>

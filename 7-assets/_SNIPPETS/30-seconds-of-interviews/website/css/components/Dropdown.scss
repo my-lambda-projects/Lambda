@@ -1,0 +1,77 @@
+@import "../_vars.scss";
+
+.Dropdown {
+  position: relative;
+  perspective: 600px;
+  z-index: 2;
+  min-height: 90px;
+
+  &:hover {
+    .Dropdown__items {
+      visibility: visible;
+      opacity: 1;
+      transform: rotateX(0) scale(1);
+    }
+  }
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  &__button {
+    padding: 12px 15px;
+    border-radius: 0 0 4px 4px;
+    border-top: none;
+    font-size: 15px;
+    width: 100%;
+    transition: box-shadow 0.12s;
+
+    @media (min-width: $breakpoint-sm) {
+      font-size: 17px;
+    }
+  }
+
+  &__button-icon {
+    .btn__icon {
+      transition: transform 0.2s ease-out;
+    }
+
+    &.is-rotated {
+      .btn__icon {
+        transform: rotateX(180deg);
+      }
+    }
+  }
+
+  &__items {
+    position: absolute;
+    background: white;
+    top: 100%;
+    visibility: hidden;
+    box-shadow: 0 16px 24px -4px rgba(0, 32, 128, 0.2);
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 200px;
+    border-radius: 0 0 8px 8px;
+    border: 1px solid #c8cbf2;
+    overflow: hidden;
+    border-radius: 4px;
+    transition: transform 0.2s, opacity 0.2s, visibility 0.2s;
+    opacity: 0;
+    transform: rotateX(-20deg) scale(0.97);
+    will-change: transform;
+    transform-origin: top left;
+  }
+
+  &__label {
+    display: block;
+    font-weight: bold;
+    background: linear-gradient(170deg, #92bbff, #4485f1);
+    color: white;
+    padding: 6px 20px;
+    border-radius: 4px 4px 0 0;
+    text-align: center;
+    font-size: 15px;
+  }
+}

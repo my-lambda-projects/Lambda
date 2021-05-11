@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Renders a star rating component.</p>
+<ul>
+<li>Define a component, called <code>Star</code> that will render each individual star with the appropriate appearance, based on the parent component’s state.</li>
+<li>In the <code>StarRating</code> component, use the <code>useState()</code> hook to define the <code>rating</code> and <code>selection</code> state variables with the appropriate initial values.</li>
+<li>Create a method, <code>hoverOver</code>, that updates <code>selected</code> according to the provided <code>event</code>, using the .<code>data-star-id</code> attribute of the event’s target or resets it to <code>0</code> if called with a <code>null</code> argument.</li>
+<li>Use <code>Array.from()</code> to create an array of <code>5</code> elements and <code>Array.prototype.map()</code> to create individual <code>&lt;Star&gt;</code> components.</li>
+<li>Handle the <code>onMouseOver</code> and <code>onMouseLeave</code> events of the wrapping element using <code>hoverOver</code> and the <code>onClick</code> event using <code>setRating</code>.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">.star</span> {</a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">color</span>: <span class="cn">#ff9933</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="kw">cursor</span>: <span class="dv">pointer</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">}</a></code></pre></div>
+<pre class="jsx"><code>const Star = ({ marked, starId }) =&gt; {
+  return (
+    &lt;span data-star-id={starId} className=&quot;star&quot; role=&quot;button&quot;&gt;
+      {marked ? &#39;\u2605&#39; : &#39;\u2606&#39;}
+    &lt;/span&gt;
+  );
+};
+
+const StarRating = ({ value }) =&gt; {
+  const [rating, setRating] = React.useState(parseInt(value) || 0);
+  const [selection, setSelection] = React.useState(0);
+
+  const hoverOver = event =&gt; {
+    let val = 0;
+    if (event &amp;&amp; event.target &amp;&amp; event.target.getAttribute(&#39;data-star-id&#39;))
+      val = event.target.getAttribute(&#39;data-star-id&#39;);
+    setSelection(val);
+  };
+  return (
+    &lt;div
+      onMouseOut={() =&gt; hoverOver(null)}
+      onClick={e =&gt; setRating(e.target.getAttribute(&#39;data-star-id&#39;) || rating)}
+      onMouseOver={hoverOver}
+    &gt;
+      {Array.from({ length: 5 }, (v, i) =&gt; (
+        &lt;Star
+          starId={i + 1}
+          key={`star_${i + 1}`}
+          marked={selection ? selection &gt;= i + 1 : rating &gt;= i + 1}
+        /&gt;
+      ))}
+    &lt;/div&gt;
+  );
+};</code></pre>
+<pre class="jsx"><code>ReactDOM.render(&lt;StarRating value={2} /&gt;, document.getElementById(&#39;root&#39;));</code></pre>
+</body></html>

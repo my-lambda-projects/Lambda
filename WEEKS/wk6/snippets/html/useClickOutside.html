@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Handles the event of clicking outside of the wrapped component.</p>
+<ul>
+<li>Create a custom hook that takes a <code>ref</code> and a <code>callback</code> to handle the <code>click</code> event.</li>
+<li>Use the <code>useEffect()</code> hook to append and clean up the <code>click</code> event.</li>
+<li>Use the <code>useRef()</code> hook to create a <code>ref</code> for your click component and pass it to the <code>useClickOutside</code> hook.</li>
+</ul>
+<pre class="jsx"><code>const useClickOutside = (ref, callback) =&gt; {
+  const handleClick = e =&gt; {
+    if (ref.current &amp;&amp; !ref.current.contains(e.target)) {
+      callback();
+    }
+  };
+  React.useEffect(() =&gt; {
+    document.addEventListener(&#39;click&#39;, handleClick);
+    return () =&gt; {
+      document.removeEventListener(&#39;click&#39;, handleClick);
+    };
+  });
+};</code></pre>
+<pre class="jsx"><code>const ClickBox = ({ onClickOutside }) =&gt; {
+  const clickRef = React.useRef();
+  useClickOutside(clickRef, onClickOutside);
+  return (
+    &lt;div
+      className=&quot;click-box&quot;
+      ref={clickRef}
+      style={{
+        border: &#39;2px dashed orangered&#39;,
+        height: 200,
+        width: 400,
+        display: &#39;flex&#39;,
+        justifyContent: &#39;center&#39;,
+        alignItems: &#39;center&#39;
+      }}
+    &gt;
+      &lt;p&gt;Click out of this element&lt;/p&gt;
+    &lt;/div&gt;
+  );
+};
+
+ReactDOM.render(
+  &lt;ClickBox onClickOutside={() =&gt; alert(&#39;click outside&#39;)} /&gt;,
+  document.getElementById(&#39;root&#39;)
+);</code></pre>
+</body></html>

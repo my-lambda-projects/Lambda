@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Renders a checkbox list that uses a callback function to pass its selected value/values to the parent component.</p>
+<ul>
+<li>Use the <code>useState()</code> hook to create the <code>data</code> state variable and use the <code>options</code> prop to initialize its value.</li>
+<li>Create a <code>toggle</code> function that uses the spread operator (<code>...</code>) and <code>Array.prototype.splice()</code> to update the <code>data</code> state variable and call the <code>onChange</code> callback with any <code>checked</code> options.</li>
+<li>Use <code>Array.prototype.map()</code> to map the <code>data</code> state variable to individual <code>&lt;input type="checkbox"&gt;</code> elements, each one wrapped in a <code>&lt;label&gt;</code>, binding the <code>onClick</code> handler to the <code>toggle</code> function.</li>
+</ul>
+<pre class="jsx"><code>const MultiselectCheckbox = ({ options, onChange }) =&gt; {
+  const [data, setData] = React.useState(options);
+
+  const toggle = index =&gt; {
+    const newData = [...data];
+    newData.splice(index, 1, {
+      label: data[index].label,
+      checked: !data[index].checked
+    });
+    setData(newData);
+    onChange(newData.filter(x =&gt; x.checked));
+  };
+
+  return (
+    &lt;&gt;
+      {data.map((item, index) =&gt; (
+        &lt;label key={item.label}&gt;
+          &lt;input
+            readOnly
+            type=&quot;checkbox&quot;
+            checked={item.checked || false}
+            onClick={() =&gt; toggle(index)}
+          /&gt;
+          {item.label}
+        &lt;/label&gt;
+      ))}
+    &lt;/&gt;
+  );
+};</code></pre>
+<pre class="jsx"><code>const options = [{ label: &#39;Item One&#39; }, { label: &#39;Item Two&#39; }];
+
+ReactDOM.render(
+  &lt;MultiselectCheckbox
+    options={options}
+    onChange={data =&gt; {
+      console.log(data);
+    }}
+  /&gt;,
+  document.getElementById(&#39;root&#39;)
+);</code></pre>
+</body></html>

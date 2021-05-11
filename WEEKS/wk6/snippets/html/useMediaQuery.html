@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Checks if the current environment matches a given media query and returns the appropriate value.</p>
+<ul>
+<li>Check if <code>window</code> and <code>window.matchMedia</code> exist, return <code>whenFalse</code> if not (e.g. SSR environment or unsupported browser).</li>
+<li>Use <code>window.matchMedia()</code> to match the given <code>query</code>, cast its <code>matches</code> property to a boolean and store in a state variable, <code>match</code>, using the <code>useState()</code> hook.</li>
+<li>Use the <code>useEffect()</code> hook to add a listener for changes and to clean up the listeners after the hook is destroyed.</li>
+<li>Return either <code>whenTrue</code> or <code>whenFalse</code> based on the value of <code>match</code>.</li>
+</ul>
+<pre class="jsx"><code>const useMediaQuery = (query, whenTrue, whenFalse) =&gt; {
+  if (typeof window === &#39;undefined&#39; || typeof window.matchMedia === &#39;undefined&#39;)
+    return whenFalse;
+
+  const mediaQuery = window.matchMedia(query);
+  const [match, setMatch] = React.useState(!!mediaQuery.matches);
+
+  React.useEffect(() =&gt; {
+    const handler = () =&gt; setMatch(!!mediaQuery.matches);
+    mediaQuery.addListener(handler);
+    return () =&gt; mediaQuery.removeListener(handler);
+  }, []);
+
+  return match ? whenTrue : whenFalse;
+};</code></pre>
+<pre class="jsx"><code>const ResponsiveText = () =&gt; {
+  const text = useMediaQuery(
+    &#39;(max-width: 400px)&#39;,
+    &#39;Less than 400px wide&#39;,
+    &#39;More than 400px wide&#39;
+  );
+
+  return &lt;span&gt;{text}&lt;/span&gt;;
+};
+
+ReactDOM.render(&lt;ResponsiveText /&gt;, document.getElementById(&#39;root&#39;));</code></pre>
+</body></html>

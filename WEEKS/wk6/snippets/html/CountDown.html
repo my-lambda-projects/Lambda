@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Renders a countdown timer that prints a message when it reaches zero.</p>
+<ul>
+<li>Use the <code>useState()</code> hook to create a state variable to hold the time value, initialize it from the props and destructure it into its components.</li>
+<li>Use the <code>useState()</code> hook to create the <code>paused</code> and <code>over</code> state variables, used to prevent the timer from ticking if it’s paused or the time has run out.</li>
+<li>Create a method <code>tick</code>, that updates the time values based on the current value (i.e. decreasing the time by one second).</li>
+<li>Create a method <code>reset</code>, that resets all state variables to their initial states.</li>
+<li>Use the the <code>useEffect()</code> hook to call the <code>tick</code> method every second via the use of <code>setInterval()</code> and use <code>clearInterval()</code> to clean up when the component is unmounted.</li>
+<li>Use <code>String.prototype.padStart()</code> to pad each part of the time array to two characters to create the visual representation of the timer.</li>
+</ul>
+<pre class="jsx"><code>const CountDown = ({ hours = 0, minutes = 0, seconds = 0 }) =&gt; {
+  const [paused, setPaused] = React.useState(false);
+  const [over, setOver] = React.useState(false);
+  const [[h, m, s], setTime] = React.useState([hours, minutes, seconds]);
+
+  const tick = () =&gt; {
+    if (paused || over) return;
+    if (h === 0 &amp;&amp; m === 0 &amp;&amp; s === 0) setOver(true);
+    else if (m === 0 &amp;&amp; s === 0) {
+      setTime([h - 1, 59, 59]);
+    } else if (s == 0) {
+      setTime([h, m - 1, 59]);
+    } else {
+      setTime([h, m, s - 1]);
+    }
+  };
+
+  const reset = () =&gt; {
+    setTime([parseInt(hours), parseInt(minutes), parseInt(seconds)]);
+    setPaused(false);
+    setOver(false);
+  };
+
+  React.useEffect(() =&gt; {
+    const timerID = setInterval(() =&gt; tick(), 1000);
+    return () =&gt; clearInterval(timerID);
+  });
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;{`${h.toString().padStart(2, &#39;0&#39;)}:${m
+        .toString()
+        .padStart(2, &#39;0&#39;)}:${s.toString().padStart(2, &#39;0&#39;)}`}&lt;/p&gt;
+      &lt;div&gt;{over ? &quot;Time&#39;s up!&quot; : &#39;&#39;}&lt;/div&gt;
+      &lt;button onClick={() =&gt; setPaused(!paused)}&gt;
+        {paused ? &#39;Resume&#39; : &#39;Pause&#39;}
+      &lt;/button&gt;
+      &lt;button onClick={() =&gt; reset()}&gt;Restart&lt;/button&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+<pre class="jsx"><code>ReactDOM.render(
+  &lt;CountDown hours={1} minutes={45} /&gt;,
+  document.getElementById(&#39;root&#39;)
+);</code></pre>
+</body></html>

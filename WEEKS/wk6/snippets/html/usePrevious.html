@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Stores the previous state or props.</p>
+<ul>
+<li>Create a custom hook that takes a <code>value</code>.</li>
+<li>Use the <code>useRef()</code> hook to create a <code>ref</code> for the <code>value</code>.</li>
+<li>Use the <code>useEffect()</code> hook to remember the latest <code>value</code>.</li>
+</ul>
+<pre class="jsx"><code>const usePrevious = value =&gt; {
+  const ref = React.useRef();
+  React.useEffect(() =&gt; {
+    ref.current = value;
+  });
+  return ref.current;
+};</code></pre>
+<pre class="jsx"><code>const Counter = () =&gt; {
+  const [value, setValue] = React.useState(0);
+  const lastValue = usePrevious(value);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;
+        Current: {value} - Previous: {lastValue}
+      &lt;/p&gt;
+      &lt;button onClick={() =&gt; setValue(value + 1)}&gt;Increment&lt;/button&gt;
+    &lt;/div&gt;
+  );
+};
+
+ReactDOM.render(&lt;Counter /&gt;, document.getElementById(&#39;root&#39;));</code></pre>
+</body></html>

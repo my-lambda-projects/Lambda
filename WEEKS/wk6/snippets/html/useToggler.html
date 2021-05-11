@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Provides a boolean state variable that can be toggled between its two states.</p>
+<ul>
+<li>Use the <code>useState()</code> hook to create the <code>value</code> state variable and its setter.</li>
+<li>Create a function that toggles the value of the <code>value</code> state variable and memoize it, using the <code>useCallback()</code> hook.</li>
+<li>Return the <code>value</code> state variable and the memoized toggler function.</li>
+</ul>
+<pre class="jsx"><code>const useToggler = initialState =&gt; {
+  const [value, setValue] = React.useState(initialState);
+
+  const toggleValue = React.useCallback(() =&gt; setValue(prev =&gt; !prev), []);
+
+  return [value, toggleValue];
+};</code></pre>
+<pre class="jsx"><code>const Switch = () =&gt; {
+  const [val, toggleVal] = useToggler(false);
+  return &lt;button onClick={toggleVal}&gt;{val ? &#39;ON&#39; : &#39;OFF&#39;}&lt;/button&gt;;
+};
+ReactDOM.render(&lt;Switch /&gt;, document.getElementById(&#39;root&#39;));</code></pre>
+</body></html>

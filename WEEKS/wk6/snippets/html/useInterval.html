@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Implements <code>setInterval</code> in a declarative manner.</p>
+<ul>
+<li>Create a custom hook that takes a <code>callback</code> and a <code>delay</code>.</li>
+<li>Use the <code>useRef()</code> hook to create a <code>ref</code> for the callback function.</li>
+<li>Use a <code>useEffect()</code> hook to remember the latest <code>callback</code> whenever it changes.</li>
+<li>Use a <code>useEffect()</code> hook dependent on <code>delay</code> to set up the interval and clean up.</li>
+</ul>
+<pre class="jsx"><code>const useInterval = (callback, delay) =&gt; {
+  const savedCallback = React.useRef();
+
+  React.useEffect(() =&gt; {
+    savedCallback.current = callback;
+  }, [callback]);
+
+  React.useEffect(() =&gt; {
+    function tick() {
+      savedCallback.current();
+    }
+    if (delay !== null) {
+      let id = setInterval(tick, delay);
+      return () =&gt; clearInterval(id);
+    }
+  }, [delay]);
+};</code></pre>
+<pre class="jsx"><code>const Timer = props =&gt; {
+  const [seconds, setSeconds] = React.useState(0);
+  useInterval(() =&gt; {
+    setSeconds(seconds + 1);
+  }, 1000);
+
+  return &lt;p&gt;{seconds}&lt;/p&gt;;
+};
+
+ReactDOM.render(&lt;Timer /&gt;, document.getElementById(&#39;root&#39;));</code></pre>
+</body></html>

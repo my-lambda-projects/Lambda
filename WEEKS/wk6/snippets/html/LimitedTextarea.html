@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Renders a textarea component with a character limit.</p>
+<ul>
+<li>Use the <code>useState()</code> hook to create the <code>content</code> state variable and set its value to that of <code>value</code> prop, trimmed down to <code>limit</code> characters.</li>
+<li>Create a method <code>setFormattedContent</code>, which trims the content down to <code>limit</code> characters and memoize it, using the <code>useCallback()</code> hook.</li>
+<li>Bind the <code>onChange</code> event of the <code>&lt;textarea&gt;</code> to call <code>setFormattedContent</code> with the value of the fired event.</li>
+</ul>
+<pre class="jsx"><code>const LimitedTextarea = ({ rows, cols, value, limit }) =&gt; {
+  const [content, setContent] = React.useState(value.slice(0, limit));
+
+  const setFormattedContent = React.useCallback(
+    text =&gt; {
+      setContent(text.slice(0, limit));
+    },
+    [limit, setContent]
+  );
+
+  return (
+    &lt;&gt;
+      &lt;textarea
+        rows={rows}
+        cols={cols}
+        onChange={event =&gt; setFormattedContent(event.target.value)}
+        value={content}
+      /&gt;
+      &lt;p&gt;
+        {content.length}/{limit}
+      &lt;/p&gt;
+    &lt;/&gt;
+  );
+};</code></pre>
+<pre class="jsx"><code>ReactDOM.render(
+  &lt;LimitedTextarea limit={32} value=&quot;Hello!&quot; /&gt;,
+  document.getElementById(&#39;root&#39;)
+);</code></pre>
+</body></html>

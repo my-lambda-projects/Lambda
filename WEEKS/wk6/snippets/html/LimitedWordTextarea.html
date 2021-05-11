@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Renders a textarea component with a word limit.</p>
+<ul>
+<li>Use the <code>useState()</code> hook to create a state variable, containing <code>content</code> and <code>wordCount</code>, using the <code>value</code> prop and <code>0</code> as the initial values respectively.</li>
+<li>Use the <code>useCallback()</code> hooks to create a memoized function, <code>setFormattedContent</code>, that uses <code>String.prototype.split()</code> to turn the input into an array of words.</li>
+<li>Check if the result of applying <code>Array.prototype.filter()</code> combined with <code>Boolean</code> has a <code>length</code> longer than <code>limit</code> and, if so, trim the input, otherwise return the raw input, updating state accordingly in both cases.</li>
+<li>Use the <code>useEffect()</code> hook to call the <code>setFormattedContent</code> method on the value of the <code>content</code> state variable during the initial render.</li>
+<li>Bind the <code>onChange</code> event of the <code>&lt;textarea&gt;</code> to call <code>setFormattedContent</code> with the value of <code>event.target.value</code>.</li>
+</ul>
+<pre class="jsx"><code>const LimitedWordTextarea = ({ rows, cols, value, limit }) =&gt; {
+  const [{ content, wordCount }, setContent] = React.useState({
+    content: value,
+    wordCount: 0
+  });
+
+  const setFormattedContent = React.useCallback(
+    text =&gt; {
+      let words = text.split(&#39; &#39;).filter(Boolean);
+      if (words.length &gt; limit) {
+        setContent({
+          content: words.slice(0, limit).join(&#39; &#39;),
+          wordCount: limit
+        });
+      } else {
+        setContent({ content: text, wordCount: words.length });
+      }
+    },
+    [limit, setContent]
+  );
+
+  React.useEffect(() =&gt; {
+    setFormattedContent(content);
+  }, []);
+
+  return (
+    &lt;&gt;
+      &lt;textarea
+        rows={rows}
+        cols={cols}
+        onChange={event =&gt; setFormattedContent(event.target.value)}
+        value={content}
+      /&gt;
+      &lt;p&gt;
+        {wordCount}/{limit}
+      &lt;/p&gt;
+    &lt;/&gt;
+  );
+};</code></pre>
+<pre class="jsx"><code>ReactDOM.render(
+  &lt;LimitedWordTextarea limit={5} value=&quot;Hello there!&quot; /&gt;,
+  document.getElementById(&#39;root&#39;)
+);</code></pre>
+</body></html>

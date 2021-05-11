@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Renders a list of elements from an array of primitives.</p>
+<ul>
+<li>Use the value of the <code>isOrdered</code> prop to conditionally render an <code>&lt;ol&gt;</code> or a <code>&lt;ul&gt;</code> list.</li>
+<li>Use <code>Array.prototype.map()</code> to render every item in <code>data</code> as a <code>&lt;li&gt;</code> element with an appropriate <code>key</code>.</li>
+</ul>
+<pre class="jsx"><code>const DataList = ({ isOrdered = false, data }) =&gt; {
+  const list = data.map((val, i) =&gt; &lt;li key={`${i}_${val}`}&gt;{val}&lt;/li&gt;);
+  return isOrdered ? &lt;ol&gt;{list}&lt;/ol&gt; : &lt;ul&gt;{list}&lt;/ul&gt;;
+};</code></pre>
+<pre class="jsx"><code>const names = [&#39;John&#39;, &#39;Paul&#39;, &#39;Mary&#39;];
+ReactDOM.render(&lt;DataList data={names} /&gt;, document.getElementById(&#39;root&#39;));
+ReactDOM.render(
+  &lt;DataList data={names} isOrdered /&gt;,
+  document.getElementById(&#39;root&#39;)
+);</code></pre>
+</body></html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Debounces the given value.</p>
+<ul>
+<li>Create a custom hook that takes a <code>value</code> and a <code>delay</code>.</li>
+<li>Use the <code>useState()</code> hook to store the debounced value.</li>
+<li>Use the <code>useEffect()</code> hook to update the debounced value every time <code>value</code> is updated.</li>
+<li>Use <code>setTimeout()</code> to create a timeout that delays invoking the setter of the previous state variable by <code>delay</code> ms.</li>
+<li>Use <code>clearTimeout()</code> to clean up when dismounting the component.</li>
+<li>This is particularly useful when dealing with user input.</li>
+</ul>
+<pre class="jsx"><code>const useDebounce = (value, delay) =&gt; {
+  const [debouncedValue, setDebouncedValue] = React.useState(value);
+
+  React.useEffect(() =&gt; {
+    const handler = setTimeout(() =&gt; {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () =&gt; {
+      clearTimeout(handler);
+    };
+  }, [value]);
+
+  return debouncedValue;
+};</code></pre>
+<pre class="jsx"><code>const Counter = () =&gt; {
+  const [value, setValue] = React.useState(0);
+  const lastValue = useDebounce(value, 500);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;
+        Current: {value} - Debounced: {lastValue}
+      &lt;/p&gt;
+      &lt;button onClick={() =&gt; setValue(value + 1)}&gt;Increment&lt;/button&gt;
+    &lt;/div&gt;
+  );
+};
+
+ReactDOM.render(&lt;Counter /&gt;, document.getElementById(&#39;root&#39;));</code></pre>
+</body></html>

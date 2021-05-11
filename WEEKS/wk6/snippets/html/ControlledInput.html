@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Renders a controlled <code>&lt;input&gt;</code> element that uses a callback function to inform its parent about value updates.</p>
+<ul>
+<li>Use the <code>value</code> passed down from the parent as the controlled input field’s value.</li>
+<li>Use the <code>onChange</code> event to fire the <code>onValueChange</code> callback and send the new value to the parent.</li>
+<li>The parent must update the input field’s <code>value</code> prop in order for its value to change on user input.</li>
+</ul>
+<pre class="jsx"><code>const ControlledInput = ({ value, onValueChange, ...rest }) =&gt; {
+  return (
+    &lt;input
+      value={value}
+      onChange={({ target: { value } }) =&gt; onValueChange(value)}
+      {...rest}
+    /&gt;
+  );
+};</code></pre>
+<pre class="jsx"><code>const Form = () =&gt; {
+  const [value, setValue] = React.useState(&#39;&#39;);
+
+  return (
+    &lt;ControlledInput
+      type=&quot;text&quot;
+      placeholder=&quot;Insert some text here...&quot;
+      value={value}
+      onValueChange={setValue}
+    /&gt;
+  );
+};
+
+ReactDOM.render(&lt;Form /&gt;, document.getElementById(&#39;root&#39;));</code></pre>
+</body></html>

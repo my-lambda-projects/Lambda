@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Renders a link formatted to call a phone number (<code>tel:</code> link).</p>
+<ul>
+<li>Use <code>phone</code> to create a <code>&lt;a&gt;</code> element with an appropriate <code>href</code> attribute.</li>
+<li>Render the link with <code>children</code> as its content.</li>
+</ul>
+<pre class="jsx"><code>const Callto = ({ phone, children }) =&gt; {
+  return &lt;a href={`tel:${phone}`}&gt;{children}&lt;/a&gt;;
+};</code></pre>
+<pre class="jsx"><code>ReactDOM.render(
+  &lt;Callto phone=&quot;+302101234567&quot;&gt;Call me!&lt;/Callto&gt;,
+  document.getElementById(&#39;root&#39;)
+);</code></pre>
+</body></html>

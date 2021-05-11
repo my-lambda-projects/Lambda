@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Executes a callback immediately before a component is unmounted and destroyed.</p>
+<ul>
+<li>Use <code>useEffect()</code> with an empty array as the second argument and return the provided callback to be executed only once before cleanup.</li>
+<li>Behaves like the <code>componentWillUnmount()</code> lifecycle method of class components.</li>
+</ul>
+<pre class="jsx"><code>const useComponentWillUnmount = onUnmountHandler =&gt; {
+  React.useEffect(
+    () =&gt; () =&gt; {
+      onUnmountHandler();
+    },
+    []
+  );
+};</code></pre>
+<pre class="jsx"><code>const Unmounter = () =&gt; {
+  useComponentWillUnmount(() =&gt; console.log(&#39;Component will unmount&#39;));
+
+  return &lt;div&gt;Check the console!&lt;/div&gt;;
+};
+
+ReactDOM.render(&lt;Unmounter /&gt;, document.getElementById(&#39;root&#39;));</code></pre>
+</body></html>

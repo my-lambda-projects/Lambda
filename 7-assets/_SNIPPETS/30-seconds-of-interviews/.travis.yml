@@ -1,0 +1,29 @@
+jobs:
+  include:
+    - stage: conditional_build
+      notifications:
+        email:
+          on_success: [change]
+          on_failure: [change]
+      language: node_js
+      node_js:
+        - node
+      install:
+        - yarn install
+      before_script:
+        - chmod +x .travis/checkIfCron.sh && ./.travis/checkIfCron.sh
+        - chmod +x .travis/lintweb.sh && ./.travis/lintweb.sh
+        - yarn formatQuestions
+        - yarn extractor
+        - yarn builder
+      script:
+        - chmod +x .travis/build.sh && ./.travis/build.sh
+      after_script:
+        - test $TRAVIS_EVENT_TYPE = cron 
+          && echo -e "\e[95mDeploying to Repository" 
+          && chmod +x .travis/push.sh 
+          && ./.travis/push.sh
+        - chmod +x .travis/forcepush.sh && ./.travis/forcepush.sh 
+      cache:
+        directories:
+          - node_modules

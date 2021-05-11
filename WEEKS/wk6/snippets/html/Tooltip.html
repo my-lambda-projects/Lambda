@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Renders a tooltip component.</p>
+<ul>
+<li>Use the <code>useState()</code> hook to create the <code>show</code> variable and initialize it to <code>false</code>.</li>
+<li>Render a container element that contains the tooltip element and the <code>children</code> passed to the component.</li>
+<li>Handle the <code>onMouseEnter</code> and <code>onMouseLeave</code> methods, by altering the value of the <code>show</code> variable, toggling the <code>className</code> of the tooltip.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">.tooltip-container</span> {</a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">position</span>: <span class="dv">relative</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">}</a>
+<a class="sourceLine" id="cb1-4" title="4"></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="fu">.tooltip-box</span> {</a>
+<a class="sourceLine" id="cb1-6" title="6">  <span class="kw">position</span>: <span class="dv">absolute</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7">  <span class="kw">background</span>: <span class="fu">rgba(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0.7</span><span class="fu">)</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-8" title="8">  <span class="kw">color</span>: <span class="cn">#fff</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-9" title="9">  <span class="kw">padding</span>: <span class="dv">5</span><span class="dt">px</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-10" title="10">  <span class="kw">border-radius</span>: <span class="dv">5</span><span class="dt">px</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-11" title="11">  <span class="kw">top</span>: <span class="fu">calc(</span><span class="dv">100</span><span class="dt">%</span> <span class="op">+</span> <span class="dv">5</span><span class="dt">px</span><span class="fu">)</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-12" title="12">  <span class="kw">display</span>: <span class="dv">none</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-13" title="13">}</a>
+<a class="sourceLine" id="cb1-14" title="14"></a>
+<a class="sourceLine" id="cb1-15" title="15"><span class="fu">.tooltip-box.visible</span> {</a>
+<a class="sourceLine" id="cb1-16" title="16">  <span class="kw">display</span>: <span class="dv">block</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-17" title="17">}</a>
+<a class="sourceLine" id="cb1-18" title="18"></a>
+<a class="sourceLine" id="cb1-19" title="19"><span class="fu">.tooltip-arrow</span> {</a>
+<a class="sourceLine" id="cb1-20" title="20">  <span class="kw">position</span>: <span class="dv">absolute</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-21" title="21">  <span class="kw">top</span>: <span class="dv">-10</span><span class="dt">px</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-22" title="22">  <span class="kw">left</span>: <span class="dv">50</span><span class="dt">%</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-23" title="23">  <span class="kw">border-width</span>: <span class="dv">5</span><span class="dt">px</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-24" title="24">  <span class="kw">border-style</span>: <span class="dv">solid</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-25" title="25">  <span class="kw">border-color</span>: <span class="dv">transparent</span> <span class="dv">transparent</span> <span class="fu">rgba(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0.7</span><span class="fu">)</span> <span class="dv">transparent</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-26" title="26">}</a></code></pre></div>
+<pre class="jsx"><code>const Tooltip = ({ children, text, ...rest }) =&gt; {
+  const [show, setShow] = React.useState(false);
+
+  return (
+    &lt;div className=&quot;tooltip-container&quot;&gt;
+      &lt;div className={show ? &#39;tooltip-box visible&#39; : &#39;tooltip-box&#39;}&gt;
+        {text}
+        &lt;span className=&quot;tooltip-arrow&quot; /&gt;
+      &lt;/div&gt;
+      &lt;div
+        onMouseEnter={() =&gt; setShow(true)}
+        onMouseLeave={() =&gt; setShow(false)}
+        {...rest}
+      &gt;
+        {children}
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+<pre class="jsx"><code>ReactDOM.render(
+  &lt;Tooltip text=&quot;Simple tooltip&quot;&gt;
+    &lt;button&gt;Hover me!&lt;/button&gt;
+  &lt;/Tooltip&gt;,
+  document.getElementById(&#39;root&#39;)
+);</code></pre>
+</body></html>

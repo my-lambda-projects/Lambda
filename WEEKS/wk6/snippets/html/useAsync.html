@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Handles asynchronous calls.</p>
+<ul>
+<li>Create a custom hook that takes a handler function, <code>fn</code>.</li>
+<li>Define a reducer function and an initial state for the custom hook’s state.</li>
+<li>Use the <code>useReducer()</code> hook to initialize the <code>state</code> variable and the <code>dispatch</code> function.</li>
+<li>Define an asynchronous <code>run</code> function that will run the provided callback, <code>fn</code>, while using <code>dispatch</code> to update <code>state</code> as necessary.</li>
+<li>Return an object containing the properties of <code>state</code> (<code>value</code>, <code>error</code> and <code>loading</code>) and the <code>run</code> function.</li>
+</ul>
+<pre class="jsx"><code>const useAsync = fn =&gt; {
+  const initialState = { loading: false, error: null, value: null };
+  const stateReducer = (_, action) =&gt; {
+    switch (action.type) {
+      case &#39;start&#39;:
+        return { loading: true, error: null, value: null };
+      case &#39;finish&#39;:
+        return { loading: false, error: null, value: action.value };
+      case &#39;error&#39;:
+        return { loading: false, error: action.error, value: null };
+    }
+  };
+
+  const [state, dispatch] = React.useReducer(stateReducer, initialState);
+
+  const run = async (args = null) =&gt; {
+    try {
+      dispatch({ type: &#39;start&#39; });
+      const value = await fn(args);
+      dispatch({ type: &#39;finish&#39;, value });
+    } catch (error) {
+      dispatch({ type: &#39;error&#39;, error });
+    }
+  };
+
+  return { ...state, run };
+};</code></pre>
+<pre class="jsx"><code>const RandomImage = props =&gt; {
+  const imgFetch = useAsync(url =&gt;
+    fetch(url).then(response =&gt; response.json())
+  );
+
+  return (
+    &lt;div&gt;
+      &lt;button
+        onClick={() =&gt; imgFetch.run(&#39;https://dog.ceo/api/breeds/image/random&#39;)}
+        disabled={imgFetch.isLoading}
+      &gt;
+        Load image
+      &lt;/button&gt;
+      &lt;br /&gt;
+      {imgFetch.loading &amp;&amp; &lt;div&gt;Loading...&lt;/div&gt;}
+      {imgFetch.error &amp;&amp; &lt;div&gt;Error {imgFetch.error}&lt;/div&gt;}
+      {imgFetch.value &amp;&amp; (
+        &lt;img
+          src={imgFetch.value.message}
+          alt=&quot;avatar&quot;
+          width={400}
+          height=&quot;auto&quot;
+        /&gt;
+      )}
+    &lt;/div&gt;
+  );
+};
+
+ReactDOM.render(&lt;RandomImage /&gt;, document.getElementById(&#39;root&#39;));</code></pre>
+</body></html>

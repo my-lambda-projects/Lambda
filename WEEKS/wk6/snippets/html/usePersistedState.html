@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Returns a stateful value, persisted in <code>localStorage</code>, and a function to update it.</p>
+<ul>
+<li>Use the <code>useState()</code> hook to initialize the <code>value</code> to <code>defaultValue</code>.</li>
+<li>Use the <code>useRef()</code> hook to create a ref that will hold the <code>name</code> of the value in <code>localStorage</code>.</li>
+<li>Use 3 instances of the <code>useEffect()</code> hook for initialization, <code>value</code> change and <code>name</code> change respectively.</li>
+<li>When the component is first mounted, use <code>Storage.getItem()</code> to update <code>value</code> if there’s a stored value or <code>Storage.setItem()</code> to persist the current value.</li>
+<li>When <code>value</code> is updated, use <code>Storage.setItem()</code> to store the new value.</li>
+<li>When <code>name</code> is updated, use <code>Storage.setItem()</code> to create the new key, update the <code>nameRef</code> and use <code>Storage.removeItem()</code> to remove the previous key from <code>localStorage</code>.</li>
+<li><strong>NOTE:</strong> The hook is meant for use with primitive values (i.e. not objects) and doesn’t account for changes to <code>localStorage</code> due to other code. Both of these issues can be easily handled (e.g. JSON serialization and handling the <code>'storage'</code> event).</li>
+</ul>
+<pre class="jsx"><code>const usePersistedState = (name, defaultValue) =&gt; {
+  const [value, setValue] = React.useState(defaultValue);
+  const nameRef = React.useRef(name);
+
+  React.useEffect(() =&gt; {
+    try {
+      const storedValue = localStorage.getItem(name);
+      if (storedValue !== null) setValue(storedValue);
+      else localStorage.setItem(name, defaultValue);
+    } catch {
+      setValue(defaultValue);
+    }
+  }, []);
+
+  React.useEffect(() =&gt; {
+    try {
+      localStorage.setItem(nameRef.current, value);
+    } catch {}
+  }, [value]);
+
+  React.useEffect(() =&gt; {
+    const lastName = nameRef.current;
+    if (name !== lastName) {
+      try {
+        localStorage.setItem(name, value);
+        nameRef.current = name;
+        localStorage.removeItem(lastName);
+      } catch {}
+    }
+  }, [name]);
+
+  return [value, setValue];
+};</code></pre>
+<pre class="jsx"><code>const MyComponent = ({ name }) =&gt; {
+  const [val, setVal] = usePersistedState(name, 10);
+  return (
+    &lt;input
+      value={val}
+      onChange={e =&gt; {
+        setVal(e.target.value);
+      }}
+    /&gt;
+  );
+};
+
+const MyApp = () =&gt; {
+  const [name, setName] = React.useState(&#39;my-value&#39;);
+  return (
+    &lt;&gt;
+      &lt;MyComponent name={name} /&gt;
+      &lt;input
+        value={name}
+        onChange={e =&gt; {
+          setName(e.target.value);
+        }}
+      /&gt;
+    &lt;/&gt;
+  );
+};
+
+ReactDOM.render(&lt;MyApp /&gt;, document.getElementById(&#39;root&#39;));</code></pre>
+</body></html>

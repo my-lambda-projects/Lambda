@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Implements <code>fetch</code> in a declarative manner.</p>
+<ul>
+<li>Create a custom hook that takes a <code>url</code> and <code>options</code>.</li>
+<li>Use the <code>useState()</code> hook to initialize the <code>response</code> and <code>error</code> state variables.</li>
+<li>Use the <code>useEffect()</code> hook to asynchronously call <code>fetch()</code> and update the state variables accordingly.</li>
+<li>Return an object containing the <code>response</code> and <code>error</code> state variables.</li>
+</ul>
+<pre class="jsx"><code>const useFetch = (url, options) =&gt; {
+  const [response, setResponse] = React.useState(null);
+  const [error, setError] = React.useState(null);
+
+  React.useEffect(() =&gt; {
+    const fetchData = async () =&gt; {
+      try {
+        const res = await fetch(url, options);
+        const json = await res.json();
+        setResponse(json);
+      } catch (error) {
+        setError(error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  return { response, error };
+};</code></pre>
+<pre class="jsx"><code>const ImageFetch = props =&gt; {
+  const res = useFetch(&#39;https://dog.ceo/api/breeds/image/random&#39;, {});
+  if (!res.response) {
+    return &lt;div&gt;Loading...&lt;/div&gt;;
+  }
+  const imageUrl = res.response.message;
+  return (
+    &lt;div&gt;
+      &lt;img src={imageUrl} alt=&quot;avatar&quot; width={400} height=&quot;auto&quot; /&gt;
+    &lt;/div&gt;
+  );
+};
+
+ReactDOM.render(&lt;ImageFetch /&gt;, document.getElementById(&#39;root&#39;));</code></pre>
+</body></html>

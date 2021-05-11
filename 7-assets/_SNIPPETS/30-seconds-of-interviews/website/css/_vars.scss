@@ -1,0 +1,17 @@
+$breakpoint-xl: 1200px; // Large desktop
+$breakpoint-lg: 992px; // Small desktop
+$breakpoint-md: 768px; // iPad portrait
+$breakpoint-sm: 576px; // Landscape mobile
+$breakpoint-xs: 360px; // Portrait mobile
+// Smaller = iPhone SE, small phones
+
+$color-html: #f53d02;
+$gradient-html: linear-gradient(130deg, $color-html, #ff7d55);
+$color-css: #008de8;
+$gradient-css: linear-gradient(130deg, $color-css, #88b2ff);
+$color-javascript: #ffaf0e;
+$gradient-javascript: linear-gradient(130deg, $color-javascript, #ffc089);
+$color-react: #B721FF;
+$gradient-react: linear-gradient(130deg, $color-react 0%, #21D4FD 100%);
+$color-node: #56a15c;
+$gradient-node: linear-gradient(130deg, $color-node, #a5d275);

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Renders an uncontrolled range input element that uses a callback function to pass its value to the parent component.</p>
+<ul>
+<li>Set the <code>type</code> of the <code>&lt;input&gt;</code> element to <code>"range"</code> to create a slider.</li>
+<li>Use the <code>defaultValue</code> passed down from the parent as the uncontrolled input field’s initial value.</li>
+<li>Use the <code>onChange</code> event to fire the <code>onValueChange</code> callback and send the new value to the parent.</li>
+</ul>
+<pre class="jsx"><code>const Slider = ({ 
+  min = 0,
+  max = 100,
+  defaultValue,
+  onValueChange,
+  ...rest
+}) =&gt; {
+  return (
+    &lt;input
+      type=&quot;range&quot;
+      min={min}
+      max={max}
+      defaultValue={defaultValue}
+      onChange={({ target: { value } }) =&gt; onValueChange(value)}
+      {...rest}
+    /&gt;
+  );
+};</code></pre>
+<pre class="jsx"><code>ReactDOM.render(
+  &lt;Slider onValueChange={val =&gt; console.log(val)} /&gt;,
+  document.getElementById(&#39;root&#39;)
+);</code></pre>
+</body></html>

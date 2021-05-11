@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Renders a string as plaintext, with URLs converted to appropriate link elements.</p>
+<ul>
+<li>Use <code>String.prototype.split()</code> and <code>String.prototype.match()</code> with a regular expression to find URLs in a string.</li>
+<li>Return matched URLs rendered as <code>&lt;a&gt;</code> elements, dealing with missing protocol prefixes if necessary.</li>
+<li>Render the rest of the string as plaintext.</li>
+</ul>
+<pre class="jsx"><code>const AutoLink = ({ text }) =&gt; {
+  const delimiter = /((?:https?:\/\/)?(?:(?:[a-z0-9]?(?:[a-z0-9\-]{1,61}[a-z0-9])?\.[^\.|\s])+[a-z\.]*[a-z]+|(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3})(?::\d{1,5})*[a-z0-9.,_\/~#&amp;=;%+?\-\\(\\)]*)/gi;
+
+  return (
+    &lt;&gt;
+      {text.split(delimiter).map(word =&gt; {
+        const match = word.match(delimiter);
+        if (match) {
+          const url = match[0];
+          return (
+            &lt;a href={url.startsWith(&#39;http&#39;) ? url : `http://${url}`}&gt;{url}&lt;/a&gt;
+          );
+        }
+        return word;
+      })}
+    &lt;/&gt;
+  );
+};</code></pre>
+<pre class="jsx"><code>ReactDOM.render(
+  &lt;AutoLink text=&quot;foo bar baz http://example.org bar&quot; /&gt;,
+  document.getElementById(&#39;root&#39;)
+);</code></pre>
+</body></html>

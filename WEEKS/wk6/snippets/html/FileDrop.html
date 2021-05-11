@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Renders a file drag and drop component for a single file.</p>
+<ul>
+<li>Create a ref, called <code>dropRef</code> and bind it to the component’s wrapper.</li>
+<li>Use the <code>useState()</code> hook to create the <code>drag</code> and <code>filename</code> variables, initialized to <code>false</code> and <code>''</code> respectively.</li>
+<li>The variables <code>dragCounter</code> and <code>drag</code> are used to determine if a file is being dragged, while <code>filename</code> is used to store the dropped file’s name.</li>
+<li>Create the <code>handleDrag</code>, <code>handleDragIn</code>, <code>handleDragOut</code> and <code>handleDrop</code> methods to handle drag and drop functionality.</li>
+<li><code>handleDrag</code> prevents the browser from opening the dragged file, <code>handleDragIn</code> and <code>handleDragOut</code> handle the dragged file entering and exiting the component, while <code>handleDrop</code> handles the file being dropped and passes it to <code>onDrop</code>.</li>
+<li>Use the <code>useEffect()</code> hook to handle each of the drag and drop events using the previously created methods.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">.filedrop</span> {</a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">min-height</span>: <span class="dv">120</span><span class="dt">px</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="kw">border</span>: <span class="dv">3</span><span class="dt">px</span> <span class="dv">solid</span> <span class="cn">#d3d3d3</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="kw">text-align</span>: <span class="dv">center</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="kw">font-size</span>: <span class="dv">24</span><span class="dt">px</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-6" title="6">  <span class="kw">padding</span>: <span class="dv">32</span><span class="dt">px</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-7" title="7">  <span class="kw">border-radius</span>: <span class="dv">4</span><span class="dt">px</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-8" title="8">}</a>
+<a class="sourceLine" id="cb1-9" title="9"></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="fu">.filedrop.drag</span> {</a>
+<a class="sourceLine" id="cb1-11" title="11">  <span class="kw">border</span>: <span class="dv">3</span><span class="dt">px</span> <span class="dv">dashed</span> <span class="cn">#1e90ff</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-12" title="12">}</a>
+<a class="sourceLine" id="cb1-13" title="13"></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="fu">.filedrop.ready</span> {</a>
+<a class="sourceLine" id="cb1-15" title="15">  <span class="kw">border</span>: <span class="dv">3</span><span class="dt">px</span> <span class="dv">solid</span> <span class="cn">#32cd32</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-16" title="16">}</a></code></pre></div>
+<pre class="jsx"><code>const FileDrop = ({ onDrop }) =&gt; {
+  const [drag, setDrag] = React.useState(false);
+  const [filename, setFilename] = React.useState(&#39;&#39;);
+  let dropRef = React.createRef();
+  let dragCounter = 0;
+
+  const handleDrag = e =&gt; {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  const handleDragIn = e =&gt; {
+    e.preventDefault();
+    e.stopPropagation();
+    dragCounter++;
+    if (e.dataTransfer.items &amp;&amp; e.dataTransfer.items.length &gt; 0) setDrag(true);
+  };
+
+  const handleDragOut = e =&gt; {
+    e.preventDefault();
+    e.stopPropagation();
+    dragCounter--;
+    if (dragCounter === 0) setDrag(false);
+  };
+
+  const handleDrop = e =&gt; {
+    e.preventDefault();
+    e.stopPropagation();
+    setDrag(false);
+    if (e.dataTransfer.files &amp;&amp; e.dataTransfer.files.length &gt; 0) {
+      onDrop(e.dataTransfer.files[0]);
+      setFilename(e.dataTransfer.files[0].name);
+      e.dataTransfer.clearData();
+      dragCounter = 0;
+    }
+  };
+
+  React.useEffect(() =&gt; {
+    let div = dropRef.current;
+    div.addEventListener(&#39;dragenter&#39;, handleDragIn);
+    div.addEventListener(&#39;dragleave&#39;, handleDragOut);
+    div.addEventListener(&#39;dragover&#39;, handleDrag);
+    div.addEventListener(&#39;drop&#39;, handleDrop);
+    return () =&gt; {
+      div.removeEventListener(&#39;dragenter&#39;, handleDragIn);
+      div.removeEventListener(&#39;dragleave&#39;, handleDragOut);
+      div.removeEventListener(&#39;dragover&#39;, handleDrag);
+      div.removeEventListener(&#39;drop&#39;, handleDrop);
+    };
+  });
+
+  return (
+    &lt;div
+      ref={dropRef}
+      className={
+        drag ? &#39;filedrop drag&#39; : filename ? &#39;filedrop ready&#39; : &#39;filedrop&#39;
+      }
+    &gt;
+      {filename &amp;&amp; !drag ? &lt;div&gt;{filename}&lt;/div&gt; : &lt;div&gt;Drop a file here!&lt;/div&gt;}
+    &lt;/div&gt;
+  );
+};</code></pre>
+<pre class="jsx"><code>ReactDOM.render(
+  &lt;FileDrop onDrop={console.log} /&gt;,
+  document.getElementById(&#39;root&#39;)
+);</code></pre>
+</body></html>

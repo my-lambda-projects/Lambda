@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Renders an uncontrolled <code>&lt;select&gt;</code> element that uses a callback function to pass its value to the parent component.</p>
+<ul>
+<li>Use the the <code>selectedValue</code> prop as the <code>defaultValue</code> of the <code>&lt;select&gt;</code> element to set its initial value..</li>
+<li>Use the <code>onChange</code> event to fire the <code>onValueChange</code> callback and send the new value to the parent.</li>
+<li>Use <code>Array.prototype.map()</code> on the <code>values</code> array to create an <code>&lt;option&gt;</code> element for each passed value.</li>
+<li>Each item in <code>values</code> must be a 2-element array, where the first element is the <code>value</code> of the item and the second one is the displayed text for it.</li>
+</ul>
+<pre class="jsx"><code>const Select = ({ values, onValueChange, selectedValue, ...rest }) =&gt; {
+  return (
+    &lt;select
+      defaultValue={selectedValue}
+      onChange={({ target: { value } }) =&gt; onValueChange(value)}
+      {...rest}
+    &gt;
+      {values.map(([value, text]) =&gt; (
+        &lt;option key={value} value={value}&gt;
+          {text}
+        &lt;/option&gt;
+      ))}
+    &lt;/select&gt;
+  );
+};</code></pre>
+<pre class="jsx"><code>const choices = [
+  [&#39;grapefruit&#39;, &#39;Grapefruit&#39;],
+  [&#39;lime&#39;, &#39;Lime&#39;],
+  [&#39;coconut&#39;, &#39;Coconut&#39;],
+  [&#39;mango&#39;, &#39;Mango&#39;],
+];
+ReactDOM.render(
+  &lt;Select
+    values={choices}
+    selectedValue=&quot;lime&quot;
+    onValueChange={val =&gt; console.log(val)}
+  /&gt;,
+  document.getElementById(&#39;root&#39;)
+);</code></pre>
+</body></html>

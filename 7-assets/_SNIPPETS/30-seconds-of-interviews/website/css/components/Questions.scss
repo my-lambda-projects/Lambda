@@ -1,0 +1,20 @@
+@import "../_vars.scss";
+
+.Questions {
+  margin-bottom: 125px;
+
+  &__list {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .container {
+    padding: 0 2%;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    .container {
+      padding: 0 25px;
+    }
+  }
+}

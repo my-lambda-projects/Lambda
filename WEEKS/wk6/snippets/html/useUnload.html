@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Handles the <code>beforeunload</code> window event.</p>
+<ul>
+<li>Use the <code>useRef()</code> hook to create a ref for the callback function, <code>fn</code>.</li>
+<li>Use the <code>useEffect()</code> hook and <code>EventTarget.addEventListener()</code> to handle the <code>'beforeunload'</code> (when the user is about to close the window).</li>
+<li>Use <code>EventTarget.removeEventListener()</code> to perform cleanup after the component is unmounted.</li>
+</ul>
+<pre class="jsx"><code>const useUnload = fn =&gt; {
+  const cb = React.useRef(fn);
+
+  React.useEffect(() =&gt; {
+    const onUnload = cb.current;
+    window.addEventListener(&#39;beforeunload&#39;, onUnload);
+    return () =&gt; {
+      window.removeEventListener(&#39;beforeunload&#39;, onUnload);
+    };
+  }, [cb]);
+};</code></pre>
+<pre class="jsx"><code>const App = () =&gt; {
+  useUnload(e =&gt; {
+    e.preventDefault();
+    const exit = confirm(&#39;Are you sure you want to leave?&#39;);
+    if (exit) window.close();
+  });
+  return &lt;div&gt;Try closing the window.&lt;/div&gt;;
+};
+ReactDOM.render(&lt;App /&gt;, document.getElementById(&#39;root&#39;));</code></pre>
+</body></html>

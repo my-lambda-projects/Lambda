@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Renders a table with rows dynamically created from an array of objects and a list of property names.</p>
+<ul>
+<li>Use <code>Object.keys()</code>, <code>Array.prototype.filter()</code>, <code>Array.prototype.includes()</code> and <code>Array.prototype.reduce()</code> to produce a <code>filteredData</code> array, containing all objects with the keys specified in <code>propertyNames</code>.</li>
+<li>Render a <code>&lt;table&gt;</code> element with a set of columns equal to the amount of values in <code>propertyNames</code>.</li>
+<li>Use <code>Array.prototype.map()</code> to render each value in the <code>propertyNames</code> array as a <code>&lt;th&gt;</code> element.</li>
+<li>Use <code>Array.prototype.map()</code> to render each object in the <code>filteredData</code> array as a <code>&lt;tr&gt;</code> element, containing a <code>&lt;td&gt;</code> for each key in the object.</li>
+</ul>
+<p><em>This component does not work with nested objects and will break if there are nested objects inside any of the properties specified in <code>propertyNames</code></em></p>
+<pre class="jsx"><code>const MappedTable = ({ data, propertyNames }) =&gt; {
+  let filteredData = data.map(v =&gt;
+    Object.keys(v)
+      .filter(k =&gt; propertyNames.includes(k))
+      .reduce((acc, key) =&gt; ((acc[key] = v[key]), acc), {})
+  );
+  return (
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          {propertyNames.map(val =&gt; (
+            &lt;th key={`h_${val}`}&gt;{val}&lt;/th&gt;
+          ))}
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        {filteredData.map((val, i) =&gt; (
+          &lt;tr key={`i_${i}`}&gt;
+            {propertyNames.map(p =&gt; (
+              &lt;td key={`i_${i}_${p}`}&gt;{val[p]}&lt;/td&gt;
+            ))}
+          &lt;/tr&gt;
+        ))}
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  );
+};</code></pre>
+<pre class="jsx"><code>const people = [
+  { name: &#39;John&#39;, surname: &#39;Smith&#39;, age: 42 },
+  { name: &#39;Adam&#39;, surname: &#39;Smith&#39;, gender: &#39;male&#39; }
+];
+const propertyNames = [&#39;name&#39;, &#39;surname&#39;, &#39;age&#39;];
+ReactDOM.render(
+  &lt;MappedTable data={people} propertyNames={propertyNames} /&gt;,
+  document.getElementById(&#39;root&#39;)
+);</code></pre>
+</body></html>

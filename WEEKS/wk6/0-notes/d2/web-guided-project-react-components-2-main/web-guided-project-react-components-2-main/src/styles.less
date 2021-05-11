@@ -1,0 +1,75 @@
+@appColor: rgb(145, 0, 0);
+@friendsColor: rgb(0, 145, 0);
+@listFriendsColor: rgb(0, 145, 145);
+@listPetsColor: rgb(0, 0, 145);
+@petColor: rgb(145, 145, 0);
+@searchColor: rgb(145, 0, 145);
+
+* {
+  box-sizing: border-box;
+}
+body {
+  color: rgb(65, 75, 60);
+  font-family: 'Bitter', serif;
+}
+.container {
+  border: 2px solid rgb(210, 210, 210);
+  box-shadow: 0px 1px 6px -2px rgb(128, 127, 127);
+  border-radius: 8px;
+  margin: 16px;
+  padding: 16px 8px 12px 16px;
+  &:hover {
+    box-shadow: 2px 3px 8px 0px rgb(128, 127, 127);
+  }
+}
+.app-friends {
+  border-color: @appColor;
+  background-color: lighten(@appColor, 65);
+  &:before {
+    content: '❤️ App';
+  }
+}
+.friend-friends {
+  border-color: @friendsColor;
+  background-color: lighten(@friendsColor, 65);
+  margin-top: 32px;
+  &:before {
+    content: '🌝 Friend';
+  }
+}
+.list-friends {
+  border-color: @listFriendsColor;
+  background-color: lighten(@listFriendsColor, 65);
+  &:before {
+    content: '[ 🤸‍♂️ 👩 🧏 ] FriendsList';
+  }
+}
+.list-pets-friends {
+  border-color: @listPetsColor;
+  background-color: lighten(@listPetsColor, 65);
+  &:before {
+    content: '[ 🐈 🐠 🦜 ] PetsList';
+  }
+}
+.pet-friends {
+  border-color: @petColor;
+  background-color: lighten(@petColor, 65);
+  &:before {
+    content: '🐕 Pet';
+  }
+}
+.search-friends {
+  border-color: @searchColor;
+  background-color: lighten(@searchColor, 65);
+  &:before {
+    content: '🔍 Search ';
+  }
+}
+.friend-info {
+  display: flex;
+  justify-content: space-between;
+  
+  @media (max-width: 520px) {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Renders a table with rows dynamically created from an array of primitives.</p>
+<ul>
+<li>Render a <code>&lt;table&gt;</code> element with two columns (<code>ID</code> and <code>Value</code>).</li>
+<li>Use <code>Array.prototype.map()</code> to render every item in <code>data</code> as a <code>&lt;tr&gt;</code> element with an appropriate <code>key</code>.</li>
+</ul>
+<pre class="jsx"><code>const DataTable = ({ data }) =&gt; {
+  return (
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;ID&lt;/th&gt;
+          &lt;th&gt;Value&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        {data.map((val, i) =&gt; (
+          &lt;tr key={`${i}_${val}`}&gt;
+            &lt;td&gt;{i}&lt;/td&gt;
+            &lt;td&gt;{val}&lt;/td&gt;
+          &lt;/tr&gt;
+        ))}
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  );
+};</code></pre>
+<pre class="jsx"><code>const people = [&#39;John&#39;, &#39;Jesse&#39;];
+ReactDOM.render(&lt;DataTable data={people} /&gt;, document.getElementById(&#39;root&#39;));</code></pre>
+</body></html>

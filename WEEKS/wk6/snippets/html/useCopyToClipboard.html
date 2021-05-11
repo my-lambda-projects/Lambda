@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Copies the given text to the clipboard.</p>
+<ul>
+<li>Use the <a href="/js/s/copy-to-clipboard/">copyToClipboard</a> snippet to copy the text to clipboard.</li>
+<li>Use the <code>useState()</code> hook to initialize the <code>copied</code> variable.</li>
+<li>Use the <code>useCallback()</code> hook to create a callback for the <code>copyToClipboard</code> method.</li>
+<li>Use the <code>useEffect()</code> hook to reset the <code>copied</code> state variable if the <code>text</code> changes.</li>
+<li>Return the <code>copied</code> state variable and the <code>copy</code> callback.</li>
+</ul>
+<pre class="jsx"><code>const useCopyToClipboard = text =&gt; {
+  const copyToClipboard = str =&gt; {
+    const el = document.createElement(&#39;textarea&#39;);
+    el.value = str;
+    el.setAttribute(&#39;readonly&#39;, &#39;&#39;);
+    el.style.position = &#39;absolute&#39;;
+    el.style.left = &#39;-9999px&#39;;
+    document.body.appendChild(el);
+    const selected =
+      document.getSelection().rangeCount &gt; 0
+        ? document.getSelection().getRangeAt(0)
+        : false;
+    el.select();
+    const success = document.execCommand(&#39;copy&#39;);
+    document.body.removeChild(el);
+    if (selected) {
+      document.getSelection().removeAllRanges();
+      document.getSelection().addRange(selected);
+    }
+    return success;
+  };
+
+  const [copied, setCopied] = React.useState(false);
+
+  const copy = React.useCallback(() =&gt; {
+    if (!copied) setCopied(copyToClipboard(text));
+  }, [text]);
+  React.useEffect(() =&gt; () =&gt; setCopied(false), [text]);
+
+  return [copied, copy];
+};</code></pre>
+<pre class="jsx"><code>const TextCopy = props =&gt; {
+  const [copied, copy] = useCopyToClipboard(&#39;Lorem ipsum&#39;);
+  return (
+    &lt;div&gt;
+      &lt;button onClick={copy}&gt;Click to copy&lt;/button&gt;
+      &lt;span&gt;{copied &amp;&amp; &#39;Copied!&#39;}&lt;/span&gt;
+    &lt;/div&gt;
+  );
+};
+
+ReactDOM.render(&lt;TextCopy /&gt;, document.getElementById(&#39;root&#39;));</code></pre>
+</body></html>

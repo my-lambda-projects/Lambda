@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="./prism.css">
+<script async defer src="./prism.js"></script>
+</head>
+<body>;
+<p>Renders a component with collapsible content.</p>
+<ul>
+<li>Use the <code>useState()</code> hook to create the <code>isCollapsed</code> state variable with an initial value of <code>collapsed</code>.</li>
+<li>Use the <code>&lt;button&gt;</code> to change the component’s <code>isCollapsed</code> state and the content of the component, passed down via <code>children</code>.</li>
+<li>Determine the appearance of the content, based on <code>isCollapsed</code> and apply the appropriate <code>className</code>.</li>
+<li>Update the value of the <code>aria-expanded</code> attribute based on <code>isCollapsed</code> to make the component accessible.</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">.collapse-button</span> {</a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="kw">display</span>: <span class="dv">block</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">  <span class="kw">width</span>: <span class="dv">100</span><span class="dt">%</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4">}</a>
+<a class="sourceLine" id="cb1-5" title="5"></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="fu">.collapse-content.collapsed</span> {</a>
+<a class="sourceLine" id="cb1-7" title="7">  <span class="kw">display</span>: <span class="dv">none</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-8" title="8">}</a>
+<a class="sourceLine" id="cb1-9" title="9"></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="fu">.collapsed-content.expanded</span> {</a>
+<a class="sourceLine" id="cb1-11" title="11">  <span class="kw">display</span>: <span class="dv">block</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-12" title="12">}</a></code></pre></div>
+<pre class="jsx"><code>const Collapse = ({ collapsed, children }) =&gt; {
+  const [isCollapsed, setIsCollapsed] = React.useState(collapsed);
+
+  return (
+    &lt;&gt;
+      &lt;button
+        className=&quot;collapse-button&quot;
+        onClick={() =&gt; setIsCollapsed(!isCollapsed)}
+      &gt;
+        {isCollapsed ? &#39;Show&#39; : &#39;Hide&#39;} content
+      &lt;/button&gt;
+      &lt;div
+        className={`collapse-content ${isCollapsed ? &#39;collapsed&#39; : &#39;expanded&#39;}`}
+        aria-expanded={isCollapsed}
+      &gt;
+        {children}
+      &lt;/div&gt;
+    &lt;/&gt;
+  );
+};</code></pre>
+<pre class="jsx"><code>ReactDOM.render(
+  &lt;Collapse&gt;
+    &lt;h1&gt;This is a collapse&lt;/h1&gt;
+    &lt;p&gt;Hello world!&lt;/p&gt;
+  &lt;/Collapse&gt;,
+  document.getElementById(&#39;root&#39;)
+);</code></pre>
+</body></html>
