@@ -15,6 +15,7 @@
 ## REACT-MD
 
 * [index](react-md/appendix.md)
+* [React-Resources](react-md/react-resources.md)
 * [Thinking in React](react-md/untitled-1.md)
 * [Composition vs Inheritance](react-md/composition-vs-inheritance.md)
 * [Using Web Components in React](react-md/using-web-components-in-react.md)
