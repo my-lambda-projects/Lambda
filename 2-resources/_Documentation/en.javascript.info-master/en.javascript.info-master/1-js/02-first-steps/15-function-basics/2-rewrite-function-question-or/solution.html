@@ -1,9 +1,0 @@
-<p>Using a question mark operator <code>'?'</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">checkAge</span>(age) <span class="op">{</span></a>
-<a class="sourceLine" id="cb1-2" title="2">  <span class="cf">return</span> (age <span class="op">&gt;</span> <span class="dv">18</span>) <span class="op">?</span> <span class="kw">true</span> : <span class="at">confirm</span>(<span class="st">&#39;Did parents allow you?&#39;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb1-3" title="3"><span class="op">}</span></a></code></pre></div>
-<p>Using OR <code>||</code> (the shortest variant):</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">function</span> <span class="at">checkAge</span>(age) <span class="op">{</span></a>
-<a class="sourceLine" id="cb2-2" title="2">  <span class="cf">return</span> (age <span class="op">&gt;</span> <span class="dv">18</span>) <span class="op">||</span> <span class="at">confirm</span>(<span class="st">&#39;Did parents allow you?&#39;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="op">}</span></a></code></pre></div>
-<p>Note that the parentheses around <code>age &gt; 18</code> are not required here. They exist for better readability.</p>

@@ -1,2 +1,0 @@
-# GANs
-Using PyTorch
