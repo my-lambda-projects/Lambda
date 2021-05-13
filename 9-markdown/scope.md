@@ -560,7 +560,7 @@ Let's go over some basic closure rules:
 
    if the outer function has returned\*\*.
 
-Notice above that even though the above `climbTree` had run its `return` statement the inner function of `sayClimbTree` **still has access** to the variables\(`treeString` and `treeType`\) from the outer scope where it was declared. So, even after an outer function has returned, an inner function will still have access to the outer functions variables.
+Notice above that even though the above `climbTree` had run its `return` statement the inner function of `sayClimbTree` **still has access** to the variables\(`treeString` and `treeType`\) from the outer scope where it was declared. So, even after an outer function has returned, an inner function will still have access to the outer function’s variables.
 
 Let's look at another example of a closure:
 
@@ -994,7 +994,7 @@ const add3 = sum.bind(null, 3);
 console.log(add3(10));
 ```
 
-Note that in the above snippet where we `bind` with `null` we dont actually use `this` in the `sum` function. However, since `bind` requires a first argument we can put in `null` as a place holder.
+Note that in the above snippet where we `bind` with `null` we don’t actually use `this` in the `sum` function. However, since `bind` requires a first argument we can put in `null` as a place holder.
 
 Above when we created the `add3` function we were creating a new bound function where the context was `null`, since the context won't matter, and the first argument will _always_ be `3` for that function. Whenever we invoke the `add3` function all other arguments will be passed in normally.
 

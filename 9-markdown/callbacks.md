@@ -299,7 +299,7 @@ function print(callback) {
 }
 ```
 
-The print\( \) function takes another function as a parameter and calls it inside. This is valid in JavaScript and we call it a ""callback”. So a function that is passed to another function as a parameter is a callback function. But that’s not all.
+The print\( \) function takes another function as a parameter and calls it inside. This is valid in JavaScript and we call it a “callback”. So a function that is passed to another function as a parameter is a callback function. But that’s not all.
 
 **You can also watch the video version of callback functions below:**
 
@@ -323,7 +323,7 @@ const message = function() {
 setTimeout(message, 3000);
 ```
 
-There is a built-in method in JavaScript called ""setTimeout”, which calls a function or evaluates an expression after a given period of time \(in milliseconds\). So here, the ""message” function is being called after 3 seconds have passed. \(1 second = 1000 milliseconds\)
+There is a built-in method in JavaScript called “setTimeout”, which calls a function or evaluates an expression after a given period of time \(in milliseconds\). So here, the “message” function is being called after 3 seconds have passed. \(1 second = 1000 milliseconds\)
 
 In other words, the message function is being called after something happened \(after 3 seconds passed for this example\), but not before. So the message function is an example of a callback function.
 
@@ -337,7 +337,7 @@ setTimeout(function() {
 }, 3000);
 ```
 
-As we can see, the callback function here has no name and a function definition without a name in JavaScript is called as an ""anonymous function”. This does exactly the same task as the example above.
+As we can see, the callback function here has no name and a function definition without a name in JavaScript is called as an “anonymous function”. This does exactly the same task as the example above.
 
 #### Callback as an Arrow Function
 
@@ -364,7 +364,7 @@ document.queryselector("#callback-btn")
 });
 ```
 
-So here we select the button first with its id, and then we add an event listener with the addEventListener method. It takes 2 parameters. The first one is its type, ""click”, and the second parameter is a callback function, which logs the message when the button is clicked.
+So here we select the button first with its id, and then we add an event listener with the addEventListener method. It takes 2 parameters. The first one is its type, “click”, and the second parameter is a callback function, which logs the message when the button is clicked.
 
 As you can see, callback functions are also used for event declarations in JavaScript.
 
