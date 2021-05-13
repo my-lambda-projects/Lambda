@@ -1,0 +1,21 @@
+theme: jekyll-theme-dinky
+
+
+- name: Lightstep Pre-Deploy Check
+  uses: lightstep/lightstep-action-predeploy@v0.2.6
+
+
+
+
+language: node_js
+sudo: false
+node_js:
+  - 10
+  - 9
+  - 8
+  - 7
+  - 6
+install:
+  - cd istanbul-mocha && npm install && cd ..
+script:
+  - cd istanbul-mocha && npm te
