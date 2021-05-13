@@ -1,3 +1,10 @@
+
+[![Gitter](https://badges.gitter.im/bgoonz/community.svg)](https://gitter.im/bgoonz/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
+
+
+
+
 ---
 description: week3 day1
 ---
