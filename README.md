@@ -6,6 +6,9 @@
 
 
 ---
+
+[![Join the chat at https://gitter.im/bgoonz/resourcedump](https://badges.gitter.im/bgoonz/resourcedump.svg)](https://gitter.im/bgoonz/resourcedump?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 description: week3 day1
 ---
 
