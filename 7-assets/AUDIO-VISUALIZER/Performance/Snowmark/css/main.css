@@ -1,0 +1,36 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+body {
+  background-color: #222;
+}
+
+#renderer {
+  background-color: #112;
+  border: 2px solid #fff;
+}
+
+.counter {
+  background: #ccc;
+  width: 68px;
+  position: absolute;
+  background-color: rgba(0, 10, 50, 0.85);
+  padding: 6px;
+
+  top: 50px;
+
+  color: #0ff;
+  font-family: Arial;
+  font-size: 24px;
+  text-align: right;
+  font-weight: bold;
+}
