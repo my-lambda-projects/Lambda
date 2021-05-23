@@ -1,1 +1,0 @@
-US states in JSON form

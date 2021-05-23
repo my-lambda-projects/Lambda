@@ -1,4 +1,0 @@
-graph exemple {
-    0 -- 1 [label=2];
-    0 -- 2 [label=3];
-}

@@ -1,1 +1,0 @@
-import arrayPush from"./_arrayPush";import isFlattenable from"./_isFlattenable";function baseFlatten(t,a,e,r,l){let n=-1;const s=t.length;for(e||(e=isFlattenable),l||(l=[]);++n<s;){const s=t[n];a>0&&e(s)?a>1?baseFlatten(s,a-1,e,r,l):arrayPush(l,s):r||(l[l.length]=s)}return l}export default baseFlatten;

@@ -1,1 +1,0 @@
-const baseIteratee=require("./_baseIteratee"),basePullAll=require("./_basePullAll");function pullAllBy(e,l,t){return e&&e.length&&l&&l.length?basePullAll(e,l,baseIteratee(t,2)):e}module.exports=pullAllBy;

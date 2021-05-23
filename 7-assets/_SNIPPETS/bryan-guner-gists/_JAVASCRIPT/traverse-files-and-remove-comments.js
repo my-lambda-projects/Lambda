@@ -1,1 +1,0 @@
-function walkAndRemoveComments(e){const n=path.join(__base,"build",e.uuid);return new Promise(((e,o)=>{fs.walk(n).on("data",(e=>stat(e.path).then((n=>{if(n.isFile())return removeCode(e.path,"//=")})))).on("error",(e=>{o(e)})).on("end",(()=>{e()}))}))}
