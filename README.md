@@ -68,36 +68,6 @@
 ![nav](https://github.com/bgoonz/Lambda/blob/master/media-gifs-images/nav-bar.gif?raw=true)
 
 
-## Contents
-
-* _**`Platforms`**_
-* _**`Programming Languages`**_
-* _**`Front-End Development`**_
-* _**`Back-End Development`**_
-* _**`Computer Science`**_
-* _**`Big Data`**_
-* _**`Theory`**_
-* _**`Books`**_
-* _**`Editors`**_
-* _**`Gaming`**_
-* _**`Development Environment`**_
-* _**`Entertainment`**_
-* _**`Databases`**_
-* _**`Media`**_
-* _**`Learn`**_
-* _**`Security`**_
-* _**`Content Management Systems`**_
-* _**`Hardware`**_
-* _**`Business`**_
-* _**`Work`**_
-* _**`Networking`**_
-* _**`Decentralized Systems`**_
-* _**`Higher Education`**_
-* _**`Events`**_
-* _**`Testing`**_
-* _**`Miscellaneous`**_
-* _**`Related`**_
-
 
 
 ---
