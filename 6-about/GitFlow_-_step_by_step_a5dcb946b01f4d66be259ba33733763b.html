@@ -1,0 +1,925 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>GitFlow - step by step</title>
+  <style>
+    /* webkit printing magic: print all background colors */
+    html {
+      -webkit-print-color-adjust: exact;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    @media only screen {
+      body {
+        margin: 2em auto;
+        max-width: 900px;
+        color: rgb(55, 53, 47);
+      }
+    }
+
+    body {
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+
+    a,
+    a.visited {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    .pdf-relative-link-path {
+      font-size: 80%;
+      color: #444;
+    }
+
+    h1,
+    h2,
+    h3 {
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+
+    .page-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 0.75em;
+    }
+
+    h1 {
+      font-size: 1.875rem;
+      margin-top: 1.875rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-top: 1.25rem;
+    }
+
+    .source {
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      padding: 1.5em;
+      word-break: break-all;
+    }
+
+    .callout {
+      border-radius: 3px;
+      padding: 1rem;
+    }
+
+    figure {
+      margin: 1.25em 0;
+      page-break-inside: avoid;
+    }
+
+    figcaption {
+      opacity: 0.5;
+      font-size: 85%;
+      margin-top: 0.5em;
+    }
+
+    mark {
+      background-color: transparent;
+    }
+
+    .indented {
+      padding-left: 1.5em;
+    }
+
+    hr {
+      background: transparent;
+      display: block;
+      width: 100%;
+      height: 1px;
+      visibility: visible;
+      border: none;
+      border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    @media only print {
+      img {
+        max-height: 100vh;
+        object-fit: contain;
+      }
+    }
+
+    @page {
+      margin: 1in;
+    }
+
+    .collection-content {
+      font-size: 0.875rem;
+    }
+
+    .column-list {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .column {
+      padding: 0 1em;
+    }
+
+    .column:first-child {
+      padding-left: 0;
+    }
+
+    .column:last-child {
+      padding-right: 0;
+    }
+
+    .table_of_contents-item {
+      display: block;
+      font-size: 0.875rem;
+      line-height: 1.3;
+      padding: 0.125rem;
+    }
+
+    .table_of_contents-indent-1 {
+      margin-left: 1.5rem;
+    }
+
+    .table_of_contents-indent-2 {
+      margin-left: 3rem;
+    }
+
+    .table_of_contents-indent-3 {
+      margin-left: 4.5rem;
+    }
+
+    .table_of_contents-link {
+      text-decoration: none;
+      opacity: 0.7;
+      border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid rgba(55, 53, 47, 0.09);
+      border-collapse: collapse;
+    }
+
+    table {
+      border-left: none;
+      border-right: none;
+    }
+
+    th,
+    td {
+      font-weight: normal;
+      padding: 0.25em 0.5em;
+      line-height: 1.5;
+      min-height: 1.5em;
+      text-align: left;
+    }
+
+    th {
+      color: rgba(55, 53, 47, 0.6);
+    }
+
+    ol,
+    ul {
+      margin: 0;
+      margin-block-start: 0.6em;
+      margin-block-end: 0.6em;
+    }
+
+    li>ol:first-child,
+    li>ul:first-child {
+      margin-block-start: 0.6em;
+    }
+
+    ul>li {
+      list-style: disc;
+    }
+
+    ul.to-do-list {
+      text-indent: -1.7em;
+    }
+
+    ul.to-do-list>li {
+      list-style: none;
+    }
+
+    .to-do-children-checked {
+      text-decoration: line-through;
+      opacity: 0.375;
+    }
+
+    ul.toggle>li {
+      list-style: none;
+    }
+
+    ul {
+      padding-inline-start: 1.7em;
+    }
+
+    ul>li {
+      padding-left: 0.1em;
+    }
+
+    ol {
+      padding-inline-start: 1.6em;
+    }
+
+    ol>li {
+      padding-left: 0.2em;
+    }
+
+    .mono ol {
+      padding-inline-start: 2em;
+    }
+
+    .mono ol>li {
+      text-indent: -0.4em;
+    }
+
+    .toggle {
+      padding-inline-start: 0em;
+      list-style-type: none;
+    }
+
+    /* Indent toggle children */
+    .toggle>li>details {
+      padding-left: 1.7em;
+    }
+
+    .toggle>li>details>summary {
+      margin-left: -1.1em;
+    }
+
+    .selected-value {
+      display: inline-block;
+      padding: 0 0.5em;
+      background: rgba(206, 205, 202, 0.5);
+      border-radius: 3px;
+      margin-right: 0.5em;
+      margin-top: 0.3em;
+      margin-bottom: 0.3em;
+      white-space: nowrap;
+    }
+
+    .collection-title {
+      display: inline-block;
+      margin-right: 1em;
+    }
+
+    time {
+      opacity: 0.5;
+    }
+
+    .icon {
+      display: inline-block;
+      max-width: 1.2em;
+      max-height: 1.2em;
+      text-decoration: none;
+      vertical-align: text-bottom;
+      margin-right: 0.5em;
+    }
+
+    img.icon {
+      border-radius: 3px;
+    }
+
+    .user-icon {
+      width: 1.5em;
+      height: 1.5em;
+      border-radius: 100%;
+      margin-right: 0.5rem;
+    }
+
+    .user-icon-inner {
+      font-size: 0.8em;
+    }
+
+    .text-icon {
+      border: 1px solid #000;
+      text-align: center;
+    }
+
+    .page-cover-image {
+      display: block;
+      object-fit: cover;
+      width: 100%;
+      height: 30vh;
+    }
+
+    .page-header-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .page-header-icon-with-cover {
+      margin-top: -0.72em;
+      margin-left: 0.07em;
+    }
+
+    .page-header-icon img {
+      border-radius: 3px;
+    }
+
+    .link-to-page {
+      margin: 1em 0;
+      padding: 0;
+      border: none;
+      font-weight: 500;
+    }
+
+    p>.user {
+      opacity: 0.5;
+    }
+
+    td>.user,
+    td>time {
+      white-space: nowrap;
+    }
+
+    input[type="checkbox"] {
+      transform: scale(1.5);
+      margin-right: 0.6em;
+      vertical-align: middle;
+    }
+
+    p {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+
+    .image {
+      border: none;
+      margin: 1.5em 0;
+      padding: 0;
+      border-radius: 0;
+      text-align: center;
+    }
+
+    .code,
+    code {
+      background: rgba(135, 131, 120, 0.15);
+      border-radius: 3px;
+      padding: 0.2em 0.4em;
+      border-radius: 3px;
+      font-size: 85%;
+      tab-size: 2;
+    }
+
+    code {
+      color: #eb5757;
+    }
+
+    .code {
+      padding: 1.5em 1em;
+    }
+
+    .code-wrap {
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    .code>code {
+      background: none;
+      padding: 0;
+      font-size: 100%;
+      color: inherit;
+    }
+
+    blockquote {
+      font-size: 1.25em;
+      margin: 1em 0;
+      padding-left: 1em;
+      border-left: 3px solid rgb(55, 53, 47);
+    }
+
+    .bookmark {
+      text-decoration: none;
+      max-height: 8em;
+      padding: 0;
+      display: flex;
+      width: 100%;
+      align-items: stretch;
+    }
+
+    .bookmark-title {
+      font-size: 0.85em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      height: 1.75em;
+      white-space: nowrap;
+    }
+
+    .bookmark-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bookmark-info {
+      flex: 4 1 180px;
+      padding: 12px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .bookmark-image {
+      width: 33%;
+      flex: 1 1 180px;
+      display: block;
+      position: relative;
+      object-fit: cover;
+      border-radius: 1px;
+    }
+
+    .bookmark-description {
+      color: rgba(55, 53, 47, 0.6);
+      font-size: 0.75em;
+      overflow: hidden;
+      max-height: 4.5em;
+      word-break: break-word;
+    }
+
+    .bookmark-href {
+      font-size: 0.75em;
+      margin-top: 0.25em;
+    }
+
+    .sans {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+
+    .code {
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    }
+
+    .serif {
+      font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif;
+    }
+
+    .mono {
+      font-family: iawriter-mono, Nitti, Menlo, Courier, monospace;
+    }
+
+    .pdf .sans {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR';
+    }
+
+    .pdf .code {
+      font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR';
+    }
+
+    .pdf .serif {
+      font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR';
+    }
+
+    .pdf .mono {
+      font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR';
+    }
+
+    .highlight-default {}
+
+    .highlight-gray {
+      color: rgb(155, 154, 151);
+    }
+
+    .highlight-brown {
+      color: rgb(100, 71, 58);
+    }
+
+    .highlight-orange {
+      color: rgb(217, 115, 13);
+    }
+
+    .highlight-yellow {
+      color: rgb(223, 171, 1);
+    }
+
+    .highlight-teal {
+      color: rgb(15, 123, 108);
+    }
+
+    .highlight-blue {
+      color: rgb(11, 110, 153);
+    }
+
+    .highlight-purple {
+      color: rgb(105, 64, 165);
+    }
+
+    .highlight-pink {
+      color: rgb(173, 26, 114);
+    }
+
+    .highlight-red {
+      color: rgb(224, 62, 62);
+    }
+
+    .highlight-gray_background {
+      background: rgb(235, 236, 237);
+    }
+
+    .highlight-brown_background {
+      background: rgb(233, 229, 227);
+    }
+
+    .highlight-orange_background {
+      background: rgb(250, 235, 221);
+    }
+
+    .highlight-yellow_background {
+      background: rgb(251, 243, 219);
+    }
+
+    .highlight-teal_background {
+      background: rgb(221, 237, 234);
+    }
+
+    .highlight-blue_background {
+      background: rgb(221, 235, 241);
+    }
+
+    .highlight-purple_background {
+      background: rgb(234, 228, 242);
+    }
+
+    .highlight-pink_background {
+      background: rgb(244, 223, 235);
+    }
+
+    .highlight-red_background {
+      background: rgb(251, 228, 228);
+    }
+
+    .block-color-default {
+      color: inherit;
+      fill: inherit;
+    }
+
+    .block-color-gray {
+      color: rgba(55, 53, 47, 0.6);
+      fill: rgba(55, 53, 47, 0.6);
+    }
+
+    .block-color-brown {
+      color: rgb(100, 71, 58);
+      fill: rgb(100, 71, 58);
+    }
+
+    .block-color-orange {
+      color: rgb(217, 115, 13);
+      fill: rgb(217, 115, 13);
+    }
+
+    .block-color-yellow {
+      color: rgb(223, 171, 1);
+      fill: rgb(223, 171, 1);
+    }
+
+    .block-color-teal {
+      color: rgb(15, 123, 108);
+      fill: rgb(15, 123, 108);
+    }
+
+    .block-color-blue {
+      color: rgb(11, 110, 153);
+      fill: rgb(11, 110, 153);
+    }
+
+    .block-color-purple {
+      color: rgb(105, 64, 165);
+      fill: rgb(105, 64, 165);
+    }
+
+    .block-color-pink {
+      color: rgb(173, 26, 114);
+      fill: rgb(173, 26, 114);
+    }
+
+    .block-color-red {
+      color: rgb(224, 62, 62);
+      fill: rgb(224, 62, 62);
+    }
+
+    .block-color-gray_background {
+      background: rgb(235, 236, 237);
+    }
+
+    .block-color-brown_background {
+      background: rgb(233, 229, 227);
+    }
+
+    .block-color-orange_background {
+      background: rgb(250, 235, 221);
+    }
+
+    .block-color-yellow_background {
+      background: rgb(251, 243, 219);
+    }
+
+    .block-color-teal_background {
+      background: rgb(221, 237, 234);
+    }
+
+    .block-color-blue_background {
+      background: rgb(221, 235, 241);
+    }
+
+    .block-color-purple_background {
+      background: rgb(234, 228, 242);
+    }
+
+    .block-color-pink_background {
+      background: rgb(244, 223, 235);
+    }
+
+    .block-color-red_background {
+      background: rgb(251, 228, 228);
+    }
+
+    .select-value-color-default {
+      background-color: rgba(206, 205, 202, 0.5);
+    }
+
+    .select-value-color-gray {
+      background-color: rgba(155, 154, 151, 0.4);
+    }
+
+    .select-value-color-brown {
+      background-color: rgba(140, 46, 0, 0.2);
+    }
+
+    .select-value-color-orange {
+      background-color: rgba(245, 93, 0, 0.2);
+    }
+
+    .select-value-color-yellow {
+      background-color: rgba(233, 168, 0, 0.2);
+    }
+
+    .select-value-color-green {
+      background-color: rgba(0, 135, 107, 0.2);
+    }
+
+    .select-value-color-blue {
+      background-color: rgba(0, 120, 223, 0.2);
+    }
+
+    .select-value-color-purple {
+      background-color: rgba(103, 36, 222, 0.2);
+    }
+
+    .select-value-color-pink {
+      background-color: rgba(221, 0, 129, 0.2);
+    }
+
+    .select-value-color-red {
+      background-color: rgba(255, 0, 26, 0.2);
+    }
+
+    .checkbox {
+      display: inline-flex;
+      vertical-align: text-bottom;
+      width: 16;
+      height: 16;
+      background-size: 16px;
+      margin-left: 2px;
+      margin-right: 5px;
+    }
+
+    .checkbox-on {
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+
+    .checkbox-off {
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+    }
+  </style>
+</head>
+
+<body>
+  <article id="4a9908cc-61af-4f78-b86b-8725552c7fbc" class="page serif">
+    <header>
+      <div class="page-header-icon undefined"><span class="icon">📃</span></div>
+      <h1 class="page-title">GitFlow - step by step</h1>
+    </header>
+    <div class="page-body">
+      <h3 id="2f91eead-eaae-423d-81cf-5b1c69a4022a" class="">Theses are the steps that you will be doing DAILY for your
+        projects here at Lambda school.</h3>
+      <ol id="9b8a01ea-0043-43c6-9a62-b1d308f7f9f7" class="numbered-list" start="1">
+        <li>Create YOUR OWN version of Repo —&gt; (Fork)<figure id="a5dcb946-b01f-4d66-be25-9ba33733763b" class="image">
+            <a
+              href="./imgs/Annotation_2020-07-21_164208.png"><img
+                style="width:1007px"
+                src="./imgs/Annotation_2020-07-21_164208.png" /></a>
+            <figcaption>Click the Fork Button to fork the Repo</figcaption>
+          </figure>
+          <p id="ef19daa5-3548-4d32-8d21-960ed7faf00c" class="">
+          </p>
+        </li>
+      </ol>
+      <ol id="520ad9a1-5284-4294-a850-5c0d2561c6fd" class="numbered-list" start="2">
+        <li>Your name should now be in front of the repo name before the slash &#x27;/&#x27; if forking is successful
+        </li>
+      </ol>
+      <figure id="9058c25d-e721-4641-9dc1-113f1bbb71c2" class="image"><a
+          href="./imgs/screencapture-github-MileyWright-Git-for-Web-Development-Project-2019-12-01-00_24_10.png"><img
+            style="width:624px"
+            src="./imgs/screencapture-github-MileyWright-Git-for-Web-Development-Project-2019-12-01-00_24_10.png" /></a>
+        <figcaption>Notice it says &#x27;forked from&#x27; and then has a link to the original Repo.</figcaption>
+      </figure>
+      <p id="c170cdbf-9931-4c98-9c31-abc2c28d14bc" class="">
+      </p>
+      <p id="7415b4e4-83f6-4882-a19d-e3de36695348" class="">3. Clone your Repo using githubs &#x27;Clone or
+        download&#x27; button</p>
+      <figure id="531eb69e-4eab-4769-8a38-b908a8808ff9" class="image"><a
+          href="./imgs/screencapture-github-MileyWright-Git-for-Web-Development-Project-2019-12-01-00_24_10%201.png"><img
+            style="width:1058px"
+            src="./imgs/screencapture-github-MileyWright-Git-for-Web-Development-Project-2019-12-01-00_24_10%201.png" /></a>
+        <figcaption>Click the button</figcaption>
+      </figure>
+      <p id="c332b220-1d9f-44f6-9097-9acdce6efe8a" class="">
+      </p>
+      <figure id="bb6144bd-2860-4bec-8f0c-04a601f73773" class="image"><a
+          href="./imgs/screencapture-github-MileyWright-Git-for-Web-Development-Project-2019-12-02-00_24_32.png"><img
+            style="width:460px"
+            src="./imgs/screencapture-github-MileyWright-Git-for-Web-Development-Project-2019-12-02-00_24_32.png" /></a>
+        <figcaption>Here you can either highlight the link and copy the text OR click Clipboard icon on the right and
+          that will copy the link as well.</figcaption>
+      </figure>
+      <p id="4090c09d-f2b8-4575-9a21-c5a7017ead82" class="">
+      </p>
+      <p id="beb1d17a-0734-42a5-b167-da3ccfc41fca" class="">4. Back inside your CLI, use the <strong><mark
+            class="highlight-red">cd</mark></strong><mark class="highlight-red"> </mark>command to go to the directory
+        where you are going to want to clone your forked Repo (i.e. The location where the repo should be saved on your
+        computer)</p>
+      <figure id="38e60230-044c-4d44-98f6-b1c02a6463f8" class="image"><a
+          href="./imgs/Untitled1.png"><img
+            style="width:552px"
+            src="./imgs/Untitled1.png" /></a>
+        <figcaption>Notice I am in the directory <strong><mark class="highlight-red">Documents/Git</mark></strong>, this
+          could be different for you depending on where you want your repo to be cloned to.</figcaption>
+      </figure>
+      <p id="1a78dd60-3c84-4468-add8-6c7754e1ee05" class="">
+      </p>
+      <p id="f7d5d03a-912f-4333-86fd-96fbabb70faf" class="">5. Use the <strong><mark class="highlight-red">git clone
+            &lt;link-to-repo&gt;</mark></strong> command to clone the repo to the directory you are currently in.</p>
+      <figure id="156f1e7c-7857-4de7-9cf7-40504f8f51a9" class="image"><a
+          href="./imgs/Untitled1%201.png"><img
+            style="width:568px"
+            src="./imgs/Untitled1%201.png" /></a></figure>
+      <p id="2022abbd-8a5a-4b00-b686-0a8cb81b51a5" class="">
+      </p>
+      <p id="7d1b3c99-a27f-426a-aecf-59d660e139d6" class="">6. <strong><mark class="highlight-red">cd</mark></strong>
+        into the newly created repo using the <mark class="highlight-red"><strong>cd &lt;repo-name&gt;</strong></mark>
+        command</p>
+      <figure id="dfa1c0c3-5556-4b52-81c0-10e2ddde2a7e" class="image"><a
+          href="./imgs/Untitled1%202.png"><img
+            style="width:575px"
+            src="./imgs/Untitled1%202.png" /></a></figure>
+      <p id="aaabb3fa-f06a-478b-b85a-0f6dc77f5787" class="">
+      </p>
+      <p id="f3dd5b7b-d09b-469d-82a6-660d5ad455bc" class="">7. Use the<mark class="highlight-red"><strong> git checkout
+            -b &#x27;firstname-lastname&#x27;</strong></mark> command to create your own branch name for the repo (this
+        is the branch that you will be doing your work on)</p>
+      <figure id="1ce21b86-fc5f-4538-ab8d-4c3ee1fb254a" class="image"><a
+          href="./imgs/Untitled1%203.png"><img
+            style="width:610px"
+            src="./imgs/Untitled1%203.png" /></a></figure>
+      <figure id="65413479-bb41-4352-b627-5bfaf29917e8" class="image"><a
+          href="./imgs/Untitled1%204.png"><img
+            style="width:649px"
+            src="./imgs/Untitled1%204.png" /></a>
+        <figcaption>notice how after I checkout the branch name changes from <strong><mark
+              class="highlight-red">master</mark></strong> to<strong> </strong><strong><mark
+              class="highlight-red">Miley-Wright</mark></strong></figcaption>
+      </figure>
+      <p id="c78bedc3-cf48-4957-b923-23704117645b" class="">
+      </p>
+      <p id="207c7462-8a3f-49df-bd5b-a834d7fd1d33" class="">8. Now you can work on your repo and start getting the
+        project assignment done.</p>
+      <p id="ed28a219-b63f-4d58-a664-0a390188933a" class="">9. To add and commit changes on your branch you can do the
+        following
+      <div class="indented">
+        <ul id="2c413a07-27af-4a79-8c57-b50307513d8a" class="bulleted-list">
+          <li><strong><mark class="highlight-red">git add .</mark></strong><mark class="highlight-red"> </mark>will add
+            the repo changes and make them ready for committing</li>
+        </ul>
+        <ul id="fd547834-4d3c-4da6-93e7-4336a8d7d137" class="bulleted-list">
+          <li><mark class="highlight-red"><strong>git commit -m &quot;Your helpful commit message
+                here&quot;</strong></mark> will commit the changes with your specified commit message (commit message
+            should explain what changes you&#x27;ve added to the repo that you are committing)</li>
+        </ul>
+      </div>
+      </p>
+      <p id="4a77c6d9-07f3-482f-92af-39d46e251b0c" class="">10. Push your changes back up to your Github repo
+      <div class="indented">
+        <ul id="d9205fb7-d480-4c05-9428-21d08f5ce6de" class="bulleted-list">
+          <li><mark class="highlight-red"><strong>git push -u origin branch-name</strong></mark> will push all of your
+            commits from your local machine up onto github</li>
+        </ul>
+        <ul id="6778588f-e4e8-465d-a104-6b178b3acbfe" class="bulleted-list">
+          <li>Remember that <strong><mark class="highlight-red">branch-name</mark></strong> here will be whatever name
+            you specified when you did <strong><mark class="highlight-red">git checkout -b</mark></strong> (in the case
+            it should be your firstname-lastname)</li>
+        </ul>
+      </div>
+      </p>
+      <p id="bb26bb9f-4540-4cc2-ab1b-5413f77f119a" class="">11. Now that the changes are on github you can submit a PR
+        (Pull Request)</p>
+      <p id="3fcb8986-a47c-41e5-8c3e-b04341d7499d" class="">12. Go back to your forked Project repo on github (make sure
+        you are on YOUR FORKED copy NOT the original Lambda one)
+      <div class="indented">
+        <ul id="aed9d9b3-0894-4dbb-acc7-9e6bd1673af9" class="bulleted-list">
+          <li>Click on the <strong><mark class="highlight-red">Branch:master</mark></strong> button on the left side
+            (see picture)</li>
+        </ul>
+        <figure id="5a136542-ca00-499f-9aae-e75f03945158" class="image"><a
+            href="./imgs/screencapture-github-MileyWright-Git-for-Web-Development-Project-2019-12-01-00_24_10%202.png"><img
+              style="width:625px"
+              src="./imgs/screencapture-github-MileyWright-Git-for-Web-Development-Project-2019-12-01-00_24_10%202.png" /></a>
+        </figure>
+        <ul id="20c0e2d5-a0d0-4ee7-8879-fe81baf200fa" class="bulleted-list">
+          <li>This will create a dropdown where you should be able to select your name-branch now</li>
+        </ul>
+        <ul id="6ea6d414-0abb-4f11-a96b-bf2c286accdd" class="bulleted-list">
+          <li>Click your name-branch and then click the <mark class="highlight-red"><strong>New pull request
+              </strong></mark>button to make a pull request on your name branch</li>
+        </ul>
+        <figure id="1b98798f-c646-4784-8f92-029f4d124d3f" class="image"><a
+            href="./imgs/screencapture-github-MileyWright-Git-for-Web-Development-Project-tree-Miley-Wright-2019-12-02-01_39_48.png"><img
+              style="width:1051px"
+              src="./imgs/screencapture-github-MileyWright-Git-for-Web-Development-Project-tree-Miley-Wright-2019-12-02-01_39_48.png" /></a>
+        </figure>
+        <ul id="8f3cd7a6-2565-4302-9dbf-479eb01b3d23" class="bulleted-list">
+          <li>After you click new pull request it should redirect you to the pull request page</li>
+        </ul>
+        <ul id="848ebdba-342c-44e0-a4fc-2496503d8a38" class="bulleted-list">
+          <li>IT IS IMPORTANT THAT YOU DO NOT CLICK THE <mark class="highlight-red"><strong>Create pull
+                request</strong></mark> BUTTON UNTIL AFTER YOU&#x27;VE COMPLETED THE NEXT STEP</li>
+        </ul>
+      </div>
+      </p>
+      <figure id="ef9837c8-9b2b-4c8b-a8bf-eda7d50e8d7c" class="image"><a
+          href="./imgs/screencapture-github-LambdaSchool-Git-for-Web-Development-Project-compare-master-MileyWright-Miley-Wright-2019-12-02-01_46_10.png"><img
+            style="width:964px"
+            src="./imgs/screencapture-github-LambdaSchool-Git-for-Web-Development-Project-compare-master-MileyWright-Miley-Wright-2019-12-02-01_46_10.png" /></a>
+      </figure>
+      <ul id="7adb9744-e09c-49e0-832e-433a8d9caf80" class="bulleted-list">
+        <li>When you get to the PR page, make sure to click the dropdown button that says <mark
+            class="highlight-red"><strong>base repository</strong></mark> and CHANGE it to be your FORKED REPO instead
+          of the original Lambda repo (when submitting PR it will default to the original Repo this is why it needs to
+          be changed)</li>
+      </ul>
+      <figure id="4657db5b-cfee-4b7c-907f-73fba99fa771" class="image"><a
+          href="./imgs/screencapture-github-LambdaSchool-Git-for-Web-Development-Project-compare-master-MileyWright-Miley-Wright-2019-12-02-01_46_38.png"><img
+            style="width:1038px"
+            src="./imgs/screencapture-github-LambdaSchool-Git-for-Web-Development-Project-compare-master-MileyWright-Miley-Wright-2019-12-02-01_46_38.png" /></a>
+        <figcaption>Make sure to change to base repository before Creating the pull request</figcaption>
+      </figure>
+      <p id="f9549b8f-f316-4ac5-987a-c23d699109c1" class="">
+      </p>
+      <p id="adf6814a-720d-4117-845a-4ca2d7f73079" class="">13. After changing the base repository it should look more
+        like this</p>
+      <figure id="3443339b-1885-4a94-a9b7-34c4f3101e5b" class="image"><a
+          href="./imgs/screencapture-github-MileyWright-Git-for-Web-Development-Project-compare-master-MileyWright-Miley-Wright-2019-12-02-01_47_06.png"><img
+            style="width:1032px"
+            src="./imgs/screencapture-github-MileyWright-Git-for-Web-Development-Project-compare-master-MileyWright-Miley-Wright-2019-12-02-01_47_06.png" /></a>
+      </figure>
+      <p id="5e4ff965-e0da-480b-b200-be0fd4eae40f" class="">
+      </p>
+      <p id="e960b46c-727a-49f5-93a8-76fd45cd55f5" class="">
+      </p>
+      <p id="e27b3b7c-01ea-498c-aada-2f1c29237f47" class=""><a href="http://15.DO">1</a>4. Click Create Pull Request</p>
+      <figure id="30f03d99-bab8-4a48-b740-bc5297637825" class="image"><a
+          href="./imgs/screencapture-github-MileyWright-Git-for-Web-Development-Project-pull-2-2019-12-02-07_55_16.png"><img
+            style="width:756px"
+            src="./imgs/screencapture-github-MileyWright-Git-for-Web-Development-Project-pull-2-2019-12-02-07_55_16.png" /></a>
+      </figure>
+    </div>
+  </article>
+</body>
+
+</html>
