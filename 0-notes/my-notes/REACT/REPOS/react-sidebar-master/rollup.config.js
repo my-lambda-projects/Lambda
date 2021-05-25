@@ -3,11 +3,11 @@ import pkg from "./package.json";
 
 const input = "./src/sidebar.js";
 
-const external = id => !id.startsWith("/") && !id.startsWith(".");
+const external = (id) => !id.startsWith("/") && !id.startsWith(".");
 
 const getBabelOptions = () => ({
   runtimeHelpers: true,
-  plugins: ["@babel/transform-runtime"]
+  plugins: ["@babel/transform-runtime"],
 });
 
 export default [
@@ -15,13 +15,13 @@ export default [
     input,
     output: { file: pkg.main, format: "cjs" },
     external,
-    plugins: [babel(getBabelOptions())]
+    plugins: [babel(getBabelOptions())],
   },
 
   {
     input,
     output: { file: pkg.module, format: "es" },
     external,
-    plugins: [babel(getBabelOptions())]
-  }
+    plugins: [babel(getBabelOptions())],
+  },
 ];

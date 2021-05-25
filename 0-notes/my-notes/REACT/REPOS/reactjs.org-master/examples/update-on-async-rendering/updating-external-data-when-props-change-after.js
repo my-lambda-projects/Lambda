@@ -46,7 +46,7 @@ class ExampleComponent extends React.Component {
 
   _loadAsyncData(id) {
     this._asyncRequest = loadMyAsyncData(id).then(
-      externalData => {
+      (externalData) => {
         this._asyncRequest = null;
         this.setState({externalData});
       }

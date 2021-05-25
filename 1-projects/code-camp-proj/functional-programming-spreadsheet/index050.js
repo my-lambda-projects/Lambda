@@ -1,6 +1,6 @@
 const infixToFunction = {};
 
-const addVar = function(x, y) {
+const addVar = function (x, y) {
   return x + y;
 };
 

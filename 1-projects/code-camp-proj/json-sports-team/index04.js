@@ -1,7 +1,7 @@
 const myTeam = {
-  "Team": "Argentina",
-  "Sport": "Football",
-  "Year": 1986
+  Team: "Argentina",
+  Sport: "Football",
+  Year: 1986,
 };
 
 /*

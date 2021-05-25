@@ -1,7 +1,7 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 
-app.listen(3000, function() {});
+app.listen(3000, function () {});
 
 //Add a console.log statement with the message "Your app is listening on port 3000." inside of your callback function to confirm that your app is running.
 

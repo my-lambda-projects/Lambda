@@ -4,7 +4,7 @@ const initialState = {
 
 function items(state = initialState, action) {
   switch (action.type) {
-    case 'ADD_ITEM':
+    case "ADD_ITEM":
       return Object.assign({}, state, {
         list: state.list.concat(action.text),
       });

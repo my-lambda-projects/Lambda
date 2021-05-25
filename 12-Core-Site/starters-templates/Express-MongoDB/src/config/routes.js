@@ -1,9 +1,9 @@
-import { Router } from 'express'
+import { Router } from "express";
 
-import { welcome } from '../controllers'
+import { welcome } from "../controllers";
 
-const router = Router()
+const router = Router();
 
-router.get('/welcome', welcome)
+router.get("/welcome", welcome);
 
-module.exports = router
+module.exports = router;

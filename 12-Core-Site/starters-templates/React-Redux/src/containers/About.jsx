@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment } from "react";
 
 const About = () => (
   <Fragment>
@@ -14,6 +14,6 @@ const About = () => (
       frankfurter boudin strip steak.
     </p>
   </Fragment>
-)
+);
 
-export default About
+export default About;

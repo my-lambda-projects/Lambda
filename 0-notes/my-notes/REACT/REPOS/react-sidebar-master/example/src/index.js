@@ -9,11 +9,11 @@ const styles = {
   contentHeaderMenuLink: {
     textDecoration: "none",
     color: "white",
-    padding: 8
+    padding: 8,
   },
   content: {
-    padding: "16px"
-  }
+    padding: "16px",
+  },
 };
 
 class App extends React.Component {
@@ -28,7 +28,7 @@ class App extends React.Component {
       shadow: true,
       pullRight: false,
       touchHandleWidth: 20,
-      dragToggleDistance: 30
+      dragToggleDistance: 30,
     };
 
     this.renderPropCheckbox = this.renderPropCheckbox.bind(this);
@@ -47,7 +47,7 @@ class App extends React.Component {
   }
 
   renderPropCheckbox(prop) {
-    const toggleMethod = ev => {
+    const toggleMethod = (ev) => {
       const newState = {};
       newState[prop] = ev.target.checked;
       this.setState(newState);
@@ -69,7 +69,7 @@ class App extends React.Component {
   }
 
   renderPropNumber(prop) {
-    const setMethod = ev => {
+    const setMethod = (ev) => {
       const newState = {};
       newState[prop] = parseInt(ev.target.value, 10);
       this.setState(newState);
@@ -113,7 +113,7 @@ class App extends React.Component {
       touchHandleWidth: this.state.touchHandleWidth,
       dragToggleDistance: this.state.dragToggleDistance,
       transitions: this.state.transitions,
-      onSetOpen: this.onSetOpen
+      onSetOpen: this.onSetOpen,
     };
 
     return (
@@ -158,7 +158,7 @@ class App extends React.Component {
               "transitions",
               "touch",
               "shadow",
-              "pullRight"
+              "pullRight",
             ].map(this.renderPropCheckbox)}
             {["touchHandleWidth", "dragToggleDistance"].map(
               this.renderPropNumber

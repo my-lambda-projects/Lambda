@@ -1,10 +1,10 @@
 /* @flow */
 
-var ConstantInfiniteComputer = require('../computers/constantInfiniteComputer.js');
-var ArrayInfiniteComputer = require('../computers/arrayInfiniteComputer.js');
-var scaleEnum = require('./scaleEnum');
-var React = global.React || require('react');
-var window = require('./window');
+var ConstantInfiniteComputer = require("../computers/constantInfiniteComputer.js");
+var ArrayInfiniteComputer = require("../computers/arrayInfiniteComputer.js");
+var scaleEnum = require("./scaleEnum");
+var React = global.React || require("react");
+var window = require("./window");
 
 function createInfiniteComputer(
   data: ElementHeight,
@@ -31,16 +31,16 @@ function recomputeApertureStateFromOptionsAndScrollTop(
   {
     preloadBatchSize,
     preloadAdditionalHeight,
-    infiniteComputer
+    infiniteComputer,
   }: {
     preloadBatchSize: number,
     preloadAdditionalHeight: number,
-    infiniteComputer: InfiniteComputer
+    infiniteComputer: InfiniteComputer,
   },
   scrollTop: number
 ): {
   displayIndexStart: number,
-  displayIndexEnd: number
+  displayIndexEnd: number,
 } {
   var blockNumber =
       preloadBatchSize === 0 ? 0 : Math.floor(scrollTop / preloadBatchSize),
@@ -54,7 +54,7 @@ function recomputeApertureStateFromOptionsAndScrollTop(
 
   return {
     displayIndexStart: infiniteComputer.getDisplayIndexStart(apertureTop),
-    displayIndexEnd: infiniteComputer.getDisplayIndexEnd(apertureBottom)
+    displayIndexEnd: infiniteComputer.getDisplayIndexEnd(apertureBottom),
   };
 }
 
@@ -72,7 +72,7 @@ function generateComputedProps(
   } = props;
 
   var newProps = {};
-  containerHeight = typeof containerHeight === 'number' ? containerHeight : 0;
+  containerHeight = typeof containerHeight === "number" ? containerHeight : 0;
   newProps.containerHeight = props.useWindowAsScrollContainer
     ? window.innerHeight
     : containerHeight;
@@ -82,17 +82,17 @@ function generateComputedProps(
 
   var defaultPreloadBatchSizeScaling = {
     type: scaleEnum.CONTAINER_HEIGHT_SCALE_FACTOR,
-    amount: 0.5
+    amount: 0.5,
   };
   var batchSize =
     preloadBatchSize && preloadBatchSize.type
       ? preloadBatchSize
       : defaultPreloadBatchSizeScaling;
 
-  if (typeof preloadBatchSize === 'number') {
+  if (typeof preloadBatchSize === "number") {
     newProps.preloadBatchSize = preloadBatchSize;
   } else if (
-    typeof batchSize === 'object' &&
+    typeof batchSize === "object" &&
     batchSize.type === scaleEnum.CONTAINER_HEIGHT_SCALE_FACTOR
   ) {
     newProps.preloadBatchSize = newProps.containerHeight * batchSize.amount;
@@ -102,16 +102,16 @@ function generateComputedProps(
 
   var defaultPreloadAdditionalHeightScaling = {
     type: scaleEnum.CONTAINER_HEIGHT_SCALE_FACTOR,
-    amount: 1
+    amount: 1,
   };
   var additionalHeight =
     preloadAdditionalHeight && preloadAdditionalHeight.type
       ? preloadAdditionalHeight
       : defaultPreloadAdditionalHeightScaling;
-  if (typeof preloadAdditionalHeight === 'number') {
+  if (typeof preloadAdditionalHeight === "number") {
     newProps.preloadAdditionalHeight = preloadAdditionalHeight;
   } else if (
-    typeof additionalHeight === 'object' &&
+    typeof additionalHeight === "object" &&
     additionalHeight.type === scaleEnum.CONTAINER_HEIGHT_SCALE_FACTOR
   ) {
     newProps.preloadAdditionalHeight =
@@ -125,8 +125,8 @@ function generateComputedProps(
 
 function buildHeightStyle(height: number): CSSStyle {
   return {
-    width: '100%',
-    height: Math.ceil(height)
+    width: "100%",
+    height: Math.ceil(height),
   };
 }
 
@@ -134,5 +134,5 @@ module.exports = {
   createInfiniteComputer,
   recomputeApertureStateFromOptionsAndScrollTop,
   generateComputedProps,
-  buildHeightStyle
+  buildHeightStyle,
 };

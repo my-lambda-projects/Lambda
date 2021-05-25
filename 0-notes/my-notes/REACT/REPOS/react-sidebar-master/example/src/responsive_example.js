@@ -8,11 +8,11 @@ const styles = {
   contentHeaderMenuLink: {
     textDecoration: "none",
     color: "white",
-    padding: 8
+    padding: 8,
   },
   content: {
-    padding: "16px"
-  }
+    padding: "16px",
+  },
 };
 
 const mql = window.matchMedia(`(min-width: 800px)`);
@@ -23,7 +23,7 @@ class App extends React.Component {
 
     this.state = {
       docked: mql.matches,
-      open: false
+      open: false,
     };
 
     this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
@@ -46,7 +46,7 @@ class App extends React.Component {
   mediaQueryChanged() {
     this.setState({
       docked: mql.matches,
-      open: false
+      open: false,
     });
   }
 
@@ -80,7 +80,7 @@ class App extends React.Component {
       sidebar,
       docked: this.state.docked,
       open: this.state.open,
-      onSetOpen: this.onSetOpen
+      onSetOpen: this.onSetOpen,
     };
 
     return (

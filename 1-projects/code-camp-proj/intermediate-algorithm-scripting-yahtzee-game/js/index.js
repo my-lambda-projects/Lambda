@@ -124,9 +124,8 @@ class Game {
   updateStatsUI() {
     document.querySelector("#current-round").textContent = this.currentRound;
     document.querySelector("#total-score").textContent = this.totalScore;
-    document.querySelector(
-      "#current-round-rolls"
-    ).textContent = this.rollsInCurrentRound;
+    document.querySelector("#current-round-rolls").textContent =
+      this.rollsInCurrentRound;
   }
 
   updateScoreUI() {

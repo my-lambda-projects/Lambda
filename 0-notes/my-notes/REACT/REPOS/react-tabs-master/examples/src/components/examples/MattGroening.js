@@ -78,6 +78,9 @@ const code = `const Component = (
 
 render(Component);`;
 
-const hint = 'Tabs can also be nested within each other and will continue to work individually.';
+const hint =
+  'Tabs can also be nested within each other and will continue to work individually.';
 
-export default () => <ExampleItem code={code} hint={hint} label="Matt Groening Example" />;
+export default () => (
+  <ExampleItem code={code} hint={hint} label="Matt Groening Example" />
+);

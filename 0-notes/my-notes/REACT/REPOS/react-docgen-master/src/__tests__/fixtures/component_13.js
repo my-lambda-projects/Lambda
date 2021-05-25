@@ -13,7 +13,7 @@
 import React from 'react';
 
 type AlignProps = {|
-  +align?: "left" | "center" | "right" | "justify",
+  +align?: 'left' | 'center' | 'right' | 'justify',
   +left?: boolean,
   +center?: boolean,
   +right?: boolean,
@@ -21,21 +21,21 @@ type AlignProps = {|
 |};
 
 type TransformProps = {|
-  +transform?: "lowercase" | "uppercase" | "capitalize",
+  +transform?: 'lowercase' | 'uppercase' | 'capitalize',
   +lowercase?: boolean,
   +uppercase?: boolean,
   +capitalize?: boolean,
 |};
 
 type TrackingProps = {|
-  +tracking?: "tight" | "normal" | "wide",
+  +tracking?: 'tight' | 'normal' | 'wide',
   +trackingTight?: boolean,
   +trackingNormal?: boolean,
   +trackingWide?: boolean,
 |};
 
 type LeadingProps = {|
-  +leading?: "none" | "tight" | "normal" | "loose",
+  +leading?: 'none' | 'tight' | 'normal' | 'loose',
   +leadingNone?: boolean,
   +leadingTight?: boolean,
   +leadingNormal?: boolean,
@@ -57,9 +57,9 @@ type TextProps = {|
 |};
 
 class Foo extends React.Component<TextProps> {
-   render() {
-       return <div />;
-   }
+  render() {
+    return <div />;
+  }
 }
 
 export default Foo;

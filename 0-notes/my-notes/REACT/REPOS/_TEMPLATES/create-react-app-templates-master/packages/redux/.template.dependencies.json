@@ -35,8 +35,7 @@
   },
   "scripts": {
     "start": "npm-run-all -p watch-css start-js",
-    "build":
-      "npm rebuild node-sass && yarn lint && yarn test:once && yarn build-css && react-scripts build",
+    "build": "npm rebuild node-sass && yarn lint && yarn test:once && yarn build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "build-css": "node-sass-chokidar src/ -o src/",
@@ -44,10 +43,8 @@
     "lint:watch": "esw -w src/**/*.js",
     "precommit": "lint-staged",
     "start-js": "react-scripts start",
-    "test:once":
-      "npm rebuild node-sass && yarn build-css && CI=true react-scripts test src/**/* --env=jsdom",
-    "watch-css":
-      "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
+    "test:once": "npm rebuild node-sass && yarn build-css && CI=true react-scripts test src/**/* --env=jsdom",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
   },
   "lint-staged": {
     "{src,__{test|mocks}__}/**/*.js": [

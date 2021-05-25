@@ -1,10 +1,7 @@
 import React from 'react';
 
 const Button = ({ children, onClick, style = {} }) => (
-  <button
-    style={{ }}
-    onClick={onClick}
-  >
+  <button style={{}} onClick={onClick}>
     {children}
   </button>
 );

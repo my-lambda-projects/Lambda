@@ -5,11 +5,8 @@
 const crypto = require('crypto');
 const path = require('path');
 
-const createContentDigest = obj =>
-  crypto
-    .createHash(`md5`)
-    .update(obj)
-    .digest(`hex`);
+const createContentDigest = (obj) =>
+  crypto.createHash(`md5`).update(obj).digest(`hex`);
 
 // Store code snippets in GraphQL for the home page examples.
 // Snippets will be matched with markdown templates of the same name.

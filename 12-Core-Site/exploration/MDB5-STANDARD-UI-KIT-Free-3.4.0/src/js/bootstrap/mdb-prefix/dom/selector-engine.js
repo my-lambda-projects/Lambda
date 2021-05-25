@@ -19,7 +19,9 @@ const SelectorEngine = {
   },
 
   find(selector, element = document.documentElement) {
-    return [].concat(...Element.prototype.querySelectorAll.call(element, selector));
+    return [].concat(
+      ...Element.prototype.querySelectorAll.call(element, selector)
+    );
   },
 
   findOne(selector, element = document.documentElement) {
@@ -37,7 +39,11 @@ const SelectorEngine = {
 
     let ancestor = element.parentNode;
 
-    while (ancestor && ancestor.nodeType === Node.ELEMENT_NODE && ancestor.nodeType !== NODE_TEXT) {
+    while (
+      ancestor &&
+      ancestor.nodeType === Node.ELEMENT_NODE &&
+      ancestor.nodeType !== NODE_TEXT
+    ) {
       if (this.matches(ancestor, selector)) {
         parents.push(ancestor);
       }

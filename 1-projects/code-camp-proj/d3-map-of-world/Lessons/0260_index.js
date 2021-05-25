@@ -4,8 +4,6 @@ const mapPath = "./naturalEarth50TopoJSON.json";
 
 // 2017 world population data. Source: https://databank.worldbank.org
 
-
-
 /*
 The "50" in the TopoJSON name is a reference to the level of detail (1:50m scale).
 It's is a compromise between having enough country information (for example, it
@@ -25,7 +23,8 @@ path for this population data file as a string.
 const svgWidth = 1000;
 const svgHeight = 700;
 
-const svg = d3.select("#map")
-    .append("svg")
-    .attr("width", svgWidth)
-    .attr("height", wvgHeight);
+const svg = d3
+  .select("#map")
+  .append("svg")
+  .attr("width", svgWidth)
+  .attr("height", wvgHeight);

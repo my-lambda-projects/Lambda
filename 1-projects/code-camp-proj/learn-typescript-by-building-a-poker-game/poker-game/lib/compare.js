@@ -8,7 +8,7 @@ export default class Compare {
             J: 11,
             Q: 12,
             K: 13,
-            A: 14
+            A: 14,
         };
     }
 
@@ -34,14 +34,16 @@ export default class Compare {
         const playerHand = this._generateHandObj(player);
         const botHand = this._generateHandObj(bot);
 
-        const { values: playerValues, rank: playerRank } = this._calculateHandRank(playerHand);
-        const { values: botValues, rank: botRank } = this._calculateHandRank(botHand);
+        const { values: playerValues, rank: playerRank } =
+            this._calculateHandRank(playerHand);
+        const { values: botValues, rank: botRank } =
+            this._calculateHandRank(botHand);
 
         let result = { playerRank, botRank };
 
         if (playerRank !== botRank) {
             return Object.assign(result, {
-                val: playerRank > botRank ? 1 : -1
+                val: playerRank > botRank ? 1 : -1,
             });
         }
 
@@ -52,14 +54,14 @@ export default class Compare {
             let botCurr = botValues[index];
             if (playerCurr !== botCurr) {
                 return Object.assign(result, {
-                    val: this._comparator(playerCurr, botCurr)
+                    val: this._comparator(playerCurr, botCurr),
                 });
             }
             index++;
         }
 
         return Object.assign(result, {
-            val: 0
+            val: 0,
         });
     }
 
@@ -71,7 +73,7 @@ export default class Compare {
      * @return {Number} - The result with range of [2, 14]
      */
     _getPoint(val) {
-        if (typeof val === 'number') {
+        if (typeof val === "number") {
             return val;
         } else {
             return this.royalPoints[val];
@@ -92,7 +94,7 @@ export default class Compare {
     _isLargerThan(a, b, transformFunc) {
         let temp = this._getPoint(a) > this._getPoint(b);
 
-        if (typeof transformFunc === 'function') {
+        if (typeof transformFunc === "function") {
             return transformFunc(temp);
         }
 
@@ -106,8 +108,8 @@ export default class Compare {
      *     This may be used as the callback of sort function
      */
     _comparator = (a, b) => {
-        return this._isLargerThan(a, b, bool => bool ? 1 : -1);
-    }
+        return this._isLargerThan(a, b, (bool) => (bool ? 1 : -1));
+    };
 
     /**
      * Poker object type definition
@@ -126,7 +128,9 @@ export default class Compare {
     _generateHandObj(cardList) {
         let valueCount = {};
         let suitCount = {};
-        let sortedValue = cardList.map(card => card.value).sort(this._comparator);
+        let sortedValue = cardList
+            .map((card) => card.value)
+            .sort(this._comparator);
 
         for (let i = 0; i < cardList.length; i++) {
             let { value, suit } = cardList[i];
@@ -175,20 +179,20 @@ export default class Compare {
      */
     _calculateHandRank({ sortedValue: values, suit, value }) {
         let result = {
-            values: this._constructSortedValue(value)
+            values: this._constructSortedValue(value),
         };
         // Check if is straight/flush, or both
         if (this._isStraight(values) && this._isFlush(suit)) {
             return Object.assign(result, {
-                rank: 9
+                rank: 9,
             });
         } else if (this._isStraight(values)) {
             return Object.assign(result, {
-                rank: 5
+                rank: 5,
             });
         } else if (this._isFlush(suit)) {
             return Object.assign(result, {
-                rank: 6
+                rank: 6,
             });
         }
 
@@ -198,22 +202,22 @@ export default class Compare {
         if (valueCount === 2) {
             // Four of a kind or full house
             return Object.assign(result, {
-                rank: countArr.includes(4) ? 8 : 7
+                rank: countArr.includes(4) ? 8 : 7,
             });
         } else if (valueCount === 3) {
             // Three of a kind or two pairs
             return Object.assign(result, {
-                rank: countArr.includes(3) ? 4 : 3
+                rank: countArr.includes(3) ? 4 : 3,
             });
         } else if (valueCount === 4) {
             // One pair
             return Object.assign(result, {
-                rank: 2
+                rank: 2,
             });
         } else {
             // High card
             return Object.assign(result, {
-                rank: 1
+                rank: 1,
             });
         }
     }
@@ -227,22 +231,24 @@ export default class Compare {
      * @return {CardValue[]} - The sort result
      */
     _constructSortedValue(valueObj) {
-        return Object.keys(valueObj)
-            // Map [2, 10] to number, retain ['J', 'A']
-            .map(key => +key || key)
-            .sort((a, b) => {
-                if (valueObj[a] < valueObj[b]) {
-                    return 1;
-                } else if (valueObj[a] > valueObj[b]) {
-                    return -1
-                } else {
-                    if (this._getPoint(a) < this._getPoint(b)) {
+        return (
+            Object.keys(valueObj)
+                // Map [2, 10] to number, retain ['J', 'A']
+                .map((key) => +key || key)
+                .sort((a, b) => {
+                    if (valueObj[a] < valueObj[b]) {
                         return 1;
-                    } else {
+                    } else if (valueObj[a] > valueObj[b]) {
                         return -1;
+                    } else {
+                        if (this._getPoint(a) < this._getPoint(b)) {
+                            return 1;
+                        } else {
+                            return -1;
+                        }
                     }
-                }
-            });
+                })
+        );
     }
 
     /**
@@ -255,15 +261,19 @@ export default class Compare {
     _isStraight(values) {
         // Determine if the first four values are ascending
         for (let i = 0; i < values.length - 1; i++) {
-            if (this._getPoint(values[i + 1]) !== this._getPoint(values[i] + 1)) {
+            if (
+                this._getPoint(values[i + 1]) !== this._getPoint(values[i] + 1)
+            ) {
                 return false;
             }
         }
 
         // Check if is wheel
         // If not, check the last two items
-        return values[0] === 2 && values[4] === 'A' ||
-            this._getPoint(values[4]) === this._getPoint(values[3]) + 1;
+        return (
+            (values[0] === 2 && values[4] === "A") ||
+            this._getPoint(values[4]) === this._getPoint(values[3]) + 1
+        );
     }
 
     /**
@@ -277,4 +287,3 @@ export default class Compare {
         return Object.keys(suit).length === 1;
     }
 }
-

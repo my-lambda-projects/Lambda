@@ -1,7 +1,7 @@
-import { getjQuery, onDOMContentLoaded } from '../mdb/util/index';
-import EventHandler from '../mdb/dom/event-handler';
-import SelectorEngine from '../mdb/dom/selector-engine';
-import BSAlert from '../bootstrap/mdb-prefix/alert';
+import { getjQuery, onDOMContentLoaded } from "../mdb/util/index";
+import EventHandler from "../mdb/dom/event-handler";
+import SelectorEngine from "../mdb/dom/selector-engine";
+import BSAlert from "../bootstrap/mdb-prefix/alert";
 
 /**
  * ------------------------------------------------------------------------
@@ -9,17 +9,17 @@ import BSAlert from '../bootstrap/mdb-prefix/alert';
  * ------------------------------------------------------------------------
  */
 
-const NAME = 'alert';
+const NAME = "alert";
 const DATA_KEY = `mdb.${NAME}`;
 const EVENT_KEY = `.${DATA_KEY}`;
 
-const EVENT_CLOSE_BS = 'close.bs.alert';
-const EVENT_CLOSED_BS = 'closed.bs.alert';
+const EVENT_CLOSE_BS = "close.bs.alert";
+const EVENT_CLOSED_BS = "closed.bs.alert";
 
 const EVENT_CLOSE = `close${EVENT_KEY}`;
 const EVENT_CLOSED = `closed${EVENT_KEY}`;
 
-const SELECTOR_ALERT = '.alert';
+const SELECTOR_ALERT = ".alert";
 
 class Alert extends BSAlert {
   constructor(element, data = {}) {

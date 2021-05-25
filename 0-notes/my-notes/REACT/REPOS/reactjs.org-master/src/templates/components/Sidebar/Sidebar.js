@@ -65,7 +65,7 @@ class Sidebar extends Component {
   }
 
   _toggleSection(section) {
-    this.setState(state => ({
+    this.setState((state) => ({
       activeSection: state.activeSection === section ? null : section,
     }));
   }

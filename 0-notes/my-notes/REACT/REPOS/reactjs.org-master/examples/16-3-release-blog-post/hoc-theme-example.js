@@ -3,7 +3,7 @@ function withTheme(Component) {
     // highlight-range{2-4}
     return (
       <ThemeContext.Consumer>
-        {theme => <Component {...props} theme={theme} />}
+        {(theme) => <Component {...props} theme={theme} />}
       </ThemeContext.Consumer>
     );
   };

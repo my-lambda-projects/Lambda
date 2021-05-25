@@ -17,11 +17,11 @@
 export default class ComposeContent {
     constructor() {
         this.suitMap = {
-            S: '♠️',
-            H: '♥️',
-            C: '♣️',
-            D: '♦️'
-        }
+            S: "♠️",
+            H: "♥️",
+            C: "♣️",
+            D: "♦️",
+        };
     }
 
     /**
@@ -35,36 +35,42 @@ export default class ComposeContent {
      */
     card(cardList, owner) {
         return this._tag({
-            name: 'div',
-            className: 'poker-hand-result',
-            content: cardList.map(card => ({
-                name: 'div',
-                className: 'poker-hand-result-item',
-                content: [{
-                    name: 'div',
-                    className: 'poker-hand-card-front',
-                    content: [{
-                        name: 'div',
-                        className: 'poker-hand-card-value-top',
-                        content: card.value
-                    }, {
-                        name: 'div',
-                        className: 'poker-hand-card-suit',
-                        content: this.suitMap[card.suit]
-                    }, {
-                        name: 'div',
-                        className: 'poker-hand-card-value-bottom',
-                        content: card.value
-                    }]
-                }, {
-                    name: 'div',
-                    className: 'poker-hand-card-back',
-                    content: ''
-                }]
-            }))
+            name: "div",
+            className: "poker-hand-result",
+            content: cardList.map((card) => ({
+                name: "div",
+                className: "poker-hand-result-item",
+                content: [
+                    {
+                        name: "div",
+                        className: "poker-hand-card-front",
+                        content: [
+                            {
+                                name: "div",
+                                className: "poker-hand-card-value-top",
+                                content: card.value,
+                            },
+                            {
+                                name: "div",
+                                className: "poker-hand-card-suit",
+                                content: this.suitMap[card.suit],
+                            },
+                            {
+                                name: "div",
+                                className: "poker-hand-card-value-bottom",
+                                content: card.value,
+                            },
+                        ],
+                    },
+                    {
+                        name: "div",
+                        className: "poker-hand-card-back",
+                        content: "",
+                    },
+                ],
+            })),
         });
     }
-
 
     /**
      * @function ComposeContent~_tag
@@ -73,16 +79,18 @@ export default class ComposeContent {
      * @param {TemplateObject} - The template object to be used
      * @return {String<HTML>} - The HTML content
      */
-    _tag({ name, content, className = '', idName = '' }) {
+    _tag({ name, content, className = "", idName = "" }) {
         // Construct attribute string
         let attributes = this._attr({
             class: className,
-            id: idName
+            id: idName,
         });
 
         // Recursive call when the content is of type TemplateObject[]
         if (Array.isArray(content)) {
-            return `<${name}${attributes}>${content.map(e => this._tag(e)).join('')}</${name}>`
+            return `<${name}${attributes}>${content
+                .map((e) => this._tag(e))
+                .join("")}</${name}>`;
         }
 
         return `<${name}${attributes}>${content}</${name}>`;
@@ -97,7 +105,8 @@ export default class ComposeContent {
      * @return {String} - The attribute string to be used
      */
     _attr(obj) {
-        return Object.keys(obj).map(key => obj[key] && ` ${key}="${obj[key]}"`).join('');
+        return Object.keys(obj)
+            .map((key) => obj[key] && ` ${key}="${obj[key]}"`)
+            .join("");
     }
 }
-

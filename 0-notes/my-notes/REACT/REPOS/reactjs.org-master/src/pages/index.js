@@ -31,7 +31,7 @@ class Home extends Component {
           babelLoaded: true,
         });
       },
-      error => {
+      (error) => {
         console.error('Babel failed to load.');
       },
     );

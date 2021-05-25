@@ -21,7 +21,7 @@ app.use(helmet.hidePoweredBy());
 const sixtyDaysInSeconds = 5184000;
 app.use(
   helmet.hsts({
-    maxAge: sixtyDaysInSeconds
+    maxAge: sixtyDaysInSeconds,
   })
 );
 
@@ -44,7 +44,7 @@ app.use(helmet.xssFilter());
 app.use(
   helmet.frameguard({
     action: "allow-from",
-    domain: "https://lmvm9.sse.codesandbox.io/"
+    domain: "https://lmvm9.sse.codesandbox.io/",
   })
 );
 
@@ -61,16 +61,16 @@ app.use(
   helmet({
     frameguard: {
       action: "allow-from",
-      domain: "https://lmvm9.sse.codesandbox.io/"
+      domain: "https://lmvm9.sse.codesandbox.io/",
     },
     noCache: true,
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
         scriptSrc: ["'self'"],
-        styleSrc: ["'self'"]
-      }
-    }
+        styleSrc: ["'self'"],
+      },
+    },
   })
 );
 

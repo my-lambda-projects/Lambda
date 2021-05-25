@@ -11,7 +11,7 @@ import type {Node} from 'react';
 
 function replaceArgs(msg: string, argList: Array<string>): string {
   let argIdx = 0;
-  return msg.replace(/%s/g, function() {
+  return msg.replace(/%s/g, function () {
     const arg = argList[argIdx++];
     return arg === undefined ? '[missing argument]' : arg;
   });

@@ -4,8 +4,8 @@ function loadTexture(path) {
     img.src = path;
     img.onload = () => {
       resolve(img);
-    }
-  })
+    };
+  });
 }
 
 function createEnemies(ctx, canvas, enemyImg) {
@@ -21,14 +21,18 @@ function createEnemies(ctx, canvas, enemyImg) {
   }
 }
 
-window.onload = async() => {
+window.onload = async () => {
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext("2d");
-  const heroImg = await loadTexture('assets/player.png')
-  const enemyImg = await loadTexture('assets/enemyShip.png')
+  const heroImg = await loadTexture("assets/player.png");
+  const enemyImg = await loadTexture("assets/enemyShip.png");
 
-  ctx.fillStyle = 'black';
-  ctx.fillRect(0,0, canvas.width, canvas.height);
-  ctx.drawImage(heroImg, canvas.width/2 - 45, canvas.height - (canvas.height /4));
+  ctx.fillStyle = "black";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(
+    heroImg,
+    canvas.width / 2 - 45,
+    canvas.height - canvas.height / 4
+  );
   createEnemies(ctx, canvas, enemyImg);
 };

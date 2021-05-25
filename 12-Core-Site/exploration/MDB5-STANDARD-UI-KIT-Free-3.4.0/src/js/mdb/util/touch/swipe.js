@@ -1,9 +1,9 @@
-import TouchUtil from './touchUtil';
-import EventHandler from '../../dom/event-handler';
+import TouchUtil from "./touchUtil";
+import EventHandler from "../../dom/event-handler";
 
 const DEFAULT_OPTIONS = {
   threshold: 10,
-  direction: 'all',
+  direction: "all",
 };
 
 class Swipe extends TouchUtil {
@@ -32,18 +32,25 @@ class Swipe extends TouchUtil {
 
     const swipe = this._getDirection(displacement);
 
-    if (this._options.direction === 'all') {
-      if (swipe.y.value < this._options.threshold && swipe.x.value < this._options.threshold) {
+    if (this._options.direction === "all") {
+      if (
+        swipe.y.value < this._options.threshold &&
+        swipe.x.value < this._options.threshold
+      ) {
         return;
       }
-      const direction = swipe.y.value > swipe.x.value ? swipe.y.direction : swipe.x.direction;
+      const direction =
+        swipe.y.value > swipe.x.value ? swipe.y.direction : swipe.x.direction;
       EventHandler.trigger(this._element, `swipe${direction}`);
-      EventHandler.trigger(this._element, 'swipe', { direction });
+      EventHandler.trigger(this._element, "swipe", { direction });
       this._startPosition = null;
       return;
     }
 
-    const axis = this._options.direction === 'left' || this._options === 'right' ? 'x' : 'y';
+    const axis =
+      this._options.direction === "left" || this._options === "right"
+        ? "x"
+        : "y";
 
     if (
       swipe[axis].direction === this._options.direction &&

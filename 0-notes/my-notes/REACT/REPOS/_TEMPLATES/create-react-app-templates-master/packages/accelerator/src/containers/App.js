@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { Route, withRouter } from 'react-router';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { Route, withRouter } from "react-router";
 
-import { addItem } from '../store/items/actions';
-import Header from '../components/Header';
-import ListPage from '../components/ListPage';
-import Home from '../components/Home';
-import '../assets/stylesheets/App.scss';
+import { addItem } from "../store/items/actions";
+import Header from "../components/Header";
+import ListPage from "../components/ListPage";
+import Home from "../components/Home";
+import "../assets/stylesheets/App.scss";
 
 export class App extends Component {
   handleAddItem(text) {
@@ -26,7 +26,7 @@ export class App extends Component {
             return (
               <ListPage
                 items={this.props.items}
-                addItem={text => this.handleAddItem(text)}
+                addItem={(text) => this.handleAddItem(text)}
               />
             );
           }}

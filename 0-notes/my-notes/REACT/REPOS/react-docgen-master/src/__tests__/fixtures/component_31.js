@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
 type Identity<T> = T;
 
 type Props<T> = {
   prop: Identity<Identity<T>>,
-}
+};
 
 export default function MyComponent<T>(props: Props<T>) {
-  return <div>Hello World</div>
+  return <div>Hello World</div>;
 }

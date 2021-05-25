@@ -78,8 +78,7 @@ const siteConfig = {
           items: [
             {
               label: 'Stack Overflow',
-              href:
-                'https://stackoverflow.com/questions/tagged/create-react-app',
+              href: 'https://stackoverflow.com/questions/tagged/create-react-app',
             },
             {
               label: 'GitHub Discussions',
@@ -91,8 +90,7 @@ const siteConfig = {
             },
             {
               label: 'Contributor Covenant',
-              href:
-                'https://www.contributor-covenant.org/version/1/4/code-of-conduct',
+              href: 'https://www.contributor-covenant.org/version/1/4/code-of-conduct',
             },
           ],
         },

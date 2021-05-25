@@ -6,14 +6,14 @@
  */
 
 const uriAttrs = new Set([
-  'background',
-  'cite',
-  'href',
-  'itemtype',
-  'longdesc',
-  'poster',
-  'src',
-  'xlink:href',
+  "background",
+  "cite",
+  "href",
+  "itemtype",
+  "longdesc",
+  "poster",
+  "src",
+  "xlink:href",
 ]);
 
 const ARIA_ATTRIBUTE_PATTERN = /^aria-[\w-]*$/i;
@@ -23,14 +23,16 @@ const ARIA_ATTRIBUTE_PATTERN = /^aria-[\w-]*$/i;
  *
  * Shoutout to Angular 7 https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
  */
-const SAFE_URL_PATTERN = /^(?:(?:https?|mailto|ftp|tel|file):|[^#&/:?]*(?:[#/?]|$))/gi;
+const SAFE_URL_PATTERN =
+  /^(?:(?:https?|mailto|ftp|tel|file):|[^#&/:?]*(?:[#/?]|$))/gi;
 
 /**
  * A pattern that matches safe data URLs. Only matches image, video and audio types.
  *
  * Shoutout to Angular 7 https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
  */
-const DATA_URL_PATTERN = /^data:(?:image\/(?:bmp|gif|jpeg|jpg|png|tiff|webp)|video\/(?:mpeg|mp4|ogg|webm)|audio\/(?:mp3|oga|ogg|opus));base64,[\d+/a-z]+=*$/i;
+const DATA_URL_PATTERN =
+  /^data:(?:image\/(?:bmp|gif|jpeg|jpg|png|tiff|webp)|video\/(?:mpeg|mp4|ogg|webm)|audio\/(?:mp3|oga|ogg|opus));base64,[\d+/a-z]+=*$/i;
 
 const allowedAttribute = (attr, allowedAttributeList) => {
   const attrName = attr.nodeName.toLowerCase();
@@ -38,14 +40,17 @@ const allowedAttribute = (attr, allowedAttributeList) => {
   if (allowedAttributeList.includes(attrName)) {
     if (uriAttrs.has(attrName)) {
       return Boolean(
-        attr.nodeValue.match(SAFE_URL_PATTERN) || attr.nodeValue.match(DATA_URL_PATTERN)
+        attr.nodeValue.match(SAFE_URL_PATTERN) ||
+          attr.nodeValue.match(DATA_URL_PATTERN)
       );
     }
 
     return true;
   }
 
-  const regExp = allowedAttributeList.filter((attrRegex) => attrRegex instanceof RegExp);
+  const regExp = allowedAttributeList.filter(
+    (attrRegex) => attrRegex instanceof RegExp
+  );
 
   // Check if a regular expression validates the attribute.
   for (let i = 0, len = regExp.length; i < len; i++) {
@@ -59,8 +64,8 @@ const allowedAttribute = (attr, allowedAttributeList) => {
 
 export const DefaultWhitelist = {
   // Global attributes allowed on any supplied element below.
-  '*': ['class', 'dir', 'id', 'lang', 'role', ARIA_ATTRIBUTE_PATTERN],
-  a: ['target', 'href', 'title', 'rel'],
+  "*": ["class", "dir", "id", "lang", "role", ARIA_ATTRIBUTE_PATTERN],
+  a: ["target", "href", "title", "rel"],
   area: [],
   b: [],
   br: [],
@@ -76,7 +81,7 @@ export const DefaultWhitelist = {
   h5: [],
   h6: [],
   i: [],
-  img: ['src', 'srcset', 'alt', 'title', 'width', 'height'],
+  img: ["src", "srcset", "alt", "title", "width", "height"],
   li: [],
   ol: [],
   p: [],
@@ -96,14 +101,14 @@ export function sanitizeHtml(unsafeHtml, whiteList, sanitizeFn) {
     return unsafeHtml;
   }
 
-  if (sanitizeFn && typeof sanitizeFn === 'function') {
+  if (sanitizeFn && typeof sanitizeFn === "function") {
     return sanitizeFn(unsafeHtml);
   }
 
   const domParser = new window.DOMParser();
-  const createdDocument = domParser.parseFromString(unsafeHtml, 'text/html');
+  const createdDocument = domParser.parseFromString(unsafeHtml, "text/html");
   const whitelistKeys = Object.keys(whiteList);
-  const elements = [].concat(...createdDocument.body.querySelectorAll('*'));
+  const elements = [].concat(...createdDocument.body.querySelectorAll("*"));
 
   for (let i = 0, len = elements.length; i < len; i++) {
     const el = elements[i];
@@ -116,7 +121,10 @@ export function sanitizeHtml(unsafeHtml, whiteList, sanitizeFn) {
     }
 
     const attributeList = [].concat(...el.attributes);
-    const whitelistedAttributes = [].concat(whiteList['*'] || [], whiteList[elName] || []);
+    const whitelistedAttributes = [].concat(
+      whiteList["*"] || [],
+      whiteList[elName] || []
+    );
 
     attributeList.forEach((attr) => {
       if (!allowedAttribute(attr, whitelistedAttributes)) {

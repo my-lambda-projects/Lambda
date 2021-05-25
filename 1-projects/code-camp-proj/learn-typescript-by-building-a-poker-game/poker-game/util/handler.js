@@ -1,8 +1,8 @@
-import { $, $all } from './query.js';
-import Session from '../lib/session.js';
-import Generate from '../lib/generate.js';
-import Compare from '../lib/compare.js';
-import ComposeContent from './compose-content.js';
+import { $, $all } from "./query.js";
+import Session from "../lib/session.js";
+import Generate from "../lib/generate.js";
+import Compare from "../lib/compare.js";
+import ComposeContent from "./compose-content.js";
 
 /**
  * Object that contains pairs as in id => content
@@ -36,18 +36,23 @@ export default class Handler {
         this.compare = new Compare();
         this.composeContent = new ComposeContent();
         this.rankMap = {
-            1: 'high card',
-            2: 'a pair',
-            3: 'two pairs',
-            4: 'three of a kind',
-            5: 'a straight',
-            6: 'a flush',
-            7: 'a full house',
-            8: 'four of a kind',
-            9: 'a straight flush/royal flush'
+            1: "high card",
+            2: "a pair",
+            3: "two pairs",
+            4: "three of a kind",
+            5: "a straight",
+            6: "a flush",
+            7: "a full house",
+            8: "four of a kind",
+            9: "a straight flush/royal flush",
         };
 
-        this._hideAll('cash-container', 'bet-container', 'result-container', 'result-rank-container');
+        this._hideAll(
+            "cash-container",
+            "bet-container",
+            "result-container",
+            "result-rank-container"
+        );
     }
 
     /**
@@ -55,10 +60,10 @@ export default class Handler {
      * @desc Click handler of the #start button
      */
     start = () => {
-        this._showAll('bet-container', 'cash-container');
-        this._hideAll('welcome-container', 'result-container');
+        this._showAll("bet-container", "cash-container");
+        this._hideAll("welcome-container", "result-container");
 
-        let userName = $('#user-name-input').value || 'Ninja Cat';
+        let userName = $("#user-name-input").value || "Ninja Cat";
 
         // Check if there is an on-going session
         // Create one if not
@@ -69,19 +74,21 @@ export default class Handler {
         // Set name and cash
         this._setContent({
             cash: this.session.cash,
-            'user-name': userName
+            "user-name": userName,
         });
 
         // "Two-way binding" of both (slider and text) input
         // See: https://getmdl.io/components/index.html#sliders-section
-        $('#bet-range-input').MaterialSlider.change(+Math.ceil(this.session.cash / 4));
+        $("#bet-range-input").MaterialSlider.change(
+            +Math.ceil(this.session.cash / 4)
+        );
         this._setAttr({
-            id: 'bet-range-input',
-            max: this.session.cash
+            id: "bet-range-input",
+            max: this.session.cash,
         });
 
         this._setContent({
-            'bet-value-input-val': +Math.ceil(this.session.cash / 4)
+            "bet-value-input-val": +Math.ceil(this.session.cash / 4),
         });
     };
 
@@ -90,49 +97,66 @@ export default class Handler {
      * @desc Click handler of the #bet button
      */
     bet = () => {
-        this._show('result-container');
-        this._hideAll('bet-container', 'result-text-container', 'action-container', 'result-rank-container', 'bot-rank', 'player-rank');
+        this._show("result-container");
+        this._hideAll(
+            "bet-container",
+            "result-text-container",
+            "action-container",
+            "result-rank-container",
+            "bot-rank",
+            "player-rank"
+        );
 
-        let betValue = +$('#bet-range-input').value;
+        let betValue = +$("#bet-range-input").value;
 
-        this._setContent({ 'bet-in-result': betValue });
+        this._setContent({ "bet-in-result": betValue });
 
         let playerHand = this.generate.hand();
         let botHand = this.generate.hand();
-        let { botRank, playerRank, val: winnerRef } = this.compare.isPlayerWinning(playerHand, botHand);
+        let {
+            botRank,
+            playerRank,
+            val: winnerRef,
+        } = this.compare.isPlayerWinning(playerHand, botHand);
         let result = {
             botRank: this.rankMap[botRank],
             playerRank: this.rankMap[playerRank],
         };
 
         this._setContent({
-            'bot-result': this.composeContent.card(botHand, 'bot'),
-            'player-result': this.composeContent.card(playerHand, 'player')
+            "bot-result": this.composeContent.card(botHand, "bot"),
+            "player-result": this.composeContent.card(playerHand, "player"),
         });
 
         this._showCard();
 
         if (winnerRef === 0) {
-            this._showResult(Object.assign(result, {
-                winnerContent: `😉 It's a Draw!`,
-                cashContent: ''
-            }));
+            this._showResult(
+                Object.assign(result, {
+                    winnerContent: `😉 It's a Draw!`,
+                    cashContent: "",
+                })
+            );
         } else {
             let userWin = winnerRef > 0;
 
             // Update winner info and calculate cash
             if (userWin) {
                 this.session.cash += betValue;
-                this._showResult(Object.assign(result, {
-                    winnerContent: `😄 You're the winner! Yay!`,
-                    cashContent: `🤑 You won $${betValue}!`
-                }));
+                this._showResult(
+                    Object.assign(result, {
+                        winnerContent: `😄 You're the winner! Yay!`,
+                        cashContent: `🤑 You won $${betValue}!`,
+                    })
+                );
             } else {
                 this.session.cash -= betValue;
-                this._showResult(Object.assign(result, {
-                    winnerContent: `😒 The bot won! Darn it!`,
-                    cashContent: `💸 You lost $${betValue}!`
-                }));
+                this._showResult(
+                    Object.assign(result, {
+                        winnerContent: `😒 The bot won! Darn it!`,
+                        cashContent: `💸 You lost $${betValue}!`,
+                    })
+                );
             }
 
             this._checkBalance(this.session.cash);
@@ -153,7 +177,7 @@ export default class Handler {
      * @desc Click handler of the #next button
      */
     next = () => {
-        this._hide('result-container');
+        this._hide("result-container");
         this.start();
     };
 
@@ -162,15 +186,15 @@ export default class Handler {
      * @desc Click handler of the #end button
      */
     end = () => {
-        this._hideAll('cash-container', 'bet-container', 'result-container');
+        this._hideAll("cash-container", "bet-container", "result-container");
         this._setContent({
-            'user-name': ''
+            "user-name": "",
         });
         this._setAttr({
-            id: 'user-name-input',
-            value: 'Ninja Cat'
+            id: "user-name-input",
+            value: "Ninja Cat",
         });
-        this._show('welcome-container');
+        this._show("welcome-container");
         this.session = null;
     };
 
@@ -179,9 +203,9 @@ export default class Handler {
      * @desc Input handler of the #bet-range-input slider
      * @param {Object} e - The event object
      */
-    betRangeInput = e => {
+    betRangeInput = (e) => {
         this._setContent({
-            'bet-value-input-val': +e.target.value
+            "bet-value-input-val": +e.target.value,
         });
     };
 
@@ -192,16 +216,16 @@ export default class Handler {
      */
     _checkBalance(cash) {
         if (cash > 0) {
-            this._hide('refill');
-            this._show('next');
+            this._hide("refill");
+            this._show("next");
         } else {
             setTimeout(() => {
-                this._hide('next');
-                this._show('refill');
+                this._hide("next");
+                this._show("refill");
             }, 5000);
         }
         setTimeout(() => {
-            this._show('action-container');
+            this._show("action-container");
         }, 5000);
     }
 
@@ -211,7 +235,7 @@ export default class Handler {
      * @desc Show each card after half of a second
      */
     _showCard = () => {
-        const cards = $all('.poker-hand-result-item');
+        const cards = $all(".poker-hand-result-item");
 
         cards.forEach((card, index) => {
             this._rotate(card, index * 500);
@@ -224,31 +248,25 @@ export default class Handler {
      * @desc Set content while result container is hidden. Reveal result and update cash after 5 seconds
      * @param {ResultContent} - The object contains content of result
      */
-    _showResult = ({
-        botRank,
-        cashContent,
-        playerRank,
-        winnerContent,
-    }) => {
+    _showResult = ({ botRank, cashContent, playerRank, winnerContent }) => {
         this._setContent({
-            'winner-text': winnerContent,
-            'cash-result': cashContent,
-            'bot-rank': `The bot has ${botRank}.`,
-            'player-rank': `Your have ${playerRank}.`
+            "winner-text": winnerContent,
+            "cash-result": cashContent,
+            "bot-rank": `The bot has ${botRank}.`,
+            "player-rank": `Your have ${playerRank}.`,
         });
 
         setTimeout(() => {
-            this._showAll('result-rank-container', 'bot-rank');
+            this._showAll("result-rank-container", "bot-rank");
         }, 2500);
 
         setTimeout(() => {
-            this._showAll('player-rank', 'result-text-container');
+            this._showAll("player-rank", "result-text-container");
             this._setContent({
-                cash: this.session.cash
+                cash: this.session.cash,
             });
         }, 5000);
-    }
-
+    };
 
     /**
      * @function Handler~_rotate
@@ -259,7 +277,7 @@ export default class Handler {
      */
     _rotate = (item, timeout) => {
         setTimeout(() => {
-            item.style.transform = 'rotateY(180deg)';
+            item.style.transform = "rotateY(180deg)";
         }, timeout);
     };
 
@@ -285,7 +303,7 @@ export default class Handler {
     _setAttr({ id, ...pairs }) {
         let ref = $(`#${id}`);
         for (let attr in pairs) {
-            if (attr === 'style') {
+            if (attr === "style") {
                 let styleObj = pairs.style;
                 for (let styleAttr in styleObj) {
                     ref.style[styleAttr] = styleObj[styleAttr];
@@ -306,8 +324,8 @@ export default class Handler {
         this._setAttr({
             id,
             style: {
-                display: 'none'
-            }
+                display: "none",
+            },
         });
     }
 
@@ -334,8 +352,8 @@ export default class Handler {
         this._setAttr({
             id,
             style: {
-                display: /container$/.test(id) ? 'flex' : 'block'
-            }
+                display: /container$/.test(id) ? "flex" : "block",
+            },
         });
     }
 
@@ -351,4 +369,3 @@ export default class Handler {
         }
     }
 }
-

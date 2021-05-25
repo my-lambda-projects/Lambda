@@ -1,20 +1,20 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 
-import { AppContainer } from 'react-hot-loader'
+import { AppContainer } from "react-hot-loader";
 
-import { createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
-import thunk from 'redux-thunk'
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
 
-import reducer from './reducers'
-import App from './App'
+import reducer from "./reducers";
+import App from "./App";
 
-import './style.scss'
+import "./style.scss";
 
-const store = createStore(reducer, applyMiddleware(thunk))
+const store = createStore(reducer, applyMiddleware(thunk));
 
-const root = document.getElementById('root')
+const root = document.getElementById("root");
 
 const render = (Component) => {
   ReactDOM.render(
@@ -24,12 +24,12 @@ const render = (Component) => {
       </Provider>
     </AppContainer>,
     root
-  )
-}
+  );
+};
 
-render(App)
+render(App);
 
 if (module.hot) {
-  module.hot.accept('./App', () => render(App))
-  module.hot.accept('./reducers', () => store.replaceReducer(reducer))
+  module.hot.accept("./App", () => render(App));
+  module.hot.accept("./reducers", () => store.replaceReducer(reducer));
 }

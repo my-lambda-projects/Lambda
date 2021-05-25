@@ -13,7 +13,7 @@ class App extends React.Component {
   handleInputChange = (e) => {
     this.forceUpdate();
     this.setState({ inputValue: e.target.value });
-  }
+  };
 
   render() {
     return (
@@ -36,7 +36,7 @@ class App extends React.Component {
           </TabPanel>
         </Tabs>
       </div>
-	  );
+    );
   }
 }
 

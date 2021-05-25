@@ -73,20 +73,20 @@ class ScrollSyncSection extends Component {
   }
 }
 
-const _getItemIds = items =>
+const _getItemIds = (items) =>
   items
-    .map(item => {
+    .map((item) => {
       let subItemIds = [];
       if (item.subitems) {
-        subItemIds = item.subitems.map(subitem => subitem.id);
+        subItemIds = item.subitems.map((subitem) => subitem.id);
       }
       return [item.id, ...subItemIds];
     })
     .reduce((prev, current) => prev.concat(current));
 
-const _getElementTopOffsetsById = ids =>
+const _getElementTopOffsetsById = (ids) =>
   ids
-    .map(id => {
+    .map((id) => {
       const element = document.getElementById(id);
       if (!element) {
         return null;
@@ -96,6 +96,6 @@ const _getElementTopOffsetsById = ids =>
         offsetTop: element.offsetTop,
       };
     })
-    .filter(item => item);
+    .filter((item) => item);
 
 export default ScrollSyncSection;

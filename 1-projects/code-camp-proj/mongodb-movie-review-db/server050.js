@@ -1,13 +1,13 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const port = 3000;
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 app.use(express.json());
 
 const uri = process.env.DB_URI;
 
-mongoose.connect(uri, { useNewUrlParser: true});
+mongoose.connect(uri, { useNewUrlParser: true });
 const db = mongoose.connection;
 
 /* 

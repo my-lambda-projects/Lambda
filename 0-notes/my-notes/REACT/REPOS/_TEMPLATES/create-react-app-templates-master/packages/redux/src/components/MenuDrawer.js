@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import Button from 'react-md/lib/Buttons/Button';
-import Drawer from 'react-md/lib/Drawers';
-import Toolbar from 'react-md/lib/Toolbars';
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import Button from "react-md/lib/Buttons/Button";
+import Drawer from "react-md/lib/Drawers";
+import Toolbar from "react-md/lib/Toolbars";
 
-import './MenuDrawer.css';
+import "./MenuDrawer.css";
 
 class MenuDrawer extends Component {
   constructor(props) {
@@ -25,15 +25,15 @@ class MenuDrawer extends Component {
     const { history, isAuthenticated } = this.props;
     const menuItems = [
       {
-        primaryText: 'Home',
-        className: 'MenuDrawer-link',
-        onClick: () => history.push('/home'),
+        primaryText: "Home",
+        className: "MenuDrawer-link",
+        onClick: () => history.push("/home"),
         visible: true,
       },
       {
-        primaryText: 'Dashboard',
-        className: 'MenuDrawer-link',
-        onClick: () => history.push('/dashboard'),
+        primaryText: "Dashboard",
+        className: "MenuDrawer-link",
+        onClick: () => history.push("/dashboard"),
         visible: isAuthenticated,
       },
       {
@@ -42,19 +42,19 @@ class MenuDrawer extends Component {
       },
       {
         subheader: true,
-        primaryText: 'User',
-        className: 'MenuDrawer-subheader',
+        primaryText: "User",
+        className: "MenuDrawer-subheader",
         visible: true,
       },
       {
-        primaryText: 'Sign In',
-        className: 'MenuDrawer-link',
-        onClick: () => history.push('/login'),
+        primaryText: "Sign In",
+        className: "MenuDrawer-link",
+        onClick: () => history.push("/login"),
         visible: !isAuthenticated,
       },
       {
-        primaryText: 'Sign Out',
-        className: 'MenuDrawer-link',
+        primaryText: "Sign Out",
+        className: "MenuDrawer-link",
         onClick: () => this.props.handleLogout(),
         visible: isAuthenticated,
       },

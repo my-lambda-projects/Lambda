@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { Card, CardText, CardTitle } from 'react-md/lib/Cards';
-import ExpansionList from 'react-md/lib/ExpansionPanels/ExpansionList';
+import React, { Component } from "react";
+import { Card, CardText, CardTitle } from "react-md/lib/Cards";
+import ExpansionList from "react-md/lib/ExpansionPanels/ExpansionList";
 
-import Feature from './Feature';
-import FeatureWebsite from './FeatureWebsite';
-import features from '../assets/data/features.json';
+import Feature from "./Feature";
+import FeatureWebsite from "./FeatureWebsite";
+import features from "../assets/data/features.json";
 
 class Features extends Component {
   createExpansionPanelFooter(website) {
     return (
-      <footer style={{ padding: 24, textAlign: 'right' }}>
+      <footer style={{ padding: 24, textAlign: "right" }}>
         <FeatureWebsite website={website} />
       </footer>
     );

@@ -1,8 +1,8 @@
 export const someAction = () => ({
-  type: 'FOO',
-  payload: 'bar'
-})
+  type: "FOO",
+  payload: "bar",
+});
 
 export const otherAction = () => ({
-  type: 'BAZ'
-})
+  type: "BAZ",
+});

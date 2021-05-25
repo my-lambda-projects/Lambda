@@ -1,7 +1,11 @@
-import { getjQuery, getElementFromSelector, onDOMContentLoaded } from '../mdb/util/index';
-import EventHandler from '../mdb/dom/event-handler';
-import SelectorEngine from '../mdb/dom/selector-engine';
-import BSTab from '../bootstrap/mdb-prefix/tab';
+import {
+  getjQuery,
+  getElementFromSelector,
+  onDOMContentLoaded,
+} from "../mdb/util/index";
+import EventHandler from "../mdb/dom/event-handler";
+import SelectorEngine from "../mdb/dom/selector-engine";
+import BSTab from "../bootstrap/mdb-prefix/tab";
 
 /**
  * ------------------------------------------------------------------------
@@ -9,27 +13,27 @@ import BSTab from '../bootstrap/mdb-prefix/tab';
  * ------------------------------------------------------------------------
  */
 
-const NAME = 'tab';
+const NAME = "tab";
 const DATA_KEY = `mdb.${NAME}`;
 const EVENT_KEY = `.${DATA_KEY}`;
 
-const EVENT_SHOW_BS = 'show.bs.tab';
-const EVENT_SHOWN_BS = 'shown.bs.tab';
-const EVENT_HIDE_BS = 'hide.bs.tab';
-const EVENT_HIDDEN_BS = 'hidden.bs.tab';
+const EVENT_SHOW_BS = "show.bs.tab";
+const EVENT_SHOWN_BS = "shown.bs.tab";
+const EVENT_HIDE_BS = "hide.bs.tab";
+const EVENT_HIDDEN_BS = "hidden.bs.tab";
 
 const EVENT_SHOW = `show${EVENT_KEY}`;
 const EVENT_SHOWN = `shown${EVENT_KEY}`;
 const EVENT_HIDE = `hide${EVENT_KEY}`;
 const EVENT_HIDDEN = `hidden${EVENT_KEY}`;
 
-const CLASS_NAME_ACTIVE = 'active';
-const CLASS_NAME_DISABLED = 'disabled';
+const CLASS_NAME_ACTIVE = "active";
+const CLASS_NAME_DISABLED = "disabled";
 
-const SELECTOR_NAV_LIST_GROUP = '.nav, .list-group';
+const SELECTOR_NAV_LIST_GROUP = ".nav, .list-group";
 
-const SELECTOR_ACTIVE = '.active';
-const SELECTOR_ACTIVE_UL = ':scope > li > .active';
+const SELECTOR_ACTIVE = ".active";
+const SELECTOR_ACTIVE_UL = ":scope > li > .active";
 
 const SELECTOR_DATA_TOGGLE =
   '[data-mdb-toggle="tab"], [data-mdb-toggle="pill"], [data-mdb-toggle="list"]';
@@ -71,7 +75,7 @@ class Tab extends BSTab {
 
     if (listElement) {
       const itemSelector =
-        listElement.nodeName === 'UL' || listElement.nodeName === 'OL'
+        listElement.nodeName === "UL" || listElement.nodeName === "OL"
           ? SELECTOR_ACTIVE_UL
           : SELECTOR_ACTIVE;
       this._previous = SelectorEngine.find(itemSelector, listElement);

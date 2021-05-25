@@ -20,7 +20,7 @@ exports.sourceNodes = ({graphql, actions}) => {
   const authors = safeLoad(file);
 
   // authors.yml structure is {[username: string]: {name: string, url: string}}
-  Object.keys(authors).forEach(username => {
+  Object.keys(authors).forEach((username) => {
     const author = authors[username];
 
     createNode({

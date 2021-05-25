@@ -1,7 +1,7 @@
 /* @flow */
 
-var InfiniteComputer = require('./infiniteComputer.js'),
-  bs = require('../utils/binaryIndexSearch.js');
+var InfiniteComputer = require("./infiniteComputer.js"),
+  bs = require("../utils/binaryIndexSearch.js");
 
 class ArrayInfiniteComputer extends InfiniteComputer {
   prefixHeightData: Array<number>;
@@ -19,7 +19,7 @@ class ArrayInfiniteComputer extends InfiniteComputer {
   }
 
   maybeIndexToIndex(index: ?number): number {
-    if (typeof index === 'undefined' || index === null) {
+    if (typeof index === "undefined" || index === null) {
       return this.prefixHeightData.length - 1;
     } else {
       return index;

@@ -12,7 +12,6 @@ const products = [
     }
     ```
     */
-    name: "Vanilla buttercream cupcake"
-    
-  }
+    name: "Vanilla buttercream cupcake",
+  },
 ];

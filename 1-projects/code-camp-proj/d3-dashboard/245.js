@@ -1,70 +1,75 @@
 const svgMargin = 60,
   svgWidth = 700,
   svgHeight = 500,
-  twitterColor = '#7cd9d1',
-  tumblrColor = '#f6dd71',
-  instagramColor = '#fd9b98';
+  twitterColor = "#7cd9d1",
+  tumblrColor = "#f6dd71",
+  instagramColor = "#fd9b98";
 
-const lineGraph = d3.select('.dashboard')
-  .append('svg')
-  .attr('width', svgWidth)
-  .attr('height', svgHeight);
+const lineGraph = d3
+  .select(".dashboard")
+  .append("svg")
+  .attr("width", svgWidth)
+  .attr("height", svgHeight);
 
-const yScale = d3.scaleLinear()
+const yScale = d3
+  .scaleLinear()
   .domain([0, 5000])
   .range([svgHeight - svgMargin, svgMargin]);
 
-const xScale = d3.scaleLinear()
+const xScale = d3
+  .scaleLinear()
   .domain([2012, 2020])
   .range([svgMargin, svgWidth - svgMargin]);
 
-const yAxis = d3.axisLeft(yScale)
-  .ticks(6, '~s');
+const yAxis = d3.axisLeft(yScale).ticks(6, "~s");
 
-const xAxis = d3.axisBottom(xScale)
-  .tickFormat(d3.format(''))
-  .tickPadding(10);
+const xAxis = d3.axisBottom(xScale).tickFormat(d3.format("")).tickPadding(10);
 
-lineGraph.append('g')
+lineGraph
+  .append("g")
   .call(yAxis)
-  .attr('transform', `translate(${svgMargin}, 0)`)
-  .style('font', '10px verdana');
+  .attr("transform", `translate(${svgMargin}, 0)`)
+  .style("font", "10px verdana");
 
-lineGraph.append('g')
+lineGraph
+  .append("g")
   .call(xAxis)
-  .attr('transform', `translate(0, ${svgHeight - svgMargin})`)
-  .selectAll('text')
-  .style('transform', 'translate(-12px, 0) rotate(-50deg)')
-  .style('text-anchor', 'end')
-  .style('cursor', 'pointer')
-  .style('font', '10px verdana')
+  .attr("transform", `translate(0, ${svgHeight - svgMargin})`)
+  .selectAll("text")
+  .style("transform", "translate(-12px, 0) rotate(-50deg)")
+  .style("text-anchor", "end")
+  .style("cursor", "pointer")
+  .style("font", "10px verdana");
 
-const twitterLine = d3.line()
-  .x(d => xScale(d.year))
-  .y(d => yScale(d.followers.twitter));
+const twitterLine = d3
+  .line()
+  .x((d) => xScale(d.year))
+  .y((d) => yScale(d.followers.twitter));
 
-lineGraph.append('path')
-  .attr('d', twitterLine(data))
-  .attr('stroke', twitterColor)
-  .attr('stroke-width', 3)
-  .attr('fill', 'transparent');
+lineGraph
+  .append("path")
+  .attr("d", twitterLine(data))
+  .attr("stroke", twitterColor)
+  .attr("stroke-width", 3)
+  .attr("fill", "transparent");
 
-const tumblrLine = d3.line()
-  .x(d => xScale(d.year))
-  .y(d => yScale(d.followers.tumblr));
+const tumblrLine = d3
+  .line()
+  .x((d) => xScale(d.year))
+  .y((d) => yScale(d.followers.tumblr));
 
-lineGraph.append('path')
-  .attr('d', tumblrLine(data))
-  .attr('stroke', tumblrColor)
-  .attr('stroke-width', 3)
-  .attr('fill', 'transparent');
+lineGraph
+  .append("path")
+  .attr("d", tumblrLine(data))
+  .attr("stroke", tumblrColor)
+  .attr("stroke-width", 3)
+  .attr("fill", "transparent");
 
-const instagramLine = d3.line()
-  .x(d => xScale(d.year))
-  .y(d => yScale(d.followers.instagram));
+const instagramLine = d3
+  .line()
+  .x((d) => xScale(d.year))
+  .y((d) => yScale(d.followers.instagram));
 
-
-  
 /*
   On a new line, `append` another `path` element to your `lineGraph`, like you did for the other two lines.
 */

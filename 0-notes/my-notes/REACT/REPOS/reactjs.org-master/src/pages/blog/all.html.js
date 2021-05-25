@@ -84,7 +84,7 @@ const AllBlogPosts = ({data, location}: Props) => (
                       marginTop: -5,
                     }}>
                     by{' '}
-                    {toCommaSeparatedList(node.frontmatter.author, author => (
+                    {toCommaSeparatedList(node.frontmatter.author, (author) => (
                       <span key={author.frontmatter.name}>
                         {author.frontmatter.name}
                       </span>

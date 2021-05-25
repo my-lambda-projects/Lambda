@@ -32,7 +32,7 @@ class ScrollingList extends React.Component {
     );
   }
 
-  setListRef = ref => {
+  setListRef = (ref) => {
     this.listRef = ref;
   };
 }

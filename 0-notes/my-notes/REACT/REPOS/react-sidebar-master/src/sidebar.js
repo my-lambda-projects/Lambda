@@ -10,7 +10,7 @@ const defaultStyles = {
     left: 0,
     right: 0,
     bottom: 0,
-    overflow: "hidden"
+    overflow: "hidden",
   },
   sidebar: {
     zIndex: 2,
@@ -20,7 +20,7 @@ const defaultStyles = {
     transition: "transform .3s ease-out",
     WebkitTransition: "-webkit-transform .3s ease-out",
     willChange: "transform",
-    overflowY: "auto"
+    overflowY: "auto",
   },
   content: {
     position: "absolute",
@@ -30,7 +30,7 @@ const defaultStyles = {
     bottom: 0,
     overflowY: "auto",
     WebkitOverflowScrolling: "touch",
-    transition: "left .3s ease-out, right .3s ease-out"
+    transition: "left .3s ease-out, right .3s ease-out",
   },
   overlay: {
     zIndex: 1,
@@ -42,14 +42,14 @@ const defaultStyles = {
     opacity: 0,
     visibility: "hidden",
     transition: "opacity .3s ease-out, visibility .3s ease-out",
-    backgroundColor: "rgba(0,0,0,.3)"
+    backgroundColor: "rgba(0,0,0,.3)",
   },
   dragHandle: {
     zIndex: 1,
     position: "fixed",
     top: 0,
-    bottom: 0
-  }
+    bottom: 0,
+  },
 };
 
 class Sidebar extends Component {
@@ -66,7 +66,7 @@ class Sidebar extends Component {
       touchCurrentX: null,
 
       // if touch is supported by the browser
-      dragSupported: false
+      dragSupported: false,
     };
 
     this.overlayClicked = this.overlayClicked.bind(this);
@@ -81,7 +81,7 @@ class Sidebar extends Component {
     const isIos = /iPad|iPhone|iPod/.test(navigator ? navigator.userAgent : "");
     this.setState({
       dragSupported:
-        typeof window === "object" && "ontouchstart" in window && !isIos
+        typeof window === "object" && "ontouchstart" in window && !isIos,
     });
     this.saveSidebarWidth();
   }
@@ -100,7 +100,7 @@ class Sidebar extends Component {
       this.setState({
         touchIdentifier: touch.identifier,
         touchStartX: touch.clientX,
-        touchCurrentX: touch.clientX
+        touchCurrentX: touch.clientX,
       });
     }
   }
@@ -111,7 +111,7 @@ class Sidebar extends Component {
         // we only care about the finger that we are tracking
         if (ev.targetTouches[ind].identifier === this.state.touchIdentifier) {
           this.setState({
-            touchCurrentX: ev.targetTouches[ind].clientX
+            touchCurrentX: ev.targetTouches[ind].clientX,
           });
           break;
         }
@@ -136,7 +136,7 @@ class Sidebar extends Component {
       this.setState({
         touchIdentifier: null,
         touchStartX: null,
-        touchCurrentX: null
+        touchCurrentX: null,
       });
     }
   }
@@ -149,7 +149,7 @@ class Sidebar extends Component {
       this.setState({
         touchIdentifier: null,
         touchStartX: null,
-        touchCurrentX: null
+        touchCurrentX: null,
       });
     }
   }
@@ -233,15 +233,15 @@ class Sidebar extends Component {
   render() {
     const sidebarStyle = {
       ...defaultStyles.sidebar,
-      ...this.props.styles.sidebar
+      ...this.props.styles.sidebar,
     };
     const contentStyle = {
       ...defaultStyles.content,
-      ...this.props.styles.content
+      ...this.props.styles.content,
     };
     const overlayStyle = {
       ...defaultStyles.overlay,
-      ...this.props.styles.overlay
+      ...this.props.styles.overlay,
     };
     const useTouch = this.state.dragSupported && this.props.touch;
     const isTouching = this.isTouching();
@@ -249,7 +249,7 @@ class Sidebar extends Component {
       className: this.props.rootClassName,
       style: { ...defaultStyles.root, ...this.props.styles.root },
       role: "navigation",
-      id: this.props.rootId
+      id: this.props.rootId,
     };
     let dragHandle;
 
@@ -281,8 +281,9 @@ class Sidebar extends Component {
         sidebarStyle.WebkitTransform = `translateX(${(1 - percentage) * 100}%)`;
       } else {
         sidebarStyle.transform = `translateX(-${(1 - percentage) * 100}%)`;
-        sidebarStyle.WebkitTransform = `translateX(-${(1 - percentage) *
-          100}%)`;
+        sidebarStyle.WebkitTransform = `translateX(-${
+          (1 - percentage) * 100
+        }%)`;
       }
 
       // fade overlay to match distance of drag
@@ -328,7 +329,7 @@ class Sidebar extends Component {
       } else {
         const dragHandleStyle = {
           ...defaultStyles.dragHandle,
-          ...this.props.styles.dragHandle
+          ...this.props.styles.dragHandle,
         };
         dragHandleStyle.width = this.props.touchHandleWidth;
 
@@ -392,7 +393,7 @@ Sidebar.propTypes = {
     sidebar: PropTypes.object,
     content: PropTypes.object,
     overlay: PropTypes.object,
-    dragHandle: PropTypes.object
+    dragHandle: PropTypes.object,
   }),
 
   // root component optional class
@@ -450,7 +451,7 @@ Sidebar.propTypes = {
   contentId: PropTypes.string,
 
   // overlay optional id
-  overlayId: PropTypes.string
+  overlayId: PropTypes.string,
 };
 
 Sidebar.defaultProps = {
@@ -464,7 +465,7 @@ Sidebar.defaultProps = {
   dragToggleDistance: 30,
   onSetOpen: () => {},
   styles: {},
-  defaultSidebarWidth: 0
+  defaultSidebarWidth: 0,
 };
 
 export default Sidebar;

@@ -1,8 +1,8 @@
-const rollButton = document.getElementById( "roll" );
-const toggleButton = document.getElementById( "toggle" );
-const dice1 = document.getElementById( "dice1" );
-const dice2 = document.getElementById( "dice2" );
-const status = document.getElementById( "status" );
+const rollButton = document.getElementById("roll");
+const toggleButton = document.getElementById("toggle");
+const dice1 = document.getElementById("dice1");
+const dice2 = document.getElementById("dice2");
+const status = document.getElementById("status");
 
 let numberOfDoubles = 0;
 let totalRolls = 0;
@@ -16,10 +16,10 @@ for (let i = 0; i < 13; i++) {
   rollCount[i] = 0;
 }
 
-function rollDice () {
+function rollDice() {
   totalRolls++;
-  const dice1Value = Math.floor( Math.random() * 6 ) + 1;
-  const dice2Value = Math.floor( Math.random() * 6 ) + 1;
+  const dice1Value = Math.floor(Math.random() * 6) + 1;
+  const dice2Value = Math.floor(Math.random() * 6) + 1;
   const total = dice1Value + dice2Value;
 
   dice1.innerText = dice1Value;
@@ -29,7 +29,7 @@ function rollDice () {
 
   let isDoubles = false;
 
-  if (dice1Value = dice2Value) {
+  if ((dice1Value = dice2Value)) {
     status.innerText += " Doubles!";
     isDoubles = true;
   }
@@ -43,7 +43,7 @@ function addTotal(total, doubles) {
   element.style.backgroundColor = "lightskyblue";
   element.style.width = `${rollCount[total] * 10}px`;
   updatecount();
-  
+
   if (doubles) {
     numberOfDoubles++;
     document.getElementById("doubles").innerText = numberOfDoubles;
@@ -58,7 +58,7 @@ function togglePercentNumber() {
 function updateCount() {
   for (let i = 0; i <= 13; i++) {
     const element = document.getElementById(i);
-    const percent = (rollCount[i] / totalRolls * 100) + "%";
+    const percent = (rollCount[i] / totalRolls) * 100 + "%";
     element.innerText = toggle ? percent : rollCount[i];
   }
 }

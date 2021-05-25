@@ -1,7 +1,7 @@
 /**
  * Testing render method as public class field.
  */
-import view from "./view.jsx";
+import view from './view.jsx';
 /**
  * Should be recognized as component.
  */

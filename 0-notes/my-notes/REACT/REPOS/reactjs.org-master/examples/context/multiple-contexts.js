@@ -36,9 +36,9 @@ function Content() {
   // highlight-range{2-10}
   return (
     <ThemeContext.Consumer>
-      {theme => (
+      {(theme) => (
         <UserContext.Consumer>
-          {user => (
+          {(user) => (
             <ProfilePage user={user} theme={theme} />
           )}
         </UserContext.Consumer>

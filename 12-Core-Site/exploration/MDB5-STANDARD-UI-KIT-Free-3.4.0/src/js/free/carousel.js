@@ -1,7 +1,7 @@
-import { getjQuery, onDOMContentLoaded } from '../mdb/util/index';
-import EventHandler from '../mdb/dom/event-handler';
-import SelectorEngine from '../mdb/dom/selector-engine';
-import BSCarousel from '../bootstrap/mdb-prefix/carousel';
+import { getjQuery, onDOMContentLoaded } from "../mdb/util/index";
+import EventHandler from "../mdb/dom/event-handler";
+import SelectorEngine from "../mdb/dom/selector-engine";
+import BSCarousel from "../bootstrap/mdb-prefix/carousel";
 
 /**
  * ------------------------------------------------------------------------
@@ -9,12 +9,12 @@ import BSCarousel from '../bootstrap/mdb-prefix/carousel';
  * ------------------------------------------------------------------------
  */
 
-const NAME = 'carousel';
+const NAME = "carousel";
 const DATA_KEY = `mdb.${NAME}`;
 const EVENT_KEY = `.${DATA_KEY}`;
 
-const EVENT_SLIDE_BS = 'slide.bs.carousel';
-const EVENT_SLID_BS = 'slid.bs.carousel';
+const EVENT_SLIDE_BS = "slide.bs.carousel";
+const EVENT_SLID_BS = "slid.bs.carousel";
 
 const EVENT_SLIDE = `slide${EVENT_KEY}`;
 const EVENT_SLID = `slid${EVENT_KEY}`;

@@ -12,7 +12,7 @@ import {colors, media} from 'theme';
 import MetaTitle from 'templates/components/MetaTitle';
 
 // Replace unicode to text for other languages
-const unicodeToText = text =>
+const unicodeToText = (text) =>
   text.replace(/\\u([\dA-F]{4})/gi, (_, p1) =>
     String.fromCharCode(parseInt(p1, 16)),
   );
@@ -22,7 +22,7 @@ const compileES5 = (
 ) => Babel.transform(code, {presets: ['es2015', 'react']}).code;
 
 // eslint-disable-next-line no-undef
-const compileES6 = code => Babel.transform(code, {presets: ['react']}).code;
+const compileES6 = (code) => Babel.transform(code, {presets: ['react']}).code;
 
 class CodeEditor extends Component {
   constructor(props, context) {
@@ -50,13 +50,8 @@ class CodeEditor extends Component {
 
   render() {
     const {containerNodeID} = this.props;
-    const {
-      compiledES6,
-      code,
-      error,
-      showBabelErrorMessage,
-      showJSX,
-    } = this.state;
+    const {compiledES6, code, error, showBabelErrorMessage, showJSX} =
+      this.state;
 
     let errorMessage;
     if (showBabelErrorMessage) {
@@ -114,7 +109,7 @@ class CodeEditor extends Component {
                   }}>
                   <input
                     checked={this.state.showJSX}
-                    onChange={event =>
+                    onChange={(event) =>
                       this.setState({showJSX: event.target.checked})
                     }
                     type="checkbox"
@@ -298,8 +293,8 @@ class CodeEditor extends Component {
     }
   }
 
-  _onChange = code => {
-    this.setState(state => this._updateState(code, state.showJSX));
+  _onChange = (code) => {
+    this.setState((state) => this._updateState(code, state.showJSX));
   };
 }
 

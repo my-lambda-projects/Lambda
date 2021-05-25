@@ -6,7 +6,7 @@ class EventElement {
   }
 
   bind(eventName, handler) {
-    if (typeof this.handlers[eventName] === 'undefined') {
+    if (typeof this.handlers[eventName] === "undefined") {
       this.handlers[eventName] = [];
     }
     this.handlers[eventName].push(handler);
@@ -30,7 +30,9 @@ class EventElement {
   }
 
   get isEmpty() {
-    return Object.keys(this.handlers).every((key) => this.handlers[key].length === 0);
+    return Object.keys(this.handlers).every(
+      (key) => this.handlers[key].length === 0
+    );
   }
 }
 

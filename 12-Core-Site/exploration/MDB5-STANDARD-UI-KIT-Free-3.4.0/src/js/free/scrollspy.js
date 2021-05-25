@@ -1,8 +1,8 @@
-import { getjQuery, onDOMContentLoaded } from '../mdb/util/index';
-import EventHandler from '../mdb/dom/event-handler';
-import SelectorEngine from '../mdb/dom/selector-engine';
-import Manipulator from '../mdb/dom/manipulator';
-import BSScrollSpy from '../bootstrap/mdb-prefix/scrollspy';
+import { getjQuery, onDOMContentLoaded } from "../mdb/util/index";
+import EventHandler from "../mdb/dom/event-handler";
+import SelectorEngine from "../mdb/dom/selector-engine";
+import Manipulator from "../mdb/dom/manipulator";
+import BSScrollSpy from "../bootstrap/mdb-prefix/scrollspy";
 
 /**
  * ------------------------------------------------------------------------
@@ -10,12 +10,12 @@ import BSScrollSpy from '../bootstrap/mdb-prefix/scrollspy';
  * ------------------------------------------------------------------------
  */
 
-const NAME = 'scrollspy';
+const NAME = "scrollspy";
 const DATA_KEY = `mdb.${NAME}`;
 const EVENT_KEY = `.${DATA_KEY}`;
-const DATA_API_KEY = '.data-api';
+const DATA_API_KEY = ".data-api";
 
-const EVENT_ACTIVATE_BS = 'activate.bs.scrollspy';
+const EVENT_ACTIVATE_BS = "activate.bs.scrollspy";
 
 const EVENT_ACTIVATE = `activate${EVENT_KEY}`;
 
@@ -26,7 +26,7 @@ class ScrollSpy extends BSScrollSpy {
   constructor(element, data) {
     super(element, data);
 
-    this._scrollElement = element.tagName === 'BODY' ? window : element;
+    this._scrollElement = element.tagName === "BODY" ? window : element;
 
     this._init();
   }

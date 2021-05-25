@@ -11,16 +11,16 @@ import React, { Component } from 'react';
 type Test<X> = Array<X>;
 interface BaseProps<T> {
   /** Optional prop */
-  foo?: T,
+  foo?: T;
   /** Required prop */
-  bar: Test<T>
+  bar: Test<T>;
 }
 
 interface Child {}
 
 interface Props extends BaseProps<Child> {
   /** Complex union prop */
-  baz: number
+  baz: number;
 }
 
 /**

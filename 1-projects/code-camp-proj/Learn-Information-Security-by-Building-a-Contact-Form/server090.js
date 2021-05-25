@@ -4,7 +4,7 @@ const helmet = require("helmet");
 // https://helmetjs.github.io/ - for more information on all packages and uses.
 
 const helmetConfig = {
-  noCache: false
+  noCache: false,
 };
 
 app.use(helmet(helmetConfig));

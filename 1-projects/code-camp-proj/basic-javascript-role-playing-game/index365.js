@@ -18,24 +18,28 @@ const monsterNameText = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
 
 const locations = [
-	{
-		name: "town square",
-		"button text": ["Go to store", "Go to cave", "Fight dragon"],
-		"button functions": [goStore, goCave, fightDragon],
-		text: "You are in the town square. You see a sign that says \"Store.\""
-	},
-	{
-		name: "store",
-		"button text": ["Buy 10 health (10 gold)", "Buy weapon (30 gold)", "Go to town square"],
-		"button functions": [buyHealth, buyWeapon, goTown],
-		text: "You enter the store."
-	},
-	{
-		name: "cave",
-		"button text": ["Fight slime", "Fight fanged beast", "Go to town square"],
-		"button functions": [fightSlime, fightBeast, goTown],
-		text: "You enter the cave. You see some monsters."
-	}
+  {
+    name: "town square",
+    "button text": ["Go to store", "Go to cave", "Fight dragon"],
+    "button functions": [goStore, goCave, fightDragon],
+    text: 'You are in the town square. You see a sign that says "Store."',
+  },
+  {
+    name: "store",
+    "button text": [
+      "Buy 10 health (10 gold)",
+      "Buy weapon (30 gold)",
+      "Go to town square",
+    ],
+    "button functions": [buyHealth, buyWeapon, goTown],
+    text: "You enter the store.",
+  },
+  {
+    name: "cave",
+    "button text": ["Fight slime", "Fight fanged beast", "Go to town square"],
+    "button functions": [fightSlime, fightBeast, goTown],
+    text: "You enter the cave. You see some monsters.",
+  },
 ];
 
 // initialize buttons
@@ -43,37 +47,35 @@ button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
 
-function update(location) {	
-	button1.innerText = location["button text"][0];
-	button2.innerText = location["button text"][1];
-	button3.innerText = location["button text"][2];
-	button1.onclick = location["button functions"][0];
-	button2.onclick = location["button functions"][1];
-	button3.onclick = location["button functions"][2];
-	text.innerText = location.text;
+function update(location) {
+  button1.innerText = location["button text"][0];
+  button2.innerText = location["button text"][1];
+  button3.innerText = location["button text"][2];
+  button1.onclick = location["button functions"][0];
+  button2.onclick = location["button functions"][1];
+  button3.onclick = location["button functions"][2];
+  text.innerText = location.text;
 }
 
 function goTown() {
-	update(locations[0]);
+  update(locations[0]);
 }
 
 function goStore() {
-	update(locations[1]);
+  update(locations[1]);
 }
 
 /* Now update the `goCave` function using the pattern from `goTown` and `goCave`.
-*/
+ */
 
 function goCave() {
-	console.log("Going to cave.");
+  console.log("Going to cave.");
 }
 
 function fightDragon() {
-	console.log("Fighting dragon.");
+  console.log("Fighting dragon.");
 }
 
-function buyHealth() {
-}
+function buyHealth() {}
 
-function buyWeapon() {
-}
+function buyWeapon() {}

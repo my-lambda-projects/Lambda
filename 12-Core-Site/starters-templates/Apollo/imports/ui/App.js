@@ -1,9 +1,13 @@
-import React, { Fragment } from 'react'
-import gql from 'graphql-tag'
-import { graphql } from 'react-apollo'
+import React, { Fragment } from "react";
+import gql from "graphql-tag";
+import { graphql } from "react-apollo";
 
-const App = ({ data }) => <Fragment>{ data.hi }</Fragment>
+const App = ({ data }) => <Fragment>{data.hi}</Fragment>;
 
-const hiQuery = gql`{ hi }`
+const hiQuery = gql`
+  {
+    hi
+  }
+`;
 
-export default graphql(hiQuery)(App)
+export default graphql(hiQuery)(App);

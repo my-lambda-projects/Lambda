@@ -1,4 +1,4 @@
-import 'es5-shim';
+import "es5-shim";
 
-const testsContext = require.context('.', true, /\.spec\.js$/);
+const testsContext = require.context(".", true, /\.spec\.js$/);
 testsContext.keys().forEach(testsContext);

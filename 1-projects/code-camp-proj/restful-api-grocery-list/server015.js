@@ -1,10 +1,10 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const port = 3000;
 
 let list = [];
 
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   res.json(list);
 });
 

@@ -1,38 +1,38 @@
 /* eslint-env jest, jasmine */
 
-import React from 'react';
-import createReactClass from 'create-react-class';
-import renderer from 'react-test-renderer';
-import { shallow, mount } from 'enzyme';
-import Infinite from '../src/react-infinite.jsx';
-import { mountToJson } from 'enzyme-to-json';
-import renderHelpers from './helpers/renderHelpers';
+import React from "react";
+import createReactClass from "create-react-class";
+import renderer from "react-test-renderer";
+import { shallow, mount } from "enzyme";
+import Infinite from "../src/react-infinite.jsx";
+import { mountToJson } from "enzyme-to-json";
+import renderHelpers from "./helpers/renderHelpers";
 
 const enzymeToJsonOpts = {
   noKey: true,
-  deep: false
+  deep: false,
 };
 
-describe('Rendering the React Infinite Component Wrapper', function() {
-  it('does not throw an error when given no children', function() {
-    expect(function() {
+describe("Rendering the React Infinite Component Wrapper", function () {
+  it("does not throw an error when given no children", function () {
+    expect(function () {
       renderer.create(
         <Infinite
           elementHeight={200}
           containerHeight={800}
-          className={'root-scrollable-node'}
+          className={"root-scrollable-node"}
         />
       );
     }).not.toThrow();
   });
 
-  it('does not throw an error when given only one child', function() {
-    expect(function() {
+  it("does not throw an error when given only one child", function () {
+    expect(function () {
       renderer.create(
         <Infinite
           elementHeight={200}
           containerHeight={800}
-          className={'root-scrollable-node'}
+          className={"root-scrollable-node"}
         >
           <div />
         </Infinite>
@@ -40,12 +40,12 @@ describe('Rendering the React Infinite Component Wrapper', function() {
     }).not.toThrow();
   });
 
-  it('renders itself into the DOM with the correct container styles', function() {
+  it("renders itself into the DOM with the correct container styles", function () {
     const infinite = renderer.create(
       <Infinite
         elementHeight={200}
         containerHeight={800}
-        className={'root-scrollable-node'}
+        className={"root-scrollable-node"}
       >
         <div />
         <div />
@@ -55,12 +55,12 @@ describe('Rendering the React Infinite Component Wrapper', function() {
     expect(infinite).toMatchSnapshot();
   });
 
-  it('applies the provided class name to the root node', function() {
+  it("applies the provided class name to the root node", function () {
     const infinite = renderer.create(
       <Infinite
         elementHeight={200}
         containerHeight={800}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
         <div />
         <div />
@@ -70,7 +70,7 @@ describe('Rendering the React Infinite Component Wrapper', function() {
     expect(infinite).toMatchSnapshot();
   });
 
-  it('allows preloadBatchSize to be zero', function() {
+  it("allows preloadBatchSize to be zero", function () {
     const rootNode = mount(
       <Infinite
         elementHeight={[28, 28]}
@@ -84,22 +84,22 @@ describe('Rendering the React Infinite Component Wrapper', function() {
 
     const rootDomNode = rootNode.getDOMNode();
     rootDomNode.scrollTop = 1500;
-    rootNode.simulate('scroll', {
-      target: rootDomNode
+    rootNode.simulate("scroll", {
+      target: rootDomNode,
     });
   });
 });
 
-describe('The Children of the React Infinite Component', function() {
-  it('renders its children when no hiding behavior is required', function() {
+describe("The Children of the React Infinite Component", function () {
+  it("renders its children when no hiding behavior is required", function () {
     const rootNode = renderer.create(
       <Infinite
         elementHeight={200}
         containerHeight={800}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
-        <div className={'test-div-0'} />
-        <div className={'test-div-1'} />
+        <div className={"test-div-0"} />
+        <div className={"test-div-1"} />
       </Infinite>
     );
 
@@ -107,13 +107,13 @@ describe('The Children of the React Infinite Component', function() {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders its children when some DOM nodes are hidden', function() {
+  it("renders its children when some DOM nodes are hidden", function () {
     const elementHeight = 200;
     const rootNode = renderer.create(
       <Infinite
         elementHeight={elementHeight}
         containerHeight={800}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
         {renderHelpers.divGenerator(10, elementHeight)}
       </Infinite>
@@ -131,14 +131,14 @@ describe('The Children of the React Infinite Component', function() {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders more children when preloadAdditionalHeight is increased beyond its default', function() {
+  it("renders more children when preloadAdditionalHeight is increased beyond its default", function () {
     const elementHeight = 200;
     const rootNode = renderer.create(
       <Infinite
         elementHeight={elementHeight}
         containerHeight={800}
         preloadAdditionalHeight={1000}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
         {renderHelpers.divGenerator(10, elementHeight)}
       </Infinite>
@@ -156,14 +156,14 @@ describe('The Children of the React Infinite Component', function() {
     expect(tree).toMatchSnapshot();
   });
 
-  it('renders more children when preloadBatchSize is increased beyond its default', function() {
+  it("renders more children when preloadBatchSize is increased beyond its default", function () {
     const elementHeight = 200;
     const rootNode = renderer.create(
       <Infinite
         elementHeight={elementHeight}
         containerHeight={800}
         preloadBatchSize={800}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
         {renderHelpers.divGenerator(10, elementHeight)}
       </Infinite>
@@ -182,14 +182,14 @@ describe('The Children of the React Infinite Component', function() {
   });
 });
 
-describe('The Scrolling Behavior of the Constant Height React Infinite Component', function() {
-  it('hides visible elements when the user scrolls sufficiently', function() {
+describe("The Scrolling Behavior of the Constant Height React Infinite Component", function () {
+  it("hides visible elements when the user scrolls sufficiently", function () {
     const elementHeight = 200;
     const rootNode = mount(
       <Infinite
         elementHeight={elementHeight}
         containerHeight={800}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
         {renderHelpers.divGenerator(20, elementHeight)}
       </Infinite>
@@ -197,8 +197,8 @@ describe('The Scrolling Behavior of the Constant Height React Infinite Component
 
     const rootDomNode = rootNode.getDOMNode();
     rootDomNode.scrollTop = 1500;
-    rootNode.simulate('scroll', {
-      target: rootDomNode
+    rootNode.simulate("scroll", {
+      target: rootDomNode,
     });
 
     //  Schematic
@@ -212,13 +212,13 @@ describe('The Scrolling Behavior of the Constant Height React Infinite Component
     expect(mountToJson(rootNode, enzymeToJsonOpts)).toMatchSnapshot();
   });
 
-  it('functions correctly at the end of its range', function() {
+  it("functions correctly at the end of its range", function () {
     const elementHeight = 200;
     const rootNode = mount(
       <Infinite
         elementHeight={elementHeight}
         containerHeight={800}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
         {renderHelpers.divGenerator(20, elementHeight)}
       </Infinite>
@@ -227,41 +227,25 @@ describe('The Scrolling Behavior of the Constant Height React Infinite Component
     // The total scrollable height here is 4000 pixels
     const rootDomNode = rootNode.getDOMNode();
     rootDomNode.scrollTop = 3600;
-    rootNode.simulate('scroll', {
-      target: rootDomNode
+    rootNode.simulate("scroll", {
+      target: rootDomNode,
     });
 
     expect(mountToJson(rootNode, enzymeToJsonOpts)).toMatchSnapshot();
   });
 });
 
-describe('The Behavior of the Variable Height React Infinite Component', function() {
-  it('hides elements when the user has not yet scrolled', function() {
+describe("The Behavior of the Variable Height React Infinite Component", function () {
+  it("hides elements when the user has not yet scrolled", function () {
     // 20  40  200  300  350 500  525 550 575 600 725  805 880 900 1050 1300 1400 (16)
     const elementHeight = [
-      20,
-      20,
-      160,
-      100,
-      50,
-      150,
-      25,
-      25,
-      25,
-      25,
-      125,
-      80,
-      75,
-      20,
-      150,
-      250,
-      100
+      20, 20, 160, 100, 50, 150, 25, 25, 25, 25, 125, 80, 75, 20, 150, 250, 100,
     ];
     const rootNode = renderer.create(
       <Infinite
         elementHeight={elementHeight}
         containerHeight={420}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
         {renderHelpers.variableDivGenerator(elementHeight)}
       </Infinite>
@@ -276,32 +260,16 @@ describe('The Behavior of the Variable Height React Infinite Component', functio
     expect(tree).toMatchSnapshot();
   });
 
-  it('hides visible elements when the user scrolls sufficiently', function() {
+  it("hides visible elements when the user scrolls sufficiently", function () {
     // 20  40  200  300  350 500  525 550 575 600 725  805 880 900 1050 1300 1400 (17)
     const elementHeight = [
-      20,
-      20,
-      160,
-      100,
-      50,
-      150,
-      25,
-      25,
-      25,
-      25,
-      125,
-      80,
-      75,
-      20,
-      150,
-      250,
-      100
+      20, 20, 160, 100, 50, 150, 25, 25, 25, 25, 125, 80, 75, 20, 150, 250, 100,
     ];
     const rootNode = mount(
       <Infinite
         elementHeight={elementHeight}
         containerHeight={400}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
         {renderHelpers.variableDivGenerator(elementHeight)}
       </Infinite>
@@ -309,8 +277,8 @@ describe('The Behavior of the Variable Height React Infinite Component', functio
 
     const rootDomNode = rootNode.getDOMNode();
     rootDomNode.scrollTop = 700;
-    rootNode.simulate('scroll', {
-      target: rootDomNode
+    rootNode.simulate("scroll", {
+      target: rootDomNode,
     });
 
     //  Schematic
@@ -323,32 +291,16 @@ describe('The Behavior of the Variable Height React Infinite Component', functio
     expect(mountToJson(rootNode, enzymeToJsonOpts)).toMatchSnapshot();
   });
 
-  it('functions correctly at the end of its range', function() {
+  it("functions correctly at the end of its range", function () {
     // 20  40  200  300  350 500  525 550 575 600 725  805 880 900 1050 1300 1400 (16)
     const elementHeight = [
-      20,
-      20,
-      160,
-      100,
-      50,
-      150,
-      25,
-      25,
-      25,
-      25,
-      125,
-      80,
-      75,
-      20,
-      150,
-      250,
-      100
+      20, 20, 160, 100, 50, 150, 25, 25, 25, 25, 125, 80, 75, 20, 150, 250, 100,
     ];
     const rootNode = mount(
       <Infinite
         elementHeight={elementHeight}
         containerHeight={400}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
         {renderHelpers.variableDivGenerator(elementHeight)}
       </Infinite>
@@ -357,8 +309,8 @@ describe('The Behavior of the Variable Height React Infinite Component', functio
     // The total scrollable height here is 4000 pixels
     const rootDomNode = rootNode.getDOMNode();
     rootDomNode.scrollTop = 1000;
-    rootNode.simulate('scroll', {
-      target: rootDomNode
+    rootNode.simulate("scroll", {
+      target: rootDomNode,
     });
 
     //  Schematic
@@ -371,8 +323,8 @@ describe('The Behavior of the Variable Height React Infinite Component', functio
   });
 });
 
-describe("React Infinite's Infinite Scroll Capabilities", function() {
-  it('infiniteLoadBeginEdgeOffset does not always trigger infinite load on scroll', function() {
+describe("React Infinite's Infinite Scroll Capabilities", function () {
+  it("infiniteLoadBeginEdgeOffset does not always trigger infinite load on scroll", function () {
     const infiniteSpy = jest.fn();
     const elementHeight = 200;
     const rootNode = mount(
@@ -381,7 +333,7 @@ describe("React Infinite's Infinite Scroll Capabilities", function() {
         containerHeight={800}
         onInfiniteLoad={infiniteSpy}
         infiniteLoadBeginEdgeOffset={1000}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
         {renderHelpers.divGenerator(20, elementHeight)}
       </Infinite>
@@ -389,14 +341,14 @@ describe("React Infinite's Infinite Scroll Capabilities", function() {
 
     const rootDomNode = rootNode.getDOMNode();
     rootDomNode.scrollTop = 300;
-    rootNode.simulate('scroll', {
-      target: rootDomNode
+    rootNode.simulate("scroll", {
+      target: rootDomNode,
     });
 
     expect(infiniteSpy).not.toHaveBeenCalled();
   });
 
-  it('triggers the onInfiniteLoad function when scrolling past infiniteLoadBeginEdgeOffset', function() {
+  it("triggers the onInfiniteLoad function when scrolling past infiniteLoadBeginEdgeOffset", function () {
     const infiniteSpy = jest.fn();
     const elementHeight = 200;
     const rootNode = mount(
@@ -405,7 +357,7 @@ describe("React Infinite's Infinite Scroll Capabilities", function() {
         containerHeight={800}
         onInfiniteLoad={infiniteSpy}
         infiniteLoadBeginEdgeOffset={1000}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
         {renderHelpers.divGenerator(20, elementHeight)}
       </Infinite>
@@ -413,14 +365,14 @@ describe("React Infinite's Infinite Scroll Capabilities", function() {
 
     const rootDomNode = rootNode.getDOMNode();
     rootDomNode.scrollTop = 3600;
-    rootNode.simulate('scroll', {
-      target: rootDomNode
+    rootNode.simulate("scroll", {
+      target: rootDomNode,
     });
 
     expect(infiniteSpy).toHaveBeenCalled();
   });
 
-  it('does not always display the loadingSpinnerDelegate', function() {
+  it("does not always display the loadingSpinnerDelegate", function () {
     const infiniteSpy = jest.fn();
     const elementHeight = 200;
     const rootNode = mount(
@@ -429,8 +381,8 @@ describe("React Infinite's Infinite Scroll Capabilities", function() {
         containerHeight={800}
         onInfiniteLoad={infiniteSpy}
         infiniteLoadBeginEdgeOffset={1000}
-        loadingSpinnerDelegate={<div className={'delegate-div'} />}
-        className={'correct-class-name'}
+        loadingSpinnerDelegate={<div className={"delegate-div"} />}
+        className={"correct-class-name"}
       >
         {renderHelpers.divGenerator(20, elementHeight)}
       </Infinite>
@@ -438,14 +390,14 @@ describe("React Infinite's Infinite Scroll Capabilities", function() {
 
     const rootDomNode = rootNode.getDOMNode();
     rootDomNode.scrollTop = 100;
-    rootNode.simulate('scroll', {
-      target: rootDomNode
+    rootNode.simulate("scroll", {
+      target: rootDomNode,
     });
 
-    expect(rootNode.find('.delegate-div').exists()).toBe(false);
+    expect(rootNode.find(".delegate-div").exists()).toBe(false);
   });
 
-  it('displays the loadingSpinnerDelegate when isInfiniteLoading', function() {
+  it("displays the loadingSpinnerDelegate when isInfiniteLoading", function () {
     const infiniteSpy = jest.fn();
     const elementHeight = 200;
     const rootNode = mount(
@@ -454,8 +406,8 @@ describe("React Infinite's Infinite Scroll Capabilities", function() {
         containerHeight={800}
         onInfiniteLoad={infiniteSpy}
         infiniteLoadBeginEdgeOffset={1000}
-        loadingSpinnerDelegate={<div className={'delegate-div'} />}
-        className={'correct-class-name'}
+        loadingSpinnerDelegate={<div className={"delegate-div"} />}
+        className={"correct-class-name"}
       >
         {renderHelpers.divGenerator(20, elementHeight)}
       </Infinite>
@@ -463,42 +415,42 @@ describe("React Infinite's Infinite Scroll Capabilities", function() {
 
     const rootDomNode = rootNode.getDOMNode();
     rootDomNode.scrollTop = 3600;
-    rootNode.simulate('scroll', {
-      target: rootDomNode
+    rootNode.simulate("scroll", {
+      target: rootDomNode,
     });
 
-    expect(rootNode.find('.delegate-div').exists()).toBe(true);
+    expect(rootNode.find(".delegate-div").exists()).toBe(true);
   });
 });
 
-describe("Maintaining React Infinite's internal scroll state", function() {
-  it('has does not have pointer-events: none by default', function() {
+describe("Maintaining React Infinite's internal scroll state", function () {
+  it("has does not have pointer-events: none by default", function () {
     const elementHeight = 200;
     const rootNode = shallow(
       <Infinite
         elementHeight={elementHeight}
         containerHeight={800}
         timeScrollStateLastsForAfterUserScrolls={10000}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
         {renderHelpers.divGenerator(20, elementHeight)}
       </Infinite>
     );
 
     expect(
-      rootNode.find('.correct-class-name').childAt(0).props().style
+      rootNode.find(".correct-class-name").childAt(0).props().style
         .pointerEvents
     ).toBeUndefined();
   });
 
-  it('has pointer-events: none upon scroll', function() {
+  it("has pointer-events: none upon scroll", function () {
     const elementHeight = 200;
     const rootNode = mount(
       <Infinite
         elementHeight={elementHeight}
         containerHeight={800}
         timeScrollStateLastsForAfterUserScrolls={10000}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
         {renderHelpers.divGenerator(20, elementHeight)}
       </Infinite>
@@ -506,19 +458,19 @@ describe("Maintaining React Infinite's internal scroll state", function() {
 
     const rootDomNode = rootNode.getDOMNode();
     rootDomNode.scrollTop = 100;
-    rootNode.simulate('scroll', {
-      target: rootDomNode
+    rootNode.simulate("scroll", {
+      target: rootDomNode,
     });
 
     expect(
-      rootNode.find('div.correct-class-name').childAt(0).props().style
+      rootNode.find("div.correct-class-name").childAt(0).props().style
         .pointerEvents
-    ).toEqual('none');
+    ).toEqual("none");
   });
 });
 
-describe('Handling infinite scrolling', function() {
-  it('triggers an infinite scroll the first time the component mounts if the elements do not fill the container', function() {
+describe("Handling infinite scrolling", function () {
+  it("triggers an infinite scroll the first time the component mounts if the elements do not fill the container", function () {
     const infiniteSpy = jest.fn();
     const elementHeight = 200;
     mount(
@@ -528,14 +480,14 @@ describe('Handling infinite scrolling', function() {
         infiniteLoadBeginEdgeOffset={1000}
         onInfiniteLoad={infiniteSpy}
         timeScrollStateLastsForAfterUserScrolls={10000}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       />
     );
 
     expect(infiniteSpy).toHaveBeenCalled();
   });
 
-  it('considers a scroll to have occurred when the container itself is scrolled', function() {
+  it("considers a scroll to have occurred when the container itself is scrolled", function () {
     const infiniteSpy = jest.fn();
     const elementHeight = 200;
 
@@ -545,22 +497,22 @@ describe('Handling infinite scrolling', function() {
         containerHeight={800}
         handleScroll={infiniteSpy}
         timeScrollStateLastsForAfterUserScrolls={10000}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
         {renderHelpers.divGenerator(20, elementHeight)}
       </Infinite>
     );
 
-    const properDiv = rootNode.find('div.correct-class-name').getDOMNode();
+    const properDiv = rootNode.find("div.correct-class-name").getDOMNode();
     properDiv.scrollTop = 100;
-    rootNode.simulate('scroll', {
-      target: properDiv
+    rootNode.simulate("scroll", {
+      target: properDiv,
     });
 
     expect(infiniteSpy).toHaveBeenCalled();
   });
 
-  it('does not consider an infinite scroll to have occurred when one of its children scrolls', function() {
+  it("does not consider an infinite scroll to have occurred when one of its children scrolls", function () {
     const infiniteSpy = jest.fn();
     const elementHeight = 200;
 
@@ -570,30 +522,30 @@ describe('Handling infinite scrolling', function() {
         containerHeight={800}
         handleScroll={infiniteSpy}
         timeScrollStateLastsForAfterUserScrolls={10000}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
         {renderHelpers.divGenerator(20, elementHeight)}
       </Infinite>
     );
 
-    const childDiv = rootNode.find('.test-div-0').getDOMNode();
+    const childDiv = rootNode.find(".test-div-0").getDOMNode();
     childDiv.scrollTop = 100;
-    rootNode.simulate('scroll', {
-      target: childDiv
+    rootNode.simulate("scroll", {
+      target: childDiv,
     });
 
     expect(infiniteSpy).not.toHaveBeenCalled();
   });
 });
 
-describe('React Infinite when the window is used as the Container', function() {
+describe("React Infinite when the window is used as the Container", function () {
   const elementHeight = 200;
-  it('does not attach a scrollable style', function() {
+  it("does not attach a scrollable style", function () {
     const rootNode = renderer.create(
       <Infinite
         elementHeight={elementHeight}
         timeScrollStateLastsForAfterUserScrolls={10000}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
         useWindowAsScrollContainer
       >
         {renderHelpers.divGenerator(20, elementHeight)}
@@ -603,15 +555,15 @@ describe('React Infinite when the window is used as the Container', function() {
     expect(rootNode).toMatchSnapshot();
   });
 
-  it('considers a scroll to have occurred when the window is scrolled', function() {
+  it("considers a scroll to have occurred when the window is scrolled", function () {
     const infiniteSpy = jest.fn();
     const elementHeight = 200;
 
     const oldAdd = window.addEventListener;
 
     const listenerTriggered = new Promise((resolve, reject) => {
-      window.addEventListener = function(event, f) {
-        if (event === 'scroll') {
+      window.addEventListener = function (event, f) {
+        if (event === "scroll") {
           resolve(f);
         }
       };
@@ -622,14 +574,14 @@ describe('React Infinite when the window is used as the Container', function() {
         elementHeight={elementHeight}
         handleScroll={infiniteSpy}
         timeScrollStateLastsForAfterUserScrolls={10000}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
         useWindowAsScrollContainer
       >
         {renderHelpers.divGenerator(20, elementHeight)}
       </Infinite>
     );
 
-    return listenerTriggered.then(listener => {
+    return listenerTriggered.then((listener) => {
       window.pageYOffset = 200;
       listener();
       expect(infiniteSpy).toHaveBeenCalled();
@@ -637,7 +589,7 @@ describe('React Infinite when the window is used as the Container', function() {
     });
   });
 
-  it('hides DOM elements that are below the visible range of the window', function() {
+  it("hides DOM elements that are below the visible range of the window", function () {
     const elementHeight = 200;
     window.innerHeight = 800;
 
@@ -645,7 +597,7 @@ describe('React Infinite when the window is used as the Container', function() {
       <Infinite
         elementHeight={elementHeight}
         timeScrollStateLastsForAfterUserScrolls={10000}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
         useWindowAsScrollContainer
       >
         {renderHelpers.divGenerator(20, elementHeight)}
@@ -655,15 +607,15 @@ describe('React Infinite when the window is used as the Container', function() {
     expect(mountToJson(rootNode, enzymeToJsonOpts)).toMatchSnapshot();
   });
 
-  it('alters the elements displayed when a scroll has occurred', function() {
+  it("alters the elements displayed when a scroll has occurred", function () {
     const infiniteSpy = jest.fn();
     const elementHeight = 200;
 
     const oldAdd = window.addEventListener;
 
     const listenerTriggered = new Promise((resolve, reject) => {
-      window.addEventListener = function(event, f) {
-        if (event === 'scroll') {
+      window.addEventListener = function (event, f) {
+        if (event === "scroll") {
           resolve(f);
         }
       };
@@ -674,7 +626,7 @@ describe('React Infinite when the window is used as the Container', function() {
         elementHeight={elementHeight}
         handleScroll={infiniteSpy}
         timeScrollStateLastsForAfterUserScrolls={10000}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
         useWindowAsScrollContainer
       >
         {renderHelpers.divGenerator(20, elementHeight)}
@@ -683,7 +635,7 @@ describe('React Infinite when the window is used as the Container', function() {
 
     expect(mountToJson(rootNode, enzymeToJsonOpts)).toMatchSnapshot();
 
-    return listenerTriggered.then(listener => {
+    return listenerTriggered.then((listener) => {
       window.pageYOffset = 1500;
       listener();
       rootNode.update();
@@ -692,15 +644,15 @@ describe('React Infinite when the window is used as the Container', function() {
     });
   });
 
-  it('reacts to window scroll events when useWindowAsScrollContainer is enabled after the initial render', function() {
+  it("reacts to window scroll events when useWindowAsScrollContainer is enabled after the initial render", function () {
     const infiniteSpy = jest.fn();
     const elementHeight = 200;
 
     const oldAdd = window.addEventListener;
 
     const listenerTriggered = new Promise((resolve, reject) => {
-      window.addEventListener = function(event, f) {
-        if (event === 'scroll') {
+      window.addEventListener = function (event, f) {
+        if (event === "scroll") {
           resolve(f);
         }
       };
@@ -711,7 +663,7 @@ describe('React Infinite when the window is used as the Container', function() {
         elementHeight={elementHeight}
         handleScroll={infiniteSpy}
         timeScrollStateLastsForAfterUserScrolls={10000}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
         containerHeight={700}
       >
         {renderHelpers.divGenerator(20, elementHeight)}
@@ -720,10 +672,10 @@ describe('React Infinite when the window is used as the Container', function() {
 
     expect(mountToJson(rootNode, enzymeToJsonOpts)).toMatchSnapshot();
     rootNode.setProps({
-      useWindowAsScrollContainer: true
+      useWindowAsScrollContainer: true,
     });
 
-    return listenerTriggered.then(listener => {
+    return listenerTriggered.then((listener) => {
       window.pageYOffset = 200;
       listener();
       rootNode.update();
@@ -733,13 +685,13 @@ describe('React Infinite when the window is used as the Container', function() {
   });
 });
 
-describe("Specifying React Infinite's preload amounts", function() {
-  it('has correct preload batch size defaults', function() {
+describe("Specifying React Infinite's preload amounts", function () {
+  it("has correct preload batch size defaults", function () {
     const infinite = mount(
       <Infinite
         elementHeight={200}
         containerHeight={800}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
         <div />
         <div />
@@ -749,13 +701,13 @@ describe("Specifying React Infinite's preload amounts", function() {
     expect(infinite.instance().computedProps.preloadBatchSize).toEqual(400);
   });
 
-  it('can use a number to set preload batch size', function() {
+  it("can use a number to set preload batch size", function () {
     const infinite = mount(
       <Infinite
         elementHeight={200}
         containerHeight={800}
         preloadBatchSize={742}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
         <div />
         <div />
@@ -765,13 +717,13 @@ describe("Specifying React Infinite's preload amounts", function() {
     expect(infinite.instance().computedProps.preloadBatchSize).toEqual(742);
   });
 
-  it('can be used with a preload batch size scale factor', function() {
+  it("can be used with a preload batch size scale factor", function () {
     const infinite = mount(
       <Infinite
         elementHeight={200}
         containerHeight={800}
         preloadBatchSize={Infinite.containerHeightScaleFactor(4)}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
         <div />
         <div />
@@ -781,12 +733,12 @@ describe("Specifying React Infinite's preload amounts", function() {
     expect(infinite.instance().computedProps.preloadBatchSize).toEqual(3200);
   });
 
-  it('has correct preload additional height defaults', function() {
+  it("has correct preload additional height defaults", function () {
     const infinite = mount(
       <Infinite
         elementHeight={200}
         containerHeight={800}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
         <div />
         <div />
@@ -798,13 +750,13 @@ describe("Specifying React Infinite's preload amounts", function() {
     );
   });
 
-  it('can use a number to set preload additional height', function() {
+  it("can use a number to set preload additional height", function () {
     const infinite = mount(
       <Infinite
         elementHeight={200}
         containerHeight={200}
         preloadAdditionalHeight={465}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
         <div />
         <div />
@@ -816,13 +768,13 @@ describe("Specifying React Infinite's preload amounts", function() {
     );
   });
 
-  it('can be used with a preload additional height scale factor', function() {
+  it("can be used with a preload additional height scale factor", function () {
     const infinite = mount(
       <Infinite
         elementHeight={200}
         containerHeight={500}
         preloadAdditionalHeight={Infinite.containerHeightScaleFactor(1.5)}
-        className={'correct-class-name'}
+        className={"correct-class-name"}
       >
         <div />
         <div />
@@ -835,15 +787,15 @@ describe("Specifying React Infinite's preload amounts", function() {
   });
 });
 
-describe('Rerendering React Infinite', function() {
-  it('updates the infinite computer', function() {
+describe("Rerendering React Infinite", function () {
+  it("updates the infinite computer", function () {
     var rootNode = mount(
       <Infinite
         elementHeight={17}
         containerHeight={450}
         infiniteLoadBeginEdgeOffset={1000}
-        loadingSpinnerDelegate={<div className={'delegate-div'} />}
-        className={'correct-class-name'}
+        loadingSpinnerDelegate={<div className={"delegate-div"} />}
+        className={"correct-class-name"}
       >
         {renderHelpers.divGenerator(20, 17)}
       </Infinite>
@@ -857,8 +809,8 @@ describe('Rerendering React Infinite', function() {
         elementHeight={17}
         containerHeight={450}
         infiniteLoadBeginEdgeOffset={1000}
-        loadingSpinnerDelegate={<div className={'delegate-div'} />}
-        className={'correct-class-name'}
+        loadingSpinnerDelegate={<div className={"delegate-div"} />}
+        className={"correct-class-name"}
       >
         {renderHelpers.divGenerator(74, 17)}
       </Infinite>
@@ -870,30 +822,19 @@ describe('Rerendering React Infinite', function() {
         elementHeight={[10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120]}
         containerHeight={450}
         infiniteLoadBeginEdgeOffset={1000}
-        loadingSpinnerDelegate={<div className={'delegate-div'} />}
-        className={'correct-class-name'}
+        loadingSpinnerDelegate={<div className={"delegate-div"} />}
+        className={"correct-class-name"}
       >
         {renderHelpers.divGenerator(12, 17)}
       </Infinite>
     );
     expect(rootNode.state().infiniteComputer.heightData).toEqual([
-      10,
-      20,
-      30,
-      40,
-      50,
-      60,
-      70,
-      80,
-      90,
-      100,
-      110,
-      120
+      10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120,
     ]);
   });
 });
 
-describe('Requesting all visible rows', function() {
+describe("Requesting all visible rows", function () {
   const InfiniteWrapper = createReactClass({
     getInitialState() {
       return { currentRows: 0, totalRequests: 0 };
@@ -901,12 +842,12 @@ describe('Requesting all visible rows', function() {
 
     onInfiniteLoad() {
       this.setState({
-        totalRequests: this.state.totalRequests + 1
+        totalRequests: this.state.totalRequests + 1,
       });
 
       if (this.state.currentRows < this.props.totalRows) {
         this.setState({
-          currentRows: this.state.currentRows + 1
+          currentRows: this.state.currentRows + 1,
         });
       }
     },
@@ -918,7 +859,7 @@ describe('Requesting all visible rows', function() {
           containerHeight={this.props.containerHeight}
           onInfiniteLoad={this.onInfiniteLoad}
           infiniteLoadBeginEdgeOffset={100}
-          className={'correct-class-name'}
+          className={"correct-class-name"}
         >
           {renderHelpers.divGenerator(
             this.state.currentRows,
@@ -926,10 +867,10 @@ describe('Requesting all visible rows', function() {
           )}
         </Infinite>
       );
-    }
+    },
   });
 
-  it('will request all possible rows until the scroll height is met', function() {
+  it("will request all possible rows until the scroll height is met", function () {
     const rootNode = mount(
       <InfiniteWrapper
         totalRows={50}
@@ -942,7 +883,7 @@ describe('Requesting all visible rows', function() {
     expect(rootNode.state().currentRows).toEqual(10);
   });
 
-  it('will stop requesting when no further rows are provided', function() {
+  it("will stop requesting when no further rows are provided", function () {
     const rootNode = mount(
       <InfiniteWrapper totalRows={3} elementHeight={40} containerHeight={400} />
     );
@@ -951,7 +892,7 @@ describe('Requesting all visible rows', function() {
     expect(rootNode.state().currentRows).toEqual(3);
   });
 
-  it('will work when no possible rows can be loaded', function() {
+  it("will work when no possible rows can be loaded", function () {
     const rootNode = mount(
       <InfiniteWrapper totalRows={0} elementHeight={40} containerHeight={400} />
     );

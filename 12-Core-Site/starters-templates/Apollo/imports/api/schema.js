@@ -15,5 +15,5 @@ export const typeDefs = [
     user: User
     hi: String
   }
-  `
-]
+  `,
+];

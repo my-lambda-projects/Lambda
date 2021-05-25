@@ -1,5 +1,5 @@
-import * as ActionTypes from '../actionTypes';
-import Items from '../../services/Items';
+import * as ActionTypes from "../actionTypes";
+import Items from "../../services/Items";
 
 export const load = () => ({
   types: [

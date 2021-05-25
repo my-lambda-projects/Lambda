@@ -1,11 +1,11 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import Counter from '../components/Counter';
-import Items from '../components/Items';
-import { increment, decrement, update } from '../store/count/action';
-import { load } from '../store/items/action';
+import Counter from "../components/Counter";
+import Items from "../components/Items";
+import { increment, decrement, update } from "../store/count/action";
+import { load } from "../store/items/action";
 
 class DashboardPage extends Component {
   render() {
@@ -13,7 +13,7 @@ class DashboardPage extends Component {
       <div className="DashboardPage">
         <Counter
           count={this.props.count}
-          handleChange={value => this.props.dispatch(update(value))}
+          handleChange={(value) => this.props.dispatch(update(value))}
           handleIncrement={() => this.props.dispatch(increment())}
           handleDecrement={() => this.props.dispatch(decrement())}
         />
@@ -32,7 +32,7 @@ DashboardPage.propTypes = {
   items: PropTypes.array,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   count: state.count,
   items: state.items.list,
 });

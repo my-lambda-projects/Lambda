@@ -1,5 +1,5 @@
 const myTeam = {
-  "Team": "Argentina"
+  Team: "Argentina",
 };
 
 /*

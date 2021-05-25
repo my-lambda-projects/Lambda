@@ -1,31 +1,26 @@
-require('babel/register');
-var webpackConfig = require('./webpack.test.config.babel.js');
+require("babel/register");
+var webpackConfig = require("./webpack.test.config.babel.js");
 delete webpackConfig.entry;
 
 module.exports = function (config) {
   config.set({
-    basePath: '',
+    basePath: "",
 
-    frameworks: [
-      'mocha',
-      'sinon-chai'
-    ],
+    frameworks: ["mocha", "sinon-chai"],
 
-    files: [
-      './tests/index.js'
-    ],
+    files: ["./tests/index.js"],
 
     preprocessors: {
-      './tests/index.js': ['webpack', 'sourcemap']
+      "./tests/index.js": ["webpack", "sourcemap"],
     },
 
     webpack: webpackConfig,
 
     webpackMiddleware: {
-      noInfo: true
+      noInfo: true,
     },
 
-    reporters: ['mocha'],
+    reporters: ["mocha"],
 
     port: 9876,
 
@@ -35,13 +30,13 @@ module.exports = function (config) {
 
     autoWatch: true,
 
-    browsers: ['PhantomJS'],
+    browsers: ["PhantomJS"],
 
     captureTimeout: 60000,
     browserDisconnectTimeout: 7000,
     browserDisconnectTolerance: 1,
     browserDisconnectNoActivityTimeout: 60000,
 
-    singleRun: false
+    singleRun: false,
   });
 };

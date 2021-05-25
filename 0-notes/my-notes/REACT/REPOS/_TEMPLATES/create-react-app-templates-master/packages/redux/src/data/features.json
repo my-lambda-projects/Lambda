@@ -6,14 +6,12 @@
   },
   {
     "label": "Jest",
-    "description":
-      "Jest is used by Facebook to test all JavaScript code including React applications.",
+    "description": "Jest is used by Facebook to test all JavaScript code including React applications.",
     "website": "https://facebook.github.io/jest/"
   },
   {
     "label": "Enzyme",
-    "description":
-      "Enzyme is a JavaScript Testing utility for React that makes it easier to assert, manipulate, and traverse your React Components' output.",
+    "description": "Enzyme is a JavaScript Testing utility for React that makes it easier to assert, manipulate, and traverse your React Components' output.",
     "website": "http://airbnb.io/enzyme/"
   },
   {
@@ -23,33 +21,27 @@
   },
   {
     "label": "react-router-redux",
-    "description":
-      "Ruthlessly simple bindings to keep react-router and redux in sync",
-    "website":
-      "https://github.com/ReactTraining/react-router/tree/master/packages/react-router-redux"
+    "description": "Ruthlessly simple bindings to keep react-router and redux in sync",
+    "website": "https://github.com/ReactTraining/react-router/tree/master/packages/react-router-redux"
   },
   {
     "label": "React-MD",
-    "description":
-      "react-md is a set of React components and sass files for implementing Google's Material Design.",
+    "description": "react-md is a set of React components and sass files for implementing Google's Material Design.",
     "website": "https://react-md.mlaursen.com/"
   },
   {
     "label": "material-design-icons",
-    "description":
-      "Material icons are beautifully crafted, delightful, and easy to use in your web, Android, and iOS projects.",
+    "description": "Material icons are beautifully crafted, delightful, and easy to use in your web, Android, and iOS projects.",
     "website": "https://material.io/icons/"
   },
   {
     "label": "node-sass-chokidar",
-    "description":
-      "A thin wrapper around node-sass to replicate the --watch using chokidar instead of Gaze.",
+    "description": "A thin wrapper around node-sass to replicate the --watch using chokidar instead of Gaze.",
     "website": "https://github.com/michaelwayman/node-sass-chokidar"
   },
   {
     "label": "Prettier",
-    "description":
-      "JavaScript formatter inspired by refmt with advanced support for language features from ES2017, JSX, and Flow.",
+    "description": "JavaScript formatter inspired by refmt with advanced support for language features from ES2017, JSX, and Flow.",
     "website": "https://github.com/prettier/prettier/"
   }
 ]

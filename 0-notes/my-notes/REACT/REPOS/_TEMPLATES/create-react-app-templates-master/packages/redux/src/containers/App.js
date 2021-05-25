@@ -1,16 +1,16 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Redirect, Route, Switch, withRouter } from "react-router-dom";
 
-import Header from './Header';
-import DashboardPage from './DashboardPage';
-import HomePage from './HomePage';
-import LoginPage from './LoginPage';
-import RequireAuthentication from './RequireAuthentication';
+import Header from "./Header";
+import DashboardPage from "./DashboardPage";
+import HomePage from "./HomePage";
+import LoginPage from "./LoginPage";
+import RequireAuthentication from "./RequireAuthentication";
 
-import './App.css';
-import 'material-design-icons/iconfont/material-icons.css';
+import "./App.css";
+import "material-design-icons/iconfont/material-icons.css";
 
 export class App extends Component {
   checkAuthenticated(component, path) {
@@ -32,7 +32,7 @@ export class App extends Component {
             <Route
               exact
               path="/"
-              render={() => this.checkAuthenticated(Redirect, '/home')}
+              render={() => this.checkAuthenticated(Redirect, "/home")}
             />
             <Route
               path="/login"
@@ -54,7 +54,7 @@ App.propTypes = {
   isAuthenticated: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   isAuthenticated: state.user.isAuthenticated,
 });
 

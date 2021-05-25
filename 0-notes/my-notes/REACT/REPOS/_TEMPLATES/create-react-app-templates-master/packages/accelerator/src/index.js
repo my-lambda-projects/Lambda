@@ -1,18 +1,18 @@
-import createBrowserHistory from 'history/createBrowserHistory';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'react-router-redux';
-import WebFont from 'webfontloader';
+import createBrowserHistory from "history/createBrowserHistory";
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { ConnectedRouter } from "react-router-redux";
+import WebFont from "webfontloader";
 
-import registerServiceWorker from './registerServiceWorker';
-import App from './containers/App';
-import configureStore from './store/configureStore';
+import registerServiceWorker from "./registerServiceWorker";
+import App from "./containers/App";
+import configureStore from "./store/configureStore";
 
-import './assets/stylesheets/index.scss';
+import "./assets/stylesheets/index.scss";
 
 // react-md utilizes Google's material icons
-WebFont.load({ google: { families: ['Material Icons'] } });
+WebFont.load({ google: { families: ["Material Icons"] } });
 
 // the same history instance is required in the store and ConnectedRouter
 const history = createBrowserHistory();
@@ -25,7 +25,7 @@ function render(Component) {
         <Component />
       </ConnectedRouter>
     </Provider>,
-    document.getElementById('root')
+    document.getElementById("root")
   );
 }
 
@@ -35,8 +35,8 @@ registerServiceWorker();
 // In development, hot module replacement (HMR) updates the application
 // when changes are made, without having to refresh.
 if (module.hot) {
-  module.hot.accept('./containers/App', () => {
-    const NextApp = require('./containers/App').default;
+  module.hot.accept("./containers/App", () => {
+    const NextApp = require("./containers/App").default;
     render(NextApp);
   });
 }

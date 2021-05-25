@@ -18,7 +18,7 @@ export default function patchDOMForGoogleTranslate() {
   // $FlowFixMe Intentionally monkepatching.
   const originalRemoveChild = Node.prototype.removeChild;
   // $FlowFixMe Intentionally monkepatching.
-  Node.prototype.removeChild = function(child) {
+  Node.prototype.removeChild = function (child) {
     if (child.parentNode !== this) {
       if (typeof console !== 'undefined') {
         console.error(
@@ -35,7 +35,7 @@ export default function patchDOMForGoogleTranslate() {
   // $FlowFixMe Intentionally monkepatching.
   const originalInsertBefore = Node.prototype.insertBefore;
   // $FlowFixMe Intentionally monkepatching.
-  Node.prototype.insertBefore = function(newNode, referenceNode) {
+  Node.prototype.insertBefore = function (newNode, referenceNode) {
     if (referenceNode && referenceNode.parentNode !== this) {
       if (typeof console !== 'undefined') {
         console.error(

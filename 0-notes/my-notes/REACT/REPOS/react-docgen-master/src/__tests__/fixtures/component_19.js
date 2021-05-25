@@ -15,8 +15,6 @@ export default class Component extends React.PureComponent<Props, State> {
   }
 
   render() {
-    return (
-      <div>Hello</div>
-    );
+    return <div>Hello</div>;
   }
 }

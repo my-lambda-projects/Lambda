@@ -1,4 +1,4 @@
-const ToDo = props => (
+const ToDo = (props) => (
   <tr>
     <td>
       <label>{props.id}</label>

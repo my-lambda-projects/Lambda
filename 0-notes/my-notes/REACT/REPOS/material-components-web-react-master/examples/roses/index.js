@@ -26,6 +26,4 @@ import Feedback from './Feedback';
 
 import './index.scss';
 
-ReactDOM.render((
-  <Feedback />
-), document.getElementById('roses-feedback'));
+ReactDOM.render(<Feedback />, document.getElementById('roses-feedback'));

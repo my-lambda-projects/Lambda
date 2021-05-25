@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import TextField from 'react-md/lib/TextFields';
-import Button from 'react-md/lib/Buttons';
-import { Card, CardText, CardTitle } from 'react-md/lib/Cards';
-import LoginForm from 'react-redux-modules/lib/components/LoginForm';
+import React, { Component } from "react";
+import TextField from "react-md/lib/TextFields";
+import Button from "react-md/lib/Buttons";
+import { Card, CardText, CardTitle } from "react-md/lib/Cards";
+import LoginForm from "react-redux-modules/lib/components/LoginForm";
 
-import { authenticate } from '../store/user/action';
+import { authenticate } from "../store/user/action";
 
-import './LoginPage.css';
+import "./LoginPage.css";
 
 class LoginPage extends Component {
   render() {

@@ -7,8 +7,8 @@ socket.on("connect", () => {
     addMessage(username, message, false);
   });
 
-  socket.on("previousMessages", messages => {
-    messages.map(msg => addMessage(msg.username, msg.msg, false));
+  socket.on("previousMessages", (messages) => {
+    messages.map((msg) => addMessage(msg.username, msg.msg, false));
   });
 });
 
@@ -36,7 +36,7 @@ const createMessageComponent = (username, message, sended) => {
 };
 
 // Insert a message in the chat history
-const appendMessageHistory = message =>
+const appendMessageHistory = (message) =>
   document.querySelector(".chat-history").appendChild(message);
 
 const clearMessageInput = () =>
@@ -48,7 +48,7 @@ const getMessageTime = () => {
   return `${date.getHours()}:${date.getMinutes()}`;
 };
 
-const handleFormSubmit = e => {
+const handleFormSubmit = (e) => {
   console.log(e);
 
   e.preventDefault();
@@ -59,14 +59,14 @@ const handleFormSubmit = e => {
   if (username && msg) {
     socket.emit("newMessage", {
       username,
-      msg
+      msg,
     });
 
     addMessage(username, msg, true);
   }
 };
 
-const createTemplateComponent = templateID => {
+const createTemplateComponent = (templateID) => {
   // Get the template in the DOM
   const template = document.querySelector(templateID);
 

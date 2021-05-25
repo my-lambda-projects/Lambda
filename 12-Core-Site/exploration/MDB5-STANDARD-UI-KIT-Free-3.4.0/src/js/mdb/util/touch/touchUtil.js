@@ -10,11 +10,11 @@ class TouchUtil {
   _getDirection(displacement) {
     return {
       x: {
-        direction: displacement.x < 0 ? 'left' : 'right',
+        direction: displacement.x < 0 ? "left" : "right",
         value: Math.abs(displacement.x),
       },
       y: {
-        direction: displacement.y < 0 ? 'up' : 'down',
+        direction: displacement.y < 0 ? "up" : "down",
         value: Math.abs(displacement.y),
       },
     };

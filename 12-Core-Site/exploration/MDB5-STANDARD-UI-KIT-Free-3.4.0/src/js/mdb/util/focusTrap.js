@@ -1,14 +1,15 @@
-import SelectorEngine from '../dom/selector-engine';
-import { isVisible } from './index';
+import SelectorEngine from "../dom/selector-engine";
+import { isVisible } from "./index";
 
 class FocusTrap {
   constructor(element, options = {}, toggler) {
     this._element = element;
     this._toggler = toggler;
-    this._event = options.event || 'blur';
+    this._event = options.event || "blur";
     this._condition = options.condition || (() => true);
     this._selector =
-      options.selector || 'button, a, input, select, textarea, [tabindex]:not([tabindex="-1"])';
+      options.selector ||
+      'button, a, input, select, textarea, [tabindex]:not([tabindex="-1"])';
     this._onlyVisible = options.onlyVisible || false;
     this._focusableElements = [];
     this._firstElement = null;
@@ -45,42 +46,54 @@ class FocusTrap {
 
   _init() {
     const handler = (e) => {
-      if (!this._firstElement || e.key !== 'Tab' || this._focusableElements.includes(e.target)) {
+      if (
+        !this._firstElement ||
+        e.key !== "Tab" ||
+        this._focusableElements.includes(e.target)
+      ) {
         return;
       }
 
       e.preventDefault();
       this._firstElement.focus();
 
-      window.removeEventListener('keydown', handler);
+      window.removeEventListener("keydown", handler);
     };
 
-    window.addEventListener('keydown', handler);
+    window.addEventListener("keydown", handler);
   }
 
   _filterVisible(elements) {
     return elements.filter((el) => {
       if (!isVisible(el)) return false;
 
-      const ancestors = SelectorEngine.parents(el, '*');
+      const ancestors = SelectorEngine.parents(el, "*");
 
       for (let i = 0; i < ancestors.length; i++) {
         const style = window.getComputedStyle(ancestors[i]);
-        if (style && (style.display === 'none' || style.visibility === 'hidden')) return false;
+        if (
+          style &&
+          (style.display === "none" || style.visibility === "hidden")
+        )
+          return false;
       }
       return true;
     });
   }
 
   _setElements() {
-    this._focusableElements = SelectorEngine.find(this._selector, this._element);
+    this._focusableElements = SelectorEngine.find(
+      this._selector,
+      this._element
+    );
 
     if (this._onlyVisible) {
       this._focusableElements = this._filterVisible(this._focusableElements);
     }
 
     this._firstElement = this._focusableElements[0];
-    this._lastElement = this._focusableElements[this._focusableElements.length - 1];
+    this._lastElement =
+      this._focusableElements[this._focusableElements.length - 1];
   }
 
   _setFocusTrap() {

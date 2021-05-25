@@ -1,12 +1,12 @@
-import React from 'react';
-import Card from 'react-md/lib/Cards/Card';
-import CardText from 'react-md/lib/Cards/CardText';
-import CardTitle from 'react-md/lib/Cards/CardTitle';
-import Divider from 'react-md/lib/Dividers';
+import React from "react";
+import Card from "react-md/lib/Cards/Card";
+import CardText from "react-md/lib/Cards/CardText";
+import CardTitle from "react-md/lib/Cards/CardTitle";
+import Divider from "react-md/lib/Dividers";
 
-import '../assets/stylesheets/Home.scss';
+import "../assets/stylesheets/Home.scss";
 
-const Home = props => {
+const Home = (props) => {
   return (
     <Card className="card">
       <CardTitle
@@ -20,7 +20,7 @@ const Home = props => {
           <li>
             <a href="https://github.com/facebookincubator/create-react-app">
               create-react-app
-            </a>{' '}
+            </a>{" "}
             - CLI tool for React apps. Configures Webpack, Babel and more.
           </li>
           <li>
@@ -50,13 +50,13 @@ const Home = props => {
           <li>
             <a href="https://reacttraining.com/react-router/">
               React Router v4
-            </a>{' '}
+            </a>{" "}
             - declarative React routes.
           </li>
           <li>
             <a href="https://github.com/ReactTraining/react-router/tree/master/packages/react-router-redux">
               react-router-redux
-            </a>{' '}
+            </a>{" "}
             - syncs up routing state with Redux.
           </li>
         </ul>
@@ -85,13 +85,13 @@ const Home = props => {
           <li>
             <a href="https://webpack.js.org/concepts/hot-module-replacement">
               Hot Module Replacement (HMR)
-            </a>{' '}
+            </a>{" "}
             - updates app without refreshing or losing Redux state.
           </li>
           <li>
             <a href="https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en">
               Redux DevTools - Chrome extension
-            </a>{' '}
+            </a>{" "}
             - view Redux store within Chrome debugging tools.
           </li>
         </ul>

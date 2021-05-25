@@ -49,12 +49,14 @@ class Feedback extends React.Component {
             {this.renderMessage()}
             <ChipSet
               filter
-              handleSelect={(selectedFeedbackChips) => this.setState({selectedFeedbackChips})}
+              handleSelect={(selectedFeedbackChips) =>
+                this.setState({selectedFeedbackChips})
+              }
             >
-              <Chip id='fast' label='Fast Delivery'/>
-              <Chip id='great_flowers' label='Great Flowers'/>
-              <Chip id='nice_courier' label='Nice Courier'/>
-              <Chip id='easy_order' label='Easy to Order'/>
+              <Chip id='fast' label='Fast Delivery' />
+              <Chip id='great_flowers' label='Great Flowers' />
+              <Chip id='nice_courier' label='Nice Courier' />
+              <Chip id='easy_order' label='Easy to Order' />
             </ChipSet>
             {this.renderFeedbackTextField()}
             {this.renderSubmit()}
@@ -68,10 +70,12 @@ class Feedback extends React.Component {
     return (
       <TopAppBar
         title='Feedback'
-        navigationIcon={<MaterialIcon
-          icon='close'
-          onClick={() => console.log('close feedback surface')}
-        />}
+        navigationIcon={
+          <MaterialIcon
+            icon='close'
+            onClick={() => console.log('close feedback surface')}
+          />
+        }
       />
     );
   }
@@ -115,10 +119,7 @@ class Feedback extends React.Component {
 
   renderSubmit() {
     return (
-      <Button
-        raised
-        onClick={() => console.log('submit!')}
-      >
+      <Button raised onClick={() => console.log('submit!')}>
         Submit
       </Button>
     );

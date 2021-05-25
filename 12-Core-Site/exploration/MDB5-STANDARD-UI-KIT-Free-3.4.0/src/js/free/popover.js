@@ -1,7 +1,7 @@
-import { getjQuery, onDOMContentLoaded } from '../mdb/util/index';
-import EventHandler from '../mdb/dom/event-handler';
-import SelectorEngine from '../mdb/dom/selector-engine';
-import BSPopover from '../bootstrap/mdb-prefix/popover';
+import { getjQuery, onDOMContentLoaded } from "../mdb/util/index";
+import EventHandler from "../mdb/dom/event-handler";
+import SelectorEngine from "../mdb/dom/selector-engine";
+import BSPopover from "../bootstrap/mdb-prefix/popover";
 
 /**
  * ------------------------------------------------------------------------
@@ -9,15 +9,15 @@ import BSPopover from '../bootstrap/mdb-prefix/popover';
  * ------------------------------------------------------------------------
  */
 
-const NAME = 'popover';
+const NAME = "popover";
 const DATA_KEY = `mdb.${NAME}`;
 const EVENT_KEY = `.${DATA_KEY}`;
 
-const EVENT_SHOW_BS = 'show.bs.popover';
-const EVENT_SHOWN_BS = 'shown.bs.popover';
-const EVENT_HIDE_BS = 'hide.bs.popover';
-const EVENT_HIDDEN_BS = 'hidden.bs.popover';
-const EVENT_INSERTED_BS = 'inserted.bs.popover';
+const EVENT_SHOW_BS = "show.bs.popover";
+const EVENT_SHOWN_BS = "shown.bs.popover";
+const EVENT_HIDE_BS = "hide.bs.popover";
+const EVENT_HIDDEN_BS = "hidden.bs.popover";
+const EVENT_INSERTED_BS = "inserted.bs.popover";
 
 const EVENT_SHOW = `show${EVENT_KEY}`;
 const EVENT_SHOWN = `shown${EVENT_KEY}`;

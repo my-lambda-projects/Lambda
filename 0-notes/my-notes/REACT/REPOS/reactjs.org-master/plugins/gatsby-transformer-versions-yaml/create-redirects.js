@@ -18,7 +18,7 @@ module.exports = async function writeRedirectsFile(
 
   // Map redirect data to the format Netlify expects
   // https://www.netlify.com/docs/redirects/
-  redirects = redirects.map(redirect => {
+  redirects = redirects.map((redirect) => {
     const {
       fromPath,
       isPermanent,

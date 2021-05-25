@@ -1,4 +1,4 @@
-const caseConverter = require('./index');
+const caseConverter = require("./index");
 
 /*
 Now let's try your functions.

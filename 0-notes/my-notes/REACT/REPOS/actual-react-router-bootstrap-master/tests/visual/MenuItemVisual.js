@@ -1,10 +1,10 @@
-import React from 'react';
-import ButtonToolbar from 'react-bootstrap/lib/ButtonToolbar';
-import MenuItem from 'react-bootstrap/lib/MenuItem';
-import SplitButton from 'react-bootstrap/lib/SplitButton';
-import { Link } from 'react-router';
+import React from "react";
+import ButtonToolbar from "react-bootstrap/lib/ButtonToolbar";
+import MenuItem from "react-bootstrap/lib/MenuItem";
+import SplitButton from "react-bootstrap/lib/SplitButton";
+import { Link } from "react-router";
 
-import LinkContainer from '../../src/LinkContainer';
+import LinkContainer from "../../src/LinkContainer";
 
 export default () => (
   <div>
@@ -15,7 +15,9 @@ export default () => (
     <ButtonToolbar>
       <SplitButton title="Dropdown">
         <MenuItem eventKey="1">Action</MenuItem>
-        <MenuItem eventKey="2" active>Active action</MenuItem>
+        <MenuItem eventKey="2" active>
+          Active action
+        </MenuItem>
         <MenuItem eventKey="3">Another action</MenuItem>
         <MenuItem divider />
         <MenuItem eventKey="4">Separated link</MenuItem>

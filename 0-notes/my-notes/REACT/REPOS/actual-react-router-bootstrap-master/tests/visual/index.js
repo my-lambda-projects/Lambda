@@ -1,16 +1,16 @@
-import React from 'react';
-import Grid from 'react-bootstrap/lib/Grid';
-import ReactDOM from 'react-dom';
-import { IndexRedirect, Route, Router } from 'react-router';
-import hashHistory from 'react-router/lib/hashHistory';
+import React from "react";
+import Grid from "react-bootstrap/lib/Grid";
+import ReactDOM from "react-dom";
+import { IndexRedirect, Route, Router } from "react-router";
+import hashHistory from "react-router/lib/hashHistory";
 
-import ButtonVisual from './ButtonVisual';
-import Home from './Home';
-import ListGroupItemVisual from './ListGroupItemVisual';
-import MenuItemVisual from './MenuItemVisual';
-import NavItemVisual from './NavItemVisual';
+import ButtonVisual from "./ButtonVisual";
+import Home from "./Home";
+import ListGroupItemVisual from "./ListGroupItemVisual";
+import MenuItemVisual from "./MenuItemVisual";
+import NavItemVisual from "./NavItemVisual";
 
-import 'bootstrap/less/bootstrap.less';
+import "bootstrap/less/bootstrap.less";
 
 const App = ({ children }) => (
   <Grid>
@@ -19,7 +19,7 @@ const App = ({ children }) => (
   </Grid>
 );
 
-const mountNode = document.createElement('div');
+const mountNode = document.createElement("div");
 document.body.appendChild(mountNode);
 
 ReactDOM.render(

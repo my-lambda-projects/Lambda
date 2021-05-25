@@ -1,4 +1,4 @@
-import type {Props as BarProps} from 'Bar.react';
+import type { Props as BarProps } from 'Bar.react';
 
 const Bar = require('Bar.react');
 

@@ -5,33 +5,32 @@
 const wordCondenser = /(?:^|\s)\S(?:(\s+)\S)(?:\1\S)*(?:$|\s)/g;
 const spaceCondenser = /\s{2,}/g;
 
-const condenseSpaces = msg => {
+const condenseSpaces = (msg) => {
   return msg
-    .replace(wordCondenser, m => m.replace(/\s+/g, ''))
-    .replace(spaceCondenser, ' ');
+    .replace(wordCondenser, (m) => m.replace(/\s+/g, ""))
+    .replace(spaceCondenser, " ");
 };
 
-const makeRegex = str => {
-  const content = str.split('').map(char => {
+const makeRegex = (str) => {
+  const content = str.split("").map((char) => {
     const mangledChars = mangleMap[char];
 
     if (!mangledChars || mangledChars.length === 1) {
       return char;
     } else {
-      return `[${mangledChars.join('')}]`;
+      return `[${mangledChars.join("")}]`;
     }
   });
 
-  return new RegExp(`(?:^|\\s)${content.join('')}(?:$|\\s)`, 'i');
+  return new RegExp(`(?:^|\\s)${content.join("")}(?:$|\\s)`, "i");
 };
 
+const blacklistRegexps = spamPhrases.map((phrase) => makeRegex(phrase));
 
-const blacklistRegexps = spamPhrases.map(phrase => makeRegex(phrase));
-
-const isSpam = msg => {
+const isSpam = (msg) => {
   const spacesCondensed = condenseSpaces(msg);
 
-  return blacklistRegexps.some(re => re.test(spacesCondensed));
+  return blacklistRegexps.some((re) => re.test(spacesCondensed));
 };
 
 /*

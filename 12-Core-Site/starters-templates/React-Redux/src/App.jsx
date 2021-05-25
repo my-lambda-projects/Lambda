@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import React, { Fragment } from "react";
+import { BrowserRouter } from "react-router-dom";
 
-import { Nav } from './containers'
-import { Routes } from './Routes'
+import { Nav } from "./containers";
+import { Routes } from "./Routes";
 
-import logo from './assets/React-icon.png'
+import logo from "./assets/React-icon.png";
 
 const App = () => (
   <BrowserRouter>
@@ -18,6 +18,6 @@ const App = () => (
       <Routes />
     </main>
   </BrowserRouter>
-)
+);
 
-export default App
+export default App;

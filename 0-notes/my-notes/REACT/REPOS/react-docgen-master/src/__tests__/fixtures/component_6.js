@@ -2,10 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Button = ({ children, onClick, style = {} }) => (
-  <button
-    style={{ }}
-    onClick={onClick}
-  >
+  <button style={{}} onClick={onClick}>
     {children}
   </button>
 );

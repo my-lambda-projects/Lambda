@@ -385,11 +385,8 @@ function handleTSIndexedAccessType(
   importer: Importer,
 ): FlowSimpleType {
   // eslint-disable-next-line no-undef
-  const objectType: $Shape<FlowObjectSignatureType> = getTSTypeWithResolvedTypes(
-    path.get('objectType'),
-    typeParams,
-    importer,
-  );
+  const objectType: $Shape<FlowObjectSignatureType> =
+    getTSTypeWithResolvedTypes(path.get('objectType'), typeParams, importer);
   // eslint-disable-next-line no-undef
   const indexType: $Shape<FlowLiteralType> = getTSTypeWithResolvedTypes(
     path.get('indexType'),

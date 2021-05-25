@@ -1,8 +1,6 @@
-const http = require('http');
+const http = require("http");
 
-http.createServer(function() {
-   
-})
+http.createServer(function () {});
 
 // The callback function in `http.createServer()` takes two arguments.
 // Pass `request` as the first argument and `response` as the second argument to the `http.createServer()` callback function.

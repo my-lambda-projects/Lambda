@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment } from "react";
 
 const Home = () => (
   <Fragment>
@@ -15,6 +15,6 @@ const Home = () => (
       biltong capicola meatloaf leberkas ham hock chuck frankfurter.
     </p>
   </Fragment>
-)
+);
 
-export default Home
+export default Home;

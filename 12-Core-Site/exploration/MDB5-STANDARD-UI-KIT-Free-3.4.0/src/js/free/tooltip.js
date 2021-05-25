@@ -1,7 +1,7 @@
-import { getjQuery, onDOMContentLoaded } from '../mdb/util/index';
-import EventHandler from '../mdb/dom/event-handler';
-import BSTooltip from '../bootstrap/mdb-prefix/tooltip';
-import SelectorEngine from '../mdb/dom/selector-engine';
+import { getjQuery, onDOMContentLoaded } from "../mdb/util/index";
+import EventHandler from "../mdb/dom/event-handler";
+import BSTooltip from "../bootstrap/mdb-prefix/tooltip";
+import SelectorEngine from "../mdb/dom/selector-engine";
 
 /**
  * ------------------------------------------------------------------------
@@ -9,15 +9,15 @@ import SelectorEngine from '../mdb/dom/selector-engine';
  * ------------------------------------------------------------------------
  */
 
-const NAME = 'tooltip';
+const NAME = "tooltip";
 const DATA_KEY = `mdb.${NAME}`;
 const EVENT_KEY = `.${DATA_KEY}`;
 
-const EVENT_HIDE_BS = 'hide.bs.tooltip';
-const EVENT_HIDDEN_BS = 'hidden.bs.tooltip';
-const EVENT_SHOW_BS = 'show.bs.tooltip';
-const EVENT_SHOWN_BS = 'shown.bs.tooltip';
-const EVENT_INSERTED_BS = 'inserted.bs.tooltip';
+const EVENT_HIDE_BS = "hide.bs.tooltip";
+const EVENT_HIDDEN_BS = "hidden.bs.tooltip";
+const EVENT_SHOW_BS = "show.bs.tooltip";
+const EVENT_SHOWN_BS = "shown.bs.tooltip";
+const EVENT_INSERTED_BS = "inserted.bs.tooltip";
 
 const EVENT_HIDE = `hide${EVENT_KEY}`;
 const EVENT_HIDDEN = `hidden${EVENT_KEY}`;

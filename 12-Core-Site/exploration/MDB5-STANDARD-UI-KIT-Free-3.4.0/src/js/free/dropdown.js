@@ -1,8 +1,12 @@
-import { getjQuery, typeCheckConfig, onDOMContentLoaded } from '../mdb/util/index';
-import EventHandler from '../mdb/dom/event-handler';
-import SelectorEngine from '../mdb/dom/selector-engine';
-import Manipulator from '../mdb/dom/manipulator';
-import BSDropdown from '../bootstrap/mdb-prefix/dropdown';
+import {
+  getjQuery,
+  typeCheckConfig,
+  onDOMContentLoaded,
+} from "../mdb/util/index";
+import EventHandler from "../mdb/dom/event-handler";
+import SelectorEngine from "../mdb/dom/selector-engine";
+import Manipulator from "../mdb/dom/manipulator";
+import BSDropdown from "../bootstrap/mdb-prefix/dropdown";
 
 /**
  * ------------------------------------------------------------------------
@@ -10,7 +14,7 @@ import BSDropdown from '../bootstrap/mdb-prefix/dropdown';
  * ------------------------------------------------------------------------
  */
 
-const NAME = 'dropdown';
+const NAME = "dropdown";
 const DATA_KEY = `mdb.${NAME}`;
 const EVENT_KEY = `.${DATA_KEY}`;
 
@@ -19,50 +23,52 @@ const SELECTOR_EXPAND = '[data-mdb-toggle="dropdown"]';
 const Default = {
   offset: [0, 2],
   flip: true,
-  boundary: 'clippingParents',
-  reference: 'toggle',
-  display: 'dynamic',
+  boundary: "clippingParents",
+  reference: "toggle",
+  display: "dynamic",
   popperConfig: null,
-  dropdownAnimation: 'on',
+  dropdownAnimation: "on",
 };
 
 const DefaultType = {
-  offset: '(array|string|function)',
-  flip: 'boolean',
-  boundary: '(string|element)',
-  reference: '(string|element|object)',
-  display: 'string',
-  popperConfig: '(null|object|function)',
-  dropdownAnimation: 'string',
+  offset: "(array|string|function)",
+  flip: "boolean",
+  boundary: "(string|element)",
+  reference: "(string|element|object)",
+  display: "string",
+  popperConfig: "(null|object|function)",
+  dropdownAnimation: "string",
 };
 
-const EVENT_HIDE = 'hide.bs.dropdown';
-const EVENT_HIDDEN = 'hidden.bs.dropdown';
-const EVENT_SHOW = 'show.bs.dropdown';
-const EVENT_SHOWN = 'shown.bs.dropdown';
+const EVENT_HIDE = "hide.bs.dropdown";
+const EVENT_HIDDEN = "hidden.bs.dropdown";
+const EVENT_SHOW = "show.bs.dropdown";
+const EVENT_SHOWN = "shown.bs.dropdown";
 
 const EVENT_HIDE_MDB = `hide${EVENT_KEY}`;
 const EVENT_HIDDEN_MDB = `hidden${EVENT_KEY}`;
 const EVENT_SHOW_MDB = `show${EVENT_KEY}`;
 const EVENT_SHOWN_MDB = `shown${EVENT_KEY}`;
 
-const ANIMATION_CLASS = 'animation';
-const ANIMATION_SHOW_CLASS = 'fade-in';
-const ANIMATION_HIDE_CLASS = 'fade-out';
+const ANIMATION_CLASS = "animation";
+const ANIMATION_SHOW_CLASS = "fade-in";
+const ANIMATION_HIDE_CLASS = "fade-out";
 
 class Dropdown extends BSDropdown {
   constructor(element, data) {
     super(element, data);
     this._config = this._getConfig(data);
     this._parent = Dropdown.getParentFromElement(this._element);
-    this._menuStyle = '';
-    this._popperPlacement = '';
-    this._mdbPopperConfig = '';
+    this._menuStyle = "";
+    this._popperPlacement = "";
+    this._mdbPopperConfig = "";
 
     //* prevents dropdown close issue when system animation is turned off
-    const isPrefersReducedMotionSet = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isPrefersReducedMotionSet = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
-    if (this._config.dropdownAnimation === 'on' && !isPrefersReducedMotionSet) {
+    if (this._config.dropdownAnimation === "on" && !isPrefersReducedMotionSet) {
       this._init();
     }
   }
@@ -101,11 +107,11 @@ class Dropdown extends BSDropdown {
   _getOffset() {
     const { offset } = this._config;
 
-    if (typeof offset === 'string') {
-      return offset.split(',').map((val) => Number.parseInt(val, 10));
+    if (typeof offset === "string") {
+      return offset.split(",").map((val) => Number.parseInt(val, 10));
     }
 
-    if (typeof offset === 'function') {
+    if (typeof offset === "function") {
       return (popperData) => offset(popperData, this._element);
     }
 
@@ -117,14 +123,14 @@ class Dropdown extends BSDropdown {
       placement: this._getPlacement(),
       modifiers: [
         {
-          name: 'preventOverflow',
+          name: "preventOverflow",
           options: {
             altBoundary: this._config.flip,
             boundary: this._config.boundary,
           },
         },
         {
-          name: 'offset',
+          name: "offset",
           options: {
             offset: this._getOffset(),
           },
@@ -133,10 +139,10 @@ class Dropdown extends BSDropdown {
     };
 
     // Disable Popper if we have a static display
-    if (this._config.display === 'static') {
+    if (this._config.display === "static") {
       popperConfig.modifiers = [
         {
-          name: 'applyStyles',
+          name: "applyStyles",
           enabled: false,
         },
       ];
@@ -145,7 +151,7 @@ class Dropdown extends BSDropdown {
     return {
       ...popperConfig,
       /* eslint no-extra-parens: "off" */
-      ...(typeof this._config.popperConfig === 'function'
+      ...(typeof this._config.popperConfig === "function"
         ? this._config.popperConfig(popperConfig)
         : this._config.popperConfig),
     };
@@ -153,46 +159,54 @@ class Dropdown extends BSDropdown {
 
   _bindShowEvent() {
     EventHandler.on(this._element, EVENT_SHOW, (e) => {
-      EventHandler.trigger(this._element, EVENT_SHOW_MDB, { relatedTarget: e.relatedTarget });
+      EventHandler.trigger(this._element, EVENT_SHOW_MDB, {
+        relatedTarget: e.relatedTarget,
+      });
 
-      this._dropdownAnimationStart('show');
+      this._dropdownAnimationStart("show");
     });
   }
 
   _bindShownEvent() {
     EventHandler.on(this._parent, EVENT_SHOWN, (e) => {
-      EventHandler.trigger(this._parent, EVENT_SHOWN_MDB, { relatedTarget: e.relatedTarget });
+      EventHandler.trigger(this._parent, EVENT_SHOWN_MDB, {
+        relatedTarget: e.relatedTarget,
+      });
     });
   }
 
   _bindHideEvent() {
     EventHandler.on(this._parent, EVENT_HIDE, (e) => {
-      EventHandler.trigger(this._parent, EVENT_HIDE_MDB, { relatedTarget: e.relatedTarget });
+      EventHandler.trigger(this._parent, EVENT_HIDE_MDB, {
+        relatedTarget: e.relatedTarget,
+      });
 
       this._menuStyle = this._menu.style.cssText;
-      this._popperPlacement = this._menu.getAttribute('data-popper-placement');
-      this._mdbPopperConfig = this._menu.getAttribute('data-mdb-popper');
+      this._popperPlacement = this._menu.getAttribute("data-popper-placement");
+      this._mdbPopperConfig = this._menu.getAttribute("data-mdb-popper");
     });
   }
 
   _bindHiddenEvent() {
     EventHandler.on(this._parent, EVENT_HIDDEN, (e) => {
-      EventHandler.trigger(this._parent, EVENT_HIDDEN_MDB, { relatedTarget: e.relatedTarget });
+      EventHandler.trigger(this._parent, EVENT_HIDDEN_MDB, {
+        relatedTarget: e.relatedTarget,
+      });
 
-      if (this._config.display !== 'static' && this._menuStyle !== '') {
+      if (this._config.display !== "static" && this._menuStyle !== "") {
         this._menu.style.cssText = this._menuStyle;
       }
 
-      this._menu.setAttribute('data-popper-placement', this._popperPlacement);
-      this._menu.setAttribute('data-mdb-popper', this._mdbPopperConfig);
+      this._menu.setAttribute("data-popper-placement", this._popperPlacement);
+      this._menu.setAttribute("data-mdb-popper", this._mdbPopperConfig);
 
-      this._dropdownAnimationStart('hide');
+      this._dropdownAnimationStart("hide");
     });
   }
 
   _dropdownAnimationStart(action) {
     switch (action) {
-      case 'show':
+      case "show":
         this._menu.classList.add(ANIMATION_CLASS, ANIMATION_SHOW_CLASS);
         this._menu.classList.remove(ANIMATION_HIDE_CLASS);
         break;
@@ -207,8 +221,12 @@ class Dropdown extends BSDropdown {
   }
 
   _bindAnimationEnd() {
-    EventHandler.one(this._menu, 'animationend', () => {
-      this._menu.classList.remove(ANIMATION_CLASS, ANIMATION_HIDE_CLASS, ANIMATION_SHOW_CLASS);
+    EventHandler.one(this._menu, "animationend", () => {
+      this._menu.classList.remove(
+        ANIMATION_CLASS,
+        ANIMATION_HIDE_CLASS,
+        ANIMATION_SHOW_CLASS
+      );
     });
   }
 }

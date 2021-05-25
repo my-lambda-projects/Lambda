@@ -2,7 +2,6 @@
 // Outdated Tests!!
 /////////////////////
 
-
 import { products, ShoppingCart } from "./ShoppingCart";
 
 describe("Shopping Cart Tests", () => {
@@ -17,8 +16,8 @@ describe("Shopping Cart Tests", () => {
         id: 2,
         name: "French Macaroon",
         price: 3.99,
-        category: "macaroon"
-      }
+        category: "macaroon",
+      },
     ]);
     shoppingCart.addItem(products, 2);
     expect(shoppingCart.getCount()).toBe(2);
@@ -27,14 +26,14 @@ describe("Shopping Cart Tests", () => {
         id: 2,
         name: "French Macaroon",
         price: 3.99,
-        category: "macaroon"
+        category: "macaroon",
       },
       {
         id: 2,
         name: "French Macaroon",
         price: 3.99,
-        category: "macaroon"
-      }
+        category: "macaroon",
+      },
     ]);
 
     // if adding non existent id, it shouldn't add anything.
@@ -67,8 +66,8 @@ describe("Shopping Cart Tests", () => {
         id: 1,
         name: "Vanilla buttercream cupcake",
         price: 2.99,
-        category: "cupcake"
-      }
+        category: "cupcake",
+      },
     ]);
   });
 
@@ -88,20 +87,20 @@ describe("Shopping Cart Tests", () => {
         id: 5,
         name: "Chocolate pretzel",
         price: 4.99,
-        category: "pretzel"
+        category: "pretzel",
       },
       {
         id: 5,
         name: "Chocolate pretzel",
         price: 4.99,
-        category: "pretzel"
+        category: "pretzel",
       },
       {
         id: 5,
         name: "Chocolate pretzel",
         price: 4.99,
-        category: "pretzel"
-      }
+        category: "pretzel",
+      },
     ]);
 
     // reduce quantity
@@ -112,8 +111,8 @@ describe("Shopping Cart Tests", () => {
         id: 5,
         name: "Chocolate pretzel",
         price: 4.99,
-        category: "pretzel"
-      }
+        category: "pretzel",
+      },
     ]);
 
     // remove all items with passed in id
@@ -134,8 +133,8 @@ describe("Shopping Cart Tests", () => {
         id: 5,
         name: "Chocolate pretzel",
         price: 4.99,
-        category: "pretzel"
-      }
+        category: "pretzel",
+      },
     ]);
 
     // Not passing in the quantity number is like passing in 0

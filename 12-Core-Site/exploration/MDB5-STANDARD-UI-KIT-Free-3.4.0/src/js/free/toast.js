@@ -1,7 +1,7 @@
-import { getjQuery, onDOMContentLoaded } from '../mdb/util/index';
-import EventHandler from '../mdb/dom/event-handler';
-import SelectorEngine from '../mdb/dom/selector-engine';
-import BSToast from '../bootstrap/mdb-prefix/toast';
+import { getjQuery, onDOMContentLoaded } from "../mdb/util/index";
+import EventHandler from "../mdb/dom/event-handler";
+import SelectorEngine from "../mdb/dom/selector-engine";
+import BSToast from "../bootstrap/mdb-prefix/toast";
 
 /**
  * ------------------------------------------------------------------------
@@ -9,21 +9,21 @@ import BSToast from '../bootstrap/mdb-prefix/toast';
  * ------------------------------------------------------------------------
  */
 
-const NAME = 'toast';
+const NAME = "toast";
 const DATA_KEY = `mdb.${NAME}`;
 const EVENT_KEY = `.${DATA_KEY}`;
 
-const EVENT_SHOW_BS = 'show.bs.toast';
-const EVENT_SHOWN_BS = 'shown.bs.toast';
-const EVENT_HIDE_BS = 'hide.bs.toast';
-const EVENT_HIDDEN_BS = 'hidden.bs.toast';
+const EVENT_SHOW_BS = "show.bs.toast";
+const EVENT_SHOWN_BS = "shown.bs.toast";
+const EVENT_HIDE_BS = "hide.bs.toast";
+const EVENT_HIDDEN_BS = "hidden.bs.toast";
 
 const EVENT_SHOW = `show${EVENT_KEY}`;
 const EVENT_SHOWN = `shown${EVENT_KEY}`;
 const EVENT_HIDE = `hide${EVENT_KEY}`;
 const EVENT_HIDDEN = `hidden${EVENT_KEY}`;
 
-const SELECTOR_TOAST = '.toast';
+const SELECTOR_TOAST = ".toast";
 
 class Toast extends BSToast {
   constructor(element, data) {

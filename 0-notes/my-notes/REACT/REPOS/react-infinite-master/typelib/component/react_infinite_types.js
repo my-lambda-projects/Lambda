@@ -1,12 +1,14 @@
-import type React from 'react';
+import type React from "react";
 
-type PreloadType = number | {|
-  type: string,
-  amount: number
-|};
+type PreloadType =
+  | number
+  | {|
+      type: string,
+      amount: number,
+    |};
 type ElementHeight = number | Array<number>;
 
-type CSSStyle = {[key: string]: string | number};
+type CSSStyle = { [key: string]: string | number };
 
 type ReactInfiniteUtilityFunctions = {
   getLoadingSpinnerHeight: () => number,
@@ -16,7 +18,7 @@ type ReactInfiniteUtilityFunctions = {
   getScrollTop: () => number,
   setScrollTop: (top: number) => void,
   scrollShouldBeIgnored: (e: SyntheticEvent) => boolean,
-  buildScrollableStyle: () => CSSStyle
+  buildScrollableStyle: () => CSSStyle,
 };
 
 type ReactInfiniteProvidedDefaultProps = {
@@ -35,9 +37,9 @@ type ReactInfiniteProvidedDefaultProps = {
   className: string,
 
   styles: {
-    scrollableStyle?: Object
-  }
-}
+    scrollableStyle?: Object,
+  },
+};
 
 type ReactInfiniteProps = {
   children: any,
@@ -62,8 +64,8 @@ type ReactInfiniteProps = {
   className?: string,
 
   styles: {
-    scrollableStyle?: CSSStyle
-  }
+    scrollableStyle?: CSSStyle,
+  },
 };
 
 type ReactInfiniteComputedProps = {
@@ -88,8 +90,8 @@ type ReactInfiniteComputedProps = {
 
   className?: string,
   styles: {
-    scrollableStyle?: CSSStyle
-  }
+    scrollableStyle?: CSSStyle,
+  },
 };
 
 type ReactInfiniteState = {
@@ -101,5 +103,5 @@ type ReactInfiniteState = {
   displayIndexStart: number,
   displayIndexEnd: number,
   isScrolling?: boolean,
-  scrollTimeout?: any
+  scrollTimeout?: any,
 };

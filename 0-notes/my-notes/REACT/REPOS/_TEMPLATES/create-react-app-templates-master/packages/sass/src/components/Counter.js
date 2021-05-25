@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import TextField from 'react-md/lib/TextFields';
-import Button from 'react-md/lib/Buttons';
-import { Card, CardText, CardTitle } from 'react-md/lib/Cards';
+import PropTypes from "prop-types";
+import React from "react";
+import TextField from "react-md/lib/TextFields";
+import Button from "react-md/lib/Buttons";
+import { Card, CardText, CardTitle } from "react-md/lib/Cards";
 
-import './Counter.css';
+import "./Counter.css";
 
 const Counter = ({
   count = 0,
@@ -21,7 +21,7 @@ const Counter = ({
       <TextField
         id="counterInput"
         value={count}
-        onChange={value => handleChange(value)}
+        onChange={(value) => handleChange(value)}
       />
       <Button icon primary onClick={() => handleIncrement()}>
         add

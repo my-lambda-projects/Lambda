@@ -4,11 +4,11 @@ const chai = require("chai");
 const assert = chai.assert;
 
 describe("Garden tests", function () {
-   let myGarden = new Garden();
-   let myFruitTree = new FruitTree("Strawberry");
-   it("should be able to create a Garden", function () {
-      assert.instanceOf(myGarden, Garden);
-   });
+  let myGarden = new Garden();
+  let myFruitTree = new FruitTree("Strawberry");
+  it("should be able to create a Garden", function () {
+    assert.instanceOf(myGarden, Garden);
+  });
 });
 
 /* 

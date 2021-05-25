@@ -39,11 +39,11 @@ const getPageById = (sectionList: Array<Object>, templateFile: ?string) => {
     return null;
   }
 
-  const sectionItems = sectionList.map(section => section.items);
+  const sectionItems = sectionList.map((section) => section.items);
   const flattenedSectionItems = [].concat.apply([], sectionItems);
   const linkId = templateFile.replace('.html', '');
 
-  return flattenedSectionItems.find(item => item.id === linkId);
+  return flattenedSectionItems.find((item) => item.id === linkId);
 };
 
 const MarkdownPage = ({
@@ -99,7 +99,7 @@ const MarkdownPage = ({
                   {hasAuthors && (
                     <span>
                       by{' '}
-                      {toCommaSeparatedList(authors, author => (
+                      {toCommaSeparatedList(authors, (author) => (
                         <a
                           css={sharedStyles.link}
                           href={author.frontmatter.url}

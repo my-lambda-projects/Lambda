@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import ExpansionPanel from 'react-md/lib/ExpansionPanels/ExpansionPanel';
+import PropTypes from "prop-types";
+import React from "react";
+import ExpansionPanel from "react-md/lib/ExpansionPanels/ExpansionPanel";
 
-const Feature = props => (
+const Feature = (props) => (
   <ExpansionPanel
     focused={props.focused}
     overflown={props.overflown}

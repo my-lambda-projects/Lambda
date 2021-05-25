@@ -20,7 +20,10 @@ export const duration = {
   standard: 300,
 };
 
-export type TransitionDuration = number | { enter?: number, exit?: number } | 'auto';
+export type TransitionDuration =
+  | number
+  | { enter?: number, exit?: number }
+  | 'auto';
 
 export type Props = {
   /**
@@ -94,7 +97,13 @@ class Paper extends React.Component<ProvidedProps & Props> {
       ...other
     } = this.props;
 
-    return <ComponentProp className={classes.root} transition={transition} {...other} />;
+    return (
+      <ComponentProp
+        className={classes.root}
+        transition={transition}
+        {...other}
+      />
+    );
   }
 }
 

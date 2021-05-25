@@ -82,16 +82,13 @@ function cpAsset(asset) {
 // these lines since MDC Web does not have typing files
 // TODO: https://github.com/material-components/material-components-web-react/issues/574
 function addTsIgnore(filePath) {
-  const data = fs
-    .readFileSync(filePath)
-    .toString()
-    .split('\n');
+  const data = fs.readFileSync(filePath).toString().split('\n');
   const lineNumber = data.findIndex((lineText) => lineText.includes('/dist/'));
   if (lineNumber <= -1) return;
 
   data.splice(lineNumber, 0, '// @ts-ignore');
   const text = data.join('\n');
-  fs.writeFile(filePath, text, function(err) {
+  fs.writeFile(filePath, text, function (err) {
     if (err) return console.log(err);
   });
 }

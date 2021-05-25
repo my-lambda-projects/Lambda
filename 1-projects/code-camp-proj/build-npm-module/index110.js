@@ -20,7 +20,6 @@ author:
 license: (ISC)
 */
 
-
 /*
 You can set the license of your package.
 We will use MIT license.

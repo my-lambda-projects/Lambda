@@ -1,7 +1,11 @@
-import { getjQuery, getSelectorFromElement, onDOMContentLoaded } from '../mdb/util/index';
-import EventHandler from '../mdb/dom/event-handler';
-import SelectorEngine from '../mdb/dom/selector-engine';
-import BSModal from '../bootstrap/mdb-prefix/modal';
+import {
+  getjQuery,
+  getSelectorFromElement,
+  onDOMContentLoaded,
+} from "../mdb/util/index";
+import EventHandler from "../mdb/dom/event-handler";
+import SelectorEngine from "../mdb/dom/selector-engine";
+import BSModal from "../bootstrap/mdb-prefix/modal";
 
 /**
  * ------------------------------------------------------------------------
@@ -9,15 +13,15 @@ import BSModal from '../bootstrap/mdb-prefix/modal';
  * ------------------------------------------------------------------------
  */
 
-const NAME = 'modal';
+const NAME = "modal";
 const DATA_KEY = `mdb.${NAME}`;
 const EVENT_KEY = `.${DATA_KEY}`;
 
-const EVENT_HIDE_BS = 'hide.bs.modal';
-const EVENT_HIDE_PREVENTED_BS = 'hidePrevented.bs.modal';
-const EVENT_HIDDEN_BS = 'hidden.bs.modal';
-const EVENT_SHOW_BS = 'show.bs.modal';
-const EVENT_SHOWN_BS = 'shown.bs.modal';
+const EVENT_HIDE_BS = "hide.bs.modal";
+const EVENT_HIDE_PREVENTED_BS = "hidePrevented.bs.modal";
+const EVENT_HIDDEN_BS = "hidden.bs.modal";
+const EVENT_SHOW_BS = "show.bs.modal";
+const EVENT_SHOWN_BS = "shown.bs.modal";
 
 const EVENT_HIDE = `hide${EVENT_KEY}`;
 const EVENT_HIDE_PREVENTED = `hidePrevented${EVENT_KEY}`;
@@ -60,13 +64,17 @@ class Modal extends BSModal {
 
   _bindShowEvent() {
     EventHandler.on(this._element, EVENT_SHOW_BS, (e) => {
-      EventHandler.trigger(this._element, EVENT_SHOW, { relatedTarget: e.relatedTarget });
+      EventHandler.trigger(this._element, EVENT_SHOW, {
+        relatedTarget: e.relatedTarget,
+      });
     });
   }
 
   _bindShownEvent() {
     EventHandler.on(this._element, EVENT_SHOWN_BS, (e) => {
-      EventHandler.trigger(this._element, EVENT_SHOWN, { relatedTarget: e.relatedTarget });
+      EventHandler.trigger(this._element, EVENT_SHOWN, {
+        relatedTarget: e.relatedTarget,
+      });
     });
   }
 

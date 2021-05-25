@@ -32,35 +32,33 @@ module.exports = {
     path: __dirname,
   },
   module: {
-    rules: [{
-      test: /\.js$/,
-      loader: 'babel-loader',
-      query: {compact: true},
-    }, {
-      test: /\.scss$/,
-      use: ExtractTextPlugin.extract({
-        use: [
-          {
-            loader: 'css-loader',
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: () => [
-                require('autoprefixer')(),
-              ],
+    rules: [
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        query: {compact: true},
+      },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          use: [
+            {
+              loader: 'css-loader',
             },
-          },
-          {
-            loader: 'sass-loader',
-            options: {importer},
-          },
-        ],
-      }),
-    }],
+            {
+              loader: 'postcss-loader',
+              options: {
+                plugins: () => [require('autoprefixer')()],
+              },
+            },
+            {
+              loader: 'sass-loader',
+              options: {importer},
+            },
+          ],
+        }),
+      },
+    ],
   },
-  plugins: [
-    new ExtractTextPlugin('bundle.css'),
-    new OptimizeCssAssetsPlugin(),
-  ],
+  plugins: [new ExtractTextPlugin('bundle.css'), new OptimizeCssAssetsPlugin()],
 };

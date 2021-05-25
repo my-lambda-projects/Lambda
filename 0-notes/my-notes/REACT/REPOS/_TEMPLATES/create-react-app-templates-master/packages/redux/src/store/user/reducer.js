@@ -1,5 +1,5 @@
-import createReducer from '../createReducer';
-import * as ActionTypes from '../actionTypes';
+import createReducer from "../createReducer";
+import * as ActionTypes from "../actionTypes";
 
 const initialUserState = {
   id: null,

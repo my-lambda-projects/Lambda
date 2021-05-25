@@ -1,7 +1,7 @@
-import Swipe from './swipe';
+import Swipe from "./swipe";
 
 class Touch {
-  constructor(element, event = 'swipe', options = {}) {
+  constructor(element, event = "swipe", options = {}) {
     this._element = element;
     this._event = event;
 
@@ -17,18 +17,22 @@ class Touch {
   }
 
   dispose() {
-    this._element.removeEventListener('touchstart', this._touchStartHandler);
-    this._element.removeEventListener('touchmove', this._touchMoveHandler);
-    window.removeEventListener('touchend', this._touchEndHandler);
+    this._element.removeEventListener("touchstart", this._touchStartHandler);
+    this._element.removeEventListener("touchmove", this._touchMoveHandler);
+    window.removeEventListener("touchend", this._touchEndHandler);
   }
 
   init() {
     // istanbul ignore next
-    this._element.addEventListener('touchstart', (e) => this._handleTouchStart(e));
+    this._element.addEventListener("touchstart", (e) =>
+      this._handleTouchStart(e)
+    );
     // istanbul ignore next
-    this._element.addEventListener('touchmove', (e) => this._handleTouchMove(e));
+    this._element.addEventListener("touchmove", (e) =>
+      this._handleTouchMove(e)
+    );
     // istanbul ignore next
-    window.addEventListener('touchend', (e) => this._handleTouchEnd(e));
+    window.addEventListener("touchend", (e) => this._handleTouchEnd(e));
   }
 
   _handleTouchStart(e) {

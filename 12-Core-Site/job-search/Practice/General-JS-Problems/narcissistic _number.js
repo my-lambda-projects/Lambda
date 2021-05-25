@@ -8,8 +8,7 @@ https://www.geeksforgeeks.org/narcissistic-number/
 
 */
 
-isNarcissistic = num => {
-
+isNarcissistic = (num) => {
   //convert the original number to string. I can do this in the below way, or using toString()
   // let numStr = '' + num;
 
@@ -17,24 +16,33 @@ isNarcissistic = num => {
 
   let numLen = numStr.length;
 
-  let narcissisticResult = 0
+  let narcissisticResult = 0;
 
-  for (let i in numStr ) {
-    narcissisticResult += Math.pow( parseInt(numStr[i]), numLen);
+  for (let i in numStr) {
+    narcissisticResult += Math.pow(parseInt(numStr[i]), numLen);
   }
 
   return num === narcissisticResult;
-}
+};
 
 // console.log(isNarcissistic(153));
 
 // 153 is Nacrissistic number - (3 digits), you can see 153 = 1^3 + 5^3 + 3^3
 
 // Alternate Solution
-isNarcissistic1 = num => {
-  return num === (num.toString().split('').reduce((narcissisticResult, currentNum) => {
-      return narcissisticResult + Math.pow(parseInt(currentNum), num.toString().length)
-  }, 0))
-}
+isNarcissistic1 = (num) => {
+  return (
+    num ===
+    num
+      .toString()
+      .split("")
+      .reduce((narcissisticResult, currentNum) => {
+        return (
+          narcissisticResult +
+          Math.pow(parseInt(currentNum), num.toString().length)
+        );
+      }, 0)
+  );
+};
 
 console.log(isNarcissistic1(153));

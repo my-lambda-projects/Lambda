@@ -5,14 +5,14 @@ class Items {
     const itemsUrl = `${API_URL}/items`;
 
     const response = await fetch(itemsUrl, {
-      method: 'GET',
+      method: "GET",
     });
 
     if (response.ok) {
       const data = await response.json();
       return data;
     } else {
-      throw new Error('Items could not be retrieved.');
+      throw new Error("Items could not be retrieved.");
     }
   }
 }

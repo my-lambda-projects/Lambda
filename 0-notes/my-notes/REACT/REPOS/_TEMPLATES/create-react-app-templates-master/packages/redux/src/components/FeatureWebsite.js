@@ -1,5 +1,5 @@
-import React from 'react';
-import Button from 'react-md/lib/Buttons';
+import React from "react";
+import Button from "react-md/lib/Buttons";
 
 const FeatureWebsite = ({ website }) => (
   <Button raised primary href={website} target="_blank">

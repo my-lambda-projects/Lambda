@@ -1,7 +1,7 @@
 // This is largely taken from react-router/lib/Link.
 
-import React from 'react';
-import { Link } from 'react-router';
+import React from "react";
+import { Link } from "react-router";
 
 export default class LinkContainer extends React.Component {
   constructor(props, context) {
@@ -51,14 +51,14 @@ LinkContainer.propTypes = {
   onClick: React.PropTypes.func,
   active: React.PropTypes.bool,
   disabled: React.PropTypes.bool.isRequired,
-  children: React.PropTypes.node.isRequired
+  children: React.PropTypes.node.isRequired,
 };
 
 LinkContainer.contextTypes = {
-  router: React.PropTypes.object
+  router: React.PropTypes.object,
 };
 
 LinkContainer.defaultProps = {
   onlyActiveOnIndex: false,
-  disabled: false
+  disabled: false,
 };

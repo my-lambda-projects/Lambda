@@ -1,7 +1,7 @@
 function foo() {
-    return
-    {
-        message: "Hello World"
-    };
+  return;
+  {
+    message: "Hello World";
+  }
 }
 console.log(foo()); //Undefined

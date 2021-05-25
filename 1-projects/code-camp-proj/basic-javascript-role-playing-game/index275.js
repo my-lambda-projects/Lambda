@@ -18,7 +18,7 @@ const monsterNameText = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
 
 /* Arrays can store any data type, including objects. Objects are similar to arrays, except that instead of using indexes to access and modify their data, you access the data in objects through what are called properties. Inside the `locations` array add an empty object using curly braces. Here is an example of an array named `arr` with an empty object inside: `const arr = [{}];`
-*/
+ */
 
 const locations = [];
 
@@ -27,39 +27,37 @@ button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
 
-function update(location) {	
-}
+function update(location) {}
 
 function goTown() {
-	button1.innerText = "Go to store";
-	button2.innerText = "Go to cave";
-	button3.innerText = "Fight dragon";
-	button1.onclick = goStore;
-	button2.onclick = goCave;
-	button3.onclick = fightDragon;
-	text.innerText = "You are in the town square. You see a sign that says \"Store\".";
+  button1.innerText = "Go to store";
+  button2.innerText = "Go to cave";
+  button3.innerText = "Fight dragon";
+  button1.onclick = goStore;
+  button2.onclick = goCave;
+  button3.onclick = fightDragon;
+  text.innerText =
+    'You are in the town square. You see a sign that says "Store".';
 }
 
 function goStore() {
-	button1.innerText = "Buy 10 health (10 gold)";
-	button2.innerText = "Buy weapon (30 gold)";
-	button3.innerText = "Go to town square";
-	button1.onclick = buyHealth;
-	button2.onclick = buyWeapon;
-	button3.onclick = goTown;
-	text.innerText = "You enter the store.";
+  button1.innerText = "Buy 10 health (10 gold)";
+  button2.innerText = "Buy weapon (30 gold)";
+  button3.innerText = "Go to town square";
+  button1.onclick = buyHealth;
+  button2.onclick = buyWeapon;
+  button3.onclick = goTown;
+  text.innerText = "You enter the store.";
 }
 
 function goCave() {
-	console.log("Going to cave.");
+  console.log("Going to cave.");
 }
 
 function fightDragon() {
-	console.log("Fighting dragon.");
+  console.log("Fighting dragon.");
 }
 
-function buyHealth() {
-}
+function buyHealth() {}
 
-function buyWeapon() {
-}
+function buyWeapon() {}

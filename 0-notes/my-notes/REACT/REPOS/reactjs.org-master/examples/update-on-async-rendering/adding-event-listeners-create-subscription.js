@@ -25,5 +25,5 @@ const Subscription = createSubscription({
 // Rather than passing the subscribable source to our ExampleComponent,
 // We could just pass the subscribed value directly:
 <Subscription source={dataSource}>
-  {value => <ExampleComponent subscribedValue={value} />}
+  {(value) => <ExampleComponent subscribedValue={value} />}
 </Subscription>;

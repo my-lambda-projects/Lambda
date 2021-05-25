@@ -10,17 +10,17 @@ const svgWidth = 1000;
 const svgHeight = 700;
 const scale = svgWidth / (2 * Math.PI);
 
-const svg = d3.select("#map")
-    .append("svg")
-    .attr("width", svgWidth)
-    .attr("height", svgHeight);
+const svg = d3
+  .select("#map")
+  .append("svg")
+  .attr("width", svgWidth)
+  .attr("height", svgHeight);
 
-const projection = d3.geoMercator()
-    .scale(scale)
-    .translate([svgWidth / 2, svgHeight / 2])
-    .center([0, 20]);
-
-
+const projection = d3
+  .geoMercator()
+  .scale(scale)
+  .translate([svgWidth / 2, svgHeight / 2])
+  .center([0, 20]);
 
 /*
 Next, you'll need to set up the D3 code that will later do the hard work of

@@ -116,7 +116,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({query: {site, allMarkdownRemark}}) => {
-              return allMarkdownRemark.edges.map(edge => {
+              return allMarkdownRemark.edges.map((edge) => {
                 return Object.assign(
                   {},
                   {

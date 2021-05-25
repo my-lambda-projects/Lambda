@@ -19,7 +19,7 @@ class ThemedButton extends React.Component {
     // highlight-range{2-4}
     return (
       <ThemeContext.Consumer>
-        {theme => <Button theme={theme} />}
+        {(theme) => <Button theme={theme} />}
       </ThemeContext.Consumer>
     );
   }

@@ -2,13 +2,11 @@ const infixToFunction = {
   "+": (x, y) => x + y,
   "-": (x, y) => x - y,
   "*": (x, y) => x * y,
-  "/": (x, y) => x / y
+  "/": (x, y) => x / y,
 };
 
 const infixEval = (str, regex) =>
-  str.replace(regex, (match, arg1, fn, arg2) =>
-    infixToFunction["+"]
-  );
+  str.replace(regex, (match, arg1, fn, arg2) => infixToFunction["+"]);
 
 /*
 Change the `"+"` in the call to `infixToFunction` to `fn`.

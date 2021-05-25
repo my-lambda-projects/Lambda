@@ -22,8 +22,7 @@ button1.onclick = goStore;
 button2.onclick = goCave;
 button3.onclick = fightDragon;
 
-function goStore() {
-}
+function goStore() {}
 
 /* For now, make the `goStore` function output the message "Going to store." to the web console. For example, here is a function that outputs the message "Hello World" to the web console (Note that code inside a function should be indented):
 function functionName() {

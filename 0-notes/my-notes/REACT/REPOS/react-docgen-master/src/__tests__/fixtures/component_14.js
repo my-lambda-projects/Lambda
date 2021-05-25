@@ -3,7 +3,7 @@ type Props = $ReadOnly<{|
 |}>;
 
 const ColoredView = React.forwardRef((props: Props, ref) => (
-  <View style={{backgroundColor: props.color}} />
+  <View style={{ backgroundColor: props.color }} />
 ));
 
 ColoredView.displayName = 'UncoloredView';

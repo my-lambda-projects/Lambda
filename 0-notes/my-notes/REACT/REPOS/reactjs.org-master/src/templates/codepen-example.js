@@ -53,7 +53,7 @@ class CodepenExample extends Component<Props> {
           <h1>Redirecting to Codepen...</h1>
           <form
             style={{paddingBottom: '50px'}}
-            ref={form => {
+            ref={(form) => {
               this._form = form;
             }}
             action={action}

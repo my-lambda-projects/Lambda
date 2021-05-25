@@ -5,13 +5,14 @@ const getLowerCase = (str) => str.toLowerCase();
 const getSentenceCase = (str) => {
   const lowerStr = getLowerCase(str);
 
-  return lowerStr.charAt(0).toUpperCase() + lowerStr.slice(1)
+  return lowerStr.charAt(0).toUpperCase() + lowerStr.slice(1);
 };
 
 const getProperCase = (str) => {
-  const properCaseArr = (str) => str.split(' ').map((word) => getSentenceCase(word));
+  const properCaseArr = (str) =>
+    str.split(" ").map((word) => getSentenceCase(word));
 
-  return properCaseArr.join(' ');
+  return properCaseArr.join(" ");
 };
 
 /*

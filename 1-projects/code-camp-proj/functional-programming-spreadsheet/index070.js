@@ -1,5 +1,5 @@
 const infixToFunction = {
-  "+": addVar
+  "+": addVar,
 };
 
 const addVar = (x, y) => x + y;

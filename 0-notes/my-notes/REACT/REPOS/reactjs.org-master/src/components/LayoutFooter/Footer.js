@@ -68,7 +68,7 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
           }}>
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
             <MetaTitle onDark={true}>{navFooter.docs.title}</MetaTitle>
-            {sectionListDocs.map(section => {
+            {sectionListDocs.map((section) => {
               const defaultItem = section.items[0];
               return (
                 <FooterLink
@@ -89,7 +89,7 @@ const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
               href={`https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md`}>
               Code of Conduct
             </ExternalFooterLink>
-            {sectionListCommunity.map(section => (
+            {sectionListCommunity.map((section) => (
               <FooterLink
                 to={`/community/${section.items[0].id}.html`}
                 key={section.title}>

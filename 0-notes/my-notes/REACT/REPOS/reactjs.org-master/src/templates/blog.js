@@ -10,7 +10,7 @@ import Layout from 'components/Layout';
 import MarkdownPage from 'components/MarkdownPage';
 import {createLinkBlog} from 'utils/createLink';
 
-const toSectionList = allMarkdownRemark => [
+const toSectionList = (allMarkdownRemark) => [
   {
     title: 'Recent Posts',
     items: allMarkdownRemark.edges

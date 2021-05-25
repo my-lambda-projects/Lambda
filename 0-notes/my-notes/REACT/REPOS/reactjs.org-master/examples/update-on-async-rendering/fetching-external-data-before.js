@@ -7,7 +7,7 @@ class ExampleComponent extends React.Component {
   // highlight-range{1-8}
   componentWillMount() {
     this._asyncRequest = loadMyAsyncData().then(
-      externalData => {
+      (externalData) => {
         this._asyncRequest = null;
         this.setState({externalData});
       }

@@ -1,7 +1,7 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const port = 3000;
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 app.use(express.json());
 

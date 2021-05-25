@@ -8,7 +8,7 @@ export default function Foo(props) {
 }
 
 Foo.propTypes = {
-  ...propTypes
+  ...propTypes,
 };
 
 Foo.defaultProps = {

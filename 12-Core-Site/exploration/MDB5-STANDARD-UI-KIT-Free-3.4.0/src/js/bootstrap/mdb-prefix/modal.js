@@ -14,12 +14,12 @@ import {
   isRTL,
   reflow,
   typeCheckConfig,
-} from './util/index';
-import Data from './dom/data';
-import EventHandler from './dom/event-handler';
-import Manipulator from './dom/manipulator';
-import SelectorEngine from './dom/selector-engine';
-import BaseComponent from './base-component';
+} from "./util/index";
+import Data from "./dom/data";
+import EventHandler from "./dom/event-handler";
+import Manipulator from "./dom/manipulator";
+import SelectorEngine from "./dom/selector-engine";
+import BaseComponent from "./base-component";
 
 /**
  * ------------------------------------------------------------------------
@@ -27,11 +27,11 @@ import BaseComponent from './base-component';
  * ------------------------------------------------------------------------
  */
 
-const NAME = 'modal';
-const DATA_KEY = 'bs.modal';
+const NAME = "modal";
+const DATA_KEY = "bs.modal";
 const EVENT_KEY = `.${DATA_KEY}`;
-const DATA_API_KEY = '.data-api';
-const ESCAPE_KEY = 'Escape';
+const DATA_API_KEY = ".data-api";
+const ESCAPE_KEY = "Escape";
 
 const Default = {
   backdrop: true,
@@ -40,9 +40,9 @@ const Default = {
 };
 
 const DefaultType = {
-  backdrop: '(boolean|string)',
-  keyboard: 'boolean',
-  focus: 'boolean',
+  backdrop: "(boolean|string)",
+  keyboard: "boolean",
+  focus: "boolean",
 };
 
 const EVENT_HIDE = `hide${EVENT_KEY}`;
@@ -58,19 +58,20 @@ const EVENT_MOUSEUP_DISMISS = `mouseup.dismiss${EVENT_KEY}`;
 const EVENT_MOUSEDOWN_DISMISS = `mousedown.dismiss${EVENT_KEY}`;
 const EVENT_CLICK_DATA_API = `click${EVENT_KEY}${DATA_API_KEY}`;
 
-const CLASS_NAME_SCROLLBAR_MEASURER = 'modal-scrollbar-measure';
-const CLASS_NAME_BACKDROP = 'modal-backdrop';
-const CLASS_NAME_OPEN = 'modal-open';
-const CLASS_NAME_FADE = 'fade';
-const CLASS_NAME_SHOW = 'show';
-const CLASS_NAME_STATIC = 'modal-static';
+const CLASS_NAME_SCROLLBAR_MEASURER = "modal-scrollbar-measure";
+const CLASS_NAME_BACKDROP = "modal-backdrop";
+const CLASS_NAME_OPEN = "modal-open";
+const CLASS_NAME_FADE = "fade";
+const CLASS_NAME_SHOW = "show";
+const CLASS_NAME_STATIC = "modal-static";
 
-const SELECTOR_DIALOG = '.modal-dialog';
-const SELECTOR_MODAL_BODY = '.modal-body';
+const SELECTOR_DIALOG = ".modal-dialog";
+const SELECTOR_MODAL_BODY = ".modal-body";
 const SELECTOR_DATA_TOGGLE = '[data-mdb-toggle="modal"]';
 const SELECTOR_DATA_DISMISS = '[data-mdb-dismiss="modal"]';
-const SELECTOR_FIXED_CONTENT = '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top';
-const SELECTOR_STICKY_CONTENT = '.sticky-top';
+const SELECTOR_FIXED_CONTENT =
+  ".fixed-top, .fixed-bottom, .is-fixed, .sticky-top";
+const SELECTOR_STICKY_CONTENT = ".sticky-top";
 
 /**
  * ------------------------------------------------------------------------
@@ -135,8 +136,11 @@ class Modal extends BaseComponent {
     this._setEscapeEvent();
     this._setResizeEvent();
 
-    EventHandler.on(this._element, EVENT_CLICK_DISMISS, SELECTOR_DATA_DISMISS, (event) =>
-      this.hide(event)
+    EventHandler.on(
+      this._element,
+      EVENT_CLICK_DISMISS,
+      SELECTOR_DATA_DISMISS,
+      (event) => this.hide(event)
     );
 
     EventHandler.on(this._dialog, EVENT_MOUSEDOWN_DISMISS, () => {
@@ -183,9 +187,13 @@ class Modal extends BaseComponent {
     EventHandler.off(this._dialog, EVENT_MOUSEDOWN_DISMISS);
 
     if (transition) {
-      const transitionDuration = getTransitionDurationFromElement(this._element);
+      const transitionDuration = getTransitionDurationFromElement(
+        this._element
+      );
 
-      EventHandler.one(this._element, 'transitionend', (event) => this._hideModal(event));
+      EventHandler.one(this._element, "transitionend", (event) =>
+        this._hideModal(event)
+      );
       emulateTransitionEnd(this._element, transitionDuration);
     } else {
       this._hideModal();
@@ -236,15 +244,18 @@ class Modal extends BaseComponent {
     const transition = this._element.classList.contains(CLASS_NAME_FADE);
     const modalBody = SelectorEngine.findOne(SELECTOR_MODAL_BODY, this._dialog);
 
-    if (!this._element.parentNode || this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
+    if (
+      !this._element.parentNode ||
+      this._element.parentNode.nodeType !== Node.ELEMENT_NODE
+    ) {
       // Don't move modal's DOM position
       document.body.appendChild(this._element);
     }
 
-    this._element.style.display = 'block';
-    this._element.removeAttribute('aria-hidden');
-    this._element.setAttribute('aria-modal', true);
-    this._element.setAttribute('role', 'dialog');
+    this._element.style.display = "block";
+    this._element.removeAttribute("aria-hidden");
+    this._element.setAttribute("aria-modal", true);
+    this._element.setAttribute("role", "dialog");
     this._element.scrollTop = 0;
 
     if (modalBody) {
@@ -275,7 +286,7 @@ class Modal extends BaseComponent {
     if (transition) {
       const transitionDuration = getTransitionDurationFromElement(this._dialog);
 
-      EventHandler.one(this._dialog, 'transitionend', transitionComplete);
+      EventHandler.one(this._dialog, "transitionend", transitionComplete);
       emulateTransitionEnd(this._dialog, transitionDuration);
     } else {
       transitionComplete();
@@ -319,10 +330,10 @@ class Modal extends BaseComponent {
   }
 
   _hideModal() {
-    this._element.style.display = 'none';
-    this._element.setAttribute('aria-hidden', true);
-    this._element.removeAttribute('aria-modal');
-    this._element.removeAttribute('role');
+    this._element.style.display = "none";
+    this._element.setAttribute("aria-hidden", true);
+    this._element.removeAttribute("aria-modal");
+    this._element.removeAttribute("role");
     this._isTransitioning = false;
     this._showBackdrop(() => {
       document.body.classList.remove(CLASS_NAME_OPEN);
@@ -338,10 +349,12 @@ class Modal extends BaseComponent {
   }
 
   _showBackdrop(callback) {
-    const animate = this._element.classList.contains(CLASS_NAME_FADE) ? CLASS_NAME_FADE : '';
+    const animate = this._element.classList.contains(CLASS_NAME_FADE)
+      ? CLASS_NAME_FADE
+      : "";
 
     if (this._isShown && this._config.backdrop) {
-      this._backdrop = document.createElement('div');
+      this._backdrop = document.createElement("div");
       this._backdrop.className = CLASS_NAME_BACKDROP;
 
       if (animate) {
@@ -360,7 +373,7 @@ class Modal extends BaseComponent {
           return;
         }
 
-        if (this._config.backdrop === 'static') {
+        if (this._config.backdrop === "static") {
           this._triggerBackdropTransition();
         } else {
           this.hide();
@@ -378,9 +391,11 @@ class Modal extends BaseComponent {
         return;
       }
 
-      const backdropTransitionDuration = getTransitionDurationFromElement(this._backdrop);
+      const backdropTransitionDuration = getTransitionDurationFromElement(
+        this._backdrop
+      );
 
-      EventHandler.one(this._backdrop, 'transitionend', callback);
+      EventHandler.one(this._backdrop, "transitionend", callback);
       emulateTransitionEnd(this._backdrop, backdropTransitionDuration);
     } else if (!this._isShown && this._backdrop) {
       this._backdrop.classList.remove(CLASS_NAME_SHOW);
@@ -391,8 +406,10 @@ class Modal extends BaseComponent {
       };
 
       if (this._element.classList.contains(CLASS_NAME_FADE)) {
-        const backdropTransitionDuration = getTransitionDurationFromElement(this._backdrop);
-        EventHandler.one(this._backdrop, 'transitionend', callbackRemove);
+        const backdropTransitionDuration = getTransitionDurationFromElement(
+          this._backdrop
+        );
+        EventHandler.one(this._backdrop, "transitionend", callbackRemove);
         emulateTransitionEnd(this._backdrop, backdropTransitionDuration);
       } else {
         callbackRemove();
@@ -408,20 +425,23 @@ class Modal extends BaseComponent {
       return;
     }
 
-    const isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
+    const isModalOverflowing =
+      this._element.scrollHeight > document.documentElement.clientHeight;
 
     if (!isModalOverflowing) {
-      this._element.style.overflowY = 'hidden';
+      this._element.style.overflowY = "hidden";
     }
 
     this._element.classList.add(CLASS_NAME_STATIC);
-    const modalTransitionDuration = getTransitionDurationFromElement(this._dialog);
-    EventHandler.off(this._element, 'transitionend');
-    EventHandler.one(this._element, 'transitionend', () => {
+    const modalTransitionDuration = getTransitionDurationFromElement(
+      this._dialog
+    );
+    EventHandler.off(this._element, "transitionend");
+    EventHandler.one(this._element, "transitionend", () => {
       this._element.classList.remove(CLASS_NAME_STATIC);
       if (!isModalOverflowing) {
-        EventHandler.one(this._element, 'transitionend', () => {
-          this._element.style.overflowY = '';
+        EventHandler.one(this._element, "transitionend", () => {
+          this._element.style.overflowY = "";
         });
         emulateTransitionEnd(this._element, modalTransitionDuration);
       }
@@ -435,7 +455,8 @@ class Modal extends BaseComponent {
   // ----------------------------------------------------------------------
 
   _adjustDialog() {
-    const isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
+    const isModalOverflowing =
+      this._element.scrollHeight > document.documentElement.clientHeight;
 
     if (
       (!this._isBodyOverflowing && isModalOverflowing && !isRTL) ||
@@ -453,13 +474,14 @@ class Modal extends BaseComponent {
   }
 
   _resetAdjustments() {
-    this._element.style.paddingLeft = '';
-    this._element.style.paddingRight = '';
+    this._element.style.paddingLeft = "";
+    this._element.style.paddingRight = "";
   }
 
   _checkScrollbar() {
     const rect = document.body.getBoundingClientRect();
-    this._isBodyOverflowing = Math.round(rect.left + rect.right) < window.innerWidth;
+    this._isBodyOverflowing =
+      Math.round(rect.left + rect.right) < window.innerWidth;
     this._scrollbarWidth = this._getScrollbarWidth();
   }
 
@@ -467,17 +489,17 @@ class Modal extends BaseComponent {
     if (this._isBodyOverflowing) {
       this._setElementAttributes(
         SELECTOR_FIXED_CONTENT,
-        'paddingRight',
+        "paddingRight",
         (calculatedValue) => calculatedValue + this._scrollbarWidth
       );
       this._setElementAttributes(
         SELECTOR_STICKY_CONTENT,
-        'marginRight',
+        "marginRight",
         (calculatedValue) => calculatedValue - this._scrollbarWidth
       );
       this._setElementAttributes(
-        'body',
-        'paddingRight',
+        "body",
+        "paddingRight",
         (calculatedValue) => calculatedValue + this._scrollbarWidth
       );
     }
@@ -490,21 +512,22 @@ class Modal extends BaseComponent {
       const actualValue = element.style[styleProp];
       const calculatedValue = window.getComputedStyle(element)[styleProp];
       Manipulator.setDataAttribute(element, styleProp, actualValue);
-      element.style[styleProp] = callback(Number.parseFloat(calculatedValue)) + 'px';
+      element.style[styleProp] =
+        callback(Number.parseFloat(calculatedValue)) + "px";
     });
   }
 
   _resetScrollbar() {
-    this._resetElementAttributes(SELECTOR_FIXED_CONTENT, 'paddingRight');
-    this._resetElementAttributes(SELECTOR_STICKY_CONTENT, 'marginRight');
-    this._resetElementAttributes('body', 'paddingRight');
+    this._resetElementAttributes(SELECTOR_FIXED_CONTENT, "paddingRight");
+    this._resetElementAttributes(SELECTOR_STICKY_CONTENT, "marginRight");
+    this._resetElementAttributes("body", "paddingRight");
   }
 
   _resetElementAttributes(selector, styleProp) {
     SelectorEngine.find(selector).forEach((element) => {
       const value = Manipulator.getDataAttribute(element, styleProp);
-      if (typeof value === 'undefined' && element === document.body) {
-        element.style[styleProp] = '';
+      if (typeof value === "undefined" && element === document.body) {
+        element.style[styleProp] = "";
       } else {
         Manipulator.removeDataAttribute(element, styleProp);
         element.style[styleProp] = value;
@@ -514,10 +537,11 @@ class Modal extends BaseComponent {
 
   _getScrollbarWidth() {
     // thx d.walsh
-    const scrollDiv = document.createElement('div');
+    const scrollDiv = document.createElement("div");
     scrollDiv.className = CLASS_NAME_SCROLLBAR_MEASURER;
     document.body.appendChild(scrollDiv);
-    const scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
+    const scrollbarWidth =
+      scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
     document.body.removeChild(scrollDiv);
     return scrollbarWidth;
   }
@@ -530,15 +554,15 @@ class Modal extends BaseComponent {
       const _config = {
         ...Default,
         ...Manipulator.getDataAttributes(this),
-        ...(typeof config === 'object' && config ? config : {}),
+        ...(typeof config === "object" && config ? config : {}),
       };
 
       if (!data) {
         data = new Modal(this, _config);
       }
 
-      if (typeof config === 'string') {
-        if (typeof data[config] === 'undefined') {
+      if (typeof config === "string") {
+        if (typeof data[config] === "undefined") {
           throw new TypeError(`No method named "${config}"`);
         }
 
@@ -554,38 +578,43 @@ class Modal extends BaseComponent {
  * ------------------------------------------------------------------------
  */
 
-EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
-  const target = getElementFromSelector(this);
+EventHandler.on(
+  document,
+  EVENT_CLICK_DATA_API,
+  SELECTOR_DATA_TOGGLE,
+  function (event) {
+    const target = getElementFromSelector(this);
 
-  if (this.tagName === 'A' || this.tagName === 'AREA') {
-    event.preventDefault();
-  }
-
-  EventHandler.one(target, EVENT_SHOW, (showEvent) => {
-    if (showEvent.defaultPrevented) {
-      // only register focus restorer if modal will actually get shown
-      return;
+    if (this.tagName === "A" || this.tagName === "AREA") {
+      event.preventDefault();
     }
 
-    EventHandler.one(target, EVENT_HIDDEN, () => {
-      if (isVisible(this)) {
-        this.focus();
+    EventHandler.one(target, EVENT_SHOW, (showEvent) => {
+      if (showEvent.defaultPrevented) {
+        // only register focus restorer if modal will actually get shown
+        return;
       }
+
+      EventHandler.one(target, EVENT_HIDDEN, () => {
+        if (isVisible(this)) {
+          this.focus();
+        }
+      });
     });
-  });
 
-  let data = Data.getData(target, DATA_KEY);
-  if (!data) {
-    const config = {
-      ...Manipulator.getDataAttributes(target),
-      ...Manipulator.getDataAttributes(this),
-    };
+    let data = Data.getData(target, DATA_KEY);
+    if (!data) {
+      const config = {
+        ...Manipulator.getDataAttributes(target),
+        ...Manipulator.getDataAttributes(this),
+      };
 
-    data = new Modal(target, config);
+      data = new Modal(target, config);
+    }
+
+    data.toggle(this);
   }
-
-  data.toggle(this);
-});
+);
 
 /**
  * ------------------------------------------------------------------------

@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
   res.send("hello root");
 });
 
-app.listen(port, err => {
+app.listen(port, (err) => {
   if (err) {
     return console.log("ERROR", err);
   }

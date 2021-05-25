@@ -3,7 +3,7 @@ function withTheme(Component) {
   function ThemedComponent({forwardedRef, ...rest}) {
     return (
       <ThemeContext.Consumer>
-        {theme => (
+        {(theme) => (
           // Assign the custom prop "forwardedRef" as a ref
           // highlight-next-line
           <Component

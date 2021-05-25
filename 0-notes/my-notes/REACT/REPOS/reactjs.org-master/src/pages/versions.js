@@ -49,7 +49,7 @@ const Versions = ({location}: Props) => (
               </a>
               .
             </p>
-            {versions.map(version => (
+            {versions.map((version) => (
               <div key={version.title}>
                 <h3>{version.title}</h3>
                 <ul>

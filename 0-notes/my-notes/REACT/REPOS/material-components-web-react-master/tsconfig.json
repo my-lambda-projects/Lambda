@@ -13,9 +13,5 @@
     "esModuleInterop": true
   },
   "compileOnSave": true,
-  "exclude": [
-    "node_modules",
-    "examples",
-    "build"
-  ]
+  "exclude": ["node_modules", "examples", "build"]
 }

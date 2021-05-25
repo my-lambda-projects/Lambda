@@ -14,7 +14,7 @@ createReactClass = require('create-react-class');
  * The is a component to test the document generation
  */
 Component = createReactClass({
-    displayName: 'Component',
+  displayName: 'Component',
 });
 
 module.exports = Component;

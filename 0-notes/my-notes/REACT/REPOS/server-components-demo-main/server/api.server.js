@@ -42,7 +42,7 @@ app.listen(PORT, () => {
 });
 
 function handleErrors(fn) {
-  return async function(req, res, next) {
+  return async function (req, res, next) {
     try {
       return await fn(req, res);
     } catch (x) {
@@ -53,7 +53,7 @@ function handleErrors(fn) {
 
 app.get(
   '/',
-  handleErrors(async function(_req, res) {
+  handleErrors(async function (_req, res) {
     await waitForWebpack();
     const html = readFileSync(
       path.resolve(__dirname, '../build/index.html'),
@@ -89,7 +89,7 @@ function sendResponse(req, res, redirectToId) {
   });
 }
 
-app.get('/react', function(req, res) {
+app.get('/react', function (req, res) {
   sendResponse(req, res, null);
 });
 
@@ -97,7 +97,7 @@ const NOTES_PATH = path.resolve(__dirname, '../notes');
 
 app.post(
   '/notes',
-  handleErrors(async function(req, res) {
+  handleErrors(async function (req, res) {
     const now = new Date();
     const result = await pool.query(
       'insert into notes (title, body, created_at, updated_at) values ($1, $2, $3, $3) returning id',
@@ -115,7 +115,7 @@ app.post(
 
 app.put(
   '/notes/:id',
-  handleErrors(async function(req, res) {
+  handleErrors(async function (req, res) {
     const now = new Date();
     const updatedId = Number(req.params.id);
     await pool.query(
@@ -133,7 +133,7 @@ app.put(
 
 app.delete(
   '/notes/:id',
-  handleErrors(async function(req, res) {
+  handleErrors(async function (req, res) {
     await pool.query('delete from notes where id = $1', [req.params.id]);
     await unlink(path.resolve(NOTES_PATH, `${req.params.id}.md`));
     sendResponse(req, res, null);
@@ -142,7 +142,7 @@ app.delete(
 
 app.get(
   '/notes',
-  handleErrors(async function(_req, res) {
+  handleErrors(async function (_req, res) {
     const {rows} = await pool.query('select * from notes order by id desc');
     res.json(rows);
   })
@@ -150,7 +150,7 @@ app.get(
 
 app.get(
   '/notes/:id',
-  handleErrors(async function(req, res) {
+  handleErrors(async function (req, res) {
     const {rows} = await pool.query('select * from notes where id = $1', [
       req.params.id,
     ]);
@@ -158,7 +158,7 @@ app.get(
   })
 );
 
-app.get('/sleep/:ms', function(req, res) {
+app.get('/sleep/:ms', function (req, res) {
   setTimeout(() => {
     res.json({ok: true});
   }, req.params.ms);
@@ -167,7 +167,7 @@ app.get('/sleep/:ms', function(req, res) {
 app.use(express.static('build'));
 app.use(express.static('public'));
 
-app.on('error', function(error) {
+app.on('error', function (error) {
   if (error.syscall !== 'listen') {
     throw error;
   }

@@ -1,39 +1,39 @@
 //Write a function combine that takes two arguments and returns a new string containing both arguments
-let combine = function ( name1, name2 ) {
-  return name1 + " " + name2
-}
-console.log( combine( "Dwight", "Shrute" ) )
-console.log( combine( "Michael", "Scott" ) )
+let combine = function (name1, name2) {
+  return name1 + " " + name2;
+};
+console.log(combine("Dwight", "Shrute"));
+console.log(combine("Michael", "Scott"));
 
 //Define a function addNums that adds two numbers together. Call the function, pass in arguments and print the
 //return value of the function
-let addNums = function ( num1, num2 ) {
-  let sum = num1 + num2
-  return sum
-}
-console.log( addNums( 2, 4 ) )
+let addNums = function (num1, num2) {
+  let sum = num1 + num2;
+  return sum;
+};
+console.log(addNums(2, 4));
 
 //Identify the difference between parameters and arguments.
-function pamAndJim( person1, person2 ) {
-  return person1 + " and " + person2 + " forever"
+function pamAndJim(person1, person2) {
+  return person1 + " and " + person2 + " forever";
 }
 
-console.log( pamAndJim( "Pam Beesly", "Jim Halpert" ) )
+console.log(pamAndJim("Pam Beesly", "Jim Halpert"));
 
 //What happens when there extra arguments
-function add( firstParameter, secondParameter ) {
-  return firstParameter + secondParameter
+function add(firstParameter, secondParameter) {
+  return firstParameter + secondParameter;
 }
 
-console.log( add( 1, 2, 17, 14 ) )
+console.log(add(1, 2, 17, 14));
 
 // What happens when there are not enough arguments
-function add( firstParameter, secondParameter ) {
-  return firstParameter + secondParameter
+function add(firstParameter, secondParameter) {
+  return firstParameter + secondParameter;
 }
 
-console.log( add( "hello " ) )
-console.log( add( 2 ) )
+console.log(add("hello "));
+console.log(add(2));
 
 // Transform this function from declaration to expression
 // function transform() {
@@ -41,19 +41,18 @@ console.log( add( 2 ) )
 // }
 
 let transform = function () {
-  return "we transformed the function!"
-}
+  return "we transformed the function!";
+};
 
-console.log( transform() )
-
+console.log(transform());
 
 // ****************************************************************************************
 // 1. Define a function that accepts a sentence string and two words as args.
 //    The function should return a boolean indicating if the sentence includes either word.
 // ****************************************************************************************
 
-function twoWords( sentence, word1, word2 ) {
-  if ( sentence.includes( word1 ) || sentence.includes( word2 ) ) {
+function twoWords(sentence, word1, word2) {
+  if (sentence.includes(word1) || sentence.includes(word2)) {
     return true;
   }
   return false;
@@ -73,11 +72,11 @@ let testWord4 = "chameleon";
 // 2. Identify a pair of mutually exclusive conditions
 // ****************************************************************************************
 
-function mutuallyExclusive( num1, num2 ) {
-  if ( num1 > num2 ) {
-    console.log( "The first number has a larger value." );
+function mutuallyExclusive(num1, num2) {
+  if (num1 > num2) {
+    console.log("The first number has a larger value.");
   } else {
-    console.log( "The numbers are either equal or the first number is smaller." );
+    console.log("The numbers are either equal or the first number is smaller.");
   }
 }
 
@@ -90,22 +89,22 @@ function mutuallyExclusive( num1, num2 ) {
 // 4. Write a function that iterates through a provided string argument
 // ****************************************************************************************
 
-function forLoop( iterable ) {
-  for ( let i = 0; i < iterable.length; i++ ) {
+function forLoop(iterable) {
+  for (let i = 0; i < iterable.length; i++) {
     // Here's how it goes:
     // first iteration, i === 0; true; log('stupendous')
     // second, i === 1; true; log(true);
     // third, i === 2; true; log(123);
     // fourth, i === 3; true; log('andrew yang');
     // fifth i === 4; false
-    console.log( iterable[ i ] );
+    console.log(iterable[i]);
   }
 }
 
-function whileLoop( iterable ) {
+function whileLoop(iterable) {
   let i = 0;
-  while ( i < iterable.length ) {
-    console.log( iterable[ i ] );
+  while (i < iterable.length) {
+    console.log(iterable[i]);
     i++;
   }
 }
@@ -125,17 +124,17 @@ function whileLoop( iterable ) {
 
 // console.log("a" === "A"); // false
 
-function pigLatin( str ) {
+function pigLatin(str) {
   let vowels = "aeiouAEIOU";
-  if ( vowels.includes( str[ 0 ] ) ) {
+  if (vowels.includes(str[0])) {
     return str + "yay";
   }
 
-  for ( let i = 0; i < str.length; i++ ) {
-    let char = str[ i ];
-    if ( vowels.includes( char ) ) {
-      let firstHalf = str.slice( 0, i ); // "Kr"
-      let secondHalf = str.slice( i ); // "onktacular";
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+    if (vowels.includes(char)) {
+      let firstHalf = str.slice(0, i); // "Kr"
+      let secondHalf = str.slice(i); // "onktacular";
       return secondHalf + firstHalf + "ay";
     }
   }
@@ -153,9 +152,9 @@ function pigLatin( str ) {
 //    use Array#indexOf === array.indexOf()
 // ****************************************************************************************
 
-function findTheWord( arr, str ) {
+function findTheWord(arr, str) {
   // return arr.indexOf(str);
-  if ( arr.indexOf( str ) !== -1 ) {
+  if (arr.indexOf(str) !== -1) {
     return true;
   }
   return false;
@@ -174,7 +173,7 @@ function findTheWord( arr, str ) {
 //    individual values are read by indexing.
 // ****************************************************************************************
 
-let array = [ "Shamon", 1, true, "Blastorama", 1964 ];
+let array = ["Shamon", 1, true, "Blastorama", 1964];
 
 // console.log(array[0]); // "shamon"
 // console.log(array[3]); // "Blastorama"
@@ -187,15 +186,15 @@ let array = [ "Shamon", 1, true, "Blastorama", 1964 ];
 // where every element of the original array is multiplied by 2.
 // ****************************************************************************************
 
-function doubler( numbers ) {
+function doubler(numbers) {
   let doubledNums = [];
 
   let i = 0;
-  while ( i < numbers.length ) {
-    let old_num = numbers[ i ];
+  while (i < numbers.length) {
+    let old_num = numbers[i];
     let new_num = old_num * 2;
     // this step is important because concat does NOT change the original array
-    doubledNums = doubledNums.concat( new_num );
+    doubledNums = doubledNums.concat(new_num);
 
     i += 1;
   }
@@ -208,12 +207,12 @@ function doubler( numbers ) {
 
 // ****************************************************************************************
 
-function baller( str ) {
+function baller(str) {
   str = "shirt";
   return str;
 }
 
-console.log( baller( "asdf" ) );
+console.log(baller("asdf"));
 // function isFive(num) {
 // if (num ===5){
 // return ture;
@@ -263,11 +262,11 @@ console.log( baller( "asdf" ) );
 // searchString and subString.
 // The function should return true if subString is a part of thesearchString,
 // regardless of upper or lower case, and false if otherwise.
-function isSubstring( searchString, subString ) {
+function isSubstring(searchString, subString) {
   let lowerSearchStr = searchString.toLowerCase();
   let lowerSubStr = subString.toLowerCase();
-  return lowerSearchStr.indexOf( lowerSubStr ) !== -1;
+  return lowerSearchStr.indexOf(lowerSubStr) !== -1;
 }
-console.log( isSubstring( "The cat went to the store", "he cat went" ) ); // => true
-console.log( isSubstring( "Time to program", "time" ) ); // => true
-console.log( isSubstring( "Jump for joy", "joys" ) ); // => false
+console.log(isSubstring("The cat went to the store", "he cat went")); // => true
+console.log(isSubstring("Time to program", "time")); // => true
+console.log(isSubstring("Jump for joy", "joys")); // => false

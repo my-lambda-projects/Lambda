@@ -5,21 +5,15 @@ module.exports = {
   // base path that will be used to resolve all patterns (eg. files, exclude)
   basePath: '',
 
-
   // frameworks to use
   // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
   frameworks: ['mocha'],
 
-
   // list of files / patterns to load in the browser
-  files: [
-    'test/unit/index.tsx',
-  ],
-
+  files: ['test/unit/index.tsx'],
 
   // list of files / patterns to exclude
   exclude: [],
-
 
   // preprocess matching files before serving them to the browser
   // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
@@ -40,18 +34,16 @@ module.exports = {
             loader: 'babel-loader',
             options: {
               compact: true,
-              presets: [
-                'airbnb',
-                'env',
-                'react',
-              ],
+              presets: ['airbnb', 'env', 'react'],
               plugins: ['transform-class-properties'],
             },
           },
-        }, {
+        },
+        {
           test: /\.tsx?$/,
           loader: 'ts-loader',
-        }, {
+        },
+        {
           enforce: 'post',
           test: /\.(js|ts)x?$/,
           use: {

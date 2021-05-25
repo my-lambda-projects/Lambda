@@ -1,4 +1,4 @@
-import { Garden } from '../src/Garden';
+import { Garden } from "../src/Garden";
 
 /* 
   Often, code is tested against assert libraries.

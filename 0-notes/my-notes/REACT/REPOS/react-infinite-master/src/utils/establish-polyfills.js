@@ -6,9 +6,9 @@
  */
 
 if (!Object.assign) {
-  Object.assign = require('object-assign');
+  Object.assign = require("object-assign");
 }
 
 if (!Array.isArray) {
-  Array.isArray = require('lodash.isarray');
+  Array.isArray = require("lodash.isarray");
 }

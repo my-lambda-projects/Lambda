@@ -66,9 +66,7 @@ exports.onRenderBody = ({setHeadComponents}, pluginOptions) => {
     <style key="gatsby-remark-header-custom-ids-style" type="text/css">
       {styles}
     </style>
-  ) : (
-    undefined
-  );
+  ) : undefined;
 
   return setHeadComponents([
     style,

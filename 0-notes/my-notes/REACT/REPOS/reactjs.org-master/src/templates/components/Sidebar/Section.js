@@ -91,7 +91,7 @@ class Section extends React.Component {
 
               {item.subitems && (
                 <ul css={{marginLeft: 20}}>
-                  {item.subitems.map(subitem => (
+                  {item.subitems.map((subitem) => (
                     <li key={subitem.id}>
                       {createLink({
                         isActive: isScrollSync

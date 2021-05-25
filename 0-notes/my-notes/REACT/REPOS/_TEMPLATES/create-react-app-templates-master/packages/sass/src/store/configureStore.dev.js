@@ -1,8 +1,8 @@
-import { routerMiddleware } from 'react-router-redux';
-import { createStore, compose, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+import { routerMiddleware } from "react-router-redux";
+import { createStore, compose, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 
-import root from './rootReducer';
+import root from "./rootReducer";
 
 export default function configureStore(history) {
   const composeEnhancers =
@@ -14,8 +14,8 @@ export default function configureStore(history) {
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
-    module.hot.accept('./rootReducer', () => {
-      const nextRootReducer = require('./rootReducer').default;
+    module.hot.accept("./rootReducer", () => {
+      const nextRootReducer = require("./rootReducer").default;
       store.replaceReducer(nextRootReducer);
     });
   }

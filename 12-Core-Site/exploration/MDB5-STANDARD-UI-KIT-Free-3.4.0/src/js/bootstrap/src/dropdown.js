@@ -5,7 +5,7 @@
  * --------------------------------------------------------------------------
  */
 
-import * as Popper from '@popperjs/core';
+import * as Popper from "@popperjs/core";
 
 import {
   defineJQueryPlugin,
@@ -15,12 +15,12 @@ import {
   isRTL,
   noop,
   typeCheckConfig,
-} from './util/index';
-import Data from './dom/data';
-import EventHandler from './dom/event-handler';
-import Manipulator from './dom/manipulator';
-import SelectorEngine from './dom/selector-engine';
-import BaseComponent from './base-component';
+} from "./util/index";
+import Data from "./dom/data";
+import EventHandler from "./dom/event-handler";
+import Manipulator from "./dom/manipulator";
+import SelectorEngine from "./dom/selector-engine";
+import BaseComponent from "./base-component";
 
 /**
  * ------------------------------------------------------------------------
@@ -28,19 +28,21 @@ import BaseComponent from './base-component';
  * ------------------------------------------------------------------------
  */
 
-const NAME = 'dropdown';
-const DATA_KEY = 'bs.dropdown';
+const NAME = "dropdown";
+const DATA_KEY = "bs.dropdown";
 const EVENT_KEY = `.${DATA_KEY}`;
-const DATA_API_KEY = '.data-api';
+const DATA_API_KEY = ".data-api";
 
-const ESCAPE_KEY = 'Escape';
-const SPACE_KEY = 'Space';
-const TAB_KEY = 'Tab';
-const ARROW_UP_KEY = 'ArrowUp';
-const ARROW_DOWN_KEY = 'ArrowDown';
+const ESCAPE_KEY = "Escape";
+const SPACE_KEY = "Space";
+const TAB_KEY = "Tab";
+const ARROW_UP_KEY = "ArrowUp";
+const ARROW_DOWN_KEY = "ArrowDown";
 const RIGHT_MOUSE_BUTTON = 2; // MouseEvent.button value for the secondary button, usually the right button
 
-const REGEXP_KEYDOWN = new RegExp(`${ARROW_UP_KEY}|${ARROW_DOWN_KEY}|${ESCAPE_KEY}`);
+const REGEXP_KEYDOWN = new RegExp(
+  `${ARROW_UP_KEY}|${ARROW_DOWN_KEY}|${ESCAPE_KEY}`
+);
 
 const EVENT_HIDE = `hide${EVENT_KEY}`;
 const EVENT_HIDDEN = `hidden${EVENT_KEY}`;
@@ -51,42 +53,43 @@ const EVENT_CLICK_DATA_API = `click${EVENT_KEY}${DATA_API_KEY}`;
 const EVENT_KEYDOWN_DATA_API = `keydown${EVENT_KEY}${DATA_API_KEY}`;
 const EVENT_KEYUP_DATA_API = `keyup${EVENT_KEY}${DATA_API_KEY}`;
 
-const CLASS_NAME_DISABLED = 'disabled';
-const CLASS_NAME_SHOW = 'show';
-const CLASS_NAME_DROPUP = 'dropup';
-const CLASS_NAME_DROPEND = 'dropend';
-const CLASS_NAME_DROPSTART = 'dropstart';
-const CLASS_NAME_NAVBAR = 'navbar';
+const CLASS_NAME_DISABLED = "disabled";
+const CLASS_NAME_SHOW = "show";
+const CLASS_NAME_DROPUP = "dropup";
+const CLASS_NAME_DROPEND = "dropend";
+const CLASS_NAME_DROPSTART = "dropstart";
+const CLASS_NAME_NAVBAR = "navbar";
 
 const SELECTOR_DATA_TOGGLE = '[data-bs-toggle="dropdown"]';
-const SELECTOR_FORM_CHILD = '.dropdown form';
-const SELECTOR_MENU = '.dropdown-menu';
-const SELECTOR_NAVBAR_NAV = '.navbar-nav';
-const SELECTOR_VISIBLE_ITEMS = '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)';
+const SELECTOR_FORM_CHILD = ".dropdown form";
+const SELECTOR_MENU = ".dropdown-menu";
+const SELECTOR_NAVBAR_NAV = ".navbar-nav";
+const SELECTOR_VISIBLE_ITEMS =
+  ".dropdown-menu .dropdown-item:not(.disabled):not(:disabled)";
 
-const PLACEMENT_TOP = isRTL ? 'top-end' : 'top-start';
-const PLACEMENT_TOPEND = isRTL ? 'top-start' : 'top-end';
-const PLACEMENT_BOTTOM = isRTL ? 'bottom-end' : 'bottom-start';
-const PLACEMENT_BOTTOMEND = isRTL ? 'bottom-start' : 'bottom-end';
-const PLACEMENT_RIGHT = isRTL ? 'left-start' : 'right-start';
-const PLACEMENT_LEFT = isRTL ? 'right-start' : 'left-start';
+const PLACEMENT_TOP = isRTL ? "top-end" : "top-start";
+const PLACEMENT_TOPEND = isRTL ? "top-start" : "top-end";
+const PLACEMENT_BOTTOM = isRTL ? "bottom-end" : "bottom-start";
+const PLACEMENT_BOTTOMEND = isRTL ? "bottom-start" : "bottom-end";
+const PLACEMENT_RIGHT = isRTL ? "left-start" : "right-start";
+const PLACEMENT_LEFT = isRTL ? "right-start" : "left-start";
 
 const Default = {
   offset: [0, 2],
   flip: true,
-  boundary: 'clippingParents',
-  reference: 'toggle',
-  display: 'dynamic',
+  boundary: "clippingParents",
+  reference: "toggle",
+  display: "dynamic",
   popperConfig: null,
 };
 
 const DefaultType = {
-  offset: '(array|string|function)',
-  flip: 'boolean',
-  boundary: '(string|element)',
-  reference: '(string|element|object)',
-  display: 'string',
-  popperConfig: '(null|object|function)',
+  offset: "(array|string|function)",
+  flip: "boolean",
+  boundary: "(string|element)",
+  reference: "(string|element|object)",
+  display: "string",
+  popperConfig: "(null|object|function)",
 };
 
 /**
@@ -124,7 +127,10 @@ class Dropdown extends BaseComponent {
   // Public
 
   toggle() {
-    if (this._element.disabled || this._element.classList.contains(CLASS_NAME_DISABLED)) {
+    if (
+      this._element.disabled ||
+      this._element.classList.contains(CLASS_NAME_DISABLED)
+    ) {
       return;
     }
 
@@ -153,7 +159,11 @@ class Dropdown extends BaseComponent {
       relatedTarget: this._element,
     };
 
-    const showEvent = EventHandler.trigger(this._element, EVENT_SHOW, relatedTarget);
+    const showEvent = EventHandler.trigger(
+      this._element,
+      EVENT_SHOW,
+      relatedTarget
+    );
 
     if (showEvent.defaultPrevented) {
       return;
@@ -161,36 +171,43 @@ class Dropdown extends BaseComponent {
 
     // Totally disable Popper for Dropdowns in Navbar
     if (this._inNavbar) {
-      Manipulator.setDataAttribute(this._menu, 'popper', 'none');
+      Manipulator.setDataAttribute(this._menu, "popper", "none");
     } else {
-      if (typeof Popper === 'undefined') {
-        throw new TypeError("Bootstrap's dropdowns require Popper (https://popper.js.org)");
+      if (typeof Popper === "undefined") {
+        throw new TypeError(
+          "Bootstrap's dropdowns require Popper (https://popper.js.org)"
+        );
       }
 
       let referenceElement = this._element;
 
-      if (this._config.reference === 'parent') {
+      if (this._config.reference === "parent") {
         referenceElement = parent;
       } else if (isElement(this._config.reference)) {
         referenceElement = this._config.reference;
 
         // Check if it's jQuery element
-        if (typeof this._config.reference.jquery !== 'undefined') {
+        if (typeof this._config.reference.jquery !== "undefined") {
           referenceElement = this._config.reference[0];
         }
-      } else if (typeof this._config.reference === 'object') {
+      } else if (typeof this._config.reference === "object") {
         referenceElement = this._config.reference;
       }
 
       const popperConfig = this._getPopperConfig();
       const isDisplayStatic = popperConfig.modifiers.find(
-        (modifier) => modifier.name === 'applyStyles' && modifier.enabled === false
+        (modifier) =>
+          modifier.name === "applyStyles" && modifier.enabled === false
       );
 
-      this._popper = Popper.createPopper(referenceElement, this._menu, popperConfig);
+      this._popper = Popper.createPopper(
+        referenceElement,
+        this._menu,
+        popperConfig
+      );
 
       if (isDisplayStatic) {
-        Manipulator.setDataAttribute(this._menu, 'popper', 'static');
+        Manipulator.setDataAttribute(this._menu, "popper", "static");
       }
     }
 
@@ -198,14 +215,17 @@ class Dropdown extends BaseComponent {
     // empty mouseover listeners to the body's immediate children;
     // only needed because of broken event delegation on iOS
     // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
-    if ('ontouchstart' in document.documentElement && !parent.closest(SELECTOR_NAVBAR_NAV)) {
+    if (
+      "ontouchstart" in document.documentElement &&
+      !parent.closest(SELECTOR_NAVBAR_NAV)
+    ) {
       []
         .concat(...document.body.children)
-        .forEach((elem) => EventHandler.on(elem, 'mouseover', null, noop()));
+        .forEach((elem) => EventHandler.on(elem, "mouseover", null, noop()));
     }
 
     this._element.focus();
-    this._element.setAttribute('aria-expanded', true);
+    this._element.setAttribute("aria-expanded", true);
 
     this._menu.classList.toggle(CLASS_NAME_SHOW);
     this._element.classList.toggle(CLASS_NAME_SHOW);
@@ -225,7 +245,11 @@ class Dropdown extends BaseComponent {
       relatedTarget: this._element,
     };
 
-    const hideEvent = EventHandler.trigger(this._element, EVENT_HIDE, relatedTarget);
+    const hideEvent = EventHandler.trigger(
+      this._element,
+      EVENT_HIDE,
+      relatedTarget
+    );
 
     if (hideEvent.defaultPrevented) {
       return;
@@ -237,7 +261,7 @@ class Dropdown extends BaseComponent {
 
     this._menu.classList.toggle(CLASS_NAME_SHOW);
     this._element.classList.toggle(CLASS_NAME_SHOW);
-    Manipulator.removeDataAttribute(this._menu, 'popper');
+    Manipulator.removeDataAttribute(this._menu, "popper");
     EventHandler.trigger(this._element, EVENT_HIDDEN, relatedTarget);
   }
 
@@ -279,9 +303,9 @@ class Dropdown extends BaseComponent {
     typeCheckConfig(NAME, config, this.constructor.DefaultType);
 
     if (
-      typeof config.reference === 'object' &&
+      typeof config.reference === "object" &&
       !isElement(config.reference) &&
-      typeof config.reference.getBoundingClientRect !== 'function'
+      typeof config.reference.getBoundingClientRect !== "function"
     ) {
       // Popper virtual elements require a getBoundingClientRect method
       throw new TypeError(
@@ -308,7 +332,9 @@ class Dropdown extends BaseComponent {
     }
 
     // We need to trim the value because custom properties can also include spaces
-    const isEnd = getComputedStyle(this._menu).getPropertyValue('--bs-position').trim() === 'end';
+    const isEnd =
+      getComputedStyle(this._menu).getPropertyValue("--bs-position").trim() ===
+      "end";
 
     if (parentDropdown.classList.contains(CLASS_NAME_DROPUP)) {
       return isEnd ? PLACEMENT_TOPEND : PLACEMENT_TOP;
@@ -324,11 +350,11 @@ class Dropdown extends BaseComponent {
   _getOffset() {
     const { offset } = this._config;
 
-    if (typeof offset === 'string') {
-      return offset.split(',').map((val) => Number.parseInt(val, 10));
+    if (typeof offset === "string") {
+      return offset.split(",").map((val) => Number.parseInt(val, 10));
     }
 
-    if (typeof offset === 'function') {
+    if (typeof offset === "function") {
       return (popperData) => offset(popperData, this._element);
     }
 
@@ -340,14 +366,14 @@ class Dropdown extends BaseComponent {
       placement: this._getPlacement(),
       modifiers: [
         {
-          name: 'preventOverflow',
+          name: "preventOverflow",
           options: {
             altBoundary: this._config.flip,
             boundary: this._config.boundary,
           },
         },
         {
-          name: 'offset',
+          name: "offset",
           options: {
             offset: this._getOffset(),
           },
@@ -356,10 +382,10 @@ class Dropdown extends BaseComponent {
     };
 
     // Disable Popper if we have a static display
-    if (this._config.display === 'static') {
+    if (this._config.display === "static") {
       defaultBsPopperConfig.modifiers = [
         {
-          name: 'applyStyles',
+          name: "applyStyles",
           enabled: false,
         },
       ];
@@ -367,7 +393,7 @@ class Dropdown extends BaseComponent {
 
     return {
       ...defaultBsPopperConfig,
-      ...(typeof this._config.popperConfig === 'function'
+      ...(typeof this._config.popperConfig === "function"
         ? this._config.popperConfig(defaultBsPopperConfig)
         : this._config.popperConfig),
     };
@@ -377,14 +403,14 @@ class Dropdown extends BaseComponent {
 
   static dropdownInterface(element, config) {
     let data = Data.getData(element, DATA_KEY);
-    const _config = typeof config === 'object' ? config : null;
+    const _config = typeof config === "object" ? config : null;
 
     if (!data) {
       data = new Dropdown(element, _config);
     }
 
-    if (typeof config === 'string') {
-      if (typeof data[config] === 'undefined') {
+    if (typeof config === "string") {
+      if (typeof data[config] === "undefined") {
         throw new TypeError(`No method named "${config}"`);
       }
 
@@ -401,7 +427,8 @@ class Dropdown extends BaseComponent {
   static clearMenus(event) {
     if (
       event &&
-      (event.button === RIGHT_MOUSE_BUTTON || (event.type === 'keyup' && event.key !== TAB_KEY))
+      (event.button === RIGHT_MOUSE_BUTTON ||
+        (event.type === "keyup" && event.key !== TAB_KEY))
     ) {
       return;
     }
@@ -414,7 +441,7 @@ class Dropdown extends BaseComponent {
         relatedTarget: toggles[i],
       };
 
-      if (event && event.type === 'click') {
+      if (event && event.type === "click") {
         relatedTarget.clickEvent = event;
       }
 
@@ -429,27 +456,32 @@ class Dropdown extends BaseComponent {
 
       if (
         event &&
-        ((event.type === 'click' && /input|textarea/i.test(event.target.tagName)) ||
-          (event.type === 'keyup' && event.key === TAB_KEY)) &&
+        ((event.type === "click" &&
+          /input|textarea/i.test(event.target.tagName)) ||
+          (event.type === "keyup" && event.key === TAB_KEY)) &&
         dropdownMenu.contains(event.target)
       ) {
         continue;
       }
 
-      const hideEvent = EventHandler.trigger(toggles[i], EVENT_HIDE, relatedTarget);
+      const hideEvent = EventHandler.trigger(
+        toggles[i],
+        EVENT_HIDE,
+        relatedTarget
+      );
       if (hideEvent.defaultPrevented) {
         continue;
       }
 
       // If this is a touch-enabled device we remove the extra
       // empty mouseover listeners we added for iOS support
-      if ('ontouchstart' in document.documentElement) {
+      if ("ontouchstart" in document.documentElement) {
         []
           .concat(...document.body.children)
-          .forEach((elem) => EventHandler.off(elem, 'mouseover', null, noop()));
+          .forEach((elem) => EventHandler.off(elem, "mouseover", null, noop()));
       }
 
-      toggles[i].setAttribute('aria-expanded', 'false');
+      toggles[i].setAttribute("aria-expanded", "false");
 
       if (context._popper) {
         context._popper.destroy();
@@ -457,7 +489,7 @@ class Dropdown extends BaseComponent {
 
       dropdownMenu.classList.remove(CLASS_NAME_SHOW);
       toggles[i].classList.remove(CLASS_NAME_SHOW);
-      Manipulator.removeDataAttribute(dropdownMenu, 'popper');
+      Manipulator.removeDataAttribute(dropdownMenu, "popper");
       EventHandler.trigger(toggles[i], EVENT_HIDDEN, relatedTarget);
     }
   }
@@ -504,7 +536,10 @@ class Dropdown extends BaseComponent {
       return;
     }
 
-    if (!isActive && (event.key === ARROW_UP_KEY || event.key === ARROW_DOWN_KEY)) {
+    if (
+      !isActive &&
+      (event.key === ARROW_UP_KEY || event.key === ARROW_DOWN_KEY)
+    ) {
       const button = this.matches(SELECTOR_DATA_TOGGLE)
         ? this
         : SelectorEngine.prev(this, SELECTOR_DATA_TOGGLE)[0];
@@ -517,7 +552,9 @@ class Dropdown extends BaseComponent {
       return;
     }
 
-    const items = SelectorEngine.find(SELECTOR_VISIBLE_ITEMS, parent).filter(isVisible);
+    const items = SelectorEngine.find(SELECTOR_VISIBLE_ITEMS, parent).filter(
+      isVisible
+    );
 
     if (!items.length) {
       return;
@@ -554,15 +591,27 @@ EventHandler.on(
   SELECTOR_DATA_TOGGLE,
   Dropdown.dataApiKeydownHandler
 );
-EventHandler.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_MENU, Dropdown.dataApiKeydownHandler);
+EventHandler.on(
+  document,
+  EVENT_KEYDOWN_DATA_API,
+  SELECTOR_MENU,
+  Dropdown.dataApiKeydownHandler
+);
 EventHandler.on(document, EVENT_CLICK_DATA_API, Dropdown.clearMenus);
 EventHandler.on(document, EVENT_KEYUP_DATA_API, Dropdown.clearMenus);
-EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
-  event.preventDefault();
-  event.stopPropagation();
-  Dropdown.dropdownInterface(this, 'toggle');
-});
-EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_FORM_CHILD, (e) => e.stopPropagation());
+EventHandler.on(
+  document,
+  EVENT_CLICK_DATA_API,
+  SELECTOR_DATA_TOGGLE,
+  function (event) {
+    event.preventDefault();
+    event.stopPropagation();
+    Dropdown.dropdownInterface(this, "toggle");
+  }
+);
+EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_FORM_CHILD, (e) =>
+  e.stopPropagation()
+);
 
 /**
  * ------------------------------------------------------------------------

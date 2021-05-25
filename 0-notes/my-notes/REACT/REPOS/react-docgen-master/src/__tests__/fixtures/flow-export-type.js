@@ -10,8 +10,8 @@
 import React, { Component } from 'react';
 
 export type Props = {
-  foo: string
-}
+  foo: string,
+};
 
 /**
  * This is a Flow class component

@@ -1,5 +1,5 @@
 export default function callAPIMiddleware({ dispatch, getState }) {
-  return next => async action => {
+  return (next) => async (action) => {
     const { types, callAPI, shouldCallAPI = () => true, payload = {} } = action;
 
     if (!types) {
@@ -9,13 +9,13 @@ export default function callAPIMiddleware({ dispatch, getState }) {
     if (
       !Array.isArray(types) ||
       types.length !== 3 ||
-      !types.every(type => typeof type === 'string')
+      !types.every((type) => typeof type === "string")
     ) {
-      throw new Error('Expected an array of three string types.');
+      throw new Error("Expected an array of three string types.");
     }
 
-    if (typeof callAPI !== 'function') {
-      throw new Error('Expected callAPI to be a function.');
+    if (typeof callAPI !== "function") {
+      throw new Error("Expected callAPI to be a function.");
     }
 
     if (!shouldCallAPI(getState())) {

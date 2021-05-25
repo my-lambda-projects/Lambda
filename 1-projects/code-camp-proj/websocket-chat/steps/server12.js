@@ -28,7 +28,7 @@ app.get("/", (req, res) => {
   res.sendFile("index.html");
 });
 
-io.on("connection", socket => {
+io.on("connection", (socket) => {
   console.log(`Socket connected: ${socket.id}`);
 });
 

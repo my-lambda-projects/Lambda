@@ -14,12 +14,12 @@ import {
   isElement,
   reflow,
   typeCheckConfig,
-} from './util/index';
-import Data from './dom/data';
-import EventHandler from './dom/event-handler';
-import Manipulator from './dom/manipulator';
-import SelectorEngine from './dom/selector-engine';
-import BaseComponent from './base-component';
+} from "./util/index";
+import Data from "./dom/data";
+import EventHandler from "./dom/event-handler";
+import Manipulator from "./dom/manipulator";
+import SelectorEngine from "./dom/selector-engine";
+import BaseComponent from "./base-component";
 
 /**
  * ------------------------------------------------------------------------
@@ -27,19 +27,19 @@ import BaseComponent from './base-component';
  * ------------------------------------------------------------------------
  */
 
-const NAME = 'collapse';
-const DATA_KEY = 'bs.collapse';
+const NAME = "collapse";
+const DATA_KEY = "bs.collapse";
 const EVENT_KEY = `.${DATA_KEY}`;
-const DATA_API_KEY = '.data-api';
+const DATA_API_KEY = ".data-api";
 
 const Default = {
   toggle: true,
-  parent: '',
+  parent: "",
 };
 
 const DefaultType = {
-  toggle: 'boolean',
-  parent: '(string|element)',
+  toggle: "boolean",
+  parent: "(string|element)",
 };
 
 const EVENT_SHOW = `show${EVENT_KEY}`;
@@ -48,15 +48,15 @@ const EVENT_HIDE = `hide${EVENT_KEY}`;
 const EVENT_HIDDEN = `hidden${EVENT_KEY}`;
 const EVENT_CLICK_DATA_API = `click${EVENT_KEY}${DATA_API_KEY}`;
 
-const CLASS_NAME_SHOW = 'show';
-const CLASS_NAME_COLLAPSE = 'collapse';
-const CLASS_NAME_COLLAPSING = 'collapsing';
-const CLASS_NAME_COLLAPSED = 'collapsed';
+const CLASS_NAME_SHOW = "show";
+const CLASS_NAME_COLLAPSE = "collapse";
+const CLASS_NAME_COLLAPSING = "collapsing";
+const CLASS_NAME_COLLAPSED = "collapsed";
 
-const WIDTH = 'width';
-const HEIGHT = 'height';
+const WIDTH = "width";
+const HEIGHT = "height";
 
-const SELECTOR_ACTIVES = '.show, .collapsing';
+const SELECTOR_ACTIVES = ".show, .collapsing";
 const SELECTOR_DATA_TOGGLE = '[data-bs-toggle="collapse"]';
 
 /**
@@ -123,7 +123,10 @@ class Collapse extends BaseComponent {
   }
 
   show() {
-    if (this._isTransitioning || this._element.classList.contains(CLASS_NAME_SHOW)) {
+    if (
+      this._isTransitioning ||
+      this._element.classList.contains(CLASS_NAME_SHOW)
+    ) {
       return;
     }
 
@@ -131,13 +134,15 @@ class Collapse extends BaseComponent {
     let activesData;
 
     if (this._parent) {
-      actives = SelectorEngine.find(SELECTOR_ACTIVES, this._parent).filter((elem) => {
-        if (typeof this._config.parent === 'string') {
-          return elem.getAttribute('data-bs-parent') === this._config.parent;
-        }
+      actives = SelectorEngine.find(SELECTOR_ACTIVES, this._parent).filter(
+        (elem) => {
+          if (typeof this._config.parent === "string") {
+            return elem.getAttribute("data-bs-parent") === this._config.parent;
+          }
 
-        return elem.classList.contains(CLASS_NAME_COLLAPSE);
-      });
+          return elem.classList.contains(CLASS_NAME_COLLAPSE);
+        }
+      );
 
       if (actives.length === 0) {
         actives = null;
@@ -147,7 +152,9 @@ class Collapse extends BaseComponent {
     const container = SelectorEngine.findOne(this._selector);
     if (actives) {
       const tempActiveData = actives.find((elem) => container !== elem);
-      activesData = tempActiveData ? Data.getData(tempActiveData, DATA_KEY) : null;
+      activesData = tempActiveData
+        ? Data.getData(tempActiveData, DATA_KEY)
+        : null;
 
       if (activesData && activesData._isTransitioning) {
         return;
@@ -162,7 +169,7 @@ class Collapse extends BaseComponent {
     if (actives) {
       actives.forEach((elemActive) => {
         if (container !== elemActive) {
-          Collapse.collapseInterface(elemActive, 'hide');
+          Collapse.collapseInterface(elemActive, "hide");
         }
 
         if (!activesData) {
@@ -181,7 +188,7 @@ class Collapse extends BaseComponent {
     if (this._triggerArray.length) {
       this._triggerArray.forEach((element) => {
         element.classList.remove(CLASS_NAME_COLLAPSED);
-        element.setAttribute('aria-expanded', true);
+        element.setAttribute("aria-expanded", true);
       });
     }
 
@@ -191,25 +198,29 @@ class Collapse extends BaseComponent {
       this._element.classList.remove(CLASS_NAME_COLLAPSING);
       this._element.classList.add(CLASS_NAME_COLLAPSE, CLASS_NAME_SHOW);
 
-      this._element.style[dimension] = '';
+      this._element.style[dimension] = "";
 
       this.setTransitioning(false);
 
       EventHandler.trigger(this._element, EVENT_SHOWN);
     };
 
-    const capitalizedDimension = dimension[0].toUpperCase() + dimension.slice(1);
+    const capitalizedDimension =
+      dimension[0].toUpperCase() + dimension.slice(1);
     const scrollSize = `scroll${capitalizedDimension}`;
     const transitionDuration = getTransitionDurationFromElement(this._element);
 
-    EventHandler.one(this._element, 'transitionend', complete);
+    EventHandler.one(this._element, "transitionend", complete);
 
     emulateTransitionEnd(this._element, transitionDuration);
     this._element.style[dimension] = `${this._element[scrollSize]}px`;
   }
 
   hide() {
-    if (this._isTransitioning || !this._element.classList.contains(CLASS_NAME_SHOW)) {
+    if (
+      this._isTransitioning ||
+      !this._element.classList.contains(CLASS_NAME_SHOW)
+    ) {
       return;
     }
 
@@ -220,7 +231,9 @@ class Collapse extends BaseComponent {
 
     const dimension = this._getDimension();
 
-    this._element.style[dimension] = `${this._element.getBoundingClientRect()[dimension]}px`;
+    this._element.style[dimension] = `${
+      this._element.getBoundingClientRect()[dimension]
+    }px`;
 
     reflow(this._element);
 
@@ -235,7 +248,7 @@ class Collapse extends BaseComponent {
 
         if (elem && !elem.classList.contains(CLASS_NAME_SHOW)) {
           trigger.classList.add(CLASS_NAME_COLLAPSED);
-          trigger.setAttribute('aria-expanded', false);
+          trigger.setAttribute("aria-expanded", false);
         }
       }
     }
@@ -249,10 +262,10 @@ class Collapse extends BaseComponent {
       EventHandler.trigger(this._element, EVENT_HIDDEN);
     };
 
-    this._element.style[dimension] = '';
+    this._element.style[dimension] = "";
     const transitionDuration = getTransitionDurationFromElement(this._element);
 
-    EventHandler.one(this._element, 'transitionend', complete);
+    EventHandler.one(this._element, "transitionend", complete);
     emulateTransitionEnd(this._element, transitionDuration);
   }
 
@@ -289,7 +302,10 @@ class Collapse extends BaseComponent {
 
     if (isElement(parent)) {
       // it's a jQuery object
-      if (typeof parent.jquery !== 'undefined' || typeof parent[0] !== 'undefined') {
+      if (
+        typeof parent.jquery !== "undefined" ||
+        typeof parent[0] !== "undefined"
+      ) {
         parent = parent[0];
       }
     } else {
@@ -321,7 +337,7 @@ class Collapse extends BaseComponent {
         elem.classList.add(CLASS_NAME_COLLAPSED);
       }
 
-      elem.setAttribute('aria-expanded', isOpen);
+      elem.setAttribute("aria-expanded", isOpen);
     });
   }
 
@@ -332,10 +348,15 @@ class Collapse extends BaseComponent {
     const _config = {
       ...Default,
       ...Manipulator.getDataAttributes(element),
-      ...(typeof config === 'object' && config ? config : {}),
+      ...(typeof config === "object" && config ? config : {}),
     };
 
-    if (!data && _config.toggle && typeof config === 'string' && /show|hide/.test(config)) {
+    if (
+      !data &&
+      _config.toggle &&
+      typeof config === "string" &&
+      /show|hide/.test(config)
+    ) {
       _config.toggle = false;
     }
 
@@ -343,8 +364,8 @@ class Collapse extends BaseComponent {
       data = new Collapse(element, _config);
     }
 
-    if (typeof config === 'string') {
-      if (typeof data[config] === 'undefined') {
+    if (typeof config === "string") {
+      if (typeof data[config] === "undefined") {
         throw new TypeError(`No method named "${config}"`);
       }
 
@@ -365,37 +386,42 @@ class Collapse extends BaseComponent {
  * ------------------------------------------------------------------------
  */
 
-EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
-  // preventDefault only for <a> elements (which change the URL) not inside the collapsible element
-  if (
-    event.target.tagName === 'A' ||
-    (event.delegateTarget && event.delegateTarget.tagName === 'A')
-  ) {
-    event.preventDefault();
-  }
-
-  const triggerData = Manipulator.getDataAttributes(this);
-  const selector = getSelectorFromElement(this);
-  const selectorElements = SelectorEngine.find(selector);
-
-  selectorElements.forEach((element) => {
-    const data = Data.getData(element, DATA_KEY);
-    let config;
-    if (data) {
-      // update parent attribute
-      if (data._parent === null && typeof triggerData.parent === 'string') {
-        data._config.parent = triggerData.parent;
-        data._parent = data._getParent();
-      }
-
-      config = 'toggle';
-    } else {
-      config = triggerData;
+EventHandler.on(
+  document,
+  EVENT_CLICK_DATA_API,
+  SELECTOR_DATA_TOGGLE,
+  function (event) {
+    // preventDefault only for <a> elements (which change the URL) not inside the collapsible element
+    if (
+      event.target.tagName === "A" ||
+      (event.delegateTarget && event.delegateTarget.tagName === "A")
+    ) {
+      event.preventDefault();
     }
 
-    Collapse.collapseInterface(element, config);
-  });
-});
+    const triggerData = Manipulator.getDataAttributes(this);
+    const selector = getSelectorFromElement(this);
+    const selectorElements = SelectorEngine.find(selector);
+
+    selectorElements.forEach((element) => {
+      const data = Data.getData(element, DATA_KEY);
+      let config;
+      if (data) {
+        // update parent attribute
+        if (data._parent === null && typeof triggerData.parent === "string") {
+          data._config.parent = triggerData.parent;
+          data._parent = data._getParent();
+        }
+
+        config = "toggle";
+      } else {
+        config = triggerData;
+      }
+
+      Collapse.collapseInterface(element, config);
+    });
+  }
+);
 
 /**
  * ------------------------------------------------------------------------

@@ -18,7 +18,7 @@ type Props = {|
 |};
 
 const SectionLinks = ({links}: Props) =>
-  links.map(item => {
+  links.map((item) => {
     if (item.external) {
       return (
         <ExternalFooterLink

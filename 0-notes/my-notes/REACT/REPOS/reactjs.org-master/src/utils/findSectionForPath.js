@@ -28,12 +28,12 @@ const findSectionForPath = (
   let activeSection;
   const slugId = pathname.split('/').slice(-1)[0];
 
-  sections.forEach(section => {
+  sections.forEach((section) => {
     const match = section.items.some(
-      item =>
+      (item) =>
         slugId === slugify(item.id) ||
         (item.subitems &&
-          item.subitems.some(subitem => slugId === slugify(subitem.id))),
+          item.subitems.some((subitem) => slugId === slugify(subitem.id))),
     );
     if (match) {
       activeSection = section;

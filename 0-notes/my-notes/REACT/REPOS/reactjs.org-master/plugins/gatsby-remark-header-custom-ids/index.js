@@ -28,7 +28,7 @@ module.exports = (
 ) => {
   slugs.reset();
 
-  visit(markdownAST, 'heading', node => {
+  visit(markdownAST, 'heading', (node) => {
     // Support custom-id syntax.
     const rawHeader = toString(node);
     const match = /^.+(\s*\{#([a-z0-9\-_]+?)\}\s*)$/.exec(rawHeader);

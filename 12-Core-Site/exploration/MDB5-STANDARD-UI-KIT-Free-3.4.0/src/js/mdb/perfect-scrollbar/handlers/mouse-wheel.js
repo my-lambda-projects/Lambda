@@ -1,9 +1,9 @@
 /* eslint-disable */
 
-import * as CSS from '../lib/css';
-import cls from '../lib/class-names';
-import updateGeometry from '../update-geometry';
-import { env } from '../lib/util';
+import * as CSS from "../lib/css";
+import cls from "../lib/class-names";
+import updateGeometry from "../update-geometry";
+import { env } from "../lib/util";
 
 export default function (i) {
   const element = i.element;
@@ -13,9 +13,11 @@ export default function (i) {
   function shouldPreventDefault(deltaX, deltaY) {
     const roundedScrollTop = Math.floor(element.scrollTop);
     const isTop = element.scrollTop === 0;
-    const isBottom = roundedScrollTop + element.offsetHeight === element.scrollHeight;
+    const isBottom =
+      roundedScrollTop + element.offsetHeight === element.scrollHeight;
     const isLeft = element.scrollLeft === 0;
-    const isRight = element.scrollLeft + element.offsetWidth === element.scrollWidth;
+    const isRight =
+      element.scrollLeft + element.offsetWidth === element.scrollWidth;
 
     let hitsBound;
 
@@ -33,7 +35,7 @@ export default function (i) {
     let deltaX = e.deltaX;
     let deltaY = -1 * e.deltaY;
 
-    if (typeof deltaX === 'undefined' || typeof deltaY === 'undefined') {
+    if (typeof deltaX === "undefined" || typeof deltaY === "undefined") {
       // OS X Safari
       deltaX = (-1 * e.wheelDeltaX) / 6;
       deltaY = e.wheelDeltaY / 6;
@@ -60,7 +62,7 @@ export default function (i) {
 
   function shouldBeConsumedByChild(target, deltaX, deltaY) {
     // FIXME: this is a workaround for <select> issue in FF and IE #571
-    if (!env.isWebKit && element.querySelector('select:focus')) {
+    if (!env.isWebKit && element.querySelector("select:focus")) {
       return true;
     }
 
@@ -150,9 +152,9 @@ export default function (i) {
     }
   }
 
-  if (typeof window.onwheel !== 'undefined') {
-    i.event.bind(element, 'wheel', mousewheelHandler);
-  } else if (typeof window.onmousewheel !== 'undefined') {
-    i.event.bind(element, 'mousewheel', mousewheelHandler);
+  if (typeof window.onwheel !== "undefined") {
+    i.event.bind(element, "wheel", mousewheelHandler);
+  } else if (typeof window.onmousewheel !== "undefined") {
+    i.event.bind(element, "mousewheel", mousewheelHandler);
   }
 }

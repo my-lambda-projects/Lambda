@@ -10,12 +10,12 @@ import React from 'react';
 
 export class Button extends React.Component {
   static get displayName() {
-    return "button";
+    return 'button';
   }
 
   static get defaultProps() {
     return {
-      type: "primary",
+      type: 'primary',
     };
   }
 }

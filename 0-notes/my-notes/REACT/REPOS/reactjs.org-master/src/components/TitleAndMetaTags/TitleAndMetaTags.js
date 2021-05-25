@@ -22,12 +22,12 @@ type Props = {
 
 // only provide alternate links to pages in languages where 95-100% of core content has been translated
 // which is determined by status enum of 2
-const completeLanguages = languages.filter(language => {
+const completeLanguages = languages.filter((language) => {
   return language.status == 2;
 });
 
-const alternatePages = canonicalUrl => {
-  return completeLanguages.map(language => (
+const alternatePages = (canonicalUrl) => {
+  return completeLanguages.map((language) => (
     <link
       key={('alt-', language.code)}
       rel="alternate"
@@ -42,7 +42,7 @@ const alternatePages = canonicalUrl => {
   ));
 };
 
-const defaultPage = canonicalUrl => {
+const defaultPage = (canonicalUrl) => {
   return canonicalUrl.replace(urlRoot, 'https://reactjs.org');
 };
 

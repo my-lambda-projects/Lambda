@@ -1,6 +1,6 @@
 const newsFeed = {
-    page: "front_page"
-}
+  page: "front_page",
+};
 
 /*
 We now have our 'front_page' data property for our newsfeed.
@@ -10,4 +10,3 @@ to an empty array.
 
 After the property page, create a new articles property and set it to an empty array. 
 */
-

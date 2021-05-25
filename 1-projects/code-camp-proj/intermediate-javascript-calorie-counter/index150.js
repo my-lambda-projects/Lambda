@@ -1,10 +1,10 @@
-document.getElementById('calorie-form').onsubmit = calculate;
+document.getElementById("calorie-form").onsubmit = calculate;
 
 function calculate(e) {
   e.preventDefault();
 
-  const total = Array.from(document.getElementsByClassName('cal-control')).map(
-    meal => Number(meal.value)
+  const total = Array.from(document.getElementsByClassName("cal-control")).map(
+    (meal) => Number(meal.value)
   );
   //   console.log(total);
 }

@@ -49,7 +49,7 @@ module.exports = async ({graphql, actions}) => {
     throw Error(allMarkdown.errors);
   }
 
-  allMarkdown.data.allMarkdownRemark.edges.forEach(edge => {
+  allMarkdown.data.allMarkdownRemark.edges.forEach((edge) => {
     const slug = edge.node.fields.slug;
 
     if (slug === 'docs/error-decoder.html') {
@@ -79,7 +79,7 @@ module.exports = async ({graphql, actions}) => {
         template = tutorialTemplate;
       }
 
-      const createArticlePage = path =>
+      const createArticlePage = (path) =>
         createPage({
           path: path,
           component: template,
@@ -98,7 +98,7 @@ module.exports = async ({graphql, actions}) => {
           redirect = [redirect];
         }
 
-        redirect.forEach(fromPath => {
+        redirect.forEach((fromPath) => {
           if (redirectToSlugMap[fromPath] != null) {
             console.error(
               `Duplicate redirect detected from "${fromPath}" to:\n` +
@@ -147,7 +147,7 @@ module.exports = async ({graphql, actions}) => {
   const newestBlogNode = newestBlogEntry.data.allMarkdownRemark.edges[0].node;
 
   // Blog landing page should always show the most recent blog entry.
-  ['/blog/', '/blog'].map(slug => {
+  ['/blog/', '/blog'].map((slug) => {
     createRedirect({
       fromPath: slug,
       redirectInBrowser: true,

@@ -11,11 +11,11 @@ import {
   getElementFromSelector,
   getTransitionDurationFromElement,
   reflow,
-} from './util/index';
-import Data from './dom/data';
-import EventHandler from './dom/event-handler';
-import SelectorEngine from './dom/selector-engine';
-import BaseComponent from './base-component';
+} from "./util/index";
+import Data from "./dom/data";
+import EventHandler from "./dom/event-handler";
+import SelectorEngine from "./dom/selector-engine";
+import BaseComponent from "./base-component";
 
 /**
  * ------------------------------------------------------------------------
@@ -23,10 +23,10 @@ import BaseComponent from './base-component';
  * ------------------------------------------------------------------------
  */
 
-const NAME = 'tab';
-const DATA_KEY = 'bs.tab';
+const NAME = "tab";
+const DATA_KEY = "bs.tab";
 const EVENT_KEY = `.${DATA_KEY}`;
-const DATA_API_KEY = '.data-api';
+const DATA_API_KEY = ".data-api";
 
 const EVENT_HIDE = `hide${EVENT_KEY}`;
 const EVENT_HIDDEN = `hidden${EVENT_KEY}`;
@@ -34,20 +34,20 @@ const EVENT_SHOW = `show${EVENT_KEY}`;
 const EVENT_SHOWN = `shown${EVENT_KEY}`;
 const EVENT_CLICK_DATA_API = `click${EVENT_KEY}${DATA_API_KEY}`;
 
-const CLASS_NAME_DROPDOWN_MENU = 'dropdown-menu';
-const CLASS_NAME_ACTIVE = 'active';
-const CLASS_NAME_DISABLED = 'disabled';
-const CLASS_NAME_FADE = 'fade';
-const CLASS_NAME_SHOW = 'show';
+const CLASS_NAME_DROPDOWN_MENU = "dropdown-menu";
+const CLASS_NAME_ACTIVE = "active";
+const CLASS_NAME_DISABLED = "disabled";
+const CLASS_NAME_FADE = "fade";
+const CLASS_NAME_SHOW = "show";
 
-const SELECTOR_DROPDOWN = '.dropdown';
-const SELECTOR_NAV_LIST_GROUP = '.nav, .list-group';
-const SELECTOR_ACTIVE = '.active';
-const SELECTOR_ACTIVE_UL = ':scope > li > .active';
+const SELECTOR_DROPDOWN = ".dropdown";
+const SELECTOR_NAV_LIST_GROUP = ".nav, .list-group";
+const SELECTOR_ACTIVE = ".active";
+const SELECTOR_ACTIVE_UL = ":scope > li > .active";
 const SELECTOR_DATA_TOGGLE =
   '[data-mdb-toggle="tab"], [data-mdb-toggle="pill"], [data-mdb-toggle="list"]';
-const SELECTOR_DROPDOWN_TOGGLE = '.dropdown-toggle';
-const SELECTOR_DROPDOWN_ACTIVE_CHILD = ':scope > .dropdown-menu .active';
+const SELECTOR_DROPDOWN_TOGGLE = ".dropdown-toggle";
+const SELECTOR_DROPDOWN_ACTIVE_CHILD = ":scope > .dropdown-menu .active";
 
 /**
  * ------------------------------------------------------------------------
@@ -80,7 +80,7 @@ class Tab extends BaseComponent {
 
     if (listElement) {
       const itemSelector =
-        listElement.nodeName === 'UL' || listElement.nodeName === 'OL'
+        listElement.nodeName === "UL" || listElement.nodeName === "OL"
           ? SELECTOR_ACTIVE_UL
           : SELECTOR_ACTIVE;
       previous = SelectorEngine.find(itemSelector, listElement);
@@ -97,7 +97,10 @@ class Tab extends BaseComponent {
       relatedTarget: previous,
     });
 
-    if (showEvent.defaultPrevented || (hideEvent !== null && hideEvent.defaultPrevented)) {
+    if (
+      showEvent.defaultPrevented ||
+      (hideEvent !== null && hideEvent.defaultPrevented)
+    ) {
       return;
     }
 
@@ -123,12 +126,13 @@ class Tab extends BaseComponent {
 
   _activate(element, container, callback) {
     const activeElements =
-      container && (container.nodeName === 'UL' || container.nodeName === 'OL')
+      container && (container.nodeName === "UL" || container.nodeName === "OL")
         ? SelectorEngine.find(SELECTOR_ACTIVE_UL, container)
         : SelectorEngine.children(container, SELECTOR_ACTIVE);
 
     const active = activeElements[0];
-    const isTransitioning = callback && active && active.classList.contains(CLASS_NAME_FADE);
+    const isTransitioning =
+      callback && active && active.classList.contains(CLASS_NAME_FADE);
 
     const complete = () => this._transitionComplete(element, active, callback);
 
@@ -136,7 +140,7 @@ class Tab extends BaseComponent {
       const transitionDuration = getTransitionDurationFromElement(active);
       active.classList.remove(CLASS_NAME_SHOW);
 
-      EventHandler.one(active, 'transitionend', complete);
+      EventHandler.one(active, "transitionend", complete);
       emulateTransitionEnd(active, transitionDuration);
     } else {
       complete();
@@ -156,14 +160,14 @@ class Tab extends BaseComponent {
         dropdownChild.classList.remove(CLASS_NAME_ACTIVE);
       }
 
-      if (active.getAttribute('role') === 'tab') {
-        active.setAttribute('aria-selected', false);
+      if (active.getAttribute("role") === "tab") {
+        active.setAttribute("aria-selected", false);
       }
     }
 
     element.classList.add(CLASS_NAME_ACTIVE);
-    if (element.getAttribute('role') === 'tab') {
-      element.setAttribute('aria-selected', true);
+    if (element.getAttribute("role") === "tab") {
+      element.setAttribute("aria-selected", true);
     }
 
     reflow(element);
@@ -172,7 +176,10 @@ class Tab extends BaseComponent {
       element.classList.add(CLASS_NAME_SHOW);
     }
 
-    if (element.parentNode && element.parentNode.classList.contains(CLASS_NAME_DROPDOWN_MENU)) {
+    if (
+      element.parentNode &&
+      element.parentNode.classList.contains(CLASS_NAME_DROPDOWN_MENU)
+    ) {
       const dropdownElement = element.closest(SELECTOR_DROPDOWN);
 
       if (dropdownElement) {
@@ -181,7 +188,7 @@ class Tab extends BaseComponent {
         );
       }
 
-      element.setAttribute('aria-expanded', true);
+      element.setAttribute("aria-expanded", true);
     }
 
     if (callback) {
@@ -195,8 +202,8 @@ class Tab extends BaseComponent {
     return this.each(function () {
       const data = Data.getData(this, DATA_KEY) || new Tab(this);
 
-      if (typeof config === 'string') {
-        if (typeof data[config] === 'undefined') {
+      if (typeof config === "string") {
+        if (typeof data[config] === "undefined") {
           throw new TypeError(`No method named "${config}"`);
         }
 
@@ -212,12 +219,17 @@ class Tab extends BaseComponent {
  * ------------------------------------------------------------------------
  */
 
-EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
-  event.preventDefault();
+EventHandler.on(
+  document,
+  EVENT_CLICK_DATA_API,
+  SELECTOR_DATA_TOGGLE,
+  function (event) {
+    event.preventDefault();
 
-  const data = Data.getData(this, DATA_KEY) || new Tab(this);
-  data.show();
-});
+    const data = Data.getData(this, DATA_KEY) || new Tab(this);
+    data.show();
+  }
+);
 
 /**
  * ------------------------------------------------------------------------

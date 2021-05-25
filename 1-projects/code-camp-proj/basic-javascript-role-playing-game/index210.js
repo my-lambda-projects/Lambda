@@ -25,13 +25,13 @@ button3.onclick = fightDragon;
 // After the line that updates `button1`, update the text of `button2` to say "Buy weapon (30 gold)" and update the text of `button3` to say "Go to town square".
 
 function goStore() {
-	button1.innerText = "Buy 10 health (10 gold)";
+  button1.innerText = "Buy 10 health (10 gold)";
 }
 
 function goCave() {
-	console.log("Going to cave.");
+  console.log("Going to cave.");
 }
 
 function fightDragon() {
-	console.log("Fighting dragon.");
+  console.log("Fighting dragon.");
 }

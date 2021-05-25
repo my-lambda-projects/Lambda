@@ -1,12 +1,12 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 
-app.listen(3000, function() {
-  console.log('Your app is listening on port 3000.');
+app.listen(3000, function () {
+  console.log("Your app is listening on port 3000.");
 });
 
-app.get('/hi', (req, res) => {
-  res.send('Hi there trader!');
+app.get("/hi", (req, res) => {
+  res.send("Hi there trader!");
 });
 
 //Create a JavaScript object named 'prices' consisting of the following key-value pairs of tickers and their prices:

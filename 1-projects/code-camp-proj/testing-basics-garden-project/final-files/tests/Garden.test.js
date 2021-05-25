@@ -5,29 +5,29 @@ import { VegetablePlant } from "../src/VegetablePlant";
 const chai = require("chai");
 const assert = chai.assert;
 
-describe("Garden tests", function() {
+describe("Garden tests", function () {
   let myGarden;
 
   beforeEach(() => {
     myGarden = new Garden();
   });
 
-  it("should be able to create a Garden", function() {
+  it("should be able to create a Garden", function () {
     assert.instanceOf(myGarden, Garden);
   });
 
-  describe("Garden with fruit trees", function() {
+  describe("Garden with fruit trees", function () {
     let myFruitTree;
     beforeEach(() => {
       myFruitTree = new FruitTree("Strawberry");
     });
 
-    it("should be able to add fruit trees", function() {
+    it("should be able to add fruit trees", function () {
       myGarden.addPlant(myFruitTree);
       assert.isAbove(myGarden.fruitTrees.length, 0);
     });
 
-    it("should not allow more than 5 fruit trees", function() {
+    it("should not allow more than 5 fruit trees", function () {
       for (let i = 0; i < 6; i++) {
         myGarden.addPlant(myFruitTree);
       }
@@ -35,18 +35,18 @@ describe("Garden tests", function() {
     });
   });
 
-  describe("Garden with vegetable plants", function() {
+  describe("Garden with vegetable plants", function () {
     let myVegetablePlant;
     beforeEach(() => {
       myVegetablePlant = new VegetablePlant("Cabbage");
     });
 
-    it("should be able to add vegetables", function() {
+    it("should be able to add vegetables", function () {
       myGarden.addPlant(myVegetablePlant);
       assert.isAbove(myGarden.vegetablePlants.length, 0);
     });
 
-    it("should not allow more than 10 vegetable plants", function() {
+    it("should not allow more than 10 vegetable plants", function () {
       for (let i = 0; i < 11; i++) {
         myGarden.addPlant(myVegetablePlant);
       }
@@ -54,18 +54,18 @@ describe("Garden tests", function() {
     });
   });
 
-  describe("Garden with other plants", function() {
+  describe("Garden with other plants", function () {
     let myPlant;
     beforeEach(() => {
       myPlant = new Plant("Sunflower");
     });
 
-    it("should be able to add other plants", function() {
+    it("should be able to add other plants", function () {
       myGarden.addPlant(myPlant);
       assert.isAbove(myGarden.miscPlants.length, 0);
     });
 
-    it("should not allow more than 7 other plants", function() {
+    it("should not allow more than 7 other plants", function () {
       for (let i = 0; i < 8; i++) {
         myGarden.addPlant(myPlant);
       }

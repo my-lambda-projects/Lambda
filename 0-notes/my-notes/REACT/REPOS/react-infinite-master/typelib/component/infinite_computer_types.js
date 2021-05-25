@@ -3,5 +3,5 @@ declare class InfiniteComputer {
   getDisplayIndexStart(windowTop: number): number;
   getDisplayIndexEnd(windowBottom: number): number;
   getTopSpacerHeight(displayIndexStart: number): number;
-  getBottomSpacerHeight(displayIndexEnd: number): number
-};
+  getBottomSpacerHeight(displayIndexEnd: number): number;
+}

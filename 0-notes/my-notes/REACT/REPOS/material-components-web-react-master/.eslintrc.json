@@ -7,11 +7,7 @@
     "prettier",
     "prettier/react"
   ],
-  "plugins": [
-    "@typescript-eslint",
-    "react",
-    "prettier"
-  ],
+  "plugins": ["@typescript-eslint", "react", "prettier"],
   "rules": {
     "prettier/prettier": "error",
     "no-unused-vars": "off",
@@ -24,7 +20,7 @@
     "indent": "off",
     "no-invalid-this": "off",
     "object-curly-spacing": "off",
-    "react/prop-types": ["error", { "skipUndeclared": true }]
+    "react/prop-types": ["error", {"skipUndeclared": true}]
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {

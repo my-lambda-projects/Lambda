@@ -5,10 +5,10 @@
  * --------------------------------------------------------------------------
  */
 
-import { defineJQueryPlugin } from './util/index';
-import Data from './dom/data';
-import EventHandler from './dom/event-handler';
-import BaseComponent from './base-component';
+import { defineJQueryPlugin } from "./util/index";
+import Data from "./dom/data";
+import EventHandler from "./dom/event-handler";
+import BaseComponent from "./base-component";
 
 /**
  * ------------------------------------------------------------------------
@@ -16,12 +16,12 @@ import BaseComponent from './base-component';
  * ------------------------------------------------------------------------
  */
 
-const NAME = 'button';
-const DATA_KEY = 'bs.button';
+const NAME = "button";
+const DATA_KEY = "bs.button";
 const EVENT_KEY = `.${DATA_KEY}`;
-const DATA_API_KEY = '.data-api';
+const DATA_API_KEY = ".data-api";
 
-const CLASS_NAME_ACTIVE = 'active';
+const CLASS_NAME_ACTIVE = "active";
 
 const SELECTOR_DATA_TOGGLE = '[data-bs-toggle="button"]';
 
@@ -44,7 +44,10 @@ class Button extends BaseComponent {
 
   toggle() {
     // Toggle class and sync the `aria-pressed` attribute with the return value of the `.toggle()` method
-    this._element.setAttribute('aria-pressed', this._element.classList.toggle(CLASS_NAME_ACTIVE));
+    this._element.setAttribute(
+      "aria-pressed",
+      this._element.classList.toggle(CLASS_NAME_ACTIVE)
+    );
   }
 
   // Static
@@ -57,7 +60,7 @@ class Button extends BaseComponent {
         data = new Button(this);
       }
 
-      if (config === 'toggle') {
+      if (config === "toggle") {
         data[config]();
       }
     });
@@ -70,18 +73,23 @@ class Button extends BaseComponent {
  * ------------------------------------------------------------------------
  */
 
-EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, (event) => {
-  event.preventDefault();
+EventHandler.on(
+  document,
+  EVENT_CLICK_DATA_API,
+  SELECTOR_DATA_TOGGLE,
+  (event) => {
+    event.preventDefault();
 
-  const button = event.target.closest(SELECTOR_DATA_TOGGLE);
+    const button = event.target.closest(SELECTOR_DATA_TOGGLE);
 
-  let data = Data.getData(button, DATA_KEY);
-  if (!data) {
-    data = new Button(button);
+    let data = Data.getData(button, DATA_KEY);
+    if (!data) {
+      data = new Button(button);
+    }
+
+    data.toggle();
   }
-
-  data.toggle();
-});
+);
 
 /**
  * ------------------------------------------------------------------------

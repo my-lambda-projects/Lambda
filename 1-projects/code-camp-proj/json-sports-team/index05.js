@@ -1,8 +1,8 @@
 const myTeam = {
-  "Team": "Argentina",
-  "Sport": "Football",
-  "Year": 1986,
-  "Is World Cup Winner": true
+  Team: "Argentina",
+  Sport: "Football",
+  Year: 1986,
+  "Is World Cup Winner": true,
 };
 
 /*

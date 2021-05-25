@@ -1,12 +1,12 @@
-document.getElementById('calorie-form').onsubmit = calculate;
+document.getElementById("calorie-form").onsubmit = calculate;
 
 function calculate(e) {
   e.preventDefault();
-  const total = Array.from(document.getElementsByClassName('cal-control'))
-    .map(input => Number(input.value))
+  const total = Array.from(document.getElementsByClassName("cal-control"))
+    .map((input) => Number(input.value))
     .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
-  const maxCalories = document.getElementById('female').checked;
+  const maxCalories = document.getElementById("female").checked;
 }
 /*
 Use a ternary operator to assign the value of `maxCalories`. A ternary operator has the following syntax: `condition ? expressionTrue : expressionFalse`.

@@ -1,25 +1,25 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 const port = 3000;
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const Review = require('./models/review');
+const Review = require("./models/review");
 
 app.use(express.json());
 
 const uri = process.env.DB_URI;
 
-mongoose.connect(uri, { useNewUrlParser: true});
+mongoose.connect(uri, { useNewUrlParser: true });
 const db = mongoose.connection;
 
-db.once('open', () => {
+db.once("open", () => {
   console.log("MongoDB database connection established successfully");
-})
+});
 
-app.get('/', (req, res) => {
+app.get("/", (req, res) => {
   Review.find()
-    .then(reviews => res.json(reviews))
-    .catch(err => res.status(400).json('Error: ' + err));
+    .then((reviews) => res.json(reviews))
+    .catch((err) => res.status(400).json("Error: " + err));
 });
 
 /* 
@@ -30,7 +30,7 @@ Exercise.save()
 ```
 */
 
-app.post('add', (req, res) => {
+app.post("add", (req, res) => {
   const movie_title = req.body.movie_title;
   const review = req.body.review;
   const stars = Number(req.body.stars);
@@ -43,8 +43,7 @@ app.post('add', (req, res) => {
     date,
   });
 
-  newReview.save()
+  newReview.save();
 });
 
 app.listen(port, () => console.log(`Review server listening on port ${port}!`));
-

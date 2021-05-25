@@ -12,8 +12,8 @@ import type { Props as ImportedProps } from './flow-export-type';
 
 export type ExtendedProps = {
   ...ImportedProps,
-  bar: number
-}
+  bar: number,
+};
 
 /**
  * This is a Flow component with imported prop types

@@ -7,7 +7,7 @@
  * @emails react-core
  */
 
-export default url =>
+export default (url) =>
   new Promise((resolve, reject) =>
     document.head.appendChild(
       Object.assign(document.createElement('script'), {

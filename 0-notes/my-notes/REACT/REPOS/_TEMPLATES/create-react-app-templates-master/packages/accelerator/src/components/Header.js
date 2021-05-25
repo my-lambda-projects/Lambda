@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Button from 'react-md/lib/Buttons';
-import Toolbar from 'react-md/lib/Toolbars';
-import { withRouter } from 'react-router';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import Button from "react-md/lib/Buttons";
+import Toolbar from "react-md/lib/Toolbars";
+import { withRouter } from "react-router";
 
-import logo from '../assets/images/logo.svg';
-import '../assets/stylesheets/Header.scss';
+import logo from "../assets/images/logo.svg";
+import "../assets/stylesheets/Header.scss";
 
 export class Header extends Component {
   render() {
@@ -17,10 +17,10 @@ export class Header extends Component {
     const { history } = this.props;
 
     const actions = [
-      <Button icon key="home" onClick={() => history.push('/')}>
+      <Button icon key="home" onClick={() => history.push("/")}>
         home
       </Button>,
-      <Button icon key="list" onClick={() => history.push('/list')}>
+      <Button icon key="list" onClick={() => history.push("/list")}>
         list
       </Button>,
     ];

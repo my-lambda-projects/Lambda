@@ -22,8 +22,8 @@
 export default class Generate {
     constructor() {
         this.cache = {};
-        this.suit = ['S', 'H', 'C', 'D'];
-        this.value = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A'];
+        this.suit = ["S", "H", "C", "D"];
+        this.value = [2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
         this.total = 0;
 
         this._init();
@@ -75,7 +75,8 @@ export default class Generate {
 
         do {
             card.suit = this.suit[this._getRandomNumber(this.suit.length - 1)];
-            card.value = this.value[this._getRandomNumber(this.value.length - 1)];
+            card.value =
+                this.value[this._getRandomNumber(this.value.length - 1)];
         } while (this.cache[card.suit].includes(card.value));
 
         return card;
@@ -103,4 +104,3 @@ export default class Generate {
         }
     }
 }
-

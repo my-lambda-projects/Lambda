@@ -10,18 +10,19 @@ const svgWidth = 1000;
 const svgHeight = 700;
 const scale = svgWidth / (2 * Math.PI);
 
-const svg = d3.select("#map")
-    .append("svg")
-    .attr("width", svgWidth)
-    .attr("height", svgHeight);
+const svg = d3
+  .select("#map")
+  .append("svg")
+  .attr("width", svgWidth)
+  .attr("height", svgHeight);
 
-const projection = d3.geoMercator()
-    .scale(scale)
-    .translate([svgWidth / 2, svgHeight / 2])
-    .center([0, 20]);
+const projection = d3
+  .geoMercator()
+  .scale(scale)
+  .translate([svgWidth / 2, svgHeight / 2])
+  .center([0, 20]);
 
-const path = d3.geoPath()
-    .projection(projection);
+const path = d3.geoPath().projection(projection);
 
 // Create a group to hold the countries
 const g = svg.append("g");
@@ -30,15 +31,12 @@ const g = svg.append("g");
 const getJSONData = d3.json(mapPath);
 const getCSVData = d3.csv(popPath);
 
-Promise.all([getJSONData, getCSVData]).then(function(values) {
+Promise.all([getJSONData, getCSVData]).then(function (values) {
   const json = values[0];
   const population = values[1];
 
   // Find the max and min population values in the data to better understand it
-  const popArray = population.map(d => +d.Population);
-
-
-
+  const popArray = population.map((d) => +d.Population);
 });
 
 /*

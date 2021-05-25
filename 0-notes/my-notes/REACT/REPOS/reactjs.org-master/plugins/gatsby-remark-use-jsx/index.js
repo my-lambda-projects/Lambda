@@ -7,7 +7,7 @@ const visit = require('unist-util-visit');
 // Always treat JS blocks as JSX.
 // TODO: maybe we can just change it in Markdown in the future?
 module.exports = ({markdownAST}) => {
-  visit(markdownAST, `code`, node => {
+  visit(markdownAST, `code`, (node) => {
     if (typeof node.lang !== 'string') {
       return;
     }

@@ -1,9 +1,9 @@
-import React from 'react';
-import ListGroup from 'react-bootstrap/lib/ListGroup';
-import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
-import { Link } from 'react-router';
+import React from "react";
+import ListGroup from "react-bootstrap/lib/ListGroup";
+import ListGroupItem from "react-bootstrap/lib/ListGroupItem";
+import { Link } from "react-router";
 
-import LinkContainer from '../../src/LinkContainer';
+import LinkContainer from "../../src/LinkContainer";
 
 export default () => (
   <div>
@@ -18,15 +18,11 @@ export default () => (
       <ListGroupItem header="ListGroupItem 2 Heading">
         ListGroupItem 2 content
       </ListGroupItem>
-      <ListGroupItem disabled>
-        ListGroupItem 3 content disabled
-      </ListGroupItem>
+      <ListGroupItem disabled>ListGroupItem 3 content disabled</ListGroupItem>
       <ListGroupItem bsStyle="success">
         ListGroupItem 4 content success
       </ListGroupItem>
-      <ListGroupItem bsStyle="info">
-        ListGroupItem 5 content info
-      </ListGroupItem>
+      <ListGroupItem bsStyle="info">ListGroupItem 5 content info</ListGroupItem>
       <ListGroupItem bsStyle="warning">
         ListGroupItem 6 content warning
       </ListGroupItem>
@@ -48,9 +44,7 @@ export default () => (
         </ListGroupItem>
       </LinkContainer>
       <LinkContainer to="/home" disabled>
-        <ListGroupItem>
-          ListGroupItem 3 content disabled
-        </ListGroupItem>
+        <ListGroupItem>ListGroupItem 3 content disabled</ListGroupItem>
       </LinkContainer>
       <LinkContainer to="/home">
         <ListGroupItem bsStyle="success">

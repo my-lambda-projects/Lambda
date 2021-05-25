@@ -23,7 +23,7 @@ button2.onclick = goCave;
 button3.onclick = fightDragon;
 
 function goStore() {
-	console.log("Going to store.");
+  console.log("Going to store.");
 }
 
 // Similar to the `goStore` function, create a `goCave` function that prints "Going to cave." to the console.

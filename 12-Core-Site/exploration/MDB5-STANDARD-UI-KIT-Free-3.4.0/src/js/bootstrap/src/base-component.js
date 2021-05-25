@@ -5,7 +5,7 @@
  * --------------------------------------------------------------------------
  */
 
-import Data from './dom/data';
+import Data from "./dom/data";
 
 /**
  * ------------------------------------------------------------------------
@@ -13,7 +13,7 @@ import Data from './dom/data';
  * ------------------------------------------------------------------------
  */
 
-const VERSION = '5.0.0-beta2';
+const VERSION = "5.0.0-beta2";
 
 class BaseComponent {
   constructor(element) {

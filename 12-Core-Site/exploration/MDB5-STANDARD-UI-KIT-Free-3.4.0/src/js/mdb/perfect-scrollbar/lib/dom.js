@@ -1,13 +1,13 @@
 /* eslint-disable */
 
 export function div(className) {
-  const div = document.createElement('div');
+  const div = document.createElement("div");
   div.className = className;
   return div;
 }
 
 const elMatches =
-  typeof Element !== 'undefined' &&
+  typeof Element !== "undefined" &&
   (Element.prototype.matches ||
     Element.prototype.webkitMatchesSelector ||
     Element.prototype.mozMatchesSelector ||
@@ -15,7 +15,7 @@ const elMatches =
 
 export function matches(element, query) {
   if (!elMatches) {
-    throw new Error('No element matching method supported');
+    throw new Error("No element matching method supported");
   }
 
   return elMatches.call(element, query);
@@ -32,5 +32,7 @@ export function remove(element) {
 }
 
 export function queryChildren(element, selector) {
-  return Array.prototype.filter.call(element.children, (child) => matches(child, selector));
+  return Array.prototype.filter.call(element.children, (child) =>
+    matches(child, selector)
+  );
 }

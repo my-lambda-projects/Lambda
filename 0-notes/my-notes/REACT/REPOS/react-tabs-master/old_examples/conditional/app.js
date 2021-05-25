@@ -18,24 +18,42 @@ class App extends React.Component {
     this.setState({
       [e.target.name]: e.target.checked,
     });
-  }
+  };
 
   render() {
     return (
       <div style={{ padding: 50 }}>
         <p>
           <label>
-            <input type="checkbox" checked={this.state.showA} name="showA" onChange={this.handleCheckClicked} />
+            <input
+              type="checkbox"
+              checked={this.state.showA}
+              name="showA"
+              onChange={this.handleCheckClicked}
+            />
             Show A
-          </label><br />
+          </label>
+          <br />
           <label>
-            <input type="checkbox" checked={this.state.showB} name="showB" onChange={this.handleCheckClicked} />
+            <input
+              type="checkbox"
+              checked={this.state.showB}
+              name="showB"
+              onChange={this.handleCheckClicked}
+            />
             Show B
-          </label><br />
+          </label>
+          <br />
           <label>
-            <input type="checkbox" checked={this.state.showC} name="showC" onChange={this.handleCheckClicked} />
+            <input
+              type="checkbox"
+              checked={this.state.showC}
+              name="showC"
+              onChange={this.handleCheckClicked}
+            />
             Show C
-          </label><br />
+          </label>
+          <br />
         </p>
         <Tabs>
           <TabList>
@@ -53,4 +71,3 @@ class App extends React.Component {
 }
 
 render(<App />, document.getElementById('example'));
-

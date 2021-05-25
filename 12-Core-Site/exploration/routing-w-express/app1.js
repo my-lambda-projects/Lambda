@@ -8,7 +8,7 @@ app.get("/", (req, res) => {
   //handle root
 });
 
-app.listen(port, err => {
+app.listen(port, (err) => {
   if (err) {
     return console.log("ERROR", err);
   }

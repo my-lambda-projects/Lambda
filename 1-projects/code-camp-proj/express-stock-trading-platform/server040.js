@@ -1,12 +1,12 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 
-app.listen(3000, function() {
-  console.log('Your app is listening on port 3000.');
+app.listen(3000, function () {
+  console.log("Your app is listening on port 3000.");
 });
 
-app.get('/hi', (req, res) => {
-  res.send('Hi there trader!');
+app.get("/hi", (req, res) => {
+  res.send("Hi there trader!");
 });
 
 const prices = {
@@ -18,7 +18,7 @@ const prices = {
   OPQ: 0.48,
   RST: 9.32,
   UVW: 10.94,
-  XYZ: 5.32
+  XYZ: 5.32,
 };
 
 // Let's create our `/buy` endpoint.

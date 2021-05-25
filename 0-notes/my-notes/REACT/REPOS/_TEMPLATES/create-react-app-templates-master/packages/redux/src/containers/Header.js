@@ -1,13 +1,13 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import Toolbar from 'react-md/lib/Toolbars';
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import Toolbar from "react-md/lib/Toolbars";
 
-import MenuDrawer from '../components/MenuDrawer';
-import { logout } from '../store/user/action';
+import MenuDrawer from "../components/MenuDrawer";
+import { logout } from "../store/user/action";
 
-import './Header.css';
+import "./Header.css";
 
 class Header extends Component {
   renderMenuDrawer() {
@@ -40,7 +40,7 @@ Header.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   isAuthenticated: state.user.isAuthenticated,
 });
 
