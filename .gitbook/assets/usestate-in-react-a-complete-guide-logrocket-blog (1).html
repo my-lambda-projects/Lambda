@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>usestate-in-react-a-complete-guide-logrocket-blog (1)</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p><code>useState</code> is a Hook that allows you to have state variables in functional components. You pass the initial state to this function and it returns a variable with the current state value (not necessarily the initial state) and another function to update this value.</p>
+<p>This tutorial serves as a complete guide to the <code>useState</code> Hook in React, the equivalent of <code>this.state</code>/<code>this.setSate</code> for functional components. We’ll cover the following in detail:</p>
+<ul>
+<li><ul>
+<li><a href="https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/#classandfunctionalcomponentsinreact"></a></li>
+<li><a href="https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/#whatdoesthereactusestatehookdo">What does the React.useState hook do?</a></li>
+<li><a href="https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/#declaringstateinreact">Declaring state in React</a></li>
+<li><a href="https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/#reacthooksupdatestate">React Hooks: Update state</a></li>
+<li><a href="https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/#usinganobjectasastatevariablewithusestatehook">Using an object as a state variable with useState hook</a></li>
+<li><a href="https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/#howtoupdatestateinanestedobjectinreactwithhooks">How to update state in a nested object in React with Hooks</a></li>
+<li><a href="https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/#multiplestatevariablesoronestateobject">Multiple state variables or one state object</a></li>
+<li><a href="https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/#rulesforusingusestate">Rules for using useState</a></li>
+<li><a href="https://blog.logrocket.com/a-guide-to-usestate-in-react-ecb9952e406c/#theusereducerhook">The useReducer Hook</a></li>
+</ul></li>
+</ul>
+<p>If you’re just getting started with React Hooks and looking for a visual guide, check out the video tutorial below.</p>
+<iframe loading="lazy" src="https://www.youtube.com/embed/4qVNaohzDWU" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen" data-savepage-key="0-0">
+</iframe>
+<h2 id="class-and-functional-components-in-react">Class and functional components in React</h2>
+<p>There are two types of components in React: class and functional components.</p>
+<p>Class components are <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">ES6 classes</a> that extend from <a href="https://reactjs.org/docs/react-component.html">React.Component</a> and can have <a href="https://reactjs.org/docs/state-and-lifecycle.html">state and lifecycle methods</a>:</p>
+<p>class Message extends React.Component { constructor(props) { super(props); this.state = { message: ‘’ }; } componentDidMount() { } render() { return &lt;div&gt;{this.state.message}&lt;/div&gt;; } }</p>
+<p>Functional components are functions that just accept arguments as the properties of the component and return valid JSX:</p>
+function Message(props) { return &lt;div&gt;{props.message}&lt;/div&gt; } const Message = (props) =&gt;
+<div>
+<p>{props.message}&lt;/div&gt;</p>
+<p>As you can see, there are no state or lifecycle methods. However, as of React 16.8, we can use Hooks.</p>
+<p><a href="https://blog.logrocket.com/react-reference-guide-hooks-api/">React Hooks</a> are functions that add state variables to functional components and instrument the lifecycle methods of classes. They tend to start with <code>use</code>.</p>
+<h2 id="what-does-the-react.usestate-hook-do">What does the <code>React.useState</code> Hook do?</h2>
+<p>As stated previously, <code>useState</code> enables you to add state to function components. Calling <code>React.useState</code> inside a function component generates a single piece of state associated with that component.</p>
+<p>Whereas the state in a class is always an object, with Hooks, the state can be any type. Each piece of state holds a single value, which can be an object, an array, a boolean, or any other type you can imagine.</p>
+<p>So when should you use the <code>useState</code> Hook? It’s especially useful for local component state, but larger projects might require additional state management solutions.</p>
+<h2 id="declaring-state-in-react">Declaring state in React</h2>
+<p><code>useState</code> is a named export from <code>react</code>. To use it, you can write:</p>
+<p>React.useState</p>
+<p>Or to import it just write <code>useState</code>:</p>
+<p>import React, { useState } from ‘react’;</p>
+<p>But unlike the state object that you can declare in a class, which allows you to declare more than one state variable, like this:</p>
+<p>import React from ‘react’; class Message extends React.Component { constructor(props) { super(props); this.state = { message: ’’, list: [], }; } }</p>
+<p>The <code>useState</code> Hook allows you to declare only one state variable (of any type) at a time, like this:</p>
+<p>import React, { useState } from ‘react’; const Message= () =&gt; { const messageState = useState( ’’ ); const listState = useState( [] ); }</p>
+<p><code>useState</code> takes the initial value of the state variable as an argument.</p>
+<p>You can pass it directly, as shown in the previous example, or use a function to lazily initialize the variable (useful when the initial state is the result of an expensive computation):</p>
+<p>const Message= () =&gt; { const messageState = useState( () =&gt; expensiveComputation() ); }</p>
+<p>The initial value will be assigned only on the initial render (if it’s a function, it will be executed only on the initial render).</p>
+<p>In subsequent renders (due to a change of state in the component or a parent component), the argument of the <code>useState</code> Hook will be ignored and the current value will be retrieved.</p>
+<p>It is important to keep this in mind because, for example, if you want to update the state based on the new properties the component receives:</p>
+<p>const Message= (props) =&gt; { const messageState = useState( props.message ); }</p>
+<p>Using <code>useState</code> alone won’t work because its argument is used the first time only — not every time the property changes (look <a href="https://stackoverflow.com/questions/54625831/how-to-sync-props-to-state-using-react-hook-setstate">here</a> for the right way to do this).</p>
+<p>But <code>useState</code> doesn’t return just a variable as the previous examples imply.</p>
+<p>It returns an array, where the first element is the state variable and the second element is a function to update the value of the variable:</p>
+<p>const Message= () =&gt; { const messageState = useState( ’’ ); const message = messageState[0]; const setMessage = messageState[1]; }</p>
+<p>Usually, you’ll use <a href="https://dev.to/sarah_chima/destructuring-assignment---arrays-16f">array destructuring</a> to simplify the code shown above:</p>
+<p>const Message= () =&gt; { const [message, setMessage]= useState( ’’ ); }</p>
+<p>This way, you can use the state variable in the functional component like any other variable:</p>
+<p>const Message = () =&gt; { const [message, setMessage] = useState( ’’ ); return ( &lt;p&gt; &lt;strong&gt;{message}&lt;/strong&gt; &lt;/p&gt; ); };</p>
+<p>But why does <code>useState</code> return array?</p>
+<p>Because compared to an object, an array is more flexible and easy to use.</p>
+<p>If the method returned an object with a fixed set of properties, you wouldn’t be able to assign custom names in an easy way.</p>
+<p>You’d have to do something like this (assuming the properties of the object are <code>state</code> and <code>setState</code>):</p>
+<p>const messageState = useState( ’’ ); const message = messageState.state; const setMessage = messageState const { state: message, setState: setMessage } = useState( ’’ ); const { state: list, setState: setList } = useState( [] );</p>
+<h2 id="react-hooks-update-state">React Hooks: Update state</h2>
+<p>The second element returned by <code>useState</code> is a function that takes a new value to update the state variable.</p>
+<p>Here’s an example that uses a text box to update the state variable on every change:</p>
+<p>const Message = () =&gt; { const [message, setMessage] = useState( ’’ ); return ( &lt;div&gt; &lt;input type=“text” value={message} placeholder=“Enter a message” onChange={e =&gt; setMessage(e.target.value)} /&gt; &lt;p&gt; &lt;strong&gt;{message}&lt;/strong&gt; &lt;/p&gt; &lt;/div&gt; ); };</p>
+<p>Try it <a href="https://codesandbox.io/s/7z31woqo9q">here</a>.</p>
+<p>However, this update function doesn’t update the value right away.</p>
+<p>Rather, it enqueues the update operation. Then, after re-rendering the component, the argument of <code>useState</code> will be ignored and this function will return the most recent value.<br />
+If you use the previous value to update state, you must pass a function that receives the previous value and returns the new value:</p>
+<p>const Message = () =&gt; { const [message, setMessage] = useState( ’’ ); return ( &lt;div&gt; &lt;input type=“text” value={message} placeholder=“Enter some letters” onChange={e =&gt; { const val = e.target.value; setMessage(prev =&gt; prev + val) } } /&gt; &lt;p&gt; &lt;strong&gt;{message}&lt;/strong&gt; &lt;/p&gt; &lt;/div&gt; ); };</p>
+<p>Try it <a href="https://codesandbox.io/s/v0n08rw547">here</a>.</p>
+<h2 id="using-an-object-as-a-state-variable-with-usestate-hook">Using an object as a state variable with <code>useState</code> hook</h2>
+<p>There are two things you need to keep in mind about updates when using objects:</p>
+<ul>
+<li>The importance of immutability</li>
+<li>And the fact that the setter returned by <code>useState</code> doesn’t <a href="https://reactjs.org/docs/state-and-lifecycle.html#state-updates-are-merged">merge objects like <code>setState()</code> does</a> in class components</li>
+</ul>
+<p>About the first point, if you use the same value as the current state to update the state (React uses <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description">Object.is</a> for comparing), React won’t trigger a re-render.</p>
+<p>When working with objects, it’s easy to make the following mistake:</p>
+<p>const Message = () =&gt; { const [messageObj, setMessage] = useState({ message: ’’ }); return ( &lt;div&gt; &lt;input type=“text” value={messageObj.message} placeholder=“Enter a message” onChange={e =&gt; { messageObj.message = e.target.value; setMessage(messageObj); // Doesn’t work }} /&gt; &lt;p&gt; &lt;strong&gt;{messageObj.message}&lt;/strong&gt; &lt;/p&gt; &lt;/div&gt; ); };</p>
+<p>Try it <a href="https://codesandbox.io/s/50n0py0p6k">here</a>.</p>
+<p>Instead of creating a new object, the above example mutates the existing state object. To React, that’s the same object.</p>
+<p>To make it work, we must create a new object:</p>
+<p>onChange={e =&gt; { const newMessageObj = { message: e.target.value }; setMessage(newMessageObj); }}</p>
+<p>This leads us to the second important thing you need to remember.</p>
+<p>When you update a state variable, unlike <code>this.setState</code> in a class component, the function returned by <code>useState</code> does not automatically merge update objects, it replaces them.</p>
+<p>Following the previous example, if we add another property to the message object (<code>id</code>):</p>
+<p>const Message = () =&gt; { const [messageObj, setMessage] = useState({ message: ’’, id: 1 }); return ( &lt;div&gt; &lt;input type=“text” value={messageObj.message} placeholder=“Enter a message” onChange={e =&gt; { const newMessageObj = { message: e.target.value }; setMessage(newMessageObj); }} /&gt; &lt;p&gt; &lt;strong&gt;{messageObj.id} : {messageObj.message}&lt;/strong&gt; &lt;/p&gt; &lt;/div&gt; ); };</p>
+<p>And we only update the <code>message</code> property like in the above example, React will replace the original state object:</p>
+<p>{ message: ’’, id: 1 }</p>
+<p>With the object used in the <code>onChange</code> event, which only contains the <code>message</code> property:</p>
+<p>{ message: ‘message entered’ } // id property is lost</p>
+<p>Try it <a href="https://codesandbox.io/s/qqp8qp9zzq">here</a>, you’ll see how the <code>id</code> property is lost.</p>
+<p>You can replicate the behavior of <code>setState()</code> by using the function argument that contains the object to be replaced and the object spread syntax:</p>
+<p>onChange={e =&gt; { const val = e.target.value; setMessage(prevState =&gt; { return { …prevState, message: val } }); }}</p>
+<p>The <code>...prevState</code> part will get all of the properties of the object and the <code>message: val</code> part will overwrite the <code>message</code> property.</p>
+<p>This will have the same result as using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">Object.assign</a> (just remember to create a new object):</p>
+<p>onChange={e =&gt; { const val = e.target.value; setMessage(prevState =&gt; { return Object.assign({}, prevState, { message: val }); }); }}</p>
+<p>Try it <a href="https://codesandbox.io/s/usestate-05-qpykz">here</a>.</p>
+<p>However, the spread syntax simplifies this operation and it also works with arrays.</p>
+<p>Basically, when applied to an array, the spread syntax removes the brackets so you can create another one with the values of the original array:</p>
+<p>[ …[‘a’, ‘b’, ‘c’], ‘d’ ] [ ‘a’, ‘b’, ‘c’, ‘d’ ]</p>
+<p>Here’s an example that shows how to use <code>useState</code> with arrays:</p>
+const MessageList = () =&gt; { const [message, setMessage] = useState(""); const [messageList, setMessageList] = useState([]); return (
+<div>
+&lt;input type=“text” value={message} placeholder=“Enter a message” onChange={e =&gt; { setMessage(e.target.value); }} /&gt; &lt;input type=“button” value=“Add” onClick={e =&gt; { setMessageList([ …messageList, { id: messageList.length + 1, message: message } ]); setMessage(""); }} /&gt;
+<ul>
+<p>{messageList.map(m =&gt; ( &lt;li key={m.id}&gt;{m.message}&lt;/li&gt; ))} &lt;/ul&gt; &lt;/div&gt; ); };</p>
+<p>Try it <a href="https://codesandbox.io/s/usestate-06-y4s1r">here</a>.</p>
+<p>You just have to be careful when applying the spread syntax to multidimensional arrays because it won’t work as you might expect.</p>
+<p>This leads us to another thing to consider when working with objects as the state.</p>
+<h2 id="how-to-update-state-in-a-nested-object-in-react-with-hooks">How to update state in a nested object in React with Hooks</h2>
+<p>In JavaScript, multidimensional arrays are arrays within arrays:</p>
+<p>[ [‘value1’,‘value2’], [‘value3’,‘value4’] ]</p>
+<p>You could use them to group all your state variables in one place. However, for that purpose, it would be better to use nested objects:</p>
+<p>{ ‘row1’ : { ‘key1’ : ‘value1’, ‘key2’ : ‘value2’ }, ‘row2’ : { ‘key3’ : ‘value3’, ‘key4’ : ‘value4’ } }</p>
+<p>But the problem when working with multidimensional arrays and nested objects is that <code>Object.assign</code> and the spread syntax will create a <a href="https://dev.to/rahxuls/what-is-shallow-copy-in-javascript-47hg">shallow copy instead of a deep copy</a>.</p>
+<p>From the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax">spread syntax documentation</a>:</p>
+<blockquote>
+<p>Spread syntax effectively goes one level deep while copying an array. Therefore, it may be unsuitable for copying multidimensional arrays, as the following example shows. (The same is true with <code>[Object.assign()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)</code> and spread syntax.)</p>
+</blockquote>
+<p>let a = [[1], [2], [3]]; let b = […a]; b.shift().shift();</p>
+<p>This <a href="https://stackoverflow.com/questions/43421704/why-is-a-spread-element-unsuitable-for-copying-multidimensional-arrays">StackOverflow query</a> offers good explanations for the above example, but the important point is that when using nested objects, we can’t just use the spread syntax to update the state object.</p>
+<p>For example, consider the following state object:</p>
+<p>const [messageObj, setMessage] = useState({ author: ’‘, message: { id: 1, text:’’ } });</p>
+<p>The following code snippets show some incorrect ways to update the <code>text</code> field:</p>
+<p>setMessage(prevState =&gt; ({ …prevState, text: ‘My message’ })); setMessage(prevState =&gt; ({ …prevState.message, text: ‘My message’ })); setMessage(prevState =&gt; ({ …prevState, message: { text: ‘My message’ } }));</p>
+<p>To properly update the <code>text</code> field, we have to copy to a new object the entire set of fields/nested objects of the original object:</p>
+<p>setMessage(prevState =&gt; ({ …prevState, message: { …prevState.message, text: ‘My message’ } }));</p>
+<p>In the same way, here’s how you’d update the <code>author</code> field of the state object:</p>
+<p>setMessage(prevState =&gt; ({ author: ‘Joe’, …prevState.message }));</p>
+<p>Assuming the <code>message</code> object doesn’t change. If it does change, you’d have to update the object this way:</p>
+<p>setMessage(prevState =&gt; ({ author: ‘Joe’, message: { …prevState.message, text: ‘My message’ } }));</p>
+<h2 id="multiple-state-variables-or-one-state-object">Multiple state variables or one state object</h2>
+<p>When working with multiple fields or values as the state of your application, you have the option of organizing the state using multiple state variables:</p>
+<p>const [id, setId] = useState(-1); const [message, setMessage] = useState(’‘); const [author, setAuthor] = useState(’’);</p>
+<p>Or an object state variable:</p>
+<p>const [messageObj, setMessage] = useState({ id: 1, message: ’‘, author:’’ });</p>
+<p>However, you have to be careful when using state objects with a complex structure (nested objects). Consider this example:</p>
+<p>const [messageObj, setMessage] = useState({ input: { author: { id: -1, author: { fName:’‘, lName:’’ } }, message: { id: -1, text: ’’, date: now() } } });</p>
+<p>If you have to update a specific field nested deep in the object, you’ll have to copy all the other objects along with the key-value pairs of the object that contains that specific field:</p>
+<p>setMessage(prevState =&gt; ({ input: { …prevState.input, message: { …prevState.input.message, text: ‘My message’ } } }));</p>
+<p>In some cases, cloning deeply nested objects can be expensive because React may re-render parts of your applications that depend on fields that haven’t even changed.</p>
+<p>For this reason, the first thing you need to consider is trying to flatten your state object(s). In particular, the React documentation recommends <a href="https://reactjs.org/docs/hooks-faq.html#should-i-use-one-or-many-state-variables">splitting the state into multiple state variables</a> based on which values tend to change together.</p>
+<p>If this is not possible, the recommendation is to use libraries that help you work with immutable objects, such as <a href="https://facebook.github.io/immutable-js/">immutable.js</a> or <a href="https://blog.logrocket.com/whats-new-in-immer-7-0/">immer</a>.</p>
+<h2 id="track-state-and-user-interaction-with-components">Track state and user interaction with components</h2>
+<p>It’s important to validate that everything works in your production React app as expected. If you’re interested in monitoring and tracking issues related to components AND seeing how users interact with specific components, <a href="https://logrocket.com/signup/">try LogRocket</a>. <a href="https://logrocket.com/signup/"><img src="https://files.readme.io/27c94e7-Image_2017-06-05_at_9.46.04_PM.png" /></a><a href="https://logrocket.com/signup/"><img src="https://blog.logrocket.com/wp-content/uploads/2017/03/1d0cd-1s_rmyo6nbrasp-xtvbaxfg.png" alt="LogRocket Dashboard Free Trial Banner" /></a><a href="https://logrocket.com/signup/">https://logrocket.com/signup/</a></p>
+<p><a href="https://logrocket.com/signup/">LogRocket</a> is like a DVR for web apps, recording literally everything that happens on your site. The LogRocket React plugin allows you to search for user sessions where the user clicks a specific component in your app. With LogRocket you can understand how users interact with components, and surface any errors related to components not rendering.</p>
+<p>In addition, LogRocket logs all actions and state from your Redux stores. LogRocket instruments your app to record requests/responses with headers + bodies. It also records the HTML and CSS on the page, recreating pixel-perfect videos of even the most complex single-page apps.</p>
+<p>Modernize how you debug your React apps – <a href="https://logrocket.com/signup/">Start monitoring for free</a>.</p>
+<h2 id="rules-for-using-usestate">Rules for using <code>useState</code></h2>
+<p><code>useState</code> abides by the same <a href="https://reactjs.org/docs/hooks-rules.html">rules that all Hooks follow</a>:</p>
+<ul>
+<li>Only call Hooks at the top level</li>
+<li>Only call Hooks from React functions</li>
+</ul>
+<p>The second rule is easy to follow. Don’t use <code>useState</code> in a class component:</p>
+<p>class App extends React.Component { render() { const [message, setMessage] = useState( ’’ ); return ( &lt;p&gt; &lt;strong&gt;{message}&lt;/strong&gt; &lt;/p&gt; ); } }</p>
+<p>Or regular JavaScript functions (not called inside a functional component):</p>
+<p>function getState() { const messageState = useState( ’’ ); return messageState; } const [message, setMessage] = getState(); const Message = () =&gt; { }</p>
+<p>You’ll get an <a href="https://reactjs.org/warnings/invalid-hook-call-warning.html">error</a>.</p>
+<p>The first rule means that, even inside functional components, you shouldn’t call <code>useState</code> in loops, conditions, or nested functions because React relies on the order in which <code>useState</code> functions are called to get the correct value for a particular state variable.</p>
+<p>In that regard, the most common mistake is to wrap <code>useState</code> calls in a conditional statement (they won’t be executed all the time):</p>
+<p>if (condition) { const [message, setMessage] = useState( ’’ ); setMessage( aMessage ); } const [list, setList] = useState( [] ); setList( [1, 2, 3] );</p>
+<p>A functional component can have many calls to <code>useState</code> or other Hooks. Each Hook is stored in a list, and there’s a variable that keeps track of the currently executed Hook.</p>
+<p>When <code>useState</code> is executed, the state of the current Hook is read (or initialized during the first render), and then, the variable is changed to point to the next Hook.</p>
+<p>That’s why it is important to always maintain the Hook calls in the same order, otherwise, a value belonging to another state variable could be returned.</p>
+<p>In general terms, here’s an example of how this works step by step:</p>
+<ol type="1">
+<li>React initializes the list of Hooks and the variable that keeps track of the current Hook</li>
+<li>React calls your component for the first time</li>
+<li>React finds a call to <code>useState</code>, creates a new Hook object (with the initial state), changes the current Hook variable to point to this object, adds the object to the Hooks list, and return the array with the initial state and the function to update it</li>
+<li>React finds another call to <code>useState</code> and repeats the actions of the previous step, storing a new Hook object and changing the current Hook variable</li>
+<li>The component state changes</li>
+<li>React sends the state update operation (performed by the function returned by <code>useState</code>) to a queue to be processed</li>
+<li>React determines it needs to re-render the component</li>
+<li>React resets the current Hook variable and calls your component</li>
+<li>React finds a call to <code>useState</code>, but this time, since there’s already a Hook at the first position of the list of Hooks, it just changes the current Hook variable and returns the array with the current state and the function to update it</li>
+<li>React finds another call to <code>useState</code> and since a Hook exists in the second position, once again, it just changes the current Hook variable and returns the array with the current state and the function to update it</li>
+</ol>
+<p>If you like to read code, <a href="https://github.com/facebook/react/blob/fd557d453d37eab29eca18f0507750ab2093669d/packages/react-reconciler/src/ReactFiberHooks.js"><code>ReactFiberHooks</code></a> is the class where you can learn how Hooks work under the hood.</p>
+<h2 id="the-usereducer-hook">The <code>useReducer</code> Hook</h2>
+<p>For advanced use cases, you can use the <a href="https://blog.logrocket.com/react-reference-guide-hooks-api/#usereducer"><code>useReducer</code> Hook</a> as an alternative to <code>useState</code>. This is especially useful when you have complex state logic that uses multiple sub-values or when a state depends on the previous one.</p>
+<p>Here’s how to use the <code>useReducer</code> Hook:</p>
+<p>const [state, dispatch] = useReducer(reducer, initialArgument, init) useReducer returns an array that holds the current state value and a dispatch method. This should be familiar territory if you have experience using Redux.</p>
+<p>Whereas, with <code>useState</code>, you invoke the state updater function to update state, with <code>useReducer</code>, you invoke the <code>dispatch</code> function and pass it an action — i.e., an object with at least a <code>type</code> property.</p>
+<p>dispatch({type: ‘increase’})</p>
+<p>Conventionally, an action object may also have a <code>payload</code>, e.g., <code>{action: 'increase', payload: 10}</code>.</p>
+<p>While it’s not absolutely necessary to pass an action object that follows this pattern, it’s a very common pattern popularized by <a href="https://redux.js.org/">Redux</a>.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p><code>useState</code> is a Hook (function) that allows you to have state variables in functional components. You pass the initial state to this function and it returns a variable with the current state value (not necessarily the initial state) and another function to update this value.</p>
+<p>Here are some key important points to remember:</p>
+<ul>
+<li>The update function doesn’t update the value right away</li>
+<li>If you use the previous value to update state, you must pass a function that receives the previous value and returns an updated value, for example, <code>setMessage(previousVal =&gt; previousVal + currentVal)</code></li>
+<li>If you use the same value as the current state (React uses the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is#Description">Object.is</a> for comparing) to update the state, React won’t trigger a re-render</li>
+<li>Unlike <code>this.setState</code> in class components, <code>useState</code> doesn’t merge objects when the state is updated. It replaces them</li>
+<li><code>useState</code> follows the same <a href="https://reactjs.org/docs/hooks-rules.html">rules</a> that all Hooks do. In particular, pay attention to the order in which these functions are called (there’s an <a href="https://www.npmjs.com/package/eslint-plugin-react-hooks">ESLint plugin</a> that will help you enforce these rules)</li>
+</ul>
+</body>
+</html>
