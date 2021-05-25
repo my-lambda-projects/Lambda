@@ -13,7 +13,7 @@
  * limitations under the License. */
 
 function wait(ms) {
-  return new Promise(r => setTimeout(r, ms)).then(() => "Yay");
+  return new Promise((r) => setTimeout(r, ms)).then(() => "Yay");
 }
 
 // do some work in background.

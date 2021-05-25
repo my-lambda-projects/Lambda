@@ -13,7 +13,7 @@
       "listen": "*"
     }
   },
-  
+
   "app": {
     "background": {
       "scripts": ["background.js"]

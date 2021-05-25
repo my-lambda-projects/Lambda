@@ -2,8 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-const cr = (function() {
-
+const cr = (function () {
   /**
    * Whether we are using a Mac or not.
    * @type {boolean}
@@ -33,14 +32,10 @@ const cr = (function() {
    * specific css rules can be applied.
    */
   function enablePlatformSpecificCSSRules() {
-    if (isMac)
-      doc.documentElement.setAttribute('os', 'mac');
-    if (isWindows)
-      doc.documentElement.setAttribute('os', 'windows');
-    if (isChromeOS)
-      doc.documentElement.setAttribute('os', 'chromeos');
-    if (isLinux)
-      doc.documentElement.setAttribute('os', 'linux');
+    if (isMac) doc.documentElement.setAttribute("os", "mac");
+    if (isWindows) doc.documentElement.setAttribute("os", "windows");
+    if (isChromeOS) doc.documentElement.setAttribute("os", "chromeos");
+    if (isLinux) doc.documentElement.setAttribute("os", "linux");
   }
 
   /**
@@ -55,10 +50,10 @@ const cr = (function() {
    * @private
    */
   function exportPath(name, opt_object, opt_objectToExportTo) {
-    var parts = name.split('.');
-    var cur = opt_objectToExportTo || window /* global */;
+    var parts = name.split(".");
+    var cur = opt_objectToExportTo || window; /* global */
 
-    for (var part; parts.length && (part = parts.shift());) {
+    for (var part; parts.length && (part = parts.shift()); ) {
       if (!parts.length && opt_object !== undefined) {
         // last part and we have an object; use it
         cur[part] = opt_object;
@@ -69,7 +64,7 @@ const cr = (function() {
       }
     }
     return cur;
-  };
+  }
 
   /**
    * Fires a property change event on the target.
@@ -79,7 +74,7 @@ const cr = (function() {
    * @param {*} oldValue The old value for the property.
    */
   function dispatchPropertyChange(target, propertyName, newValue, oldValue) {
-    var e = new CrEvent(propertyName + 'Change');
+    var e = new CrEvent(propertyName + "Change");
     e.propertyName = propertyName;
     e.newValue = newValue;
     e.oldValue = oldValue;
@@ -95,18 +90,18 @@ const cr = (function() {
      * Plain old JS property where the backing data is stored as a "private"
      * field on the object.
      */
-    JS: 'js',
+    JS: "js",
 
     /**
      * The property backing data is stored as an attribute on an element.
      */
-    ATTR: 'attr',
+    ATTR: "attr",
 
     /**
      * The property backing data is stored as an attribute on an element. If the
      * element has the attribute then the value is true.
      */
-    BOOL_ATTR: 'boolAttr'
+    BOOL_ATTR: "boolAttr",
   };
 
   /**
@@ -119,16 +114,16 @@ const cr = (function() {
   function getGetter(name, kind) {
     switch (kind) {
       case PropertyKind.JS:
-        var privateName = name + '_';
-        return function() {
+        var privateName = name + "_";
+        return function () {
           return this[privateName];
         };
       case PropertyKind.ATTR:
-        return function() {
+        return function () {
           return this.getAttribute(name);
         };
       case PropertyKind.BOOL_ATTR:
-        return function() {
+        return function () {
           return this.hasAttribute(name);
         };
     }
@@ -148,41 +143,34 @@ const cr = (function() {
   function getSetter(name, kind, opt_setHook) {
     switch (kind) {
       case PropertyKind.JS:
-        var privateName = name + '_';
-        return function(value) {
+        var privateName = name + "_";
+        return function (value) {
           var oldValue = this[privateName];
           if (value !== oldValue) {
             this[privateName] = value;
-            if (opt_setHook)
-              opt_setHook.call(this, value, oldValue);
+            if (opt_setHook) opt_setHook.call(this, value, oldValue);
             dispatchPropertyChange(this, name, value, oldValue);
           }
         };
 
       case PropertyKind.ATTR:
-        return function(value) {
+        return function (value) {
           var oldValue = this[name];
           if (value !== oldValue) {
-            if (value == undefined)
-              this.removeAttribute(name);
-            else
-              this.setAttribute(name, value);
-            if (opt_setHook)
-              opt_setHook.call(this, value, oldValue);
+            if (value == undefined) this.removeAttribute(name);
+            else this.setAttribute(name, value);
+            if (opt_setHook) opt_setHook.call(this, value, oldValue);
             dispatchPropertyChange(this, name, value, oldValue);
           }
         };
 
       case PropertyKind.BOOL_ATTR:
-        return function(value) {
+        return function (value) {
           var oldValue = this[name];
           if (value !== oldValue) {
-            if (value)
-              this.setAttribute(name, name);
-            else
-              this.removeAttribute(name);
-            if (opt_setHook)
-              opt_setHook.call(this, value, oldValue);
+            if (value) this.setAttribute(name, name);
+            else this.removeAttribute(name);
+            if (opt_setHook) opt_setHook.call(this, value, oldValue);
             dispatchPropertyChange(this, name, value, oldValue);
           }
         };
@@ -199,8 +187,7 @@ const cr = (function() {
    *     property is set, but before the propertyChange event is fired.
    */
   function defineProperty(obj, name, opt_kind, opt_setHook) {
-    if (typeof obj == 'function')
-      obj = obj.prototype;
+    if (typeof obj == "function") obj = obj.prototype;
 
     var kind = opt_kind || PropertyKind.JS;
 
@@ -232,9 +219,8 @@ const cr = (function() {
    * @return {number} The unique ID for the item.
    */
   function getUid(item) {
-    if (item.hasOwnProperty('uid'))
-      return item.uid;
-    return item.uid = createUid();
+    if (item.hasOwnProperty("uid")) return item.uid;
+    return (item.uid = createUid());
   }
 
   /**
@@ -250,7 +236,7 @@ const cr = (function() {
   function dispatchSimpleEvent(target, type, opt_bubbles, opt_cancelable) {
     var e = new Event(type, {
       bubbles: opt_bubbles,
-      cancelable: opt_cancelable === undefined || opt_cancelable
+      cancelable: opt_cancelable === undefined || opt_cancelable,
     });
     return target.dispatchEvent(e);
   }
@@ -266,8 +252,10 @@ const cr = (function() {
       // Maybe we should check the prototype chain here? The current usage
       // pattern is always using an object literal so we only care about own
       // properties.
-      var propertyDescriptor = Object.getOwnPropertyDescriptor(exports,
-                                                               propertyName);
+      var propertyDescriptor = Object.getOwnPropertyDescriptor(
+        exports,
+        propertyName
+      );
       if (propertyDescriptor)
         Object.defineProperty(obj, propertyName, propertyDescriptor);
     }
@@ -278,7 +266,6 @@ const cr = (function() {
    * @type {!Document}
    */
   var doc = document;
-
 
   /**
    * Allows you to run func in the context of a different document.
@@ -302,7 +289,7 @@ const cr = (function() {
    *     method to.
    */
   function addSingletonGetter(ctor) {
-    ctor.getInstance = function() {
+    ctor.getInstance = function () {
       return ctor.instance_ || (ctor.instance_ = new ctor());
     };
   }
@@ -329,6 +316,6 @@ const cr = (function() {
     get doc() {
       return doc;
     },
-    withDoc: withDoc
+    withDoc: withDoc,
   };
 })();

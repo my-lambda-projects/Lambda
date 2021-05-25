@@ -27,56 +27,50 @@
  * data, see comment in jstSelect_().
  */
 
-
 /**
  * Names of jstemplate attributes. These attributes are attached to
  * normal HTML elements and bind expression context data to the HTML
  * fragment that is used as template.
  */
-var ATT_select = 'jsselect';
-var ATT_instance = 'jsinstance';
-var ATT_display = 'jsdisplay';
-var ATT_values = 'jsvalues';
-var ATT_vars = 'jsvars';
-var ATT_eval = 'jseval';
-var ATT_transclude = 'transclude';
-var ATT_content = 'jscontent';
-var ATT_skip = 'jsskip';
-
+var ATT_select = "jsselect";
+var ATT_instance = "jsinstance";
+var ATT_display = "jsdisplay";
+var ATT_values = "jsvalues";
+var ATT_vars = "jsvars";
+var ATT_eval = "jseval";
+var ATT_transclude = "transclude";
+var ATT_content = "jscontent";
+var ATT_skip = "jsskip";
 
 /**
  * Name of the attribute that caches a reference to the parsed
  * template processing attribute values on a template node.
  */
-var ATT_jstcache = 'jstcache';
-
+var ATT_jstcache = "jstcache";
 
 /**
  * Name of the property that caches the parsed template processing
  * attribute values on a template node.
  */
-var PROP_jstcache = '__jstcache';
-
+var PROP_jstcache = "__jstcache";
 
 /**
  * ID of the element that contains dynamically loaded jstemplates.
  */
-var STRING_jsts = 'jsts';
-
+var STRING_jsts = "jsts";
 
 /**
  * Un-inlined string literals, to avoid object creation in
  * IE6.
  */
-var CHAR_asterisk = '*';
-var CHAR_dollar = '$';
-var CHAR_period = '.';
-var CHAR_ampersand = '&';
-var STRING_div = 'div';
-var STRING_id = 'id';
-var STRING_asteriskzero = '*0';
-var STRING_zero = '0';
-
+var CHAR_asterisk = "*";
+var CHAR_dollar = "$";
+var CHAR_period = ".";
+var CHAR_ampersand = "&";
+var STRING_div = "div";
+var STRING_id = "id";
+var STRING_asteriskzero = "*0";
+var STRING_zero = "0";
 
 /**
  * HTML template processor. Data values are bound to HTML templates
@@ -98,7 +92,7 @@ var STRING_zero = '0';
  *     in MAPS_DEBUG.
  */
 function jstProcess(context, template, opt_debugging) {
-  var processor = new JstProcessor;
+  var processor = new JstProcessor();
   if (MAPS_DEBUG && opt_debugging) {
     processor.setDebugging(opt_debugging);
   }
@@ -111,13 +105,13 @@ function jstProcess(context, template, opt_debugging) {
    */
   processor.document_ = ownerDocument(template);
 
-  processor.run_(bindFully(processor, processor.jstProcessOuter_,
-                           context, template));
+  processor.run_(
+    bindFully(processor, processor.jstProcessOuter_, context, template)
+  );
   if (MAPS_DEBUG && opt_debugging) {
-    log('jstProcess:' + '\n' + processor.getLogs().join('\n'));
+    log("jstProcess:" + "\n" + processor.getLogs().join("\n"));
   }
 }
-
 
 /**
  * Internal class used by jstemplates to maintain context.  This is
@@ -137,7 +131,6 @@ function JstProcessor() {
   }
 }
 
-
 /**
  * Counter to generate node ids. These ids will be stored in
  * ATT_jstcache and be used to lookup the preprocessed js attributes
@@ -147,7 +140,6 @@ function JstProcessor() {
  * @type number
  */
 JstProcessor.jstid_ = 0;
-
 
 /**
  * Map from jstid to processed js attributes.
@@ -166,7 +158,6 @@ JstProcessor.jstcache_ = {};
  */
 JstProcessor.jstcache_[0] = {};
 
-
 /**
  * Map from concatenated attribute string to jstid.
  * The key is the concatenation of all jst atributes found on a node
@@ -180,14 +171,12 @@ JstProcessor.jstcache_[0] = {};
  */
 JstProcessor.jstcacheattributes_ = {};
 
-
 /**
  * Map for storing temporary attribute values in prepareNode_() so they don't
  * have to be retrieved twice. (IE6 perf)
  * @type Object
  */
 JstProcessor.attributeValues_ = {};
-
 
 /**
  * A list for storing non-empty attributes found on a node in prepareNode_().
@@ -197,20 +186,18 @@ JstProcessor.attributeValues_ = {};
  */
 JstProcessor.attributeList_ = [];
 
-
 /**
  * Prepares the template: preprocesses all jstemplate attributes.
  *
  * @param {Element} template
  */
-JstProcessor.prepareTemplate_ = function(template) {
+JstProcessor.prepareTemplate_ = function (template) {
   if (!template[PROP_jstcache]) {
-    domTraverseElements(template, function(node) {
+    domTraverseElements(template, function (node) {
       JstProcessor.prepareNode_(node);
     });
   }
 };
-
 
 /**
  * A list of attributes we use to specify jst processing instructions,
@@ -219,16 +206,15 @@ JstProcessor.prepareTemplate_ = function(template) {
  * @type Array<Array>
  */
 var JST_ATTRIBUTES = [
-    [ ATT_select, jsEvalToFunction ],
-    [ ATT_display, jsEvalToFunction ],
-    [ ATT_values, jsEvalToValues ],
-    [ ATT_vars, jsEvalToValues ],
-    [ ATT_eval, jsEvalToExpressions ],
-    [ ATT_transclude, jsEvalToSelf ],
-    [ ATT_content, jsEvalToFunction ],
-    [ ATT_skip, jsEvalToFunction ]
+  [ATT_select, jsEvalToFunction],
+  [ATT_display, jsEvalToFunction],
+  [ATT_values, jsEvalToValues],
+  [ATT_vars, jsEvalToValues],
+  [ATT_eval, jsEvalToExpressions],
+  [ATT_transclude, jsEvalToSelf],
+  [ATT_content, jsEvalToFunction],
+  [ATT_skip, jsEvalToFunction],
 ];
-
 
 /**
  * Prepares a single node: preprocesses all template attributes of the
@@ -241,7 +227,7 @@ var JST_ATTRIBUTES = [
  * are properties of this object. If the node has no jst attributes,
  * returns an object with no properties (the jscache_[0] entry).
  */
-JstProcessor.prepareNode_ = function(node) {
+JstProcessor.prepareNode_ = function (node) {
   // If the node already has a cache property, return it.
   if (node[PROP_jstcache]) {
     return node[PROP_jstcache];
@@ -257,7 +243,7 @@ JstProcessor.prepareNode_ = function(node) {
   // and return it.
   var jstid = domGetAttribute(node, ATT_jstcache);
   if (jstid != null) {
-    return node[PROP_jstcache] = JstProcessor.jstcache_[jstid];
+    return (node[PROP_jstcache] = JstProcessor.jstcache_[jstid]);
   }
 
   var attributeValues = JstProcessor.attributeValues_;
@@ -278,15 +264,15 @@ JstProcessor.prepareNode_ = function(node) {
   // an empty cache object.
   if (attributeList.length == 0) {
     domSetAttribute(node, ATT_jstcache, STRING_zero);
-    return node[PROP_jstcache] = JstProcessor.jstcache_[0];
+    return (node[PROP_jstcache] = JstProcessor.jstcache_[0]);
   }
 
   // If we already have a cache object corresponding to these attributes,
   // annotate the node with it, and return it.
   var attstring = attributeList.join(CHAR_ampersand);
-  if (jstid = JstProcessor.jstcacheattributes_[attstring]) {
+  if ((jstid = JstProcessor.jstcacheattributes_[attstring])) {
     domSetAttribute(node, ATT_jstcache, jstid);
-    return node[PROP_jstcache] = JstProcessor.jstcache_[jstid];
+    return (node[PROP_jstcache] = JstProcessor.jstcache_[jstid]);
   }
 
   // Otherwise, build a new cache object.
@@ -310,9 +296,8 @@ JstProcessor.prepareNode_ = function(node) {
   JstProcessor.jstcache_[jstid] = jstcache;
   JstProcessor.jstcacheattributes_[attstring] = jstid;
 
-  return node[PROP_jstcache] = jstcache;
+  return (node[PROP_jstcache] = jstcache);
 };
-
 
 /**
  * Runs the given function in our state machine.
@@ -332,7 +317,7 @@ JstProcessor.prepareNode_ = function(node) {
  *
  * @param {Function} f The first function to run.
  */
-JstProcessor.prototype.run_ = function(f) {
+JstProcessor.prototype.run_ = function (f) {
   var me = this;
 
   /**
@@ -346,7 +331,7 @@ JstProcessor.prototype.run_ = function(f) {
    *
    * @type Array<Array>
    */
-  var calls = me.calls_ = [];
+  var calls = (me.calls_ = []);
 
   /**
    * The index into the queue for each depth. NOTE: Alternative would
@@ -355,13 +340,13 @@ JstProcessor.prototype.run_ = function(f) {
    * function's execution time.
    * @type Array<number>
    */
-  var queueIndices = me.queueIndices_ = [];
+  var queueIndices = (me.queueIndices_ = []);
 
   /**
    * A pool of empty arrays.  Minimizes object allocation for IE6's benefit.
    * @type Array<Array>
    */
-  var arrayPool = me.arrayPool_ = [];
+  var arrayPool = (me.arrayPool_ = []);
 
   f();
   var queue, queueIndex;
@@ -385,7 +370,6 @@ JstProcessor.prototype.run_ = function(f) {
   }
 };
 
-
 /**
  * Pushes one or more functions onto the stack.  These will be run in sequence,
  * interspersed with any recursive calls that they make.
@@ -395,24 +379,22 @@ JstProcessor.prototype.run_ = function(f) {
  * @param {Array} args Array of method calls structured as
  *     [ method, arg1, arg2, method, arg1, arg2, ... ]
  */
-JstProcessor.prototype.push_ = function(args) {
+JstProcessor.prototype.push_ = function (args) {
   this.calls_.push(args);
   this.queueIndices_.push(0);
 };
-
 
 /**
  * Enable/disable debugging.
  * @param {boolean} debugging New state
  */
-JstProcessor.prototype.setDebugging = function(debugging) {
+JstProcessor.prototype.setDebugging = function (debugging) {
   if (MAPS_DEBUG) {
     this.debugging_ = debugging;
   }
 };
 
-
-JstProcessor.prototype.createArray_ = function() {
+JstProcessor.prototype.createArray_ = function () {
   if (this.arrayPool_.length) {
     return this.arrayPool_.pop();
   } else {
@@ -420,8 +402,7 @@ JstProcessor.prototype.createArray_ = function() {
   }
 };
 
-
-JstProcessor.prototype.recycleArray_ = function(array) {
+JstProcessor.prototype.recycleArray_ = function (array) {
   arrayClear(array);
   this.arrayPool_.push(array);
 };
@@ -441,12 +422,12 @@ JstProcessor.prototype.recycleArray_ = function(array) {
  *
  * @param {Element} template
  */
-JstProcessor.prototype.jstProcessOuter_ = function(context, template) {
+JstProcessor.prototype.jstProcessOuter_ = function (context, template) {
   var me = this;
 
   var jstAttributes = me.jstAttributes_(template);
   if (MAPS_DEBUG && me.debugging_) {
-    me.logState_('Outer', template, jstAttributes.jstAttributeValues);
+    me.logState_("Outer", template, jstAttributes.jstAttributeValues);
   }
 
   var transclude = jstAttributes[ATT_transclude];
@@ -471,7 +452,6 @@ JstProcessor.prototype.jstProcessOuter_ = function(context, template) {
   }
 };
 
-
 /**
  * Implements internals of jstProcess. This processes all attributes
  * except transclude and jsselect. It is called either from
@@ -484,12 +464,12 @@ JstProcessor.prototype.jstProcessOuter_ = function(context, template) {
  *
  * @param {Element} template
  */
-JstProcessor.prototype.jstProcessInner_ = function(context, template) {
+JstProcessor.prototype.jstProcessInner_ = function (context, template) {
   var me = this;
 
   var jstAttributes = me.jstAttributes_(template);
   if (MAPS_DEBUG && me.debugging_) {
-    me.logState_('Inner', template, jstAttributes.jstAttributeValues);
+    me.logState_("Inner", template, jstAttributes.jstAttributeValues);
   }
 
   // NOTE(mesch): See NOTE on ATT_content why this is a separate
@@ -498,7 +478,7 @@ JstProcessor.prototype.jstProcessInner_ = function(context, template) {
   if (display) {
     var shouldDisplay = context.jsexec(display, template);
     if (MAPS_DEBUG && me.debugging_) {
-      me.logs_.push(ATT_display + ': ' + shouldDisplay + '<br/>');
+      me.logs_.push(ATT_display + ": " + shouldDisplay + "<br/>");
     }
     if (!shouldDisplay) {
       displayNone(template);
@@ -539,7 +519,7 @@ JstProcessor.prototype.jstProcessInner_ = function(context, template) {
   if (skip) {
     var shouldSkip = context.jsexec(skip, template);
     if (MAPS_DEBUG && me.debugging_) {
-      me.logs_.push(ATT_skip + ': ' + shouldSkip + '<br/>');
+      me.logs_.push(ATT_skip + ": " + shouldSkip + "<br/>");
     }
     if (shouldSkip) return;
   }
@@ -555,7 +535,6 @@ JstProcessor.prototype.jstProcessInner_ = function(context, template) {
   var content = jstAttributes[ATT_content];
   if (content) {
     me.jstContent_(context, template, content);
-
   } else {
     // Newly generated children should be ignored, so we explicitly
     // store the children to be processed.
@@ -568,7 +547,6 @@ JstProcessor.prototype.jstProcessInner_ = function(context, template) {
     if (queue.length) me.push_(queue);
   }
 };
-
 
 /**
  * Implements the jsselect attribute: evalutes the value of the
@@ -589,7 +567,7 @@ JstProcessor.prototype.jstProcessInner_ = function(context, template) {
  * @notypecheck FIXME(hmitchell): See OCL6434950. instance and value need
  * type checks.
  */
-JstProcessor.prototype.jstSelect_ = function(context, template, select) {
+JstProcessor.prototype.jstSelect_ = function (context, template, select) {
   var me = this;
 
   var value = context.jsexec(select, template);
@@ -605,7 +583,7 @@ JstProcessor.prototype.jstSelect_ = function(context, template, select) {
       instance = parseInt10(instance.substr(1));
       instanceLast = true;
     } else {
-      instance = parseInt10(/** @type string */(instance));
+      instance = parseInt10(/** @type string */ (instance));
     }
   }
 
@@ -616,7 +594,7 @@ JstProcessor.prototype.jstSelect_ = function(context, template, select) {
   // name should be avoided in input data.
   var multiple = isArray(value);
   var count = multiple ? jsLength(value) : 1;
-  var multipleEmpty = (multiple && count == 0);
+  var multipleEmpty = multiple && count == 0;
 
   if (multiple) {
     if (multipleEmpty) {
@@ -628,7 +606,6 @@ JstProcessor.prototype.jstSelect_ = function(context, template, select) {
       } else {
         domRemoveNode(template);
       }
-
     } else {
       displayDefault(template);
       // For a non empty array, create as many template instances as
@@ -644,8 +621,11 @@ JstProcessor.prototype.jstSelect_ = function(context, template, select) {
       // opera it is instance === "". Notice also that the === is
       // essential, because 0 == "", presumably via type coercion to
       // boolean.
-      if (instance === null || instance === STRING_empty ||
-          (instanceLast && instance < count - 1)) {
+      if (
+        instance === null ||
+        instance === STRING_empty ||
+        (instanceLast && instance < count - 1)
+      ) {
         // A queue of calls to push.
         var queue = me.createArray_();
 
@@ -655,12 +635,17 @@ JstProcessor.prototype.jstSelect_ = function(context, template, select) {
           var node = domCloneNode(template);
           domInsertBefore(node, template);
 
-          jstSetInstance(/** @type Element */(node), value, i);
+          jstSetInstance(/** @type Element */ (node), value, i);
           clone = context.clone(value[i], i, count);
 
-          queue.push(me.jstProcessInner_, clone, node,
-                     JsEvalContext.recycle, clone, null);
-                     
+          queue.push(
+            me.jstProcessInner_,
+            clone,
+            node,
+            JsEvalContext.recycle,
+            clone,
+            null
+          );
         }
         // Push the originally present template instance last to keep
         // the order aligned with the DOM order, because the newly
@@ -668,8 +653,14 @@ JstProcessor.prototype.jstSelect_ = function(context, template, select) {
         // original instance.
         jstSetInstance(template, value, i);
         clone = context.clone(value[i], i, count);
-        queue.push(me.jstProcessInner_, clone, template,
-                   JsEvalContext.recycle, clone, null);
+        queue.push(
+          me.jstProcessInner_,
+          clone,
+          template,
+          JsEvalContext.recycle,
+          clone,
+          null
+        );
         me.push_(queue);
       } else if (instance < count) {
         var v = value[instance];
@@ -677,8 +668,14 @@ JstProcessor.prototype.jstSelect_ = function(context, template, select) {
         jstSetInstance(template, value, instance);
         var clone = context.clone(v, instance, count);
         var queue = me.createArray_();
-        queue.push(me.jstProcessInner_, clone, template,
-                   JsEvalContext.recycle, clone, null);
+        queue.push(
+          me.jstProcessInner_,
+          clone,
+          template,
+          JsEvalContext.recycle,
+          clone,
+          null
+        );
         me.push_(queue);
       } else {
         domRemoveNode(template);
@@ -691,13 +688,18 @@ JstProcessor.prototype.jstSelect_ = function(context, template, select) {
       displayDefault(template);
       var clone = context.clone(value, 0, 1);
       var queue = me.createArray_();
-      queue.push(me.jstProcessInner_, clone, template,
-                 JsEvalContext.recycle, clone, null);
+      queue.push(
+        me.jstProcessInner_,
+        clone,
+        template,
+        JsEvalContext.recycle,
+        clone,
+        null
+      );
       me.push_(queue);
     }
   }
 };
-
 
 /**
  * Implements the jsvars attribute: evaluates each of the values and
@@ -715,14 +717,13 @@ JstProcessor.prototype.jstSelect_ = function(context, template, select) {
  * current jscontext, and the first element is the variable name that
  * the value returned by jsexec is assigned to.
  */
-JstProcessor.prototype.jstVars_ = function(context, template, values) {
+JstProcessor.prototype.jstVars_ = function (context, template, values) {
   for (var i = 0, I = jsLength(values); i < I; i += 2) {
     var label = values[i];
-    var value = context.jsexec(values[i+1], template);
+    var value = context.jsexec(values[i + 1], template);
     context.setVariable(label, value);
   }
 };
-
 
 /**
  * Implements the jsvalues attribute: evaluates each of the values and
@@ -743,16 +744,15 @@ JstProcessor.prototype.jstVars_ = function(context, template, values) {
  * current jscontext, and the first element is the label that
  * determines where the value returned by jsexec is assigned to.
  */
-JstProcessor.prototype.jstValues_ = function(context, template, values) {
+JstProcessor.prototype.jstValues_ = function (context, template, values) {
   for (var i = 0, I = jsLength(values); i < I; i += 2) {
     var label = values[i];
-    var value = context.jsexec(values[i+1], template);
+    var value = context.jsexec(values[i + 1], template);
 
     if (label.charAt(0) == CHAR_dollar) {
       // A jsvalues entry whose name starts with $ sets a local
       // variable.
       context.setVariable(label, value);
-
     } else if (label.charAt(0) == CHAR_period) {
       // A jsvalues entry whose name starts with . sets a property of
       // the current template node. The name may have further dot
@@ -771,7 +771,6 @@ JstProcessor.prototype.jstValues_ = function(context, template, values) {
         nameSpaceObject = nameSpaceObject[jLabel];
       }
       nameSpaceObject[nameSpaceLabel[nameSpaceDepth - 1]] = value;
-
     } else if (label) {
       // Any other jsvalues entry sets an attribute of the current
       // template node.
@@ -790,7 +789,6 @@ JstProcessor.prototype.jstValues_ = function(context, template, values) {
   }
 };
 
-
 /**
  * Implements the jscontent attribute. Evalutes the expression in
  * jscontent in the current context and with the current variables,
@@ -804,7 +802,7 @@ JstProcessor.prototype.jstValues_ = function(context, template, values) {
  * @param {Function} content Processed value of the jscontent
  * attribute.
  */
-JstProcessor.prototype.jstContent_ = function(context, template, content) {
+JstProcessor.prototype.jstContent_ = function (context, template, content) {
   // NOTE(mesch): Profiling shows that this method costs significant
   // time. In jstemplate_perf.html, it's about 50%. I tried to replace
   // by HTML escaping and assignment to innerHTML, but that was even
@@ -822,7 +820,6 @@ JstProcessor.prototype.jstContent_ = function(context, template, content) {
   domAppendChild(template, t);
 };
 
-
 /**
  * Caches access to and parsing of template processing attributes. If
  * domGetAttribute() is called every time a template attribute value
@@ -833,19 +830,18 @@ JstProcessor.prototype.jstContent_ = function(context, template, content) {
  * @return {Object} A javascript object that has all js template
  * processing attribute values of the node as properties.
  */
-JstProcessor.prototype.jstAttributes_ = function(template) {
+JstProcessor.prototype.jstAttributes_ = function (template) {
   if (template[PROP_jstcache]) {
     return template[PROP_jstcache];
   }
 
   var jstid = domGetAttribute(template, ATT_jstcache);
   if (jstid) {
-    return template[PROP_jstcache] = JstProcessor.jstcache_[jstid];
+    return (template[PROP_jstcache] = JstProcessor.jstcache_[jstid]);
   }
 
   return JstProcessor.prepareNode_(template);
 };
-
 
 /**
  * Helps to implement the transclude attribute, and is the initial
@@ -894,9 +890,8 @@ function jstGetTemplate(name, opt_loadHtmlFn) {
 function jstGetTemplateOrDie(name, opt_loadHtmlFn) {
   var x = jstGetTemplate(name, opt_loadHtmlFn);
   check(x !== null);
-  return /** @type Element */(x);
+  return /** @type Element */ (x);
 }
-
 
 /**
  * If an element with id 'name' is not present in the document, call loadHtmlFn
@@ -920,12 +915,15 @@ function jstLoadTemplateIfNotPresent(doc, name, loadHtmlFn, opt_target) {
   jstLoadTemplate_(doc, loadHtmlFn(), opt_target || STRING_jsts);
   var section = domGetElementById(doc, name);
   if (!section) {
-    log("Error: jstGetTemplate was provided with opt_loadHtmlFn, " +
-	"but that function did not provide the id '" + name + "'.");
+    log(
+      "Error: jstGetTemplate was provided with opt_loadHtmlFn, " +
+        "but that function did not provide the id '" +
+        name +
+        "'."
+    );
   }
-  return /** @type Element */(section);
+  return /** @type Element */ (section);
 }
-
 
 /**
  * Loads the given HTML text into the given document, so that
@@ -959,7 +957,6 @@ function jstLoadTemplate_(doc, html, targetId) {
   div.innerHTML = html;
 }
 
-
 /**
  * Sets the jsinstance attribute on a node according to its context.
  *
@@ -979,39 +976,44 @@ function jstSetInstance(template, values, index) {
   }
 }
 
-
 /**
  * Log the current state.
  * @param {string} caller An identifier for the caller of .log_.
  * @param {Element} template The template node being processed.
  * @param {Object} jstAttributeValues The jst attributes of the template node.
  */
-JstProcessor.prototype.logState_ = function(
-    caller, template, jstAttributeValues) {
+JstProcessor.prototype.logState_ = function (
+  caller,
+  template,
+  jstAttributeValues
+) {
   if (MAPS_DEBUG) {
-    var msg = '<table>';
-    msg += '<caption>' + caller + '</caption>';
-    msg += '<tbody>';
+    var msg = "<table>";
+    msg += "<caption>" + caller + "</caption>";
+    msg += "<tbody>";
     if (template.id) {
-      msg += '<tr><td>' + 'id:' + '</td><td>' + template.id + '</td></tr>';
+      msg += "<tr><td>" + "id:" + "</td><td>" + template.id + "</td></tr>";
     }
     if (template.name) {
-      msg += '<tr><td>' + 'name:' + '</td><td>' + template.name + '</td></tr>';
+      msg += "<tr><td>" + "name:" + "</td><td>" + template.name + "</td></tr>";
     }
     if (jstAttributeValues) {
-      msg += '<tr><td>' + 'attr:' +
-      '</td><td>' + jsToSource(jstAttributeValues) + '</td></tr>';
+      msg +=
+        "<tr><td>" +
+        "attr:" +
+        "</td><td>" +
+        jsToSource(jstAttributeValues) +
+        "</td></tr>";
     }
-    msg += '</tbody></table><br/>';
+    msg += "</tbody></table><br/>";
     this.logs_.push(msg);
   }
 };
-
 
 /**
  * Retrieve the processing logs.
  * @return {Array<string>} The processing logs.
  */
-JstProcessor.prototype.getLogs = function() {
+JstProcessor.prototype.getLogs = function () {
   return this.logs_;
 };

@@ -7,7 +7,7 @@
  * of content setting rules.
  */
 
-cr.define('pluginSettings.ui', function() {
+cr.define("pluginSettings.ui", function () {
   const List = cr.ui.List;
   const ListItem = cr.ui.ListItem;
   const ListSingleSelectionModel = cr.ui.ListSingleSelectionModel;
@@ -17,51 +17,50 @@ cr.define('pluginSettings.ui', function() {
    * @enum {string}
    */
   const CSSClass = {
-
     /**
      * Hides an element.
      */
-    HIDDEN: 'hidden',
+    HIDDEN: "hidden",
 
     /**
      * A plugin list.
      */
-    PLUGIN_LIST: 'plugin-list',
+    PLUGIN_LIST: "plugin-list",
 
     /**
      * Set on a plugin list entry to show details about the plugin.
      */
-    PLUGIN_SHOW_DETAILS: 'plugin-show-details',
+    PLUGIN_SHOW_DETAILS: "plugin-show-details",
 
     /**
      * The plugin name.
      */
-    PLUGIN_NAME: 'plugin-name',
+    PLUGIN_NAME: "plugin-name",
 
     /**
      * The number of rules set for a plugin.
      */
-    NUM_RULES: 'num-rules',
+    NUM_RULES: "num-rules",
 
     /**
      * The element containing details about a plugin.
      */
-    PLUGIN_DETAILS: 'plugin-details',
+    PLUGIN_DETAILS: "plugin-details",
 
     /**
      * The element containing the column headers for the list of rules.
      */
-    COLUMN_HEADERS: 'column-headers',
+    COLUMN_HEADERS: "column-headers",
 
     /**
      * The header for the pattern column.
      */
-    PATTERN_COLUMN_HEADER: 'pattern-column-header',
+    PATTERN_COLUMN_HEADER: "pattern-column-header",
 
     /**
      * The header for the setting column.
      */
-    SETTING_COLUMN_HEADER: 'setting-column-header',
+    SETTING_COLUMN_HEADER: "setting-column-header",
   };
 
   /**
@@ -75,7 +74,7 @@ cr.define('pluginSettings.ui', function() {
     var height = item.style.height;
     // Use the fixed animation target height if set, in case the element is
     // currently being animated and we'd get an intermediate height below.
-    if (height && height.substr(-2) == 'px') {
+    if (height && height.substr(-2) == "px") {
       return parseInt(height.substr(0, height.length - 2));
     }
     return item.getBoundingClientRect().height;
@@ -89,7 +88,7 @@ cr.define('pluginSettings.ui', function() {
    * @extends {cr.ui.ListItem}
    */
   function PluginListItem(list, info) {
-    var el = cr.doc.createElement('li');
+    var el = cr.doc.createElement("li");
 
     /**
      * The plugin list containing this item.
@@ -124,37 +123,39 @@ cr.define('pluginSettings.ui', function() {
     /**
      * Initializes the element.
      */
-    decorate: function() {
+    decorate: function () {
       ListItem.prototype.decorate.call(this);
 
       var info = this.info_;
 
-      var contentElement = this.ownerDocument.createElement('div');
+      var contentElement = this.ownerDocument.createElement("div");
 
-      var titleEl = this.ownerDocument.createElement('div');
-      var nameEl = this.ownerDocument.createElement('span');
+      var titleEl = this.ownerDocument.createElement("div");
+      var nameEl = this.ownerDocument.createElement("span");
       nameEl.className = CSSClass.PLUGIN_NAME;
       nameEl.textContent = info.description;
       nameEl.title = info.description;
       titleEl.appendChild(nameEl);
-      this.numRulesEl_ = this.ownerDocument.createElement('span');
+      this.numRulesEl_ = this.ownerDocument.createElement("span");
       this.numRulesEl_.className = CSSClass.NUM_RULES;
       titleEl.appendChild(this.numRulesEl_);
       contentElement.appendChild(titleEl);
 
-      this.detailsElement_ = this.ownerDocument.createElement('div');
+      this.detailsElement_ = this.ownerDocument.createElement("div");
       this.detailsElement_.classList.add(CSSClass.PLUGIN_DETAILS);
       this.detailsElement_.classList.add(CSSClass.HIDDEN);
 
-      var columnHeadersEl = this.ownerDocument.createElement('div');
+      var columnHeadersEl = this.ownerDocument.createElement("div");
       columnHeadersEl.className = CSSClass.COLUMN_HEADERS;
-      var patternColumnEl = this.ownerDocument.createElement('div');
-      patternColumnEl.textContent =
-          chrome.i18n.getMessage('patternColumnHeader');
+      var patternColumnEl = this.ownerDocument.createElement("div");
+      patternColumnEl.textContent = chrome.i18n.getMessage(
+        "patternColumnHeader"
+      );
       patternColumnEl.className = CSSClass.PATTERN_COLUMN_HEADER;
-      var settingColumnEl = this.ownerDocument.createElement('div');
-      settingColumnEl.textContent =
-          chrome.i18n.getMessage('settingColumnHeader');
+      var settingColumnEl = this.ownerDocument.createElement("div");
+      settingColumnEl.textContent = chrome.i18n.getMessage(
+        "settingColumnHeader"
+      );
       settingColumnEl.className = CSSClass.SETTING_COLUMN_HEADER;
       columnHeadersEl.appendChild(patternColumnEl);
       columnHeadersEl.appendChild(settingColumnEl);
@@ -166,8 +167,9 @@ cr.define('pluginSettings.ui', function() {
       var settings = new pluginSettings.Settings(this.info_.id);
       this.updateRulesCount_(settings);
       settings.addEventListener(
-          'change',
-          this.updateRulesCount_.bind(this, settings));
+        "change",
+        this.updateRulesCount_.bind(this, settings)
+      );
 
       // Create the rule list asynchronously, to make sure that it is already
       // fully integrated in the DOM tree.
@@ -180,8 +182,8 @@ cr.define('pluginSettings.ui', function() {
      *     setting rules.
      * @private
      */
-    loadRules_: function(settings) {
-      var rulesEl = this.ownerDocument.createElement('list');
+    loadRules_: function (settings) {
+      var rulesEl = this.ownerDocument.createElement("list");
       this.detailsElement_.appendChild(rulesEl);
 
       pluginSettings.ui.RuleList.decorate(rulesEl);
@@ -195,8 +197,8 @@ cr.define('pluginSettings.ui', function() {
      *     setting rules.
      * @private
      */
-    updateRulesCount_: function(settings) {
-      this.numRulesEl_.textContent = '(' + settings.getAll().length + ' rules)';
+    updateRulesCount_: function (settings) {
+      this.numRulesEl_.textContent = "(" + settings.getAll().length + " rules)";
     },
 
     /**
@@ -229,7 +231,7 @@ cr.define('pluginSettings.ui', function() {
           this.list_.leadItemHeight = 0;
           this.list_.expandItem = null;
         }
-        this.style.height = '';
+        this.style.height = "";
         this.detailsElement_.classList.add(CSSClass.HIDDEN);
         this.classList.remove(CSSClass.PLUGIN_SHOW_DETAILS);
       }
@@ -241,7 +243,7 @@ cr.define('pluginSettings.ui', function() {
    * @constructor
    * @extends {cr.ui.List}
    */
-  var PluginList = cr.ui.define('list');
+  var PluginList = cr.ui.define("list");
 
   PluginList.prototype = {
     __proto__: List.prototype,
@@ -249,11 +251,11 @@ cr.define('pluginSettings.ui', function() {
     /**
      * Initializes the element.
      */
-    decorate: function() {
+    decorate: function () {
       List.prototype.decorate.call(this);
       this.classList.add(CSSClass.PLUGIN_LIST);
       var sm = new ListSingleSelectionModel();
-      sm.addEventListener('change', this.handleSelectionChange_.bind(this));
+      sm.addEventListener("change", this.handleSelectionChange_.bind(this));
       this.selectionModel = sm;
       this.autoExpands = true;
     },
@@ -262,7 +264,7 @@ cr.define('pluginSettings.ui', function() {
      * Creates a new plugin list item.
      * @param {!Object} info Information about the plugin.
      */
-    createItem: function(info) {
+    createItem: function (info) {
       return new PluginListItem(this, info);
     },
 
@@ -271,13 +273,13 @@ cr.define('pluginSettings.ui', function() {
      * @param {!Event} ce The change event.
      * @private
      */
-    handleSelectionChange_: function(ce) {
-      ce.changes.forEach(function(change) {
+    handleSelectionChange_: function (ce) {
+      ce.changes.forEach(function (change) {
         var listItem = this.getListItemByIndex(change.index);
         if (listItem) {
           if (!change.selected) {
             // TODO(bsmith) explain window timeout (from cookies_list.js)
-            window.setTimeout(function() {
+            window.setTimeout(function () {
               if (!listItem.selected || !listItem.lead) {
                 listItem.expanded = false;
               }

@@ -1,5 +1,4 @@
-
-function notDefined(){
+function notDefined() {
   try {
     someFunction();
   } catch (e) {

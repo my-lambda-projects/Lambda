@@ -1,11 +1,14 @@
-var permissionTool = (function() {
+var permissionTool = (function () {
   var containerElement = null;
   var browserInstance = null;
   var controller = null;
-  var allow = null, deny = null;
+  var allow = null,
+    deny = null;
   var hostRecords = [];
 
-  function query(id) { return containerElement.querySelector(id);}
+  function query(id) {
+    return containerElement.querySelector(id);
+  }
 
   function HostPermissions(host) {
     this.host = host;
@@ -13,7 +16,7 @@ var permissionTool = (function() {
   }
 
   function getHostForURL(url) {
-    var l = document.createElement('a');
+    var l = document.createElement("a");
     l.href = url;
     return l.hostname;
   }
@@ -35,8 +38,7 @@ var permissionTool = (function() {
       }
     }
     return null;
-  };
-
+  }
 
   function addEntry(host, permission, value) {
     var entry = getHostEntry(host);
@@ -45,55 +47,60 @@ var permissionTool = (function() {
       hostRecords.push(entry);
     }
     entry.permissions[permission] = value;
-  };
+  }
 
-  var PermissionController = function(container, browser) {
+  var PermissionController = function (container, browser) {
     containerElement = container;
     browserInstance = browser;
     controller = this;
 
-    query('#allow').onclick = onAllow;
-    query('#deny').onclick = onDeny;
-    container.className = 'overlay-bar';
+    query("#allow").onclick = onAllow;
+    query("#deny").onclick = onDeny;
+    container.className = "overlay-bar";
   };
 
-  PermissionController.prototype.ifPermits =
-      function(url, permission, callback) {        
-        var result = check(url, permission);
-        if (!result) {
-          containerElement.style.display = 'inline-block';
-          containerElement.querySelector('#question').innerHTML =
-              'The page at "' + url + '" is asking for permission to use <b>'
-              + permission + '</b>. What would you like to do?';
-          this.urlReq = url;
-          this.callbackReq = callback;
-          this.permissionReq = permission;
-          containerElement.style.display = 'block';
-        } else {
-          callback(result);
-        }
-      };
+  PermissionController.prototype.ifPermits = function (
+    url,
+    permission,
+    callback
+  ) {
+    var result = check(url, permission);
+    if (!result) {
+      containerElement.style.display = "inline-block";
+      containerElement.querySelector("#question").innerHTML =
+        'The page at "' +
+        url +
+        '" is asking for permission to use <b>' +
+        permission +
+        "</b>. What would you like to do?";
+      this.urlReq = url;
+      this.callbackReq = callback;
+      this.permissionReq = permission;
+      containerElement.style.display = "block";
+    } else {
+      callback(result);
+    }
+  };
 
-  PermissionController.prototype.deactivate = function() {
+  PermissionController.prototype.deactivate = function () {
     deactivate();
   };
 
   function onAllow() {
     deactivate();
-    addEntry(controller.urlReq, controller.permissionReq, 'ALLOW');
-    controller.callbackReq('ALLOW');
+    addEntry(controller.urlReq, controller.permissionReq, "ALLOW");
+    controller.callbackReq("ALLOW");
   }
 
   function onDeny() {
     deactivate();
-    addEntry(controller.urlReq, controller.permissionReq, 'DENY');
-    controller.callbackReq('DENY');
+    addEntry(controller.urlReq, controller.permissionReq, "DENY");
+    controller.callbackReq("DENY");
   }
 
   function deactivate() {
-    containerElement.style.display = 'none';
-  };
+    containerElement.style.display = "none";
+  }
 
-  return {'PermissionController': PermissionController};
-
+  return { PermissionController: PermissionController };
 })();

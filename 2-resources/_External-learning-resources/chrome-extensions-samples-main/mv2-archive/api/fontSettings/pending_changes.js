@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-'use strict';
+"use strict";
 
 /**
  * @fileoverview PendingChanges class tracks changes to be applied when an
@@ -14,7 +14,7 @@
  *
  * @constructor
  */
-var PendingChanges = function() {
+var PendingChanges = function () {
   // Format: pendingFontChanges_.Cyrl.sansserif = "My SansSerif Cyrillic Font"
   this.pendingFontChanges_ = {};
 
@@ -31,7 +31,7 @@ var PendingChanges = function() {
  * @return {?string} The pending font setting, like "My Cyrillic SansSerif Font"
  *     or null if it doesn't exist.
  */
-PendingChanges.prototype.getFont = function(script, genericFamily) {
+PendingChanges.prototype.getFont = function (script, genericFamily) {
   if (this.pendingFontChanges_[script])
     return this.pendingFontChanges_[script][genericFamily];
   return null;
@@ -45,7 +45,7 @@ PendingChanges.prototype.getFont = function(script, genericFamily) {
  * @return {?number} The pending font size setting in pixels, or null if it
  *     doesn't exist.
  */
-PendingChanges.prototype.getFontSize = function(fontSizeKey) {
+PendingChanges.prototype.getFontSize = function (fontSizeKey) {
   return this.pendingFontSizeChanges_[fontSizeKey];
 };
 
@@ -56,11 +56,9 @@ PendingChanges.prototype.getFontSize = function(fontSizeKey) {
  * @param {string} genericFamily The generic family, like "sansserif".
  * @param {?string} font The font to set the setting to, or null to clear it.
  */
-PendingChanges.prototype.setFont = function(script, genericFamily, font) {
-  if (!this.pendingFontChanges_[script])
-    this.pendingFontChanges_[script] = {};
-  if (this.pendingFontChanges_[script][genericFamily] == font)
-    return;
+PendingChanges.prototype.setFont = function (script, genericFamily, font) {
+  if (!this.pendingFontChanges_[script]) this.pendingFontChanges_[script] = {};
+  if (this.pendingFontChanges_[script][genericFamily] == font) return;
   this.pendingFontChanges_[script][genericFamily] = font;
 };
 
@@ -71,9 +69,8 @@ PendingChanges.prototype.setFont = function(script, genericFamily, font) {
  *     getFontSize().
  * @param {number} size The font size to set the setting to.
  */
-PendingChanges.prototype.setFontSize = function(fontSizeKey, size) {
-  if (this.pendingFontSizeChanges_[fontSizeKey] == size)
-    return;
+PendingChanges.prototype.setFontSize = function (fontSizeKey, size) {
+  if (this.pendingFontSizeChanges_[fontSizeKey] == size) return;
   this.pendingFontSizeChanges_[fontSizeKey] = size;
 };
 
@@ -81,12 +78,11 @@ PendingChanges.prototype.setFontSize = function(fontSizeKey, size) {
  * Commits the pending changes to Chrome. After this function is called, there
  * are no pending changes.
  */
-PendingChanges.prototype.apply = function() {
+PendingChanges.prototype.apply = function () {
   for (var script in this.pendingFontChanges_) {
     for (var genericFamily in this.pendingFontChanges_[script]) {
       var fontId = this.pendingFontChanges_[script][genericFamily];
-      if (fontId == null)
-        continue;
+      if (fontId == null) continue;
       var details = {};
       details.script = script;
       details.genericFamily = genericFamily;
@@ -95,17 +91,15 @@ PendingChanges.prototype.apply = function() {
     }
   }
 
-  var size = this.pendingFontSizeChanges_['defaultFontSize'];
-  if (size != null)
-    chrome.fontSettings.setDefaultFontSize({pixelSize: size});
+  var size = this.pendingFontSizeChanges_["defaultFontSize"];
+  if (size != null) chrome.fontSettings.setDefaultFontSize({ pixelSize: size });
 
-  size = this.pendingFontSizeChanges_['defaultFixedFontSize'];
+  size = this.pendingFontSizeChanges_["defaultFixedFontSize"];
   if (size != null)
-    chrome.fontSettings.setDefaultFixedFontSize({pixelSize: size});
+    chrome.fontSettings.setDefaultFixedFontSize({ pixelSize: size });
 
-  size = this.pendingFontSizeChanges_['minFontSize'];
-  if (size != null)
-    chrome.fontSettings.setMinimumFontSize({pixelSize: size});
+  size = this.pendingFontSizeChanges_["minFontSize"];
+  if (size != null) chrome.fontSettings.setMinimumFontSize({ pixelSize: size });
 
   this.clear();
 };
@@ -115,14 +109,14 @@ PendingChanges.prototype.apply = function() {
  *
  * @param {string} script The script code, like "Cyrl".
  */
-PendingChanges.prototype.clearOneScript = function(script) {
+PendingChanges.prototype.clearOneScript = function (script) {
   this.pendingFontChanges_[script] = {};
 };
 
 /**
  * Clears all pending font changes.
  */
-PendingChanges.prototype.clear = function() {
+PendingChanges.prototype.clear = function () {
   this.pendingFontChanges_ = {};
   this.pendingFontSizeChanges_ = {};
 };
@@ -130,16 +124,14 @@ PendingChanges.prototype.clear = function() {
 /**
  * @return {boolean} True if there are no pending changes, otherwise false.
  */
-PendingChanges.prototype.isEmpty = function() {
+PendingChanges.prototype.isEmpty = function () {
   for (var script in this.pendingFontChanges_) {
     for (var genericFamily in this.pendingFontChanges_[script]) {
-      if (this.pendingFontChanges_[script][genericFamily] != null)
-        return false;
+      if (this.pendingFontChanges_[script][genericFamily] != null) return false;
     }
   }
   for (var name in this.pendingFontSizeChanges_) {
-    if (this.pendingFontSizeChanges_[name] != null)
-      return false;
+    if (this.pendingFontSizeChanges_[name] != null) return false;
   }
   return true;
 };

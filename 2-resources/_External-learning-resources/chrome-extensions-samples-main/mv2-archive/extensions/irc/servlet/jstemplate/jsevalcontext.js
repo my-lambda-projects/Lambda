@@ -18,35 +18,31 @@
  * context. Used by JstProcessor.
  */
 
-
 /**
  * Names of special variables defined by the jstemplate evaluation
  * context. These can be used in js expression in jstemplate
  * attributes.
  */
-var VAR_index = '$index';
-var VAR_count = '$count';
-var VAR_this = '$this';
-var VAR_context = '$context';
-var VAR_top = '$top';
-
+var VAR_index = "$index";
+var VAR_count = "$count";
+var VAR_this = "$this";
+var VAR_context = "$context";
+var VAR_top = "$top";
 
 /**
  * The name of the global variable which holds the value to be returned if
- * context evaluation results in an error. 
+ * context evaluation results in an error.
  * Use JsEvalContext.setGlobal(GLOB_default, value) to set this.
  */
-var GLOB_default = '$default';
-
+var GLOB_default = "$default";
 
 /**
  * Un-inlined literals, to avoid object creation in IE6. TODO(mesch):
  * So far, these are only used here, but we could use them thoughout
  * the code and thus move them to constants.js.
  */
-var CHAR_colon = ':';
+var CHAR_colon = ":";
 var REGEXP_semicolon = /\s*;\s*/;
-
 
 /**
  * See constructor_()
@@ -70,7 +66,7 @@ function JsEvalContext(opt_data, opt_parent) {
  * context is the object whose property the parent object is. Null for the
  * context of the root object.
  */
-JsEvalContext.prototype.constructor_ = function(opt_data, opt_parent) {
+JsEvalContext.prototype.constructor_ = function (opt_data, opt_parent) {
   var me = this;
 
   /**
@@ -135,14 +131,12 @@ JsEvalContext.prototype.constructor_ = function(opt_data, opt_parent) {
   }
 };
 
-
 /**
  * A map of globally defined symbols. Every instance of JsExprContext
  * inherits them in its vars_.
  * @type Object
  */
-JsEvalContext.globals_ = {}
-
+JsEvalContext.globals_ = {};
 
 /**
  * Sets a global symbol. It will be available like a variable in every
@@ -154,17 +148,15 @@ JsEvalContext.globals_ = {}
  * @param {string} name
  * @param {Object|null} value
  */
-JsEvalContext.setGlobal = function(name, value) {
+JsEvalContext.setGlobal = function (name, value) {
   JsEvalContext.globals_[name] = value;
 };
 
-
 /**
- * Set the default value to be returned if context evaluation results in an 
- * error. (This can occur if a non-existent value was requested). 
+ * Set the default value to be returned if context evaluation results in an
+ * error. (This can occur if a non-existent value was requested).
  */
 JsEvalContext.setGlobal(GLOB_default, null);
-
 
 /**
  * A cache to reuse JsEvalContext instances. (IE6 perf)
@@ -172,7 +164,6 @@ JsEvalContext.setGlobal(GLOB_default, null);
  * @type Array<JsEvalContext>
  */
 JsEvalContext.recycledInstances_ = [];
-
 
 /**
  * A factory to create a JsEvalContext instance, possibly reusing
@@ -182,7 +173,7 @@ JsEvalContext.recycledInstances_ = [];
  * @param {JsEvalContext} opt_parent
  * @return {JsEvalContext}
  */
-JsEvalContext.create = function(opt_data, opt_parent) {
+JsEvalContext.create = function (opt_data, opt_parent) {
   if (jsLength(JsEvalContext.recycledInstances_) > 0) {
     var instance = JsEvalContext.recycledInstances_.pop();
     JsEvalContext.call(instance, opt_data, opt_parent);
@@ -192,14 +183,13 @@ JsEvalContext.create = function(opt_data, opt_parent) {
   }
 };
 
-
 /**
  * Recycle a used JsEvalContext instance, so we can avoid creating one
  * the next time we need one. (IE6 perf)
  *
  * @param {JsEvalContext} instance
  */
-JsEvalContext.recycle = function(instance) {
+JsEvalContext.recycle = function (instance) {
   for (var i in instance.vars_) {
     // NOTE(mesch): We avoid object creation here. (IE6 perf)
     delete instance.vars_[i];
@@ -207,7 +197,6 @@ JsEvalContext.recycle = function(instance) {
   instance.data_ = null;
   JsEvalContext.recycledInstances_.push(instance);
 };
-
 
 /**
  * Executes a function created using jsEvalToFunction() in the context
@@ -222,16 +211,14 @@ JsEvalContext.recycle = function(instance) {
  * exprFunction was created in the current js expression context and
  * the context of template.
  */
-JsEvalContext.prototype.jsexec = function(exprFunction, template) {
+JsEvalContext.prototype.jsexec = function (exprFunction, template) {
   try {
     return exprFunction.call(template, this.vars_, this.data_);
   } catch (e) {
-    log('jsexec EXCEPTION: ' + e + ' at ' + template +
-        ' with ' + exprFunction);
+    log("jsexec EXCEPTION: " + e + " at " + template + " with " + exprFunction);
     return JsEvalContext.globals_[GLOB_default];
   }
 };
-
 
 /**
  * Clones the current context for a new context object. The cloned
@@ -244,19 +231,18 @@ JsEvalContext.prototype.jsexec = function(exprFunction, template) {
  *
  * @param {number} index Position of the new context when multiply
  * instantiated. (See implementation of jstSelect().)
- * 
+ *
  * @param {number} count The total number of contexts that were multiply
  * instantiated. (See implementation of jstSelect().)
  *
  * @return {JsEvalContext}
  */
-JsEvalContext.prototype.clone = function(data, index, count) {
+JsEvalContext.prototype.clone = function (data, index, count) {
   var ret = JsEvalContext.create(data, this);
   ret.setVariable(VAR_index, index);
   ret.setVariable(VAR_count, count);
   return ret;
 };
-
 
 /**
  * Binds a local variable to the given value. If set from jstemplate
@@ -267,10 +253,9 @@ JsEvalContext.prototype.clone = function(data, index, count) {
  *
  * @param {Object?} value
  */
-JsEvalContext.prototype.setVariable = function(name, value) {
+JsEvalContext.prototype.setVariable = function (name, value) {
   this.vars_[name] = value;
 };
-
 
 /**
  * Returns the value bound to the local variable of the given name, or
@@ -282,10 +267,9 @@ JsEvalContext.prototype.setVariable = function(name, value) {
  *
  * @return {Object?} value
  */
-JsEvalContext.prototype.getVariable = function(name) {
+JsEvalContext.prototype.getVariable = function (name) {
   return this.vars_[name];
 };
-
 
 /**
  * Evaluates a string expression within the scope of this context
@@ -296,26 +280,23 @@ JsEvalContext.prototype.getVariable = function(name) {
  *
  * @return {Object?} value
  */
-JsEvalContext.prototype.evalExpression = function(expr, opt_template) {
+JsEvalContext.prototype.evalExpression = function (expr, opt_template) {
   var exprFunction = jsEvalToFunction(expr);
   return this.jsexec(exprFunction, opt_template);
 };
 
-
 /**
  * Uninlined string literals for jsEvalToFunction() (IE6 perf).
  */
-var STRING_a = 'a_';
-var STRING_b = 'b_';
-var STRING_with = 'with (a_) with (b_) return ';
-
+var STRING_a = "a_";
+var STRING_b = "b_";
+var STRING_with = "with (a_) with (b_) return ";
 
 /**
  * Cache for jsEvalToFunction results.
  * @type Object
  */
 JsEvalContext.evalToFunctionCache_ = {};
-
 
 /**
  * Evaluates the given expression as the body of a function that takes
@@ -332,15 +313,17 @@ function jsEvalToFunction(expr) {
   if (!JsEvalContext.evalToFunctionCache_[expr]) {
     try {
       // NOTE(mesch): The Function constructor is faster than eval().
-      JsEvalContext.evalToFunctionCache_[expr] =
-        new Function(STRING_a, STRING_b, STRING_with + expr);
+      JsEvalContext.evalToFunctionCache_[expr] = new Function(
+        STRING_a,
+        STRING_b,
+        STRING_with + expr
+      );
     } catch (e) {
-      log('jsEvalToFunction (' + expr + ') EXCEPTION ' + e);
+      log("jsEvalToFunction (" + expr + ") EXCEPTION " + e);
     }
   }
   return JsEvalContext.evalToFunctionCache_[expr];
 }
-
 
 /**
  * Evaluates the given expression to itself. This is meant to pass
@@ -353,7 +336,6 @@ function jsEvalToFunction(expr) {
 function jsEvalToSelf(expr) {
   return expr;
 }
-
 
 /**
  * Parses the value of the jsvalues attribute in jstemplates: splits
@@ -383,7 +365,6 @@ function jsEvalToValues(expr) {
   }
   return ret;
 }
-
 
 /**
  * Parses the value of the jseval attribute of jstemplates: splits it

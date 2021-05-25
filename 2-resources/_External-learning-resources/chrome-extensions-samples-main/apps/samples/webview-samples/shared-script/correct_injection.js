@@ -7,7 +7,6 @@
 // function. This way, the script we wish to run can access the guest page
 // scripting context.
 function generateScriptText(fn) {
-
   // fn is going to be interpreted as a quoted string literal. As such, we need
   // to escape double-quotes in the string, and either:
   // (a) strip newlines and comments, or
@@ -22,25 +21,30 @@ function generateScriptText(fn) {
   //   .replace(/[/][*]((?![*][/]).)*[*][/]/g, ' '); // Rmv multi-line comments.
 
   // (b):
-  var fnText = fn.toString()
-    .replace(/"/g, '\\"')           // Escape double-quotes.
-    .replace(/(\r?\n|\r)/g, '\\n'); // Insert newlines correctly.
+  var fnText = fn
+    .toString()
+    .replace(/"/g, '\\"') // Escape double-quotes.
+    .replace(/(\r?\n|\r)/g, "\\n"); // Insert newlines correctly.
 
   var scriptText =
-      '(function() {\n' +
-      '  var script = document.createElement("script");\n' +
-      '  script.innerHTML = "(function() { (' + fnText + ')(); })()" \n'+
-      '  document.body.appendChild(script);\n' +
-      '})()';
+    "(function() {\n" +
+    '  var script = document.createElement("script");\n' +
+    '  script.innerHTML = "(function() { (' +
+    fnText +
+    ')(); })()" \n' +
+    "  document.body.appendChild(script);\n" +
+    "})()";
   return scriptText;
 }
 
 // When our app loads, setup a listener that will execute our script after the
 // target guest page has loaded.
-window.addEventListener('load', function() {
-  var webview = document.querySelector('webview');
-  webview.addEventListener('loadstop', function() {
-    if (webview.src === 'http://foam-framework.github.io/foam/demos/Dragon.html') {
+window.addEventListener("load", function () {
+  var webview = document.querySelector("webview");
+  webview.addEventListener("loadstop", function () {
+    if (
+      webview.src === "http://foam-framework.github.io/foam/demos/Dragon.html"
+    ) {
       webview.executeScript({ code: generateScriptText(addMoreDragons) });
     }
   });

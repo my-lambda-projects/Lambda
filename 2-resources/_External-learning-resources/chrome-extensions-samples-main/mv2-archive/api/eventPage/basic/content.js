@@ -17,28 +17,28 @@ function log(str) {
   logDiv.innerHTML += str + "<br>";
 }
 
-addButton("Clear logs", function() {
+addButton("Clear logs", function () {
   logDiv.innerHTML = "";
 });
 
-addButton("Send message with delayed response", function() {
-  chrome.runtime.sendMessage({delayedResponse: true}, function(response) {
+addButton("Send message with delayed response", function () {
+  chrome.runtime.sendMessage({ delayedResponse: true }, function (response) {
     log("Background page responded: " + response);
   });
 });
 
-addButton("Show counters", function() {
-  chrome.runtime.sendMessage({getCounters: true}, function(response) {
+addButton("Show counters", function () {
+  chrome.runtime.sendMessage({ getCounters: true }, function (response) {
     log("In-memory counter is: " + response.counter);
     log("Persisted counter is: " + response.persistentCounter);
   });
 });
 
-addButton("Set an alarm", function() {
-  chrome.runtime.sendMessage({setAlarm: true});
+addButton("Set an alarm", function () {
+  chrome.runtime.sendMessage({ setAlarm: true });
 });
 
-chrome.runtime.onMessage.addListener(function(msg, _, sendResponse) {
+chrome.runtime.onMessage.addListener(function (msg, _, sendResponse) {
   log("Got message from background page: " + msg);
 });
 

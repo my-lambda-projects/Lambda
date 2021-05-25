@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License. */
 
-self.addEventListener('sync', (e) => {
-  let url = `https://hacker-news.firebaseio.com/v0/item/${e.tag}.json`
+self.addEventListener("sync", (e) => {
+  let url = `https://hacker-news.firebaseio.com/v0/item/${e.tag}.json`;
   fetch(url);
 });

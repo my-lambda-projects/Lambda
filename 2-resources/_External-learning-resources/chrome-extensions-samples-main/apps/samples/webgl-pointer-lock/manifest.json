@@ -11,7 +11,5 @@
       "scripts": ["main.js"]
     }
   },
-  "permissions": [
-    "pointerLock"
-  ]
+  "permissions": ["pointerLock"]
 }

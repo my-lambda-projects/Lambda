@@ -7,16 +7,14 @@
  * load.
  */
 
-document.addEventListener('DOMContentLoaded', function() {
-  chrome.contentSettings.plugins.getResourceIdentifiers(function(r) {
+document.addEventListener("DOMContentLoaded", function () {
+  chrome.contentSettings.plugins.getResourceIdentifiers(function (r) {
     if (chrome.runtime.lastError) {
-      $('error').textContent =
-          'Error: ' + chrome.runtime.lastError.message;
+      $("error").textContent = "Error: " + chrome.runtime.lastError.message;
       return;
     }
-    var pluginList = $('plugin-list');
+    var pluginList = $("plugin-list");
     pluginSettings.ui.PluginList.decorate(pluginList);
     pluginList.dataModel = new cr.ui.ArrayDataModel(r);
   });
 });
-

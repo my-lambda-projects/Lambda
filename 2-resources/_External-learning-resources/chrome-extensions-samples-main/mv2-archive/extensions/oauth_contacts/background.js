@@ -3,69 +3,69 @@
 // found in the LICENSE file.
 
 var oauth = ChromeExOAuth.initBackgroundPage({
-  'request_url' : 'https://www.google.com/accounts/OAuthGetRequestToken',
-  'authorize_url' : 'https://www.google.com/accounts/OAuthAuthorizeToken',
-  'access_url' : 'https://www.google.com/accounts/OAuthGetAccessToken',
-  'consumer_key' : 'anonymous',
-  'consumer_secret' : 'anonymous',
-  'scope' : 'http://www.google.com/m8/feeds/',
-  'app_name' : 'Sample - OAuth Contacts'
+  request_url: "https://www.google.com/accounts/OAuthGetRequestToken",
+  authorize_url: "https://www.google.com/accounts/OAuthAuthorizeToken",
+  access_url: "https://www.google.com/accounts/OAuthGetAccessToken",
+  consumer_key: "anonymous",
+  consumer_secret: "anonymous",
+  scope: "http://www.google.com/m8/feeds/",
+  app_name: "Sample - OAuth Contacts",
 });
 
 var contacts = null;
 
 function setIcon() {
   if (oauth.hasToken()) {
-    chrome.browserAction.setIcon({ 'path' : 'img/icon-19-on.png'});
+    chrome.browserAction.setIcon({ path: "img/icon-19-on.png" });
   } else {
-    chrome.browserAction.setIcon({ 'path' : 'img/icon-19-off.png'});
+    chrome.browserAction.setIcon({ path: "img/icon-19-off.png" });
   }
-};
+}
 
 function onContacts(text, xhr) {
   contacts = [];
   var data = JSON.parse(text);
-  for (var i = 0, entry; entry = data.feed.entry[i]; i++) {
+  for (var i = 0, entry; (entry = data.feed.entry[i]); i++) {
     var contact = {
-      'name' : entry['title']['$t'],
-      'id' : entry['id']['$t'],
-      'emails' : []
+      name: entry["title"]["$t"],
+      id: entry["id"]["$t"],
+      emails: [],
     };
 
-    if (entry['gd$email']) {
-      var emails = entry['gd$email'];
-      for (var j = 0, email; email = emails[j]; j++) {
-        contact['emails'].push(email['address']);
+    if (entry["gd$email"]) {
+      var emails = entry["gd$email"];
+      for (var j = 0, email; (email = emails[j]); j++) {
+        contact["emails"].push(email["address"]);
       }
     }
 
-    if (!contact['name']) {
-      contact['name'] = contact['emails'][0] || "<Unknown>";
+    if (!contact["name"]) {
+      contact["name"] = contact["emails"][0] || "<Unknown>";
     }
     contacts.push(contact);
   }
 
-  chrome.tabs.create({ 'url' : 'contacts.html'});
-};
+  chrome.tabs.create({ url: "contacts.html" });
+}
 
 function getContacts() {
-  oauth.authorize(function() {
+  oauth.authorize(function () {
     console.log("on authorize");
     setIcon();
     var url = "http://www.google.com/m8/feeds/contacts/default/full";
     oauth.sendSignedRequest(url, onContacts, {
-      'parameters' : {
-        'alt' : 'json',
-        'max-results' : 100
-      }
+      parameters: {
+        alt: "json",
+        "max-results": 100,
+      },
     });
   });
-};
+}
 
 function logout() {
   oauth.clearTokens();
   setIcon();
-};
+}
 
 setIcon();
 chrome.browserAction.onClicked.addListener(getContacts);

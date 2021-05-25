@@ -2,56 +2,58 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-'use strict';
+"use strict";
 
 const kPermissionObj = {
-  permissions: ['topSites']
+  permissions: ["topSites"],
 };
 
-const sites_div = document.getElementById('display_top');
+const sites_div = document.getElementById("display_top");
 
-const todo = document.getElementById('display_todo');
+const todo = document.getElementById("display_todo");
 
-const form = document.querySelector('form');
+const form = document.querySelector("form");
 
-const footer = document.querySelector('footer');
+const footer = document.querySelector("footer");
 
-function createTop(){chrome.topSites.get(function(topSites) {
-  topSites.forEach(function(site) {
-    let div = document.createElement('div');
-    div.className = 'colorFun';
-    let tooltip = document.createElement('span');
-    tooltip.innerText = site.title;
-    tooltip.className = 'tooltip';
-    let url = document.createElement('a');
-    url.href = site.url;
-    let hostname = (new URL(site.url)).hostname;
-    let image = document.createElement('img');
-    image.title = site.title;
-    image.src = 'https://logo.clearbit.com/' + hostname;
-    url.appendChild(image);
-    div.appendChild(url);
-    div.appendChild(tooltip);
-    sites_div.appendChild(div);
-  })
-})};
+function createTop() {
+  chrome.topSites.get(function (topSites) {
+    topSites.forEach(function (site) {
+      let div = document.createElement("div");
+      div.className = "colorFun";
+      let tooltip = document.createElement("span");
+      tooltip.innerText = site.title;
+      tooltip.className = "tooltip";
+      let url = document.createElement("a");
+      url.href = site.url;
+      let hostname = new URL(site.url).hostname;
+      let image = document.createElement("img");
+      image.title = site.title;
+      image.src = "https://logo.clearbit.com/" + hostname;
+      url.appendChild(image);
+      div.appendChild(url);
+      div.appendChild(tooltip);
+      sites_div.appendChild(div);
+    });
+  });
+}
 
-chrome.permissions.contains({permissions: ['topSites']}, function(result) {
+chrome.permissions.contains({ permissions: ["topSites"] }, function (result) {
   if (result) {
     // The extension has the permissions.
     createTop();
   } else {
     // The extension doesn't have the permissions.
-    let button = document.createElement('button');
-    button.innerText = 'Allow Extension to Access Top Sites';
-    button.addEventListener('click', function() {
-      chrome.permissions.request(kPermissionObj, function(granted) {
+    let button = document.createElement("button");
+    button.innerText = "Allow Extension to Access Top Sites";
+    button.addEventListener("click", function () {
+      chrome.permissions.request(kPermissionObj, function (granted) {
         if (granted) {
-          console.log('granted');
-          sites_div.innerText = '';
+          console.log("granted");
+          sites_div.innerText = "";
           createTop();
         } else {
-          console.log('not granted');
+          console.log("not granted");
         }
       });
     });
@@ -59,19 +61,19 @@ chrome.permissions.contains({permissions: ['topSites']}, function(result) {
   }
 });
 
-form.addEventListener('submit', function() {
-  let todo_value = document.getElementById('todo_value');
-  chrome.storage.sync.set({todo: todo_value.value});
+form.addEventListener("submit", function () {
+  let todo_value = document.getElementById("todo_value");
+  chrome.storage.sync.set({ todo: todo_value.value });
 });
 
 function setToDo() {
-  chrome.storage.sync.get(['todo'], function(value) {
+  chrome.storage.sync.get(["todo"], function (value) {
     if (!value.todo) {
-      todo.innerText = '';
+      todo.innerText = "";
     } else {
       todo.innerText = value.todo;
     }
   });
-};
+}
 
 setToDo();

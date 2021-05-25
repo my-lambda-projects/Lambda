@@ -3,5 +3,5 @@
 // found in the LICENSE file.
 
 function setScreenshotUrl(url) {
-  document.getElementById('target').src = url;
+  document.getElementById("target").src = url;
 }

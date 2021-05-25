@@ -12,12 +12,12 @@
 /**
  * Default feed news URL.
  */
-var DEFAULT_NEWS_URL = 'http://news.google.com/news?output=rss';
+var DEFAULT_NEWS_URL = "http://news.google.com/news?output=rss";
 
 /**
  * Image URL of Israel country.
  */
-var ISRAEL_IMAGE_URL = 'http://www.gstatic.com/news/img/logo/iw_il/news.gif';
+var ISRAEL_IMAGE_URL = "http://www.gstatic.com/news/img/logo/iw_il/news.gif";
 
 /**
  * Alias for getElementById.

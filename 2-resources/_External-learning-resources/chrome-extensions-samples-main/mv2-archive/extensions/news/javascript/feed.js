@@ -11,8 +11,8 @@
  */
 
 // Store value retrieved from locale.
-var moreStoriesLocale = chrome.i18n.getMessage('more_stories') + ' \u00BB ';
-var directionLocale = chrome.i18n.getMessage('direction');
+var moreStoriesLocale = chrome.i18n.getMessage("more_stories") + " \u00BB ";
+var directionLocale = chrome.i18n.getMessage("direction");
 
 // Feed URL.
 var feedUrl = DEFAULT_NEWS_URL;
@@ -27,7 +27,7 @@ function main() {
   req = new XMLHttpRequest();
   req.onload = handleResponse;
   req.onerror = handleError;
-  req.open('GET', feedUrl, true);
+  req.open("GET", feedUrl, true);
   req.send(null);
 }
 
@@ -36,9 +36,9 @@ function main() {
  * @param {String} error The localized error message.
  */
 function handleFeedParsingFailed(error) {
-  var feed = $('feed');
-  $('noStories').style.display = 'none';
-  feed.className = 'error';
+  var feed = $("feed");
+  $("noStories").style.display = "none";
+  feed.className = "error";
   feed.innerText = error;
 }
 
@@ -46,8 +46,8 @@ function handleFeedParsingFailed(error) {
  * Handles errors during the XMLHttpRequest.
  */
 function handleError() {
-  handleFeedParsingFailed(chrome.i18n.getMessage('fetchError'));
-  $('topics').style.display = 'none';
+  handleFeedParsingFailed(chrome.i18n.getMessage("fetchError"));
+  $("topics").style.display = "none";
 }
 
 /**
@@ -56,21 +56,22 @@ function handleError() {
 function handleResponse() {
   var doc = req.responseXML;
   if (!doc) {
-    handleFeedParsingFailed(chrome.i18n.getMessage('wrongTopic'));
-    var img = $('title');
-    if(!img.src) {
+    handleFeedParsingFailed(chrome.i18n.getMessage("wrongTopic"));
+    var img = $("title");
+    if (!img.src) {
       img.src = "/images/news.gif";
     }
 
-    document.querySelector('body').style.minHeight = 0;
+    document.querySelector("body").style.minHeight = 0;
     return;
   }
   buildPreview(doc);
 }
 
 // Stores no. of stories selected in options page.
-var maxFeedItems = (window.localStorage.getItem('count')) ?
-    window.localStorage.getItem('count') : 5;
+var maxFeedItems = window.localStorage.getItem("count")
+  ? window.localStorage.getItem("count")
+  : 5;
 
 // Where the more stories link should navigate to.
 var moreStoriesUrl;
@@ -81,22 +82,22 @@ var moreStoriesUrl;
  */
 function buildPreview(doc) {
   // Get the link to the feed source.
-  var link = doc.querySelector('link');
+  var link = doc.querySelector("link");
   var parentTag = link.parentNode.tagName;
-  if (parentTag != 'item' && parentTag != 'entry') {
+  if (parentTag != "item" && parentTag != "entry") {
     moreStoriesUrl = link.textContent;
   }
 
   // Setup the title image.
-  var image = doc.querySelector('image');
+  var image = doc.querySelector("image");
   var titleImg;
 
   // Stores whether language script is Right to Left or not for setting style
   // of share buttons(Facebook, Twitter and Google Buzz) in iframe.
-  var isRtl = 'lTR';
+  var isRtl = "lTR";
 
   if (image) {
-    var url = image.querySelector('url');
+    var url = image.querySelector("url");
     if (url) {
       titleImg = url.textContent;
 
@@ -105,118 +106,137 @@ function buildPreview(doc) {
       var pattern = /ar_/gi;
       var result = titleImgUrl.match(pattern);
       if (result != null || titleImgUrl == ISRAEL_IMAGE_URL) {
-        isRtl = 'rTL';
+        isRtl = "rTL";
       }
     }
   }
 
-  var img = $('title');
+  var img = $("title");
   if (titleImg) {
     img.src = titleImg;
     if (moreStoriesUrl) {
-      $('title_a').addEventListener('click', moreStories);
+      $("title_a").addEventListener("click", moreStories);
     }
   } else {
-    img.style.display = 'none';
+    img.style.display = "none";
   }
 
   // Construct the iframe's HTML.
-  var iframe_src = '<!doctype html><html><head><script>' +
-                   $('iframe_script').textContent + '<' +
-                   '/script><style> ' +
-                   '.rTL {margin-right: 102px; text-align: right;} ' +
-                   '.lTR {margin-left: 102px; text-align: left;} ' +
-                   '</style></head><body onload="frameLoaded();" ' +
-                   'style="padding:0px;margin:0px;">';
+  var iframe_src =
+    "<!doctype html><html><head><script>" +
+    $("iframe_script").textContent +
+    "<" +
+    "/script><style> " +
+    ".rTL {margin-right: 102px; text-align: right;} " +
+    ".lTR {margin-left: 102px; text-align: left;} " +
+    '</style></head><body onload="frameLoaded();" ' +
+    'style="padding:0px;margin:0px;">';
 
-  var feed = $('feed');
-  feed.className = '';
-  var entries = doc.getElementsByTagName('entry');
+  var feed = $("feed");
+  feed.className = "";
+  var entries = doc.getElementsByTagName("entry");
   if (entries.length == 0) {
-    entries = doc.getElementsByTagName('item');
+    entries = doc.getElementsByTagName("item");
   }
   var count = Math.min(entries.length, maxFeedItems);
 
   // Stores required height by pop-up page.
   var minHeight = 19;
-  minHeight = (minHeight * (count - 1)) + 100;
-  document.querySelector('body').style.minHeight = minHeight + 'px';
-  $('feed').innerHTML = '';
+  minHeight = minHeight * (count - 1) + 100;
+  document.querySelector("body").style.minHeight = minHeight + "px";
+  $("feed").innerHTML = "";
 
   for (var i = 0; i < count; i++) {
     item = entries.item(i);
 
     // Grab the title for the feed item.
-    var itemTitle = item.querySelector('title');
+    var itemTitle = item.querySelector("title");
     if (itemTitle) {
       itemTitle = itemTitle.textContent;
     } else {
-      itemTitle = 'Unknown title';
+      itemTitle = "Unknown title";
     }
 
     // Grab the description.
-    var itemDesc = item.querySelector('description');
+    var itemDesc = item.querySelector("description");
     if (!itemDesc) {
-      itemDesc = item.querySelector('summary');
+      itemDesc = item.querySelector("summary");
       if (!itemDesc) {
-        itemDesc = item.querySelector('content');
+        itemDesc = item.querySelector("content");
       }
     }
     if (itemDesc) {
       itemDesc = itemDesc.childNodes[0].nodeValue;
-
     } else {
-      itemDesc = '';
+      itemDesc = "";
     }
-    var itemLink = item.querySelector('link');
+    var itemLink = item.querySelector("link");
     if (itemLink) {
       itemLink = itemLink.textContent;
     } else {
-      itemLink = 'Unknown itemLink';
+      itemLink = "Unknown itemLink";
     }
-    var item = document.createElement('div');
-    item.className = 'item';
-    var box = document.createElement('div');
-    box.className = 'open_box';
-    box.addEventListener('click', showDesc);
+    var item = document.createElement("div");
+    item.className = "item";
+    var box = document.createElement("div");
+    box.className = "open_box";
+    box.addEventListener("click", showDesc);
     item.appendChild(box);
 
-    var title = document.createElement('a');
-    title.className = 'item_title';
+    var title = document.createElement("a");
+    title.className = "item_title";
     title.innerText = itemTitle;
-    title.addEventListener('click', showDesc);
+    title.addEventListener("click", showDesc);
     item.appendChild(title);
 
-    var desc = document.createElement('iframe');
-    desc.scrolling = 'no';
-    desc.className = 'item_desc';
+    var desc = document.createElement("iframe");
+    desc.scrolling = "no";
+    desc.className = "item_desc";
     item.appendChild(desc);
     feed.appendChild(item);
 
     // Adds share buttons images(Facebook, Twitter and Google Buzz).
     itemDesc += "<div class = '" + isRtl + "'>";
-    itemDesc += "<a style='cursor: pointer' id='fb' " +
-      "onclick='openNewsShareWindow(this.id,\"" + itemLink + "\")'>" +
-      "<img src='" + chrome.extension.getURL('/images/fb.png') + "'/></a>";
-    itemDesc += " <a style='cursor: pointer' id='twitter' " +
-      "onclick='openNewsShareWindow(this.id,\"" + itemLink + "\")'>" +
-      "<img src='" + chrome.extension.getURL('/images/twitter.png') + "'/></a>";
-    itemDesc += " <a style='cursor: pointer' id='buzz' " +
-      "onclick='openNewsShareWindow(this.id,\"" + itemLink + "\")'>" +
-      "<img src='" + chrome.extension.getURL('/images/buzz.png') + "'/></a>";
-    itemDesc += '</div>';
+    itemDesc +=
+      "<a style='cursor: pointer' id='fb' " +
+      "onclick='openNewsShareWindow(this.id,\"" +
+      itemLink +
+      "\")'>" +
+      "<img src='" +
+      chrome.extension.getURL("/images/fb.png") +
+      "'/></a>";
+    itemDesc +=
+      " <a style='cursor: pointer' id='twitter' " +
+      "onclick='openNewsShareWindow(this.id,\"" +
+      itemLink +
+      "\")'>" +
+      "<img src='" +
+      chrome.extension.getURL("/images/twitter.png") +
+      "'/></a>";
+    itemDesc +=
+      " <a style='cursor: pointer' id='buzz' " +
+      "onclick='openNewsShareWindow(this.id,\"" +
+      itemLink +
+      "\")'>" +
+      "<img src='" +
+      chrome.extension.getURL("/images/buzz.png") +
+      "'/></a>";
+    itemDesc += "</div>";
 
     // The story body is created as an iframe with a data: URL in order to
     // isolate it from this page and protect against XSS.  As a data URL, it
     // has limited privileges and must communicate back using postMessage().
-    desc.src = 'data:text/html;charset=utf-8,' + iframe_src + itemDesc +
-      '</body></html>';
+    desc.src =
+      "data:text/html;charset=utf-8," +
+      iframe_src +
+      itemDesc +
+      "</body></html>";
   }
   if (moreStoriesUrl && entries.length != 0) {
-    var more = document.createElement('a');
-    more.className = 'more';
+    var more = document.createElement("a");
+    more.className = "more";
     more.innerText = moreStoriesLocale;
-    more.addEventListener('click', moreStories);
+    more.addEventListener("click", moreStories);
     feed.appendChild(more);
   }
   setStyleByLang(titleImgUrl);
@@ -224,10 +244,10 @@ function buildPreview(doc) {
   // Checks whether feed retrieved has news story or not. If not, then shows
   // error message accordingly.
   if (entries.length == 0) {
-    $('noStories').innerText = chrome.i18n.getMessage('noStory');
-    $('noStories').style.display = 'block';
+    $("noStories").innerText = chrome.i18n.getMessage("noStory");
+    $("noStories").style.display = "block";
   } else {
-    $('noStories').style.display = 'none';
+    $("noStories").style.display = "none";
   }
 }
 
@@ -237,10 +257,10 @@ function buildPreview(doc) {
  */
 function showUrl(url) {
   // Only allow http and https URLs.
-  if (url.indexOf('http:') != 0 && url.indexOf('https:') != 0) {
+  if (url.indexOf("http:") != 0 && url.indexOf("https:") != 0) {
     return;
   }
-  chrome.tabs.create({url: url});
+  chrome.tabs.create({ url: url });
 }
 
 /**
@@ -257,15 +277,15 @@ function moreStories(event) {
  */
 function showDesc(event) {
   var item_ = event.currentTarget.parentNode;
-  var items = document.getElementsByClassName('item');
-  for (var i = 0, item; item = items[i]; i++) {
-    var iframe = item.querySelector('.item_desc');
-    if (item == item_ && item.className == 'item') {
-      item.className = 'item opened';
-      iframe.contentWindow.postMessage('reportHeight', '*');
+  var items = document.getElementsByClassName("item");
+  for (var i = 0, item; (item = items[i]); i++) {
+    var iframe = item.querySelector(".item_desc");
+    if (item == item_ && item.className == "item") {
+      item.className = "item opened";
+      iframe.contentWindow.postMessage("reportHeight", "*");
     } else {
-      item.className = 'item';
-      iframe.style.height = '0px';
+      item.className = "item";
+      iframe.style.height = "0px";
     }
   }
 }
@@ -275,25 +295,24 @@ function showDesc(event) {
  * @param {Object} e Onmessage event.
  */
 function iframeMessageHandler(e) {
-  var iframes = document.getElementsByTagName('IFRAME');
-  for (var i = 0, iframe; iframe = iframes[i]; i++) {
+  var iframes = document.getElementsByTagName("IFRAME");
+  for (var i = 0, iframe; (iframe = iframes[i]); i++) {
     if (iframe.contentWindow == e.source) {
       var msg = JSON.parse(e.data);
       if (msg) {
-        if (msg.type == 'size') {
-          iframe.style.height = msg.size + 'px';
-        } else if (msg.type == 'show') {
+        if (msg.type == "size") {
+          iframe.style.height = msg.size + "px";
+        } else if (msg.type == "show") {
           var url = msg.url;
-          if (url.indexOf('http://news.google.com') == 0) {
+          if (url.indexOf("http://news.google.com") == 0) {
             // If the URL is a redirect URL, strip of the destination and go to
             // that directly.  This is necessary because the Google news
             // redirector blocks use of the redirects in this case.
-            var index = url.indexOf('&url=');
+            var index = url.indexOf("&url=");
             if (index >= 0) {
               url = url.substring(index + 5);
-              index = url.indexOf('&');
-              if (index >= 0)
-                url = url.substring(0, index);
+              index = url.indexOf("&");
+              if (index >= 0) url = url.substring(0, index);
             }
           }
           showUrl(url);
@@ -308,8 +327,8 @@ function iframeMessageHandler(e) {
  * Saves last viewed topic by user in local storage on unload of pop-up page.
  */
 function saveLastTopic() {
-  var topicVal = $('topics').value;
-  window.localStorage.setItem('lastTopic', topicVal);
+  var topicVal = $("topics").value;
+  window.localStorage.setItem("lastTopic", topicVal);
 }
 
 /**
@@ -317,32 +336,37 @@ function saveLastTopic() {
  * feed and sets pop-up page.
  */
 function getNewsByTitle() {
-  var country = window.localStorage.getItem('country');
-  country = (country == 'noCountry' || !country) ? '' : country;
+  var country = window.localStorage.getItem("country");
+  country = country == "noCountry" || !country ? "" : country;
 
   // Sets direction of topics showed under dropdown in pop-up page according
   // to set language in browser.
-  $('topics').className = (directionLocale == 'rtl') ? 'topicsRTL' :
-      'topicsLTR';
+  $("topics").className = directionLocale == "rtl" ? "topicsRTL" : "topicsLTR";
 
-  var topicVal = $('topics').value;
+  var topicVal = $("topics").value;
 
   // Sets Feed URL in case of custom topic selected.
-  var keywords = JSON.parse(window.localStorage.getItem('keywords'));
+  var keywords = JSON.parse(window.localStorage.getItem("keywords"));
   var isFound = false;
   if (keywords) {
     for (i = 0; i < keywords.length; i++) {
       if (topicVal == keywords[i]) {
-      isFound = true;
-      feedUrl = DEFAULT_NEWS_URL + '&cf=all&ned=' + country + '&q=' + topicVal +
-          '&hl=' + country;
-      break;
+        isFound = true;
+        feedUrl =
+          DEFAULT_NEWS_URL +
+          "&cf=all&ned=" +
+          country +
+          "&q=" +
+          topicVal +
+          "&hl=" +
+          country;
+        break;
       }
     }
   }
   if (!isFound) {
-    feedUrl = DEFAULT_NEWS_URL + '&cf=all&ned=' + country +
-        '&topic=' + topicVal;
+    feedUrl =
+      DEFAULT_NEWS_URL + "&cf=all&ned=" + country + "&topic=" + topicVal;
   }
   main();
 }
@@ -352,37 +376,41 @@ function getNewsByTitle() {
  * default topics list.
  */
 function getTopics() {
-  var topics = JSON.parse(window.localStorage.getItem('topics'));
-  var keywords = JSON.parse(window.localStorage.getItem('keywords'));
-  var element = $('topics');
+  var topics = JSON.parse(window.localStorage.getItem("topics"));
+  var keywords = JSON.parse(window.localStorage.getItem("keywords"));
+  var element = $("topics");
 
   // Sets all topics as default list if no list is found from local storage.
   if (!topics && !keywords) {
-    topics = [' ','n','w','b','t','e','s','m','po'];
+    topics = [" ", "n", "w", "b", "t", "e", "s", "m", "po"];
   }
 
   if (topics) {
-    for (var i = 0; i < (topics.length); i++) {
-      var val = (topics[i] == ' ') ? '1' : topics[i];
+    for (var i = 0; i < topics.length; i++) {
+      var val = topics[i] == " " ? "1" : topics[i];
       element.options[element.options.length] = new Option(
-          chrome.i18n.getMessage(val), topics[i]);
+        chrome.i18n.getMessage(val),
+        topics[i]
+      );
     }
   }
 
   // Shows custom topics in list(if any).
   if (keywords) {
-    for (i = 0; i < (keywords.length); i++) {
-      element.options[element.options.length] = new Option(keywords[i],
-          keywords[i]);
+    for (i = 0; i < keywords.length; i++) {
+      element.options[element.options.length] = new Option(
+        keywords[i],
+        keywords[i]
+      );
     }
   }
 
-  $('option_link').innerText = chrome.i18n.getMessage('options');
+  $("option_link").innerText = chrome.i18n.getMessage("options");
 
-  var topicVal = window.localStorage.getItem('lastTopic');
+  var topicVal = window.localStorage.getItem("lastTopic");
   if (topicVal) {
-    $('topics').value = topicVal;
+    $("topics").value = topicVal;
   }
 }
 
-window.addEventListener('message', iframeMessageHandler);
+window.addEventListener("message", iframeMessageHandler);

@@ -15,7 +15,7 @@
   },
   "permissions": ["system.network"],
   "sockets": {
-    "tcpServer" : {
+    "tcpServer": {
       "listen": ["*"]
     }
   }

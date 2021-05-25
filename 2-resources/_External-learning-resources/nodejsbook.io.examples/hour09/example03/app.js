@@ -1,7 +1,7 @@
-function someFunction(){
+function someFunction() {
   return undefinedVar;
 }
-function notDefined(){
+function notDefined() {
   try {
     someFunction();
   } catch (e) {

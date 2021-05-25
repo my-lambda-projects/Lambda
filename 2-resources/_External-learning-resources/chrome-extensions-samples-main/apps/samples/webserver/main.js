@@ -3,12 +3,12 @@
  *
  * @see http://developer.chrome.com/apps/app.window.html
  */
-chrome.app.runtime.onLaunched.addListener(function(intentData) {
-  chrome.app.window.create('index.html', {
-  	id: "mainwin",
+chrome.app.runtime.onLaunched.addListener(function (intentData) {
+  chrome.app.window.create("index.html", {
+    id: "mainwin",
     innerBounds: {
       width: 500,
-      height: 640
-    }
+      height: 640,
+    },
   });
 });

@@ -7,13 +7,14 @@ function $F(el) {
 }
 
 function bind(obj, func) {
-  return function() {
+  return function () {
     return func.apply(obj, arguments);
   };
 }
 
 function childNodeWithClass(node, className) {
   var expression = ".//*[@class='" + className + "']";
-  return document.evaluate(expression, node,
-      null, XPathResult.ANY_TYPE, null).iterateNext();  
+  return document
+    .evaluate(expression, node, null, XPathResult.ANY_TYPE, null)
+    .iterateNext();
 }

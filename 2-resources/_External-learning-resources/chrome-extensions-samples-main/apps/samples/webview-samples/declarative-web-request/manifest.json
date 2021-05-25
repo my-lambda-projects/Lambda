@@ -12,11 +12,7 @@
       "scripts": ["config.js", "main.js"]
     }
   },
-  "permissions": [
-    "webview",
-    "storage",
-    "*://*/*"
-  ],
+  "permissions": ["webview", "storage", "*://*/*"],
   "webview": {
     "partitions": [
       {

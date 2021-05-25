@@ -1,11 +1,9 @@
 {
-  "name" : "__MSG_extName__",
-  "version" : "0.6",
-  "description" : "__MSG_extDescription__",
+  "name": "__MSG_extName__",
+  "version": "0.6",
+  "description": "__MSG_extDescription__",
   "options_page": "options.html",
-  "permissions": [
-    "contentSettings"
-  ],
+  "permissions": ["contentSettings"],
   "icons": {
     "128": "bunny128.png",
     "48": "bunny48.png"

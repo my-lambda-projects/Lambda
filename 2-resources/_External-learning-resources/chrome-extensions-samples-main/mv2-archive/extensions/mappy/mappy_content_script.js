@@ -4,7 +4,7 @@
 
 // Search the text nodes for a US-style mailing address.
 
-let findAddress = function() {
+let findAddress = function () {
   let found;
   let re = /(\d+\s+[':.,\s\w]*,\s*[A-Za-z]+\s*\d{5}(-\d{4})?)/m;
   let node = document.body.textContent.match(re);
@@ -15,15 +15,15 @@ let findAddress = function() {
     let text = node;
     let match = re.exec(text);
     if (match && match.length) {
-      console.log('found: ' + match[0]);
+      console.log("found: " + match[0]);
       let trim = /\s{2,}/g;
-      let address = match[0].replace(trim, ' ')
-      chrome.runtime.sendMessage({'address': address})
+      let address = match[0].replace(trim, " ");
+      chrome.runtime.sendMessage({ address: address });
     } else {
-      console.log('bad initial match: ' + found.textContent);
-      console.log('no match in: ' + text);
+      console.log("bad initial match: " + found.textContent);
+      console.log("no match in: " + text);
     }
   }
-}
+};
 
 findAddress();

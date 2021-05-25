@@ -10,8 +10,6 @@
     "default_icon": "camera.png",
     "default_title": "Take a screen shot!"
   },
-  "permissions": [
-    "activeTab"
-  ],
+  "permissions": ["activeTab"],
   "manifest_version": 2
 }

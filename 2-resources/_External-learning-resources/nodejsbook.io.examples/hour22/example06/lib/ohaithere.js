@@ -1,9 +1,8 @@
-module.exports = new Ohaithere;
+module.exports = new Ohaithere();
 
-function Ohaithere(){}
+function Ohaithere() {}
 
-Ohaithere.prototype.hello = function(){
+Ohaithere.prototype.hello = function () {
   var message = "Hello from the ohaithere module";
   return message;
 };
-

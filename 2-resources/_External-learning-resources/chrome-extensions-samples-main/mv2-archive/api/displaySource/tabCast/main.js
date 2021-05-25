@@ -2,13 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-chrome.runtime.sendMessage({ browserActionClicked : true }, function(response) {
+chrome.runtime.sendMessage({ browserActionClicked: true }, function (response) {
   var deviceList = response.returnDeviceList;
   var backgroundPage = chrome.extension.getBackgroundPage();
   createButtonList(deviceList, backgroundPage);
 });
 
-chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   var deviceButton = document.getElementById(message.currentSinkId);
   var backgroundPage = chrome.extension.getBackgroundPage();
 
@@ -23,45 +23,46 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
     }
 
     if (!changedSink) {
-      console.error('Failed to find sink: ' + message.currentSinkId);
+      console.error("Failed to find sink: " + message.currentSinkId);
       return;
     }
 
-    if (changedSink.state == 'Connecting') {
-      changeButtonState(deviceButton, 'connecting', backgroundPage.stop);
-    } else if (changedSink.state == 'Connected') {
-      changeButtonState(deviceButton, 'connected', backgroundPage.stop);
+    if (changedSink.state == "Connecting") {
+      changeButtonState(deviceButton, "connecting", backgroundPage.stop);
+    } else if (changedSink.state == "Connected") {
+      changeButtonState(deviceButton, "connected", backgroundPage.stop);
     }
   } else if (message.sessionTerminated) {
-    changeButtonState(deviceButton, 'disconnected', backgroundPage.start);
+    changeButtonState(deviceButton, "disconnected", backgroundPage.start);
   }
 });
 
 function createButtonList(deviceList, backgroundPage) {
-  var divElement = document.getElementById('deviceList');
+  var divElement = document.getElementById("deviceList");
   if (!deviceList || !deviceList.length) {
-    var errorMessage = document.createTextNode('No available '
-        + 'sink devices found');
+    var errorMessage = document.createTextNode(
+      "No available " + "sink devices found"
+    );
     divElement.appendChild(errorMessage);
     return;
   }
 
-  deviceList.forEach(function(device) {
+  deviceList.forEach(function (device) {
     if (!document.getElementById(device.id)) {
-      var deviceButton = document.createElement('input');
+      var deviceButton = document.createElement("input");
 
-      deviceButton.type = 'button';
+      deviceButton.type = "button";
       deviceButton.value = device.name;
       deviceButton.id = device.id;
 
-      if (device.state == 'Disconnected') {
-        changeButtonState(deviceButton, 'disconnected', backgroundPage.start);
-      } else if (device.state == 'Connecting') {
-        changeButtonState(deviceButton, 'connecting', backgroundPage.stop);
-      } else if (device.state == 'Connected') {
-        changeButtonState(deviceButton, 'connected', backgroundPage.stop);
+      if (device.state == "Disconnected") {
+        changeButtonState(deviceButton, "disconnected", backgroundPage.start);
+      } else if (device.state == "Connecting") {
+        changeButtonState(deviceButton, "connecting", backgroundPage.stop);
+      } else if (device.state == "Connected") {
+        changeButtonState(deviceButton, "connected", backgroundPage.stop);
       } else {
-        console.error('Unexpected sink state.');
+        console.error("Unexpected sink state.");
         return;
       }
 
@@ -73,6 +74,7 @@ function createButtonList(deviceList, backgroundPage) {
 function changeButtonState(button, styleName, method) {
   button.className = styleName;
   var sinkId = parseInt(button.id);
-  button.onclick = function() { method(sinkId) };
+  button.onclick = function () {
+    method(sinkId);
+  };
 }
-

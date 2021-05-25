@@ -100,7 +100,7 @@ function setSize(element, size) {
  * @param {Element} node  The dom element to manipulate.
  */
 function displayNone(node) {
-  node.style.display = 'none';
+  node.style.display = "none";
 }
 
 /**
@@ -109,7 +109,7 @@ function displayNone(node) {
  * @param {Element} node  The dom element to manipulate.
  */
 function displayDefault(node) {
-  node.style.display = '';
+  node.style.display = "";
 }
 
 /**
@@ -121,7 +121,6 @@ function displayDefault(node) {
 function appendChild(parent, child) {
   parent.appendChild(child);
 }
-
 
 /**
  * Wrapper for the eval() builtin function to evaluate expressions and
@@ -136,12 +135,11 @@ function appendChild(parent, child) {
  */
 function jsEval(expr) {
   try {
-    return eval('[' + expr + '][0]');
+    return eval("[" + expr + "][0]");
   } catch (e) {
     return null;
   }
 }
-
 
 /**
  * Wrapper for the eval() builtin function to execute statements. This
@@ -164,7 +162,6 @@ function jsExec(stmt) {
   }
 }
 
-
 /**
  * Wrapper for eval with a context. NOTE: The style guide
  * deprecates eval, so this is the exception that proves the
@@ -181,13 +178,12 @@ function jsExec(stmt) {
 function jsEvalWith(expr, context) {
   try {
     with (context) {
-      return eval('[' + expr + '][0]');
+      return eval("[" + expr + "][0]");
     }
   } catch (e) {
     return null;
   }
 }
-
 
 var DOM_ELEMENT_NODE = 1;
 var DOM_ATTRIBUTE_NODE = 2;
@@ -233,7 +229,6 @@ function nodeGetElementById(node, elemId) {
   return null;
 }
 
-
 /**
  * Get an attribute from the DOM.  Simple redirect, exists to compress code.
  *
@@ -276,7 +271,6 @@ function domCloneNode(node) {
   return node.cloneNode(true);
 }
 
-
 /**
  * Return a safe string for the className of a node.
  * If className is not a string, returns "".
@@ -310,7 +304,7 @@ function domAddClass(node, className) {
       cn.push(className);
     }
 
-    node.className = cn.join(' ');
+    node.className = cn.join(" ");
   } else {
     node.className = className;
   }
@@ -333,7 +327,7 @@ function domRemoveClass(node, className) {
       cn.splice(i--, 1);
     }
   }
-  node.className = cn.join(' ');
+  node.className = cn.join(" ");
 }
 
 /**
@@ -506,7 +500,7 @@ function containsNode(parent, child) {
     child = child.parentNode;
   }
   return parent == child;
-};
+}
 /**
  * @fileoverview This file contains javascript utility functions that
  * do not depend on anything defined elsewhere.
@@ -538,7 +532,7 @@ var abs = Math.abs;
  * @param {Object} from  The source object.
  */
 function copyProperties(to, from) {
-  foreachin(from, function(p) {
+  foreachin(from, function (p) {
     to[p] = from[p];
   });
 }
@@ -652,29 +646,26 @@ function parseInt10(s) {
  * data, see comment in jstSelect_().
  */
 
-
 /**
  * Names of jstemplate attributes. These attributes are attached to
  * normal HTML elements and bind expression context data to the HTML
  * fragment that is used as template.
  */
-var ATT_select = 'jsselect';
-var ATT_instance = 'jsinstance';
-var ATT_display = 'jsdisplay';
-var ATT_values = 'jsvalues';
-var ATT_eval = 'jseval';
-var ATT_transclude = 'transclude';
-var ATT_content = 'jscontent';
-
+var ATT_select = "jsselect";
+var ATT_instance = "jsinstance";
+var ATT_display = "jsdisplay";
+var ATT_values = "jsvalues";
+var ATT_eval = "jseval";
+var ATT_transclude = "transclude";
+var ATT_content = "jscontent";
 
 /**
  * Names of special variables defined by the jstemplate evaluation
  * context. These can be used in js expression in jstemplate
  * attributes.
  */
-var VAR_index = '$index';
-var VAR_this = '$this';
-
+var VAR_index = "$index";
+var VAR_this = "$this";
 
 /**
  * Context for processing a jstemplate. The context contains a context
@@ -719,7 +710,6 @@ function JsExprContext(opt_data, opt_parent) {
   this.vars_[VAR_this] = me.data_;
 }
 
-
 /**
  * Evaluates the given expression in the context of the current
  * context object and the current local variables.
@@ -730,20 +720,19 @@ function JsExprContext(opt_data, opt_parent) {
  *
  * @return The value of that expression.
  */
-JsExprContext.prototype.jseval = function(expr, template) {
+JsExprContext.prototype.jseval = function (expr, template) {
   with (this.vars_) {
     with (this.data_) {
       try {
-        return (function() {
-          return eval('[' + expr + '][0]');
-        }).call(template);
+        return function () {
+          return eval("[" + expr + "][0]");
+        }.call(template);
       } catch (e) {
         return null;
       }
     }
   }
-}
-
+};
 
 /**
  * Clones the current context for a new context object. The cloned
@@ -759,15 +748,14 @@ JsExprContext.prototype.jseval = function(expr, template) {
  *
  * @return {JsExprContext}
  */
-JsExprContext.prototype.clone = function(data, index) {
+JsExprContext.prototype.clone = function (data, index) {
   var ret = new JsExprContext(data, this);
   ret.setVariable(VAR_index, index);
   if (this.resolver_) {
     ret.setSubTemplateResolver(this.resolver_);
   }
   return ret;
-}
-
+};
 
 /**
  * Binds a local variable to the given value. If set from jstemplate
@@ -778,10 +766,9 @@ JsExprContext.prototype.clone = function(data, index) {
  *
  * @param {Object} value
  */
-JsExprContext.prototype.setVariable = function(name, value) {
+JsExprContext.prototype.setVariable = function (name, value) {
   this.vars_[name] = value;
-}
-
+};
 
 /**
  * Sets the function used to resolve the values of the transclude
@@ -794,10 +781,9 @@ JsExprContext.prototype.setVariable = function(name, value) {
  * processed. Thus, the resolver function must instantiate the
  * subtemplate as necessary.
  */
-JsExprContext.prototype.setSubTemplateResolver = function(resolver) {
+JsExprContext.prototype.setSubTemplateResolver = function (resolver) {
   this.resolver_ = resolver;
-}
-
+};
 
 /**
  * Resolves a sub template from an id. Used to process the transclude
@@ -810,10 +796,9 @@ JsExprContext.prototype.setSubTemplateResolver = function(resolver) {
  * @return {Node} The root DOM node of the sub template, for direct
  * insertion into the currently processed template instance.
  */
-JsExprContext.prototype.getSubTemplate = function(id) {
+JsExprContext.prototype.getSubTemplate = function (id) {
   return (this.resolver_ || jstGetTemplate).call(this, id);
-}
-
+};
 
 /**
  * HTML template processor. Data values are bound to HTML templates
@@ -832,9 +817,8 @@ JsExprContext.prototype.getSubTemplate = function(id) {
  */
 function jstProcess(context, template) {
   var processor = new JstProcessor();
-  processor.run_([ processor, processor.jstProcess_, context, template ]);
+  processor.run_([processor, processor.jstProcess_, context, template]);
 }
-
 
 /**
  * Internal class used by jstemplates to maintain context.
@@ -842,9 +826,7 @@ function jstProcess(context, template) {
  * which has a relatively shallow stack.
  * @class
  */
-function JstProcessor() {
-}
-
+function JstProcessor() {}
 
 /**
  * Runs the state machine, beginning with function "start".
@@ -852,16 +834,15 @@ function JstProcessor() {
  * @param {Array} start The first function to run, in the form
  * [object, method, args ...]
  */
-JstProcessor.prototype.run_ = function(start) {
+JstProcessor.prototype.run_ = function (start) {
   var me = this;
 
-  me.queue_ = [ start ];
+  me.queue_ = [start];
   while (jsLength(me.queue_)) {
     var f = me.queue_.shift();
     f[1].apply(f[0], f.slice(2));
   }
-}
-
+};
 
 /**
  * Appends a function to be called later.
@@ -870,10 +851,9 @@ JstProcessor.prototype.run_ = function(start) {
  *
  * @param {Array} f  A function in the form [object, method, args ...]
  */
-JstProcessor.prototype.enqueue_ = function(f) {
+JstProcessor.prototype.enqueue_ = function (f) {
   this.queue_.push(f);
-}
-
+};
 
 /**
  * Implements internals of jstProcess.
@@ -882,7 +862,7 @@ JstProcessor.prototype.enqueue_ = function(f) {
  *
  * @param {Element} template
  */
-JstProcessor.prototype.jstProcess_ = function(context, template) {
+JstProcessor.prototype.jstProcess_ = function (context, template) {
   var me = this;
 
   var transclude = domGetAttribute(template, ATT_transclude);
@@ -890,7 +870,7 @@ JstProcessor.prototype.jstProcess_ = function(context, template) {
     var tr = context.getSubTemplate(transclude);
     if (tr) {
       domReplaceChild(tr, template);
-      me.enqueue_([ me, me.jstProcess_, context, tr ]);
+      me.enqueue_([me, me.jstProcess_, context, tr]);
     } else {
       domRemoveNode(template);
     }
@@ -913,7 +893,6 @@ JstProcessor.prototype.jstProcess_ = function(context, template) {
     displayDefault(template);
   }
 
-
   var values = domGetAttribute(template, ATT_values);
   if (values) {
     me.jstValues_(context, template, values);
@@ -921,7 +900,7 @@ JstProcessor.prototype.jstProcess_ = function(context, template) {
 
   var expressions = domGetAttribute(template, ATT_eval);
   if (expressions) {
-    foreach(expressions.split(/\s*;\s*/), function(expression) {
+    foreach(expressions.split(/\s*;\s*/), function (expression) {
       expression = stringTrim(expression);
       if (jsLength(expression)) {
         context.jseval(expression, template);
@@ -932,18 +911,15 @@ JstProcessor.prototype.jstProcess_ = function(context, template) {
   var content = domGetAttribute(template, ATT_content);
   if (content) {
     me.jstContent_(context, template, content);
-
   } else {
     var childnodes = [];
     for (var i = 0; i < jsLength(template.childNodes); ++i) {
       if (template.childNodes[i].nodeType == DOM_ELEMENT_NODE) {
-      me.enqueue_(
-          [ me, me.jstProcess_, context, template.childNodes[i] ]);
+        me.enqueue_([me, me.jstProcess_, context, template.childNodes[i]]);
       }
     }
   }
-}
-
+};
 
 /**
  * Implements the jsselect attribute: evalutes the value of the
@@ -963,7 +939,7 @@ JstProcessor.prototype.jstProcess_ = function(context, template) {
  *
  * @param {Function} process The function to continue processing with.
  */
-JstProcessor.prototype.jstSelect_ = function(context, template, select) {
+JstProcessor.prototype.jstSelect_ = function (context, template, select) {
   var me = this;
 
   var value = context.jseval(select, template);
@@ -972,7 +948,7 @@ JstProcessor.prototype.jstSelect_ = function(context, template, select) {
   var instance = domGetAttribute(template, ATT_instance);
   var instance_last = false;
   if (instance) {
-    if (instance.charAt(0) == '*') {
+    if (instance.charAt(0) == "*") {
       instance = parseInt10(instance.substr(1));
       instance_last = true;
     } else {
@@ -980,25 +956,29 @@ JstProcessor.prototype.jstSelect_ = function(context, template, select) {
     }
   }
 
-  var multiple = (value !== null &&
-                  typeof value == 'object' &&
-                  typeof value.length == 'number');
-  var multiple_empty = (multiple && value.length == 0);
+  var multiple =
+    value !== null &&
+    typeof value == "object" &&
+    typeof value.length == "number";
+  var multiple_empty = multiple && value.length == 0;
 
   if (multiple) {
     if (multiple_empty) {
       if (!instance) {
         domSetAttribute(template, ATT_select, select);
-        domSetAttribute(template, ATT_instance, '*0');
+        domSetAttribute(template, ATT_instance, "*0");
         displayNone(template);
       } else {
         domRemoveNode(template);
       }
-
     } else {
       displayDefault(template);
-      if (instance === null || instance === "" || instance === undefined ||
-          (instance_last && instance < jsLength(value) - 1)) {
+      if (
+        instance === null ||
+        instance === "" ||
+        instance === undefined ||
+        (instance_last && instance < jsLength(value) - 1)
+      ) {
         var templatenodes = [];
         var instances_start = instance || 0;
         for (var i = instances_start + 1; i < jsLength(value); ++i) {
@@ -1013,21 +993,23 @@ JstProcessor.prototype.jstSelect_ = function(context, template, select) {
           var v = value[ii];
           var t = templatenodes[i];
 
-          me.enqueue_([ me, me.jstProcess_, context.clone(v, ii), t ]);
-          var instanceStr = (ii == jsLength(value) - 1 ? '*' : '') + ii;
-          me.enqueue_(
-              [ null, postProcessMultiple_, t, select, instanceStr ]);
+          me.enqueue_([me, me.jstProcess_, context.clone(v, ii), t]);
+          var instanceStr = (ii == jsLength(value) - 1 ? "*" : "") + ii;
+          me.enqueue_([null, postProcessMultiple_, t, select, instanceStr]);
         }
-
       } else if (instance < jsLength(value)) {
         var v = value[instance];
 
-        me.enqueue_(
-            [me, me.jstProcess_, context.clone(v, instance), template]);
-        var instanceStr = (instance == jsLength(value) - 1 ? '*' : '')
-                          + instance;
-        me.enqueue_(
-            [ null, postProcessMultiple_, template, select, instanceStr ]);
+        me.enqueue_([me, me.jstProcess_, context.clone(v, instance), template]);
+        var instanceStr =
+          (instance == jsLength(value) - 1 ? "*" : "") + instance;
+        me.enqueue_([
+          null,
+          postProcessMultiple_,
+          template,
+          select,
+          instanceStr,
+        ]);
       } else {
         domRemoveNode(template);
       }
@@ -1037,14 +1019,11 @@ JstProcessor.prototype.jstSelect_ = function(context, template, select) {
       domSetAttribute(template, ATT_select, select);
       displayNone(template);
     } else {
-      me.enqueue_(
-          [ me, me.jstProcess_, context.clone(value, 0), template ]);
-      me.enqueue_(
-          [ null, postProcessSingle_, template, select ]);
+      me.enqueue_([me, me.jstProcess_, context.clone(value, 0), template]);
+      me.enqueue_([null, postProcessSingle_, template, select]);
     }
   }
-}
-
+};
 
 /**
  * Sets ATT_select and ATT_instance following recursion to jstProcess.
@@ -1060,7 +1039,6 @@ function postProcessMultiple_(template, select, instanceStr) {
   domSetAttribute(template, ATT_instance, instanceStr);
 }
 
-
 /**
  * Sets ATT_select and makes the element visible following recursion to
  * jstProcess.
@@ -1073,7 +1051,6 @@ function postProcessSingle_(template, select) {
   domSetAttribute(template, ATT_select, select);
   displayDefault(template);
 }
-
 
 /**
  * Implements the jsvalues attribute: evaluates each of the values and
@@ -1091,21 +1068,20 @@ function postProcessSingle_(template, select) {
  * @param {String} valuesStr Value of the jsvalues attribute to be
  * processed.
  */
-JstProcessor.prototype.jstValues_ = function(context, template, valuesStr) {
+JstProcessor.prototype.jstValues_ = function (context, template, valuesStr) {
   var values = valuesStr.split(/\s*;\s*/);
   for (var i = 0; i < jsLength(values); ++i) {
-    var colon = values[i].indexOf(':');
+    var colon = values[i].indexOf(":");
     if (colon < 0) {
       continue;
     }
     var label = stringTrim(values[i].substr(0, colon));
     var value = context.jseval(values[i].substr(colon + 1), template);
 
-    if (label.charAt(0) == '$') {
+    if (label.charAt(0) == "$") {
       context.setVariable(label, value);
-
-    } else if (label.charAt(0) == '.') {
-      var nameSpaceLabel = label.substr(1).split('.');
+    } else if (label.charAt(0) == ".") {
+      var nameSpaceLabel = label.substr(1).split(".");
       var nameSpaceObject = template;
       var nameSpaceDepth = jsLength(nameSpaceLabel);
       for (var j = 0, J = nameSpaceDepth - 1; j < J; ++j) {
@@ -1117,19 +1093,18 @@ JstProcessor.prototype.jstValues_ = function(context, template, valuesStr) {
       }
       nameSpaceObject[nameSpaceLabel[nameSpaceDepth - 1]] = value;
     } else if (label) {
-      if (typeof value == 'boolean') {
+      if (typeof value == "boolean") {
         if (value) {
           domSetAttribute(template, label, label);
         } else {
           domRemoveAttribute(template, label);
         }
       } else {
-        domSetAttribute(template, label, '' + value);
+        domSetAttribute(template, label, "" + value);
       }
     }
   }
-}
-
+};
 
 /**
  * Implements the jscontent attribute. Evalutes the expression in
@@ -1144,8 +1119,8 @@ JstProcessor.prototype.jstValues_ = function(context, template, valuesStr) {
  * @param {String} content Value of the jscontent attribute to be
  * processed.
  */
-JstProcessor.prototype.jstContent_ = function(context, template, content) {
-  var value = '' + context.jseval(content, template);
+JstProcessor.prototype.jstContent_ = function (context, template, content) {
+  var value = "" + context.jseval(content, template);
   if (template.innerHTML == value) {
     return;
   }
@@ -1154,8 +1129,7 @@ JstProcessor.prototype.jstContent_ = function(context, template, content) {
   }
   var t = domCreateTextNode(ownerDocument(template), value);
   domAppendChild(template, t);
-}
-
+};
 
 /**
  * Helps to implement the transclude attribute, and is the initial
@@ -1170,13 +1144,13 @@ function jstGetTemplate(name) {
   var section = domGetElementById(document, name);
   if (section) {
     var ret = domCloneNode(section);
-    domRemoveAttribute(ret, 'id');
+    domRemoveAttribute(ret, "id");
     return ret;
   } else {
     return null;
   }
 }
 
-window['jstGetTemplate'] = jstGetTemplate;
-window['jstProcess'] = jstProcess;
-window['JsExprContext'] = JsExprContext;
+window["jstGetTemplate"] = jstGetTemplate;
+window["jstProcess"] = jstProcess;
+window["JsExprContext"] = JsExprContext;

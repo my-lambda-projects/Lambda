@@ -7,14 +7,14 @@ function $(id) {
 }
 
 function thumbnailsGotten(data) {
-  var eightBallWindow = $('mostVisitedThumb');
+  var eightBallWindow = $("mostVisitedThumb");
   var rand = Math.floor(Math.random() * data.length);
   eightBallWindow.href = data[rand].url;
   eightBallWindow.textContent = data[rand].title;
-  eightBallWindow.style.backgroundImage = 'url(chrome://favicon/' +
-      data[rand].url + ')';
+  eightBallWindow.style.backgroundImage =
+    "url(chrome://favicon/" + data[rand].url + ")";
 }
 
-window.onload = function() {
+window.onload = function () {
   chrome.topSites.get(thumbnailsGotten);
-}
+};

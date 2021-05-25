@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-cr.define('cr.ui', function() {
+cr.define("cr.ui", function () {
   /** @const */ var EventTarget = cr.EventTarget;
 
   /**
@@ -51,7 +51,7 @@ cr.define('cr.ui', function() {
 
       if (i != oldSelectedIndex) {
         this.beginChange();
-        this.selectedIndex_ = i
+        this.selectedIndex_ = i;
         this.endChange();
       }
     },
@@ -62,7 +62,7 @@ cr.define('cr.ui', function() {
      * @param {number} start The first index to select.
      * @param {number} end The last index to select.
      */
-    selectRange: function(start, end) {
+    selectRange: function (start, end) {
       // Only select first index.
       this.selectedIndex = Math.min(start, end);
     },
@@ -70,14 +70,14 @@ cr.define('cr.ui', function() {
     /**
      * Selects all indexes.
      */
-    selectAll: function() {
+    selectAll: function () {
       // Select all is not allowed on a single selection model
     },
 
     /**
      * Clears the selection
      */
-    clear: function() {
+    clear: function () {
       this.beginChange();
       this.length_ = 0;
       this.selectedIndex = this.anchorIndex = this.leadIndex = -1;
@@ -87,7 +87,7 @@ cr.define('cr.ui', function() {
     /**
      * Unselects all selected items.
      */
-    unselectAll: function() {
+    unselectAll: function () {
       this.selectedIndex = -1;
     },
 
@@ -96,16 +96,13 @@ cr.define('cr.ui', function() {
      * @param {number} index The index to set the selected state for.
      * @param {boolean} b Whether to select the index or not.
      */
-    setIndexSelected: function(index, b) {
+    setIndexSelected: function (index, b) {
       // Only allow selection
       var oldSelected = index == this.selectedIndex_;
-      if (oldSelected == b)
-        return;
+      if (oldSelected == b) return;
 
-      if (b)
-        this.selectedIndex = index;
-      else if (index == this.selectedIndex_)
-        this.selectedIndex = -1;
+      if (b) this.selectedIndex = index;
+      else if (index == this.selectedIndex_) this.selectedIndex = -1;
     },
 
     /**
@@ -113,7 +110,7 @@ cr.define('cr.ui', function() {
      * @param {number} index The index to check.
      * @return {boolean} Whether an index is selected.
      */
-    getIndexSelected: function(index) {
+    getIndexSelected: function (index) {
       return index == this.selectedIndex_;
     },
 
@@ -121,7 +118,7 @@ cr.define('cr.ui', function() {
      * This is used to begin batching changes. Call {@code endChange} when you
      * are done making changes.
      */
-    beginChange: function() {
+    beginChange: function () {
       if (!this.changeCount_) {
         this.changeCount_ = 0;
         this.selectedIndexBefore_ = this.selectedIndex_;
@@ -133,20 +130,22 @@ cr.define('cr.ui', function() {
      * Call this after changes are done and it will dispatch a change event if
      * any changes were actually done.
      */
-    endChange: function() {
+    endChange: function () {
       this.changeCount_--;
       if (!this.changeCount_) {
         if (this.selectedIndexBefore_ != this.selectedIndex_) {
-          var e = new Event('change');
+          var e = new Event("change");
           var indexes = [this.selectedIndexBefore_, this.selectedIndex_];
-          e.changes = indexes.filter(function(index) {
-            return index != -1;
-          }).map(function(index) {
-            return {
-              index: index,
-              selected: index == this.selectedIndex_
-            };
-          }, this);
+          e.changes = indexes
+            .filter(function (index) {
+              return index != -1;
+            })
+            .map(function (index) {
+              return {
+                index: index,
+                selected: index == this.selectedIndex_,
+              };
+            }, this);
           this.dispatchEvent(e);
         }
       }
@@ -167,8 +166,8 @@ cr.define('cr.ui', function() {
       if (li != this.leadIndex_) {
         var oldLeadIndex = this.leadIndex_;
         this.leadIndex_ = li;
-        cr.dispatchPropertyChange(this, 'leadIndex', li, oldLeadIndex);
-        cr.dispatchPropertyChange(this, 'anchorIndex', li, oldLeadIndex);
+        cr.dispatchPropertyChange(this, "leadIndex", li, oldLeadIndex);
+        cr.dispatchPropertyChange(this, "anchorIndex", li, oldLeadIndex);
       }
     },
 
@@ -195,9 +194,8 @@ cr.define('cr.ui', function() {
      * Adjusts the selection after reordering of items in the table.
      * @param {!Array<number>} permutation The reordering permutation.
      */
-    adjustToReordering: function(permutation) {
-      if (this.leadIndex != -1)
-        this.leadIndex = permutation[this.leadIndex];
+    adjustToReordering: function (permutation) {
+      if (this.leadIndex != -1) this.leadIndex = permutation[this.leadIndex];
 
       var oldSelectedIndex = this.selectedIndex;
       if (oldSelectedIndex != -1) {
@@ -209,12 +207,12 @@ cr.define('cr.ui', function() {
      * Adjusts selection model length.
      * @param {number} length New selection model length.
      */
-    adjustLength: function(length) {
+    adjustLength: function (length) {
       this.length_ = length;
-    }
+    },
   };
 
   return {
-    ListSingleSelectionModel: ListSingleSelectionModel
+    ListSingleSelectionModel: ListSingleSelectionModel,
   };
 });

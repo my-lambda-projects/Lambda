@@ -20,8 +20,6 @@
       "background.js"
     ]
   },
-  "permissions": [
-    "proxy"
-  ],
+  "permissions": ["proxy"],
   "manifest_version": 2
 }

@@ -19,10 +19,8 @@ chrome.webRequest.onBeforeRequest.addListener(
   },
   // filters
   {
-    urls: [
-      "https://i.chzbgr.com/*"
-    ],
-    types: ["image"]
+    urls: ["https://i.chzbgr.com/*"],
+    types: ["image"],
   },
   // extraInfoSpec
   ["blocking"]

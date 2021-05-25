@@ -4,20 +4,18 @@
  * MIT License [http://www.nihilogic.dk/licenses/mit-license.txt]
  */
 
-
 var ImageInfo = {};
 
 ImageInfo.useRange = false;
 ImageInfo.range = 10240;
 
-(function() {
-
+(function () {
   var files = [];
 
   function readFileData(url, callback) {
     BinaryAjax(
       url,
-      function(http) {
+      function (http) {
         var tags = readInfoFromData(http.binaryResponse);
         var mime = http.getResponseHeader("Content-Type");
 
@@ -29,23 +27,22 @@ ImageInfo.range = 10240;
       },
       null,
       ImageInfo.useRange ? [0, ImageInfo.range] : null
-    )
+    );
   }
 
   function readInfoFromData(data) {
-
     var offset = 0;
 
-    if (data.getByteAt(0) == 0xFF && data.getByteAt(1) == 0xD8) {
+    if (data.getByteAt(0) == 0xff && data.getByteAt(1) == 0xd8) {
       return readJPEGInfo(data);
     }
     if (data.getByteAt(0) == 0x89 && data.getStringAt(1, 3) == "PNG") {
       return readPNGInfo(data);
     }
-    if (data.getStringAt(0,3) == "GIF") {
+    if (data.getStringAt(0, 3) == "GIF") {
       return readGIFInfo(data);
     }
-    if (data.getByteAt(0) == 0x42 && data.getByteAt(1) == 0x4D) {
+    if (data.getByteAt(0) == 0x42 && data.getByteAt(1) == 0x4d) {
       return readBMPInfo(data);
     }
     if (data.getByteAt(0) == 0x00 && data.getByteAt(1) == 0x00) {
@@ -53,14 +50,13 @@ ImageInfo.range = 10240;
     }
 
     return {
-      format : "UNKNOWN"
+      format: "UNKNOWN",
     };
   }
 
-
   function readPNGInfo(data) {
-    var w = data.getLongAt(16,true);
-    var h = data.getLongAt(20,true);
+    var w = data.getLongAt(16, true);
+    var h = data.getLongAt(20, true);
 
     var bpc = data.getByteAt(24);
     var ct = data.getByteAt(25);
@@ -73,36 +69,35 @@ ImageInfo.range = 10240;
     var alpha = data.getByteAt(25) >= 4;
 
     return {
-      format : "PNG",
-      version : "",
-      width : w,
-      height : h,
-      bpp : bpp,
-      alpha : alpha,
-      exif : {}
-    }
+      format: "PNG",
+      version: "",
+      width: w,
+      height: h,
+      bpp: bpp,
+      alpha: alpha,
+      exif: {},
+    };
   }
 
   function readGIFInfo(data) {
-    var version = data.getStringAt(3,3);
+    var version = data.getStringAt(3, 3);
     var w = data.getShortAt(6);
     var h = data.getShortAt(8);
 
     var bpp = ((data.getByteAt(10) >> 4) & 7) + 1;
 
     return {
-      format : "GIF",
-      version : version,
-      width : w,
-      height : h,
-      bpp : bpp,
-      alpha : false,
-      exif : {}
-    }
+      format: "GIF",
+      version: version,
+      width: w,
+      height: h,
+      bpp: bpp,
+      alpha: false,
+      exif: {},
+    };
   }
 
   function readJPEGInfo(data) {
-
     var w = 0;
     var h = 0;
     var comps = 0;
@@ -111,13 +106,13 @@ ImageInfo.range = 10240;
     while (offset < len) {
       var marker = data.getShortAt(offset, true);
       offset += 2;
-      if (marker == 0xFFC0) {
+      if (marker == 0xffc0) {
         h = data.getShortAt(offset + 3, true);
         w = data.getShortAt(offset + 5, true);
-        comps = data.getByteAt(offset + 7, true)
+        comps = data.getByteAt(offset + 7, true);
         break;
       } else {
-        offset += data.getShortAt(offset, true)
+        offset += data.getShortAt(offset, true);
       }
     }
 
@@ -128,14 +123,14 @@ ImageInfo.range = 10240;
     }
 
     return {
-      format : "JPEG",
-      version : "",
-      width : w,
-      height : h,
-      bpp : comps * 8,
-      alpha : false,
-      exif : exif
-    }
+      format: "JPEG",
+      version: "",
+      width: w,
+      height: h,
+      bpp: comps * 8,
+      alpha: false,
+      exif: exif,
+    };
   }
 
   function readBMPInfo(data) {
@@ -143,40 +138,36 @@ ImageInfo.range = 10240;
     var h = data.getLongAt(22);
     var bpp = data.getShortAt(28);
     return {
-      format : "BMP",
-      version : "",
-      width : w,
-      height : h,
-      bpp : bpp,
-      alpha : false,
-      exif : {}
-    }
+      format: "BMP",
+      version: "",
+      width: w,
+      height: h,
+      bpp: bpp,
+      alpha: false,
+      exif: {},
+    };
   }
 
-  ImageInfo.loadInfo = function(url, cb) {
+  ImageInfo.loadInfo = function (url, cb) {
     if (!files[url]) {
       readFileData(url, cb);
     } else {
       if (cb) cb();
     }
-  }
+  };
 
-  ImageInfo.getAllFields = function(url) {
+  ImageInfo.getAllFields = function (url) {
     if (!files[url]) return null;
 
     var tags = {};
     for (var a in files[url]) {
-      if (files[url].hasOwnProperty(a))
-        tags[a] = files[url][a];
+      if (files[url].hasOwnProperty(a)) tags[a] = files[url][a];
     }
     return tags;
-  }
+  };
 
-  ImageInfo.getField = function(url, field) {
+  ImageInfo.getField = function (url, field) {
     if (!files[url]) return null;
     return files[url][field];
-  }
-
-
+  };
 })();
-

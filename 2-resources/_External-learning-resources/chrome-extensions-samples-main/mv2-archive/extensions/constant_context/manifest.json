@@ -1,12 +1,12 @@
 {
   "name": "Constant Context",
-  "description" : "Highlights elements with keywords on developer.chrome",
+  "description": "Highlights elements with keywords on developer.chrome",
   "version": "1.0",
   "page_action": {
     "default_icon": {
       "16": "images/cc16.png",
       "32": "images/cc32.png"
-      },
+    },
     "default_popup": "popup.html"
   },
   "icons": {

@@ -8,14 +8,12 @@
       "scripts": ["main.js"]
     }
   },
-  "permissions": [
-    "webview"
-  ],
+  "permissions": ["webview"],
   "webview": {
     "partitions": [
       {
         "name": "partition",
-        "accessible_resources": [ "test2.html" ]
+        "accessible_resources": ["test2.html"]
       }
     ]
   }

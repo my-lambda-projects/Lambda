@@ -13,32 +13,38 @@ function addMoreDragons() {
   /*
    * Style the button to get a consistent look and feel.
    */
-  bttn.innerText = 'More dragons!';
-  bttn.classList.add('actionButton');
-  bttn.setAttribute('style', 'padding: 10px; margin: 10px; display: block;');
+  bttn.innerText = "More dragons!";
+  bttn.classList.add("actionButton");
+  bttn.setAttribute("style", "padding: 10px; margin: 10px; display: block;");
   /*
    * Hook up the button to add more dragons to the page.
    */
-  bttn.addEventListener('click', function() {
-    // Add a new dragon.
-    var newDragon = Dragon.create({ timer: $('timer'), width: 950, height: 1000});
-    this.insertAdjacentHTML('afterend', newDragon.toHTML());
-    newDragon.initHTML();
+  bttn.addEventListener(
+    "click",
+    function () {
+      // Add a new dragon.
+      var newDragon = Dragon.create({
+        timer: $("timer"),
+        width: 950,
+        height: 1000,
+      });
+      this.insertAdjacentHTML("afterend", newDragon.toHTML());
+      newDragon.initHTML();
 
-    // Scale down dragons.
-    zoom *= 0.75;
-    var timerID = $('timer').id;
-    var dragons = document.querySelectorAll('canvas');
-    var dragonsArr = Array.prototype.slice.call(dragons, 0);
+      // Scale down dragons.
+      zoom *= 0.75;
+      var timerID = $("timer").id;
+      var dragons = document.querySelectorAll("canvas");
+      var dragonsArr = Array.prototype.slice.call(dragons, 0);
 
-    // The last canvas is the timer, not a dragon.
-    dragonsArr.pop();
+      // The last canvas is the timer, not a dragon.
+      dragonsArr.pop();
 
-    dragonsArr.forEach(function(dragonCanvas) {
-      dragonCanvas.style.zoom = zoom;
-    });
-
-  }.bind(bttn));
+      dragonsArr.forEach(function (dragonCanvas) {
+        dragonCanvas.style.zoom = zoom;
+      });
+    }.bind(bttn)
+  );
   // Add the button to the DOM.
   document.body.insertBefore(bttn, document.body.firstChild);
 }

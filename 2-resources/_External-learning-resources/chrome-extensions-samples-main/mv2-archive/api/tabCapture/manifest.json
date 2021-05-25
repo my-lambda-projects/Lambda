@@ -14,9 +14,5 @@
     "page": "options.html",
     "open_in_tab": false
   },
-  "permissions": [
-    "storage",
-    "tabs",
-    "tabCapture"
-  ]
+  "permissions": ["storage", "tabs", "tabCapture"]
 }

@@ -15,7 +15,7 @@
       "suggested_key": {
         "default": "Ctrl+Shift+Y",
         "mac": "MacCtrl+Shift+Y"
-       },
+      },
       "description": "Send a 'toggle-feature' event to the extension"
     },
     "_execute_browser_action": {

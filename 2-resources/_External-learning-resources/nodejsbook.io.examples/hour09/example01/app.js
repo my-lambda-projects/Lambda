@@ -1,1 +1,1 @@
-console.log('Debugging message!')
+console.log("Debugging message!");

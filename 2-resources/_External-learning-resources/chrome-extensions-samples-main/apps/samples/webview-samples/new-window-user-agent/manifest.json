@@ -12,8 +12,5 @@
       "scripts": ["config.js", "main.js"]
     }
   },
-  "permissions": [
-    "contextMenus",
-    "webview"
-  ]
+  "permissions": ["contextMenus", "webview"]
 }

@@ -7,23 +7,24 @@
  * extract a list of samples and render as a Markdown table.
  */
 
-var sampleHeadings = Array.from(document.querySelectorAll('main h2'));
+var sampleHeadings = Array.from(document.querySelectorAll("main h2"));
 
 var samples = sampleHeadings2.map((heading) => {
   const title = heading.textContent;
 
-  const link = heading.querySelector('a');
+  const link = heading.querySelector("a");
   const href = link.href;
 
-  const expectedHrefPrefix = 'https://developer.chrome.com/extensions/examples/'
-  let id = '';
+  const expectedHrefPrefix =
+    "https://developer.chrome.com/extensions/examples/";
+  let id = "";
   if (href.startsWith(expectedHrefPrefix)) {
-    id = href.substr(expectedHrefPrefix.length).replace(/\.zip$/, '');
+    id = href.substr(expectedHrefPrefix.length).replace(/\.zip$/, "");
   } else {
-    console.warn('bad href', href);
+    console.warn("bad href", href);
   }
 
-  let notes = '';
+  let notes = "";
 
   // probably a TEXT node
   let curr = heading;
@@ -36,25 +37,27 @@ var samples = sampleHeadings2.map((heading) => {
   }
 
   notes = notes.trim();
-  notes = notes.replace(/\s+/g, ' ');
+  notes = notes.replace(/\s+/g, " ");
 
   // curr probably points to Calls: now
 
-  const callNodes = Array.from(curr.querySelectorAll('ul li code'));
+  const callNodes = Array.from(curr.querySelectorAll("ul li code"));
   const calls = callNodes.map((node) => node.textContent);
 
-  return {title, id, notes, calls};
+  return { title, id, notes, calls };
 });
 
 var formatCallsList = (calls) => {
   const parts = calls.map((call) => `<li>${call}</li>`);
-  return `<ul>${parts.join('')}</ul>`;
+  return `<ul>${parts.join("")}</ul>`;
 };
 
 var formatRow = (sample) => {
-  return `[${sample.title}](${sample.id})<br />${sample.notes} | ${formatCallsList(sample.calls)}`;
+  return `[${sample.title}](${sample.id})<br />${
+    sample.notes
+  } | ${formatCallsList(sample.calls)}`;
 };
 
 var formatTable = (all) => {
-  return `Sample | Calls\n--- | ---\n${all.map(formatRow).join('\n')}`;
+  return `Sample | Calls\n--- | ---\n${all.map(formatRow).join("\n")}`;
 };

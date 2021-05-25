@@ -9,5 +9,5 @@
     }
   },
   "permissions": [],
-  "optional_permissions": [ "documentScan" ]
+  "optional_permissions": ["documentScan"]
 }

@@ -3,9 +3,7 @@
   "version": "1.2.5.0",
   "description": "Demonstrates optional permissions in extensions",
   "permissions": ["storage"],
-  "optional_permissions": [
-    "topSites"
-  ],
+  "optional_permissions": ["topSites"],
   "icons": {
     "16": "images/optional_permissions16.png",
     "32": "images/optional_permissions32.png",

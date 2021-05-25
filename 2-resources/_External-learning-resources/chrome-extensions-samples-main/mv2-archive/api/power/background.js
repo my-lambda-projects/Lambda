@@ -6,22 +6,22 @@
  * States that the extension can be in.
  */
 var StateEnum = {
-  DISABLED: 'disabled',
-  DISPLAY: 'display',
-  SYSTEM: 'system'
+  DISABLED: "disabled",
+  DISPLAY: "display",
+  SYSTEM: "system",
 };
 
 /**
  * Key used for storing the current state in {localStorage}.
  */
-var STATE_KEY = 'state';
+var STATE_KEY = "state";
 
 /**
  * Loads the locally-saved state asynchronously.
  * @param {function} callback Callback invoked with the loaded {StateEnum}.
  */
 function loadSavedState(callback) {
-  chrome.storage.local.get(STATE_KEY, function(items) {
+  chrome.storage.local.get(STATE_KEY, function (items) {
     var savedState = items[STATE_KEY];
     for (var key in StateEnum) {
       if (savedState == StateEnum[key]) {
@@ -38,24 +38,24 @@ function loadSavedState(callback) {
  * @param {string} newState New {StateEnum} to use.
  */
 function setState(newState) {
-  var imagePrefix = 'night';
-  var title = '';
+  var imagePrefix = "night";
+  var title = "";
 
   switch (newState) {
     case StateEnum.DISABLED:
       chrome.power.releaseKeepAwake();
-      imagePrefix = 'night';
-      title = chrome.i18n.getMessage('disabledTitle');
+      imagePrefix = "night";
+      title = chrome.i18n.getMessage("disabledTitle");
       break;
     case StateEnum.DISPLAY:
-      chrome.power.requestKeepAwake('display');
-      imagePrefix = 'day';
-      title = chrome.i18n.getMessage('displayTitle');
+      chrome.power.requestKeepAwake("display");
+      imagePrefix = "day";
+      title = chrome.i18n.getMessage("displayTitle");
       break;
     case StateEnum.SYSTEM:
-      chrome.power.requestKeepAwake('system');
-      imagePrefix = 'sunset';
-      title = chrome.i18n.getMessage('systemTitle');
+      chrome.power.requestKeepAwake("system");
+      imagePrefix = "sunset";
+      title = chrome.i18n.getMessage("systemTitle");
       break;
     default:
       throw 'Invalid state "' + newState + '"';
@@ -67,15 +67,15 @@ function setState(newState) {
 
   chrome.browserAction.setIcon({
     path: {
-      '19': 'images/' + imagePrefix + '-19.png',
-      '38': 'images/' + imagePrefix + '-38.png'
-    }
+      19: "images/" + imagePrefix + "-19.png",
+      38: "images/" + imagePrefix + "-38.png",
+    },
   });
-  chrome.browserAction.setTitle({title: title});
+  chrome.browserAction.setTitle({ title: title });
 }
 
-chrome.browserAction.onClicked.addListener(function() {
-  loadSavedState(function(state) {
+chrome.browserAction.onClicked.addListener(function () {
+  loadSavedState(function (state) {
     switch (state) {
       case StateEnum.DISABLED:
         setState(StateEnum.DISPLAY);
@@ -92,10 +92,14 @@ chrome.browserAction.onClicked.addListener(function() {
   });
 });
 
-chrome.runtime.onStartup.addListener(function() {
-  loadSavedState(function(state) { setState(state); });
+chrome.runtime.onStartup.addListener(function () {
+  loadSavedState(function (state) {
+    setState(state);
+  });
 });
 
-chrome.runtime.onInstalled.addListener(function(details) {
-  loadSavedState(function(state) { setState(state); });
+chrome.runtime.onInstalled.addListener(function (details) {
+  loadSavedState(function (state) {
+    setState(state);
+  });
 });

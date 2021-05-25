@@ -1,50 +1,50 @@
 var webviewTitleInjectionComplete = false;
-(function() {
+(function () {
   // Prevent multiple injection
   if (!webviewTitleInjectionComplete) {
     var embedder = null;
     var tabName = null;
     var listenersAreBound = false;
     var title = null;
-    var postTitle = (function() {
-      return function(e) {
+    var postTitle = (function () {
+      return function (e) {
         title = document.title;
         var data = {
-          'name': tabName,
-          'title': title || '[no title]'
+          name: tabName,
+          title: title || "[no title]",
         };
-        embedder.postMessage(JSON.stringify(data), '*');
+        embedder.postMessage(JSON.stringify(data), "*");
       };
-    }());
-    var bindEmbedder = function(e) {
+    })();
+    var bindEmbedder = function (e) {
       embedder = e.source;
     };
-    var bindTabName = function(e) {
+    var bindTabName = function (e) {
       if (e.data) {
         var data = JSON.parse(e.data);
         if (data.name) {
           tabName = data.name;
         } else {
-          console.warn('Warning: Message from embedder contains no tab name');
+          console.warn("Warning: Message from embedder contains no tab name");
         }
       } else {
-          console.warn('Warning: Message from embedder contains no data');
+        console.warn("Warning: Message from embedder contains no data");
       }
     };
 
     // Wait for message that gives us a reference to the embedder
-    window.addEventListener('message', function(e) {
+    window.addEventListener("message", function (e) {
       if (!listenersAreBound) {
         // Bind data
         bindEmbedder(e);
         bindTabName(e);
 
         // Notify the embedder of every title change
-        var titleElement = document.querySelector('title');
+        var titleElement = document.querySelector("title");
         if (titleElement) {
-          titleElement.addEventListener('change', postTitle);
+          titleElement.addEventListener("change", postTitle);
         } else {
-          console.warn('Warning: No <title> element to bind to');
+          console.warn("Warning: No <title> element to bind to");
           postTitle();
         }
 
@@ -57,4 +57,4 @@ var webviewTitleInjectionComplete = false;
       }
     });
   }
-}());
+})();

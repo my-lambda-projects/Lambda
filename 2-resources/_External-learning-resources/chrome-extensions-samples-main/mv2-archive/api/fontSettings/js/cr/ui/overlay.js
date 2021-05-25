@@ -5,8 +5,7 @@
 /**
  * @fileoverview Provides dialog-like behaviors for the tracing UI.
  */
-cr.define('cr.ui.overlay', function() {
-
+cr.define("cr.ui.overlay", function () {
   /**
    * Gets the top, visible overlay. It makes the assumption that if multiple
    * overlays are visible, the last in the byte order is topmost.
@@ -14,7 +13,7 @@ cr.define('cr.ui.overlay', function() {
    * @return {HTMLElement} The overlay.
    */
   function getTopOverlay() {
-    var overlays = document.querySelectorAll('.overlay:not([hidden])');
+    var overlays = document.querySelectorAll(".overlay:not([hidden])");
     return overlays[overlays.length - 1];
   }
 
@@ -23,17 +22,17 @@ cr.define('cr.ui.overlay', function() {
    */
   function globalInitialization() {
     // Close the overlay on escape.
-    document.addEventListener('keydown', function(e) {
-      if (e.keyCode == 27) {  // Escape
+    document.addEventListener("keydown", function (e) {
+      if (e.keyCode == 27) {
+        // Escape
         var overlay = getTopOverlay();
-        if (!overlay)
-          return;
+        if (!overlay) return;
 
-        cr.dispatchSimpleEvent(overlay, 'cancelOverlay');
+        cr.dispatchSimpleEvent(overlay, "cancelOverlay");
       }
     });
 
-    window.addEventListener('resize', setMaxHeightAllPages);
+    window.addEventListener("resize", setMaxHeightAllPages);
 
     setMaxHeightAllPages();
   }
@@ -43,11 +42,10 @@ cr.define('cr.ui.overlay', function() {
    * height.
    */
   function setMaxHeightAllPages() {
-    var pages = document.querySelectorAll('.overlay .page');
+    var pages = document.querySelectorAll(".overlay .page");
 
-    var maxHeight = Math.min(0.9 * window.innerHeight, 640) + 'px';
-    for (var i = 0; i < pages.length; i++)
-      pages[i].style.maxHeight = maxHeight;
+    var maxHeight = Math.min(0.9 * window.innerHeight, 640) + "px";
+    for (var i = 0; i < pages.length; i++) pages[i].style.maxHeight = maxHeight;
   }
 
   /**
@@ -56,38 +54,34 @@ cr.define('cr.ui.overlay', function() {
    */
   function setupOverlay(overlay) {
     // Close the overlay on clicking any of the pages' close buttons.
-    var closeButtons = overlay.querySelectorAll('.page > .close-button');
+    var closeButtons = overlay.querySelectorAll(".page > .close-button");
     for (var i = 0; i < closeButtons.length; i++) {
-      closeButtons[i].addEventListener('click', function(e) {
-        cr.dispatchSimpleEvent(overlay, 'cancelOverlay');
+      closeButtons[i].addEventListener("click", function (e) {
+        cr.dispatchSimpleEvent(overlay, "cancelOverlay");
       });
     }
 
     // Remove the 'pulse' animation any time the overlay is hidden or shown.
-    overlay.__defineSetter__('hidden', function(value) {
-      this.classList.remove('pulse');
-      if (value)
-        this.setAttribute('hidden', true);
-      else
-        this.removeAttribute('hidden');
+    overlay.__defineSetter__("hidden", function (value) {
+      this.classList.remove("pulse");
+      if (value) this.setAttribute("hidden", true);
+      else this.removeAttribute("hidden");
     });
-    overlay.__defineGetter__('hidden', function() {
-      return this.hasAttribute('hidden');
+    overlay.__defineGetter__("hidden", function () {
+      return this.hasAttribute("hidden");
     });
 
     // Shake when the user clicks away.
-    overlay.addEventListener('click', function(e) {
+    overlay.addEventListener("click", function (e) {
       // Only pulse if the overlay was the target of the click.
-      if (this != e.target)
-        return;
+      if (this != e.target) return;
 
       // This may be null while the overlay is closing.
-      var overlayPage = this.querySelector('.page:not([hidden])');
-      if (overlayPage)
-        overlayPage.classList.add('pulse');
+      var overlayPage = this.querySelector(".page:not([hidden])");
+      if (overlayPage) overlayPage.classList.add("pulse");
     });
-    overlay.addEventListener('animationend', function(e) {
-      e.target.classList.remove('pulse');
+    overlay.addEventListener("animationend", function (e) {
+      e.target.classList.remove("pulse");
     });
   }
 
@@ -97,5 +91,7 @@ cr.define('cr.ui.overlay', function() {
   };
 });
 
-document.addEventListener('DOMContentLoaded',
-                          cr.ui.overlay.globalInitialization);
+document.addEventListener(
+  "DOMContentLoaded",
+  cr.ui.overlay.globalInitialization
+);

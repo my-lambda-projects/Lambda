@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-'use strict';
+"use strict";
 
 // Simple extension to remove 'Cookie' request header and 'Set-Cookie' response
 // header.
@@ -18,21 +18,23 @@ function removeHeader(headers, name) {
 }
 
 chrome.webRequest.onBeforeSendHeaders.addListener(
-  function(details) {
-    removeHeader(details.requestHeaders, 'cookie');
-    return {requestHeaders: details.requestHeaders};
+  function (details) {
+    removeHeader(details.requestHeaders, "cookie");
+    return { requestHeaders: details.requestHeaders };
   },
   // filters
-  {urls: ['https://*/*', 'http://*/*']},
+  { urls: ["https://*/*", "http://*/*"] },
   // extraInfoSpec
-  ['blocking', 'requestHeaders', 'extraHeaders']);
+  ["blocking", "requestHeaders", "extraHeaders"]
+);
 
 chrome.webRequest.onHeadersReceived.addListener(
-  function(details) {
-    removeHeader(details.responseHeaders, 'set-cookie');
-    return {responseHeaders: details.responseHeaders};
+  function (details) {
+    removeHeader(details.responseHeaders, "set-cookie");
+    return { responseHeaders: details.responseHeaders };
   },
   // filters
-  {urls: ['https://*/*', 'http://*/*']},
+  { urls: ["https://*/*", "http://*/*"] },
   // extraInfoSpec
-  ['blocking', 'responseHeaders', 'extraHeaders']);
+  ["blocking", "responseHeaders", "extraHeaders"]
+);

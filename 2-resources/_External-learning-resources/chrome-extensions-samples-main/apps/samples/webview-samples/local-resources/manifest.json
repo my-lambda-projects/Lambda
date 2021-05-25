@@ -12,9 +12,7 @@
       "scripts": ["main.js"]
     }
   },
-  "permissions": [
-    "webview"
-  ],
+  "permissions": ["webview"],
   "webview": {
     "partitions": [
       {

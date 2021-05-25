@@ -5,7 +5,7 @@
 /**
  * Add your Analytics tracking ID here.
  */
-var _AnalyticsCode = 'UA-XXXXXX-X';
+var _AnalyticsCode = "UA-XXXXXX-X";
 
 /**
  * Below is a modified version of the Google Analytics asynchronous tracking
@@ -15,15 +15,15 @@ var _AnalyticsCode = 'UA-XXXXXX-X';
  * a Google Analytics account.
  */
 var _gaq = _gaq || [];
-_gaq.push(['_setAccount', _AnalyticsCode]);
-_gaq.push(['_trackPageview']);
+_gaq.push(["_setAccount", _AnalyticsCode]);
+_gaq.push(["_trackPageview"]);
 
-(function() {
-  var ga = document.createElement('script');
-  ga.type = 'text/javascript';
+(function () {
+  var ga = document.createElement("script");
+  ga.type = "text/javascript";
   ga.async = true;
-  ga.src = 'https://ssl.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0];
+  ga.src = "https://ssl.google-analytics.com/ga.js";
+  var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(ga, s);
 })();
 
@@ -34,16 +34,16 @@ _gaq.push(['_trackPageview']);
  * for information on how to use the asynchronous tracking API.
  */
 function trackButtonClick(e) {
-  _gaq.push(['_trackEvent', e.target.id, 'clicked']);
+  _gaq.push(["_trackEvent", e.target.id, "clicked"]);
 }
 
 /**
  * Now set up your event handlers for the popup's `button` elements once the
  * popup's DOM has loaded.
  */
-document.addEventListener('DOMContentLoaded', function () {
-  var buttons = document.querySelectorAll('button');
+document.addEventListener("DOMContentLoaded", function () {
+  var buttons = document.querySelectorAll("button");
   for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', trackButtonClick);
+    buttons[i].addEventListener("click", trackButtonClick);
   }
 });

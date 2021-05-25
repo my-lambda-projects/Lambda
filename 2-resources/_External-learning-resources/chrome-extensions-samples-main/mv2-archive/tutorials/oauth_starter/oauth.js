@@ -2,11 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-'use strict';
+"use strict";
 
-window.onload = function() {
-  document.querySelector('button').addEventListener('click', function() {
-    chrome.identity.getAuthToken({interactive: true}, function(token) {
+window.onload = function () {
+  document.querySelector("button").addEventListener("click", function () {
+    chrome.identity.getAuthToken({ interactive: true }, function (token) {
       console.log(token);
     });
   });

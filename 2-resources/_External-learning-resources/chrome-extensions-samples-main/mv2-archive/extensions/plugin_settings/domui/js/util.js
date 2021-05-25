@@ -26,7 +26,7 @@ function $(id) {
  */
 function chromeSend(name, params, callbackName, callback) {
   var old = global[callbackName];
-  global[callbackName] = function() {
+  global[callbackName] = function () {
     // restore
     global[callbackName] = old;
 
@@ -45,12 +45,12 @@ function url(s) {
   // http://www.w3.org/TR/css3-values/#uris
   // Parentheses, commas, whitespace characters, single quotes (') and double
   // quotes (") appearing in a URI must be escaped with a backslash
-  var s2 = s.replace(/(\(|\)|\,|\s|\'|\"|\\)/g, '\\$1');
+  var s2 = s.replace(/(\(|\)|\,|\s|\'|\"|\\)/g, "\\$1");
   // WebKit has a bug when it comes to URLs that end with \
   // https://bugs.webkit.org/show_bug.cgi?id=28885
   if (/\\\\$/.test(s2)) {
     // Add a space to work around the WebKit bug.
-    s2 += ' ';
+    s2 += " ";
   }
   return 'url("' + s2 + '")';
 }
@@ -64,7 +64,7 @@ function parseQueryParams(location) {
   var params = {};
   var query = unescape(location.search.substring(1));
   var vars = query.split("&");
-  for (var i=0; i < vars.length; i++) {
+  for (var i = 0; i < vars.length; i++) {
     var pair = vars[i].split("=");
     params[pair[0]] = pair[1];
   }
@@ -72,9 +72,8 @@ function parseQueryParams(location) {
 }
 
 function findAncestorByClass(el, className) {
-  return findAncestor(el, function(el) {
-    if (el.classList)
-      return el.classList.contains(className);
+  return findAncestor(el, function (el) {
+    if (el.classList) return el.classList.contains(className);
     return null;
   });
 }
@@ -110,40 +109,40 @@ function swapDomNodes(a, b) {
  */
 function disableTextSelectAndDrag() {
   // Disable text selection.
-  document.onselectstart = function(e) {
+  document.onselectstart = function (e) {
     e.preventDefault();
-  }
+  };
 
   // Disable dragging.
-  document.ondragstart = function(e) {
+  document.ondragstart = function (e) {
     e.preventDefault();
-  }
+  };
 }
 
 // Handle click on a link. If the link points to a chrome: or file: url, then
 // call into the browser to do the navigation.
-document.addEventListener('click', function(e) {
+document.addEventListener("click", function (e) {
   // Allow preventDefault to work.
-  if (!e.returnValue)
-    return;
+  if (!e.returnValue) return;
 
   var el = e.target;
-  if (el.nodeType == Node.ELEMENT_NODE &&
-      el.webkitMatchesSelector('A, A *')) {
-    while (el.tagName != 'A') {
+  if (el.nodeType == Node.ELEMENT_NODE && el.webkitMatchesSelector("A, A *")) {
+    while (el.tagName != "A") {
       el = el.parentElement;
     }
 
-    if ((el.protocol == 'file:' || el.protocol == 'about:') &&
-        (e.button == 0 || e.button == 1)) {
-      chrome.send('navigateToUrl', [
+    if (
+      (el.protocol == "file:" || el.protocol == "about:") &&
+      (e.button == 0 || e.button == 1)
+    ) {
+      chrome.send("navigateToUrl", [
         el.href,
         el.target,
         e.button,
         e.altKey,
         e.ctrlKey,
         e.metaKey,
-        e.shiftKey
+        e.shiftKey,
       ]);
       e.preventDefault();
     }

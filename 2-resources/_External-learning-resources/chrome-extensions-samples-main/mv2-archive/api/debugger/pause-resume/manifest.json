@@ -2,9 +2,7 @@
   "name": "JavaScript pause/resume",
   "description": "Pauses / resumes JavaScript execution",
   "version": "0.7",
-  "permissions": [
-    "debugger"
-  ],
+  "permissions": ["debugger"],
   "background": {
     "scripts": ["background.js"]
   },

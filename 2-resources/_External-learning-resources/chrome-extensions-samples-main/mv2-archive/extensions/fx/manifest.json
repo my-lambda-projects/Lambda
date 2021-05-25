@@ -7,16 +7,13 @@
   },
   "options_page": "options.html",
   "icons": { "128": "icon.png" },
-  "permissions": [
-    "tabs",
-    "bookmarks",
-    "http://*/*",
-    "https://*/*"
+  "permissions": ["tabs", "bookmarks", "http://*/*", "https://*/*"],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "all_frames": true
+    }
   ],
-  "content_scripts": [ {
-    "matches": ["http://*/*", "https://*/*"],
-    "js": ["content.js"],
-    "all_frames": true
-  }],
   "manifest_version": 2
 }

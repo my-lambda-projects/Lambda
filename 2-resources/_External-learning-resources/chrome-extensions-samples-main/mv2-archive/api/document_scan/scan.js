@@ -3,9 +3,9 @@
 // found in the LICENSE file.
 
 var requestButton = document.getElementById("requestButton");
-var scanButton = document.getElementById('scanButton');
-var scannedImages = document.getElementById('scannedImages');
-var waitAnimation = document.getElementById('waitAnimation');
+var scanButton = document.getElementById("scanButton");
+var scannedImages = document.getElementById("scannedImages");
+var waitAnimation = document.getElementById("waitAnimation");
 var imageMimeType;
 
 function setOnlyChild(parent, child) {
@@ -15,19 +15,19 @@ function setOnlyChild(parent, child) {
   parent.appendChild(child);
 }
 
-var gotPermission = function(result) {
-  waitAnimation.style.display = 'block';
-  requestButton.style.display = 'none';
-  scanButton.style.display = 'block';
+var gotPermission = function (result) {
+  waitAnimation.style.display = "block";
+  requestButton.style.display = "none";
+  scanButton.style.display = "block";
   console.log('App was granted the "documentScan" permission.');
-  waitAnimation.style.display = 'none';
+  waitAnimation.style.display = "none";
 };
 
-var permissionObj = {permissions: ['documentScan']};
+var permissionObj = { permissions: ["documentScan"] };
 
-requestButton.addEventListener('click', function() {
-  waitAnimation.style.display = 'block';
-  chrome.permissions.request( permissionObj, function(result) {
+requestButton.addEventListener("click", function () {
+  waitAnimation.style.display = "block";
+  chrome.permissions.request(permissionObj, function (result) {
     if (result) {
       gotPermission();
     } else {
@@ -37,32 +37,31 @@ requestButton.addEventListener('click', function() {
   });
 });
 
-var onScanCompleted = function(scan_results) {
-  waitAnimation.style.display = 'none';
+var onScanCompleted = function (scan_results) {
+  waitAnimation.style.display = "none";
   if (chrome.runtime.lastError) {
-    console.log('Scan failed: ' + chrome.runtime.lastError.message);
+    console.log("Scan failed: " + chrome.runtime.lastError.message);
     return;
   }
   numImages = scan_results.dataUrls.length;
-  console.log('Scan completed with ' + numImages + ' images.');
+  console.log("Scan completed with " + numImages + " images.");
   for (var i = 0; i < numImages; i++) {
-    urlData = scan_results.dataUrls[i]
-    console.log('Scan ' + i + ' data length ' +
-                urlData.length + '.');
-    console.log('URL is ' + urlData);
-    var scannedImage = document.createElement('img');
+    urlData = scan_results.dataUrls[i];
+    console.log("Scan " + i + " data length " + urlData.length + ".");
+    console.log("URL is " + urlData);
+    var scannedImage = document.createElement("img");
     scannedImage.src = urlData;
     scannedImages.insertBefore(scannedImage, scannedImages.firstChild);
   }
 };
 
-scanButton.addEventListener('click', function() {
+scanButton.addEventListener("click", function () {
   var scanProperties = {};
-  waitAnimation.style.display = 'block';
+  waitAnimation.style.display = "block";
   chrome.documentScan.scan(scanProperties, onScanCompleted);
 });
 
-chrome.permissions.contains(permissionObj, function(result) {
+chrome.permissions.contains(permissionObj, function (result) {
   if (result) {
     gotPermission();
   }

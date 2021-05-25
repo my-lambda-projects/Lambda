@@ -14,9 +14,5 @@
     "64": "img/icon.png",
     "128": "img/icon.png"
   },
-  "permissions": [
-    "geolocation",
-    "storage",
-    "<all_urls>"
-  ]
+  "permissions": ["geolocation", "storage", "<all_urls>"]
 }

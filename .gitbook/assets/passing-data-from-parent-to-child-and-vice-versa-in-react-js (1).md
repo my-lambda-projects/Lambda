@@ -41,7 +41,8 @@ changeStates(newTitle) {
 The parent then will post this div to the DOM. This is where the title, count and changeStates function are given to the Child. For the changeStates function, the newTitle of ‘What?’ and ‘This!’ were hard coded to one of the Child components below (top button has ‘What?’, bottom button has ‘This!’).
 
 render() {  
- return (  
+ return (
+
  <div>  
  <h1>{this.state.title}</h1>  
  <h2>{this.state.count}</h2>  

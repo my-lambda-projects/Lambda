@@ -4939,26 +4939,23 @@ nth
               if (isDigit(c)) {
                 token = this.numberToken(c, startLine, startCol);
               } else if (isWhitespace(c)) {
-
-              /*
-               * Potential tokens:
-               * - S
-               */
+                /*
+                 * Potential tokens:
+                 * - S
+                 */
                 token = this.whitespaceToken(c, startLine, startCol);
               } else if (isIdentStart(c)) {
-
-              /*
-               * Potential tokens:
-               * - IDENT
-               */
+                /*
+                 * Potential tokens:
+                 * - IDENT
+                 */
                 token = this.identOrFunctionToken(c, startLine, startCol);
               } else {
-
-              /*
-               * Potential tokens:
-               * - CHAR
-               * - PLUS
-               */
+                /*
+                 * Potential tokens:
+                 * - CHAR
+                 * - PLUS
+                 */
                 token = this.charToken(c, startLine, startCol);
               }
           }

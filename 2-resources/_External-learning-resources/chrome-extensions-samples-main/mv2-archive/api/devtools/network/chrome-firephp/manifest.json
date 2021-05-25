@@ -5,9 +5,6 @@
   "description": "Extends the Developer Tools, adding support for parsing FirePHP messages from server",
   "devtools_page": "devtools.html",
   "background": { "scripts": ["background.js"] },
-  "permissions": [
-    "http://*/*",
-    "https://*/*"
-  ],
+  "permissions": ["http://*/*", "https://*/*"],
   "manifest_version": 2
 }

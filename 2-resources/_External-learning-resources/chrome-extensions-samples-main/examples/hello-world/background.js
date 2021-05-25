@@ -8,7 +8,6 @@
 //
 // See https://developer.chrome.com/docs/extensions/reference/events/ for additional details.
 chrome.runtime.onInstalled.addListener(async () => {
-
   // While we could have used `let url = "hello.html"`, using runtime.getURL is a bit more robust as
   // it returns a full URL rather than just a path that Chrome needs to be resolved contextually at
   // runtime.

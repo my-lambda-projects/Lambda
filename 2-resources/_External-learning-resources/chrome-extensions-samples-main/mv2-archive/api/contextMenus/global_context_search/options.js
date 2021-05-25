@@ -3,20 +3,20 @@
 // found in the LICENSE file.
 
 function createForm() {
-  chrome.storage.sync.get(['removedContextMenu'], function(list) {
+  chrome.storage.sync.get(["removedContextMenu"], function (list) {
     let removed = list.removedContextMenu || [];
-    let form = document.getElementById('form');
+    let form = document.getElementById("form");
     for (let key of Object.keys(kLocales)) {
-      let div = document.createElement('div');
-      let checkbox = document.createElement('input');
-      checkbox.type = 'checkbox';
+      let div = document.createElement("div");
+      let checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
       checkbox.checked = true;
       if (removed.includes(key)) {
         checkbox.checked = false;
       }
       checkbox.name = key;
       checkbox.value = kLocales[key];
-      let span = document.createElement('span');
+      let span = document.createElement("span");
       span.textContent = kLocales[key];
       div.appendChild(checkbox);
       div.appendChild(span);
@@ -27,14 +27,14 @@ function createForm() {
 
 createForm();
 
-document.getElementById('optionsSubmit').onclick = function() {
-  let checkboxes = document.getElementsByTagName('input');
+document.getElementById("optionsSubmit").onclick = function () {
+  let checkboxes = document.getElementsByTagName("input");
   let removed = [];
-  for (i=0; i<checkboxes.length; i++) {
+  for (i = 0; i < checkboxes.length; i++) {
     if (checkboxes[i].checked == false) {
       removed.push(checkboxes[i].name);
     }
   }
-  chrome.storage.sync.set({removedContextMenu: removed});
+  chrome.storage.sync.set({ removedContextMenu: removed });
   window.close();
-}
+};

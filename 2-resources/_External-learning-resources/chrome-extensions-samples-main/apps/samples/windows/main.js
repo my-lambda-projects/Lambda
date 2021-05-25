@@ -5,10 +5,9 @@ var windows = [];
  * any interval that is running
  */
 function reset() {
-
-  windows.forEach( function (w) {
+  windows.forEach(function (w) {
     w.contentWindow.close();
-  } );
+  });
 
   windows.length = 0;
 }
@@ -18,12 +17,13 @@ function reset() {
  * @see http://developer.chrome.com/apps/app.window.html
  */
 function launch() {
-
   // reset everything
   reset();
 
   // create the original window
-  chrome.app.window.create('original.html', {
+  chrome.app.window.create(
+    "original.html",
+    {
       id: "mainwin",
       innerBounds: {
         top: 128,
@@ -32,61 +32,61 @@ function launch() {
         height: 300,
         minHeight: 300,
         maxWidth: 500,
-        minWidth: 300
+        minWidth: 300,
       },
-      frame: 'none'
+      frame: "none",
     },
 
     // when that is created store it
     // and create the copycat window
-    function(originalWindow) {
-
+    function (originalWindow) {
       windows.push(originalWindow);
 
-      chrome.app.window.create('copycat.html', {
-        id: "copywin",
-        innerBounds: {
-          top: 128,
-          left: 428 + 5,
-          width: 300,
-          height: 300,
-          minHeight: 300,
-          maxWidth: 500,
-          minWidth: 300
+      chrome.app.window.create(
+        "copycat.html",
+        {
+          id: "copywin",
+          innerBounds: {
+            top: 128,
+            left: 428 + 5,
+            width: 300,
+            height: 300,
+            minHeight: 300,
+            maxWidth: 500,
+            minWidth: 300,
+          },
+          frame: "none",
         },
-        frame: 'none'
-      },
 
-      function(copycatWindow) {
+        function (copycatWindow) {
+          // store the copycat
+          windows.push(copycatWindow);
 
-        // store the copycat
-        windows.push(copycatWindow);
+          // now have the copycat watch the
+          // original window for changes
+          originalWindow.onClosed.addListener(reset);
+          copycatWindow.onClosed.addListener(reset);
 
-        // now have the copycat watch the
-        // original window for changes
-        originalWindow.onClosed.addListener(reset);
-        copycatWindow.onClosed.addListener(reset);
+          originalWindow.onBoundsChanged.addListener(function () {
+            var bounds = originalWindow.outerBounds;
+            copycatWindow.outerBounds.left = bounds.left + bounds.width + 5;
+          });
 
-        originalWindow.onBoundsChanged.addListener(function() {
-          var bounds = originalWindow.outerBounds;
-          copycatWindow.outerBounds.left = bounds.left + bounds.width + 5;
-        });
+          copycatWindow.onRestored.addListener(function () {
+            console.log("copy restored");
+            if (originalWindow.isMinimized()) originalWindow.restore();
+          });
 
-        copycatWindow.onRestored.addListener(function() {
-          console.log('copy restored');
-          if (originalWindow.isMinimized())
-            originalWindow.restore();
-        })
+          originalWindow.onRestored.addListener(function () {
+            console.log("copy restored");
+            if (copycatWindow.isMinimized()) copycatWindow.restore();
+          });
 
-        originalWindow.onRestored.addListener(function() {
-          console.log('copy restored');
-          if (copycatWindow.isMinimized())
-            copycatWindow.restore();
-        })
-
-        originalWindow.focus();
-      });
-  });
+          originalWindow.focus();
+        }
+      );
+    }
+  );
 }
 
 /**
@@ -94,8 +94,7 @@ function launch() {
  * @see http://developer.chrome.com/apps/app.window.html
  */
 function minimizeAll() {
-
-  windows.forEach( function (w) {
+  windows.forEach(function (w) {
     w.minimize();
   });
 }

@@ -40,7 +40,7 @@ function showSounds() {
     var key = keys[index];
     var div = document.createElement("div");
     var check = document.createElement("input");
-    check.type = "checkbox"
+    check.type = "checkbox";
     check.name = key;
     check.checked = localStorage[key] == "enabled";
     check.onchange = soundChanged;
@@ -49,11 +49,13 @@ function showSounds() {
     text.id = key;
     text.innerText = key;
     text.className = "sound";
-    text.onclick = function(event) { playSound(event.target.id); };
+    text.onclick = function (event) {
+      playSound(event.target.id);
+    };
     div.appendChild(text);
     sounds.appendChild(div);
   }
 }
 
-document.addEventListener('DOMContentLoaded', showSounds);
-document.addEventListener('focus', showSounds);
+document.addEventListener("DOMContentLoaded", showSounds);
+document.addEventListener("focus", showSounds);

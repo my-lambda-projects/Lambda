@@ -1,7 +1,15 @@
-var tabs = (function(popupModule, contextMenuModule) {
-  var dce = function(str) { return document.createElement(str); };
+var tabs = (function (popupModule, contextMenuModule) {
+  var dce = function (str) {
+    return document.createElement(str);
+  };
 
-  var TabList = function(name, browser, tabContainer, contentContainer, newTabElement) {
+  var TabList = function (
+    name,
+    browser,
+    tabContainer,
+    contentContainer,
+    newTabElement
+  ) {
     this.name = name;
     this.list = [];
     this.table = {};
@@ -13,11 +21,11 @@ var tabs = (function(popupModule, contextMenuModule) {
     this.newTabElement = newTabElement;
   };
 
-  TabList.prototype.getNumTabs = function() {
+  TabList.prototype.getNumTabs = function () {
     return this.list.length;
   };
 
-  TabList.prototype.getTabIdx = function(tab) {
+  TabList.prototype.getTabIdx = function (tab) {
     var idx = 0;
     for (var i = 0; i < this.list.length; ++i) {
       if (this.list[i] == tab) {
@@ -28,16 +36,16 @@ var tabs = (function(popupModule, contextMenuModule) {
     if (idx < this.list.length) {
       return idx;
     } else {
-      console.warn('Warning: Failed to find tab in list', tab);
+      console.warn("Warning: Failed to find tab in list", tab);
       return -1;
     }
   };
 
-  TabList.prototype.selectIdx = function(idx) {
+  TabList.prototype.selectIdx = function (idx) {
     return this.selectTab(this.list[idx], idx);
   };
 
-  TabList.prototype.selectTab = function(tab, idx) {
+  TabList.prototype.selectTab = function (tab, idx) {
     var prevTab = this.list[this.selected];
     prevTab.deselect();
 
@@ -53,19 +61,23 @@ var tabs = (function(popupModule, contextMenuModule) {
     return tab;
   };
 
-  TabList.prototype.setLabelByName = function(tabName, tabLabel) {
+  TabList.prototype.setLabelByName = function (tabName, tabLabel) {
     if (tabName in this.table) {
       return this.table[tabName].setLabel(tabLabel);
     } else {
       console.warn(
-          'Warning: Attempt to set label to "', tabLabel,
-          '" on unknown tab named "', tabName, '"');
+        'Warning: Attempt to set label to "',
+        tabLabel,
+        '" on unknown tab named "',
+        tabName,
+        '"'
+      );
       return null;
     }
   };
 
-  TabList.prototype.append = function(webview) {
-    var tabName = this.name + '-' + this.tabNameCounter;
+  TabList.prototype.append = function (webview) {
+    var tabName = this.name + "-" + this.tabNameCounter;
     this.tabNameCounter = this.tabNameCounter + 1;
     var tab = new Tab(tabName, this, webview);
 
@@ -78,11 +90,11 @@ var tabs = (function(popupModule, contextMenuModule) {
     return tab;
   };
 
-  TabList.prototype.removeIdx = function(idx) {
+  TabList.prototype.removeIdx = function (idx) {
     this.removeTab(this.list[idx], idx);
   };
 
-  TabList.prototype.removeTab = function(tab, idx) {
+  TabList.prototype.removeTab = function (tab, idx) {
     if (this.list.length > 1) {
       if (!(idx === 0 || idx)) {
         idx = this.getTabIdx(tab);
@@ -91,9 +103,10 @@ var tabs = (function(popupModule, contextMenuModule) {
       var selectedIdx = this.selected;
       if (tab.selected) {
         // If this is the last tab, then select previous, else select next
-        selectedIdx = (this.selected + 1 == this.list.length) ?
-            this.selected - 1 :
-            this.selected + 1;
+        selectedIdx =
+          this.selected + 1 == this.list.length
+            ? this.selected - 1
+            : this.selected + 1;
         this.selectIdx(selectedIdx);
       }
 
@@ -126,136 +139,138 @@ var tabs = (function(popupModule, contextMenuModule) {
     }
   };
 
-  TabList.prototype.getSelected = function() {
+  TabList.prototype.getSelected = function () {
     return this.list[this.selected];
   };
 
-  TabList.prototype.detach = function() {
+  TabList.prototype.detach = function () {
     this.browser = null;
   };
 
-  var Tab = function(name, tabList, webview) {
+  var Tab = function (name, tabList, webview) {
     this.name = name;
     this.tabList = tabList;
     this.selected = false;
-    this.url = '';
+    this.url = "";
     this.loading = true;
     this.overlay = false;
-    this.labelContainer = dce('li');
-    this.label = dce('p');
-    this.closeLink = dce('a');
-    this.webviewContainer = dce('div');
-    this.popupConfirmBoxList = new popupModule.PopupConfirmBoxList(dce('ul'));
+    this.labelContainer = dce("li");
+    this.label = dce("p");
+    this.closeLink = dce("a");
+    this.webviewContainer = dce("div");
+    this.popupConfirmBoxList = new popupModule.PopupConfirmBoxList(dce("ul"));
     this.contextMenu = new contextMenuModule.ContextMenu(
-        webview,
-        this.popupConfirmBoxList);
+      webview,
+      this.popupConfirmBoxList
+    );
     this.webview = webview;
     this.initLabelContainer();
     this.initWebview();
   };
 
-  Tab.prototype.initLabelContainer = function() {
+  Tab.prototype.initLabelContainer = function () {
     var name = this.name;
     var labelContainer = this.labelContainer;
     var label = this.label;
     var closeLink = this.closeLink;
 
-    labelContainer.setAttribute('data-name', this.name);
+    labelContainer.setAttribute("data-name", this.name);
 
-    this.setLabel('Loading...');
+    this.setLabel("Loading...");
 
-    closeLink.href = '#close-' + name;
-    closeLink.innerText = 'X';
+    closeLink.href = "#close-" + name;
+    closeLink.innerText = "X";
 
     labelContainer.appendChild(label);
     labelContainer.appendChild(closeLink);
 
-    (function(tab) {
-      labelContainer.addEventListener('click', function(e) {
+    (function (tab) {
+      labelContainer.addEventListener("click", function (e) {
         if (tab.tabList) {
           tab.tabList.selectTab(tab);
         }
       });
-      closeLink.addEventListener('click', function(e) {
+      closeLink.addEventListener("click", function (e) {
         if (tab.tabList) {
           tab.tabList.removeTab(tab);
         }
       });
-    }(this));
+    })(this);
   };
 
-  Tab.prototype.initWebview = function() {
-    this.webview.setAttribute('data-name', this.name);
-    this.webviewContainer.setAttribute('data-name', this.name);
-    this.webviewContainer.classList.add('webview-container');
+  Tab.prototype.initWebview = function () {
+    this.webview.setAttribute("data-name", this.name);
+    this.webviewContainer.setAttribute("data-name", this.name);
+    this.webviewContainer.classList.add("webview-container");
     this.webview.addContentScripts([
-          {
-            'name': 'Messaging',
-            'matches': ['<all_urls>'],
-            'js': { 'files': ['guest_messaging.js']},
-            'run_at': 'document_start'
-          }]);
+      {
+        name: "Messaging",
+        matches: ["<all_urls>"],
+        js: { files: ["guest_messaging.js"] },
+        run_at: "document_start",
+      },
+    ]);
 
-    (function(tab) {
-      tab.webview.addEventListener(
-          'loadcommit',
-          function(e) { return tab.doLoadCommit(e); });
-      tab.webview.addEventListener(
-          'loadstop',
-          function(e) { return tab.doLoadStop(e); });
-      tab.webview.addEventListener(
-          'contentload',
-          function(e) { return tab.doContentLoad(e); });
-      tab.webview.addEventListener(
-          'newwindow',
-          function(e) { return tab.doNewTab(e); });
-      tab.webview.addEventListener(
-          'permissionrequest',
-          function (e) {
-            e.preventDefault();
-            checkForPermissions(tab, e);
-          });
-    }(this));
+    (function (tab) {
+      tab.webview.addEventListener("loadcommit", function (e) {
+        return tab.doLoadCommit(e);
+      });
+      tab.webview.addEventListener("loadstop", function (e) {
+        return tab.doLoadStop(e);
+      });
+      tab.webview.addEventListener("contentload", function (e) {
+        return tab.doContentLoad(e);
+      });
+      tab.webview.addEventListener("newwindow", function (e) {
+        return tab.doNewTab(e);
+      });
+      tab.webview.addEventListener("permissionrequest", function (e) {
+        e.preventDefault();
+        checkForPermissions(tab, e);
+      });
+    })(this);
 
-    this.webviewContainer.appendChild(this.popupConfirmBoxList.getListElement());
+    this.webviewContainer.appendChild(
+      this.popupConfirmBoxList.getListElement()
+    );
     this.webviewContainer.appendChild(this.webview);
   };
 
-  Tab.prototype.setLabel = function(newLabel) {
+  Tab.prototype.setLabel = function (newLabel) {
     this.label.innerText = newLabel;
   };
 
-  Tab.prototype.select = function() {
-    this.labelContainer.classList.add('selected');
-    this.webviewContainer.classList.add('selected');
-    this.webview.classList.add('selected');
+  Tab.prototype.select = function () {
+    this.labelContainer.classList.add("selected");
+    this.webviewContainer.classList.add("selected");
+    this.webview.classList.add("selected");
     this.selected = true;
   };
 
-  Tab.prototype.deselect = function() {
-    this.labelContainer.classList.remove('selected');
-    this.webviewContainer.classList.remove('selected');
-    this.webview.classList.remove('selected');
+  Tab.prototype.deselect = function () {
+    this.labelContainer.classList.remove("selected");
+    this.webviewContainer.classList.remove("selected");
+    this.webview.classList.remove("selected");
     this.selected = false;
   };
 
-  Tab.prototype.detach = function() {
+  Tab.prototype.detach = function () {
     this.tabList = null;
   };
 
-  Tab.prototype.getWebview = function() {
+  Tab.prototype.getWebview = function () {
     return this.webview;
   };
 
-  Tab.prototype.getWebviewContainer = function() {
+  Tab.prototype.getWebviewContainer = function () {
     return this.webviewContainer;
   };
 
-  Tab.prototype.isLoading = function() {
+  Tab.prototype.isLoading = function () {
     return this.loading;
   };
 
-  Tab.prototype.doLoadCommit = function(e) {
+  Tab.prototype.doLoadCommit = function (e) {
     if (!e.isTopLevel) {
       return;
     }
@@ -265,31 +280,31 @@ var tabs = (function(popupModule, contextMenuModule) {
     this.tabList.browser.doTabNavigating(this, e.url);
   };
 
-  Tab.prototype.doLoadStop = function(e) {
+  Tab.prototype.doLoadStop = function (e) {
     if (this.loading) {
       this.tabList.browser.doTabNavigated(this, this.url);
     }
     this.loading = false;
   };
 
-  Tab.prototype.doContentLoad = function(e) {
+  Tab.prototype.doContentLoad = function (e) {
     var data = {
-      'type': 'titleRequest',
-      'tabName': this.name
+      type: "titleRequest",
+      tabName: this.name,
     };
-    this.webview.contentWindow.postMessage(JSON.stringify(data), '*');
+    this.webview.contentWindow.postMessage(JSON.stringify(data), "*");
   };
 
   // New window triggered by existing window
-  Tab.prototype.doNewTab = function(e) {
+  Tab.prototype.doNewTab = function (e) {
     e.preventDefault();
 
     var dis = e.windowOpenDisposition;
     var url = e.targetUrl;
     var userAgent = this.contextMenu.getUserAgentOverride(url);
 
-    if (dis == 'new_background_tab' || dis == 'new_foreground_tab') {
-      var newWebview = dce('webview');
+    if (dis == "new_background_tab" || dis == "new_foreground_tab") {
+      var newWebview = dce("webview");
       e.window.attach(newWebview);
 
       // Allow context menu to manipulate webview if necessary
@@ -298,7 +313,7 @@ var tabs = (function(popupModule, contextMenuModule) {
       }
 
       var newTab = this.tabList.append(newWebview);
-      if (e.windowOpenDisposition == 'new_foreground_tab') {
+      if (e.windowOpenDisposition == "new_foreground_tab") {
         this.tabList.selectTab(newTab);
       }
     } else {
@@ -313,23 +328,23 @@ var tabs = (function(popupModule, contextMenuModule) {
     }
   };
 
-  Tab.prototype.stopNavigation = function() {
+  Tab.prototype.stopNavigation = function () {
     this.webview.stop();
   };
 
-  Tab.prototype.doReload = function() {
+  Tab.prototype.doReload = function () {
     this.webview.reload();
   };
 
-  Tab.prototype.goBack = function() {
+  Tab.prototype.goBack = function () {
     this.webview.back();
   };
 
-  Tab.prototype.goForward = function() {
+  Tab.prototype.goForward = function () {
     this.webview.forward();
   };
 
-  Tab.prototype.navigateTo = function(url) {
+  Tab.prototype.navigateTo = function (url) {
     this.stopNavigation();
     if (!handleInternalCommand(url)) {
       this.webview.src = url;
@@ -337,24 +352,27 @@ var tabs = (function(popupModule, contextMenuModule) {
   };
 
   function handleInternalCommand(url) {
-    if (url === 'browser://exit') {
+    if (url === "browser://exit") {
       window.close();
     }
   }
 
   function checkForPermissions(tab, e) {
     tab.tabList.browser.permissionBoxController.ifPermits(
-      tab.webview.src, e.permission, function(result) {
-        if (result === 'ALLOW') {
+      tab.webview.src,
+      e.permission,
+      function (result) {
+        if (result === "ALLOW") {
           e.request.allow();
         } else {
           e.request.deny();
         }
-      });
+      }
+    );
   }
 
   return {
-    'TabList': TabList,
-    'Tab': Tab
+    TabList: TabList,
+    Tab: Tab,
   };
-}(popup, contextMenu));
+})(popup, contextMenu);

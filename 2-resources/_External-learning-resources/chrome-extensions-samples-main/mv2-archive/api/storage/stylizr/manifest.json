@@ -3,10 +3,7 @@
   "description": "Spruce up your pages with custom CSS.",
   "version": "1.0",
 
-  "permissions": [
-    "activeTab",
-    "storage"
-  ],
+  "permissions": ["activeTab", "storage"],
 
   "options_page": "options.html",
 

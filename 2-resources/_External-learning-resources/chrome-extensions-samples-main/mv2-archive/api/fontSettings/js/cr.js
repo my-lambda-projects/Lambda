@@ -10,8 +10,8 @@
 var global = this;
 
 /** Platform, package, object property, and Event support. **/
-this.cr = (function() {
-  'use strict';
+this.cr = (function () {
+  "use strict";
 
   /**
    * Builds an object structure for the provided namespace path,
@@ -25,10 +25,10 @@ this.cr = (function() {
    * @private
    */
   function exportPath(name, opt_object, opt_objectToExportTo) {
-    var parts = name.split('.');
+    var parts = name.split(".");
     var cur = opt_objectToExportTo || global;
 
-    for (var part; parts.length && (part = parts.shift());) {
+    for (var part; parts.length && (part = parts.shift()); ) {
       if (!parts.length && opt_object !== undefined) {
         // last part and we have an object; use it
         cur[part] = opt_object;
@@ -39,7 +39,7 @@ this.cr = (function() {
       }
     }
     return cur;
-  };
+  }
 
   /**
    * Fires a property change event on the target.
@@ -49,7 +49,7 @@ this.cr = (function() {
    * @param {*} oldValue The old value for the property.
    */
   function dispatchPropertyChange(target, propertyName, newValue, oldValue) {
-    var e = new Event(propertyName + 'Change');
+    var e = new Event(propertyName + "Change");
     e.propertyName = propertyName;
     e.newValue = newValue;
     e.oldValue = oldValue;
@@ -63,7 +63,7 @@ this.cr = (function() {
    * @return {string} The equivalent hyphenated-lower-case attribute name.
    */
   function getAttributeName(jsName) {
-    return jsName.replace(/([A-Z])/g, '-$1').toLowerCase();
+    return jsName.replace(/([A-Z])/g, "-$1").toLowerCase();
   }
 
   /**
@@ -76,18 +76,18 @@ this.cr = (function() {
      * Plain old JS property where the backing data is stored as a "private"
      * field on the object.
      */
-    JS: 'js',
+    JS: "js",
 
     /**
      * The property backing data is stored as an attribute on an element.
      */
-    ATTR: 'attr',
+    ATTR: "attr",
 
     /**
      * The property backing data is stored as an attribute on an element. If the
      * element has the attribute then the value is true.
      */
-    BOOL_ATTR: 'boolAttr'
+    BOOL_ATTR: "boolAttr",
   };
 
   /**
@@ -100,18 +100,18 @@ this.cr = (function() {
   function getGetter(name, kind) {
     switch (kind) {
       case PropertyKind.JS:
-        var privateName = name + '_';
-        return function() {
+        var privateName = name + "_";
+        return function () {
           return this[privateName];
         };
       case PropertyKind.ATTR:
         var attributeName = getAttributeName(name);
-        return function() {
+        return function () {
           return this.getAttribute(attributeName);
         };
       case PropertyKind.BOOL_ATTR:
         var attributeName = getAttributeName(name);
-        return function() {
+        return function () {
           return this.hasAttribute(attributeName);
         };
     }
@@ -131,43 +131,36 @@ this.cr = (function() {
   function getSetter(name, kind, opt_setHook) {
     switch (kind) {
       case PropertyKind.JS:
-        var privateName = name + '_';
-        return function(value) {
+        var privateName = name + "_";
+        return function (value) {
           var oldValue = this[name];
           if (value !== oldValue) {
             this[privateName] = value;
-            if (opt_setHook)
-              opt_setHook.call(this, value, oldValue);
+            if (opt_setHook) opt_setHook.call(this, value, oldValue);
             dispatchPropertyChange(this, name, value, oldValue);
           }
         };
 
       case PropertyKind.ATTR:
         var attributeName = getAttributeName(name);
-        return function(value) {
+        return function (value) {
           var oldValue = this[name];
           if (value !== oldValue) {
-            if (value == undefined)
-              this.removeAttribute(attributeName);
-            else
-              this.setAttribute(attributeName, value);
-            if (opt_setHook)
-              opt_setHook.call(this, value, oldValue);
+            if (value == undefined) this.removeAttribute(attributeName);
+            else this.setAttribute(attributeName, value);
+            if (opt_setHook) opt_setHook.call(this, value, oldValue);
             dispatchPropertyChange(this, name, value, oldValue);
           }
         };
 
       case PropertyKind.BOOL_ATTR:
         var attributeName = getAttributeName(name);
-        return function(value) {
+        return function (value) {
           var oldValue = this[name];
           if (value !== oldValue) {
-            if (value)
-              this.setAttribute(attributeName, name);
-            else
-              this.removeAttribute(attributeName);
-            if (opt_setHook)
-              opt_setHook.call(this, value, oldValue);
+            if (value) this.setAttribute(attributeName, name);
+            else this.removeAttribute(attributeName);
+            if (opt_setHook) opt_setHook.call(this, value, oldValue);
             dispatchPropertyChange(this, name, value, oldValue);
           }
         };
@@ -184,8 +177,7 @@ this.cr = (function() {
    *     property is set, but before the propertyChange event is fired.
    */
   function defineProperty(obj, name, opt_kind, opt_setHook) {
-    if (typeof obj == 'function')
-      obj = obj.prototype;
+    if (typeof obj == "function") obj = obj.prototype;
 
     var kind = opt_kind || PropertyKind.JS;
 
@@ -215,9 +207,8 @@ this.cr = (function() {
    * @return {number} The unique ID for the item.
    */
   function getUid(item) {
-    if (item.hasOwnProperty('uid'))
-      return item.uid;
-    return item.uid = createUid();
+    if (item.hasOwnProperty("uid")) return item.uid;
+    return (item.uid = createUid());
   }
 
   /**
@@ -233,7 +224,7 @@ this.cr = (function() {
   function dispatchSimpleEvent(target, type, opt_bubbles, opt_cancelable) {
     var e = new Event(type, {
       bubbles: opt_bubbles,
-      cancelable: opt_cancelable === undefined || opt_cancelable
+      cancelable: opt_cancelable === undefined || opt_cancelable,
     });
     return target.dispatchEvent(e);
   }
@@ -264,8 +255,10 @@ this.cr = (function() {
       // Maybe we should check the prototype chain here? The current usage
       // pattern is always using an object literal so we only care about own
       // properties.
-      var propertyDescriptor = Object.getOwnPropertyDescriptor(exports,
-                                                               propertyName);
+      var propertyDescriptor = Object.getOwnPropertyDescriptor(
+        exports,
+        propertyName
+      );
       if (propertyDescriptor)
         Object.defineProperty(obj, propertyName, propertyDescriptor);
     }
@@ -278,7 +271,7 @@ this.cr = (function() {
    *     method to.
    */
   function addSingletonGetter(ctor) {
-    ctor.getInstance = function() {
+    ctor.getInstance = function () {
       return ctor.instance_ || (ctor.instance_ = new ctor());
     };
   }
@@ -292,13 +285,13 @@ this.cr = (function() {
     if (!global.document) {
       var originalCr = cr;
 
-      Object.defineProperty(global, 'cr', {
-        get: function() {
-          Object.defineProperty(global, 'cr', {value: originalCr});
+      Object.defineProperty(global, "cr", {
+        get: function () {
+          Object.defineProperty(global, "cr", { value: originalCr });
           originalCr.initialize();
           return originalCr;
         },
-        configurable: true
+        configurable: true,
       });
 
       return;
@@ -336,10 +329,9 @@ this.cr = (function() {
     dispatchSimpleEvent: dispatchSimpleEvent,
     getUid: getUid,
     initialize: initialize,
-    PropertyKind: PropertyKind
+    PropertyKind: PropertyKind,
   };
 })();
-
 
 /**
  * TODO(kgr): Move this to another file which is to be loaded last.

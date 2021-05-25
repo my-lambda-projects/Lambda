@@ -15,7 +15,7 @@
   },
   "permissions": [
     { "fileSystem": ["directory", "retainEntries"] },
-    "identity", 
+    "identity",
     "storage"
   ],
   "oauth2": {

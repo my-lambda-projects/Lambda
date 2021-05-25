@@ -8,23 +8,22 @@
 function renderState(state, time) {
   var now = new Date().getTime();
   var diff = Math.round((time.getTime() - now) / 1000);
-  var str = (diff == 0) ?
-      "now" :
-      Math.abs(diff) + " seconds " + (diff > 0 ? "from now" : "ago");
-  var col = (state == "active") ?
-      "#009900" :
-      "#990000";
+  var str =
+    diff == 0
+      ? "now"
+      : Math.abs(diff) + " seconds " + (diff > 0 ? "from now" : "ago");
+  var col = state == "active" ? "#009900" : "#990000";
   return "<b style='color: " + col + "'>" + state + "</b> " + str;
-};
+}
 
 /**
  * Creates DOM and injects a rendered state into the page.
  */
 function renderItem(state, time, parent) {
-  var dom_item = document.createElement('li');
+  var dom_item = document.createElement("li");
   dom_item.innerHTML = renderState(state, time);
   parent.appendChild(dom_item);
-};
+}
 
 // Store previous state so we can show deltas.  This is important
 // because the API currently doesn't fire idle messages, and we'd
@@ -36,12 +35,12 @@ var laststatetime = null;
  * Checks the current state of the browser.
  */
 function checkState() {
-  threshold = parseInt(document.querySelector('#idle-threshold').value);
-  var dom_threshold = document.querySelector('#idle-set-threshold');
+  threshold = parseInt(document.querySelector("#idle-threshold").value);
+  var dom_threshold = document.querySelector("#idle-set-threshold");
   dom_threshold.innerText = threshold;
 
   // Request the state based off of the user-supplied threshold.
-  chrome.idle.queryState(threshold, function(state) {
+  chrome.idle.queryState(threshold, function (state) {
     var time = new Date();
     if (laststate != state) {
       laststate = state;
@@ -49,14 +48,14 @@ function checkState() {
     }
 
     // Keep rendering results so we get a nice "seconds elapsed" view.
-    var dom_result = document.querySelector('#idle-state');
+    var dom_result = document.querySelector("#idle-state");
     dom_result.innerHTML = renderState(state, time);
-    var dom_laststate = document.querySelector('#idle-laststate');
+    var dom_laststate = document.querySelector("#idle-laststate");
     dom_laststate.innerHTML = renderState(laststate, laststatetime);
   });
-};
+}
 
-var dom_history = document.querySelector('#idle-history');
+var dom_history = document.querySelector("#idle-history");
 
 /**
  * Render the data gathered by the background page - should show a log
@@ -67,12 +66,11 @@ function renderHistory() {
   var history_log = chrome.extension.getBackgroundPage().history_log;
   for (var i = 0; i < history_log.length; i++) {
     var data = history_log[i];
-    renderItem(data['state'], data['time'], dom_history);
+    renderItem(data["state"], data["time"], dom_history);
   }
-};
+}
 
-
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
   // Check every second (even though this is overkill - minimum idle
   // threshold is 15 seconds) so that the numbers appear to be counting up.
   checkState();

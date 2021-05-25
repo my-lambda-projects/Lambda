@@ -6,13 +6,13 @@
     "scripts": ["background.js"],
     "persistent": false
   },
-  "omnibox": { "keyword" : "nt" },
+  "omnibox": { "keyword": "nt" },
   "manifest_version": 2,
   "browser_action": {
     "default_icon": {
       "16": "newtab_search16.png",
       "32": "newtab_search32.png"
-      }
+    }
   },
   "icons": {
     "16": "newtab_search16.png",

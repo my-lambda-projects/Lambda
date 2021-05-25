@@ -9,13 +9,13 @@
   "engines": {
     "node": "~0.6.9"
   },
-  "main" : "./lib/ohai.js",
+  "main": "./lib/ohai.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha"
   },
   "dependencies": {},
   "devDependencies": {
-    "mocha" : "0.10.2"
+    "mocha": "0.10.2"
   },
   "optionalDependencies": {}
 }

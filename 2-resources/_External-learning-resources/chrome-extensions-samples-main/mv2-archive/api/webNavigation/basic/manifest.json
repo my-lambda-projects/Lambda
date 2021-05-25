@@ -1,7 +1,7 @@
 {
-  "name":           "__MSG_extName__",
-  "version":        "0.2",
-  "description":    "__MSG_extDescription__",
+  "name": "__MSG_extName__",
+  "version": "0.2",
+  "description": "__MSG_extDescription__",
   "default_locale": "en",
   "background": {
     "persistent": false,
@@ -11,8 +11,6 @@
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
-  "permissions":    [
-    "webNavigation", "storage"
-  ],
+  "permissions": ["webNavigation", "storage"],
   "manifest_version": 2
 }

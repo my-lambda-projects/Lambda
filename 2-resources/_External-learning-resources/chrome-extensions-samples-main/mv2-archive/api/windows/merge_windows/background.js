@@ -17,7 +17,7 @@ function getWindows(win) {
 function getTabs(tabs) {
   tabCount = tabs.length;
   // We require all the tab information to be populated.
-  chrome.windows.getAll({"populate" : true}, moveTabs);
+  chrome.windows.getAll({ populate: true }, moveTabs);
 }
 
 function moveTabs(windows) {
@@ -33,8 +33,10 @@ function moveTabs(windows) {
       for (var j = 0; j < numTabs; j++) {
         var tab = win.tabs[j];
         // Move the tab into the window that triggered the browser action.
-        chrome.tabs.move(tab.id,
-            {"windowId": targetWindow.id, "index": tabPosition});
+        chrome.tabs.move(tab.id, {
+          windowId: targetWindow.id,
+          index: tabPosition,
+        });
         tabPosition++;
       }
     }

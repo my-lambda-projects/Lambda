@@ -23,19 +23,18 @@ var MAPS_DEBUG = false;
 function log(msg) {}
 
 // String literals defined globally and not to be inlined. (IE6 perf)
-/** @const */ var STRING_empty = '';
+/** @const */ var STRING_empty = "";
 
-/** @const */ var CSS_display = 'display';
-/** @const */ var CSS_position = 'position';
+/** @const */ var CSS_display = "display";
+/** @const */ var CSS_position = "position";
 
 // Constants for possible values of the typeof operator.
-var TYPE_boolean = 'boolean';
-var TYPE_number = 'number';
-var TYPE_object = 'object';
-var TYPE_string = 'string';
-var TYPE_function = 'function';
-var TYPE_undefined = 'undefined';
-
+var TYPE_boolean = "boolean";
+var TYPE_number = "number";
+var TYPE_object = "object";
+var TYPE_string = "string";
+var TYPE_function = "function";
+var TYPE_undefined = "undefined";
 
 /**
  * Wrapper for the eval() builtin function to evaluate expressions and
@@ -59,9 +58,9 @@ function jsEval(expr) {
     // function literals in IE.
     // e.g. eval("(function() {})") returns undefined, and not a function
     // object, in IE.
-    return eval('[' + expr + '][0]');
+    return eval("[" + expr + "][0]");
   } catch (e) {
-    log('EVAL FAILED ' + expr + ': ' + e);
+    log("EVAL FAILED " + expr + ": " + e);
     return null;
   }
 }
@@ -84,7 +83,6 @@ function copyProperties(to, from) {
   }
 }
 
-
 /**
  * @param {Object|null|undefined} value The possible value to use.
  * @param {Object} defaultValue The default if the value is not set.
@@ -93,7 +91,7 @@ function copyProperties(to, from) {
  */
 function getDefaultObject(value, defaultValue) {
   if (typeof value != TYPE_undefined && value != null) {
-    return /** @type Object */(value);
+    return /** @type Object */ (value);
   } else {
     return defaultValue;
   }
@@ -107,11 +105,12 @@ function getDefaultObject(value, defaultValue) {
  * @return {boolean} Is the object an array?
  */
 function isArray(value) {
-  return value != null &&
-      typeof value == TYPE_object &&
-      typeof value.length == TYPE_number;
+  return (
+    value != null &&
+    typeof value == TYPE_object &&
+    typeof value.length == TYPE_number
+  );
 }
-
 
 /**
  * Finds a slice of an array.
@@ -132,7 +131,6 @@ function arraySlice(array, start, opt_end) {
   return Function.prototype.call.apply(Array.prototype.slice, arguments);
 }
 
-
 /**
  * Jscompiler wrapper for parseInt() with base 10.
  *
@@ -143,7 +141,6 @@ function arraySlice(array, start, opt_end) {
 function parseInt10(s) {
   return parseInt(s, 10);
 }
-
 
 /**
  * Clears the array by setting the length property to 0. This usually
@@ -156,9 +153,8 @@ function arrayClear(array) {
   array.length = 0;
 }
 
-
 /**
- * Prebinds "this" within the given method to an object, but ignores all 
+ * Prebinds "this" within the given method to an object, but ignores all
  * arguments passed to the resulting function.
  * I.e. var_args are all the arguments that method is invoked with when
  * invoking the bound function.
@@ -170,9 +166,9 @@ function arrayClear(array) {
  */
 function bindFully(object, method, var_args) {
   var args = arraySlice(arguments, 2);
-  return function() {
+  return function () {
     return method.apply(object, args);
-  }
+  };
 }
 
 // Based on <http://www.w3.org/TR/2000/ REC-DOM-Level-2-Core-20001113/
@@ -189,8 +185,6 @@ var DOM_DOCUMENT_NODE = 9;
 var DOM_DOCUMENT_TYPE_NODE = 10;
 var DOM_DOCUMENT_FRAGMENT_NODE = 11;
 var DOM_NOTATION_NODE = 12;
-
-
 
 function domGetElementById(document, id) {
   return document.getElementById(id);
@@ -234,19 +228,19 @@ function DomTraverser(callback) {
  * Processes the dom tree in breadth-first order.
  * @param {Element} root  The root node of the traversal.
  */
-DomTraverser.prototype.run = function(root) {
+DomTraverser.prototype.run = function (root) {
   var me = this;
-  me.queue_ = [ root ];
+  me.queue_ = [root];
   while (jsLength(me.queue_)) {
     me.process_(me.queue_.shift());
   }
-}
+};
 
 /**
  * Processes a single node.
  * @param {Element} node  The current node of the traversal.
  */
-DomTraverser.prototype.process_ = function(node) {
+DomTraverser.prototype.process_ = function (node) {
   var me = this;
 
   me.callback_(node);
@@ -256,7 +250,7 @@ DomTraverser.prototype.process_ = function(node) {
       me.queue_.push(c);
     }
   }
-}
+};
 
 /**
  * Get an attribute from the DOM.  Simple redirect, exists to compress code.
@@ -273,7 +267,6 @@ function domGetAttribute(node, name) {
   // encounter DIV elements that don't implement the method
   // getAttributeNS().
 }
-
 
 /**
  * Set an attribute in the DOM.  Simple redirect to compress code.
@@ -315,7 +308,7 @@ function domCloneNode(node) {
  * @return {Element}  Cloned element.
  */
 function domCloneElement(element) {
-  return /** @type {Element} */(domCloneNode(element));
+  return /** @type {Element} */ (domCloneNode(element));
 }
 
 /**
@@ -331,7 +324,7 @@ function ownerDocument(node) {
   if (!node) {
     return document;
   } else if (node.nodeType == DOM_DOCUMENT_NODE) {
-    return /** @type Document */(node);
+    return /** @type Document */ (node);
   } else {
     return node.ownerDocument || document;
   }
@@ -365,7 +358,7 @@ function domAppendChild(node, child) {
  * @param {Element} node  The dom element to manipulate.
  */
 function displayDefault(node) {
-  node.style[CSS_display] = '';
+  node.style[CSS_display] = "";
 }
 
 /**
@@ -375,9 +368,8 @@ function displayDefault(node) {
  * @param {Element} node  The dom element to manipulate.
  */
 function displayNone(node) {
-  node.style[CSS_display] = 'none';
+  node.style[CSS_display] = "none";
 }
-
 
 /**
  * Sets position style attribute to absolute.
@@ -385,9 +377,8 @@ function displayNone(node) {
  * @param {Element} node  The dom element to manipulate.
  */
 function positionAbsolute(node) {
-  node.style[CSS_position] = 'absolute';
+  node.style[CSS_position] = "absolute";
 }
-
 
 /**
  * Inserts a new child before a given sibling.
@@ -432,7 +423,6 @@ function domRemoveChild(node, child) {
   return node.removeChild(child);
 }
 
-
 /**
  * Trim whitespace from begin and end of string.
  *
@@ -464,7 +454,7 @@ function stringTrimLeft(str) {
  *
  * @param {string} str  Input string.
  * @return {string}  Trimmed string.
-  */
+ */
 function stringTrimRight(str) {
   return str.replace(/\s+$/, "");
 }

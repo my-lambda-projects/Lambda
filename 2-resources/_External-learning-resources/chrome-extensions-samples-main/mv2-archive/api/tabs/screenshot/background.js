@@ -10,18 +10,16 @@
 var id = 100;
 
 // Listen for a click on the camera icon. On that click, take a screenshot.
-chrome.browserAction.onClicked.addListener(function() {
-
-  chrome.tabs.captureVisibleTab(function(screenshotUrl) {
-    var viewTabUrl = chrome.extension.getURL('screenshot.html?id=' + id++)
+chrome.browserAction.onClicked.addListener(function () {
+  chrome.tabs.captureVisibleTab(function (screenshotUrl) {
+    var viewTabUrl = chrome.extension.getURL("screenshot.html?id=" + id++);
     var targetId = null;
 
     chrome.tabs.onUpdated.addListener(function listener(tabId, changedProps) {
       // We are waiting for the tab we opened to finish loading.
       // Check that the tab's id matches the tab we opened,
       // and that the tab is done loading.
-      if (tabId != targetId || changedProps.status != "complete")
-        return;
+      if (tabId != targetId || changedProps.status != "complete") return;
 
       // Passing the above test means this is the event we were waiting for.
       // There is nothing we need to do for future onUpdated events, so we
@@ -42,7 +40,7 @@ chrome.browserAction.onClicked.addListener(function() {
       }
     });
 
-    chrome.tabs.create({url: viewTabUrl}, function(tab) {
+    chrome.tabs.create({ url: viewTabUrl }, function (tab) {
       targetId = tab.id;
     });
   });

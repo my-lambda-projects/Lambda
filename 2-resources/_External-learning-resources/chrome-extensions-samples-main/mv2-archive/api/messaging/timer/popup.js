@@ -10,13 +10,13 @@ function setChildTextNode(elementId, text) {
 function testMessage() {
   setChildTextNode("resultsRequest", "running...");
 
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     var timer = new chrome.Interval();
     timer.start();
     var tab = tabs[0];
-    chrome.tabs.sendMessage(tab.id, {counter: 1}, function handler(response) {
+    chrome.tabs.sendMessage(tab.id, { counter: 1 }, function handler(response) {
       if (response.counter < 1000) {
-        chrome.tabs.sendMessage(tab.id, {counter: response.counter}, handler);
+        chrome.tabs.sendMessage(tab.id, { counter: response.counter }, handler);
       } else {
         timer.stop();
         var usec = Math.round(timer.microseconds() / response.counter);
@@ -30,15 +30,15 @@ function testMessage() {
 function testConnect() {
   setChildTextNode("resultsConnect", "running...");
 
-  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     var timer = new chrome.Interval();
     timer.start();
 
     var port = chrome.tabs.connect(tabs[0].id);
-    port.postMessage({counter: 1});
+    port.postMessage({ counter: 1 });
     port.onMessage.addListener(function getResp(response) {
       if (response.counter < 1000) {
-        port.postMessage({counter: response.counter});
+        port.postMessage({ counter: response.counter });
       } else {
         timer.stop();
         var usec = Math.round(timer.microseconds() / response.counter);
@@ -48,16 +48,20 @@ function testConnect() {
   });
 }
 
-(function(){
+(function () {
   if (!chrome.benchmarking) {
-    alert("Warning:  Looks like you forgot to run chrome with " +
-          " --enable-benchmarking set.");
+    alert(
+      "Warning:  Looks like you forgot to run chrome with " +
+        " --enable-benchmarking set."
+    );
     return;
   }
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('#testMessage').addEventListener(
-        'click', testMessage);
-    document.querySelector('#testConnect').addEventListener(
-        'click', testConnect);
+  document.addEventListener("DOMContentLoaded", function () {
+    document
+      .querySelector("#testMessage")
+      .addEventListener("click", testMessage);
+    document
+      .querySelector("#testConnect")
+      .addEventListener("click", testConnect);
   });
 })();

@@ -9,9 +9,9 @@ function $(id) {
 // Returns the largest size icon, or a default icon, for the given |app|.
 function getIconURL(app) {
   if (!app.icons || app.icons.length == 0) {
-    return chrome.extension.getURL('icon.png');
+    return chrome.extension.getURL("icon.png");
   }
-  var largest = {size:0};
+  var largest = { size: 0 };
   for (var i = 0; i < app.icons.length; i++) {
     var icon = app.icons[i];
     if (icon.size > largest.size) {
@@ -28,19 +28,19 @@ function launchApp(id) {
 
 // Adds DOM nodes for |app| into |appsDiv|.
 function addApp(appsDiv, app, selected) {
-  var div = document.createElement('div');
-  div.className = 'app' + (selected ? ' app_selected' : '');
+  var div = document.createElement("div");
+  div.className = "app" + (selected ? " app_selected" : "");
 
-  div.onclick = function() {
+  div.onclick = function () {
     launchApp(app.id);
   };
 
-  var img = document.createElement('img');
+  var img = document.createElement("img");
   img.src = getIconURL(app);
   div.appendChild(img);
 
-  var title = document.createElement('span');
-  title.className = 'app_title';
+  var title = document.createElement("span");
+  title.className = "app_title";
   title.innerText = app.name;
   div.appendChild(title);
 
@@ -57,10 +57,10 @@ var appList = [];
 var selectedIndex = 0;
 
 function reloadAppDisplay() {
-  var appsDiv = $('apps');
+  var appsDiv = $("apps");
 
   // Empty the current content.
-  appsDiv.innerHTML = '';
+  appsDiv.innerHTML = "";
 
   for (var i = 0; i < appList.length; i++) {
     var item = appList[i];
@@ -72,7 +72,7 @@ function reloadAppDisplay() {
 function rebuildAppList(filter) {
   selectedIndex = 0;
   appList = [];
-  for (var i = 0; i < completeList.length; i++){
+  for (var i = 0; i < completeList.length; i++) {
     var item = completeList[i];
     // Skip extensions and disabled apps.
     if (!item.isApp || !item.enabled) {
@@ -92,24 +92,24 @@ var didSetExplicitWidth = false;
 function adjustWidthIfNeeded(filter) {
   if (filter.length > 0 && !didSetExplicitWidth) {
     // Set an explicit width, correcting for any scroll bar present.
-    var outer = $('outer');
+    var outer = $("outer");
     var correction = window.innerWidth - document.documentElement.clientWidth;
     var width = outer.offsetWidth;
-    $('spacer_dummy').style.width = width + correction + 'px';
+    $("spacer_dummy").style.width = width + correction + "px";
     didSetExplicitWidth = true;
   }
 }
 
 // Shows the list of apps based on the search box contents.
 function onSearchInput() {
-  var filter = $('search').value;
+  var filter = $("search").value;
   adjustWidthIfNeeded(filter);
   rebuildAppList(filter);
   reloadAppDisplay();
 }
 
 function compare(a, b) {
-  return (a > b) ? 1 : (a == b ? 0 : -1);
+  return a > b ? 1 : a == b ? 0 : -1;
 }
 
 function compareByName(app1, app2) {
@@ -122,13 +122,13 @@ function changeSelection(newIndex) {
     selectedIndex = newIndex;
     reloadAppDisplay();
 
-    var selected = document.getElementsByClassName('app_selected')[0];
+    var selected = document.getElementsByClassName("app_selected")[0];
     var rect = selected.getBoundingClientRect();
     if (newIndex == 0) {
       window.scrollTo(0, 0);
     } else if (newIndex == appList.length - 1) {
       window.scrollTo(0, document.height);
-    }  else if (rect.top < 0) {
+    } else if (rect.top < 0) {
       window.scrollBy(0, rect.top);
     } else if (rect.bottom > innerHeight) {
       window.scrollBy(0, rect.bottom - innerHeight);
@@ -137,20 +137,20 @@ function changeSelection(newIndex) {
 }
 
 var keys = {
-  ENTER : 13,
-  ESCAPE : 27,
-  END : 35,
-  HOME : 36,
-  LEFT : 37,
-  UP : 38,
-  RIGHT : 39,
-  DOWN : 40
+  ENTER: 13,
+  ESCAPE: 27,
+  END: 35,
+  HOME: 36,
+  LEFT: 37,
+  UP: 38,
+  RIGHT: 39,
+  DOWN: 40,
 };
 
 // Set up a key event handler that handles moving the selected app up/down,
 // hitting enter to launch the selected app, as well as auto-focusing the
 // search box as soon as you start typing.
-window.onkeydown = function(event) {
+window.onkeydown = function (event) {
   switch (event.keyCode) {
     case keys.DOWN:
       changeSelection(selectedIndex + 1);
@@ -173,16 +173,15 @@ window.onkeydown = function(event) {
     default:
       // Focus the search box and return true so you can just start typing even
       // when the search box isn't focused.
-      $('search').focus();
+      $("search").focus();
       return true;
   }
   return false;
 };
 
-
 // Initalize the popup window.
-document.addEventListener('DOMContentLoaded', function () {
-  chrome.management.getAll(function(info) {
+document.addEventListener("DOMContentLoaded", function () {
+  chrome.management.getAll(function (info) {
     var appCount = 0;
     for (var i = 0; i < info.length; i++) {
       if (info[i].isApp) {
@@ -190,24 +189,24 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
     if (appCount == 0) {
-      $('search').style.display = 'none';
-      $('appstore_link').style.display = '';
+      $("search").style.display = "none";
+      $("appstore_link").style.display = "";
       return;
     }
     completeList = info.sort(compareByName);
     onSearchInput();
   });
 
-  $('search').addEventListener('input', onSearchInput);
+  $("search").addEventListener("input", onSearchInput);
 
   // Opens the webstore in a new tab.
-  document.querySelector('#appstore_link button').addEventListener('click',
-      function () {
-        chrome.tabs.create({
-          'url':'https://chrome.google.com/webstore',
-          'selected':true
-        });
-        window.close();
+  document
+    .querySelector("#appstore_link button")
+    .addEventListener("click", function () {
+      chrome.tabs.create({
+        url: "https://chrome.google.com/webstore",
+        selected: true,
       });
+      window.close();
+    });
 });
-

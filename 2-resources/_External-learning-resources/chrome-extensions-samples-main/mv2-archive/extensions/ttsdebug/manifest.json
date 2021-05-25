@@ -1,7 +1,7 @@
 {
   "app": {
     "launch": {
-       "local_path": "ttsdebug.html"
+      "local_path": "ttsdebug.html"
     }
   },
   "description": "Tool for developers of Chrome TTS engine extensions to help them test their engines are implementing the API correctly.",
@@ -12,7 +12,7 @@
   },
   "minimum_chrome_version": "14",
   "name": "TTS Debug",
-  "permissions": [ "tts" ],
+  "permissions": ["tts"],
   "version": "1.0",
   "manifest_version": 2
 }

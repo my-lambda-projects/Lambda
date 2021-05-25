@@ -7,7 +7,7 @@
  * around the Chrome contentSettings extension API.
  */
 
-cr.define('pluginSettings', function() {
+cr.define("pluginSettings", function () {
   /** @const */ var EventTarget = cr.EventTarget;
 
   /**
@@ -38,9 +38,11 @@ cr.define('pluginSettings', function() {
      *     recreated, or on error.
      * @private
      */
-    recreateRules_: function(callback) {
+    recreateRules_: function (callback) {
       chrome.contentSettings.plugins.clear(
-          {}, this.didClearRules_.bind(this, callback));
+        {},
+        this.didClearRules_.bind(this, callback)
+      );
     },
 
     /**
@@ -49,35 +51,35 @@ cr.define('pluginSettings', function() {
      *     recreated, or on error.
      * @private
      */
-    didClearRules_: function(callback) {
+    didClearRules_: function (callback) {
       if (chrome.runtime.lastError) {
-        console.error('Error clearing rules');
+        console.error("Error clearing rules");
         callback();
         return;
       }
       var length = window.localStorage.length;
       if (length == 0) {
-        cr.dispatchSimpleEvent(settings, 'change');
+        cr.dispatchSimpleEvent(settings, "change");
         callback();
         return;
       }
       var counter = {
-        'value': length
+        value: length,
       };
       for (var i = 0; i < length; i++) {
         var key = window.localStorage.key(i);
         var keyArray = JSON.parse(key);
         var plugin = keyArray[0];
         var pattern = keyArray[1];
-        var setting = window.localStorage.getItem(key)
+        var setting = window.localStorage.getItem(key);
         chrome.contentSettings.plugins.set(
-            {
-              'primaryPattern': pattern,
-              'resourceIdentifier': {'id': plugin},
-              'setting': setting,
-            },
-            this.didSetContentSetting_.bind(
-                this, key, setting, counter, callback));
+          {
+            primaryPattern: pattern,
+            resourceIdentifier: { id: plugin },
+            setting: setting,
+          },
+          this.didSetContentSetting_.bind(this, key, setting, counter, callback)
+        );
       }
     },
 
@@ -93,16 +95,21 @@ cr.define('pluginSettings', function() {
      *     recreated, or on error.
      * @private
      */
-    didSetContentSetting_: function(plugin, pattern, key, counter, callback) {
+    didSetContentSetting_: function (plugin, pattern, key, counter, callback) {
       if (chrome.runtime.lastError) {
         console.error(
-            'Error restoring [' + key + ': ' + value + ']: ' +
-                chrome.runtime.lastError.message);
+          "Error restoring [" +
+            key +
+            ": " +
+            value +
+            "]: " +
+            chrome.runtime.lastError.message
+        );
         window.localStorage.removeItem(key);
       }
       counter.value--;
       if (counter.value == 0) {
-        cr.dispatchSimpleEvent(this, 'change');
+        cr.dispatchSimpleEvent(this, "change");
         callback();
       }
     },
@@ -115,23 +122,28 @@ cr.define('pluginSettings', function() {
      * @param {function(?string)} callback Called when the content settings
      *     have been updated, or on error.
      */
-    set: function(pattern, setting, callback) {
+    set: function (pattern, setting, callback) {
       var plugin = this.plugin_;
       var settings = this;
-      chrome.contentSettings.plugins.set({
-        'primaryPattern': pattern,
-        'resourceIdentifier': { 'id': plugin },
-        'setting': setting,
-      }, function() {
-        if (chrome.runtime.lastError) {
-          callback(chrome.runtime.lastError.message);
-        } else {
-          window.localStorage.setItem(JSON.stringify([plugin, pattern]),
-                                      setting);
-          cr.dispatchSimpleEvent(settings, 'change');
-          callback();
+      chrome.contentSettings.plugins.set(
+        {
+          primaryPattern: pattern,
+          resourceIdentifier: { id: plugin },
+          setting: setting,
+        },
+        function () {
+          if (chrome.runtime.lastError) {
+            callback(chrome.runtime.lastError.message);
+          } else {
+            window.localStorage.setItem(
+              JSON.stringify([plugin, pattern]),
+              setting
+            );
+            cr.dispatchSimpleEvent(settings, "change");
+            callback();
+          }
         }
-      });
+      );
     },
 
     /**
@@ -141,9 +153,8 @@ cr.define('pluginSettings', function() {
      * @param {function()} callback Called when the content settings have
      * been updated.
      */
-    clear: function(pattern, callback) {
-      window.localStorage.removeItem(
-          JSON.stringify([this.plugin_, pattern]));
+    clear: function (pattern, callback) {
+      window.localStorage.removeItem(JSON.stringify([this.plugin_, pattern]));
       this.recreateRules_(callback);
     },
 
@@ -156,7 +167,7 @@ cr.define('pluginSettings', function() {
      * @param {function(?string)} callback Called when the content settings
      *     have been updated, or on error.
      */
-    update: function(oldPattern, newPattern, setting, callback) {
+    update: function (oldPattern, newPattern, setting, callback) {
       if (oldPattern == newPattern) {
         // Avoid recreating all rules if only the setting changed.
         this.set(newPattern, setting, callback);
@@ -165,15 +176,22 @@ cr.define('pluginSettings', function() {
       var oldSetting = this.get(oldPattern);
       var settings = this;
       // Remove the old rule.
-      this.clear(oldPattern, function() {
+      this.clear(oldPattern, function () {
         // Try to set the new rule.
-        settings.set(newPattern, setting, function(error) {
+        settings.set(newPattern, setting, function (error) {
           if (error) {
             // If setting the new rule failed, restore the old rule.
-            settings.set(oldPattern, oldSetting, function(restoreError) {
+            settings.set(oldPattern, oldSetting, function (restoreError) {
               if (restoreError) {
-                console.error('Error restoring [' + settings.plugin_ + ', ' +
-                              oldPattern + oldSetting + ']: ' + restoreError);
+                console.error(
+                  "Error restoring [" +
+                    settings.plugin_ +
+                    ", " +
+                    oldPattern +
+                    oldSetting +
+                    "]: " +
+                    restoreError
+                );
               }
               callback(error);
             });
@@ -189,31 +207,32 @@ cr.define('pluginSettings', function() {
      * @param {string} pattern The content setting pattern for the rule.
      * @return {string} The setting for the rule.
      */
-    get: function(primaryPattern) {
+    get: function (primaryPattern) {
       return window.localStorage.getItem(
-          JSON.stringify([this.plugin_, primaryPattern]));
+        JSON.stringify([this.plugin_, primaryPattern])
+      );
     },
 
     /**
      * @return {!Array} A list of all content setting rules for this plugin.
      */
-    getAll: function() {
+    getAll: function () {
       var rules = [];
       for (var i = 0; i < window.localStorage.length; i++) {
         var key = window.localStorage.key(i);
         var keyArray = JSON.parse(key);
         if (keyArray[0] == this.plugin_) {
           rules.push({
-            'primaryPattern': keyArray[1],
-            'setting': window.localStorage.getItem(key),
+            primaryPattern: keyArray[1],
+            setting: window.localStorage.getItem(key),
           });
         }
       }
       return rules;
-    }
+    },
   };
 
   return {
     Settings: Settings,
-  }
+  };
 });

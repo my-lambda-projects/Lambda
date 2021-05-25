@@ -1,4 +1,4 @@
-function notDefined(){
+function notDefined() {
   console.trace();
   try {
     someFunction();

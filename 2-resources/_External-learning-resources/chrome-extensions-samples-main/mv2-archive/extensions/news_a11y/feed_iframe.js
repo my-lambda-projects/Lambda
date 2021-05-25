@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 function reportHeight() {
-  var msg = JSON.stringify({type:"size", size:document.body.offsetHeight});
+  var msg = JSON.stringify({ type: "size", size: document.body.offsetHeight });
   parent.postMessage(msg, "*");
 }
 
@@ -20,7 +20,7 @@ function frameLoaded() {
 
 function showStory(event) {
   var href = event.currentTarget.href;
-  parent.postMessage(JSON.stringify({type:"show", url:href}), "*");
+  parent.postMessage(JSON.stringify({ type: "show", url: href }), "*");
   event.preventDefault();
 }
 
@@ -28,4 +28,4 @@ function messageHandler(event) {
   reportHeight();
 }
 
-document.addEventListener('DOMContentLoaded', frameLoaded);
+document.addEventListener("DOMContentLoaded", frameLoaded);

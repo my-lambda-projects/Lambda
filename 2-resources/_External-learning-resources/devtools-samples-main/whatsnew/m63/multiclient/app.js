@@ -12,11 +12,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License. */
 
-document.querySelector('button').addEventListener('click', () => {
+document.querySelector("button").addEventListener("click", () => {
   let sum = 1 + 2;
   console.log(sum);
-  let name = 'Hank Venture';
+  let name = "Hank Venture";
   console.log(name);
-  let message = 'I am the bat.';
+  let message = "I am the bat.";
   console.log(message);
 });

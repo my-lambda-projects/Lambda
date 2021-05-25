@@ -13,14 +13,14 @@ chrome.contentSettings = chrome.contentSettings || {};
 
 var _rules = {};
 chrome.contentSettings.plugins = {
-  'set': function(details, callback) {
-    assertObjectEquals({'id': 'myplugin'}, details.resourceIdentifier);
+  set: function (details, callback) {
+    assertObjectEquals({ id: "myplugin" }, details.resourceIdentifier);
     var pattern = details.primaryPattern;
     var setting = details.setting;
-    if (pattern == '__invalid_pattern') {
-      chrome.runtime.lastError = {'message': 'Invalid pattern'};
-    } else if (setting == '__invalid_setting') {
-      throw Error('Invalid setting');
+    if (pattern == "__invalid_pattern") {
+      chrome.runtime.lastError = { message: "Invalid pattern" };
+    } else if (setting == "__invalid_setting") {
+      throw Error("Invalid setting");
     } else {
       chrome.runtime.lastError = undefined;
       _rules[pattern] = setting;
@@ -28,24 +28,24 @@ chrome.contentSettings.plugins = {
     callback();
   },
 
-  'clear': function(details, callback) {
+  clear: function (details, callback) {
     assertObjectEquals({}, details);
     _rules = {};
     callback();
-  }
+  },
 };
 
 chrome.i18n = chrome.i18n || {};
-chrome.i18n.getMessage = function(id) {
+chrome.i18n.getMessage = function (id) {
   var messages = {
-    'patternColumnHeader': 'Hostname Pattern',
-    'settingColumnHeader': 'Behavior',
-    'allowRule': 'Allow',
-    'blockRule': 'Block',
-    'addNewPattern': 'Add a new hostname pattern',
+    patternColumnHeader: "Hostname Pattern",
+    settingColumnHeader: "Behavior",
+    allowRule: "Allow",
+    blockRule: "Block",
+    addNewPattern: "Add a new hostname pattern",
   };
   return messages[id];
-}
+};
 
 /**
  * Creates a new Settings object with a set of rules for a dummy plugin.
@@ -57,12 +57,11 @@ chrome.i18n.getMessage = function(id) {
  *     passed in set of rules.
  */
 function createSettings(rules) {
-  var settings = new pluginSettings.Settings('myplugin');
+  var settings = new pluginSettings.Settings("myplugin");
   if (rules) {
     for (var pattern in rules) {
-      settings.set(pattern, rules[pattern], function() {});
+      settings.set(pattern, rules[pattern], function () {});
     }
   }
   return settings;
 }
-

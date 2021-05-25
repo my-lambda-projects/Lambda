@@ -2,27 +2,27 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-'use strict';
+"use strict";
 // Add a listener to create the initial context menu items,
 // context menu items only need to be created at runtime.onInstalled
-chrome.runtime.onInstalled.addListener(function() {
+chrome.runtime.onInstalled.addListener(function () {
   for (let key of Object.keys(kLocales)) {
     chrome.contextMenus.create({
       id: key,
       title: kLocales[key],
-      type: 'normal',
-      contexts: ['selection'],
+      type: "normal",
+      contexts: ["selection"],
     });
   }
 });
 
-chrome.contextMenus.onClicked.addListener(function(item, tab) {
+chrome.contextMenus.onClicked.addListener(function (item, tab) {
   let url =
-    'https://google.' + item.menuItemId + '/search?q=' + item.selectionText;
-  chrome.tabs.create({url: url, index: tab.index + 1});
+    "https://google." + item.menuItemId + "/search?q=" + item.selectionText;
+  chrome.tabs.create({ url: url, index: tab.index + 1 });
 });
 
-chrome.storage.onChanged.addListener(function(list, sync) {
+chrome.storage.onChanged.addListener(function (list, sync) {
   let newlyDisabled = [];
   let newlyEnabled = [];
   let currentRemoved = list.removedContextMenu.newValue;
@@ -33,7 +33,7 @@ chrome.storage.onChanged.addListener(function(list, sync) {
     } else if (oldRemoved.includes(key) && !currentRemoved.includes(key)) {
       newlyEnabled.push({
         id: key,
-        title: kLocales[key]
+        title: kLocales[key],
       });
     }
   }
@@ -41,8 +41,8 @@ chrome.storage.onChanged.addListener(function(list, sync) {
     chrome.contextMenus.create({
       id: locale.id,
       title: locale.title,
-      type: 'normal',
-      contexts: ['selection'],
+      type: "normal",
+      contexts: ["selection"],
     });
   }
   for (let locale of newlyDisabled) {

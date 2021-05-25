@@ -1,7 +1,7 @@
 {
   "app": {
     "launch": {
-       "local_path": "ttsdemo.html"
+      "local_path": "ttsdemo.html"
     }
   },
   "description": "Demo Chrome's synthesized text-to-speech capabilities.",
@@ -12,7 +12,7 @@
   },
   "minimum_chrome_version": "14",
   "name": "TTS Demo",
-  "permissions": [ "tts" ],
+  "permissions": ["tts"],
   "version": "2.1",
 
   "manifest_version": 2

@@ -1,9 +1,8 @@
-
 // 3D code partially grabbed from http://dev.opera.com/articles/view/porting-3d-graphics-to-the-web-webgl-intro-part-2/
 
 // Cribbed from three.js's class of the same name and updated to use pointer
 // lock.
-OrbitControls = function(object, domElement) {
+OrbitControls = function (object, domElement) {
   THREE.EventTarget.call(this);
   this.object = object;
   this.domElement = domElement;
@@ -41,14 +40,14 @@ OrbitControls = function(object, domElement) {
 
   var lastPosition = new THREE.Vector3();
 
-  var STATE = { NONE : -1, ROTATE : 0, ZOOM : 1 };
+  var STATE = { NONE: -1, ROTATE: 0, ZOOM: 1 };
   var state = STATE.NONE;
 
   // events
 
-  var changeEvent = { type: 'change' };
+  var changeEvent = { type: "change" };
 
-  this.rotateLeft = function(angle) {
+  this.rotateLeft = function (angle) {
     if (angle === undefined) {
       angle = getAutoRotationAngle();
     }
@@ -56,7 +55,7 @@ OrbitControls = function(object, domElement) {
     thetaDelta -= angle;
   };
 
-  this.rotateRight = function(angle) {
+  this.rotateRight = function (angle) {
     if (angle === undefined) {
       angle = getAutoRotationAngle();
     }
@@ -64,7 +63,7 @@ OrbitControls = function(object, domElement) {
     thetaDelta += angle;
   };
 
-  this.rotateUp = function(angle) {
+  this.rotateUp = function (angle) {
     if (angle === undefined) {
       angle = getAutoRotationAngle();
     }
@@ -72,7 +71,7 @@ OrbitControls = function(object, domElement) {
     phiDelta -= angle;
   };
 
-  this.rotateDown = function(angle) {
+  this.rotateDown = function (angle) {
     if (angle === undefined) {
       angle = getAutoRotationAngle();
     }
@@ -80,7 +79,7 @@ OrbitControls = function(object, domElement) {
     phiDelta += angle;
   };
 
-  this.zoomIn = function(zoomScale) {
+  this.zoomIn = function (zoomScale) {
     if (zoomScale === undefined) {
       zoomScale = getZoomScale();
     }
@@ -88,7 +87,7 @@ OrbitControls = function(object, domElement) {
     scale /= zoomScale;
   };
 
-  this.zoomOut = function(zoomScale) {
+  this.zoomOut = function (zoomScale) {
     if (zoomScale === undefined) {
       zoomScale = getZoomScale();
     }
@@ -96,9 +95,9 @@ OrbitControls = function(object, domElement) {
     scale *= zoomScale;
   };
 
-  this.update = function() {
+  this.update = function () {
     var position = this.object.position;
-    var offset = position.clone().subSelf(this.center)
+    var offset = position.clone().subSelf(this.center);
 
     // angle from z-axis around y-axis
 
@@ -106,7 +105,10 @@ OrbitControls = function(object, domElement) {
 
     // angle from y-axis
 
-    var phi = Math.atan2(Math.sqrt(offset.x * offset.x + offset.z * offset.z), offset.y);
+    var phi = Math.atan2(
+      Math.sqrt(offset.x * offset.x + offset.z * offset.z),
+      offset.y
+    );
 
     if (this.autoRotate) {
       this.rotateLeft(getAutoRotationAngle());
@@ -139,9 +141,8 @@ OrbitControls = function(object, domElement) {
     }
   };
 
-
   function getAutoRotationAngle() {
-    return 2 * Math.PI / 60 / 60 * scope.autoRotateSpeed;
+    return ((2 * Math.PI) / 60 / 60) * scope.autoRotateSpeed;
   }
 
   function getZoomScale() {
@@ -169,8 +170,8 @@ OrbitControls = function(object, domElement) {
       scope.domElement.webkitRequestPointerLock;
     scope.domElement.requestPointerLock();
 
-    document.addEventListener('mousemove', onMouseMove, false);
-    document.addEventListener('mouseup', onMouseUp, false);
+    document.addEventListener("mousemove", onMouseMove, false);
+    document.addEventListener("mouseup", onMouseUp, false);
   }
 
   function onMouseMove(event) {
@@ -179,18 +180,24 @@ OrbitControls = function(object, domElement) {
     if (state === STATE.ROTATE) {
       rotateEnd.addSelf({
         x: event.movementX || event.webkitMovementX || 0,
-        y: event.movementY || event.webkitMovementY || 0
+        y: event.movementY || event.webkitMovementY || 0,
       });
       rotateDelta.sub(rotateEnd, rotateStart);
 
-      scope.rotateLeft(2 * Math.PI * rotateDelta.x / PIXELS_PER_ROUND * scope.userRotateSpeed);
-      scope.rotateUp(2 * Math.PI * rotateDelta.y / PIXELS_PER_ROUND * scope.userRotateSpeed);
+      scope.rotateLeft(
+        ((2 * Math.PI * rotateDelta.x) / PIXELS_PER_ROUND) *
+          scope.userRotateSpeed
+      );
+      scope.rotateUp(
+        ((2 * Math.PI * rotateDelta.y) / PIXELS_PER_ROUND) *
+          scope.userRotateSpeed
+      );
 
       rotateStart.copy(rotateEnd);
     } else if (state === STATE.ZOOM) {
       zoomEnd.addSelf({
         x: event.movementX || event.webkitMovementX || 0,
-        y: event.movementY || event.webkitMovementY || 0
+        y: event.movementY || event.webkitMovementY || 0,
       });
       zoomDelta.sub(zoomEnd, zoomStart);
 
@@ -207,8 +214,8 @@ OrbitControls = function(object, domElement) {
   function onMouseUp(event) {
     if (!scope.userRotate) return;
 
-    document.removeEventListener('mousemove', onMouseMove, false);
-    document.removeEventListener('mouseup', onMouseUp, false);
+    document.removeEventListener("mousemove", onMouseMove, false);
+    document.removeEventListener("mouseup", onMouseUp, false);
 
     state = STATE.NONE;
 
@@ -229,130 +236,142 @@ OrbitControls = function(object, domElement) {
     }
   }
 
-  this.domElement.addEventListener('contextmenu', function(event) { event.preventDefault(); }, false);
-  this.domElement.addEventListener('mousedown', onMouseDown, false);
-  this.domElement.addEventListener('mousewheel', onMouseWheel, false);
+  this.domElement.addEventListener(
+    "contextmenu",
+    function (event) {
+      event.preventDefault();
+    },
+    false
+  );
+  this.domElement.addEventListener("mousedown", onMouseDown, false);
+  this.domElement.addEventListener("mousewheel", onMouseWheel, false);
 };
 
-document.addEventListener('DOMContentLoaded', function() {
-    if (!Detector.webgl) Detector.addGetWebGLMessage();
+document.addEventListener("DOMContentLoaded", function () {
+  if (!Detector.webgl) Detector.addGetWebGLMessage();
 
-    var SCREEN_WIDTH = window.innerWidth;
-    var SCREEN_HEIGHT = window.innerHeight;
-    var FLOOR = 0;
+  var SCREEN_WIDTH = window.innerWidth;
+  var SCREEN_HEIGHT = window.innerHeight;
+  var FLOOR = 0;
 
-    var container;
+  var container;
 
-    //var camera, scene, controls;
-    var webglRenderer;
+  //var camera, scene, controls;
+  var webglRenderer;
 
-    var zmesh, geometry;
+  var zmesh, geometry;
 
-    var mouseX = 0, mouseY = 0;
+  var mouseX = 0,
+    mouseY = 0;
 
-    var windowHalfX = window.innerWidth / 2;
-    var windowHalfY = window.innerHeight / 2;
+  var windowHalfX = window.innerWidth / 2;
+  var windowHalfY = window.innerHeight / 2;
 
-    init();
-    animate();
+  init();
+  animate();
 
-    function init() {
-
-      var closeEl=document.querySelector(".close");
-      console.log(closeEl);
-      if (closeEl) {
-        closeEl.addEventListener('click', function() {
-          window.close();
-        });
-        closeEl.addEventListener('mousedown', function(e) {
-          e.stopPropagation();
-        });
-      };
-
-      container = document.createElement('div');
-      document.body.appendChild(container);
-
-      // camera
-      camera = new THREE.PerspectiveCamera(75, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 100000);
-      camera.position.z = 75;
-
-      //scene
-      scene = new THREE.Scene();
-
-      // lights
-      var ambient = new THREE.AmbientLight(0xffffff);
-      scene.add(ambient);
-
-      // more lights
-      var directionalLight = new THREE.DirectionalLight(0xffeedd);
-      directionalLight.position.set(0, -70, 100).normalize();
-      scene.add(directionalLight);
-
-      // renderer
-      webglRenderer = new THREE.WebGLRenderer();
-      webglRenderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-      webglRenderer.domElement.style.position = "relative";
-      container.appendChild(webglRenderer.domElement);
-
-      // load ascii model
-      var jsonLoader = new THREE.JSONLoader();
-      jsonLoader.load("obj/html5rocks.js", function(geometry) { createScene(geometry) });
-
-      controls = new OrbitControls(camera, container);
-      controls.autoRotate = true;
+  function init() {
+    var closeEl = document.querySelector(".close");
+    console.log(closeEl);
+    if (closeEl) {
+      closeEl.addEventListener("click", function () {
+        window.close();
+      });
+      closeEl.addEventListener("mousedown", function (e) {
+        e.stopPropagation();
+      });
     }
 
-    function createScene(geometry) {
-      zmesh = new THREE.Mesh(geometry, new THREE.MeshFaceMaterial());
-      zmesh.position.set(-10, -10, 0);
-      zmesh.scale.set(1, 1, 1);
-      scene.add(zmesh);
+    container = document.createElement("div");
+    document.body.appendChild(container);
+
+    // camera
+    camera = new THREE.PerspectiveCamera(
+      75,
+      SCREEN_WIDTH / SCREEN_HEIGHT,
+      1,
+      100000
+    );
+    camera.position.z = 75;
+
+    //scene
+    scene = new THREE.Scene();
+
+    // lights
+    var ambient = new THREE.AmbientLight(0xffffff);
+    scene.add(ambient);
+
+    // more lights
+    var directionalLight = new THREE.DirectionalLight(0xffeedd);
+    directionalLight.position.set(0, -70, 100).normalize();
+    scene.add(directionalLight);
+
+    // renderer
+    webglRenderer = new THREE.WebGLRenderer();
+    webglRenderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+    webglRenderer.domElement.style.position = "relative";
+    container.appendChild(webglRenderer.domElement);
+
+    // load ascii model
+    var jsonLoader = new THREE.JSONLoader();
+    jsonLoader.load("obj/html5rocks.js", function (geometry) {
+      createScene(geometry);
+    });
+
+    controls = new OrbitControls(camera, container);
+    controls.autoRotate = true;
+  }
+
+  function createScene(geometry) {
+    zmesh = new THREE.Mesh(geometry, new THREE.MeshFaceMaterial());
+    zmesh.position.set(-10, -10, 0);
+    zmesh.scale.set(1, 1, 1);
+    scene.add(zmesh);
+  }
+
+  function onDocumentMouseDown(event) {
+    if (event.button !== 0) return;
+    document.body.requestPointerLock =
+      document.body.requestPointerLock ||
+      document.body.mozRequestPointerLock ||
+      document.body.webkitRequestPointerLock;
+    document.body.requestPointerLock();
+  }
+
+  function onDocumentMouseUp(event) {
+    document.exitPointerLock =
+      document.exitPointerLock ||
+      document.mozExitPointerLock ||
+      document.webkitExitPointerLock;
+    document.exitPointerLock();
+  }
+
+  function onDocumentMouseWheel(event) {
+    camera.position.z -= (event.wheelDelta / 120) * 3;
+  }
+
+  function onDocumentMouseMove(event) {
+    if (!event.which) return;
+    document.pointerLockElement =
+      document.pointerLockElement ||
+      document.mozPointerLockElement ||
+      document.webkitPointerLockElement;
+    if (document.pointerLockElement) {
+      mouseX +=
+        event.movementX || event.mozMovementX || event.webkitMovementX || 0;
+      mouseY +=
+        event.movementY || event.mozMovementY || event.webkitMovementY || 0;
     }
+  }
 
-    function onDocumentMouseDown(event) {
-      if (event.button !== 0)
-        return;
-      document.body.requestPointerLock =
-        document.body.requestPointerLock ||
-        document.body.mozRequestPointerLock ||
-        document.body.webkitRequestPointerLock;
-      document.body.requestPointerLock();
-    }
+  function animate() {
+    requestAnimationFrame(animate);
+    render();
+  }
 
-    function onDocumentMouseUp(event) {
-      document.exitPointerLock =
-        document.exitPointerLock ||
-        document.mozExitPointerLock ||
-        document.webkitExitPointerLock;
-      document.exitPointerLock();
-    }
+  function render() {
+    controls.update();
 
-    function onDocumentMouseWheel(event) {
-      camera.position.z -= event.wheelDelta/120*3;
-    }
-
-    function onDocumentMouseMove(event) {
-      if (!event.which) return;
-      document.pointerLockElement =
-        document.pointerLockElement ||
-        document.mozPointerLockElement ||
-        document.webkitPointerLockElement;
-      if (document.pointerLockElement) {
-        mouseX += event.movementX || event.mozMovementX || event.webkitMovementX || 0;
-        mouseY += event.movementY || event.mozMovementY || event.webkitMovementY || 0;
-      }
-    }
-
-    function animate() {
-      requestAnimationFrame(animate);
-      render();
-    }
-
-    function render() {
-      controls.update();
-
-      webglRenderer.render(scene, camera);
-    }
-
+    webglRenderer.render(scene, camera);
+  }
 });
-

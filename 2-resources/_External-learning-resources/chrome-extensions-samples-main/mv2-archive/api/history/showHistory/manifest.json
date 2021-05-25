@@ -2,9 +2,7 @@
   "name": "Typed URL History",
   "version": "1.2",
   "description": "Reads your history, and shows the top ten pages you go to by typing the URL.",
-  "permissions": [
-    "history"
-  ],
+  "permissions": ["history"],
   "browser_action": {
     "default_popup": "typedUrls.html",
     "default_icon": "clock.png"

@@ -49,19 +49,26 @@ function NavigationCollector() {
   // in handling in order to build up a complete picture of the whole
   // navigation event.
   chrome.webNavigation.onCreatedNavigationTarget.addListener(
-      this.onCreatedNavigationTargetListener_.bind(this));
+    this.onCreatedNavigationTargetListener_.bind(this)
+  );
   chrome.webNavigation.onBeforeNavigate.addListener(
-      this.onBeforeNavigateListener_.bind(this));
+    this.onBeforeNavigateListener_.bind(this)
+  );
   chrome.webNavigation.onCompleted.addListener(
-      this.onCompletedListener_.bind(this));
+    this.onCompletedListener_.bind(this)
+  );
   chrome.webNavigation.onCommitted.addListener(
-      this.onCommittedListener_.bind(this));
+    this.onCommittedListener_.bind(this)
+  );
   chrome.webNavigation.onErrorOccurred.addListener(
-      this.onErrorOccurredListener_.bind(this));
+    this.onErrorOccurredListener_.bind(this)
+  );
   chrome.webNavigation.onReferenceFragmentUpdated.addListener(
-      this.onReferenceFragmentUpdatedListener_.bind(this));
+    this.onReferenceFragmentUpdatedListener_.bind(this)
+  );
   chrome.webNavigation.onHistoryStateUpdated.addListener(
-      this.onHistoryStateUpdatedListener_.bind(this));
+    this.onHistoryStateUpdatedListener_.bind(this)
+  );
 
   // Bind handler to extension messages for communication from popup.
   chrome.runtime.onMessage.addListener(this.onMessageListener_.bind(this));
@@ -80,17 +87,17 @@ function NavigationCollector() {
  * @enum {string}
  */
 NavigationCollector.NavigationType = {
-  AUTO_BOOKMARK: 'auto_bookmark',
-  AUTO_SUBFRAME: 'auto_subframe',
-  FORM_SUBMIT: 'form_submit',
-  GENERATED: 'generated',
-  KEYWORD: 'keyword',
-  KEYWORD_GENERATED: 'keyword_generated',
-  LINK: 'link',
-  MANUAL_SUBFRAME: 'manual_subframe',
-  RELOAD: 'reload',
-  START_PAGE: 'start_page',
-  TYPED: 'typed'
+  AUTO_BOOKMARK: "auto_bookmark",
+  AUTO_SUBFRAME: "auto_subframe",
+  FORM_SUBMIT: "form_submit",
+  GENERATED: "generated",
+  KEYWORD: "keyword",
+  KEYWORD_GENERATED: "keyword_generated",
+  LINK: "link",
+  MANUAL_SUBFRAME: "manual_subframe",
+  RELOAD: "reload",
+  START_PAGE: "start_page",
+  TYPED: "typed",
 };
 
 /**
@@ -107,9 +114,9 @@ NavigationCollector.NavigationType = {
  * @enum {string}
  */
 NavigationCollector.NavigationQualifier = {
-  CLIENT_REDIRECT: 'client_redirect',
-  FORWARD_BACK: 'forward_back',
-  SERVER_REDIRECT: 'server_redirect'
+  CLIENT_REDIRECT: "client_redirect",
+  FORWARD_BACK: "forward_back",
+  SERVER_REDIRECT: "server_redirect",
 };
 
 /**
@@ -133,10 +140,9 @@ NavigationCollector.prototype = {
    *     that these will be unique across a single navigation event.
    * @private
    */
-  parseId_: function(data) {
-    return data.tabId + '-' + (data.frameId ? data.frameId : 0);
+  parseId_: function (data) {
+    return data.tabId + "-" + (data.frameId ? data.frameId : 0);
   },
-
 
   /**
    * Creates an empty entry in the pending array if one doesn't already exist,
@@ -146,53 +152,53 @@ NavigationCollector.prototype = {
    * @param {!string} id The request's ID, as produced by parseId_.
    * @param {!string} url The request's URL.
    */
-  prepareDataStorage_: function(id, url) {
+  prepareDataStorage_: function (id, url) {
     this.pending_[id] = this.pending_[id] || {
       openedInNewTab: false,
       source: {
         frameId: null,
-        tabId: null
+        tabId: null,
       },
       start: null,
       transitionQualifiers: [],
-      transitionType: null
+      transitionType: null,
     };
     this.completed_[url] = this.completed_[url] || [];
     this.errored_[url] = this.errored_[url] || [];
   },
 
-
   /**
    * Retrieves our saved data from storage.
    * @private
    */
-  loadDataStorage_: function() {
-    chrome.storage.local.get({
-      "completed": {},
-      "errored": {},
-    }, function(storage) {
-      this.completed_ = storage.completed;
-      this.errored_ = storage.errored;
-    }.bind(this));
+  loadDataStorage_: function () {
+    chrome.storage.local.get(
+      {
+        completed: {},
+        errored: {},
+      },
+      function (storage) {
+        this.completed_ = storage.completed;
+        this.errored_ = storage.errored;
+      }.bind(this)
+    );
   },
-
 
   /**
    * Persists our state to the storage API.
    * @private
    */
-  saveDataStorage_: function() {
+  saveDataStorage_: function () {
     chrome.storage.local.set({
-      "completed": this.completed_,
-      "errored": this.errored_,
+      completed: this.completed_,
+      errored: this.errored_,
     });
   },
-
 
   /**
    * Resets our saved state to empty.
    */
-  resetDataStorage: function() {
+  resetDataStorage: function () {
     this.completed_ = {};
     this.errored_ = {};
     this.saveDataStorage_();
@@ -200,7 +206,6 @@ NavigationCollector.prototype = {
     // one will reload the newly-cleared data.
     this.loadDataStorage_();
   },
-
 
   /**
    * Handler for the 'onCreatedNavigationTarget' event. Updates the
@@ -213,17 +218,16 @@ NavigationCollector.prototype = {
    * @param {!Object} data The event data generated for this request.
    * @private
    */
-  onCreatedNavigationTargetListener_: function(data) {
+  onCreatedNavigationTargetListener_: function (data) {
     var id = this.parseId_(data);
     this.prepareDataStorage_(id, data.url);
     this.pending_[id].openedInNewTab = data.tabId;
     this.pending_[id].source = {
       tabId: data.sourceTabId,
-      frameId: data.sourceFrameId
+      frameId: data.sourceFrameId,
     };
     this.pending_[id].start = data.timeStamp;
   },
-
 
   /**
    * Handler for the 'onBeforeNavigate' event. Pushes the request onto the
@@ -232,12 +236,11 @@ NavigationCollector.prototype = {
    * @param {!Object} data The event data generated for this request.
    * @private
    */
-  onBeforeNavigateListener_: function(data) {
+  onBeforeNavigateListener_: function (data) {
     var id = this.parseId_(data);
     this.prepareDataStorage_(id, data.url);
     this.pending_[id].start = this.pending_[id].start || data.timeStamp;
   },
-
 
   /**
    * Handler for the 'onCommitted' event. Updates the pending request with
@@ -249,21 +252,20 @@ NavigationCollector.prototype = {
    * @param {!Object} data The event data generated for this request.
    * @private
    */
-  onCommittedListener_: function(data) {
+  onCommittedListener_: function (data) {
     var id = this.parseId_(data);
     if (!this.pending_[id]) {
       console.warn(
-          chrome.i18n.getMessage('errorCommittedWithoutPending'),
-          data.url,
-          data);
+        chrome.i18n.getMessage("errorCommittedWithoutPending"),
+        data.url,
+        data
+      );
     } else {
       this.prepareDataStorage_(id, data.url);
       this.pending_[id].transitionType = data.transitionType;
-      this.pending_[id].transitionQualifiers =
-          data.transitionQualifiers;
+      this.pending_[id].transitionQualifiers = data.transitionQualifiers;
     }
   },
-
 
   /**
    * Handler for the 'onReferenceFragmentUpdated' event. Updates the pending
@@ -275,7 +277,7 @@ NavigationCollector.prototype = {
    * @param {!Object} data The event data generated for this request.
    * @private
    */
-  onReferenceFragmentUpdatedListener_: function(data) {
+  onReferenceFragmentUpdatedListener_: function (data) {
     var id = this.parseId_(data);
     if (!this.pending_[id]) {
       this.completed_[data.url] = this.completed_[data.url] || [];
@@ -284,21 +286,19 @@ NavigationCollector.prototype = {
         openedInNewWindow: false,
         source: {
           frameId: null,
-          tabId: null
+          tabId: null,
         },
         transitionQualifiers: data.transitionQualifiers,
         transitionType: data.transitionType,
-        url: data.url
+        url: data.url,
       });
       this.saveDataStorage_();
     } else {
       this.prepareDataStorage_(id, data.url);
       this.pending_[id].transitionType = data.transitionType;
-      this.pending_[id].transitionQualifiers =
-          data.transitionQualifiers;
+      this.pending_[id].transitionQualifiers = data.transitionQualifiers;
     }
   },
-
 
   /**
    * Handler for the 'onHistoryStateUpdated' event. Updates the pending
@@ -310,7 +310,7 @@ NavigationCollector.prototype = {
    * @param {!Object} data The event data generated for this request.
    * @private
    */
-  onHistoryStateUpdatedListener_: function(data) {
+  onHistoryStateUpdatedListener_: function (data) {
     var id = this.parseId_(data);
     if (!this.pending_[id]) {
       this.completed_[data.url] = this.completed_[data.url] || [];
@@ -319,21 +319,19 @@ NavigationCollector.prototype = {
         openedInNewWindow: false,
         source: {
           frameId: null,
-          tabId: null
+          tabId: null,
         },
         transitionQualifiers: data.transitionQualifiers,
         transitionType: data.transitionType,
-        url: data.url
+        url: data.url,
       });
       this.saveDataStorage_();
     } else {
       this.prepareDataStorage_(id, data.url);
       this.pending_[id].transitionType = data.transitionType;
-      this.pending_[id].transitionQualifiers =
-          data.transitionQualifiers;
+      this.pending_[id].transitionQualifiers = data.transitionQualifiers;
     }
   },
-
 
   /**
    * Handler for the 'onCompleted` event. Pulls the request's data from the
@@ -343,27 +341,27 @@ NavigationCollector.prototype = {
    * @param {!Object} data The event data generated for this request.
    * @private
    */
-  onCompletedListener_: function(data) {
+  onCompletedListener_: function (data) {
     var id = this.parseId_(data);
     if (!this.pending_[id]) {
       console.warn(
-          chrome.i18n.getMessage('errorCompletedWithoutPending'),
-          data.url,
-          data);
+        chrome.i18n.getMessage("errorCompletedWithoutPending"),
+        data.url,
+        data
+      );
     } else {
       this.completed_[data.url].push({
-        duration: (data.timeStamp - this.pending_[id].start),
+        duration: data.timeStamp - this.pending_[id].start,
         openedInNewWindow: this.pending_[id].openedInNewWindow,
         source: this.pending_[id].source,
         transitionQualifiers: this.pending_[id].transitionQualifiers,
         transitionType: this.pending_[id].transitionType,
-        url: data.url
+        url: data.url,
       });
       delete this.pending_[id];
       this.saveDataStorage_();
     }
   },
-
 
   /**
    * Handler for the 'onErrorOccurred` event. Pulls the request's data from the
@@ -373,22 +371,23 @@ NavigationCollector.prototype = {
    * @param {!Object} data The event data generated for this request.
    * @private
    */
-  onErrorOccurredListener_: function(data) {
+  onErrorOccurredListener_: function (data) {
     var id = this.parseId_(data);
     if (!this.pending_[id]) {
       console.error(
-          chrome.i18n.getMessage('errorErrorOccurredWithoutPending'),
-          data.url,
-          data);
+        chrome.i18n.getMessage("errorErrorOccurredWithoutPending"),
+        data.url,
+        data
+      );
     } else {
       this.prepareDataStorage_(id, data.url);
       this.errored_[data.url].push({
-        duration: (data.timeStamp - this.pending_[id].start),
+        duration: data.timeStamp - this.pending_[id].start,
         openedInNewWindow: this.pending_[id].openedInNewWindow,
         source: this.pending_[id].source,
         transitionQualifiers: this.pending_[id].transitionQualifiers,
         transitionType: this.pending_[id].transitionType,
-        url: data.url
+        url: data.url,
       });
       delete this.pending_[id];
       this.saveDataStorage_();
@@ -404,14 +403,13 @@ NavigationCollector.prototype = {
    * @param {!function} sendResponse Function to call to send a response.
    * @private
    */
-  onMessageListener_: function(message, sender, sendResponse) {
-    if (message.type === 'getMostRequestedUrls')
-      sendResponse({result: this.getMostRequestedUrls(message.num)});
-    else
-      sendResponse({});
+  onMessageListener_: function (message, sender, sendResponse) {
+    if (message.type === "getMostRequestedUrls")
+      sendResponse({ result: this.getMostRequestedUrls(message.num) });
+    else sendResponse({});
   },
 
-///////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////
 
   /**
    * @return {Object<string, NavigationCollector.Request>} The complete list of
@@ -421,7 +419,6 @@ NavigationCollector.prototype = {
     return this.completed_;
   },
 
-
   /**
    * @return {Object<string, Navigationcollector.Request>} The complete list of
    *     unsuccessful navigation requests.
@@ -429,7 +426,6 @@ NavigationCollector.prototype = {
   get errored() {
     return this.errored_;
   },
-
 
   /**
    * Get a list of the X most requested URLs.
@@ -440,10 +436,9 @@ NavigationCollector.prototype = {
    * @return {Object<string, NavigationCollector.Request>} The list of
    *     successful navigation requests, sorted in decending order of frequency.
    */
-  getMostRequestedUrls: function(num) {
+  getMostRequestedUrls: function (num) {
     return this.getMostFrequentUrls_(this.completed, num);
   },
-
 
   /**
    * Get a list of the X most errored URLs.
@@ -455,10 +450,9 @@ NavigationCollector.prototype = {
    *     unsuccessful navigation requests, sorted in decending order
    *     of frequency.
    */
-  getMostErroredUrls: function(num) {
+  getMostErroredUrls: function (num) {
     return this.getMostErroredUrls_(this.errored, num);
   },
-
 
   /**
    * Get a list of the most frequent URLs in a list.
@@ -471,14 +465,14 @@ NavigationCollector.prototype = {
    *     navigation requests, sorted in decending order of frequency.
    * @private
    */
-  getMostFrequentUrls_: function(list, num) {
+  getMostFrequentUrls_: function (list, num) {
     var result = [];
     var avg;
     // Convert the 'completed_' object to an array.
     for (var x in list) {
       avg = 0;
       if (list.hasOwnProperty(x) && list[x].length) {
-        list[x].forEach(function(o) {
+        list[x].forEach(function (o) {
           avg += o.duration;
         });
         avg = avg / list[x].length;
@@ -486,15 +480,15 @@ NavigationCollector.prototype = {
           url: x,
           numRequests: list[x].length,
           requestList: list[x],
-          average: avg
+          average: avg,
         });
       }
     }
     // Sort the array.
-    result.sort(function(a, b) {
+    result.sort(function (a, b) {
       return b.numRequests - a.numRequests;
     });
     // Return the requested number of results.
     return num ? result.slice(0, num) : result;
-  }
+  },
 };

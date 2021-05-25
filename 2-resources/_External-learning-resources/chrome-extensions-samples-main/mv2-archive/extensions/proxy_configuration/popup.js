@@ -9,6 +9,6 @@
  * @author Mike West <mkwst@google.com>
  */
 
-document.addEventListener('DOMContentLoaded', function () {
-  var c = new ProxyFormController( 'proxyForm' );
+document.addEventListener("DOMContentLoaded", function () {
+  var c = new ProxyFormController("proxyForm");
 });

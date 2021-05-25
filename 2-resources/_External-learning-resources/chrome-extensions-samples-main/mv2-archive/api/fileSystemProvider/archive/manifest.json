@@ -5,7 +5,7 @@
   "description": "Demonstrate File System Provider API usage for apps.",
   "permissions": [
     "fileSystemProvider",
-    {"fileSystem": ["retainEntries"]},
+    { "fileSystem": ["retainEntries"] },
     "storage"
   ],
   "file_handlers": {
@@ -20,9 +20,7 @@
   },
   "app": {
     "background": {
-      "scripts": [
-        "background.js"
-      ]
+      "scripts": ["background.js"]
     }
   }
 }

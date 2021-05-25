@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-cr.define('options', function() {
+cr.define("options", function () {
   const DeletableItem = options.DeletableItem;
   const DeletableItemList = options.DeletableItemList;
 
@@ -12,7 +12,7 @@ cr.define('options', function() {
    * @extends {options.DeletableListItem}
    */
   function InlineEditableItem() {
-    var el = cr.doc.createElement('div');
+    var el = cr.doc.createElement("div");
     InlineEditableItem.decorate(el);
     return el;
   }
@@ -22,7 +22,7 @@ cr.define('options', function() {
    * a subclass of DeletableItem.
    * @param {!HTMLElement} el The element to decorate.
    */
-  InlineEditableItem.decorate = function(el) {
+  InlineEditableItem.decorate = function (el) {
     el.__proto__ = InlineEditableItem.prototype;
     el.decorate();
   };
@@ -68,17 +68,17 @@ cr.define('options', function() {
     editClickTarget_: null,
 
     /** @inheritDoc */
-    decorate: function() {
+    decorate: function () {
       DeletableItem.prototype.decorate.call(this);
 
       this.editFields_ = [];
-      this.addEventListener('mousedown', this.handleMouseDown_);
-      this.addEventListener('keydown', this.handleKeyDown_);
-      this.addEventListener('leadChange', this.handleLeadChange_);
+      this.addEventListener("mousedown", this.handleMouseDown_);
+      this.addEventListener("keydown", this.handleKeyDown_);
+      this.addEventListener("leadChange", this.handleLeadChange_);
     },
 
     /** @inheritDoc */
-    selectionChanged: function() {
+    selectionChanged: function () {
       this.updateEditState();
     },
 
@@ -87,16 +87,15 @@ cr.define('options', function() {
      * mode accordingly.
      * @private
      */
-    handleLeadChange_: function() {
+    handleLeadChange_: function () {
       this.updateEditState();
     },
 
     /**
      * Updates the edit state based on the current selected and lead states.
      */
-    updateEditState: function() {
-      if (this.editable)
-        this.editing = this.selected && this.lead;
+    updateEditState: function () {
+      if (this.editable) this.editing = this.selected && this.lead;
     },
 
     /**
@@ -104,21 +103,18 @@ cr.define('options', function() {
      * @type {boolean}
      */
     get editing() {
-      return this.hasAttribute('editing');
+      return this.hasAttribute("editing");
     },
     set editing(editing) {
-      if (this.editing == editing)
-        return;
+      if (this.editing == editing) return;
 
-      if (editing)
-        this.setAttribute('editing', '');
-      else
-        this.removeAttribute('editing');
+      if (editing) this.setAttribute("editing", "");
+      else this.removeAttribute("editing");
 
       if (editing) {
         this.editCancelled_ = false;
 
-        cr.dispatchSimpleEvent(this, 'edit', true);
+        cr.dispatchSimpleEvent(this, "edit", true);
 
         var focusElement = this.editClickTarget_ || this.initialFocusElement;
         this.editClickTarget_ = null;
@@ -128,7 +124,7 @@ cr.define('options', function() {
         // our focus grab.
         var self = this;
         if (focusElement) {
-          window.setTimeout(function() {
+          window.setTimeout(function () {
             // Make sure we are still in edit mode by the time we execute.
             if (self.editing) {
               focusElement.focus();
@@ -137,16 +133,18 @@ cr.define('options', function() {
           }, 50);
         }
       } else {
-        if (!this.editCancelled_ && this.hasBeenEdited &&
-            this.currentInputIsValid) {
-          if (this.isPlaceholder)
-            this.parentNode.focusPlaceholder = true;
+        if (
+          !this.editCancelled_ &&
+          this.hasBeenEdited &&
+          this.currentInputIsValid
+        ) {
+          if (this.isPlaceholder) this.parentNode.focusPlaceholder = true;
 
           this.updateStaticValues_();
-          cr.dispatchSimpleEvent(this, 'commitedit', true);
+          cr.dispatchSimpleEvent(this, "commitedit", true);
         } else {
           this.resetEditableValues_();
-          cr.dispatchSimpleEvent(this, 'canceledit', true);
+          cr.dispatchSimpleEvent(this, "canceledit", true);
         }
       }
     },
@@ -160,8 +158,7 @@ cr.define('options', function() {
     },
     set editable(editable) {
       this.editable_ = editable;
-      if (!editable)
-        this.editing = false;
+      if (!editable) this.editing = false;
     },
 
     /**
@@ -173,8 +170,7 @@ cr.define('options', function() {
     },
     set isPlaceholder(isPlaceholder) {
       this.isPlaceholder_ = isPlaceholder;
-      if (isPlaceholder)
-        this.deletable = false;
+      if (isPlaceholder) this.deletable = false;
     },
 
     /**
@@ -185,7 +181,7 @@ cr.define('options', function() {
      * @type {HTMLElement}
      */
     get initialFocusElement() {
-      return this.contentElement.querySelector('input');
+      return this.contentElement.querySelector("input");
     },
 
     /**
@@ -216,38 +212,37 @@ cr.define('options', function() {
      * @return {HTMLElement} The HTML element for the cell.
      * @private
      */
-    createEditableTextCell: function(text) {
-      var container = this.ownerDocument.createElement('div');
+    createEditableTextCell: function (text) {
+      var container = this.ownerDocument.createElement("div");
 
       if (!this.isPlaceholder) {
-        var textEl = this.ownerDocument.createElement('div');
-        textEl.className = 'static-text';
+        var textEl = this.ownerDocument.createElement("div");
+        textEl.className = "static-text";
         textEl.textContent = text;
-        textEl.setAttribute('displaymode', 'static');
+        textEl.setAttribute("displaymode", "static");
         container.appendChild(textEl);
       }
 
-      var inputEl = this.ownerDocument.createElement('input');
-      inputEl.type = 'text';
+      var inputEl = this.ownerDocument.createElement("input");
+      inputEl.type = "text";
       inputEl.value = text;
       if (!this.isPlaceholder) {
-        inputEl.setAttribute('displaymode', 'edit');
+        inputEl.setAttribute("displaymode", "edit");
         inputEl.staticVersion = textEl;
       } else {
         // At this point |this| is not attached to the parent list yet, so give
         // a short timeout in order for the attachment to occur.
         var self = this;
-        window.setTimeout(function() {
+        window.setTimeout(function () {
           var list = self.parentNode;
           if (list && list.focusPlaceholder) {
             list.focusPlaceholder = false;
-            if (list.shouldFocusPlaceholder())
-              inputEl.focus();
+            if (list.shouldFocusPlaceholder()) inputEl.focus();
           }
         }, 50);
       }
 
-      inputEl.addEventListener('focus', this.handleFocus_.bind(this));
+      inputEl.addEventListener("focus", this.handleFocus_.bind(this));
       container.appendChild(inputEl);
       this.editFields_.push(inputEl);
 
@@ -259,20 +254,20 @@ cr.define('options', function() {
      * to match the static text.
      * @private
      */
-    resetEditableValues_: function() {
+    resetEditableValues_: function () {
       var editFields = this.editFields_;
       for (var i = 0; i < editFields.length; i++) {
         var staticLabel = editFields[i].staticVersion;
-        if (!staticLabel && !this.isPlaceholder)
-          continue;
+        if (!staticLabel && !this.isPlaceholder) continue;
 
-        if (editFields[i].tagName == 'INPUT') {
-          editFields[i].value =
-            this.isPlaceholder ? '' : staticLabel.textContent;
+        if (editFields[i].tagName == "INPUT") {
+          editFields[i].value = this.isPlaceholder
+            ? ""
+            : staticLabel.textContent;
         }
         // Add more tag types here as new createEditable* methods are added.
 
-        editFields[i].setCustomValidity('');
+        editFields[i].setCustomValidity("");
       }
     },
 
@@ -282,14 +277,13 @@ cr.define('options', function() {
      * that there's no flicker of the old value before the model updates.
      * @private
      */
-    updateStaticValues_: function() {
+    updateStaticValues_: function () {
       var editFields = this.editFields_;
       for (var i = 0; i < editFields.length; i++) {
         var staticLabel = editFields[i].staticVersion;
-        if (!staticLabel)
-          continue;
+        if (!staticLabel) continue;
 
-        if (editFields[i].tagName == 'INPUT')
+        if (editFields[i].tagName == "INPUT")
           staticLabel.textContent = editFields[i].value;
         // Add more tag types here as new createEditable* methods are added.
       }
@@ -300,19 +294,17 @@ cr.define('options', function() {
      * @param {Event} e The key down event.
      * @private
      */
-    handleKeyDown_: function(e) {
-      if (!this.editing)
-        return;
+    handleKeyDown_: function (e) {
+      if (!this.editing) return;
 
       var endEdit = false;
       switch (e.key) {
-        case 'Escape':
+        case "Escape":
           this.editCancelled_ = true;
           endEdit = true;
           break;
-        case 'Enter':
-          if (this.currentInputIsValid)
-            endEdit = true;
+        case "Enter":
+          if (this.currentInputIsValid) endEdit = true;
           break;
       }
 
@@ -331,15 +323,16 @@ cr.define('options', function() {
      * @param {Event} e The mouse down event.
      * @private
      */
-    handleMouseDown_: function(e) {
-      if (!this.editable || this.editing)
-        return;
+    handleMouseDown_: function (e) {
+      if (!this.editable || this.editing) return;
 
       var clickTarget = e.target;
       var editFields = this.editFields_;
       for (var i = 0; i < editFields.length; i++) {
-        if (editFields[i] == clickTarget ||
-            editFields[i].staticVersion == clickTarget) {
+        if (
+          editFields[i] == clickTarget ||
+          editFields[i].staticVersion == clickTarget
+        ) {
           this.editClickTarget_ = editFields[i];
           return;
         }
@@ -352,17 +345,17 @@ cr.define('options', function() {
    * window loses focus.
    */
   function handleWindowBlurs() {
-    window.addEventListener('blur', function(e) {
-      var itemAncestor = findAncestor(document.activeElement, function(node) {
+    window.addEventListener("blur", function (e) {
+      var itemAncestor = findAncestor(document.activeElement, function (node) {
         return node instanceof InlineEditableItem;
       });
       if (itemAncestor);
-        document.activeElement.blur();
+      document.activeElement.blur();
     });
   }
   handleWindowBlurs();
 
-  var InlineEditableItemList = cr.ui.define('list');
+  var InlineEditableItemList = cr.ui.define("list");
 
   InlineEditableItemList.prototype = {
     __proto__: DeletableItemList.prototype,
@@ -374,11 +367,13 @@ cr.define('options', function() {
     focusPlaceholder: false,
 
     /** @inheritDoc */
-    decorate: function() {
+    decorate: function () {
       DeletableItemList.prototype.decorate.call(this);
-      this.setAttribute('inlineeditable', '');
-      this.addEventListener('hasElementFocusChange',
-                            this.handleListFocusChange_);
+      this.setAttribute("inlineeditable", "");
+      this.addEventListener(
+        "hasElementFocusChange",
+        this.handleListFocusChange_
+      );
     },
 
     /**
@@ -387,13 +382,11 @@ cr.define('options', function() {
      * @param {Event} e The change event.
      * @private
      */
-    handleListFocusChange_: function(e) {
+    handleListFocusChange_: function (e) {
       var leadItem = this.getListItemByIndex(this.selectionModel.leadIndex);
       if (leadItem) {
-        if (e.newValue)
-          leadItem.updateEditState();
-        else
-          leadItem.editing = false;
+        if (e.newValue) leadItem.updateEditState();
+        else leadItem.editing = false;
       }
     },
 
@@ -401,7 +394,7 @@ cr.define('options', function() {
      * May be overridden by subclasses to disable focusing the placeholder.
      * @return true if the placeholder element should be focused on edit commit.
      */
-    shouldFocusPlaceholder: function() {
+    shouldFocusPlaceholder: function () {
       return true;
     },
   };

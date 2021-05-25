@@ -6,7 +6,7 @@
  * @fileoverview Defines a list of content setting rules.
  */
 
-cr.define('pluginSettings.ui', function() {
+cr.define("pluginSettings.ui", function () {
   const InlineEditableItemList = options.InlineEditableItemList;
   const InlineEditableItem = options.InlineEditableItem;
   const ArrayDataModel = cr.ui.ArrayDataModel;
@@ -19,22 +19,22 @@ cr.define('pluginSettings.ui', function() {
     /**
      * A list of content setting rules.
      */
-    RULE_LIST: 'rule-list',
+    RULE_LIST: "rule-list",
 
     /**
      * The element containing the content setting pattern for a rule.
      */
-    RULE_PATTERN: 'rule-pattern',
+    RULE_PATTERN: "rule-pattern",
 
     /**
      * The element containing the behavior (allow or block) for a rule.
      */
-    RULE_BEHAVIOR: 'rule-behavior',
+    RULE_BEHAVIOR: "rule-behavior",
 
     /**
      * Static text (as opposed to an editable text field).
      */
-    STATIC_TEXT: 'static-text',
+    STATIC_TEXT: "static-text",
   };
   /**
    * A single item in a list of rules.
@@ -44,7 +44,7 @@ cr.define('pluginSettings.ui', function() {
    * @extends {options.InlineEditableItem}
    */
   function RuleListItem(list, rule) {
-    var el = cr.doc.createElement('li');
+    var el = cr.doc.createElement("li");
 
     /**
      * The content setting rule.
@@ -100,48 +100,49 @@ cr.define('pluginSettings.ui', function() {
     /**
      * Decorates an elements as a list item.
      */
-    decorate: function() {
+    decorate: function () {
       InlineEditableItem.prototype.decorate.call(this);
 
       this.isPlaceholder = !this.pattern;
       var patternCell = this.createEditableTextCell(this.pattern);
       patternCell.className = CSSClass.RULE_PATTERN;
       this.contentElement.appendChild(patternCell);
-      var input = patternCell.querySelector('input');
+      var input = patternCell.querySelector("input");
       if (this.pattern) {
-        this.patternLabel_ =
-            patternCell.querySelector('.' + CSSClass.STATIC_TEXT);
+        this.patternLabel_ = patternCell.querySelector(
+          "." + CSSClass.STATIC_TEXT
+        );
       } else {
-        input.placeholder = chrome.i18n.getMessage('addNewPattern');
+        input.placeholder = chrome.i18n.getMessage("addNewPattern");
       }
 
       // Setting label for display mode. |pattern| will be null for the 'add new
       // exception' row.
       if (this.pattern) {
-        var settingLabel = cr.doc.createElement('span');
+        var settingLabel = cr.doc.createElement("span");
         settingLabel.textContent = this.settingForDisplay();
         settingLabel.className = CSSClass.RULE_BEHAVIOR;
-        settingLabel.setAttribute('displaymode', 'static');
+        settingLabel.setAttribute("displaymode", "static");
         this.contentElement.appendChild(settingLabel);
         this.settingLabel_ = settingLabel;
       }
 
       // Setting select element for edit mode.
-      var select = cr.doc.createElement('select');
-      var optionAllow = cr.doc.createElement('option');
-      optionAllow.textContent = chrome.i18n.getMessage('allowRule');
-      optionAllow.value = 'allow';
+      var select = cr.doc.createElement("select");
+      var optionAllow = cr.doc.createElement("option");
+      optionAllow.textContent = chrome.i18n.getMessage("allowRule");
+      optionAllow.value = "allow";
       select.appendChild(optionAllow);
 
-      var optionBlock = cr.doc.createElement('option');
-      optionBlock.textContent = chrome.i18n.getMessage('blockRule');
-      optionBlock.value = 'block';
+      var optionBlock = cr.doc.createElement("option");
+      optionBlock.textContent = chrome.i18n.getMessage("blockRule");
+      optionBlock.value = "block";
       select.appendChild(optionBlock);
 
       this.contentElement.appendChild(select);
       select.className = CSSClass.RULE_BEHAVIOR;
       if (this.pattern) {
-        select.setAttribute('displaymode', 'edit');
+        select.setAttribute("displaymode", "edit");
       }
 
       this.input_ = input;
@@ -150,8 +151,8 @@ cr.define('pluginSettings.ui', function() {
       this.updateEditables();
 
       // Listen for edit events.
-      this.addEventListener('canceledit', this.onEditCancelled_);
-      this.addEventListener('commitedit', this.onEditCommitted_);
+      this.addEventListener("canceledit", this.onEditCancelled_);
+      this.addEventListener("commitedit", this.onEditCommitted_);
     },
 
     /**
@@ -159,10 +160,10 @@ cr.define('pluginSettings.ui', function() {
      * @type {string}
      */
     get pattern() {
-      return this.dataItem_['primaryPattern'];
+      return this.dataItem_["primaryPattern"];
     },
     set pattern(pattern) {
-      this.dataItem_['primaryPattern'] = pattern;
+      this.dataItem_["primaryPattern"] = pattern;
     },
 
     /**
@@ -170,23 +171,23 @@ cr.define('pluginSettings.ui', function() {
      * @type {string}
      */
     get setting() {
-      return this.dataItem_['setting'];
+      return this.dataItem_["setting"];
     },
     set setting(setting) {
-      this.dataItem_['setting'] = setting;
+      this.dataItem_["setting"] = setting;
     },
 
     /**
      * Gets a human-readable setting string.
      * @type {string}
      */
-    settingForDisplay: function() {
+    settingForDisplay: function () {
       var setting = this.setting;
-      if (setting == 'allow') {
-        return chrome.i18n.getMessage('allowRule');
+      if (setting == "allow") {
+        return chrome.i18n.getMessage("allowRule");
       }
-      if (setting == 'block') {
-        return chrome.i18n.getMessage('blockRule');
+      if (setting == "block") {
+        return chrome.i18n.getMessage("blockRule");
       }
     },
 
@@ -194,18 +195,19 @@ cr.define('pluginSettings.ui', function() {
      * Set the <input> to its original contents. Used when the user quits
      * editing.
      */
-    resetInput: function() {
+    resetInput: function () {
       this.input_.value = this.pattern;
     },
 
     /**
      * Copy the data model values to the editable nodes.
      */
-    updateEditables: function() {
+    updateEditables: function () {
       this.resetInput();
 
-      var settingOption =
-          this.select_.querySelector('[value=\'' + this.setting + '\']');
+      var settingOption = this.select_.querySelector(
+        "[value='" + this.setting + "']"
+      );
       if (settingOption) {
         settingOption.selected = true;
       }
@@ -223,7 +225,7 @@ cr.define('pluginSettings.ui', function() {
      * @param {!Event} e The end event.
      * @private
      */
-    onEditCommitted_: function(e) {
+    onEditCommitted_: function (e) {
       var newPattern = this.input_.value;
       var newSetting = this.select_.value;
 
@@ -235,7 +237,7 @@ cr.define('pluginSettings.ui', function() {
      * @param {!Event} e The cancel event.
      * @private
      */
-    onEditCancelled_: function() {
+    onEditCancelled_: function () {
       this.updateEditables();
     },
 
@@ -244,16 +246,20 @@ cr.define('pluginSettings.ui', function() {
      * @param {string} newPattern The pattern that the user entered.
      * @param {string} newSetting The setting the user chose.
      */
-    finishEdit: function(newPattern, newSetting) {
+    finishEdit: function (newPattern, newSetting) {
       this.patternLabel_.textContent = newPattern;
       this.settingLabel_.textContent = this.settingForDisplay();
       var oldPattern = this.pattern;
       this.pattern = newPattern;
       this.setting = newSetting;
 
-      this.list_.settings.update(oldPattern, newPattern, newSetting,
-                                 this.list_.settingsChangedCallback());
-    }
+      this.list_.settings.update(
+        oldPattern,
+        newPattern,
+        newSetting,
+        this.list_.settingsChangedCallback()
+      );
+    },
   };
 
   /**
@@ -263,7 +269,7 @@ cr.define('pluginSettings.ui', function() {
    * @extends {AddRuleListItem}
    */
   function AddRuleListItem(list) {
-    var el = cr.doc.createElement('div');
+    var el = cr.doc.createElement("div");
     el.dataItem_ = {};
     el.list_ = list;
     el.__proto__ = AddRuleListItem.prototype;
@@ -278,22 +284,22 @@ cr.define('pluginSettings.ui', function() {
     /**
      * Initializes the element.
      */
-    decorate: function() {
+    decorate: function () {
       RuleListItem.prototype.decorate.call(this);
 
-      this.setting = 'allow';
+      this.setting = "allow";
     },
 
     /**
      * Clear the <input> and let the placeholder text show again.
      */
-    resetInput: function() {
-      this.input_.value = '';
+    resetInput: function () {
+      this.input_.value = "";
     },
 
     /** @inheritDoc */
     get hasBeenEdited() {
-      return this.input_.value != '';
+      return this.input_.value != "";
     },
 
     /**
@@ -302,10 +308,13 @@ cr.define('pluginSettings.ui', function() {
      * @param {string} newPattern The pattern that the user entered.
      * @param {string} newSetting The setting the user chose.
      */
-    finishEdit: function(newPattern, newSetting) {
+    finishEdit: function (newPattern, newSetting) {
       this.resetInput();
-      this.list_.settings.set(newPattern, newSetting,
-                              this.list_.settingsChangedCallback());
+      this.list_.settings.set(
+        newPattern,
+        newSetting,
+        this.list_.settingsChangedCallback()
+      );
     },
   };
 
@@ -314,7 +323,7 @@ cr.define('pluginSettings.ui', function() {
    * @constructor
    * @extends {cr.ui.List}
    */
-  var RuleList = cr.ui.define('list');
+  var RuleList = cr.ui.define("list");
 
   RuleList.prototype = {
     __proto__: InlineEditableItemList.prototype,
@@ -328,7 +337,7 @@ cr.define('pluginSettings.ui', function() {
     /**
      * Called when an element is decorated as a list.
      */
-    decorate: function() {
+    decorate: function () {
       InlineEditableItemList.prototype.decorate.call(this);
 
       this.classList.add(CSSClass.RULE_LIST);
@@ -341,7 +350,7 @@ cr.define('pluginSettings.ui', function() {
      * Creates an item to go in the list.
      * @param {?Object} entry The element from the data model for this row.
      */
-    createItem: function(entry) {
+    createItem: function (entry) {
       if (entry) {
         return new RuleListItem(this, entry);
       } else {
@@ -356,7 +365,7 @@ cr.define('pluginSettings.ui', function() {
      * @param {!Array} entries A list of dictionaries of values, each dictionary
      *     represents a rule.
      */
-    setRules_: function(entries) {
+    setRules_: function (entries) {
       var deleteCount = this.dataModel.length - 1;
 
       var args = [0, deleteCount];
@@ -370,11 +379,11 @@ cr.define('pluginSettings.ui', function() {
      *     Otherwise, this is null.
      * @private
      */
-    settingsChanged_: function(error) {
+    settingsChanged_: function (error) {
       if (error) {
-        $('error').textContent = 'Error: ' + error;
+        $("error").textContent = "Error: " + error;
       } else {
-        $('error').textContent = '';
+        $("error").textContent = "";
       }
       this.setRules_(this.settings.getAll());
     },
@@ -383,7 +392,7 @@ cr.define('pluginSettings.ui', function() {
      * @return {function()} A bound callback to update the UI after the
      *     settings have been changed.
      */
-    settingsChangedCallback: function() {
+    settingsChangedCallback: function () {
       return this.settingsChanged_.bind(this);
     },
 
@@ -391,7 +400,7 @@ cr.define('pluginSettings.ui', function() {
      * Binds this list to the content settings model.
      * @param {!Settings} settings The content settings model.
      */
-    setPluginSettings: function(settings) {
+    setPluginSettings: function (settings) {
       this.settings = settings;
       this.settingsChanged_();
     },
@@ -399,13 +408,13 @@ cr.define('pluginSettings.ui', function() {
     /**
      * Removes all rules from the js model.
      */
-    reset: function() {
+    reset: function () {
       // The null creates the Add New Rule row.
       this.dataModel = new ArrayDataModel([null]);
     },
 
     /** @inheritDoc */
-    deleteItemAtIndex: function(index) {
+    deleteItemAtIndex: function (index) {
       var listItem = this.getListItemByIndex(index);
       if (listItem.undeletable) {
         return;
@@ -419,5 +428,5 @@ cr.define('pluginSettings.ui', function() {
     RuleListItem: RuleListItem,
     AddRuleListItem: AddRuleListItem,
     RuleList: RuleList,
-  }
+  };
 });

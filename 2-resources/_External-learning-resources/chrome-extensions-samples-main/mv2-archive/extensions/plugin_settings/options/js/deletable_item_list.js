@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-cr.define('options', function() {
+cr.define("options", function () {
   const List = cr.ui.List;
   const ListItem = cr.ui.ListItem;
 
@@ -10,7 +10,7 @@ cr.define('options', function() {
    * Creates a deletable list item, which has a button that will trigger a call
    * to deleteItemAtIndex(index) in the list.
    */
-  var DeletableItem = cr.ui.define('li');
+  var DeletableItem = cr.ui.define("li");
 
   DeletableItem.prototype = {
     __proto__: ListItem.prototype,
@@ -37,23 +37,29 @@ cr.define('options', function() {
     deletable_: true,
 
     /** @inheritDoc */
-    decorate: function() {
+    decorate: function () {
       ListItem.prototype.decorate.call(this);
 
-      this.classList.add('deletable-item');
+      this.classList.add("deletable-item");
 
-      this.contentElement_ = this.ownerDocument.createElement('div');
+      this.contentElement_ = this.ownerDocument.createElement("div");
       this.appendChild(this.contentElement_);
 
-      this.closeButtonElement_ = this.ownerDocument.createElement('button');
-      this.closeButtonElement_.classList.add('raw-button');
-      this.closeButtonElement_.classList.add('close-button');
-      this.closeButtonElement_.addEventListener('mousedown',
-                                                this.handleMouseDownUpOnClose_);
-      this.closeButtonElement_.addEventListener('mouseup',
-                                                this.handleMouseDownUpOnClose_);
-      this.closeButtonElement_.addEventListener('focus',
-                                                this.handleFocus_.bind(this));
+      this.closeButtonElement_ = this.ownerDocument.createElement("button");
+      this.closeButtonElement_.classList.add("raw-button");
+      this.closeButtonElement_.classList.add("close-button");
+      this.closeButtonElement_.addEventListener(
+        "mousedown",
+        this.handleMouseDownUpOnClose_
+      );
+      this.closeButtonElement_.addEventListener(
+        "mouseup",
+        this.handleMouseDownUpOnClose_
+      );
+      this.closeButtonElement_.addEventListener(
+        "focus",
+        this.handleFocus_.bind(this)
+      );
       this.appendChild(this.closeButtonElement_);
     },
 
@@ -81,7 +87,7 @@ cr.define('options', function() {
      * in the list selection model.
      * @private
      */
-    handleFocus_: function() {
+    handleFocus_: function () {
       var list = this.parentNode;
       var index = list.getIndexOfListItem(this);
       list.selectionModel.selectedIndex = index;
@@ -94,22 +100,21 @@ cr.define('options', function() {
      * @param {Event} e The mouse down/up event object.
      * @private
      */
-    handleMouseDownUpOnClose_: function(e) {
-      if (!e.target.disabled)
-        e.stopPropagation();
+    handleMouseDownUpOnClose_: function (e) {
+      if (!e.target.disabled) e.stopPropagation();
     },
   };
 
-  var DeletableItemList = cr.ui.define('list');
+  var DeletableItemList = cr.ui.define("list");
 
   DeletableItemList.prototype = {
     __proto__: List.prototype,
 
     /** @inheritDoc */
-    decorate: function() {
+    decorate: function () {
       List.prototype.decorate.call(this);
-      this.addEventListener('click', this.handleClick_);
-      this.addEventListener('keydown', this.handleKeyDown_);
+      this.addEventListener("click", this.handleClick_);
+      this.addEventListener("keydown", this.handleKeyDown_);
     },
 
     /**
@@ -117,12 +122,11 @@ cr.define('options', function() {
      * @param {Event} e The click event object.
      * @private
      */
-    handleClick_: function(e) {
-      if (this.disabled)
-        return;
+    handleClick_: function (e) {
+      if (this.disabled) return;
 
       var target = e.target;
-      if (target.classList.contains('close-button')) {
+      if (target.classList.contains("close-button")) {
         var listItem = this.getListItemAncestor(target);
         var selected = this.selectionModel.selectedIndexes;
 
@@ -143,11 +147,13 @@ cr.define('options', function() {
      * @param {Event} e The keydown event object.
      * @private
      */
-    handleKeyDown_: function(e) {
+    handleKeyDown_: function (e) {
       // Map delete (and backspace on Mac) to item deletion (unless focus is
       // in an input field, where it's intended for text editing).
-      if ((e.keyCode == 46 || (e.keyCode == 8 && cr.isMac)) &&
-          e.target.tagName != 'INPUT') {
+      if (
+        (e.keyCode == 46 || (e.keyCode == 8 && cr.isMac)) &&
+        e.target.tagName != "INPUT"
+      ) {
         this.deleteSelectedItems_();
         // Prevent the browser from going back.
         e.preventDefault();
@@ -158,7 +164,7 @@ cr.define('options', function() {
      * Deletes all the currently selected items that are deletable.
      * @private
      */
-    deleteSelectedItems_: function() {
+    deleteSelectedItems_: function () {
       var selected = this.selectionModel.selectedIndexes;
       // Reverse through the list of selected indexes to maintain the
       // correct index values after deletion.
@@ -174,8 +180,7 @@ cr.define('options', function() {
      * implementing.
      * @param {number} index The index of the item that is being deleted.
      */
-    deleteItemAtIndex: function(index) {
-    },
+    deleteItemAtIndex: function (index) {},
   };
 
   return {

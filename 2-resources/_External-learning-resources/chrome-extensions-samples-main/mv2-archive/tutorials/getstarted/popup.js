@@ -13,7 +13,7 @@ function getCurrentTabUrl(callback) {
   // https://developer.chrome.com/extensions/tabs#method-query
   var queryInfo = {
     active: true,
-    currentWindow: true
+    currentWindow: true,
   };
 
   chrome.tabs.query(queryInfo, (tabs) => {
@@ -32,7 +32,7 @@ function getCurrentTabUrl(callback) {
     // If you want to see the URL of other tabs (e.g. after removing active:true
     // from |queryInfo|), then the "tabs" permission is required to see their
     // "url" properties.
-    console.assert(typeof url == 'string', 'tab.url should be a string');
+    console.assert(typeof url == "string", "tab.url should be a string");
 
     callback(url);
   });
@@ -60,7 +60,7 @@ function changeBackgroundColor(color) {
   // is inserted into the active tab of the current window, which serves as the
   // default.
   chrome.tabs.executeScript({
-    code: script
+    code: script,
   });
 }
 
@@ -103,9 +103,9 @@ function saveBackgroundColor(url, color) {
 // to a document's origin. Also, using chrome.storage.sync instead of
 // chrome.storage.local allows the extension data to be synced across multiple
 // user devices.
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   getCurrentTabUrl((url) => {
-    var dropdown = document.getElementById('dropdown');
+    var dropdown = document.getElementById("dropdown");
 
     // Load the saved background color for this page and modify the dropdown
     // value, if needed.
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Ensure the background color is changed and saved when the dropdown
     // selection changes.
-    dropdown.addEventListener('change', () => {
+    dropdown.addEventListener("change", () => {
       changeBackgroundColor(dropdown.value);
       saveBackgroundColor(url, dropdown.value);
     });

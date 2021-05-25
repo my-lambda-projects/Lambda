@@ -4,32 +4,32 @@
 
 // Shows an updating list of process statistics.
 function init() {
-  chrome.processes.onUpdatedWithMemory.addListener(
-    function(processes) {
-      var table = "<table>\n" +
-        "<tr><td><b>Process</b></td>" +
-        "<td>OS ID</td>" +
-        "<td>Title</td>" +
-        "<td>Type</td>" +
-        "<td>Tabs</td>" +
-        "<td>CPU</td>" +
-        "<td>Network</td>" +
-        "<td>Private Memory</td>" +
-        "<td>JS Memory</td>" +
-        "<td></td>" +
-        "</tr>\n";
-      for (pid in processes) {
-        table = displayProcessInfo(processes[pid], table);
-      }
-      table += "</table>\n";
-      var div = document.getElementById("process-list");
-      div.innerHTML = table;
-    });
+  chrome.processes.onUpdatedWithMemory.addListener(function (processes) {
+    var table =
+      "<table>\n" +
+      "<tr><td><b>Process</b></td>" +
+      "<td>OS ID</td>" +
+      "<td>Title</td>" +
+      "<td>Type</td>" +
+      "<td>Tabs</td>" +
+      "<td>CPU</td>" +
+      "<td>Network</td>" +
+      "<td>Private Memory</td>" +
+      "<td>JS Memory</td>" +
+      "<td></td>" +
+      "</tr>\n";
+    for (pid in processes) {
+      table = displayProcessInfo(processes[pid], table);
+    }
+    table += "</table>\n";
+    var div = document.getElementById("process-list");
+    div.innerHTML = table;
+  });
 
   document.getElementById("killProcess").onclick = function () {
     var procId = parseInt(prompt("Enter process ID"));
     chrome.processes.terminate(procId);
-  }
+  };
 }
 
 function displayProcessInfo(process, table) {
@@ -44,32 +44,44 @@ function displayProcessInfo(process, table) {
   }
 
   table +=
-    "<tr><td>" + process.id + "</td>" +
-    "<td>" + process.osProcessId + "</td>" +
-    "<td>" + process.title + "</td>" +
-    "<td>" + process.type + "</td>" +
-    "<td>" + process.tabs + "</td>" +
-    "<td>" + process.cpu + "</td>" +
-    "<td>" + network + "</td>";
+    "<tr><td>" +
+    process.id +
+    "</td>" +
+    "<td>" +
+    process.osProcessId +
+    "</td>" +
+    "<td>" +
+    process.title +
+    "</td>" +
+    "<td>" +
+    process.type +
+    "</td>" +
+    "<td>" +
+    process.tabs +
+    "</td>" +
+    "<td>" +
+    process.cpu +
+    "</td>" +
+    "<td>" +
+    network +
+    "</td>";
 
   if ("privateMemory" in process) {
-    table += "<td>" + (process.privateMemory / 1024) + "K</td>";
+    table += "<td>" + process.privateMemory / 1024 + "K</td>";
   } else {
     table += "<td>N/A</td>";
   }
   if ("jsMemoryAllocated" in process) {
     var allocated = process.jsMemoryAllocated / 1024;
     var used = process.jsMemoryUsed / 1024;
-    table += "<td>" + allocated.toFixed(2) + "K (" + used.toFixed(2) +
-        "K live)</td>";
+    table +=
+      "<td>" + allocated.toFixed(2) + "K (" + used.toFixed(2) + "K live)</td>";
   } else {
     table += "<td>N/A</td>";
   }
 
-  table +=
-    "<td></td>" +
-    "</tr>\n";
+  table += "<td></td>" + "</tr>\n";
   return table;
 }
 
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener("DOMContentLoaded", init);

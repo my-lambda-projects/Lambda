@@ -2,8 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-cr.define('cr.ui', function() {
-
+cr.define("cr.ui", function () {
   /**
    * Decorates elements as an instance of a class.
    * @param {string|!Element} source The way to find the element(s) to decorate.
@@ -14,14 +13,11 @@ cr.define('cr.ui', function() {
    */
   function decorate(source, constr) {
     var elements;
-    if (typeof source == 'string')
-      elements = cr.doc.querySelectorAll(source);
-    else
-      elements = [source];
+    if (typeof source == "string") elements = cr.doc.querySelectorAll(source);
+    else elements = [source];
 
-    for (var i = 0, el; el = elements[i]; i++) {
-      if (!(el instanceof constr))
-        constr.decorate(el);
+    for (var i = 0, el; (el = elements[i]); i++) {
+      if (!(el instanceof constr)) constr.decorate(el);
     }
   }
 
@@ -31,10 +27,8 @@ cr.define('cr.ui', function() {
   function createElementHelper(tagName, opt_bag) {
     // Allow passing in ownerDocument to create in a different document.
     var doc;
-    if (opt_bag && opt_bag.ownerDocument)
-      doc = opt_bag.ownerDocument;
-    else
-      doc = cr.doc;
+    if (opt_bag && opt_bag.ownerDocument) doc = opt_bag.ownerDocument;
+    else doc = cr.doc;
     return doc.createElement(tagName);
   }
 
@@ -62,9 +56,9 @@ cr.define('cr.ui', function() {
    */
   function define(tagNameOrFunction) {
     var createFunction, tagName;
-    if (typeof tagNameOrFunction == 'function') {
+    if (typeof tagNameOrFunction == "function") {
       createFunction = tagNameOrFunction;
-      tagName = '';
+      tagName = "";
     } else {
       createFunction = createElementHelper;
       tagName = tagNameOrFunction;
@@ -91,7 +85,7 @@ cr.define('cr.ui', function() {
      * Decorates an element as a UI element class.
      * @param {!Element} el The element to decorate.
      */
-    f.decorate = function(el) {
+    f.decorate = function (el) {
       el.__proto__ = f.prototype;
       el.decorate();
     };
@@ -110,49 +104,51 @@ cr.define('cr.ui', function() {
    */
   function limitInputWidth(el, parentEl, min, opt_scale) {
     // Needs a size larger than borders
-    el.style.width = '10px';
+    el.style.width = "10px";
     var doc = el.ownerDocument;
     var win = doc.defaultView;
     var computedStyle = win.getComputedStyle(el);
     var parentComputedStyle = win.getComputedStyle(parentEl);
-    var rtl = computedStyle.direction == 'rtl';
+    var rtl = computedStyle.direction == "rtl";
 
     // To get the max width we get the width of the treeItem minus the position
     // of the input.
-    var inputRect = el.getBoundingClientRect();  // box-sizing
+    var inputRect = el.getBoundingClientRect(); // box-sizing
     var parentRect = parentEl.getBoundingClientRect();
-    var startPos = rtl ? parentRect.right - inputRect.right :
-        inputRect.left - parentRect.left;
+    var startPos = rtl
+      ? parentRect.right - inputRect.right
+      : inputRect.left - parentRect.left;
 
     // Add up border and padding of the input.
-    var inner = parseInt(computedStyle.borderLeftWidth, 10) +
-        parseInt(computedStyle.paddingLeft, 10) +
-        parseInt(computedStyle.paddingRight, 10) +
-        parseInt(computedStyle.borderRightWidth, 10);
+    var inner =
+      parseInt(computedStyle.borderLeftWidth, 10) +
+      parseInt(computedStyle.paddingLeft, 10) +
+      parseInt(computedStyle.paddingRight, 10) +
+      parseInt(computedStyle.borderRightWidth, 10);
 
     // We also need to subtract the padding of parent to prevent it to overflow.
-    var parentPadding = rtl ? parseInt(parentComputedStyle.paddingLeft, 10) :
-        parseInt(parentComputedStyle.paddingRight, 10);
+    var parentPadding = rtl
+      ? parseInt(parentComputedStyle.paddingLeft, 10)
+      : parseInt(parentComputedStyle.paddingRight, 10);
 
     var max = parentEl.clientWidth - startPos - inner - parentPadding;
-    if (opt_scale)
-      max *= opt_scale;
+    if (opt_scale) max *= opt_scale;
 
     function limit() {
       if (el.scrollWidth > max) {
-        el.style.width = max + 'px';
+        el.style.width = max + "px";
       } else {
         el.style.width = 0;
         var sw = el.scrollWidth;
         if (sw < min) {
-          el.style.width = min + 'px';
+          el.style.width = min + "px";
         } else {
-          el.style.width = sw + 'px';
+          el.style.width = sw + "px";
         }
       }
     }
 
-    el.addEventListener('input', limit);
+    el.addEventListener("input", limit);
     limit();
   }
 
@@ -164,8 +160,8 @@ cr.define('cr.ui', function() {
    */
   function toCssPx(pixels) {
     if (!window.isFinite(pixels))
-      console.error('Pixel value is not a number: ' + pixels);
-    return Math.round(pixels) + 'px';
+      console.error("Pixel value is not a number: " + pixels);
+    return Math.round(pixels) + "px";
   }
 
   return {

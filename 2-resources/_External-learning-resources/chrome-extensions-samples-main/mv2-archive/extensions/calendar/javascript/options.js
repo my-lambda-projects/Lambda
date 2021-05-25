@@ -6,12 +6,13 @@
 
 var $ = document.getElementById.bind(document);
 
-var url = 'https://chrome.google.com/webstore/detail/' +
-          'google-calendar-by-google/gmbgaklkmjakoegficnlkhebmhkjfich';
+var url =
+  "https://chrome.google.com/webstore/detail/" +
+  "google-calendar-by-google/gmbgaklkmjakoegficnlkhebmhkjfich";
 
-$('name').textContent = chrome.i18n.getMessage('name');
-$('link').href = url;
-$('remove').onclick = function() {
-  chrome.management.uninstallSelf({showConfirmDialog: true});
+$("name").textContent = chrome.i18n.getMessage("name");
+$("link").href = url;
+$("remove").onclick = function () {
+  chrome.management.uninstallSelf({ showConfirmDialog: true });
   window.close();
 };
