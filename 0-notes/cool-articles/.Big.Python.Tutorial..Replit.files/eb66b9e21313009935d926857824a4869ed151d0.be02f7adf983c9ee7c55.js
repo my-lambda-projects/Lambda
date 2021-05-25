@@ -5,15 +5,14 @@
       "use strict";
       function s(e) {
         var t = Array.prototype.slice.call(arguments, 1);
-        return (
-          t.forEach(function (t) {
-            t &&
-              Object.keys(t).forEach(function (a) {
-                e[a] = t[a];
-              });
-          }),
-          e
-        );
+        return t.forEach(t => {
+          t &&
+            Object.keys(t).forEach(a => {
+              e[a] = t[a];
+            });
+        }),
+        e
+      ;
       }
       function i(e) {
         return Object.prototype.toString.call(e);
@@ -109,40 +108,39 @@
           throw new Error('(LinkifyIt) Invalid schema "' + e + '": ' + t);
         }
         (e.__compiled__ = {}),
-          Object.keys(e.__schemas__).forEach(function (t) {
+          Object.keys(e.__schemas__).forEach(t => {
             var a = e.__schemas__[t];
             if (null !== a) {
               var s = { validate: null, link: null };
               if (((e.__compiled__[t] = s), "[object Object]" === i(a)))
-                return (
-                  !(function (e) {
-                    return "[object RegExp]" === i(e);
-                  })(a.validate)
-                    ? r(a.validate)
-                      ? (s.validate = a.validate)
-                      : u(t, a)
-                    : (s.validate = (function (e) {
-                        return function (t, a) {
-                          var s = t.slice(a);
-                          return e.test(s) ? s.match(e)[0].length : 0;
-                        };
-                      })(a.validate)),
-                  void (r(a.normalize)
-                    ? (s.normalize = a.normalize)
-                    : a.normalize
-                    ? u(t, a)
-                    : (s.normalize = function (e, t) {
-                        t.normalize(e);
-                      }))
-                );
-              !(function (e) {
+                return !(e => {
+                  return "[object RegExp]" === i(e);
+                })(a.validate)
+                  ? r(a.validate)
+                    ? (s.validate = a.validate)
+                    : u(t, a)
+                  : (s.validate = (e => {
+                      return (t, a) => {
+                        var s = t.slice(a);
+                        return e.test(s) ? s.match(e)[0].length : 0;
+                      };
+                    })(a.validate)),
+                void (r(a.normalize)
+                  ? (s.normalize = a.normalize)
+                  : a.normalize
+                  ? u(t, a)
+                  : (s.normalize = (e, t) => {
+                      t.normalize(e);
+                    }))
+              ;
+              !(e => {
                 return "[object String]" === i(e);
               })(a)
                 ? u(t, a)
                 : o.push(t);
             }
           }),
-          o.forEach(function (t) {
+          o.forEach(t => {
             e.__compiled__[e.__schemas__[t]] &&
               ((e.__compiled__[t].validate =
                 e.__compiled__[e.__schemas__[t]].validate),
@@ -156,30 +154,27 @@
             },
           });
         var h = Object.keys(e.__compiled__)
-          .filter(function (t) {
+          .filter(t => {
             return t.length > 0 && e.__compiled__[t];
           })
           .map(n)
           .join("|");
-        (e.re.schema_test = RegExp(
+        e.re.schema_test = RegExp(
           "(^|(?!_)(?:[><]|" + t.src_ZPCc + "))(" + h + ")",
           "i"
-        )),
-          (e.re.schema_search = RegExp(
+        ), e.re.schema_search = RegExp(
             "(^|(?!_)(?:[><]|" + t.src_ZPCc + "))(" + h + ")",
             "ig"
-          )),
-          (e.re.pretest = RegExp(
+          ), e.re.pretest = RegExp(
             "(" +
               e.re.schema_test.source +
               ")|(" +
               e.re.host_fuzzy_test.source +
               ")|@",
             "i"
-          )),
-          (function (e) {
-            (e.__index__ = -1), (e.__text_cache__ = "");
-          })(e);
+          ), (e => {
+          (e.__index__ = -1), (e.__text_cache__ = "");
+        })(e);
       }
       function h(e, t) {
         var a = e.__index__,
@@ -201,7 +196,7 @@
         var a;
         t ||
           ((a = e),
-          Object.keys(a || {}).reduce(function (e, t) {
+          Object.keys(a || {}).reduce((e, t) => {
             return e || l.hasOwnProperty(t);
           }, !1) && ((t = e), (e = {}))),
           (this.__opts__ = s({}, l, t)),
@@ -290,25 +285,24 @@
           return a.length ? a : null;
         }),
         (p.prototype.tlds = function (e, t) {
-          return (
-            (e = Array.isArray(e) ? e : [e]),
-            t
-              ? ((this.__tlds__ = this.__tlds__
-                  .concat(e)
-                  .sort()
-                  .filter(function (e, t, a) {
-                    return e !== a[t - 1];
-                  })
-                  .reverse()),
-                u(this),
-                this)
-              : ((this.__tlds__ = e.slice()),
-                (this.__tlds_replaced__ = !0),
-                u(this),
-                this)
-          );
+          return (e = Array.isArray(e) ? e : [e]),
+          t
+            ? ((this.__tlds__ = this.__tlds__
+                .concat(e)
+                .sort()
+                .filter((e, t, a) => {
+                  return e !== a[t - 1];
+                })
+                .reverse()),
+              u(this),
+              this)
+            : ((this.__tlds__ = e.slice()),
+              (this.__tlds_replaced__ = !0),
+              u(this),
+              this)
+        ;
         }),
-        (p.prototype.normalize = function (e) {
+        (p.prototype.normalize = e => {
           e.schema || (e.url = "http://" + e.url),
             "mailto:" !== e.schema ||
               /^mailto:/i.test(e.url) ||
@@ -321,7 +315,7 @@
       var s = a("oumO"),
         i = a("4qFw"),
         r = a("Ii48");
-      e.exports = function () {
+      e.exports = () => {
         function e(e, t, a, s, n, l) {
           l !== r &&
             i(
@@ -357,7 +351,7 @@
     },
     "4qFw": function (e, t, a) {
       "use strict";
-      e.exports = function (e, t, a, s, i, r, n, l) {
+      e.exports = (e, t, a, s, i, r, n, l) => {
         if (!e) {
           var c;
           if (void 0 === t)
@@ -368,7 +362,7 @@
             var o = [a, s, i, r, n, l],
               u = 0;
             (c = new Error(
-              t.replace(/%s/g, function () {
+              t.replace(/%s/g, () => {
                 return o[u++];
               })
             )).name = "Invariant Violation";
@@ -379,7 +373,7 @@
     },
     "8bdv": function (e, t, a) {
       "use strict";
-      a.d(t, "a", function () {
+      a.d(t, "a", () => {
         return j;
       });
       var s = a("jT3O"),
@@ -393,7 +387,7 @@
         h = a("Gbtx"),
         d = a("W27C"),
         p = a("EQ2k"),
-        f = function (e) {
+        f = e => {
           var t = e.fill,
             a = e.width,
             s = e.height;
@@ -461,23 +455,21 @@
           "\n    fragment DepreciatedUserLabelWithImageUser on User {\n      id\n      image\n      ...DepreciatedUserLabelUser\n    }\n    ",
           "\n  ",
         ]);
-        return (
-          (b = function () {
-            return e;
-          }),
-          e
-        );
+        return (b = () => {
+          return e;
+        }),
+        e
+      ;
       }
       function x() {
         var e = Object(s.a)([
           "\n    fragment DepreciatedUserLabelUser on User {\n      id\n      image\n      username\n      url\n      karma\n    }\n  ",
         ]);
-        return (
-          (x = function () {
-            return e;
-          }),
-          e
-        );
+        return (x = () => {
+          return e;
+        }),
+        e
+      ;
       }
       var _ = [
         ".user-label.jsx-801033477{font-size:14px;display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}",
@@ -491,7 +483,7 @@
         ".user-label.user-label-small.jsx-801033477{font-size:12px;}",
       ];
       _.__hash = "801033477";
-      var j = function (e) {
+      var j = e => {
           var t = e.user,
             a = e.small,
             s = e.karma,
@@ -534,7 +526,7 @@
                 ],
               });
         },
-        g = function (e) {
+        g = e => {
           var t = e.user,
             a = e.small,
             s = e.adminBadge,
@@ -583,7 +575,7 @@
     },
     CJNb(e, t, a) {
       "use strict";
-      a.d(t, "a", function () {
+      a.d(t, "a", () => {
         return p;
       });
       var s = a("nKUr"),
@@ -604,7 +596,7 @@
           ".language-label.language-label-large.jsx-872831566 img.jsx-872831566{height:24px;}",
         ];
       h.__hash = "872831566";
-      var d = function (e) {
+      var d = e => {
           var t = e.small,
             a = e.large;
           return l()("language-label", {
@@ -612,7 +604,7 @@
             "language-label-large": a,
           });
         },
-        p = function (e) {
+        p = e => {
           var t = e.language,
             a = e.large,
             i = e.small,
@@ -646,7 +638,7 @@
             }),
           });
         };
-      t.b = function (e) {
+      t.b = e => {
         var t = e.language,
           a = e.small,
           i = e.large;
@@ -679,7 +671,7 @@
         r = a.n(i),
         n = (a("q1tI"), a("TSYQ")),
         l = a.n(n);
-      t.a = function (e) {
+      t.a = e => {
         var t = e.role,
           a = e.tagline,
           i = e.name;
@@ -739,7 +731,7 @@
         },
         j = _.className,
         g = _.styles;
-      t.a = function (e) {
+      t.a = e => {
         var t = e.user,
           a = e.showAchievements;
         return Object(s.jsxs)(p.a, {
@@ -792,7 +784,7 @@
             t.roles && t.roles.length
               ? Object(s.jsx)("span", {
                   className: "jsx-1369737386 user-info-card-roles",
-                  children: t.roles.map(function (e) {
+                  children: t.roles.map(e => {
                     return Object(s.jsx)(
                       "div",
                       {
@@ -811,7 +803,7 @@
             t.languages && t.languages.length
               ? Object(s.jsx)("span", {
                   className: "jsx-1369737386 user-info-card-section",
-                  children: t.languages.map(function (e) {
+                  children: t.languages.map(e => {
                     return Object(s.jsx)(
                       "a",
                       {
@@ -827,7 +819,7 @@
             a && t.unlockedAchievements && t.unlockedAchievements.length
               ? Object(s.jsx)("span", {
                   className: "jsx-1369737386 user-info-card-section",
-                  children: t.unlockedAchievements.map(function (e, a) {
+                  children: t.unlockedAchievements.map((e, a) => {
                     return Object(s.jsxs)(
                       x.a,
                       {
@@ -887,15 +879,15 @@
     },
     "M1F+": function (e, t, a) {
       "use strict";
-      a.d(t, "a", function () {
+      a.d(t, "a", () => {
         return r;
       }),
-        a.d(t, "b", function () {
+        a.d(t, "b", () => {
           return n;
         });
       var s = a("nKUr"),
         i = (a("q1tI"), a("X8yK")),
-        r = function (e) {
+        r = e => {
           var t,
             a = e.achievementType;
           switch (a) {
@@ -932,7 +924,7 @@
             children: t,
           });
         },
-        n = function (e) {
+        n = e => {
           var t = e.filled,
             a = void 0 !== t && t;
           return Object(s.jsx)("svg", {
@@ -947,7 +939,7 @@
             }),
           });
         },
-        l = function () {
+        l = () => {
           return Object(s.jsxs)("svg", {
             width: "155",
             height: "175",
@@ -1082,7 +1074,7 @@
             ],
           });
         },
-        c = function () {
+        c = () => {
           return Object(s.jsxs)("svg", {
             width: "155",
             height: "175",
@@ -1135,7 +1127,7 @@
             ],
           });
         },
-        o = function () {
+        o = () => {
           return Object(s.jsxs)("svg", {
             width: "155",
             height: "175",
@@ -1169,7 +1161,7 @@
             ],
           });
         },
-        u = function () {
+        u = () => {
           return Object(s.jsxs)("svg", {
             width: "155",
             height: "175",
@@ -1223,7 +1215,7 @@
             ],
           });
         },
-        h = function () {
+        h = () => {
           return Object(s.jsxs)("svg", {
             width: "155",
             height: "175",
@@ -1303,7 +1295,7 @@
             ],
           });
         },
-        d = function () {
+        d = () => {
           return Object(s.jsxs)("svg", {
             width: "155",
             height: "176",
@@ -1340,7 +1332,7 @@
             ],
           });
         },
-        p = function () {
+        p = () => {
           return Object(s.jsxs)("svg", {
             width: "155",
             height: "175",
@@ -1408,7 +1400,7 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.linkify = void 0);
-      var s = (function () {
+      var s = (() => {
           function e(e, t) {
             for (var a = 0; a < t.length; a++) {
               var s = t[a];
@@ -1418,7 +1410,7 @@
                 Object.defineProperty(e, s.key, s);
             }
           }
-          return function (t, a, s) {
+          return (t, a, s) => {
             return a && e(t.prototype, a), s && e(t, s), t;
           };
         })(),
@@ -1442,7 +1434,7 @@
       }
       var h = (t.linkify = new r.default());
       h.tlds(n.default);
-      var d = (function (e) {
+      var d = (e => {
         class t {
           constructor() {
             var e, a, s;
@@ -1503,7 +1495,7 @@
           }
         }
 
-        return (function (e, t) {
+        return ((e, t) => {
           if ("function" !== typeof t && null !== t)
             throw new TypeError(
               "Super expression must either be null or a function, not " +
@@ -1521,8 +1513,7 @@
               (Object.setPrototypeOf
                 ? Object.setPrototypeOf(e, t)
                 : (e.__proto__ = t));
-        })(t, e),
-        s(t, [
+        })(t, e), s(t, [
           {
             key: "getMatches",
             value(e) {
@@ -1538,25 +1529,24 @@
               var r = this.getMatches(e);
               if (!r) return e;
               var n = 0;
-              return (
-                r.forEach(function (r, l) {
-                  r.index > n && s.push(e.substring(n, r.index));
-                  var c = {
-                    href: r.url,
-                    key: "parse" + a.parseCounter + "match" + l,
-                  };
-                  for (var o in a.props.properties) {
-                    var u = a.props.properties[o];
-                    u === t.MATCH && (u = r.url), (c[o] = u);
-                  }
-                  s.push(
-                    i.default.createElement(a.props.component, c, r.text)
-                  ),
-                    (n = r.lastIndex);
-                }),
-                n < e.length && s.push(e.substring(n)),
-                1 === s.length ? s[0] : s
-              );
+              return r.forEach((r, l) => {
+                r.index > n && s.push(e.substring(n, r.index));
+                var c = {
+                  href: r.url,
+                  key: "parse" + a.parseCounter + "match" + l,
+                };
+                for (var o in a.props.properties) {
+                  var u = a.props.properties[o];
+                  u === t.MATCH && (u = r.url), (c[o] = u);
+                }
+                s.push(
+                  i.default.createElement(a.props.component, c, r.text)
+                ),
+                  (n = r.lastIndex);
+              }),
+              n < e.length && s.push(e.substring(n)),
+              1 === s.length ? s[0] : s
+            ;
             },
           },
           {
@@ -1564,23 +1554,22 @@
             value(e) {
               var t = this,
                 a = e;
-              return (
-                "string" === typeof e
-                  ? (a = this.parseString(e))
-                  : i.default.isValidElement(e) &&
-                    "a" !== e.type &&
-                    "button" !== e.type
-                  ? (a = i.default.cloneElement(
-                      e,
-                      { key: "parse" + ++this.parseCounter },
-                      this.parse(e.props.children)
-                    ))
-                  : e instanceof Array &&
-                    (a = e.map(function (e) {
-                      return t.parse(e);
-                    })),
-                a
-              );
+              return "string" === typeof e
+                ? (a = this.parseString(e))
+                : i.default.isValidElement(e) &&
+                  "a" !== e.type &&
+                  "button" !== e.type
+                ? (a = i.default.cloneElement(
+                    e,
+                    { key: "parse" + ++this.parseCounter },
+                    this.parse(e.props.children)
+                  ))
+                : e instanceof Array &&
+                  (a = e.map(e => {
+                    return t.parse(e);
+                  })),
+              a
+            ;
             },
           },
           {
@@ -1595,9 +1584,7 @@
               );
             },
           },
-        ]),
-        t
-      ;
+        ]), t;
       })(i.default.Component);
       (d.MATCH = "LINKIFY_MATCH"),
         (d.propTypes = {
@@ -1632,7 +1619,7 @@
         if (Object.getOwnPropertySymbols) {
           var s = Object.getOwnPropertySymbols(e);
           t &&
-            (s = s.filter(function (t) {
+            (s = s.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             a.push.apply(a, s);
@@ -1643,12 +1630,12 @@
         for (var t = 1; t < arguments.length; t++) {
           var a = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? u(Object(a), !0).forEach(function (t) {
+            ? u(Object(a), !0).forEach(t => {
                 Object(i.a)(e, t, a[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(a))
-            : u(Object(a)).forEach(function (t) {
+            : u(Object(a)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -1662,11 +1649,11 @@
     oumO(e, t, a) {
       "use strict";
       function s(e) {
-        return function () {
+        return () => {
           return e;
         };
       }
-      var i = function () {};
+      var i = () => {};
       (i.thatReturns = s),
         (i.thatReturnsFalse = s(!1)),
         (i.thatReturnsTrue = s(!0)),
@@ -1674,7 +1661,7 @@
         (i.thatReturnsThis = function () {
           return this;
         }),
-        (i.thatReturnsArgument = function (e) {
+        (i.thatReturnsArgument = e => {
           return e;
         }),
         (e.exports = i);

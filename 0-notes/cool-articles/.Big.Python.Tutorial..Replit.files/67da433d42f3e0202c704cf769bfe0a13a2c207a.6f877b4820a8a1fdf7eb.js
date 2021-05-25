@@ -7,7 +7,7 @@
         a = r("MX0m"),
         i = r.n(a);
       r("q1tI");
-      t.a = function () {
+      t.a = () => {
         return Object(n.jsxs)("div", {
           className: "jsx-710207973 signup-form-email-disclaimer",
           children: [
@@ -64,7 +64,7 @@
         if (Object.getOwnPropertySymbols) {
           var n = Object.getOwnPropertySymbols(e);
           t &&
-            (n = n.filter(function (t) {
+            (n = n.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             r.push.apply(r, n);
@@ -75,12 +75,12 @@
         for (var t = 1; t < arguments.length; t++) {
           var r = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? y(Object(r), !0).forEach(function (t) {
+            ? y(Object(r), !0).forEach(t => {
                 Object(c.a)(e, t, r[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r))
-            : y(Object(r)).forEach(function (t) {
+            : y(Object(r)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -91,17 +91,16 @@
         return e;
       }
       function O(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -116,7 +115,7 @@
           return Object(h.a)(this, r);
         };
       }
-      var k = (function (e) {
+      var k = (e => {
         Object(d.a)(r, e);
         var t = O(r);
         function r() {
@@ -124,13 +123,12 @@
           Object(l.a)(this, r);
           for (var n = arguments.length, a = new Array(n), i = 0; i < n; i++)
             a[i] = arguments[i];
-          return (
-            ((e = t.call.apply(t, [this].concat(a))).state = { isShown: !1 }),
-            (e.toggleShowHide = function () {
-              e.setState({ isShown: !e.state.isShown });
-            }),
-            e
-          );
+          return ((e = t.call.apply(t, [this].concat(a))).state = { isShown: !1 }),
+          (e.toggleShowHide = () => {
+            e.setState({ isShown: !e.state.isShown });
+          }),
+          e
+        ;
         }
         return Object(f.a)(r, [
           {
@@ -216,7 +214,7 @@
         if (Object.getOwnPropertySymbols) {
           var n = Object.getOwnPropertySymbols(e);
           t &&
-            (n = n.filter(function (t) {
+            (n = n.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             r.push.apply(r, n);
@@ -227,12 +225,12 @@
         for (var t = 1; t < arguments.length; t++) {
           var r = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? N(Object(r), !0).forEach(function (t) {
+            ? N(Object(r), !0).forEach(t => {
                 Object(c.a)(e, t, r[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r))
-            : N(Object(r)).forEach(function (t) {
+            : N(Object(r)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -243,17 +241,16 @@
         return e;
       }
       function D(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -268,161 +265,160 @@
           return Object(h.a)(this, r);
         };
       }
-      var L = (function (e) {
+      var L = (e => {
           Object(d.a)(r, e);
           var t = D(r);
           function r(e) {
             var n;
-            return (
-              Object(l.a)(this, r),
-              ((n = t.call(this)).onRandomUser = function () {
-                var e = "user".concat(Math.ceil(1e7 * Math.random())),
-                  t = "".concat(e, "@").concat(e, ".com");
-                n.setState({ username: e, email: t });
-              }),
-              (n.onSignup = (function () {
-                var e = Object(p.a)(
-                  u.a.mark(function e(t) {
-                    var r, a, i, o, c, s, p, l, f, d, h, b;
-                    return u.a.wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              t.preventDefault(),
-                                n.setState({ isLoading: !0 }),
-                                (r = n.props.onSubmit),
-                                (e.t0 = u.a.keys(n.state.validation));
-                            case 4:
-                              if ((e.t1 = e.t0()).done) {
-                                e.next = 12;
-                                break;
-                              }
-                              if (
-                                ((a = e.t1.value),
-                                !n.inputRefs[a] ||
-                                  !n.inputRefs[a].focus ||
-                                  (n.state[a] && !n.state.validation[a]))
-                              ) {
-                                e.next = 10;
-                                break;
-                              }
-                              return (
-                                n.inputRefs[a].focus(),
-                                n.setState({ isLoading: !1 }),
-                                e.abrupt("return")
-                              );
-                            case 10:
-                              e.next = 4;
+            return Object(l.a)(this, r),
+            ((n = t.call(this)).onRandomUser = () => {
+              var e = "user".concat(Math.ceil(1e7 * Math.random())),
+                t = "".concat(e, "@").concat(e, ".com");
+              n.setState({ username: e, email: t });
+            }),
+            (n.onSignup = (() => {
+              var e = Object(p.a)(
+                u.a.mark(function e(t) {
+                  var r, a, i, o, c, s, p, l, f, d, h, b;
+                  return u.a.wrap(
+                    e => {
+                      for (;;)
+                        switch ((e.prev = e.next)) {
+                          case 0:
+                            t.preventDefault(),
+                              n.setState({ isLoading: !0 }),
+                              (r = n.props.onSubmit),
+                              (e.t0 = u.a.keys(n.state.validation));
+                          case 4:
+                            if ((e.t1 = e.t0()).done) {
+                              e.next = 12;
                               break;
-                            case 12:
-                              if (
-                                ((i = n.state),
-                                (o = i.username),
-                                (c = i.email),
-                                (s = i.password),
-                                (p = i.isTeacher),
-                                (l = i.privacyInvite),
-                                o && s && c)
-                              ) {
-                                e.next = 17;
-                                break;
-                              }
-                              return (
-                                r({ error: "All fields are required" }),
-                                n.setState({ isLoading: !1 }),
-                                e.abrupt("return")
-                              );
-                            case 17:
-                              return (
-                                (e.prev = 17), (e.next = 20), Object(_.b)()
-                              );
-                            case 20:
-                              (f = e.sent), (e.next = 28);
+                            }
+                            if (
+                              ((a = e.t1.value),
+                              !n.inputRefs[a] ||
+                                !n.inputRefs[a].focus ||
+                                (n.state[a] && !n.state.validation[a]))
+                            ) {
+                              e.next = 10;
                               break;
-                            case 23:
-                              return (
-                                (e.prev = 23),
-                                (e.t2 = e.catch(17)),
-                                r({
-                                  error:
-                                    "Something went wrong trying to submit. Please try again.",
-                                }),
-                                n.setState({ isLoading: !1 }),
-                                e.abrupt("return")
-                              );
-                            case 28:
-                              return (
-                                (e.next = 30),
-                                n.props.signup({
-                                  username: o,
-                                  password: s,
-                                  privacyInvite: l,
-                                  email: c,
-                                  teacher: p,
-                                  hCaptchaResponse: f,
-                                  hCaptchaSiteKey: _.a,
-                                })
-                              );
-                            case 30:
-                              if (
-                                ((d = e.sent),
-                                (h = d.user),
-                                (b = d.error),
-                                n.setState({ isLoading: !1 }),
-                                !b)
-                              ) {
-                                e.next = 38;
-                                break;
-                              }
-                              if (
-                                (r({
-                                  error:
-                                    b.status && b.message
-                                      ? b.message
-                                      : "Something went wrong",
-                                }),
-                                !(b.status >= 500))
-                              ) {
-                                e.next = 38;
-                                break;
-                              }
-                              throw b;
-                            case 38:
-                              h && r({ user: h });
-                            case 39:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      null,
-                      [[17, 23]]
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })()),
-              (n.inputRefs = {}),
-              (n.state = {
-                username: e.username || "",
-                email: e.email || "",
-                password: e.password || "",
-                isTeacher: e.isTeacher || !1,
-                privacyInvite: e.privacyInvite,
-                isLoading: !1,
-                validation: { username: null, email: null, password: null },
-              }),
-              e.privacyInvite &&
-                ((n.state.username = e.randomUsername),
-                (n.state.email = "".concat(
-                  e.randomUsername,
-                  "@teams.noreply.replit.com"
-                ))),
-              n
-            );
+                            }
+                            return (
+                              n.inputRefs[a].focus(),
+                              n.setState({ isLoading: !1 }),
+                              e.abrupt("return")
+                            );
+                          case 10:
+                            e.next = 4;
+                            break;
+                          case 12:
+                            if (
+                              ((i = n.state),
+                              (o = i.username),
+                              (c = i.email),
+                              (s = i.password),
+                              (p = i.isTeacher),
+                              (l = i.privacyInvite),
+                              o && s && c)
+                            ) {
+                              e.next = 17;
+                              break;
+                            }
+                            return (
+                              r({ error: "All fields are required" }),
+                              n.setState({ isLoading: !1 }),
+                              e.abrupt("return")
+                            );
+                          case 17:
+                            return (
+                              (e.prev = 17), (e.next = 20), Object(_.b)()
+                            );
+                          case 20:
+                            (f = e.sent), (e.next = 28);
+                            break;
+                          case 23:
+                            return (
+                              (e.prev = 23),
+                              (e.t2 = e.catch(17)),
+                              r({
+                                error:
+                                  "Something went wrong trying to submit. Please try again.",
+                              }),
+                              n.setState({ isLoading: !1 }),
+                              e.abrupt("return")
+                            );
+                          case 28:
+                            return (
+                              (e.next = 30),
+                              n.props.signup({
+                                username: o,
+                                password: s,
+                                privacyInvite: l,
+                                email: c,
+                                teacher: p,
+                                hCaptchaResponse: f,
+                                hCaptchaSiteKey: _.a,
+                              })
+                            );
+                          case 30:
+                            if (
+                              ((d = e.sent),
+                              (h = d.user),
+                              (b = d.error),
+                              n.setState({ isLoading: !1 }),
+                              !b)
+                            ) {
+                              e.next = 38;
+                              break;
+                            }
+                            if (
+                              (r({
+                                error:
+                                  b.status && b.message
+                                    ? b.message
+                                    : "Something went wrong",
+                              }),
+                              !(b.status >= 500))
+                            ) {
+                              e.next = 38;
+                              break;
+                            }
+                            throw b;
+                          case 38:
+                            h && r({ user: h });
+                          case 39:
+                          case "end":
+                            return e.stop();
+                        }
+                    },
+                    e,
+                    null,
+                    [[17, 23]]
+                  );
+                })
+              );
+              return function (t) {
+                return e.apply(this, arguments);
+              };
+            })()),
+            (n.inputRefs = {}),
+            (n.state = {
+              username: e.username || "",
+              email: e.email || "",
+              password: e.password || "",
+              isTeacher: e.isTeacher || !1,
+              privacyInvite: e.privacyInvite,
+              isLoading: !1,
+              validation: { username: null, email: null, password: null },
+            }),
+            e.privacyInvite &&
+              ((n.state.username = e.randomUsername),
+              (n.state.email = "".concat(
+                e.randomUsername,
+                "@teams.noreply.replit.com"
+              ))),
+            n
+          ;
           }
           return Object(f.a)(r, [
             {
@@ -614,23 +610,22 @@
           r
         ;
         })(o.Component),
-        U = Object(m.c)(null, function (e) {
+        U = Object(m.c)(null, e => {
           return Object(j.b)({ signup: R.f }, e);
         })(L),
         A = r("YFqc"),
         F = r.n(A);
       function H(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -645,7 +640,7 @@
           return Object(h.a)(this, r);
         };
       }
-      var G = (function (e) {
+      var G = (e => {
           Object(d.a)(r, e);
           var t = H(r);
           function r() {
@@ -653,125 +648,124 @@
             Object(l.a)(this, r);
             for (var n = arguments.length, a = new Array(n), i = 0; i < n; i++)
               a[i] = arguments[i];
-            return (
-              ((e = t.call.apply(t, [this].concat(a))).state = {
-                username: e.props.username || "",
-                password: e.props.password || "",
-                isLoading: !1,
-              }),
-              (e.onLogin = (function () {
-                var t = Object(p.a)(
-                  u.a.mark(function t(r) {
-                    var n, a, i, o, c, s, p, l;
-                    return u.a.wrap(
-                      function (t) {
-                        for (;;)
-                          switch ((t.prev = t.next)) {
-                            case 0:
-                              if (
-                                (r && r.preventDefault && r.preventDefault(),
-                                !e.state.isLoading)
-                              ) {
-                                t.next = 3;
-                                break;
-                              }
-                              return t.abrupt("return");
-                            case 3:
-                              if (
-                                ((n = e.props.onSubmit),
-                                (a = e.state),
-                                (i = a.username),
-                                (o = a.password),
-                                i && o)
-                              ) {
-                                t.next = 9;
-                                break;
-                              }
-                              return (
-                                n({ error: "All fields are required" }),
-                                !i && e.inputRefs.username
-                                  ? e.inputRefs.username.focus()
-                                  : !o &&
-                                    e.inputRefs.password &&
-                                    e.inputRefs.password.focus(),
-                                t.abrupt("return")
-                              );
-                            case 9:
-                              return (
-                                e.setState({ isLoading: !0 }),
-                                (t.prev = 10),
-                                (t.next = 13),
-                                Object(_.b)()
-                              );
-                            case 13:
-                              (c = t.sent), (t.next = 21);
+            return ((e = t.call.apply(t, [this].concat(a))).state = {
+              username: e.props.username || "",
+              password: e.props.password || "",
+              isLoading: !1,
+            }),
+            (e.onLogin = (() => {
+              var t = Object(p.a)(
+                u.a.mark(function t(r) {
+                  var n, a, i, o, c, s, p, l;
+                  return u.a.wrap(
+                    t => {
+                      for (;;)
+                        switch ((t.prev = t.next)) {
+                          case 0:
+                            if (
+                              (r && r.preventDefault && r.preventDefault(),
+                              !e.state.isLoading)
+                            ) {
+                              t.next = 3;
                               break;
-                            case 16:
-                              return (
-                                (t.prev = 16),
-                                (t.t0 = t.catch(10)),
-                                n({
-                                  error:
-                                    "Something went wrong trying to submit. Please try again.",
-                                }),
-                                e.setState({ isLoading: !1 }),
-                                t.abrupt("return")
-                              );
-                            case 21:
-                              return (
-                                (t.next = 23),
-                                e.props.login({
-                                  username: i,
-                                  password: o,
-                                  hCaptchaResponse: c,
-                                  hCaptchaSiteKey: _.a,
-                                  teacher: e.props.isTeacher,
-                                })
-                              );
-                            case 23:
-                              if (
-                                ((s = t.sent),
-                                (p = s.user),
-                                (l = s.error),
-                                e.setState({ isLoading: !1 }),
-                                !l)
-                              ) {
-                                t.next = 31;
-                                break;
-                              }
-                              if (
-                                (n({
-                                  error:
-                                    l.status && l.message
-                                      ? l.message
-                                      : "Something went wrong",
-                                }),
-                                !(l.status >= 500))
-                              ) {
-                                t.next = 31;
-                                break;
-                              }
-                              throw l;
-                            case 31:
-                              p && n({ user: p });
-                            case 32:
-                            case "end":
-                              return t.stop();
-                          }
-                      },
-                      t,
-                      null,
-                      [[10, 16]]
-                    );
-                  })
-                );
-                return function (e) {
-                  return t.apply(this, arguments);
-                };
-              })()),
-              (e.inputRefs = {}),
-              e
-            );
+                            }
+                            return t.abrupt("return");
+                          case 3:
+                            if (
+                              ((n = e.props.onSubmit),
+                              (a = e.state),
+                              (i = a.username),
+                              (o = a.password),
+                              i && o)
+                            ) {
+                              t.next = 9;
+                              break;
+                            }
+                            return (
+                              n({ error: "All fields are required" }),
+                              !i && e.inputRefs.username
+                                ? e.inputRefs.username.focus()
+                                : !o &&
+                                  e.inputRefs.password &&
+                                  e.inputRefs.password.focus(),
+                              t.abrupt("return")
+                            );
+                          case 9:
+                            return (
+                              e.setState({ isLoading: !0 }),
+                              (t.prev = 10),
+                              (t.next = 13),
+                              Object(_.b)()
+                            );
+                          case 13:
+                            (c = t.sent), (t.next = 21);
+                            break;
+                          case 16:
+                            return (
+                              (t.prev = 16),
+                              (t.t0 = t.catch(10)),
+                              n({
+                                error:
+                                  "Something went wrong trying to submit. Please try again.",
+                              }),
+                              e.setState({ isLoading: !1 }),
+                              t.abrupt("return")
+                            );
+                          case 21:
+                            return (
+                              (t.next = 23),
+                              e.props.login({
+                                username: i,
+                                password: o,
+                                hCaptchaResponse: c,
+                                hCaptchaSiteKey: _.a,
+                                teacher: e.props.isTeacher,
+                              })
+                            );
+                          case 23:
+                            if (
+                              ((s = t.sent),
+                              (p = s.user),
+                              (l = s.error),
+                              e.setState({ isLoading: !1 }),
+                              !l)
+                            ) {
+                              t.next = 31;
+                              break;
+                            }
+                            if (
+                              (n({
+                                error:
+                                  l.status && l.message
+                                    ? l.message
+                                    : "Something went wrong",
+                              }),
+                              !(l.status >= 500))
+                            ) {
+                              t.next = 31;
+                              break;
+                            }
+                            throw l;
+                          case 31:
+                            p && n({ user: p });
+                          case 32:
+                          case "end":
+                            return t.stop();
+                        }
+                    },
+                    t,
+                    null,
+                    [[10, 16]]
+                  );
+                })
+              );
+              return function (e) {
+                return t.apply(this, arguments);
+              };
+            })()),
+            (e.inputRefs = {}),
+            e
+          ;
           }
           return Object(f.a)(r, [
             {
@@ -898,23 +892,22 @@
           r
         ;
         })(o.Component),
-        M = Object(m.c)(null, function (e) {
+        M = Object(m.c)(null, e => {
           return Object(j.b)({ login: R.d }, e);
         })(G),
         K = r("TSYQ"),
         z = r.n(K);
       function J(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -930,7 +923,7 @@
         };
       }
       var V = ["google", "github", "facebook"],
-        q = (function (e) {
+        q = (e => {
           Object(d.a)(r, e);
           var t = J(r);
           function r() {
@@ -938,83 +931,82 @@
             Object(l.a)(this, r);
             for (var n = arguments.length, a = new Array(n), i = 0; i < n; i++)
               a[i] = arguments[i];
-            return (
-              ((e = t.call.apply(t, [this].concat(a))).onOAuth = function (t) {
-                var r = e.props.onSubmit,
-                  n = window.open(t),
-                  a = (function () {
-                    var t = Object(p.a)(
-                      u.a.mark(function t(i) {
-                        var o, c, s, p;
-                        return u.a.wrap(function (t) {
-                          for (;;)
-                            switch ((t.prev = t.next)) {
-                              case 0:
-                                if (
-                                  (i.origin !== window.location.origin &&
-                                    "https://replit.com" !== i.origin &&
-                                    "https://repl.it" !== i.origin) ||
-                                  ("authenticated" !== i.data &&
-                                    "authenticated:new_user" !== i.data)
-                                ) {
-                                  t.next = 14;
-                                  break;
-                                }
-                                return (
-                                  window.removeEventListener("message", a),
-                                  n.close(),
-                                  (t.next = 5),
-                                  e.props.authenticate()
-                                );
-                              case 5:
-                                if (
-                                  ((o = t.sent),
-                                  (c = o.error),
-                                  (s = o.user),
-                                  !c)
-                                ) {
-                                  t.next = 13;
-                                  break;
-                                }
-                                if (
-                                  (r({
-                                    error:
-                                      c.status && c.message
-                                        ? c.message
-                                        : "Something went wrong",
-                                  }),
-                                  401 === c.status)
-                                ) {
-                                  t.next = 12;
-                                  break;
-                                }
-                                throw c;
-                              case 12:
-                                return t.abrupt("return");
-                              case 13:
-                                s &&
-                                  ((p = "authenticated:new_user" === i.data),
-                                  r({ user: s, social: !0, newUser: p }));
-                              case 14:
-                              case "end":
-                                return t.stop();
-                            }
-                        }, t);
-                      })
-                    );
-                    return function (e) {
-                      return t.apply(this, arguments);
-                    };
-                  })();
-                window.addEventListener("message", a);
-              }),
-              (e.onOptionClick = function (t, r) {
-                t.preventDefault();
-                var n = "/auth/".concat(r, "/get?close=1");
-                e.props.isTeacher && (n += "&teacher=1"), e.onOAuth(n);
-              }),
-              e
-            );
+            return ((e = t.call.apply(t, [this].concat(a))).onOAuth = t => {
+              var r = e.props.onSubmit,
+                n = window.open(t),
+                a = (() => {
+                  var t = Object(p.a)(
+                    u.a.mark(function t(i) {
+                      var o, c, s, p;
+                      return u.a.wrap(t => {
+                        for (;;)
+                          switch ((t.prev = t.next)) {
+                            case 0:
+                              if (
+                                (i.origin !== window.location.origin &&
+                                  "https://replit.com" !== i.origin &&
+                                  "https://repl.it" !== i.origin) ||
+                                ("authenticated" !== i.data &&
+                                  "authenticated:new_user" !== i.data)
+                              ) {
+                                t.next = 14;
+                                break;
+                              }
+                              return (
+                                window.removeEventListener("message", a),
+                                n.close(),
+                                (t.next = 5),
+                                e.props.authenticate()
+                              );
+                            case 5:
+                              if (
+                                ((o = t.sent),
+                                (c = o.error),
+                                (s = o.user),
+                                !c)
+                              ) {
+                                t.next = 13;
+                                break;
+                              }
+                              if (
+                                (r({
+                                  error:
+                                    c.status && c.message
+                                      ? c.message
+                                      : "Something went wrong",
+                                }),
+                                401 === c.status)
+                              ) {
+                                t.next = 12;
+                                break;
+                              }
+                              throw c;
+                            case 12:
+                              return t.abrupt("return");
+                            case 13:
+                              s &&
+                                ((p = "authenticated:new_user" === i.data),
+                                r({ user: s, social: !0, newUser: p }));
+                            case 14:
+                            case "end":
+                              return t.stop();
+                          }
+                      }, t);
+                    })
+                  );
+                  return function (e) {
+                    return t.apply(this, arguments);
+                  };
+                })();
+              window.addEventListener("message", a);
+            }),
+            (e.onOptionClick = (t, r) => {
+              t.preventDefault();
+              var n = "/auth/".concat(r, "/get?close=1");
+              e.props.isTeacher && (n += "&teacher=1"), e.onOAuth(n);
+            }),
+            e
+          ;
           }
           return Object(f.a)(r, [
             {
@@ -1024,7 +1016,7 @@
                 return Object(n.jsxs)("div", {
                   className: "jsx-3910275636",
                   children: [
-                    V.map(function (t) {
+                    V.map(t => {
                       return Object(n.jsx)(
                         Q,
                         {
@@ -1047,10 +1039,9 @@
               },
             },
           ]),
-          r
-        ;
+          r;
         })(o.Component),
-        Q = function (e) {
+        Q = e => {
           var t = e.onClick,
             r = e.provider;
           return Object(n.jsxs)("a", {
@@ -1078,11 +1069,11 @@
             ],
           });
         },
-        Y = Object(m.c)(null, function (e) {
+        Y = Object(m.c)(null, e => {
           return Object(j.b)({ authenticate: R.a }, e);
         })(q),
         B = r("EQ2k");
-      t.a = function (e) {
+      t.a = e => {
         var t = e.onSubmit,
           r = e.isLogin,
           a = e.email,
@@ -1120,22 +1111,22 @@
     },
     "7J1T": function (e, t, r) {
       "use strict";
-      r.d(t, "f", function () {
+      r.d(t, "f", () => {
         return p;
       }),
-        r.d(t, "d", function () {
+        r.d(t, "d", () => {
           return l;
         }),
-        r.d(t, "a", function () {
+        r.d(t, "a", () => {
           return f;
         }),
-        r.d(t, "e", function () {
+        r.d(t, "e", () => {
           return d;
         }),
-        r.d(t, "c", function () {
+        r.d(t, "c", () => {
           return h;
         }),
-        r.d(t, "b", function () {
+        r.d(t, "b", () => {
           return b;
         });
       var n = r("cpVT"),
@@ -1148,7 +1139,7 @@
         if (Object.getOwnPropertySymbols) {
           var n = Object.getOwnPropertySymbols(e);
           t &&
-            (n = n.filter(function (t) {
+            (n = n.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             r.push.apply(r, n);
@@ -1159,12 +1150,12 @@
         for (var t = 1; t < arguments.length; t++) {
           var r = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? s(Object(r), !0).forEach(function (t) {
+            ? s(Object(r), !0).forEach(t => {
                 Object(n.a)(e, t, r[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r))
-            : s(Object(r)).forEach(function (t) {
+            : s(Object(r)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -1183,12 +1174,12 @@
           u = e.hCaptchaResponse,
           p = e.hCaptchaSiteKey,
           l = e.privacyInvite;
-        return (function () {
+        return (() => {
           var e = Object(o.a)(
             i.a.mark(function e(o, f) {
               var d;
               return i.a.wrap(
-                function (e) {
+                e => {
                   for (;;)
                     switch ((e.prev = e.next)) {
                       case 0:
@@ -1244,12 +1235,12 @@
           n = e.teacher,
           a = e.hCaptchaResponse,
           s = e.hCaptchaSiteKey;
-        return (function () {
+        return (() => {
           var e = Object(o.a)(
             i.a.mark(function e(o, u) {
               var p;
               return i.a.wrap(
-                function (e) {
+                e => {
                   for (;;)
                     switch ((e.prev = e.next)) {
                       case 0:
@@ -1297,12 +1288,12 @@
         })();
       }
       function f() {
-        return (function () {
+        return (() => {
           var e = Object(o.a)(
             i.a.mark(function e(t, r) {
               var n, a;
               return i.a.wrap(
-                function (e) {
+                e => {
                   for (;;)
                     switch ((e.prev = e.next)) {
                       case 0:
@@ -1375,11 +1366,11 @@
     },
     JxgA(e, t, r) {
       "use strict";
-      (function (e) {
-        r.d(t, "a", function () {
+      ((e => {
+        r.d(t, "a", () => {
           return o;
         }),
-          r.d(t, "b", function () {
+          r.d(t, "b", () => {
             return d;
           });
         var n = r("vJKn"),
@@ -1401,40 +1392,39 @@
           return (l = Object(i.a)(
             a.a.mark(function e() {
               var t;
-              return a.a.wrap(function (e) {
+              return a.a.wrap(e => {
                 for (;;)
                   switch ((e.prev = e.next)) {
                     case 0:
-                      return (
-                        ((t = document.createElement("script")).src =
-                          "https://www.hcaptcha.com/1/api.js?render=explicit&host=repl.it"),
-                        e.abrupt(
-                          "return",
-                          new Promise(function (e, r) {
-                            (t.onload = f(function () {
-                              (u = null), e();
-                            })),
-                              (t.onerror = function () {
-                                c++,
-                                  (u = new Promise(function (e, t) {
-                                    setTimeout(function () {
-                                      p().then(e, t);
-                                    }, s());
-                                  })),
-                                  5 === c &&
-                                    r(
-                                      new Error(
-                                        "Failed to load captcha script after ".concat(
-                                          5,
-                                          " times"
-                                        )
+                      return ((t = document.createElement("script")).src =
+                        "https://www.hcaptcha.com/1/api.js?render=explicit&host=repl.it"),
+                      e.abrupt(
+                        "return",
+                        new Promise((e, r) => {
+                          (t.onload = f(() => {
+                            (u = null), e();
+                          })),
+                            (t.onerror = () => {
+                              c++,
+                                (u = new Promise((e, t) => {
+                                  setTimeout(() => {
+                                    p().then(e, t);
+                                  }, s());
+                                })),
+                                5 === c &&
+                                  r(
+                                    new Error(
+                                      "Failed to load captcha script after ".concat(
+                                        5,
+                                        " times"
                                       )
-                                    );
-                              }),
-                              window.document.head.appendChild(t);
-                          })
-                        )
-                      );
+                                    )
+                                  );
+                            }),
+                            window.document.head.appendChild(t);
+                        })
+                      )
+                    ;
                     case 3:
                     case "end":
                       return e.stop();
@@ -1444,9 +1434,9 @@
           )).apply(this, arguments);
         }
         function f(e) {
-          return function () {
+          return () => {
             "undefined" === typeof window.hcaptcha
-              ? setTimeout(function () {
+              ? setTimeout(() => {
                   f(e);
                 }, 100)
               : e();
@@ -1459,7 +1449,7 @@
           return (h = Object(i.a)(
             a.a.mark(function e() {
               var t;
-              return a.a.wrap(function (e) {
+              return a.a.wrap(e => {
                 for (;;)
                   switch ((e.prev = e.next)) {
                     case 0:
@@ -1475,7 +1465,7 @@
                       return (t = window.hcaptcha),
                       e.abrupt(
                         "return",
-                        new Promise(function (e, r) {
+                        new Promise((e, r) => {
                           var n = document.createElement("div"),
                             a = t.render(n, {
                               sitekey: o,
@@ -1501,8 +1491,7 @@
                             });
                           window.document.body.appendChild(n), t.execute(a);
                         })
-                      )
-                    ;
+                      );
                     case 8:
                     case "end":
                       return e.stop();
@@ -1512,7 +1501,7 @@
           )).apply(this, arguments);
         }
         u = p();
-      }.call(this, r("8oxB")));
+      }).call(this, r("8oxB")));
     },
     kDxc(e, t, r) {
       "use strict";
@@ -1529,17 +1518,16 @@
         d = r.n(f),
         h = r("EQ2k");
       function b(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -1554,26 +1542,25 @@
           return Object(c.a)(this, r);
         };
       }
-      var m = (function (e) {
+      var m = (e => {
         Object(o.a)(r, e);
         var t = b(r);
         function r(e) {
           var n;
-          return (
-            Object(a.a)(this, r),
-            ((n = t.call(this, e)).onToggle = function (e) {
-              e && (e.preventDefault(), e.stopPropagation());
-              var t =
-                void 0 === n.props.forceChecked
-                  ? n.state.checked
-                  : n.props.forceChecked;
-              n.props.onChange(!t),
-                void 0 === n.props.forceChecked &&
-                  n.setState({ checked: !n.state.checked });
-            }),
-            (n.state = { checked: e.checked || !1 }),
-            n
-          );
+          return Object(a.a)(this, r),
+          ((n = t.call(this, e)).onToggle = e => {
+            e && (e.preventDefault(), e.stopPropagation());
+            var t =
+              void 0 === n.props.forceChecked
+                ? n.state.checked
+                : n.props.forceChecked;
+            n.props.onChange(!t),
+              void 0 === n.props.forceChecked &&
+                n.setState({ checked: !n.state.checked });
+          }),
+          (n.state = { checked: e.checked || !1 }),
+          n
+        ;
         }
         return Object(i.a)(r, [
           {

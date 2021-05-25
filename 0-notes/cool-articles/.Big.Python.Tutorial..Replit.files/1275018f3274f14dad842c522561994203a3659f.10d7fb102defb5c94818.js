@@ -7,7 +7,7 @@
         l = s("MX0m"),
         n = s.n(l);
       s("q1tI");
-      e.a = function () {
+      e.a = () => {
         return Object(t.jsxs)("svg", {
           className: "packages-icon-svg",
           xmlns: "http://www.w3.org/2000/svg",
@@ -43,136 +43,136 @@
     UWUU(c, e, s) {
       "use strict";
       s.r(e),
-        s.d(e, "AddLib", function () {
+        s.d(e, "AddLib", () => {
           return t.a;
         }),
-        s.d(e, "Alien", function () {
+        s.d(e, "Alien", () => {
           return i;
         }),
-        s.d(e, "Book", function () {
+        s.d(e, "Book", () => {
           return o;
         }),
-        s.d(e, "Chat", function () {
+        s.d(e, "Chat", () => {
           return j;
         }),
-        s.d(e, "Copy", function () {
+        s.d(e, "Copy", () => {
           return h;
         }),
-        s.d(e, "Checkmark", function () {
+        s.d(e, "Checkmark", () => {
           return d;
         }),
-        s.d(e, "Debugger", function () {
+        s.d(e, "Debugger", () => {
           return g;
         }),
-        s.d(e, "DebuggerResume", function () {
+        s.d(e, "DebuggerResume", () => {
           return x;
         }),
-        s.d(e, "DebuggerStart", function () {
+        s.d(e, "DebuggerStart", () => {
           return b;
         }),
-        s.d(e, "DebuggerStepInto", function () {
+        s.d(e, "DebuggerStepInto", () => {
           return v;
         }),
-        s.d(e, "DebuggerStepOut", function () {
+        s.d(e, "DebuggerStepOut", () => {
           return u;
         }),
-        s.d(e, "DebuggerStepOver", function () {
+        s.d(e, "DebuggerStepOver", () => {
           return O;
         }),
-        s.d(e, "DebuggerStop", function () {
+        s.d(e, "DebuggerStop", () => {
           return f;
         }),
-        s.d(e, "DoubleArrow", function () {
+        s.d(e, "DoubleArrow", () => {
           return m;
         }),
-        s.d(e, "ErrorIcon", function () {
+        s.d(e, "ErrorIcon", () => {
           return y;
         }),
-        s.d(e, "Eye", function () {
+        s.d(e, "Eye", () => {
           return M;
         }),
-        s.d(e, "File", function () {
+        s.d(e, "File", () => {
           return C;
         }),
-        s.d(e, "Fork", function () {
+        s.d(e, "Fork", () => {
           return Z;
         }),
-        s.d(e, "GitHub", function () {
+        s.d(e, "GitHub", () => {
           return H;
         }),
-        s.d(e, "GitHubPublic", function () {
+        s.d(e, "GitHubPublic", () => {
           return L;
         }),
-        s.d(e, "GitHubPrivate", function () {
+        s.d(e, "GitHubPrivate", () => {
           return k;
         }),
-        s.d(e, "Globe", function () {
+        s.d(e, "Globe", () => {
           return A;
         }),
-        s.d(e, "HistoryIcon", function () {
+        s.d(e, "HistoryIcon", () => {
           return S;
         }),
-        s.d(e, "LanguageIcon", function () {
+        s.d(e, "LanguageIcon", () => {
           return _;
         }),
-        s.d(e, "Loading", function () {
+        s.d(e, "Loading", () => {
           return J;
         }),
-        s.d(e, "Lock", function () {
+        s.d(e, "Lock", () => {
           return K;
         }),
-        s.d(e, "Minimize", function () {
+        s.d(e, "Minimize", () => {
           return X;
         }),
-        s.d(e, "MultiplayerInvite", function () {
+        s.d(e, "MultiplayerInvite", () => {
           return T;
         }),
-        s.d(e, "Packages", function () {
+        s.d(e, "Packages", () => {
           return Y.a;
         }),
-        s.d(e, "Pencil", function () {
+        s.d(e, "Pencil", () => {
           return $;
         }),
-        s.d(e, "Planet", function () {
+        s.d(e, "Planet", () => {
           return cc;
         }),
-        s.d(e, "Plus", function () {
+        s.d(e, "Plus", () => {
           return ec;
         }),
-        s.d(e, "Refresh", function () {
+        s.d(e, "Refresh", () => {
           return sc;
         }),
-        s.d(e, "Rocket", function () {
+        s.d(e, "Rocket", () => {
           return tc;
         }),
-        s.d(e, "Run", function () {
+        s.d(e, "Run", () => {
           return lc;
         }),
-        s.d(e, "Share", function () {
+        s.d(e, "Share", () => {
           return nc;
         }),
-        s.d(e, "Settings", function () {
+        s.d(e, "Settings", () => {
           return rc;
         }),
-        s.d(e, "Stop", function () {
+        s.d(e, "Stop", () => {
           return ac;
         }),
-        s.d(e, "Test", function () {
+        s.d(e, "Test", () => {
           return ic;
         }),
-        s.d(e, "Arrow", function () {
+        s.d(e, "Arrow", () => {
           return jc;
         }),
-        s.d(e, "WallArrow", function () {
+        s.d(e, "WallArrow", () => {
           return oc;
         }),
-        s.d(e, "Warning", function () {
+        s.d(e, "Warning", () => {
           return dc;
         }),
-        s.d(e, "Save", function () {
+        s.d(e, "Save", () => {
           return hc;
         }),
-        s.d(e, "CloudOff", function () {
+        s.d(e, "CloudOff", () => {
           return gc;
         });
       var t = s("nG0Z"),
@@ -180,7 +180,7 @@
         n = s("MX0m"),
         r = s.n(n),
         a = s("q1tI"),
-        i = function () {
+        i = () => {
           return Object(l.jsxs)("svg", {
             className: "alien-svg-icon",
             xmlns: "http://www.w3.org/2000/svg",
@@ -212,7 +212,7 @@
             ],
           });
         },
-        o = function () {
+        o = () => {
           return Object(l.jsxs)("svg", {
             xmlns: "http://www.w3.org/2000/svg",
             viewBox: "0 0 24 24",
@@ -240,7 +240,7 @@
             ],
           });
         },
-        j = function () {
+        j = () => {
           return Object(l.jsxs)("svg", {
             className: "chat-icon-svg",
             xmlns: "http://www.w3.org/2000/svg",
@@ -265,7 +265,7 @@
             ],
           });
         },
-        d = function () {
+        d = () => {
           return Object(l.jsxs)("svg", {
             className: "checkmark-icon-svg",
             xmlns: "http://www.w3.org/2000/svg",
@@ -288,7 +288,7 @@
             ],
           });
         },
-        h = function () {
+        h = () => {
           return Object(l.jsxs)("svg", {
             className: "copy-icon-svg",
             xmlns: "http://www.w3.org/2000/svg",
@@ -313,7 +313,7 @@
             ],
           });
         },
-        g = function () {
+        g = () => {
           return Object(l.jsxs)("svg", {
             className: "debugger-icon-svg",
             xmlns: "http://www.w3.org/2000/svg",
@@ -342,7 +342,7 @@
             ],
           });
         },
-        x = function () {
+        x = () => {
           return Object(l.jsxs)("svg", {
             className: "debugger-resume-icon-svg",
             "data-name": "Layer 1 copy 5",
@@ -373,7 +373,7 @@
             ],
           });
         },
-        b = function (c) {
+        b = c => {
           var e = c.backgroundColor,
             s = c.foregroundColor;
           return Object(l.jsxs)("svg", {
@@ -415,7 +415,7 @@
             ],
           });
         },
-        v = function () {
+        v = () => {
           return Object(l.jsxs)("svg", {
             className: "debugger-step-into-icon-svg",
             "data-name": "Layer 1 copy 5",
@@ -440,7 +440,7 @@
             ],
           });
         },
-        u = function () {
+        u = () => {
           return Object(l.jsxs)("svg", {
             className: "debugger-step-out-icon-svg",
             "data-name": "Layer 1 copy 5",
@@ -465,7 +465,7 @@
             ],
           });
         },
-        O = function () {
+        O = () => {
           return Object(l.jsxs)("svg", {
             className: "debugger-step-over-icon-svg",
             "data-name": "Layer 1 copy 5",
@@ -490,7 +490,7 @@
             ],
           });
         },
-        f = function (c) {
+        f = c => {
           var e = c.backgroundColor,
             s = c.foregroundColor;
           return Object(l.jsxs)("svg", {
@@ -534,7 +534,7 @@
             ],
           });
         },
-        m = function () {
+        m = () => {
           return Object(l.jsxs)("svg", {
             className: "double-arrow-icon-svg",
             xmlns: "http://www.w3.org/2000/svg",
@@ -571,7 +571,7 @@
         if (Object.getOwnPropertySymbols) {
           var t = Object.getOwnPropertySymbols(c);
           e &&
-            (t = t.filter(function (e) {
+            (t = t.filter(e => {
               return Object.getOwnPropertyDescriptor(c, e).enumerable;
             })),
             s.push.apply(s, t);
@@ -582,12 +582,12 @@
         for (var e = 1; e < arguments.length; e++) {
           var s = null != arguments[e] ? arguments[e] : {};
           e % 2
-            ? p(Object(s), !0).forEach(function (e) {
+            ? p(Object(s), !0).forEach(e => {
                 Object(w.a)(c, e, s[e]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(c, Object.getOwnPropertyDescriptors(s))
-            : p(Object(s)).forEach(function (e) {
+            : p(Object(s)).forEach(e => {
                 Object.defineProperty(
                   c,
                   e,
@@ -597,7 +597,7 @@
         }
         return c;
       }
-      var y = function (c) {
+      var y = c => {
           return Object(l.jsxs)("svg", {
             className: "error-icon-svg",
             "data-name": "Layer 1",
@@ -664,7 +664,7 @@
             ],
           });
         },
-        M = function (c) {
+        M = c => {
           var e = c.backgroundColor;
           return Object(l.jsxs)("svg", {
             className: "eye-icon-svg",
@@ -710,7 +710,7 @@
             ],
           });
         },
-        C = function () {
+        C = () => {
           return Object(l.jsxs)("svg", {
             className: "file-icon-svg",
             xmlns: "http://www.w3.org/2000/svg",
@@ -734,7 +734,7 @@
             ],
           });
         },
-        Z = function () {
+        Z = () => {
           return Object(l.jsxs)("svg", {
             className: "fork-icon-svg",
             xmlns: "http://www.w3.org/2000/svg",
@@ -758,7 +758,7 @@
             ],
           });
         },
-        H = function () {
+        H = () => {
           return Object(l.jsxs)("svg", {
             className: "github-icon-svg",
             viewBox: "0 0 24 24",
@@ -780,7 +780,7 @@
             ],
           });
         },
-        L = function () {
+        L = () => {
           return Object(l.jsxs)("svg", {
             className: "github-public-icon-svg",
             viewBox: "0 0 14.528 19.72",
@@ -806,7 +806,7 @@
             ],
           });
         },
-        k = function () {
+        k = () => {
           return Object(l.jsxs)("svg", {
             className: "github-private-icon-svg",
             viewBox: "0 0 14.528 19.72",
@@ -835,7 +835,7 @@
             ],
           });
         },
-        A = function (c) {
+        A = c => {
           var e = c.color;
           return Object(l.jsxs)("svg", {
             className: "globe-svg-icon",
@@ -874,17 +874,16 @@
         B = s("VIvw"),
         P = s("iHvq");
       function R(c) {
-        var e = (function () {
+        var e = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (c) {
             return !1;
           }
@@ -899,7 +898,7 @@
           return Object(B.a)(this, s);
         };
       }
-      var S = (function (c) {
+      var S = (c => {
           Object(z.a)(s, c);
           var e = R(s);
           function s() {
@@ -945,7 +944,7 @@
           s
         ;
         })(a.PureComponent),
-        D = function () {
+        D = () => {
           return Object(l.jsx)(a.Fragment, {
             children: Object(l.jsx)("path", {
               fillRule: "evenodd",
@@ -954,7 +953,7 @@
             }),
           });
         },
-        Q = function () {
+        Q = () => {
           return Object(l.jsx)(a.Fragment, {
             children: Object(l.jsx)("path", {
               fillRule: "evenodd",
@@ -963,21 +962,21 @@
             }),
           });
         },
-        F = function () {
+        F = () => {
           return Object(l.jsx)(a.Fragment, {
             children: Object(l.jsx)("path", {
               d: "M8 6l4.334 48.603L31.777 60l19.5-5.406L55.614 6H8zm38.612 11.116l-1.466 16.426-1.015 11.334-.089 1.007-12.226 3.39-12.21-3.39-.835-9.36h5.983l.425 4.754 6.646 1.791.016-.004h.005l6.628-1.79.696-7.73H25.255l-.119-1.338-.273-3.022-.141-1.6h14.975l.546-6.103H17.433l-.119-1.34-.273-3.023-.142-1.599h29.859l-.144 1.6-.002-.003z",
             }),
           });
         },
-        I = function () {
+        I = () => {
           return Object(l.jsx)(a.Fragment, {
             children: Object(l.jsx)("path", {
               d: "M8.002 6l4.326 48.602L31.743 60l19.47-5.406L55.543 6H8h.002zm8.988 11.534l-.142-1.6h14.904v5.96h-8.4l.544 6.104h7.856v5.96H18.454L16.99 17.532v.002zm28.451 12.067l-1.398 15.692-.09 1.007-12.21 3.389-12.192-3.39-.835-9.359h5.975l.423 4.755 6.633 1.79 6.638-1.795.69-7.73h-7.309V28H45.58l-.145 1.6h.006zm1.078-12.067l-.27 3.022-.12 1.34H31.773v-5.96h14.889l-.143 1.598z",
             }),
           });
         },
-        U = function () {
+        U = () => {
           return Object(l.jsxs)(a.Fragment, {
             children: [
               Object(l.jsx)("path", {
@@ -994,21 +993,21 @@
             ],
           });
         },
-        E = function () {
+        E = () => {
           return Object(l.jsx)(a.Fragment, {
             children: Object(l.jsx)("path", {
               d: "M8.271 6A2.271 2.271 0 006 8.271v47.457A2.271 2.271 0 008.271 58h47.457A2.272 2.272 0 0058 55.728V8.271A2.271 2.271 0 0055.728 6H8.271zM33.14 50.483c-.766 1.557-2.23 2.58-3.925 3.074-2.605.598-5.096.258-6.95-.856-1.241-.76-2.21-1.932-2.866-3.281 1.319-.806 2.635-1.617 3.954-2.423.035.015.138.203.278.446.503.845.939 1.443 1.794 1.862.841.286 2.684.47 3.396-1.008.436-.752.296-3.217.296-5.89 0-4.203.02-8.335.02-12.589h4.864c0 4.467.024 8.945 0 13.404.01 2.733.247 5.22-.861 7.261zm20.178-1.374c-1.69 5.784-11.118 5.972-14.883 2.15-.796-.899-1.294-1.369-1.77-2.407 2.003-1.152 2.003-1.152 3.95-2.278 1.059 1.626 2.037 2.52 3.797 2.886 2.388.29 4.79-.529 4.252-3.064-.554-2.072-4.889-2.576-7.84-4.79-2.995-2.013-3.696-6.901-1.236-9.694.821-1.034 2.22-1.804 3.687-2.175l1.532-.198c2.941-.06 4.78.716 6.13 2.225.375.38.681.791 1.256 1.682-1.567.998-1.562.988-3.807 2.442-.48-1.033-1.274-1.681-2.115-1.962-1.304-.396-2.95.035-3.291 1.414-.118.425-.093.82.094 1.522.529 1.206 2.303 1.73 3.895 2.46 4.582 1.86 6.13 3.85 6.51 6.223.365 2.042-.09 3.366-.158 3.564h-.003z",
             }),
           });
         },
-        G = function () {
+        G = () => {
           return Object(l.jsx)(a.Fragment, {
             children: Object(l.jsx)("path", {
               d: "M26.456 30.322h13.01c3.62 0 6.512-2.98 6.512-6.619V11.301c0-3.53-2.978-6.181-6.513-6.77a40.465 40.465 0 00-6.784-.53c-2.226.012-4.354.199-6.225.53-5.512.973-6.513 3.012-6.513 6.77v4.964h13.024v1.655H15.053c-3.785 0-7.099 2.274-8.136 6.604-1.196 4.962-1.249 8.058 0 13.238.925 3.857 3.136 6.604 6.921 6.604h4.48v-5.951c0-4.299 3.72-8.09 8.136-8.09l.002-.003zm-.821-17.366c-1.35 0-2.445-1.107-2.445-2.474 0-1.373 1.093-2.49 2.445-2.49 1.345 0 2.444 1.117 2.444 2.49 0 1.37-1.097 2.474-2.444 2.474zM59 24.522c-.935-3.768-2.721-6.604-6.513-6.604h-4.888V23.7c0 4.483-3.801 8.259-8.136 8.259h-13.01c-3.563 0-6.512 3.05-6.512 6.618V50.98c0 3.53 3.069 5.605 6.513 6.619 4.123 1.213 8.076 1.431 13.009 0 3.278-.949 6.513-2.86 6.513-6.619v-4.964h-13.01v-1.655H52.49c3.785 0 5.195-2.639 6.513-6.604 1.36-4.08 1.302-8.002 0-13.237l-.002.002zM40.284 49.328c1.35 0 2.445 1.107 2.445 2.473 0 1.374-1.095 2.49-2.445 2.49-1.345 0-2.445-1.116-2.445-2.49 0-1.369 1.098-2.473 2.445-2.473z",
             }),
           });
         },
-        W = function () {
+        W = () => {
           return Object(l.jsxs)(a.Fragment, {
             children: [
               Object(l.jsx)("path", {
@@ -1020,7 +1019,7 @@
             ],
           });
         },
-        _ = function (c) {
+        _ = c => {
           var e;
           switch (c.language) {
             case "py":
@@ -1059,7 +1058,7 @@
             children: e,
           });
         },
-        J = function () {
+        J = () => {
           return Object(l.jsxs)("div", {
             className: "jsx-1046665448 loading-dots-icon",
             children: [
@@ -1077,7 +1076,7 @@
             ],
           });
         },
-        K = function (c) {
+        K = c => {
           var e = c.backgroundColor;
           return Object(l.jsxs)("svg", {
             className: "lock-svg-icon",
@@ -1120,7 +1119,7 @@
             ],
           });
         },
-        X = function (c) {
+        X = c => {
           var e = c.strokeWidth;
           return Object(l.jsxs)("svg", {
             className: "minimize-icon-svg",
@@ -1150,7 +1149,7 @@
             ],
           });
         },
-        T = function () {
+        T = () => {
           return Object(l.jsxs)("svg", {
             className: "multiplayer-invite-icon-svg",
             xmlns: "http://www.w3.org/2000/svg",
@@ -1182,7 +1181,7 @@
           });
         },
         Y = s("8gH+"),
-        $ = function () {
+        $ = () => {
           return Object(l.jsxs)("svg", {
             className: "pencil-icon-svg",
             xmlns: "http://www.w3.org/2000/svg",
@@ -1214,7 +1213,7 @@
             ],
           });
         },
-        cc = function () {
+        cc = () => {
           return Object(l.jsxs)("svg", {
             className: "planet-svg-icon",
             xmlns: "http://www.w3.org/2000/svg",
@@ -1254,7 +1253,7 @@
             ],
           });
         },
-        ec = function () {
+        ec = () => {
           return Object(l.jsxs)("svg", {
             className: "plus-svg-icon",
             xmlns: "http://www.w3.org/2000/svg",
@@ -1279,7 +1278,7 @@
             ],
           });
         },
-        sc = function () {
+        sc = () => {
           return Object(l.jsxs)("svg", {
             className: "refresh-icon-svg",
             viewBox: "0 0 16 16",
@@ -1304,7 +1303,7 @@
             ],
           });
         },
-        tc = function () {
+        tc = () => {
           return Object(l.jsxs)("svg", {
             className: "rocket-svg-icon",
             xmlns: "http://www.w3.org/2000/svg",
@@ -1368,7 +1367,7 @@
             ],
           });
         },
-        lc = function () {
+        lc = () => {
           return Object(l.jsxs)("svg", {
             className: "run-icon-svg",
             xmlns: "http://www.w3.org/2000/svg",
@@ -1392,7 +1391,7 @@
             ],
           });
         },
-        nc = function () {
+        nc = () => {
           return Object(l.jsxs)("svg", {
             className: "share-icon-svg",
             xmlns: "http://www.w3.org/2000/svg",
@@ -1421,7 +1420,7 @@
             ],
           });
         },
-        rc = function () {
+        rc = () => {
           return Object(l.jsxs)("svg", {
             className: "settings-icon-svg",
             xmlns: "http://www.w3.org/2000/svg",
@@ -1445,7 +1444,7 @@
             ],
           });
         },
-        ac = function () {
+        ac = () => {
           return Object(l.jsxs)("svg", {
             className: "stop-icon-svg",
             viewBox: "0 0 22 22",
@@ -1469,7 +1468,7 @@
             ],
           });
         },
-        ic = function () {
+        ic = () => {
           return Object(l.jsxs)("svg", {
             className: "test-icon-svg",
             viewBox: "0 0 17.846 21.414",
@@ -1525,7 +1524,7 @@
             ],
           });
         },
-        oc = function (c) {
+        oc = c => {
           var e = c.strokeWidth;
           return Object(l.jsxs)("svg", {
             className: "wall-arrow-icon-svg",
@@ -1555,7 +1554,7 @@
             ],
           });
         },
-        jc = function () {
+        jc = () => {
           return Object(l.jsxs)("svg", {
             viewBox: "0 0 13 12",
             className: "arrow-icon-svg",
@@ -1576,7 +1575,7 @@
             ],
           });
         },
-        dc = function () {
+        dc = () => {
           return Object(l.jsxs)("svg", {
             className: "warning-icon-svg",
             "data-name": "Layer 1",
@@ -1605,7 +1604,7 @@
             ],
           });
         },
-        hc = function () {
+        hc = () => {
           return Object(l.jsxs)("svg", {
             className: "save-icon-svg",
             xmlns: "http://www.w3.org/2000/svg",
@@ -1633,7 +1632,7 @@
             ],
           });
         },
-        gc = function () {
+        gc = () => {
           return Object(l.jsxs)("svg", {
             xmlns: "http://www.w3.org/2000/svg",
             viewBox: "0 0 24 24",
@@ -1657,7 +1656,7 @@
         l = s("MX0m"),
         n = s.n(l);
       s("q1tI");
-      e.a = function (c) {
+      e.a = c => {
         var e = c.backgroundColor,
           s = c.foregroundColor,
           l = c.borderColor;

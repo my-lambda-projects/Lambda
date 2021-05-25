@@ -3,14 +3,14 @@
   {
     "/+LJ": function (e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return r;
       });
-      var r = function (e) {
+      var r = e => {
         var t = e.ace,
           n = e.path;
         if (n.endsWith(".php")) return { path: "ace/mode/php", inline: !0 };
-        var r = (function (e) {
+        var r = (e => {
           return e.endsWith(".litcoffee")
             ? "coffee"
             : /\.(ml|mli)/.test(e)
@@ -34,7 +34,7 @@
     },
     "0HhJ": function (e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return s;
       });
       var r = n("cpVT"),
@@ -45,7 +45,7 @@
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -56,12 +56,12 @@
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? i(Object(n), !0).forEach(function (t) {
+            ? i(Object(n), !0).forEach(t => {
                 Object(r.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : i(Object(n)).forEach(function (t) {
+            : i(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -105,7 +105,7 @@
     },
     "7EIp": function (e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return pe;
       });
       var r = n("nKUr"),
@@ -156,7 +156,7 @@
         return Object(r.jsxs)("div", {
           ref: j,
           onClick: i
-            ? function (e) {
+            ? e => {
                 return i({ newTab: Object(y.b)(e) });
               }
             : void 0,
@@ -346,7 +346,7 @@
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -357,12 +357,12 @@
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? z(Object(n), !0).forEach(function (t) {
+            ? z(Object(n), !0).forEach(t => {
                 Object(a.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : z(Object(n)).forEach(function (t) {
+            : z(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -400,32 +400,30 @@
           C = E[0],
           P = E[1];
         l.useEffect(
-          function () {
+          () => {
             if (x) {
               var e = !1;
-              return (
-                x.file.then(function (n) {
-                  if (!e) {
-                    if (n.error) {
-                      if (n.error === O.e.AlreadyExists) {
-                        var r =
-                          "." === x.path ? j : "".concat(x.path, "/").concat(j);
-                        return (
-                          p(r).then(function (e) {
-                            r !== t && P({ path: r, type: e });
-                          }),
-                          void m(null)
-                        );
-                      }
-                      y("Something went wrong trying to remove ".concat(j));
+              return x.file.then(n => {
+                if (!e) {
+                  if (n.error) {
+                    if (n.error === O.e.AlreadyExists) {
+                      var r =
+                        "." === x.path ? j : "".concat(x.path, "/").concat(j);
+                      return p(r).then(e => {
+                        r !== t && P({ path: r, type: e });
+                      }),
+                      void m(null)
+                    ;
                     }
-                    m(null);
+                    y("Something went wrong trying to remove ".concat(j));
                   }
-                }),
-                function () {
-                  e = !0;
+                  m(null);
                 }
-              );
+              }),
+              () => {
+                e = !0;
+              }
+            ;
             }
           },
           [x, j, t, p, y]
@@ -533,9 +531,9 @@
           c = e.depth,
           u = l.useRef(null),
           d = Object(J.a)("flag-repl-secrets"),
-          p = Object(q.a)(n || "", function (e) {
+          p = Object(q.a)(n || "", e => {
             var t = Object(S.i)({
-              files: i.map(function (e) {
+              files: i.map(e => {
                 return e.filename;
               }),
               fileName: e,
@@ -545,7 +543,7 @@
             return t ? { message: t } : null;
           });
         return l.useEffect(
-          function () {
+          () => {
             if (n) {
               var e = n.lastIndexOf(".");
               -1 === e && (e = n.length),
@@ -614,8 +612,7 @@
               ],
             }),
           ],
-        })
-      ;
+        });
       }
       var K = n("7njZ");
       function Z(e) {
@@ -665,10 +662,10 @@
                   var r = { path: u ? u + "/" + e : e, type: t };
                   v({ filename: e, type: t }),
                     n(r)
-                      .then(function () {
+                      .then(() => {
                         b.current && (v(null), a(r));
                       })
-                      .catch(function (e) {
+                      .catch(e => {
                         b.current && i(e);
                       });
                 }
@@ -747,7 +744,7 @@
               uniquekey: i,
               children: Array(n)
                 .fill(null)
-                .map(function (e, t) {
+                .map((e, t) => {
                   return Object(r.jsxs)(
                     l.Fragment,
                     {
@@ -795,7 +792,7 @@
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -806,12 +803,12 @@
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? re(Object(n), !0).forEach(function (t) {
+            ? re(Object(n), !0).forEach(t => {
                 Object(a.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : re(Object(n)).forEach(function (t) {
+            : re(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -841,7 +838,7 @@
           m = u.setPendingFileType,
           y = u.onNodeClick,
           w = u.activePath,
-          k = (function (e) {
+          k = (e => {
             var t = l.useState(null),
               n = Object(o.a)(t, 2),
               r = n[0],
@@ -851,27 +848,26 @@
               s = c[0],
               u = c[1];
             return l.useEffect(
-              function () {
+              () => {
                 if (s) {
                   var t = !1;
-                  return (
-                    "rename" === s.type
-                      ? (s.fileType === O.d.File
-                          ? e.moveFile(s.path, s.to)
-                          : e.moveDir(s.path, s.to)
-                        ).then(function (e) {
-                          t || (u(null), e.error && a(e.error));
-                        })
-                      : (s.fileType === O.d.File
-                          ? e.deleteFile(s.path)
-                          : e.deleteDir(s.path)
-                        ).then(function (e) {
-                          t || (u(null), e.error && a(e.error));
-                        }),
-                    function () {
-                      t = !0;
-                    }
-                  );
+                  return "rename" === s.type
+                    ? (s.fileType === O.d.File
+                        ? e.moveFile(s.path, s.to)
+                        : e.moveDir(s.path, s.to)
+                      ).then(e => {
+                        t || (u(null), e.error && a(e.error));
+                      })
+                    : (s.fileType === O.d.File
+                        ? e.deleteFile(s.path)
+                        : e.deleteDir(s.path)
+                      ).then(e => {
+                        t || (u(null), e.error && a(e.error));
+                      }),
+                  () => {
+                    t = !0;
+                  }
+                ;
                 }
                 a(null);
               },
@@ -886,8 +882,7 @@
               },
               currentOp: s,
               error: r,
-            }
-          ;
+            };
           })(f),
           E = k.renameNode,
           C = k.deleteNode,
@@ -903,7 +898,7 @@
           G = M[1];
         if (
           (l.useEffect(
-            function () {
+            () => {
               D && d("Something went wrong trying to more or remove a file.");
             },
             [D, d]
@@ -918,7 +913,7 @@
             children: c,
           });
         if (!n) return null;
-        var q = n.some(function (e) {
+        var q = n.some(e => {
             if (w)
               return (
                 e.type === O.d.File &&
@@ -946,11 +941,11 @@
                 }),
               }),
             }),
-            n.map(function (e) {
+            n.map(e => {
               var t = e.filename,
                 a = e.type,
                 o = [].concat(Object(g.a)(p), [t]).join("/"),
-                i = n.filter(function (e) {
+                i = n.filter(e => {
                   return e.filename !== t;
                 });
               if ((null === P || void 0 === P ? void 0 : P.path) === o)
@@ -1002,11 +997,11 @@
                 active: w === o,
                 path: o,
                 key: t,
-                getNodeType: (function () {
+                getNodeType: (() => {
                   var e = Object(h.a)(
                     j.a.mark(function e(t) {
                       var n;
-                      return j.a.wrap(function (e) {
+                      return j.a.wrap(e => {
                         for (;;)
                           switch ((e.prev = e.next)) {
                             case 0:
@@ -1032,11 +1027,11 @@
                     return e.apply(this, arguments);
                   };
                 })(),
-                overwriteNode: (function () {
+                overwriteNode: (() => {
                   var e = Object(h.a)(
                     j.a.mark(function e(t) {
                       var n, r, i;
-                      return j.a.wrap(function (e) {
+                      return j.a.wrap(e => {
                         for (;;)
                           switch ((e.prev = e.next)) {
                             case 0:
@@ -1096,7 +1091,7 @@
                 : Object(r.jsx)(pe, ae(ae({}, c), u));
             }),
             u.pendingUploads
-              ? u.pendingUploads.map(function (e) {
+              ? u.pendingUploads.map(e => {
                   var a = e.lastIndexOf("/");
                   return (-1 !== a ? e.slice(0, a) : void 0) !== t
                     ? null
@@ -1114,7 +1109,7 @@
                           },
                           getNodeType: Object(h.a)(
                             j.a.mark(function e() {
-                              return j.a.wrap(function (e) {
+                              return j.a.wrap(e => {
                                 for (;;)
                                   switch ((e.prev = e.next)) {
                                     case 0:
@@ -1126,7 +1121,7 @@
                               }, e);
                             })
                           ),
-                          siblings: n.filter(function (t) {
+                          siblings: n.filter(t => {
                             return t.filename !== e;
                           }),
                           path: e,
@@ -1206,7 +1201,7 @@
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -1217,12 +1212,12 @@
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? ue(Object(n), !0).forEach(function (t) {
+            ? ue(Object(n), !0).forEach(t => {
                 Object(a.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : ue(Object(n)).forEach(function (t) {
+            : ue(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -1273,29 +1268,28 @@
           Z = K[0],
           X = K[1];
         l.useEffect(
-          function () {
+          () => {
             if (z) {
               var e = !1;
-              return (
-                z.dir.then(function (t) {
-                  if (!e) {
-                    if (t.error) {
-                      if (t.error === O.e.AlreadyExists) {
-                        var n =
-                          "." === z.path ? D : "".concat(z.path, "/").concat(D);
-                        return void y(n).then(function (e) {
-                          J({ path: n, type: e }), G(null);
-                        });
-                      }
-                      S("Something went wrong trying to remove ".concat(D));
+              return z.dir.then(t => {
+                if (!e) {
+                  if (t.error) {
+                    if (t.error === O.e.AlreadyExists) {
+                      var n =
+                        "." === z.path ? D : "".concat(z.path, "/").concat(D);
+                      return void y(n).then(e => {
+                        J({ path: n, type: e }), G(null);
+                      });
                     }
-                    G(null);
+                    S("Something went wrong trying to remove ".concat(D));
                   }
-                }),
-                function () {
-                  e = !0;
+                  G(null);
                 }
-              );
+              }),
+              () => {
+                e = !0;
+              }
+            ;
             }
           },
           [z, D, y, S]
@@ -1305,17 +1299,16 @@
           $ = Y[0],
           ee = Y[1];
         l.useEffect(
-          function () {
+          () => {
             if ($) {
               var e = !1;
-              return (
-                ("dir" in $ ? $.dir : $.file).then(function () {
-                  e || ee(null);
-                }),
-                function () {
-                  e = !0;
-                }
-              );
+              return ("dir" in $ ? $.dir : $.file).then(() => {
+                e || ee(null);
+              }),
+              () => {
+                e = !0;
+              }
+            ;
             }
           },
           [$]
@@ -1332,13 +1325,13 @@
           ue = te.error,
           pe = te.expanded;
         l.useEffect(
-          function () {
+          () => {
             !pe && T && re();
           },
           [re, pe, T]
         ),
           l.useEffect(
-            function () {
+            () => {
               !pe && n && j.pendingFileType && re();
             },
             [re, pe, n, j.pendingFileType]
@@ -1379,7 +1372,7 @@
                   if (
                     null === ae || void 0 === ae
                       ? void 0
-                      : ae.find(function (e) {
+                      : ae.find(e => {
                           return e.filename === a;
                         })
                   )
@@ -1395,7 +1388,7 @@
                   if (
                     null !== ae &&
                     void 0 !== ae &&
-                    ae.some(function (n) {
+                    ae.some(n => {
                       return (
                         "".concat(t, "/").concat(n.filename, "}") === e.path
                       );
@@ -1414,7 +1407,7 @@
                   var s = h.moveFile(e.path, i);
                   return ee({ file: s }), { file: s, path: t };
                 }
-                e.dirContent.then(function (e) {
+                e.dirContent.then(e => {
                   v({ parentPath: N ? void 0 : t, files: e });
                 });
               }
@@ -1427,10 +1420,10 @@
           Oe = xe[0].isOver,
           me = xe[1];
         l.useEffect(
-          function () {
+          () => {
             if (Oe && !pe) {
               var e = setTimeout(re, 500);
-              return function () {
+              return () => {
                 clearTimeout(e);
               };
             }
@@ -1438,11 +1431,11 @@
           [Oe, re, pe]
         ),
           l.useEffect(
-            function () {
+            () => {
               ae &&
                 t === ce.a &&
                 X(
-                  ae.filter(function (e) {
+                  ae.filter(e => {
                     return x.a.includes(e.filename);
                   })
                 );
@@ -1620,7 +1613,7 @@
     },
     "7lhO": function (e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return o;
       });
       var r = n("q1tI"),
@@ -1633,7 +1626,7 @@
     },
     AYTL(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return l;
       });
       var r = n("cpVT"),
@@ -1645,7 +1638,7 @@
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -1656,12 +1649,12 @@
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? c(Object(n), !0).forEach(function (t) {
+            ? c(Object(n), !0).forEach(t => {
                 Object(r.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : c(Object(n)).forEach(function (t) {
+            : c(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -1709,7 +1702,7 @@
     },
     Dtuc(e, t, n) {
       "use strict";
-      n.d(t, "b", function () {
+      n.d(t, "b", () => {
         return d;
       });
       var r,
@@ -1719,11 +1712,11 @@
         c = n("g7Gn"),
         s = n("G5Ub"),
         l = n("yz3v"),
-        u = (function () {
+        u = (() => {
           var e = Object(i.a)(
             o.a.mark(function e() {
               var t;
-              return o.a.wrap(function (e) {
+              return o.a.wrap(e => {
                 for (;;)
                   switch ((e.prev = e.next)) {
                     case 0:
@@ -1766,7 +1759,7 @@
             return e.apply(this, arguments);
           };
         })(),
-        d = function () {
+        d = () => {
           if (!r) throw new Error("Expected ace to be loaded");
           return r;
         };
@@ -1774,7 +1767,7 @@
     },
     EP3k(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return l;
       });
       var r = n("vJKn"),
@@ -1790,7 +1783,7 @@
         return (u = Object(o.a)(
           a.a.mark(function e(t) {
             var n, r, o, i, l, u;
-            return a.a.wrap(function (e) {
+            return a.a.wrap(e => {
               for (;;)
                 switch ((e.prev = e.next)) {
                   case 0:
@@ -1831,7 +1824,7 @@
     },
     IjuC(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return i;
       });
       var r = n("vJKn"),
@@ -1844,7 +1837,7 @@
         return (c = Object(o.a)(
           a.a.mark(function e(t) {
             return a.a.wrap(
-              function (e) {
+              e => {
                 for (;;)
                   switch ((e.prev = e.next)) {
                     case 0:
@@ -1911,8 +1904,8 @@
     },
     LTTG(e, t, n) {
       "use strict";
-      (function (e) {
-        n.d(t, "a", function () {
+      ((e => {
+        n.d(t, "a", () => {
           return d;
         });
         var r = n("vJKn"),
@@ -1939,26 +1932,25 @@
             return (g = Object(o.a)(
               a.a.mark(function t(o) {
                 var u, d, p, b, g, x, O, m, y, w, k, E;
-                return a.a.wrap(function (t) {
+                return a.a.wrap(t => {
                   for (;;)
                     switch ((t.prev = t.next)) {
                       case 0:
-                        return (
-                          (u = o.replId),
-                          (d = o.hostedUrl),
-                          (p = o.language),
-                          (b = o.iframeParent),
-                          (g = o.timeout),
-                          (x = void 0 === g ? 5e3 : g),
-                          r && v(),
-                          (t.next = 4),
-                          n
-                            .e(66)
-                            .then(n.t.bind(null, "i5jj", 7))
-                            .then(function (e) {
-                              return e.default;
-                            })
-                        );
+                        return (u = o.replId),
+                        (d = o.hostedUrl),
+                        (p = o.language),
+                        (b = o.iframeParent),
+                        (g = o.timeout),
+                        (x = void 0 === g ? 5e3 : g),
+                        r && v(),
+                        (t.next = 4),
+                        n
+                          .e(66)
+                          .then(n.t.bind(null, "i5jj", 7))
+                          .then(e => {
+                            return e.default;
+                          })
+                      ;
                       case 4:
                         if (((O = t.sent), b))
                           for (; b.firstChild; ) b.removeChild(b.firstChild);
@@ -1967,7 +1959,7 @@
                             useIframe: !0,
                             iframeParent: b,
                             track: c.track,
-                          })).on("warn", function (e) {
+                          })).on("warn", e => {
                             f.emit(s.a.OUTPUT, e);
                           }),
                           (y = e.env.PR_REVIEW_APP
@@ -1986,41 +1978,40 @@
                       case 12:
                         y = d + "/__debug_wrapper.html";
                       case 13:
-                        return (
-                          (w = "kaboom" === p ? "html" : p),
-                          (k = ""
-                            .concat(
-                              window.location.origin,
-                              "/public/replbox_lang/"
-                            )
-                            .concat(i.version, "/")
-                            .concat(w, ".js")),
-                          (E = !1),
-                          (t.next = 18),
-                          new Promise(function (e, t) {
-                            var n = setTimeout(function () {
-                                (E = !0),
-                                  Object(c.track)(
-                                    c.events.LOAD_REPLBOX_ENGINE_TIMED_OUT,
-                                    { language: p }
-                                  ),
-                                  e();
-                              }, x),
-                              r = window.performance.now();
-                            m.load({ iframeOrigin: y, languageBundleSrc: k })
-                              .then(function () {
-                                clearTimeout(n),
-                                  Object(c.track)(
-                                    c.events.LOAD_REPLBOX_ENGINE_TIME,
-                                    { time: window.performance.now() - r }
-                                  ),
-                                  e();
-                              })
-                              .catch(function (e) {
-                                clearTimeout(n), t(e);
-                              });
-                          })
-                        );
+                        return (w = "kaboom" === p ? "html" : p),
+                        (k = ""
+                          .concat(
+                            window.location.origin,
+                            "/public/replbox_lang/"
+                          )
+                          .concat(i.version, "/")
+                          .concat(w, ".js")),
+                        (E = !1),
+                        (t.next = 18),
+                        new Promise((e, t) => {
+                          var n = setTimeout(() => {
+                              (E = !0),
+                                Object(c.track)(
+                                  c.events.LOAD_REPLBOX_ENGINE_TIMED_OUT,
+                                  { language: p }
+                                ),
+                                e();
+                            }, x),
+                            r = window.performance.now();
+                          m.load({ iframeOrigin: y, languageBundleSrc: k })
+                            .then(() => {
+                              clearTimeout(n),
+                                Object(c.track)(
+                                  c.events.LOAD_REPLBOX_ENGINE_TIME,
+                                  { time: window.performance.now() - r }
+                                ),
+                                e();
+                            })
+                            .catch(e => {
+                              clearTimeout(n), t(e);
+                            });
+                        })
+                      ;
                       case 18:
                         if (!E) {
                           t.next = 21;
@@ -2067,7 +2058,7 @@
                   n,
                   o,
                   i = arguments;
-                return a.a.wrap(function (e) {
+                return a.a.wrap(e => {
                   for (;;)
                     switch ((e.prev = e.next)) {
                       case 0:
@@ -2160,7 +2151,7 @@
             return (m = Object(o.a)(
               a.a.mark(function e(t) {
                 var n;
-                return a.a.wrap(function (e) {
+                return a.a.wrap(e => {
                   for (;;)
                     switch ((e.prev = e.next)) {
                       case 0:
@@ -2224,34 +2215,32 @@
             },
             destroy: v,
             onOutput(e) {
-              return (
-                f.on(s.a.OUTPUT, e),
-                function () {
-                  f.removeListener(s.a.OUTPUT, e);
-                }
-              );
+              return f.on(s.a.OUTPUT, e),
+              () => {
+                f.removeListener(s.a.OUTPUT, e);
+              }
+            ;
             },
             onStateChanged(e) {
-              return (
-                f.on(s.a.STATE_CHANGE, e),
-                function () {
-                  f.removeListener(s.a.STATE_CHANGE, e);
-                }
-              );
+              return f.on(s.a.STATE_CHANGE, e),
+              () => {
+                f.removeListener(s.a.STATE_CHANGE, e);
+              }
+            ;
             },
             getRunState() {
               return b;
             },
           };
         }
-      }.call(this, n("8oxB")));
+      }).call(this, n("8oxB")));
     },
     OQjE(e, t, n) {
       "use strict";
-      n.d(t, "b", function () {
+      n.d(t, "b", () => {
         return r;
       }),
-        n.d(t, "a", function () {
+        n.d(t, "a", () => {
           return a;
         });
       var r = "idle";
@@ -2276,7 +2265,7 @@
     },
     Qbrf(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return s;
       });
       var r = n("cpVT");
@@ -2285,7 +2274,7 @@
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -2296,12 +2285,12 @@
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? a(Object(n), !0).forEach(function (t) {
+            ? a(Object(n), !0).forEach(t => {
                 Object(r.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : a(Object(n)).forEach(function (t) {
+            : a(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -2316,7 +2305,7 @@
         if ("undefined" === typeof Symbol || null == e[Symbol.iterator]) {
           if (
             Array.isArray(e) ||
-            (n = (function (e, t) {
+            (n = ((e, t) => {
               if (!e) return;
               if ("string" === typeof e) return c(e, t);
               var n = Object.prototype.toString.call(e).slice(8, -1);
@@ -2332,7 +2321,7 @@
           ) {
             n && (e = n);
             var r = 0,
-              a = function () {};
+              a = () => {};
             return {
               s: a,
               n() {
@@ -2388,7 +2377,7 @@
             return e;
           });
         var t = Object.keys(e);
-        return function (n, r) {
+        return (n, r) => {
           var a,
             c = !1,
             s = {},
@@ -2416,7 +2405,7 @@
     },
     QdtJ(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return d;
       });
       var r = n("nKUr"),
@@ -2496,10 +2485,10 @@
     },
     S6NQ(e, t, n) {
       "use strict";
-      n.d(t, "b", function () {
+      n.d(t, "b", () => {
         return j;
       }),
-        n.d(t, "a", function () {
+        n.d(t, "a", () => {
           return h;
         });
       var r = n("xvhg"),
@@ -2515,7 +2504,7 @@
         if ("undefined" === typeof Symbol || null == e[Symbol.iterator]) {
           if (
             Array.isArray(e) ||
-            (n = (function (e, t) {
+            (n = ((e, t) => {
               if (!e) return;
               if ("string" === typeof e) return p(e, t);
               var n = Object.prototype.toString.call(e).slice(8, -1);
@@ -2531,7 +2520,7 @@
           ) {
             n && (e = n);
             var r = 0,
-              a = function () {};
+              a = () => {};
             return {
               s: a,
               n() {
@@ -2582,7 +2571,7 @@
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -2593,12 +2582,12 @@
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? f(Object(n), !0).forEach(function (t) {
+            ? f(Object(n), !0).forEach(t => {
                 Object(a.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : f(Object(n)).forEach(function (t) {
+            : f(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -2614,7 +2603,7 @@
             arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : j,
           t = arguments.length > 1 ? arguments[1] : void 0;
         if ("string" === typeof t.path && l()(t.path)) return e;
-        var n = (function () {
+        var n = (() => {
           switch (t.type) {
             case "FILE_UNLOAD":
               return b(
@@ -2639,18 +2628,17 @@
               var n = Object(c.g)(e, t.path, t.to);
               if (!n.length) return e;
               var o = b({}, e);
-              return (
-                n.forEach(function (t) {
-                  var n = Object(r.a)(t, 2),
-                    a = n[0],
-                    i = n[1];
-                  delete o[a];
-                  var c = e[a];
-                  if (!c) throw new Error("No source file!");
-                  o[i] = b(b({}, c), {}, { path: i });
-                }),
-                o
-              );
+              return n.forEach(t => {
+                var n = Object(r.a)(t, 2),
+                  a = n[0],
+                  i = n[1];
+                delete o[a];
+                var c = e[a];
+                if (!c) throw new Error("No source file!");
+                o[i] = b(b({}, c), {}, { path: i });
+              }),
+              o
+            ;
             case "DELETE_FILE":
               var s = Object(c.e)(e, t.path);
               if (s.length && e[t.path])
@@ -2658,14 +2646,13 @@
                   "matched children and node while deleting"
                 ).setExtras({ path: t.path, fileState: e });
               var l = b({}, e);
-              return (
-                s.length
-                  ? s.forEach(function (e) {
-                      delete l[e];
-                    })
-                  : delete l[t.path],
-                l
-              );
+              return s.length
+                ? s.forEach(e => {
+                    delete l[e];
+                  })
+                : delete l[t.path],
+              l
+            ;
             case "OT_FILE_OP":
               if (!t.changeSource)
                 throw new Error(
@@ -2694,22 +2681,21 @@
               return e;
           }
         })();
-        return (
-          n !== e &&
-            !e[t.path] &&
-            n[t.path] &&
-            "CREATE_FILE" !== t.type &&
-            o.m(function (n) {
-              n.setExtra("action", t),
-                n.setExtra("prevstate", e),
-                o.c(
-                  new Error(
-                    "created file without using CREATE_FILE or FILE_CACHE_HIT"
-                  )
-                );
-            }),
-          n
-        );
+        return n !== e &&
+          !e[t.path] &&
+          n[t.path] &&
+          "CREATE_FILE" !== t.type &&
+          o.m(n => {
+            n.setExtra("action", t),
+              n.setExtra("prevstate", e),
+              o.c(
+                new Error(
+                  "created file without using CREATE_FILE or FILE_CACHE_HIT"
+                )
+              );
+          }),
+        n
+      ;
       }
       function g(e, t) {
         var n,
@@ -2738,7 +2724,7 @@
     },
     TeFj(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return s;
       });
       var r = n("cpVT"),
@@ -2749,7 +2735,7 @@
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -2760,12 +2746,12 @@
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? i(Object(n), !0).forEach(function (t) {
+            ? i(Object(n), !0).forEach(t => {
                 Object(r.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : i(Object(n)).forEach(function (t) {
+            : i(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -2826,7 +2812,7 @@
     },
     b0NY(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return s;
       });
       var r = n("xvhg"),
@@ -2852,12 +2838,12 @@
           x = g[1],
           O = Object(o.a)();
         a.useEffect(
-          function () {
+          () => {
             if (v) {
               var e = i.watchDir(t, {
                 onChange(e) {
                   d(
-                    e.filter(function (e) {
+                    e.filter(e => {
                       return !c()(e.filename);
                     })
                   );
@@ -2866,17 +2852,17 @@
                   j(e);
                 },
               });
-              return function () {
+              return () => {
                 O.current && d(null), e();
               };
             }
           },
           [i, t, v, d, j]
         );
-        var m = a.useCallback(function () {
+        var m = a.useCallback(() => {
             x(!0);
           }, []),
-          y = a.useCallback(function () {
+          y = a.useCallback(() => {
             x(!1);
           }, []);
         return v
@@ -2919,14 +2905,13 @@
     "dZ/7": function (e, t, n) {
       "use strict";
       var r;
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return r;
-      }),
-        (function (e) {
-          (e.STATE_CHANGE = "STATE_CHANGE"),
-            (e.OUTPUT = "OUTPUT"),
-            (e.ERROR = "ERROR");
-        })(r || (r = {}));
+      }), (e => {
+        (e.STATE_CHANGE = "STATE_CHANGE"),
+          (e.OUTPUT = "OUTPUT"),
+          (e.ERROR = "ERROR");
+      })(r || (r = {}));
     },
     f47c(e, t, n) {
       "use strict";
@@ -2936,7 +2921,7 @@
     },
     gnTG(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return h;
       });
       var r,
@@ -2951,7 +2936,7 @@
         p = n.n(d),
         f = n("XWHH"),
         b = n.n(f);
-      !(function (e) {
+      !(e => {
         (e.OUTPUT = "OUTPUT"),
           (e.ERROR = "ERROR"),
           (e.STATE_CHANGED = "STATE_CHANGED"),
@@ -2962,7 +2947,7 @@
         var t = e.container,
           n = Object(s.a)(),
           o = null,
-          d = function (e) {
+          d = e => {
             var t = e.repl;
             return (
               !(window["flag-packager-service"] || Object(j.a)()) ||
@@ -2975,7 +2960,7 @@
         function h() {
           return (h = Object(c.a)(
             i.a.mark(function e() {
-              return i.a.wrap(function (e) {
+              return i.a.wrap(e => {
                 for (;;)
                   switch ((e.prev = e.next)) {
                     case 0:
@@ -2987,8 +2972,8 @@
                     case 2:
                       return e.abrupt(
                         "return",
-                        new Promise(function (e) {
-                          n.once(r.CHANNEL_OPENED, function (t) {
+                        new Promise(e => {
+                          n.once(r.CHANNEL_OPENED, t => {
                             e(t);
                           });
                         })
@@ -3007,17 +2992,17 @@
         function v() {
           return (v = Object(c.a)(
             i.a.mark(function e() {
-              return i.a.wrap(function (e) {
+              return i.a.wrap(e => {
                 for (;;)
                   switch ((e.prev = e.next)) {
                     case 0:
                       return e.abrupt(
                         "return",
-                        new Promise(function (e, n) {
+                        new Promise((e, n) => {
                           var r = !1,
                             a = t.openChannel(
                               { service: "packager3", skip: d },
-                              function (t) {
+                              t => {
                                 var o = t.channel,
                                   i = t.error;
                                 if (r)
@@ -3025,19 +3010,18 @@
                                     "getAnonymousChannel fullfilled but openChannelCb called again"
                                   );
                                 if (!i)
-                                  return (
-                                    e([o, a]),
-                                    function (e) {
-                                      e.willReconnect && a(),
-                                        r ||
-                                          ((r = !0),
-                                          n(
-                                            new Error(
-                                              "Expected getAnonymousChannel promise to be fulfilled when closing"
-                                            )
-                                          ));
-                                    }
-                                  );
+                                  return e([o, a]),
+                                  e => {
+                                    e.willReconnect && a(),
+                                      r ||
+                                        ((r = !0),
+                                        n(
+                                          new Error(
+                                            "Expected getAnonymousChannel promise to be fulfilled when closing"
+                                          )
+                                        ));
+                                  }
+                                ;
                                 n(i);
                               }
                             );
@@ -3053,30 +3037,29 @@
         }
         return t.openChannel(
           { service: "packager3", name: "packager", skip: d },
-          function (e) {
+          e => {
             var t = e.channel;
             if (!e.error) {
               if (!t) throw new Error("Expected channel");
-              return (
-                t.onCommand(function (e) {
-                  switch (e.body) {
-                    case "state":
-                      var t = e.state === u.api.State.Running;
-                      n.emit(r.STATE_CHANGED, t);
-                      break;
-                    case "output":
-                      n.emit(r.OUTPUT, e.output);
-                      break;
-                    case "error":
-                      n.emit(r.ERROR, e.error);
-                  }
-                }),
-                (o = t),
-                n.emit(r.CHANNEL_OPENED, t),
-                function () {
-                  o = null;
+              return t.onCommand(e => {
+                switch (e.body) {
+                  case "state":
+                    var t = e.state === u.api.State.Running;
+                    n.emit(r.STATE_CHANGED, t);
+                    break;
+                  case "output":
+                    n.emit(r.OUTPUT, e.output);
+                    break;
+                  case "error":
+                    n.emit(r.ERROR, e.error);
                 }
-              );
+              }),
+              (o = t),
+              n.emit(r.CHANNEL_OPENED, t),
+              () => {
+                o = null;
+              }
+            ;
             }
           }
         ),
@@ -3085,20 +3068,19 @@
             return Object(c.a)(
               i.a.mark(function t() {
                 var n, r, a;
-                return i.a.wrap(function (t) {
+                return i.a.wrap(t => {
                   for (;;)
                     switch ((t.prev = t.next)) {
                       case 0:
                         return (t.next = 2), f();
                       case 2:
-                        return (
-                          (n = t.sent),
-                          (r = e.map(function (e) {
-                            return { name: e };
-                          })),
-                          (t.next = 6),
-                          n.request({ packageAdd: { pkgs: r } })
-                        );
+                        return (n = t.sent),
+                        (r = e.map(e => {
+                          return { name: e };
+                        })),
+                        (t.next = 6),
+                        n.request({ packageAdd: { pkgs: r } })
+                      ;
                       case 6:
                         if (!(a = t.sent).channelClosed) {
                           t.next = 9;
@@ -3119,20 +3101,19 @@
             return Object(c.a)(
               i.a.mark(function t() {
                 var n, r, a;
-                return i.a.wrap(function (t) {
+                return i.a.wrap(t => {
                   for (;;)
                     switch ((t.prev = t.next)) {
                       case 0:
                         return (t.next = 2), f();
                       case 2:
-                        return (
-                          (n = t.sent),
-                          (r = e.map(function (e) {
-                            return { name: e };
-                          })),
-                          (t.next = 6),
-                          n.request({ packageRemove: { pkgs: r } })
-                        );
+                        return (n = t.sent),
+                        (r = e.map(e => {
+                          return { name: e };
+                        })),
+                        (t.next = 6),
+                        n.request({ packageRemove: { pkgs: r } })
+                      ;
                       case 6:
                         if (!(a = t.sent).channelClosed) {
                           t.next = 9;
@@ -3154,7 +3135,7 @@
               i.a.mark(function n() {
                 var r, o, c, s, u, d, p;
                 return i.a.wrap(
-                  function (n) {
+                  n => {
                     for (;;)
                       switch ((n.prev = n.next)) {
                         case 0:
@@ -3173,19 +3154,18 @@
                             n.next = 10;
                             break;
                           }
-                          return (
-                            (n.prev = 2),
-                            n.abrupt(
-                              "return",
-                              b()(
-                                "https://pipsearch.amasad.repl.co/search?name=" +
-                                  encodeURIComponent(e),
-                                { mode: "cors" }
-                              ).then(function (e) {
-                                return e.json();
-                              })
-                            )
-                          );
+                          return (n.prev = 2),
+                          n.abrupt(
+                            "return",
+                            b()(
+                              "https://pipsearch.amasad.repl.co/search?name=" +
+                                encodeURIComponent(e),
+                              { mode: "cors" }
+                            ).then(e => {
+                              return e.json();
+                            })
+                          )
+                        ;
                         case 6:
                           return (
                             (n.prev = 6),
@@ -3254,7 +3234,7 @@
             return Object(c.a)(
               i.a.mark(function t() {
                 var n, r, o, c, s;
-                return i.a.wrap(function (t) {
+                return i.a.wrap(t => {
                   for (;;)
                     switch ((t.prev = t.next)) {
                       case 0:
@@ -3313,7 +3293,7 @@
             return Object(c.a)(
               i.a.mark(function e() {
                 var t, n;
-                return i.a.wrap(function (e) {
+                return i.a.wrap(e => {
                   for (;;)
                     switch ((e.prev = e.next)) {
                       case 0:
@@ -3344,7 +3324,7 @@
             return Object(c.a)(
               i.a.mark(function e() {
                 var t, n, r, o, c, s, u, d;
-                return i.a.wrap(function (e) {
+                return i.a.wrap(e => {
                   for (;;)
                     switch ((e.prev = e.next)) {
                       case 0:
@@ -3421,39 +3401,35 @@
             )();
           },
           onOutput(e) {
-            return (
-              n.on(r.OUTPUT, e),
-              function () {
-                n.removeListener(r.OUTPUT, e);
-              }
-            );
+            return n.on(r.OUTPUT, e),
+            () => {
+              n.removeListener(r.OUTPUT, e);
+            }
+          ;
           },
           onError(e) {
-            return (
-              n.on(r.ERROR, e),
-              function () {
-                n.removeListener(r.ERROR, e);
-              }
-            );
+            return n.on(r.ERROR, e),
+            () => {
+              n.removeListener(r.ERROR, e);
+            }
+          ;
           },
           onStateChanged(e) {
-            return (
-              n.on(r.STATE_CHANGED, e),
-              function () {
-                n.removeListener(r.STATE_CHANGED, e);
-              }
-            );
+            return n.on(r.STATE_CHANGED, e),
+            () => {
+              n.removeListener(r.STATE_CHANGED, e);
+            }
+          ;
           },
-        }
-      ;
+        };
       }
     },
     h7rM(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return a;
       }),
-        n.d(t, "b", function () {
+        n.d(t, "b", () => {
           return o;
         });
       var r = n("/MKj");
@@ -3463,13 +3439,13 @@
         return a.state;
       }
       function o(e, t, n, o) {
-        var i = Object(r.f)(function (r) {
+        var i = Object(r.f)(r => {
             return a(r, e, t, n);
           }, o),
           c = Object(r.e)();
         return [
           i,
-          function (n) {
+          n => {
             c({ type: "SET_STATE", wid: e, pud: t, state: n });
           },
         ];
@@ -3477,7 +3453,7 @@
     },
     icXl(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return s;
       });
       var r = n("0gYX"),
@@ -3487,24 +3463,24 @@
         c = n("JOwT");
       function s(e) {
         var t = arguments.length > 1 && void 0 !== arguments[1] && arguments[1];
-        return function (n) {
+        return n => {
           var r = n.path,
             s = n.children,
             l =
               r === i.a
-                ? s.filter(function (e) {
+                ? s.filter(e => {
                     return !c.a.includes(e.filename);
                   })
                 : s,
             u = a.a.getMainFileName(e);
           return l
-            .filter(function (n) {
+            .filter(n => {
               var o = n.filename;
               return (
                 !a.a.isLangFileBinary(e, o) && (!t || r !== i.a || ".env" !== o)
               );
             })
-            .sort(function (e, t) {
+            .sort((e, t) => {
               return r === i.a && e.filename === u
                 ? -1
                 : (r === i.a && t.filename === u) ||
@@ -3519,7 +3495,7 @@
     },
     kDUs(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return a;
       });
       var r,
@@ -3539,7 +3515,7 @@
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -3550,12 +3526,12 @@
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? j(Object(n), !0).forEach(function (t) {
+            ? j(Object(n), !0).forEach(t => {
                 Object(i.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : j(Object(n)).forEach(function (t) {
+            : j(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -3565,7 +3541,7 @@
         }
         return e;
       }
-      !(function (e) {
+      !(e => {
         (e.AddFile = "AddFile"),
           (e.AddFolder = "AddFolder"),
           (e.UploadFile = "UploadFile"),
@@ -3612,7 +3588,7 @@
           ],
         });
       }
-      var x = function (e, t) {
+      var x = (e, t) => {
         var n = e.isActive,
           r = e.actions,
           i = e.onAction,
@@ -3631,11 +3607,11 @@
           O = u.getItemProps,
           m = u.openMenu,
           y = u.reset;
-        l.useImperativeHandle(t, function () {
+        l.useImperativeHandle(t, () => {
           return { open: m };
         }),
           l.useEffect(
-            function () {
+            () => {
               c && c(d);
             },
             [d, c]
@@ -3700,7 +3676,7 @@
                         ],
                       ]),
                       children: [
-                        r.map(function (e, t) {
+                        r.map((e, t) => {
                           return Object(o.jsx)(
                             "li",
                             h(
@@ -3807,7 +3783,7 @@
     },
     "kx/0": function (e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return s;
       });
       var r = n("cpVT"),
@@ -3818,7 +3794,7 @@
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -3829,12 +3805,12 @@
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? i(Object(n), !0).forEach(function (t) {
+            ? i(Object(n), !0).forEach(t => {
                 Object(r.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : i(Object(n)).forEach(function (t) {
+            : i(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -3863,7 +3839,7 @@
     },
     sMwv(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return u;
       });
       var r = n("xvhg"),
@@ -3913,13 +3889,13 @@
               ? void 0
               : n.message;
         a.useEffect(
-          function () {
+          () => {
             x && b(x);
           },
           [x, b]
         );
         var O = a.useCallback(
-          function (e, t) {
+          (e, t) => {
             var n = t.trackingData;
             g({ variables: { input: { originId: e } } }),
               Object(l.track)(l.events.REPL_FORKED, n);
@@ -3931,7 +3907,7 @@
     },
     xEHj(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return c;
       });
       var r = n("T/aA"),

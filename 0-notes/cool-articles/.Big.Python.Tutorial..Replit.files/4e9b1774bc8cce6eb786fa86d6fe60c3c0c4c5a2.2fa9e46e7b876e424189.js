@@ -10,7 +10,7 @@
         (t.createDecipher = t.Decipher = n.createDecipher),
         (t.createDecipheriv = t.Decipheriv = n.createDecipheriv),
         (t.listCiphers = t.getCiphers =
-          function () {
+          () => {
             return Object.keys(f);
           });
     },
@@ -20,7 +20,7 @@
         this.rand = e;
       }
       if (
-        ((e.exports = function (e) {
+        ((e.exports = e => {
           return i || (i = new n(null)), i.generate(e);
         }),
         (e.exports.Rand = n),
@@ -36,17 +36,17 @@
         "object" === typeof self)
       )
         self.crypto && self.crypto.getRandomValues
-          ? (n.prototype._rand = function (e) {
+          ? (n.prototype._rand = e => {
               var t = new Uint8Array(e);
               return self.crypto.getRandomValues(t), t;
             })
           : self.msCrypto && self.msCrypto.getRandomValues
-          ? (n.prototype._rand = function (e) {
+          ? (n.prototype._rand = e => {
               var t = new Uint8Array(e);
               return self.msCrypto.getRandomValues(t), t;
             })
           : "object" === typeof window &&
-            (n.prototype._rand = function () {
+            (n.prototype._rand = () => {
               throw new Error("Not implemented yet");
             });
       else
@@ -54,7 +54,7 @@
           var f = r(1);
           if ("function" !== typeof f.randomBytes)
             throw new Error("Not supported");
-          n.prototype._rand = function (e) {
+          n.prototype._rand = e => {
             return f.randomBytes(e);
           };
         } catch (a) {}
@@ -74,7 +74,7 @@
         (this.path = e), this.rethrow(t);
       }
       (t.Reporter = n),
-        (n.prototype.isError = function (e) {
+        (n.prototype.isError = e => {
           return e instanceof f;
         }),
         (n.prototype.save = function () {
@@ -118,7 +118,7 @@
               ? e
               : new f(
                   r.path
-                    .map(function (e) {
+                    .map(e => {
                       return "[" + JSON.stringify(e) + "]";
                     })
                     .join(""),
@@ -195,7 +195,7 @@
         if (!e) throw new Error(t || "Assertion failed");
       }
       (e.exports = r),
-        (r.equal = function (e, t, r) {
+        (r.equal = (e, t, r) => {
           if (e != t)
             throw new Error(r || "Assertion failed: " + e + " != " + t);
         });
@@ -219,7 +219,7 @@
           ripemd160: 20,
         };
       function h(e, t, r) {
-        var a = (function (e) {
+        var a = (e => {
             function t(t) {
               return f(e).update(t).digest();
             }
@@ -257,7 +257,7 @@
           this.hash(this.opad)
         );
       }),
-        (e.exports = function (e, t, r, i, n) {
+        (e.exports = (e, t, r, i, n) => {
           a(e, t, r, i),
             s.isBuffer(e) || (e = s.from(e, o)),
             s.isBuffer(t) || (t = s.from(t, o));
@@ -277,10 +277,10 @@
         });
     },
     "4dMO": function (e, t, r) {
-      (function (t) {
+      ((t => {
         var i = r("MzeL"),
           n = r("OZ/i");
-        e.exports = function (e) {
+        e.exports = e => {
           return new a(e);
         };
         var f = {
@@ -360,7 +360,7 @@
               this
             );
           });
-      }.call(this, r("HDXh").Buffer));
+      }).call(this, r("HDXh").Buffer));
     },
     "6F8h": function (e) {
       e.exports = JSON.parse(
@@ -396,10 +396,10 @@
         (this.curve = e), (this.type = t), (this.precomputed = null);
       }
       (e.exports = s),
-        (s.prototype.point = function () {
+        (s.prototype.point = () => {
           throw new Error("Not implemented");
         }),
-        (s.prototype.validate = function () {
+        (s.prototype.validate = () => {
           throw new Error("Not implemented");
         }),
         (s.prototype._fixedNafMul = function (e, t) {
@@ -523,7 +523,7 @@
           return n ? w : w.toP();
         }),
         (s.BasePoint = c),
-        (c.prototype.eq = function () {
+        (c.prototype.eq = () => {
           throw new Error("Not implemented");
         }),
         (c.prototype.validate = function () {
@@ -600,7 +600,7 @@
             t[n] = t[n - 1].add(i);
           return { wnd: e, points: t };
         }),
-        (c.prototype._getBeta = function () {
+        (c.prototype._getBeta = () => {
           return null;
         }),
         (c.prototype.dblp = function (e) {
@@ -691,7 +691,7 @@
           (this.decoders = {}),
           (this.encoders = {});
       }
-      (t.define = function (e, t) {
+      (t.define = (e, t) => {
         return new f(e, t);
       }),
         (f.prototype._createNamed = function (e) {
@@ -749,7 +749,7 @@
         (i.zero2 = a.zero2),
         (i.toHex = a.toHex),
         (i.encode = a.encode),
-        (i.getNAF = function (e, t) {
+        (i.getNAF = (e, t) => {
           for (var r = [], i = 1 << (t + 1), n = e.clone(); n.cmpn(1) >= 0; ) {
             var f;
             if (n.isOdd()) {
@@ -768,7 +768,7 @@
           }
           return r;
         }),
-        (i.getJSF = function (e, t) {
+        (i.getJSF = (e, t) => {
           var r = [[], []];
           (e = e.clone()), (t = t.clone());
           for (var i = 0, n = 0; e.cmpn(-i) > 0 || t.cmpn(-n) > 0; ) {
@@ -798,16 +798,16 @@
           }
           return r;
         }),
-        (i.cachedProperty = function (e, t, r) {
+        (i.cachedProperty = (e, t, r) => {
           var i = "_" + t;
           e.prototype[t] = function () {
             return void 0 !== this[i] ? this[i] : (this[i] = r.call(this));
           };
         }),
-        (i.parseBytes = function (e) {
+        (i.parseBytes = e => {
           return "string" === typeof e ? i.toArray(e, "hex") : e;
         }),
-        (i.intFromLE = function (e) {
+        (i.intFromLE = e => {
           return new n(e, "hex", "le");
         });
     },
@@ -818,7 +818,7 @@
         var t = n.allocUnsafe(4);
         return t.writeUInt32BE(e, 0), t;
       }
-      e.exports = function (e, t) {
+      e.exports = (e, t) => {
         for (var r, a = n.alloc(0), o = 0; a.length < t; )
           (r = f(o++)),
             (a = n.concat([a, i("sha1").update(e).update(r).digest()]));
@@ -973,7 +973,7 @@
         (e.exports = o);
     },
     ANxK(e, t, r) {
-      (function (e) {
+      ((e => {
         var i = r("WKKt"),
           n = r("wk3p"),
           f = r("Vh22");
@@ -981,7 +981,7 @@
         (t.DiffieHellmanGroup =
           t.createDiffieHellmanGroup =
           t.getDiffieHellman =
-            function (t) {
+            t => {
               var r = new e(n[t].prime, "hex"),
                 i = new e(n[t].gen, "hex");
               return new f(r, i);
@@ -998,13 +998,13 @@
                     ? new f(i(r, o), o, !0)
                     : (e.isBuffer(r) || (r = new e(r, n)), new f(r, o, !0)));
             });
-      }.call(this, r("HDXh").Buffer));
+      }).call(this, r("HDXh").Buffer));
     },
     AUX7(e, t) {
-      (t.encrypt = function (e, t) {
+      (t.encrypt = (e, t) => {
         return e._cipher.encryptBlock(t);
       }),
-        (t.decrypt = function (e, t) {
+        (t.decrypt = (e, t) => {
           return e._cipher.decryptBlock(t);
         });
     },
@@ -1020,7 +1020,7 @@
           (this.bufferOff = 0);
       }
       (e.exports = n),
-        (n.prototype._init = function () {}),
+        (n.prototype._init = () => {}),
         (n.prototype.update = function (e) {
           return 0 === e.length
             ? []
@@ -1087,7 +1087,7 @@
             t ? t.concat(r) : r
           );
         }),
-        (n.prototype._pad = function (e, t) {
+        (n.prototype._pad = (e, t) => {
           if (0 === t) return !1;
           for (; t < e.length; ) e[t++] = 0;
           return !0;
@@ -1097,7 +1097,7 @@
           var e = new Array(this.blockSize);
           return this._update(this.buffer, 0, e, 0), e;
         }),
-        (n.prototype._unpad = function (e) {
+        (n.prototype._unpad = e => {
           return e;
         }),
         (n.prototype._finalDecrypt = function () {
@@ -1108,16 +1108,15 @@
     },
     AhHn(e, t, r) {
       var i = t;
-      (i._reverse = function (e) {
+      (i._reverse = e => {
         var t = {};
-        return (
-          Object.keys(e).forEach(function (r) {
-            (0 | r) == r && (r |= 0);
-            var i = e[r];
-            t[i] = r;
-          }),
-          t
-        );
+        return Object.keys(e).forEach(r => {
+          (0 | r) == r && (r |= 0);
+          var i = e[r];
+          t[i] = r;
+        }),
+        t
+      ;
       }),
         (i.der = r("i3FT"));
     },
@@ -1146,36 +1145,35 @@
         });
     },
     BwZh(module, exports) {
-      var indexOf = function (e, t) {
+      var indexOf = (e, t) => {
           if (e.indexOf) return e.indexOf(t);
           for (var r = 0; r < e.length; r++) if (e[r] === t) return r;
           return -1;
         },
-        Object_keys = function (e) {
+        Object_keys = e => {
           if (Object.keys) return Object.keys(e);
           var t = [];
           for (var r in e) t.push(r);
           return t;
         },
-        forEach = function (e, t) {
+        forEach = (e, t) => {
           if (e.forEach) return e.forEach(t);
           for (var r = 0; r < e.length; r++) t(e[r], r, e);
         },
-        defineProp = (function () {
+        defineProp = (() => {
           try {
-            return (
-              Object.defineProperty({}, "_", {}),
-              function (e, t, r) {
-                Object.defineProperty(e, t, {
-                  writable: !0,
-                  enumerable: !1,
-                  configurable: !0,
-                  value: r,
-                });
-              }
-            );
+            return Object.defineProperty({}, "_", {}),
+            (e, t, r) => {
+              Object.defineProperty(e, t, {
+                writable: !0,
+                enumerable: !1,
+                configurable: !0,
+                value: r,
+              });
+            }
+          ;
           } catch (e) {
-            return function (e, t, r) {
+            return (e, t, r) => {
               e[t] = r;
             };
           }
@@ -1230,24 +1228,23 @@
           i = r.eval,
           n = r.execScript;
         !i && n && (n.call(r, "null"), (i = r.eval)),
-          forEach(Object_keys(e), function (t) {
+          forEach(Object_keys(e), t => {
             r[t] = e[t];
           }),
-          forEach(globals, function (t) {
+          forEach(globals, t => {
             e[t] && (r[t] = e[t]);
           });
         var f = Object_keys(r),
           a = i.call(r, this.code);
-        return (
-          forEach(Object_keys(r), function (t) {
-            (t in e || -1 === indexOf(f, t)) && (e[t] = r[t]);
-          }),
-          forEach(globals, function (t) {
-            t in e || defineProp(e, t, r[t]);
-          }),
-          document.body.removeChild(t),
-          a
-        );
+        return forEach(Object_keys(r), t => {
+          (t in e || -1 === indexOf(f, t)) && (e[t] = r[t]);
+        }),
+        forEach(globals, t => {
+          t in e || defineProp(e, t, r[t]);
+        }),
+        document.body.removeChild(t),
+        a
+      ;
       }),
         (Script.prototype.runInThisContext = function () {
           return eval(this.code);
@@ -1255,36 +1252,34 @@
         (Script.prototype.runInNewContext = function (e) {
           var t = Script.createContext(e),
             r = this.runInContext(t);
-          return (
-            e &&
-              forEach(Object_keys(t), function (r) {
-                e[r] = t[r];
-              }),
-            r
-          );
+          return e &&
+            forEach(Object_keys(t), r => {
+              e[r] = t[r];
+            }),
+          r
+        ;
         }),
-        forEach(Object_keys(Script.prototype), function (e) {
+        forEach(Object_keys(Script.prototype), e => {
           exports[e] = Script[e] = function (t) {
             var r = Script(t);
             return r[e].apply(r, [].slice.call(arguments, 1));
           };
         }),
-        (exports.isContext = function (e) {
+        (exports.isContext = e => {
           return e instanceof Context;
         }),
-        (exports.createScript = function (e) {
+        (exports.createScript = e => {
           return exports.Script(e);
         }),
         (exports.createContext = Script.createContext =
-          function (e) {
+          e => {
             var t = new Context();
-            return (
-              "object" === typeof e &&
-                forEach(Object_keys(e), function (r) {
-                  t[r] = e[r];
-                }),
-              t
-            );
+            return "object" === typeof e &&
+              forEach(Object_keys(e), r => {
+                t[r] = e[r];
+              }),
+            t
+          ;
           });
     },
     "C+gy": function (e, t) {
@@ -1570,7 +1565,7 @@
         i.equal(e.length, 8, "Invalid IV length"), (this.iv = new Array(8));
         for (var t = 0; t < this.iv.length; t++) this.iv[t] = e[t];
       }
-      (t.instantiate = function (e) {
+      (t.instantiate = e => {
         function t(t) {
           e.call(this, t), this._cbcInit();
         }
@@ -1579,12 +1574,11 @@
           var a = r[i];
           t.prototype[a] = f[a];
         }
-        return (
-          (t.create = function (e) {
-            return new t(e);
-          }),
-          t
-        );
+        return (t.create = e => {
+          return new t(e);
+        }),
+        t
+      ;
       }),
         (f._cbcInit = function () {
           var e = new a(this.options.iv);
@@ -1614,7 +1608,7 @@
         s = r("mObS"),
         c = r("UpF+"),
         d = r("hwdV").Buffer;
-      e.exports = function (e, t, r) {
+      e.exports = (e, t, r) => {
         var h;
         h = e.padding ? e.padding : r ? 1 : 4;
         var u,
@@ -1625,7 +1619,7 @@
         u = r ? c(new a(t), l) : o(t, l);
         var p = d.alloc(b - u.length);
         if (((u = d.concat([p, u], b)), 4 === h))
-          return (function (e, t) {
+          return ((e, t) => {
             var r = e.modulus.byteLength(),
               i = s("sha1").update(d.alloc(0)).digest(),
               a = i.length;
@@ -1634,18 +1628,16 @@
               c = t.slice(a + 1),
               h = f(o, n(c, a)),
               u = f(c, n(h, r - a - 1));
-            if (
-              (function (e, t) {
-                (e = d.from(e)), (t = d.from(t));
-                var r = 0,
-                  i = e.length;
-                e.length !== t.length &&
-                  (r++, (i = Math.min(e.length, t.length)));
-                var n = -1;
-                for (; ++n < i; ) r += e[n] ^ t[n];
-                return r;
-              })(i, u.slice(0, a))
-            )
+            if (((e, t) => {
+              (e = d.from(e)), (t = d.from(t));
+              var r = 0,
+                i = e.length;
+              e.length !== t.length &&
+                (r++, (i = Math.min(e.length, t.length)));
+              var n = -1;
+              for (; ++n < i; ) r += e[n] ^ t[n];
+              return r;
+            })(i, u.slice(0, a)))
               throw new Error("decryption error");
             var l = a;
             for (; 0 === u[l]; ) l++;
@@ -1653,7 +1645,7 @@
             return u.slice(l);
           })(l, u);
         if (1 === h)
-          return (function (e, t, r) {
+          return ((e, t, r) => {
             var i = t.slice(0, 2),
               n = 2,
               f = 0;
@@ -1730,13 +1722,13 @@
     },
     Edxu(e, t, r) {
       "use strict";
-      (function (t, i) {
+      (((t, i) => {
         var n = 65536,
           f = 4294967295;
         var a = r("hwdV").Buffer,
           o = t.crypto || t.msCrypto;
         o && o.getRandomValues
-          ? (e.exports = function (e, t) {
+          ? (e.exports = (e, t) => {
               if (e > f)
                 throw new RangeError("requested too many random bytes");
               var r = a.allocUnsafe(e);
@@ -1746,17 +1738,17 @@
                     o.getRandomValues(r.slice(s, s + n));
                 else o.getRandomValues(r);
               if ("function" === typeof t)
-                return i.nextTick(function () {
+                return i.nextTick(() => {
                   t(null, r);
                 });
               return r;
             })
-          : (e.exports = function () {
+          : (e.exports = () => {
               throw new Error(
                 "Secure random number generation is not supported by this browser.\nUse Chrome, Firefox or Internet Explorer 11"
               );
             });
-      }.call(this, r("ntbh"), r("8oxB")));
+      }).call(this, r("ntbh"), r("8oxB")));
     },
     FUXG(e, t, r) {
       "use strict";
@@ -1803,7 +1795,7 @@
             .update(e)
             .digest();
         }),
-        (e.exports = function (e, t) {
+        (e.exports = (e, t) => {
           return "rmd160" === (e = e.toLowerCase()) || "ripemd160" === e
             ? new h("rmd160", t)
             : "md5" === e
@@ -1843,7 +1835,7 @@
       }
       n(c, a),
         (e.exports = c),
-        (c.create = function (e) {
+        (c.create = e => {
           return new c(e);
         }),
         (c.prototype._update = function (e, t, r, i) {
@@ -1871,7 +1863,7 @@
           "md5",
           "rmd160",
         ].concat(n);
-      t.getHashes = function () {
+      t.getHashes = () => {
         return f;
       };
       var a = r("oJl4");
@@ -1907,7 +1899,7 @@
       var h = r("dcwN");
       (t.randomFill = h.randomFill),
         (t.randomFillSync = h.randomFillSync),
-        (t.createCredentials = function () {
+        (t.createCredentials = () => {
           throw new Error(
             [
               "sorry, createCredentials is not implemented yet",
@@ -1973,7 +1965,7 @@
         });
     },
     IG1u(e, t, r) {
-      (function (t, i) {
+      (((t, i) => {
         var n,
           f = r("fSpj"),
           a = r("n53Y"),
@@ -1995,22 +1987,22 @@
         function u(e, t, r, i, n) {
           return c
             .importKey("raw", e, { name: "PBKDF2" }, !1, ["deriveBits"])
-            .then(function (e) {
+            .then(e => {
               return c.deriveBits(
                 { name: "PBKDF2", salt: t, iterations: r, hash: { name: n } },
                 e,
                 i << 3
               );
             })
-            .then(function (e) {
+            .then(e => {
               return s.from(e);
             });
         }
-        e.exports = function (e, r, l, b, p, m) {
+        e.exports = (e, r, l, b, p, m) => {
           "function" === typeof p && ((m = p), (p = void 0));
           var y = d[(p = p || "sha1").toLowerCase()];
           if (!y || "function" !== typeof t.Promise)
-            return i.nextTick(function () {
+            return i.nextTick(() => {
               var t;
               try {
                 t = o(e, r, l, b, p);
@@ -2021,42 +2013,37 @@
             });
           if ((f(e, r, l, b), "function" !== typeof m))
             throw new Error("No callback provided to pbkdf2");
-          s.isBuffer(e) || (e = s.from(e, a)),
-            s.isBuffer(r) || (r = s.from(r, a)),
-            (function (e, t) {
-              e.then(
-                function (e) {
-                  i.nextTick(function () {
-                    t(null, e);
-                  });
-                },
-                function (e) {
-                  i.nextTick(function () {
-                    t(e);
-                  });
-                }
-              );
-            })(
-              (function (e) {
-                if (t.process && !t.process.browser) return Promise.resolve(!1);
-                if (!c || !c.importKey || !c.deriveBits)
-                  return Promise.resolve(!1);
-                if (void 0 !== h[e]) return h[e];
-                var r = u((n = n || s.alloc(8)), n, 10, 128, e)
-                  .then(function () {
-                    return !0;
-                  })
-                  .catch(function () {
-                    return !1;
-                  });
-                return (h[e] = r), r;
-              })(y).then(function (t) {
-                return t ? u(e, r, l, b, y) : o(e, r, l, b, p);
-              }),
-              m
+          s.isBuffer(e) || (e = s.from(e, a)), s.isBuffer(r) || (r = s.from(r, a)), ((e, t) => {
+            e.then(
+              e => {
+                i.nextTick(() => {
+                  t(null, e);
+                });
+              },
+              e => {
+                i.nextTick(() => {
+                  t(e);
+                });
+              }
             );
+          })((e => {
+            if (t.process && !t.process.browser) return Promise.resolve(!1);
+            if (!c || !c.importKey || !c.deriveBits)
+              return Promise.resolve(!1);
+            if (void 0 !== h[e]) return h[e];
+            var r = u((n = n || s.alloc(8)), n, 10, 128, e)
+              .then(() => {
+                return !0;
+              })
+              .catch(() => {
+                return !1;
+              });
+            return (h[e] = r), r;
+          })(y).then(t => {
+            return t ? u(e, r, l, b, y) : o(e, r, l, b, p);
+          }), m);
         };
-      }.call(this, r("ntbh"), r("8oxB")));
+      }).call(this, r("ntbh"), r("8oxB")));
     },
     IPZY(e, t, r) {
       var i = t;
@@ -2144,7 +2131,7 @@
             }
             throw new Error("unknown key type " + h);
           case "ENCRYPTED PRIVATE KEY":
-            u = (function (e, t) {
+            u = ((e, t) => {
               var r = e.algorithm.decrypt.kde.kdeparams.salt,
                 i = parseInt(
                   e.algorithm.decrypt.kde.kdeparams.iters.toString(),
@@ -2158,7 +2145,7 @@
                 l = a.createDecipheriv(f, u, c),
                 b = [];
               return b.push(l.update(d)), b.push(l.final()), s.concat(b);
-            })((u = i.EncryptedPrivateKey.decode(u, "der")), t);
+            })(u = i.EncryptedPrivateKey.decode(u, "der"), t);
           case "PRIVATE KEY":
             switch (
               (r = (c = i.PrivateKey.decode(u, "der")).algorithm.algorithm.join(
@@ -2270,7 +2257,7 @@
               beta: t,
               lambda: r,
               basis: e.basis
-                ? e.basis.map(function (e) {
+                ? e.basis.map(e => {
                     return { a: new f(e.a, 16), b: new f(e.b, 16) };
                   })
                 : this._getEndoBasis(r),
@@ -2400,7 +2387,7 @@
             );
             if (e) {
               var r = this.curve,
-                i = function (e) {
+                i = e => {
                   return r.point(e.x.redMul(r.endo.beta), e.y);
                 };
               (e.beta = t),
@@ -2434,7 +2421,7 @@
               ]
             : [this.x, this.y];
         }),
-        (d.fromJSON = function (e, t, r) {
+        (d.fromJSON = (e, t, r) => {
           "string" === typeof t && (t = JSON.parse(t));
           var i = e.point(t[0], t[1], r);
           if (!t[2]) return i;
@@ -2535,7 +2522,7 @@
           var t = this.curve.point(this.x, this.y.redNeg());
           if (e && this.precomputed) {
             var r = this.precomputed,
-              i = function (e) {
+              i = e => {
                 return e.neg();
               };
             t.precomputed = {
@@ -2831,7 +2818,7 @@
         i(c, a.Node),
         (c.prototype._encodeComposite = function (e, t, r, i) {
           var f,
-            a = (function (e, t, r, i) {
+            a = ((e, t, r, i) => {
               var n;
               "seqof" === e ? (e = "seq") : "setof" === e && (e = "set");
               if (o.tagByName.hasOwnProperty(e)) n = o.tagByName[e];
@@ -2992,7 +2979,7 @@
         (c.prototype._encodeBool = function (e) {
           return this._createEncoderBuffer(e ? 255 : 0);
         }),
-        (c.prototype._use = function (e, t) {
+        (c.prototype._use = (e, t) => {
           return (
             "function" === typeof e && (e = e(t)), e._getEncoder("der").tree
           );
@@ -3029,7 +3016,7 @@
           a
         );
       }
-      t.encrypt = function (e, t, r) {
+      t.encrypt = (e, t, r) => {
         for (var n, a = i.allocUnsafe(0); t.length; ) {
           if (
             (0 === e._cache.length &&
@@ -3058,10 +3045,10 @@
           (this._secret = f(t.secret)),
           e.isPoint(t.pub) ? (this._pub = t.pub) : (this._pubBytes = f(t.pub));
       }
-      (o.fromPublic = function (e, t) {
+      (o.fromPublic = (e, t) => {
         return t instanceof o ? t : new o(e, { pub: t });
       }),
-        (o.fromSecret = function (e, t) {
+        (o.fromSecret = (e, t) => {
           return t instanceof o ? t : new o(e, { secret: t });
         }),
         (o.prototype.secret = function () {
@@ -3112,14 +3099,14 @@
     },
     "OZ/i": function (e, t, r) {
       (function (e) {
-        !(function (e, t) {
+        !((e, t) => {
           "use strict";
           function i(e, t) {
             if (!e) throw new Error(t || "Assertion failed");
           }
           function n(e, t) {
             e.super_ = t;
-            var r = function () {};
+            var r = () => {};
             (r.prototype = t.prototype),
               (e.prototype = new r()),
               (e.prototype.constructor = e);
@@ -3162,7 +3149,7 @@
             }
             return n;
           }
-          (f.isBN = function (e) {
+          (f.isBN = e => {
             return (
               e instanceof f ||
               (null !== e &&
@@ -3171,10 +3158,10 @@
                 Array.isArray(e.words))
             );
           }),
-            (f.max = function (e, t) {
+            (f.max = (e, t) => {
               return e.cmp(t) > 0 ? e : t;
             }),
-            (f.min = function (e, t) {
+            (f.min = (e, t) => {
               return e.cmp(t) < 0 ? e : t;
             }),
             (f.prototype._init = function (e, t, r) {
@@ -3444,10 +3431,10 @@
               return c;
             }),
             Math.clz32
-              ? (f.prototype._countBits = function (e) {
+              ? (f.prototype._countBits = e => {
                   return 32 - Math.clz32(e);
                 })
-              : (f.prototype._countBits = function (e) {
+              : (f.prototype._countBits = e => {
                   var t = e,
                     r = 0;
                   return (
@@ -3458,7 +3445,7 @@
                     r + t
                   );
                 }),
-            (f.prototype._zeroBits = function (e) {
+            (f.prototype._zeroBits = e => {
               if (0 === e) return 26;
               var t = e,
                 r = 0;
@@ -3684,7 +3671,7 @@
             (f.prototype.sub = function (e) {
               return this.clone().isub(e);
             });
-          var l = function (e, t, r) {
+          var l = (e, t, r) => {
             var i,
               n,
               f,
@@ -4269,8 +4256,7 @@
                 ? l(this, e, t)
                 : r < 63
                 ? u(this, e, t)
-                : r < 1024
-                ? (function (e, t, r) {
+                : r < 1024 ? ((e, t, r) => {
                     (r.negative = t.negative ^ e.negative),
                       (r.length = e.length + t.length);
                     for (var i = 0, n = 0, f = 0; f < r.length - 1; f++) {
@@ -4297,8 +4283,7 @@
                       (r.words[f] = o), (i = a), (a = n);
                     }
                     return 0 !== i ? (r.words[f] = i) : r.length--, r.strip();
-                  })(this, e, t)
-                : b(this, e, t);
+                  })(this, e, t) : b(this, e, t);
             }),
             (p.prototype.makeRBT = function (e) {
               for (
@@ -4309,13 +4294,13 @@
                 t[i] = this.revBin(i, r, e);
               return t;
             }),
-            (p.prototype.revBin = function (e, t, r) {
+            (p.prototype.revBin = (e, t, r) => {
               if (0 === e || e === r - 1) return e;
               for (var i = 0, n = 0; n < t; n++)
                 (i |= (1 & e) << (t - n - 1)), (e >>= 1);
               return i;
             }),
-            (p.prototype.permute = function (e, t, r, i, n, f) {
+            (p.prototype.permute = (e, t, r, i, n, f) => {
               for (var a = 0; a < f; a++) (i[a] = t[e[a]]), (n[a] = r[e[a]]);
             }),
             (p.prototype.transform = function (e, t, r, i, n, f) {
@@ -4345,14 +4330,14 @@
                         ((v = s * h - c * u), (u = s * u + c * h), (h = v));
                   }
             }),
-            (p.prototype.guessLen13b = function (e, t) {
+            (p.prototype.guessLen13b = (e, t) => {
               var r = 1 | Math.max(t, e),
                 i = 1 & r,
                 n = 0;
               for (r = (r / 2) | 0; r; r >>>= 1) n++;
               return 1 << (n + 1 + i);
             }),
-            (p.prototype.conjugate = function (e, t, r) {
+            (p.prototype.conjugate = (e, t, r) => {
               if (!(r <= 1))
                 for (var i = 0; i < r / 2; i++) {
                   var n = e[i];
@@ -4363,7 +4348,7 @@
                     (t[r - i - 1] = -n);
                 }
             }),
-            (p.prototype.normalize13b = function (e, t) {
+            (p.prototype.normalize13b = (e, t) => {
               for (var r = 0, i = 0; i < t / 2; i++) {
                 var n =
                   8192 * Math.round(e[2 * i + 1] / t) +
@@ -4374,7 +4359,7 @@
               }
               return e;
             }),
-            (p.prototype.convert13b = function (e, t, r, n) {
+            (p.prototype.convert13b = (e, t, r, n) => {
               for (var f = 0, a = 0; a < t; a++)
                 (f += 0 | e[a]),
                   (r[2 * a] = 8191 & f),
@@ -4384,7 +4369,7 @@
               for (a = 2 * t; a < n; ++a) r[a] = 0;
               i(0 === f), i(0 === (-8192 & f));
             }),
-            (p.prototype.stub = function (e) {
+            (p.prototype.stub = e => {
               for (var t = new Array(e), r = 0; r < e; r++) t[r] = 0;
               return t;
             }),
@@ -4455,7 +4440,7 @@
               return this.imul(this.clone());
             }),
             (f.prototype.pow = function (e) {
-              var t = (function (e) {
+              var t = (e => {
                 for (
                   var t = new Array(e.bitLength()), r = 0;
                   r < t.length;
@@ -4955,7 +4940,7 @@
             (f.prototype.eq = function (e) {
               return 0 === this.cmp(e);
             }),
-            (f.red = function (e) {
+            (f.red = e => {
               return new M(e);
             }),
             (f.prototype.toRed = function (e) {
@@ -5153,7 +5138,7 @@
               return e.imul(this.k);
             }),
             n(v, y),
-            (v.prototype.split = function (e, t) {
+            (v.prototype.split = (e, t) => {
               for (
                 var r = 4194303, i = Math.min(e.length, 9), n = 0;
                 n < i;
@@ -5171,7 +5156,7 @@
                 (e.words[n - 10] = f),
                 0 === f && e.length > 10 ? (e.length -= 10) : (e.length -= 9);
             }),
-            (v.prototype.imulK = function (e) {
+            (v.prototype.imulK = e => {
               (e.words[e.length] = 0),
                 (e.words[e.length + 1] = 0),
                 (e.length += 2);
@@ -5190,7 +5175,7 @@
             n(g, y),
             n(_, y),
             n(w, y),
-            (w.prototype.imulK = function (e) {
+            (w.prototype.imulK = e => {
               for (var t = 0, r = 0; r < e.length; r++) {
                 var i = 19 * (0 | e.words[r]) + t,
                   n = 67108863 & i;
@@ -5198,7 +5183,7 @@
               }
               return 0 !== t && (e.words[e.length++] = t), e;
             }),
-            (f._prime = function (e) {
+            (f._prime = e => {
               if (m[e]) return m[e];
               var t;
               if ("k256" === e) t = new v();
@@ -5210,11 +5195,11 @@
               }
               return (m[e] = t), t;
             }),
-            (M.prototype._verify1 = function (e) {
+            (M.prototype._verify1 = e => {
               i(0 === e.negative, "red works only with positives"),
                 i(e.red, "red works only with red numbers");
             }),
-            (M.prototype._verify2 = function (e, t) {
+            (M.prototype._verify2 = (e, t) => {
               i(
                 0 === (e.negative | t.negative),
                 "red works only with positives"
@@ -5338,11 +5323,11 @@
               var t = e.umod(this.m);
               return t === e ? t.clone() : t;
             }),
-            (M.prototype.convertFrom = function (e) {
+            (M.prototype.convertFrom = e => {
               var t = e.clone();
               return (t.red = null), t;
             }),
-            (f.mont = function (e) {
+            (f.mont = e => {
               return new S(e);
             }),
             n(S, M),
@@ -5481,7 +5466,7 @@
         );
       }
       var o = [0, 1, 2, 4, 8, 16, 32, 64, 128, 27, 54],
-        s = (function () {
+        s = (() => {
           for (var e = new Array(256), t = 0; t < 256; t++)
             e[t] = t < 128 ? t << 1 : (t << 1) ^ 283;
           for (
@@ -5787,7 +5772,7 @@
         (c.prototype.point = function (e, t, r, i) {
           return new d(this, e, t, r, i);
         }),
-        (d.fromJSON = function (e, t) {
+        (d.fromJSON = (e, t) => {
           return new d(e, t[0], t[1], t[2]);
         }),
         (d.prototype.inspect = function () {
@@ -6919,7 +6904,7 @@
         (d.prototype._final = function () {
           var e = this._cache.flush();
           if (this._autopadding)
-            return (function (e) {
+            return (e => {
               var t = e[15];
               if (t < 1 || t > 16) throw new Error("unable to decrypt data");
               var r = -1;
@@ -6957,7 +6942,7 @@
         (h.prototype.flush = function () {
           if (this.cache.length) return this.cache;
         }),
-        (t.createDecipher = function (e, t) {
+        (t.createDecipher = (e, t) => {
           var r = f[e.toLowerCase()];
           if (!r) throw new TypeError("invalid suite type");
           var i = c(t, !1, r.key, r.iv);
@@ -7240,7 +7225,7 @@
         a = r("roQf"),
         o = r("/ab2"),
         s = r("hwdV").Buffer;
-      e.exports = function (e, t) {
+      e.exports = (e, t) => {
         var r,
           c = e.toString(),
           d = c.match(i);
@@ -7276,7 +7261,7 @@
       }
       n(c, o),
         (e.exports = c),
-        (c.create = function (e) {
+        (c.create = e => {
           return new c(e);
         });
       var d = [1, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1];
@@ -7306,16 +7291,16 @@
             a.writeUInt32BE(r, f, i),
             a.writeUInt32BE(r, o, i + 4);
         }),
-        (c.prototype._pad = function (e, t) {
+        (c.prototype._pad = (e, t) => {
           for (var r = e.length - t, i = t; i < e.length; i++) e[i] = r;
           return !0;
         }),
-        (c.prototype._unpad = function (e) {
+        (c.prototype._unpad = e => {
           for (var t = e[e.length - 1], r = e.length - t; r < e.length; r++)
             i.equal(e[r], t);
           return e.slice(0, e.length - t);
         }),
-        (c.prototype._encrypt = function (e, t, r, i, n) {
+        (c.prototype._encrypt = (e, t, r, i, n) => {
           for (var f = t, o = r, s = 0; s < e.keys.length; s += 2) {
             var c = e.keys[s],
               d = e.keys[s + 1];
@@ -7326,7 +7311,7 @@
           }
           a.rip(o, f, i, n);
         }),
-        (c.prototype._decrypt = function (e, t, r, i, n) {
+        (c.prototype._decrypt = (e, t, r, i, n) => {
           for (var f = r, o = t, s = e.keys.length - 2; s >= 0; s -= 2) {
             var c = e.keys[s],
               d = e.keys[s + 1];
@@ -7339,18 +7324,18 @@
         });
     },
     UWVS(e, t, r) {
-      (function (e) {
+      ((e => {
         var i = r("jIre");
         function n(e) {
           return (e._prev = e._cipher.encryptBlock(e._prev)), e._prev;
         }
-        t.encrypt = function (t, r) {
+        t.encrypt = (t, r) => {
           for (; t._cache.length < r.length; )
             t._cache = e.concat([t._cache, n(t)]);
           var f = t._cache.slice(0, r.length);
           return (t._cache = t._cache.slice(r.length)), i(r, f);
         };
-      }.call(this, r("HDXh").Buffer));
+      }).call(this, r("HDXh").Buffer));
     },
     Ujlg(e, t, r) {
       var i = r("hwdV").Buffer;
@@ -7370,7 +7355,7 @@
           f[n] = (e[n] << 1) | (e[n + 1] >> 7);
         return f;
       }
-      t.encrypt = function (e, t, r) {
+      t.encrypt = (e, t, r) => {
         for (var f = t.length, a = i.allocUnsafe(f), o = -1; ++o < f; )
           a[o] = n(e, t[o], r);
         return a;
@@ -7379,7 +7364,7 @@
     "UpF+": function (e, t, r) {
       var i = r("OZ/i"),
         n = r("hwdV").Buffer;
-      e.exports = function (e, t) {
+      e.exports = (e, t) => {
         return n.from(
           e
             .toRed(i.mont(t.modulus))
@@ -7390,7 +7375,7 @@
       };
     },
     Vh22(e, t, r) {
-      (function (t) {
+      ((t => {
         var i = r("OZ/i"),
           n = new (r("ehAg"))(),
           f = new i(24),
@@ -7437,40 +7422,39 @@
         Object.defineProperty(p.prototype, "verifyError", {
           enumerable: !0,
           get() {
-            return (
-              "number" !== typeof this._primeCode &&
-                (this._primeCode = (function (e, t) {
-                  var r = t.toString("hex"),
-                    i = [r, e.toString(16)].join("_");
-                  if (i in b) return b[i];
-                  var h,
-                    u = 0;
-                  if (
-                    e.isEven() ||
-                    !d.simpleSieve ||
-                    !d.fermatTest(e) ||
-                    !n.test(e)
-                  )
-                    return (
-                      (u += 1),
-                      (u += "02" === r || "05" === r ? 8 : 4),
-                      (b[i] = u),
-                      u
-                    );
-                  switch ((n.test(e.shrn(1)) || (u += 2), r)) {
-                    case "02":
-                      e.mod(f).cmp(a) && (u += 8);
-                      break;
-                    case "05":
-                      (h = e.mod(o)).cmp(s) && h.cmp(c) && (u += 8);
-                      break;
-                    default:
-                      u += 4;
-                  }
-                  return (b[i] = u), u;
-                })(this.__prime, this.__gen)),
-              this._primeCode
-            );
+            return "number" !== typeof this._primeCode &&
+              (this._primeCode = ((e, t) => {
+                var r = t.toString("hex"),
+                  i = [r, e.toString(16)].join("_");
+                if (i in b) return b[i];
+                var h,
+                  u = 0;
+                if (
+                  e.isEven() ||
+                  !d.simpleSieve ||
+                  !d.fermatTest(e) ||
+                  !n.test(e)
+                )
+                  return (
+                    (u += 1),
+                    (u += "02" === r || "05" === r ? 8 : 4),
+                    (b[i] = u),
+                    u
+                  );
+                switch ((n.test(e.shrn(1)) || (u += 2), r)) {
+                  case "02":
+                    e.mod(f).cmp(a) && (u += 8);
+                    break;
+                  case "05":
+                    (h = e.mod(o)).cmp(s) && h.cmp(c) && (u += 8);
+                    break;
+                  default:
+                    u += 4;
+                }
+                return (b[i] = u), u;
+              })(this.__prime, this.__gen)),
+            this._primeCode
+          ;
           },
         }),
           (p.prototype.generateKeys = function () {
@@ -7516,7 +7500,7 @@
               this
             );
           });
-      }.call(this, r("HDXh").Buffer));
+      }).call(this, r("HDXh").Buffer));
     },
     VrUr(e, t, r) {
       "use strict";
@@ -7652,25 +7636,25 @@
     },
     "WnY+": function (e, t, r) {
       var i = r("9XZ3");
-      e.exports = function (e) {
+      e.exports = e => {
         return new i().update(e).digest();
       };
     },
     Xudb(e, t, r) {
       "use strict";
-      (t.readUInt32BE = function (e, t) {
+      (t.readUInt32BE = (e, t) => {
         return (
           ((e[0 + t] << 24) | (e[1 + t] << 16) | (e[2 + t] << 8) | e[3 + t]) >>>
           0
         );
       }),
-        (t.writeUInt32BE = function (e, t, r) {
+        (t.writeUInt32BE = (e, t, r) => {
           (e[0 + r] = t >>> 24),
             (e[1 + r] = (t >>> 16) & 255),
             (e[2 + r] = (t >>> 8) & 255),
             (e[3 + r] = 255 & t);
         }),
-        (t.ip = function (e, t, r, i) {
+        (t.ip = (e, t, r, i) => {
           for (var n = 0, f = 0, a = 6; a >= 0; a -= 2) {
             for (var o = 0; o <= 24; o += 8)
               (n <<= 1), (n |= (t >>> (o + a)) & 1);
@@ -7682,7 +7666,7 @@
           }
           (r[i + 0] = n >>> 0), (r[i + 1] = f >>> 0);
         }),
-        (t.rip = function (e, t, r, i) {
+        (t.rip = (e, t, r, i) => {
           for (var n = 0, f = 0, a = 0; a < 4; a++)
             for (var o = 24; o >= 0; o -= 8)
               (n <<= 1),
@@ -7697,7 +7681,7 @@
                 (f |= (e >>> (o + a)) & 1);
           (r[i + 0] = n >>> 0), (r[i + 1] = f >>> 0);
         }),
-        (t.pc1 = function (e, t, r, i) {
+        (t.pc1 = (e, t, r, i) => {
           for (var n = 0, f = 0, a = 7; a >= 5; a--) {
             for (var o = 0; o <= 24; o += 8)
               (n <<= 1), (n |= (t >> (o + a)) & 1);
@@ -7711,7 +7695,7 @@
           for (o = 0; o <= 24; o += 8) (f <<= 1), (f |= (e >> (o + a)) & 1);
           (r[i + 0] = n >>> 0), (r[i + 1] = f >>> 0);
         }),
-        (t.r28shl = function (e, t) {
+        (t.r28shl = (e, t) => {
           return ((e << t) & 268435455) | (e >>> (28 - t));
         });
       var i = [
@@ -7719,13 +7703,13 @@
         21, 1, 8, 15, 26, 15, 4, 25, 19, 9, 1, 26, 16, 5, 11, 23, 8, 12, 7, 17,
         0, 22, 3, 10, 14, 6, 20, 27, 24,
       ];
-      (t.pc2 = function (e, t, r, n) {
+      (t.pc2 = (e, t, r, n) => {
         for (var f = 0, a = 0, o = i.length >>> 1, s = 0; s < o; s++)
           (f <<= 1), (f |= (e >>> i[s]) & 1);
         for (s = o; s < i.length; s++) (a <<= 1), (a |= (t >>> i[s]) & 1);
         (r[n + 0] = f >>> 0), (r[n + 1] = a >>> 0);
       }),
-        (t.expand = function (e, t, r) {
+        (t.expand = (e, t, r) => {
           var i = 0,
             n = 0;
           i = ((1 & e) << 5) | (e >>> 27);
@@ -7762,7 +7746,7 @@
         9, 4, 12, 10, 14, 8, 2, 13, 0, 15, 6, 12, 10, 9, 13, 0, 15, 3, 3, 5, 5,
         6, 8, 11,
       ];
-      t.substitute = function (e, t) {
+      t.substitute = (e, t) => {
         for (var r = 0, i = 0; i < 4; i++) {
           (r <<= 4), (r |= n[64 * i + ((e >>> (18 - 6 * i)) & 63)]);
         }
@@ -7775,12 +7759,12 @@
         16, 25, 12, 11, 3, 20, 4, 15, 31, 17, 9, 6, 27, 14, 1, 22, 30, 24, 8,
         18, 0, 5, 29, 23, 13, 19, 2, 26, 10, 21, 28, 7,
       ];
-      (t.permute = function (e) {
+      (t.permute = e => {
         for (var t = 0, r = 0; r < f.length; r++)
           (t <<= 1), (t |= (e >>> f[r]) & 1);
         return t >>> 0;
       }),
-        (t.padSplit = function (e, t, r) {
+        (t.padSplit = (e, t, r) => {
           for (var i = e.toString(2); i.length < t; ) i = "0" + i;
           for (var n = [], f = 0; f < t; f += r) n.push(i.slice(f, f + r));
           return n.join(" ");
@@ -7857,22 +7841,21 @@
         }),
         (t.EncoderBuffer = o),
         (o.prototype.join = function (e, t) {
-          return (
-            e || (e = new f(this.length)),
-            t || (t = 0),
-            0 === this.length ||
-              (Array.isArray(this.value)
-                ? this.value.forEach(function (r) {
-                    r.join(e, t), (t += r.length);
-                  })
-                : ("number" === typeof this.value
-                    ? (e[t] = this.value)
-                    : "string" === typeof this.value
-                    ? e.write(this.value, t)
-                    : f.isBuffer(this.value) && this.value.copy(e, t),
-                  (t += this.length))),
-            e
-          );
+          return e || (e = new f(this.length)),
+          t || (t = 0),
+          0 === this.length ||
+            (Array.isArray(this.value)
+              ? this.value.forEach(r => {
+                  r.join(e, t), (t += r.length);
+                })
+              : ("number" === typeof this.value
+                  ? (e[t] = this.value)
+                  : "string" === typeof this.value
+                  ? e.write(this.value, t)
+                  : f.isBuffer(this.value) && this.value.copy(e, t),
+                (t += this.length))),
+          e
+        ;
         });
     },
     YskG(e, t, r) {
@@ -7881,7 +7864,7 @@
         var n = e._cipher.encryptBlock(e._prev)[0] ^ t;
         return (e._prev = i.concat([e._prev.slice(1), i.from([r ? t : n])])), n;
       }
-      t.encrypt = function (e, t, r) {
+      t.encrypt = (e, t, r) => {
         for (var f = t.length, a = i.allocUnsafe(f), o = -1; ++o < f; )
           a[o] = n(e, t[o], r);
         return a;
@@ -7929,11 +7912,11 @@
         (s.prototype.pointFromJSON = function (e) {
           return c.fromJSON(this, e);
         }),
-        (c.prototype.precompute = function () {}),
+        (c.prototype.precompute = () => {}),
         (c.prototype._encode = function () {
           return this.getX().toArray("be", this.curve.p.byteLength());
         }),
-        (c.fromJSON = function (e, t) {
+        (c.fromJSON = (e, t) => {
           return new c(e, t[0], t[1] || e.one);
         }),
         (c.prototype.inspect = function () {
@@ -7956,7 +7939,7 @@
             n = r.redMul(t.redAdd(this.curve.a24.redMul(r)));
           return this.curve.point(i, n);
         }),
-        (c.prototype.add = function () {
+        (c.prototype.add = () => {
           throw new Error("Not supported on Montgomery curve");
         }),
         (c.prototype.diffAdd = function (e, t) {
@@ -7985,10 +7968,10 @@
               : ((i = r.diffAdd(i, this)), (r = r.dbl()));
           return i;
         }),
-        (c.prototype.mulAdd = function () {
+        (c.prototype.mulAdd = () => {
           throw new Error("Not supported on Montgomery curve");
         }),
-        (c.prototype.jumlAdd = function () {
+        (c.prototype.jumlAdd = () => {
           throw new Error("Not supported on Montgomery curve");
         }),
         (c.prototype.eq = function (e) {
@@ -8025,14 +8008,14 @@
           var n = this._update(e);
           return this.hashMode ? this : (r && (n = this._toString(n, r)), n);
         }),
-        (a.prototype.setAutoPadding = function () {}),
-        (a.prototype.getAuthTag = function () {
+        (a.prototype.setAutoPadding = () => {}),
+        (a.prototype.getAuthTag = () => {
           throw new Error("trying to get auth tag in unsupported state");
         }),
-        (a.prototype.setAuthTag = function () {
+        (a.prototype.setAuthTag = () => {
           throw new Error("trying to set auth tag in unsupported state");
         }),
-        (a.prototype.setAAD = function () {
+        (a.prototype.setAAD = () => {
           throw new Error("trying to set aad in unsupported state");
         }),
         (a.prototype._transform = function (e, t, r) {
@@ -8073,16 +8056,16 @@
     ZEK9(e, t, r) {
       (t.publicEncrypt = r("rSVQ")),
         (t.privateDecrypt = r("DyzK")),
-        (t.privateEncrypt = function (e, r) {
+        (t.privateEncrypt = (e, r) => {
           return t.publicEncrypt(e, r, !0);
         }),
-        (t.publicDecrypt = function (e, r) {
+        (t.publicDecrypt = (e, r) => {
           return t.privateDecrypt(e, r, !0);
         });
     },
     afKu(e, t, r) {
       ((t = e.exports =
-        function (e) {
+        e => {
           e = e.toLowerCase();
           var r = t[e];
           if (!r)
@@ -8177,7 +8160,7 @@
         var t = e._cipher.encryptBlockRaw(e._prev);
         return f(e._prev), t;
       }
-      t.encrypt = function (e, t) {
+      t.encrypt = (e, t) => {
         var r = Math.ceil(t.length / 16),
           f = e._cache.length;
         e._cache = n.concat([e._cache, n.allocUnsafe(16 * r)]);
@@ -8194,7 +8177,7 @@
       };
     },
     "b+dc": function (e, t, r) {
-      (function (t) {
+      ((t => {
         var i = r("Giow"),
           n = r("qVij"),
           f = r("MzeL").ec,
@@ -8207,7 +8190,7 @@
             a.fill(0), (e = t.concat([a, e]));
           }
           var o = n.length,
-            s = (function (e, r) {
+            s = ((e, r) => {
               e = (e = d(e, r)).mod(r);
               var i = new t(e.toArray());
               if (i.length < r.byteLength()) {
@@ -8261,12 +8244,12 @@
         function u(e, t, r, i) {
           return e.toRed(a.mont(r)).redPow(t).fromRed().mod(i);
         }
-        (e.exports = function (e, r, i, l, b) {
+        (e.exports = (e, r, i, l, b) => {
           var p = o(r);
           if (p.curve) {
             if ("ecdsa" !== l && "ecdsa/rsa" !== l)
               throw new Error("wrong private key type");
-            return (function (e, r) {
+            return ((e, r) => {
               var i = s[r.curve.join(".")];
               if (!i) throw new Error("unknown curve " + r.curve.join("."));
               var n = new f(i).keyFromPrivate(r.privateKey).sign(e);
@@ -8275,7 +8258,7 @@
           }
           if ("dsa" === p.type) {
             if ("dsa" !== l) throw new Error("wrong private key type");
-            return (function (e, r, i) {
+            return ((e, r, i) => {
               var n,
                 f = r.params.priv_key,
                 o = r.params.p,
@@ -8292,7 +8275,7 @@
                       .invm(s)
                       .imul(p.add(f.mul(b)))
                       .mod(s)).cmpn(0) && ((m = !1), (b = new a(0)));
-              return (function (e, r) {
+              return ((e, r) => {
                 (e = e.toArray()),
                   (r = r.toArray()),
                   128 & e[0] && (e = [0].concat(e));
@@ -8317,7 +8300,7 @@
         }),
           (e.exports.getKey = c),
           (e.exports.makeKey = h);
-      }.call(this, r("HDXh").Buffer));
+      }).call(this, r("HDXh").Buffer));
     },
     bu2F(e, t, r) {
       "use strict";
@@ -8444,7 +8427,7 @@
     },
     dcwN(e, t, r) {
       "use strict";
-      (function (e, i) {
+      (((e, i) => {
         function n() {
           throw new Error(
             "secure random number generation not supported by this browser\nuse chrome, FireFox or Internet Explorer 11"
@@ -8470,17 +8453,16 @@
         function u(e, t, r, n) {
           var f = e.buffer,
             a = new Uint8Array(f, t, r);
-          return (
-            s.getRandomValues(a),
-            n
-              ? void i.nextTick(function () {
-                  n(null, e);
-                })
-              : e
-          );
+          return s.getRandomValues(a),
+          n
+            ? void i.nextTick(() => {
+                n(null, e);
+              })
+            : e
+        ;
         }
         s && s.getRandomValues
-          ? ((t.randomFill = function (t, r, i, n) {
+          ? ((t.randomFill = (t, r, i, n) => {
               if (!a.isBuffer(t) && !(t instanceof e.Uint8Array))
                 throw new TypeError(
                   '"buf" argument must be a Buffer or Uint8Array'
@@ -8491,7 +8473,7 @@
                 throw new TypeError('"cb" argument must be a function');
               return d(r, t.length), h(i, r, t.length), u(t, r, i, n);
             }),
-            (t.randomFillSync = function (t, r, i) {
+            (t.randomFillSync = (t, r, i) => {
               "undefined" === typeof r && (r = 0);
               if (!a.isBuffer(t) && !(t instanceof e.Uint8Array))
                 throw new TypeError(
@@ -8501,7 +8483,7 @@
               return h(i, r, t.length), u(t, r, i);
             }))
           : ((t.randomFill = n), (t.randomFillSync = n));
-      }.call(this, r("ntbh"), r("8oxB")));
+      }).call(this, r("ntbh"), r("8oxB")));
     },
     dlgc(e, t, r) {
       "use strict";
@@ -8513,7 +8495,7 @@
         for (var t = "", r = 0; r < e.length; r++) t += n(e[r].toString(16));
         return t;
       }
-      (i.toArray = function (e, t) {
+      (i.toArray = (e, t) => {
         if (Array.isArray(e)) return e.slice();
         if (!e) return [];
         var r = [];
@@ -8536,7 +8518,7 @@
       }),
         (i.zero2 = n),
         (i.toHex = f),
-        (i.encode = function (e, t) {
+        (i.encode = (e, t) => {
           return "hex" === t ? f(e) : e;
         });
     },
@@ -8547,7 +8529,7 @@
         this.rand = e || new n.Rand();
       }
       (e.exports = f),
-        (f.create = function (e) {
+        (f.create = e => {
           return new f(e);
         }),
         (f.prototype._randbelow = function (e) {
@@ -8615,13 +8597,13 @@
         (i.encoders = r("ND7S"));
     },
     fSpj(e, t, r) {
-      (function (t) {
+      ((t => {
         var r = Math.pow(2, 30) - 1;
         function i(e, r) {
           if ("string" !== typeof e && !t.isBuffer(e))
             throw new TypeError(r + " must be a buffer or string");
         }
-        e.exports = function (e, t, n, f) {
+        e.exports = (e, t, n, f) => {
           if ((i(e, "Password"), i(t, "Salt"), "number" !== typeof n))
             throw new TypeError("Iterations not a number");
           if (n < 0) throw new TypeError("Bad iterations");
@@ -8629,7 +8611,7 @@
             throw new TypeError("Key length not a number");
           if (f < 0 || f > r || f !== f) throw new TypeError("Bad key length");
         };
-      }.call(this, r("HDXh").Buffer));
+      }).call(this, r("HDXh").Buffer));
     },
     fZJM(e, t, r) {
       var i = t;
@@ -8810,7 +8792,7 @@
       (c.prototype.clone = function () {
         var e = this._baseState,
           t = {};
-        d.forEach(function (r) {
+        d.forEach(r => {
           t[r] = e[r];
         });
         var r = new this.constructor(t.parent);
@@ -8851,17 +8833,16 @@
             0 !== e.length &&
               (a(null === t.args),
               (t.args = e),
-              (t.reverseArgs = e.map(function (e) {
+              (t.reverseArgs = e.map(e => {
                 if ("object" !== typeof e || e.constructor !== Object) return e;
                 var t = {};
-                return (
-                  Object.keys(e).forEach(function (r) {
-                    r == (0 | r) && (r |= 0);
-                    var i = e[r];
-                    t[i] = r;
-                  }),
-                  t
-                );
+                return Object.keys(e).forEach(r => {
+                  r == (0 | r) && (r |= 0);
+                  var i = e[r];
+                  t[i] = r;
+                }),
+                t
+              ;
               })));
         }),
         [
@@ -8882,13 +8863,13 @@
           "_encodeNull",
           "_encodeInt",
           "_encodeBool",
-        ].forEach(function (e) {
+        ].forEach(e => {
           c.prototype[e] = function () {
             var t = this._baseState;
             throw new Error(e + " not implemented for encoding: " + t.enc);
           };
         }),
-        o.forEach(function (e) {
+        o.forEach(e => {
           c.prototype[e] = function () {
             var t = this._baseState,
               r = Array.prototype.slice.call(arguments);
@@ -8939,16 +8920,15 @@
         }),
         (c.prototype.choice = function (e) {
           var t = this._baseState;
-          return (
-            a(null === t.choice),
-            (t.choice = e),
-            this._useArgs(
-              Object.keys(e).map(function (t) {
-                return e[t];
-              })
-            ),
-            this
-          );
+          return a(null === t.choice),
+          (t.choice = e),
+          this._useArgs(
+            Object.keys(e).map(t => {
+              return e[t];
+            })
+          ),
+          this
+        ;
         }),
         (c.prototype.contains = function (e) {
           var t = this._baseState;
@@ -9024,7 +9004,7 @@
               (r.any ||
                 null !== r.choice ||
                 null === r.children ||
-                r.children.forEach(function (r) {
+                r.children.forEach(r => {
                   r._decode(e, t);
                 }),
               r.contains && ("octstr" === r.tag || "bitstr" === r.tag))
@@ -9083,21 +9063,20 @@
           var r = this._baseState,
             i = null,
             n = !1;
-          return (
-            Object.keys(r.choice).some(function (f) {
-              var a = e.save(),
-                o = r.choice[f];
-              try {
-                var s = o._decode(e, t);
-                if (e.isError(s)) return !1;
-                (i = { type: f, value: s }), (n = !0);
-              } catch (c) {
-                return e.restore(a), !1;
-              }
-              return !0;
-            }, this),
-            n ? i : e.error("Choice not matched")
-          );
+          return Object.keys(r.choice).some(f => {
+            var a = e.save(),
+              o = r.choice[f];
+            try {
+              var s = o._decode(e, t);
+              if (e.isError(s)) return !1;
+              (i = { type: f, value: s }), (n = !0);
+            } catch (c) {
+              return e.restore(a), !1;
+            }
+            return !0;
+          }, this),
+          n ? i : e.error("Choice not matched")
+        ;
         }),
         (c.prototype._createEncoderBuffer = function (e) {
           return new n(e, this.reporter);
@@ -9125,7 +9104,7 @@
             (a = this._getUse(n.contains, r)._encode(e, t)), (o = !0);
           else if (n.children)
             (a = n.children
-              .map(function (r) {
+              .map(r => {
                 if ("null_" === r._baseState.tag) return r._encode(null, t, e);
                 if (null === r._baseState.key)
                   return t.error("Child should have a key");
@@ -9135,7 +9114,7 @@
                 var n = r._encode(e[r._baseState.key], t, e);
                 return t.leaveKey(i), n;
               }, this)
-              .filter(function (e) {
+              .filter(e => {
                 return e;
               })),
               (a = this._createEncoderBuffer(a));
@@ -9198,15 +9177,15 @@
           if ("objDesc" === e) return this._encodeStr(t, e);
           throw new Error("Unsupported tag: " + e);
         }),
-        (c.prototype._isNumstr = function (e) {
+        (c.prototype._isNumstr = e => {
           return /^[0-9 ]*$/.test(e);
         }),
-        (c.prototype._isPrintstr = function (e) {
+        (c.prototype._isPrintstr = e => {
           return /^[A-Za-z0-9 '\(\)\+,\-\.\/:=\?]*$/.test(e);
         });
     },
     g9U9(e, t) {
-      e.exports = function (e, t) {
+      e.exports = (e, t) => {
         for (var r = e.length, i = -1; ++i < r; ) e[i] ^= t[i];
         return e;
       };
@@ -9225,7 +9204,7 @@
         this._cipher = new i.AES(t);
         var d = this._cipher.encryptBlock(s);
         (this._ghash = new o(d)),
-          (r = (function (e, t, r) {
+          (r = ((e, t, r) => {
             if (12 === t.length)
               return (
                 (e._finID = n.concat([t, n.from([0, 0, 0, 1])])),
@@ -9275,8 +9254,7 @@
             this._cipher.encryptBlock(this._finID)
           );
           if (
-            this._decrypt &&
-            (function (e, t) {
+            this._decrypt && ((e, t) => {
               var r = 0;
               e.length !== t.length && r++;
               for (var i = Math.min(e.length, t.length), n = 0; n < i; ++n)
@@ -9469,7 +9447,7 @@
           return f.concat([this.cache, t]);
         }),
         (t.createCipheriv = l),
-        (t.createCipher = function (e, t) {
+        (t.createCipher = (e, t) => {
           var r = i[e.toLowerCase()];
           if (!r) throw new TypeError("invalid suite type");
           var n = c(t, !1, r.key, r.iv);
@@ -9477,8 +9455,8 @@
         });
     },
     jIre(e, t, r) {
-      (function (t) {
-        e.exports = function (e, r) {
+      ((t => {
+        e.exports = (e, r) => {
           for (
             var i = Math.min(e.length, r.length), n = new t(i), f = 0;
             f < i;
@@ -9487,7 +9465,7 @@
             n[f] = e[f] ^ r[f];
           return n;
         };
-      }.call(this, r("HDXh").Buffer));
+      }).call(this, r("HDXh").Buffer));
     },
     jfd1(e, t, r) {
       var i = r("P7XM"),
@@ -9561,11 +9539,10 @@
         }),
         (f.prototype.update = function (e, t) {
           if (
-            ((function (e, t) {
+            (((e, t) => {
               if (!i.isBuffer(e) && "string" !== typeof e)
                 throw new TypeError(t + " must be a string or a buffer");
-            })(e, "Data"),
-            this._finalized)
+            })(e, "Data"), this._finalized)
           )
             throw new Error("Digest already called");
           i.isBuffer(e) || (e = i.from(e, t));
@@ -9585,7 +9562,7 @@
                 (this._length[a] -= 4294967296 * o);
           return this;
         }),
-        (f.prototype._update = function () {
+        (f.prototype._update = () => {
           throw new Error("_update is not implemented");
         }),
         (f.prototype.digest = function (e) {
@@ -9598,7 +9575,7 @@
           for (var r = 0; r < 4; ++r) this._length[r] = 0;
           return t;
         }),
-        (f.prototype._digest = function () {
+        (f.prototype._digest = () => {
           throw new Error("_digest is not implemented");
         }),
         (e.exports = f);
@@ -9672,7 +9649,7 @@
         (d.prototype.encodeInt = function (e) {
           return e.toArray("le", this.encodingLength);
         }),
-        (d.prototype.decodeInt = function (e) {
+        (d.prototype.decodeInt = e => {
           return f.intFromLE(e);
         }),
         (d.prototype.isPoint = function (e) {
@@ -9696,7 +9673,7 @@
         throw new TypeError("invalid suite type");
       }
       (t.createCipher = t.Cipher =
-        function (e, t) {
+        (e, t) => {
           var r, i;
           if (((e = e.toLowerCase()), f[e])) (r = f[e].key), (i = f[e].iv);
           else {
@@ -9708,7 +9685,7 @@
         }),
         (t.createCipheriv = t.Cipheriv = s),
         (t.createDecipher = t.Decipher =
-          function (e, t) {
+          (e, t) => {
             var r, i;
             if (((e = e.toLowerCase()), f[e])) (r = f[e].key), (i = f[e].iv);
             else {
@@ -9720,12 +9697,12 @@
           }),
         (t.createDecipheriv = t.Decipheriv = c),
         (t.listCiphers = t.getCiphers =
-          function () {
+          () => {
             return Object.keys(a).concat(n.getCiphers());
           });
     },
     mAz1(e, t, r) {
-      (function (t) {
+      ((t => {
         var i = r("OZ/i"),
           n = r("MzeL").ec,
           f = r("Ku4m"),
@@ -9734,12 +9711,12 @@
           if (e.cmpn(0) <= 0) throw new Error("invalid sig");
           if (e.cmp(t) >= t) throw new Error("invalid sig");
         }
-        e.exports = function (e, r, s, c, d) {
+        e.exports = (e, r, s, c, d) => {
           var h = f(s);
           if ("ec" === h.type) {
             if ("ecdsa" !== c && "ecdsa/rsa" !== c)
               throw new Error("wrong public key type");
-            return (function (e, t, r) {
+            return ((e, t, r) => {
               var i = a[r.data.algorithm.curve.join(".")];
               if (!i)
                 throw new Error(
@@ -9752,7 +9729,7 @@
           }
           if ("dsa" === h.type) {
             if ("dsa" !== c) throw new Error("wrong public key type");
-            return (function (e, t, r) {
+            return ((e, t, r) => {
               var n = r.data.p,
                 a = r.data.q,
                 s = r.data.g,
@@ -9802,7 +9779,7 @@
             y |= e[p] ^ l[p];
           return 0 === y;
         };
-      }.call(this, r("HDXh").Buffer));
+      }).call(this, r("HDXh").Buffer));
     },
     mObS(e, t, r) {
       "use strict";
@@ -9821,7 +9798,7 @@
         (s.prototype._final = function () {
           return this._hash.digest();
         }),
-        (e.exports = function (e) {
+        (e.exports = e => {
           return "md5" === (e = e.toLowerCase())
             ? new n()
             : "rmd160" === e || "ripemd160" === e
@@ -9959,11 +9936,11 @@
         (e.exports = s);
     },
     qVij(e, t, r) {
-      (function (t) {
+      ((t => {
         var i = r("OZ/i"),
           n = r("Edxu");
         function f(e, r) {
-          var n = (function (e) {
+          var n = (e => {
               var t = a(e);
               return {
                 blinder: t
@@ -10000,7 +9977,7 @@
           return r;
         }
         (e.exports = f), (f.getr = a);
-      }.call(this, r("HDXh").Buffer));
+      }).call(this, r("HDXh").Buffer));
     },
     qlaj(e, t, r) {
       "use strict";
@@ -10014,7 +9991,7 @@
       function a(e, t, r) {
         return e ^ t ^ r;
       }
-      (t.ft_1 = function (e, t, r, i) {
+      (t.ft_1 = (e, t, r, i) => {
         return 0 === e
           ? n(t, r, i)
           : 1 === e || 3 === e
@@ -10026,16 +10003,16 @@
         (t.ch32 = n),
         (t.maj32 = f),
         (t.p32 = a),
-        (t.s0_256 = function (e) {
+        (t.s0_256 = e => {
           return i(e, 2) ^ i(e, 13) ^ i(e, 22);
         }),
-        (t.s1_256 = function (e) {
+        (t.s1_256 = e => {
           return i(e, 6) ^ i(e, 11) ^ i(e, 25);
         }),
-        (t.g0_256 = function (e) {
+        (t.g0_256 = e => {
           return i(e, 7) ^ i(e, 18) ^ (e >>> 3);
         }),
-        (t.g1_256 = function (e) {
+        (t.g1_256 = e => {
           return i(e, 17) ^ i(e, 19) ^ (e >>> 10);
         });
     },
@@ -10049,13 +10026,13 @@
         c = r("UpF+"),
         d = r("qVij"),
         h = r("hwdV").Buffer;
-      e.exports = function (e, t, r) {
+      e.exports = (e, t, r) => {
         var u;
         u = e.padding ? e.padding : r ? 1 : 4;
         var l,
           b = i(e);
         if (4 === u)
-          l = (function (e, t) {
+          l = ((e, t) => {
             var r = e.modulus.byteLength(),
               i = t.length,
               c = f("sha1").update(h.alloc(0)).digest(),
@@ -10070,14 +10047,12 @@
             return new s(h.concat([h.alloc(1), y, m], r));
           })(b, t);
         else if (1 === u)
-          l = (function (e, t, r) {
+          l = ((e, t, r) => {
             var i,
               f = t.length,
               a = e.modulus.byteLength();
             if (f > a - 11) throw new Error("message too long");
-            i = r
-              ? h.alloc(a - f - 3, 255)
-              : (function (e) {
+            i = r ? h.alloc(a - f - 3, 255) : (e => {
                   var t,
                     r = h.allocUnsafe(e),
                     i = 0,
@@ -10103,7 +10078,7 @@
     roQf(e, t, r) {
       var i = r("hwdV").Buffer,
         n = r("9XZ3");
-      e.exports = function (e, t, r, f) {
+      e.exports = (e, t, r, f) => {
         if (
           (i.isBuffer(e) || (e = i.from(e, "binary")),
           t && (i.isBuffer(t) || (t = i.from(t, "binary")), 8 !== t.length))
@@ -10510,13 +10485,13 @@
           var f = this._hash();
           return e ? f.toString(e) : f;
         }),
-        (n.prototype._update = function () {
+        (n.prototype._update = () => {
           throw new Error("_update must be implemented by subclass");
         }),
         (e.exports = n);
     },
     tpL1(e, t, r) {
-      (function (t) {
+      ((t => {
         var i = r("mObS"),
           n = r("qAFR"),
           f = r("P7XM"),
@@ -10546,7 +10521,7 @@
         function u(e) {
           return new d(e);
         }
-        Object.keys(s).forEach(function (e) {
+        Object.keys(s).forEach(e => {
           (s[e].id = new t(s[e].id, "hex")), (s[e.toLowerCase()] = s[e]);
         }),
           f(c, n.Writable),
@@ -10583,7 +10558,7 @@
             return o(r, n, e, this._signType, this._tag);
           }),
           (e.exports = { Sign: h, Verify: u, createSign: h, createVerify: u });
-      }.call(this, r("HDXh").Buffer));
+      }).call(this, r("HDXh").Buffer));
     },
     "tz+M": function (e, t, r) {
       "use strict";
@@ -11016,10 +10991,10 @@
           t.pub && this._importPublic(t.pub, t.pubEnc);
       }
       (e.exports = f),
-        (f.fromPublic = function (e, t, r) {
+        (f.fromPublic = (e, t, r) => {
           return t instanceof f ? t : new f(e, { pub: t, pubEnc: r });
         }),
-        (f.fromPrivate = function (e, t, r) {
+        (f.fromPrivate = (e, t, r) => {
           return t instanceof f ? t : new f(e, { priv: t, privEnc: r });
         }),
         (f.prototype.validate = function () {
@@ -11078,7 +11053,7 @@
         });
     },
     vZ2G(e, t) {
-      e.exports = function (e) {
+      e.exports = e => {
         for (var t, r = e.length; r--; ) {
           if (255 !== (t = e.readUInt8(r))) {
             t++, e.writeUInt8(t, r);
@@ -11129,7 +11104,7 @@
           : e;
       }
       (t.inherits = n),
-        (t.toArray = function (e, t) {
+        (t.toArray = (e, t) => {
           if (Array.isArray(e)) return e.slice();
           if (!e) return [];
           var r = [];
@@ -11165,12 +11140,12 @@
           else for (n = 0; n < e.length; n++) r[n] = 0 | e[n];
           return r;
         }),
-        (t.toHex = function (e) {
+        (t.toHex = e => {
           for (var t = "", r = 0; r < e.length; r++) t += o(e[r].toString(16));
           return t;
         }),
         (t.htonl = a),
-        (t.toHex32 = function (e, t) {
+        (t.toHex32 = (e, t) => {
           for (var r = "", i = 0; i < e.length; i++) {
             var n = e[i];
             "little" === t && (n = a(n)), (r += s(n.toString(16)));
@@ -11179,7 +11154,7 @@
         }),
         (t.zero2 = o),
         (t.zero8 = s),
-        (t.join32 = function (e, t, r, n) {
+        (t.join32 = (e, t, r, n) => {
           var f = r - t;
           i(f % 4 === 0);
           for (
@@ -11196,7 +11171,7 @@
           }
           return a;
         }),
-        (t.split32 = function (e, t) {
+        (t.split32 = (e, t) => {
           for (
             var r = new Array(4 * e.length), i = 0, n = 0;
             i < e.length;
@@ -11215,37 +11190,37 @@
           }
           return r;
         }),
-        (t.rotr32 = function (e, t) {
+        (t.rotr32 = (e, t) => {
           return (e >>> t) | (e << (32 - t));
         }),
-        (t.rotl32 = function (e, t) {
+        (t.rotl32 = (e, t) => {
           return (e << t) | (e >>> (32 - t));
         }),
-        (t.sum32 = function (e, t) {
+        (t.sum32 = (e, t) => {
           return (e + t) >>> 0;
         }),
-        (t.sum32_3 = function (e, t, r) {
+        (t.sum32_3 = (e, t, r) => {
           return (e + t + r) >>> 0;
         }),
-        (t.sum32_4 = function (e, t, r, i) {
+        (t.sum32_4 = (e, t, r, i) => {
           return (e + t + r + i) >>> 0;
         }),
-        (t.sum32_5 = function (e, t, r, i, n) {
+        (t.sum32_5 = (e, t, r, i, n) => {
           return (e + t + r + i + n) >>> 0;
         }),
-        (t.sum64 = function (e, t, r, i) {
+        (t.sum64 = (e, t, r, i) => {
           var n = e[t],
             f = (i + e[t + 1]) >>> 0,
             a = (f < i ? 1 : 0) + r + n;
           (e[t] = a >>> 0), (e[t + 1] = f);
         }),
-        (t.sum64_hi = function (e, t, r, i) {
+        (t.sum64_hi = (e, t, r, i) => {
           return (((t + i) >>> 0 < t ? 1 : 0) + e + r) >>> 0;
         }),
-        (t.sum64_lo = function (e, t, r, i) {
+        (t.sum64_lo = (e, t, r, i) => {
           return (t + i) >>> 0;
         }),
-        (t.sum64_4_hi = function (e, t, r, i, n, f, a, o) {
+        (t.sum64_4_hi = (e, t, r, i, n, f, a, o) => {
           var s = 0,
             c = t;
           return (
@@ -11254,10 +11229,10 @@
             (e + r + n + a + (s += (c = (c + o) >>> 0) < o ? 1 : 0)) >>> 0
           );
         }),
-        (t.sum64_4_lo = function (e, t, r, i, n, f, a, o) {
+        (t.sum64_4_lo = (e, t, r, i, n, f, a, o) => {
           return (t + i + f + o) >>> 0;
         }),
-        (t.sum64_5_hi = function (e, t, r, i, n, f, a, o, s, c) {
+        (t.sum64_5_hi = (e, t, r, i, n, f, a, o, s, c) => {
           var d = 0,
             h = t;
           return (
@@ -11267,29 +11242,29 @@
             (e + r + n + a + s + (d += (h = (h + c) >>> 0) < c ? 1 : 0)) >>> 0
           );
         }),
-        (t.sum64_5_lo = function (e, t, r, i, n, f, a, o, s, c) {
+        (t.sum64_5_lo = (e, t, r, i, n, f, a, o, s, c) => {
           return (t + i + f + o + c) >>> 0;
         }),
-        (t.rotr64_hi = function (e, t, r) {
+        (t.rotr64_hi = (e, t, r) => {
           return ((t << (32 - r)) | (e >>> r)) >>> 0;
         }),
-        (t.rotr64_lo = function (e, t, r) {
+        (t.rotr64_lo = (e, t, r) => {
           return ((e << (32 - r)) | (t >>> r)) >>> 0;
         }),
-        (t.shr64_hi = function (e, t, r) {
+        (t.shr64_hi = (e, t, r) => {
           return e >>> r;
         }),
-        (t.shr64_lo = function (e, t, r) {
+        (t.shr64_lo = (e, t, r) => {
           return ((e << (32 - r)) | (t >>> r)) >>> 0;
         });
     },
     wRn4(e, t, r) {
       var i = r("jIre");
-      (t.encrypt = function (e, t) {
+      (t.encrypt = (e, t) => {
         var r = i(t, e._prev);
         return (e._prev = e._cipher.encryptBlock(r)), e._prev;
       }),
-        (t.decrypt = function (e, t) {
+        (t.decrypt = (e, t) => {
           var r = e._prev;
           e._prev = t;
           var n = e._cipher.decryptBlock(t);
@@ -11355,7 +11330,7 @@
           );
         }),
         i(c, f.Node),
-        (c.prototype._peekTag = function (e, t, r) {
+        (c.prototype._peekTag = (e, t, r) => {
           if (e.isEmpty()) return !1;
           var i = e.save(),
             n = d(e, 'Failed to peek tag: "' + t + '"');
@@ -11447,7 +11422,7 @@
             ? e.raw().toString()
             : e.error("Decoding of string type: " + t + " unsupported");
         }),
-        (c.prototype._decodeObjid = function (e, t, r) {
+        (c.prototype._decodeObjid = (e, t, r) => {
           for (var i, n = [], f = 0; !e.isEmpty(); ) {
             var a = e.readUInt8();
             (f <<= 7), (f |= 127 & a), 0 === (128 & a) && (n.push(f), (f = 0));
@@ -11461,7 +11436,7 @@
           }
           return i;
         }),
-        (c.prototype._decodeTime = function (e, t) {
+        (c.prototype._decodeTime = (e, t) => {
           var r = e.raw().toString();
           if ("gentime" === t)
             var i = 0 | r.slice(0, 4),
@@ -11483,19 +11458,19 @@
           }
           return Date.UTC(i, n - 1, f, a, o, s, 0);
         }),
-        (c.prototype._decodeNull = function (e) {
+        (c.prototype._decodeNull = e => {
           return null;
         }),
-        (c.prototype._decodeBool = function (e) {
+        (c.prototype._decodeBool = e => {
           var t = e.readUInt8();
           return e.isError(t) ? t : 0 !== t;
         }),
-        (c.prototype._decodeInt = function (e, t) {
+        (c.prototype._decodeInt = (e, t) => {
           var r = e.raw(),
             i = new a(r);
           return t && (i = t[i.toString(10)] || i), i;
         }),
-        (c.prototype._use = function (e, t) {
+        (c.prototype._use = (e, t) => {
           return (
             "function" === typeof e && (e = e(t)), e._getDecoder("der").tree
           );

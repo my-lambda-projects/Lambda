@@ -6,7 +6,7 @@
       void 0 ===
         (o =
           "function" ===
-          typeof (r = function () {
+          typeof (r = () => {
             var n = { version: "0.2.0" },
               e = (n.settings = {
                 minimum: 0.08,
@@ -42,61 +42,54 @@
                 s
               );
             }
-            (n.configure = function (n) {
+            n.configure = function (n) {
               var t, r;
               for (t in n)
                 void 0 !== (r = n[t]) && n.hasOwnProperty(t) && (e[t] = r);
               return this;
-            }),
-              (n.status = null),
-              (n.set = function (r) {
+            }, n.status = null, n.set = function (r) {
                 var a = n.isStarted();
                 (r = t(r, e.minimum, 1)), (n.status = 1 === r ? null : r);
                 var u = n.render(!a),
                   c = u.querySelector(e.barSelector),
                   l = e.speed,
                   d = e.easing;
-                return (
-                  u.offsetWidth,
-                  s(function (t) {
-                    "" === e.positionUsing &&
-                      (e.positionUsing = n.getPositioningCSS()),
-                      i(c, o(r, l, d)),
-                      1 === r
-                        ? (i(u, { transition: "none", opacity: 1 }),
-                          u.offsetWidth,
-                          setTimeout(function () {
-                            i(u, {
-                              transition: "all " + l + "ms linear",
-                              opacity: 0,
-                            }),
-                              setTimeout(function () {
-                                n.remove(), t();
-                              }, l);
-                          }, l))
-                        : setTimeout(t, l);
-                  }),
-                  this
-                );
-              }),
-              (n.isStarted = function () {
+                return u.offsetWidth,
+                s(t => {
+                  "" === e.positionUsing &&
+                    (e.positionUsing = n.getPositioningCSS()),
+                    i(c, o(r, l, d)),
+                    1 === r
+                      ? (i(u, { transition: "none", opacity: 1 }),
+                        u.offsetWidth,
+                        setTimeout(() => {
+                          i(u, {
+                            transition: "all " + l + "ms linear",
+                            opacity: 0,
+                          }),
+                            setTimeout(() => {
+                              n.remove(), t();
+                            }, l);
+                        }, l))
+                      : setTimeout(t, l);
+                }),
+                this
+              ;
+              }, n.isStarted = () => {
                 return "number" === typeof n.status;
-              }),
-              (n.start = function () {
+              }, n.start = function () {
                 n.status || n.set(0);
-                var t = function () {
-                  setTimeout(function () {
+                var t = () => {
+                  setTimeout(() => {
                     n.status && (n.trickle(), t());
                   }, e.trickleSpeed);
                 };
                 return e.trickle && t(), this;
-              }),
-              (n.done = function (e) {
+              }, n.done = function (e) {
                 return e || n.status
                   ? n.inc(0.3 + 0.5 * Math.random()).set(1)
                   : this;
-              }),
-              (n.inc = function (e) {
+              }, n.inc = e => {
                 var r = n.status;
                 return r
                   ? ("number" !== typeof e &&
@@ -104,26 +97,23 @@
                     (r = t(r + e, 0, 0.994)),
                     n.set(r))
                   : n.start();
-              }),
-              (n.trickle = function () {
+              }, n.trickle = () => {
                 return n.inc(Math.random() * e.trickleRate);
-              }),
-              (function () {
-                var e = 0,
-                  t = 0;
-                n.promise = function (r) {
-                  return r && "resolved" !== r.state()
-                    ? (0 === t && n.start(),
-                      e++,
-                      t++,
-                      r.always(function () {
-                        0 === --t ? ((e = 0), n.done()) : n.set((e - t) / e);
-                      }),
-                      this)
-                    : this;
-                };
-              })(),
-              (n.render = function (t) {
+              }, (() => {
+              var e = 0,
+                t = 0;
+              n.promise = function (r) {
+                return r && "resolved" !== r.state()
+                  ? (0 === t && n.start(),
+                    e++,
+                    t++,
+                    r.always(() => {
+                      0 === --t ? ((e = 0), n.done()) : n.set((e - t) / e);
+                    }),
+                    this)
+                  : this;
+              };
+            })(), n.render = t => {
                 if (n.isRendered()) return document.getElementById("nprogress");
                 u(document.documentElement, "nprogress-busy");
                 var o = document.createElement("div");
@@ -143,8 +133,7 @@
                   l.appendChild(o),
                   o
                 );
-              }),
-              (n.remove = function () {
+              }, n.remove = () => {
                 c(document.documentElement, "nprogress-busy"),
                   c(
                     document.querySelector(e.parent),
@@ -152,11 +141,9 @@
                   );
                 var n = document.getElementById("nprogress");
                 n && d(n);
-              }),
-              (n.isRendered = function () {
+              }, n.isRendered = () => {
                 return !!document.getElementById("nprogress");
-              }),
-              (n.getPositioningCSS = function () {
+              }, n.getPositioningCSS = () => {
                 var n = document.body.style,
                   e =
                     "WebkitTransform" in n
@@ -173,24 +160,24 @@
                   : e + "Transform" in n
                   ? "translate"
                   : "margin";
-              });
-            var s = (function () {
+              };
+            var s = (() => {
                 var n = [];
                 function e() {
                   var t = n.shift();
                   t && t(e);
                 }
-                return function (t) {
+                return t => {
                   n.push(t), 1 == n.length && e();
                 };
               })(),
-              i = (function () {
+              i = (() => {
                 var n = ["Webkit", "O", "Moz", "ms"],
                   e = {};
                 function t(n) {
                   return n
                     .replace(/^-ms-/, "ms-")
-                    .replace(/-([\da-z])/gi, function (n, e) {
+                    .replace(/-([\da-z])/gi, (n, e) => {
                       return e.toUpperCase();
                     });
                 }
@@ -256,7 +243,7 @@
     n91j(n, e, t) {
       "use strict";
       t.r(e),
-        t.d(e, "default", function () {
+        t.d(e, "default", () => {
           return l;
         });
       var r = t("nKUr"),
@@ -285,13 +272,13 @@
         template:
           '<div class="nprogress-bar" role="bar"><div class="nprogress-peg"></div></div>',
       }),
-        a.a.events.on("routeChangeStart", function () {
+        a.a.events.on("routeChangeStart", () => {
           c.a.start();
         }),
-        a.a.events.on("routeChangeComplete", function () {
+        a.a.events.on("routeChangeComplete", () => {
           c.a.done();
         }),
-        a.a.events.on("routeChangeError", function () {
+        a.a.events.on("routeChangeError", () => {
           c.a.done();
         });
     },

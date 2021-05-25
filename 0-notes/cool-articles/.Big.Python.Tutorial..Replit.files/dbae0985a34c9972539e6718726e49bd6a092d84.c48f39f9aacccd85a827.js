@@ -3,7 +3,7 @@
   {
     "2mtm": function (t, r, e) {
       "use strict";
-      e.d(r, "a", function () {
+      e.d(r, "a", () => {
         return o;
       });
       var n = e("q1tI"),
@@ -11,7 +11,7 @@
     },
     CLjb(t, r, e) {
       "use strict";
-      e.d(r, "a", function () {
+      e.d(r, "a", () => {
         return m;
       });
       var n = e("q1tI"),
@@ -23,56 +23,51 @@
         f = e("bO3s"),
         l = e("bAlF");
       function s(t, r) {
-        return (
-          (function (t) {
-            if (Array.isArray(t)) return t;
-          })(t) ||
-          (function (t, r) {
-            if (
-              "undefined" === typeof Symbol ||
-              !(Symbol.iterator in Object(t))
-            )
-              return;
-            var e = [],
-              n = !0,
-              o = !1,
-              u = void 0;
-            try {
-              for (
-                var c, i = t[Symbol.iterator]();
-                !(n = (c = i.next()).done) &&
-                (e.push(c.value), !r || e.length !== r);
-                n = !0
-              );
-            } catch (a) {
-              (o = !0), (u = a);
-            } finally {
-              try {
-                n || null == i.return || i.return();
-              } finally {
-                if (o) throw u;
-              }
-            }
-            return e;
-          })(t, r) ||
-          (function (t, r) {
-            if (!t) return;
-            if ("string" === typeof t) return b(t, r);
-            var e = Object.prototype.toString.call(t).slice(8, -1);
-            "Object" === e && t.constructor && (e = t.constructor.name);
-            if ("Map" === e || "Set" === e) return Array.from(t);
-            if (
-              "Arguments" === e ||
-              /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(e)
-            )
-              return b(t, r);
-          })(t, r) ||
-          (function () {
-            throw new TypeError(
-              "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+        return (t => {
+          if (Array.isArray(t)) return t;
+        })(t) || ((t, r) => {
+          if (
+            "undefined" === typeof Symbol ||
+            !(Symbol.iterator in Object(t))
+          )
+            return;
+          var e = [],
+            n = !0,
+            o = !1,
+            u = void 0;
+          try {
+            for (
+              var c, i = t[Symbol.iterator]();
+              !(n = (c = i.next()).done) &&
+              (e.push(c.value), !r || e.length !== r);
+              n = !0
             );
-          })()
-        );
+          } catch (a) {
+            (o = !0), (u = a);
+          } finally {
+            try {
+              n || null == i.return || i.return();
+            } finally {
+              if (o) throw u;
+            }
+          }
+          return e;
+        })(t, r) || ((t, r) => {
+          if (!t) return;
+          if ("string" === typeof t) return b(t, r);
+          var e = Object.prototype.toString.call(t).slice(8, -1);
+          "Object" === e && t.constructor && (e = t.constructor.name);
+          if ("Map" === e || "Set" === e) return Array.from(t);
+          if (
+            "Arguments" === e ||
+            /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(e)
+          )
+            return b(t, r);
+        })(t, r) || (() => {
+          throw new TypeError(
+            "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+          );
+        })();
       }
       function b(t, r) {
         (null == r || r > t.length) && (r = t.length);
@@ -82,10 +77,10 @@
       function y(t) {
         return (y =
           "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
-            ? function (t) {
+            ? t => {
                 return typeof t;
               }
-            : function (t) {
+            : t => {
                 return t &&
                   "function" === typeof Symbol &&
                   t.constructor === Symbol &&
@@ -95,56 +90,51 @@
               })(t);
       }
       function d(t, r) {
-        return (
-          (function (t) {
-            if (Array.isArray(t)) return t;
-          })(t) ||
-          (function (t, r) {
-            if (
-              "undefined" === typeof Symbol ||
-              !(Symbol.iterator in Object(t))
-            )
-              return;
-            var e = [],
-              n = !0,
-              o = !1,
-              u = void 0;
-            try {
-              for (
-                var c, i = t[Symbol.iterator]();
-                !(n = (c = i.next()).done) &&
-                (e.push(c.value), !r || e.length !== r);
-                n = !0
-              );
-            } catch (a) {
-              (o = !0), (u = a);
-            } finally {
-              try {
-                n || null == i.return || i.return();
-              } finally {
-                if (o) throw u;
-              }
-            }
-            return e;
-          })(t, r) ||
-          (function (t, r) {
-            if (!t) return;
-            if ("string" === typeof t) return p(t, r);
-            var e = Object.prototype.toString.call(t).slice(8, -1);
-            "Object" === e && t.constructor && (e = t.constructor.name);
-            if ("Map" === e || "Set" === e) return Array.from(t);
-            if (
-              "Arguments" === e ||
-              /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(e)
-            )
-              return p(t, r);
-          })(t, r) ||
-          (function () {
-            throw new TypeError(
-              "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+        return (t => {
+          if (Array.isArray(t)) return t;
+        })(t) || ((t, r) => {
+          if (
+            "undefined" === typeof Symbol ||
+            !(Symbol.iterator in Object(t))
+          )
+            return;
+          var e = [],
+            n = !0,
+            o = !1,
+            u = void 0;
+          try {
+            for (
+              var c, i = t[Symbol.iterator]();
+              !(n = (c = i.next()).done) &&
+              (e.push(c.value), !r || e.length !== r);
+              n = !0
             );
-          })()
-        );
+          } catch (a) {
+            (o = !0), (u = a);
+          } finally {
+            try {
+              n || null == i.return || i.return();
+            } finally {
+              if (o) throw u;
+            }
+          }
+          return e;
+        })(t, r) || ((t, r) => {
+          if (!t) return;
+          if ("string" === typeof t) return p(t, r);
+          var e = Object.prototype.toString.call(t).slice(8, -1);
+          "Object" === e && t.constructor && (e = t.constructor.name);
+          if ("Map" === e || "Set" === e) return Array.from(t);
+          if (
+            "Arguments" === e ||
+            /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(e)
+          )
+            return p(t, r);
+        })(t, r) || (() => {
+          throw new TypeError(
+            "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+          );
+        })();
       }
       function p(t, r) {
         (null == r || r > t.length) && (r = t.length);
@@ -156,31 +146,28 @@
         (r.current = t),
           Object(o.a)(null != t.item, "item must be defined"),
           Object(o.a)(null != t.item.type, "item type must be defined");
-        var e = d(
-            (function () {
-              var t = Object(a.a)();
-              return [
-                Object(n.useMemo)(
-                  function () {
-                    return new f.a(t);
-                  },
-                  [t]
-                ),
-                Object(n.useMemo)(
-                  function () {
-                    return new l.a(t.getBackend());
-                  },
-                  [t]
-                ),
-              ];
-            })(),
-            2
-          ),
+        var e = d((() => {
+          var t = Object(a.a)();
+          return [
+            Object(n.useMemo)(
+              () => {
+                return new f.a(t);
+              },
+              [t]
+            ),
+            Object(n.useMemo)(
+              () => {
+                return new l.a(t.getBackend());
+              },
+              [t]
+            ),
+          ];
+        })(), 2),
           b = e[0],
           p = e[1];
-        !(function (t, r, e) {
+        !((t, r, e) => {
           var u = Object(a.a)(),
-            f = Object(n.useMemo)(function () {
+            f = Object(n.useMemo)(() => {
               return {
                 beginDrag() {
                   var e = t.current,
@@ -214,7 +201,7 @@
                 },
               };
             }, []);
-          Object(c.a)(function () {
+          Object(c.a)(() => {
             var n = s(Object(i.a)(t.current.item.type, f, u), 2),
               o = n[0],
               c = n[1];
@@ -224,46 +211,45 @@
         var m = Object(u.a)(
             b,
             r.current.collect ||
-              function () {
+              (() => {
                 return {};
-              },
-            function () {
+              }),
+            () => {
               return p.reconnect();
             }
           ),
           v = Object(n.useMemo)(
-            function () {
+            () => {
               return p.hooks.dragSource();
             },
             [p]
           ),
           j = Object(n.useMemo)(
-            function () {
+            () => {
               return p.hooks.dragPreview();
             },
             [p]
           );
-        return (
-          Object(c.a)(
-            function () {
-              (p.dragSourceOptions = r.current.options || null), p.reconnect();
-            },
-            [p]
-          ),
-          Object(c.a)(
-            function () {
-              (p.dragPreviewOptions = r.current.previewOptions || null),
-                p.reconnect();
-            },
-            [p]
-          ),
-          [m, v, j]
-        );
+        return Object(c.a)(
+          () => {
+            (p.dragSourceOptions = r.current.options || null), p.reconnect();
+          },
+          [p]
+        ),
+        Object(c.a)(
+          () => {
+            (p.dragPreviewOptions = r.current.previewOptions || null),
+              p.reconnect();
+          },
+          [p]
+        ),
+        [m, v, j]
+      ;
       }
     },
     "K/u7": function (t, r, e) {
       "use strict";
-      e.d(r, "a", function () {
+      e.d(r, "a", () => {
         return c;
       });
       var n = e("q1tI"),
@@ -276,63 +262,58 @@
     },
     RQA8(t, r, e) {
       "use strict";
-      e.d(r, "a", function () {
+      e.d(r, "a", () => {
         return l;
       });
       var n = e("2mtm"),
         o = e("khz9"),
         u = e("q1tI");
       function c(t, r) {
-        return (
-          (function (t) {
-            if (Array.isArray(t)) return t;
-          })(t) ||
-          (function (t, r) {
-            if (
-              "undefined" === typeof Symbol ||
-              !(Symbol.iterator in Object(t))
-            )
-              return;
-            var e = [],
-              n = !0,
-              o = !1,
-              u = void 0;
-            try {
-              for (
-                var c, i = t[Symbol.iterator]();
-                !(n = (c = i.next()).done) &&
-                (e.push(c.value), !r || e.length !== r);
-                n = !0
-              );
-            } catch (a) {
-              (o = !0), (u = a);
-            } finally {
-              try {
-                n || null == i.return || i.return();
-              } finally {
-                if (o) throw u;
-              }
-            }
-            return e;
-          })(t, r) ||
-          (function (t, r) {
-            if (!t) return;
-            if ("string" === typeof t) return i(t, r);
-            var e = Object.prototype.toString.call(t).slice(8, -1);
-            "Object" === e && t.constructor && (e = t.constructor.name);
-            if ("Map" === e || "Set" === e) return Array.from(t);
-            if (
-              "Arguments" === e ||
-              /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(e)
-            )
-              return i(t, r);
-          })(t, r) ||
-          (function () {
-            throw new TypeError(
-              "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+        return (t => {
+          if (Array.isArray(t)) return t;
+        })(t) || ((t, r) => {
+          if (
+            "undefined" === typeof Symbol ||
+            !(Symbol.iterator in Object(t))
+          )
+            return;
+          var e = [],
+            n = !0,
+            o = !1,
+            u = void 0;
+          try {
+            for (
+              var c, i = t[Symbol.iterator]();
+              !(n = (c = i.next()).done) &&
+              (e.push(c.value), !r || e.length !== r);
+              n = !0
             );
-          })()
-        );
+          } catch (a) {
+            (o = !0), (u = a);
+          } finally {
+            try {
+              n || null == i.return || i.return();
+            } finally {
+              if (o) throw u;
+            }
+          }
+          return e;
+        })(t, r) || ((t, r) => {
+          if (!t) return;
+          if ("string" === typeof t) return i(t, r);
+          var e = Object.prototype.toString.call(t).slice(8, -1);
+          "Object" === e && t.constructor && (e = t.constructor.name);
+          if ("Map" === e || "Set" === e) return Array.from(t);
+          if (
+            "Arguments" === e ||
+            /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(e)
+          )
+            return i(t, r);
+        })(t, r) || (() => {
+          throw new TypeError(
+            "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+          );
+        })();
       }
       function i(t, r) {
         (null == r || r > t.length) && (r = t.length);
@@ -340,56 +321,51 @@
         return n;
       }
       function a(t, r) {
-        return (
-          (function (t) {
-            if (Array.isArray(t)) return t;
-          })(t) ||
-          (function (t, r) {
-            if (
-              "undefined" === typeof Symbol ||
-              !(Symbol.iterator in Object(t))
-            )
-              return;
-            var e = [],
-              n = !0,
-              o = !1,
-              u = void 0;
-            try {
-              for (
-                var c, i = t[Symbol.iterator]();
-                !(n = (c = i.next()).done) &&
-                (e.push(c.value), !r || e.length !== r);
-                n = !0
-              );
-            } catch (a) {
-              (o = !0), (u = a);
-            } finally {
-              try {
-                n || null == i.return || i.return();
-              } finally {
-                if (o) throw u;
-              }
-            }
-            return e;
-          })(t, r) ||
-          (function (t, r) {
-            if (!t) return;
-            if ("string" === typeof t) return f(t, r);
-            var e = Object.prototype.toString.call(t).slice(8, -1);
-            "Object" === e && t.constructor && (e = t.constructor.name);
-            if ("Map" === e || "Set" === e) return Array.from(t);
-            if (
-              "Arguments" === e ||
-              /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(e)
-            )
-              return f(t, r);
-          })(t, r) ||
-          (function () {
-            throw new TypeError(
-              "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+        return (t => {
+          if (Array.isArray(t)) return t;
+        })(t) || ((t, r) => {
+          if (
+            "undefined" === typeof Symbol ||
+            !(Symbol.iterator in Object(t))
+          )
+            return;
+          var e = [],
+            n = !0,
+            o = !1,
+            u = void 0;
+          try {
+            for (
+              var c, i = t[Symbol.iterator]();
+              !(n = (c = i.next()).done) &&
+              (e.push(c.value), !r || e.length !== r);
+              n = !0
             );
-          })()
-        );
+          } catch (a) {
+            (o = !0), (u = a);
+          } finally {
+            try {
+              n || null == i.return || i.return();
+            } finally {
+              if (o) throw u;
+            }
+          }
+          return e;
+        })(t, r) || ((t, r) => {
+          if (!t) return;
+          if ("string" === typeof t) return f(t, r);
+          var e = Object.prototype.toString.call(t).slice(8, -1);
+          "Object" === e && t.constructor && (e = t.constructor.name);
+          if ("Map" === e || "Set" === e) return Array.from(t);
+          if (
+            "Arguments" === e ||
+            /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(e)
+          )
+            return f(t, r);
+        })(t, r) || (() => {
+          throw new TypeError(
+            "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+          );
+        })();
       }
       function f(t, r) {
         (null == r || r > t.length) && (r = t.length);
@@ -397,45 +373,41 @@
         return n;
       }
       function l(t, r, e) {
-        var i = a(
-            (function (t, r, e) {
-              var i = c(
-                  Object(u.useState)(function () {
-                    return r(t);
-                  }),
-                  2
-                ),
-                a = i[0],
-                f = i[1],
-                l = Object(u.useCallback)(
-                  function () {
-                    var n = r(t);
-                    Object(o.a)(a, n) || (f(n), e && e());
-                  },
-                  [a, t, e]
-                );
-              return Object(n.a)(l, []), [a, l];
-            })(t, r, e),
-            2
-          ),
+        var i = a(((t, r, e) => {
+          var i = c(
+              Object(u.useState)(() => {
+                return r(t);
+              }),
+              2
+            ),
+            a = i[0],
+            f = i[1],
+            l = Object(u.useCallback)(
+              () => {
+                var n = r(t);
+                Object(o.a)(a, n) || (f(n), e && e());
+              },
+              [a, t, e]
+            );
+          return Object(n.a)(l, []), [a, l];
+        })(t, r, e), 2),
           f = i[0],
           l = i[1];
-        return (
-          Object(n.a)(
-            function () {
-              var r = t.getHandlerId();
-              if (null != r)
-                return t.subscribeToStateChange(l, { handlerIds: [r] });
-            },
-            [t, l]
-          ),
-          f
-        );
+        return Object(n.a)(
+          () => {
+            var r = t.getHandlerId();
+            if (null != r)
+              return t.subscribeToStateChange(l, { handlerIds: [r] });
+          },
+          [t, l]
+        ),
+        f
+      ;
       }
     },
     aMZS(t, r, e) {
       "use strict";
-      e.d(r, "a", function () {
+      e.d(r, "a", () => {
         return p;
       });
       var n = e("q1tI"),
@@ -447,56 +419,51 @@
         f = e("oQVV"),
         l = e("pdp2");
       function s(t, r) {
-        return (
-          (function (t) {
-            if (Array.isArray(t)) return t;
-          })(t) ||
-          (function (t, r) {
-            if (
-              "undefined" === typeof Symbol ||
-              !(Symbol.iterator in Object(t))
-            )
-              return;
-            var e = [],
-              n = !0,
-              o = !1,
-              u = void 0;
-            try {
-              for (
-                var c, i = t[Symbol.iterator]();
-                !(n = (c = i.next()).done) &&
-                (e.push(c.value), !r || e.length !== r);
-                n = !0
-              );
-            } catch (a) {
-              (o = !0), (u = a);
-            } finally {
-              try {
-                n || null == i.return || i.return();
-              } finally {
-                if (o) throw u;
-              }
-            }
-            return e;
-          })(t, r) ||
-          (function (t, r) {
-            if (!t) return;
-            if ("string" === typeof t) return b(t, r);
-            var e = Object.prototype.toString.call(t).slice(8, -1);
-            "Object" === e && t.constructor && (e = t.constructor.name);
-            if ("Map" === e || "Set" === e) return Array.from(t);
-            if (
-              "Arguments" === e ||
-              /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(e)
-            )
-              return b(t, r);
-          })(t, r) ||
-          (function () {
-            throw new TypeError(
-              "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+        return (t => {
+          if (Array.isArray(t)) return t;
+        })(t) || ((t, r) => {
+          if (
+            "undefined" === typeof Symbol ||
+            !(Symbol.iterator in Object(t))
+          )
+            return;
+          var e = [],
+            n = !0,
+            o = !1,
+            u = void 0;
+          try {
+            for (
+              var c, i = t[Symbol.iterator]();
+              !(n = (c = i.next()).done) &&
+              (e.push(c.value), !r || e.length !== r);
+              n = !0
             );
-          })()
-        );
+          } catch (a) {
+            (o = !0), (u = a);
+          } finally {
+            try {
+              n || null == i.return || i.return();
+            } finally {
+              if (o) throw u;
+            }
+          }
+          return e;
+        })(t, r) || ((t, r) => {
+          if (!t) return;
+          if ("string" === typeof t) return b(t, r);
+          var e = Object.prototype.toString.call(t).slice(8, -1);
+          "Object" === e && t.constructor && (e = t.constructor.name);
+          if ("Map" === e || "Set" === e) return Array.from(t);
+          if (
+            "Arguments" === e ||
+            /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(e)
+          )
+            return b(t, r);
+        })(t, r) || (() => {
+          throw new TypeError(
+            "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+          );
+        })();
       }
       function b(t, r) {
         (null == r || r > t.length) && (r = t.length);
@@ -504,56 +471,51 @@
         return n;
       }
       function y(t, r) {
-        return (
-          (function (t) {
-            if (Array.isArray(t)) return t;
-          })(t) ||
-          (function (t, r) {
-            if (
-              "undefined" === typeof Symbol ||
-              !(Symbol.iterator in Object(t))
-            )
-              return;
-            var e = [],
-              n = !0,
-              o = !1,
-              u = void 0;
-            try {
-              for (
-                var c, i = t[Symbol.iterator]();
-                !(n = (c = i.next()).done) &&
-                (e.push(c.value), !r || e.length !== r);
-                n = !0
-              );
-            } catch (a) {
-              (o = !0), (u = a);
-            } finally {
-              try {
-                n || null == i.return || i.return();
-              } finally {
-                if (o) throw u;
-              }
-            }
-            return e;
-          })(t, r) ||
-          (function (t, r) {
-            if (!t) return;
-            if ("string" === typeof t) return d(t, r);
-            var e = Object.prototype.toString.call(t).slice(8, -1);
-            "Object" === e && t.constructor && (e = t.constructor.name);
-            if ("Map" === e || "Set" === e) return Array.from(t);
-            if (
-              "Arguments" === e ||
-              /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(e)
-            )
-              return d(t, r);
-          })(t, r) ||
-          (function () {
-            throw new TypeError(
-              "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+        return (t => {
+          if (Array.isArray(t)) return t;
+        })(t) || ((t, r) => {
+          if (
+            "undefined" === typeof Symbol ||
+            !(Symbol.iterator in Object(t))
+          )
+            return;
+          var e = [],
+            n = !0,
+            o = !1,
+            u = void 0;
+          try {
+            for (
+              var c, i = t[Symbol.iterator]();
+              !(n = (c = i.next()).done) &&
+              (e.push(c.value), !r || e.length !== r);
+              n = !0
             );
-          })()
-        );
+          } catch (a) {
+            (o = !0), (u = a);
+          } finally {
+            try {
+              n || null == i.return || i.return();
+            } finally {
+              if (o) throw u;
+            }
+          }
+          return e;
+        })(t, r) || ((t, r) => {
+          if (!t) return;
+          if ("string" === typeof t) return d(t, r);
+          var e = Object.prototype.toString.call(t).slice(8, -1);
+          "Object" === e && t.constructor && (e = t.constructor.name);
+          if ("Map" === e || "Set" === e) return Array.from(t);
+          if (
+            "Arguments" === e ||
+            /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(e)
+          )
+            return d(t, r);
+        })(t, r) || (() => {
+          throw new TypeError(
+            "Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
+          );
+        })();
       }
       function d(t, r) {
         (null == r || r > t.length) && (r = t.length);
@@ -564,32 +526,29 @@
         var r = Object(n.useRef)(t);
         (r.current = t),
           Object(o.a)(null != t.accept, "accept must be defined");
-        var e = y(
-            (function () {
-              var t = Object(a.a)();
-              return [
-                Object(n.useMemo)(
-                  function () {
-                    return new l.a(t);
-                  },
-                  [t]
-                ),
-                Object(n.useMemo)(
-                  function () {
-                    return new f.a(t.getBackend());
-                  },
-                  [t]
-                ),
-              ];
-            })(),
-            2
-          ),
+        var e = y((() => {
+          var t = Object(a.a)();
+          return [
+            Object(n.useMemo)(
+              () => {
+                return new l.a(t);
+              },
+              [t]
+            ),
+            Object(n.useMemo)(
+              () => {
+                return new f.a(t.getBackend());
+              },
+              [t]
+            ),
+          ];
+        })(), 2),
           b = e[0],
           d = e[1];
-        !(function (t, r, e) {
+        !((t, r, e) => {
           var o = Object(a.a)(),
             u = Object(n.useMemo)(
-              function () {
+              () => {
                 return {
                   canDrop() {
                     var e = t.current.canDrop;
@@ -608,7 +567,7 @@
               [r]
             );
           Object(c.a)(
-            function () {
+            () => {
               var n = s(Object(i.b)(t.current.accept, u, o), 2),
                 c = n[0],
                 a = n[1];
@@ -620,33 +579,32 @@
         var p = Object(u.a)(
             b,
             r.current.collect ||
-              function () {
+              (() => {
                 return {};
-              },
-            function () {
+              }),
+            () => {
               return d.reconnect();
             }
           ),
           m = Object(n.useMemo)(
-            function () {
+            () => {
               return d.hooks.dropTarget();
             },
             [d]
           );
-        return (
-          Object(c.a)(
-            function () {
-              (d.dropTargetOptions = t.options || null), d.reconnect();
-            },
-            [t.options]
-          ),
-          [p, m]
-        );
+        return Object(c.a)(
+          () => {
+            (d.dropTargetOptions = t.options || null), d.reconnect();
+          },
+          [t.options]
+        ),
+        [p, m]
+      ;
       }
     },
     rg44(t, r, e) {
       "use strict";
-      e.d(r, "a", function () {
+      e.d(r, "a", () => {
         return a;
       });
       var n = e("cpVT"),
@@ -657,7 +615,7 @@
         if (Object.getOwnPropertySymbols) {
           var n = Object.getOwnPropertySymbols(t);
           r &&
-            (n = n.filter(function (r) {
+            (n = n.filter(r => {
               return Object.getOwnPropertyDescriptor(t, r).enumerable;
             })),
             e.push.apply(e, n);
@@ -668,12 +626,12 @@
         for (var r = 1; r < arguments.length; r++) {
           var e = null != arguments[r] ? arguments[r] : {};
           r % 2
-            ? c(Object(e), !0).forEach(function (r) {
+            ? c(Object(e), !0).forEach(r => {
                 Object(n.a)(t, r, e[r]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(e))
-            : c(Object(e)).forEach(function (r) {
+            : c(Object(e)).forEach(r => {
                 Object.defineProperty(
                   t,
                   r,

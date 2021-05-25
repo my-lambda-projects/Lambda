@@ -3,7 +3,7 @@
   {
     "8/ze": function (e, t, r) {
       "use strict";
-      r.d(t, "a", function () {
+      r.d(t, "a", () => {
         return n;
       });
       var n = ".";
@@ -11,55 +11,45 @@
     "8v8i": function (e, t, r) {
       "use strict";
       var n, o, i, a, c, s;
-      r.d(t, "a", function () {
+      r.d(t, "a", () => {
         return n;
-      }),
-        r.d(t, "b", function () {
-          return o;
-        }),
-        r.d(t, "d", function () {
-          return i;
-        }),
-        r.d(t, "e", function () {
-          return a;
-        }),
-        r.d(t, "c", function () {
-          return s;
-        }),
-        (function (e) {
-          (e.Create = "CREATE"),
-            (e.Move = "MOVE"),
-            (e.Delete = "DELETE"),
-            (e.Modify = "MODIFY");
-        })(n || (n = {})),
-        (function (e) {
-          (e.Local = "LOCAL"), (e.Container = "CONTAINER");
-        })(o || (o = {})),
-        (function (e) {
-          (e.File = "FILE"), (e.Directory = "DIRECTORY");
-        })(i || (i = {})),
-        (function (e) {
-          (e.NotFound = "NOT_FOUND"),
-            (e.AlreadyExists = "ALREADY_EXIST"),
-            (e.NotDirectory = "NOT_DIRECTORY"),
-            (e.IsDirectory = "IS_DIRECTORY");
-        })(a || (a = {})),
-        (function (e) {
-          (e.Offline = "OFFLINE"),
-            (e.Loading = "LOADING"),
-            (e.Syncing = "SYNCING"),
-            (e.Clean = "CLEAN"),
-            (e.Error = "ERROR");
-        })(c || (c = {})),
-        (function (e) {
-          (e.Dirty = "DIRTY"), (e.Syncing = "SYNCING"), (e.Clean = "CLEAN");
-        })(s || (s = {}));
+      }), r.d(t, "b", () => {
+        return o;
+      }), r.d(t, "d", () => {
+        return i;
+      }), r.d(t, "e", () => {
+        return a;
+      }), r.d(t, "c", () => {
+        return s;
+      }), (e => {
+        (e.Create = "CREATE"),
+          (e.Move = "MOVE"),
+          (e.Delete = "DELETE"),
+          (e.Modify = "MODIFY");
+      })(n || (n = {})), (e => {
+        (e.Local = "LOCAL"), (e.Container = "CONTAINER");
+      })(o || (o = {})), (e => {
+        (e.File = "FILE"), (e.Directory = "DIRECTORY");
+      })(i || (i = {})), (e => {
+        (e.NotFound = "NOT_FOUND"),
+          (e.AlreadyExists = "ALREADY_EXIST"),
+          (e.NotDirectory = "NOT_DIRECTORY"),
+          (e.IsDirectory = "IS_DIRECTORY");
+      })(a || (a = {})), (e => {
+        (e.Offline = "OFFLINE"),
+          (e.Loading = "LOADING"),
+          (e.Syncing = "SYNCING"),
+          (e.Clean = "CLEAN"),
+          (e.Error = "ERROR");
+      })(c || (c = {})), (e => {
+        (e.Dirty = "DIRTY"), (e.Syncing = "SYNCING"), (e.Clean = "CLEAN");
+      })(s || (s = {}));
     },
     HtvZ(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
       var n = r("Z5Wq"),
-        o = function (e) {
+        o = e => {
           if (!Array.isArray(e))
             throw Error("Op must be an array of components");
           for (var t = null, r = 0; r < e.length; r++) {
@@ -81,12 +71,12 @@
           }
           if ("number" === typeof t) throw Error("Op has a trailing skip");
         },
-        i = function (e) {
+        i = e => {
           for (var t = [], r = a(t), n = 0; n < e.length; n++) r(e[n]);
           return u(t);
         },
-        a = function (e) {
-          return function (t) {
+        a = e => {
+          return t => {
             t &&
               0 !== t.d &&
               (0 === e.length
@@ -98,14 +88,14 @@
                 : e.push(t));
           };
         },
-        c = function (e) {
+        c = e => {
           return "number" === typeof e
             ? e
             : "string" === typeof e
             ? n.strPosToUni(e)
             : e.d;
         },
-        s = function (e) {
+        s = e => {
           var t = 0,
             r = 0;
           return {
@@ -132,7 +122,7 @@
             },
           };
         },
-        u = function (e) {
+        u = e => {
           return (
             e.length > 0 && "number" === typeof e[e.length - 1] && e.pop(), e
           );
@@ -206,7 +196,7 @@
         for (; (r = f(-1)); ) l(r);
         return u(i);
       }
-      var p = function (e, t) {
+      var p = (e, t) => {
           for (var r = 0, o = 0; o < t.length && e > r; o++) {
             var i = t[o];
             switch (typeof i) {
@@ -223,14 +213,14 @@
           }
           return e;
         },
-        d = function (e, t) {
+        d = (e, t) => {
           return "number" === typeof e
             ? p(e, t)
-            : e.map(function (e) {
+            : e.map(e => {
                 return p(e, t);
               });
         };
-      t.default = function (e) {
+      t.default = e => {
         return {
           name: "text-unicode",
           uri: "http://sharejs.org/types/text-unicode",
@@ -272,13 +262,13 @@
     },
     "LI1+": function (e, t, r) {
       "use strict";
-      r.d(t, "c", function () {
+      r.d(t, "c", () => {
         return m;
       }),
-        r.d(t, "a", function () {
+        r.d(t, "a", () => {
           return y;
         }),
-        r.d(t, "b", function () {
+        r.d(t, "b", () => {
           return O;
         });
       var n = r("nKUr"),
@@ -293,7 +283,7 @@
         if ("undefined" === typeof Symbol || null == e[Symbol.iterator]) {
           if (
             Array.isArray(e) ||
-            (r = (function (e, t) {
+            (r = ((e, t) => {
               if (!e) return;
               if ("string" === typeof e) return f(e, t);
               var r = Object.prototype.toString.call(e).slice(8, -1);
@@ -309,7 +299,7 @@
           ) {
             r && (e = r);
             var n = 0,
-              o = function () {};
+              o = () => {};
             return {
               s: o,
               n() {
@@ -360,12 +350,12 @@
         h = r("DgdK"),
         b = r("5zsw"),
         v = r("xom/"),
-        g = function (e, t) {
+        g = (e, t) => {
           var r = e.runner,
             i = e.packager,
             f = e.languageHeader,
             d = e.onClear,
-            h = (function (e) {
+            h = (e => {
               var t = e.runner,
                 r = e.packager,
                 n = e.languageHeader,
@@ -377,111 +367,109 @@
                 h = Object(o.a)(d, 2),
                 b = h[0],
                 v = h[1];
-              return (
-                c.useEffect(
-                  function () {
-                    if (!f)
-                      return t.onOutput(function (e) {
-                        return v(function (t) {
-                          return t + e;
-                        });
+              return c.useEffect(
+                () => {
+                  if (!f)
+                    return t.onOutput(e => {
+                      return v(t => {
+                        return t + e;
                       });
-                  },
-                  [f, t, v]
-                ),
-                c.useEffect(
-                  function () {
-                    if (!f && r)
-                      return r.onOutput(function (e) {
-                        return v(function (t) {
-                          return t + e.replace(/\n/g, "\n\r");
-                        });
+                    });
+                },
+                [f, t, v]
+              ),
+              c.useEffect(
+                () => {
+                  if (!f && r)
+                    return r.onOutput(e => {
+                      return v(t => {
+                        return t + e.replace(/\n/g, "\n\r");
                       });
-                  },
-                  [f, r, v]
-                ),
-                c.useEffect(
-                  function () {
-                    if (f && r)
-                      return r.onOutput(function (e) {
-                        return f.write(e.replace(/\n/g, "\n\r"));
-                      });
-                  },
-                  [f, r]
-                ),
-                c.useEffect(
-                  function () {
-                    b && f && (f.write(b), v(""));
-                  },
-                  [f, b]
-                ),
-                c.useEffect(
-                  function () {
-                    n &&
-                      v(function (e) {
-                        return e + "".concat(n.replace(/\n/g, "\n\r"), "\n\r");
-                      });
-                  },
-                  [n, v]
-                ),
-                c.useEffect(
-                  function () {
-                    if (f) {
-                      var e = function () {
-                          t.getRunState() !== s.b.OFFLINE &&
-                            t.resizeTerminal(f.getSize());
-                        },
-                        r = [];
-                      r.push(f.onResize(e).dispose);
-                      var n = [];
+                    });
+                },
+                [f, r, v]
+              ),
+              c.useEffect(
+                () => {
+                  if (f && r)
+                    return r.onOutput(e => {
+                      return f.write(e.replace(/\n/g, "\n\r"));
+                    });
+                },
+                [f, r]
+              ),
+              c.useEffect(
+                () => {
+                  b && f && (f.write(b), v(""));
+                },
+                [f, b]
+              ),
+              c.useEffect(
+                () => {
+                  n &&
+                    v(e => {
+                      return e + "".concat(n.replace(/\n/g, "\n\r"), "\n\r");
+                    });
+                },
+                [n, v]
+              ),
+              c.useEffect(
+                () => {
+                  if (f) {
+                    var e = () => {
+                        t.getRunState() !== s.b.OFFLINE &&
+                          t.resizeTerminal(f.getSize());
+                      },
+                      r = [];
+                    r.push(f.onResize(e).dispose);
+                    var n = [];
+                    r.push(
+                      f.onData(e => {
+                        t.getRunState() !== s.b.OFFLINE
+                          ? t.sendInput(e)
+                          : n.push(e);
+                      }).dispose
+                    ),
                       r.push(
-                        f.onData(function (e) {
-                          t.getRunState() !== s.b.OFFLINE
-                            ? t.sendInput(e)
-                            : n.push(e);
-                        }).dispose
-                      ),
-                        r.push(
-                          t.onOutput(function (e) {
-                            f.write(e);
-                          })
-                        );
-                      var o = !1;
-                      return (
-                        r.push(
-                          t.onStateChanged(function (r) {
-                            if (r !== s.b.OFFLINE) {
-                              if ((o || (e(), (o = !0)), n.length)) {
-                                var i,
-                                  a = l(n);
-                                try {
-                                  for (a.s(); !(i = a.n()).done; ) {
-                                    var c = i.value;
-                                    t.sendInput(c);
-                                  }
-                                } catch (u) {
-                                  a.e(u);
-                                } finally {
-                                  a.f();
-                                }
-                                n = [];
-                              }
-                            } else o = !1;
-                          })
-                        ),
-                        t.getRunState() !== s.b.OFFLINE && (e(), (o = !0)),
-                        function () {
-                          r.forEach(function (e) {
-                            return e();
-                          });
-                        }
+                        t.onOutput(e => {
+                          f.write(e);
+                        })
                       );
+                    var o = !1;
+                    return r.push(
+                      t.onStateChanged(r => {
+                        if (r !== s.b.OFFLINE) {
+                          if ((o || (e(), (o = !0)), n.length)) {
+                            var i,
+                              a = l(n);
+                            try {
+                              for (a.s(); !(i = a.n()).done; ) {
+                                var c = i.value;
+                                t.sendInput(c);
+                              }
+                            } catch (u) {
+                              a.e(u);
+                            } finally {
+                              a.f();
+                            }
+                            n = [];
+                          }
+                        } else o = !1;
+                      })
+                    ),
+                    t.getRunState() !== s.b.OFFLINE && (e(), (o = !0)),
+                    () => {
+                      r.forEach(e => {
+                        return e();
+                      });
                     }
-                  },
-                  [f, t]
-                ),
-                [f, p]
-              );
+                  ;
+                  }
+                },
+                [f, t]
+              ),
+              [f, p]
+            ;
             })({ runner: r, packager: i, languageHeader: f }),
             b = Object(o.a)(h, 2),
             g = b[0],
@@ -490,7 +478,7 @@
             j = Object(o.a)(w, 2),
             k = j[0],
             E = j[1];
-          return c.useImperativeHandle(t, function () {
+          return c.useImperativeHandle(t, () => {
             return {
               clear() {
                 g && g.clear();
@@ -555,8 +543,7 @@
                 ],
               }),
             ],
-          })
-        ;
+          });
         };
       t.d = c.forwardRef(g);
       function m(e) {
@@ -568,7 +555,7 @@
           l = Object(o.a)(u, 2),
           f = l[0],
           p = l[1];
-        c.useEffect(function () {
+        c.useEffect(() => {
           s.current && s.current.focus();
         }, []);
         return Object(n.jsxs)("div", {
@@ -582,7 +569,7 @@
                 return p(e.target.value);
               },
               onKeyDown(e) {
-                return (function (e) {
+                return (e => {
                   "Escape" !== e.key
                     ? "Enter" === e.key && (e.shiftKey ? r(f) : t(f))
                     : i();
@@ -621,7 +608,7 @@
           ],
         });
       }
-      var y = function (e) {
+      var y = e => {
           var t = e.onClick;
           return Object(n.jsxs)("button", {
             "aria-label": "Clear",
@@ -642,7 +629,7 @@
             ],
           });
         },
-        O = function (e) {
+        O = e => {
           var t = e.onClick;
           return Object(n.jsxs)("button", {
             "aria-label": "Search",
@@ -666,32 +653,32 @@
     },
     NuhN(e, t, r) {
       "use strict";
-      r.d(t, "a", function () {
+      r.d(t, "a", () => {
         return n;
       }),
-        r.d(t, "e", function () {
+        r.d(t, "e", () => {
           return o;
         }),
-        r.d(t, "d", function () {
+        r.d(t, "d", () => {
           return i;
         }),
-        r.d(t, "c", function () {
+        r.d(t, "c", () => {
           return a;
         }),
-        r.d(t, "b", function () {
+        r.d(t, "b", () => {
           return c;
         }),
-        r.d(t, "g", function () {
+        r.d(t, "g", () => {
           return s;
         }),
-        r.d(t, "f", function () {
+        r.d(t, "f", () => {
           return u;
         });
       function n(e) {
         return "" === e || e.endsWith("/") ? e : e + "/";
       }
       function o(e, t) {
-        return Object.keys(e).filter(function (e) {
+        return Object.keys(e).filter(e => {
           return i(t, e);
         });
       }
@@ -699,7 +686,7 @@
         return t !== e && t.startsWith(n(e));
       }
       function a(e, t) {
-        return Object.keys(e).filter(function (e) {
+        return Object.keys(e).filter(e => {
           return c(t, e);
         });
       }
@@ -710,7 +697,7 @@
         return o.endsWith("/") && (o = o.slice(-1)), !o.includes("/");
       }
       function s(e, t, r) {
-        var n = o(e, t).map(function (e) {
+        var n = o(e, t).map(e => {
           return [e, u(t, r, e)];
         });
         return "undefined" !== typeof e[t] && n.unshift([t, r]), n;
@@ -722,7 +709,7 @@
     },
     VOEV(e, t, r) {
       "use strict";
-      r.d(t, "a", function () {
+      r.d(t, "a", () => {
         return J;
       });
       var n = r("vJKn"),
@@ -752,7 +739,7 @@
         T = r("xvhg"),
         S = r("Yk1I"),
         D = r.n(S),
-        R = function (e) {
+        R = e => {
           if (!Array.isArray(e))
             throw Error("Op must be an array of components");
           for (var t = null, r = 0; r < e.length; r++) {
@@ -774,7 +761,7 @@
           }
           if ("number" === typeof t) throw Error("Op has a trailing skip");
         },
-        N = function (e) {
+        N = e => {
           return "number" === typeof e
             ? e
             : "string" === typeof e
@@ -789,7 +776,7 @@
             o = [],
             i =
               ((r = o),
-              function (e) {
+              e => {
                 e &&
                   0 !== e.d &&
                   (0 === r.length
@@ -800,11 +787,11 @@
                       : (r[r.length - 1] += e)
                     : r.push(e));
               }),
-            a = (function (e) {
+            a = (e => {
               var t = 0,
                 r = 0;
               return [
-                function (n, o) {
+                (n, o) => {
                   if (t === e.length) return -1 === n ? null : n;
                   var i,
                     a = e[t];
@@ -820,7 +807,7 @@
                     ? ((i = { d: a.d - r }), ++t, (r = 0), i)
                     : ((r += n), { d: n });
                 },
-                function () {
+                () => {
                   return e[t];
                 },
               ];
@@ -855,7 +842,7 @@
           }
         }
         for (; (n = a(-1)); ) i(n);
-        return (function (e) {
+        return (e => {
           return (
             e.length > 0 && "number" === typeof e[e.length - 1] && e.pop(), e
           );
@@ -864,7 +851,7 @@
       function I(e, t) {
         if (e === t) return [];
         var r = [],
-          n = function (e) {
+          n = e => {
             e &&
               0 !== e.d &&
               (0 === r.length
@@ -875,32 +862,31 @@
                   : (r[r.length - 1] += e)
                 : r.push(e));
           };
-        return (
-          D()(e, t).forEach(function (e) {
-            var t = Object(T.a)(e, 2),
-              r = t[0],
-              o = t[1];
-            switch (r) {
-              case D.a.INSERT:
-                n(o);
-                break;
-              case D.a.DELETE:
-                n({ d: o.length });
-                break;
-              case D.a.EQUAL:
-                n(o.length);
-            }
-          }),
-          r.length > 0 && "number" === typeof r[r.length - 1] && r.pop(),
-          r
-        );
+        return D()(e, t).forEach(e => {
+          var t = Object(T.a)(e, 2),
+            r = t[0],
+            o = t[1];
+          switch (r) {
+            case D.a.INSERT:
+              n(o);
+              break;
+            case D.a.DELETE:
+              n({ d: o.length });
+              break;
+            case D.a.EQUAL:
+              n(o.length);
+          }
+        }),
+        r.length > 0 && "number" === typeof r[r.length - 1] && r.pop(),
+        r
+      ;
       }
       function F(e, t) {
         var r = Object.keys(e);
         if (Object.getOwnPropertySymbols) {
           var n = Object.getOwnPropertySymbols(e);
           t &&
-            (n = n.filter(function (t) {
+            (n = n.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             r.push.apply(r, n);
@@ -911,12 +897,12 @@
         for (var t = 1; t < arguments.length; t++) {
           var r = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? F(Object(r), !0).forEach(function (t) {
+            ? F(Object(r), !0).forEach(t => {
                 Object(a.a)(e, t, r[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r))
-            : F(Object(r)).forEach(function (t) {
+            : F(Object(r)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -931,7 +917,7 @@
         if ("undefined" === typeof Symbol || null == e[Symbol.iterator]) {
           if (
             Array.isArray(e) ||
-            (r = (function (e, t) {
+            (r = ((e, t) => {
               if (!e) return;
               if ("string" === typeof e) return L(e, t);
               var r = Object.prototype.toString.call(e).slice(8, -1);
@@ -947,7 +933,7 @@
           ) {
             r && (e = r);
             var n = 0,
-              o = function () {};
+              o = () => {};
             return {
               s: o,
               n() {
@@ -955,17 +941,16 @@
                   ? { done: !0 }
                   : { done: !1, value: e[n++] };
               },
-              e: (function (e) {
+              e: (e => {
                 function t(t) {
                   return e.apply(this, arguments);
                 }
-                return (
-                  (t.toString = function () {
-                    return e.toString();
-                  }),
-                  t
-                );
-              })(function (e) {
+                return (t.toString = () => {
+                  return e.toString();
+                }),
+                t
+              ;
+              })(e => {
                 throw e;
               }),
               f: o,
@@ -986,17 +971,16 @@
             var e = r.next();
             return (a = e.done), e;
           },
-          e: (function (e) {
+          e: (e => {
             function t(t) {
               return e.apply(this, arguments);
             }
-            return (
-              (t.toString = function () {
-                return e.toString();
-              }),
-              t
-            );
-          })(function (e) {
+            return (t.toString = () => {
+              return e.toString();
+            }),
+            t
+          ;
+          })(e => {
             (c = !0), (i = e);
           }),
           f() {
@@ -1014,17 +998,16 @@
         return n;
       }
       function U(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -1040,1217 +1023,1201 @@
         };
       }
       function M(e) {
-        return e.map(function (e) {
+        return e.map(e => {
           if ("delete" in e && e.delete) return { d: e.delete };
           if ("skip" in e && e.skip) return e.skip;
           if ("insert" in e && "string" === typeof e.insert) return e.insert;
           throw new Error("Unexpected op type");
         });
       }
-      var z = (function (e) {
+      var z = (e => {
         Object(g.a)(r, e);
         var t = U(r);
         function r(e, n) {
           var c;
-          return (
-            Object(h.a)(this, r),
-            (c = t.call(this)),
-            Object(a.a)(Object(v.a)(c), "linkedFile", void 0),
-            Object(a.a)(Object(v.a)(c), "channel", void 0),
-            Object(a.a)(Object(v.a)(c), "destroy", void 0),
-            Object(a.a)(Object(v.a)(c), "pending", void 0),
-            Object(a.a)(Object(v.a)(c), "inflight", void 0),
-            Object(a.a)(Object(v.a)(c), "inflightOpsPromise", void 0),
-            Object(a.a)(Object(v.a)(c), "version", void 0),
-            Object(a.a)(Object(v.a)(c), "otContents", void 0),
-            Object(a.a)(Object(v.a)(c), "pendingCursors", void 0),
-            Object(a.a)(Object(v.a)(c), "flushedCursorIds", void 0),
-            Object(a.a)(Object(v.a)(c), "user", void 0),
-            Object(a.a)(Object(v.a)(c), "debounceSend", void 0),
-            Object(a.a)(Object(v.a)(c), "debounceCommit", void 0),
-            Object(a.a)(Object(v.a)(c), "isCommitting", void 0),
-            Object(a.a)(Object(v.a)(c), "resolveStatusOp", void 0),
-            Object(a.a)(Object(v.a)(c), "isReconnecting", void 0),
-            Object(a.a)(Object(v.a)(c), "uncommittedOps", void 0),
-            Object(a.a)(Object(v.a)(c), "hasUncommittedMultiplayerOps", void 0),
-            Object(a.a)(Object(v.a)(c), "committedVersion", void 0),
-            Object(a.a)(Object(v.a)(c), "committedContent", void 0),
-            Object(a.a)(Object(v.a)(c), "bufferedReconnectingOps", void 0),
-            Object(a.a)(Object(v.a)(c), "didEditOffline", void 0),
-            Object(a.a)(Object(v.a)(c), "reconnectTrackedData", void 0),
-            Object(a.a)(Object(v.a)(c), "timeDisconnected", void 0),
-            Object(a.a)(Object(v.a)(c), "writeOps", function (e) {
-              if (!c.channel && !c.isReconnecting)
-                throw new Error(
-                  "Trying to send changes before ever coming online"
-                );
-              c.isReconnecting && (c.didEditOffline = !0);
-              var t = "";
-              try {
-                t = c.getLocalContent();
-              } catch (f) {
-                return void c.emit(
-                  "error",
-                  new Error("OT Error: unable to get local content"),
-                  { originalError: f }
-                );
-              }
-              var r,
-                n = [],
-                o = 0,
-                i = _(e);
-              try {
-                for (i.s(); !(r = i.n()).done; ) {
-                  var a = r.value;
-                  switch (typeof a) {
-                    case "number":
-                      o += a;
-                      break;
-                    case "string":
-                      var s = Object(E.strPosToUni)(t, o);
-                      (n =
-                        s > 0
-                          ? w.type.compose(n, [s, a])
-                          : w.type.compose(n, [a])),
-                        (o += a.length);
-                      break;
-                    case "object":
-                      var u = Object(E.strPosToUni)(t, o),
-                        l = Object(E.strPosToUni)(t, o + a.d) - u;
-                      n =
-                        u > 0
-                          ? w.type.compose(n, [u, { d: l }])
-                          : w.type.compose(n, [{ d: l }]);
-                      break;
-                    default:
-                      return void c.emit(
-                        "error",
-                        new Error("OT Error: unknown op type")
-                      );
-                  }
-                }
-              } catch (p) {
-                i.e(p);
-              } finally {
-                i.f();
-              }
-              (c.pending = w.type.compose(c.pending, n)),
-                0 !== c.pending.length
-                  ? c.emit("fileDirty")
-                  : c.isCommitting && c.emit("commitStart");
-              try {
-                c.getLocalContent();
-              } catch (f) {
-                c.emit(
-                  "error",
-                  new Error("OT Error: unable to get local content"),
-                  { originalError: f }
-                );
-              }
-              c.debounceSend();
-            }),
-            Object(a.a)(Object(v.a)(c), "updateCursors", function (e) {
-              (c.pendingCursors = e), c.debounceSend();
-            }),
-            Object(a.a)(Object(v.a)(c), "isClean", function () {
-              return (
-                c.committedVersion === c.version &&
-                0 === c.inflight.length &&
-                0 === c.pending.length
+          return Object(h.a)(this, r),
+          (c = t.call(this)),
+          Object(a.a)(Object(v.a)(c), "linkedFile", void 0),
+          Object(a.a)(Object(v.a)(c), "channel", void 0),
+          Object(a.a)(Object(v.a)(c), "destroy", void 0),
+          Object(a.a)(Object(v.a)(c), "pending", void 0),
+          Object(a.a)(Object(v.a)(c), "inflight", void 0),
+          Object(a.a)(Object(v.a)(c), "inflightOpsPromise", void 0),
+          Object(a.a)(Object(v.a)(c), "version", void 0),
+          Object(a.a)(Object(v.a)(c), "otContents", void 0),
+          Object(a.a)(Object(v.a)(c), "pendingCursors", void 0),
+          Object(a.a)(Object(v.a)(c), "flushedCursorIds", void 0),
+          Object(a.a)(Object(v.a)(c), "user", void 0),
+          Object(a.a)(Object(v.a)(c), "debounceSend", void 0),
+          Object(a.a)(Object(v.a)(c), "debounceCommit", void 0),
+          Object(a.a)(Object(v.a)(c), "isCommitting", void 0),
+          Object(a.a)(Object(v.a)(c), "resolveStatusOp", void 0),
+          Object(a.a)(Object(v.a)(c), "isReconnecting", void 0),
+          Object(a.a)(Object(v.a)(c), "uncommittedOps", void 0),
+          Object(a.a)(Object(v.a)(c), "hasUncommittedMultiplayerOps", void 0),
+          Object(a.a)(Object(v.a)(c), "committedVersion", void 0),
+          Object(a.a)(Object(v.a)(c), "committedContent", void 0),
+          Object(a.a)(Object(v.a)(c), "bufferedReconnectingOps", void 0),
+          Object(a.a)(Object(v.a)(c), "didEditOffline", void 0),
+          Object(a.a)(Object(v.a)(c), "reconnectTrackedData", void 0),
+          Object(a.a)(Object(v.a)(c), "timeDisconnected", void 0),
+          Object(a.a)(Object(v.a)(c), "writeOps", e => {
+            if (!c.channel && !c.isReconnecting)
+              throw new Error(
+                "Trying to send changes before ever coming online"
               );
-            }),
-            Object(a.a)(Object(v.a)(c), "sendOps", function () {
-              if (
-                c.channel &&
-                "open" === c.channel.status &&
-                !c.isReconnecting &&
-                !(c.inflight.length > 0)
-              ) {
-                if (0 !== c.pending.length) {
-                  var e = c.pending.map(function (e) {
-                    return "object" === typeof e
-                      ? { delete: e.d }
-                      : "number" === typeof e
-                      ? { skip: e }
-                      : { insert: e };
-                  });
-                  (c.inflight = c.pending),
-                    (c.pending = []),
-                    (c.inflightOpsPromise = c.channel.request({
-                      ot: { spookyVersion: c.version, ops: e },
-                    })),
-                    c.inflightOpsPromise.then(function (t) {
-                      t.error &&
-                        c.emit(
-                          "error",
-                          new Error("OT Error: error accepting packet"),
-                          { originalError: t.error, ops: e }
-                        );
-                    });
-                }
-                if (0 !== c.pendingCursors.length) {
-                  var t,
-                    r = _(c.flushedCursorIds);
-                  try {
-                    for (r.s(); !(t = r.n()).done; ) {
-                      var n = t.value;
-                      c.channel.send({ otDeleteCursor: { id: n } });
-                    }
-                  } catch (u) {
-                    r.e(u);
-                  } finally {
-                    r.f();
-                  }
-                  c.flushedCursorIds = [];
-                  var o,
-                    i = _(c.pendingCursors);
-                  try {
-                    for (i.s(); !(o = i.n()).done; ) {
-                      var a = o.value,
-                        s = Number(
-                          Math.random().toString().split(".")[1]
-                        ).toString(36);
-                      c.flushedCursorIds.push(s),
-                        c.channel.send({
-                          otNewCursor: P({ id: s, user: c.user }, a),
-                        });
-                    }
-                  } catch (u) {
-                    i.e(u);
-                  } finally {
-                    i.f();
-                  }
-                  c.pendingCursors = [];
+            c.isReconnecting && (c.didEditOffline = !0);
+            var t = "";
+            try {
+              t = c.getLocalContent();
+            } catch (f) {
+              return void c.emit(
+                "error",
+                new Error("OT Error: unable to get local content"),
+                { originalError: f }
+              );
+            }
+            var r,
+              n = [],
+              o = 0,
+              i = _(e);
+            try {
+              for (i.s(); !(r = i.n()).done; ) {
+                var a = r.value;
+                switch (typeof a) {
+                  case "number":
+                    o += a;
+                    break;
+                  case "string":
+                    var s = Object(E.strPosToUni)(t, o);
+                    (n =
+                      s > 0
+                        ? w.type.compose(n, [s, a])
+                        : w.type.compose(n, [a])),
+                      (o += a.length);
+                    break;
+                  case "object":
+                    var u = Object(E.strPosToUni)(t, o),
+                      l = Object(E.strPosToUni)(t, o + a.d) - u;
+                    n =
+                      u > 0
+                        ? w.type.compose(n, [u, { d: l }])
+                        : w.type.compose(n, [{ d: l }]);
+                    break;
+                  default:
+                    return void c.emit(
+                      "error",
+                      new Error("OT Error: unknown op type")
+                    );
                 }
               }
-            }),
-            Object(a.a)(Object(v.a)(c), "handlePacket", function (e, t) {
-              var r = e.ops,
-                n = e.version,
-                o = e.crc32,
-                i = t.overrideReconnectringBuffer;
-              if (c.resolveStatusOp)
-                return (
-                  c.resolveStatusOp({ ops: r, version: n }),
-                  void (c.resolveStatusOp = null)
-                );
-              if (!c.isReconnecting || i)
-                if (-1 !== c.version)
-                  if ((c.version++, n === c.version)) {
-                    var a = "";
+            } catch (p) {
+              i.e(p);
+            } finally {
+              i.f();
+            }
+            (c.pending = w.type.compose(c.pending, n)),
+              0 !== c.pending.length
+                ? c.emit("fileDirty")
+                : c.isCommitting && c.emit("commitStart");
+            try {
+              c.getLocalContent();
+            } catch (f) {
+              c.emit(
+                "error",
+                new Error("OT Error: unable to get local content"),
+                { originalError: f }
+              );
+            }
+            c.debounceSend();
+          }),
+          Object(a.a)(Object(v.a)(c), "updateCursors", e => {
+            (c.pendingCursors = e), c.debounceSend();
+          }),
+          Object(a.a)(Object(v.a)(c), "isClean", () => {
+            return (
+              c.committedVersion === c.version &&
+              0 === c.inflight.length &&
+              0 === c.pending.length
+            );
+          }),
+          Object(a.a)(Object(v.a)(c), "sendOps", () => {
+            if (
+              c.channel &&
+              "open" === c.channel.status &&
+              !c.isReconnecting &&
+              !(c.inflight.length > 0)
+            ) {
+              if (0 !== c.pending.length) {
+                var e = c.pending.map(e => {
+                  return "object" === typeof e
+                    ? { delete: e.d }
+                    : "number" === typeof e
+                    ? { skip: e }
+                    : { insert: e };
+                });
+                (c.inflight = c.pending),
+                  (c.pending = []),
+                  (c.inflightOpsPromise = c.channel.request({
+                    ot: { spookyVersion: c.version, ops: e },
+                  })),
+                  c.inflightOpsPromise.then(t => {
+                    t.error &&
+                      c.emit(
+                        "error",
+                        new Error("OT Error: error accepting packet"),
+                        { originalError: t.error, ops: e }
+                      );
+                  });
+              }
+              if (0 !== c.pendingCursors.length) {
+                var t,
+                  r = _(c.flushedCursorIds);
+                try {
+                  for (r.s(); !(t = r.n()).done; ) {
+                    var n = t.value;
+                    c.channel.send({ otDeleteCursor: { id: n } });
+                  }
+                } catch (u) {
+                  r.e(u);
+                } finally {
+                  r.f();
+                }
+                c.flushedCursorIds = [];
+                var o,
+                  i = _(c.pendingCursors);
+                try {
+                  for (i.s(); !(o = i.n()).done; ) {
+                    var a = o.value,
+                      s = Number(
+                        Math.random().toString().split(".")[1]
+                      ).toString(36);
+                    c.flushedCursorIds.push(s),
+                      c.channel.send({
+                        otNewCursor: P({ id: s, user: c.user }, a),
+                      });
+                  }
+                } catch (u) {
+                  i.e(u);
+                } finally {
+                  i.f();
+                }
+                c.pendingCursors = [];
+              }
+            }
+          }),
+          Object(a.a)(Object(v.a)(c), "handlePacket", (e, t) => {
+            var r = e.ops,
+              n = e.version,
+              o = e.crc32,
+              i = t.overrideReconnectringBuffer;
+            if (c.resolveStatusOp)
+              return (
+                c.resolveStatusOp({ ops: r, version: n }),
+                void (c.resolveStatusOp = null)
+              );
+            if (!c.isReconnecting || i)
+              if (-1 !== c.version)
+                if ((c.version++, n === c.version)) {
+                  var a = "";
+                  try {
+                    a = w.type.apply(c.otContents, r);
+                  } catch (O) {
+                    return void c.emit(
+                      "error",
+                      new Error("OT Error: unable to apply updated content"),
+                      { originalError: O, incomingOps: r }
+                    );
+                  }
+                  var s = x.str(a) >>> 0;
+                  if (s === o) {
+                    if (
+                      (c.uncommittedOps.push({
+                        version: n,
+                        crc32: o,
+                        ops: r,
+                      }),
+                      JSON.stringify(r) === JSON.stringify(c.inflight))
+                    )
+                      return (
+                        c.debounceCommit(),
+                        (c.inflight = []),
+                        (c.inflightOpsPromise = null),
+                        (c.otContents = a),
+                        c.debounceSend(),
+                        void c.debounceSend.flush()
+                      );
+                    c.isCommitting || c.emit("fileDirty"),
+                      c.debounceCommit(),
+                      (c.hasUncommittedMultiplayerOps = !0);
+                    var u = "";
                     try {
-                      a = w.type.apply(c.otContents, r);
+                      u = c.getLocalContent();
                     } catch (O) {
                       return void c.emit(
                         "error",
-                        new Error("OT Error: unable to apply updated content"),
-                        { originalError: O, incomingOps: r }
+                        new Error("OT Error: unable to get local content"),
+                        { originalError: O }
                       );
                     }
-                    var s = x.str(a) >>> 0;
-                    if (s === o) {
-                      if (
-                        (c.uncommittedOps.push({
-                          version: n,
-                          crc32: o,
-                          ops: r,
-                        }),
-                        JSON.stringify(r) === JSON.stringify(c.inflight))
-                      )
-                        return (
-                          c.debounceCommit(),
-                          (c.inflight = []),
-                          (c.inflightOpsPromise = null),
-                          (c.otContents = a),
-                          c.debounceSend(),
-                          void c.debounceSend.flush()
-                        );
-                      c.isCommitting || c.emit("fileDirty"),
-                        c.debounceCommit(),
-                        (c.hasUncommittedMultiplayerOps = !0);
-                      var u = "";
-                      try {
-                        u = c.getLocalContent();
-                      } catch (O) {
-                        return void c.emit(
-                          "error",
-                          new Error("OT Error: unable to get local content"),
-                          { originalError: O }
-                        );
-                      }
-                      if (c.inflight.length) {
-                        var l = w.type.transform(c.inflight, r, "right");
-                        (r = w.type.transform(r, c.inflight, "left")),
-                          (c.inflight = l);
-                      }
-                      if (c.pending.length) {
-                        var f = w.type.transform(c.pending, r, "right");
-                        (r = w.type.transform(r, c.pending, "left")),
-                          (c.pending = f);
-                      }
-                      var p,
-                        d = [],
-                        h = 0,
-                        b = _(r);
-                      try {
-                        for (b.s(); !(p = b.n()).done; ) {
-                          var v = p.value;
-                          switch (typeof v) {
-                            case "number":
-                              h += v;
-                              break;
-                            case "string":
-                              var g = Object(E.uniToStrPos)(u, h);
-                              (d = A(d, g > 0 ? [g, v] : [v])),
-                                (h += Object(E.strPosToUni)(v));
-                              break;
-                            case "object":
-                              var m = Object(E.uniToStrPos)(u, h),
-                                y = Object(E.uniToStrPos)(u, h + v.d) - m;
-                              d = A(d, m > 0 ? [m, { d: y }] : [{ d: y }]);
-                              break;
-                            default:
-                              return void c.emit(
-                                "error",
-                                new Error("OT Error: unknown op type")
-                              );
-                          }
+                    if (c.inflight.length) {
+                      var l = w.type.transform(c.inflight, r, "right");
+                      (r = w.type.transform(r, c.inflight, "left")),
+                        (c.inflight = l);
+                    }
+                    if (c.pending.length) {
+                      var f = w.type.transform(c.pending, r, "right");
+                      (r = w.type.transform(r, c.pending, "left")),
+                        (c.pending = f);
+                    }
+                    var p,
+                      d = [],
+                      h = 0,
+                      b = _(r);
+                    try {
+                      for (b.s(); !(p = b.n()).done; ) {
+                        var v = p.value;
+                        switch (typeof v) {
+                          case "number":
+                            h += v;
+                            break;
+                          case "string":
+                            var g = Object(E.uniToStrPos)(u, h);
+                            (d = A(d, g > 0 ? [g, v] : [v])),
+                              (h += Object(E.strPosToUni)(v));
+                            break;
+                          case "object":
+                            var m = Object(E.uniToStrPos)(u, h),
+                              y = Object(E.uniToStrPos)(u, h + v.d) - m;
+                            d = A(d, m > 0 ? [m, { d: y }] : [{ d: y }]);
+                            break;
+                          default:
+                            return void c.emit(
+                              "error",
+                              new Error("OT Error: unknown op type")
+                            );
                         }
-                      } catch (j) {
-                        b.e(j);
-                      } finally {
-                        b.f();
                       }
-                      (c.otContents = a), c.emit("op", d);
-                    } else
-                      c.emit("error", new Error("OT Error: crc32 mismatch"), {
-                        server: o,
-                        client: s,
-                        incomingOps: r,
-                      });
+                    } catch (j) {
+                      b.e(j);
+                    } finally {
+                      b.f();
+                    }
+                    (c.otContents = a), c.emit("op", d);
                   } else
-                    c.emit(
-                      "error",
-                      new Error("OT Error: invalid server version"),
-                      {
-                        expectedVersion: c.version,
-                        receievedVersion: n,
-                        incomingOps: r,
-                      }
-                    );
-                else
+                    c.emit("error", new Error("OT Error: crc32 mismatch"), {
+                      server: o,
+                      client: s,
+                      incomingOps: r,
+                    });
+                } else
                   c.emit(
                     "error",
-                    new Error(
-                      "Got packet while version is still -1, expected version to be set in handleStatus"
-                    )
+                    new Error("OT Error: invalid server version"),
+                    {
+                      expectedVersion: c.version,
+                      receievedVersion: n,
+                      incomingOps: r,
+                    }
                   );
               else
-                c.bufferedReconnectingOps.push({
-                  crc32: o,
-                  ops: r,
-                  version: n,
-                });
-            }),
-            Object(a.a)(Object(v.a)(c), "handleNewCursor", function (e) {
-              c.emit("cursor", e);
-            }),
-            Object(a.a)(Object(v.a)(c), "handleDeleteCursor", function (e) {
-              var t = e.id;
-              c.emit("removeCursor", t);
-            }),
-            Object(a.a)(
-              Object(v.a)(c),
-              "handleStatus",
-              (function () {
-                var e = Object(i.a)(
-                  o.a.mark(function e(t) {
-                    var r, n, i, a, s, u;
-                    return o.a.wrap(function (e) {
+                c.emit(
+                  "error",
+                  new Error(
+                    "Got packet while version is still -1, expected version to be set in handleStatus"
+                  )
+                );
+            else
+              c.bufferedReconnectingOps.push({
+                crc32: o,
+                ops: r,
+                version: n,
+              });
+          }),
+          Object(a.a)(Object(v.a)(c), "handleNewCursor", e => {
+            c.emit("cursor", e);
+          }),
+          Object(a.a)(Object(v.a)(c), "handleDeleteCursor", e => {
+            var t = e.id;
+            c.emit("removeCursor", t);
+          }),
+          Object(a.a)(Object(v.a)(c), "handleStatus", (() => {
+            var e = Object(i.a)(
+              o.a.mark(function e(t) {
+                var r, n, i, a, s, u;
+                return o.a.wrap(e => {
+                  for (;;)
+                    switch ((e.prev = e.next)) {
+                      case 0:
+                        if (c.channel) {
+                          e.next = 2;
+                          break;
+                        }
+                        return e.abrupt("return");
+                      case 2:
+                        if (!t.linkedFile) {
+                          e.next = 23;
+                          break;
+                        }
+                        if (null != t.contents) {
+                          e.next = 6;
+                          break;
+                        }
+                        return (
+                          c.emit(
+                            "error",
+                            new Error(
+                              "expected status contents,  got null or undefined"
+                            )
+                          ),
+                          e.abrupt("return")
+                        );
+                      case 6:
+                        if (null != t.cursors) {
+                          e.next = 9;
+                          break;
+                        }
+                        return (
+                          c.emit(
+                            "error",
+                            new Error(
+                              "expected status cursors, got null or undefined"
+                            )
+                          ),
+                          e.abrupt("return")
+                        );
+                      case 9:
+                        if (null != t.version) {
+                          e.next = 12;
+                          break;
+                        }
+                        return (
+                          c.emit(
+                            "error",
+                            new Error(
+                              "expected status version, got null or undefined"
+                            )
+                          ),
+                          e.abrupt("return")
+                        );
+                      case 12:
+                        if (!c.isReconnecting) {
+                          e.next = 15;
+                          break;
+                        }
+                        return (
+                          c.handleReconnect(t.contents, t.version),
+                          e.abrupt("return")
+                        );
+                      case 15:
+                        return (
+                          (c.otContents = t.contents),
+                          (c.version = t.version),
+                          c.emit("firstConnect"),
+                          c.emit("op", [c.otContents]),
+                          t.cursors.forEach(c.handleNewCursor),
+                          c.emit("fileDirty"),
+                          c.debounceCommit(),
+                          e.abrupt("return")
+                        );
+                      case 23:
+                        return (r = new Promise(e => {
+                          return (c.resolveStatusOp = e);
+                        })),
+                        (e.next = 26),
+                        c.channel.request({
+                          otLinkFile: {
+                            file: { path: c.linkedFile },
+                            highConsistency: Boolean(
+                              window["flag-ot-high-consitency"]
+                            ),
+                          },
+                        })
+                      ;
+                      case 26:
+                        if (!(n = e.sent).channelClosed) {
+                          e.next = 29;
+                          break;
+                        }
+                        return e.abrupt("return");
+                      case 29:
+                        if (!n.error) {
+                          e.next = 32;
+                          break;
+                        }
+                        return (
+                          c.emit(
+                            "error",
+                            new Error("link file error " + n.error)
+                          ),
+                          e.abrupt("return")
+                        );
+                      case 32:
+                        return (e.next = 34), r;
+                      case 34:
+                        if (
+                          ((i = e.sent),
+                          (a = i.ops),
+                          (s = i.version),
+                          !(a.length > 1))
+                        ) {
+                          e.next = 40;
+                          break;
+                        }
+                        return (
+                          c.emit(
+                            "error",
+                            new Error("Expected a single status op")
+                          ),
+                          e.abrupt("return")
+                        );
+                      case 40:
+                        if ("string" === typeof (u = a[0] || "")) {
+                          e.next = 44;
+                          break;
+                        }
+                        return (
+                          c.emit(
+                            "error",
+                            new Error(
+                              "Expected a status op to be an insert or empty"
+                            )
+                          ),
+                          e.abrupt("return")
+                        );
+                      case 44:
+                        if (!c.isReconnecting) {
+                          e.next = 47;
+                          break;
+                        }
+                        return c.handleReconnect(u, s), e.abrupt("return");
+                      case 47:
+                        (c.otContents = u),
+                          (c.version = s),
+                          (c.committedVersion = s),
+                          (c.committedContent = c.otContents),
+                          c.emit("firstConnect"),
+                          c.emit("op", a);
+                      case 53:
+                      case "end":
+                        return e.stop();
+                    }
+                }, e);
+              })
+            );
+            return function (t) {
+              return e.apply(this, arguments);
+            };
+          })()),
+          Object(a.a)(Object(v.a)(c), "handleReconnect", (() => {
+            var e = Object(i.a)(
+              o.a.mark(function e(t, r) {
+                var n,
+                  i,
+                  a,
+                  s,
+                  u,
+                  l,
+                  f,
+                  p,
+                  d,
+                  h,
+                  b,
+                  v,
+                  g,
+                  m,
+                  y,
+                  O,
+                  x,
+                  j,
+                  k,
+                  E,
+                  T,
+                  S,
+                  D,
+                  R,
+                  N,
+                  A,
+                  I,
+                  F,
+                  L,
+                  U,
+                  M;
+                return o.a.wrap(
+                  e => {
+                    for (;;)
+                      switch ((e.prev = e.next)) {
+                        case 0:
+                          if (c.timeDisconnected) {
+                            e.next = 2;
+                            break;
+                          }
+                          throw new Error("wat");
+                        case 2:
+                          if (
+                            ((n = Date.now() - c.timeDisconnected),
+                            (i = e => {
+                              c.reconnectTrackedData = P(
+                                P({}, e),
+                                {},
+                                {
+                                  serverVersion: r,
+                                  ourVersion: c.version,
+                                  ourCommittedVersion: c.committedVersion,
+                                  areContentsEqual: c.otContents === t,
+                                  areCommittedContentsEqual:
+                                    c.committedContent === t,
+                                  didReceiveOpsWhileReconnecting: Boolean(
+                                    c.bufferedReconnectingOps
+                                  ),
+                                  didEditOffline: c.didEditOffline,
+                                  hasPendingOps: Boolean(c.pending.length),
+                                  disconnectDuration: n,
+                                }
+                              );
+                            }),
+                            (a = () => {
+                              (c.isReconnecting = !1),
+                                (c.bufferedReconnectingOps = []),
+                                (c.didEditOffline = !1),
+                                (c.timeDisconnected = null),
+                                c.debounceSend(),
+                                c.debounceCommit(),
+                                c.emit("reconnected");
+                            }),
+                            !c.inflight.length)
+                          ) {
+                            e.next = 26;
+                            break;
+                          }
+                          if (r !== c.version || c.otContents !== t) {
+                            e.next = 14;
+                            break;
+                          }
+                          return (
+                            i({
+                              case: "has_inflight_happy_path_ops_unreached",
+                              prompted: !1,
+                            }),
+                            Object(C.track)(
+                              C.events.FILE_RECONNECTED_STATUS2,
+                              c.reconnectTrackedData
+                            ),
+                            (c.pending = w.type.compose(
+                              c.inflight,
+                              c.pending
+                            )),
+                            (c.inflight = []),
+                            (c.inflightOpsPromise = null),
+                            a(),
+                            e.abrupt("return")
+                          );
+                        case 14:
+                          (s = !1), (u = c.otContents);
+                          try {
+                            u = w.type.apply(t, c.inflight);
+                          } catch (o) {
+                            s = !0;
+                          }
+                          if (s || c.version + 1 !== r || u !== t) {
+                            e.next = 22;
+                            break;
+                          }
+                          return (
+                            i({
+                              case: "has_inflight_happy_path_ops_reached",
+                              prompted: !0,
+                            }),
+                            Object(C.track)(
+                              C.events.FILE_RECONNECTED_STATUS2,
+                              c.reconnectTrackedData
+                            ),
+                            c.emit("promptUserReconnect"),
+                            e.abrupt("return")
+                          );
+                        case 22:
+                          return (
+                            i({ case: "has_inflight", prompted: !0 }),
+                            Object(C.track)(
+                              C.events.FILE_RECONNECTED_STATUS2,
+                              c.reconnectTrackedData
+                            ),
+                            c.emit("promptUserReconnect"),
+                            e.abrupt("return")
+                          );
+                        case 26:
+                          if (!c.hasUncommittedMultiplayerOps) {
+                            e.next = 31;
+                            break;
+                          }
+                          return (
+                            i({ case: "multiplayer", prompted: !0 }),
+                            Object(C.track)(
+                              C.events.FILE_RECONNECTED_STATUS2,
+                              c.reconnectTrackedData
+                            ),
+                            c.emit("promptUserReconnect"),
+                            e.abrupt("return")
+                          );
+                        case 31:
+                          if (c.version !== r) {
+                            e.next = 41;
+                            break;
+                          }
+                          if (t !== c.otContents) {
+                            e.next = 37;
+                            break;
+                          }
+                          return (
+                            i({ case: "happy_path", prompted: !1 }),
+                            Object(C.track)(
+                              C.events.FILE_RECONNECTED_STATUS2,
+                              c.reconnectTrackedData
+                            ),
+                            a(),
+                            e.abrupt("return")
+                          );
+                        case 37:
+                          return (
+                            i({
+                              case: "same_version_different_content",
+                              prompted: !0,
+                            }),
+                            Object(C.track)(
+                              C.events.FILE_RECONNECTED_STATUS2,
+                              c.reconnectTrackedData
+                            ),
+                            c.emit("promptUserReconnect"),
+                            e.abrupt("return")
+                          );
+                        case 41:
+                          if (c.committedVersion !== r) {
+                            e.next = 70;
+                            break;
+                          }
+                          (l = t), (e.prev = 43), (f = _(c.uncommittedOps));
+                          try {
+                            for (f.s(); !(p = f.n()).done; )
+                              (d = p.value.ops), (l = w.type.apply(l, d));
+                          } catch (z) {
+                            f.e(z);
+                          } finally {
+                            f.f();
+                          }
+                          e.next = 54;
+                          break;
+                        case 48:
+                          return (
+                            (e.prev = 48),
+                            (e.t0 = e.catch(43)),
+                            i({
+                              case: "same_committed_version_unable_to_apply_ops",
+                              prompted: !0,
+                            }),
+                            Object(C.track)(
+                              C.events.FILE_RECONNECTED_STATUS2,
+                              c.reconnectTrackedData
+                            ),
+                            c.emit("promptUserReconnect"),
+                            e.abrupt("return")
+                          );
+                        case 54:
+                          if (l !== c.otContents) {
+                            e.next = 66;
+                            break;
+                          }
+                          i({
+                            case: "happy_path_uncommitted",
+                            prompted: !1,
+                          }),
+                            Object(C.track)(
+                              C.events.FILE_RECONNECTED_STATUS2,
+                              c.reconnectTrackedData
+                            ),
+                            (h = []),
+                            (b = _(c.uncommittedOps));
+                          try {
+                            for (b.s(); !(v = b.n()).done; )
+                              (g = v.value.ops), (h = w.type.compose(h, g));
+                          } catch (z) {
+                            b.e(z);
+                          } finally {
+                            b.f();
+                          }
+                          return (
+                            (c.pending = w.type.compose(h, c.pending)),
+                            (c.uncommittedOps = []),
+                            (c.version = r),
+                            (c.otContents = t),
+                            a(),
+                            e.abrupt("return")
+                          );
+                        case 66:
+                          return (
+                            i({
+                              case: "same_committed_version_different_content_fixed",
+                              prompted: !0,
+                            }),
+                            Object(C.track)(
+                              C.events.FILE_RECONNECTED_STATUS2,
+                              c.reconnectTrackedData
+                            ),
+                            c.emit("promptUserReconnect"),
+                            e.abrupt("return")
+                          );
+                        case 70:
+                          if (!(c.version < r)) {
+                            e.next = 95;
+                            break;
+                          }
+                          return (
+                            (e.next = 73), c.fetchOps(c.version + 1, r)
+                          );
+                        case 73:
+                          (m = e.sent), (y = !1), (O = c.otContents);
+                          try {
+                            x = _(m);
+                            try {
+                              for (x.s(); !(j = x.n()).done; )
+                                (k = j.value.ops), (O = w.type.apply(O, k));
+                            } catch (z) {
+                              x.e(z);
+                            } finally {
+                              x.f();
+                            }
+                          } catch (o) {
+                            y = !0;
+                          }
+                          if (y || O !== t) {
+                            e.next = 86;
+                            break;
+                          }
+                          i({
+                            case: "happy_path_server_ahead",
+                            prompted: !1,
+                          }),
+                            Object(C.track)(
+                              C.events.FILE_RECONNECTED_STATUS2,
+                              c.reconnectTrackedData
+                            ),
+                            (E = _(m));
+                          try {
+                            for (E.s(); !(T = E.n()).done; )
+                              (S = T.value),
+                                c.handlePacket(S, {
+                                  overrideReconnectringBuffer: !0,
+                                });
+                          } catch (z) {
+                            E.e(z);
+                          } finally {
+                            E.f();
+                          }
+                          D = _(c.bufferedReconnectingOps);
+                          try {
+                            for (D.s(); !(R = D.n()).done; )
+                              (N = R.value),
+                                c.handlePacket(N, {
+                                  overrideReconnectringBuffer: !0,
+                                });
+                          } catch (z) {
+                            D.e(z);
+                          } finally {
+                            D.f();
+                          }
+                          return a(), e.abrupt("return");
+                        case 86:
+                          return (
+                            (e.next = 88),
+                            c.fetchOps(c.committedVersion + 1, r)
+                          );
+                        case 88:
+                          (A = e.sent), (I = !1), (F = c.committedContent);
+                          try {
+                            L = _(A);
+                            try {
+                              for (L.s(); !(U = L.n()).done; )
+                                (M = U.value.ops), (F = w.type.apply(F, M));
+                            } catch (z) {
+                              L.e(z);
+                            } finally {
+                              L.f();
+                            }
+                          } catch (o) {
+                            I = !0;
+                          }
+                          return (
+                            I ||
+                              F !== t ||
+                              (i({
+                                case: "happy_path_uncommitted_server_ahead",
+                                prompted: !0,
+                              }),
+                              Object(C.track)(
+                                C.events.FILE_RECONNECTED_STATUS2,
+                                c.reconnectTrackedData
+                              )),
+                            c.emit("promptUserReconnect"),
+                            e.abrupt("return")
+                          );
+                        case 95:
+                          i({ case: "other", prompted: !0 }),
+                            Object(C.track)(
+                              C.events.FILE_RECONNECTED_STATUS2,
+                              c.reconnectTrackedData
+                            ),
+                            c.emit("promptUserReconnect");
+                        case 98:
+                        case "end":
+                          return e.stop();
+                      }
+                  },
+                  e,
+                  null,
+                  [[43, 48]]
+                );
+              })
+            );
+            return function (t, r) {
+              return e.apply(this, arguments);
+            };
+          })()),
+          Object(a.a)(Object(v.a)(c), "getLocalContent", () => {
+            var e = Object(v.a)(c),
+              t = e.inflight,
+              r = e.otContents,
+              n = e.pending,
+              o = r;
+            return (
+              t.length && (o = w.type.apply(o, t)),
+              n.length && (o = w.type.apply(o, n)),
+              o
+            );
+          }),
+          Object(a.a)(Object(v.a)(c), "fetchOps", (() => {
+            var e = Object(i.a)(
+              o.a.mark(function e(t, r) {
+                var n;
+                return o.a.wrap(e => {
+                  for (;;)
+                    switch ((e.prev = e.next)) {
+                      case 0:
+                        if (c.channel) {
+                          e.next = 2;
+                          break;
+                        }
+                        throw new Error("No cahnnel, cannot fetch");
+                      case 2:
+                        return (
+                          (e.next = 4),
+                          c.channel.request({
+                            otFetchRequest: {
+                              versionFrom: t,
+                              versionTo: r,
+                            },
+                          })
+                        );
+                      case 4:
+                        if (!(n = e.sent).channelClosed) {
+                          e.next = 7;
+                          break;
+                        }
+                        throw new Error("Channel closed while requesting");
+                      case 7:
+                        if (!n.error) {
+                          e.next = 9;
+                          break;
+                        }
+                        throw new Error(
+                          "Fetch ops returned an error" + n.error
+                        );
+                      case 9:
+                        if (n.otFetchResponse) {
+                          e.next = 11;
+                          break;
+                        }
+                        throw new Error("Expected otFetchResponse");
+                      case 11:
+                        if (n.otFetchResponse.packets) {
+                          e.next = 13;
+                          break;
+                        }
+                        throw new Error("Expected otFetchResponse.packets");
+                      case 13:
+                        return e.abrupt(
+                          "return",
+                          n.otFetchResponse.packets.map(e => {
+                            var t = e.crc32,
+                              r = e.ops,
+                              n = e.version;
+                            if (null == t)
+                              throw new Error("Expected crc32 in packet");
+                            if (null == r)
+                              throw new Error("Expected ops in packet");
+                            if (null == n)
+                              throw new Error("Expected version in packet");
+                            return { crc32: t, version: n, ops: M(r) };
+                          })
+                        );
+                      case 14:
+                      case "end":
+                        return e.stop();
+                    }
+                }, e);
+              })
+            );
+            return function (t, r) {
+              return e.apply(this, arguments);
+            };
+          })()),
+          (c.linkedFile = e),
+          (c.channel = null),
+          (c.inflight = []),
+          (c.inflightOpsPromise = null),
+          (c.uncommittedOps = []),
+          (c.hasUncommittedMultiplayerOps = !1),
+          (c.committedVersion = -1),
+          (c.isReconnecting = !1),
+          (c.bufferedReconnectingOps = []),
+          (c.didEditOffline = !1),
+          (c.pending = []),
+          (c.version = -1),
+          (c.otContents = ""),
+          (c.committedContent = ""),
+          (c.flushedCursorIds = []),
+          (c.pendingCursors = []),
+          (c.user = null),
+          (c.debounceSend = k()(
+            () => {
+              return c.sendOps();
+            },
+            20,
+            { maxWait: 60 }
+          )),
+          (c.debounceCommit = k()(
+            () => {
+              return c.commitToDisk();
+            },
+            1e3,
+            { maxWait: 3e3 }
+          )),
+          (c.resolveStatusOp = null),
+          (c.isCommitting = !1),
+          (c.timeDisconnected = null),
+          (c.destroy = n.openChannel(
+            { service: "ot", name: "ot:".concat(e) },
+            e => {
+              if (!e.error) {
+                var t = e.channel,
+                  r = e.context;
+                return (c.user = r.currentUser
+                  ? { name: r.currentUser.username, id: r.currentUser.id }
+                  : null),
+                (c.channel = t),
+                t.onCommand(e => {
+                  switch (e.body) {
+                    case "ot":
+                      if (
+                        !e.ot ||
+                        null == e.ot.ops ||
+                        null == e.ot.spookyVersion ||
+                        null == e.ot.crc32
+                      )
+                        return void c.emit(
+                          "error",
+                          new Error("OT Error: missing data in ot packet"),
+                          e.ot || {}
+                        );
+                      var t = {
+                        crc32: e.ot.crc32,
+                        ops: M(e.ot.ops),
+                        version: e.ot.spookyVersion,
+                      };
+                      return c.handlePacket(t, {
+                        overrideReconnectringBuffer: !1,
+                      });
+                    case "otstatus":
+                      return c.handleStatus(e.otstatus);
+                    case "error":
+                      if (e.ref) return;
+                      return c.emit(
+                        "error",
+                        new Error("Unkown protocol error OT channel"),
+                        { originalError: e.error || "Server error" }
+                      );
+                    case "otNewCursor":
+                      return c.handleNewCursor(e.otNewCursor);
+                    case "otDeleteCursor":
+                      return c.handleDeleteCursor(e.otDeleteCursor);
+                  }
+                }),
+                () => {
+                  (c.channel = null),
+                    (c.isReconnecting = !0),
+                    c.debounceSend.cancel(),
+                    c.debounceCommit.cancel(),
+                    c.timeDisconnected || (c.timeDisconnected = Date.now());
+                }
+              ;
+              }
+            }
+          )),
+          c
+        ;
+        }
+        return Object(b.a)(r, [
+          {
+            key: "commitToDisk",
+            value: (() => {
+              var e = Object(i.a)(
+                o.a.mark(function e() {
+                  var t, r, n;
+                  return o.a.wrap(
+                    function (e) {
                       for (;;)
                         switch ((e.prev = e.next)) {
                           case 0:
-                            if (c.channel) {
+                            if (this.channel) {
                               e.next = 2;
                               break;
                             }
-                            return e.abrupt("return");
+                            throw new Error("Tryna commit while offline");
                           case 2:
-                            if (!t.linkedFile) {
-                              e.next = 23;
+                            if ("open" === this.channel.status) {
+                              e.next = 4;
                               break;
                             }
-                            if (null != t.contents) {
+                            return e.abrupt("return");
+                          case 4:
+                            if (!this.isReconnecting) {
                               e.next = 6;
                               break;
                             }
-                            return (
-                              c.emit(
-                                "error",
-                                new Error(
-                                  "expected status contents,  got null or undefined"
-                                )
-                              ),
-                              e.abrupt("return")
-                            );
+                            throw new Error("Committing while reconnecting");
                           case 6:
-                            if (null != t.cursors) {
-                              e.next = 9;
-                              break;
-                            }
-                            return (
-                              c.emit(
-                                "error",
-                                new Error(
-                                  "expected status cursors, got null or undefined"
-                                )
-                              ),
-                              e.abrupt("return")
-                            );
-                          case 9:
-                            if (null != t.version) {
-                              e.next = 12;
-                              break;
-                            }
-                            return (
-                              c.emit(
-                                "error",
-                                new Error(
-                                  "expected status version, got null or undefined"
-                                )
-                              ),
-                              e.abrupt("return")
-                            );
-                          case 12:
-                            if (!c.isReconnecting) {
-                              e.next = 15;
-                              break;
-                            }
-                            return (
-                              c.handleReconnect(t.contents, t.version),
-                              e.abrupt("return")
-                            );
-                          case 15:
-                            return (
-                              (c.otContents = t.contents),
-                              (c.version = t.version),
-                              c.emit("firstConnect"),
-                              c.emit("op", [c.otContents]),
-                              t.cursors.forEach(c.handleNewCursor),
-                              c.emit("fileDirty"),
-                              c.debounceCommit(),
-                              e.abrupt("return")
-                            );
-                          case 23:
-                            return (
-                              (r = new Promise(function (e) {
-                                return (c.resolveStatusOp = e);
-                              })),
-                              (e.next = 26),
-                              c.channel.request({
-                                otLinkFile: {
-                                  file: { path: c.linkedFile },
-                                  highConsistency: Boolean(
-                                    window["flag-ot-high-consitency"]
-                                  ),
-                                },
-                              })
-                            );
-                          case 26:
-                            if (!(n = e.sent).channelClosed) {
-                              e.next = 29;
+                            if (!this.isClean()) {
+                              e.next = 8;
                               break;
                             }
                             return e.abrupt("return");
-                          case 29:
-                            if (!n.error) {
+                          case 8:
+                            if (!this.isCommitting) {
+                              e.next = 11;
+                              break;
+                            }
+                            return this.debounceCommit(), e.abrupt("return");
+                          case 11:
+                            if (
+                              ((this.isCommitting = !0),
+                              !this.inflightOpsPromise)
+                            ) {
+                              e.next = 19;
+                              break;
+                            }
+                            return (e.next = 15), this.inflightOpsPromise;
+                          case 15:
+                            if (!e.sent.channelClosed) {
+                              e.next = 19;
+                              break;
+                            }
+                            return (
+                              (this.isCommitting = !1), e.abrupt("return")
+                            );
+                          case 19:
+                            if (!(this.pending.length > 0)) {
+                              e.next = 32;
+                              break;
+                            }
+                            if (
+                              (this.debounceSend(),
+                              this.debounceSend.flush(),
+                              this.inflightOpsPromise)
+                            ) {
+                              e.next = 26;
+                              break;
+                            }
+                            return (
+                              (this.isCommitting = !1),
+                              this.emit(
+                                "error",
+                                new Error("expected inflight promise")
+                              ),
+                              e.abrupt("return")
+                            );
+                          case 26:
+                            return (e.next = 28), this.inflightOpsPromise;
+                          case 28:
+                            if (!e.sent.channelClosed) {
                               e.next = 32;
                               break;
                             }
                             return (
-                              c.emit(
-                                "error",
-                                new Error("link file error " + n.error)
-                              ),
-                              e.abrupt("return")
+                              (this.isCommitting = !1), e.abrupt("return")
                             );
                           case 32:
-                            return (e.next = 34), r;
-                          case 34:
-                            if (
-                              ((i = e.sent),
-                              (a = i.ops),
-                              (s = i.version),
-                              !(a.length > 1))
-                            ) {
-                              e.next = 40;
-                              break;
-                            }
                             return (
-                              c.emit(
-                                "error",
-                                new Error("Expected a single status op")
-                              ),
-                              e.abrupt("return")
+                              this.emit("commitStart"),
+                              (t = this.version),
+                              (r = this.otContents),
+                              (e.next = 37),
+                              this.channel.request({ flush: {} })
                             );
-                          case 40:
-                            if ("string" === typeof (u = a[0] || "")) {
-                              e.next = 44;
-                              break;
-                            }
-                            return (
-                              c.emit(
-                                "error",
-                                new Error(
-                                  "Expected a status op to be an insert or empty"
-                                )
-                              ),
-                              e.abrupt("return")
-                            );
-                          case 44:
-                            if (!c.isReconnecting) {
-                              e.next = 47;
-                              break;
-                            }
-                            return c.handleReconnect(u, s), e.abrupt("return");
-                          case 47:
-                            (c.otContents = u),
-                              (c.version = s),
-                              (c.committedVersion = s),
-                              (c.committedContent = c.otContents),
-                              c.emit("firstConnect"),
-                              c.emit("op", a);
-                          case 53:
-                          case "end":
-                            return e.stop();
-                        }
-                    }, e);
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })()
-            ),
-            Object(a.a)(
-              Object(v.a)(c),
-              "handleReconnect",
-              (function () {
-                var e = Object(i.a)(
-                  o.a.mark(function e(t, r) {
-                    var n,
-                      i,
-                      a,
-                      s,
-                      u,
-                      l,
-                      f,
-                      p,
-                      d,
-                      h,
-                      b,
-                      v,
-                      g,
-                      m,
-                      y,
-                      O,
-                      x,
-                      j,
-                      k,
-                      E,
-                      T,
-                      S,
-                      D,
-                      R,
-                      N,
-                      A,
-                      I,
-                      F,
-                      L,
-                      U,
-                      M;
-                    return o.a.wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              if (c.timeDisconnected) {
-                                e.next = 2;
-                                break;
-                              }
-                              throw new Error("wat");
-                            case 2:
-                              if (
-                                ((n = Date.now() - c.timeDisconnected),
-                                (i = function (e) {
-                                  c.reconnectTrackedData = P(
-                                    P({}, e),
-                                    {},
-                                    {
-                                      serverVersion: r,
-                                      ourVersion: c.version,
-                                      ourCommittedVersion: c.committedVersion,
-                                      areContentsEqual: c.otContents === t,
-                                      areCommittedContentsEqual:
-                                        c.committedContent === t,
-                                      didReceiveOpsWhileReconnecting: Boolean(
-                                        c.bufferedReconnectingOps
-                                      ),
-                                      didEditOffline: c.didEditOffline,
-                                      hasPendingOps: Boolean(c.pending.length),
-                                      disconnectDuration: n,
-                                    }
-                                  );
-                                }),
-                                (a = function () {
-                                  (c.isReconnecting = !1),
-                                    (c.bufferedReconnectingOps = []),
-                                    (c.didEditOffline = !1),
-                                    (c.timeDisconnected = null),
-                                    c.debounceSend(),
-                                    c.debounceCommit(),
-                                    c.emit("reconnected");
-                                }),
-                                !c.inflight.length)
-                              ) {
-                                e.next = 26;
-                                break;
-                              }
-                              if (r !== c.version || c.otContents !== t) {
-                                e.next = 14;
-                                break;
-                              }
-                              return (
-                                i({
-                                  case: "has_inflight_happy_path_ops_unreached",
-                                  prompted: !1,
-                                }),
-                                Object(C.track)(
-                                  C.events.FILE_RECONNECTED_STATUS2,
-                                  c.reconnectTrackedData
-                                ),
-                                (c.pending = w.type.compose(
-                                  c.inflight,
-                                  c.pending
-                                )),
-                                (c.inflight = []),
-                                (c.inflightOpsPromise = null),
-                                a(),
-                                e.abrupt("return")
-                              );
-                            case 14:
-                              (s = !1), (u = c.otContents);
-                              try {
-                                u = w.type.apply(t, c.inflight);
-                              } catch (o) {
-                                s = !0;
-                              }
-                              if (s || c.version + 1 !== r || u !== t) {
-                                e.next = 22;
-                                break;
-                              }
-                              return (
-                                i({
-                                  case: "has_inflight_happy_path_ops_reached",
-                                  prompted: !0,
-                                }),
-                                Object(C.track)(
-                                  C.events.FILE_RECONNECTED_STATUS2,
-                                  c.reconnectTrackedData
-                                ),
-                                c.emit("promptUserReconnect"),
-                                e.abrupt("return")
-                              );
-                            case 22:
-                              return (
-                                i({ case: "has_inflight", prompted: !0 }),
-                                Object(C.track)(
-                                  C.events.FILE_RECONNECTED_STATUS2,
-                                  c.reconnectTrackedData
-                                ),
-                                c.emit("promptUserReconnect"),
-                                e.abrupt("return")
-                              );
-                            case 26:
-                              if (!c.hasUncommittedMultiplayerOps) {
-                                e.next = 31;
-                                break;
-                              }
-                              return (
-                                i({ case: "multiplayer", prompted: !0 }),
-                                Object(C.track)(
-                                  C.events.FILE_RECONNECTED_STATUS2,
-                                  c.reconnectTrackedData
-                                ),
-                                c.emit("promptUserReconnect"),
-                                e.abrupt("return")
-                              );
-                            case 31:
-                              if (c.version !== r) {
-                                e.next = 41;
-                                break;
-                              }
-                              if (t !== c.otContents) {
-                                e.next = 37;
-                                break;
-                              }
-                              return (
-                                i({ case: "happy_path", prompted: !1 }),
-                                Object(C.track)(
-                                  C.events.FILE_RECONNECTED_STATUS2,
-                                  c.reconnectTrackedData
-                                ),
-                                a(),
-                                e.abrupt("return")
-                              );
-                            case 37:
-                              return (
-                                i({
-                                  case: "same_version_different_content",
-                                  prompted: !0,
-                                }),
-                                Object(C.track)(
-                                  C.events.FILE_RECONNECTED_STATUS2,
-                                  c.reconnectTrackedData
-                                ),
-                                c.emit("promptUserReconnect"),
-                                e.abrupt("return")
-                              );
-                            case 41:
-                              if (c.committedVersion !== r) {
-                                e.next = 70;
-                                break;
-                              }
-                              (l = t), (e.prev = 43), (f = _(c.uncommittedOps));
-                              try {
-                                for (f.s(); !(p = f.n()).done; )
-                                  (d = p.value.ops), (l = w.type.apply(l, d));
-                              } catch (z) {
-                                f.e(z);
-                              } finally {
-                                f.f();
-                              }
-                              e.next = 54;
-                              break;
-                            case 48:
-                              return (
-                                (e.prev = 48),
-                                (e.t0 = e.catch(43)),
-                                i({
-                                  case: "same_committed_version_unable_to_apply_ops",
-                                  prompted: !0,
-                                }),
-                                Object(C.track)(
-                                  C.events.FILE_RECONNECTED_STATUS2,
-                                  c.reconnectTrackedData
-                                ),
-                                c.emit("promptUserReconnect"),
-                                e.abrupt("return")
-                              );
-                            case 54:
-                              if (l !== c.otContents) {
-                                e.next = 66;
-                                break;
-                              }
-                              i({
-                                case: "happy_path_uncommitted",
-                                prompted: !1,
-                              }),
-                                Object(C.track)(
-                                  C.events.FILE_RECONNECTED_STATUS2,
-                                  c.reconnectTrackedData
-                                ),
-                                (h = []),
-                                (b = _(c.uncommittedOps));
-                              try {
-                                for (b.s(); !(v = b.n()).done; )
-                                  (g = v.value.ops), (h = w.type.compose(h, g));
-                              } catch (z) {
-                                b.e(z);
-                              } finally {
-                                b.f();
-                              }
-                              return (
-                                (c.pending = w.type.compose(h, c.pending)),
-                                (c.uncommittedOps = []),
-                                (c.version = r),
-                                (c.otContents = t),
-                                a(),
-                                e.abrupt("return")
-                              );
-                            case 66:
-                              return (
-                                i({
-                                  case: "same_committed_version_different_content_fixed",
-                                  prompted: !0,
-                                }),
-                                Object(C.track)(
-                                  C.events.FILE_RECONNECTED_STATUS2,
-                                  c.reconnectTrackedData
-                                ),
-                                c.emit("promptUserReconnect"),
-                                e.abrupt("return")
-                              );
-                            case 70:
-                              if (!(c.version < r)) {
-                                e.next = 95;
-                                break;
-                              }
-                              return (
-                                (e.next = 73), c.fetchOps(c.version + 1, r)
-                              );
-                            case 73:
-                              (m = e.sent), (y = !1), (O = c.otContents);
-                              try {
-                                x = _(m);
-                                try {
-                                  for (x.s(); !(j = x.n()).done; )
-                                    (k = j.value.ops), (O = w.type.apply(O, k));
-                                } catch (z) {
-                                  x.e(z);
-                                } finally {
-                                  x.f();
-                                }
-                              } catch (o) {
-                                y = !0;
-                              }
-                              if (y || O !== t) {
-                                e.next = 86;
-                                break;
-                              }
-                              i({
-                                case: "happy_path_server_ahead",
-                                prompted: !1,
-                              }),
-                                Object(C.track)(
-                                  C.events.FILE_RECONNECTED_STATUS2,
-                                  c.reconnectTrackedData
-                                ),
-                                (E = _(m));
-                              try {
-                                for (E.s(); !(T = E.n()).done; )
-                                  (S = T.value),
-                                    c.handlePacket(S, {
-                                      overrideReconnectringBuffer: !0,
-                                    });
-                              } catch (z) {
-                                E.e(z);
-                              } finally {
-                                E.f();
-                              }
-                              D = _(c.bufferedReconnectingOps);
-                              try {
-                                for (D.s(); !(R = D.n()).done; )
-                                  (N = R.value),
-                                    c.handlePacket(N, {
-                                      overrideReconnectringBuffer: !0,
-                                    });
-                              } catch (z) {
-                                D.e(z);
-                              } finally {
-                                D.f();
-                              }
-                              return a(), e.abrupt("return");
-                            case 86:
-                              return (
-                                (e.next = 88),
-                                c.fetchOps(c.committedVersion + 1, r)
-                              );
-                            case 88:
-                              (A = e.sent), (I = !1), (F = c.committedContent);
-                              try {
-                                L = _(A);
-                                try {
-                                  for (L.s(); !(U = L.n()).done; )
-                                    (M = U.value.ops), (F = w.type.apply(F, M));
-                                } catch (z) {
-                                  L.e(z);
-                                } finally {
-                                  L.f();
-                                }
-                              } catch (o) {
-                                I = !0;
-                              }
-                              return (
-                                I ||
-                                  F !== t ||
-                                  (i({
-                                    case: "happy_path_uncommitted_server_ahead",
-                                    prompted: !0,
-                                  }),
-                                  Object(C.track)(
-                                    C.events.FILE_RECONNECTED_STATUS2,
-                                    c.reconnectTrackedData
-                                  )),
-                                c.emit("promptUserReconnect"),
-                                e.abrupt("return")
-                              );
-                            case 95:
-                              i({ case: "other", prompted: !0 }),
-                                Object(C.track)(
-                                  C.events.FILE_RECONNECTED_STATUS2,
-                                  c.reconnectTrackedData
-                                ),
-                                c.emit("promptUserReconnect");
-                            case 98:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      null,
-                      [[43, 48]]
-                    );
-                  })
-                );
-                return function (t, r) {
-                  return e.apply(this, arguments);
-                };
-              })()
-            ),
-            Object(a.a)(Object(v.a)(c), "getLocalContent", function () {
-              var e = Object(v.a)(c),
-                t = e.inflight,
-                r = e.otContents,
-                n = e.pending,
-                o = r;
-              return (
-                t.length && (o = w.type.apply(o, t)),
-                n.length && (o = w.type.apply(o, n)),
-                o
-              );
-            }),
-            Object(a.a)(
-              Object(v.a)(c),
-              "fetchOps",
-              (function () {
-                var e = Object(i.a)(
-                  o.a.mark(function e(t, r) {
-                    var n;
-                    return o.a.wrap(function (e) {
-                      for (;;)
-                        switch ((e.prev = e.next)) {
-                          case 0:
-                            if (c.channel) {
-                              e.next = 2;
-                              break;
-                            }
-                            throw new Error("No cahnnel, cannot fetch");
-                          case 2:
-                            return (
-                              (e.next = 4),
-                              c.channel.request({
-                                otFetchRequest: {
-                                  versionFrom: t,
-                                  versionTo: r,
-                                },
-                              })
-                            );
-                          case 4:
+                          case 37:
                             if (!(n = e.sent).channelClosed) {
-                              e.next = 7;
+                              e.next = 41;
                               break;
                             }
-                            throw new Error("Channel closed while requesting");
-                          case 7:
-                            if (!n.error) {
-                              e.next = 9;
-                              break;
-                            }
-                            throw new Error(
-                              "Fetch ops returned an error" + n.error
+                            return (
+                              (this.isCommitting = !1), e.abrupt("return")
                             );
-                          case 9:
-                            if (n.otFetchResponse) {
-                              e.next = 11;
+                          case 41:
+                            if ("ok" === n.body) {
+                              e.next = 45;
                               break;
                             }
-                            throw new Error("Expected otFetchResponse");
-                          case 11:
-                            if (n.otFetchResponse.packets) {
-                              e.next = 13;
-                              break;
-                            }
-                            throw new Error("Expected otFetchResponse.packets");
-                          case 13:
-                            return e.abrupt(
-                              "return",
-                              n.otFetchResponse.packets.map(function (e) {
-                                var t = e.crc32,
-                                  r = e.ops,
-                                  n = e.version;
-                                if (null == t)
-                                  throw new Error("Expected crc32 in packet");
-                                if (null == r)
-                                  throw new Error("Expected ops in packet");
-                                if (null == n)
-                                  throw new Error("Expected version in packet");
-                                return { crc32: t, version: n, ops: M(r) };
-                              })
+                            return (
+                              (this.isCommitting = !1),
+                              this.emit(
+                                "error",
+                                new Error("OT Error: unable to flush"),
+                                { originalError: n.error || n.toString() }
+                              ),
+                              e.abrupt("return")
                             );
-                          case 14:
+                          case 45:
+                            return (
+                              (this.uncommittedOps = []),
+                              (this.hasUncommittedMultiplayerOps = !1),
+                              (this.committedVersion = t),
+                              (this.committedContent = r),
+                              this.isClean() && this.emit("commitClean"),
+                              (this.isCommitting = !1),
+                              e.abrupt("return", n)
+                            );
+                          case 52:
                           case "end":
                             return e.stop();
                         }
-                    }, e);
-                  })
-                );
-                return function (t, r) {
-                  return e.apply(this, arguments);
-                };
-              })()
-            ),
-            (c.linkedFile = e),
-            (c.channel = null),
-            (c.inflight = []),
-            (c.inflightOpsPromise = null),
-            (c.uncommittedOps = []),
-            (c.hasUncommittedMultiplayerOps = !1),
-            (c.committedVersion = -1),
-            (c.isReconnecting = !1),
-            (c.bufferedReconnectingOps = []),
-            (c.didEditOffline = !1),
-            (c.pending = []),
-            (c.version = -1),
-            (c.otContents = ""),
-            (c.committedContent = ""),
-            (c.flushedCursorIds = []),
-            (c.pendingCursors = []),
-            (c.user = null),
-            (c.debounceSend = k()(
-              function () {
-                return c.sendOps();
-              },
-              20,
-              { maxWait: 60 }
-            )),
-            (c.debounceCommit = k()(
-              function () {
-                return c.commitToDisk();
-              },
-              1e3,
-              { maxWait: 3e3 }
-            )),
-            (c.resolveStatusOp = null),
-            (c.isCommitting = !1),
-            (c.timeDisconnected = null),
-            (c.destroy = n.openChannel(
-              { service: "ot", name: "ot:".concat(e) },
-              function (e) {
-                if (!e.error) {
-                  var t = e.channel,
-                    r = e.context;
-                  return (
-                    (c.user = r.currentUser
-                      ? { name: r.currentUser.username, id: r.currentUser.id }
-                      : null),
-                    (c.channel = t),
-                    t.onCommand(function (e) {
-                      switch (e.body) {
-                        case "ot":
-                          if (
-                            !e.ot ||
-                            null == e.ot.ops ||
-                            null == e.ot.spookyVersion ||
-                            null == e.ot.crc32
-                          )
-                            return void c.emit(
-                              "error",
-                              new Error("OT Error: missing data in ot packet"),
-                              e.ot || {}
-                            );
-                          var t = {
-                            crc32: e.ot.crc32,
-                            ops: M(e.ot.ops),
-                            version: e.ot.spookyVersion,
-                          };
-                          return c.handlePacket(t, {
-                            overrideReconnectringBuffer: !1,
-                          });
-                        case "otstatus":
-                          return c.handleStatus(e.otstatus);
-                        case "error":
-                          if (e.ref) return;
-                          return c.emit(
-                            "error",
-                            new Error("Unkown protocol error OT channel"),
-                            { originalError: e.error || "Server error" }
-                          );
-                        case "otNewCursor":
-                          return c.handleNewCursor(e.otNewCursor);
-                        case "otDeleteCursor":
-                          return c.handleDeleteCursor(e.otDeleteCursor);
-                      }
-                    }),
-                    function () {
-                      (c.channel = null),
-                        (c.isReconnecting = !0),
-                        c.debounceSend.cancel(),
-                        c.debounceCommit.cancel(),
-                        c.timeDisconnected || (c.timeDisconnected = Date.now());
-                    }
+                    },
+                    e,
+                    this
                   );
-                }
-              }
-            )),
-            c
-          );
-        }
-        return (
-          Object(b.a)(r, [
-            {
-              key: "commitToDisk",
-              value: (function () {
-                var e = Object(i.a)(
-                  o.a.mark(function e() {
-                    var t, r, n;
-                    return o.a.wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              if (this.channel) {
-                                e.next = 2;
-                                break;
-                              }
-                              throw new Error("Tryna commit while offline");
-                            case 2:
-                              if ("open" === this.channel.status) {
-                                e.next = 4;
-                                break;
-                              }
-                              return e.abrupt("return");
-                            case 4:
-                              if (!this.isReconnecting) {
-                                e.next = 6;
-                                break;
-                              }
-                              throw new Error("Committing while reconnecting");
-                            case 6:
-                              if (!this.isClean()) {
-                                e.next = 8;
-                                break;
-                              }
-                              return e.abrupt("return");
-                            case 8:
-                              if (!this.isCommitting) {
-                                e.next = 11;
-                                break;
-                              }
-                              return this.debounceCommit(), e.abrupt("return");
-                            case 11:
-                              if (
-                                ((this.isCommitting = !0),
-                                !this.inflightOpsPromise)
-                              ) {
-                                e.next = 19;
-                                break;
-                              }
-                              return (e.next = 15), this.inflightOpsPromise;
-                            case 15:
-                              if (!e.sent.channelClosed) {
-                                e.next = 19;
-                                break;
-                              }
-                              return (
-                                (this.isCommitting = !1), e.abrupt("return")
-                              );
-                            case 19:
-                              if (!(this.pending.length > 0)) {
-                                e.next = 32;
-                                break;
-                              }
-                              if (
-                                (this.debounceSend(),
-                                this.debounceSend.flush(),
-                                this.inflightOpsPromise)
-                              ) {
-                                e.next = 26;
-                                break;
-                              }
-                              return (
-                                (this.isCommitting = !1),
-                                this.emit(
-                                  "error",
-                                  new Error("expected inflight promise")
-                                ),
-                                e.abrupt("return")
-                              );
-                            case 26:
-                              return (e.next = 28), this.inflightOpsPromise;
-                            case 28:
-                              if (!e.sent.channelClosed) {
-                                e.next = 32;
-                                break;
-                              }
-                              return (
-                                (this.isCommitting = !1), e.abrupt("return")
-                              );
-                            case 32:
-                              return (
-                                this.emit("commitStart"),
-                                (t = this.version),
-                                (r = this.otContents),
-                                (e.next = 37),
-                                this.channel.request({ flush: {} })
-                              );
-                            case 37:
-                              if (!(n = e.sent).channelClosed) {
-                                e.next = 41;
-                                break;
-                              }
-                              return (
-                                (this.isCommitting = !1), e.abrupt("return")
-                              );
-                            case 41:
-                              if ("ok" === n.body) {
-                                e.next = 45;
-                                break;
-                              }
-                              return (
-                                (this.isCommitting = !1),
-                                this.emit(
-                                  "error",
-                                  new Error("OT Error: unable to flush"),
-                                  { originalError: n.error || n.toString() }
-                                ),
-                                e.abrupt("return")
-                              );
-                            case 45:
-                              return (
-                                (this.uncommittedOps = []),
-                                (this.hasUncommittedMultiplayerOps = !1),
-                                (this.committedVersion = t),
-                                (this.committedContent = r),
-                                this.isClean() && this.emit("commitClean"),
-                                (this.isCommitting = !1),
-                                e.abrupt("return", n)
-                              );
-                            case 52:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      this
-                    );
-                  })
-                );
-                return function () {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            },
-          ]),
-          r
-        );
+                })
+              );
+              return function () {
+                return e.apply(this, arguments);
+              };
+            })(),
+          },
+        ]),
+        r
+      ;
       })(O.EventEmitter);
       function q(e, t) {
         var r = Object.keys(e);
         if (Object.getOwnPropertySymbols) {
           var n = Object.getOwnPropertySymbols(e);
           t &&
-            (n = n.filter(function (t) {
+            (n = n.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             r.push.apply(r, n);
@@ -2261,12 +2228,12 @@
         for (var t = 1; t < arguments.length; t++) {
           var r = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? q(Object(r), !0).forEach(function (t) {
+            ? q(Object(r), !0).forEach(t => {
                 Object(a.a)(e, t, r[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r))
-            : q(Object(r)).forEach(function (t) {
+            : q(Object(r)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -2281,7 +2248,7 @@
         if ("undefined" === typeof Symbol || null == e[Symbol.iterator]) {
           if (
             Array.isArray(e) ||
-            (r = (function (e, t) {
+            (r = ((e, t) => {
               if (!e) return;
               if ("string" === typeof e) return H(e, t);
               var r = Object.prototype.toString.call(e).slice(8, -1);
@@ -2297,7 +2264,7 @@
           ) {
             r && (e = r);
             var n = 0,
-              o = function () {};
+              o = () => {};
             return {
               s: o,
               n() {
@@ -2364,8 +2331,8 @@
           n++
         )
           r[n - 1] = arguments[n];
-        return new Promise(function (t, n) {
-          setTimeout(function () {
+        return new Promise((t, n) => {
+          setTimeout(() => {
             e.apply(void 0, r)
               .then(t)
               .catch(n);
@@ -2378,13 +2345,13 @@
           n = null,
           a = {},
           h = {};
-        r.openChannel({ service: "fsevents" }, function (e) {
+        r.openChannel({ service: "fsevents" }, e => {
           var t = e.error,
             r = e.channel;
           if (!t) {
             if (!r) throw new Error("Expected channel");
             (n = r),
-              r.onCommand(function (e) {
+              r.onCommand(e => {
                 if ("fileEvent" === e.body) {
                   if (!e.fileEvent) throw new Error("Expected fileEvent");
                   var t = e.fileEvent,
@@ -2403,12 +2370,12 @@
                       if (a[i] || r.type === d.api.File.Type.DIRECTORY)
                         c = u.d.Directory;
                       else {
-                        var s = Object.keys(a).find(function (e) {
+                        var s = Object.keys(a).find(e => {
                             return Object(f.b)(e, i);
                           }),
                           l =
                             s &&
-                            a[s].children.find(function (e) {
+                            a[s].children.find(e => {
                               return e.filename === i.split("/").pop();
                             });
                         c = l ? l.type : u.d.File;
@@ -2448,25 +2415,24 @@
               });
             var o = [].concat(
               Object(c.a)(
-                Object.keys(a).map(function (e) {
+                Object.keys(a).map(e => {
                   return { path: e };
                 })
               ),
               Object(c.a)(
-                Object.keys(h).map(function (e) {
+                Object.keys(h).map(e => {
                   return { path: e };
                 })
               )
             );
-            return (
-              o.length && r.send({ subscribeFile: { files: o } }),
-              function () {
-                n = null;
-              }
-            );
+            return o.length && r.send({ subscribeFile: { files: o } }),
+            () => {
+              n = null;
+            }
+          ;
           }
         });
-        var b = new Promise(function (e) {
+        var b = new Promise(e => {
           return (t = e);
         });
         function v(e) {
@@ -2505,7 +2471,7 @@
                 var v,
                   g = [].concat(
                     Object(c.a)(
-                      d.children.filter(function (e) {
+                      d.children.filter(e => {
                         return e.filename !== b;
                       })
                     ),
@@ -2525,7 +2491,7 @@
                 break;
               case u.a.Move:
                 var y,
-                  O = d.children.filter(function (t) {
+                  O = d.children.filter(t => {
                     return t.filename !== e.node.path;
                   }),
                   x = V(d.listeners);
@@ -2560,7 +2526,7 @@
               case u.a.Delete:
                 var S,
                   D = e.node.path.split("/").pop(),
-                  R = d.children.filter(function (e) {
+                  R = d.children.filter(e => {
                     return e.filename !== D;
                   }),
                   N = V(d.listeners);
@@ -2587,19 +2553,18 @@
                 : "files";
             },
           },
-          function (e) {
+          e => {
             var r = e.error,
               n = e.channel;
             if (!r) {
               if (!n) throw new Error("Expected channel");
-              return (
-                t(n),
-                function () {
-                  b = new Promise(function (e) {
-                    return (t = e);
-                  });
-                }
-              );
+              return t(n),
+              () => {
+                b = new Promise(e => {
+                  return (t = e);
+                });
+              }
+            ;
             }
           }
         );
@@ -2609,43 +2574,42 @@
               o = function t() {
                 (r = !0),
                   a[e] &&
-                    ((a[e].listeners = a[e].listeners.filter(function (e) {
+                    ((a[e].listeners = a[e].listeners.filter(e => {
                       return e.dispose !== t;
                     })),
                     0 === a[e].listeners.length && delete a[e]);
               };
-            return (
-              g
-                .readDir(e)
-                .then(function (i) {
-                  if (!r) {
-                    if (i.error) {
-                      var c = new Error(i.error);
-                      return (c.code = i.error), t.onError(c), void o();
-                    }
-                    a[e] ||
-                      ((a[e] = {
-                        path: e,
-                        type: u.d.Directory,
-                        children: i.children,
-                        listeners: [],
-                      }),
-                      n && n.send({ subscribeFile: { files: [{ path: e }] } })),
-                      a[e].listeners.push(B(B({}, t), {}, { dispose: o })),
-                      t.onChange(i.children);
+            return g
+              .readDir(e)
+              .then(i => {
+                if (!r) {
+                  if (i.error) {
+                    var c = new Error(i.error);
+                    return (c.code = i.error), t.onError(c), void o();
                   }
-                })
-                .catch(function (e) {
-                  o(), t.onError(e);
-                }),
-              o
-            );
+                  a[e] ||
+                    ((a[e] = {
+                      path: e,
+                      type: u.d.Directory,
+                      children: i.children,
+                      listeners: [],
+                    }),
+                    n && n.send({ subscribeFile: { files: [{ path: e }] } })),
+                    a[e].listeners.push(B(B({}, t), {}, { dispose: o })),
+                    t.onChange(i.children);
+                }
+              })
+              .catch(e => {
+                o(), t.onError(e);
+              }),
+            o
+          ;
           },
           writeFile(e, t) {
             return Object(i.a)(
               o.a.mark(function r() {
                 var n, i, a;
-                return o.a.wrap(function (r) {
+                return o.a.wrap(r => {
                   for (;;)
                     switch ((r.prev = r.next)) {
                       case 0:
@@ -2703,7 +2667,7 @@
             return Object(i.a)(
               o.a.mark(function t() {
                 var r, n, i;
-                return o.a.wrap(function (t) {
+                return o.a.wrap(t => {
                   for (;;)
                     switch ((t.prev = t.next)) {
                       case 0:
@@ -2762,7 +2726,7 @@
             return Object(i.a)(
               o.a.mark(function t() {
                 var r, n, i;
-                return o.a.wrap(function (t) {
+                return o.a.wrap(t => {
                   for (;;)
                     switch ((t.prev = t.next)) {
                       case 0:
@@ -2816,7 +2780,7 @@
             return Object(i.a)(
               o.a.mark(function r() {
                 var n, i, a;
-                return o.a.wrap(function (r) {
+                return o.a.wrap(r => {
                   for (;;)
                     switch ((r.prev = r.next)) {
                       case 0:
@@ -2869,7 +2833,7 @@
             return Object(i.a)(
               o.a.mark(function r() {
                 var n, i, a;
-                return o.a.wrap(function (r) {
+                return o.a.wrap(r => {
                   for (;;)
                     switch ((r.prev = r.next)) {
                       case 0:
@@ -2922,7 +2886,7 @@
             return Object(i.a)(
               o.a.mark(function t() {
                 var r, n, i;
-                return o.a.wrap(function (t) {
+                return o.a.wrap(t => {
                   for (;;)
                     switch ((t.prev = t.next)) {
                       case 0:
@@ -2971,7 +2935,7 @@
             return Object(i.a)(
               o.a.mark(function t() {
                 var r, n, i;
-                return o.a.wrap(function (t) {
+                return o.a.wrap(t => {
                   for (;;)
                     switch ((t.prev = t.next)) {
                       case 0:
@@ -3020,7 +2984,7 @@
             return Object(i.a)(
               o.a.mark(function t() {
                 var r, n, i, a, c;
-                return o.a.wrap(function (t) {
+                return o.a.wrap(t => {
                   for (;;)
                     switch ((t.prev = t.next)) {
                       case 0:
@@ -3063,19 +3027,18 @@
                         }
                         throw new Error("Expected filesChannel");
                       case 16:
-                        return (
-                          (c = i.files.files.map(function (e) {
-                            if (!e.path) throw new Error("Expected path");
-                            return {
-                              filename: e.path,
-                              type:
-                                e.type === d.api.File.Type.DIRECTORY
-                                  ? u.d.Directory
-                                  : u.d.File,
-                            };
-                          })),
-                          t.abrupt("return", { children: c, error: null })
-                        );
+                        return (c = i.files.files.map(e => {
+                          if (!e.path) throw new Error("Expected path");
+                          return {
+                            filename: e.path,
+                            type:
+                              e.type === d.api.File.Type.DIRECTORY
+                                ? u.d.Directory
+                                : u.d.File,
+                          };
+                        })),
+                        t.abrupt("return", { children: c, error: null })
+                      ;
                       case 18:
                       case "end":
                         return t.stop();
@@ -3088,7 +3051,7 @@
             return Object(i.a)(
               o.a.mark(function t() {
                 var r, n;
-                return o.a.wrap(function (t) {
+                return o.a.wrap(t => {
                   for (;;)
                     switch ((t.prev = t.next)) {
                       case 0:
@@ -3158,58 +3121,58 @@
                 otClient: new z(e, r),
               });
             var a = !1,
-              c = function () {},
-              l = function (l) {
+              c = () => {},
+              l = l => {
                 c();
-                var p = function () {
+                var p = () => {
                   var e;
                   return null === (e = t.onStatusChange) || void 0 === e
                     ? void 0
                     : e.call(t, u.c.Dirty);
                 };
                 h[e].otClient.on("fileDirty", p);
-                var d = function () {
+                var d = () => {
                   var e;
                   return null === (e = t.onStatusChange) || void 0 === e
                     ? void 0
                     : e.call(t, u.c.Clean);
                 };
                 h[e].otClient.on("commitClean", d);
-                var b = function () {
+                var b = () => {
                   var e;
                   return null === (e = t.onStatusChange) || void 0 === e
                     ? void 0
                     : e.call(t, u.c.Syncing);
                 };
                 h[e].otClient.on("commitStart", b);
-                var v = function (e) {
+                var v = e => {
                   var r;
                   return null === (r = t.onCursor) || void 0 === r
                     ? void 0
                     : r.call(t, e);
                 };
                 h[e].otClient.on("cursor", v);
-                var g = function (e) {
+                var g = e => {
                   var r;
                   return null === (r = t.onRemoveCursor) || void 0 === r
                     ? void 0
                     : r.call(t, e);
                 };
                 h[e].otClient.on("removeCursor", g);
-                var m = (function () {
+                var m = (() => {
                   var t = Object(i.a)(
                     o.a.mark(function t(i) {
                       var a, c, u, l, f, p, d;
-                      return o.a.wrap(function (t) {
+                      return o.a.wrap(t => {
                         for (;;)
                           switch ((t.prev = t.next)) {
                             case 0:
                               if (
                                 ((a = h[e].otClient).destroy(),
-                                (c = function () {
+                                (c = () => {
                                   var t = new z(e, r);
-                                  return new Promise(function (r, n) {
-                                    t.once("op", function () {
+                                  return new Promise((r, n) => {
+                                    t.once("op", () => {
                                       var n = I(
                                         a.getLocalContent(),
                                         t.getLocalContent()
@@ -3228,7 +3191,7 @@
                                       }
                                       r();
                                     }),
-                                      t.once("error", function (e) {
+                                      t.once("error", e => {
                                         return n(e);
                                       });
                                   });
@@ -3278,17 +3241,17 @@
                     return t.apply(this, arguments);
                   };
                 })();
-                h[e].otClient.on("promptUserReconnect", function () {
+                h[e].otClient.on("promptUserReconnect", () => {
                   var e;
                   return null === (e = t.onReconnectFail) || void 0 === e
                     ? void 0
                     : e.call(t, m);
                 });
-                var y = function (e) {
+                var y = e => {
                   t.onError && t.onError(e), f();
                 };
                 h[e].otClient.on("error", y);
-                var O = function (r) {
+                var O = r => {
                     h[e].otClient.writeOps(r);
                     var n,
                       o = V(h[e].listeners);
@@ -3305,12 +3268,12 @@
                       o.f();
                     }
                   },
-                  x = function (t) {
+                  x = t => {
                     h[e].otClient.updateCursors([t]);
                   };
                 if (
                   (-1 !== h[e].otClient.version &&
-                    setTimeout(function () {
+                    setTimeout(() => {
                       var r;
                       a ||
                         null === (r = t.onReady) ||
@@ -3332,7 +3295,7 @@
                     void 0 === w ||
                     w.call(t, { ops: l, changeSource: u.b.Container });
                 } else {
-                  var j = function (r) {
+                  var j = r => {
                     var n, o;
                     if (!a)
                       return (
@@ -3356,7 +3319,7 @@
                       n.call(t, { ops: r, changeSource: u.b.Container });
                   };
                   h[e].otClient.on("op", j),
-                    (c = function () {
+                    (c = () => {
                       h[e].otClient.removeListener("fileDirty", p),
                         h[e].otClient.removeListener("commitClean", d),
                         h[e].otClient.removeListener("commitStart", b),
@@ -3372,7 +3335,7 @@
               h[e] &&
                 ((a = !0),
                 c(),
-                (h[e].listeners = h[e].listeners.filter(function (e) {
+                (h[e].listeners = h[e].listeners.filter(e => {
                   return e.dispose !== t;
                 })),
                 0 === h[e].listeners.length &&
@@ -3391,7 +3354,7 @@
     },
     VZNv(e, t, r) {
       "use strict";
-      r.d(t, "a", function () {
+      r.d(t, "a", () => {
         return p;
       });
       var n = r("vJKn"),
@@ -3413,7 +3376,7 @@
           h = !1,
           b = Math.random();
         function v() {
-          var e = function (e) {
+          var e = e => {
             p !== e && ((p = e), n.emit(u.a.STATE_CHANGE, p));
           };
           e(
@@ -3430,7 +3393,7 @@
           return (g = Object(i.a)(
             o.a.mark(function e() {
               var t;
-              return o.a.wrap(function (e) {
+              return o.a.wrap(e => {
                 for (;;)
                   switch ((e.prev = e.next)) {
                     case 0:
@@ -3489,7 +3452,7 @@
         function m() {
           return (m = Object(i.a)(
             o.a.mark(function e(t) {
-              return o.a.wrap(function (e) {
+              return o.a.wrap(e => {
                 for (;;)
                   switch ((e.prev = e.next)) {
                     case 0:
@@ -3535,29 +3498,28 @@
               );
             },
           },
-          function (e) {
+          e => {
             var t = e.channel;
             if (!e.error) {
               if (!t) throw new Error("Expected error");
-              return (
-                (a = t),
-                v(),
-                t.onCommand(function (e) {
-                  switch (e.body) {
-                    case "state":
-                      var t = e.state === s.api.State.Stopped;
-                      h && t && (h = !1),
-                        t ? "server" === d && (d = "none") : (d = "server"),
-                        v();
-                      break;
-                    case "output":
-                      n.emit(u.a.OUTPUT, e.output);
-                  }
-                }),
-                function () {
-                  (d = "none"), (h = !1), (a = null), v();
+              return (a = t),
+              v(),
+              t.onCommand(e => {
+                switch (e.body) {
+                  case "state":
+                    var t = e.state === s.api.State.Stopped;
+                    h && t && (h = !1),
+                      t ? "server" === d && (d = "none") : (d = "server"),
+                      v();
+                    break;
+                  case "output":
+                    n.emit(u.a.OUTPUT, e.output);
                 }
-              );
+              }),
+              () => {
+                (d = "none"), (h = !1), (a = null), v();
+              }
+            ;
             }
           }
         ),
@@ -3584,26 +3546,23 @@
             a.send({ resizeTerm: e });
           },
           onOutput(e) {
-            return (
-              n.on(u.a.OUTPUT, e),
-              function () {
-                n.removeListener(u.a.OUTPUT, e);
-              }
-            );
+            return n.on(u.a.OUTPUT, e),
+            () => {
+              n.removeListener(u.a.OUTPUT, e);
+            }
+          ;
           },
           onStateChanged(e) {
-            return (
-              n.on(u.a.STATE_CHANGE, e),
-              function () {
-                n.removeListener(u.a.STATE_CHANGE, e);
-              }
-            );
+            return n.on(u.a.STATE_CHANGE, e),
+            () => {
+              n.removeListener(u.a.STATE_CHANGE, e);
+            }
+          ;
           },
           getRunState() {
             return p;
           },
-        }
-      ;
+        };
       }
     },
     Yk1I(e, t) {
@@ -3611,7 +3570,7 @@
       function n(e, t, s, u) {
         if (e === t) return e ? [[0, e]] : [];
         if (null != s) {
-          var l = (function (e, t, r) {
+          var l = ((e, t, r) => {
             var n =
                 "number" === typeof r ? { index: r, length: 0 } : r.oldRange,
               o = "number" === typeof r ? null : r.newRange,
@@ -3666,7 +3625,7 @@
           d = e.substring(0, f);
         f = a((e = e.substring(f)), (t = t.substring(f)));
         var h = e.substring(e.length - f),
-          b = (function (e, t) {
+          b = ((e, t) => {
             var c;
             if (!e) return [[1, t]];
             if (!t) return [[r, e]];
@@ -3688,7 +3647,7 @@
                 [r, e],
                 [1, t],
               ];
-            var f = (function (e, t) {
+            var f = ((e, t) => {
               var r = e.length > t.length ? e : t,
                 n = e.length > t.length ? t : e;
               if (r.length < 4 || 2 * n.length < r.length) return null;
@@ -3740,7 +3699,7 @@
                 m = n(d, b);
               return g.concat([[0, v]], m);
             }
-            return (function (e, t) {
+            return ((e, t) => {
               for (
                 var n = e.length,
                   i = t.length,
@@ -3816,10 +3775,7 @@
                 [1, t],
               ];
             })(e, t);
-          })(
-            (e = e.substring(0, e.length - f)),
-            (t = t.substring(0, t.length - f))
-          );
+          })(e = e.substring(0, e.length - f), t = t.substring(0, t.length - f));
         return d && b.unshift([0, d]), h && b.push([0, h]), c(b, u), b;
       }
       function o(e, t, r, o) {
@@ -3951,9 +3907,7 @@
         return s(e.charCodeAt(e.length - 1));
       }
       function p(e, t, n, o) {
-        return f(e) || l(o)
-          ? null
-          : (function (e) {
+        return f(e) || l(o) ? null : (e => {
               for (var t = [], r = 0; r < e.length; r++)
                 e[r][1].length > 0 && t.push(e[r]);
               return t;
@@ -3989,7 +3943,7 @@
           if (n !== t) throw Error("Invalid offset - splits unicode bytes");
           return n - r;
         }),
-        (t.uniToStrPos = function (e, t) {
+        (t.uniToStrPos = (e, t) => {
           for (var r = 0; t > 0; t--) {
             var n = e.charCodeAt(r);
             r += n >= 55296 && n <= 57343 ? 2 : 1;
@@ -3999,9 +3953,9 @@
     },
     cC09(e, t, r) {
       var n;
-      (n = function (e) {
+      (n = e => {
         e.version = "1.2.0";
-        var t = (function () {
+        var t = (() => {
           for (var e = 0, t = new Array(256), r = 0; 256 != r; ++r)
             (e =
               1 &
@@ -4036,7 +3990,7 @@
           return "undefined" !== typeof Int32Array ? new Int32Array(t) : t;
         })();
         (e.table = t),
-          (e.bstr = function (e, r) {
+          (e.bstr = (e, r) => {
             for (var n = -1 ^ r, o = e.length - 1, i = 0; i < o; )
               n =
                 ((n = (n >>> 8) ^ t[255 & (n ^ e.charCodeAt(i++))]) >>> 8) ^
@@ -4046,9 +4000,9 @@
               -1 ^ n
             );
           }),
-          (e.buf = function (e, r) {
+          (e.buf = (e, r) => {
             if (e.length > 1e4)
-              return (function (e, r) {
+              return ((e, r) => {
                 for (var n = -1 ^ r, o = e.length - 7, i = 0; i < o; )
                   n =
                     ((n =
@@ -4088,7 +4042,7 @@
             for (; i < o + 3; ) n = (n >>> 8) ^ t[255 & (n ^ e[i++])];
             return -1 ^ n;
           }),
-          (e.str = function (e, r) {
+          (e.str = (e, r) => {
             for (var n, o, i = -1 ^ r, a = 0, c = e.length; a < c; )
               (n = e.charCodeAt(a++)) < 128
                 ? (i = (i >>> 8) ^ t[255 & (i ^ n)])
@@ -4131,9 +4085,9 @@
       "use strict";
       var n =
         (this && this.__importDefault) ||
-        function (e) {
+        (e => {
           return e && e.__esModule ? e : { default: e };
-        };
+        });
       Object.defineProperty(t, "__esModule", { value: !0 });
       var o = r("Z5Wq"),
         i = n(r("HtvZ")),
@@ -4176,10 +4130,10 @@
     },
     gfZM(e, t, r) {
       "use strict";
-      (function (e) {
+      ((e => {
         var n = r("H+61"),
           o = r("UlJF"),
-          i = (function () {
+          i = (() => {
             function t(r, o) {
               if (
                 (Object(n.a)(this, t),
@@ -4272,7 +4226,7 @@
           ;
           })();
         t.a = i;
-      }.call(this, r("HDXh").Buffer));
+      }).call(this, r("HDXh").Buffer));
     },
     qpVQ(e, t, r) {
       "use strict";
@@ -4315,7 +4269,7 @@
     },
     tidx(e, t, r) {
       "use strict";
-      r.d(t, "a", function () {
+      r.d(t, "a", () => {
         return m;
       });
       var n = r("nKUr"),
@@ -4335,7 +4289,7 @@
         if (Object.getOwnPropertySymbols) {
           var n = Object.getOwnPropertySymbols(e);
           t &&
-            (n = n.filter(function (t) {
+            (n = n.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             r.push.apply(r, n);
@@ -4346,12 +4300,12 @@
         for (var t = 1; t < arguments.length; t++) {
           var r = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? b(Object(r), !0).forEach(function (t) {
+            ? b(Object(r), !0).forEach(t => {
                 Object(o.a)(e, t, r[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r))
-            : b(Object(r)).forEach(function (t) {
+            : b(Object(r)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -4362,17 +4316,16 @@
         return e;
       }
       function g(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -4387,7 +4340,7 @@
           return Object(s.a)(this, r);
         };
       }
-      var m = (function (e) {
+      var m = (e => {
         Object(c.a)(r, e);
         var t = g(r);
         function r() {
@@ -4395,24 +4348,23 @@
           Object(i.a)(this, r);
           for (var n = arguments.length, o = new Array(n), a = 0; a < n; a++)
             o[a] = arguments[a];
-          return (
-            ((e = t.call.apply(t, [this].concat(o))).state = {
-              isLogin: !!e.props.showLoginFirst,
-            }),
-            (e.handleChangeAuth = function () {
-              e.setState(function (e) {
-                return { isLogin: !e.isLogin };
-              });
-            }),
-            (e.handleSubmit = function (t) {
-              t.error && e.props.onFailure(t),
-                t.user &&
-                  e.props.onSuccess(
-                    v(v({}, t), {}, { isLogin: e.state.isLogin })
-                  );
-            }),
-            e
-          );
+          return ((e = t.call.apply(t, [this].concat(o))).state = {
+            isLogin: !!e.props.showLoginFirst,
+          }),
+          (e.handleChangeAuth = () => {
+            e.setState(e => {
+              return { isLogin: !e.isLogin };
+            });
+          }),
+          (e.handleSubmit = t => {
+            t.error && e.props.onFailure(t),
+              t.user &&
+                e.props.onSuccess(
+                  v(v({}, t), {}, { isLogin: e.state.isLogin })
+                );
+          }),
+          e
+        ;
         }
         return Object(a.a)(r, [
           {

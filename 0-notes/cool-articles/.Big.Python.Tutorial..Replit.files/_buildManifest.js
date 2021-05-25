@@ -1,4 +1,4 @@
-self.__BUILD_MANIFEST = (function (
+self.__BUILD_MANIFEST = ((
   a,
   b,
   c,
@@ -36,7 +36,7 @@ self.__BUILD_MANIFEST = (function (
   I,
   J,
   K
-) {
+) => {
   return {
     __rewrites: { beforeFiles: [], afterFiles: [], fallback: [] },
     "/": [

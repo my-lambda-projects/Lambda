@@ -3,7 +3,7 @@
   {
     R84t(e, t, r) {
       "use strict";
-      r.d(t, "a", function () {
+      r.d(t, "a", () => {
         return s;
       });
       var n = r("cpVT"),
@@ -14,7 +14,7 @@
         if (Object.getOwnPropertySymbols) {
           var n = Object.getOwnPropertySymbols(e);
           t &&
-            (n = n.filter(function (t) {
+            (n = n.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             r.push.apply(r, n);
@@ -25,12 +25,12 @@
         for (var t = 1; t < arguments.length; t++) {
           var r = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? a(Object(r), !0).forEach(function (t) {
+            ? a(Object(r), !0).forEach(t => {
                 Object(n.a)(e, t, r[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r))
-            : a(Object(r)).forEach(function (t) {
+            : a(Object(r)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -57,10 +57,10 @@
     },
     hzRC(e, t, r) {
       "use strict";
-      r.d(t, "b", function () {
+      r.d(t, "b", () => {
         return N;
       }),
-        r.d(t, "a", function () {
+        r.d(t, "a", () => {
           return C;
         });
       var n = r("nKUr"),
@@ -84,7 +84,7 @@
         if ("undefined" === typeof Symbol || null == e[Symbol.iterator]) {
           if (
             Array.isArray(e) ||
-            (r = (function (e, t) {
+            (r = ((e, t) => {
               if (!e) return;
               if ("string" === typeof e) return x(e, t);
               var r = Object.prototype.toString.call(e).slice(8, -1);
@@ -100,7 +100,7 @@
           ) {
             r && (e = r);
             var n = 0,
-              o = function () {};
+              o = () => {};
             return {
               s: o,
               n() {
@@ -151,7 +151,7 @@
         if (Object.getOwnPropertySymbols) {
           var n = Object.getOwnPropertySymbols(e);
           t &&
-            (n = n.filter(function (t) {
+            (n = n.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             r.push.apply(r, n);
@@ -162,12 +162,12 @@
         for (var t = 1; t < arguments.length; t++) {
           var r = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? O(Object(r), !0).forEach(function (t) {
+            ? O(Object(r), !0).forEach(t => {
                 Object(o.a)(e, t, r[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r))
-            : O(Object(r)).forEach(function (t) {
+            : O(Object(r)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -193,25 +193,23 @@
           n = e.onOptionsChange,
           o = e.initialOptions,
           a = void 0 === o ? {} : o,
-          c = (function () {
+          c = (() => {
             var e = u.useState(null),
               t = Object(i.a)(e, 2),
               r = t[0],
               n = t[1];
-            return (
-              u.useEffect(function () {
-                var e = !0;
-                return (
-                  Object(j.a)().then(function (t) {
-                    e && n(t);
-                  }),
-                  function () {
-                    e = !1;
-                  }
-                );
-              }, []),
-              r
-            );
+            return u.useEffect(() => {
+              var e = !0;
+              return Object(j.a)().then(t => {
+                e && n(t);
+              }),
+              () => {
+                e = !1;
+              }
+            ;
+            }, []),
+            r
+          ;
           })(),
           s = u.useState(0),
           l = Object(i.a)(s, 2),
@@ -227,55 +225,55 @@
           C = E[1],
           D = u.useRef(a);
         u.useEffect(
-          function () {
+          () => {
             D.current = a;
           },
           [a]
         );
         var M = u.useRef(t);
         u.useEffect(
-          function () {
+          () => {
             M.current = t;
           },
           [t]
         );
         var _ = u.useRef(r);
         u.useEffect(
-          function () {
+          () => {
             _.current = r;
           },
           [r]
         );
         var T = u.useRef(n);
         u.useEffect(
-          function () {
+          () => {
             T.current = n;
           },
           [n]
         );
-        var R = u.useCallback(function (e) {
+        var R = u.useCallback(e => {
             null !== e && S(e);
           }, []),
           I = Object(g.a)(
-            function (e) {
+            e => {
               return f(e.width || 0);
             },
             { type: "throttle", wait: 100 }
           );
         return u.useEffect(
-          function () {
+          () => {
             N && N.resize();
           },
           [d, N]
         ),
         u.useEffect(
-          function () {
+          () => {
             O && I(O);
           },
           [O, I]
         ),
         u.useLayoutEffect(
-          function () {
+          () => {
             if (c && O) {
               var e = c.edit(O);
               e.renderer.setHScrollBarAlwaysVisible(!1),
@@ -303,7 +301,7 @@
                 { silent: !0 }
               );
               var t = !1;
-              e.on("change", function (r) {
+              e.on("change", r => {
                 if (M.current && !t) {
                   var n = e
                       .getSession()
@@ -320,7 +318,7 @@
               }),
                 e.on(
                   "changeSelection",
-                  m()(function () {
+                  m()(() => {
                     if (_.current && e.isFocused()) {
                       var t = e.getSession(),
                         r = e.getSelection(),
@@ -349,10 +347,10 @@
                     }
                   }, 200)
                 ),
-                e.on("blur", function () {
+                e.on("blur", () => {
                   _.current && _.current(null);
                 });
-              var r = function (t) {
+              var r = t => {
                 var r = e.getSession(),
                   n = r.getDocument(),
                   o = t.indexStart,
@@ -370,7 +368,7 @@
                     r.documentToScreenPosition(f)
                   );
                 if (p.isEmpty())
-                  return function () {
+                  return () => {
                     return null;
                   };
                 var m = r.addDynamicMarker({
@@ -380,7 +378,7 @@
                       : t.drawSingleLineMarker(e, p, s, t.config, 0, l);
                   },
                 });
-                return function () {
+                return () => {
                   r.removeMarker(m.id);
                 };
               };
@@ -430,12 +428,11 @@
                   return k(e.getOptions());
                 },
                 addCommand(t) {
-                  return (
-                    e.commands.addCommand(t),
-                    function () {
-                      e.commands.removeCommand(t);
-                    }
-                  );
+                  return e.commands.addCommand(t),
+                  () => {
+                    e.commands.removeCommand(t);
+                  }
+                ;
                 },
                 removeCommand(t) {
                   e.commands.removeCommand(t);
@@ -444,7 +441,7 @@
                   var n = e.getSession(),
                     o = n.getMarkers();
                   o &&
-                    Object.values(o).forEach(function (e) {
+                    Object.values(o).forEach(e => {
                       return n.removeMarker(e.id);
                     }),
                     t.forEach(r);
@@ -456,11 +453,10 @@
                   return e.renderer;
                 },
               }),
-              function () {
+              () => {
                 var t = c.require("ace/edit_session").EditSession;
                 e.setSession(new t("")), e.destroy(), C(null);
-              }
-            ;
+              };
             }
             function n(t) {
               var r =
@@ -474,15 +470,14 @@
           },
           [c, O]
         ),
-        [N, R]
-      ;
+        [N, R];
       }
       function P(e, t) {
         var r = Object.keys(e);
         if (Object.getOwnPropertySymbols) {
           var n = Object.getOwnPropertySymbols(e);
           t &&
-            (n = n.filter(function (t) {
+            (n = n.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             r.push.apply(r, n);
@@ -493,12 +488,12 @@
         for (var t = 1; t < arguments.length; t++) {
           var r = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? P(Object(r), !0).forEach(function (t) {
+            ? P(Object(r), !0).forEach(t => {
                 Object(o.a)(e, t, r[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r))
-            : P(Object(r)).forEach(function (t) {
+            : P(Object(r)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -537,56 +532,54 @@
           h = Object(i.a)(j, 2),
           b = h[0],
           g = h[1];
-        return (
-          u.useEffect(
-            function () {
-              if (r)
-                return (
-                  r(b),
-                  function () {
-                    r(null);
-                  }
-                );
-            },
-            [r, b]
-          ),
-          Object(n.jsxs)("div", {
-            className:
-              "jsx-3040802251 " + (f()("editor", { "is-read-only": p }) || ""),
-            children: [
-              Object(n.jsx)(D, { ref: g }),
-              !b || o
-                ? Object(n.jsx)("div", {
-                    className: "jsx-3040802251 loader",
-                    children: Object(n.jsx)(C, {}),
-                  })
-                : null,
-              Object(n.jsx)(s.a, {
-                id: "3738224526",
-                children: [
-                  ".editor.jsx-3040802251{position:relative;height:100%;width:100%;}",
-                  ".loader.jsx-3040802251{position:absolute;left:0;top:0;height:100%;width:100%;overflow:hidden;z-index:5;}",
-                  ".editor.is-read-only.jsx-3040802251 .ace_cursor{opacity:0 !important;}",
-                  ".editor.jsx-3040802251 .ace_content{line-height:1;}",
-                ],
-              }),
-              Object(n.jsx)(s.a, {
-                id: "2666048492",
-                children: [
-                  ".ace_editor{background-color:var(--color-background-1);border-radius:var(--border-radius-1);font-family:var(--font-family-monospace) !important;}",
-                  ".ace_content{background-color:var(--color-background-1) !important;}",
-                  ".ace_gutter{background-color:var(--color-background-1) !important;color:var(--color-foreground-3) !important;}",
-                  ".ace_gutter-cell{padding-right:var(--spacing-3) !important;padding-left:var(--spacing-1) !important;}",
-                  ".ace_placeholder{color:var(--color-foreground-1) !important;font-family:var(--font-family-monospace) !important;font-size:var(--font-size-desktop-text-small) !important;line-height:1 !important;-webkit-transform:none !important;-ms-transform:none !important;transform:none !important;}",
-                  ".ace-dracula .ace_marker-layer .ace_active-line{opacity:0.4;}",
-                  ".ace_gutter-active-line{background-color:transparent !important;}",
-                  ".ace_fold{background:var(--color-primary-transparent-1) !important;border:1px solid var(--color-primary-1) !important;border-radius:var(--border-radius-2) !important;-webkit-transition:-webkit-transform 0.1s;-webkit-transition:transform 0.1s;transition:transform 0.1s;}",
-                  ".ace_fold:hover{-webkit-transform:scale(1.1);-ms-transform:scale(1.1);transform:scale(1.1);}",
-                ],
-              }),
-            ],
-          })
-        );
+        return u.useEffect(
+          () => {
+            if (r)
+              return r(b),
+              () => {
+                r(null);
+              }
+            ;
+          },
+          [r, b]
+        ),
+        Object(n.jsxs)("div", {
+          className:
+            "jsx-3040802251 " + (f()("editor", { "is-read-only": p }) || ""),
+          children: [
+            Object(n.jsx)(D, { ref: g }),
+            !b || o
+              ? Object(n.jsx)("div", {
+                  className: "jsx-3040802251 loader",
+                  children: Object(n.jsx)(C, {}),
+                })
+              : null,
+            Object(n.jsx)(s.a, {
+              id: "3738224526",
+              children: [
+                ".editor.jsx-3040802251{position:relative;height:100%;width:100%;}",
+                ".loader.jsx-3040802251{position:absolute;left:0;top:0;height:100%;width:100%;overflow:hidden;z-index:5;}",
+                ".editor.is-read-only.jsx-3040802251 .ace_cursor{opacity:0 !important;}",
+                ".editor.jsx-3040802251 .ace_content{line-height:1;}",
+              ],
+            }),
+            Object(n.jsx)(s.a, {
+              id: "2666048492",
+              children: [
+                ".ace_editor{background-color:var(--color-background-1);border-radius:var(--border-radius-1);font-family:var(--font-family-monospace) !important;}",
+                ".ace_content{background-color:var(--color-background-1) !important;}",
+                ".ace_gutter{background-color:var(--color-background-1) !important;color:var(--color-foreground-3) !important;}",
+                ".ace_gutter-cell{padding-right:var(--spacing-3) !important;padding-left:var(--spacing-1) !important;}",
+                ".ace_placeholder{color:var(--color-foreground-1) !important;font-family:var(--font-family-monospace) !important;font-size:var(--font-size-desktop-text-small) !important;line-height:1 !important;-webkit-transform:none !important;-ms-transform:none !important;transform:none !important;}",
+                ".ace-dracula .ace_marker-layer .ace_active-line{opacity:0.4;}",
+                ".ace_gutter-active-line{background-color:transparent !important;}",
+                ".ace_fold{background:var(--color-primary-transparent-1) !important;border:1px solid var(--color-primary-1) !important;border-radius:var(--border-radius-2) !important;-webkit-transition:-webkit-transform 0.1s;-webkit-transition:transform 0.1s;transition:transform 0.1s;}",
+                ".ace_fold:hover{-webkit-transform:scale(1.1);-ms-transform:scale(1.1);transform:scale(1.1);}",
+              ],
+            }),
+          ],
+        })
+      ;
       }
       function C() {
         return Object(n.jsxs)("div", {
@@ -747,7 +740,7 @@
           ],
         });
       }
-      var D = u.forwardRef(function (e, t) {
+      var D = u.forwardRef((e, t) => {
         return Object(n.jsx)(
           "div",
           E(

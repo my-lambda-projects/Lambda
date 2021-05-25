@@ -28,16 +28,16 @@
           ? e.utf8Write(t, r)
           : e.write(t, r);
       }
-      (o._configure = function () {
+      (o._configure = () => {
         (o.alloc = i._Buffer_allocUnsafe),
           (o.writeBytesBuffer =
             i.Buffer &&
             i.Buffer.prototype instanceof Uint8Array &&
             "set" === i.Buffer.prototype.set.name
-              ? function (t, e, r) {
+              ? (t, e, r) => {
                   e.set(t, r);
                 }
-              : function (t, e, r) {
+              : (t, e, r) => {
                   if (t.copy) t.copy(e, r, 0, t.length);
                   else for (var n = 0; n < t.length; ) e[r++] = t[n++];
                 });
@@ -59,9 +59,9 @@
       var r = {}.toString;
       t.exports =
         Array.isArray ||
-        function (t) {
+        (t => {
           return "[object Array]" == r.call(t);
-        };
+        });
     },
     "6Tgl": function (t, e, r) {
       "use strict";
@@ -123,19 +123,19 @@
           (n.emptyObject = Object.freeze ? Object.freeze({}) : {}),
           (n.isInteger =
             Number.isInteger ||
-            function (t) {
+            (t => {
               return (
                 "number" === typeof t && isFinite(t) && Math.floor(t) === t
               );
-            }),
-          (n.isString = function (t) {
+            })),
+          (n.isString = t => {
             return "string" === typeof t || t instanceof String;
           }),
-          (n.isObject = function (t) {
+          (n.isObject = t => {
             return t && "object" === typeof t;
           }),
           (n.isset = n.isSet =
-            function (t, e) {
+            (t, e) => {
               var r = t[e];
               return (
                 !(null == r || !t.hasOwnProperty(e)) &&
@@ -143,7 +143,7 @@
                   (Array.isArray(r) ? r.length : Object.keys(r).length) > 0)
               );
             }),
-          (n.Buffer = (function () {
+          (n.Buffer = (() => {
             try {
               var t = n.inquire("buffer").Buffer;
               return t.prototype.utf8Write ? t : null;
@@ -153,7 +153,7 @@
           })()),
           (n._Buffer_from = null),
           (n._Buffer_allocUnsafe = null),
-          (n.newBuffer = function (t) {
+          (n.newBuffer = t => {
             return "number" === typeof t
               ? n.Buffer
                 ? n._Buffer_allocUnsafe(t)
@@ -172,22 +172,22 @@
           (n.key2Re = /^true|false|0|1$/),
           (n.key32Re = /^-?(?:0|[1-9][0-9]*)$/),
           (n.key64Re = /^(?:[\\x00-\\xff]{8}|-?(?:0|[1-9][0-9]*))$/),
-          (n.longToHash = function (t) {
+          (n.longToHash = t => {
             return t ? n.LongBits.from(t).toHash() : n.LongBits.zeroHash;
           }),
-          (n.longFromHash = function (t, e) {
+          (n.longFromHash = (t, e) => {
             var r = n.LongBits.fromHash(t);
             return n.Long
               ? n.Long.fromBits(r.lo, r.hi, e)
               : r.toNumber(Boolean(e));
           }),
           (n.merge = i),
-          (n.lcFirst = function (t) {
+          (n.lcFirst = t => {
             return t.charAt(0).toLowerCase() + t.substring(1);
           }),
           (n.newError = o),
           (n.ProtocolError = o("ProtocolError")),
-          (n.oneOfGetter = function (t) {
+          (n.oneOfGetter = t => {
             for (var e = {}, r = 0; r < t.length; ++r) e[t[r]] = 1;
             return function () {
               for (var t = Object.keys(this), r = t.length - 1; r > -1; --r)
@@ -199,7 +199,7 @@
                   return t[r];
             };
           }),
-          (n.oneOfSetter = function (t) {
+          (n.oneOfSetter = t => {
             return function (e) {
               for (var r = 0; r < t.length; ++r)
                 t[r] !== e && delete this[t[r]];
@@ -211,26 +211,26 @@
             bytes: String,
             json: !0,
           }),
-          (n._configure = function () {
+          (n._configure = () => {
             var t = n.Buffer;
             t
               ? ((n._Buffer_from =
                   (t.from !== Uint8Array.from && t.from) ||
-                  function (e, r) {
+                  ((e, r) => {
                     return new t(e, r);
-                  }),
+                  })),
                 (n._Buffer_allocUnsafe =
                   t.allocUnsafe ||
-                  function (e) {
+                  (e => {
                     return new t(e);
-                  }))
+                  })))
               : (n._Buffer_from = n._Buffer_allocUnsafe = null);
           });
       }.call(this, r("ntbh")));
     },
     "7jRU": function (t, e) {
       var r = [].indexOf;
-      t.exports = function (t, e) {
+      t.exports = (t, e) => {
         if (r) return t.indexOf(e);
         for (var n = 0; n < t.length; ++n) if (t[n] === e) return n;
         return -1;
@@ -263,7 +263,7 @@
       }
       for (; u < 64; u++) o[i[u]] = u;
       (a.encode = f),
-        (a.decode = function (t) {
+        (a.decode = t => {
           var e = 0;
           for (u = 0; u < t.length; u++) e = 64 * e + o[t.charAt(u)];
           return e;
@@ -272,12 +272,12 @@
     },
     BEY9(t, e, r) {
       "use strict";
-      t.exports = function (t, e, r) {
+      t.exports = (t, e, r) => {
         var n = r || 8192,
           i = n >>> 1,
           o = null,
           s = n;
-        return function (r) {
+        return r => {
           if (r < 1 || r > i) return t(r);
           s + r > n && ((o = t(n)), (s = 0));
           var u = e.call(o, s, (s += r));
@@ -313,14 +313,14 @@
           (this.tail = this.head),
           (this.states = null);
       }
-      var l = function () {
+      var l = () => {
         return i.Buffer
-          ? function () {
-              return (h.create = function () {
+          ? () => {
+              return (h.create = () => {
                 return new n();
               })();
             }
-          : function () {
+          : () => {
               return new h();
             };
       };
@@ -345,7 +345,7 @@
           (e[r + 3] = t >>> 24);
       }
       (h.create = l()),
-        (h.alloc = function (t) {
+        (h.alloc = t => {
           return new i.Array(t);
         }),
         i.Array !== Array &&
@@ -356,7 +356,7 @@
           );
         }),
         (y.prototype = Object.create(f.prototype)),
-        (y.prototype.fn = function (t, e, r) {
+        (y.prototype.fn = (t, e, r) => {
           for (; t > 127; ) (e[r++] = (127 & t) | 128), (t >>>= 7);
           e[r] = t;
         }),
@@ -412,10 +412,10 @@
           return this._push(i.float.writeDoubleLE, 8, t);
         });
       var g = i.Array.prototype.set
-        ? function (t, e, r) {
+        ? (t, e, r) => {
             e.set(t, r);
           }
-        : function (t, e, r) {
+        : (t, e, r) => {
             for (var n = 0; n < t.length; ++n) e[r + n] = t[n];
           };
       (h.prototype.bytes = function (t) {
@@ -469,7 +469,7 @@
             t.fn(t.val, e, r), (r += t.len), (t = t.next);
           return e;
         }),
-        (h._configure = function (t) {
+        (h._configure = t => {
           (n = t), (h.create = l()), n._configure();
         });
     },
@@ -485,12 +485,12 @@
             ? Math.floor(t / e) + " " + r
             : Math.ceil(t / e) + " " + r + "s";
       }
-      t.exports = function (t, e) {
+      t.exports = (t, e) => {
         e = e || {};
         var f,
           a = typeof t;
         if ("string" === a && t.length > 0)
-          return (function (t) {
+          return (t => {
             if ((t = String(t)).length > 100) return;
             var e =
               /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(
@@ -538,13 +538,11 @@
             }
           })(t);
         if ("number" === a && !1 === isNaN(t))
-          return e.long
-            ? u((f = t), o, "day") ||
+          return e.long ? u((f = t), o, "day") ||
                 u(f, i, "hour") ||
                 u(f, n, "minute") ||
                 u(f, r, "second") ||
-                f + " ms"
-            : (function (t) {
+                f + " ms" : (t => {
                 if (t >= o) return Math.round(t / o) + "d";
                 if (t >= i) return Math.round(t / i) + "h";
                 if (t >= n) return Math.round(t / n) + "m";
@@ -574,19 +572,19 @@
       }
       var a =
           "undefined" !== typeof Uint8Array
-            ? function (t) {
+            ? t => {
                 if (t instanceof Uint8Array || Array.isArray(t))
                   return new f(t);
                 throw Error("illegal buffer");
               }
-            : function (t) {
+            : t => {
                 if (Array.isArray(t)) return new f(t);
                 throw Error("illegal buffer");
               },
-        c = function () {
+        c = () => {
           return i.Buffer
-            ? function (t) {
-                return (f.create = function (t) {
+            ? t => {
+                return (f.create = t => {
                   return i.Buffer.isBuffer(t) ? new n(t) : a(t);
                 })(t);
               }
@@ -656,7 +654,7 @@
       (f.create = c()),
         (f.prototype._slice =
           i.Array.prototype.subarray || i.Array.prototype.slice),
-        (f.prototype.uint32 = (function () {
+        (f.prototype.uint32 = (() => {
           var t = 4294967295;
           return function () {
             if (
@@ -767,7 +765,7 @@
           }
           return this;
         }),
-        (f._configure = function (t) {
+        (f._configure = t => {
           (n = t), (f.create = c()), n._configure();
           var e = i.Long ? "toLong" : "toNumber";
           i.merge(f.prototype, {
@@ -792,205 +790,200 @@
     KwGI(t, e, r) {
       "use strict";
       function n(t) {
-        return (
-          "undefined" !== typeof Float32Array
-            ? (function () {
-                var e = new Float32Array([-0]),
-                  r = new Uint8Array(e.buffer),
-                  n = 128 === r[3];
-                function i(t, n, i) {
-                  (e[0] = t),
-                    (n[i] = r[0]),
-                    (n[i + 1] = r[1]),
-                    (n[i + 2] = r[2]),
-                    (n[i + 3] = r[3]);
-                }
-                function o(t, n, i) {
-                  (e[0] = t),
-                    (n[i] = r[3]),
-                    (n[i + 1] = r[2]),
-                    (n[i + 2] = r[1]),
-                    (n[i + 3] = r[0]);
-                }
-                function s(t, n) {
-                  return (
-                    (r[0] = t[n]),
-                    (r[1] = t[n + 1]),
-                    (r[2] = t[n + 2]),
-                    (r[3] = t[n + 3]),
-                    e[0]
+        return "undefined" !== typeof Float32Array ? (() => {
+              var e = new Float32Array([-0]),
+                r = new Uint8Array(e.buffer),
+                n = 128 === r[3];
+              function i(t, n, i) {
+                (e[0] = t),
+                  (n[i] = r[0]),
+                  (n[i + 1] = r[1]),
+                  (n[i + 2] = r[2]),
+                  (n[i + 3] = r[3]);
+              }
+              function o(t, n, i) {
+                (e[0] = t),
+                  (n[i] = r[3]),
+                  (n[i + 1] = r[2]),
+                  (n[i + 2] = r[1]),
+                  (n[i + 3] = r[0]);
+              }
+              function s(t, n) {
+                return (
+                  (r[0] = t[n]),
+                  (r[1] = t[n + 1]),
+                  (r[2] = t[n + 2]),
+                  (r[3] = t[n + 3]),
+                  e[0]
+                );
+              }
+              function u(t, n) {
+                return (
+                  (r[3] = t[n]),
+                  (r[2] = t[n + 1]),
+                  (r[1] = t[n + 2]),
+                  (r[0] = t[n + 3]),
+                  e[0]
+                );
+              }
+              (t.writeFloatLE = n ? i : o),
+                (t.writeFloatBE = n ? o : i),
+                (t.readFloatLE = n ? s : u),
+                (t.readFloatBE = n ? u : s);
+            })() : (() => {
+              function e(t, e, r, n) {
+                var i = e < 0 ? 1 : 0;
+                if ((i && (e = -e), 0 === e))
+                  t(1 / e > 0 ? 0 : 2147483648, r, n);
+                else if (isNaN(e)) t(2143289344, r, n);
+                else if (e > 34028234663852886e22)
+                  t(((i << 31) | 2139095040) >>> 0, r, n);
+                else if (e < 11754943508222875e-54)
+                  t(
+                    ((i << 31) | Math.round(e / 1401298464324817e-60)) >>> 0,
+                    r,
+                    n
+                  );
+                else {
+                  var o = Math.floor(Math.log(e) / Math.LN2);
+                  t(
+                    ((i << 31) |
+                      ((o + 127) << 23) |
+                      (8388607 &
+                        Math.round(e * Math.pow(2, -o) * 8388608))) >>>
+                      0,
+                    r,
+                    n
                   );
                 }
-                function u(t, n) {
-                  return (
-                    (r[3] = t[n]),
-                    (r[2] = t[n + 1]),
-                    (r[1] = t[n + 2]),
-                    (r[0] = t[n + 3]),
-                    e[0]
-                  );
-                }
-                (t.writeFloatLE = n ? i : o),
-                  (t.writeFloatBE = n ? o : i),
-                  (t.readFloatLE = n ? s : u),
-                  (t.readFloatBE = n ? u : s);
-              })()
-            : (function () {
-                function e(t, e, r, n) {
-                  var i = e < 0 ? 1 : 0;
-                  if ((i && (e = -e), 0 === e))
-                    t(1 / e > 0 ? 0 : 2147483648, r, n);
-                  else if (isNaN(e)) t(2143289344, r, n);
-                  else if (e > 34028234663852886e22)
-                    t(((i << 31) | 2139095040) >>> 0, r, n);
-                  else if (e < 11754943508222875e-54)
-                    t(
-                      ((i << 31) | Math.round(e / 1401298464324817e-60)) >>> 0,
-                      r,
-                      n
-                    );
+              }
+              function r(t, e, r) {
+                var n = t(e, r),
+                  i = 2 * (n >> 31) + 1,
+                  o = (n >>> 23) & 255,
+                  s = 8388607 & n;
+                return 255 === o
+                  ? s
+                    ? NaN
+                    : i * (1 / 0)
+                  : 0 === o
+                  ? 1401298464324817e-60 * i * s
+                  : i * Math.pow(2, o - 150) * (s + 8388608);
+              }
+              (t.writeFloatLE = e.bind(null, i)),
+                (t.writeFloatBE = e.bind(null, o)),
+                (t.readFloatLE = r.bind(null, s)),
+                (t.readFloatBE = r.bind(null, u));
+            })(),
+        "undefined" !== typeof Float64Array ? (() => {
+              var e = new Float64Array([-0]),
+                r = new Uint8Array(e.buffer),
+                n = 128 === r[7];
+              function i(t, n, i) {
+                (e[0] = t),
+                  (n[i] = r[0]),
+                  (n[i + 1] = r[1]),
+                  (n[i + 2] = r[2]),
+                  (n[i + 3] = r[3]),
+                  (n[i + 4] = r[4]),
+                  (n[i + 5] = r[5]),
+                  (n[i + 6] = r[6]),
+                  (n[i + 7] = r[7]);
+              }
+              function o(t, n, i) {
+                (e[0] = t),
+                  (n[i] = r[7]),
+                  (n[i + 1] = r[6]),
+                  (n[i + 2] = r[5]),
+                  (n[i + 3] = r[4]),
+                  (n[i + 4] = r[3]),
+                  (n[i + 5] = r[2]),
+                  (n[i + 6] = r[1]),
+                  (n[i + 7] = r[0]);
+              }
+              function s(t, n) {
+                return (
+                  (r[0] = t[n]),
+                  (r[1] = t[n + 1]),
+                  (r[2] = t[n + 2]),
+                  (r[3] = t[n + 3]),
+                  (r[4] = t[n + 4]),
+                  (r[5] = t[n + 5]),
+                  (r[6] = t[n + 6]),
+                  (r[7] = t[n + 7]),
+                  e[0]
+                );
+              }
+              function u(t, n) {
+                return (
+                  (r[7] = t[n]),
+                  (r[6] = t[n + 1]),
+                  (r[5] = t[n + 2]),
+                  (r[4] = t[n + 3]),
+                  (r[3] = t[n + 4]),
+                  (r[2] = t[n + 5]),
+                  (r[1] = t[n + 6]),
+                  (r[0] = t[n + 7]),
+                  e[0]
+                );
+              }
+              (t.writeDoubleLE = n ? i : o),
+                (t.writeDoubleBE = n ? o : i),
+                (t.readDoubleLE = n ? s : u),
+                (t.readDoubleBE = n ? u : s);
+            })() : (() => {
+              function e(t, e, r, n, i, o) {
+                var s = n < 0 ? 1 : 0;
+                if ((s && (n = -n), 0 === n))
+                  t(0, i, o + e), t(1 / n > 0 ? 0 : 2147483648, i, o + r);
+                else if (isNaN(n)) t(0, i, o + e), t(2146959360, i, o + r);
+                else if (n > 17976931348623157e292)
+                  t(0, i, o + e), t(((s << 31) | 2146435072) >>> 0, i, o + r);
+                else {
+                  var u;
+                  if (n < 22250738585072014e-324)
+                    t((u = n / 5e-324) >>> 0, i, o + e),
+                      t(((s << 31) | (u / 4294967296)) >>> 0, i, o + r);
                   else {
-                    var o = Math.floor(Math.log(e) / Math.LN2);
-                    t(
-                      ((i << 31) |
-                        ((o + 127) << 23) |
-                        (8388607 &
-                          Math.round(e * Math.pow(2, -o) * 8388608))) >>>
-                        0,
-                      r,
-                      n
-                    );
+                    var f = Math.floor(Math.log(n) / Math.LN2);
+                    1024 === f && (f = 1023),
+                      t(
+                        (4503599627370496 * (u = n * Math.pow(2, -f))) >>> 0,
+                        i,
+                        o + e
+                      ),
+                      t(
+                        ((s << 31) |
+                          ((f + 1023) << 20) |
+                          ((1048576 * u) & 1048575)) >>>
+                          0,
+                        i,
+                        o + r
+                      );
                   }
                 }
-                function r(t, e, r) {
-                  var n = t(e, r),
-                    i = 2 * (n >> 31) + 1,
-                    o = (n >>> 23) & 255,
-                    s = 8388607 & n;
-                  return 255 === o
-                    ? s
-                      ? NaN
-                      : i * (1 / 0)
-                    : 0 === o
-                    ? 1401298464324817e-60 * i * s
-                    : i * Math.pow(2, o - 150) * (s + 8388608);
-                }
-                (t.writeFloatLE = e.bind(null, i)),
-                  (t.writeFloatBE = e.bind(null, o)),
-                  (t.readFloatLE = r.bind(null, s)),
-                  (t.readFloatBE = r.bind(null, u));
-              })(),
-          "undefined" !== typeof Float64Array
-            ? (function () {
-                var e = new Float64Array([-0]),
-                  r = new Uint8Array(e.buffer),
-                  n = 128 === r[7];
-                function i(t, n, i) {
-                  (e[0] = t),
-                    (n[i] = r[0]),
-                    (n[i + 1] = r[1]),
-                    (n[i + 2] = r[2]),
-                    (n[i + 3] = r[3]),
-                    (n[i + 4] = r[4]),
-                    (n[i + 5] = r[5]),
-                    (n[i + 6] = r[6]),
-                    (n[i + 7] = r[7]);
-                }
-                function o(t, n, i) {
-                  (e[0] = t),
-                    (n[i] = r[7]),
-                    (n[i + 1] = r[6]),
-                    (n[i + 2] = r[5]),
-                    (n[i + 3] = r[4]),
-                    (n[i + 4] = r[3]),
-                    (n[i + 5] = r[2]),
-                    (n[i + 6] = r[1]),
-                    (n[i + 7] = r[0]);
-                }
-                function s(t, n) {
-                  return (
-                    (r[0] = t[n]),
-                    (r[1] = t[n + 1]),
-                    (r[2] = t[n + 2]),
-                    (r[3] = t[n + 3]),
-                    (r[4] = t[n + 4]),
-                    (r[5] = t[n + 5]),
-                    (r[6] = t[n + 6]),
-                    (r[7] = t[n + 7]),
-                    e[0]
-                  );
-                }
-                function u(t, n) {
-                  return (
-                    (r[7] = t[n]),
-                    (r[6] = t[n + 1]),
-                    (r[5] = t[n + 2]),
-                    (r[4] = t[n + 3]),
-                    (r[3] = t[n + 4]),
-                    (r[2] = t[n + 5]),
-                    (r[1] = t[n + 6]),
-                    (r[0] = t[n + 7]),
-                    e[0]
-                  );
-                }
-                (t.writeDoubleLE = n ? i : o),
-                  (t.writeDoubleBE = n ? o : i),
-                  (t.readDoubleLE = n ? s : u),
-                  (t.readDoubleBE = n ? u : s);
-              })()
-            : (function () {
-                function e(t, e, r, n, i, o) {
-                  var s = n < 0 ? 1 : 0;
-                  if ((s && (n = -n), 0 === n))
-                    t(0, i, o + e), t(1 / n > 0 ? 0 : 2147483648, i, o + r);
-                  else if (isNaN(n)) t(0, i, o + e), t(2146959360, i, o + r);
-                  else if (n > 17976931348623157e292)
-                    t(0, i, o + e), t(((s << 31) | 2146435072) >>> 0, i, o + r);
-                  else {
-                    var u;
-                    if (n < 22250738585072014e-324)
-                      t((u = n / 5e-324) >>> 0, i, o + e),
-                        t(((s << 31) | (u / 4294967296)) >>> 0, i, o + r);
-                    else {
-                      var f = Math.floor(Math.log(n) / Math.LN2);
-                      1024 === f && (f = 1023),
-                        t(
-                          (4503599627370496 * (u = n * Math.pow(2, -f))) >>> 0,
-                          i,
-                          o + e
-                        ),
-                        t(
-                          ((s << 31) |
-                            ((f + 1023) << 20) |
-                            ((1048576 * u) & 1048575)) >>>
-                            0,
-                          i,
-                          o + r
-                        );
-                    }
-                  }
-                }
-                function r(t, e, r, n, i) {
-                  var o = t(n, i + e),
-                    s = t(n, i + r),
-                    u = 2 * (s >> 31) + 1,
-                    f = (s >>> 20) & 2047,
-                    a = 4294967296 * (1048575 & s) + o;
-                  return 2047 === f
-                    ? a
-                      ? NaN
-                      : u * (1 / 0)
-                    : 0 === f
-                    ? 5e-324 * u * a
-                    : u * Math.pow(2, f - 1075) * (a + 4503599627370496);
-                }
-                (t.writeDoubleLE = e.bind(null, i, 0, 4)),
-                  (t.writeDoubleBE = e.bind(null, o, 4, 0)),
-                  (t.readDoubleLE = r.bind(null, s, 0, 4)),
-                  (t.readDoubleBE = r.bind(null, u, 4, 0));
-              })(),
-          t
-        );
+              }
+              function r(t, e, r, n, i) {
+                var o = t(n, i + e),
+                  s = t(n, i + r),
+                  u = 2 * (s >> 31) + 1,
+                  f = (s >>> 20) & 2047,
+                  a = 4294967296 * (1048575 & s) + o;
+                return 2047 === f
+                  ? a
+                    ? NaN
+                    : u * (1 / 0)
+                  : 0 === f
+                  ? 5e-324 * u * a
+                  : u * Math.pow(2, f - 1075) * (a + 4503599627370496);
+              }
+              (t.writeDoubleLE = e.bind(null, i, 0, 4)),
+                (t.writeDoubleBE = e.bind(null, o, 4, 0)),
+                (t.readDoubleLE = r.bind(null, s, 0, 4)),
+                (t.readDoubleBE = r.bind(null, u, 4, 0));
+            })(),
+        t
+      ;
       }
       function i(t, e, r) {
         (e[r] = 255 & t),
@@ -1024,7 +1017,7 @@
           i = 2,
           o = !0;
         for (; i < arguments.length; ) r[n++] = arguments[i++];
-        return new Promise(function (i, s) {
+        return new Promise((i, s) => {
           r[n] = function (t) {
             if (o)
               if (((o = !1), t)) s(t);
@@ -1048,7 +1041,7 @@
     },
     TjQ3(t, e, r) {
       "use strict";
-      r.d(e, "a", function () {
+      r.d(e, "a", () => {
         return y;
       });
       var n = r("vJKn"),
@@ -1064,7 +1057,7 @@
         if (Object.getOwnPropertySymbols) {
           var n = Object.getOwnPropertySymbols(t);
           e &&
-            (n = n.filter(function (e) {
+            (n = n.filter(e => {
               return Object.getOwnPropertyDescriptor(t, e).enumerable;
             })),
             r.push.apply(r, n);
@@ -1075,12 +1068,12 @@
         for (var e = 1; e < arguments.length; e++) {
           var r = null != arguments[e] ? arguments[e] : {};
           e % 2
-            ? h(Object(r), !0).forEach(function (e) {
+            ? h(Object(r), !0).forEach(e => {
                 Object(o.a)(t, e, r[e]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(r))
-            : h(Object(r)).forEach(function (e) {
+            : h(Object(r)).forEach(e => {
                 Object.defineProperty(
                   t,
                   e,
@@ -1100,7 +1093,7 @@
           i.a.mark(function t(e) {
             var r, n, o, u, f, h, y, d;
             return i.a.wrap(
-              function (t) {
+              t => {
                 for (;;)
                   switch ((t.prev = t.next)) {
                     case 0:
@@ -1191,7 +1184,7 @@
       t.exports = r("bDA7");
     },
     WLGk(t, e, r) {
-      (function (e) {
+      ((e => {
         var n = r("6C75"),
           i = Object.prototype.toString,
           o =
@@ -1226,11 +1219,11 @@
               return !0;
           return !1;
         };
-      }.call(this, r("HDXh").Buffer));
+      }).call(this, r("HDXh").Buffer));
     },
     Yvos(t, e) {
-      t.exports = function (t, e) {
-        var r = function () {};
+      t.exports = (t, e) => {
+        var r = () => {};
         (r.prototype = e.prototype),
           (t.prototype = new r()),
           (t.prototype.constructor = t);
@@ -1334,7 +1327,7 @@
             s < 26 ? s + 65 : s < 52 ? s + 71 : s < 62 ? s - 4 : (s - 59) | 43)
         ] = s++;
       var u = "invalid encoding";
-      (n.decode = function (t, e, r) {
+      (n.decode = (t, e, r) => {
         for (var n, i = r, s = 0, f = 0; f < t.length; ) {
           var a = t.charCodeAt(f++);
           if (61 === a && s > 1) break;
@@ -1356,7 +1349,7 @@
         if (1 === s) throw Error(u);
         return r - i;
       }),
-        (n.test = function (t) {
+        (n.test = t => {
           return /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(
             t
           );
@@ -1386,7 +1379,7 @@
                 r[u.requestDelimited ? "encodeDelimited" : "encode"](
                   o
                 ).finish(),
-                function (t, r) {
+                (t, r) => {
                   if (t) return u.emit("error", t, e), s(t);
                   if (null !== r) {
                     if (!(r instanceof i))
@@ -1404,15 +1397,14 @@
                 }
               );
             } catch (f) {
-              return (
-                u.emit("error", f, e),
-                void setTimeout(function () {
-                  s(f);
-                }, 0)
-              );
+              return u.emit("error", f, e),
+              void setTimeout(() => {
+                s(f);
+              }, 0)
+            ;
             }
           else
-            setTimeout(function () {
+            setTimeout(() => {
               s(Error("already ended"));
             }, 0);
         }),
@@ -1435,7 +1427,7 @@
       function o(t) {
         n.call(this, t);
       }
-      (o._configure = function () {
+      (o._configure = () => {
         i.Buffer && (o.prototype._slice = i.Buffer.prototype.slice);
       }),
         (o.prototype.string = function () {
@@ -1461,18 +1453,18 @@
         (this.lo = t >>> 0), (this.hi = e >>> 0);
       }
       var o = (i.zero = new i(0, 0));
-      (o.toNumber = function () {
+      (o.toNumber = () => {
         return 0;
       }),
         (o.zzEncode = o.zzDecode =
           function () {
             return this;
           }),
-        (o.length = function () {
+        (o.length = () => {
           return 1;
         });
       var s = (i.zeroHash = "\0\0\0\0\0\0\0\0");
-      (i.fromNumber = function (t) {
+      (i.fromNumber = t => {
         if (0 === t) return o;
         var e = t < 0;
         e && (t = -t);
@@ -1486,7 +1478,7 @@
           new i(r, n)
         );
       }),
-        (i.from = function (t) {
+        (i.from = t => {
           if ("number" === typeof t) return i.fromNumber(t);
           if (n.isString(t)) {
             if (!n.Long) return i.fromNumber(parseInt(t, 10));
@@ -1508,7 +1500,7 @@
             : { low: 0 | this.lo, high: 0 | this.hi, unsigned: Boolean(t) };
         });
       var u = String.prototype.charCodeAt;
-      (i.fromHash = function (t) {
+      (i.fromHash = t => {
         return t === s
           ? o
           : new i(
@@ -1580,7 +1572,7 @@
     yNTq(t, e, r) {
       "use strict";
       var n = e;
-      (n.length = function (t) {
+      (n.length = t => {
         for (var e = 0, r = 0, n = 0; n < t.length; ++n)
           (r = t.charCodeAt(n)) < 128
             ? (e += 1)
@@ -1591,7 +1583,7 @@
             : (e += 3);
         return e;
       }),
-        (n.read = function (t, e, r) {
+        (n.read = (t, e, r) => {
           if (r - e < 1) return "";
           for (var n, i = null, o = [], s = 0; e < r; )
             (n = t[e++]) < 128
@@ -1617,7 +1609,7 @@
               i.join(""))
             : String.fromCharCode.apply(String, o.slice(0, s));
         }),
-        (n.write = function (t, e, r) {
+        (n.write = (t, e, r) => {
           for (var n, i, o = r, s = 0; s < t.length; ++s)
             (n = t.charCodeAt(s)) < 128
               ? (e[r++] = n)
@@ -1647,7 +1639,7 @@
       }
     },
     ypnn(t, e) {
-      t.exports = function (t, e, r) {
+      t.exports = (t, e, r) => {
         var n = t.byteLength;
         if (((e = e || 0), (r = r || n), t.slice)) return t.slice(e, r);
         if (
@@ -1668,7 +1660,7 @@
     },
     zMFY(t, e) {
       function r() {}
-      t.exports = function (t, e, n) {
+      t.exports = (t, e, n) => {
         var i = !1;
         return (n = n || r), (o.count = t), 0 === t ? e() : o;
         function o(t, r) {

@@ -4,18 +4,17 @@
     "/7TX": function (e, t, r) {
       "use strict";
       var n =
-        (this && this.__extends) ||
-        (function () {
+        this && this.__extends || (() => {
           var e =
             Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array &&
-              function (e, t) {
+              ((e, t) => {
                 e.__proto__ = t;
-              }) ||
-            function (e, t) {
+              })) ||
+            ((e, t) => {
               for (var r in t) t.hasOwnProperty(r) && (e[r] = t[r]);
-            };
-          return function (t, r) {
+            });
+          return (t, r) => {
             function n() {
               this.constructor = t;
             }
@@ -29,7 +28,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 });
       var i,
         o = r("1vg8");
-      !(function (e) {
+      !(e => {
         (e.ParseError = -32700),
           (e.InvalidRequest = -32600),
           (e.MethodNotFound = -32601),
@@ -42,8 +41,8 @@
           (e.RequestCancelled = -32800),
           (e.MessageWriteError = 1),
           (e.MessageReadError = 2);
-      })((i = t.ErrorCodes || (t.ErrorCodes = {})));
-      var s = (function (e) {
+      })(i = t.ErrorCodes || (t.ErrorCodes = {}));
+      var s = (e => {
         function t(r, n, s) {
           var a = e.call(this, n) || this;
           return (
@@ -62,7 +61,7 @@
         );
       })(Error);
       t.ResponseError = s;
-      var a = (function () {
+      var a = (() => {
         function e(e, t) {
           (this._method = e), (this._numberOfParams = t);
         }
@@ -84,7 +83,7 @@
       ;
       })();
       t.AbstractMessageType = a;
-      var u = (function (e) {
+      var u = (e => {
         function t(t) {
           var r = e.call(this, t, 0) || this;
           return (r._ = void 0), r;
@@ -92,7 +91,7 @@
         return n(t, e), t;
       })(a);
       t.RequestType0 = u;
-      var c = (function (e) {
+      var c = (e => {
         function t(t) {
           var r = e.call(this, t, 1) || this;
           return (r._ = void 0), r;
@@ -100,7 +99,7 @@
         return n(t, e), t;
       })(a);
       t.RequestType = c;
-      var f = (function (e) {
+      var f = (e => {
         function t(t) {
           var r = e.call(this, t, 1) || this;
           return (r._ = void 0), r;
@@ -108,7 +107,7 @@
         return n(t, e), t;
       })(a);
       t.RequestType1 = f;
-      var d = (function (e) {
+      var d = (e => {
         function t(t) {
           var r = e.call(this, t, 2) || this;
           return (r._ = void 0), r;
@@ -116,7 +115,7 @@
         return n(t, e), t;
       })(a);
       t.RequestType2 = d;
-      var l = (function (e) {
+      var l = (e => {
         function t(t) {
           var r = e.call(this, t, 3) || this;
           return (r._ = void 0), r;
@@ -124,7 +123,7 @@
         return n(t, e), t;
       })(a);
       t.RequestType3 = l;
-      var p = (function (e) {
+      var p = (e => {
         function t(t) {
           var r = e.call(this, t, 4) || this;
           return (r._ = void 0), r;
@@ -132,7 +131,7 @@
         return n(t, e), t;
       })(a);
       t.RequestType4 = p;
-      var h = (function (e) {
+      var h = (e => {
         function t(t) {
           var r = e.call(this, t, 5) || this;
           return (r._ = void 0), r;
@@ -140,7 +139,7 @@
         return n(t, e), t;
       })(a);
       t.RequestType5 = h;
-      var v = (function (e) {
+      var v = (e => {
         function t(t) {
           var r = e.call(this, t, 6) || this;
           return (r._ = void 0), r;
@@ -148,7 +147,7 @@
         return n(t, e), t;
       })(a);
       t.RequestType6 = v;
-      var m = (function (e) {
+      var m = (e => {
         function t(t) {
           var r = e.call(this, t, 7) || this;
           return (r._ = void 0), r;
@@ -156,7 +155,7 @@
         return n(t, e), t;
       })(a);
       t.RequestType7 = m;
-      var y = (function (e) {
+      var y = (e => {
         function t(t) {
           var r = e.call(this, t, 8) || this;
           return (r._ = void 0), r;
@@ -164,7 +163,7 @@
         return n(t, e), t;
       })(a);
       t.RequestType8 = y;
-      var g = (function (e) {
+      var g = (e => {
         function t(t) {
           var r = e.call(this, t, 9) || this;
           return (r._ = void 0), r;
@@ -172,7 +171,7 @@
         return n(t, e), t;
       })(a);
       t.RequestType9 = g;
-      var _ = (function (e) {
+      var _ = (e => {
         function t(t) {
           var r = e.call(this, t, 1) || this;
           return (r._ = void 0), r;
@@ -180,7 +179,7 @@
         return n(t, e), t;
       })(a);
       t.NotificationType = _;
-      var w = (function (e) {
+      var w = (e => {
         function t(t) {
           var r = e.call(this, t, 0) || this;
           return (r._ = void 0), r;
@@ -188,7 +187,7 @@
         return n(t, e), t;
       })(a);
       t.NotificationType0 = w;
-      var R = (function (e) {
+      var R = (e => {
         function t(t) {
           var r = e.call(this, t, 1) || this;
           return (r._ = void 0), r;
@@ -196,7 +195,7 @@
         return n(t, e), t;
       })(a);
       t.NotificationType1 = R;
-      var T = (function (e) {
+      var T = (e => {
         function t(t) {
           var r = e.call(this, t, 2) || this;
           return (r._ = void 0), r;
@@ -204,7 +203,7 @@
         return n(t, e), t;
       })(a);
       t.NotificationType2 = T;
-      var N = (function (e) {
+      var N = (e => {
         function t(t) {
           var r = e.call(this, t, 3) || this;
           return (r._ = void 0), r;
@@ -212,7 +211,7 @@
         return n(t, e), t;
       })(a);
       t.NotificationType3 = N;
-      var b = (function (e) {
+      var b = (e => {
         function t(t) {
           var r = e.call(this, t, 4) || this;
           return (r._ = void 0), r;
@@ -220,7 +219,7 @@
         return n(t, e), t;
       })(a);
       t.NotificationType4 = b;
-      var E = (function (e) {
+      var E = (e => {
         function t(t) {
           var r = e.call(this, t, 5) || this;
           return (r._ = void 0), r;
@@ -228,7 +227,7 @@
         return n(t, e), t;
       })(a);
       t.NotificationType5 = E;
-      var C = (function (e) {
+      var C = (e => {
         function t(t) {
           var r = e.call(this, t, 6) || this;
           return (r._ = void 0), r;
@@ -236,7 +235,7 @@
         return n(t, e), t;
       })(a);
       t.NotificationType6 = C;
-      var k = (function (e) {
+      var k = (e => {
         function t(t) {
           var r = e.call(this, t, 7) || this;
           return (r._ = void 0), r;
@@ -244,7 +243,7 @@
         return n(t, e), t;
       })(a);
       t.NotificationType7 = k;
-      var O = (function (e) {
+      var O = (e => {
         function t(t) {
           var r = e.call(this, t, 8) || this;
           return (r._ = void 0), r;
@@ -252,7 +251,7 @@
         return n(t, e), t;
       })(a);
       t.NotificationType8 = O;
-      var q = (function (e) {
+      var q = (e => {
         function t(t) {
           var r = e.call(this, t, 9) || this;
           return (r._ = void 0), r;
@@ -260,15 +259,15 @@
         return n(t, e), t;
       })(a);
       (t.NotificationType9 = q),
-        (t.isRequestMessage = function (e) {
+        (t.isRequestMessage = e => {
           var t = e;
           return t && o.string(t.method) && (o.string(t.id) || o.number(t.id));
         }),
-        (t.isNotificationMessage = function (e) {
+        (t.isNotificationMessage = e => {
           var t = e;
           return t && o.string(t.method) && void 0 === e.id;
         }),
-        (t.isResponseMessage = function (e) {
+        (t.isResponseMessage = e => {
           var t = e;
           return (
             t &&
@@ -280,11 +279,10 @@
     "4Wfv": function (e, t, r) {
       "use strict";
       var n;
-      Object.defineProperty(t, "__esModule", { value: !0 }),
-        (function (e) {
-          (e.None = 0), (e.First = 1), (e.Last = 2);
-        })((n = t.Touch || (t.Touch = {})));
-      var i = (function () {
+      Object.defineProperty(t, "__esModule", { value: !0 }), (e => {
+        (e.None = 0), (e.First = 1), (e.Last = 2);
+      })(n = t.Touch || (t.Touch = {}));
+      var i = (() => {
         function e() {
           (this._map = new Map()),
             (this._head = void 0),
@@ -434,14 +432,14 @@
       var n = r("RUQ2"),
         i = r("uWpP"),
         o = r("vIUA");
-      (t.createClientSocketTransport = function (e, t) {
+      (t.createClientSocketTransport = (e, t) => {
         var r;
         void 0 === t && (t = "utf-8");
-        var s = new Promise(function (e, t) {
+        var s = new Promise((e, t) => {
           r = e;
         });
-        return new Promise(function (a, u) {
-          var c = n.createServer(function (e) {
+        return new Promise((a, u) => {
+          var c = n.createServer(e => {
             c.close(),
               r([
                 new i.SocketMessageReader(e, t),
@@ -449,7 +447,7 @@
               ]);
           });
           c.on("error", u),
-            c.listen(e, "127.0.0.1", function () {
+            c.listen(e, "127.0.0.1", () => {
               c.removeListener("error", u),
                 a({
                   onConnected() {
@@ -459,7 +457,7 @@
             });
         });
       }),
-        (t.createServerSocketTransport = function (e, t) {
+        (t.createServerSocketTransport = (e, t) => {
           void 0 === t && (t = "utf-8");
           var r = n.createConnection(e, "127.0.0.1");
           return [
@@ -472,18 +470,17 @@
       "use strict";
       (function (e) {
         var n =
-          (this && this.__extends) ||
-          (function () {
+          this && this.__extends || (() => {
             var e =
               Object.setPrototypeOf ||
               ({ __proto__: [] } instanceof Array &&
-                function (e, t) {
+                ((e, t) => {
                   e.__proto__ = t;
-                }) ||
-              function (e, t) {
+                })) ||
+              ((e, t) => {
                 for (var r in t) t.hasOwnProperty(r) && (e[r] = t[r]);
-              };
-            return function (t, r) {
+              });
+            return (t, r) => {
               function n() {
                 this.constructor = t;
               }
@@ -547,61 +544,53 @@
           h,
           v,
           m = r("4Wfv");
-        i(r("qL5x")),
-          i(r("ALIN")),
-          (function (e) {
-            e.type = new s.NotificationType("$/cancelRequest");
-          })(d || (d = {})),
-          (t.NullLogger = Object.freeze({
+        i(r("qL5x")), i(r("ALIN")), (e => {
+          e.type = new s.NotificationType("$/cancelRequest");
+        })(d || (d = {})), t.NullLogger = Object.freeze({
             error() {},
             warn() {},
             info() {},
             log() {},
-          })),
-          (function (e) {
-            (e[(e.Off = 0)] = "Off"),
-              (e[(e.Messages = 1)] = "Messages"),
-              (e[(e.Verbose = 2)] = "Verbose");
-          })((l = t.Trace || (t.Trace = {}))),
-          (function (e) {
-            (e.fromString = function (t) {
-              switch ((t = t.toLowerCase())) {
-                case "off":
-                  return e.Off;
-                case "messages":
-                  return e.Messages;
-                case "verbose":
-                  return e.Verbose;
+          }), (e => {
+          (e[(e.Off = 0)] = "Off"),
+            (e[(e.Messages = 1)] = "Messages"),
+            (e[(e.Verbose = 2)] = "Verbose");
+        })(l = t.Trace || (t.Trace = {})), (e => {
+          (e.fromString = t => {
+            switch ((t = t.toLowerCase())) {
+              case "off":
+                return e.Off;
+              case "messages":
+                return e.Messages;
+              case "verbose":
+                return e.Verbose;
+              default:
+                return e.Off;
+            }
+          }),
+            (e.toString = t => {
+              switch (t) {
+                case e.Off:
+                  return "off";
+                case e.Messages:
+                  return "messages";
+                case e.Verbose:
+                  return "verbose";
                 default:
-                  return e.Off;
+                  return "off";
               }
-            }),
-              (e.toString = function (t) {
-                switch (t) {
-                  case e.Off:
-                    return "off";
-                  case e.Messages:
-                    return "messages";
-                  case e.Verbose:
-                    return "verbose";
-                  default:
-                    return "off";
-                }
-              });
-          })((l = t.Trace || (t.Trace = {}))),
-          (function (e) {
-            e.type = new s.NotificationType("$/setTraceNotification");
-          })((p = t.SetTraceNotification || (t.SetTraceNotification = {}))),
-          (function (e) {
-            e.type = new s.NotificationType("$/logTraceNotification");
-          })((h = t.LogTraceNotification || (t.LogTraceNotification = {}))),
-          (function (e) {
-            (e[(e.Closed = 1)] = "Closed"),
-              (e[(e.Disposed = 2)] = "Disposed"),
-              (e[(e.AlreadyListening = 3)] = "AlreadyListening");
-          })((v = t.ConnectionErrors || (t.ConnectionErrors = {})));
+            });
+        })(l = t.Trace || (t.Trace = {})), (e => {
+          e.type = new s.NotificationType("$/setTraceNotification");
+        })(p = t.SetTraceNotification || (t.SetTraceNotification = {})), (e => {
+          e.type = new s.NotificationType("$/logTraceNotification");
+        })(h = t.LogTraceNotification || (t.LogTraceNotification = {})), (e => {
+          (e[(e.Closed = 1)] = "Closed"),
+            (e[(e.Disposed = 2)] = "Disposed"),
+            (e[(e.AlreadyListening = 3)] = "AlreadyListening");
+        })(v = t.ConnectionErrors || (t.ConnectionErrors = {}));
         var y,
-          g = (function (e) {
+          g = (e => {
             function t(r, n) {
               var i = e.call(this, n) || this;
               return (i.code = r), Object.setPrototypeOf(i, t.prototype), i;
@@ -661,360 +650,352 @@
           function z() {
             a ||
               0 === k.size ||
-              (a = e(function () {
-                (a = void 0),
-                  (function () {
-                    if (0 === k.size) return;
-                    var e = k.shift();
-                    try {
-                      s.isRequestMessage(e)
-                        ? (function (e) {
-                            if (J()) return;
-                            function t(t, n, i) {
-                              var o = { jsonrpc: T, id: e.id };
-                              t instanceof s.ResponseError
-                                ? (o.error = t.toJson())
-                                : (o.result = void 0 === t ? null : t),
-                                B(o, n, i),
-                                r.write(o);
-                            }
-                            function n(t, n, i) {
-                              var o = {
-                                jsonrpc: T,
-                                id: e.id,
-                                error: t.toJson(),
-                              };
-                              B(o, n, i), r.write(o);
-                            }
-                            function i(t, n, i) {
-                              void 0 === t && (t = null);
-                              var o = { jsonrpc: T, id: e.id, result: t };
-                              B(o, n, i), r.write(o);
-                            }
-                            !(function (e) {
-                              if (S === l.Off || !u) return;
-                              var t = void 0;
-                              S === l.Verbose &&
-                                e.params &&
-                                (t =
-                                  "Params: " +
-                                  JSON.stringify(e.params, null, 4) +
-                                  "\n\n");
-                              u.log(
-                                "Received request '" +
-                                  e.method +
-                                  " - (" +
-                                  e.id +
-                                  ")'.",
-                                t
-                              );
-                            })(e);
-                            var a,
-                              c,
-                              d = b[e.method];
-                            d && ((a = d.type), (c = d.handler));
-                            var p = Date.now();
-                            if (c || N) {
-                              var h = new f.CancellationTokenSource(),
-                                v = String(e.id);
-                              q[v] = h;
-                              try {
-                                var m = void 0,
-                                  y = (m =
-                                    void 0 === e.params ||
-                                    (void 0 !== a && 0 === a.numberOfParams)
-                                      ? c
-                                        ? c(h.token)
-                                        : N(e.method, h.token)
-                                      : o.array(e.params) &&
-                                        (void 0 === a || a.numberOfParams > 1)
-                                      ? c
-                                        ? c.apply(
-                                            void 0,
-                                            e.params.concat([h.token])
-                                          )
-                                        : N.apply(
-                                            void 0,
-                                            [e.method].concat(e.params, [
-                                              h.token,
-                                            ])
-                                          )
-                                      : c
-                                      ? c(e.params, h.token)
-                                      : N(e.method, e.params, h.token));
-                                m
-                                  ? y.then
-                                    ? y.then(
-                                        function (r) {
-                                          delete q[v], t(r, e.method, p);
-                                        },
-                                        function (t) {
-                                          delete q[v],
-                                            t instanceof s.ResponseError
-                                              ? n(t, e.method, p)
-                                              : t && o.string(t.message)
-                                              ? n(
-                                                  new s.ResponseError(
-                                                    s.ErrorCodes.InternalError,
-                                                    "Request " +
-                                                      e.method +
-                                                      " failed with message: " +
-                                                      t.message
-                                                  ),
-                                                  e.method,
-                                                  p
-                                                )
-                                              : n(
-                                                  new s.ResponseError(
-                                                    s.ErrorCodes.InternalError,
-                                                    "Request " +
-                                                      e.method +
-                                                      " failed unexpectedly without providing any details."
-                                                  ),
-                                                  e.method,
-                                                  p
-                                                );
-                                        }
-                                      )
-                                    : (delete q[v], t(m, e.method, p))
-                                  : (delete q[v], i(m, e.method, p));
-                              } catch (g) {
-                                delete q[v],
-                                  g instanceof s.ResponseError
-                                    ? t(g, e.method, p)
-                                    : g && o.string(g.message)
-                                    ? n(
-                                        new s.ResponseError(
-                                          s.ErrorCodes.InternalError,
-                                          "Request " +
-                                            e.method +
-                                            " failed with message: " +
-                                            g.message
-                                        ),
-                                        e.method,
-                                        p
-                                      )
-                                    : n(
-                                        new s.ResponseError(
-                                          s.ErrorCodes.InternalError,
-                                          "Request " +
-                                            e.method +
-                                            " failed unexpectedly without providing any details."
-                                        ),
-                                        e.method,
-                                        p
-                                      );
-                              }
-                            } else
-                              n(
-                                new s.ResponseError(
-                                  s.ErrorCodes.MethodNotFound,
-                                  "Unhandled method " + e.method
-                                ),
-                                e.method,
-                                p
-                              );
-                          })(e)
-                        : s.isNotificationMessage(e)
-                        ? (function (e) {
-                            if (J()) return;
-                            var t,
-                              r = void 0;
-                            if (e.method === d.type.method)
-                              t = function (e) {
-                                var t = e.id,
-                                  r = q[String(t)];
-                                r && r.cancel();
-                              };
-                            else {
-                              var i = C[e.method];
-                              i && ((t = i.handler), (r = i.type));
-                            }
-                            if (t || E)
-                              try {
-                                !(function (e) {
-                                  if (
-                                    S === l.Off ||
-                                    !u ||
-                                    e.method === h.type.method
-                                  )
-                                    return;
-                                  var t = void 0;
-                                  S === l.Verbose &&
-                                    (t = e.params
-                                      ? "Params: " +
-                                        JSON.stringify(e.params, null, 4) +
-                                        "\n\n"
-                                      : "No parameters provided.\n\n");
-                                  u.log(
-                                    "Received notification '" + e.method + "'.",
-                                    t
-                                  );
-                                })(e),
+              (a = e(() => {
+                a = void 0, (() => {
+                  if (0 === k.size) return;
+                  var e = k.shift();
+                  try {
+                    s.isRequestMessage(e) ? (e => {
+                          if (J()) return;
+                          function t(t, n, i) {
+                            var o = { jsonrpc: T, id: e.id };
+                            t instanceof s.ResponseError
+                              ? (o.error = t.toJson())
+                              : (o.result = void 0 === t ? null : t),
+                              B(o, n, i),
+                              r.write(o);
+                          }
+                          function n(t, n, i) {
+                            var o = {
+                              jsonrpc: T,
+                              id: e.id,
+                              error: t.toJson(),
+                            };
+                            B(o, n, i), r.write(o);
+                          }
+                          function i(t, n, i) {
+                            void 0 === t && (t = null);
+                            var o = { jsonrpc: T, id: e.id, result: t };
+                            B(o, n, i), r.write(o);
+                          }
+                          !(e => {
+                            if (S === l.Off || !u) return;
+                            var t = void 0;
+                            S === l.Verbose &&
+                              e.params &&
+                              (t =
+                                "Params: " +
+                                JSON.stringify(e.params, null, 4) +
+                                "\n\n");
+                            u.log(
+                              "Received request '" +
+                                e.method +
+                                " - (" +
+                                e.id +
+                                ")'.",
+                              t
+                            );
+                          })(e);
+                          var a,
+                            c,
+                            d = b[e.method];
+                          d && ((a = d.type), (c = d.handler));
+                          var p = Date.now();
+                          if (c || N) {
+                            var h = new f.CancellationTokenSource(),
+                              v = String(e.id);
+                            q[v] = h;
+                            try {
+                              var m = void 0,
+                                y = (m =
                                   void 0 === e.params ||
-                                  (void 0 !== r && 0 === r.numberOfParams)
-                                    ? t
-                                      ? t()
-                                      : E(e.method)
+                                  (void 0 !== a && 0 === a.numberOfParams)
+                                    ? c
+                                      ? c(h.token)
+                                      : N(e.method, h.token)
                                     : o.array(e.params) &&
-                                      (void 0 === r || r.numberOfParams > 1)
-                                    ? t
-                                      ? t.apply(void 0, e.params)
-                                      : E.apply(
+                                      (void 0 === a || a.numberOfParams > 1)
+                                    ? c
+                                      ? c.apply(
                                           void 0,
-                                          [e.method].concat(e.params)
+                                          e.params.concat([h.token])
                                         )
-                                    : t
-                                    ? t(e.params)
-                                    : E(e.method, e.params);
-                              } catch (s) {
-                                s.message
+                                      : N.apply(
+                                          void 0,
+                                          [e.method].concat(e.params, [
+                                            h.token,
+                                          ])
+                                        )
+                                    : c
+                                    ? c(e.params, h.token)
+                                    : N(e.method, e.params, h.token));
+                              m
+                                ? y.then
+                                  ? y.then(
+                                      r => {
+                                        delete q[v], t(r, e.method, p);
+                                      },
+                                      t => {
+                                        delete q[v],
+                                          t instanceof s.ResponseError
+                                            ? n(t, e.method, p)
+                                            : t && o.string(t.message)
+                                            ? n(
+                                                new s.ResponseError(
+                                                  s.ErrorCodes.InternalError,
+                                                  "Request " +
+                                                    e.method +
+                                                    " failed with message: " +
+                                                    t.message
+                                                ),
+                                                e.method,
+                                                p
+                                              )
+                                            : n(
+                                                new s.ResponseError(
+                                                  s.ErrorCodes.InternalError,
+                                                  "Request " +
+                                                    e.method +
+                                                    " failed unexpectedly without providing any details."
+                                                ),
+                                                e.method,
+                                                p
+                                              );
+                                      }
+                                    )
+                                  : (delete q[v], t(m, e.method, p))
+                                : (delete q[v], i(m, e.method, p));
+                            } catch (g) {
+                              delete q[v],
+                                g instanceof s.ResponseError
+                                  ? t(g, e.method, p)
+                                  : g && o.string(g.message)
+                                  ? n(
+                                      new s.ResponseError(
+                                        s.ErrorCodes.InternalError,
+                                        "Request " +
+                                          e.method +
+                                          " failed with message: " +
+                                          g.message
+                                      ),
+                                      e.method,
+                                      p
+                                    )
+                                  : n(
+                                      new s.ResponseError(
+                                        s.ErrorCodes.InternalError,
+                                        "Request " +
+                                          e.method +
+                                          " failed unexpectedly without providing any details."
+                                      ),
+                                      e.method,
+                                      p
+                                    );
+                            }
+                          } else
+                            n(
+                              new s.ResponseError(
+                                s.ErrorCodes.MethodNotFound,
+                                "Unhandled method " + e.method
+                              ),
+                              e.method,
+                              p
+                            );
+                        })(e) : s.isNotificationMessage(e) ? (e => {
+                          if (J()) return;
+                          var t,
+                            r = void 0;
+                          if (e.method === d.type.method)
+                            t = e => {
+                              var t = e.id,
+                                r = q[String(t)];
+                              r && r.cancel();
+                            };
+                          else {
+                            var i = C[e.method];
+                            i && ((t = i.handler), (r = i.type));
+                          }
+                          if (t || E)
+                            try {
+                              !(e => {
+                                if (
+                                  S === l.Off ||
+                                  !u ||
+                                  e.method === h.type.method
+                                )
+                                  return;
+                                var t = void 0;
+                                S === l.Verbose &&
+                                  (t = e.params
+                                    ? "Params: " +
+                                      JSON.stringify(e.params, null, 4) +
+                                      "\n\n"
+                                    : "No parameters provided.\n\n");
+                                u.log(
+                                  "Received notification '" + e.method + "'.",
+                                  t
+                                );
+                              })(e),
+                                void 0 === e.params ||
+                                (void 0 !== r && 0 === r.numberOfParams)
+                                  ? t
+                                    ? t()
+                                    : E(e.method)
+                                  : o.array(e.params) &&
+                                    (void 0 === r || r.numberOfParams > 1)
+                                  ? t
+                                    ? t.apply(void 0, e.params)
+                                    : E.apply(
+                                        void 0,
+                                        [e.method].concat(e.params)
+                                      )
+                                  : t
+                                  ? t(e.params)
+                                  : E(e.method, e.params);
+                            } catch (s) {
+                              s.message
+                                ? n.error(
+                                    "Notification handler '" +
+                                      e.method +
+                                      "' failed with message: " +
+                                      s.message
+                                  )
+                                : n.error(
+                                    "Notification handler '" +
+                                      e.method +
+                                      "' failed unexpectedly."
+                                  );
+                            }
+                          else I.fire(e);
+                        })(e) : s.isResponseMessage(e) ? (e => {
+                          if (J()) return;
+                          if (null === e.id)
+                            e.error
+                              ? n.error(
+                                  "Received response message without id: Error is: \n" +
+                                    JSON.stringify(e.error, void 0, 4)
+                                )
+                              : n.error(
+                                  "Received response message without id. No further error information provided."
+                                );
+                          else {
+                            var t = String(e.id),
+                              r = O[t];
+                            if (
+                              (((e, t) => {
+                                if (S === l.Off || !u) return;
+                                var r = void 0;
+                                S === l.Verbose &&
+                                  (e.error && e.error.data
+                                    ? (r =
+                                        "Error data: " +
+                                        JSON.stringify(
+                                          e.error.data,
+                                          null,
+                                          4
+                                        ) +
+                                        "\n\n")
+                                    : e.result
+                                    ? (r =
+                                        "Result: " +
+                                        JSON.stringify(e.result, null, 4) +
+                                        "\n\n")
+                                    : void 0 === e.error &&
+                                      (r = "No result returned.\n\n"));
+                                if (t) {
+                                  var n = e.error
+                                    ? " Request failed: " +
+                                      e.error.message +
+                                      " (" +
+                                      e.error.code +
+                                      ")."
+                                    : "";
+                                  u.log(
+                                    "Received response '" +
+                                      t.method +
+                                      " - (" +
+                                      e.id +
+                                      ")' in " +
+                                      (Date.now() - t.timerStart) +
+                                      "ms." +
+                                      n,
+                                    r
+                                  );
+                                } else
+                                  u.log(
+                                    "Received response " +
+                                      e.id +
+                                      " without active response promise.",
+                                    r
+                                  );
+                              })(e, r), r)
+                            ) {
+                              delete O[t];
+                              try {
+                                if (e.error) {
+                                  var i = e.error;
+                                  r.reject(
+                                    new s.ResponseError(
+                                      i.code,
+                                      i.message,
+                                      i.data
+                                    )
+                                  );
+                                } else {
+                                  if (void 0 === e.result)
+                                    throw new Error("Should never happen.");
+                                  r.resolve(e.result);
+                                }
+                              } catch (i) {
+                                i.message
                                   ? n.error(
-                                      "Notification handler '" +
-                                        e.method +
+                                      "Response handler '" +
+                                        r.method +
                                         "' failed with message: " +
-                                        s.message
+                                        i.message
                                     )
                                   : n.error(
-                                      "Notification handler '" +
-                                        e.method +
+                                      "Response handler '" +
+                                        r.method +
                                         "' failed unexpectedly."
                                     );
                               }
-                            else I.fire(e);
-                          })(e)
-                        : s.isResponseMessage(e)
-                        ? (function (e) {
-                            if (J()) return;
-                            if (null === e.id)
-                              e.error
-                                ? n.error(
-                                    "Received response message without id: Error is: \n" +
-                                      JSON.stringify(e.error, void 0, 4)
-                                  )
-                                : n.error(
-                                    "Received response message without id. No further error information provided."
-                                  );
-                            else {
-                              var t = String(e.id),
-                                r = O[t];
-                              if (
-                                ((function (e, t) {
-                                  if (S === l.Off || !u) return;
-                                  var r = void 0;
-                                  S === l.Verbose &&
-                                    (e.error && e.error.data
-                                      ? (r =
-                                          "Error data: " +
-                                          JSON.stringify(
-                                            e.error.data,
-                                            null,
-                                            4
-                                          ) +
-                                          "\n\n")
-                                      : e.result
-                                      ? (r =
-                                          "Result: " +
-                                          JSON.stringify(e.result, null, 4) +
-                                          "\n\n")
-                                      : void 0 === e.error &&
-                                        (r = "No result returned.\n\n"));
-                                  if (t) {
-                                    var n = e.error
-                                      ? " Request failed: " +
-                                        e.error.message +
-                                        " (" +
-                                        e.error.code +
-                                        ")."
-                                      : "";
-                                    u.log(
-                                      "Received response '" +
-                                        t.method +
-                                        " - (" +
-                                        e.id +
-                                        ")' in " +
-                                        (Date.now() - t.timerStart) +
-                                        "ms." +
-                                        n,
-                                      r
-                                    );
-                                  } else
-                                    u.log(
-                                      "Received response " +
-                                        e.id +
-                                        " without active response promise.",
-                                      r
-                                    );
-                                })(e, r),
-                                r)
-                              ) {
-                                delete O[t];
-                                try {
-                                  if (e.error) {
-                                    var i = e.error;
-                                    r.reject(
-                                      new s.ResponseError(
-                                        i.code,
-                                        i.message,
-                                        i.data
-                                      )
-                                    );
-                                  } else {
-                                    if (void 0 === e.result)
-                                      throw new Error("Should never happen.");
-                                    r.resolve(e.result);
-                                  }
-                                } catch (i) {
-                                  i.message
-                                    ? n.error(
-                                        "Response handler '" +
-                                          r.method +
-                                          "' failed with message: " +
-                                          i.message
-                                      )
-                                    : n.error(
-                                        "Response handler '" +
-                                          r.method +
-                                          "' failed unexpectedly."
-                                      );
-                                }
-                              }
                             }
-                          })(e)
-                        : (function (e) {
-                            if (!e)
-                              return void n.error("Received empty message.");
-                            n.error(
-                              "Received message which is neither a response nor a notification message:\n" +
-                                JSON.stringify(e, null, 4)
-                            );
-                            var t = e;
-                            if (o.string(t.id) || o.number(t.id)) {
-                              var r = String(t.id),
-                                i = O[r];
-                              i &&
-                                i.reject(
-                                  new Error(
-                                    "The received response has neither a result nor an error property."
-                                  )
-                                );
-                            }
-                          })(e);
-                    } finally {
-                      z();
-                    }
-                  })();
+                          }
+                        })(e) : (e => {
+                          if (!e)
+                            return void n.error("Received empty message.");
+                          n.error(
+                            "Received message which is neither a response nor a notification message:\n" +
+                              JSON.stringify(e, null, 4)
+                          );
+                          var t = e;
+                          if (o.string(t.id) || o.number(t.id)) {
+                            var r = String(t.id),
+                              i = O[r];
+                            i &&
+                              i.reject(
+                                new Error(
+                                  "The received response has neither a result nor an error property."
+                                )
+                              );
+                          }
+                        })(e);
+                  } finally {
+                    z();
+                  }
+                })();
               }));
           }
           t.onClose(V),
-            t.onError(function (e) {
+            t.onError(e => {
               P.fire([e, void 0, void 0]);
             }),
             r.onClose(V),
-            r.onError(function (e) {
+            r.onError(e => {
               P.fire(e);
             });
-          var F = function (e) {
+          var F = e => {
             try {
               if (s.isNotificationMessage(e) && e.method === d.type.method) {
                 var t = x(e.params.id),
@@ -1162,10 +1143,10 @@
                         (n =
                           2 === i.length
                             ? K(i[0])
-                            : i.slice(0, c).map(function (e) {
+                            : i.slice(0, c).map(e => {
                                 return K(e);
                               })))
-                      : (n = i.map(function (e) {
+                      : (n = i.map(e => {
                           return K(e);
                         }));
                 }
@@ -1175,7 +1156,7 @@
                 u = f.CancellationToken.is(i[l]) ? i[l] : void 0;
               }
               var p = _++,
-                h = new Promise(function (e, i) {
+                h = new Promise((e, i) => {
                   var o = { jsonrpc: T, id: p, method: t, params: n },
                     a = {
                       method: t,
@@ -1197,13 +1178,12 @@
                   }
                   a && (O[String(p)] = a);
                 });
-              return (
-                u &&
-                  u.onCancellationRequested(function () {
-                    H.sendNotification(d.type, { id: p });
-                  }),
-                h
-              );
+              return u &&
+                u.onCancellationRequested(() => {
+                  H.sendNotification(d.type, { id: p });
+                }),
+              h
+            ;
             },
             onRequest(e, t) {
               G(),
@@ -1230,7 +1210,7 @@
               if (!J()) {
                 (M = y.Disposed), L.fire(void 0);
                 var e = new Error("Connection got disposed.");
-                Object.keys(O).forEach(function (t) {
+                Object.keys(O).forEach(t => {
                   O[t].reject(e);
                 }),
                   (O = Object.create(null)),
@@ -1241,61 +1221,51 @@
               }
             },
             listen() {
-              G(),
-                (function () {
-                  if (D())
-                    throw new g(
-                      v.AlreadyListening,
-                      "Connection is already listening"
-                    );
-                })(),
-                (M = y.Listening),
-                t.listen(F);
+              G(), (() => {
+                if (D())
+                  throw new g(
+                    v.AlreadyListening,
+                    "Connection is already listening"
+                  );
+              })(), M = y.Listening, t.listen(F);
             },
             inspect() {
               console.log("inspect");
             },
           };
-          return (
-            H.onNotification(h.type, function (e) {
-              S !== l.Off &&
-                u &&
-                u.log(e.message, S === l.Verbose ? e.verbose : void 0);
-            }),
-            H
-          );
+          return H.onNotification(h.type, e => {
+            S !== l.Off &&
+              u &&
+              u.log(e.message, S === l.Verbose ? e.verbose : void 0);
+          }),
+          H
+        ;
         }
-        (t.ConnectionError = g),
-          (function (e) {
-            e.is = function (e) {
-              var t = e;
-              return t && o.func(t.cancelUndispatched);
-            };
-          })(t.ConnectionStrategy || (t.ConnectionStrategy = {})),
-          (function (e) {
-            (e[(e.New = 1)] = "New"),
-              (e[(e.Listening = 2)] = "Listening"),
-              (e[(e.Closed = 3)] = "Closed"),
-              (e[(e.Disposed = 4)] = "Disposed");
-          })(y || (y = {})),
-          (t.createMessageConnection = function (e, r, n, i) {
+        t.ConnectionError = g, (e => {
+          e.is = e => {
+            var t = e;
+            return t && o.func(t.cancelUndispatched);
+          };
+        })(t.ConnectionStrategy || (t.ConnectionStrategy = {})), (e => {
+          (e[(e.New = 1)] = "New"),
+            (e[(e.Listening = 2)] = "Listening"),
+            (e[(e.Closed = 3)] = "Closed"),
+            (e[(e.Disposed = 4)] = "Disposed");
+        })(y || (y = {})), t.createMessageConnection = (e, r, n, i) => {
             var o;
-            return (
-              n || (n = t.NullLogger),
-              _(
-                void 0 !== (o = e).listen && void 0 === o.read
-                  ? e
-                  : new a.StreamMessageReader(e),
-                (function (e) {
-                  return void 0 !== e.write && void 0 === e.end;
-                })(r)
-                  ? r
-                  : new u.StreamMessageWriter(r),
-                n,
-                i
-              )
-            );
-          });
+            return n || (n = t.NullLogger),
+            _(
+              void 0 !== (o = e).listen && void 0 === o.read
+                ? e
+                : new a.StreamMessageReader(e),
+              (e => {
+                return void 0 !== e.write && void 0 === e.end;
+              })(r) ? r : new u.StreamMessageWriter(r),
+              n,
+              i
+            )
+          ;
+          };
       }.call(this, r("CfyG").setImmediate));
     },
     Ff8q(e, t, r) {
@@ -1304,7 +1274,7 @@
       var n,
         i = r("Z5Ki"),
         o = r("1vg8");
-      !(function (e) {
+      !(e => {
         (e.None = Object.freeze({
           isCancellationRequested: !1,
           onCancellationRequested: i.Event.None,
@@ -1313,7 +1283,7 @@
             isCancellationRequested: !0,
             onCancellationRequested: i.Event.None,
           })),
-          (e.is = function (t) {
+          (e.is = t => {
             var r = t;
             return (
               r &&
@@ -1323,8 +1293,8 @@
                   !!r.onCancellationRequested))
             );
           });
-      })((n = t.CancellationToken || (t.CancellationToken = {})));
-      var s = Object.freeze(function (e, t) {
+      })(n = t.CancellationToken || (t.CancellationToken = {}));
+      var s = Object.freeze((e, t) => {
           var r = setTimeout(e.bind(t), 0);
           return {
             dispose() {
@@ -1332,7 +1302,7 @@
             },
           };
         }),
-        a = (function () {
+        a = (() => {
           function e() {
             this._isCancelled = !1;
           }
@@ -1362,7 +1332,7 @@
           e
         ;
         })(),
-        u = (function () {
+        u = (() => {
           function e() {}
           return Object.defineProperty(e.prototype, "token", {
             get() {
@@ -1383,61 +1353,61 @@
       t.CancellationTokenSource = u;
     },
     PENG(e, t) {
-      (t.endianness = function () {
+      (t.endianness = () => {
         return "LE";
       }),
-        (t.hostname = function () {
+        (t.hostname = () => {
           return "undefined" !== typeof location ? location.hostname : "";
         }),
-        (t.loadavg = function () {
+        (t.loadavg = () => {
           return [];
         }),
-        (t.uptime = function () {
+        (t.uptime = () => {
           return 0;
         }),
-        (t.freemem = function () {
+        (t.freemem = () => {
           return Number.MAX_VALUE;
         }),
-        (t.totalmem = function () {
+        (t.totalmem = () => {
           return Number.MAX_VALUE;
         }),
-        (t.cpus = function () {
+        (t.cpus = () => {
           return [];
         }),
-        (t.type = function () {
+        (t.type = () => {
           return "Browser";
         }),
-        (t.release = function () {
+        (t.release = () => {
           return "undefined" !== typeof navigator ? navigator.appVersion : "";
         }),
         (t.networkInterfaces = t.getNetworkInterfaces =
-          function () {
+          () => {
             return {};
           }),
-        (t.arch = function () {
+        (t.arch = () => {
           return "javascript";
         }),
-        (t.platform = function () {
+        (t.platform = () => {
           return "browser";
         }),
         (t.tmpdir = t.tmpDir =
-          function () {
+          () => {
             return "/tmp";
           }),
         (t.EOL = "\n"),
-        (t.homedir = function () {
+        (t.homedir = () => {
           return "/";
         });
     },
     RUQ2(e, t, r) {
-      (function (e) {
+      ((e => {
         var t = r("RUQ2");
         for (k in t) e[k] = t[k];
-      }.call(this, r("ntbh")));
+      }).call(this, r("ntbh")));
     },
     qL5x(e, t, r) {
       "use strict";
-      (function (e) {
+      ((e => {
         Object.defineProperty(t, "__esModule", { value: !0 });
         var n = r("tpqs"),
           i = r("PENG"),
@@ -1445,20 +1415,20 @@
           s = r("RUQ2"),
           a = r("uWpP"),
           u = r("vIUA");
-        (t.generateRandomPipeName = function () {
+        (t.generateRandomPipeName = () => {
           var t = o.randomBytes(21).toString("hex");
           return "win32" === e.platform
             ? "\\\\.\\pipe\\vscode-jsonrpc-" + t + "-sock"
             : n.join(i.tmpdir(), "vscode-" + t + ".sock");
         }),
-          (t.createClientPipeTransport = function (e, t) {
+          (t.createClientPipeTransport = (e, t) => {
             var r;
             void 0 === t && (t = "utf-8");
-            var n = new Promise(function (e, t) {
+            var n = new Promise((e, t) => {
               r = e;
             });
-            return new Promise(function (i, o) {
-              var c = s.createServer(function (e) {
+            return new Promise((i, o) => {
+              var c = s.createServer(e => {
                 c.close(),
                   r([
                     new a.SocketMessageReader(e, t),
@@ -1466,7 +1436,7 @@
                   ]);
               });
               c.on("error", o),
-                c.listen(e, function () {
+                c.listen(e, () => {
                   c.removeListener("error", o),
                     i({
                       onConnected() {
@@ -1476,7 +1446,7 @@
                 });
             });
           }),
-          (t.createServerPipeTransport = function (e, t) {
+          (t.createServerPipeTransport = (e, t) => {
             void 0 === t && (t = "utf-8");
             var r = s.createConnection(e);
             return [
@@ -1484,7 +1454,7 @@
               new u.SocketMessageWriter(r, t),
             ];
           });
-      }.call(this, r("8oxB")));
+      }).call(this, r("8oxB")));
     },
   },
 ]);

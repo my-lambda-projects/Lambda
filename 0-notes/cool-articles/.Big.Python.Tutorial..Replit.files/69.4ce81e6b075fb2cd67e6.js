@@ -4,10 +4,10 @@
     tpLM(e, t, n) {
       "use strict";
       n.r(t),
-        n.d(t, "conf", function () {
+        n.d(t, "conf", () => {
           return r;
         }),
-        n.d(t, "language", function () {
+        n.d(t, "language", () => {
           return d;
         });
       var i = "undefined" === typeof monaco ? self.monaco : monaco,

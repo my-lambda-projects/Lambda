@@ -8,26 +8,26 @@
         o =
           r && "function" === typeof r.apply
             ? r.apply
-            : function (e, t, i) {
+            : (e, t, i) => {
                 return Function.prototype.apply.call(e, t, i);
               };
       n =
         r && "function" === typeof r.ownKeys
           ? r.ownKeys
           : Object.getOwnPropertySymbols
-          ? function (e) {
+          ? e => {
               return Object.getOwnPropertyNames(e).concat(
                 Object.getOwnPropertySymbols(e)
               );
             }
-          : function (e) {
+          : e => {
               return Object.getOwnPropertyNames(e);
             };
       var a =
         Number.isNaN ||
-        function (e) {
+        (e => {
           return e !== e;
-        };
+        });
       function s() {
         s.init.call(this);
       }
@@ -106,13 +106,11 @@
           ? i
             ? [r.listener || r]
             : [r]
-          : i
-          ? (function (e) {
+          : i ? (e => {
               for (var t = new Array(e.length), i = 0; i < t.length; ++i)
                 t[i] = e[i].listener || e[i];
               return t;
-            })(r)
-          : l(r, r.length);
+            })(r) : l(r, r.length);
       }
       function f(e) {
         var t = this._events;
@@ -230,9 +228,7 @@
                 break;
               }
             if (r < 0) return this;
-            0 === r
-              ? i.shift()
-              : (function (e, t) {
+            0 === r ? i.shift() : ((e, t) => {
                   for (; t + 1 < e.length; t++) e[t] = e[t + 1];
                   e.pop();
                 })(i, r),
@@ -280,7 +276,7 @@
         (s.prototype.rawListeners = function (e) {
           return v(this, e, !1);
         }),
-        (s.listenerCount = function (e, t) {
+        (s.listenerCount = (e, t) => {
           return "function" === typeof e.listenerCount
             ? e.listenerCount(t)
             : f.call(e, t);
@@ -292,7 +288,7 @@
     },
     "4JlD": function (e, t, i) {
       "use strict";
-      var n = function (e) {
+      var n = e => {
         switch (typeof e) {
           case "string":
             return e;
@@ -304,30 +300,29 @@
             return "";
         }
       };
-      e.exports = function (e, t, i, s) {
-        return (
-          (t = t || "&"),
-          (i = i || "="),
-          null === e && (e = void 0),
-          "object" === typeof e
-            ? o(a(e), function (a) {
-                var s = encodeURIComponent(n(a)) + i;
-                return r(e[a])
-                  ? o(e[a], function (e) {
-                      return s + encodeURIComponent(n(e));
-                    }).join(t)
-                  : s + encodeURIComponent(n(e[a]));
-              }).join(t)
-            : s
-            ? encodeURIComponent(n(s)) + i + encodeURIComponent(n(e))
-            : ""
-        );
+      e.exports = (e, t, i, s) => {
+        return (t = t || "&"),
+        (i = i || "="),
+        null === e && (e = void 0),
+        "object" === typeof e
+          ? o(a(e), a => {
+              var s = encodeURIComponent(n(a)) + i;
+              return r(e[a])
+                ? o(e[a], e => {
+                    return s + encodeURIComponent(n(e));
+                  }).join(t)
+                : s + encodeURIComponent(n(e[a]));
+            }).join(t)
+          : s
+          ? encodeURIComponent(n(s)) + i + encodeURIComponent(n(e))
+          : ""
+      ;
       };
       var r =
         Array.isArray ||
-        function (e) {
+        (e => {
           return "[object Array]" === Object.prototype.toString.call(e);
-        };
+        });
       function o(e, t) {
         if (e.map) return e.map(t);
         for (var i = [], n = 0; n < e.length; n++) i.push(t(e[n], n));
@@ -335,12 +330,12 @@
       }
       var a =
         Object.keys ||
-        function (e) {
+        (e => {
           var t = [];
           for (var i in e)
             Object.prototype.hasOwnProperty.call(e, i) && t.push(i);
           return t;
-        };
+        });
     },
     QmWs(e, t, i) {
       var n,
@@ -351,7 +346,7 @@
         o = /https?|ftp|gopher|file/;
       function a(e) {
         "string" == typeof e && (e = y(e));
-        var t = (function (e, t, i) {
+        var t = ((e, t, i) => {
           var n = e.auth,
             r = e.hostname,
             o = e.protocol || "",
@@ -489,17 +484,16 @@
           (b.query = t ? r.decode(m.search.substr(1)) : b.search.substr(1)),
           (b.pathname =
             w +
-            (o
-              ? (function (e) {
+            (o ? (e => {
                   return e
-                    .replace(/['^|`]/g, function (e) {
+                    .replace(/['^|`]/g, e => {
                       return "%" + e.charCodeAt().toString(16).toUpperCase();
                     })
-                    .replace(/((?:%[0-9A-F]{2})+)/g, function (e, t) {
+                    .replace(/((?:%[0-9A-F]{2})+)/g, (e, t) => {
                       try {
                         return decodeURIComponent(t)
                           .split("")
-                          .map(function (e) {
+                          .map(e => {
                             var t = e.charCodeAt();
                             return t > 256 || /^[a-z0-9]$/i.test(e)
                               ? e
@@ -510,8 +504,7 @@
                         return t;
                       }
                     });
-                })(m.pathname)
-              : m.pathname)),
+                })(m.pathname) : m.pathname)),
           "about:" === b.protocol &&
             "blank" === b.pathname &&
             ((b.protocol = ""), (b.pathname = "")),
@@ -530,57 +523,56 @@
           y && !b.host.endsWith(y) && ((b.host += y), (b.port = y.slice(1))),
           (b.href = w ? "" + b.pathname + b.search + b.hash : a(b));
         var L = /^(file)/.test(b.href) ? ["host", "hostname"] : [];
-        return (
-          Object.keys(b).forEach(function (e) {
-            ~L.indexOf(e) || (b[e] = b[e] || null);
-          }),
-          b
-        );
+        return Object.keys(b).forEach(e => {
+          ~L.indexOf(e) || (b[e] = b[e] || null);
+        }),
+        b
+      ;
       }
       (t.parse = y),
         (t.format = a),
         (t.resolve = c),
-        (t.resolveObject = function (e, t) {
+        (t.resolveObject = (e, t) => {
           return y(c(e, t));
         }),
         (t.Url = v);
     },
     "dI/k": function (e, t, i) {
       "use strict";
-      i.d(t, "g", function () {
+      i.d(t, "g", () => {
         return s;
       }),
-        i.d(t, "l", function () {
+        i.d(t, "l", () => {
           return p;
         }),
-        i.d(t, "d", function () {
+        i.d(t, "d", () => {
           return d;
         }),
-        i.d(t, "b", function () {
+        i.d(t, "b", () => {
           return m;
         }),
-        i.d(t, "e", function () {
+        i.d(t, "e", () => {
           return h;
         }),
-        i.d(t, "c", function () {
+        i.d(t, "c", () => {
           return f;
         }),
-        i.d(t, "a", function () {
+        i.d(t, "a", () => {
           return l;
         }),
-        i.d(t, "k", function () {
+        i.d(t, "k", () => {
           return c;
         }),
-        i.d(t, "f", function () {
+        i.d(t, "f", () => {
           return v;
         }),
-        i.d(t, "j", function () {
+        i.d(t, "j", () => {
           return u;
         }),
-        i.d(t, "i", function () {
+        i.d(t, "i", () => {
           return g;
         }),
-        i.d(t, "h", function () {
+        i.d(t, "h", () => {
           return x;
         });
       var n = i("tpqs"),
@@ -805,14 +797,14 @@
       function m(e) {
         return Object(n.extname)(e).slice(1);
       }
-      var c = function (e) {
+      var c = e => {
           for (var t = e.split("/"), i = [], n = 0; n < t.length; n++) {
             var r = t.slice(0, n + 1).join("/");
             i.push(r);
           }
           return i;
         },
-        v = function (e) {
+        v = e => {
           return e.split("/").length;
         };
       function f(e) {
@@ -855,7 +847,7 @@
       function n(e, t) {
         return Object.prototype.hasOwnProperty.call(e, t);
       }
-      e.exports = function (e, t, i, o) {
+      e.exports = (e, t, i, o) => {
         (t = t || "&"), (i = i || "=");
         var a = {};
         if ("string" !== typeof e || 0 === e.length) return a;
@@ -887,16 +879,16 @@
       };
       var r =
         Array.isArray ||
-        function (e) {
+        (e => {
           return "[object Array]" === Object.prototype.toString.call(e);
-        };
+        });
     },
     s4NR(e, t, i) {
       "use strict";
       (t.decode = t.parse = i("kd2E")), (t.encode = t.stringify = i("4JlD"));
     },
     tSgl(e, t) {
-      e.exports = function (e) {
+      e.exports = e => {
         return /^(\.config|\.npm$|\.npm\/|__pycache__|\.cache|\.git$|\.git\/|\.upm$|\.upm\/|node_modules$|node_modules\/|_test_runner)/.test(
           e
         );

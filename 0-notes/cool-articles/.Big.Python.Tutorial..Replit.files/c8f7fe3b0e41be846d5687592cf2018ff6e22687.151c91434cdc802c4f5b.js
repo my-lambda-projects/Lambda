@@ -4,58 +4,58 @@
     "1FcE": function (t, e, n) {
       "use strict";
       n.r(e),
-        n.d(e, "CompletionContext", function () {
+        n.d(e, "CompletionContext", () => {
           return a;
         }),
-        n.d(e, "acceptCompletion", function () {
+        n.d(e, "acceptCompletion", () => {
           return _;
         }),
-        n.d(e, "autocompletion", function () {
+        n.d(e, "autocompletion", () => {
           return ut;
         }),
-        n.d(e, "clearSnippet", function () {
+        n.d(e, "clearSnippet", () => {
           return nt;
         }),
-        n.d(e, "closeCompletion", function () {
+        n.d(e, "closeCompletion", () => {
           return z;
         }),
-        n.d(e, "completeAnyWord", function () {
+        n.d(e, "completeAnyWord", () => {
           return ct;
         }),
-        n.d(e, "completeFromList", function () {
+        n.d(e, "completeFromList", () => {
           return c;
         }),
-        n.d(e, "completionKeymap", function () {
+        n.d(e, "completionKeymap", () => {
           return ft;
         }),
-        n.d(e, "completionStatus", function () {
+        n.d(e, "completionStatus", () => {
           return pt;
         }),
-        n.d(e, "currentCompletions", function () {
+        n.d(e, "currentCompletions", () => {
           return mt;
         }),
-        n.d(e, "ifNotIn", function () {
+        n.d(e, "ifNotIn", () => {
           return u;
         }),
-        n.d(e, "moveCompletionSelection", function () {
+        n.d(e, "moveCompletionSelection", () => {
           return R;
         }),
-        n.d(e, "nextSnippetField", function () {
+        n.d(e, "nextSnippetField", () => {
           return it;
         }),
-        n.d(e, "prevSnippetField", function () {
+        n.d(e, "prevSnippetField", () => {
           return rt;
         }),
-        n.d(e, "snippet", function () {
+        n.d(e, "snippet", () => {
           return tt;
         }),
-        n.d(e, "snippetCompletion", function () {
+        n.d(e, "snippetCompletion", () => {
           return at;
         }),
-        n.d(e, "snippetKeymap", function () {
+        n.d(e, "snippetKeymap", () => {
           return ot;
         }),
-        n.d(e, "startCompletion", function () {
+        n.d(e, "startCompletion", () => {
           return F;
         });
       var i = n("4eob"),
@@ -106,9 +106,7 @@
       }
       function c(t) {
         let e = t.map((t) => ("string" == typeof t ? { label: t } : t)),
-          [n, i] = e.every((t) => /^\w+$/.test(t.label))
-            ? [/\w*$/, /\w+$/]
-            : (function (t) {
+          [n, i] = e.every((t) => /^\w+$/.test(t.label)) ? [/\w*$/, /\w+$/] : (t => {
                 let e = Object.create(null),
                   n = Object.create(null);
                 for (let { label: r } of t) {
@@ -499,29 +497,27 @@
             this.info && (this.info.remove(), (this.info = null));
             let t = e.options[e.selected];
             t.completion.info &&
-              ((this.info = this.dom.appendChild(
-                (function (t, e) {
-                  let n = document.createElement("div");
-                  n.className = "cm-tooltip cm-completionInfo";
-                  let { info: i } = t.completion;
-                  if ("string" == typeof i) n.textContent = i;
-                  else {
-                    let r = i(t.completion);
-                    r.then
-                      ? r.then(
-                          (t) => n.appendChild(t),
-                          (t) =>
-                            Object(s.logException)(
-                              e.state,
-                              t,
-                              "completion info"
-                            )
+              ((this.info = this.dom.appendChild(((t, e) => {
+              let n = document.createElement("div");
+              n.className = "cm-tooltip cm-completionInfo";
+              let { info: i } = t.completion;
+              if ("string" == typeof i) n.textContent = i;
+              else {
+                let r = i(t.completion);
+                r.then
+                  ? r.then(
+                      (t) => n.appendChild(t),
+                      (t) =>
+                        Object(s.logException)(
+                          e.state,
+                          t,
+                          "completion info"
                         )
-                      : n.appendChild(r);
-                  }
-                  return n;
-                })(t, this.view)
-              )),
+                    )
+                  : n.appendChild(r);
+              }
+              return n;
+            })(t, this.view))),
               this.view.requestMeasure(this.placeInfo));
           }
         }
@@ -537,17 +533,15 @@
                 (n.setAttribute("aria-selected", "true"), (e = n))
               : n.hasAttribute("aria-selected") &&
                 n.removeAttribute("aria-selected");
-          return (
-            e &&
-              (function (t, e) {
-                let n = t.getBoundingClientRect(),
-                  i = e.getBoundingClientRect();
-                i.top < n.top
-                  ? (t.scrollTop -= n.top - i.top)
-                  : i.bottom > n.bottom && (t.scrollTop += i.bottom - n.bottom);
-              })(this.list, e),
-            e
-          );
+          return e && ((t, e) => {
+            let n = t.getBoundingClientRect(),
+              i = e.getBoundingClientRect();
+            i.top < n.top
+              ? (t.scrollTop -= n.top - i.top)
+              : i.bottom > n.bottom && (t.scrollTop += i.bottom - n.bottom);
+          })(this.list, e),
+          e
+        ;
         }
         measureInfo() {
           let t = this.dom.querySelector("[aria-selected]");
@@ -595,7 +589,7 @@
             : new A(this.options, T(e, t), this.tooltip, this.timestamp, t);
         }
         static build(t, e, n, i) {
-          let r = (function (t, e) {
+          let r = ((t, e) => {
             let n = [];
             for (let s of t)
               if (s.hasResult()) {
@@ -683,7 +677,7 @@
             i.some(
               (e) => e.hasResult() && t.changes.touchesRange(e.from, e.to)
             ) ||
-            !(function (t, e) {
+            !((t, e) => {
               if (t == e) return !0;
               for (let n = 0, i = 0; ; ) {
                 for (; n < t.length && !t[n].hasResult; ) n++;
@@ -1274,10 +1268,10 @@
     "87dK": function (t, e, n) {
       "use strict";
       n.r(e),
-        n.d(e, "conf", function () {
+        n.d(e, "conf", () => {
           return r;
         }),
-        n.d(e, "language", function () {
+        n.d(e, "language", () => {
           return s;
         });
       var i = "undefined" === typeof monaco ? self.monaco : monaco,
@@ -1610,22 +1604,22 @@
     S0tx(t, e, n) {
       "use strict";
       n.r(e),
-        n.d(e, "commonmarkLanguage", function () {
+        n.d(e, "commonmarkLanguage", () => {
           return Mt;
         }),
-        n.d(e, "deleteMarkupBackward", function () {
+        n.d(e, "deleteMarkupBackward", () => {
           return Dt;
         }),
-        n.d(e, "insertNewlineContinueMarkup", function () {
+        n.d(e, "insertNewlineContinueMarkup", () => {
           return Ht;
         }),
-        n.d(e, "markdown", function () {
+        n.d(e, "markdown", () => {
           return Rt;
         }),
-        n.d(e, "markdownKeymap", function () {
+        n.d(e, "markdownKeymap", () => {
           return jt;
         }),
-        n.d(e, "markdownLanguage", function () {
+        n.d(e, "markdownLanguage", () => {
           return Pt;
         });
       var i,
@@ -1675,7 +1669,7 @@
           );
         }
       }
-      !(function (t) {
+      !(t => {
         (t[(t.Document = 1)] = "Document"),
           (t[(t.CodeBlock = 2)] = "CodeBlock"),
           (t[(t.FencedCode = 3)] = "FencedCode"),
@@ -3218,16 +3212,14 @@
           {
             name: "Table",
             leaf: (t, e) =>
-              (function (t, e) {
+              ((t, e) => {
                 for (let n = e; n < t.length; n++) {
                   let e = t.charCodeAt(n);
                   if (124 == e) return !0;
                   92 == e && n++;
                 }
                 return !1;
-              })(e.content, 0)
-                ? new kt()
-                : null,
+              })(e.content, 0) ? new kt() : null,
             before: "SetextHeading",
           },
         ],
@@ -3455,30 +3447,29 @@
                         )),
                         "OrderedList" == n.node.parent.name &&
                           l == e.from &&
-                          ((n.string = n.string.replace(/\d+/, (t) => +t + 1)),
-                          (function (t, e, n) {
-                            for (let i = -1, r = t; ; ) {
-                              if ("ListItem" == r.name) {
-                                let t = /^(\s*)(\d+)(?=[.)])/.exec(
-                                  e.sliceString(r.from, r.from + 10)
-                                );
-                                if (!t) return;
-                                let s = +t[2];
-                                if (i >= 0) {
-                                  if (s != i + 1) return;
-                                  n.push({
-                                    from: r.from + t[1].length,
-                                    to: r.from + t[0].length,
-                                    insert: String(i + 2),
-                                  });
-                                }
-                                i = s;
+                          (n.string = n.string.replace(/\d+/, (t) => +t + 1), ((t, e, n) => {
+                          for (let i = -1, r = t; ; ) {
+                            if ("ListItem" == r.name) {
+                              let t = /^(\s*)(\d+)(?=[.)])/.exec(
+                                e.sliceString(r.from, r.from + 10)
+                              );
+                              if (!t) return;
+                              let s = +t[2];
+                              if (i >= 0) {
+                                if (s != i + 1) return;
+                                n.push({
+                                  from: r.from + t[1].length,
+                                  to: r.from + t[0].length,
+                                  insert: String(i + 2),
+                                });
                               }
-                              let t = r.nextSibling;
-                              if (!t) break;
-                              r = t;
+                              i = s;
                             }
-                          })(n.node, t.doc, a))));
+                            let t = r.nextSibling;
+                            if (!t) break;
+                            r = t;
+                          }
+                        })(n.node, t.doc, a))));
                 }
                 let h = o.map((t) => t.string).join("");
                 return (
@@ -3581,28 +3572,28 @@
     },
     WQMp(t, e, n) {
       "use strict";
-      n.d(e, "a", function () {
+      n.d(e, "a", () => {
         return i;
       }),
-        n.d(e, "b", function () {
+        n.d(e, "b", () => {
           return o;
         }),
-        n.d(e, "c", function () {
+        n.d(e, "c", () => {
           return h;
         }),
-        n.d(e, "d", function () {
+        n.d(e, "d", () => {
           return a;
         }),
-        n.d(e, "e", function () {
+        n.d(e, "e", () => {
           return c;
         }),
-        n.d(e, "f", function () {
+        n.d(e, "f", () => {
           return f;
         }),
-        n.d(e, "g", function () {
+        n.d(e, "g", () => {
           return S;
         }),
-        n.d(e, "h", function () {
+        n.d(e, "h", () => {
           return C;
         });
       const i = 1024;
@@ -3789,7 +3780,7 @@
               );
         }
         static build(t) {
-          return (function (t) {
+          return (t => {
             var e;
             let {
                 buffer: n,
@@ -4522,13 +4513,13 @@
     fK0Z(t, e, n) {
       "use strict";
       n.r(e),
-        n.d(e, "hoverTooltip", function () {
+        n.d(e, "hoverTooltip", () => {
           return f;
         }),
-        n.d(e, "showTooltip", function () {
+        n.d(e, "showTooltip", () => {
           return c;
         }),
-        n.d(e, "tooltips", function () {
+        n.d(e, "tooltips", () => {
           return h;
         });
       var i = n("AtEE"),
@@ -4763,7 +4754,7 @@
           let n = this.active;
           if (
             (n &&
-              !(function (t) {
+              !(t => {
                 for (let e = t; e; e = e.parentNode)
                   if (1 == e.nodeType && e.classList.contains("cm-tooltip"))
                     return !0;
@@ -4777,9 +4768,7 @@
                 void 0 !== e
                   ? e
                   : i;
-            (i == r
-              ? this.view.posAtCoords({ x: t.clientX, y: t.clientY }) == i
-              : (function (t, e, n, i, r, s) {
+            (i == r ? this.view.posAtCoords({ x: t.clientX, y: t.clientY }) == i : ((t, e, n, i, r, s) => {
                   let o = document.createRange(),
                     l = t.domAtPos(e),
                     a = t.domAtPos(n);
@@ -4844,25 +4833,25 @@
     ubVE(t, e, n) {
       "use strict";
       n.r(e),
-        n.d(e, "HighlightStyle", function () {
+        n.d(e, "HighlightStyle", () => {
           return v;
         }),
-        n.d(e, "Tag", function () {
+        n.d(e, "Tag", () => {
           return c;
         }),
-        n.d(e, "classHighlightStyle", function () {
+        n.d(e, "classHighlightStyle", () => {
           return q;
         }),
-        n.d(e, "defaultHighlightStyle", function () {
+        n.d(e, "defaultHighlightStyle", () => {
           return $;
         }),
-        n.d(e, "highlightTree", function () {
+        n.d(e, "highlightTree", () => {
           return y;
         }),
-        n.d(e, "styleTags", function () {
+        n.d(e, "styleTags", () => {
           return p;
         }),
-        n.d(e, "tags", function () {
+        n.d(e, "tags", () => {
           return z;
         });
       var i = n("WQMp"),
@@ -5298,82 +5287,82 @@
     "yqQ+": function (t, e, n) {
       "use strict";
       n.r(e),
-        n.d(e, "EditorParseContext", function () {
+        n.d(e, "EditorParseContext", () => {
           return m;
         }),
-        n.d(e, "IndentContext", function () {
+        n.d(e, "IndentContext", () => {
           return I;
         }),
-        n.d(e, "Language", function () {
+        n.d(e, "Language", () => {
           return h;
         }),
-        n.d(e, "LanguageDescription", function () {
+        n.d(e, "LanguageDescription", () => {
           return S;
         }),
-        n.d(e, "LanguageSupport", function () {
+        n.d(e, "LanguageSupport", () => {
           return y;
         }),
-        n.d(e, "LezerLanguage", function () {
+        n.d(e, "LezerLanguage", () => {
           return u;
         }),
-        n.d(e, "TreeIndentContext", function () {
+        n.d(e, "TreeIndentContext", () => {
           return O;
         }),
-        n.d(e, "continuedIndent", function () {
+        n.d(e, "continuedIndent", () => {
           return _;
         }),
-        n.d(e, "defineLanguageFacet", function () {
+        n.d(e, "defineLanguageFacet", () => {
           return a;
         }),
-        n.d(e, "delimitedIndent", function () {
+        n.d(e, "delimitedIndent", () => {
           return D;
         }),
-        n.d(e, "ensureSyntaxTree", function () {
+        n.d(e, "ensureSyntaxTree", () => {
           return d;
         }),
-        n.d(e, "flatIndent", function () {
+        n.d(e, "flatIndent", () => {
           return R;
         }),
-        n.d(e, "foldInside", function () {
+        n.d(e, "foldInside", () => {
           return q;
         }),
-        n.d(e, "foldNodeProp", function () {
+        n.d(e, "foldNodeProp", () => {
           return $;
         }),
-        n.d(e, "foldService", function () {
+        n.d(e, "foldService", () => {
           return z;
         }),
-        n.d(e, "foldable", function () {
+        n.d(e, "foldable", () => {
           return V;
         }),
-        n.d(e, "getIndentUnit", function () {
+        n.d(e, "getIndentUnit", () => {
           return L;
         }),
-        n.d(e, "getIndentation", function () {
+        n.d(e, "getIndentation", () => {
           return E;
         }),
-        n.d(e, "indentNodeProp", function () {
+        n.d(e, "indentNodeProp", () => {
           return M;
         }),
-        n.d(e, "indentOnInput", function () {
+        n.d(e, "indentOnInput", () => {
           return F;
         }),
-        n.d(e, "indentService", function () {
+        n.d(e, "indentService", () => {
           return C;
         }),
-        n.d(e, "indentString", function () {
+        n.d(e, "indentString", () => {
           return T;
         }),
-        n.d(e, "indentUnit", function () {
+        n.d(e, "indentUnit", () => {
           return A;
         }),
-        n.d(e, "language", function () {
+        n.d(e, "language", () => {
           return v;
         }),
-        n.d(e, "languageDataProp", function () {
+        n.d(e, "languageDataProp", () => {
           return l;
         }),
-        n.d(e, "syntaxTree", function () {
+        n.d(e, "syntaxTree", () => {
           return f;
         });
       var i = n("WQMp"),
@@ -5849,8 +5838,7 @@
           if (null != n) return n;
         }
         let n = f(t.state);
-        return n
-          ? (function (t, e, n) {
+        return n ? ((t, e, n) => {
               let i = e.resolve(n);
               for (let r = i, s = n; ; ) {
                 let t = r.childBefore(s);
@@ -5860,8 +5848,7 @@
                   : ((r = t), (s = r.to + 1));
               }
               return B(i, n, t);
-            })(t, n, e)
-          : null;
+            })(t, n, e) : null;
       }
       class I {
         constructor(t, e = {}) {
@@ -5933,7 +5920,7 @@
               1,
               void 0,
               i &&
-                !(function (t) {
+                !(t => {
                   var e, n;
                   return (
                     t.pos ==
@@ -5997,8 +5984,7 @@
         let s = t.textAfter,
           o = s.match(/^\s*/)[0].length,
           l = (i && s.slice(o, o + i.length) == i) || r == t.pos + o,
-          a = e
-            ? (function (t) {
+          a = e ? (t => {
                 var e;
                 let n = t.node,
                   i = n.childAfter(n.from),
@@ -6016,8 +6002,7 @@
                   if (!t.type.isSkipped) return t.from < l ? i : null;
                   a = t.to;
                 }
-              })(t)
-            : null;
+              })(t) : null;
         return a
           ? l
             ? t.column(a.from)
@@ -6077,7 +6062,7 @@
           let r = i(t, e, n);
           if (r) return r;
         }
-        return (function (t, e, n) {
+        return ((t, e, n) => {
           let i = f(t);
           if (0 == i.length) return null;
           let r = null;

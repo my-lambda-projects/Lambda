@@ -1,15 +1,15 @@
-var hcaptcha = (function () {
+var hcaptcha = (() => {
   "use strict";
   function e(e) {
     var t = this.constructor;
     return this.then(
-      function (n) {
-        return t.resolve(e()).then(function () {
+      n => {
+        return t.resolve(e()).then(() => {
           return n;
         });
       },
-      function (n) {
-        return t.resolve(e()).then(function () {
+      n => {
+        return t.resolve(e()).then(() => {
           return t.reject(n);
         });
       }
@@ -31,7 +31,7 @@ var hcaptcha = (function () {
     for (; 3 === e._state; ) e = e._value;
     0 !== e._state
       ? ((e._handled = !0),
-        i._immediateFn(function () {
+        i._immediateFn(() => {
           var n = 1 === e._state ? t.onFulfilled : t.onRejected;
           if (null !== n) {
             var i;
@@ -74,7 +74,7 @@ var hcaptcha = (function () {
   function s(e) {
     2 === e._state &&
       0 === e._deferreds.length &&
-      i._immediateFn(function () {
+      i._immediateFn(() => {
         e._handled || i._unhandledRejectionFn(e._value);
       });
     for (var t = 0, n = e._deferreds.length; t < n; t++) o(e, e._deferreds[t]);
@@ -89,10 +89,10 @@ var hcaptcha = (function () {
     var n = !1;
     try {
       e(
-        function (e) {
+        e => {
           n || ((n = !0), r(t, e));
         },
-        function (e) {
+        e => {
           n || ((n = !0), a(t, e));
         }
       );
@@ -109,8 +109,8 @@ var hcaptcha = (function () {
       return o(this, new h(e, t, i)), i;
     }),
     (i.prototype["finally"] = e),
-    (i.all = function (e) {
-      return new i(function (t, n) {
+    (i.all = e => {
+      return new i((t, n) => {
         if (!e || "undefined" == typeof e.length)
           throw new TypeError("Promise.all accepts an array");
         var i = Array.prototype.slice.call(e);
@@ -123,7 +123,7 @@ var hcaptcha = (function () {
               if ("function" == typeof s)
                 return void s.call(
                   a,
-                  function (t) {
+                  t => {
                     r(e, t);
                   },
                   n
@@ -137,38 +137,38 @@ var hcaptcha = (function () {
         for (var a = 0; a < i.length; a++) r(a, i[a]);
       });
     }),
-    (i.resolve = function (e) {
+    (i.resolve = e => {
       return e && "object" == typeof e && e.constructor === i
         ? e
-        : new i(function (t) {
+        : new i(t => {
             t(e);
           });
     }),
-    (i.reject = function (e) {
-      return new i(function (t, n) {
+    (i.reject = e => {
+      return new i((t, n) => {
         n(e);
       });
     }),
-    (i.race = function (e) {
-      return new i(function (t, n) {
+    (i.race = e => {
+      return new i((t, n) => {
         for (var i = 0, o = e.length; i < o; i++) e[i].then(t, n);
       });
     }),
     (i._immediateFn =
       ("function" == typeof setImmediate &&
-        function (e) {
+        (e => {
           setImmediate(e);
-        }) ||
-      function (e) {
+        })) ||
+      (e => {
         t(e, 0);
-      }),
-    (i._unhandledRejectionFn = function (e) {
+      })),
+    (i._unhandledRejectionFn = e => {
       "undefined" != typeof console &&
         console &&
         console.warn("Possible Unhandled Promise Rejection:", e);
     });
   var l,
-    d = (function () {
+    d = (() => {
       if ("undefined" != typeof self) return self;
       if ("undefined" != typeof window) return window;
       if ("undefined" != typeof global) return global;
@@ -178,7 +178,7 @@ var hcaptcha = (function () {
     ? d.Promise.prototype["finally"] || (d.Promise.prototype["finally"] = e)
     : (d.Promise = i),
     Array.prototype.indexOf ||
-      (Array.prototype.indexOf = (function (e) {
+      (Array.prototype.indexOf = (e => {
         return function (t, n) {
           if (null === this || this === undefined)
             throw TypeError(
@@ -198,13 +198,13 @@ var hcaptcha = (function () {
         };
       })(Object)),
     Array.isArray ||
-      (Array.isArray = function (e) {
+      (Array.isArray = e => {
         return "[object Array]" === Object.prototype.toString.call(e);
       }),
     document.getElementsByClassName ||
       (window.Element.prototype.getElementsByClassName =
         document.constructor.prototype.getElementsByClassName =
-          function (e) {
+          e => {
             if (document.querySelectorAll)
               return document.querySelectorAll("." + e);
             for (
@@ -253,7 +253,7 @@ var hcaptcha = (function () {
         throw new TypeError("Function.prototype.bind: Item Can Not Be Bound.");
       var t = Array.prototype.slice.call(arguments, 1),
         n = this,
-        i = function () {},
+        i = () => {},
         o = function () {
           return n.apply(
             this instanceof i ? this : e,
@@ -267,14 +267,14 @@ var hcaptcha = (function () {
       );
     }),
     "function" != typeof Object.create &&
-      (Object.create = function (e, t) {
+      (Object.create = (e, t) => {
         function n() {}
         if (((n.prototype = e), "object" == typeof t))
           for (var i in t) t.hasOwnProperty(i) && (n[i] = t[i]);
         return new n();
       }),
     Date.now ||
-      (Date.now = function () {
+      (Date.now = () => {
         return new Date().getTime();
       }),
     window.console || (window.console = {});
@@ -282,7 +282,7 @@ var hcaptcha = (function () {
     var p,
       f,
       m = ["error", "info", "log", "show", "table", "trace", "warn"],
-      g = function (e) {},
+      g = e => {},
       y = m.length;
     --y > -1;
 
@@ -294,7 +294,7 @@ var hcaptcha = (function () {
     } catch (mt) {
       window.atob =
         ((p = window.atob),
-        ((f = function (e) {
+        ((f = e => {
           return p(String(e).replace(/[\t\n\f\r ]+/g, ""));
         }).original = p),
         f);
@@ -303,7 +303,7 @@ var hcaptcha = (function () {
     var v = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
       w =
         /^(?:[A-Za-z\d+\/]{4})*?(?:[A-Za-z\d+\/]{2}(?:==)?|[A-Za-z\d+\/]{3}=?)?$/;
-    window.atob = function (e) {
+    window.atob = e => {
       if (((e = String(e).replace(/[\t\n\f\r ]+/g, "")), !w.test(e)))
         throw new TypeError(
           "Failed to execute 'atob' on 'Window': The string to be decoded is not correctly encoded."
@@ -364,12 +364,11 @@ var hcaptcha = (function () {
       },
       getCaptchaIdList() {
         var e = [];
-        return (
-          x.each(function (t) {
-            e.push(t.id);
-          }),
-          e
-        );
+        return x.each(t => {
+          e.push(t.id);
+        }),
+        e
+      ;
       },
       pushSession(e, t) {
         _.push([e, t]), _.length > 10 && _.splice(0, _.length - 10);
@@ -383,20 +382,20 @@ var hcaptcha = (function () {
     (this._bottom = 0),
       (this._top = 0),
       (this.storage = {}),
-      (this.add = function (t) {
+      (this.add = t => {
         return (e.storage[e._top] = t), e._top++, t;
       }),
-      (this.remove = function () {
+      (this.remove = () => {
         if (!e.empty()) {
           var t = e._bottom,
             n = e.storage[t];
           return (e.storage[t] = null), e._bottom++, n;
         }
       }),
-      (this.empty = function () {
+      (this.empty = () => {
         return e._top === e._bottom;
       }),
-      (this.size = function () {
+      (this.size = () => {
         return e._top - e._bottom;
       });
   }
@@ -781,28 +780,28 @@ var hcaptcha = (function () {
       (this.language =
         window.navigator.userLanguage || window.navigator.language),
       (this.isCSS1 = "CSS1Compat" === (document.compatMode || "")),
-      (this.width = function () {
+      (this.width = () => {
         return window.innerWidth && window.document.documentElement.clientWidth
           ? Math.min(window.innerWidth, document.documentElement.clientWidth)
           : window.innerWidth ||
               window.document.documentElement.clientWidth ||
               document.body.clientWidth;
       }),
-      (this.height = function () {
+      (this.height = () => {
         return (
           window.innerHeight ||
           window.document.documentElement.clientHeight ||
           document.body.clientHeight
         );
       }),
-      (this.scrollX = function () {
+      (this.scrollX = () => {
         return window.pageXOffset !== undefined
           ? window.pageXOffset
           : e.isCSS1
           ? document.documentElement.scrollLeft
           : document.body.scrollLeft;
       }),
-      (this.scrollY = function () {
+      (this.scrollY = () => {
         return window.pageYOffset !== undefined
           ? window.pageYOffset
           : e.isCSS1
@@ -824,15 +823,15 @@ var hcaptcha = (function () {
       (this.version = 1 * (t.major + "." + t.minor) || 0),
       (this.hasPostMessage = !!window.postMessage);
   }
-  (T.prototype.hasEvent = function (e, t) {
+  (T.prototype.hasEvent = (e, t) => {
     return "on" + e in (t || document.createElement("div"));
   }),
-    (T.prototype.getScreenDimensions = function () {
+    (T.prototype.getScreenDimensions = () => {
       var e = {};
       for (var t in window.screen) e[t] = window.screen[t];
       return delete e.orientation, e;
     }),
-    (T.prototype.interrogateNavigator = function () {
+    (T.prototype.interrogateNavigator = () => {
       var e = {};
       for (var t in window.navigator)
         try {
@@ -848,11 +847,11 @@ var hcaptcha = (function () {
           e.plugins[n] = window.navigator.plugins[n].filename;
       return e;
     }),
-    (T.prototype.supportsCanvas = function () {
+    (T.prototype.supportsCanvas = () => {
       var e = document.createElement("canvas");
       return !(!e.getContext || !e.getContext("2d"));
     }),
-    (T.prototype.supportsWebAssembly = function () {
+    (T.prototype.supportsWebAssembly = () => {
       try {
         if (
           "object" == typeof WebAssembly &&
@@ -892,7 +891,7 @@ var hcaptcha = (function () {
                 "BlackBerry OS",
               ].indexOf(n.name) >= 0),
           e && t)),
-          (this.dpr = function () {
+          (this.dpr = () => {
             return window.devicePixelRatio || 1;
           }),
           this.mobile &&
@@ -912,7 +911,7 @@ var hcaptcha = (function () {
               : "Linux" === n.family
               ? "linux"
               : n.family.toLowerCase()),
-          (this.version = (function () {
+          (this.version = (() => {
             if (!n) return "unknown";
             var e = n.major;
             return (
@@ -1013,19 +1012,18 @@ var hcaptcha = (function () {
       i = "attempts" in (t = t || {}) ? t.attempts : 1,
       o = t.delay || 0,
       r = t.onFail;
-    return (
-      (n = function (t, n, a) {
-        e().then(t, function (e) {
-          var t = i-- > 0;
-          r && (t = !1 !== r(e) && t), t ? setTimeout(a, o) : n(e);
-        });
-      }),
-      new Promise(function (e, t) {
-        n(e, t, function i() {
-          n(e, t, i);
-        });
-      })
-    );
+    return (n = (t, n, a) => {
+      e().then(t, e => {
+        var t = i-- > 0;
+        r && (t = !1 !== r(e) && t), t ? setTimeout(a, o) : n(e);
+      });
+    }),
+    new Promise((e, t) => {
+      n(e, t, function i() {
+        n(e, t, i);
+      });
+    })
+  ;
   }
   var F = {
       eventName(e) {
@@ -1065,7 +1063,7 @@ var hcaptcha = (function () {
       },
       eventCallback(e, t, n) {
         var i = F.actionName(e);
-        return function (o) {
+        return o => {
           if (
             ((o = o || window.event),
             "down" === i ||
@@ -1105,16 +1103,14 @@ var hcaptcha = (function () {
     X = {};
   function Y(e) {
     var t = X[e];
-    return (
-      t ||
-      (e in H
-        ? e
-        : (X[e] =
-            (function (e) {
-              for (var t = e[0].toUpperCase() + e.slice(1), n = q.length; n--; )
-                if ((e = q[n] + t) in H) return e;
-            })(e) || e))
-    );
+    return t ||
+    (e in H
+      ? e
+      : (X[e] =
+          (e => {
+            for (var t = e[0].toUpperCase() + e.slice(1), n = q.length; n--; )
+              if ((e = q[n] + t) in H) return e;
+          })(e) || e));
   }
   function J(e, t, n) {
     if (
@@ -1380,7 +1376,7 @@ var hcaptcha = (function () {
     (Q.prototype.destroy = function () {
       var e = this;
       try {
-        k.depth(this, "children", function (t) {
+        k.depth(this, "children", t => {
           if (e !== t)
             for (var n = e.children.length; --n > -1; )
               e.children[n] === t && e.children.splice(n, 1);
@@ -1672,21 +1668,21 @@ var hcaptcha = (function () {
     ne = { mousedown: "md", mouseup: "mu", mousemove: "mm" },
     ie = { keydown: "kd", keyup: "ku" },
     oe = { devicemotion: "dm" },
-    re = function (e, t) {
+    re = (e, t) => {
       var n = ne[e],
         i = null;
-      return function (e) {
-        (i = (function (e) {
+      return e => {
+        (i = (e => {
           return [e.windowX, e.windowY, Date.now()];
         })(e)),
           t(n, i);
       };
     },
-    ae = function (e, t) {
+    ae = (e, t) => {
       var n = te[e],
         i = null;
-      return function (e) {
-        (i = (function (e) {
+      return e => {
+        (i = (e => {
           for (
             var t,
               n =
@@ -1704,23 +1700,23 @@ var hcaptcha = (function () {
           t(n, i);
       };
     },
-    se = function (e, t) {
+    se = (e, t) => {
       var n = ie[e],
         i = null;
-      return function (e) {
-        (i = (function (e) {
+      return e => {
+        (i = (e => {
           return [e.keyNum, Date.now()];
         })(e)),
           t(n, i);
       };
     },
-    he = function (e, t) {
+    he = (e, t) => {
       var n = oe[e],
         i = null,
         o = [];
-      return function (e) {
+      return e => {
         null !==
-          (i = (function (e, t) {
+          (i = ((e, t) => {
             (e.acceleration === undefined ||
               (e.acceleration && e.acceleration.x === undefined)) &&
               (e.acceleration = { x: 0, y: 0, z: 0 });
@@ -1928,22 +1924,21 @@ var hcaptcha = (function () {
   function _e(e, t) {
     var n = this,
       i = {},
-      o = new Promise(function (e, t) {
+      o = new Promise((e, t) => {
         (i.resolve = e), (i.reject = t);
       }),
       r = { source: "hcaptcha", label: e, id: n.id, promise: null, lookup: t };
-    return (
-      o
-        .then(function (e) {
-          (r.promise = "resolve"),
-            null !== e && (r.contents = e),
-            we(n.target, r);
-        })
-        ["catch"](function (e) {
-          (r.promise = "reject"), null !== e && (r.error = e), we(n.target, r);
-        }),
-      i
-    );
+    return o
+      .then(e => {
+        (r.promise = "resolve"),
+          null !== e && (r.contents = e),
+          we(n.target, r);
+      })
+      ["catch"](e => {
+        (r.promise = "reject"), null !== e && (r.error = e), we(n.target, r);
+      }),
+    i
+  ;
   }
   (be.prototype.setID = function (e) {
     this.id = e;
@@ -1966,7 +1961,7 @@ var hcaptcha = (function () {
         if ("object" != typeof t) throw new Error("Message must be an object.");
         o.contents = t;
       }
-      return new Promise(function (t, r) {
+      return new Promise((t, r) => {
         n.waiting.push({ label: e, reject: r, resolve: t, lookup: i }),
           we(n.target, o);
       });
@@ -2126,13 +2121,13 @@ var hcaptcha = (function () {
         }
       },
       hasAccess() {
-        return new Promise(function (e) {
+        return new Promise(e => {
           document
             .hasStorageAccess()
-            .then(function () {
+            .then(() => {
               e(!0);
             })
-            ["catch"](function () {
+            ["catch"](() => {
               e(!1);
             });
         });
@@ -2145,7 +2140,7 @@ var hcaptcha = (function () {
         }
       },
     },
-    ke = function (e) {
+    ke = e => {
       for (
         var t,
           n,
@@ -2164,7 +2159,7 @@ var hcaptcha = (function () {
           (o[n] = i));
       return o;
     },
-    Ee = function (e) {
+    Ee = e => {
       var t = [];
       for (var n in e)
         t.push([encodeURIComponent(n), encodeURIComponent(e[n])].join("="));
@@ -2300,7 +2295,7 @@ var hcaptcha = (function () {
       (this.scale = 1),
       (this.dpr = window.devicePixelRatio || 1),
       (this.clearColor = "#fff"),
-      (this.ctx.roundedRect = function (t, n, i, o, r) {
+      (this.ctx.roundedRect = (t, n, i, o, r) => {
         var a = i > 0 ? r : -r,
           s = o > 0 ? r : -r;
         e.ctx.beginPath(),
@@ -2547,7 +2542,7 @@ var hcaptcha = (function () {
     }),
     (Se.prototype.onReady = function (e) {
       var t = Array.prototype.slice.call(arguments, 1),
-        n = function () {
+        n = () => {
           e.apply(null, t);
         };
       this.ready ? n() : this.listeners.push(n);
@@ -2679,9 +2674,9 @@ var hcaptcha = (function () {
             (this.overflow.scroll = M.Browser.scrollY()),
             (document.body.style.overflowY = "auto"));
       }
-      return new Promise(function (t) {
+      return new Promise(t => {
         n.status(),
-          n.getTickLocation().then(function (r) {
+          n.getTickLocation().then(r => {
             (i.size(e.width, e.height, e.mobile),
             i.show(),
             n.clearLoading(),
@@ -2695,7 +2690,7 @@ var hcaptcha = (function () {
               ).scrollTop = Math.abs(i.height - o) + i.top);
             t();
           });
-      }).then(function () {
+      }).then(() => {
         t.onOpen && N(t.onOpen);
       });
     }),
@@ -2704,13 +2699,13 @@ var hcaptcha = (function () {
         o = this.checkbox,
         r = this.challenge;
       r.getDimensions(e, t)
-        .then(function (e) {
+        .then(e => {
           e && r.size(e.width, e.height, e.mobile),
             (o.location.bounding = o.getBounding()),
             (o.location.offset = o.getOffset()),
             (M.System.mobile && !n) || r.position(o.location);
         })
-        ["catch"](function (e) {
+        ["catch"](e => {
           i.closeChallenge.call(i, {
             event: "challenge-error",
             message: "Captcha resize caused error.",
@@ -2772,7 +2767,7 @@ var hcaptcha = (function () {
             this.onPass && N(this.onPass, o),
             "number" == typeof e.expiration &&
               (t._resetTimer(),
-              (t._responseTimer = setTimeout(function () {
+              (t._responseTimer = setTimeout(() => {
                 try {
                   n.reset(),
                     n.setResponse(""),
@@ -2809,7 +2804,7 @@ var hcaptcha = (function () {
     }),
     (Ie.prototype.onReady = function (e) {
       var t = Array.prototype.slice.call(arguments, 1),
-        n = function () {
+        n = () => {
           e.apply(null, t);
         };
       this._ready ? n() : this._listeners.push(n);
@@ -2856,7 +2851,7 @@ var hcaptcha = (function () {
         (this.height = null);
     }),
     (Te.prototype.rotate = function (e, t) {
-      var n = (function (e) {
+      var n = (e => {
           return e * (Math.PI / 180);
         })(t),
         i = Math.sin(n),
@@ -3041,16 +3036,16 @@ var hcaptcha = (function () {
       t = this.attribs,
       n = this.src,
       i = this.id;
-    return new Promise(function (o, r) {
+    return new Promise((o, r) => {
       var a = new Image();
       (e.element = a),
         t.crossOrigin && (a.crossOrigin = t.crossOrigin),
-        (a.onerror = function (t) {
+        (a.onerror = t => {
           (e.error = !0), (a.onload = a.onerror = null);
           var n = (t && t.message ? t.message : "Loading Error") + ": " + i;
           Le(e.cb, "error", n), r(n);
         }),
-        (a.onload = function () {
+        (a.onload = () => {
           e.loaded ||
             ((e.width = a.width),
             (e.height = a.height),
@@ -3076,10 +3071,10 @@ var hcaptcha = (function () {
         t = this.attribs,
         n = this.src,
         i = this.id;
-      return new Promise(function (o, r) {
+      return new Promise((o, r) => {
         var a = document.createElement("script");
         (e.element = a),
-          (a.onerror = function (t) {
+          (a.onerror = t => {
             (e.error = !0),
               (a.onload = a.onreadystatechange = a.onerror = null);
             var n = (t.message || "Loading Error") + ": " + i;
@@ -3141,26 +3136,25 @@ var hcaptcha = (function () {
       headers: n.headers || null,
       data: n.data || null,
     };
-    return (
-      (i.legacy = i.withCredentials && Fe),
-      i.data &&
-        ("json" === i.dataType &&
-          "object" == typeof i.data &&
-          (i.data = JSON.stringify(i.data)),
-        "query" === i.dataType && (i.data = Re(i.data))),
-      n.retry
-        ? U(function () {
-            return He(i);
-          }, n.retry)
-        : He(i)
-    );
+    return (i.legacy = i.withCredentials && Fe),
+    i.data &&
+      ("json" === i.dataType &&
+        "object" == typeof i.data &&
+        (i.data = JSON.stringify(i.data)),
+      "query" === i.dataType && (i.data = Re(i.data))),
+    n.retry
+      ? U(() => {
+          return He(i);
+        }, n.retry)
+      : He(i)
+  ;
   }
   function He(e) {
     var t = e.legacy ? new XDomainRequest() : new XMLHttpRequest();
-    return new Promise(function (n, i) {
+    return new Promise((n, i) => {
       var o,
-        r = function (o) {
-          return function (r) {
+        r = o => {
+          return r => {
             var a = t.response || t.responseText,
               s = t.statusText || "",
               h = t.status,
@@ -3187,12 +3181,12 @@ var hcaptcha = (function () {
         ((t.withCredentials = e.withCredentials), e.headers)
       )
         for (var a in e.headers) (o = e.headers[a]), t.setRequestHeader(a, o);
-      setTimeout(function () {
+      setTimeout(() => {
         t.send(e.data);
       }, 0);
     });
   }
-  var Xe = function (e, t) {
+  var Xe = (e, t) => {
     if (
       ("object" == typeof e && t === undefined && (e = (t = e).url), null === e)
     )
@@ -3219,14 +3213,14 @@ var hcaptcha = (function () {
     var e = this,
       t = this.src,
       n = this.id;
-    return new Promise(function (i, o) {
+    return new Promise((i, o) => {
       var r = {};
       t.indexOf("json") >= 0 && (r.responseType = "json"),
         Xe(t, r)
-          .then(function (t) {
+          .then(t => {
             (e.loaded = !0), (e.data = t.body), Je(e.cb, "load", e), i(e);
           })
-          ["catch"](function (t) {
+          ["catch"](t => {
             e.error = !0;
             var i = (t && t.message ? t.message : "Loading Error") + ": " + n;
             Je(e.cb, "error", i), o(i);
@@ -3251,7 +3245,7 @@ var hcaptcha = (function () {
           var o = e[i];
           n.push(Qe.add(o, t));
         }
-        return Promise.all(n)["finally"](function () {
+        return Promise.all(n)["finally"](() => {
           n = [];
         });
       },
@@ -3268,7 +3262,7 @@ var hcaptcha = (function () {
         return Ve.push(n), n.load();
       },
       retrieve(e) {
-        return new Promise(function (t, n) {
+        return new Promise((t, n) => {
           for (var i = Ve.length, o = !1, r = null; --i > -1 && !o; )
             o = (r = Ve[i]).id.indexOf(e) >= 0 && r;
           if (!o) return t(null);
@@ -3279,23 +3273,21 @@ var hcaptcha = (function () {
   function Ke(e) {
     if ("en" === e) return Promise.resolve();
     var t = e + ".json";
-    return new Promise(function (n, i) {
+    return new Promise((n, i) => {
       Qe.retrieve(t)
-        .then(function (n) {
-          return (
-            n ||
-            Qe.file(t, {
-              prefix:
-                "https://assets.hcaptcha.com/captcha/v1/523a6ff/static/i18n",
-            }).then(function (t) {
-              return ee.addTable(e, t.data), t;
-            })
-          );
+        .then(n => {
+          return n ||
+          Qe.file(t, {
+            prefix:
+              "https://assets.hcaptcha.com/captcha/v1/523a6ff/static/i18n",
+          }).then(t => {
+            return ee.addTable(e, t.data), t;
+          });
         })
-        .then(function (e) {
+        .then(e => {
           n(e.data);
         })
-        ["catch"](function (e) {
+        ["catch"](e => {
           i(e);
         });
     });
@@ -3319,16 +3311,14 @@ var hcaptcha = (function () {
         ("string" == typeof e && (e = document.getElementById(e)),
         e && 1 === e.nodeType)
       )
-        if (
-          (function (e) {
-            if (!(e && "challenge-container" in e)) return !0;
-            var t = e["challenge-container"];
-            return (
-              "string" == typeof t && (t = document.getElementById(t)),
-              !!t && 1 === t.nodeType
-            );
-          })(t)
-        ) {
+        if ((e => {
+          if (!(e && "challenge-container" in e)) return !0;
+          var t = e["challenge-container"];
+          return (
+            "string" == typeof t && (t = document.getElementById(t)),
+            !!t && 1 === t.nodeType
+          );
+        })(t)) {
           if (!1 !== xe.isSupported()) {
             for (
               var n, i, o = e.getElementsByTagName("iframe"), r = -1;
@@ -3343,7 +3333,7 @@ var hcaptcha = (function () {
                 ),
                 i
               );
-            var a = (function (e, t) {
+            var a = ((e, t) => {
                 for (
                   var n = [
                       "tplinks",
@@ -3404,7 +3394,7 @@ var hcaptcha = (function () {
               e.setAttribute("data-hcaptcha-widget-id", s),
                 d.setAttribute("data-hcaptcha-source-id", f),
                 e.parentNode.insertBefore(d.dom, e),
-                (e.onclick = function (e) {
+                (e.onclick = e => {
                   return e.preventDefault(), ve(s);
                 }),
                 (e = d),
@@ -3421,100 +3411,98 @@ var hcaptcha = (function () {
                 void j(e, g)
               );
             }
-            return (
-              a.callback && (m.onPass = a.callback),
-              a["expired-callback"] && (m.onExpire = a["expired-callback"]),
-              a["chalexpired-callback"] &&
-                (m.onChalExpire = a["chalexpired-callback"]),
-              a["open-callback"] && (m.onOpen = a["open-callback"]),
-              a["close-callback"] && (m.onClose = a["close-callback"]),
-              a["error-callback"] && (m.onError = a["error-callback"]),
-              de.setData("inv", "invisible" === h.size),
-              m.checkbox.chat.listen("checkbox-selected", function (e) {
-                de.setData("exec", !1), m.onReady(m.initChallenge, e);
-              }),
-              m.checkbox.chat.listen("checkbox-loaded", function (e) {
-                (m.checkbox.location.bounding = m.checkbox.getBounding()),
-                  (m.checkbox.location.tick = e),
-                  (m.checkbox.location.offset = m.checkbox.getOffset());
-                var t = ee.getLocale();
-                m.checkbox.sendTranslation(t);
-              }),
-              m.checkbox.chat.listen("checkbox-setup", function (e) {
-                m.challenge.onReady(function () {
-                  !$.endpointOverride &&
-                    e.endpoint &&
-                    m.challenge.setEndpoint(e.endpoint),
-                    e.c
-                      ? m.challenge.sendProof(e.c).then(function () {
-                          m.setReady(!0);
-                        })
-                      : m.setReady(!0);
-                });
-              }),
-              m.challenge.chat.listen("challenge-loaded", function () {
-                m.challenge.setReady(!0);
-                var e = ee.getLocale();
-                m.challenge.sendTranslation(e);
-              }),
-              m.challenge.chat.answer("challenge-ready", function (e, t) {
-                m.displayChallenge(e).then(t.resolve);
-              }),
-              m.challenge.chat.listen("challenge-resize", function () {
-                var e = M.Browser.width(),
-                  t = M.Browser.height();
-                m.resize(e, t);
-              }),
-              m.challenge.chat.listen("challenge-closed", m.closeChallenge),
-              m.challenge.chat.answer("get-url", function (e) {
-                e.resolve(window.location.href);
-              }),
-              m.challenge.chat.answer("check-api", function (e) {
-                e.resolve(de.getData());
-              }),
-              m.challenge.chat.listen("challenge-key", function (e) {
-                x.pushSession(e.key, m.id);
-              }),
-              m.challenge.onOverlayClick(function () {
-                m.closeChallenge({ event: "challenge-escaped" });
-              }),
-              m.challenge.chat.listen("challenge-language", function (e) {
-                var t = e.locale;
-                ee.setLocale(t),
-                  Ke(t)
-                    .then(function (e) {
-                      x.each(function (e) {
-                        if (e)
-                          try {
-                            e.updateTranslation(t);
-                          } catch (ft) {
-                            z(
-                              "Failed to update text translation: " +
-                                JSON.stringify(ft),
-                              "error",
-                              "translation"
-                            );
-                          }
-                      });
-                    })
-                    ["catch"](function (e) {
-                      z("Language failed to load: " + t, "error", "api");
+            return a.callback && (m.onPass = a.callback),
+            a["expired-callback"] && (m.onExpire = a["expired-callback"]),
+            a["chalexpired-callback"] &&
+              (m.onChalExpire = a["chalexpired-callback"]),
+            a["open-callback"] && (m.onOpen = a["open-callback"]),
+            a["close-callback"] && (m.onClose = a["close-callback"]),
+            a["error-callback"] && (m.onError = a["error-callback"]),
+            de.setData("inv", "invisible" === h.size),
+            m.checkbox.chat.listen("checkbox-selected", e => {
+              de.setData("exec", !1), m.onReady(m.initChallenge, e);
+            }),
+            m.checkbox.chat.listen("checkbox-loaded", e => {
+              (m.checkbox.location.bounding = m.checkbox.getBounding()),
+                (m.checkbox.location.tick = e),
+                (m.checkbox.location.offset = m.checkbox.getOffset());
+              var t = ee.getLocale();
+              m.checkbox.sendTranslation(t);
+            }),
+            m.checkbox.chat.listen("checkbox-setup", e => {
+              m.challenge.onReady(() => {
+                !$.endpointOverride &&
+                  e.endpoint &&
+                  m.challenge.setEndpoint(e.endpoint),
+                  e.c
+                    ? m.challenge.sendProof(e.c).then(() => {
+                        m.setReady(!0);
+                      })
+                    : m.setReady(!0);
+              });
+            }),
+            m.challenge.chat.listen("challenge-loaded", () => {
+              m.challenge.setReady(!0);
+              var e = ee.getLocale();
+              m.challenge.sendTranslation(e);
+            }),
+            m.challenge.chat.answer("challenge-ready", (e, t) => {
+              m.displayChallenge(e).then(t.resolve);
+            }),
+            m.challenge.chat.listen("challenge-resize", () => {
+              var e = M.Browser.width(),
+                t = M.Browser.height();
+              m.resize(e, t);
+            }),
+            m.challenge.chat.listen("challenge-closed", m.closeChallenge),
+            m.challenge.chat.answer("get-url", e => {
+              e.resolve(window.location.href);
+            }),
+            m.challenge.chat.answer("check-api", e => {
+              e.resolve(de.getData());
+            }),
+            m.challenge.chat.listen("challenge-key", e => {
+              x.pushSession(e.key, m.id);
+            }),
+            m.challenge.onOverlayClick(() => {
+              m.closeChallenge({ event: "challenge-escaped" });
+            }),
+            m.challenge.chat.listen("challenge-language", e => {
+              var t = e.locale;
+              ee.setLocale(t),
+                Ke(t)
+                  .then(e => {
+                    x.each(e => {
+                      if (e)
+                        try {
+                          e.updateTranslation(t);
+                        } catch (ft) {
+                          z(
+                            "Failed to update text translation: " +
+                              JSON.stringify(ft),
+                            "error",
+                            "translation"
+                          );
+                        }
                     });
-              }),
-              m.challenge.chat.answer("get-ac", function (e) {
-                e.resolve(Ce.hasCookie("hc_accessibility"));
-              }),
-              x.add(m),
-              s
-            );
+                  })
+                  ["catch"](e => {
+                    z("Language failed to load: " + t, "error", "api");
+                  });
+            }),
+            m.challenge.chat.answer("get-ac", e => {
+              e.resolve(Ce.hasCookie("hc_accessibility"));
+            }),
+            x.add(m),
+            s
+          ;
           }
           j(e, et);
-        } else
-          console.log(
-            "[hCaptcha] render: invalid challenge container '" +
-              t["challenge-container"] +
-              "'."
-          );
+        } else console.log(
+          "[hCaptcha] render: invalid challenge container '" +
+            t["challenge-container"] +
+            "'."
+        );
       else console.log("[hCaptcha] render: invalid container '" + e + "'.");
     },
     reset(e) {
@@ -3599,14 +3587,14 @@ var hcaptcha = (function () {
       n = M.System.mobile && st !== e / t;
     (st = e / t),
       ut(),
-      nt.nodes.each(function (i) {
+      nt.nodes.each(i => {
         i.visible && i.resize(e, t, n);
       });
   }
   function lt(e) {
     e.preventDefault && e.preventDefault(),
       dt(),
-      nt.nodes.each(function (e) {
+      nt.nodes.each(e => {
         e.visible && e.position();
       });
   }
@@ -3640,12 +3628,12 @@ var hcaptcha = (function () {
             : (document.attachEvent("onreadystatechange", me),
               window.attachEvent("onload", ge)),
           (pe = !0)))
-      : setTimeout(function () {
+      : setTimeout(() => {
           e(t);
         }, 1);
-  })(function () {
+  })(() => {
     ht ||
-      (!(function () {
+      (!(() => {
         var e;
         e = it ? [it] : document.getElementsByTagName("script");
         var t = -1,
@@ -3682,71 +3670,63 @@ var hcaptcha = (function () {
             ? console.log("recaptchacompat disabled")
             : (window.grecaptcha = pt);
         var a;
-      })(),
-      (function () {
-        var e = ee.getLocale();
-        if (e.indexOf("en") >= 0) return;
-        Ke(e)
-          .then(function (t) {
-            nt.nodes.each(function (t) {
-              if (t)
-                try {
-                  t.updateTranslation(e);
-                } catch (ft) {
-                  z(
-                    "Failed to update text translation: " + JSON.stringify(ft),
-                    "error",
-                    "translation"
-                  );
-                }
-            });
-          })
-          ["catch"](function (t) {
-            z("Language failed to load: " + e, "error", "api");
+      })(), (() => {
+      var e = ee.getLocale();
+      if (e.indexOf("en") >= 0) return;
+      Ke(e)
+        .then(t => {
+          nt.nodes.each(t => {
+            if (t)
+              try {
+                t.updateTranslation(e);
+              } catch (ft) {
+                z(
+                  "Failed to update text translation: " + JSON.stringify(ft),
+                  "error",
+                  "translation"
+                );
+              }
           });
-      })(),
-      !1 === rt || "onload" === rt
-        ? (function (e) {
+        })
+        ["catch"](t => {
+          z("Language failed to load: " + e, "error", "api");
+        });
+    })(), !1 === rt || "onload" === rt ? (e => {
+          for (
+            var t = document.getElementsByClassName("h-captcha"),
+              n = [],
+              i = 0;
+            i < t.length;
+            i++
+          )
+            n.push(t[i]);
+          var o = [];
+          if ("off" !== $.recaptchacompat)
             for (
-              var t = document.getElementsByClassName("h-captcha"),
-                n = [],
-                i = 0;
-              i < t.length;
-              i++
+              var r = document.getElementsByClassName("g-recaptcha"), a = 0;
+              a < r.length;
+              a++
             )
-              n.push(t[i]);
-            var o = [];
-            if ("off" !== $.recaptchacompat)
-              for (
-                var r = document.getElementsByClassName("g-recaptcha"), a = 0;
-                a < r.length;
-                a++
-              )
-                o.push(r[a]);
-            for (var s = [].concat(n, o), h = 0; h < s.length; h++) e(s[h]);
-          })(nt.render)
-        : "explicit" !== rt &&
-          console.log(
-            "hcaptcha: invalid render parameter '" +
-              rt +
-              "', using 'explicit' instead."
-          ),
-      ot &&
-        setTimeout(function () {
-          N(ot);
-        }, 1),
-      (function () {
-        try {
-          de.record(),
-            de.setData("sc", M.Browser.getScreenDimensions()),
-            de.setData("nv", M.Browser.interrogateNavigator()),
-            de.setData("dr", document.referrer),
-            ut(),
-            dt();
-        } catch (ft) {}
-      })(),
-      ye.addEventListener("resize", ct),
-      ye.addEventListener("scroll", lt));
+              o.push(r[a]);
+          for (var s = [].concat(n, o), h = 0; h < s.length; h++) e(s[h]);
+        })(nt.render) : "explicit" !== rt &&
+        console.log(
+          "hcaptcha: invalid render parameter '" +
+            rt +
+            "', using 'explicit' instead."
+        ), ot &&
+      setTimeout(() => {
+        N(ot);
+      }, 1), (() => {
+      try {
+        de.record(),
+          de.setData("sc", M.Browser.getScreenDimensions()),
+          de.setData("nv", M.Browser.interrogateNavigator()),
+          de.setData("dr", document.referrer),
+          ut(),
+          dt();
+      } catch (ft) {}
+    })(), ye.addEventListener("resize", ct), ye.addEventListener("scroll", lt));
   });
   var pt = {
     render: nt.render,

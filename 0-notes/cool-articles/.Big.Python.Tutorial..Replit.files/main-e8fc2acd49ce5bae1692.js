@@ -29,13 +29,13 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             if ("function" != typeof e) return this.then(e, e);
             var t = this.constructor || Promise;
             return this.then(
-              function (r) {
-                return t.resolve(e()).then(function () {
+              r => {
+                return t.resolve(e()).then(() => {
                   return r;
                 });
               },
-              function (r) {
-                return t.resolve(e()).then(function () {
+              r => {
+                return t.resolve(e()).then(() => {
                   throw r;
                 });
               }
@@ -75,43 +75,41 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
       (t.__esModule = !0), (t.Portal = void 0);
       var o = a(r("q1tI")),
         i = r("i8i4");
-      t.Portal = function (e) {
+      t.Portal = e => {
         var t = e.children,
           r = e.type,
           a = o.useRef(null),
           u = o.useState(),
           c = n(u, 2)[1];
-        return (
-          o.useEffect(
-            function () {
-              return (
-                (a.current = document.createElement(r)),
-                document.body.appendChild(a.current),
-                c({}),
-                function () {
-                  a.current && document.body.removeChild(a.current);
-                }
-              );
-            },
-            [r]
-          ),
-          a.current ? (0, i.createPortal)(t, a.current) : null
-        );
+        return o.useEffect(
+          () => {
+            return (a.current = document.createElement(r)),
+            document.body.appendChild(a.current),
+            c({}),
+            () => {
+              a.current && document.body.removeChild(a.current);
+            }
+          ;
+          },
+          [r]
+        ),
+        a.current ? (0, i.createPortal)(t, a.current) : null
+      ;
       };
     },
     DqTX(e, t, r) {
       "use strict";
       (t.__esModule = !0),
-        (t.default = function () {
+        (t.default = () => {
           var e = null;
           return {
             mountedInstances: new Set(),
             updateHead(t) {
-              var r = (e = Promise.resolve().then(function () {
+              var r = (e = Promise.resolve().then(() => {
                 if (r === e) {
                   e = null;
                   var n = {};
-                  t.forEach(function (e) {
+                  t.forEach(e => {
                     var t = n[e.type] || [];
                     t.push(e), (n[e.type] = t);
                   });
@@ -128,8 +126,8 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                   }
                   i !== document.title && (document.title = i),
                     ["meta", "base", "link", "style", "script"].forEach(
-                      function (e) {
-                        !(function (e, t) {
+                      e => {
+                        !((e, t) => {
                           var r = document.getElementsByTagName("head")[0],
                             n = r.querySelector("meta[name=next-head-count]");
                           0;
@@ -142,17 +140,17 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                             u++, c = c.previousElementSibling
                           )
                             c.tagName.toLowerCase() === e && i.push(c);
-                          var s = t.map(a).filter(function (e) {
+                          var s = t.map(a).filter(e => {
                             for (var t = 0, r = i.length; t < r; t++) {
                               if (i[t].isEqualNode(e))
                                 return i.splice(t, 1), !1;
                             }
                             return !0;
                           });
-                          i.forEach(function (e) {
+                          i.forEach(e => {
                             return e.parentNode.removeChild(e);
                           }),
-                            s.forEach(function (e) {
+                            s.forEach(e => {
                               return r.insertBefore(e, n);
                             }),
                             (n.content = (o - i.length + s.length).toString());
@@ -213,17 +211,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         s = r("T0f4"),
         l = r("zoAU");
       function f(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -266,7 +263,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         k = JSON.parse(document.getElementById("__NEXT_DATA__").textContent);
       window.__NEXT_DATA__ = k;
       t.version = "10.1.1";
-      var L = function (e) {
+      var L = e => {
           return [].slice.call(e);
         },
         M = k.props,
@@ -289,15 +286,15 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
       var z = (0, x.getURL)();
       (0, b.hasBasePath)(z) && (z = (0, b.delBasePath)(z));
       var Y = new P.default(B, K),
-        J = function (e) {
+        J = e => {
           var t = l(e, 2),
             r = t[0],
             n = t[1];
           return Y.routeLoader.onEntrypoint(r, n);
         };
       window.__NEXT_P &&
-        window.__NEXT_P.map(function (e) {
-          return setTimeout(function () {
+        window.__NEXT_P.map(e => {
+          return setTimeout(() => {
             return J(e);
           }, 0);
         }),
@@ -311,7 +308,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         re = document.getElementById("__next");
       t.router = Z;
       var ne,
-        ae = (function (e) {
+        ae = (e => {
           u(r, e);
           var t = f(r);
           function r() {
@@ -361,7 +358,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                 if ((e = e && e.substring(1))) {
                   var t = document.getElementById(e);
                   t &&
-                    setTimeout(function () {
+                    setTimeout(() => {
                       return t.scrollIntoView();
                     }, 0);
                 }
@@ -374,12 +371,11 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               },
             },
           ]),
-          r
-        ;
+          r;
         })(h.default.Component),
         oe = (0, g.default)();
       t.emitter = oe;
-      var ie = (function () {
+      var ie = (() => {
         var e = a(
           n.mark(function e() {
             var r,
@@ -390,7 +386,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               c,
               s = arguments;
             return n.wrap(
-              function (e) {
+              e => {
                 for (;;)
                   switch ((e.prev = e.next)) {
                     case 0:
@@ -411,7 +407,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                         ($ = a),
                         o &&
                           o.reportWebVitals &&
-                          (ee = function (e) {
+                          (ee = e => {
                             var t,
                               r = e.id,
                               n = e.name,
@@ -526,7 +522,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         return (ce = a(
           n.mark(function e(t) {
             return n.wrap(
-              function (e) {
+              e => {
                 for (;;)
                   switch ((e.prev = e.next)) {
                     case 0:
@@ -569,32 +565,31 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
       function se(e) {
         var t = e.App,
           r = e.err;
-        return (
-          console.error(r),
-          Y.loadPage("/_error").then(function (n) {
-            var a = n.page,
-              o = n.styleSheets,
-              i = ve(t),
-              u = {
+        return console.error(r),
+        Y.loadPage("/_error").then(n => {
+          var a = n.page,
+            o = n.styleSheets,
+            i = ve(t),
+            u = {
+              Component: a,
+              AppTree: i,
+              router: Z,
+              ctx: { err: r, pathname: I, query: D, asPath: z, AppTree: i },
+            };
+          return Promise.resolve(
+            e.props ? e.props : (0, x.loadGetInitialProps)(t, u)
+          ).then(t => {
+            return ye(
+              (0, m.default)({}, e, {
+                err: r,
                 Component: a,
-                AppTree: i,
-                router: Z,
-                ctx: { err: r, pathname: I, query: D, asPath: z, AppTree: i },
-              };
-            return Promise.resolve(
-              e.props ? e.props : (0, x.loadGetInitialProps)(t, u)
-            ).then(function (t) {
-              return ye(
-                (0, m.default)({}, e, {
-                  err: r,
-                  Component: a,
-                  styleSheets: o,
-                  props: t,
-                })
-              );
-            });
-          })
-        );
+                styleSheets: o,
+                props: t,
+              })
+            );
+          });
+        })
+      ;
       }
       t.default = ie;
       var le = "function" === typeof v.default.hydrate;
@@ -636,7 +631,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                 .forEach(ee)),
             pe(),
             ["Next.js-route-change-to-render", "Next.js-render"].forEach(
-              function (e) {
+              e => {
                 return performance.clearMeasures(e);
               }
             ));
@@ -644,7 +639,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
       }
       function pe() {
         ["beforeRender", "afterHydrate", "afterRender", "routeChange"].forEach(
-          function (e) {
+          e => {
             return performance.clearMarks(e);
           }
         );
@@ -655,7 +650,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           ae,
           {
             fn(e) {
-              return se({ App: $, err: e }).catch(function (e) {
+              return se({ App: $, err: e }).catch(e => {
                 return console.error("Error rendering page: ", e);
               });
             },
@@ -672,8 +667,8 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         );
       }
       var he,
-        ve = function (e) {
-          return function (t) {
+        ve = e => {
+          return t => {
             var r = (0, m.default)({}, t, { Component: ne, err: F, router: Z });
             return h.default.createElement(
               me,
@@ -693,12 +688,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         he = i;
         var u,
           c = !1,
-          s = new Promise(function (e, t) {
+          s = new Promise((e, t) => {
             Q && Q(),
-              (u = function () {
+              (u = () => {
                 (Q = null), e();
               }),
-              (Q = function () {
+              (Q = () => {
                 (c = !0), (Q = null);
                 var e = new Error("Cancel rendering route");
                 (e.cancelled = !0), t(e);
@@ -718,12 +713,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                 if (o && !c) {
                   for (
                     var t = new Set(
-                        o.map(function (e) {
+                        o.map(e => {
                           return e.href;
                         })
                       ),
                       r = L(document.querySelectorAll("style[data-n-href]")),
-                      n = r.map(function (e) {
+                      n = r.map(e => {
                         return e.getAttribute("data-n-href");
                       }),
                       a = 0;
@@ -735,7 +730,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                       : r[a].setAttribute("media", "x");
                   var i = document.querySelector("noscript[data-n-css]");
                   i &&
-                    o.forEach(function (e) {
+                    o.forEach(e => {
                       var t = e.href,
                         r = document.querySelector(
                           'style[data-n-href="'.concat(t, '"]')
@@ -744,7 +739,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                         (i.parentNode.insertBefore(r, i.nextSibling), (i = r));
                     }),
                     L(document.querySelectorAll("link[data-n-p]")).forEach(
-                      function (e) {
+                      e => {
                         e.parentNode.removeChild(e);
                       }
                     ),
@@ -764,66 +759,57 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               )
             )
           );
-        return (
-          (function () {
-            if (!o) return !1;
-            var e = L(document.querySelectorAll("style[data-n-href]")),
-              t = new Set(
-                e.map(function (e) {
-                  return e.getAttribute("data-n-href");
-                })
-              ),
-              r = document.querySelector("noscript[data-n-css]"),
-              n = null == r ? void 0 : r.getAttribute("data-n-css");
-            o.forEach(function (e) {
-              var r = e.href,
-                a = e.text;
-              if (!t.has(r)) {
-                var o = document.createElement("style");
-                o.setAttribute("data-n-href", r),
-                  o.setAttribute("media", "x"),
-                  n && o.setAttribute("nonce", n),
-                  document.head.appendChild(o),
-                  o.appendChild(document.createTextNode(a));
-              }
-            });
-          })(),
-          (l = d),
-          (f = re),
-          x.ST && performance.mark("beforeRender"),
-          le
-            ? (v.default.hydrate(l, f, fe), (le = !1))
-            : v.default.render(l, f, de),
-          s
-        );
+        return (() => {
+          if (!o) return !1;
+          var e = L(document.querySelectorAll("style[data-n-href]")),
+            t = new Set(
+              e.map(e => {
+                return e.getAttribute("data-n-href");
+              })
+            ),
+            r = document.querySelector("noscript[data-n-css]"),
+            n = null == r ? void 0 : r.getAttribute("data-n-css");
+          o.forEach(e => {
+            var r = e.href,
+              a = e.text;
+            if (!t.has(r)) {
+              var o = document.createElement("style");
+              o.setAttribute("data-n-href", r),
+                o.setAttribute("media", "x"),
+                n && o.setAttribute("nonce", n),
+                document.head.appendChild(o),
+                o.appendChild(document.createTextNode(a));
+            }
+          });
+        })(), l = d, f = re, x.ST && performance.mark("beforeRender"), le
+          ? (v.default.hydrate(l, f, fe), (le = !1))
+          : v.default.render(l, f, de), s;
       }
       function ge(e) {
         var t = e.callback,
           r = e.children;
-        return (
-          h.default.useLayoutEffect(
-            function () {
-              return t();
-            },
-            [t]
-          ),
-          h.default.useEffect(function () {
-            (0, C.default)(ee);
-          }, []),
-          r
-        );
+        return h.default.useLayoutEffect(
+          () => {
+            return t();
+          },
+          [t]
+        ),
+        h.default.useEffect(() => {
+          (0, C.default)(ee);
+        }, []),
+        r
+      ;
       }
       function Se(e) {
         var t = e.callback;
-        return (
-          h.default.useLayoutEffect(
-            function () {
-              return t();
-            },
-            [t]
-          ),
-          null
-        );
+        return h.default.useLayoutEffect(
+          () => {
+            return t();
+          },
+          [t]
+        ),
+        null
+      ;
       }
     },
     bGXG(e, t, r) {
@@ -835,7 +821,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
       function i(e) {
         n && n(e);
       }
-      t.default = function (e) {
+      t.default = e => {
         (n = e),
           o ||
             ((o = !0),
@@ -860,55 +846,54 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           a = r[0],
           u = r[1],
           c = (0, o.useRef)(!1);
-        return (
-          (0, o.useEffect)(
-            function () {
-              if (c.current) {
-                var t,
-                  r = document.querySelector("h1");
-                r && (t = r.innerText || r.textContent),
-                  t || (t = document.title ? document.title : e),
-                  u(t);
-              } else c.current = !0;
+        return (0, o.useEffect)(
+          () => {
+            if (c.current) {
+              var t,
+                r = document.querySelector("h1");
+              r && (t = r.innerText || r.textContent),
+                t || (t = document.title ? document.title : e),
+                u(t);
+            } else c.current = !0;
+          },
+          [e]
+        ),
+        o.default.createElement(
+          "p",
+          {
+            "aria-live": "assertive",
+            id: "__next-route-announcer__",
+            role: "alert",
+            style: {
+              border: 0,
+              clip: "rect(0 0 0 0)",
+              height: "1px",
+              margin: "-1px",
+              overflow: "hidden",
+              padding: 0,
+              position: "absolute",
+              width: "1px",
+              whiteSpace: "nowrap",
+              wordWrap: "normal",
             },
-            [e]
-          ),
-          o.default.createElement(
-            "p",
-            {
-              "aria-live": "assertive",
-              id: "__next-route-announcer__",
-              role: "alert",
-              style: {
-                border: 0,
-                clip: "rect(0 0 0 0)",
-                height: "1px",
-                margin: "-1px",
-                overflow: "hidden",
-                padding: 0,
-                position: "absolute",
-                width: "1px",
-                whiteSpace: "nowrap",
-                wordWrap: "normal",
-              },
-            },
-            a
-          )
-        );
+          },
+          a
+        )
+      ;
       }
       var c = u;
       t.default = c;
     },
     p0hA(e, t, r) {
-      (function (t) {
-        e.exports = (function () {
+      ((t => {
+        e.exports = (() => {
           var e = {
               599: function (e, t) {
-                !(function (e) {
+                !(e => {
                   "use strict";
                   var t,
                     r,
-                    n = function () {
+                    n = () => {
                       return ""
                         .concat(Date.now(), "-")
                         .concat(
@@ -928,12 +913,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                         isFinal: !1,
                       };
                     },
-                    o = function (e, t) {
+                    o = (e, t) => {
                       try {
                         if (
                           PerformanceObserver.supportedEntryTypes.includes(e)
                         ) {
-                          var r = new PerformanceObserver(function (e) {
+                          var r = new PerformanceObserver(e => {
                             return e.getEntries().map(t);
                           });
                           return r.observe({ type: e, buffered: !0 }), r;
@@ -942,12 +927,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                     },
                     i = !1,
                     u = !1,
-                    c = function (e) {
+                    c = e => {
                       i = !e.persisted;
                     },
-                    s = function () {
+                    s = () => {
                       addEventListener("pagehide", c),
-                        addEventListener("beforeunload", function () {});
+                        addEventListener("beforeunload", () => {});
                     },
                     l = function (e) {
                       var t =
@@ -957,7 +942,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                       u || (s(), (u = !0)),
                         addEventListener(
                           "visibilitychange",
-                          function (t) {
+                          t => {
                             var r = t.timeStamp;
                             "hidden" === document.visibilityState &&
                               e({ timeStamp: r, isUnloading: i });
@@ -965,9 +950,9 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                           { capture: !0, once: t }
                         );
                     },
-                    f = function (e, t, r, n) {
+                    f = (e, t, r, n) => {
                       var a;
-                      return function () {
+                      return () => {
                         r && t.isFinal && r.disconnect(),
                           t.value >= 0 &&
                             (n ||
@@ -978,11 +963,11 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                               (e(t), (a = t.value)));
                       };
                     },
-                    d = function () {
+                    d = () => {
                       return void 0 === t &&
                         ((t =
                           "hidden" === document.visibilityState ? 0 : 1 / 0),
-                        l(function (e) {
+                        l(e => {
                           var r = e.timeStamp;
                           return (t = r);
                         }, !0)),
@@ -990,25 +975,23 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                         get timeStamp() {
                           return t;
                         },
-                      }
-                    ;
+                      };
                     },
-                    p = function () {
-                      return (
-                        r ||
-                          (r = new Promise(function (e) {
-                            return ["scroll", "keydown", "pointerdown"].map(
-                              function (t) {
-                                addEventListener(t, e, {
-                                  once: !0,
-                                  passive: !0,
-                                  capture: !0,
-                                });
-                              }
-                            );
-                          })),
-                        r
-                      );
+                    p = () => {
+                      return r ||
+                        (r = new Promise(e => {
+                          return ["scroll", "keydown", "pointerdown"].map(
+                            t => {
+                              addEventListener(t, e, {
+                                once: !0,
+                                passive: !0,
+                                capture: !0,
+                              });
+                            }
+                          );
+                        })),
+                      r
+                    ;
                     };
                   (e.getCLS = function (e) {
                     var t,
@@ -1017,23 +1000,23 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                         void 0 !== arguments[1] &&
                         arguments[1],
                       n = a("CLS", 0),
-                      i = function (e) {
+                      i = e => {
                         e.hadRecentInput ||
                           ((n.value += e.value), n.entries.push(e), t());
                       },
                       u = o("layout-shift", i);
                     u &&
                       ((t = f(e, n, u, r)),
-                      l(function (e) {
+                      l(e => {
                         var r = e.isUnloading;
                         u.takeRecords().map(i), r && (n.isFinal = !0), t();
                       }));
                   }),
-                    (e.getFCP = function (e) {
+                    (e.getFCP = e => {
                       var t,
                         r = a("FCP"),
                         n = d(),
-                        i = o("paint", function (e) {
+                        i = o("paint", e => {
                           "first-contentful-paint" === e.name &&
                             e.startTime < n.timeStamp &&
                             ((r.value = e.startTime),
@@ -1043,10 +1026,10 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                         });
                       i && (t = f(e, r, i));
                     }),
-                    (e.getFID = function (e) {
+                    (e.getFID = e => {
                       var t = a("FID"),
                         r = d(),
-                        n = function (e) {
+                        n = e => {
                           e.startTime < r.timeStamp &&
                             ((t.value = e.processingStart - e.startTime),
                             t.entries.push(e),
@@ -1056,12 +1039,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                         i = o("first-input", n),
                         u = f(e, t, i);
                       i
-                        ? l(function () {
+                        ? l(() => {
                             i.takeRecords().map(n), i.disconnect();
                           }, !0)
                         : window.perfMetrics &&
                           window.perfMetrics.onFirstInputDelay &&
-                          window.perfMetrics.onFirstInputDelay(function (e, n) {
+                          window.perfMetrics.onFirstInputDelay((e, n) => {
                             n.timeStamp < r.timeStamp &&
                               ((t.value = e),
                               (t.isFinal = !0),
@@ -1086,7 +1069,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                           arguments[1],
                         n = a("LCP"),
                         i = d(),
-                        u = function (e) {
+                        u = e => {
                           var r = e.startTime;
                           r < i.timeStamp
                             ? ((n.value = r), n.entries.push(e))
@@ -1096,21 +1079,20 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                         c = o("largest-contentful-paint", u);
                       if (c) {
                         t = f(e, n, c, r);
-                        var s = function () {
+                        var s = () => {
                           n.isFinal ||
                             (c.takeRecords().map(u), (n.isFinal = !0), t());
                         };
                         p().then(s), l(s, !0);
                       }
                     }),
-                    (e.getTTFB = function (e) {
+                    (e.getTTFB = e => {
                       var t,
                         r = a("TTFB");
-                      (t = function () {
+                      (t = () => {
                         try {
                           var t =
-                            performance.getEntriesByType("navigation")[0] ||
-                            (function () {
+                            performance.getEntriesByType("navigation")[0] || (() => {
                               var e = performance.timing,
                                 t = { entryType: "navigation", startTime: 0 };
                               for (var r in e)
@@ -1150,17 +1132,17 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           }
           return (n.ab = t + "/"), n(599);
         })();
-      }.call(this, "/"));
+      }).call(this, "/"));
     },
     yLiY(e, t, r) {
       "use strict";
       var n;
       (t.__esModule = !0),
-        (t.setConfig = function (e) {
+        (t.setConfig = e => {
           n = e;
         }),
         (t.default = void 0);
-      t.default = function () {
+      t.default = () => {
         return n;
       };
     },
@@ -1177,7 +1159,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         l = r("hS4m"),
         f = r("X24+"),
         d = o(r("Nh2W"));
-      var p = (function () {
+      var p = (() => {
         function e(t, r) {
           n(this, e),
             (this.buildId = void 0),
@@ -1188,10 +1170,10 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             (this.routeLoader = (0, d.default)(r)),
             (this.buildId = t),
             (this.assetPrefix = r),
-            (this.promisedSsgManifest = new Promise(function (e) {
+            (this.promisedSsgManifest = new Promise(e => {
               window.__SSG_MANIFEST
                 ? e(window.__SSG_MANIFEST)
-                : (window.__SSG_MANIFEST_CB = function () {
+                : (window.__SSG_MANIFEST_CB = () => {
                     e(window.__SSG_MANIFEST);
                   });
             }));
@@ -1200,7 +1182,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           {
             key: "getPageList",
             value() {
-              return (0, d.getClientBuildManifest)().then(function (e) {
+              return (0, d.getClientBuildManifest)().then(e => {
                 return e.sortedPages;
               });
             },
@@ -1214,7 +1196,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                 d = o.query,
                 p = o.search,
                 m = (0, l.parseRelativeUrl)(t).pathname,
-                h = (function (e) {
+                h = (e => {
                   if ("/" !== e[0])
                     throw new Error(
                       'Route name should start with a "/", got "'.concat(
@@ -1224,7 +1206,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                     );
                   return "/" === e ? e : e.replace(/\/$/, "");
                 })(i),
-                v = function (e) {
+                v = e => {
                   var t = (0, c.default)(
                     (0, f.removePathTrailingSlash)((0, u.addLocale)(e, n)),
                     ".json"
@@ -1244,7 +1226,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           {
             key: "_isSsg",
             value(e) {
-              return this.promisedSsgManifest.then(function (t) {
+              return this.promisedSsgManifest.then(t => {
                 return t.has(e);
               });
             },
@@ -1252,12 +1234,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           {
             key: "loadPage",
             value(e) {
-              return this.routeLoader.loadRoute(e).then(function (e) {
+              return this.routeLoader.loadRoute(e).then(e => {
                 if ("component" in e)
                   return {
                     page: e.component,
                     mod: e.exports,
-                    styleSheets: e.styles.map(function (e) {
+                    styleSheets: e.styles.map(e => {
                       return { href: e.href, text: e.content };
                     }),
                   };
@@ -1272,8 +1254,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             },
           },
         ]),
-        e
-      ;
+        e;
       })();
       t.default = p;
     },

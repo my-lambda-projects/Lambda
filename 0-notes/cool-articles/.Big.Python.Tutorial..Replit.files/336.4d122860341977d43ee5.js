@@ -10,20 +10,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -42,7 +42,7 @@
                   l = r(844),
                   h = r(5596),
                   u = r(9631),
-                  f = (function (e) {
+                  f = (e => {
                     function t(t, r) {
                       var i = e.call(this) || this;
                       (i._terminal = t),
@@ -65,10 +65,10 @@
                         (i._rowElements[n] = i._createAccessibilityTreeNode()),
                           i._rowContainer.appendChild(i._rowElements[n]);
                       if (
-                        ((i._topBoundaryFocusListener = function (e) {
+                        ((i._topBoundaryFocusListener = e => {
                           return i._onBoundaryFocus(e, 0);
                         }),
-                        (i._bottomBoundaryFocusListener = function (e) {
+                        (i._bottomBoundaryFocusListener = e => {
                           return i._onBoundaryFocus(e, 1);
                         }),
                         i._rowElements[0].addEventListener(
@@ -96,266 +96,264 @@
                         throw new Error(
                           "Cannot enable accessibility before Terminal.open"
                         );
-                      return (
-                        i._terminal.element.insertAdjacentElement(
-                          "afterbegin",
-                          i._accessibilityTreeRoot
-                        ),
-                        i.register(i._renderRowsDebouncer),
-                        i.register(
-                          i._terminal.onResize(function (e) {
-                            return i._onResize(e.rows);
-                          })
-                        ),
-                        i.register(
-                          i._terminal.onRender(function (e) {
-                            return i._refreshRows(e.start, e.end);
-                          })
-                        ),
-                        i.register(
-                          i._terminal.onScroll(function () {
-                            return i._refreshRows();
-                          })
-                        ),
-                        i.register(
-                          i._terminal.onA11yChar(function (e) {
-                            return i._onChar(e);
-                          })
-                        ),
-                        i.register(
-                          i._terminal.onLineFeed(function () {
-                            return i._onChar("\n");
-                          })
-                        ),
-                        i.register(
-                          i._terminal.onA11yTab(function (e) {
-                            return i._onTab(e);
-                          })
-                        ),
-                        i.register(
-                          i._terminal.onKey(function (e) {
-                            return i._onKey(e.key);
-                          })
-                        ),
-                        i.register(
-                          i._terminal.onBlur(function () {
-                            return i._clearLiveRegion();
-                          })
-                        ),
-                        i.register(
-                          i._renderService.onDimensionsChange(function () {
-                            return i._refreshRowsDimensions();
-                          })
-                        ),
-                        (i._screenDprMonitor = new h.ScreenDprMonitor()),
-                        i.register(i._screenDprMonitor),
-                        i._screenDprMonitor.setListener(function () {
+                      return i._terminal.element.insertAdjacentElement(
+                        "afterbegin",
+                        i._accessibilityTreeRoot
+                      ),
+                      i.register(i._renderRowsDebouncer),
+                      i.register(
+                        i._terminal.onResize(e => {
+                          return i._onResize(e.rows);
+                        })
+                      ),
+                      i.register(
+                        i._terminal.onRender(e => {
+                          return i._refreshRows(e.start, e.end);
+                        })
+                      ),
+                      i.register(
+                        i._terminal.onScroll(() => {
+                          return i._refreshRows();
+                        })
+                      ),
+                      i.register(
+                        i._terminal.onA11yChar(e => {
+                          return i._onChar(e);
+                        })
+                      ),
+                      i.register(
+                        i._terminal.onLineFeed(() => {
+                          return i._onChar("\n");
+                        })
+                      ),
+                      i.register(
+                        i._terminal.onA11yTab(e => {
+                          return i._onTab(e);
+                        })
+                      ),
+                      i.register(
+                        i._terminal.onKey(e => {
+                          return i._onKey(e.key);
+                        })
+                      ),
+                      i.register(
+                        i._terminal.onBlur(() => {
+                          return i._clearLiveRegion();
+                        })
+                      ),
+                      i.register(
+                        i._renderService.onDimensionsChange(() => {
                           return i._refreshRowsDimensions();
-                        }),
-                        i.register(
-                          c.addDisposableDomListener(
-                            window,
-                            "resize",
-                            function () {
-                              return i._refreshRowsDimensions();
-                            }
-                          )
-                        ),
-                        i
-                      );
-                    }
-                    return (
-                      n(t, e),
-                      (t.prototype.dispose = function () {
-                        e.prototype.dispose.call(this),
-                          u.removeElementFromParent(
-                            this._accessibilityTreeRoot
-                          ),
-                          (this._rowElements.length = 0);
+                        })
+                      ),
+                      (i._screenDprMonitor = new h.ScreenDprMonitor()),
+                      i.register(i._screenDprMonitor),
+                      i._screenDprMonitor.setListener(() => {
+                        return i._refreshRowsDimensions();
                       }),
-                      (t.prototype._onBoundaryFocus = function (e, t) {
-                        var r = e.target,
-                          i =
-                            this._rowElements[
-                              0 === t ? 1 : this._rowElements.length - 2
-                            ];
+                      i.register(
+                        c.addDisposableDomListener(
+                          window,
+                          "resize",
+                          () => {
+                            return i._refreshRowsDimensions();
+                          }
+                        )
+                      ),
+                      i
+                    ;
+                    }
+                    return n(t, e),
+                    (t.prototype.dispose = function () {
+                      e.prototype.dispose.call(this),
+                        u.removeElementFromParent(
+                          this._accessibilityTreeRoot
+                        ),
+                        (this._rowElements.length = 0);
+                    }),
+                    (t.prototype._onBoundaryFocus = function (e, t) {
+                      var r = e.target,
+                        i =
+                          this._rowElements[
+                            0 === t ? 1 : this._rowElements.length - 2
+                          ];
+                      if (
+                        r.getAttribute("aria-posinset") !==
+                          (0 === t
+                            ? "1"
+                            : "" + this._terminal.buffer.lines.length) &&
+                        e.relatedTarget === i
+                      ) {
+                        var n, o;
                         if (
-                          r.getAttribute("aria-posinset") !==
-                            (0 === t
-                              ? "1"
-                              : "" + this._terminal.buffer.lines.length) &&
-                          e.relatedTarget === i
-                        ) {
-                          var n, o;
-                          if (
-                            (0 === t
-                              ? ((n = r),
-                                (o = this._rowElements.pop()),
-                                this._rowContainer.removeChild(o))
-                              : ((n = this._rowElements.shift()),
-                                (o = r),
-                                this._rowContainer.removeChild(n)),
-                            n.removeEventListener(
-                              "focus",
-                              this._topBoundaryFocusListener
-                            ),
-                            o.removeEventListener(
-                              "focus",
-                              this._bottomBoundaryFocusListener
-                            ),
-                            0 === t)
-                          ) {
-                            var s = this._createAccessibilityTreeNode();
-                            this._rowElements.unshift(s),
-                              this._rowContainer.insertAdjacentElement(
-                                "afterbegin",
-                                s
-                              );
-                          } else
-                            (s = this._createAccessibilityTreeNode()),
-                              this._rowElements.push(s),
-                              this._rowContainer.appendChild(s);
-                          this._rowElements[0].addEventListener(
+                          (0 === t
+                            ? ((n = r),
+                              (o = this._rowElements.pop()),
+                              this._rowContainer.removeChild(o))
+                            : ((n = this._rowElements.shift()),
+                              (o = r),
+                              this._rowContainer.removeChild(n)),
+                          n.removeEventListener(
                             "focus",
                             this._topBoundaryFocusListener
                           ),
-                            this._rowElements[
-                              this._rowElements.length - 1
-                            ].addEventListener(
-                              "focus",
-                              this._bottomBoundaryFocusListener
-                            ),
-                            this._terminal.scrollLines(0 === t ? -1 : 1),
-                            this._rowElements[
-                              0 === t ? 1 : this._rowElements.length - 2
-                            ].focus(),
-                            e.preventDefault(),
-                            e.stopImmediatePropagation();
-                        }
-                      }),
-                      (t.prototype._onResize = function (e) {
-                        this._rowElements[
-                          this._rowElements.length - 1
-                        ].removeEventListener(
-                          "focus",
-                          this._bottomBoundaryFocusListener
-                        );
-                        for (
-                          var t = this._rowContainer.children.length;
-                          t < this._terminal.rows;
-                          t++
-                        )
-                          (this._rowElements[t] =
-                            this._createAccessibilityTreeNode()),
-                            this._rowContainer.appendChild(
-                              this._rowElements[t]
-                            );
-                        for (; this._rowElements.length > e; )
-                          this._rowContainer.removeChild(
-                            this._rowElements.pop()
-                          );
-                        this._rowElements[
-                          this._rowElements.length - 1
-                        ].addEventListener(
-                          "focus",
-                          this._bottomBoundaryFocusListener
-                        ),
-                          this._refreshRowsDimensions();
-                      }),
-                      (t.prototype._createAccessibilityTreeNode = function () {
-                        var e = document.createElement("div");
-                        return (
-                          e.setAttribute("role", "listitem"),
-                          (e.tabIndex = -1),
-                          this._refreshRowDimensions(e),
-                          e
-                        );
-                      }),
-                      (t.prototype._onTab = function (e) {
-                        for (var t = 0; t < e; t++) this._onChar(" ");
-                      }),
-                      (t.prototype._onChar = function (e) {
-                        var t = this;
-                        this._liveRegionLineCount < 21 &&
-                          (this._charsToConsume.length > 0
-                            ? this._charsToConsume.shift() !== e &&
-                              (this._charsToAnnounce += e)
-                            : (this._charsToAnnounce += e),
-                          "\n" === e &&
-                            (this._liveRegionLineCount++,
-                            21 === this._liveRegionLineCount &&
-                              (this._liveRegion.textContent +=
-                                o.tooMuchOutput)),
-                          s.isMac &&
-                            this._liveRegion.textContent &&
-                            this._liveRegion.textContent.length > 0 &&
-                            !this._liveRegion.parentNode &&
-                            setTimeout(function () {
-                              t._accessibilityTreeRoot.appendChild(
-                                t._liveRegion
-                              );
-                            }, 0));
-                      }),
-                      (t.prototype._clearLiveRegion = function () {
-                        (this._liveRegion.textContent = ""),
-                          (this._liveRegionLineCount = 0),
-                          s.isMac &&
-                            u.removeElementFromParent(this._liveRegion);
-                      }),
-                      (t.prototype._onKey = function (e) {
-                        this._clearLiveRegion(), this._charsToConsume.push(e);
-                      }),
-                      (t.prototype._refreshRows = function (e, t) {
-                        this._renderRowsDebouncer.refresh(
-                          e,
-                          t,
-                          this._terminal.rows
-                        );
-                      }),
-                      (t.prototype._renderRows = function (e, t) {
-                        for (
-                          var r = this._terminal.buffer,
-                            i = r.lines.length.toString(),
-                            n = e;
-                          n <= t;
-                          n++
+                          o.removeEventListener(
+                            "focus",
+                            this._bottomBoundaryFocusListener
+                          ),
+                          0 === t)
                         ) {
-                          var o = r.translateBufferLineToString(
-                              r.ydisp + n,
-                              !0
-                            ),
-                            s = (r.ydisp + n + 1).toString(),
-                            a = this._rowElements[n];
-                          a &&
-                            (0 === o.length
-                              ? (a.innerText = "\xa0")
-                              : (a.textContent = o),
-                            a.setAttribute("aria-posinset", s),
-                            a.setAttribute("aria-setsize", i));
-                        }
-                        this._announceCharacters();
-                      }),
-                      (t.prototype._refreshRowsDimensions = function () {
-                        if (this._renderService.dimensions.actualCellHeight) {
-                          this._rowElements.length !== this._terminal.rows &&
-                            this._onResize(this._terminal.rows);
-                          for (var e = 0; e < this._terminal.rows; e++)
-                            this._refreshRowDimensions(this._rowElements[e]);
-                        }
-                      }),
-                      (t.prototype._refreshRowDimensions = function (e) {
-                        e.style.height =
-                          this._renderService.dimensions.actualCellHeight +
-                          "px";
-                      }),
-                      (t.prototype._announceCharacters = function () {
-                        0 !== this._charsToAnnounce.length &&
-                          ((this._liveRegion.textContent +=
-                            this._charsToAnnounce),
-                          (this._charsToAnnounce = ""));
-                      }),
-                      t
-                    );
+                          var s = this._createAccessibilityTreeNode();
+                          this._rowElements.unshift(s),
+                            this._rowContainer.insertAdjacentElement(
+                              "afterbegin",
+                              s
+                            );
+                        } else
+                          (s = this._createAccessibilityTreeNode()),
+                            this._rowElements.push(s),
+                            this._rowContainer.appendChild(s);
+                        this._rowElements[0].addEventListener(
+                          "focus",
+                          this._topBoundaryFocusListener
+                        ),
+                          this._rowElements[
+                            this._rowElements.length - 1
+                          ].addEventListener(
+                            "focus",
+                            this._bottomBoundaryFocusListener
+                          ),
+                          this._terminal.scrollLines(0 === t ? -1 : 1),
+                          this._rowElements[
+                            0 === t ? 1 : this._rowElements.length - 2
+                          ].focus(),
+                          e.preventDefault(),
+                          e.stopImmediatePropagation();
+                      }
+                    }),
+                    (t.prototype._onResize = function (e) {
+                      this._rowElements[
+                        this._rowElements.length - 1
+                      ].removeEventListener(
+                        "focus",
+                        this._bottomBoundaryFocusListener
+                      );
+                      for (
+                        var t = this._rowContainer.children.length;
+                        t < this._terminal.rows;
+                        t++
+                      )
+                        (this._rowElements[t] =
+                          this._createAccessibilityTreeNode()),
+                          this._rowContainer.appendChild(
+                            this._rowElements[t]
+                          );
+                      for (; this._rowElements.length > e; )
+                        this._rowContainer.removeChild(
+                          this._rowElements.pop()
+                        );
+                      this._rowElements[
+                        this._rowElements.length - 1
+                      ].addEventListener(
+                        "focus",
+                        this._bottomBoundaryFocusListener
+                      ),
+                        this._refreshRowsDimensions();
+                    }),
+                    (t.prototype._createAccessibilityTreeNode = function () {
+                      var e = document.createElement("div");
+                      return (
+                        e.setAttribute("role", "listitem"),
+                        (e.tabIndex = -1),
+                        this._refreshRowDimensions(e),
+                        e
+                      );
+                    }),
+                    (t.prototype._onTab = function (e) {
+                      for (var t = 0; t < e; t++) this._onChar(" ");
+                    }),
+                    (t.prototype._onChar = function (e) {
+                      var t = this;
+                      this._liveRegionLineCount < 21 &&
+                        (this._charsToConsume.length > 0
+                          ? this._charsToConsume.shift() !== e &&
+                            (this._charsToAnnounce += e)
+                          : (this._charsToAnnounce += e),
+                        "\n" === e &&
+                          (this._liveRegionLineCount++,
+                          21 === this._liveRegionLineCount &&
+                            (this._liveRegion.textContent +=
+                              o.tooMuchOutput)),
+                        s.isMac &&
+                          this._liveRegion.textContent &&
+                          this._liveRegion.textContent.length > 0 &&
+                          !this._liveRegion.parentNode &&
+                          setTimeout(() => {
+                            t._accessibilityTreeRoot.appendChild(
+                              t._liveRegion
+                            );
+                          }, 0));
+                    }),
+                    (t.prototype._clearLiveRegion = function () {
+                      (this._liveRegion.textContent = ""),
+                        (this._liveRegionLineCount = 0),
+                        s.isMac &&
+                          u.removeElementFromParent(this._liveRegion);
+                    }),
+                    (t.prototype._onKey = function (e) {
+                      this._clearLiveRegion(), this._charsToConsume.push(e);
+                    }),
+                    (t.prototype._refreshRows = function (e, t) {
+                      this._renderRowsDebouncer.refresh(
+                        e,
+                        t,
+                        this._terminal.rows
+                      );
+                    }),
+                    (t.prototype._renderRows = function (e, t) {
+                      for (
+                        var r = this._terminal.buffer,
+                          i = r.lines.length.toString(),
+                          n = e;
+                        n <= t;
+                        n++
+                      ) {
+                        var o = r.translateBufferLineToString(
+                            r.ydisp + n,
+                            !0
+                          ),
+                          s = (r.ydisp + n + 1).toString(),
+                          a = this._rowElements[n];
+                        a &&
+                          (0 === o.length
+                            ? (a.innerText = "\xa0")
+                            : (a.textContent = o),
+                          a.setAttribute("aria-posinset", s),
+                          a.setAttribute("aria-setsize", i));
+                      }
+                      this._announceCharacters();
+                    }),
+                    (t.prototype._refreshRowsDimensions = function () {
+                      if (this._renderService.dimensions.actualCellHeight) {
+                        this._rowElements.length !== this._terminal.rows &&
+                          this._onResize(this._terminal.rows);
+                        for (var e = 0; e < this._terminal.rows; e++)
+                          this._refreshRowDimensions(this._rowElements[e]);
+                      }
+                    }),
+                    (t.prototype._refreshRowDimensions = function (e) {
+                      e.style.height =
+                        this._renderService.dimensions.actualCellHeight +
+                        "px";
+                    }),
+                    (t.prototype._announceCharacters = function () {
+                      0 !== this._charsToAnnounce.length &&
+                        ((this._liveRegion.textContent +=
+                          this._charsToAnnounce),
+                        (this._charsToAnnounce = ""));
+                    }),
+                    t
+                  ;
                   })(l.Disposable);
                 t.AccessibilityManager = f;
               },
@@ -393,19 +391,19 @@
                       void 0),
                   (t.prepareTextForTerminal = r),
                   (t.bracketTextForPaste = i),
-                  (t.copyHandler = function (e, t) {
+                  (t.copyHandler = (e, t) => {
                     e.clipboardData &&
                       e.clipboardData.setData("text/plain", t.selectionText),
                       e.preventDefault();
                   }),
-                  (t.handlePasteEvent = function (e, t, r) {
+                  (t.handlePasteEvent = (e, t, r) => {
                     e.stopPropagation(),
                       e.clipboardData &&
                         n(e.clipboardData.getData("text/plain"), t, r);
                   }),
                   (t.paste = n),
                   (t.moveTextAreaUnderMouseCursor = o),
-                  (t.rightClickHandler = function (e, t, r, i, n) {
+                  (t.rightClickHandler = (e, t, r, i, n) => {
                     o(e, t, r),
                       n && i.rightClickSelect(e),
                       (t.value = i.selectionText),
@@ -423,29 +421,26 @@
                     ? (t + 0.05) / (e + 0.05)
                     : (e + 0.05) / (t + 0.05);
                 }
-                Object.defineProperty(t, "__esModule", { value: !0 }),
-                  (t.contrastRatio =
+                Object.defineProperty(t, "__esModule", { value: !0 }), t.contrastRatio =
                     t.toPaddedHex =
                     t.rgba =
                     t.rgb =
                     t.css =
                     t.color =
                     t.channels =
-                      void 0),
-                  (function (e) {
-                    (e.toCss = function (e, t, r, i) {
-                      return void 0 !== i
-                        ? "#" + s(e) + s(t) + s(r) + s(i)
-                        : "#" + s(e) + s(t) + s(r);
-                    }),
-                      (e.toRgba = function (e, t, r, i) {
-                        return (
-                          void 0 === i && (i = 255),
-                          ((e << 24) | (t << 16) | (r << 8) | i) >>> 0
-                        );
-                      });
-                  })((r = t.channels || (t.channels = {}))),
-                  ((i = t.color || (t.color = {})).blend = function (e, t) {
+                      void 0, (e => {
+                  (e.toCss = (e, t, r, i) => {
+                    return void 0 !== i
+                      ? "#" + s(e) + s(t) + s(r) + s(i)
+                      : "#" + s(e) + s(t) + s(r);
+                  }),
+                    (e.toRgba = (e, t, r, i) => {
+                      return (
+                        void 0 === i && (i = 255),
+                        ((e << 24) | (t << 16) | (r << 8) | i) >>> 0
+                      );
+                    });
+                })(r = t.channels || (t.channels = {})), (i = t.color || (t.color = {})).blend = (e, t) => {
                     var i = (255 & t.rgba) / 255;
                     if (1 === i) return { css: t.css, rgba: t.rgba };
                     var n = (t.rgba >> 24) & 255,
@@ -458,11 +453,9 @@
                       u = c + Math.round((o - c) * i),
                       f = l + Math.round((s - l) * i);
                     return { css: r.toCss(h, u, f), rgba: r.toRgba(h, u, f) };
-                  }),
-                  (i.isOpaque = function (e) {
+                  }, i.isOpaque = e => {
                     return 255 == (255 & e.rgba);
-                  }),
-                  (i.ensureContrastRatio = function (e, t, r) {
+                  }, i.ensureContrastRatio = (e, t, r) => {
                     var i = o.ensureContrastRatio(e.rgba, t.rgba, r);
                     if (i)
                       return o.toColor(
@@ -470,16 +463,14 @@
                         (i >> 16) & 255,
                         (i >> 8) & 255
                       );
-                  }),
-                  (i.opaque = function (e) {
+                  }, i.opaque = e => {
                     var t = (255 | e.rgba) >>> 0,
                       i = o.toChannels(t),
                       n = i[0],
                       s = i[1],
                       a = i[2];
                     return { css: r.toCss(n, s, a), rgba: t };
-                  }),
-                  (i.opacity = function (e, t) {
+                  }, i.opacity = (e, t) => {
                     var i = Math.round(255 * t),
                       n = o.toChannels(e.rgba),
                       s = n[0],
@@ -489,8 +480,7 @@
                       css: r.toCss(s, a, c, i),
                       rgba: r.toRgba(s, a, c, i),
                     };
-                  }),
-                  ((t.css || (t.css = {})).toColor = function (e) {
+                  }, (t.css || (t.css = {})).toColor = e => {
                     switch (e.length) {
                       case 7:
                         return {
@@ -501,110 +491,106 @@
                         return { css: e, rgba: parseInt(e.slice(1), 16) >>> 0 };
                     }
                     throw new Error("css.toColor: Unsupported css format");
+                  }, (e => {
+                  function t(e, t, r) {
+                    var i = e / 255,
+                      n = t / 255,
+                      o = r / 255;
+                    return (
+                      0.2126 *
+                        (i <= 0.03928
+                          ? i / 12.92
+                          : Math.pow((i + 0.055) / 1.055, 2.4)) +
+                      0.7152 *
+                        (n <= 0.03928
+                          ? n / 12.92
+                          : Math.pow((n + 0.055) / 1.055, 2.4)) +
+                      0.0722 *
+                        (o <= 0.03928
+                          ? o / 12.92
+                          : Math.pow((o + 0.055) / 1.055, 2.4))
+                    );
+                  }
+                  (e.relativeLuminance = e => {
+                    return t((e >> 16) & 255, (e >> 8) & 255, 255 & e);
                   }),
-                  (function (e) {
-                    function t(e, t, r) {
-                      var i = e / 255,
-                        n = t / 255,
-                        o = r / 255;
-                      return (
-                        0.2126 *
-                          (i <= 0.03928
-                            ? i / 12.92
-                            : Math.pow((i + 0.055) / 1.055, 2.4)) +
-                        0.7152 *
-                          (n <= 0.03928
-                            ? n / 12.92
-                            : Math.pow((n + 0.055) / 1.055, 2.4)) +
-                        0.0722 *
-                          (o <= 0.03928
-                            ? o / 12.92
-                            : Math.pow((o + 0.055) / 1.055, 2.4))
-                      );
-                    }
-                    (e.relativeLuminance = function (e) {
-                      return t((e >> 16) & 255, (e >> 8) & 255, 255 & e);
-                    }),
-                      (e.relativeLuminance2 = t);
-                  })((n = t.rgb || (t.rgb = {}))),
-                  (function (e) {
-                    function t(e, t, r) {
-                      for (
-                        var i = (e >> 24) & 255,
-                          o = (e >> 16) & 255,
-                          s = (e >> 8) & 255,
-                          c = (t >> 24) & 255,
-                          l = (t >> 16) & 255,
-                          h = (t >> 8) & 255,
-                          u = a(
-                            n.relativeLuminance2(c, h, l),
-                            n.relativeLuminance2(i, o, s)
-                          );
-                        u < r && (c > 0 || l > 0 || h > 0);
+                    (e.relativeLuminance2 = t);
+                })(n = t.rgb || (t.rgb = {})), (e => {
+                  function t(e, t, r) {
+                    for (
+                      var i = (e >> 24) & 255,
+                        o = (e >> 16) & 255,
+                        s = (e >> 8) & 255,
+                        c = (t >> 24) & 255,
+                        l = (t >> 16) & 255,
+                        h = (t >> 8) & 255,
+                        u = a(
+                          n.relativeLuminance2(c, h, l),
+                          n.relativeLuminance2(i, o, s)
+                        );
+                      u < r && (c > 0 || l > 0 || h > 0);
 
-                      )
-                        (c -= Math.max(0, Math.ceil(0.1 * c))),
-                          (l -= Math.max(0, Math.ceil(0.1 * l))),
-                          (h -= Math.max(0, Math.ceil(0.1 * h))),
-                          (u = a(
-                            n.relativeLuminance2(c, h, l),
-                            n.relativeLuminance2(i, o, s)
-                          ));
-                      return ((c << 24) | (l << 16) | (h << 8) | 255) >>> 0;
-                    }
-                    function i(e, t, r) {
-                      for (
-                        var i = (e >> 24) & 255,
-                          o = (e >> 16) & 255,
-                          s = (e >> 8) & 255,
-                          c = (t >> 24) & 255,
-                          l = (t >> 16) & 255,
-                          h = (t >> 8) & 255,
-                          u = a(
-                            n.relativeLuminance2(c, h, l),
-                            n.relativeLuminance2(i, o, s)
-                          );
-                        u < r && (c < 255 || l < 255 || h < 255);
+                    )
+                      (c -= Math.max(0, Math.ceil(0.1 * c))),
+                        (l -= Math.max(0, Math.ceil(0.1 * l))),
+                        (h -= Math.max(0, Math.ceil(0.1 * h))),
+                        (u = a(
+                          n.relativeLuminance2(c, h, l),
+                          n.relativeLuminance2(i, o, s)
+                        ));
+                    return ((c << 24) | (l << 16) | (h << 8) | 255) >>> 0;
+                  }
+                  function i(e, t, r) {
+                    for (
+                      var i = (e >> 24) & 255,
+                        o = (e >> 16) & 255,
+                        s = (e >> 8) & 255,
+                        c = (t >> 24) & 255,
+                        l = (t >> 16) & 255,
+                        h = (t >> 8) & 255,
+                        u = a(
+                          n.relativeLuminance2(c, h, l),
+                          n.relativeLuminance2(i, o, s)
+                        );
+                      u < r && (c < 255 || l < 255 || h < 255);
 
-                      )
-                        (c = Math.min(255, c + Math.ceil(0.1 * (255 - c)))),
-                          (l = Math.min(255, l + Math.ceil(0.1 * (255 - l)))),
-                          (h = Math.min(255, h + Math.ceil(0.1 * (255 - h)))),
-                          (u = a(
-                            n.relativeLuminance2(c, h, l),
-                            n.relativeLuminance2(i, o, s)
-                          ));
-                      return ((c << 24) | (l << 16) | (h << 8) | 255) >>> 0;
-                    }
-                    (e.ensureContrastRatio = function (e, r, o) {
-                      var s = n.relativeLuminance(e >> 8),
-                        c = n.relativeLuminance(r >> 8);
-                      if (a(s, c) < o) return c < s ? t(e, r, o) : i(e, r, o);
+                    )
+                      (c = Math.min(255, c + Math.ceil(0.1 * (255 - c)))),
+                        (l = Math.min(255, l + Math.ceil(0.1 * (255 - l)))),
+                        (h = Math.min(255, h + Math.ceil(0.1 * (255 - h)))),
+                        (u = a(
+                          n.relativeLuminance2(c, h, l),
+                          n.relativeLuminance2(i, o, s)
+                        ));
+                    return ((c << 24) | (l << 16) | (h << 8) | 255) >>> 0;
+                  }
+                  (e.ensureContrastRatio = (e, r, o) => {
+                    var s = n.relativeLuminance(e >> 8),
+                      c = n.relativeLuminance(r >> 8);
+                    if (a(s, c) < o) return c < s ? t(e, r, o) : i(e, r, o);
+                  }),
+                    (e.reduceLuminance = t),
+                    (e.increaseLuminance = i),
+                    (e.toChannels = e => {
+                      return [
+                        (e >> 24) & 255,
+                        (e >> 16) & 255,
+                        (e >> 8) & 255,
+                        255 & e,
+                      ];
                     }),
-                      (e.reduceLuminance = t),
-                      (e.increaseLuminance = i),
-                      (e.toChannels = function (e) {
-                        return [
-                          (e >> 24) & 255,
-                          (e >> 16) & 255,
-                          (e >> 8) & 255,
-                          255 & e,
-                        ];
-                      }),
-                      (e.toColor = function (e, t, i) {
-                        return {
-                          css: r.toCss(e, t, i),
-                          rgba: r.toRgba(e, t, i),
-                        };
-                      });
-                  })((o = t.rgba || (t.rgba = {}))),
-                  (t.toPaddedHex = s),
-                  (t.contrastRatio = a);
+                    (e.toColor = (e, t, i) => {
+                      return {
+                        css: r.toCss(e, t, i),
+                        rgba: r.toRgba(e, t, i),
+                      };
+                    });
+                })(o = t.rgba || (t.rgba = {})), t.toPaddedHex = s, t.contrastRatio = a;
               },
               7239: (e, t) => {
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.ColorContrastCache = void 0);
-                var r = (function () {
+                var r = (() => {
                   function e() {
                     (this._color = {}), (this._rgba = {});
                   }
@@ -641,51 +627,49 @@
                   a = i.css.toColor("#ffffff"),
                   c = i.css.toColor("#000000"),
                   l = { css: "rgba(255, 255, 255, 0.3)", rgba: 4294967117 };
-                t.DEFAULT_ANSI_COLORS = Object.freeze(
-                  (function () {
-                    for (
-                      var e = [
-                          i.css.toColor("#2e3436"),
-                          i.css.toColor("#cc0000"),
-                          i.css.toColor("#4e9a06"),
-                          i.css.toColor("#c4a000"),
-                          i.css.toColor("#3465a4"),
-                          i.css.toColor("#75507b"),
-                          i.css.toColor("#06989a"),
-                          i.css.toColor("#d3d7cf"),
-                          i.css.toColor("#555753"),
-                          i.css.toColor("#ef2929"),
-                          i.css.toColor("#8ae234"),
-                          i.css.toColor("#fce94f"),
-                          i.css.toColor("#729fcf"),
-                          i.css.toColor("#ad7fa8"),
-                          i.css.toColor("#34e2e2"),
-                          i.css.toColor("#eeeeec"),
-                        ],
-                        t = [0, 95, 135, 175, 215, 255],
-                        r = 0;
-                      r < 216;
-                      r++
-                    ) {
-                      var n = t[(r / 36) % 6 | 0],
-                        o = t[(r / 6) % 6 | 0],
-                        s = t[r % 6];
-                      e.push({
-                        css: i.channels.toCss(n, o, s),
-                        rgba: i.channels.toRgba(n, o, s),
-                      });
-                    }
-                    for (r = 0; r < 24; r++) {
-                      var a = 8 + 10 * r;
-                      e.push({
-                        css: i.channels.toCss(a, a, a),
-                        rgba: i.channels.toRgba(a, a, a),
-                      });
-                    }
-                    return e;
-                  })()
-                );
-                var h = (function () {
+                t.DEFAULT_ANSI_COLORS = Object.freeze((() => {
+                  for (
+                    var e = [
+                        i.css.toColor("#2e3436"),
+                        i.css.toColor("#cc0000"),
+                        i.css.toColor("#4e9a06"),
+                        i.css.toColor("#c4a000"),
+                        i.css.toColor("#3465a4"),
+                        i.css.toColor("#75507b"),
+                        i.css.toColor("#06989a"),
+                        i.css.toColor("#d3d7cf"),
+                        i.css.toColor("#555753"),
+                        i.css.toColor("#ef2929"),
+                        i.css.toColor("#8ae234"),
+                        i.css.toColor("#fce94f"),
+                        i.css.toColor("#729fcf"),
+                        i.css.toColor("#ad7fa8"),
+                        i.css.toColor("#34e2e2"),
+                        i.css.toColor("#eeeeec"),
+                      ],
+                      t = [0, 95, 135, 175, 215, 255],
+                      r = 0;
+                    r < 216;
+                    r++
+                  ) {
+                    var n = t[(r / 36) % 6 | 0],
+                      o = t[(r / 6) % 6 | 0],
+                      s = t[r % 6];
+                    e.push({
+                      css: i.channels.toCss(n, o, s),
+                      rgba: i.channels.toRgba(n, o, s),
+                    });
+                  }
+                  for (r = 0; r < 24; r++) {
+                    var a = 8 + 10 * r;
+                    e.push({
+                      css: i.channels.toCss(a, a, a),
+                      rgba: i.channels.toRgba(a, a, a),
+                    });
+                  }
+                  return e;
+                })());
+                var h = (() => {
                   function e(e, r) {
                     this.allowTransparency = r;
                     var h = e.createElement("canvas");
@@ -712,165 +696,164 @@
                         contrastCache: this._contrastCache,
                       });
                   }
-                  return (
-                    (e.prototype.onOptionsChange = function (e) {
-                      "minimumContrastRatio" === e &&
-                        this._contrastCache.clear();
-                    }),
-                    (e.prototype.setTheme = function (e) {
-                      void 0 === e && (e = {}),
-                        (this.colors.foreground = this._parseColor(
-                          e.foreground,
-                          o
+                  return (e.prototype.onOptionsChange = function (e) {
+                    "minimumContrastRatio" === e &&
+                      this._contrastCache.clear();
+                  }),
+                  (e.prototype.setTheme = function (e) {
+                    void 0 === e && (e = {}),
+                      (this.colors.foreground = this._parseColor(
+                        e.foreground,
+                        o
+                      )),
+                      (this.colors.background = this._parseColor(
+                        e.background,
+                        s
+                      )),
+                      (this.colors.cursor = this._parseColor(
+                        e.cursor,
+                        a,
+                        !0
+                      )),
+                      (this.colors.cursorAccent = this._parseColor(
+                        e.cursorAccent,
+                        c,
+                        !0
+                      )),
+                      (this.colors.selectionTransparent = this._parseColor(
+                        e.selection,
+                        l,
+                        !0
+                      )),
+                      (this.colors.selectionOpaque = i.color.blend(
+                        this.colors.background,
+                        this.colors.selectionTransparent
+                      )),
+                      i.color.isOpaque(this.colors.selectionTransparent) &&
+                        (this.colors.selectionTransparent = i.color.opacity(
+                          this.colors.selectionTransparent,
+                          0.3
                         )),
-                        (this.colors.background = this._parseColor(
-                          e.background,
-                          s
-                        )),
-                        (this.colors.cursor = this._parseColor(
-                          e.cursor,
-                          a,
-                          !0
-                        )),
-                        (this.colors.cursorAccent = this._parseColor(
-                          e.cursorAccent,
-                          c,
-                          !0
-                        )),
-                        (this.colors.selectionTransparent = this._parseColor(
-                          e.selection,
-                          l,
-                          !0
-                        )),
-                        (this.colors.selectionOpaque = i.color.blend(
-                          this.colors.background,
-                          this.colors.selectionTransparent
-                        )),
-                        i.color.isOpaque(this.colors.selectionTransparent) &&
-                          (this.colors.selectionTransparent = i.color.opacity(
-                            this.colors.selectionTransparent,
-                            0.3
-                          )),
-                        (this.colors.ansi[0] = this._parseColor(
-                          e.black,
-                          t.DEFAULT_ANSI_COLORS[0]
-                        )),
-                        (this.colors.ansi[1] = this._parseColor(
-                          e.red,
-                          t.DEFAULT_ANSI_COLORS[1]
-                        )),
-                        (this.colors.ansi[2] = this._parseColor(
-                          e.green,
-                          t.DEFAULT_ANSI_COLORS[2]
-                        )),
-                        (this.colors.ansi[3] = this._parseColor(
-                          e.yellow,
-                          t.DEFAULT_ANSI_COLORS[3]
-                        )),
-                        (this.colors.ansi[4] = this._parseColor(
-                          e.blue,
-                          t.DEFAULT_ANSI_COLORS[4]
-                        )),
-                        (this.colors.ansi[5] = this._parseColor(
-                          e.magenta,
-                          t.DEFAULT_ANSI_COLORS[5]
-                        )),
-                        (this.colors.ansi[6] = this._parseColor(
-                          e.cyan,
-                          t.DEFAULT_ANSI_COLORS[6]
-                        )),
-                        (this.colors.ansi[7] = this._parseColor(
-                          e.white,
-                          t.DEFAULT_ANSI_COLORS[7]
-                        )),
-                        (this.colors.ansi[8] = this._parseColor(
-                          e.brightBlack,
-                          t.DEFAULT_ANSI_COLORS[8]
-                        )),
-                        (this.colors.ansi[9] = this._parseColor(
-                          e.brightRed,
-                          t.DEFAULT_ANSI_COLORS[9]
-                        )),
-                        (this.colors.ansi[10] = this._parseColor(
-                          e.brightGreen,
-                          t.DEFAULT_ANSI_COLORS[10]
-                        )),
-                        (this.colors.ansi[11] = this._parseColor(
-                          e.brightYellow,
-                          t.DEFAULT_ANSI_COLORS[11]
-                        )),
-                        (this.colors.ansi[12] = this._parseColor(
-                          e.brightBlue,
-                          t.DEFAULT_ANSI_COLORS[12]
-                        )),
-                        (this.colors.ansi[13] = this._parseColor(
-                          e.brightMagenta,
-                          t.DEFAULT_ANSI_COLORS[13]
-                        )),
-                        (this.colors.ansi[14] = this._parseColor(
-                          e.brightCyan,
-                          t.DEFAULT_ANSI_COLORS[14]
-                        )),
-                        (this.colors.ansi[15] = this._parseColor(
-                          e.brightWhite,
-                          t.DEFAULT_ANSI_COLORS[15]
-                        )),
-                        this._contrastCache.clear();
-                    }),
-                    (e.prototype._parseColor = function (e, t, r) {
-                      if (
-                        (void 0 === r && (r = this.allowTransparency),
-                        void 0 === e)
-                      )
-                        return t;
-                      if (
-                        ((this._ctx.fillStyle = this._litmusColor),
-                        (this._ctx.fillStyle = e),
-                        "string" != typeof this._ctx.fillStyle)
-                      )
+                      (this.colors.ansi[0] = this._parseColor(
+                        e.black,
+                        t.DEFAULT_ANSI_COLORS[0]
+                      )),
+                      (this.colors.ansi[1] = this._parseColor(
+                        e.red,
+                        t.DEFAULT_ANSI_COLORS[1]
+                      )),
+                      (this.colors.ansi[2] = this._parseColor(
+                        e.green,
+                        t.DEFAULT_ANSI_COLORS[2]
+                      )),
+                      (this.colors.ansi[3] = this._parseColor(
+                        e.yellow,
+                        t.DEFAULT_ANSI_COLORS[3]
+                      )),
+                      (this.colors.ansi[4] = this._parseColor(
+                        e.blue,
+                        t.DEFAULT_ANSI_COLORS[4]
+                      )),
+                      (this.colors.ansi[5] = this._parseColor(
+                        e.magenta,
+                        t.DEFAULT_ANSI_COLORS[5]
+                      )),
+                      (this.colors.ansi[6] = this._parseColor(
+                        e.cyan,
+                        t.DEFAULT_ANSI_COLORS[6]
+                      )),
+                      (this.colors.ansi[7] = this._parseColor(
+                        e.white,
+                        t.DEFAULT_ANSI_COLORS[7]
+                      )),
+                      (this.colors.ansi[8] = this._parseColor(
+                        e.brightBlack,
+                        t.DEFAULT_ANSI_COLORS[8]
+                      )),
+                      (this.colors.ansi[9] = this._parseColor(
+                        e.brightRed,
+                        t.DEFAULT_ANSI_COLORS[9]
+                      )),
+                      (this.colors.ansi[10] = this._parseColor(
+                        e.brightGreen,
+                        t.DEFAULT_ANSI_COLORS[10]
+                      )),
+                      (this.colors.ansi[11] = this._parseColor(
+                        e.brightYellow,
+                        t.DEFAULT_ANSI_COLORS[11]
+                      )),
+                      (this.colors.ansi[12] = this._parseColor(
+                        e.brightBlue,
+                        t.DEFAULT_ANSI_COLORS[12]
+                      )),
+                      (this.colors.ansi[13] = this._parseColor(
+                        e.brightMagenta,
+                        t.DEFAULT_ANSI_COLORS[13]
+                      )),
+                      (this.colors.ansi[14] = this._parseColor(
+                        e.brightCyan,
+                        t.DEFAULT_ANSI_COLORS[14]
+                      )),
+                      (this.colors.ansi[15] = this._parseColor(
+                        e.brightWhite,
+                        t.DEFAULT_ANSI_COLORS[15]
+                      )),
+                      this._contrastCache.clear();
+                  }),
+                  (e.prototype._parseColor = function (e, t, r) {
+                    if (
+                      (void 0 === r && (r = this.allowTransparency),
+                      void 0 === e)
+                    )
+                      return t;
+                    if (
+                      ((this._ctx.fillStyle = this._litmusColor),
+                      (this._ctx.fillStyle = e),
+                      "string" != typeof this._ctx.fillStyle)
+                    )
+                      return (
+                        console.warn(
+                          "Color: " +
+                            e +
+                            " is invalid using fallback " +
+                            t.css
+                        ),
+                        t
+                      );
+                    this._ctx.fillRect(0, 0, 1, 1);
+                    var n = this._ctx.getImageData(0, 0, 1, 1).data;
+                    if (255 !== n[3]) {
+                      if (!r)
                         return (
                           console.warn(
                             "Color: " +
                               e +
-                              " is invalid using fallback " +
-                              t.css
+                              " is using transparency, but allowTransparency is false. Using fallback " +
+                              t.css +
+                              "."
                           ),
                           t
                         );
-                      this._ctx.fillRect(0, 0, 1, 1);
-                      var n = this._ctx.getImageData(0, 0, 1, 1).data;
-                      if (255 !== n[3]) {
-                        if (!r)
-                          return (
-                            console.warn(
-                              "Color: " +
-                                e +
-                                " is using transparency, but allowTransparency is false. Using fallback " +
-                                t.css +
-                                "."
-                            ),
-                            t
-                          );
-                        var o = this._ctx.fillStyle
-                            .substring(5, this._ctx.fillStyle.length - 1)
-                            .split(",")
-                            .map(function (e) {
-                              return Number(e);
-                            }),
-                          s = o[0],
-                          a = o[1],
-                          c = o[2],
-                          l = o[3],
-                          h = Math.round(255 * l);
-                        return { rgba: i.channels.toRgba(s, a, c, h), css: e };
-                      }
-                      return {
-                        css: this._ctx.fillStyle,
-                        rgba: i.channels.toRgba(n[0], n[1], n[2], n[3]),
-                      };
-                    }),
-                    e
-                  );
+                      var o = this._ctx.fillStyle
+                          .substring(5, this._ctx.fillStyle.length - 1)
+                          .split(",")
+                          .map(e => {
+                            return Number(e);
+                          }),
+                        s = o[0],
+                        a = o[1],
+                        c = o[2],
+                        l = o[3],
+                        h = Math.round(255 * l);
+                      return { rgba: i.channels.toRgba(s, a, c, h), css: e };
+                    }
+                    return {
+                      css: this._ctx.fillStyle,
+                      rgba: i.channels.toRgba(n[0], n[1], n[2], n[3]),
+                    };
+                  }),
+                  e
+                ;
                 })();
                 t.ColorManager = h;
               },
@@ -891,7 +874,7 @@
               3656: (e, t) => {
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.addDisposableDomListener = void 0),
-                  (t.addDisposableDomListener = function (e, t, r, i) {
+                  (t.addDisposableDomListener = (e, t, r, i) => {
                     e.addEventListener(t, r, i);
                     var n = !1;
                     return {
@@ -928,16 +911,16 @@
                     },
                   n =
                     (this && this.__param) ||
-                    function (e, t) {
-                      return function (r, i) {
+                    ((e, t) => {
+                      return (r, i) => {
                         t(r, i, e);
                       };
-                    };
+                    });
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.MouseZone = t.Linkifier = void 0);
                 var o = r(8460),
                   s = r(2585),
-                  a = (function () {
+                  a = (() => {
                     function e(e, t, r) {
                       (this._bufferService = e),
                         (this._logService = t),
@@ -999,7 +982,7 @@
                         this._mouseZoneManager.clearAll(t, r),
                         this._rowsTimeoutId &&
                           clearTimeout(this._rowsTimeoutId),
-                        (this._rowsTimeoutId = setTimeout(function () {
+                        (this._rowsTimeoutId = setTimeout(() => {
                           return i._linkifyRows();
                         }, e._timeBeforeLatency)));
                     }),
@@ -1096,7 +1079,7 @@
                             (r.regex.flags || "") + "g"
                           ),
                           s = -1,
-                          a = function () {
+                          a = () => {
                             var a =
                               i[
                                 "number" != typeof r.matchIndex
@@ -1129,7 +1112,7 @@
                             var u = h.getFg(l[1]),
                               f = u ? (u >> 9) & 511 : void 0;
                             r.validationCallback
-                              ? r.validationCallback(a, function (e) {
+                              ? r.validationCallback(a, e => {
                                   n._rowsTimeoutId ||
                                     (e &&
                                       n._addLink(
@@ -1170,7 +1153,7 @@
                               l + 1,
                               h + 1,
                               u + 1,
-                              function (e) {
+                              e => {
                                 if (i.handler) return i.handler(e, r);
                                 var t = window.open();
                                 t
@@ -1179,7 +1162,7 @@
                                       "Opening link blocked as opener could not be cleared"
                                     );
                               },
-                              function () {
+                              () => {
                                 o._onShowLinkUnderline.fire(
                                   o._createLinkHoverEvent(a, l, h, u, n)
                                 ),
@@ -1187,7 +1170,7 @@
                                     "xterm-cursor-pointer"
                                   );
                               },
-                              function (e) {
+                              e => {
                                 o._onLinkTooltip.fire(
                                   o._createLinkHoverEvent(a, l, h, u, n)
                                 ),
@@ -1197,7 +1180,7 @@
                                       end: { x: h, y: u },
                                     });
                               },
-                              function () {
+                              () => {
                                 o._onHideLinkUnderline.fire(
                                   o._createLinkHoverEvent(a, l, h, u, n)
                                 ),
@@ -1207,7 +1190,7 @@
                                   i.hoverLeaveCallback &&
                                     i.hoverLeaveCallback();
                               },
-                              function (e) {
+                              e => {
                                 return (
                                   !i.willLinkActivate ||
                                   i.willLinkActivate(e, r)
@@ -1241,8 +1224,7 @@
                         n(2, s.IUnicodeService),
                       ],
                       e
-                    ))
-                  ;
+                    ));
                   })();
                 t.Linkifier = a;
                 var c = function (e, t, r, i, n, o, s, a, c) {
@@ -1262,20 +1244,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -1311,18 +1293,18 @@
                     },
                   s =
                     (this && this.__param) ||
-                    function (e, t) {
-                      return function (r, i) {
+                    ((e, t) => {
+                      return (r, i) => {
                         t(r, i, e);
                       };
-                    };
+                    });
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.Linkifier2 = void 0);
                 var a = r(2585),
                   c = r(8460),
                   l = r(844),
                   h = r(3656),
-                  u = (function (e) {
+                  u = (e => {
                     function t(t) {
                       var r = e.call(this) || this;
                       return (
@@ -1386,7 +1368,7 @@
                           h.addDisposableDomListener(
                             this._element,
                             "mouseleave",
-                            function () {
+                            () => {
                               (i._isMouseOut = !0), i._clearCurrentLink();
                             }
                           )
@@ -1450,16 +1432,16 @@
                       (this._activeProviderReplies && t) ||
                         (null === (r = this._activeProviderReplies) ||
                           void 0 === r ||
-                          r.forEach(function (e) {
+                          r.forEach(e => {
                             null == e ||
-                              e.forEach(function (e) {
+                              e.forEach(e => {
                                 e.link.dispose && e.link.dispose();
                               });
                           }),
                         (this._activeProviderReplies = new Map()),
                         (this._activeLine = e.y));
                       var n = !1;
-                      this._linkProviders.forEach(function (r, o) {
+                      this._linkProviders.forEach((r, o) => {
                         var s;
                         t
                           ? (null === (s = i._activeProviderReplies) ||
@@ -1467,13 +1449,13 @@
                               ? void 0
                               : s.get(o)) &&
                             (n = i._checkLinkProviderResult(o, e, n))
-                          : r.provideLinks(e.y, function (t) {
+                          : r.provideLinks(e.y, t => {
                               var r, s;
                               if (!i._isMouseOut) {
                                 var a =
                                   null == t
                                     ? void 0
-                                    : t.map(function (e) {
+                                    : t.map(e => {
                                         return { link: e };
                                       });
                                 null === (r = i._activeProviderReplies) ||
@@ -1538,7 +1520,7 @@
                           !this._activeProviderReplies.get(a)) ||
                           (s = !0);
                       if (!s && o) {
-                        var c = o.find(function (e) {
+                        var c = o.find(e => {
                           return n._linkAtPosition(e.link, t);
                         });
                         c && ((r = !0), this._handleNewLink(c));
@@ -1558,7 +1540,7 @@
                               (i = this._activeProviderReplies.get(a)) ||
                             void 0 === i
                               ? void 0
-                              : i.find(function (e) {
+                              : i.find(e => {
                                   return n._linkAtPosition(e.link, t);
                                 });
                           if (l) {
@@ -1701,7 +1683,7 @@
                           this._renderService &&
                             this._linkCacheDisposables.push(
                               this._renderService.onRenderedBufferChange(
-                                function (e) {
+                                e => {
                                   var r =
                                     0 === e.start
                                       ? 0
@@ -1756,7 +1738,7 @@
                           e.classList.remove("xterm-cursor-pointer")),
                         t.leave && t.leave(r, t.text);
                     }),
-                    (t.prototype._linkAtPosition = function (e, t) {
+                    (t.prototype._linkAtPosition = (e, t) => {
                       var r = e.range.start.y === e.range.end.y,
                         i = e.range.start.y < t.y,
                         n = e.range.end.y > t.y;
@@ -1804,8 +1786,7 @@
                         fg: n,
                       };
                     }),
-                    o([s(0, a.IBufferService)], t)
-                  ;
+                    o([s(0, a.IBufferService)], t);
                   })(l.Disposable);
                 t.Linkifier2 = u;
               },
@@ -1820,20 +1801,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -1869,259 +1850,256 @@
                     },
                   s =
                     (this && this.__param) ||
-                    function (e, t) {
-                      return function (r, i) {
+                    ((e, t) => {
+                      return (r, i) => {
                         t(r, i, e);
                       };
-                    };
+                    });
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.MouseZoneManager = void 0);
                 var a = r(844),
                   c = r(3656),
                   l = r(4725),
                   h = r(2585),
-                  u = (function (e) {
+                  u = (e => {
                     function t(t, r, i, n, o, s) {
                       var a = e.call(this) || this;
-                      return (
-                        (a._element = t),
-                        (a._screenElement = r),
-                        (a._bufferService = i),
-                        (a._mouseService = n),
-                        (a._selectionService = o),
-                        (a._optionsService = s),
-                        (a._zones = []),
-                        (a._areZonesActive = !1),
-                        (a._lastHoverCoords = [void 0, void 0]),
-                        (a._initialSelectionLength = 0),
-                        a.register(
-                          c.addDisposableDomListener(
-                            a._element,
-                            "mousedown",
-                            function (e) {
-                              return a._onMouseDown(e);
-                            }
-                          )
-                        ),
-                        (a._mouseMoveListener = function (e) {
-                          return a._onMouseMove(e);
-                        }),
-                        (a._mouseLeaveListener = function (e) {
-                          return a._onMouseLeave(e);
-                        }),
-                        (a._clickListener = function (e) {
-                          return a._onClick(e);
-                        }),
-                        a
-                      );
-                    }
-                    return (
-                      n(t, e),
-                      (t.prototype.dispose = function () {
-                        e.prototype.dispose.call(this), this._deactivate();
-                      }),
-                      (t.prototype.add = function (e) {
-                        this._zones.push(e),
-                          1 === this._zones.length && this._activate();
-                      }),
-                      (t.prototype.clearAll = function (e, t) {
-                        if (0 !== this._zones.length) {
-                          (e && t) ||
-                            ((e = 0), (t = this._bufferService.rows - 1));
-                          for (var r = 0; r < this._zones.length; r++) {
-                            var i = this._zones[r];
-                            ((i.y1 > e && i.y1 <= t + 1) ||
-                              (i.y2 > e && i.y2 <= t + 1) ||
-                              (i.y1 < e && i.y2 > t + 1)) &&
-                              (this._currentZone &&
-                                this._currentZone === i &&
-                                (this._currentZone.leaveCallback(),
-                                (this._currentZone = void 0)),
-                              this._zones.splice(r--, 1));
+                      return (a._element = t),
+                      (a._screenElement = r),
+                      (a._bufferService = i),
+                      (a._mouseService = n),
+                      (a._selectionService = o),
+                      (a._optionsService = s),
+                      (a._zones = []),
+                      (a._areZonesActive = !1),
+                      (a._lastHoverCoords = [void 0, void 0]),
+                      (a._initialSelectionLength = 0),
+                      a.register(
+                        c.addDisposableDomListener(
+                          a._element,
+                          "mousedown",
+                          e => {
+                            return a._onMouseDown(e);
                           }
-                          0 === this._zones.length && this._deactivate();
+                        )
+                      ),
+                      (a._mouseMoveListener = e => {
+                        return a._onMouseMove(e);
+                      }),
+                      (a._mouseLeaveListener = e => {
+                        return a._onMouseLeave(e);
+                      }),
+                      (a._clickListener = e => {
+                        return a._onClick(e);
+                      }),
+                      a
+                    ;
+                    }
+                    return n(t, e),
+                    (t.prototype.dispose = function () {
+                      e.prototype.dispose.call(this), this._deactivate();
+                    }),
+                    (t.prototype.add = function (e) {
+                      this._zones.push(e),
+                        1 === this._zones.length && this._activate();
+                    }),
+                    (t.prototype.clearAll = function (e, t) {
+                      if (0 !== this._zones.length) {
+                        (e && t) ||
+                          ((e = 0), (t = this._bufferService.rows - 1));
+                        for (var r = 0; r < this._zones.length; r++) {
+                          var i = this._zones[r];
+                          ((i.y1 > e && i.y1 <= t + 1) ||
+                            (i.y2 > e && i.y2 <= t + 1) ||
+                            (i.y1 < e && i.y2 > t + 1)) &&
+                            (this._currentZone &&
+                              this._currentZone === i &&
+                              (this._currentZone.leaveCallback(),
+                              (this._currentZone = void 0)),
+                            this._zones.splice(r--, 1));
                         }
-                      }),
-                      (t.prototype._activate = function () {
-                        this._areZonesActive ||
-                          ((this._areZonesActive = !0),
-                          this._element.addEventListener(
-                            "mousemove",
-                            this._mouseMoveListener
-                          ),
-                          this._element.addEventListener(
-                            "mouseleave",
-                            this._mouseLeaveListener
-                          ),
-                          this._element.addEventListener(
-                            "click",
-                            this._clickListener
-                          ));
-                      }),
-                      (t.prototype._deactivate = function () {
-                        this._areZonesActive &&
-                          ((this._areZonesActive = !1),
-                          this._element.removeEventListener(
-                            "mousemove",
-                            this._mouseMoveListener
-                          ),
-                          this._element.removeEventListener(
-                            "mouseleave",
-                            this._mouseLeaveListener
-                          ),
-                          this._element.removeEventListener(
-                            "click",
-                            this._clickListener
-                          ));
-                      }),
-                      (t.prototype._onMouseMove = function (e) {
-                        (this._lastHoverCoords[0] === e.pageX &&
-                          this._lastHoverCoords[1] === e.pageY) ||
-                          (this._onHover(e),
-                          (this._lastHoverCoords = [e.pageX, e.pageY]));
-                      }),
-                      (t.prototype._onHover = function (e) {
-                        var t = this,
-                          r = this._findZoneEventAt(e);
-                        r !== this._currentZone &&
-                          (this._currentZone &&
-                            (this._currentZone.leaveCallback(),
-                            (this._currentZone = void 0),
-                            this._tooltipTimeout &&
-                              clearTimeout(this._tooltipTimeout)),
-                          r &&
-                            ((this._currentZone = r),
-                            r.hoverCallback && r.hoverCallback(e),
-                            (this._tooltipTimeout = window.setTimeout(
-                              function () {
-                                return t._onTooltip(e);
-                              },
-                              this._optionsService.options
-                                .linkTooltipHoverDuration
-                            ))));
-                      }),
-                      (t.prototype._onTooltip = function (e) {
-                        this._tooltipTimeout = void 0;
-                        var t = this._findZoneEventAt(e);
-                        t && t.tooltipCallback && t.tooltipCallback(e);
-                      }),
-                      (t.prototype._onMouseDown = function (e) {
-                        if (
-                          ((this._initialSelectionLength =
-                            this._getSelectionLength()),
-                          this._areZonesActive)
-                        ) {
-                          var t = this._findZoneEventAt(e);
-                          (null == t ? void 0 : t.willLinkActivate(e)) &&
-                            (e.preventDefault(), e.stopImmediatePropagation());
-                        }
-                      }),
-                      (t.prototype._onMouseLeave = function (e) {
-                        this._currentZone &&
+                        0 === this._zones.length && this._deactivate();
+                      }
+                    }),
+                    (t.prototype._activate = function () {
+                      this._areZonesActive ||
+                        ((this._areZonesActive = !0),
+                        this._element.addEventListener(
+                          "mousemove",
+                          this._mouseMoveListener
+                        ),
+                        this._element.addEventListener(
+                          "mouseleave",
+                          this._mouseLeaveListener
+                        ),
+                        this._element.addEventListener(
+                          "click",
+                          this._clickListener
+                        ));
+                    }),
+                    (t.prototype._deactivate = function () {
+                      this._areZonesActive &&
+                        ((this._areZonesActive = !1),
+                        this._element.removeEventListener(
+                          "mousemove",
+                          this._mouseMoveListener
+                        ),
+                        this._element.removeEventListener(
+                          "mouseleave",
+                          this._mouseLeaveListener
+                        ),
+                        this._element.removeEventListener(
+                          "click",
+                          this._clickListener
+                        ));
+                    }),
+                    (t.prototype._onMouseMove = function (e) {
+                      (this._lastHoverCoords[0] === e.pageX &&
+                        this._lastHoverCoords[1] === e.pageY) ||
+                        (this._onHover(e),
+                        (this._lastHoverCoords = [e.pageX, e.pageY]));
+                    }),
+                    (t.prototype._onHover = function (e) {
+                      var t = this,
+                        r = this._findZoneEventAt(e);
+                      r !== this._currentZone &&
+                        (this._currentZone &&
                           (this._currentZone.leaveCallback(),
                           (this._currentZone = void 0),
                           this._tooltipTimeout &&
-                            clearTimeout(this._tooltipTimeout));
-                      }),
-                      (t.prototype._onClick = function (e) {
-                        var t = this._findZoneEventAt(e),
-                          r = this._getSelectionLength();
-                        t &&
-                          r === this._initialSelectionLength &&
-                          (t.clickCallback(e),
-                          e.preventDefault(),
-                          e.stopImmediatePropagation());
-                      }),
-                      (t.prototype._getSelectionLength = function () {
-                        var e = this._selectionService.selectionText;
-                        return e ? e.length : 0;
-                      }),
-                      (t.prototype._findZoneEventAt = function (e) {
-                        var t = this._mouseService.getCoords(
-                          e,
-                          this._screenElement,
-                          this._bufferService.cols,
-                          this._bufferService.rows
-                        );
-                        if (t)
-                          for (
-                            var r = t[0], i = t[1], n = 0;
-                            n < this._zones.length;
-                            n++
-                          ) {
-                            var o = this._zones[n];
-                            if (o.y1 === o.y2) {
-                              if (i === o.y1 && r >= o.x1 && r < o.x2) return o;
-                            } else if (
-                              (i === o.y1 && r >= o.x1) ||
-                              (i === o.y2 && r < o.x2) ||
-                              (i > o.y1 && i < o.y2)
-                            )
-                              return o;
-                          }
-                      }),
-                      o(
-                        [
-                          s(2, h.IBufferService),
-                          s(3, l.IMouseService),
-                          s(4, l.ISelectionService),
-                          s(5, h.IOptionsService),
-                        ],
-                        t
-                      )
-                    );
+                            clearTimeout(this._tooltipTimeout)),
+                        r &&
+                          ((this._currentZone = r),
+                          r.hoverCallback && r.hoverCallback(e),
+                          (this._tooltipTimeout = window.setTimeout(
+                            () => {
+                              return t._onTooltip(e);
+                            },
+                            this._optionsService.options
+                              .linkTooltipHoverDuration
+                          ))));
+                    }),
+                    (t.prototype._onTooltip = function (e) {
+                      this._tooltipTimeout = void 0;
+                      var t = this._findZoneEventAt(e);
+                      t && t.tooltipCallback && t.tooltipCallback(e);
+                    }),
+                    (t.prototype._onMouseDown = function (e) {
+                      if (
+                        ((this._initialSelectionLength =
+                          this._getSelectionLength()),
+                        this._areZonesActive)
+                      ) {
+                        var t = this._findZoneEventAt(e);
+                        (null == t ? void 0 : t.willLinkActivate(e)) &&
+                          (e.preventDefault(), e.stopImmediatePropagation());
+                      }
+                    }),
+                    (t.prototype._onMouseLeave = function (e) {
+                      this._currentZone &&
+                        (this._currentZone.leaveCallback(),
+                        (this._currentZone = void 0),
+                        this._tooltipTimeout &&
+                          clearTimeout(this._tooltipTimeout));
+                    }),
+                    (t.prototype._onClick = function (e) {
+                      var t = this._findZoneEventAt(e),
+                        r = this._getSelectionLength();
+                      t &&
+                        r === this._initialSelectionLength &&
+                        (t.clickCallback(e),
+                        e.preventDefault(),
+                        e.stopImmediatePropagation());
+                    }),
+                    (t.prototype._getSelectionLength = function () {
+                      var e = this._selectionService.selectionText;
+                      return e ? e.length : 0;
+                    }),
+                    (t.prototype._findZoneEventAt = function (e) {
+                      var t = this._mouseService.getCoords(
+                        e,
+                        this._screenElement,
+                        this._bufferService.cols,
+                        this._bufferService.rows
+                      );
+                      if (t)
+                        for (
+                          var r = t[0], i = t[1], n = 0;
+                          n < this._zones.length;
+                          n++
+                        ) {
+                          var o = this._zones[n];
+                          if (o.y1 === o.y2) {
+                            if (i === o.y1 && r >= o.x1 && r < o.x2) return o;
+                          } else if (
+                            (i === o.y1 && r >= o.x1) ||
+                            (i === o.y2 && r < o.x2) ||
+                            (i > o.y1 && i < o.y2)
+                          )
+                            return o;
+                        }
+                    }),
+                    o(
+                      [
+                        s(2, h.IBufferService),
+                        s(3, l.IMouseService),
+                        s(4, l.ISelectionService),
+                        s(5, h.IOptionsService),
+                      ],
+                      t
+                    )
+                  ;
                   })(a.Disposable);
                 t.MouseZoneManager = u;
               },
               6193: (e, t) => {
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.RenderDebouncer = void 0);
-                var r = (function () {
+                var r = (() => {
                   function e(e) {
                     this._renderCallback = e;
                   }
-                  return (
-                    (e.prototype.dispose = function () {
-                      this._animationFrame &&
-                        (window.cancelAnimationFrame(this._animationFrame),
-                        (this._animationFrame = void 0));
-                    }),
-                    (e.prototype.refresh = function (e, t, r) {
-                      var i = this;
-                      (this._rowCount = r),
-                        (e = void 0 !== e ? e : 0),
-                        (t = void 0 !== t ? t : this._rowCount - 1),
-                        (this._rowStart =
-                          void 0 !== this._rowStart
-                            ? Math.min(this._rowStart, e)
-                            : e),
-                        (this._rowEnd =
-                          void 0 !== this._rowEnd
-                            ? Math.max(this._rowEnd, t)
-                            : t),
-                        this._animationFrame ||
-                          (this._animationFrame = window.requestAnimationFrame(
-                            function () {
-                              return i._innerRefresh();
-                            }
-                          ));
-                    }),
-                    (e.prototype._innerRefresh = function () {
-                      if (
-                        void 0 !== this._rowStart &&
-                        void 0 !== this._rowEnd &&
-                        void 0 !== this._rowCount
-                      ) {
-                        var e = Math.max(this._rowStart, 0),
-                          t = Math.min(this._rowEnd, this._rowCount - 1);
-                        (this._rowStart = void 0),
-                          (this._rowEnd = void 0),
-                          (this._animationFrame = void 0),
-                          this._renderCallback(e, t);
-                      }
-                    }),
-                    e
-                  );
+                  return (e.prototype.dispose = function () {
+                    this._animationFrame &&
+                      (window.cancelAnimationFrame(this._animationFrame),
+                      (this._animationFrame = void 0));
+                  }),
+                  (e.prototype.refresh = function (e, t, r) {
+                    var i = this;
+                    (this._rowCount = r),
+                      (e = void 0 !== e ? e : 0),
+                      (t = void 0 !== t ? t : this._rowCount - 1),
+                      (this._rowStart =
+                        void 0 !== this._rowStart
+                          ? Math.min(this._rowStart, e)
+                          : e),
+                      (this._rowEnd =
+                        void 0 !== this._rowEnd
+                          ? Math.max(this._rowEnd, t)
+                          : t),
+                      this._animationFrame ||
+                        (this._animationFrame = window.requestAnimationFrame(
+                          () => {
+                            return i._innerRefresh();
+                          }
+                        ));
+                  }),
+                  (e.prototype._innerRefresh = function () {
+                    if (
+                      void 0 !== this._rowStart &&
+                      void 0 !== this._rowEnd &&
+                      void 0 !== this._rowCount
+                    ) {
+                      var e = Math.max(this._rowStart, 0),
+                        t = Math.min(this._rowEnd, this._rowCount - 1);
+                      (this._rowStart = void 0),
+                        (this._rowEnd = void 0),
+                        (this._animationFrame = void 0),
+                        this._renderCallback(e, t);
+                    }
+                  }),
+                  e
+                ;
                 })();
                 t.RenderDebouncer = r;
               },
@@ -2129,20 +2107,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -2154,62 +2132,61 @@
                     });
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.ScreenDprMonitor = void 0);
-                var o = (function (e) {
+                var o = (e => {
                   function t() {
                     var t = (null !== e && e.apply(this, arguments)) || this;
                     return (
                       (t._currentDevicePixelRatio = window.devicePixelRatio), t
                     );
                   }
-                  return (
-                    n(t, e),
-                    (t.prototype.setListener = function (e) {
-                      var t = this;
-                      this._listener && this.clearListener(),
-                        (this._listener = e),
-                        (this._outerListener = function () {
-                          t._listener &&
-                            (t._listener(
-                              window.devicePixelRatio,
-                              t._currentDevicePixelRatio
-                            ),
-                            t._updateDpr());
-                        }),
-                        this._updateDpr();
-                    }),
-                    (t.prototype.dispose = function () {
-                      e.prototype.dispose.call(this), this.clearListener();
-                    }),
-                    (t.prototype._updateDpr = function () {
-                      var e;
+                  return n(t, e),
+                  (t.prototype.setListener = function (e) {
+                    var t = this;
+                    this._listener && this.clearListener(),
+                      (this._listener = e),
+                      (this._outerListener = () => {
+                        t._listener &&
+                          (t._listener(
+                            window.devicePixelRatio,
+                            t._currentDevicePixelRatio
+                          ),
+                          t._updateDpr());
+                      }),
+                      this._updateDpr();
+                  }),
+                  (t.prototype.dispose = function () {
+                    e.prototype.dispose.call(this), this.clearListener();
+                  }),
+                  (t.prototype._updateDpr = function () {
+                    var e;
+                    this._outerListener &&
+                      (null === (e = this._resolutionMediaMatchList) ||
+                        void 0 === e ||
+                        e.removeListener(this._outerListener),
+                      (this._currentDevicePixelRatio =
+                        window.devicePixelRatio),
+                      (this._resolutionMediaMatchList = window.matchMedia(
+                        "screen and (resolution: " +
+                          window.devicePixelRatio +
+                          "dppx)"
+                      )),
+                      this._resolutionMediaMatchList.addListener(
+                        this._outerListener
+                      ));
+                  }),
+                  (t.prototype.clearListener = function () {
+                    this._resolutionMediaMatchList &&
+                      this._listener &&
                       this._outerListener &&
-                        (null === (e = this._resolutionMediaMatchList) ||
-                          void 0 === e ||
-                          e.removeListener(this._outerListener),
-                        (this._currentDevicePixelRatio =
-                          window.devicePixelRatio),
-                        (this._resolutionMediaMatchList = window.matchMedia(
-                          "screen and (resolution: " +
-                            window.devicePixelRatio +
-                            "dppx)"
-                        )),
-                        this._resolutionMediaMatchList.addListener(
-                          this._outerListener
-                        ));
-                    }),
-                    (t.prototype.clearListener = function () {
-                      this._resolutionMediaMatchList &&
-                        this._listener &&
-                        this._outerListener &&
-                        (this._resolutionMediaMatchList.removeListener(
-                          this._outerListener
-                        ),
-                        (this._resolutionMediaMatchList = void 0),
-                        (this._listener = void 0),
-                        (this._outerListener = void 0));
-                    }),
-                    t
-                  );
+                      (this._resolutionMediaMatchList.removeListener(
+                        this._outerListener
+                      ),
+                      (this._resolutionMediaMatchList = void 0),
+                      (this._listener = void 0),
+                      (this._outerListener = void 0));
+                  }),
+                  t
+                ;
                 })(r(844).Disposable);
                 t.ScreenDprMonitor = o;
               },
@@ -2217,20 +2194,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -2270,92 +2247,91 @@
                   D = r(8969),
                   T = r(4774),
                   O = "undefined" != typeof window ? window.document : null,
-                  M = (function (e) {
+                  M = (e => {
                     function t(t) {
                       void 0 === t && (t = {});
                       var r = e.call(this, t) || this;
-                      return (
-                        (r.browser = _),
-                        (r._keyDownHandled = !1),
-                        (r._onCursorMove = new m.EventEmitter()),
-                        (r._onKey = new m.EventEmitter()),
-                        (r._onRender = new m.EventEmitter()),
-                        (r._onSelectionChange = new m.EventEmitter()),
-                        (r._onTitleChange = new m.EventEmitter()),
-                        (r._onFocus = new m.EventEmitter()),
-                        (r._onBlur = new m.EventEmitter()),
-                        (r._onA11yCharEmitter = new m.EventEmitter()),
-                        (r._onA11yTabEmitter = new m.EventEmitter()),
-                        r._setup(),
-                        (r.linkifier = r._instantiationService.createInstance(
-                          u.Linkifier
-                        )),
-                        (r.linkifier2 = r.register(
-                          r._instantiationService.createInstance(k.Linkifier2)
-                        )),
-                        r.register(
-                          r._inputHandler.onRequestBell(function () {
-                            return r.bell();
-                          })
-                        ),
-                        r.register(
-                          r._inputHandler.onRequestRefreshRows(function (e, t) {
-                            return r.refresh(e, t);
-                          })
-                        ),
-                        r.register(
-                          r._inputHandler.onRequestReset(function () {
-                            return r.reset();
-                          })
-                        ),
-                        r.register(
-                          r._inputHandler.onRequestScroll(function (e, t) {
-                            return r.scroll(e, t || void 0);
-                          })
-                        ),
-                        r.register(
-                          r._inputHandler.onRequestWindowsOptionsReport(
-                            function (e) {
-                              return r._reportWindowsOptions(e);
-                            }
-                          )
-                        ),
-                        r.register(
-                          r._inputHandler.onAnsiColorChange(function (e) {
-                            return r._changeAnsiColor(e);
-                          })
-                        ),
-                        r.register(
-                          m.forwardEvent(
-                            r._inputHandler.onCursorMove,
-                            r._onCursorMove
-                          )
-                        ),
-                        r.register(
-                          m.forwardEvent(
-                            r._inputHandler.onTitleChange,
-                            r._onTitleChange
-                          )
-                        ),
-                        r.register(
-                          m.forwardEvent(
-                            r._inputHandler.onA11yChar,
-                            r._onA11yCharEmitter
-                          )
-                        ),
-                        r.register(
-                          m.forwardEvent(
-                            r._inputHandler.onA11yTab,
-                            r._onA11yTabEmitter
-                          )
-                        ),
-                        r.register(
-                          r._bufferService.onResize(function (e) {
-                            return r._afterResize(e.cols, e.rows);
-                          })
-                        ),
-                        r
-                      );
+                      return (r.browser = _),
+                      (r._keyDownHandled = !1),
+                      (r._onCursorMove = new m.EventEmitter()),
+                      (r._onKey = new m.EventEmitter()),
+                      (r._onRender = new m.EventEmitter()),
+                      (r._onSelectionChange = new m.EventEmitter()),
+                      (r._onTitleChange = new m.EventEmitter()),
+                      (r._onFocus = new m.EventEmitter()),
+                      (r._onBlur = new m.EventEmitter()),
+                      (r._onA11yCharEmitter = new m.EventEmitter()),
+                      (r._onA11yTabEmitter = new m.EventEmitter()),
+                      r._setup(),
+                      (r.linkifier = r._instantiationService.createInstance(
+                        u.Linkifier
+                      )),
+                      (r.linkifier2 = r.register(
+                        r._instantiationService.createInstance(k.Linkifier2)
+                      )),
+                      r.register(
+                        r._inputHandler.onRequestBell(() => {
+                          return r.bell();
+                        })
+                      ),
+                      r.register(
+                        r._inputHandler.onRequestRefreshRows((e, t) => {
+                          return r.refresh(e, t);
+                        })
+                      ),
+                      r.register(
+                        r._inputHandler.onRequestReset(() => {
+                          return r.reset();
+                        })
+                      ),
+                      r.register(
+                        r._inputHandler.onRequestScroll((e, t) => {
+                          return r.scroll(e, t || void 0);
+                        })
+                      ),
+                      r.register(
+                        r._inputHandler.onRequestWindowsOptionsReport(
+                          e => {
+                            return r._reportWindowsOptions(e);
+                          }
+                        )
+                      ),
+                      r.register(
+                        r._inputHandler.onAnsiColorChange(e => {
+                          return r._changeAnsiColor(e);
+                        })
+                      ),
+                      r.register(
+                        m.forwardEvent(
+                          r._inputHandler.onCursorMove,
+                          r._onCursorMove
+                        )
+                      ),
+                      r.register(
+                        m.forwardEvent(
+                          r._inputHandler.onTitleChange,
+                          r._onTitleChange
+                        )
+                      ),
+                      r.register(
+                        m.forwardEvent(
+                          r._inputHandler.onA11yChar,
+                          r._onA11yCharEmitter
+                        )
+                      ),
+                      r.register(
+                        m.forwardEvent(
+                          r._inputHandler.onA11yTab,
+                          r._onA11yTabEmitter
+                        )
+                      ),
+                      r.register(
+                        r._bufferService.onResize(e => {
+                          return r._afterResize(e.cols, e.rows);
+                        })
+                      ),
+                      r
+                    ;
                     }
                     return n(t, e),
                     Object.defineProperty(t.prototype, "options", {
@@ -2433,7 +2409,7 @@
                         r,
                         i = this;
                       this._colorManager &&
-                        (e.colors.forEach(function (e) {
+                        (e.colors.forEach(e => {
                           var t = T.rgba.toColor(e.red, e.green, e.blue);
                           i._colorManager.colors.ansi[e.colorIndex] = t;
                         }),
@@ -2452,7 +2428,7 @@
                           void 0 === t ||
                           t.dispose(),
                         (this._customKeyEventHandler = void 0),
-                        (this.write = function () {}),
+                        (this.write = () => {}),
                         null ===
                           (i =
                             null === (r = this.element) || void 0 === r
@@ -2594,13 +2570,13 @@
                           d.addDisposableDomListener(
                             this.element,
                             "copy",
-                            function (t) {
+                            t => {
                               e.hasSelection() &&
                                 a.copyHandler(t, e._selectionService);
                             }
                           )
                         );
-                      var t = function (t) {
+                      var t = t => {
                         return a.handlePasteEvent(
                           t,
                           e.textarea,
@@ -2618,7 +2594,7 @@
                               d.addDisposableDomListener(
                                 this.element,
                                 "mousedown",
-                                function (t) {
+                                t => {
                                   2 === t.button &&
                                     a.rightClickHandler(
                                       t,
@@ -2634,7 +2610,7 @@
                               d.addDisposableDomListener(
                                 this.element,
                                 "contextmenu",
-                                function (t) {
+                                t => {
                                   a.rightClickHandler(
                                     t,
                                     e.textarea,
@@ -2650,7 +2626,7 @@
                             d.addDisposableDomListener(
                               this.element,
                               "auxclick",
-                              function (t) {
+                              t => {
                                 1 === t.button &&
                                   a.moveTextAreaUnderMouseCursor(
                                     t,
@@ -2667,7 +2643,7 @@
                         d.addDisposableDomListener(
                           this.textarea,
                           "keyup",
-                          function (t) {
+                          t => {
                             return e._keyUp(t);
                           },
                           !0
@@ -2677,7 +2653,7 @@
                           d.addDisposableDomListener(
                             this.textarea,
                             "keydown",
-                            function (t) {
+                            t => {
                               return e._keyDown(t);
                             },
                             !0
@@ -2687,7 +2663,7 @@
                           d.addDisposableDomListener(
                             this.textarea,
                             "keypress",
-                            function (t) {
+                            t => {
                               return e._keyPress(t);
                             },
                             !0
@@ -2697,7 +2673,7 @@
                           d.addDisposableDomListener(
                             this.textarea,
                             "compositionstart",
-                            function () {
+                            () => {
                               return e._compositionHelper.compositionstart();
                             }
                           )
@@ -2706,7 +2682,7 @@
                           d.addDisposableDomListener(
                             this.textarea,
                             "compositionupdate",
-                            function (t) {
+                            t => {
                               return e._compositionHelper.compositionupdate(
                                 t
                               );
@@ -2717,18 +2693,18 @@
                           d.addDisposableDomListener(
                             this.textarea,
                             "compositionend",
-                            function () {
+                            () => {
                               return e._compositionHelper.compositionend();
                             }
                           )
                         ),
                         this.register(
-                          this.onRender(function () {
+                          this.onRender(() => {
                             return e._compositionHelper.updateCompositionElements();
                           })
                         ),
                         this.register(
-                          this.onRender(function (t) {
+                          this.onRender(t => {
                             return e._queueLinkification(t.start, t.end);
                           })
                         );
@@ -2783,7 +2759,7 @@
                           d.addDisposableDomListener(
                             this.textarea,
                             "focus",
-                            function (e) {
+                            e => {
                               return t._onTextAreaFocus(e);
                             }
                           )
@@ -2792,7 +2768,7 @@
                           d.addDisposableDomListener(
                             this.textarea,
                             "blur",
-                            function () {
+                            () => {
                               return t._onTextAreaBlur();
                             }
                           )
@@ -2836,7 +2812,7 @@
                           this.options.allowTransparency
                         )),
                         this.register(
-                          this.optionsService.onOptionChange(function (e) {
+                          this.optionsService.onOptionChange(e => {
                             return t._colorManager.onOptionsChange(e);
                           })
                         ),
@@ -2856,12 +2832,12 @@
                         ),
                         this.register(
                           this._renderService.onRenderedBufferChange(
-                            function (e) {
+                            e => {
                               return t._onRender.fire(e);
                             }
                           )
                         ),
-                        this.onResize(function (e) {
+                        this.onResize(e => {
                           return t._renderService.resize(e.cols, e.rows);
                         }),
                         (this._soundService =
@@ -2883,7 +2859,7 @@
                         (this.viewport =
                           this._instantiationService.createInstance(
                             s.Viewport,
-                            function (e, r) {
+                            (e, r) => {
                               return t.scrollLines(e, r);
                             },
                             this._viewportElement,
@@ -2894,35 +2870,35 @@
                         ),
                         this.register(
                           this._inputHandler.onRequestSyncScrollBar(
-                            function () {
+                            () => {
                               return t.viewport.syncScrollArea();
                             }
                           )
                         ),
                         this.register(this.viewport),
                         this.register(
-                          this.onCursorMove(function () {
+                          this.onCursorMove(() => {
                             t._renderService.onCursorMove(),
                               t._syncTextArea();
                           })
                         ),
                         this.register(
-                          this.onResize(function () {
+                          this.onResize(() => {
                             return t._renderService.onResize(t.cols, t.rows);
                           })
                         ),
                         this.register(
-                          this.onBlur(function () {
+                          this.onBlur(() => {
                             return t._renderService.onBlur();
                           })
                         ),
                         this.register(
-                          this.onFocus(function () {
+                          this.onFocus(() => {
                             return t._renderService.onFocus();
                           })
                         ),
                         this.register(
-                          this._renderService.onDimensionsChange(function () {
+                          this._renderService.onDimensionsChange(() => {
                             return t.viewport.syncScrollArea();
                           })
                         ),
@@ -2939,7 +2915,7 @@
                         ),
                         this.register(
                           this._selectionService.onRequestScrollLines(
-                            function (e) {
+                            e => {
                               return t.scrollLines(
                                 e.amount,
                                 e.suppressScrollEvent
@@ -2949,15 +2925,13 @@
                         ),
                         this.register(
                           this._selectionService.onSelectionChange(
-                            function () {
+                            () => {
                               return t._onSelectionChange.fire();
                             }
                           )
                         ),
                         this.register(
-                          this._selectionService.onRequestRedraw(function (
-                            e
-                          ) {
+                          this._selectionService.onRequestRedraw(e => {
                             return t._renderService.onSelectionChanged(
                               e.start,
                               e.end,
@@ -2967,7 +2941,7 @@
                         ),
                         this.register(
                           this._selectionService.onLinuxMouseSelection(
-                            function (e) {
+                            e => {
                               (t.textarea.value = e),
                                 t.textarea.focus(),
                                 t.textarea.select();
@@ -2975,7 +2949,7 @@
                           )
                         ),
                         this.register(
-                          this.onScroll(function () {
+                          this.onScroll(() => {
                             t.viewport.syncScrollArea(),
                               t._selectionService.refresh();
                           })
@@ -2984,7 +2958,7 @@
                           d.addDisposableDomListener(
                             this._viewportElement,
                             "scroll",
-                            function () {
+                            () => {
                               return t._selectionService.refresh();
                             }
                           )
@@ -2997,7 +2971,7 @@
                           )),
                         this.register(this._mouseZoneManager),
                         this.register(
-                          this.onScroll(function () {
+                          this.onScroll(() => {
                             return t._mouseZoneManager.clearAll();
                           })
                         ),
@@ -3014,7 +2988,7 @@
                           d.addDisposableDomListener(
                             this.element,
                             "mousedown",
-                            function (e) {
+                            e => {
                               return t._selectionService.onMouseDown(e);
                             }
                           )
@@ -3137,7 +3111,7 @@
                           mousedrag: null,
                           mousemove: null,
                         },
-                        o = function (t) {
+                        o = t => {
                           return (
                             i(t),
                             t.buttons ||
@@ -3153,17 +3127,17 @@
                             e.cancel(t)
                           );
                         },
-                        s = function (t) {
+                        s = t => {
                           return i(t), t.preventDefault(), e.cancel(t);
                         },
-                        a = function (e) {
+                        a = e => {
                           e.buttons && i(e);
                         },
-                        l = function (e) {
+                        l = e => {
                           e.buttons || i(e);
                         };
                       this.register(
-                        this._coreMouseService.onProtocolChange(function (t) {
+                        this._coreMouseService.onProtocolChange(t => {
                           t
                             ? ("debug" ===
                                 e.optionsService.options.logLevel &&
@@ -3219,7 +3193,7 @@
                           d.addDisposableDomListener(
                             r,
                             "mousedown",
-                            function (t) {
+                            t => {
                               if (
                                 (t.preventDefault(),
                                 e.focus(),
@@ -3249,7 +3223,7 @@
                           d.addDisposableDomListener(
                             r,
                             "wheel",
-                            function (t) {
+                            t => {
                               if (n.wheel);
                               else if (!e.buffer.hasScrollback) {
                                 var r = e.viewport.getLinesScrolled(t);
@@ -3278,7 +3252,7 @@
                           d.addDisposableDomListener(
                             r,
                             "wheel",
-                            function (t) {
+                            t => {
                               if (!n.wheel)
                                 return e.viewport.onWheel(t)
                                   ? void 0
@@ -3291,7 +3265,7 @@
                           d.addDisposableDomListener(
                             r,
                             "touchstart",
-                            function (t) {
+                            t => {
                               if (!e._coreMouseService.areMouseEventsActive)
                                 return (
                                   e.viewport.onTouchStart(t), e.cancel(t)
@@ -3304,7 +3278,7 @@
                           d.addDisposableDomListener(
                             r,
                             "touchmove",
-                            function (t) {
+                            t => {
                               if (!e._coreMouseService.areMouseEventsActive)
                                 return e.viewport.onTouchMove(t)
                                   ? void 0
@@ -3484,7 +3458,7 @@
                     (t.prototype._keyUp = function (e) {
                       (this._customKeyEventHandler &&
                         !1 === this._customKeyEventHandler(e)) ||
-                        ((function (e) {
+                        ((e => {
                           return (
                             16 === e.keyCode ||
                             17 === e.keyCode ||
@@ -3609,14 +3583,13 @@
                       if (this.options.cancelEvents || t)
                         return e.preventDefault(), e.stopPropagation(), !1;
                     }),
-                    (t.prototype._visualBell = function () {
+                    (t.prototype._visualBell = () => {
                       return !1;
                     }),
                     (t.prototype._soundBell = function () {
                       return "sound" === this.options.bellStyle;
                     }),
-                    t
-                  ;
+                    t;
                   })(D.CoreTerminal);
                 t.Terminal = M;
               },
@@ -3624,20 +3597,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -3673,228 +3646,226 @@
                     },
                   s =
                     (this && this.__param) ||
-                    function (e, t) {
-                      return function (r, i) {
+                    ((e, t) => {
+                      return (r, i) => {
                         t(r, i, e);
                       };
-                    };
+                    });
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.Viewport = void 0);
                 var a = r(844),
                   c = r(3656),
                   l = r(4725),
                   h = r(2585),
-                  u = (function (e) {
+                  u = (e => {
                     function t(t, r, i, n, o, s, a) {
                       var l = e.call(this) || this;
-                      return (
-                        (l._scrollLines = t),
-                        (l._viewportElement = r),
-                        (l._scrollArea = i),
-                        (l._bufferService = n),
-                        (l._optionsService = o),
-                        (l._charSizeService = s),
-                        (l._renderService = a),
-                        (l.scrollBarWidth = 0),
-                        (l._currentRowHeight = 0),
-                        (l._lastRecordedBufferLength = 0),
-                        (l._lastRecordedViewportHeight = 0),
-                        (l._lastRecordedBufferHeight = 0),
-                        (l._lastTouchY = 0),
-                        (l._lastScrollTop = 0),
-                        (l._wheelPartialScroll = 0),
-                        (l._refreshAnimationFrame = null),
-                        (l._ignoreNextScrollEvent = !1),
-                        (l.scrollBarWidth =
-                          l._viewportElement.offsetWidth -
-                            l._scrollArea.offsetWidth || 15),
-                        l.register(
-                          c.addDisposableDomListener(
-                            l._viewportElement,
-                            "scroll",
-                            l._onScroll.bind(l)
-                          )
-                        ),
-                        setTimeout(function () {
-                          return l.syncScrollArea();
-                        }, 0),
-                        l
-                      );
+                      return (l._scrollLines = t),
+                      (l._viewportElement = r),
+                      (l._scrollArea = i),
+                      (l._bufferService = n),
+                      (l._optionsService = o),
+                      (l._charSizeService = s),
+                      (l._renderService = a),
+                      (l.scrollBarWidth = 0),
+                      (l._currentRowHeight = 0),
+                      (l._lastRecordedBufferLength = 0),
+                      (l._lastRecordedViewportHeight = 0),
+                      (l._lastRecordedBufferHeight = 0),
+                      (l._lastTouchY = 0),
+                      (l._lastScrollTop = 0),
+                      (l._wheelPartialScroll = 0),
+                      (l._refreshAnimationFrame = null),
+                      (l._ignoreNextScrollEvent = !1),
+                      (l.scrollBarWidth =
+                        l._viewportElement.offsetWidth -
+                          l._scrollArea.offsetWidth || 15),
+                      l.register(
+                        c.addDisposableDomListener(
+                          l._viewportElement,
+                          "scroll",
+                          l._onScroll.bind(l)
+                        )
+                      ),
+                      setTimeout(() => {
+                        return l.syncScrollArea();
+                      }, 0),
+                      l
+                    ;
                     }
-                    return (
-                      n(t, e),
-                      (t.prototype.onThemeChange = function (e) {
-                        this._viewportElement.style.backgroundColor =
-                          e.background.css;
-                      }),
-                      (t.prototype._refresh = function (e) {
-                        var t = this;
-                        if (e)
-                          return (
-                            this._innerRefresh(),
-                            void (
-                              null !== this._refreshAnimationFrame &&
-                              cancelAnimationFrame(this._refreshAnimationFrame)
-                            )
-                          );
-                        null === this._refreshAnimationFrame &&
-                          (this._refreshAnimationFrame = requestAnimationFrame(
-                            function () {
-                              return t._innerRefresh();
-                            }
-                          ));
-                      }),
-                      (t.prototype._innerRefresh = function () {
-                        if (this._charSizeService.height > 0) {
-                          (this._currentRowHeight =
-                            this._renderService.dimensions.scaledCellHeight /
-                            window.devicePixelRatio),
-                            (this._lastRecordedViewportHeight =
-                              this._viewportElement.offsetHeight);
-                          var e =
-                            Math.round(
-                              this._currentRowHeight *
-                                this._lastRecordedBufferLength
-                            ) +
-                            (this._lastRecordedViewportHeight -
-                              this._renderService.dimensions.canvasHeight);
-                          this._lastRecordedBufferHeight !== e &&
-                            ((this._lastRecordedBufferHeight = e),
-                            (this._scrollArea.style.height =
-                              this._lastRecordedBufferHeight + "px"));
-                        }
+                    return n(t, e),
+                    (t.prototype.onThemeChange = function (e) {
+                      this._viewportElement.style.backgroundColor =
+                        e.background.css;
+                    }),
+                    (t.prototype._refresh = function (e) {
+                      var t = this;
+                      if (e)
+                        return (
+                          this._innerRefresh(),
+                          void (
+                            null !== this._refreshAnimationFrame &&
+                            cancelAnimationFrame(this._refreshAnimationFrame)
+                          )
+                        );
+                      null === this._refreshAnimationFrame &&
+                        (this._refreshAnimationFrame = requestAnimationFrame(
+                          () => {
+                            return t._innerRefresh();
+                          }
+                        ));
+                    }),
+                    (t.prototype._innerRefresh = function () {
+                      if (this._charSizeService.height > 0) {
+                        (this._currentRowHeight =
+                          this._renderService.dimensions.scaledCellHeight /
+                          window.devicePixelRatio),
+                          (this._lastRecordedViewportHeight =
+                            this._viewportElement.offsetHeight);
+                        var e =
+                          Math.round(
+                            this._currentRowHeight *
+                              this._lastRecordedBufferLength
+                          ) +
+                          (this._lastRecordedViewportHeight -
+                            this._renderService.dimensions.canvasHeight);
+                        this._lastRecordedBufferHeight !== e &&
+                          ((this._lastRecordedBufferHeight = e),
+                          (this._scrollArea.style.height =
+                            this._lastRecordedBufferHeight + "px"));
+                      }
+                      var t =
+                        this._bufferService.buffer.ydisp *
+                        this._currentRowHeight;
+                      this._viewportElement.scrollTop !== t &&
+                        ((this._ignoreNextScrollEvent = !0),
+                        (this._viewportElement.scrollTop = t)),
+                        (this._refreshAnimationFrame = null);
+                    }),
+                    (t.prototype.syncScrollArea = function (e) {
+                      if (
+                        (void 0 === e && (e = !1),
+                        this._lastRecordedBufferLength !==
+                          this._bufferService.buffer.lines.length)
+                      )
+                        return (
+                          (this._lastRecordedBufferLength =
+                            this._bufferService.buffer.lines.length),
+                          void this._refresh(e)
+                        );
+                      if (
+                        this._lastRecordedViewportHeight ===
+                        this._renderService.dimensions.canvasHeight
+                      ) {
                         var t =
                           this._bufferService.buffer.ydisp *
                           this._currentRowHeight;
-                        this._viewportElement.scrollTop !== t &&
-                          ((this._ignoreNextScrollEvent = !0),
-                          (this._viewportElement.scrollTop = t)),
-                          (this._refreshAnimationFrame = null);
-                      }),
-                      (t.prototype.syncScrollArea = function (e) {
-                        if (
-                          (void 0 === e && (e = !1),
-                          this._lastRecordedBufferLength !==
-                            this._bufferService.buffer.lines.length)
-                        )
-                          return (
-                            (this._lastRecordedBufferLength =
-                              this._bufferService.buffer.lines.length),
-                            void this._refresh(e)
-                          );
-                        if (
-                          this._lastRecordedViewportHeight ===
-                          this._renderService.dimensions.canvasHeight
-                        ) {
+                        (this._lastScrollTop === t &&
+                          this._lastScrollTop ===
+                            this._viewportElement.scrollTop &&
+                          this._renderService.dimensions.scaledCellHeight /
+                            window.devicePixelRatio ===
+                            this._currentRowHeight) ||
+                          this._refresh(e);
+                      } else this._refresh(e);
+                    }),
+                    (t.prototype._onScroll = function (e) {
+                      if (
+                        ((this._lastScrollTop =
+                          this._viewportElement.scrollTop),
+                        this._viewportElement.offsetParent)
+                      )
+                        if (this._ignoreNextScrollEvent)
+                          this._ignoreNextScrollEvent = !1;
+                        else {
                           var t =
-                            this._bufferService.buffer.ydisp *
-                            this._currentRowHeight;
-                          (this._lastScrollTop === t &&
-                            this._lastScrollTop ===
-                              this._viewportElement.scrollTop &&
-                            this._renderService.dimensions.scaledCellHeight /
-                              window.devicePixelRatio ===
-                              this._currentRowHeight) ||
-                            this._refresh(e);
-                        } else this._refresh(e);
-                      }),
-                      (t.prototype._onScroll = function (e) {
-                        if (
-                          ((this._lastScrollTop =
-                            this._viewportElement.scrollTop),
-                          this._viewportElement.offsetParent)
-                        )
-                          if (this._ignoreNextScrollEvent)
-                            this._ignoreNextScrollEvent = !1;
-                          else {
-                            var t =
-                              Math.round(
-                                this._lastScrollTop / this._currentRowHeight
-                              ) - this._bufferService.buffer.ydisp;
-                            this._scrollLines(t, !0);
-                          }
-                      }),
-                      (t.prototype._bubbleScroll = function (e, t) {
-                        var r =
-                          this._viewportElement.scrollTop +
-                          this._lastRecordedViewportHeight;
-                        return (
-                          !(
-                            (t < 0 && 0 !== this._viewportElement.scrollTop) ||
-                            (t > 0 && r < this._lastRecordedBufferHeight)
-                          ) || (e.cancelable && e.preventDefault(), !1)
-                        );
-                      }),
-                      (t.prototype.onWheel = function (e) {
-                        var t = this._getPixelsScrolled(e);
-                        return (
-                          0 !== t &&
+                            Math.round(
+                              this._lastScrollTop / this._currentRowHeight
+                            ) - this._bufferService.buffer.ydisp;
+                          this._scrollLines(t, !0);
+                        }
+                    }),
+                    (t.prototype._bubbleScroll = function (e, t) {
+                      var r =
+                        this._viewportElement.scrollTop +
+                        this._lastRecordedViewportHeight;
+                      return (
+                        !(
+                          (t < 0 && 0 !== this._viewportElement.scrollTop) ||
+                          (t > 0 && r < this._lastRecordedBufferHeight)
+                        ) || (e.cancelable && e.preventDefault(), !1)
+                      );
+                    }),
+                    (t.prototype.onWheel = function (e) {
+                      var t = this._getPixelsScrolled(e);
+                      return (
+                        0 !== t &&
+                        ((this._viewportElement.scrollTop += t),
+                        this._bubbleScroll(e, t))
+                      );
+                    }),
+                    (t.prototype._getPixelsScrolled = function (e) {
+                      if (0 === e.deltaY) return 0;
+                      var t = this._applyScrollModifier(e.deltaY, e);
+                      return (
+                        e.deltaMode === WheelEvent.DOM_DELTA_LINE
+                          ? (t *= this._currentRowHeight)
+                          : e.deltaMode === WheelEvent.DOM_DELTA_PAGE &&
+                            (t *=
+                              this._currentRowHeight *
+                              this._bufferService.rows),
+                        t
+                      );
+                    }),
+                    (t.prototype.getLinesScrolled = function (e) {
+                      if (0 === e.deltaY) return 0;
+                      var t = this._applyScrollModifier(e.deltaY, e);
+                      return (
+                        e.deltaMode === WheelEvent.DOM_DELTA_PIXEL
+                          ? ((t /= this._currentRowHeight + 0),
+                            (this._wheelPartialScroll += t),
+                            (t =
+                              Math.floor(Math.abs(this._wheelPartialScroll)) *
+                              (this._wheelPartialScroll > 0 ? 1 : -1)),
+                            (this._wheelPartialScroll %= 1))
+                          : e.deltaMode === WheelEvent.DOM_DELTA_PAGE &&
+                            (t *= this._bufferService.rows),
+                        t
+                      );
+                    }),
+                    (t.prototype._applyScrollModifier = function (e, t) {
+                      var r = this._optionsService.options.fastScrollModifier;
+                      return ("alt" === r && t.altKey) ||
+                        ("ctrl" === r && t.ctrlKey) ||
+                        ("shift" === r && t.shiftKey)
+                        ? e *
+                            this._optionsService.options
+                              .fastScrollSensitivity *
+                            this._optionsService.options.scrollSensitivity
+                        : e * this._optionsService.options.scrollSensitivity;
+                    }),
+                    (t.prototype.onTouchStart = function (e) {
+                      this._lastTouchY = e.touches[0].pageY;
+                    }),
+                    (t.prototype.onTouchMove = function (e) {
+                      var t = this._lastTouchY - e.touches[0].pageY;
+                      return (
+                        (this._lastTouchY = e.touches[0].pageY),
+                        0 !== t &&
                           ((this._viewportElement.scrollTop += t),
                           this._bubbleScroll(e, t))
-                        );
-                      }),
-                      (t.prototype._getPixelsScrolled = function (e) {
-                        if (0 === e.deltaY) return 0;
-                        var t = this._applyScrollModifier(e.deltaY, e);
-                        return (
-                          e.deltaMode === WheelEvent.DOM_DELTA_LINE
-                            ? (t *= this._currentRowHeight)
-                            : e.deltaMode === WheelEvent.DOM_DELTA_PAGE &&
-                              (t *=
-                                this._currentRowHeight *
-                                this._bufferService.rows),
-                          t
-                        );
-                      }),
-                      (t.prototype.getLinesScrolled = function (e) {
-                        if (0 === e.deltaY) return 0;
-                        var t = this._applyScrollModifier(e.deltaY, e);
-                        return (
-                          e.deltaMode === WheelEvent.DOM_DELTA_PIXEL
-                            ? ((t /= this._currentRowHeight + 0),
-                              (this._wheelPartialScroll += t),
-                              (t =
-                                Math.floor(Math.abs(this._wheelPartialScroll)) *
-                                (this._wheelPartialScroll > 0 ? 1 : -1)),
-                              (this._wheelPartialScroll %= 1))
-                            : e.deltaMode === WheelEvent.DOM_DELTA_PAGE &&
-                              (t *= this._bufferService.rows),
-                          t
-                        );
-                      }),
-                      (t.prototype._applyScrollModifier = function (e, t) {
-                        var r = this._optionsService.options.fastScrollModifier;
-                        return ("alt" === r && t.altKey) ||
-                          ("ctrl" === r && t.ctrlKey) ||
-                          ("shift" === r && t.shiftKey)
-                          ? e *
-                              this._optionsService.options
-                                .fastScrollSensitivity *
-                              this._optionsService.options.scrollSensitivity
-                          : e * this._optionsService.options.scrollSensitivity;
-                      }),
-                      (t.prototype.onTouchStart = function (e) {
-                        this._lastTouchY = e.touches[0].pageY;
-                      }),
-                      (t.prototype.onTouchMove = function (e) {
-                        var t = this._lastTouchY - e.touches[0].pageY;
-                        return (
-                          (this._lastTouchY = e.touches[0].pageY),
-                          0 !== t &&
-                            ((this._viewportElement.scrollTop += t),
-                            this._bubbleScroll(e, t))
-                        );
-                      }),
-                      o(
-                        [
-                          s(3, h.IBufferService),
-                          s(4, h.IOptionsService),
-                          s(5, l.ICharSizeService),
-                          s(6, l.IRenderService),
-                        ],
-                        t
-                      )
-                    );
+                      );
+                    }),
+                    o(
+                      [
+                        s(3, h.IBufferService),
+                        s(4, h.IOptionsService),
+                        s(5, l.ICharSizeService),
+                        s(6, l.IRenderService),
+                      ],
+                      t
+                    )
+                  ;
                   })(a.Disposable);
                 t.Viewport = u;
               },
@@ -3925,16 +3896,16 @@
                     },
                   n =
                     (this && this.__param) ||
-                    function (e, t) {
-                      return function (r, i) {
+                    ((e, t) => {
+                      return (r, i) => {
                         t(r, i, e);
                       };
-                    };
+                    });
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.CompositionHelper = void 0);
                 var o = r(4725),
                   s = r(2585),
-                  a = (function () {
+                  a = (() => {
                     function e(e, t, r, i, n, o) {
                       (this._textarea = e),
                         (this._compositionView = t),
@@ -3966,7 +3937,7 @@
                       var t = this;
                       (this._compositionView.textContent = e.data),
                         this.updateCompositionElements(),
-                        setTimeout(function () {
+                        setTimeout(() => {
                           t._compositionPosition.end =
                             t._textarea.value.length;
                         }, 0);
@@ -4002,7 +3973,7 @@
                           end: this._compositionPosition.end,
                         };
                         (this._isSendingComposition = !0),
-                          setTimeout(function () {
+                          setTimeout(() => {
                             var e;
                             t._isSendingComposition &&
                               ((t._isSendingComposition = !1),
@@ -4025,7 +3996,7 @@
                     (e.prototype._handleAnyTextareaChanges = function () {
                       var e = this,
                         t = this._textarea.value;
-                      setTimeout(function () {
+                      setTimeout(() => {
                         if (!e._isComposing) {
                           var r = e._textarea.value.replace(t, "");
                           r.length > 0 &&
@@ -4065,7 +4036,7 @@
                               o.height + "px");
                         }
                         e ||
-                          setTimeout(function () {
+                          setTimeout(() => {
                             return t.updateCompositionElements(!0);
                           }, 0);
                       }
@@ -4078,8 +4049,7 @@
                         n(5, s.ICoreService),
                       ],
                       e
-                    )
-                  ;
+                    );
                   })();
                 t.CompositionHelper = a;
               },
@@ -4094,7 +4064,7 @@
                     t.getCoordsRelativeToElement =
                       void 0),
                   (t.getCoordsRelativeToElement = r),
-                  (t.getCoords = function (e, t, i, n, o, s, a, c) {
+                  (t.getCoords = (e, t, i, n, o, s, a, c) => {
                     if (o) {
                       var l = r(e, t);
                       if (l)
@@ -4107,7 +4077,7 @@
                         );
                     }
                   }),
-                  (t.getRawByteCoords = function (e) {
+                  (t.getRawByteCoords = e => {
                     if (e) return { x: e[0] + 32, y: e[1] + 32 };
                   });
               },
@@ -4119,19 +4089,18 @@
                   var n = e - o(r, e),
                     a = t - o(r, t);
                   return l(
-                    Math.abs(n - a) -
-                      (function (e, t, r) {
-                        for (
-                          var i = 0, n = e - o(r, e), a = t - o(r, t), c = 0;
-                          c < Math.abs(n - a);
-                          c++
-                        ) {
-                          var l = "A" === s(e, t) ? -1 : 1,
-                            h = r.buffer.lines.get(n + l * c);
-                          h && h.isWrapped && i++;
-                        }
-                        return i;
-                      })(e, t, r),
+                    Math.abs(n - a) - ((e, t, r) => {
+                      for (
+                        var i = 0, n = e - o(r, e), a = t - o(r, t), c = 0;
+                        c < Math.abs(n - a);
+                        c++
+                      ) {
+                        var l = "A" === s(e, t) ? -1 : 1,
+                          h = r.buffer.lines.get(n + l * c);
+                        h && h.isWrapped && i++;
+                      }
+                      return i;
+                    })(e, t, r),
                     c(s(e, t), i)
                   );
                 }
@@ -4181,41 +4150,36 @@
                   for (var r = "", i = 0; i < e; i++) r += t;
                   return r;
                 }
-                t.moveToCellSequence = function (e, t, r, i) {
+                t.moveToCellSequence = (e, t, r, i) => {
                   var s,
                     h = r.buffer.x,
                     u = r.buffer.y;
                   if (!r.buffer.hasScrollback)
-                    return (
-                      (function (e, t, r, i, s, h) {
-                        return 0 === n(t, i, s, h).length
-                          ? ""
-                          : l(a(e, t, e, t - o(s, t), !1, s).length, c("D", h));
-                      })(h, u, 0, t, r, i) +
-                      n(u, t, r, i) +
-                      (function (e, t, r, i, s, h) {
-                        var u;
-                        u = n(t, i, s, h).length > 0 ? i - o(s, i) : t;
-                        var f = i,
-                          _ = (function (e, t, r, i, s, a) {
-                            var c;
-                            return (
-                              (c = n(r, i, s, a).length > 0 ? i - o(s, i) : t),
-                              (e < r && c <= i) || (e >= r && c < i) ? "C" : "D"
-                            );
-                          })(e, t, r, i, s, h);
-                        return l(a(e, u, r, f, "C" === _, s).length, c(_, h));
-                      })(h, u, e, t, r, i)
-                    );
+                    return ((e, t, r, i, s, h) => {
+                      return 0 === n(t, i, s, h).length
+                        ? ""
+                        : l(a(e, t, e, t - o(s, t), !1, s).length, c("D", h));
+                    })(h, u, 0, t, r, i) + n(u, t, r, i) + ((e, t, r, i, s, h) => {
+                      var u;
+                      u = n(t, i, s, h).length > 0 ? i - o(s, i) : t;
+                      var f = i,
+                        _ = ((e, t, r, i, s, a) => {
+                          var c;
+                          return (
+                            (c = n(r, i, s, a).length > 0 ? i - o(s, i) : t),
+                            (e < r && c <= i) || (e >= r && c < i) ? "C" : "D"
+                          );
+                        })(e, t, r, i, s, h);
+                      return l(a(e, u, r, f, "C" === _, s).length, c(_, h));
+                    })(h, u, e, t, r, i);
                   if (u === t)
                     return (s = h > e ? "D" : "C"), l(Math.abs(h - e), c(s, i));
                   s = u > t ? "D" : "C";
                   var f = Math.abs(u - t);
                   return l(
-                    (function (e, t) {
+                    ((e, t) => {
                       return t.cols - e;
-                    })(u > t ? e : h, r) +
-                      (f - 1) * r.cols +
+                    })(u > t ? e : h, r) + (f - 1) * r.cols +
                       1 +
                       ((u > t ? h : e) - 1),
                     c(s, i)
@@ -4225,42 +4189,41 @@
               244: (e, t) => {
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.AddonManager = void 0);
-                var r = (function () {
+                var r = (() => {
                   function e() {
                     this._addons = [];
                   }
-                  return (
-                    (e.prototype.dispose = function () {
-                      for (var e = this._addons.length - 1; e >= 0; e--)
-                        this._addons[e].instance.dispose();
-                    }),
-                    (e.prototype.loadAddon = function (e, t) {
-                      var r = this,
-                        i = { instance: t, dispose: t.dispose, isDisposed: !1 };
-                      this._addons.push(i),
-                        (t.dispose = function () {
-                          return r._wrappedAddonDispose(i);
-                        }),
-                        t.activate(e);
-                    }),
-                    (e.prototype._wrappedAddonDispose = function (e) {
-                      if (!e.isDisposed) {
-                        for (var t = -1, r = 0; r < this._addons.length; r++)
-                          if (this._addons[r] === e) {
-                            t = r;
-                            break;
-                          }
-                        if (-1 === t)
-                          throw new Error(
-                            "Could not dispose an addon that has not been loaded"
-                          );
-                        (e.isDisposed = !0),
-                          e.dispose.apply(e.instance),
-                          this._addons.splice(t, 1);
-                      }
-                    }),
-                    e
-                  );
+                  return (e.prototype.dispose = function () {
+                    for (var e = this._addons.length - 1; e >= 0; e--)
+                      this._addons[e].instance.dispose();
+                  }),
+                  (e.prototype.loadAddon = function (e, t) {
+                    var r = this,
+                      i = { instance: t, dispose: t.dispose, isDisposed: !1 };
+                    this._addons.push(i),
+                      (t.dispose = () => {
+                        return r._wrappedAddonDispose(i);
+                      }),
+                      t.activate(e);
+                  }),
+                  (e.prototype._wrappedAddonDispose = function (e) {
+                    if (!e.isDisposed) {
+                      for (var t = -1, r = 0; r < this._addons.length; r++)
+                        if (this._addons[r] === e) {
+                          t = r;
+                          break;
+                        }
+                      if (-1 === t)
+                        throw new Error(
+                          "Could not dispose an addon that has not been loaded"
+                        );
+                      (e.isDisposed = !0),
+                        e.dispose.apply(e.instance),
+                        this._addons.splice(t, 1);
+                    }
+                  }),
+                  e
+                ;
                 })();
                 t.AddonManager = r;
               },
@@ -4272,7 +4235,7 @@
                   o = r(9042),
                   s = r(8460),
                   a = r(244),
-                  c = (function () {
+                  c = (() => {
                     function e(e) {
                       (this._core = new n.Terminal(e)),
                         (this._addonManager = new a.AddonManager());
@@ -4559,7 +4522,7 @@
                   ;
                   })();
                 t.Terminal = c;
-                var l = (function () {
+                var l = (() => {
                     function e(e, t) {
                       (this._buffer = e), (this.type = t);
                     }
@@ -4605,13 +4568,12 @@
                       var t = this._buffer.lines.get(e);
                       if (t) return new u(t);
                     }),
-                    (e.prototype.getNullCell = function () {
+                    (e.prototype.getNullCell = () => {
                       return new i.CellData();
                     }),
-                    e
-                  ;
+                    e;
                   })(),
-                  h = (function () {
+                  h = (() => {
                     function e(e) {
                       var t = this;
                       (this._core = e),
@@ -4624,7 +4586,7 @@
                           this._core.buffers.alt,
                           "alternate"
                         )),
-                        this._core.buffers.onBufferActivate(function () {
+                        this._core.buffers.onBufferActivate(() => {
                           return t._onBufferChange.fire(t.active);
                         });
                     }
@@ -4670,7 +4632,7 @@
                     e
                   ;
                   })(),
-                  u = (function () {
+                  u = (() => {
                     function e(e) {
                       this._line = e;
                     }
@@ -4700,43 +4662,42 @@
                     e
                   ;
                   })(),
-                  f = (function () {
+                  f = (() => {
                     function e(e) {
                       this._core = e;
                     }
-                    return (
-                      (e.prototype.registerCsiHandler = function (e, t) {
-                        return this._core.addCsiHandler(e, function (e) {
-                          return t(e.toArray());
-                        });
-                      }),
-                      (e.prototype.addCsiHandler = function (e, t) {
-                        return this.registerCsiHandler(e, t);
-                      }),
-                      (e.prototype.registerDcsHandler = function (e, t) {
-                        return this._core.addDcsHandler(e, function (e, r) {
-                          return t(e, r.toArray());
-                        });
-                      }),
-                      (e.prototype.addDcsHandler = function (e, t) {
-                        return this.registerDcsHandler(e, t);
-                      }),
-                      (e.prototype.registerEscHandler = function (e, t) {
-                        return this._core.addEscHandler(e, t);
-                      }),
-                      (e.prototype.addEscHandler = function (e, t) {
-                        return this.registerEscHandler(e, t);
-                      }),
-                      (e.prototype.registerOscHandler = function (e, t) {
-                        return this._core.addOscHandler(e, t);
-                      }),
-                      (e.prototype.addOscHandler = function (e, t) {
-                        return this.registerOscHandler(e, t);
-                      }),
-                      e
-                    );
+                    return (e.prototype.registerCsiHandler = function (e, t) {
+                      return this._core.addCsiHandler(e, e => {
+                        return t(e.toArray());
+                      });
+                    }),
+                    (e.prototype.addCsiHandler = function (e, t) {
+                      return this.registerCsiHandler(e, t);
+                    }),
+                    (e.prototype.registerDcsHandler = function (e, t) {
+                      return this._core.addDcsHandler(e, (e, r) => {
+                        return t(e, r.toArray());
+                      });
+                    }),
+                    (e.prototype.addDcsHandler = function (e, t) {
+                      return this.registerDcsHandler(e, t);
+                    }),
+                    (e.prototype.registerEscHandler = function (e, t) {
+                      return this._core.addEscHandler(e, t);
+                    }),
+                    (e.prototype.addEscHandler = function (e, t) {
+                      return this.registerEscHandler(e, t);
+                    }),
+                    (e.prototype.registerOscHandler = function (e, t) {
+                      return this._core.addOscHandler(e, t);
+                    }),
+                    (e.prototype.addOscHandler = function (e, t) {
+                      return this.registerOscHandler(e, t);
+                    }),
+                    e
+                  ;
                   })(),
-                  _ = (function () {
+                  _ = (() => {
                     function e(e) {
                       this._core = e;
                     }
@@ -4774,7 +4735,7 @@
                   a = r(1752),
                   c = r(4774),
                   l = r(9631),
-                  h = (function () {
+                  h = (() => {
                     function e(e, t, r, i, n, o, s, a) {
                       (this._container = e),
                         (this._alpha = i),
@@ -4803,375 +4764,374 @@
                         this._initCanvas(),
                         this._container.appendChild(this._canvas);
                     }
-                    return (
-                      (e.prototype.dispose = function () {
-                        var e;
-                        l.removeElementFromParent(this._canvas),
-                          null === (e = this._charAtlas) ||
-                            void 0 === e ||
-                            e.dispose();
-                      }),
-                      (e.prototype._initCanvas = function () {
-                        (this._ctx = a.throwIfFalsy(
-                          this._canvas.getContext("2d", { alpha: this._alpha })
+                    return (e.prototype.dispose = function () {
+                      var e;
+                      l.removeElementFromParent(this._canvas),
+                        null === (e = this._charAtlas) ||
+                          void 0 === e ||
+                          e.dispose();
+                    }),
+                    (e.prototype._initCanvas = function () {
+                      (this._ctx = a.throwIfFalsy(
+                        this._canvas.getContext("2d", { alpha: this._alpha })
+                      )),
+                        this._alpha || this._clearAll();
+                    }),
+                    (e.prototype.onOptionsChanged = () => {}),
+                    (e.prototype.onBlur = () => {}),
+                    (e.prototype.onFocus = () => {}),
+                    (e.prototype.onCursorMove = () => {}),
+                    (e.prototype.onGridChanged = (e, t) => {}),
+                    (e.prototype.onSelectionChanged = (e, t, r) => {
+                      void 0 === r && (r = !1);
+                    }),
+                    (e.prototype.setColors = function (e) {
+                      this._refreshCharAtlas(e);
+                    }),
+                    (e.prototype._setTransparency = function (e) {
+                      if (e !== this._alpha) {
+                        var t = this._canvas;
+                        (this._alpha = e),
+                          (this._canvas = this._canvas.cloneNode()),
+                          this._initCanvas(),
+                          this._container.replaceChild(this._canvas, t),
+                          this._refreshCharAtlas(this._colors),
+                          this.onGridChanged(0, this._bufferService.rows - 1);
+                      }
+                    }),
+                    (e.prototype._refreshCharAtlas = function (e) {
+                      (this._scaledCharWidth <= 0 &&
+                        this._scaledCharHeight <= 0) ||
+                        ((this._charAtlas = o.acquireCharAtlas(
+                          this._optionsService.options,
+                          this._rendererId,
+                          e,
+                          this._scaledCharWidth,
+                          this._scaledCharHeight
                         )),
-                          this._alpha || this._clearAll();
-                      }),
-                      (e.prototype.onOptionsChanged = function () {}),
-                      (e.prototype.onBlur = function () {}),
-                      (e.prototype.onFocus = function () {}),
-                      (e.prototype.onCursorMove = function () {}),
-                      (e.prototype.onGridChanged = function (e, t) {}),
-                      (e.prototype.onSelectionChanged = function (e, t, r) {
-                        void 0 === r && (r = !1);
-                      }),
-                      (e.prototype.setColors = function (e) {
-                        this._refreshCharAtlas(e);
-                      }),
-                      (e.prototype._setTransparency = function (e) {
-                        if (e !== this._alpha) {
-                          var t = this._canvas;
-                          (this._alpha = e),
-                            (this._canvas = this._canvas.cloneNode()),
-                            this._initCanvas(),
-                            this._container.replaceChild(this._canvas, t),
-                            this._refreshCharAtlas(this._colors),
-                            this.onGridChanged(0, this._bufferService.rows - 1);
-                        }
-                      }),
-                      (e.prototype._refreshCharAtlas = function (e) {
-                        (this._scaledCharWidth <= 0 &&
-                          this._scaledCharHeight <= 0) ||
-                          ((this._charAtlas = o.acquireCharAtlas(
-                            this._optionsService.options,
-                            this._rendererId,
-                            e,
-                            this._scaledCharWidth,
-                            this._scaledCharHeight
-                          )),
-                          this._charAtlas.warmUp());
-                      }),
-                      (e.prototype.resize = function (e) {
-                        (this._scaledCellWidth = e.scaledCellWidth),
-                          (this._scaledCellHeight = e.scaledCellHeight),
-                          (this._scaledCharWidth = e.scaledCharWidth),
-                          (this._scaledCharHeight = e.scaledCharHeight),
-                          (this._scaledCharLeft = e.scaledCharLeft),
-                          (this._scaledCharTop = e.scaledCharTop),
-                          (this._canvas.width = e.scaledCanvasWidth),
-                          (this._canvas.height = e.scaledCanvasHeight),
-                          (this._canvas.style.width = e.canvasWidth + "px"),
-                          (this._canvas.style.height = e.canvasHeight + "px"),
-                          this._alpha || this._clearAll(),
-                          this._refreshCharAtlas(this._colors);
-                      }),
-                      (e.prototype._fillCells = function (e, t, r, i) {
+                        this._charAtlas.warmUp());
+                    }),
+                    (e.prototype.resize = function (e) {
+                      (this._scaledCellWidth = e.scaledCellWidth),
+                        (this._scaledCellHeight = e.scaledCellHeight),
+                        (this._scaledCharWidth = e.scaledCharWidth),
+                        (this._scaledCharHeight = e.scaledCharHeight),
+                        (this._scaledCharLeft = e.scaledCharLeft),
+                        (this._scaledCharTop = e.scaledCharTop),
+                        (this._canvas.width = e.scaledCanvasWidth),
+                        (this._canvas.height = e.scaledCanvasHeight),
+                        (this._canvas.style.width = e.canvasWidth + "px"),
+                        (this._canvas.style.height = e.canvasHeight + "px"),
+                        this._alpha || this._clearAll(),
+                        this._refreshCharAtlas(this._colors);
+                    }),
+                    (e.prototype._fillCells = function (e, t, r, i) {
+                      this._ctx.fillRect(
+                        e * this._scaledCellWidth,
+                        t * this._scaledCellHeight,
+                        r * this._scaledCellWidth,
+                        i * this._scaledCellHeight
+                      );
+                    }),
+                    (e.prototype._fillBottomLineAtCells = function (e, t, r) {
+                      void 0 === r && (r = 1),
                         this._ctx.fillRect(
                           e * this._scaledCellWidth,
-                          t * this._scaledCellHeight,
+                          (t + 1) * this._scaledCellHeight -
+                            window.devicePixelRatio -
+                            1,
                           r * this._scaledCellWidth,
-                          i * this._scaledCellHeight
+                          window.devicePixelRatio
                         );
-                      }),
-                      (e.prototype._fillBottomLineAtCells = function (e, t, r) {
-                        void 0 === r && (r = 1),
+                    }),
+                    (e.prototype._fillLeftLineAtCell = function (e, t, r) {
+                      this._ctx.fillRect(
+                        e * this._scaledCellWidth,
+                        t * this._scaledCellHeight,
+                        window.devicePixelRatio * r,
+                        this._scaledCellHeight
+                      );
+                    }),
+                    (e.prototype._strokeRectAtCell = function (e, t, r, i) {
+                      (this._ctx.lineWidth = window.devicePixelRatio),
+                        this._ctx.strokeRect(
+                          e * this._scaledCellWidth +
+                            window.devicePixelRatio / 2,
+                          t * this._scaledCellHeight +
+                            window.devicePixelRatio / 2,
+                          r * this._scaledCellWidth - window.devicePixelRatio,
+                          i * this._scaledCellHeight - window.devicePixelRatio
+                        );
+                    }),
+                    (e.prototype._clearAll = function () {
+                      this._alpha
+                        ? this._ctx.clearRect(
+                            0,
+                            0,
+                            this._canvas.width,
+                            this._canvas.height
+                          )
+                        : ((this._ctx.fillStyle =
+                            this._colors.background.css),
+                          this._ctx.fillRect(
+                            0,
+                            0,
+                            this._canvas.width,
+                            this._canvas.height
+                          ));
+                    }),
+                    (e.prototype._clearCells = function (e, t, r, i) {
+                      this._alpha
+                        ? this._ctx.clearRect(
+                            e * this._scaledCellWidth,
+                            t * this._scaledCellHeight,
+                            r * this._scaledCellWidth,
+                            i * this._scaledCellHeight
+                          )
+                        : ((this._ctx.fillStyle =
+                            this._colors.background.css),
                           this._ctx.fillRect(
                             e * this._scaledCellWidth,
-                            (t + 1) * this._scaledCellHeight -
-                              window.devicePixelRatio -
-                              1,
+                            t * this._scaledCellHeight,
                             r * this._scaledCellWidth,
-                            window.devicePixelRatio
-                          );
-                      }),
-                      (e.prototype._fillLeftLineAtCell = function (e, t, r) {
-                        this._ctx.fillRect(
-                          e * this._scaledCellWidth,
-                          t * this._scaledCellHeight,
-                          window.devicePixelRatio * r,
-                          this._scaledCellHeight
+                            i * this._scaledCellHeight
+                          ));
+                    }),
+                    (e.prototype._fillCharTrueColor = function (e, t, r) {
+                      (this._ctx.font = this._getFont(!1, !1)),
+                        (this._ctx.textBaseline = "middle"),
+                        this._clipRow(r),
+                        this._ctx.fillText(
+                          e.getChars(),
+                          t * this._scaledCellWidth + this._scaledCharLeft,
+                          r * this._scaledCellHeight +
+                            this._scaledCharTop +
+                            this._scaledCharHeight / 2
                         );
-                      }),
-                      (e.prototype._strokeRectAtCell = function (e, t, r, i) {
-                        (this._ctx.lineWidth = window.devicePixelRatio),
-                          this._ctx.strokeRect(
-                            e * this._scaledCellWidth +
-                              window.devicePixelRatio / 2,
-                            t * this._scaledCellHeight +
-                              window.devicePixelRatio / 2,
-                            r * this._scaledCellWidth - window.devicePixelRatio,
-                            i * this._scaledCellHeight - window.devicePixelRatio
-                          );
-                      }),
-                      (e.prototype._clearAll = function () {
-                        this._alpha
-                          ? this._ctx.clearRect(
-                              0,
-                              0,
-                              this._canvas.width,
-                              this._canvas.height
-                            )
-                          : ((this._ctx.fillStyle =
-                              this._colors.background.css),
-                            this._ctx.fillRect(
-                              0,
-                              0,
-                              this._canvas.width,
-                              this._canvas.height
-                            ));
-                      }),
-                      (e.prototype._clearCells = function (e, t, r, i) {
-                        this._alpha
-                          ? this._ctx.clearRect(
-                              e * this._scaledCellWidth,
-                              t * this._scaledCellHeight,
-                              r * this._scaledCellWidth,
-                              i * this._scaledCellHeight
-                            )
-                          : ((this._ctx.fillStyle =
-                              this._colors.background.css),
-                            this._ctx.fillRect(
-                              e * this._scaledCellWidth,
-                              t * this._scaledCellHeight,
-                              r * this._scaledCellWidth,
-                              i * this._scaledCellHeight
-                            ));
-                      }),
-                      (e.prototype._fillCharTrueColor = function (e, t, r) {
-                        (this._ctx.font = this._getFont(!1, !1)),
-                          (this._ctx.textBaseline = "middle"),
-                          this._clipRow(r),
-                          this._ctx.fillText(
-                            e.getChars(),
-                            t * this._scaledCellWidth + this._scaledCharLeft,
-                            r * this._scaledCellHeight +
-                              this._scaledCharTop +
-                              this._scaledCharHeight / 2
-                          );
-                      }),
-                      (e.prototype._drawChars = function (e, t, r) {
-                        var o,
-                          s,
-                          a = this._getContrastColor(e);
-                        a || e.isFgRGB() || e.isBgRGB()
-                          ? this._drawUncachedChars(e, t, r, a)
-                          : (e.isInverse()
-                              ? ((o = e.isBgDefault()
-                                  ? n.INVERTED_DEFAULT_COLOR
-                                  : e.getBgColor()),
-                                (s = e.isFgDefault()
-                                  ? n.INVERTED_DEFAULT_COLOR
-                                  : e.getFgColor()))
-                              : ((s = e.isBgDefault()
-                                  ? i.DEFAULT_COLOR
-                                  : e.getBgColor()),
-                                (o = e.isFgDefault()
-                                  ? i.DEFAULT_COLOR
-                                  : e.getFgColor())),
-                            (o +=
-                              this._optionsService.options
-                                .drawBoldTextInBrightColors &&
-                              e.isBold() &&
-                              o < 8
-                                ? 8
-                                : 0),
-                            (this._currentGlyphIdentifier.chars =
-                              e.getChars() || i.WHITESPACE_CELL_CHAR),
-                            (this._currentGlyphIdentifier.code =
-                              e.getCode() || i.WHITESPACE_CELL_CODE),
-                            (this._currentGlyphIdentifier.bg = s),
-                            (this._currentGlyphIdentifier.fg = o),
-                            (this._currentGlyphIdentifier.bold = !!e.isBold()),
-                            (this._currentGlyphIdentifier.dim = !!e.isDim()),
-                            (this._currentGlyphIdentifier.italic =
-                              !!e.isItalic()),
-                            (this._charAtlas &&
-                              this._charAtlas.draw(
-                                this._ctx,
-                                this._currentGlyphIdentifier,
-                                t * this._scaledCellWidth +
-                                  this._scaledCharLeft,
-                                r * this._scaledCellHeight + this._scaledCharTop
-                              )) ||
-                              this._drawUncachedChars(e, t, r));
-                      }),
-                      (e.prototype._drawUncachedChars = function (e, t, r, i) {
-                        if (
-                          (this._ctx.save(),
-                          (this._ctx.font = this._getFont(
-                            !!e.isBold(),
-                            !!e.isItalic()
-                          )),
-                          (this._ctx.textBaseline = "middle"),
-                          e.isInverse())
-                        )
-                          if (i) this._ctx.fillStyle = i.css;
-                          else if (e.isBgDefault())
-                            this._ctx.fillStyle = c.color.opaque(
-                              this._colors.background
-                            ).css;
-                          else if (e.isBgRGB())
-                            this._ctx.fillStyle =
-                              "rgb(" +
-                              s.AttributeData.toColorRGB(e.getBgColor()).join(
-                                ","
-                              ) +
-                              ")";
-                          else {
-                            var o = e.getBgColor();
+                    }),
+                    (e.prototype._drawChars = function (e, t, r) {
+                      var o,
+                        s,
+                        a = this._getContrastColor(e);
+                      a || e.isFgRGB() || e.isBgRGB()
+                        ? this._drawUncachedChars(e, t, r, a)
+                        : (e.isInverse()
+                            ? ((o = e.isBgDefault()
+                                ? n.INVERTED_DEFAULT_COLOR
+                                : e.getBgColor()),
+                              (s = e.isFgDefault()
+                                ? n.INVERTED_DEFAULT_COLOR
+                                : e.getFgColor()))
+                            : ((s = e.isBgDefault()
+                                ? i.DEFAULT_COLOR
+                                : e.getBgColor()),
+                              (o = e.isFgDefault()
+                                ? i.DEFAULT_COLOR
+                                : e.getFgColor())),
+                          (o +=
                             this._optionsService.options
                               .drawBoldTextInBrightColors &&
-                              e.isBold() &&
-                              o < 8 &&
-                              (o += 8),
-                              (this._ctx.fillStyle = this._colors.ansi[o].css);
-                          }
-                        else if (i) this._ctx.fillStyle = i.css;
-                        else if (e.isFgDefault())
-                          this._ctx.fillStyle = this._colors.foreground.css;
-                        else if (e.isFgRGB())
+                            e.isBold() &&
+                            o < 8
+                              ? 8
+                              : 0),
+                          (this._currentGlyphIdentifier.chars =
+                            e.getChars() || i.WHITESPACE_CELL_CHAR),
+                          (this._currentGlyphIdentifier.code =
+                            e.getCode() || i.WHITESPACE_CELL_CODE),
+                          (this._currentGlyphIdentifier.bg = s),
+                          (this._currentGlyphIdentifier.fg = o),
+                          (this._currentGlyphIdentifier.bold = !!e.isBold()),
+                          (this._currentGlyphIdentifier.dim = !!e.isDim()),
+                          (this._currentGlyphIdentifier.italic =
+                            !!e.isItalic()),
+                          (this._charAtlas &&
+                            this._charAtlas.draw(
+                              this._ctx,
+                              this._currentGlyphIdentifier,
+                              t * this._scaledCellWidth +
+                                this._scaledCharLeft,
+                              r * this._scaledCellHeight + this._scaledCharTop
+                            )) ||
+                            this._drawUncachedChars(e, t, r));
+                    }),
+                    (e.prototype._drawUncachedChars = function (e, t, r, i) {
+                      if (
+                        (this._ctx.save(),
+                        (this._ctx.font = this._getFont(
+                          !!e.isBold(),
+                          !!e.isItalic()
+                        )),
+                        (this._ctx.textBaseline = "middle"),
+                        e.isInverse())
+                      )
+                        if (i) this._ctx.fillStyle = i.css;
+                        else if (e.isBgDefault())
+                          this._ctx.fillStyle = c.color.opaque(
+                            this._colors.background
+                          ).css;
+                        else if (e.isBgRGB())
                           this._ctx.fillStyle =
                             "rgb(" +
-                            s.AttributeData.toColorRGB(e.getFgColor()).join(
+                            s.AttributeData.toColorRGB(e.getBgColor()).join(
                               ","
                             ) +
                             ")";
                         else {
-                          var a = e.getFgColor();
+                          var o = e.getBgColor();
                           this._optionsService.options
                             .drawBoldTextInBrightColors &&
                             e.isBold() &&
-                            a < 8 &&
-                            (a += 8),
-                            (this._ctx.fillStyle = this._colors.ansi[a].css);
+                            o < 8 &&
+                            (o += 8),
+                            (this._ctx.fillStyle = this._colors.ansi[o].css);
                         }
-                        this._clipRow(r),
-                          e.isDim() && (this._ctx.globalAlpha = n.DIM_OPACITY),
-                          this._ctx.fillText(
-                            e.getChars(),
-                            t * this._scaledCellWidth + this._scaledCharLeft,
-                            r * this._scaledCellHeight +
-                              this._scaledCharTop +
-                              this._scaledCharHeight / 2
-                          ),
-                          this._ctx.restore();
-                      }),
-                      (e.prototype._clipRow = function (e) {
-                        this._ctx.beginPath(),
-                          this._ctx.rect(
-                            0,
-                            e * this._scaledCellHeight,
-                            this._bufferService.cols * this._scaledCellWidth,
-                            this._scaledCellHeight
-                          ),
-                          this._ctx.clip();
-                      }),
-                      (e.prototype._getFont = function (e, t) {
-                        return (
-                          (t ? "italic" : "") +
-                          " " +
-                          (e
-                            ? this._optionsService.options.fontWeightBold
-                            : this._optionsService.options.fontWeight) +
-                          " " +
-                          this._optionsService.options.fontSize *
-                            window.devicePixelRatio +
-                          "px " +
-                          this._optionsService.options.fontFamily
-                        );
-                      }),
-                      (e.prototype._getContrastColor = function (e) {
-                        if (
-                          1 !==
-                          this._optionsService.options.minimumContrastRatio
-                        ) {
-                          var t = this._colors.contrastCache.getColor(
-                            e.bg,
-                            e.fg
-                          );
-                          if (void 0 !== t) return t || void 0;
-                          var r = e.getFgColor(),
-                            i = e.getFgColorMode(),
-                            n = e.getBgColor(),
-                            o = e.getBgColorMode(),
-                            s = !!e.isInverse(),
-                            a = !!e.isInverse();
-                          if (s) {
-                            var l = r;
-                            (r = n), (n = l);
-                            var h = i;
-                            (i = o), (o = h);
-                          }
-                          var u = this._resolveBackgroundRgba(o, n, s),
-                            f = this._resolveForegroundRgba(i, r, s, a),
-                            _ = c.rgba.ensureContrastRatio(
-                              u,
-                              f,
-                              this._optionsService.options.minimumContrastRatio
-                            );
-                          if (_) {
-                            var d = {
-                              css: c.channels.toCss(
-                                (_ >> 24) & 255,
-                                (_ >> 16) & 255,
-                                (_ >> 8) & 255
-                              ),
-                              rgba: _,
-                            };
-                            return (
-                              this._colors.contrastCache.setColor(
-                                e.bg,
-                                e.fg,
-                                d
-                              ),
-                              d
-                            );
-                          }
-                          this._colors.contrastCache.setColor(e.bg, e.fg, null);
-                        }
-                      }),
-                      (e.prototype._resolveBackgroundRgba = function (e, t, r) {
-                        switch (e) {
-                          case 16777216:
-                          case 33554432:
-                            return this._colors.ansi[t].rgba;
-                          case 50331648:
-                            return t << 8;
-                          case 0:
-                          default:
-                            return r
-                              ? this._colors.foreground.rgba
-                              : this._colors.background.rgba;
-                        }
-                      }),
-                      (e.prototype._resolveForegroundRgba = function (
-                        e,
-                        t,
-                        r,
-                        i
+                      else if (i) this._ctx.fillStyle = i.css;
+                      else if (e.isFgDefault())
+                        this._ctx.fillStyle = this._colors.foreground.css;
+                      else if (e.isFgRGB())
+                        this._ctx.fillStyle =
+                          "rgb(" +
+                          s.AttributeData.toColorRGB(e.getFgColor()).join(
+                            ","
+                          ) +
+                          ")";
+                      else {
+                        var a = e.getFgColor();
+                        this._optionsService.options
+                          .drawBoldTextInBrightColors &&
+                          e.isBold() &&
+                          a < 8 &&
+                          (a += 8),
+                          (this._ctx.fillStyle = this._colors.ansi[a].css);
+                      }
+                      this._clipRow(r),
+                        e.isDim() && (this._ctx.globalAlpha = n.DIM_OPACITY),
+                        this._ctx.fillText(
+                          e.getChars(),
+                          t * this._scaledCellWidth + this._scaledCharLeft,
+                          r * this._scaledCellHeight +
+                            this._scaledCharTop +
+                            this._scaledCharHeight / 2
+                        ),
+                        this._ctx.restore();
+                    }),
+                    (e.prototype._clipRow = function (e) {
+                      this._ctx.beginPath(),
+                        this._ctx.rect(
+                          0,
+                          e * this._scaledCellHeight,
+                          this._bufferService.cols * this._scaledCellWidth,
+                          this._scaledCellHeight
+                        ),
+                        this._ctx.clip();
+                    }),
+                    (e.prototype._getFont = function (e, t) {
+                      return (
+                        (t ? "italic" : "") +
+                        " " +
+                        (e
+                          ? this._optionsService.options.fontWeightBold
+                          : this._optionsService.options.fontWeight) +
+                        " " +
+                        this._optionsService.options.fontSize *
+                          window.devicePixelRatio +
+                        "px " +
+                        this._optionsService.options.fontFamily
+                      );
+                    }),
+                    (e.prototype._getContrastColor = function (e) {
+                      if (
+                        1 !==
+                        this._optionsService.options.minimumContrastRatio
                       ) {
-                        switch (e) {
-                          case 16777216:
-                          case 33554432:
-                            return (
-                              this._optionsService.options
-                                .drawBoldTextInBrightColors &&
-                                i &&
-                                t < 8 &&
-                                (t += 8),
-                              this._colors.ansi[t].rgba
-                            );
-                          case 50331648:
-                            return t << 8;
-                          case 0:
-                          default:
-                            return r
-                              ? this._colors.background.rgba
-                              : this._colors.foreground.rgba;
+                        var t = this._colors.contrastCache.getColor(
+                          e.bg,
+                          e.fg
+                        );
+                        if (void 0 !== t) return t || void 0;
+                        var r = e.getFgColor(),
+                          i = e.getFgColorMode(),
+                          n = e.getBgColor(),
+                          o = e.getBgColorMode(),
+                          s = !!e.isInverse(),
+                          a = !!e.isInverse();
+                        if (s) {
+                          var l = r;
+                          (r = n), (n = l);
+                          var h = i;
+                          (i = o), (o = h);
                         }
-                      }),
-                      e
-                    );
+                        var u = this._resolveBackgroundRgba(o, n, s),
+                          f = this._resolveForegroundRgba(i, r, s, a),
+                          _ = c.rgba.ensureContrastRatio(
+                            u,
+                            f,
+                            this._optionsService.options.minimumContrastRatio
+                          );
+                        if (_) {
+                          var d = {
+                            css: c.channels.toCss(
+                              (_ >> 24) & 255,
+                              (_ >> 16) & 255,
+                              (_ >> 8) & 255
+                            ),
+                            rgba: _,
+                          };
+                          return (
+                            this._colors.contrastCache.setColor(
+                              e.bg,
+                              e.fg,
+                              d
+                            ),
+                            d
+                          );
+                        }
+                        this._colors.contrastCache.setColor(e.bg, e.fg, null);
+                      }
+                    }),
+                    (e.prototype._resolveBackgroundRgba = function (e, t, r) {
+                      switch (e) {
+                        case 16777216:
+                        case 33554432:
+                          return this._colors.ansi[t].rgba;
+                        case 50331648:
+                          return t << 8;
+                        case 0:
+                        default:
+                          return r
+                            ? this._colors.foreground.rgba
+                            : this._colors.background.rgba;
+                      }
+                    }),
+                    (e.prototype._resolveForegroundRgba = function (
+                      e,
+                      t,
+                      r,
+                      i
+                    ) {
+                      switch (e) {
+                        case 16777216:
+                        case 33554432:
+                          return (
+                            this._optionsService.options
+                              .drawBoldTextInBrightColors &&
+                              i &&
+                              t < 8 &&
+                              (t += 8),
+                            this._colors.ansi[t].rgba
+                          );
+                        case 50331648:
+                          return t << 8;
+                        case 0:
+                        default:
+                          return r
+                            ? this._colors.background.rgba
+                            : this._colors.foreground.rgba;
+                      }
+                    }),
+                    e
+                  ;
                   })();
                 t.BaseRenderLayer = h;
               },
@@ -5179,20 +5139,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -5207,7 +5167,7 @@
                 var o = r(3734),
                   s = r(643),
                   a = r(511),
-                  c = (function (e) {
+                  c = (e => {
                     function t(t, r, i) {
                       var n = e.call(this) || this;
                       return (
@@ -5220,172 +5180,170 @@
                         n
                       );
                     }
-                    return (
-                      n(t, e),
-                      (t.prototype.isCombined = function () {
-                        return 2097152;
-                      }),
-                      (t.prototype.getWidth = function () {
-                        return this._width;
-                      }),
-                      (t.prototype.getChars = function () {
-                        return this.combinedData;
-                      }),
-                      (t.prototype.getCode = function () {
-                        return 2097151;
-                      }),
-                      (t.prototype.setFromCharData = function (e) {
-                        throw new Error("not implemented");
-                      }),
-                      (t.prototype.getAsCharData = function () {
-                        return [
-                          this.fg,
-                          this.getChars(),
-                          this.getWidth(),
-                          this.getCode(),
-                        ];
-                      }),
-                      t
-                    );
+                    return n(t, e),
+                    (t.prototype.isCombined = () => {
+                      return 2097152;
+                    }),
+                    (t.prototype.getWidth = function () {
+                      return this._width;
+                    }),
+                    (t.prototype.getChars = function () {
+                      return this.combinedData;
+                    }),
+                    (t.prototype.getCode = () => {
+                      return 2097151;
+                    }),
+                    (t.prototype.setFromCharData = e => {
+                      throw new Error("not implemented");
+                    }),
+                    (t.prototype.getAsCharData = function () {
+                      return [
+                        this.fg,
+                        this.getChars(),
+                        this.getWidth(),
+                        this.getCode(),
+                      ];
+                    }),
+                    t
+                  ;
                   })(o.AttributeData);
                 t.JoinedCellData = c;
-                var l = (function () {
+                var l = (() => {
                   function e(e) {
                     (this._bufferService = e),
                       (this._characterJoiners = []),
                       (this._nextCharacterJoinerId = 0),
                       (this._workCell = new a.CellData());
                   }
-                  return (
-                    (e.prototype.registerCharacterJoiner = function (e) {
-                      var t = { id: this._nextCharacterJoinerId++, handler: e };
-                      return this._characterJoiners.push(t), t.id;
-                    }),
-                    (e.prototype.deregisterCharacterJoiner = function (e) {
-                      for (var t = 0; t < this._characterJoiners.length; t++)
-                        if (this._characterJoiners[t].id === e)
-                          return this._characterJoiners.splice(t, 1), !0;
-                      return !1;
-                    }),
-                    (e.prototype.getJoinedCharacters = function (e) {
-                      if (0 === this._characterJoiners.length) return [];
-                      var t = this._bufferService.buffer.lines.get(e);
-                      if (!t || 0 === t.length) return [];
+                  return (e.prototype.registerCharacterJoiner = function (e) {
+                    var t = { id: this._nextCharacterJoinerId++, handler: e };
+                    return this._characterJoiners.push(t), t.id;
+                  }),
+                  (e.prototype.deregisterCharacterJoiner = function (e) {
+                    for (var t = 0; t < this._characterJoiners.length; t++)
+                      if (this._characterJoiners[t].id === e)
+                        return this._characterJoiners.splice(t, 1), !0;
+                    return !1;
+                  }),
+                  (e.prototype.getJoinedCharacters = function (e) {
+                    if (0 === this._characterJoiners.length) return [];
+                    var t = this._bufferService.buffer.lines.get(e);
+                    if (!t || 0 === t.length) return [];
+                    for (
+                      var r = [],
+                        i = t.translateToString(!0),
+                        n = 0,
+                        o = 0,
+                        a = 0,
+                        c = t.getFg(0),
+                        l = t.getBg(0),
+                        h = 0;
+                      h < t.getTrimmedLength();
+                      h++
+                    )
+                      if (
+                        (t.loadCell(h, this._workCell),
+                        0 !== this._workCell.getWidth())
+                      ) {
+                        if (
+                          this._workCell.fg !== c ||
+                          this._workCell.bg !== l
+                        ) {
+                          if (h - n > 1)
+                            for (
+                              var u = this._getJoinedRanges(i, a, o, t, n),
+                                f = 0;
+                              f < u.length;
+                              f++
+                            )
+                              r.push(u[f]);
+                          (n = h),
+                            (a = o),
+                            (c = this._workCell.fg),
+                            (l = this._workCell.bg);
+                        }
+                        o +=
+                          this._workCell.getChars().length ||
+                          s.WHITESPACE_CELL_CHAR.length;
+                      }
+                    if (this._bufferService.cols - n > 1)
                       for (
-                        var r = [],
-                          i = t.translateToString(!0),
-                          n = 0,
-                          o = 0,
-                          a = 0,
-                          c = t.getFg(0),
-                          l = t.getBg(0),
-                          h = 0;
-                        h < t.getTrimmedLength();
+                        u = this._getJoinedRanges(i, a, o, t, n), f = 0;
+                        f < u.length;
+                        f++
+                      )
+                        r.push(u[f]);
+                    return r;
+                  }),
+                  (e.prototype._getJoinedRanges = function (t, r, i, n, o) {
+                    for (
+                      var s = t.substring(r, i),
+                        a = this._characterJoiners[0].handler(s),
+                        c = 1;
+                      c < this._characterJoiners.length;
+                      c++
+                    )
+                      for (
+                        var l = this._characterJoiners[c].handler(s), h = 0;
+                        h < l.length;
                         h++
                       )
-                        if (
-                          (t.loadCell(h, this._workCell),
-                          0 !== this._workCell.getWidth())
-                        ) {
-                          if (
-                            this._workCell.fg !== c ||
-                            this._workCell.bg !== l
-                          ) {
-                            if (h - n > 1)
-                              for (
-                                var u = this._getJoinedRanges(i, a, o, t, n),
-                                  f = 0;
-                                f < u.length;
-                                f++
-                              )
-                                r.push(u[f]);
-                            (n = h),
-                              (a = o),
-                              (c = this._workCell.fg),
-                              (l = this._workCell.bg);
-                          }
-                          o +=
-                            this._workCell.getChars().length ||
+                        e._mergeRanges(a, l[h]);
+                    return this._stringRangesToCellRanges(a, n, o), a;
+                  }),
+                  (e.prototype._stringRangesToCellRanges = function (
+                    e,
+                    t,
+                    r
+                  ) {
+                    var i = 0,
+                      n = !1,
+                      o = 0,
+                      a = e[i];
+                    if (a) {
+                      for (var c = r; c < this._bufferService.cols; c++) {
+                        var l = t.getWidth(c),
+                          h =
+                            t.getString(c).length ||
                             s.WHITESPACE_CELL_CHAR.length;
-                        }
-                      if (this._bufferService.cols - n > 1)
-                        for (
-                          u = this._getJoinedRanges(i, a, o, t, n), f = 0;
-                          f < u.length;
-                          f++
-                        )
-                          r.push(u[f]);
-                      return r;
-                    }),
-                    (e.prototype._getJoinedRanges = function (t, r, i, n, o) {
-                      for (
-                        var s = t.substring(r, i),
-                          a = this._characterJoiners[0].handler(s),
-                          c = 1;
-                        c < this._characterJoiners.length;
-                        c++
-                      )
-                        for (
-                          var l = this._characterJoiners[c].handler(s), h = 0;
-                          h < l.length;
-                          h++
-                        )
-                          e._mergeRanges(a, l[h]);
-                      return this._stringRangesToCellRanges(a, n, o), a;
-                    }),
-                    (e.prototype._stringRangesToCellRanges = function (
-                      e,
-                      t,
-                      r
-                    ) {
-                      var i = 0,
-                        n = !1,
-                        o = 0,
-                        a = e[i];
-                      if (a) {
-                        for (var c = r; c < this._bufferService.cols; c++) {
-                          var l = t.getWidth(c),
-                            h =
-                              t.getString(c).length ||
-                              s.WHITESPACE_CELL_CHAR.length;
-                          if (0 !== l) {
-                            if (
-                              (!n && a[0] <= o && ((a[0] = c), (n = !0)),
-                              a[1] <= o)
-                            ) {
-                              if (((a[1] = c), !(a = e[++i]))) break;
-                              a[0] <= o ? ((a[0] = c), (n = !0)) : (n = !1);
-                            }
-                            o += h;
+                        if (0 !== l) {
+                          if (
+                            (!n && a[0] <= o && ((a[0] = c), (n = !0)),
+                            a[1] <= o)
+                          ) {
+                            if (((a[1] = c), !(a = e[++i]))) break;
+                            a[0] <= o ? ((a[0] = c), (n = !0)) : (n = !1);
                           }
-                        }
-                        a && (a[1] = this._bufferService.cols);
-                      }
-                    }),
-                    (e._mergeRanges = function (e, t) {
-                      for (var r = !1, i = 0; i < e.length; i++) {
-                        var n = e[i];
-                        if (r) {
-                          if (t[1] <= n[0]) return (e[i - 1][1] = t[1]), e;
-                          if (t[1] <= n[1])
-                            return (
-                              (e[i - 1][1] = Math.max(t[1], n[1])),
-                              e.splice(i, 1),
-                              e
-                            );
-                          e.splice(i, 1), i--;
-                        } else {
-                          if (t[1] <= n[0]) return e.splice(i, 0, t), e;
-                          if (t[1] <= n[1])
-                            return (n[0] = Math.min(t[0], n[0])), e;
-                          t[0] < n[1] &&
-                            ((n[0] = Math.min(t[0], n[0])), (r = !0));
+                          o += h;
                         }
                       }
-                      return r ? (e[e.length - 1][1] = t[1]) : e.push(t), e;
-                    }),
-                    e
-                  );
+                      a && (a[1] = this._bufferService.cols);
+                    }
+                  }),
+                  (e._mergeRanges = (e, t) => {
+                    for (var r = !1, i = 0; i < e.length; i++) {
+                      var n = e[i];
+                      if (r) {
+                        if (t[1] <= n[0]) return (e[i - 1][1] = t[1]), e;
+                        if (t[1] <= n[1])
+                          return (
+                            (e[i - 1][1] = Math.max(t[1], n[1])),
+                            e.splice(i, 1),
+                            e
+                          );
+                        e.splice(i, 1), i--;
+                      } else {
+                        if (t[1] <= n[0]) return e.splice(i, 0, t), e;
+                        if (t[1] <= n[1])
+                          return (n[0] = Math.min(t[0], n[0])), e;
+                        t[0] < n[1] &&
+                          ((n[0] = Math.min(t[0], n[0])), (r = !0));
+                      }
+                    }
+                    return r ? (e[e.length - 1][1] = t[1]) : e.push(t), e;
+                  }),
+                  e
+                ;
                 })();
                 t.CharacterJoinerRegistry = l;
               },
@@ -5393,20 +5351,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -5421,7 +5379,7 @@
                 var o = r(1546),
                   s = r(511),
                   a = 600,
-                  c = (function (e) {
+                  c = (e => {
                     function t(t, r, i, n, o, a, c, l, h) {
                       var u =
                         e.call(this, t, "cursor", r, !0, i, n, a, c) || this;
@@ -5445,199 +5403,198 @@
                         u
                       );
                     }
-                    return (
-                      n(t, e),
-                      (t.prototype.resize = function (t) {
-                        e.prototype.resize.call(this, t),
-                          (this._state = {
-                            x: 0,
-                            y: 0,
-                            isFocused: !1,
-                            style: "",
-                            width: 0,
-                          });
-                      }),
-                      (t.prototype.reset = function () {
-                        this._clearCursor(),
-                          this._cursorBlinkStateManager &&
-                            (this._cursorBlinkStateManager.dispose(),
-                            (this._cursorBlinkStateManager = void 0),
-                            this.onOptionsChanged());
-                      }),
-                      (t.prototype.onBlur = function () {
+                    return n(t, e),
+                    (t.prototype.resize = function (t) {
+                      e.prototype.resize.call(this, t),
+                        (this._state = {
+                          x: 0,
+                          y: 0,
+                          isFocused: !1,
+                          style: "",
+                          width: 0,
+                        });
+                    }),
+                    (t.prototype.reset = function () {
+                      this._clearCursor(),
                         this._cursorBlinkStateManager &&
-                          this._cursorBlinkStateManager.pause(),
-                          this._onRequestRedraw.fire({
+                          (this._cursorBlinkStateManager.dispose(),
+                          (this._cursorBlinkStateManager = void 0),
+                          this.onOptionsChanged());
+                    }),
+                    (t.prototype.onBlur = function () {
+                      this._cursorBlinkStateManager &&
+                        this._cursorBlinkStateManager.pause(),
+                        this._onRequestRedraw.fire({
+                          start: this._bufferService.buffer.y,
+                          end: this._bufferService.buffer.y,
+                        });
+                    }),
+                    (t.prototype.onFocus = function () {
+                      this._cursorBlinkStateManager
+                        ? this._cursorBlinkStateManager.resume()
+                        : this._onRequestRedraw.fire({
                             start: this._bufferService.buffer.y,
                             end: this._bufferService.buffer.y,
                           });
-                      }),
-                      (t.prototype.onFocus = function () {
-                        this._cursorBlinkStateManager
-                          ? this._cursorBlinkStateManager.resume()
-                          : this._onRequestRedraw.fire({
-                              start: this._bufferService.buffer.y,
-                              end: this._bufferService.buffer.y,
-                            });
-                      }),
-                      (t.prototype.onOptionsChanged = function () {
-                        var e,
-                          t = this;
-                        this._optionsService.options.cursorBlink
-                          ? this._cursorBlinkStateManager ||
-                            (this._cursorBlinkStateManager = new l(
-                              this._coreBrowserService.isFocused,
-                              function () {
-                                t._render(!0);
-                              }
-                            ))
-                          : (null === (e = this._cursorBlinkStateManager) ||
-                              void 0 === e ||
-                              e.dispose(),
-                            (this._cursorBlinkStateManager = void 0)),
-                          this._onRequestRedraw.fire({
-                            start: this._bufferService.buffer.y,
-                            end: this._bufferService.buffer.y,
-                          });
-                      }),
-                      (t.prototype.onCursorMove = function () {
-                        this._cursorBlinkStateManager &&
-                          this._cursorBlinkStateManager.restartBlinkAnimation();
-                      }),
-                      (t.prototype.onGridChanged = function (e, t) {
-                        !this._cursorBlinkStateManager ||
-                        this._cursorBlinkStateManager.isPaused
-                          ? this._render(!1)
-                          : this._cursorBlinkStateManager.restartBlinkAnimation();
-                      }),
-                      (t.prototype._render = function (e) {
-                        if (
-                          this._coreService.isCursorInitialized &&
-                          !this._coreService.isCursorHidden
-                        ) {
-                          var t =
-                              this._bufferService.buffer.ybase +
-                              this._bufferService.buffer.y,
-                            r = t - this._bufferService.buffer.ydisp;
-                          if (r < 0 || r >= this._bufferService.rows)
-                            this._clearCursor();
-                          else {
-                            var i = Math.min(
-                              this._bufferService.buffer.x,
-                              this._bufferService.cols - 1
-                            );
-                            if (
-                              (this._bufferService.buffer.lines
-                                .get(t)
-                                .loadCell(i, this._cell),
-                              void 0 !== this._cell.content)
-                            ) {
-                              if (!this._coreBrowserService.isFocused) {
-                                this._clearCursor(),
-                                  this._ctx.save(),
-                                  (this._ctx.fillStyle =
-                                    this._colors.cursor.css);
-                                var n =
-                                  this._optionsService.options.cursorStyle;
-                                return (
-                                  n && "block" !== n
-                                    ? this._cursorRenderers[n](i, r, this._cell)
-                                    : this._renderBlurCursor(i, r, this._cell),
-                                  this._ctx.restore(),
-                                  (this._state.x = i),
-                                  (this._state.y = r),
-                                  (this._state.isFocused = !1),
-                                  (this._state.style = n),
-                                  void (this._state.width =
-                                    this._cell.getWidth())
-                                );
-                              }
-                              if (
-                                !this._cursorBlinkStateManager ||
-                                this._cursorBlinkStateManager.isCursorVisible
-                              ) {
-                                if (this._state) {
-                                  if (
-                                    this._state.x === i &&
-                                    this._state.y === r &&
-                                    this._state.isFocused ===
-                                      this._coreBrowserService.isFocused &&
-                                    this._state.style ===
-                                      this._optionsService.options
-                                        .cursorStyle &&
-                                    this._state.width === this._cell.getWidth()
-                                  )
-                                    return;
-                                  this._clearCursor();
-                                }
-                                this._ctx.save(),
-                                  this._cursorRenderers[
-                                    this._optionsService.options.cursorStyle ||
-                                      "block"
-                                  ](i, r, this._cell),
-                                  this._ctx.restore(),
-                                  (this._state.x = i),
-                                  (this._state.y = r),
-                                  (this._state.isFocused = !1),
-                                  (this._state.style =
-                                    this._optionsService.options.cursorStyle),
-                                  (this._state.width = this._cell.getWidth());
-                              } else this._clearCursor();
+                    }),
+                    (t.prototype.onOptionsChanged = function () {
+                      var e,
+                        t = this;
+                      this._optionsService.options.cursorBlink
+                        ? this._cursorBlinkStateManager ||
+                          (this._cursorBlinkStateManager = new l(
+                            this._coreBrowserService.isFocused,
+                            () => {
+                              t._render(!0);
                             }
+                          ))
+                        : (null === (e = this._cursorBlinkStateManager) ||
+                            void 0 === e ||
+                            e.dispose(),
+                          (this._cursorBlinkStateManager = void 0)),
+                        this._onRequestRedraw.fire({
+                          start: this._bufferService.buffer.y,
+                          end: this._bufferService.buffer.y,
+                        });
+                    }),
+                    (t.prototype.onCursorMove = function () {
+                      this._cursorBlinkStateManager &&
+                        this._cursorBlinkStateManager.restartBlinkAnimation();
+                    }),
+                    (t.prototype.onGridChanged = function (e, t) {
+                      !this._cursorBlinkStateManager ||
+                      this._cursorBlinkStateManager.isPaused
+                        ? this._render(!1)
+                        : this._cursorBlinkStateManager.restartBlinkAnimation();
+                    }),
+                    (t.prototype._render = function (e) {
+                      if (
+                        this._coreService.isCursorInitialized &&
+                        !this._coreService.isCursorHidden
+                      ) {
+                        var t =
+                            this._bufferService.buffer.ybase +
+                            this._bufferService.buffer.y,
+                          r = t - this._bufferService.buffer.ydisp;
+                        if (r < 0 || r >= this._bufferService.rows)
+                          this._clearCursor();
+                        else {
+                          var i = Math.min(
+                            this._bufferService.buffer.x,
+                            this._bufferService.cols - 1
+                          );
+                          if (
+                            (this._bufferService.buffer.lines
+                              .get(t)
+                              .loadCell(i, this._cell),
+                            void 0 !== this._cell.content)
+                          ) {
+                            if (!this._coreBrowserService.isFocused) {
+                              this._clearCursor(),
+                                this._ctx.save(),
+                                (this._ctx.fillStyle =
+                                  this._colors.cursor.css);
+                              var n =
+                                this._optionsService.options.cursorStyle;
+                              return (
+                                n && "block" !== n
+                                  ? this._cursorRenderers[n](i, r, this._cell)
+                                  : this._renderBlurCursor(i, r, this._cell),
+                                this._ctx.restore(),
+                                (this._state.x = i),
+                                (this._state.y = r),
+                                (this._state.isFocused = !1),
+                                (this._state.style = n),
+                                void (this._state.width =
+                                  this._cell.getWidth())
+                              );
+                            }
+                            if (
+                              !this._cursorBlinkStateManager ||
+                              this._cursorBlinkStateManager.isCursorVisible
+                            ) {
+                              if (this._state) {
+                                if (
+                                  this._state.x === i &&
+                                  this._state.y === r &&
+                                  this._state.isFocused ===
+                                    this._coreBrowserService.isFocused &&
+                                  this._state.style ===
+                                    this._optionsService.options
+                                      .cursorStyle &&
+                                  this._state.width === this._cell.getWidth()
+                                )
+                                  return;
+                                this._clearCursor();
+                              }
+                              this._ctx.save(),
+                                this._cursorRenderers[
+                                  this._optionsService.options.cursorStyle ||
+                                    "block"
+                                ](i, r, this._cell),
+                                this._ctx.restore(),
+                                (this._state.x = i),
+                                (this._state.y = r),
+                                (this._state.isFocused = !1),
+                                (this._state.style =
+                                  this._optionsService.options.cursorStyle),
+                                (this._state.width = this._cell.getWidth());
+                            } else this._clearCursor();
                           }
-                        } else this._clearCursor();
-                      }),
-                      (t.prototype._clearCursor = function () {
-                        this._state &&
-                          (this._clearCells(
-                            this._state.x,
-                            this._state.y,
-                            this._state.width,
-                            1
-                          ),
-                          (this._state = {
-                            x: 0,
-                            y: 0,
-                            isFocused: !1,
-                            style: "",
-                            width: 0,
-                          }));
-                      }),
-                      (t.prototype._renderBarCursor = function (e, t, r) {
-                        this._ctx.save(),
-                          (this._ctx.fillStyle = this._colors.cursor.css),
-                          this._fillLeftLineAtCell(
-                            e,
-                            t,
-                            this._optionsService.options.cursorWidth
-                          ),
-                          this._ctx.restore();
-                      }),
-                      (t.prototype._renderBlockCursor = function (e, t, r) {
-                        this._ctx.save(),
-                          (this._ctx.fillStyle = this._colors.cursor.css),
-                          this._fillCells(e, t, r.getWidth(), 1),
-                          (this._ctx.fillStyle = this._colors.cursorAccent.css),
-                          this._fillCharTrueColor(r, e, t),
-                          this._ctx.restore();
-                      }),
-                      (t.prototype._renderUnderlineCursor = function (e, t, r) {
-                        this._ctx.save(),
-                          (this._ctx.fillStyle = this._colors.cursor.css),
-                          this._fillBottomLineAtCells(e, t),
-                          this._ctx.restore();
-                      }),
-                      (t.prototype._renderBlurCursor = function (e, t, r) {
-                        this._ctx.save(),
-                          (this._ctx.strokeStyle = this._colors.cursor.css),
-                          this._strokeRectAtCell(e, t, r.getWidth(), 1),
-                          this._ctx.restore();
-                      }),
-                      t
-                    );
+                        }
+                      } else this._clearCursor();
+                    }),
+                    (t.prototype._clearCursor = function () {
+                      this._state &&
+                        (this._clearCells(
+                          this._state.x,
+                          this._state.y,
+                          this._state.width,
+                          1
+                        ),
+                        (this._state = {
+                          x: 0,
+                          y: 0,
+                          isFocused: !1,
+                          style: "",
+                          width: 0,
+                        }));
+                    }),
+                    (t.prototype._renderBarCursor = function (e, t, r) {
+                      this._ctx.save(),
+                        (this._ctx.fillStyle = this._colors.cursor.css),
+                        this._fillLeftLineAtCell(
+                          e,
+                          t,
+                          this._optionsService.options.cursorWidth
+                        ),
+                        this._ctx.restore();
+                    }),
+                    (t.prototype._renderBlockCursor = function (e, t, r) {
+                      this._ctx.save(),
+                        (this._ctx.fillStyle = this._colors.cursor.css),
+                        this._fillCells(e, t, r.getWidth(), 1),
+                        (this._ctx.fillStyle = this._colors.cursorAccent.css),
+                        this._fillCharTrueColor(r, e, t),
+                        this._ctx.restore();
+                    }),
+                    (t.prototype._renderUnderlineCursor = function (e, t, r) {
+                      this._ctx.save(),
+                        (this._ctx.fillStyle = this._colors.cursor.css),
+                        this._fillBottomLineAtCells(e, t),
+                        this._ctx.restore();
+                    }),
+                    (t.prototype._renderBlurCursor = function (e, t, r) {
+                      this._ctx.save(),
+                        (this._ctx.strokeStyle = this._colors.cursor.css),
+                        this._strokeRectAtCell(e, t, r.getWidth(), 1),
+                        this._ctx.restore();
+                    }),
+                    t
+                  ;
                   })(o.BaseRenderLayer);
                 t.CursorRenderLayer = c;
-                var l = (function () {
+                var l = (() => {
                   function e(e, t) {
                     (this._renderCallback = t),
                       (this.isCursorVisible = !0),
@@ -5670,7 +5627,7 @@
                       (this.isCursorVisible = !0),
                       this._animationFrame ||
                         (this._animationFrame = window.requestAnimationFrame(
-                          function () {
+                          () => {
                             e._renderCallback(), (e._animationFrame = void 0);
                           }
                         )));
@@ -5681,7 +5638,7 @@
                       this._blinkInterval &&
                         window.clearInterval(this._blinkInterval),
                       (this._blinkStartTimeout = window.setTimeout(
-                        function () {
+                        () => {
                           if (t._animationTimeRestarted) {
                             var e =
                               a - (Date.now() - t._animationTimeRestarted);
@@ -5690,13 +5647,13 @@
                           }
                           (t.isCursorVisible = !1),
                             (t._animationFrame = window.requestAnimationFrame(
-                              function () {
+                              () => {
                                 t._renderCallback(),
                                   (t._animationFrame = void 0);
                               }
                             )),
                             (t._blinkInterval = window.setInterval(
-                              function () {
+                              () => {
                                 if (t._animationTimeRestarted) {
                                   var e =
                                     a -
@@ -5708,7 +5665,7 @@
                                 }
                                 (t.isCursorVisible = !t.isCursorVisible),
                                   (t._animationFrame =
-                                    window.requestAnimationFrame(function () {
+                                    window.requestAnimationFrame(() => {
                                       t._renderCallback(),
                                         (t._animationFrame = void 0);
                                     }));
@@ -5737,14 +5694,13 @@
                       this._restartInterval(),
                       this.restartBlinkAnimation();
                   }),
-                  e
-                ;
+                  e;
                 })();
               },
               3700: (e, t) => {
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.GridCache = void 0);
-                var r = (function () {
+                var r = (() => {
                   function e() {
                     this.cache = [];
                   }
@@ -5772,20 +5728,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -5800,25 +5756,24 @@
                 var o = r(1546),
                   s = r(8803),
                   a = r(2040),
-                  c = (function (e) {
+                  c = (e => {
                     function t(t, r, i, n, o, s, a, c) {
                       var l =
                         e.call(this, t, "link", r, !0, i, n, a, c) || this;
-                      return (
-                        o.onShowLinkUnderline(function (e) {
-                          return l._onShowLinkUnderline(e);
-                        }),
-                        o.onHideLinkUnderline(function (e) {
-                          return l._onHideLinkUnderline(e);
-                        }),
-                        s.onShowLinkUnderline(function (e) {
-                          return l._onShowLinkUnderline(e);
-                        }),
-                        s.onHideLinkUnderline(function (e) {
-                          return l._onHideLinkUnderline(e);
-                        }),
-                        l
-                      );
+                      return o.onShowLinkUnderline(e => {
+                        return l._onShowLinkUnderline(e);
+                      }),
+                      o.onHideLinkUnderline(e => {
+                        return l._onHideLinkUnderline(e);
+                      }),
+                      s.onShowLinkUnderline(e => {
+                        return l._onShowLinkUnderline(e);
+                      }),
+                      s.onHideLinkUnderline(e => {
+                        return l._onHideLinkUnderline(e);
+                      }),
+                      l
+                    ;
                     }
                     return (
                       n(t, e),
@@ -5891,20 +5846,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -5940,11 +5895,11 @@
                     },
                   s =
                     (this && this.__param) ||
-                    function (e, t) {
-                      return function (r, i) {
+                    ((e, t) => {
+                      return (r, i) => {
                         t(r, i, e);
                       };
-                    };
+                    });
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.Renderer = void 0);
                 var a = r(9596),
@@ -5958,7 +5913,7 @@
                   p = r(1420),
                   v = r(8460),
                   g = 1,
-                  y = (function (e) {
+                  y = (e => {
                     function t(t, r, i, n, o, s, f, _, d) {
                       var p = e.call(this) || this;
                       (p._colors = t),
@@ -6090,33 +6045,33 @@
                       );
                     }),
                     (t.prototype.onBlur = function () {
-                      this._runOperation(function (e) {
+                      this._runOperation(e => {
                         return e.onBlur();
                       });
                     }),
                     (t.prototype.onFocus = function () {
-                      this._runOperation(function (e) {
+                      this._runOperation(e => {
                         return e.onFocus();
                       });
                     }),
                     (t.prototype.onSelectionChanged = function (e, t, r) {
                       void 0 === r && (r = !1),
-                        this._runOperation(function (i) {
+                        this._runOperation(i => {
                           return i.onSelectionChanged(e, t, r);
                         });
                     }),
                     (t.prototype.onCursorMove = function () {
-                      this._runOperation(function (e) {
+                      this._runOperation(e => {
                         return e.onCursorMove();
                       });
                     }),
                     (t.prototype.onOptionsChanged = function () {
-                      this._runOperation(function (e) {
+                      this._runOperation(e => {
                         return e.onOptionsChanged();
                       });
                     }),
                     (t.prototype.clear = function () {
-                      this._runOperation(function (e) {
+                      this._runOperation(e => {
                         return e.reset();
                       });
                     }),
@@ -6206,15 +6161,14 @@
                         s(8, _.ICoreBrowserService),
                       ],
                       t
-                    )
-                  ;
+                    );
                   })(f.Disposable);
                 t.Renderer = y;
               },
               1752: (e, t) => {
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.throwIfFalsy = void 0),
-                  (t.throwIfFalsy = function (e) {
+                  (t.throwIfFalsy = e => {
                     if (!e) throw new Error("value must not be falsy");
                     return e;
                   });
@@ -6223,20 +6177,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -6248,97 +6202,96 @@
                     });
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.SelectionRenderLayer = void 0);
-                var o = (function (e) {
+                var o = (e => {
                   function t(t, r, i, n, o, s) {
                     var a =
                       e.call(this, t, "selection", r, !0, i, n, o, s) || this;
                     return a._clearState(), a;
                   }
-                  return (
-                    n(t, e),
-                    (t.prototype._clearState = function () {
-                      this._state = {
-                        start: void 0,
-                        end: void 0,
-                        columnSelectMode: void 0,
-                        ydisp: void 0,
-                      };
-                    }),
-                    (t.prototype.resize = function (t) {
-                      e.prototype.resize.call(this, t), this._clearState();
-                    }),
-                    (t.prototype.reset = function () {
-                      this._state.start &&
-                        this._state.end &&
-                        (this._clearState(), this._clearAll());
-                    }),
-                    (t.prototype.onSelectionChanged = function (e, t, r) {
-                      if (
-                        this._didStateChange(
-                          e,
-                          t,
-                          r,
-                          this._bufferService.buffer.ydisp
-                        )
+                  return n(t, e),
+                  (t.prototype._clearState = function () {
+                    this._state = {
+                      start: void 0,
+                      end: void 0,
+                      columnSelectMode: void 0,
+                      ydisp: void 0,
+                    };
+                  }),
+                  (t.prototype.resize = function (t) {
+                    e.prototype.resize.call(this, t), this._clearState();
+                  }),
+                  (t.prototype.reset = function () {
+                    this._state.start &&
+                      this._state.end &&
+                      (this._clearState(), this._clearAll());
+                  }),
+                  (t.prototype.onSelectionChanged = function (e, t, r) {
+                    if (
+                      this._didStateChange(
+                        e,
+                        t,
+                        r,
+                        this._bufferService.buffer.ydisp
                       )
-                        if ((this._clearAll(), e && t)) {
-                          var i = e[1] - this._bufferService.buffer.ydisp,
-                            n = t[1] - this._bufferService.buffer.ydisp,
-                            o = Math.max(i, 0),
-                            s = Math.min(n, this._bufferService.rows - 1);
-                          if (o >= this._bufferService.rows || s < 0)
-                            this._state.ydisp =
-                              this._bufferService.buffer.ydisp;
-                          else {
+                    )
+                      if ((this._clearAll(), e && t)) {
+                        var i = e[1] - this._bufferService.buffer.ydisp,
+                          n = t[1] - this._bufferService.buffer.ydisp,
+                          o = Math.max(i, 0),
+                          s = Math.min(n, this._bufferService.rows - 1);
+                        if (o >= this._bufferService.rows || s < 0)
+                          this._state.ydisp =
+                            this._bufferService.buffer.ydisp;
+                        else {
+                          if (
+                            ((this._ctx.fillStyle =
+                              this._colors.selectionTransparent.css),
+                            r)
+                          ) {
+                            var a = e[0],
+                              c = t[0] - a,
+                              l = s - o + 1;
+                            this._fillCells(a, o, c, l);
+                          } else {
+                            a = i === o ? e[0] : 0;
+                            var h = o === n ? t[0] : this._bufferService.cols;
+                            this._fillCells(a, o, h - a, 1);
+                            var u = Math.max(s - o - 1, 0);
                             if (
-                              ((this._ctx.fillStyle =
-                                this._colors.selectionTransparent.css),
-                              r)
+                              (this._fillCells(
+                                0,
+                                o + 1,
+                                this._bufferService.cols,
+                                u
+                              ),
+                              o !== s)
                             ) {
-                              var a = e[0],
-                                c = t[0] - a,
-                                l = s - o + 1;
-                              this._fillCells(a, o, c, l);
-                            } else {
-                              a = i === o ? e[0] : 0;
-                              var h = o === n ? t[0] : this._bufferService.cols;
-                              this._fillCells(a, o, h - a, 1);
-                              var u = Math.max(s - o - 1, 0);
-                              if (
-                                (this._fillCells(
-                                  0,
-                                  o + 1,
-                                  this._bufferService.cols,
-                                  u
-                                ),
-                                o !== s)
-                              ) {
-                                var f =
-                                  n === s ? t[0] : this._bufferService.cols;
-                                this._fillCells(0, s, f, 1);
-                              }
+                              var f =
+                                n === s ? t[0] : this._bufferService.cols;
+                              this._fillCells(0, s, f, 1);
                             }
-                            (this._state.start = [e[0], e[1]]),
-                              (this._state.end = [t[0], t[1]]),
-                              (this._state.columnSelectMode = r),
-                              (this._state.ydisp =
-                                this._bufferService.buffer.ydisp);
                           }
-                        } else this._clearState();
-                    }),
-                    (t.prototype._didStateChange = function (e, t, r, i) {
-                      return (
-                        !this._areCoordinatesEqual(e, this._state.start) ||
-                        !this._areCoordinatesEqual(t, this._state.end) ||
-                        r !== this._state.columnSelectMode ||
-                        i !== this._state.ydisp
-                      );
-                    }),
-                    (t.prototype._areCoordinatesEqual = function (e, t) {
-                      return !(!e || !t) && e[0] === t[0] && e[1] === t[1];
-                    }),
-                    t
-                  );
+                          (this._state.start = [e[0], e[1]]),
+                            (this._state.end = [t[0], t[1]]),
+                            (this._state.columnSelectMode = r),
+                            (this._state.ydisp =
+                              this._bufferService.buffer.ydisp);
+                        }
+                      } else this._clearState();
+                  }),
+                  (t.prototype._didStateChange = function (e, t, r, i) {
+                    return (
+                      !this._areCoordinatesEqual(e, this._state.start) ||
+                      !this._areCoordinatesEqual(t, this._state.end) ||
+                      r !== this._state.columnSelectMode ||
+                      i !== this._state.ydisp
+                    );
+                  }),
+                  (t.prototype._areCoordinatesEqual = (e, t) => {
+                    return !(!e || !t) && e[0] === t[0] && e[1] === t[1];
+                  }),
+                  t
+                ;
                 })(r(1546).BaseRenderLayer);
                 t.SelectionRenderLayer = o;
               },
@@ -6346,20 +6299,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -6377,7 +6330,7 @@
                   c = r(643),
                   l = r(5879),
                   h = r(511),
-                  u = (function (e) {
+                  u = (e => {
                     function t(t, r, i, n, s, a, c, l) {
                       var u = e.call(this, t, "text", r, s, i, a, c, l) || this;
                       return (
@@ -6390,218 +6343,216 @@
                         u
                       );
                     }
-                    return (
-                      n(t, e),
-                      (t.prototype.resize = function (t) {
-                        e.prototype.resize.call(this, t);
-                        var r = this._getFont(!1, !1);
-                        (this._characterWidth === t.scaledCharWidth &&
-                          this._characterFont === r) ||
-                          ((this._characterWidth = t.scaledCharWidth),
-                          (this._characterFont = r),
-                          (this._characterOverlapCache = {})),
-                          this._state.clear(),
-                          this._state.resize(
-                            this._bufferService.cols,
-                            this._bufferService.rows
-                          );
-                      }),
-                      (t.prototype.reset = function () {
-                        this._state.clear(), this._clearAll();
-                      }),
-                      (t.prototype._forEachCell = function (e, t, r, i) {
-                        for (var n = e; n <= t; n++)
-                          for (
-                            var o = n + this._bufferService.buffer.ydisp,
-                              s = this._bufferService.buffer.lines.get(o),
-                              a = r ? r.getJoinedCharacters(o) : [],
-                              h = 0;
-                            h < this._bufferService.cols;
-                            h++
-                          ) {
-                            s.loadCell(h, this._workCell);
-                            var u = this._workCell,
-                              f = !1,
-                              _ = h;
-                            if (0 !== u.getWidth()) {
-                              if (a.length > 0 && h === a[0][0]) {
-                                f = !0;
-                                var d = a.shift();
-                                (u = new l.JoinedCellData(
-                                  this._workCell,
-                                  s.translateToString(!0, d[0], d[1]),
-                                  d[1] - d[0]
-                                )),
-                                  (_ = d[1] - 1);
-                              }
-                              !f &&
-                                this._isOverlapping(u) &&
-                                _ < s.length - 1 &&
-                                s.getCodePoint(_ + 1) === c.NULL_CELL_CODE &&
-                                ((u.content &= -12582913),
-                                (u.content |= 2 << 22)),
-                                i(u, h, n),
-                                (h = _);
+                    return n(t, e),
+                    (t.prototype.resize = function (t) {
+                      e.prototype.resize.call(this, t);
+                      var r = this._getFont(!1, !1);
+                      (this._characterWidth === t.scaledCharWidth &&
+                        this._characterFont === r) ||
+                        ((this._characterWidth = t.scaledCharWidth),
+                        (this._characterFont = r),
+                        (this._characterOverlapCache = {})),
+                        this._state.clear(),
+                        this._state.resize(
+                          this._bufferService.cols,
+                          this._bufferService.rows
+                        );
+                    }),
+                    (t.prototype.reset = function () {
+                      this._state.clear(), this._clearAll();
+                    }),
+                    (t.prototype._forEachCell = function (e, t, r, i) {
+                      for (var n = e; n <= t; n++)
+                        for (
+                          var o = n + this._bufferService.buffer.ydisp,
+                            s = this._bufferService.buffer.lines.get(o),
+                            a = r ? r.getJoinedCharacters(o) : [],
+                            h = 0;
+                          h < this._bufferService.cols;
+                          h++
+                        ) {
+                          s.loadCell(h, this._workCell);
+                          var u = this._workCell,
+                            f = !1,
+                            _ = h;
+                          if (0 !== u.getWidth()) {
+                            if (a.length > 0 && h === a[0][0]) {
+                              f = !0;
+                              var d = a.shift();
+                              (u = new l.JoinedCellData(
+                                this._workCell,
+                                s.translateToString(!0, d[0], d[1]),
+                                d[1] - d[0]
+                              )),
+                                (_ = d[1] - 1);
                             }
+                            !f &&
+                              this._isOverlapping(u) &&
+                              _ < s.length - 1 &&
+                              s.getCodePoint(_ + 1) === c.NULL_CELL_CODE &&
+                              ((u.content &= -12582913),
+                              (u.content |= 2 << 22)),
+                              i(u, h, n),
+                              (h = _);
                           }
-                      }),
-                      (t.prototype._drawBackground = function (e, t) {
-                        var r = this,
-                          i = this._ctx,
-                          n = this._bufferService.cols,
-                          o = 0,
-                          s = 0,
-                          c = null;
-                        i.save(),
-                          this._forEachCell(e, t, null, function (e, t, l) {
-                            var h = null;
-                            e.isInverse()
-                              ? (h = e.isFgDefault()
-                                  ? r._colors.foreground.css
-                                  : e.isFgRGB()
-                                  ? "rgb(" +
-                                    a.AttributeData.toColorRGB(
-                                      e.getFgColor()
-                                    ).join(",") +
-                                    ")"
-                                  : r._colors.ansi[e.getFgColor()].css)
-                              : e.isBgRGB()
-                              ? (h =
+                        }
+                    }),
+                    (t.prototype._drawBackground = function (e, t) {
+                      var r = this,
+                        i = this._ctx,
+                        n = this._bufferService.cols,
+                        o = 0,
+                        s = 0,
+                        c = null;
+                      i.save(),
+                        this._forEachCell(e, t, null, (e, t, l) => {
+                          var h = null;
+                          e.isInverse()
+                            ? (h = e.isFgDefault()
+                                ? r._colors.foreground.css
+                                : e.isFgRGB()
+                                ? "rgb(" +
+                                  a.AttributeData.toColorRGB(
+                                    e.getFgColor()
+                                  ).join(",") +
+                                  ")"
+                                : r._colors.ansi[e.getFgColor()].css)
+                            : e.isBgRGB()
+                            ? (h =
+                                "rgb(" +
+                                a.AttributeData.toColorRGB(
+                                  e.getBgColor()
+                                ).join(",") +
+                                ")")
+                            : e.isBgPalette() &&
+                              (h = r._colors.ansi[e.getBgColor()].css),
+                            null === c && ((o = t), (s = l)),
+                            l !== s
+                              ? ((i.fillStyle = c || ""),
+                                r._fillCells(o, s, n - o, 1),
+                                (o = t),
+                                (s = l))
+                              : c !== h &&
+                                ((i.fillStyle = c || ""),
+                                r._fillCells(o, s, t - o, 1),
+                                (o = t),
+                                (s = l)),
+                            (c = h);
+                        }),
+                        null !== c &&
+                          ((i.fillStyle = c),
+                          this._fillCells(o, s, n - o, 1)),
+                        i.restore();
+                    }),
+                    (t.prototype._drawForeground = function (e, t) {
+                      var r = this;
+                      this._forEachCell(
+                        e,
+                        t,
+                        this._characterJoinerRegistry,
+                        (e, t, i) => {
+                          if (
+                            !e.isInvisible() &&
+                            (r._drawChars(e, t, i), e.isUnderline())
+                          ) {
+                            if ((r._ctx.save(), e.isInverse()))
+                              if (e.isBgDefault())
+                                r._ctx.fillStyle = r._colors.background.css;
+                              else if (e.isBgRGB())
+                                r._ctx.fillStyle =
                                   "rgb(" +
                                   a.AttributeData.toColorRGB(
                                     e.getBgColor()
                                   ).join(",") +
-                                  ")")
-                              : e.isBgPalette() &&
-                                (h = r._colors.ansi[e.getBgColor()].css),
-                              null === c && ((o = t), (s = l)),
-                              l !== s
-                                ? ((i.fillStyle = c || ""),
-                                  r._fillCells(o, s, n - o, 1),
-                                  (o = t),
-                                  (s = l))
-                                : c !== h &&
-                                  ((i.fillStyle = c || ""),
-                                  r._fillCells(o, s, t - o, 1),
-                                  (o = t),
-                                  (s = l)),
-                              (c = h);
-                          }),
-                          null !== c &&
-                            ((i.fillStyle = c),
-                            this._fillCells(o, s, n - o, 1)),
-                          i.restore();
-                      }),
-                      (t.prototype._drawForeground = function (e, t) {
-                        var r = this;
-                        this._forEachCell(
-                          e,
-                          t,
-                          this._characterJoinerRegistry,
-                          function (e, t, i) {
-                            if (
-                              !e.isInvisible() &&
-                              (r._drawChars(e, t, i), e.isUnderline())
-                            ) {
-                              if ((r._ctx.save(), e.isInverse()))
-                                if (e.isBgDefault())
-                                  r._ctx.fillStyle = r._colors.background.css;
-                                else if (e.isBgRGB())
-                                  r._ctx.fillStyle =
-                                    "rgb(" +
-                                    a.AttributeData.toColorRGB(
-                                      e.getBgColor()
-                                    ).join(",") +
-                                    ")";
-                                else {
-                                  var n = e.getBgColor();
-                                  r._optionsService.options
-                                    .drawBoldTextInBrightColors &&
-                                    e.isBold() &&
-                                    n < 8 &&
-                                    (n += 8),
-                                    (r._ctx.fillStyle = r._colors.ansi[n].css);
-                                }
-                              else if (e.isFgDefault())
-                                r._ctx.fillStyle = r._colors.foreground.css;
-                              else if (e.isFgRGB())
-                                r._ctx.fillStyle =
-                                  "rgb(" +
-                                  a.AttributeData.toColorRGB(
-                                    e.getFgColor()
-                                  ).join(",") +
                                   ")";
                               else {
-                                var o = e.getFgColor();
+                                var n = e.getBgColor();
                                 r._optionsService.options
                                   .drawBoldTextInBrightColors &&
                                   e.isBold() &&
-                                  o < 8 &&
-                                  (o += 8),
-                                  (r._ctx.fillStyle = r._colors.ansi[o].css);
+                                  n < 8 &&
+                                  (n += 8),
+                                  (r._ctx.fillStyle = r._colors.ansi[n].css);
                               }
-                              r._fillBottomLineAtCells(t, i, e.getWidth()),
-                                r._ctx.restore();
+                            else if (e.isFgDefault())
+                              r._ctx.fillStyle = r._colors.foreground.css;
+                            else if (e.isFgRGB())
+                              r._ctx.fillStyle =
+                                "rgb(" +
+                                a.AttributeData.toColorRGB(
+                                  e.getFgColor()
+                                ).join(",") +
+                                ")";
+                            else {
+                              var o = e.getFgColor();
+                              r._optionsService.options
+                                .drawBoldTextInBrightColors &&
+                                e.isBold() &&
+                                o < 8 &&
+                                (o += 8),
+                                (r._ctx.fillStyle = r._colors.ansi[o].css);
                             }
+                            r._fillBottomLineAtCells(t, i, e.getWidth()),
+                              r._ctx.restore();
                           }
-                        );
-                      }),
-                      (t.prototype.onGridChanged = function (e, t) {
-                        0 !== this._state.cache.length &&
-                          (this._charAtlas && this._charAtlas.beginFrame(),
-                          this._clearCells(
-                            0,
-                            e,
-                            this._bufferService.cols,
-                            t - e + 1
-                          ),
-                          this._drawBackground(e, t),
-                          this._drawForeground(e, t));
-                      }),
-                      (t.prototype.onOptionsChanged = function () {
-                        this._setTransparency(
-                          this._optionsService.options.allowTransparency
-                        );
-                      }),
-                      (t.prototype._isOverlapping = function (e) {
-                        if (1 !== e.getWidth()) return !1;
-                        if (e.getCode() < 256) return !1;
-                        var t = e.getChars();
-                        if (this._characterOverlapCache.hasOwnProperty(t))
-                          return this._characterOverlapCache[t];
-                        this._ctx.save(),
-                          (this._ctx.font = this._characterFont);
-                        var r =
-                          Math.floor(this._ctx.measureText(t).width) >
-                          this._characterWidth;
-                        return (
-                          this._ctx.restore(),
-                          (this._characterOverlapCache[t] = r),
-                          r
-                        );
-                      }),
-                      t
-                    );
+                        }
+                      );
+                    }),
+                    (t.prototype.onGridChanged = function (e, t) {
+                      0 !== this._state.cache.length &&
+                        (this._charAtlas && this._charAtlas.beginFrame(),
+                        this._clearCells(
+                          0,
+                          e,
+                          this._bufferService.cols,
+                          t - e + 1
+                        ),
+                        this._drawBackground(e, t),
+                        this._drawForeground(e, t));
+                    }),
+                    (t.prototype.onOptionsChanged = function () {
+                      this._setTransparency(
+                        this._optionsService.options.allowTransparency
+                      );
+                    }),
+                    (t.prototype._isOverlapping = function (e) {
+                      if (1 !== e.getWidth()) return !1;
+                      if (e.getCode() < 256) return !1;
+                      var t = e.getChars();
+                      if (this._characterOverlapCache.hasOwnProperty(t))
+                        return this._characterOverlapCache[t];
+                      this._ctx.save(),
+                        (this._ctx.font = this._characterFont);
+                      var r =
+                        Math.floor(this._ctx.measureText(t).width) >
+                        this._characterWidth;
+                      return (
+                        this._ctx.restore(),
+                        (this._characterOverlapCache[t] = r),
+                        r
+                      );
+                    }),
+                    t
+                  ;
                   })(s.BaseRenderLayer);
                 t.TextRenderLayer = u;
               },
               9616: (e, t) => {
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.BaseCharAtlas = void 0);
-                var r = (function () {
+                var r = (() => {
                   function e() {
                     this._didWarmUp = !1;
                   }
-                  return (
-                    (e.prototype.dispose = function () {}),
-                    (e.prototype.warmUp = function () {
-                      this._didWarmUp ||
-                        (this._doWarmUp(), (this._didWarmUp = !0));
-                    }),
-                    (e.prototype._doWarmUp = function () {}),
-                    (e.prototype.beginFrame = function () {}),
-                    e
-                  );
+                  return (e.prototype.dispose = () => {}),
+                  (e.prototype.warmUp = function () {
+                    this._didWarmUp ||
+                      (this._doWarmUp(), (this._didWarmUp = !0));
+                  }),
+                  (e.prototype._doWarmUp = () => {}),
+                  (e.prototype.beginFrame = () => {}),
+                  e
+                ;
                 })();
                 t.BaseCharAtlas = r;
               },
@@ -6611,7 +6562,7 @@
                 var i = r(2040),
                   n = r(1906),
                   o = [];
-                (t.acquireCharAtlas = function (e, t, r, s, a) {
+                (t.acquireCharAtlas = (e, t, r, s, a) => {
                   for (
                     var c = i.generateConfig(s, a, e, r), l = 0;
                     l < o.length;
@@ -6638,7 +6589,7 @@
                   };
                   return o.push(f), f.atlas;
                 }),
-                  (t.removeTerminalFromCache = function (e) {
+                  (t.removeTerminalFromCache = e => {
                     for (var t = 0; t < o.length; t++) {
                       var r = o[t].ownedBy.indexOf(e);
                       if (-1 !== r) {
@@ -6654,7 +6605,7 @@
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.is256Color = t.configEquals = t.generateConfig = void 0);
                 var i = r(643);
-                (t.generateConfig = function (e, t, r, i) {
+                (t.generateConfig = (e, t, r, i) => {
                   var n = {
                     foreground: i.foreground,
                     background: i.background,
@@ -6675,7 +6626,7 @@
                     colors: n,
                   };
                 }),
-                  (t.configEquals = function (e, t) {
+                  (t.configEquals = (e, t) => {
                     for (var r = 0; r < e.colors.ansi.length; r++)
                       if (e.colors.ansi[r].rgba !== t.colors.ansi[r].rgba)
                         return !1;
@@ -6692,7 +6643,7 @@
                       e.colors.background === t.colors.background
                     );
                   }),
-                  (t.is256Color = function (e) {
+                  (t.is256Color = e => {
                     return e < i.DEFAULT_COLOR;
                   });
               },
@@ -6710,20 +6661,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -6755,7 +6706,7 @@
                   );
                 }
                 t.getGlyphCacheKey = _;
-                var d = (function (e) {
+                var d = (e => {
                   function t(t, r) {
                     var i = e.call(this) || this;
                     (i._config = r),
@@ -6788,201 +6739,199 @@
                       i
                     );
                   }
-                  return (
-                    n(t, e),
-                    (t.prototype.dispose = function () {
-                      null !== this._bitmapCommitTimeout &&
-                        (window.clearTimeout(this._bitmapCommitTimeout),
-                        (this._bitmapCommitTimeout = null));
-                    }),
-                    (t.prototype.beginFrame = function () {
-                      this._drawToCacheCount = 0;
-                    }),
-                    (t.prototype.draw = function (e, t, r, i) {
-                      if (32 === t.code) return !0;
-                      if (!this._canCache(t)) return !1;
-                      var n = _(t),
-                        o = this._cacheMap.get(n);
-                      if (null != o) return this._drawFromCache(e, o, r, i), !0;
-                      if (this._drawToCacheCount < 100) {
-                        var s;
-                        s =
-                          this._cacheMap.size < this._cacheMap.capacity
-                            ? this._cacheMap.size
-                            : this._cacheMap.peek().index;
-                        var a = this._drawToCache(t, s);
-                        return (
-                          this._cacheMap.set(n, a),
-                          this._drawFromCache(e, a, r, i),
-                          !0
-                        );
-                      }
-                      return !1;
-                    }),
-                    (t.prototype._canCache = function (e) {
-                      return e.code < 256;
-                    }),
-                    (t.prototype._toCoordinateX = function (e) {
-                      return (e % this._width) * this._config.scaledCharWidth;
-                    }),
-                    (t.prototype._toCoordinateY = function (e) {
+                  return n(t, e),
+                  (t.prototype.dispose = function () {
+                    null !== this._bitmapCommitTimeout &&
+                      (window.clearTimeout(this._bitmapCommitTimeout),
+                      (this._bitmapCommitTimeout = null));
+                  }),
+                  (t.prototype.beginFrame = function () {
+                    this._drawToCacheCount = 0;
+                  }),
+                  (t.prototype.draw = function (e, t, r, i) {
+                    if (32 === t.code) return !0;
+                    if (!this._canCache(t)) return !1;
+                    var n = _(t),
+                      o = this._cacheMap.get(n);
+                    if (null != o) return this._drawFromCache(e, o, r, i), !0;
+                    if (this._drawToCacheCount < 100) {
+                      var s;
+                      s =
+                        this._cacheMap.size < this._cacheMap.capacity
+                          ? this._cacheMap.size
+                          : this._cacheMap.peek().index;
+                      var a = this._drawToCache(t, s);
                       return (
-                        Math.floor(e / this._width) *
+                        this._cacheMap.set(n, a),
+                        this._drawFromCache(e, a, r, i),
+                        !0
+                      );
+                    }
+                    return !1;
+                  }),
+                  (t.prototype._canCache = e => {
+                    return e.code < 256;
+                  }),
+                  (t.prototype._toCoordinateX = function (e) {
+                    return (e % this._width) * this._config.scaledCharWidth;
+                  }),
+                  (t.prototype._toCoordinateY = function (e) {
+                    return (
+                      Math.floor(e / this._width) *
+                      this._config.scaledCharHeight
+                    );
+                  }),
+                  (t.prototype._drawFromCache = function (e, t, r, i) {
+                    if (!t.isEmpty) {
+                      var n = this._toCoordinateX(t.index),
+                        o = this._toCoordinateY(t.index);
+                      e.drawImage(
+                        t.inBitmap ? this._bitmap : this._cacheCanvas,
+                        n,
+                        o,
+                        this._config.scaledCharWidth,
+                        this._config.scaledCharHeight,
+                        r,
+                        i,
+                        this._config.scaledCharWidth,
                         this._config.scaledCharHeight
                       );
-                    }),
-                    (t.prototype._drawFromCache = function (e, t, r, i) {
-                      if (!t.isEmpty) {
-                        var n = this._toCoordinateX(t.index),
-                          o = this._toCoordinateY(t.index);
-                        e.drawImage(
-                          t.inBitmap ? this._bitmap : this._cacheCanvas,
-                          n,
-                          o,
-                          this._config.scaledCharWidth,
-                          this._config.scaledCharHeight,
-                          r,
-                          i,
-                          this._config.scaledCharWidth,
-                          this._config.scaledCharHeight
-                        );
-                      }
-                    }),
-                    (t.prototype._getColorFromAnsiIndex = function (e) {
-                      return e < this._config.colors.ansi.length
-                        ? this._config.colors.ansi[e]
-                        : a.DEFAULT_ANSI_COLORS[e];
-                    }),
-                    (t.prototype._getBackgroundColor = function (e) {
-                      return this._config.allowTransparency
-                        ? f
-                        : e.bg === o.INVERTED_DEFAULT_COLOR
-                        ? this._config.colors.foreground
-                        : e.bg < 256
-                        ? this._getColorFromAnsiIndex(e.bg)
-                        : this._config.colors.background;
-                    }),
-                    (t.prototype._getForegroundColor = function (e) {
-                      return e.fg === o.INVERTED_DEFAULT_COLOR
-                        ? u.color.opaque(this._config.colors.background)
-                        : e.fg < 256
-                        ? this._getColorFromAnsiIndex(e.fg)
-                        : this._config.colors.foreground;
-                    }),
-                    (t.prototype._drawToCache = function (e, t) {
-                      this._drawToCacheCount++, this._tmpCtx.save();
-                      var r = this._getBackgroundColor(e);
-                      (this._tmpCtx.globalCompositeOperation = "copy"),
-                        (this._tmpCtx.fillStyle = r.css),
-                        this._tmpCtx.fillRect(
-                          0,
-                          0,
-                          this._config.scaledCharWidth,
-                          this._config.scaledCharHeight
-                        ),
-                        (this._tmpCtx.globalCompositeOperation = "source-over");
-                      var i = e.bold
-                          ? this._config.fontWeightBold
-                          : this._config.fontWeight,
-                        n = e.italic ? "italic" : "";
-                      (this._tmpCtx.font =
-                        n +
-                        " " +
-                        i +
-                        " " +
-                        this._config.fontSize * this._config.devicePixelRatio +
-                        "px " +
-                        this._config.fontFamily),
-                        (this._tmpCtx.textBaseline = "middle"),
-                        (this._tmpCtx.fillStyle =
-                          this._getForegroundColor(e).css),
-                        e.dim && (this._tmpCtx.globalAlpha = o.DIM_OPACITY),
-                        this._tmpCtx.fillText(
-                          e.chars,
-                          0,
-                          this._config.scaledCharHeight / 2
-                        ),
-                        this._tmpCtx.restore();
-                      var s = this._tmpCtx.getImageData(
-                          0,
-                          0,
-                          this._config.scaledCharWidth,
-                          this._config.scaledCharHeight
-                        ),
-                        a = !1;
-                      this._config.allowTransparency ||
-                        (a = (function (e, t) {
-                          for (
-                            var r = !0,
-                              i = t.rgba >>> 24,
-                              n = (t.rgba >>> 16) & 255,
-                              o = (t.rgba >>> 8) & 255,
-                              s = 0;
-                            s < e.data.length;
-                            s += 4
-                          )
-                            e.data[s] === i &&
-                            e.data[s + 1] === n &&
-                            e.data[s + 2] === o
-                              ? (e.data[s + 3] = 0)
-                              : (r = !1);
-                          return r;
-                        })(s, r));
-                      var c = this._toCoordinateX(t),
-                        l = this._toCoordinateY(t);
-                      this._cacheCtx.putImageData(s, c, l);
-                      var h = { index: t, isEmpty: a, inBitmap: !1 };
-                      return this._addGlyphToBitmap(h), h;
-                    }),
-                    (t.prototype._addGlyphToBitmap = function (e) {
-                      var t = this;
-                      !("createImageBitmap" in window) ||
-                        l.isFirefox ||
-                        l.isSafari ||
-                        (this._glyphsWaitingOnBitmap.push(e),
-                        null === this._bitmapCommitTimeout &&
-                          (this._bitmapCommitTimeout = window.setTimeout(
-                            function () {
-                              return t._generateBitmap();
-                            },
-                            100
-                          )));
-                    }),
-                    (t.prototype._generateBitmap = function () {
-                      var e = this,
-                        t = this._glyphsWaitingOnBitmap;
-                      (this._glyphsWaitingOnBitmap = []),
-                        window
-                          .createImageBitmap(this._cacheCanvas)
-                          .then(function (r) {
-                            e._bitmap = r;
-                            for (var i = 0; i < t.length; i++)
-                              t[i].inBitmap = !0;
-                          }),
-                        (this._bitmapCommitTimeout = null);
-                    }),
-                    t
-                  );
+                    }
+                  }),
+                  (t.prototype._getColorFromAnsiIndex = function (e) {
+                    return e < this._config.colors.ansi.length
+                      ? this._config.colors.ansi[e]
+                      : a.DEFAULT_ANSI_COLORS[e];
+                  }),
+                  (t.prototype._getBackgroundColor = function (e) {
+                    return this._config.allowTransparency
+                      ? f
+                      : e.bg === o.INVERTED_DEFAULT_COLOR
+                      ? this._config.colors.foreground
+                      : e.bg < 256
+                      ? this._getColorFromAnsiIndex(e.bg)
+                      : this._config.colors.background;
+                  }),
+                  (t.prototype._getForegroundColor = function (e) {
+                    return e.fg === o.INVERTED_DEFAULT_COLOR
+                      ? u.color.opaque(this._config.colors.background)
+                      : e.fg < 256
+                      ? this._getColorFromAnsiIndex(e.fg)
+                      : this._config.colors.foreground;
+                  }),
+                  (t.prototype._drawToCache = function (e, t) {
+                    this._drawToCacheCount++, this._tmpCtx.save();
+                    var r = this._getBackgroundColor(e);
+                    (this._tmpCtx.globalCompositeOperation = "copy"),
+                      (this._tmpCtx.fillStyle = r.css),
+                      this._tmpCtx.fillRect(
+                        0,
+                        0,
+                        this._config.scaledCharWidth,
+                        this._config.scaledCharHeight
+                      ),
+                      (this._tmpCtx.globalCompositeOperation = "source-over");
+                    var i = e.bold
+                        ? this._config.fontWeightBold
+                        : this._config.fontWeight,
+                      n = e.italic ? "italic" : "";
+                    (this._tmpCtx.font =
+                      n +
+                      " " +
+                      i +
+                      " " +
+                      this._config.fontSize * this._config.devicePixelRatio +
+                      "px " +
+                      this._config.fontFamily),
+                      (this._tmpCtx.textBaseline = "middle"),
+                      (this._tmpCtx.fillStyle =
+                        this._getForegroundColor(e).css),
+                      e.dim && (this._tmpCtx.globalAlpha = o.DIM_OPACITY),
+                      this._tmpCtx.fillText(
+                        e.chars,
+                        0,
+                        this._config.scaledCharHeight / 2
+                      ),
+                      this._tmpCtx.restore();
+                    var s = this._tmpCtx.getImageData(
+                        0,
+                        0,
+                        this._config.scaledCharWidth,
+                        this._config.scaledCharHeight
+                      ),
+                      a = !1;
+                    this._config.allowTransparency ||
+                      (a = ((e, t) => {
+                        for (
+                          var r = !0,
+                            i = t.rgba >>> 24,
+                            n = (t.rgba >>> 16) & 255,
+                            o = (t.rgba >>> 8) & 255,
+                            s = 0;
+                          s < e.data.length;
+                          s += 4
+                        )
+                          e.data[s] === i &&
+                          e.data[s + 1] === n &&
+                          e.data[s + 2] === o
+                            ? (e.data[s + 3] = 0)
+                            : (r = !1);
+                        return r;
+                      })(s, r));
+                    var c = this._toCoordinateX(t),
+                      l = this._toCoordinateY(t);
+                    this._cacheCtx.putImageData(s, c, l);
+                    var h = { index: t, isEmpty: a, inBitmap: !1 };
+                    return this._addGlyphToBitmap(h), h;
+                  }),
+                  (t.prototype._addGlyphToBitmap = function (e) {
+                    var t = this;
+                    !("createImageBitmap" in window) ||
+                      l.isFirefox ||
+                      l.isSafari ||
+                      (this._glyphsWaitingOnBitmap.push(e),
+                      null === this._bitmapCommitTimeout &&
+                        (this._bitmapCommitTimeout = window.setTimeout(
+                          () => {
+                            return t._generateBitmap();
+                          },
+                          100
+                        )));
+                  }),
+                  (t.prototype._generateBitmap = function () {
+                    var e = this,
+                      t = this._glyphsWaitingOnBitmap;
+                    (this._glyphsWaitingOnBitmap = []),
+                      window
+                        .createImageBitmap(this._cacheCanvas)
+                        .then(r => {
+                          e._bitmap = r;
+                          for (var i = 0; i < t.length; i++)
+                            t[i].inBitmap = !0;
+                        }),
+                      (this._bitmapCommitTimeout = null);
+                  }),
+                  t
+                ;
                 })(s.BaseCharAtlas);
                 t.DynamicCharAtlas = d;
-                var p = (function (e) {
+                var p = (e => {
                   function t(t, r) {
                     return e.call(this) || this;
                   }
-                  return (
-                    n(t, e),
-                    (t.prototype.draw = function (e, t, r, i) {
-                      return !1;
-                    }),
-                    t
-                  );
+                  return n(t, e),
+                  (t.prototype.draw = (e, t, r, i) => {
+                    return !1;
+                  }),
+                  t
+                ;
                 })(s.BaseCharAtlas);
                 t.NoneCharAtlas = p;
               },
               7001: (e, t) => {
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.LRUMap = void 0);
-                var r = (function () {
+                var r = (() => {
                   function e(e) {
                     (this.capacity = e),
                       (this._map = {}),
@@ -7061,20 +7010,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -7110,11 +7059,11 @@
                     },
                   s =
                     (this && this.__param) ||
-                    function (e, t) {
-                      return function (r, i) {
+                    ((e, t) => {
+                      return (r, i) => {
                         t(r, i, e);
                       };
-                    };
+                    });
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.DomRenderer = void 0);
                 var a = r(3787),
@@ -7130,73 +7079,72 @@
                   g = "xterm-bg-",
                   y = "xterm-focus",
                   b = 1,
-                  S = (function (e) {
+                  S = (e => {
                     function t(t, r, i, n, o, s, c, l, h) {
                       var u = e.call(this) || this;
-                      return (
-                        (u._colors = t),
-                        (u._element = r),
-                        (u._screenElement = i),
-                        (u._viewportElement = n),
-                        (u._linkifier = o),
-                        (u._linkifier2 = s),
-                        (u._charSizeService = c),
-                        (u._optionsService = l),
-                        (u._bufferService = h),
-                        (u._terminalClass = b++),
-                        (u._rowElements = []),
-                        (u._rowContainer = document.createElement("div")),
-                        u._rowContainer.classList.add("xterm-rows"),
-                        (u._rowContainer.style.lineHeight = "normal"),
-                        u._rowContainer.setAttribute("aria-hidden", "true"),
-                        u._refreshRowElements(
-                          u._bufferService.cols,
-                          u._bufferService.rows
-                        ),
-                        (u._selectionContainer = document.createElement("div")),
-                        u._selectionContainer.classList.add("xterm-selection"),
-                        u._selectionContainer.setAttribute(
-                          "aria-hidden",
-                          "true"
-                        ),
-                        (u.dimensions = {
-                          scaledCharWidth: 0,
-                          scaledCharHeight: 0,
-                          scaledCellWidth: 0,
-                          scaledCellHeight: 0,
-                          scaledCharLeft: 0,
-                          scaledCharTop: 0,
-                          scaledCanvasWidth: 0,
-                          scaledCanvasHeight: 0,
-                          canvasWidth: 0,
-                          canvasHeight: 0,
-                          actualCellWidth: 0,
-                          actualCellHeight: 0,
-                        }),
-                        u._updateDimensions(),
-                        u._injectCss(),
-                        (u._rowFactory = new a.DomRendererRowFactory(
-                          document,
-                          u._optionsService,
-                          u._colors
-                        )),
-                        u._element.classList.add(p + u._terminalClass),
-                        u._screenElement.appendChild(u._rowContainer),
-                        u._screenElement.appendChild(u._selectionContainer),
-                        u._linkifier.onShowLinkUnderline(function (e) {
-                          return u._onLinkHover(e);
-                        }),
-                        u._linkifier.onHideLinkUnderline(function (e) {
-                          return u._onLinkLeave(e);
-                        }),
-                        u._linkifier2.onShowLinkUnderline(function (e) {
-                          return u._onLinkHover(e);
-                        }),
-                        u._linkifier2.onHideLinkUnderline(function (e) {
-                          return u._onLinkLeave(e);
-                        }),
-                        u
-                      );
+                      return (u._colors = t),
+                      (u._element = r),
+                      (u._screenElement = i),
+                      (u._viewportElement = n),
+                      (u._linkifier = o),
+                      (u._linkifier2 = s),
+                      (u._charSizeService = c),
+                      (u._optionsService = l),
+                      (u._bufferService = h),
+                      (u._terminalClass = b++),
+                      (u._rowElements = []),
+                      (u._rowContainer = document.createElement("div")),
+                      u._rowContainer.classList.add("xterm-rows"),
+                      (u._rowContainer.style.lineHeight = "normal"),
+                      u._rowContainer.setAttribute("aria-hidden", "true"),
+                      u._refreshRowElements(
+                        u._bufferService.cols,
+                        u._bufferService.rows
+                      ),
+                      (u._selectionContainer = document.createElement("div")),
+                      u._selectionContainer.classList.add("xterm-selection"),
+                      u._selectionContainer.setAttribute(
+                        "aria-hidden",
+                        "true"
+                      ),
+                      (u.dimensions = {
+                        scaledCharWidth: 0,
+                        scaledCharHeight: 0,
+                        scaledCellWidth: 0,
+                        scaledCellHeight: 0,
+                        scaledCharLeft: 0,
+                        scaledCharTop: 0,
+                        scaledCanvasWidth: 0,
+                        scaledCanvasHeight: 0,
+                        canvasWidth: 0,
+                        canvasHeight: 0,
+                        actualCellWidth: 0,
+                        actualCellHeight: 0,
+                      }),
+                      u._updateDimensions(),
+                      u._injectCss(),
+                      (u._rowFactory = new a.DomRendererRowFactory(
+                        document,
+                        u._optionsService,
+                        u._colors
+                      )),
+                      u._element.classList.add(p + u._terminalClass),
+                      u._screenElement.appendChild(u._rowContainer),
+                      u._screenElement.appendChild(u._selectionContainer),
+                      u._linkifier.onShowLinkUnderline(e => {
+                        return u._onLinkHover(e);
+                      }),
+                      u._linkifier.onHideLinkUnderline(e => {
+                        return u._onLinkLeave(e);
+                      }),
+                      u._linkifier2.onShowLinkUnderline(e => {
+                        return u._onLinkHover(e);
+                      }),
+                      u._linkifier2.onHideLinkUnderline(e => {
+                        return u._onLinkLeave(e);
+                      }),
+                      u
+                    ;
                     }
                     return n(t, e),
                     Object.defineProperty(t.prototype, "onRequestRedraw", {
@@ -7404,7 +7352,7 @@
                           " .xterm-selection div { position: absolute; background-color: " +
                           this._colors.selectionTransparent.css +
                           ";}"),
-                        this._colors.ansi.forEach(function (r, i) {
+                        this._colors.ansi.forEach((r, i) => {
                           t +=
                             e._terminalSelector +
                             " ." +
@@ -7535,7 +7483,7 @@
                         n
                       );
                     }),
-                    (t.prototype.onCursorMove = function () {}),
+                    (t.prototype.onCursorMove = () => {}),
                     (t.prototype.onOptionsChanged = function () {
                       this._updateDimensions(), this._injectCss();
                     }),
@@ -7586,10 +7534,10 @@
                       enumerable: !1,
                       configurable: !0,
                     }),
-                    (t.prototype.registerCharacterJoiner = function (e) {
+                    (t.prototype.registerCharacterJoiner = e => {
                       return -1;
                     }),
-                    (t.prototype.deregisterCharacterJoiner = function (e) {
+                    (t.prototype.deregisterCharacterJoiner = e => {
                       return !1;
                     }),
                     (t.prototype._onLinkHover = function (e) {
@@ -7636,8 +7584,7 @@
                         s(8, u.IBufferService),
                       ],
                       t
-                    )
-                  ;
+                    );
                   })(l.Disposable);
                 t.DomRenderer = S;
               },
@@ -7667,177 +7614,176 @@
                   (t.CURSOR_STYLE_BLOCK_CLASS = "xterm-cursor-block"),
                   (t.CURSOR_STYLE_BAR_CLASS = "xterm-cursor-bar"),
                   (t.CURSOR_STYLE_UNDERLINE_CLASS = "xterm-cursor-underline");
-                var a = (function () {
+                var a = (() => {
                   function e(e, t, r) {
                     (this._document = e),
                       (this._optionsService = t),
                       (this._colors = r),
                       (this._workCell = new o.CellData());
                   }
-                  return (
-                    (e.prototype.setColors = function (e) {
-                      this._colors = e;
-                    }),
-                    (e.prototype.createRow = function (e, r, o, a, l, h, u) {
-                      for (
-                        var f = this._document.createDocumentFragment(),
-                          _ = 0,
-                          d = Math.min(e.length, u) - 1;
-                        d >= 0;
-                        d--
-                      )
+                  return (e.prototype.setColors = function (e) {
+                    this._colors = e;
+                  }),
+                  (e.prototype.createRow = function (e, r, o, a, l, h, u) {
+                    for (
+                      var f = this._document.createDocumentFragment(),
+                        _ = 0,
+                        d = Math.min(e.length, u) - 1;
+                      d >= 0;
+                      d--
+                    )
+                      if (
+                        e.loadCell(d, this._workCell).getCode() !==
+                          n.NULL_CELL_CODE ||
+                        (r && d === a)
+                      ) {
+                        _ = d + 1;
+                        break;
+                      }
+                    for (d = 0; d < _; d++) {
+                      e.loadCell(d, this._workCell);
+                      var p = this._workCell.getWidth();
+                      if (0 !== p) {
+                        var v = this._document.createElement("span");
                         if (
-                          e.loadCell(d, this._workCell).getCode() !==
-                            n.NULL_CELL_CODE ||
-                          (r && d === a)
-                        ) {
-                          _ = d + 1;
-                          break;
-                        }
-                      for (d = 0; d < _; d++) {
-                        e.loadCell(d, this._workCell);
-                        var p = this._workCell.getWidth();
-                        if (0 !== p) {
-                          var v = this._document.createElement("span");
-                          if (
-                            (p > 1 && (v.style.width = h * p + "px"),
-                            r && d === a)
-                          )
-                            switch (
-                              (v.classList.add(t.CURSOR_CLASS),
-                              l && v.classList.add(t.CURSOR_BLINK_CLASS),
-                              o)
-                            ) {
-                              case "bar":
-                                v.classList.add(t.CURSOR_STYLE_BAR_CLASS);
-                                break;
-                              case "underline":
-                                v.classList.add(t.CURSOR_STYLE_UNDERLINE_CLASS);
-                                break;
-                              default:
-                                v.classList.add(t.CURSOR_STYLE_BLOCK_CLASS);
-                            }
-                          this._workCell.isBold() &&
-                            v.classList.add(t.BOLD_CLASS),
-                            this._workCell.isItalic() &&
-                              v.classList.add(t.ITALIC_CLASS),
-                            this._workCell.isDim() &&
-                              v.classList.add(t.DIM_CLASS),
-                            this._workCell.isUnderline() &&
-                              v.classList.add(t.UNDERLINE_CLASS),
-                            this._workCell.isInvisible()
-                              ? (v.textContent = n.WHITESPACE_CELL_CHAR)
-                              : (v.textContent =
-                                  this._workCell.getChars() ||
-                                  n.WHITESPACE_CELL_CHAR);
-                          var g = this._workCell.getFgColor(),
-                            y = this._workCell.getFgColorMode(),
-                            b = this._workCell.getBgColor(),
-                            S = this._workCell.getBgColorMode(),
-                            m = !!this._workCell.isInverse();
-                          if (m) {
-                            var C = g;
-                            (g = b), (b = C);
-                            var w = y;
-                            (y = S), (S = w);
-                          }
-                          switch (y) {
-                            case 16777216:
-                            case 33554432:
-                              this._workCell.isBold() &&
-                                g < 8 &&
-                                this._optionsService.options
-                                  .drawBoldTextInBrightColors &&
-                                (g += 8),
-                                this._applyMinimumContrast(
-                                  v,
-                                  this._colors.background,
-                                  this._colors.ansi[g]
-                                ) || v.classList.add("xterm-fg-" + g);
+                          (p > 1 && (v.style.width = h * p + "px"),
+                          r && d === a)
+                        )
+                          switch (
+                            (v.classList.add(t.CURSOR_CLASS),
+                            l && v.classList.add(t.CURSOR_BLINK_CLASS),
+                            o)
+                          ) {
+                            case "bar":
+                              v.classList.add(t.CURSOR_STYLE_BAR_CLASS);
                               break;
-                            case 50331648:
-                              var E = s.rgba.toColor(
-                                (g >> 16) & 255,
-                                (g >> 8) & 255,
-                                255 & g
-                              );
-                              this._applyMinimumContrast(
-                                v,
-                                this._colors.background,
-                                E
-                              ) ||
-                                this._addStyle(
-                                  v,
-                                  "color:#" + c(g.toString(16), "0", 6)
-                                );
+                            case "underline":
+                              v.classList.add(t.CURSOR_STYLE_UNDERLINE_CLASS);
                               break;
-                            case 0:
                             default:
+                              v.classList.add(t.CURSOR_STYLE_BLOCK_CLASS);
+                          }
+                        this._workCell.isBold() &&
+                          v.classList.add(t.BOLD_CLASS),
+                          this._workCell.isItalic() &&
+                            v.classList.add(t.ITALIC_CLASS),
+                          this._workCell.isDim() &&
+                            v.classList.add(t.DIM_CLASS),
+                          this._workCell.isUnderline() &&
+                            v.classList.add(t.UNDERLINE_CLASS),
+                          this._workCell.isInvisible()
+                            ? (v.textContent = n.WHITESPACE_CELL_CHAR)
+                            : (v.textContent =
+                                this._workCell.getChars() ||
+                                n.WHITESPACE_CELL_CHAR);
+                        var g = this._workCell.getFgColor(),
+                          y = this._workCell.getFgColorMode(),
+                          b = this._workCell.getBgColor(),
+                          S = this._workCell.getBgColorMode(),
+                          m = !!this._workCell.isInverse();
+                        if (m) {
+                          var C = g;
+                          (g = b), (b = C);
+                          var w = y;
+                          (y = S), (S = w);
+                        }
+                        switch (y) {
+                          case 16777216:
+                          case 33554432:
+                            this._workCell.isBold() &&
+                              g < 8 &&
+                              this._optionsService.options
+                                .drawBoldTextInBrightColors &&
+                              (g += 8),
                               this._applyMinimumContrast(
                                 v,
                                 this._colors.background,
-                                this._colors.foreground
-                              ) ||
-                                (m &&
-                                  v.classList.add(
-                                    "xterm-fg-" + i.INVERTED_DEFAULT_COLOR
-                                  ));
-                          }
-                          switch (S) {
-                            case 16777216:
-                            case 33554432:
-                              v.classList.add("xterm-bg-" + b);
-                              break;
-                            case 50331648:
+                                this._colors.ansi[g]
+                              ) || v.classList.add("xterm-fg-" + g);
+                            break;
+                          case 50331648:
+                            var E = s.rgba.toColor(
+                              (g >> 16) & 255,
+                              (g >> 8) & 255,
+                              255 & g
+                            );
+                            this._applyMinimumContrast(
+                              v,
+                              this._colors.background,
+                              E
+                            ) ||
                               this._addStyle(
                                 v,
-                                "background-color:#" + c(b.toString(16), "0", 6)
+                                "color:#" + c(g.toString(16), "0", 6)
                               );
-                              break;
-                            case 0:
-                            default:
-                              m &&
+                            break;
+                          case 0:
+                          default:
+                            this._applyMinimumContrast(
+                              v,
+                              this._colors.background,
+                              this._colors.foreground
+                            ) ||
+                              (m &&
                                 v.classList.add(
-                                  "xterm-bg-" + i.INVERTED_DEFAULT_COLOR
-                                );
-                          }
-                          f.appendChild(v);
+                                  "xterm-fg-" + i.INVERTED_DEFAULT_COLOR
+                                ));
                         }
+                        switch (S) {
+                          case 16777216:
+                          case 33554432:
+                            v.classList.add("xterm-bg-" + b);
+                            break;
+                          case 50331648:
+                            this._addStyle(
+                              v,
+                              "background-color:#" + c(b.toString(16), "0", 6)
+                            );
+                            break;
+                          case 0:
+                          default:
+                            m &&
+                              v.classList.add(
+                                "xterm-bg-" + i.INVERTED_DEFAULT_COLOR
+                              );
+                        }
+                        f.appendChild(v);
                       }
-                      return f;
-                    }),
-                    (e.prototype._applyMinimumContrast = function (e, t, r) {
-                      if (
-                        1 === this._optionsService.options.minimumContrastRatio
-                      )
-                        return !1;
-                      var i = this._colors.contrastCache.getColor(
-                        this._workCell.bg,
-                        this._workCell.fg
-                      );
-                      return (
-                        void 0 === i &&
-                          ((i = s.color.ensureContrastRatio(
-                            t,
-                            r,
-                            this._optionsService.options.minimumContrastRatio
-                          )),
-                          this._colors.contrastCache.setColor(
-                            this._workCell.bg,
-                            this._workCell.fg,
-                            null != i ? i : null
-                          )),
-                        !!i && (this._addStyle(e, "color:" + i.css), !0)
-                      );
-                    }),
-                    (e.prototype._addStyle = function (e, t) {
-                      e.setAttribute(
-                        "style",
-                        "" + (e.getAttribute("style") || "") + t + ";"
-                      );
-                    }),
-                    e
-                  );
+                    }
+                    return f;
+                  }),
+                  (e.prototype._applyMinimumContrast = function (e, t, r) {
+                    if (
+                      1 === this._optionsService.options.minimumContrastRatio
+                    )
+                      return !1;
+                    var i = this._colors.contrastCache.getColor(
+                      this._workCell.bg,
+                      this._workCell.fg
+                    );
+                    return (
+                      void 0 === i &&
+                        ((i = s.color.ensureContrastRatio(
+                          t,
+                          r,
+                          this._optionsService.options.minimumContrastRatio
+                        )),
+                        this._colors.contrastCache.setColor(
+                          this._workCell.bg,
+                          this._workCell.fg,
+                          null != i ? i : null
+                        )),
+                      !!i && (this._addStyle(e, "color:" + i.css), !0)
+                    );
+                  }),
+                  (e.prototype._addStyle = (e, t) => {
+                    e.setAttribute(
+                      "style",
+                      "" + (e.getAttribute("style") || "") + t + ";"
+                    );
+                  }),
+                  e
+                ;
                 })();
                 function c(e, t, r) {
                   for (; e.length < r; ) e = t + e;
@@ -7848,7 +7794,7 @@
               456: (e, t) => {
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.SelectionModel = void 0);
-                var r = (function () {
+                var r = (() => {
                   function e(e) {
                     (this._bufferService = e),
                       (this.isSelectAllActive = !1),
@@ -7966,16 +7912,16 @@
                     },
                   n =
                     (this && this.__param) ||
-                    function (e, t) {
-                      return function (r, i) {
+                    ((e, t) => {
+                      return (r, i) => {
                         t(r, i, e);
                       };
-                    };
+                    });
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.CharSizeService = void 0);
                 var o = r(2585),
                   s = r(8460),
-                  a = (function () {
+                  a = (() => {
                     function e(e, t, r) {
                       (this._optionsService = r),
                         (this.width = 0),
@@ -8012,7 +7958,7 @@
                   ;
                   })();
                 t.CharSizeService = a;
-                var c = (function () {
+                var c = (() => {
                   function e(e, t, r) {
                     (this._document = e),
                       (this._parentElement = t),
@@ -8049,7 +7995,7 @@
               5114: (e, t) => {
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.CoreBrowserService = void 0);
-                var r = (function () {
+                var r = (() => {
                   function e(e) {
                     this._textarea = e;
                   }
@@ -8098,16 +8044,16 @@
                     },
                   n =
                     (this && this.__param) ||
-                    function (e, t) {
-                      return function (r, i) {
+                    ((e, t) => {
+                      return (r, i) => {
                         t(r, i, e);
                       };
-                    };
+                    });
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.MouseService = void 0);
                 var o = r(4725),
                   s = r(9806),
-                  a = (function () {
+                  a = (() => {
                     function e(e, t) {
                       (this._renderService = e), (this._charSizeService = t);
                     }
@@ -8137,20 +8083,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -8186,11 +8132,11 @@
                     },
                   s =
                     (this && this.__param) ||
-                    function (e, t) {
-                      return function (r, i) {
+                    ((e, t) => {
+                      return (r, i) => {
                         t(r, i, e);
                       };
-                    };
+                    });
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.RenderService = void 0);
                 var a = r(6193),
@@ -8200,7 +8146,7 @@
                   u = r(3656),
                   f = r(2585),
                   _ = r(4725),
-                  d = (function (e) {
+                  d = (e => {
                     function t(t, r, i, n, o, s) {
                       var l = e.call(this) || this;
                       if (
@@ -8226,41 +8172,38 @@
                             return l._renderer.dispose();
                           },
                         }),
-                        (l._renderDebouncer = new a.RenderDebouncer(function (
-                          e,
-                          t
-                        ) {
+                        (l._renderDebouncer = new a.RenderDebouncer((e, t) => {
                           return l._renderRows(e, t);
                         })),
                         l.register(l._renderDebouncer),
                         (l._screenDprMonitor = new h.ScreenDprMonitor()),
-                        l._screenDprMonitor.setListener(function () {
+                        l._screenDprMonitor.setListener(() => {
                           return l.onDevicePixelRatioChange();
                         }),
                         l.register(l._screenDprMonitor),
                         l.register(
-                          s.onResize(function (e) {
+                          s.onResize(e => {
                             return l._fullRefresh();
                           })
                         ),
                         l.register(
-                          n.onOptionChange(function () {
+                          n.onOptionChange(() => {
                             return l._renderer.onOptionsChanged();
                           })
                         ),
                         l.register(
-                          l._charSizeService.onCharSizeChange(function () {
+                          l._charSizeService.onCharSizeChange(() => {
                             return l.onCharSizeChanged();
                           })
                         ),
-                        l._renderer.onRequestRedraw(function (e) {
+                        l._renderer.onRequestRedraw(e => {
                           return l.refreshRows(e.start, e.end, !0);
                         }),
                         l.register(
                           u.addDisposableDomListener(
                             window,
                             "resize",
-                            function () {
+                            () => {
                               return l.onDevicePixelRatioChange();
                             }
                           )
@@ -8268,7 +8211,7 @@
                         "IntersectionObserver" in window)
                       ) {
                         var f = new IntersectionObserver(
-                          function (e) {
+                          e => {
                             return l._onIntersectionChange(e[e.length - 1]);
                           },
                           { threshold: 0 }
@@ -8376,7 +8319,7 @@
                       var t = this;
                       this._renderer.dispose(),
                         (this._renderer = e),
-                        this._renderer.onRequestRedraw(function (e) {
+                        this._renderer.onRequestRedraw(e => {
                           return t.refreshRows(e.start, e.end, !0);
                         }),
                         (this._needsSelectionRefresh = !0),
@@ -8431,8 +8374,7 @@
                         s(5, f.IBufferService),
                       ],
                       t
-                    )
-                  ;
+                    );
                   })(l.Disposable);
                 t.RenderService = d;
               },
@@ -8440,20 +8382,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -8489,11 +8431,11 @@
                     },
                   s =
                     (this && this.__param) ||
-                    function (e, t) {
-                      return function (r, i) {
+                    ((e, t) => {
+                      return (r, i) => {
                         t(r, i, e);
                       };
-                    };
+                    });
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.SelectionService = void 0);
                 var a = r(6114),
@@ -8507,60 +8449,57 @@
                   p = r(844),
                   v = String.fromCharCode(160),
                   g = new RegExp(v, "g"),
-                  y = (function (e) {
+                  y = (e => {
                     function t(t, r, i, n, o, s, a) {
                       var u = e.call(this) || this;
-                      return (
-                        (u._element = t),
-                        (u._screenElement = r),
-                        (u._bufferService = i),
-                        (u._coreService = n),
-                        (u._mouseService = o),
-                        (u._optionsService = s),
-                        (u._renderService = a),
-                        (u._dragScrollAmount = 0),
-                        (u._enabled = !0),
-                        (u._workCell = new l.CellData()),
-                        (u._mouseDownTimeStamp = 0),
-                        (u._oldHasSelection = !1),
-                        (u._oldSelectionStart = void 0),
-                        (u._oldSelectionEnd = void 0),
-                        (u._onLinuxMouseSelection = u.register(
-                          new h.EventEmitter()
-                        )),
-                        (u._onRedrawRequest = u.register(new h.EventEmitter())),
-                        (u._onSelectionChange = u.register(
-                          new h.EventEmitter()
-                        )),
-                        (u._onRequestScrollLines = u.register(
-                          new h.EventEmitter()
-                        )),
-                        (u._mouseMoveListener = function (e) {
-                          return u._onMouseMove(e);
-                        }),
-                        (u._mouseUpListener = function (e) {
-                          return u._onMouseUp(e);
-                        }),
-                        u._coreService.onUserInput(function () {
-                          u.hasSelection && u.clearSelection();
-                        }),
-                        (u._trimListener = u._bufferService.buffer.lines.onTrim(
-                          function (e) {
-                            return u._onTrim(e);
-                          }
-                        )),
-                        u.register(
-                          u._bufferService.buffers.onBufferActivate(function (
-                            e
-                          ) {
-                            return u._onBufferActivate(e);
-                          })
-                        ),
-                        u.enable(),
-                        (u._model = new c.SelectionModel(u._bufferService)),
-                        (u._activeSelectionMode = 0),
-                        u
-                      );
+                      return (u._element = t),
+                      (u._screenElement = r),
+                      (u._bufferService = i),
+                      (u._coreService = n),
+                      (u._mouseService = o),
+                      (u._optionsService = s),
+                      (u._renderService = a),
+                      (u._dragScrollAmount = 0),
+                      (u._enabled = !0),
+                      (u._workCell = new l.CellData()),
+                      (u._mouseDownTimeStamp = 0),
+                      (u._oldHasSelection = !1),
+                      (u._oldSelectionStart = void 0),
+                      (u._oldSelectionEnd = void 0),
+                      (u._onLinuxMouseSelection = u.register(
+                        new h.EventEmitter()
+                      )),
+                      (u._onRedrawRequest = u.register(new h.EventEmitter())),
+                      (u._onSelectionChange = u.register(
+                        new h.EventEmitter()
+                      )),
+                      (u._onRequestScrollLines = u.register(
+                        new h.EventEmitter()
+                      )),
+                      (u._mouseMoveListener = e => {
+                        return u._onMouseMove(e);
+                      }),
+                      (u._mouseUpListener = e => {
+                        return u._onMouseUp(e);
+                      }),
+                      u._coreService.onUserInput(() => {
+                        u.hasSelection && u.clearSelection();
+                      }),
+                      (u._trimListener = u._bufferService.buffer.lines.onTrim(
+                        e => {
+                          return u._onTrim(e);
+                        }
+                      )),
+                      u.register(
+                        u._bufferService.buffers.onBufferActivate(e => {
+                          return u._onBufferActivate(e);
+                        })
+                      ),
+                      u.enable(),
+                      (u._model = new c.SelectionModel(u._bufferService)),
+                      (u._activeSelectionMode = 0),
+                      u
+                    ;
                     }
                     return n(t, e),
                     Object.defineProperty(
@@ -8685,7 +8624,7 @@
                               : i.push(o));
                         }
                         return i
-                          .map(function (e) {
+                          .map(e => {
                             return e.replace(g, " ");
                           })
                           .join(a.isWindows ? "\r\n" : "\n");
@@ -8703,7 +8642,7 @@
                       var t = this;
                       this._refreshAnimationFrame ||
                         (this._refreshAnimationFrame =
-                          window.requestAnimationFrame(function () {
+                          window.requestAnimationFrame(() => {
                             return t._refresh();
                           })),
                         a.isLinux &&
@@ -8729,7 +8668,7 @@
                         !!(r && i && t) && this._areCoordsInSelection(t, r, i)
                       );
                     }),
-                    (t.prototype._areCoordsInSelection = function (e, t, r) {
+                    (t.prototype._areCoordsInSelection = (e, t, r) => {
                       return (
                         (e[1] > t[1] && e[1] < r[1]) ||
                         (t[1] === r[1] &&
@@ -8840,7 +8779,7 @@
                           this._mouseUpListener
                         )),
                         (this._dragScrollIntervalTimer = window.setInterval(
-                          function () {
+                          () => {
                             return e._dragScroll();
                           },
                           50
@@ -9043,7 +8982,7 @@
                       this.clearSelection(),
                         this._trimListener.dispose(),
                         (this._trimListener = e.activeBuffer.lines.onTrim(
-                          function (e) {
+                          e => {
                             return t._onTrim(e);
                           }
                         ));
@@ -9246,8 +9185,7 @@
                         s(6, u.IRenderService),
                       ],
                       t
-                    )
-                  ;
+                    );
                   })(p.Disposable);
                 t.SelectionService = y;
               },
@@ -9296,15 +9234,15 @@
                     },
                   n =
                     (this && this.__param) ||
-                    function (e, t) {
-                      return function (r, i) {
+                    ((e, t) => {
+                      return (r, i) => {
                         t(r, i, e);
                       };
-                    };
+                    });
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.SoundService = void 0);
                 var o = r(2585),
-                  s = (function () {
+                  s = (() => {
                     function e(e) {
                       this._optionsService = e;
                     }
@@ -9337,7 +9275,7 @@
                               this._optionsService.options.bellSound
                             )
                           ),
-                          function (e) {
+                          e => {
                             (r.buffer = e),
                               r.connect(t.destination),
                               r.start(0);
@@ -9345,7 +9283,7 @@
                         );
                       }
                     }),
-                    (e.prototype._base64ToArrayBuffer = function (e) {
+                    (e.prototype._base64ToArrayBuffer = e => {
                       for (
                         var t = window.atob(e),
                           r = t.length,
@@ -9357,11 +9295,10 @@
                         i[n] = t.charCodeAt(n);
                       return i.buffer;
                     }),
-                    (e.prototype._removeMimeType = function (e) {
+                    (e.prototype._removeMimeType = e => {
                       return e.split(",")[1];
                     }),
-                    (e = i([n(0, o.IOptionsService)], e))
-                  ;
+                    (e = i([n(0, o.IOptionsService)], e));
                   })();
                 t.SoundService = s;
               },
@@ -9369,7 +9306,7 @@
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.CircularList = void 0);
                 var i = r(8460),
-                  n = (function () {
+                  n = (() => {
                     function e(e) {
                       (this._maxLength = e),
                         (this.onDeleteEmitter = new i.EventEmitter()),
@@ -9556,20 +9493,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -9596,118 +9533,117 @@
                   g = r(9282),
                   y = r(5435),
                   b = r(5981),
-                  S = (function (e) {
+                  S = (e => {
                     function t(t) {
                       var r = e.call(this) || this;
-                      return (
-                        (r._onBinary = new f.EventEmitter()),
-                        (r._onData = new f.EventEmitter()),
-                        (r._onLineFeed = new f.EventEmitter()),
-                        (r._onResize = new f.EventEmitter()),
-                        (r._onScroll = new f.EventEmitter()),
-                        (r._instantiationService =
-                          new a.InstantiationService()),
-                        (r.optionsService = new h.OptionsService(t)),
-                        r._instantiationService.setService(
-                          s.IOptionsService,
-                          r.optionsService
-                        ),
-                        (r._bufferService = r.register(
-                          r._instantiationService.createInstance(
-                            l.BufferService
-                          )
+                      return (r._onBinary = new f.EventEmitter()),
+                      (r._onData = new f.EventEmitter()),
+                      (r._onLineFeed = new f.EventEmitter()),
+                      (r._onResize = new f.EventEmitter()),
+                      (r._onScroll = new f.EventEmitter()),
+                      (r._instantiationService =
+                        new a.InstantiationService()),
+                      (r.optionsService = new h.OptionsService(t)),
+                      r._instantiationService.setService(
+                        s.IOptionsService,
+                        r.optionsService
+                      ),
+                      (r._bufferService = r.register(
+                        r._instantiationService.createInstance(
+                          l.BufferService
+                        )
+                      )),
+                      r._instantiationService.setService(
+                        s.IBufferService,
+                        r._bufferService
+                      ),
+                      (r._logService = r._instantiationService.createInstance(
+                        c.LogService
+                      )),
+                      r._instantiationService.setService(
+                        s.ILogService,
+                        r._logService
+                      ),
+                      (r._coreService = r.register(
+                        r._instantiationService.createInstance(
+                          u.CoreService,
+                          () => {
+                            return r.scrollToBottom();
+                          }
+                        )
+                      )),
+                      r._instantiationService.setService(
+                        s.ICoreService,
+                        r._coreService
+                      ),
+                      (r._coreMouseService =
+                        r._instantiationService.createInstance(
+                          _.CoreMouseService
                         )),
-                        r._instantiationService.setService(
-                          s.IBufferService,
-                          r._bufferService
-                        ),
-                        (r._logService = r._instantiationService.createInstance(
-                          c.LogService
+                      r._instantiationService.setService(
+                        s.ICoreMouseService,
+                        r._coreMouseService
+                      ),
+                      (r._dirtyRowService =
+                        r._instantiationService.createInstance(
+                          d.DirtyRowService
                         )),
-                        r._instantiationService.setService(
-                          s.ILogService,
-                          r._logService
-                        ),
-                        (r._coreService = r.register(
-                          r._instantiationService.createInstance(
-                            u.CoreService,
-                            function () {
-                              return r.scrollToBottom();
-                            }
-                          )
+                      r._instantiationService.setService(
+                        s.IDirtyRowService,
+                        r._dirtyRowService
+                      ),
+                      (r.unicodeService =
+                        r._instantiationService.createInstance(
+                          p.UnicodeService
                         )),
-                        r._instantiationService.setService(
-                          s.ICoreService,
-                          r._coreService
-                        ),
-                        (r._coreMouseService =
-                          r._instantiationService.createInstance(
-                            _.CoreMouseService
-                          )),
-                        r._instantiationService.setService(
-                          s.ICoreMouseService,
-                          r._coreMouseService
-                        ),
-                        (r._dirtyRowService =
-                          r._instantiationService.createInstance(
-                            d.DirtyRowService
-                          )),
-                        r._instantiationService.setService(
-                          s.IDirtyRowService,
-                          r._dirtyRowService
-                        ),
-                        (r.unicodeService =
-                          r._instantiationService.createInstance(
-                            p.UnicodeService
-                          )),
-                        r._instantiationService.setService(
-                          s.IUnicodeService,
-                          r.unicodeService
-                        ),
-                        (r._charsetService =
-                          r._instantiationService.createInstance(
-                            v.CharsetService
-                          )),
-                        r._instantiationService.setService(
-                          s.ICharsetService,
-                          r._charsetService
-                        ),
-                        (r._inputHandler = new y.InputHandler(
-                          r._bufferService,
-                          r._charsetService,
-                          r._coreService,
-                          r._dirtyRowService,
-                          r._logService,
-                          r.optionsService,
-                          r._coreMouseService,
-                          r.unicodeService
+                      r._instantiationService.setService(
+                        s.IUnicodeService,
+                        r.unicodeService
+                      ),
+                      (r._charsetService =
+                        r._instantiationService.createInstance(
+                          v.CharsetService
                         )),
-                        r.register(
-                          f.forwardEvent(
-                            r._inputHandler.onLineFeed,
-                            r._onLineFeed
-                          )
-                        ),
-                        r.register(r._inputHandler),
-                        r.register(
-                          f.forwardEvent(r._bufferService.onResize, r._onResize)
-                        ),
-                        r.register(
-                          f.forwardEvent(r._coreService.onData, r._onData)
-                        ),
-                        r.register(
-                          f.forwardEvent(r._coreService.onBinary, r._onBinary)
-                        ),
-                        r.register(
-                          r.optionsService.onOptionChange(function (e) {
-                            return r._updateOptions(e);
-                          })
-                        ),
-                        (r._writeBuffer = new b.WriteBuffer(function (e) {
-                          return r._inputHandler.parse(e);
-                        })),
-                        r
-                      );
+                      r._instantiationService.setService(
+                        s.ICharsetService,
+                        r._charsetService
+                      ),
+                      (r._inputHandler = new y.InputHandler(
+                        r._bufferService,
+                        r._charsetService,
+                        r._coreService,
+                        r._dirtyRowService,
+                        r._logService,
+                        r.optionsService,
+                        r._coreMouseService,
+                        r.unicodeService
+                      )),
+                      r.register(
+                        f.forwardEvent(
+                          r._inputHandler.onLineFeed,
+                          r._onLineFeed
+                        )
+                      ),
+                      r.register(r._inputHandler),
+                      r.register(
+                        f.forwardEvent(r._bufferService.onResize, r._onResize)
+                      ),
+                      r.register(
+                        f.forwardEvent(r._coreService.onData, r._onData)
+                      ),
+                      r.register(
+                        f.forwardEvent(r._coreService.onBinary, r._onBinary)
+                      ),
+                      r.register(
+                        r.optionsService.onOptionChange(e => {
+                          return r._updateOptions(e);
+                        })
+                      ),
+                      (r._writeBuffer = new b.WriteBuffer(e => {
+                        return r._inputHandler.parse(e);
+                      })),
+                      r
+                    ;
                     }
                     return n(t, e),
                     Object.defineProperty(t.prototype, "onBinary", {
@@ -9906,7 +9842,7 @@
                           )
                         ),
                           t.push(
-                            this.addCsiHandler({ final: "H" }, function () {
+                            this.addCsiHandler({ final: "H" }, () => {
                               return (
                                 g.updateWindowsModeWrappedState(
                                   e._bufferService
@@ -9923,15 +9859,14 @@
                           });
                       }
                     }),
-                    t
-                  ;
+                    t;
                   })(o.Disposable);
                 t.CoreTerminal = S;
               },
               8460: (e, t) => {
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.forwardEvent = t.EventEmitter = void 0);
-                var r = (function () {
+                var r = (() => {
                   function e() {
                     (this._listeners = []), (this._disposed = !1);
                   }
@@ -9939,7 +9874,7 @@
                     get() {
                       var e = this;
                       return this._event ||
-                        (this._event = function (t) {
+                        (this._event = t => {
                           return e._listeners.push(t),
                           {
                             dispose() {
@@ -9955,8 +9890,7 @@
                           }
                         ;
                         }),
-                      this._event
-                    ;
+                      this._event;
                     },
                     enumerable: !1,
                     configurable: !0,
@@ -9970,12 +9904,11 @@
                     this._listeners && (this._listeners.length = 0),
                       (this._disposed = !0);
                   }),
-                  e
-                ;
+                  e;
                 })();
                 (t.EventEmitter = r),
-                  (t.forwardEvent = function (e, t) {
-                    return e(function (e) {
+                  (t.forwardEvent = (e, t) => {
+                    return e(e => {
                       return t.fire(e);
                     });
                   });
@@ -9984,20 +9917,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -10075,15 +10008,13 @@
                   }
                   return !1;
                 }
-                !(function (e) {
+                !(e => {
                   (e[(e.GET_WIN_SIZE_PIXELS = 0)] = "GET_WIN_SIZE_PIXELS"),
                     (e[(e.GET_CELL_SIZE_PIXELS = 1)] = "GET_CELL_SIZE_PIXELS");
-                })(
-                  (o =
+                })(o =
                     t.WindowsOptionsReportType ||
-                    (t.WindowsOptionsReportType = {}))
-                );
-                var C = (function () {
+                    (t.WindowsOptionsReportType = {}));
+                var C = (() => {
                     function e(e, t, r, i) {
                       (this._bufferService = e),
                         (this._coreService = t),
@@ -10150,7 +10081,7 @@
                       e
                     );
                   })(),
-                  w = (function (e) {
+                  w = (e => {
                     function t(t, r, i, n, o, l, h, d, v) {
                       void 0 === v && (v = new c.EscapeSequenceParser());
                       var y = e.call(this) || this;
@@ -10189,30 +10120,30 @@
                         (y._onTitleChange = new _.EventEmitter()),
                         (y._onAnsiColorChange = new _.EventEmitter()),
                         y.register(y._parser),
-                        y._parser.setCsiHandlerFallback(function (e, t) {
+                        y._parser.setCsiHandlerFallback((e, t) => {
                           y._logService.debug("Unknown CSI code: ", {
                             identifier: y._parser.identToString(e),
                             params: t.toArray(),
                           });
                         }),
-                        y._parser.setEscHandlerFallback(function (e) {
+                        y._parser.setEscHandlerFallback(e => {
                           y._logService.debug("Unknown ESC code: ", {
                             identifier: y._parser.identToString(e),
                           });
                         }),
-                        y._parser.setExecuteHandlerFallback(function (e) {
+                        y._parser.setExecuteHandlerFallback(e => {
                           y._logService.debug("Unknown EXECUTE code: ", {
                             code: e,
                           });
                         }),
-                        y._parser.setOscHandlerFallback(function (e, t, r) {
+                        y._parser.setOscHandlerFallback((e, t, r) => {
                           y._logService.debug("Unknown OSC code: ", {
                             identifier: e,
                             action: t,
                             data: r,
                           });
                         }),
-                        y._parser.setDcsHandlerFallback(function (e, t, r) {
+                        y._parser.setDcsHandlerFallback((e, t, r) => {
                           "HOOK" === t && (r = r.toArray()),
                             y._logService.debug("Unknown DCS code: ", {
                               identifier: y._parser.identToString(e),
@@ -10220,514 +10151,513 @@
                               payload: r,
                             });
                         }),
-                        y._parser.setPrintHandler(function (e, t, r) {
+                        y._parser.setPrintHandler((e, t, r) => {
                           return y.print(e, t, r);
                         }),
                         y._parser.registerCsiHandler(
                           { final: "@" },
-                          function (e) {
+                          e => {
                             return y.insertChars(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { intermediates: " ", final: "@" },
-                          function (e) {
+                          e => {
                             return y.scrollLeft(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "A" },
-                          function (e) {
+                          e => {
                             return y.cursorUp(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { intermediates: " ", final: "A" },
-                          function (e) {
+                          e => {
                             return y.scrollRight(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "B" },
-                          function (e) {
+                          e => {
                             return y.cursorDown(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "C" },
-                          function (e) {
+                          e => {
                             return y.cursorForward(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "D" },
-                          function (e) {
+                          e => {
                             return y.cursorBackward(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "E" },
-                          function (e) {
+                          e => {
                             return y.cursorNextLine(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "F" },
-                          function (e) {
+                          e => {
                             return y.cursorPrecedingLine(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "G" },
-                          function (e) {
+                          e => {
                             return y.cursorCharAbsolute(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "H" },
-                          function (e) {
+                          e => {
                             return y.cursorPosition(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "I" },
-                          function (e) {
+                          e => {
                             return y.cursorForwardTab(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "J" },
-                          function (e) {
+                          e => {
                             return y.eraseInDisplay(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { prefix: "?", final: "J" },
-                          function (e) {
+                          e => {
                             return y.eraseInDisplay(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "K" },
-                          function (e) {
+                          e => {
                             return y.eraseInLine(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { prefix: "?", final: "K" },
-                          function (e) {
+                          e => {
                             return y.eraseInLine(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "L" },
-                          function (e) {
+                          e => {
                             return y.insertLines(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "M" },
-                          function (e) {
+                          e => {
                             return y.deleteLines(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "P" },
-                          function (e) {
+                          e => {
                             return y.deleteChars(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "S" },
-                          function (e) {
+                          e => {
                             return y.scrollUp(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "T" },
-                          function (e) {
+                          e => {
                             return y.scrollDown(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "X" },
-                          function (e) {
+                          e => {
                             return y.eraseChars(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "Z" },
-                          function (e) {
+                          e => {
                             return y.cursorBackwardTab(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "`" },
-                          function (e) {
+                          e => {
                             return y.charPosAbsolute(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "a" },
-                          function (e) {
+                          e => {
                             return y.hPositionRelative(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "b" },
-                          function (e) {
+                          e => {
                             return y.repeatPrecedingCharacter(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "c" },
-                          function (e) {
+                          e => {
                             return y.sendDeviceAttributesPrimary(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { prefix: ">", final: "c" },
-                          function (e) {
+                          e => {
                             return y.sendDeviceAttributesSecondary(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "d" },
-                          function (e) {
+                          e => {
                             return y.linePosAbsolute(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "e" },
-                          function (e) {
+                          e => {
                             return y.vPositionRelative(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "f" },
-                          function (e) {
+                          e => {
                             return y.hVPosition(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "g" },
-                          function (e) {
+                          e => {
                             return y.tabClear(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "h" },
-                          function (e) {
+                          e => {
                             return y.setMode(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { prefix: "?", final: "h" },
-                          function (e) {
+                          e => {
                             return y.setModePrivate(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "l" },
-                          function (e) {
+                          e => {
                             return y.resetMode(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { prefix: "?", final: "l" },
-                          function (e) {
+                          e => {
                             return y.resetModePrivate(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "m" },
-                          function (e) {
+                          e => {
                             return y.charAttributes(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "n" },
-                          function (e) {
+                          e => {
                             return y.deviceStatus(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { prefix: "?", final: "n" },
-                          function (e) {
+                          e => {
                             return y.deviceStatusPrivate(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { intermediates: "!", final: "p" },
-                          function (e) {
+                          e => {
                             return y.softReset(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { intermediates: " ", final: "q" },
-                          function (e) {
+                          e => {
                             return y.setCursorStyle(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "r" },
-                          function (e) {
+                          e => {
                             return y.setScrollRegion(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "s" },
-                          function (e) {
+                          e => {
                             return y.saveCursor(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "t" },
-                          function (e) {
+                          e => {
                             return y.windowOptions(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { final: "u" },
-                          function (e) {
+                          e => {
                             return y.restoreCursor(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { intermediates: "'", final: "}" },
-                          function (e) {
+                          e => {
                             return y.insertColumns(e);
                           }
                         ),
                         y._parser.registerCsiHandler(
                           { intermediates: "'", final: "~" },
-                          function (e) {
+                          e => {
                             return y.deleteColumns(e);
                           }
                         ),
-                        y._parser.setExecuteHandler(s.C0.BEL, function () {
+                        y._parser.setExecuteHandler(s.C0.BEL, () => {
                           return y.bell();
                         }),
-                        y._parser.setExecuteHandler(s.C0.LF, function () {
+                        y._parser.setExecuteHandler(s.C0.LF, () => {
                           return y.lineFeed();
                         }),
-                        y._parser.setExecuteHandler(s.C0.VT, function () {
+                        y._parser.setExecuteHandler(s.C0.VT, () => {
                           return y.lineFeed();
                         }),
-                        y._parser.setExecuteHandler(s.C0.FF, function () {
+                        y._parser.setExecuteHandler(s.C0.FF, () => {
                           return y.lineFeed();
                         }),
-                        y._parser.setExecuteHandler(s.C0.CR, function () {
+                        y._parser.setExecuteHandler(s.C0.CR, () => {
                           return y.carriageReturn();
                         }),
-                        y._parser.setExecuteHandler(s.C0.BS, function () {
+                        y._parser.setExecuteHandler(s.C0.BS, () => {
                           return y.backspace();
                         }),
-                        y._parser.setExecuteHandler(s.C0.HT, function () {
+                        y._parser.setExecuteHandler(s.C0.HT, () => {
                           return y.tab();
                         }),
-                        y._parser.setExecuteHandler(s.C0.SO, function () {
+                        y._parser.setExecuteHandler(s.C0.SO, () => {
                           return y.shiftOut();
                         }),
-                        y._parser.setExecuteHandler(s.C0.SI, function () {
+                        y._parser.setExecuteHandler(s.C0.SI, () => {
                           return y.shiftIn();
                         }),
-                        y._parser.setExecuteHandler(s.C1.IND, function () {
+                        y._parser.setExecuteHandler(s.C1.IND, () => {
                           return y.index();
                         }),
-                        y._parser.setExecuteHandler(s.C1.NEL, function () {
+                        y._parser.setExecuteHandler(s.C1.NEL, () => {
                           return y.nextLine();
                         }),
-                        y._parser.setExecuteHandler(s.C1.HTS, function () {
+                        y._parser.setExecuteHandler(s.C1.HTS, () => {
                           return y.tabSet();
                         }),
                         y._parser.registerOscHandler(
                           0,
-                          new g.OscHandler(function (e) {
+                          new g.OscHandler(e => {
                             return y.setTitle(e), y.setIconName(e), !0;
                           })
                         ),
                         y._parser.registerOscHandler(
                           1,
-                          new g.OscHandler(function (e) {
+                          new g.OscHandler(e => {
                             return y.setIconName(e);
                           })
                         ),
                         y._parser.registerOscHandler(
                           2,
-                          new g.OscHandler(function (e) {
+                          new g.OscHandler(e => {
                             return y.setTitle(e);
                           })
                         ),
                         y._parser.registerOscHandler(
                           4,
-                          new g.OscHandler(function (e) {
+                          new g.OscHandler(e => {
                             return y.setAnsiColor(e);
                           })
                         ),
                         y._parser.registerEscHandler(
                           { final: "7" },
-                          function () {
+                          () => {
                             return y.saveCursor();
                           }
                         ),
                         y._parser.registerEscHandler(
                           { final: "8" },
-                          function () {
+                          () => {
                             return y.restoreCursor();
                           }
                         ),
                         y._parser.registerEscHandler(
                           { final: "D" },
-                          function () {
+                          () => {
                             return y.index();
                           }
                         ),
                         y._parser.registerEscHandler(
                           { final: "E" },
-                          function () {
+                          () => {
                             return y.nextLine();
                           }
                         ),
                         y._parser.registerEscHandler(
                           { final: "H" },
-                          function () {
+                          () => {
                             return y.tabSet();
                           }
                         ),
                         y._parser.registerEscHandler(
                           { final: "M" },
-                          function () {
+                          () => {
                             return y.reverseIndex();
                           }
                         ),
                         y._parser.registerEscHandler(
                           { final: "=" },
-                          function () {
+                          () => {
                             return y.keypadApplicationMode();
                           }
                         ),
                         y._parser.registerEscHandler(
                           { final: ">" },
-                          function () {
+                          () => {
                             return y.keypadNumericMode();
                           }
                         ),
                         y._parser.registerEscHandler(
                           { final: "c" },
-                          function () {
+                          () => {
                             return y.fullReset();
                           }
                         ),
                         y._parser.registerEscHandler(
                           { final: "n" },
-                          function () {
+                          () => {
                             return y.setgLevel(2);
                           }
                         ),
                         y._parser.registerEscHandler(
                           { final: "o" },
-                          function () {
+                          () => {
                             return y.setgLevel(3);
                           }
                         ),
                         y._parser.registerEscHandler(
                           { final: "|" },
-                          function () {
+                          () => {
                             return y.setgLevel(3);
                           }
                         ),
                         y._parser.registerEscHandler(
                           { final: "}" },
-                          function () {
+                          () => {
                             return y.setgLevel(2);
                           }
                         ),
                         y._parser.registerEscHandler(
                           { final: "~" },
-                          function () {
+                          () => {
                             return y.setgLevel(1);
                           }
                         ),
                         y._parser.registerEscHandler(
                           { intermediates: "%", final: "@" },
-                          function () {
+                          () => {
                             return y.selectDefaultCharset();
                           }
                         ),
                         y._parser.registerEscHandler(
                           { intermediates: "%", final: "G" },
-                          function () {
+                          () => {
                             return y.selectDefaultCharset();
                           }
                         );
-                      var b = function (e) {
+                      var b = e => {
                           S._parser.registerEscHandler(
                             { intermediates: "(", final: e },
-                            function () {
+                            () => {
                               return y.selectCharset("(" + e);
                             }
                           ),
                             S._parser.registerEscHandler(
                               { intermediates: ")", final: e },
-                              function () {
+                              () => {
                                 return y.selectCharset(")" + e);
                               }
                             ),
                             S._parser.registerEscHandler(
                               { intermediates: "*", final: e },
-                              function () {
+                              () => {
                                 return y.selectCharset("*" + e);
                               }
                             ),
                             S._parser.registerEscHandler(
                               { intermediates: "+", final: e },
-                              function () {
+                              () => {
                                 return y.selectCharset("+" + e);
                               }
                             ),
                             S._parser.registerEscHandler(
                               { intermediates: "-", final: e },
-                              function () {
+                              () => {
                                 return y.selectCharset("-" + e);
                               }
                             ),
                             S._parser.registerEscHandler(
                               { intermediates: ".", final: e },
-                              function () {
+                              () => {
                                 return y.selectCharset("." + e);
                               }
                             ),
                             S._parser.registerEscHandler(
                               { intermediates: "/", final: e },
-                              function () {
+                              () => {
                                 return y.selectCharset("/" + e);
                               }
                             );
                         },
                         S = this;
                       for (var m in a.CHARSETS) b(m);
-                      return (
-                        y._parser.registerEscHandler(
-                          { intermediates: "#", final: "8" },
-                          function () {
-                            return y.screenAlignmentPattern();
-                          }
-                        ),
-                        y._parser.setErrorHandler(function (e) {
-                          return y._logService.error("Parsing error: ", e), e;
-                        }),
-                        y._parser.registerDcsHandler(
-                          { intermediates: "$", final: "q" },
-                          new C(
-                            y._bufferService,
-                            y._coreService,
-                            y._logService,
-                            y._optionsService
-                          )
-                        ),
-                        y
-                      );
+                      return y._parser.registerEscHandler(
+                        { intermediates: "#", final: "8" },
+                        () => {
+                          return y.screenAlignmentPattern();
+                        }
+                      ),
+                      y._parser.setErrorHandler(e => {
+                        return y._logService.error("Parsing error: ", e), e;
+                      }),
+                      y._parser.registerDcsHandler(
+                        { intermediates: "$", final: "q" },
+                        new C(
+                          y._bufferService,
+                          y._coreService,
+                          y._logService,
+                          y._optionsService
+                        )
+                      ),
+                      y
+                    ;
                     }
                     return n(t, e),
                     Object.defineProperty(t.prototype, "onRequestBell", {
@@ -11005,7 +10935,7 @@
                       var r = this;
                       return "t" !== e.final || e.prefix || e.intermediates
                         ? this._parser.registerCsiHandler(e, t)
-                        : this._parser.registerCsiHandler(e, function (e) {
+                        : this._parser.registerCsiHandler(e, e => {
                             return (
                               !m(
                                 e.params[0],
@@ -11939,7 +11869,7 @@
                         }
                       return !0;
                     }),
-                    (t.prototype._updateAttrColor = function (e, t, r, i, n) {
+                    (t.prototype._updateAttrColor = (e, t, r, i, n) => {
                       return (
                         2 === t
                           ? ((e |= 50331648),
@@ -12010,7 +11940,7 @@
                       }
                       return o;
                     }),
-                    (t.prototype._processUnderline = function (e, t) {
+                    (t.prototype._processUnderline = (e, t) => {
                       (t.extended = t.extended.clone()),
                         (!~e || e > 5) && (e = 1),
                         (t.extended.underlineStyle = e),
@@ -12285,7 +12215,7 @@
                     (t.prototype.setIconName = function (e) {
                       return (this._iconName = e), !0;
                     }),
-                    (t.prototype._parseAnsiColorChange = function (e) {
+                    (t.prototype._parseAnsiColorChange = e => {
                       for (
                         var t,
                           r = { colors: [] },
@@ -12439,8 +12369,7 @@
                         !0
                       );
                     }),
-                    t
-                  ;
+                    t;
                   })(l.Disposable);
                 t.InputHandler = w;
               },
@@ -12450,7 +12379,7 @@
                     t.disposeArray =
                     t.Disposable =
                       void 0);
-                var r = (function () {
+                var r = (() => {
                   function e() {
                     (this._disposables = []), (this._isDisposed = !1);
                   }
@@ -12477,7 +12406,7 @@
                 }
                 (t.Disposable = r),
                   (t.disposeArray = i),
-                  (t.getDisposeArrayDisposable = function (e) {
+                  (t.getDisposeArrayDisposable = e => {
                     return {
                       dispose() {
                         return i(e);
@@ -12531,11 +12460,11 @@
                 }
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.concat = t.fillFallback = t.fill = void 0),
-                  (t.fill = function (e, t, i, n) {
+                  (t.fill = (e, t, i, n) => {
                     return e.fill ? e.fill(t, i, n) : r(e, t, i, n);
                   }),
                   (t.fillFallback = r),
-                  (t.concat = function (e, t) {
+                  (t.concat = (e, t) => {
                     var r = new e.constructor(e.length + t.length);
                     return r.set(e), r.set(t, e.length), r;
                   });
@@ -12544,7 +12473,7 @@
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.updateWindowsModeWrappedState = void 0);
                 var i = r(643);
-                t.updateWindowsModeWrappedState = function (e) {
+                t.updateWindowsModeWrappedState = e => {
                   var t = e.buffer.lines.get(e.buffer.ybase + e.buffer.y - 1),
                     r = null == t ? void 0 : t.get(e.cols - 1),
                     n = e.buffer.lines.get(e.buffer.ybase + e.buffer.y);
@@ -12558,166 +12487,165 @@
               3734: (e, t) => {
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.ExtendedAttrs = t.AttributeData = void 0);
-                var r = (function () {
+                var r = (() => {
                   function e() {
                     (this.fg = 0), (this.bg = 0), (this.extended = new i());
                   }
-                  return (
-                    (e.toColorRGB = function (e) {
-                      return [(e >>> 16) & 255, (e >>> 8) & 255, 255 & e];
-                    }),
-                    (e.fromColorRGB = function (e) {
-                      return (
-                        ((255 & e[0]) << 16) |
-                        ((255 & e[1]) << 8) |
-                        (255 & e[2])
-                      );
-                    }),
-                    (e.prototype.clone = function () {
-                      var t = new e();
-                      return (
-                        (t.fg = this.fg),
-                        (t.bg = this.bg),
-                        (t.extended = this.extended.clone()),
-                        t
-                      );
-                    }),
-                    (e.prototype.isInverse = function () {
-                      return 67108864 & this.fg;
-                    }),
-                    (e.prototype.isBold = function () {
-                      return 134217728 & this.fg;
-                    }),
-                    (e.prototype.isUnderline = function () {
-                      return 268435456 & this.fg;
-                    }),
-                    (e.prototype.isBlink = function () {
-                      return 536870912 & this.fg;
-                    }),
-                    (e.prototype.isInvisible = function () {
-                      return 1073741824 & this.fg;
-                    }),
-                    (e.prototype.isItalic = function () {
-                      return 67108864 & this.bg;
-                    }),
-                    (e.prototype.isDim = function () {
-                      return 134217728 & this.bg;
-                    }),
-                    (e.prototype.getFgColorMode = function () {
-                      return 50331648 & this.fg;
-                    }),
-                    (e.prototype.getBgColorMode = function () {
-                      return 50331648 & this.bg;
-                    }),
-                    (e.prototype.isFgRGB = function () {
-                      return 50331648 == (50331648 & this.fg);
-                    }),
-                    (e.prototype.isBgRGB = function () {
-                      return 50331648 == (50331648 & this.bg);
-                    }),
-                    (e.prototype.isFgPalette = function () {
-                      return (
-                        16777216 == (50331648 & this.fg) ||
-                        33554432 == (50331648 & this.fg)
-                      );
-                    }),
-                    (e.prototype.isBgPalette = function () {
-                      return (
-                        16777216 == (50331648 & this.bg) ||
-                        33554432 == (50331648 & this.bg)
-                      );
-                    }),
-                    (e.prototype.isFgDefault = function () {
-                      return 0 == (50331648 & this.fg);
-                    }),
-                    (e.prototype.isBgDefault = function () {
-                      return 0 == (50331648 & this.bg);
-                    }),
-                    (e.prototype.isAttributeDefault = function () {
-                      return 0 === this.fg && 0 === this.bg;
-                    }),
-                    (e.prototype.getFgColor = function () {
-                      switch (50331648 & this.fg) {
+                  return (e.toColorRGB = e => {
+                    return [(e >>> 16) & 255, (e >>> 8) & 255, 255 & e];
+                  }),
+                  (e.fromColorRGB = e => {
+                    return (
+                      ((255 & e[0]) << 16) |
+                      ((255 & e[1]) << 8) |
+                      (255 & e[2])
+                    );
+                  }),
+                  (e.prototype.clone = function () {
+                    var t = new e();
+                    return (
+                      (t.fg = this.fg),
+                      (t.bg = this.bg),
+                      (t.extended = this.extended.clone()),
+                      t
+                    );
+                  }),
+                  (e.prototype.isInverse = function () {
+                    return 67108864 & this.fg;
+                  }),
+                  (e.prototype.isBold = function () {
+                    return 134217728 & this.fg;
+                  }),
+                  (e.prototype.isUnderline = function () {
+                    return 268435456 & this.fg;
+                  }),
+                  (e.prototype.isBlink = function () {
+                    return 536870912 & this.fg;
+                  }),
+                  (e.prototype.isInvisible = function () {
+                    return 1073741824 & this.fg;
+                  }),
+                  (e.prototype.isItalic = function () {
+                    return 67108864 & this.bg;
+                  }),
+                  (e.prototype.isDim = function () {
+                    return 134217728 & this.bg;
+                  }),
+                  (e.prototype.getFgColorMode = function () {
+                    return 50331648 & this.fg;
+                  }),
+                  (e.prototype.getBgColorMode = function () {
+                    return 50331648 & this.bg;
+                  }),
+                  (e.prototype.isFgRGB = function () {
+                    return 50331648 == (50331648 & this.fg);
+                  }),
+                  (e.prototype.isBgRGB = function () {
+                    return 50331648 == (50331648 & this.bg);
+                  }),
+                  (e.prototype.isFgPalette = function () {
+                    return (
+                      16777216 == (50331648 & this.fg) ||
+                      33554432 == (50331648 & this.fg)
+                    );
+                  }),
+                  (e.prototype.isBgPalette = function () {
+                    return (
+                      16777216 == (50331648 & this.bg) ||
+                      33554432 == (50331648 & this.bg)
+                    );
+                  }),
+                  (e.prototype.isFgDefault = function () {
+                    return 0 == (50331648 & this.fg);
+                  }),
+                  (e.prototype.isBgDefault = function () {
+                    return 0 == (50331648 & this.bg);
+                  }),
+                  (e.prototype.isAttributeDefault = function () {
+                    return 0 === this.fg && 0 === this.bg;
+                  }),
+                  (e.prototype.getFgColor = function () {
+                    switch (50331648 & this.fg) {
+                      case 16777216:
+                      case 33554432:
+                        return 255 & this.fg;
+                      case 50331648:
+                        return 16777215 & this.fg;
+                      default:
+                        return -1;
+                    }
+                  }),
+                  (e.prototype.getBgColor = function () {
+                    switch (50331648 & this.bg) {
+                      case 16777216:
+                      case 33554432:
+                        return 255 & this.bg;
+                      case 50331648:
+                        return 16777215 & this.bg;
+                      default:
+                        return -1;
+                    }
+                  }),
+                  (e.prototype.hasExtendedAttrs = function () {
+                    return 268435456 & this.bg;
+                  }),
+                  (e.prototype.updateExtended = function () {
+                    this.extended.isEmpty()
+                      ? (this.bg &= -268435457)
+                      : (this.bg |= 268435456);
+                  }),
+                  (e.prototype.getUnderlineColor = function () {
+                    if (268435456 & this.bg && ~this.extended.underlineColor)
+                      switch (50331648 & this.extended.underlineColor) {
                         case 16777216:
                         case 33554432:
-                          return 255 & this.fg;
+                          return 255 & this.extended.underlineColor;
                         case 50331648:
-                          return 16777215 & this.fg;
+                          return 16777215 & this.extended.underlineColor;
                         default:
-                          return -1;
+                          return this.getFgColor();
                       }
-                    }),
-                    (e.prototype.getBgColor = function () {
-                      switch (50331648 & this.bg) {
-                        case 16777216:
-                        case 33554432:
-                          return 255 & this.bg;
-                        case 50331648:
-                          return 16777215 & this.bg;
-                        default:
-                          return -1;
-                      }
-                    }),
-                    (e.prototype.hasExtendedAttrs = function () {
-                      return 268435456 & this.bg;
-                    }),
-                    (e.prototype.updateExtended = function () {
-                      this.extended.isEmpty()
-                        ? (this.bg &= -268435457)
-                        : (this.bg |= 268435456);
-                    }),
-                    (e.prototype.getUnderlineColor = function () {
-                      if (268435456 & this.bg && ~this.extended.underlineColor)
-                        switch (50331648 & this.extended.underlineColor) {
-                          case 16777216:
-                          case 33554432:
-                            return 255 & this.extended.underlineColor;
-                          case 50331648:
-                            return 16777215 & this.extended.underlineColor;
-                          default:
-                            return this.getFgColor();
-                        }
-                      return this.getFgColor();
-                    }),
-                    (e.prototype.getUnderlineColorMode = function () {
-                      return 268435456 & this.bg &&
-                        ~this.extended.underlineColor
-                        ? 50331648 & this.extended.underlineColor
-                        : this.getFgColorMode();
-                    }),
-                    (e.prototype.isUnderlineColorRGB = function () {
-                      return 268435456 & this.bg &&
-                        ~this.extended.underlineColor
-                        ? 50331648 == (50331648 & this.extended.underlineColor)
-                        : this.isFgRGB();
-                    }),
-                    (e.prototype.isUnderlineColorPalette = function () {
-                      return 268435456 & this.bg &&
-                        ~this.extended.underlineColor
-                        ? 16777216 ==
-                            (50331648 & this.extended.underlineColor) ||
-                            33554432 ==
-                              (50331648 & this.extended.underlineColor)
-                        : this.isFgPalette();
-                    }),
-                    (e.prototype.isUnderlineColorDefault = function () {
-                      return 268435456 & this.bg &&
-                        ~this.extended.underlineColor
-                        ? 0 == (50331648 & this.extended.underlineColor)
-                        : this.isFgDefault();
-                    }),
-                    (e.prototype.getUnderlineStyle = function () {
-                      return 268435456 & this.fg
-                        ? 268435456 & this.bg
-                          ? this.extended.underlineStyle
-                          : 1
-                        : 0;
-                    }),
-                    e
-                  );
+                    return this.getFgColor();
+                  }),
+                  (e.prototype.getUnderlineColorMode = function () {
+                    return 268435456 & this.bg &&
+                      ~this.extended.underlineColor
+                      ? 50331648 & this.extended.underlineColor
+                      : this.getFgColorMode();
+                  }),
+                  (e.prototype.isUnderlineColorRGB = function () {
+                    return 268435456 & this.bg &&
+                      ~this.extended.underlineColor
+                      ? 50331648 == (50331648 & this.extended.underlineColor)
+                      : this.isFgRGB();
+                  }),
+                  (e.prototype.isUnderlineColorPalette = function () {
+                    return 268435456 & this.bg &&
+                      ~this.extended.underlineColor
+                      ? 16777216 ==
+                          (50331648 & this.extended.underlineColor) ||
+                          33554432 ==
+                            (50331648 & this.extended.underlineColor)
+                      : this.isFgPalette();
+                  }),
+                  (e.prototype.isUnderlineColorDefault = function () {
+                    return 268435456 & this.bg &&
+                      ~this.extended.underlineColor
+                      ? 0 == (50331648 & this.extended.underlineColor)
+                      : this.isFgDefault();
+                  }),
+                  (e.prototype.getUnderlineStyle = function () {
+                    return 268435456 & this.fg
+                      ? 268435456 & this.bg
+                        ? this.extended.underlineStyle
+                        : 1
+                      : 0;
+                  }),
+                  e
+                ;
                 })();
                 t.AttributeData = r;
-                var i = (function () {
+                var i = (() => {
                   function e(e, t) {
                     void 0 === e && (e = 0),
                       void 0 === t && (t = -1),
@@ -12751,7 +12679,7 @@
                   l = r(7116),
                   h = r(3734);
                 t.MAX_BUFFER_SIZE = 4294967295;
-                var u = (function () {
+                var u = (() => {
                   function e(e, t, r) {
                     (this._hasScrollback = e),
                       (this._optionsService = t),
@@ -13164,33 +13092,32 @@
                   (e.prototype.addMarker = function (e) {
                     var t = this,
                       r = new c.Marker(e);
-                    return (
-                      this.markers.push(r),
-                      r.register(
-                        this.lines.onTrim(function (e) {
-                          (r.line -= e), r.line < 0 && r.dispose();
-                        })
-                      ),
-                      r.register(
-                        this.lines.onInsert(function (e) {
-                          r.line >= e.index && (r.line += e.amount);
-                        })
-                      ),
-                      r.register(
-                        this.lines.onDelete(function (e) {
-                          r.line >= e.index &&
-                            r.line < e.index + e.amount &&
-                            r.dispose(),
-                            r.line > e.index && (r.line -= e.amount);
-                        })
-                      ),
-                      r.register(
-                        r.onDispose(function () {
-                          return t._removeMarker(r);
-                        })
-                      ),
-                      r
-                    );
+                    return this.markers.push(r),
+                    r.register(
+                      this.lines.onTrim(e => {
+                        (r.line -= e), r.line < 0 && r.dispose();
+                      })
+                    ),
+                    r.register(
+                      this.lines.onInsert(e => {
+                        r.line >= e.index && (r.line += e.amount);
+                      })
+                    ),
+                    r.register(
+                      this.lines.onDelete(e => {
+                        r.line >= e.index &&
+                          r.line < e.index + e.amount &&
+                          r.dispose(),
+                          r.line > e.index && (r.line -= e.amount);
+                      })
+                    ),
+                    r.register(
+                      r.onDispose(() => {
+                        return t._removeMarker(r);
+                      })
+                    ),
+                    r
+                  ;
                   }),
                   (e.prototype._removeMarker = function (e) {
                     this.markers.splice(this.markers.indexOf(e), 1);
@@ -13198,11 +13125,10 @@
                   (e.prototype.iterator = function (e, t, r, i, n) {
                     return new f(this, e, t, r, i, n);
                   }),
-                  e
-                ;
+                  e;
                 })();
                 t.Buffer = u;
-                var f = (function () {
+                var f = (() => {
                   function e(e, t, r, i, n, o) {
                     void 0 === r && (r = 0),
                       void 0 === i && (i = e.lines.length),
@@ -13255,7 +13181,7 @@
                   o = r(511),
                   s = r(3734);
                 t.DEFAULT_ATTR_DATA = Object.freeze(new s.AttributeData());
-                var a = (function () {
+                var a = (() => {
                   function e(e, t, r) {
                     void 0 === r && (r = !1),
                       (this.isWrapped = r),
@@ -13601,7 +13527,7 @@
                     t.reflowLargerCreateNewLayout =
                     t.reflowLargerGetLinesToRemove =
                       void 0),
-                  (t.reflowLargerGetLinesToRemove = function (e, t, i, n, o) {
+                  (t.reflowLargerGetLinesToRemove = (e, t, i, n, o) => {
                     for (var s = [], a = 0; a < e.length - 1; a++) {
                       var c = a,
                         l = e.get(++c);
@@ -13648,7 +13574,7 @@
                     }
                     return s;
                   }),
-                  (t.reflowLargerCreateNewLayout = function (e, t) {
+                  (t.reflowLargerCreateNewLayout = (e, t) => {
                     for (
                       var r = [], i = 0, n = t[i], o = 0, s = 0;
                       s < e.length;
@@ -13663,20 +13589,20 @@
                       } else r.push(s);
                     return { layout: r, countRemoved: o };
                   }),
-                  (t.reflowLargerApplyNewLayout = function (e, t) {
+                  (t.reflowLargerApplyNewLayout = (e, t) => {
                     for (var r = [], i = 0; i < t.length; i++)
                       r.push(e.get(t[i]));
                     for (i = 0; i < r.length; i++) e.set(i, r[i]);
                     e.length = t.length;
                   }),
-                  (t.reflowSmallerGetNewLineLengths = function (e, t, i) {
+                  (t.reflowSmallerGetNewLineLengths = (e, t, i) => {
                     for (
                       var n = [],
                         o = e
-                          .map(function (i, n) {
+                          .map((i, n) => {
                             return r(e, n, t);
                           })
-                          .reduce(function (e, t) {
+                          .reduce((e, t) => {
                             return e + t;
                           }),
                         s = 0,
@@ -13705,20 +13631,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -13732,7 +13658,7 @@
                   (t.BufferSet = void 0);
                 var o = r(9092),
                   s = r(8460),
-                  a = (function (e) {
+                  a = (e => {
                     function t(t, r) {
                       var i = e.call(this) || this;
                       return (
@@ -13827,20 +13753,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -13855,7 +13781,7 @@
                 var o = r(482),
                   s = r(643),
                   a = r(3734),
-                  c = (function (e) {
+                  c = (e => {
                     function t() {
                       var t = (null !== e && e.apply(this, arguments)) || this;
                       return (
@@ -13867,65 +13793,64 @@
                         t
                       );
                     }
-                    return (
-                      n(t, e),
-                      (t.fromCharData = function (e) {
-                        var r = new t();
-                        return r.setFromCharData(e), r;
-                      }),
-                      (t.prototype.isCombined = function () {
-                        return 2097152 & this.content;
-                      }),
-                      (t.prototype.getWidth = function () {
-                        return this.content >> 22;
-                      }),
-                      (t.prototype.getChars = function () {
-                        return 2097152 & this.content
-                          ? this.combinedData
-                          : 2097151 & this.content
-                          ? o.stringFromCodePoint(2097151 & this.content)
-                          : "";
-                      }),
-                      (t.prototype.getCode = function () {
-                        return this.isCombined()
-                          ? this.combinedData.charCodeAt(
-                              this.combinedData.length - 1
-                            )
-                          : 2097151 & this.content;
-                      }),
-                      (t.prototype.setFromCharData = function (e) {
-                        (this.fg = e[s.CHAR_DATA_ATTR_INDEX]), (this.bg = 0);
-                        var t = !1;
-                        if (e[s.CHAR_DATA_CHAR_INDEX].length > 2) t = !0;
-                        else if (2 === e[s.CHAR_DATA_CHAR_INDEX].length) {
-                          var r = e[s.CHAR_DATA_CHAR_INDEX].charCodeAt(0);
-                          if (55296 <= r && r <= 56319) {
-                            var i = e[s.CHAR_DATA_CHAR_INDEX].charCodeAt(1);
-                            56320 <= i && i <= 57343
-                              ? (this.content =
-                                  (1024 * (r - 55296) + i - 56320 + 65536) |
-                                  (e[s.CHAR_DATA_WIDTH_INDEX] << 22))
-                              : (t = !0);
-                          } else t = !0;
-                        } else
-                          this.content =
-                            e[s.CHAR_DATA_CHAR_INDEX].charCodeAt(0) |
-                            (e[s.CHAR_DATA_WIDTH_INDEX] << 22);
-                        t &&
-                          ((this.combinedData = e[s.CHAR_DATA_CHAR_INDEX]),
-                          (this.content =
-                            2097152 | (e[s.CHAR_DATA_WIDTH_INDEX] << 22)));
-                      }),
-                      (t.prototype.getAsCharData = function () {
-                        return [
-                          this.fg,
-                          this.getChars(),
-                          this.getWidth(),
-                          this.getCode(),
-                        ];
-                      }),
-                      t
-                    );
+                    return n(t, e),
+                    (t.fromCharData = e => {
+                      var r = new t();
+                      return r.setFromCharData(e), r;
+                    }),
+                    (t.prototype.isCombined = function () {
+                      return 2097152 & this.content;
+                    }),
+                    (t.prototype.getWidth = function () {
+                      return this.content >> 22;
+                    }),
+                    (t.prototype.getChars = function () {
+                      return 2097152 & this.content
+                        ? this.combinedData
+                        : 2097151 & this.content
+                        ? o.stringFromCodePoint(2097151 & this.content)
+                        : "";
+                    }),
+                    (t.prototype.getCode = function () {
+                      return this.isCombined()
+                        ? this.combinedData.charCodeAt(
+                            this.combinedData.length - 1
+                          )
+                        : 2097151 & this.content;
+                    }),
+                    (t.prototype.setFromCharData = function (e) {
+                      (this.fg = e[s.CHAR_DATA_ATTR_INDEX]), (this.bg = 0);
+                      var t = !1;
+                      if (e[s.CHAR_DATA_CHAR_INDEX].length > 2) t = !0;
+                      else if (2 === e[s.CHAR_DATA_CHAR_INDEX].length) {
+                        var r = e[s.CHAR_DATA_CHAR_INDEX].charCodeAt(0);
+                        if (55296 <= r && r <= 56319) {
+                          var i = e[s.CHAR_DATA_CHAR_INDEX].charCodeAt(1);
+                          56320 <= i && i <= 57343
+                            ? (this.content =
+                                (1024 * (r - 55296) + i - 56320 + 65536) |
+                                (e[s.CHAR_DATA_WIDTH_INDEX] << 22))
+                            : (t = !0);
+                        } else t = !0;
+                      } else
+                        this.content =
+                          e[s.CHAR_DATA_CHAR_INDEX].charCodeAt(0) |
+                          (e[s.CHAR_DATA_WIDTH_INDEX] << 22);
+                      t &&
+                        ((this.combinedData = e[s.CHAR_DATA_CHAR_INDEX]),
+                        (this.content =
+                          2097152 | (e[s.CHAR_DATA_WIDTH_INDEX] << 22)));
+                    }),
+                    (t.prototype.getAsCharData = function () {
+                      return [
+                        this.fg,
+                        this.getChars(),
+                        this.getWidth(),
+                        this.getCode(),
+                      ];
+                    }),
+                    t
+                  ;
                   })(a.AttributeData);
                 t.CellData = c;
               },
@@ -13961,20 +13886,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -13987,7 +13912,7 @@
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.Marker = void 0);
                 var o = r(8460),
-                  s = (function (e) {
+                  s = (e => {
                     function t(r) {
                       var i = e.call(this) || this;
                       return (
@@ -14283,7 +14208,7 @@
                     221: ["]", "}"],
                     222: ["'", '"'],
                   };
-                t.evaluateKeyboardEvent = function (e, t, r, o) {
+                t.evaluateKeyboardEvent = (e, t, r, o) => {
                   var s = { type: 0, cancel: !1, key: void 0 },
                     a =
                       (e.shiftKey ? 1 : 0) |
@@ -14504,14 +14429,14 @@
                     t.utf32ToString =
                     t.stringFromCodePoint =
                       void 0),
-                  (t.stringFromCodePoint = function (e) {
+                  (t.stringFromCodePoint = e => {
                     return e > 65535
                       ? ((e -= 65536),
                         String.fromCharCode(55296 + (e >> 10)) +
                           String.fromCharCode((e % 1024) + 56320))
                       : String.fromCharCode(e);
                   }),
-                  (t.utf32ToString = function (e, t, r) {
+                  (t.utf32ToString = (e, t, r) => {
                     void 0 === t && (t = 0), void 0 === r && (r = e.length);
                     for (var i = "", n = t; n < r; ++n) {
                       var o = e[n];
@@ -14524,7 +14449,7 @@
                     }
                     return i;
                   });
-                var r = (function () {
+                var r = (() => {
                   function e() {
                     this._interim = 0;
                   }
@@ -14562,7 +14487,7 @@
                   );
                 })();
                 t.StringToUtf32 = r;
-                var i = (function () {
+                var i = (() => {
                   function e() {
                     this.interim = new Uint8Array(3);
                   }
@@ -14868,7 +14793,7 @@
                     [917536, 917631],
                     [917760, 917999],
                   ],
-                  a = (function () {
+                  a = (() => {
                     function e() {
                       if (((this.version = "6"), !i)) {
                         (i = new Uint8Array(65536)),
@@ -14891,42 +14816,39 @@
                           n.fill(i, 0, o[e][0], o[e][1] + 1);
                       }
                     }
-                    return (
-                      (e.prototype.wcwidth = function (e) {
-                        return e < 32
-                          ? 0
-                          : e < 127
-                          ? 1
-                          : e < 65536
-                          ? i[e]
-                          : (function (e, t) {
-                              var r,
-                                i = 0,
-                                n = t.length - 1;
-                              if (e < t[0][0] || e > t[n][1]) return !1;
-                              for (; n >= i; )
-                                if (e > t[(r = (i + n) >> 1)][1]) i = r + 1;
-                                else {
-                                  if (!(e < t[r][0])) return !0;
-                                  n = r - 1;
-                                }
-                              return !1;
-                            })(e, s)
-                          ? 0
-                          : (e >= 131072 && e <= 196605) ||
-                            (e >= 196608 && e <= 262141)
-                          ? 2
-                          : 1;
-                      }),
-                      e
-                    );
+                    return (e.prototype.wcwidth = e => {
+                      return e < 32
+                        ? 0
+                        : e < 127
+                        ? 1
+                        : e < 65536
+                        ? i[e]
+                        : ((e, t) => {
+                            var r,
+                              i = 0,
+                              n = t.length - 1;
+                            if (e < t[0][0] || e > t[n][1]) return !1;
+                            for (; n >= i; )
+                              if (e > t[(r = (i + n) >> 1)][1]) i = r + 1;
+                              else {
+                                if (!(e < t[r][0])) return !0;
+                                n = r - 1;
+                              }
+                            return !1;
+                          })(e, s) ? 0 : (e >= 131072 && e <= 196605) ||
+                          (e >= 196608 && e <= 262141)
+                        ? 2
+                        : 1;
+                    }),
+                    e
+                  ;
                   })();
                 t.UnicodeV6 = a;
               },
               5981: (e, t) => {
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.WriteBuffer = void 0);
-                var r = (function () {
+                var r = (() => {
                   function e(e) {
                     (this._action = e),
                       (this._writeBuffer = []),
@@ -14934,76 +14856,75 @@
                       (this._pendingData = 0),
                       (this._bufferOffset = 0);
                   }
-                  return (
-                    (e.prototype.writeSync = function (e) {
-                      if (this._writeBuffer.length) {
-                        for (
-                          var t = this._bufferOffset;
-                          t < this._writeBuffer.length;
-                          ++t
-                        ) {
-                          var r = this._writeBuffer[t],
-                            i = this._callbacks[t];
-                          this._action(r), i && i();
-                        }
-                        (this._writeBuffer = []),
-                          (this._callbacks = []),
-                          (this._pendingData = 0),
-                          (this._bufferOffset = 2147483647);
-                      }
-                      this._action(e);
-                    }),
-                    (e.prototype.write = function (e, t) {
-                      var r = this;
-                      if (this._pendingData > 5e7)
-                        throw new Error(
-                          "write data discarded, use flow control to avoid losing data"
-                        );
-                      this._writeBuffer.length ||
-                        ((this._bufferOffset = 0),
-                        setTimeout(function () {
-                          return r._innerWrite();
-                        })),
-                        (this._pendingData += e.length),
-                        this._writeBuffer.push(e),
-                        this._callbacks.push(t);
-                    }),
-                    (e.prototype._innerWrite = function () {
+                  return (e.prototype.writeSync = function (e) {
+                    if (this._writeBuffer.length) {
                       for (
-                        var e = this, t = Date.now();
-                        this._writeBuffer.length > this._bufferOffset;
-
+                        var t = this._bufferOffset;
+                        t < this._writeBuffer.length;
+                        ++t
                       ) {
-                        var r = this._writeBuffer[this._bufferOffset],
-                          i = this._callbacks[this._bufferOffset];
-                        if (
-                          (this._bufferOffset++,
-                          this._action(r),
-                          (this._pendingData -= r.length),
-                          i && i(),
-                          Date.now() - t >= 12)
-                        )
-                          break;
+                        var r = this._writeBuffer[t],
+                          i = this._callbacks[t];
+                        this._action(r), i && i();
                       }
-                      this._writeBuffer.length > this._bufferOffset
-                        ? (this._bufferOffset > 50 &&
-                            ((this._writeBuffer = this._writeBuffer.slice(
-                              this._bufferOffset
-                            )),
-                            (this._callbacks = this._callbacks.slice(
-                              this._bufferOffset
-                            )),
-                            (this._bufferOffset = 0)),
-                          setTimeout(function () {
-                            return e._innerWrite();
-                          }, 0))
-                        : ((this._writeBuffer = []),
-                          (this._callbacks = []),
-                          (this._pendingData = 0),
-                          (this._bufferOffset = 0));
-                    }),
-                    e
-                  );
+                      (this._writeBuffer = []),
+                        (this._callbacks = []),
+                        (this._pendingData = 0),
+                        (this._bufferOffset = 2147483647);
+                    }
+                    this._action(e);
+                  }),
+                  (e.prototype.write = function (e, t) {
+                    var r = this;
+                    if (this._pendingData > 5e7)
+                      throw new Error(
+                        "write data discarded, use flow control to avoid losing data"
+                      );
+                    this._writeBuffer.length ||
+                      ((this._bufferOffset = 0),
+                      setTimeout(() => {
+                        return r._innerWrite();
+                      })),
+                      (this._pendingData += e.length),
+                      this._writeBuffer.push(e),
+                      this._callbacks.push(t);
+                  }),
+                  (e.prototype._innerWrite = function () {
+                    for (
+                      var e = this, t = Date.now();
+                      this._writeBuffer.length > this._bufferOffset;
+
+                    ) {
+                      var r = this._writeBuffer[this._bufferOffset],
+                        i = this._callbacks[this._bufferOffset];
+                      if (
+                        (this._bufferOffset++,
+                        this._action(r),
+                        (this._pendingData -= r.length),
+                        i && i(),
+                        Date.now() - t >= 12)
+                      )
+                        break;
+                    }
+                    this._writeBuffer.length > this._bufferOffset
+                      ? (this._bufferOffset > 50 &&
+                          ((this._writeBuffer = this._writeBuffer.slice(
+                            this._bufferOffset
+                          )),
+                          (this._callbacks = this._callbacks.slice(
+                            this._bufferOffset
+                          )),
+                          (this._bufferOffset = 0)),
+                        setTimeout(() => {
+                          return e._innerWrite();
+                        }, 0))
+                      : ((this._writeBuffer = []),
+                        (this._callbacks = []),
+                        (this._pendingData = 0),
+                        (this._bufferOffset = 0));
+                  }),
+                  e
+                ;
                 })();
                 t.WriteBuffer = r;
               },
@@ -15019,16 +14940,16 @@
                   n = r(8742),
                   o = r(5770),
                   s = [],
-                  a = (function () {
+                  a = (() => {
                     function e() {
                       (this._handlers = Object.create(null)),
                         (this._active = s),
                         (this._ident = 0),
-                        (this._handlerFb = function () {});
+                        (this._handlerFb = () => {});
                     }
                     return (e.prototype.dispose = function () {
                       (this._handlers = Object.create(null)),
-                        (this._handlerFb = function () {}),
+                        (this._handlerFb = () => {}),
                         (this._active = s);
                     }),
                     (e.prototype.registerHandler = function (e, t) {
@@ -15088,13 +15009,12 @@
                       } else this._handlerFb(this._ident, "UNHOOK", e);
                       (this._active = s), (this._ident = 0);
                     }),
-                    e
-                  ;
+                    e;
                   })();
                 t.DcsParser = a;
                 var c = new n.Params();
                 c.addParam(0);
-                var l = (function () {
+                var l = (() => {
                   function e(e) {
                     (this._handler = e),
                       (this._data = ""),
@@ -15135,20 +15055,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -15168,7 +15088,7 @@
                   a = r(8742),
                   c = r(6242),
                   l = r(6351),
-                  h = (function () {
+                  h = (() => {
                     function e(e) {
                       this.table = new Uint8Array(e);
                     }
@@ -15188,12 +15108,12 @@
                   })();
                 t.TransitionTable = h;
                 var u = 160;
-                t.VT500_TRANSITION_TABLE = (function () {
+                t.VT500_TRANSITION_TABLE = (() => {
                   var e = new h(4095),
-                    t = Array.apply(null, Array(256)).map(function (e, t) {
+                    t = Array.apply(null, Array(256)).map((e, t) => {
                       return t;
                     }),
-                    r = function (e, r) {
+                    r = (e, r) => {
                       return t.slice(e, r);
                     },
                     i = r(32, 127),
@@ -15293,40 +15213,39 @@
                     e
                   );
                 })();
-                var f = (function (e) {
+                var f = (e => {
                   function r(r) {
                     void 0 === r && (r = t.VT500_TRANSITION_TABLE);
                     var i = e.call(this) || this;
-                    return (
-                      (i._transitions = r),
-                      (i.initialState = 0),
-                      (i.currentState = i.initialState),
-                      (i._params = new a.Params()),
-                      i._params.addParam(0),
-                      (i._collect = 0),
-                      (i.precedingCodepoint = 0),
-                      (i._printHandlerFb = function (e, t, r) {}),
-                      (i._executeHandlerFb = function (e) {}),
-                      (i._csiHandlerFb = function (e, t) {}),
-                      (i._escHandlerFb = function (e) {}),
-                      (i._errorHandlerFb = function (e) {
-                        return e;
-                      }),
-                      (i._printHandler = i._printHandlerFb),
-                      (i._executeHandlers = Object.create(null)),
-                      (i._csiHandlers = Object.create(null)),
-                      (i._escHandlers = Object.create(null)),
-                      (i._oscParser = new c.OscParser()),
-                      (i._dcsParser = new l.DcsParser()),
-                      (i._errorHandler = i._errorHandlerFb),
-                      i.registerEscHandler({ final: "\\" }, function () {
-                        return !0;
-                      }),
-                      i
-                    );
+                    return (i._transitions = r),
+                    (i.initialState = 0),
+                    (i.currentState = i.initialState),
+                    (i._params = new a.Params()),
+                    i._params.addParam(0),
+                    (i._collect = 0),
+                    (i.precedingCodepoint = 0),
+                    (i._printHandlerFb = (e, t, r) => {}),
+                    (i._executeHandlerFb = e => {}),
+                    (i._csiHandlerFb = (e, t) => {}),
+                    (i._escHandlerFb = e => {}),
+                    (i._errorHandlerFb = e => {
+                      return e;
+                    }),
+                    (i._printHandler = i._printHandlerFb),
+                    (i._executeHandlers = Object.create(null)),
+                    (i._csiHandlers = Object.create(null)),
+                    (i._escHandlers = Object.create(null)),
+                    (i._oscParser = new c.OscParser()),
+                    (i._dcsParser = new l.DcsParser()),
+                    (i._errorHandler = i._errorHandlerFb),
+                    i.registerEscHandler({ final: "\\" }, () => {
+                      return !0;
+                    }),
+                    i
+                  ;
                   }
                   return n(r, e),
-                  (r.prototype._identifier = function (e, t) {
+                  (r.prototype._identifier = (e, t) => {
                     void 0 === t && (t = [64, 126]);
                     var r = 0;
                     if (e.prefix) {
@@ -15360,7 +15279,7 @@
                       );
                     return (r <<= 8) | o;
                   }),
-                  (r.prototype.identToString = function (e) {
+                  (r.prototype.identToString = e => {
                     for (var t = []; e; )
                       t.push(String.fromCharCode(255 & e)), (e >>= 8);
                     return t.reverse().join("");
@@ -15633,8 +15552,7 @@
                     }
                     (this._collect = a), (this.currentState = n);
                   }),
-                  r
-                ;
+                  r;
                 })(o.Disposable);
                 t.EscapeSequenceParser = f;
               },
@@ -15644,13 +15562,13 @@
                 var i = r(5770),
                   n = r(482),
                   o = [],
-                  s = (function () {
+                  s = (() => {
                     function e() {
                       (this._state = 0),
                         (this._active = o),
                         (this._id = -1),
                         (this._handlers = Object.create(null)),
-                        (this._handlerFb = function () {});
+                        (this._handlerFb = () => {});
                     }
                     return (e.prototype.registerHandler = function (e, t) {
                       void 0 === this._handlers[e] &&
@@ -15673,7 +15591,7 @@
                     }),
                     (e.prototype.dispose = function () {
                       (this._handlers = Object.create(null)),
-                        (this._handlerFb = function () {}),
+                        (this._handlerFb = () => {}),
                         (this._active = o);
                     }),
                     (e.prototype.reset = function () {
@@ -15740,11 +15658,10 @@
                         (this._id = -1),
                         (this._state = 0));
                     }),
-                    e
-                  ;
+                    e;
                   })();
                 t.OscParser = s;
-                var a = (function () {
+                var a = (() => {
                   function e(e) {
                     (this._handler = e),
                       (this._data = ""),
@@ -15780,7 +15697,7 @@
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.Params = void 0);
                 var r = 2147483647,
-                  i = (function () {
+                  i = (() => {
                     function e(e, t) {
                       if (
                         (void 0 === e && (e = 32),
@@ -15801,132 +15718,131 @@
                         (this._rejectSubDigits = !1),
                         (this._digitIsSub = !1);
                     }
-                    return (
-                      (e.fromArray = function (t) {
-                        var r = new e();
-                        if (!t.length) return r;
-                        for (
-                          var i = t[0] instanceof Array ? 1 : 0;
-                          i < t.length;
-                          ++i
-                        ) {
-                          var n = t[i];
-                          if (n instanceof Array)
-                            for (var o = 0; o < n.length; ++o)
-                              r.addSubParam(n[o]);
-                          else r.addParam(n);
-                        }
-                        return r;
-                      }),
-                      (e.prototype.clone = function () {
-                        var t = new e(this.maxLength, this.maxSubParamsLength);
-                        return (
-                          t.params.set(this.params),
-                          (t.length = this.length),
-                          t._subParams.set(this._subParams),
-                          (t._subParamsLength = this._subParamsLength),
-                          t._subParamsIdx.set(this._subParamsIdx),
-                          (t._rejectDigits = this._rejectDigits),
-                          (t._rejectSubDigits = this._rejectSubDigits),
-                          (t._digitIsSub = this._digitIsSub),
-                          t
-                        );
-                      }),
-                      (e.prototype.toArray = function () {
-                        for (var e = [], t = 0; t < this.length; ++t) {
-                          e.push(this.params[t]);
-                          var r = this._subParamsIdx[t] >> 8,
-                            i = 255 & this._subParamsIdx[t];
-                          i - r > 0 &&
-                            e.push(
-                              Array.prototype.slice.call(this._subParams, r, i)
-                            );
-                        }
-                        return e;
-                      }),
-                      (e.prototype.reset = function () {
-                        (this.length = 0),
-                          (this._subParamsLength = 0),
-                          (this._rejectDigits = !1),
-                          (this._rejectSubDigits = !1),
-                          (this._digitIsSub = !1);
-                      }),
-                      (e.prototype.addParam = function (e) {
+                    return (e.fromArray = t => {
+                      var r = new e();
+                      if (!t.length) return r;
+                      for (
+                        var i = t[0] instanceof Array ? 1 : 0;
+                        i < t.length;
+                        ++i
+                      ) {
+                        var n = t[i];
+                        if (n instanceof Array)
+                          for (var o = 0; o < n.length; ++o)
+                            r.addSubParam(n[o]);
+                        else r.addParam(n);
+                      }
+                      return r;
+                    }),
+                    (e.prototype.clone = function () {
+                      var t = new e(this.maxLength, this.maxSubParamsLength);
+                      return (
+                        t.params.set(this.params),
+                        (t.length = this.length),
+                        t._subParams.set(this._subParams),
+                        (t._subParamsLength = this._subParamsLength),
+                        t._subParamsIdx.set(this._subParamsIdx),
+                        (t._rejectDigits = this._rejectDigits),
+                        (t._rejectSubDigits = this._rejectSubDigits),
+                        (t._digitIsSub = this._digitIsSub),
+                        t
+                      );
+                    }),
+                    (e.prototype.toArray = function () {
+                      for (var e = [], t = 0; t < this.length; ++t) {
+                        e.push(this.params[t]);
+                        var r = this._subParamsIdx[t] >> 8,
+                          i = 255 & this._subParamsIdx[t];
+                        i - r > 0 &&
+                          e.push(
+                            Array.prototype.slice.call(this._subParams, r, i)
+                          );
+                      }
+                      return e;
+                    }),
+                    (e.prototype.reset = function () {
+                      (this.length = 0),
+                        (this._subParamsLength = 0),
+                        (this._rejectDigits = !1),
+                        (this._rejectSubDigits = !1),
+                        (this._digitIsSub = !1);
+                    }),
+                    (e.prototype.addParam = function (e) {
+                      if (
+                        ((this._digitIsSub = !1),
+                        this.length >= this.maxLength)
+                      )
+                        this._rejectDigits = !0;
+                      else {
+                        if (e < -1)
+                          throw new Error(
+                            "values lesser than -1 are not allowed"
+                          );
+                        (this._subParamsIdx[this.length] =
+                          (this._subParamsLength << 8) |
+                          this._subParamsLength),
+                          (this.params[this.length++] = e > r ? r : e);
+                      }
+                    }),
+                    (e.prototype.addSubParam = function (e) {
+                      if (((this._digitIsSub = !0), this.length))
                         if (
-                          ((this._digitIsSub = !1),
-                          this.length >= this.maxLength)
+                          this._rejectDigits ||
+                          this._subParamsLength >= this.maxSubParamsLength
                         )
-                          this._rejectDigits = !0;
+                          this._rejectSubDigits = !0;
                         else {
                           if (e < -1)
                             throw new Error(
                               "values lesser than -1 are not allowed"
                             );
-                          (this._subParamsIdx[this.length] =
-                            (this._subParamsLength << 8) |
-                            this._subParamsLength),
-                            (this.params[this.length++] = e > r ? r : e);
+                          (this._subParams[this._subParamsLength++] =
+                            e > r ? r : e),
+                            this._subParamsIdx[this.length - 1]++;
                         }
-                      }),
-                      (e.prototype.addSubParam = function (e) {
-                        if (((this._digitIsSub = !0), this.length))
-                          if (
-                            this._rejectDigits ||
-                            this._subParamsLength >= this.maxSubParamsLength
-                          )
-                            this._rejectSubDigits = !0;
-                          else {
-                            if (e < -1)
-                              throw new Error(
-                                "values lesser than -1 are not allowed"
-                              );
-                            (this._subParams[this._subParamsLength++] =
-                              e > r ? r : e),
-                              this._subParamsIdx[this.length - 1]++;
-                          }
-                      }),
-                      (e.prototype.hasSubParams = function (e) {
-                        return (
-                          (255 & this._subParamsIdx[e]) -
-                            (this._subParamsIdx[e] >> 8) >
-                          0
-                        );
-                      }),
-                      (e.prototype.getSubParams = function (e) {
-                        var t = this._subParamsIdx[e] >> 8,
-                          r = 255 & this._subParamsIdx[e];
-                        return r - t > 0
-                          ? this._subParams.subarray(t, r)
-                          : null;
-                      }),
-                      (e.prototype.getSubParamsAll = function () {
-                        for (var e = {}, t = 0; t < this.length; ++t) {
-                          var r = this._subParamsIdx[t] >> 8,
-                            i = 255 & this._subParamsIdx[t];
-                          i - r > 0 && (e[t] = this._subParams.slice(r, i));
-                        }
-                        return e;
-                      }),
-                      (e.prototype.addDigit = function (e) {
-                        var t;
-                        if (
-                          !(
-                            this._rejectDigits ||
-                            !(t = this._digitIsSub
-                              ? this._subParamsLength
-                              : this.length) ||
-                            (this._digitIsSub && this._rejectSubDigits)
-                          )
-                        ) {
-                          var i = this._digitIsSub
-                              ? this._subParams
-                              : this.params,
-                            n = i[t - 1];
-                          i[t - 1] = ~n ? Math.min(10 * n + e, r) : e;
-                        }
-                      }),
-                      e
-                    );
+                    }),
+                    (e.prototype.hasSubParams = function (e) {
+                      return (
+                        (255 & this._subParamsIdx[e]) -
+                          (this._subParamsIdx[e] >> 8) >
+                        0
+                      );
+                    }),
+                    (e.prototype.getSubParams = function (e) {
+                      var t = this._subParamsIdx[e] >> 8,
+                        r = 255 & this._subParamsIdx[e];
+                      return r - t > 0
+                        ? this._subParams.subarray(t, r)
+                        : null;
+                    }),
+                    (e.prototype.getSubParamsAll = function () {
+                      for (var e = {}, t = 0; t < this.length; ++t) {
+                        var r = this._subParamsIdx[t] >> 8,
+                          i = 255 & this._subParamsIdx[t];
+                        i - r > 0 && (e[t] = this._subParams.slice(r, i));
+                      }
+                      return e;
+                    }),
+                    (e.prototype.addDigit = function (e) {
+                      var t;
+                      if (
+                        !(
+                          this._rejectDigits ||
+                          !(t = this._digitIsSub
+                            ? this._subParamsLength
+                            : this.length) ||
+                          (this._digitIsSub && this._rejectSubDigits)
+                        )
+                      ) {
+                        var i = this._digitIsSub
+                            ? this._subParams
+                            : this.params,
+                          n = i[t - 1];
+                        i[t - 1] = ~n ? Math.min(10 * n + e, r) : e;
+                      }
+                    }),
+                    e
+                  ;
                   })();
                 t.Params = i;
               },
@@ -15934,20 +15850,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -15983,11 +15899,11 @@
                     },
                   s =
                     (this && this.__param) ||
-                    function (e, t) {
-                      return function (r, i) {
+                    ((e, t) => {
+                      return (r, i) => {
                         t(r, i, e);
                       };
-                    };
+                    });
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.BufferService = t.MINIMUM_ROWS = t.MINIMUM_COLS = void 0);
                 var a = r(2585),
@@ -15995,7 +15911,7 @@
                   l = r(8460),
                   h = r(844);
                 (t.MINIMUM_COLS = 2), (t.MINIMUM_ROWS = 1);
-                var u = (function (e) {
+                var u = (e => {
                   function r(r) {
                     var i = e.call(this) || this;
                     return (
@@ -16044,7 +15960,7 @@
               7994: (e, t) => {
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.CharsetService = void 0);
-                var r = (function () {
+                var r = (() => {
                   function e() {
                     (this.glevel = 0), (this._charsets = []);
                   }
@@ -16093,11 +16009,11 @@
                     },
                   n =
                     (this && this.__param) ||
-                    function (e, t) {
-                      return function (r, i) {
+                    ((e, t) => {
+                      return (r, i) => {
                         t(r, i, e);
                       };
-                    };
+                    });
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.CoreMouseService = void 0);
                 var o = r(2585),
@@ -16168,7 +16084,7 @@
                       );
                     },
                   },
-                  u = (function () {
+                  u = (() => {
                     function e(e, t) {
                       (this._bufferService = e),
                         (this._coreService = t),
@@ -16281,7 +16197,7 @@
                         !0
                       );
                     }),
-                    (e.prototype.explainEvents = function (e) {
+                    (e.prototype.explainEvents = e => {
                       return {
                         down: !!(1 & e),
                         up: !!(2 & e),
@@ -16290,7 +16206,7 @@
                         wheel: !!(16 & e),
                       };
                     }),
-                    (e.prototype._compareEvents = function (e, t) {
+                    (e.prototype._compareEvents = (e, t) => {
                       return (
                         e.col === t.col &&
                         e.row === t.row &&
@@ -16301,8 +16217,7 @@
                         e.shift === t.shift
                       );
                     }),
-                    i([n(0, o.IBufferService), n(1, o.ICoreService)], e)
-                  ;
+                    i([n(0, o.IBufferService), n(1, o.ICoreService)], e);
                   })();
                 t.CoreMouseService = u;
               },
@@ -16310,20 +16225,20 @@
                 var i,
                   n =
                     (this && this.__extends) ||
-                    ((i = function (e, t) {
+                    ((i = (e, t) => {
                       return (i =
                         Object.setPrototypeOf ||
                         ({ __proto__: [] } instanceof Array &&
-                          function (e, t) {
+                          ((e, t) => {
                             e.__proto__ = t;
-                          }) ||
-                        function (e, t) {
+                          })) ||
+                        ((e, t) => {
                           for (var r in t)
                             Object.prototype.hasOwnProperty.call(t, r) &&
                               (e[r] = t[r]);
-                        })(e, t);
+                        }))(e, t);
                     }),
-                    function (e, t) {
+                    (e, t) => {
                       function r() {
                         this.constructor = e;
                       }
@@ -16359,11 +16274,11 @@
                     },
                   s =
                     (this && this.__param) ||
-                    function (e, t) {
-                      return function (r, i) {
+                    ((e, t) => {
+                      return (r, i) => {
                         t(r, i, e);
                       };
-                    };
+                    });
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.CoreService = void 0);
                 var a = r(2585),
@@ -16380,7 +16295,7 @@
                     sendFocus: !1,
                     wraparound: !0,
                   }),
-                  _ = (function (e) {
+                  _ = (e => {
                     function t(t, r, i, n) {
                       var o = e.call(this) || this;
                       return (o._bufferService = r),
@@ -16438,8 +16353,8 @@
                           t && this._onUserInput.fire(),
                           this._logService.debug(
                             'sending data "' + e + '"',
-                            function () {
-                              return e.split("").map(function (e) {
+                            () => {
+                              return e.split("").map(e => {
                                 return e.charCodeAt(0);
                               });
                             }
@@ -16451,8 +16366,8 @@
                       this._optionsService.options.disableStdin ||
                         (this._logService.debug(
                           'sending binary "' + e + '"',
-                          function () {
-                            return e.split("").map(function (e) {
+                          () => {
+                            return e.split("").map(e => {
                               return e.charCodeAt(0);
                             });
                           }
@@ -16466,8 +16381,7 @@
                         s(3, a.IOptionsService),
                       ],
                       t
-                    )
-                  ;
+                    );
                   })(h.Disposable);
                 t.CoreService = _;
               },
@@ -16498,15 +16412,15 @@
                     },
                   n =
                     (this && this.__param) ||
-                    function (e, t) {
-                      return function (r, i) {
+                    ((e, t) => {
+                      return (r, i) => {
                         t(r, i, e);
                       };
-                    };
+                    });
                 Object.defineProperty(t, "__esModule", { value: !0 }),
                   (t.DirtyRowService = void 0);
                 var o = r(2585),
-                  s = (function () {
+                  s = (() => {
                     function e(e) {
                       (this._bufferService = e), this.clearRange();
                     }
@@ -16570,7 +16484,7 @@
                   (t.InstantiationService = t.ServiceCollection = void 0);
                 var n = r(2585),
                   o = r(8343),
-                  s = (function () {
+                  s = (() => {
                     function e() {
                       for (var e = [], t = 0; t < arguments.length; t++)
                         e[t] = arguments[t];
@@ -16582,80 +16496,78 @@
                         this.set(o, s);
                       }
                     }
-                    return (
-                      (e.prototype.set = function (e, t) {
-                        var r = this._entries.get(e);
-                        return this._entries.set(e, t), r;
-                      }),
-                      (e.prototype.forEach = function (e) {
-                        this._entries.forEach(function (t, r) {
-                          return e(r, t);
-                        });
-                      }),
-                      (e.prototype.has = function (e) {
-                        return this._entries.has(e);
-                      }),
-                      (e.prototype.get = function (e) {
-                        return this._entries.get(e);
-                      }),
-                      e
-                    );
+                    return (e.prototype.set = function (e, t) {
+                      var r = this._entries.get(e);
+                      return this._entries.set(e, t), r;
+                    }),
+                    (e.prototype.forEach = function (e) {
+                      this._entries.forEach((t, r) => {
+                        return e(r, t);
+                      });
+                    }),
+                    (e.prototype.has = function (e) {
+                      return this._entries.has(e);
+                    }),
+                    (e.prototype.get = function (e) {
+                      return this._entries.get(e);
+                    }),
+                    e
+                  ;
                   })();
                 t.ServiceCollection = s;
-                var a = (function () {
+                var a = (() => {
                   function e() {
                     (this._services = new s()),
                       this._services.set(n.IInstantiationService, this);
                   }
-                  return (
-                    (e.prototype.setService = function (e, t) {
-                      this._services.set(e, t);
-                    }),
-                    (e.prototype.getService = function (e) {
-                      return this._services.get(e);
-                    }),
-                    (e.prototype.createInstance = function (e) {
-                      for (var t = [], r = 1; r < arguments.length; r++)
-                        t[r - 1] = arguments[r];
-                      for (
-                        var n = o
-                            .getServiceDependencies(e)
-                            .sort(function (e, t) {
-                              return e.index - t.index;
-                            }),
-                          s = [],
-                          a = 0,
-                          c = n;
-                        a < c.length;
-                        a++
-                      ) {
-                        var l = c[a],
-                          h = this._services.get(l.id);
-                        if (!h)
-                          throw new Error(
-                            "[createInstance] " +
-                              e.name +
-                              " depends on UNKNOWN service " +
-                              l.id +
-                              "."
-                          );
-                        s.push(h);
-                      }
-                      var u = n.length > 0 ? n[0].index : t.length;
-                      if (t.length !== u)
+                  return (e.prototype.setService = function (e, t) {
+                    this._services.set(e, t);
+                  }),
+                  (e.prototype.getService = function (e) {
+                    return this._services.get(e);
+                  }),
+                  (e.prototype.createInstance = function (e) {
+                    for (var t = [], r = 1; r < arguments.length; r++)
+                      t[r - 1] = arguments[r];
+                    for (
+                      var n = o
+                          .getServiceDependencies(e)
+                          .sort((e, t) => {
+                            return e.index - t.index;
+                          }),
+                        s = [],
+                        a = 0,
+                        c = n;
+                      a < c.length;
+                      a++
+                    ) {
+                      var l = c[a],
+                        h = this._services.get(l.id);
+                      if (!h)
                         throw new Error(
-                          "[createInstance] First service dependency of " +
+                          "[createInstance] " +
                             e.name +
-                            " at position " +
-                            (u + 1) +
-                            " conflicts with " +
-                            t.length +
-                            " static arguments"
+                            " depends on UNKNOWN service " +
+                            l.id +
+                            "."
                         );
-                      return new (e.bind.apply(e, i([void 0], i(t, s))))();
-                    }),
-                    e
-                  );
+                      s.push(h);
+                    }
+                    var u = n.length > 0 ? n[0].index : t.length;
+                    if (t.length !== u)
+                      throw new Error(
+                        "[createInstance] First service dependency of " +
+                          e.name +
+                          " at position " +
+                          (u + 1) +
+                          " conflicts with " +
+                          t.length +
+                          " static arguments"
+                      );
+                    return new (e.bind.apply(e, i([void 0], i(t, s))))();
+                  }),
+                  e
+                ;
                 })();
                 t.InstantiationService = a;
               },
@@ -16686,11 +16598,11 @@
                     },
                   n =
                     (this && this.__param) ||
-                    function (e, t) {
-                      return function (r, i) {
+                    ((e, t) => {
+                      return (r, i) => {
                         t(r, i, e);
                       };
-                    },
+                    }),
                   o =
                     (this && this.__spreadArrays) ||
                     function () {
@@ -16711,13 +16623,13 @@
                   (t.LogService = t.LogLevel = void 0);
                 var s,
                   a = r(2585);
-                !(function (e) {
+                !(e => {
                   (e[(e.DEBUG = 0)] = "DEBUG"),
                     (e[(e.INFO = 1)] = "INFO"),
                     (e[(e.WARN = 2)] = "WARN"),
                     (e[(e.ERROR = 3)] = "ERROR"),
                     (e[(e.OFF = 4)] = "OFF");
-                })((s = t.LogLevel || (t.LogLevel = {})));
+                })(s = t.LogLevel || (t.LogLevel = {}));
                 var c = {
                     debug: s.DEBUG,
                     info: s.INFO,
@@ -16725,54 +16637,53 @@
                     error: s.ERROR,
                     off: s.OFF,
                   },
-                  l = (function () {
+                  l = (() => {
                     function e(e) {
                       var t = this;
                       (this._optionsService = e),
                         this._updateLogLevel(),
-                        this._optionsService.onOptionChange(function (e) {
+                        this._optionsService.onOptionChange(e => {
                           "logLevel" === e && t._updateLogLevel();
                         });
                     }
-                    return (
-                      (e.prototype._updateLogLevel = function () {
-                        this._logLevel =
-                          c[this._optionsService.options.logLevel];
-                      }),
-                      (e.prototype._evalLazyOptionalParams = function (e) {
-                        for (var t = 0; t < e.length; t++)
-                          "function" == typeof e[t] && (e[t] = e[t]());
-                      }),
-                      (e.prototype._log = function (e, t, r) {
-                        this._evalLazyOptionalParams(r),
-                          e.call.apply(e, o([console, "xterm.js: " + t], r));
-                      }),
-                      (e.prototype.debug = function (e) {
-                        for (var t = [], r = 1; r < arguments.length; r++)
-                          t[r - 1] = arguments[r];
-                        this._logLevel <= s.DEBUG &&
-                          this._log(console.log, e, t);
-                      }),
-                      (e.prototype.info = function (e) {
-                        for (var t = [], r = 1; r < arguments.length; r++)
-                          t[r - 1] = arguments[r];
-                        this._logLevel <= s.INFO &&
-                          this._log(console.info, e, t);
-                      }),
-                      (e.prototype.warn = function (e) {
-                        for (var t = [], r = 1; r < arguments.length; r++)
-                          t[r - 1] = arguments[r];
-                        this._logLevel <= s.WARN &&
-                          this._log(console.warn, e, t);
-                      }),
-                      (e.prototype.error = function (e) {
-                        for (var t = [], r = 1; r < arguments.length; r++)
-                          t[r - 1] = arguments[r];
-                        this._logLevel <= s.ERROR &&
-                          this._log(console.error, e, t);
-                      }),
-                      i([n(0, a.IOptionsService)], e)
-                    );
+                    return (e.prototype._updateLogLevel = function () {
+                      this._logLevel =
+                        c[this._optionsService.options.logLevel];
+                    }),
+                    (e.prototype._evalLazyOptionalParams = e => {
+                      for (var t = 0; t < e.length; t++)
+                        "function" == typeof e[t] && (e[t] = e[t]());
+                    }),
+                    (e.prototype._log = function (e, t, r) {
+                      this._evalLazyOptionalParams(r),
+                        e.call.apply(e, o([console, "xterm.js: " + t], r));
+                    }),
+                    (e.prototype.debug = function (e) {
+                      for (var t = [], r = 1; r < arguments.length; r++)
+                        t[r - 1] = arguments[r];
+                      this._logLevel <= s.DEBUG &&
+                        this._log(console.log, e, t);
+                    }),
+                    (e.prototype.info = function (e) {
+                      for (var t = [], r = 1; r < arguments.length; r++)
+                        t[r - 1] = arguments[r];
+                      this._logLevel <= s.INFO &&
+                        this._log(console.info, e, t);
+                    }),
+                    (e.prototype.warn = function (e) {
+                      for (var t = [], r = 1; r < arguments.length; r++)
+                        t[r - 1] = arguments[r];
+                      this._logLevel <= s.WARN &&
+                        this._log(console.warn, e, t);
+                    }),
+                    (e.prototype.error = function (e) {
+                      for (var t = [], r = 1; r < arguments.length; r++)
+                        t[r - 1] = arguments[r];
+                      this._logLevel <= s.ERROR &&
+                        this._log(console.error, e, t);
+                    }),
+                    i([n(0, a.IOptionsService)], e)
+                  ;
                   })();
                 t.LogService = l;
               },
@@ -16841,7 +16752,7 @@
                     "900",
                   ],
                   a = ["cols", "rows"],
-                  c = (function () {
+                  c = (() => {
                     function e(e) {
                       (this._onOptionChange = new i.EventEmitter()),
                         (this.options = o.clone(t.DEFAULT_OPTIONS));
@@ -16881,10 +16792,7 @@
                           ((this.options[e] = r),
                           this._onOptionChange.fire(e)));
                     }),
-                    (e.prototype._sanitizeAndValidateOption = function (
-                      e,
-                      r
-                    ) {
+                    (e.prototype._sanitizeAndValidateOption = (e, r) => {
                       switch (e) {
                         case "bellStyle":
                         case "cursorStyle":
@@ -16935,8 +16843,7 @@
                         throw new Error('No option with key "' + e + '"');
                       return this.options[e];
                     }),
-                    e
-                  ;
+                    e;
                   })();
                 t.OptionsService = c;
               },
@@ -16953,10 +16860,10 @@
                     t.serviceRegistry =
                       void 0),
                   (t.serviceRegistry = new Map()),
-                  (t.getServiceDependencies = function (e) {
+                  (t.getServiceDependencies = e => {
                     return e.di$dependencies || [];
                   }),
-                  (t.createDecorator = function (e) {
+                  (t.createDecorator = e => {
                     if (t.serviceRegistry.has(e))
                       return t.serviceRegistry.get(e);
                     var i = function (e, t, n) {
@@ -16966,13 +16873,12 @@
                         );
                       r(i, e, n);
                     };
-                    return (
-                      (i.toString = function () {
-                        return e;
-                      }),
-                      t.serviceRegistry.set(e, i),
-                      i
-                    );
+                    return (i.toString = () => {
+                      return e;
+                    }),
+                    t.serviceRegistry.set(e, i),
+                    i
+                  ;
                   });
               },
               2585: (e, t, r) => {
@@ -17005,7 +16911,7 @@
                   (t.UnicodeService = void 0);
                 var i = r(8460),
                   n = r(225),
-                  o = (function () {
+                  o = (() => {
                     function e() {
                       (this._providers = Object.create(null)),
                         (this._active = ""),

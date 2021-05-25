@@ -3,7 +3,7 @@
   {
     "/YWt": function (t, e, a) {
       "use strict";
-      a.d(e, "a", function () {
+      a.d(e, "a", () => {
         return d;
       });
       var o = a("cpVT"),
@@ -16,7 +16,7 @@
         if (Object.getOwnPropertySymbols) {
           var o = Object.getOwnPropertySymbols(t);
           e &&
-            (o = o.filter(function (e) {
+            (o = o.filter(e => {
               return Object.getOwnPropertyDescriptor(t, e).enumerable;
             })),
             a.push.apply(a, o);
@@ -27,12 +27,12 @@
         for (var e = 1; e < arguments.length; e++) {
           var a = null != arguments[e] ? arguments[e] : {};
           e % 2
-            ? c(Object(a), !0).forEach(function (e) {
+            ? c(Object(a), !0).forEach(e => {
                 Object(o.a)(t, e, a[e]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(a))
-            : c(Object(a)).forEach(function (e) {
+            : c(Object(a)).forEach(e => {
                 Object.defineProperty(
                   t,
                   e,
@@ -44,7 +44,7 @@
       }
       function d(t) {
         var e = Object(n.a)(t.gate);
-        r.a.useEffect(function () {
+        r.a.useEffect(() => {
           Object(i.track)(
             t.event,
             t.data ? l(l({}, t.data), {}, { recieved: e }) : { recieved: e }
@@ -62,7 +62,7 @@
         c = a.n(n),
         l = a("EQ2k"),
         d = a("Dy7O"),
-        m = function (t) {
+        m = t => {
           var e = t.fill,
             a = t.width,
             s = t.height;
@@ -119,7 +119,7 @@
         x = a("ZY4G"),
         j = a("yVCx"),
         u = a("Fklr"),
-        h = function () {
+        h = () => {
           return Object(o.jsxs)("div", {
             className:
               i.a.dynamic([["3667135421", [l.a.paleGreen, l.a.green]]]) +
@@ -155,7 +155,7 @@
         O = a("Gbtx"),
         w = a("zgDP"),
         k = a("knUX"),
-        _ = function (t) {
+        _ = t => {
           var e = t.comment;
           return Object(o.jsxs)("div", {
             className: "jsx-1661908866",
@@ -200,7 +200,7 @@
         if (Object.getOwnPropertySymbols) {
           var o = Object.getOwnPropertySymbols(t);
           e &&
-            (o = o.filter(function (e) {
+            (o = o.filter(e => {
               return Object.getOwnPropertyDescriptor(t, e).enumerable;
             })),
             a.push.apply(a, o);
@@ -211,12 +211,12 @@
         for (var e = 1; e < arguments.length; e++) {
           var a = null != arguments[e] ? arguments[e] : {};
           e % 2
-            ? L(Object(a), !0).forEach(function (e) {
+            ? L(Object(a), !0).forEach(e => {
                 Object(s.a)(t, e, a[e]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(a))
-            : L(Object(a)).forEach(function (e) {
+            : L(Object(a)).forEach(e => {
                 Object.defineProperty(
                   t,
                   e,
@@ -226,8 +226,8 @@
         }
         return t;
       }
-      var F = function (t) {
-          return function () {
+      var F = t => {
+          return () => {
             Object(w.track)(w.events.LANGUAGE_FILTER_CLICK, { lang: t });
           };
         },
@@ -240,7 +240,7 @@
           }),
           className: "jsx-1874417601",
         };
-      e.a = function (t) {
+      e.a = t => {
         var e = t.post,
           a = t.onClick,
           s = t.hidePinnedIcon,
@@ -531,7 +531,7 @@
                       className:
                         i.a.dynamic([["1839547356", [l.a.gray75]]]) +
                         " board-post-list-item-recent-comments-list",
-                      children: e.recentComments.map(function (t) {
+                      children: e.recentComments.map(t => {
                         return Object(o.jsx)(
                           "div",
                           {
@@ -656,7 +656,7 @@
     },
     Dy7O(t, e, a) {
       "use strict";
-      a.d(e, "a", function () {
+      a.d(e, "a", () => {
         return d;
       });
       var o = a("nKUr"),
@@ -670,7 +670,7 @@
         var e = Object(l.a)().showError,
           a = t.post,
           d = Object(r.e)(),
-          m = Object(r.f)(function (t) {
+          m = Object(r.f)(t => {
             return t.user.userInfo.isLoggedIn;
           }, r.d),
           p = Object(n.td)({
@@ -710,7 +710,7 @@
       "use strict";
       var o = a("nKUr"),
         s = (a("q1tI"), a("EQ2k")),
-        r = function (t) {
+        r = t => {
           var e = t.size,
             a = t.color;
           return Object(o.jsx)("svg", {
@@ -835,7 +835,7 @@
         s = a("MX0m"),
         r = a.n(s),
         i = (a("q1tI"), a("EQ2k")),
-        n = function (t) {
+        n = t => {
           var e = t.stroke,
             a = t.width,
             s = t.height;
@@ -931,7 +931,7 @@
     },
     imBe(t, e, a) {
       "use strict";
-      a.d(e, "a", function () {
+      a.d(e, "a", () => {
         return u;
       });
       var o = a("nKUr"),
@@ -947,17 +947,16 @@
         b = a("A3V5"),
         x = a.n(b);
       function j(t) {
-        var e = (function () {
+        var e = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (t) {
             return !1;
           }
@@ -972,7 +971,7 @@
           return Object(c.a)(this, a);
         };
       }
-      var u = (function (t) {
+      var u = (t => {
         Object(n.a)(a, t);
         var e = j(a);
         function a() {
@@ -980,22 +979,21 @@
           Object(r.a)(this, a);
           for (var o = arguments.length, s = new Array(o), i = 0; i < o; i++)
             s[i] = arguments[i];
-          return (
-            ((t = e.call.apply(e, [this].concat(s))).state = { hover: !1 }),
-            (t.onMouseEnter = function (e) {
-              t.props.onMouseEnter && t.props.onMouseEnter(e),
-                t.setState({ hover: !0 });
-            }),
-            (t.onMouseLeave = function (e) {
-              t.props.onMouseLeave && t.props.onMouseLeave(e),
-                t.setState({ hover: !1 });
-            }),
-            (t.onClick = function (e) {
-              t.props.onClick && t.props.onClick(e),
-                t.props.hideOnClick && t.setState({ hover: !1 });
-            }),
-            t
-          );
+          return ((t = e.call.apply(e, [this].concat(s))).state = { hover: !1 }),
+          (t.onMouseEnter = e => {
+            t.props.onMouseEnter && t.props.onMouseEnter(e),
+              t.setState({ hover: !0 });
+          }),
+          (t.onMouseLeave = e => {
+            t.props.onMouseLeave && t.props.onMouseLeave(e),
+              t.setState({ hover: !1 });
+          }),
+          (t.onClick = e => {
+            t.props.onClick && t.props.onClick(e),
+              t.props.hideOnClick && t.setState({ hover: !1 });
+          }),
+          t
+        ;
         }
         return Object(i.a)(a, [
           {
@@ -1094,10 +1092,10 @@
     },
     jK9h(t, e, a) {
       "use strict";
-      a.d(e, "a", function () {
+      a.d(e, "a", () => {
         return o;
       });
-      var o = function (t) {
+      var o = t => {
         return {
           as: t.url,
           href: { pathname: "/post", query: { id: String(t.id) } },
@@ -1110,7 +1108,7 @@
         s = a("MX0m"),
         r = a.n(s),
         i = (a("q1tI"), a("EQ2k")),
-        n = function (t) {
+        n = t => {
           var e = t.fill,
             a = t.width,
             s = t.height;
@@ -1178,7 +1176,7 @@
     },
     sLtE(t, e, a) {
       "use strict";
-      a.d(e, "a", function () {
+      a.d(e, "a", () => {
         return c;
       });
       var o = a("nKUr"),
@@ -1234,7 +1232,7 @@
     },
     xEHj(t, e, a) {
       "use strict";
-      a.d(e, "a", function () {
+      a.d(e, "a", () => {
         return n;
       });
       var o = a("T/aA"),

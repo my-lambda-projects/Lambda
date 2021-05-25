@@ -20,197 +20,126 @@
       (t.DocumentColorRequest = u.DocumentColorRequest),
         (t.ColorPresentationRequest = u.ColorPresentationRequest);
       var d = n("3JnO");
-      (t.FoldingRangeRequest = d.FoldingRangeRequest),
-        (function (e) {
-          e.is = function (e) {
-            var t = e;
-            return (
-              r.string(t.language) || r.string(t.scheme) || r.string(t.pattern)
-            );
-          };
-        })(t.DocumentFilter || (t.DocumentFilter = {})),
-        (function (e) {
-          e.type = new i.RequestType("client/registerCapability");
-        })(t.RegistrationRequest || (t.RegistrationRequest = {})),
-        (function (e) {
-          e.type = new i.RequestType("client/unregisterCapability");
-        })(t.UnregistrationRequest || (t.UnregistrationRequest = {})),
-        (function (e) {
-          (e.Create = "create"), (e.Rename = "rename"), (e.Delete = "delete");
-        })(t.ResourceOperationKind || (t.ResourceOperationKind = {})),
-        (function (e) {
-          (e.Abort = "abort"),
-            (e.Transactional = "transactional"),
-            (e.TextOnlyTransactional = "textOnlyTransactional"),
-            (e.Undo = "undo");
-        })(t.FailureHandlingKind || (t.FailureHandlingKind = {})),
-        (function (e) {
-          (e.None = 0), (e.Full = 1), (e.Incremental = 2);
-        })(t.TextDocumentSyncKind || (t.TextDocumentSyncKind = {})),
-        (function (e) {
-          e.type = new i.RequestType("initialize");
-        })(t.InitializeRequest || (t.InitializeRequest = {})),
-        (function (e) {
-          e.unknownProtocolVersion = 1;
-        })(t.InitializeError || (t.InitializeError = {})),
-        (function (e) {
-          e.type = new i.NotificationType("initialized");
-        })(t.InitializedNotification || (t.InitializedNotification = {})),
-        (function (e) {
-          e.type = new i.RequestType0("shutdown");
-        })(t.ShutdownRequest || (t.ShutdownRequest = {})),
-        (function (e) {
-          e.type = new i.NotificationType0("exit");
-        })(t.ExitNotification || (t.ExitNotification = {})),
-        (function (e) {
-          e.type = new i.NotificationType("workspace/didChangeConfiguration");
-        })(
-          t.DidChangeConfigurationNotification ||
-            (t.DidChangeConfigurationNotification = {})
-        ),
-        (function (e) {
-          (e.Error = 1), (e.Warning = 2), (e.Info = 3), (e.Log = 4);
-        })(t.MessageType || (t.MessageType = {})),
-        (function (e) {
-          e.type = new i.NotificationType("window/showMessage");
-        })(t.ShowMessageNotification || (t.ShowMessageNotification = {})),
-        (function (e) {
-          e.type = new i.RequestType("window/showMessageRequest");
-        })(t.ShowMessageRequest || (t.ShowMessageRequest = {})),
-        (function (e) {
-          e.type = new i.NotificationType("window/logMessage");
-        })(t.LogMessageNotification || (t.LogMessageNotification = {})),
-        (function (e) {
-          e.type = new i.NotificationType("telemetry/event");
-        })(t.TelemetryEventNotification || (t.TelemetryEventNotification = {})),
-        (function (e) {
-          e.type = new i.NotificationType("textDocument/didOpen");
-        })(
-          t.DidOpenTextDocumentNotification ||
-            (t.DidOpenTextDocumentNotification = {})
-        ),
-        (function (e) {
-          e.type = new i.NotificationType("textDocument/didChange");
-        })(
-          t.DidChangeTextDocumentNotification ||
-            (t.DidChangeTextDocumentNotification = {})
-        ),
-        (function (e) {
-          e.type = new i.NotificationType("textDocument/didClose");
-        })(
-          t.DidCloseTextDocumentNotification ||
-            (t.DidCloseTextDocumentNotification = {})
-        ),
-        (function (e) {
-          e.type = new i.NotificationType("textDocument/didSave");
-        })(
-          t.DidSaveTextDocumentNotification ||
-            (t.DidSaveTextDocumentNotification = {})
-        ),
-        (function (e) {
-          e.type = new i.NotificationType("textDocument/willSave");
-        })(
-          t.WillSaveTextDocumentNotification ||
-            (t.WillSaveTextDocumentNotification = {})
-        ),
-        (function (e) {
-          e.type = new i.RequestType("textDocument/willSaveWaitUntil");
-        })(
-          t.WillSaveTextDocumentWaitUntilRequest ||
-            (t.WillSaveTextDocumentWaitUntilRequest = {})
-        ),
-        (function (e) {
-          e.type = new i.NotificationType("workspace/didChangeWatchedFiles");
-        })(
-          t.DidChangeWatchedFilesNotification ||
-            (t.DidChangeWatchedFilesNotification = {})
-        ),
-        (function (e) {
-          (e.Created = 1), (e.Changed = 2), (e.Deleted = 3);
-        })(t.FileChangeType || (t.FileChangeType = {})),
-        (function (e) {
-          (e.Create = 1), (e.Change = 2), (e.Delete = 4);
-        })(t.WatchKind || (t.WatchKind = {})),
-        (function (e) {
-          e.type = new i.NotificationType("textDocument/publishDiagnostics");
-        })(
-          t.PublishDiagnosticsNotification ||
-            (t.PublishDiagnosticsNotification = {})
-        ),
-        (function (e) {
-          (e.Invoked = 1),
-            (e.TriggerCharacter = 2),
-            (e.TriggerForIncompleteCompletions = 3);
-        })(t.CompletionTriggerKind || (t.CompletionTriggerKind = {})),
-        (function (e) {
-          e.type = new i.RequestType("textDocument/completion");
-        })(t.CompletionRequest || (t.CompletionRequest = {})),
-        (function (e) {
-          e.type = new i.RequestType("completionItem/resolve");
-        })(t.CompletionResolveRequest || (t.CompletionResolveRequest = {})),
-        (function (e) {
-          e.type = new i.RequestType("textDocument/hover");
-        })(t.HoverRequest || (t.HoverRequest = {})),
-        (function (e) {
-          e.type = new i.RequestType("textDocument/signatureHelp");
-        })(t.SignatureHelpRequest || (t.SignatureHelpRequest = {})),
-        (function (e) {
-          e.type = new i.RequestType("textDocument/definition");
-        })(t.DefinitionRequest || (t.DefinitionRequest = {})),
-        (function (e) {
-          e.type = new i.RequestType("textDocument/references");
-        })(t.ReferencesRequest || (t.ReferencesRequest = {})),
-        (function (e) {
-          e.type = new i.RequestType("textDocument/documentHighlight");
-        })(t.DocumentHighlightRequest || (t.DocumentHighlightRequest = {})),
-        (function (e) {
-          e.type = new i.RequestType("textDocument/documentSymbol");
-        })(t.DocumentSymbolRequest || (t.DocumentSymbolRequest = {})),
-        (function (e) {
-          e.type = new i.RequestType("workspace/symbol");
-        })(t.WorkspaceSymbolRequest || (t.WorkspaceSymbolRequest = {})),
-        (function (e) {
-          e.type = new i.RequestType("textDocument/codeAction");
-        })(t.CodeActionRequest || (t.CodeActionRequest = {})),
-        (function (e) {
-          e.type = new i.RequestType("textDocument/codeLens");
-        })(t.CodeLensRequest || (t.CodeLensRequest = {})),
-        (function (e) {
-          e.type = new i.RequestType("codeLens/resolve");
-        })(t.CodeLensResolveRequest || (t.CodeLensResolveRequest = {})),
-        (function (e) {
-          e.type = new i.RequestType("textDocument/formatting");
-        })(t.DocumentFormattingRequest || (t.DocumentFormattingRequest = {})),
-        (function (e) {
-          e.type = new i.RequestType("textDocument/rangeFormatting");
-        })(
-          t.DocumentRangeFormattingRequest ||
-            (t.DocumentRangeFormattingRequest = {})
-        ),
-        (function (e) {
-          e.type = new i.RequestType("textDocument/onTypeFormatting");
-        })(
-          t.DocumentOnTypeFormattingRequest ||
-            (t.DocumentOnTypeFormattingRequest = {})
-        ),
-        (function (e) {
-          e.type = new i.RequestType("textDocument/rename");
-        })(t.RenameRequest || (t.RenameRequest = {})),
-        (function (e) {
-          e.type = new i.RequestType("textDocument/prepareRename");
-        })(t.PrepareRenameRequest || (t.PrepareRenameRequest = {})),
-        (function (e) {
-          e.type = new i.RequestType("textDocument/documentLink");
-        })(t.DocumentLinkRequest || (t.DocumentLinkRequest = {})),
-        (function (e) {
-          e.type = new i.RequestType("documentLink/resolve");
-        })(t.DocumentLinkResolveRequest || (t.DocumentLinkResolveRequest = {})),
-        (function (e) {
-          e.type = new i.RequestType("workspace/executeCommand");
-        })(t.ExecuteCommandRequest || (t.ExecuteCommandRequest = {})),
-        (function (e) {
-          e.type = new i.RequestType("workspace/applyEdit");
-        })(t.ApplyWorkspaceEditRequest || (t.ApplyWorkspaceEditRequest = {}));
+      t.FoldingRangeRequest = d.FoldingRangeRequest, (e => {
+        e.is = e => {
+          var t = e;
+          return (
+            r.string(t.language) || r.string(t.scheme) || r.string(t.pattern)
+          );
+        };
+      })(t.DocumentFilter || (t.DocumentFilter = {})), (e => {
+        e.type = new i.RequestType("client/registerCapability");
+      })(t.RegistrationRequest || (t.RegistrationRequest = {})), (e => {
+        e.type = new i.RequestType("client/unregisterCapability");
+      })(t.UnregistrationRequest || (t.UnregistrationRequest = {})), (e => {
+        (e.Create = "create"), (e.Rename = "rename"), (e.Delete = "delete");
+      })(t.ResourceOperationKind || (t.ResourceOperationKind = {})), (e => {
+        (e.Abort = "abort"),
+          (e.Transactional = "transactional"),
+          (e.TextOnlyTransactional = "textOnlyTransactional"),
+          (e.Undo = "undo");
+      })(t.FailureHandlingKind || (t.FailureHandlingKind = {})), (e => {
+        (e.None = 0), (e.Full = 1), (e.Incremental = 2);
+      })(t.TextDocumentSyncKind || (t.TextDocumentSyncKind = {})), (e => {
+        e.type = new i.RequestType("initialize");
+      })(t.InitializeRequest || (t.InitializeRequest = {})), (e => {
+        e.unknownProtocolVersion = 1;
+      })(t.InitializeError || (t.InitializeError = {})), (e => {
+        e.type = new i.NotificationType("initialized");
+      })(t.InitializedNotification || (t.InitializedNotification = {})), (e => {
+        e.type = new i.RequestType0("shutdown");
+      })(t.ShutdownRequest || (t.ShutdownRequest = {})), (e => {
+        e.type = new i.NotificationType0("exit");
+      })(t.ExitNotification || (t.ExitNotification = {})), (e => {
+        e.type = new i.NotificationType("workspace/didChangeConfiguration");
+      })(t.DidChangeConfigurationNotification ||
+        (t.DidChangeConfigurationNotification = {})), (e => {
+        (e.Error = 1), (e.Warning = 2), (e.Info = 3), (e.Log = 4);
+      })(t.MessageType || (t.MessageType = {})), (e => {
+        e.type = new i.NotificationType("window/showMessage");
+      })(t.ShowMessageNotification || (t.ShowMessageNotification = {})), (e => {
+        e.type = new i.RequestType("window/showMessageRequest");
+      })(t.ShowMessageRequest || (t.ShowMessageRequest = {})), (e => {
+        e.type = new i.NotificationType("window/logMessage");
+      })(t.LogMessageNotification || (t.LogMessageNotification = {})), (e => {
+        e.type = new i.NotificationType("telemetry/event");
+      })(t.TelemetryEventNotification || (t.TelemetryEventNotification = {})), (e => {
+        e.type = new i.NotificationType("textDocument/didOpen");
+      })(t.DidOpenTextDocumentNotification ||
+        (t.DidOpenTextDocumentNotification = {})), (e => {
+        e.type = new i.NotificationType("textDocument/didChange");
+      })(t.DidChangeTextDocumentNotification ||
+        (t.DidChangeTextDocumentNotification = {})), (e => {
+        e.type = new i.NotificationType("textDocument/didClose");
+      })(t.DidCloseTextDocumentNotification ||
+        (t.DidCloseTextDocumentNotification = {})), (e => {
+        e.type = new i.NotificationType("textDocument/didSave");
+      })(t.DidSaveTextDocumentNotification ||
+        (t.DidSaveTextDocumentNotification = {})), (e => {
+        e.type = new i.NotificationType("textDocument/willSave");
+      })(t.WillSaveTextDocumentNotification ||
+        (t.WillSaveTextDocumentNotification = {})), (e => {
+        e.type = new i.RequestType("textDocument/willSaveWaitUntil");
+      })(t.WillSaveTextDocumentWaitUntilRequest ||
+        (t.WillSaveTextDocumentWaitUntilRequest = {})), (e => {
+        e.type = new i.NotificationType("workspace/didChangeWatchedFiles");
+      })(t.DidChangeWatchedFilesNotification ||
+        (t.DidChangeWatchedFilesNotification = {})), (e => {
+        (e.Created = 1), (e.Changed = 2), (e.Deleted = 3);
+      })(t.FileChangeType || (t.FileChangeType = {})), (e => {
+        (e.Create = 1), (e.Change = 2), (e.Delete = 4);
+      })(t.WatchKind || (t.WatchKind = {})), (e => {
+        e.type = new i.NotificationType("textDocument/publishDiagnostics");
+      })(t.PublishDiagnosticsNotification ||
+        (t.PublishDiagnosticsNotification = {})), (e => {
+        (e.Invoked = 1),
+          (e.TriggerCharacter = 2),
+          (e.TriggerForIncompleteCompletions = 3);
+      })(t.CompletionTriggerKind || (t.CompletionTriggerKind = {})), (e => {
+        e.type = new i.RequestType("textDocument/completion");
+      })(t.CompletionRequest || (t.CompletionRequest = {})), (e => {
+        e.type = new i.RequestType("completionItem/resolve");
+      })(t.CompletionResolveRequest || (t.CompletionResolveRequest = {})), (e => {
+        e.type = new i.RequestType("textDocument/hover");
+      })(t.HoverRequest || (t.HoverRequest = {})), (e => {
+        e.type = new i.RequestType("textDocument/signatureHelp");
+      })(t.SignatureHelpRequest || (t.SignatureHelpRequest = {})), (e => {
+        e.type = new i.RequestType("textDocument/definition");
+      })(t.DefinitionRequest || (t.DefinitionRequest = {})), (e => {
+        e.type = new i.RequestType("textDocument/references");
+      })(t.ReferencesRequest || (t.ReferencesRequest = {})), (e => {
+        e.type = new i.RequestType("textDocument/documentHighlight");
+      })(t.DocumentHighlightRequest || (t.DocumentHighlightRequest = {})), (e => {
+        e.type = new i.RequestType("textDocument/documentSymbol");
+      })(t.DocumentSymbolRequest || (t.DocumentSymbolRequest = {})), (e => {
+        e.type = new i.RequestType("workspace/symbol");
+      })(t.WorkspaceSymbolRequest || (t.WorkspaceSymbolRequest = {})), (e => {
+        e.type = new i.RequestType("textDocument/codeAction");
+      })(t.CodeActionRequest || (t.CodeActionRequest = {})), (e => {
+        e.type = new i.RequestType("textDocument/codeLens");
+      })(t.CodeLensRequest || (t.CodeLensRequest = {})), (e => {
+        e.type = new i.RequestType("codeLens/resolve");
+      })(t.CodeLensResolveRequest || (t.CodeLensResolveRequest = {})), (e => {
+        e.type = new i.RequestType("textDocument/formatting");
+      })(t.DocumentFormattingRequest || (t.DocumentFormattingRequest = {})), (e => {
+        e.type = new i.RequestType("textDocument/rangeFormatting");
+      })(t.DocumentRangeFormattingRequest ||
+        (t.DocumentRangeFormattingRequest = {})), (e => {
+        e.type = new i.RequestType("textDocument/onTypeFormatting");
+      })(t.DocumentOnTypeFormattingRequest ||
+        (t.DocumentOnTypeFormattingRequest = {})), (e => {
+        e.type = new i.RequestType("textDocument/rename");
+      })(t.RenameRequest || (t.RenameRequest = {})), (e => {
+        e.type = new i.RequestType("textDocument/prepareRename");
+      })(t.PrepareRenameRequest || (t.PrepareRenameRequest = {})), (e => {
+        e.type = new i.RequestType("textDocument/documentLink");
+      })(t.DocumentLinkRequest || (t.DocumentLinkRequest = {})), (e => {
+        e.type = new i.RequestType("documentLink/resolve");
+      })(t.DocumentLinkResolveRequest || (t.DocumentLinkResolveRequest = {})), (e => {
+        e.type = new i.RequestType("workspace/executeCommand");
+      })(t.ExecuteCommandRequest || (t.ExecuteCommandRequest = {})), (e => {
+        e.type = new i.RequestType("workspace/applyEdit");
+      })(t.ApplyWorkspaceEditRequest || (t.ApplyWorkspaceEditRequest = {}));
     },
     "1Y8E": function (e, t, n) {
       "use strict";
@@ -221,7 +150,7 @@
         s = n("zxs+"),
         a = n("in9m"),
         c = n("Gz0x");
-      !(function (e) {
+      !(e => {
         function t(e, t) {
           void 0 === t && (t = {});
           var n = new r.MonacoToProtocolConverter(),
@@ -234,18 +163,18 @@
           };
         }
         (e.create = t),
-          (e.install = function (e, n) {
+          (e.install = (e, n) => {
             void 0 === n && (n = {});
             var r = t(e, n);
             return c.Services.install(r), r;
           }),
-          (e.get = function () {
+          (e.get = () => {
             return c.Services.get();
           });
       })(t.MonacoServices || (t.MonacoServices = {}));
     },
     "2vv7": function (e, t) {
-      e.exports = function (e, t) {
+      e.exports = (e, t) => {
         if ("string" !== typeof e) throw new TypeError("Expected a string");
         for (
           var n,
@@ -323,427 +252,360 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
       var r = n("MOv1");
-      !(function (e) {
+      !(e => {
         (e.Comment = "comment"), (e.Imports = "imports"), (e.Region = "region");
-      })(t.FoldingRangeKind || (t.FoldingRangeKind = {})),
-        (function (e) {
-          e.type = new r.RequestType("textDocument/foldingRange");
-        })(t.FoldingRangeRequest || (t.FoldingRangeRequest = {}));
+      })(t.FoldingRangeKind || (t.FoldingRangeKind = {})), (e => {
+        e.type = new r.RequestType("textDocument/foldingRange");
+      })(t.FoldingRangeRequest || (t.FoldingRangeRequest = {}));
     },
     "7Z1E": function (e, t, n) {
       "use strict";
       var r, i, o, s, a, c, u, d, l, p, f, m, g, h, v, y, C, D;
-      n.r(t),
-        n.d(t, "Position", function () {
-          return r;
+      n.r(t), n.d(t, "Position", () => {
+        return r;
+      }), n.d(t, "Range", () => {
+        return i;
+      }), n.d(t, "Location", () => {
+        return o;
+      }), n.d(t, "Color", () => {
+        return s;
+      }), n.d(t, "ColorInformation", () => {
+        return a;
+      }), n.d(t, "ColorPresentation", () => {
+        return c;
+      }), n.d(t, "FoldingRangeKind", () => {
+        return u;
+      }), n.d(t, "FoldingRange", () => {
+        return d;
+      }), n.d(t, "DiagnosticRelatedInformation", () => {
+        return l;
+      }), n.d(t, "DiagnosticSeverity", () => {
+        return p;
+      }), n.d(t, "Diagnostic", () => {
+        return f;
+      }), n.d(t, "Command", () => {
+        return m;
+      }), n.d(t, "TextEdit", () => {
+        return g;
+      }), n.d(t, "TextDocumentEdit", () => {
+        return h;
+      }), n.d(t, "CreateFile", () => {
+        return v;
+      }), n.d(t, "RenameFile", () => {
+        return y;
+      }), n.d(t, "DeleteFile", () => {
+        return C;
+      }), n.d(t, "WorkspaceEdit", () => {
+        return D;
+      }), n.d(t, "WorkspaceChange", () => {
+        return j;
+      }), n.d(t, "TextDocumentIdentifier", () => {
+        return w;
+      }), n.d(t, "VersionedTextDocumentIdentifier", () => {
+        return x;
+      }), n.d(t, "TextDocumentItem", () => {
+        return b;
+      }), n.d(t, "MarkupKind", () => {
+        return _;
+      }), n.d(t, "MarkupContent", () => {
+        return R;
+      }), n.d(t, "CompletionItemKind", () => {
+        return T;
+      }), n.d(t, "InsertTextFormat", () => {
+        return P;
+      }), n.d(t, "CompletionItem", () => {
+        return S;
+      }), n.d(t, "CompletionList", () => {
+        return k;
+      }), n.d(t, "MarkedString", () => {
+        return E;
+      }), n.d(t, "Hover", () => {
+        return O;
+      }), n.d(t, "ParameterInformation", () => {
+        return M;
+      }), n.d(t, "SignatureInformation", () => {
+        return F;
+      }), n.d(t, "DocumentHighlightKind", () => {
+        return q;
+      }), n.d(t, "DocumentHighlight", () => {
+        return I;
+      }), n.d(t, "SymbolKind", () => {
+        return N;
+      }), n.d(t, "SymbolInformation", () => {
+        return L;
+      }), n.d(t, "DocumentSymbol", () => {
+        return $;
+      }), n.d(t, "CodeActionKind", () => {
+        return A;
+      }), n.d(t, "CodeActionContext", () => {
+        return W;
+      }), n.d(t, "CodeAction", () => {
+        return H;
+      }), n.d(t, "CodeLens", () => {
+        return U;
+      }), n.d(t, "FormattingOptions", () => {
+        return z;
+      }), n.d(t, "DocumentLink", () => {
+        return J;
+      }), n.d(t, "EOL", () => {
+        return G;
+      }), n.d(t, "TextDocument", () => {
+        return V;
+      }), n.d(t, "TextDocumentSaveReason", () => {
+        return B;
+      }), (e => {
+        (e.create = (e, t) => {
+          return { line: e, character: t };
         }),
-        n.d(t, "Range", function () {
-          return i;
-        }),
-        n.d(t, "Location", function () {
-          return o;
-        }),
-        n.d(t, "Color", function () {
-          return s;
-        }),
-        n.d(t, "ColorInformation", function () {
-          return a;
-        }),
-        n.d(t, "ColorPresentation", function () {
-          return c;
-        }),
-        n.d(t, "FoldingRangeKind", function () {
-          return u;
-        }),
-        n.d(t, "FoldingRange", function () {
-          return d;
-        }),
-        n.d(t, "DiagnosticRelatedInformation", function () {
-          return l;
-        }),
-        n.d(t, "DiagnosticSeverity", function () {
-          return p;
-        }),
-        n.d(t, "Diagnostic", function () {
-          return f;
-        }),
-        n.d(t, "Command", function () {
-          return m;
-        }),
-        n.d(t, "TextEdit", function () {
-          return g;
-        }),
-        n.d(t, "TextDocumentEdit", function () {
-          return h;
-        }),
-        n.d(t, "CreateFile", function () {
-          return v;
-        }),
-        n.d(t, "RenameFile", function () {
-          return y;
-        }),
-        n.d(t, "DeleteFile", function () {
-          return C;
-        }),
-        n.d(t, "WorkspaceEdit", function () {
-          return D;
-        }),
-        n.d(t, "WorkspaceChange", function () {
-          return j;
-        }),
-        n.d(t, "TextDocumentIdentifier", function () {
-          return w;
-        }),
-        n.d(t, "VersionedTextDocumentIdentifier", function () {
-          return x;
-        }),
-        n.d(t, "TextDocumentItem", function () {
-          return b;
-        }),
-        n.d(t, "MarkupKind", function () {
-          return _;
-        }),
-        n.d(t, "MarkupContent", function () {
-          return R;
-        }),
-        n.d(t, "CompletionItemKind", function () {
-          return T;
-        }),
-        n.d(t, "InsertTextFormat", function () {
-          return P;
-        }),
-        n.d(t, "CompletionItem", function () {
-          return S;
-        }),
-        n.d(t, "CompletionList", function () {
-          return k;
-        }),
-        n.d(t, "MarkedString", function () {
-          return E;
-        }),
-        n.d(t, "Hover", function () {
-          return O;
-        }),
-        n.d(t, "ParameterInformation", function () {
-          return M;
-        }),
-        n.d(t, "SignatureInformation", function () {
-          return F;
-        }),
-        n.d(t, "DocumentHighlightKind", function () {
-          return q;
-        }),
-        n.d(t, "DocumentHighlight", function () {
-          return I;
-        }),
-        n.d(t, "SymbolKind", function () {
-          return N;
-        }),
-        n.d(t, "SymbolInformation", function () {
-          return L;
-        }),
-        n.d(t, "DocumentSymbol", function () {
-          return $;
-        }),
-        n.d(t, "CodeActionKind", function () {
-          return A;
-        }),
-        n.d(t, "CodeActionContext", function () {
-          return W;
-        }),
-        n.d(t, "CodeAction", function () {
-          return H;
-        }),
-        n.d(t, "CodeLens", function () {
-          return U;
-        }),
-        n.d(t, "FormattingOptions", function () {
-          return z;
-        }),
-        n.d(t, "DocumentLink", function () {
-          return J;
-        }),
-        n.d(t, "EOL", function () {
-          return G;
-        }),
-        n.d(t, "TextDocument", function () {
-          return V;
-        }),
-        n.d(t, "TextDocumentSaveReason", function () {
-          return B;
-        }),
-        (function (e) {
-          (e.create = function (e, t) {
-            return { line: e, character: t };
-          }),
-            (e.is = function (e) {
-              var t = e;
-              return (
-                Z.objectLiteral(t) && Z.number(t.line) && Z.number(t.character)
-              );
-            });
-        })(r || (r = {})),
-        (function (e) {
-          (e.create = function (e, t, n, i) {
-            if (Z.number(e) && Z.number(t) && Z.number(n) && Z.number(i))
-              return { start: r.create(e, t), end: r.create(n, i) };
-            if (r.is(e) && r.is(t)) return { start: e, end: t };
-            throw new Error(
-              "Range#create called with invalid arguments[" +
-                e +
-                ", " +
-                t +
-                ", " +
-                n +
-                ", " +
-                i +
-                "]"
-            );
-          }),
-            (e.is = function (e) {
-              var t = e;
-              return Z.objectLiteral(t) && r.is(t.start) && r.is(t.end);
-            });
-        })(i || (i = {})),
-        (function (e) {
-          (e.create = function (e, t) {
-            return { uri: e, range: t };
-          }),
-            (e.is = function (e) {
-              var t = e;
-              return (
-                Z.defined(t) &&
-                i.is(t.range) &&
-                (Z.string(t.uri) || Z.undefined(t.uri))
-              );
-            });
-        })(o || (o = {})),
-        (function (e) {
-          (e.create = function (e, t, n, r) {
-            return { red: e, green: t, blue: n, alpha: r };
-          }),
-            (e.is = function (e) {
-              var t = e;
-              return (
-                Z.number(t.red) &&
-                Z.number(t.green) &&
-                Z.number(t.blue) &&
-                Z.number(t.alpha)
-              );
-            });
-        })(s || (s = {})),
-        (function (e) {
-          (e.create = function (e, t) {
-            return { range: e, color: t };
-          }),
-            (e.is = function (e) {
-              var t = e;
-              return i.is(t.range) && s.is(t.color);
-            });
-        })(a || (a = {})),
-        (function (e) {
-          (e.create = function (e, t, n) {
-            return { label: e, textEdit: t, additionalTextEdits: n };
-          }),
-            (e.is = function (e) {
-              var t = e;
-              return (
-                Z.string(t.label) &&
-                (Z.undefined(t.textEdit) || g.is(t)) &&
-                (Z.undefined(t.additionalTextEdits) ||
-                  Z.typedArray(t.additionalTextEdits, g.is))
-              );
-            });
-        })(c || (c = {})),
-        (function (e) {
-          (e.Comment = "comment"),
-            (e.Imports = "imports"),
-            (e.Region = "region");
-        })(u || (u = {})),
-        (function (e) {
-          (e.create = function (e, t, n, r, i) {
-            var o = { startLine: e, endLine: t };
+          (e.is = e => {
+            var t = e;
             return (
-              Z.defined(n) && (o.startCharacter = n),
-              Z.defined(r) && (o.endCharacter = r),
-              Z.defined(i) && (o.kind = i),
-              o
+              Z.objectLiteral(t) && Z.number(t.line) && Z.number(t.character)
             );
-          }),
-            (e.is = function (e) {
-              var t = e;
-              return (
-                Z.number(t.startLine) &&
-                Z.number(t.startLine) &&
-                (Z.undefined(t.startCharacter) || Z.number(t.startCharacter)) &&
-                (Z.undefined(t.endCharacter) || Z.number(t.endCharacter)) &&
-                (Z.undefined(t.kind) || Z.string(t.kind))
-              );
-            });
-        })(d || (d = {})),
-        (function (e) {
-          (e.create = function (e, t) {
-            return { location: e, message: t };
-          }),
-            (e.is = function (e) {
-              var t = e;
-              return Z.defined(t) && o.is(t.location) && Z.string(t.message);
-            });
-        })(l || (l = {})),
-        (function (e) {
-          (e.Error = 1), (e.Warning = 2), (e.Information = 3), (e.Hint = 4);
-        })(p || (p = {})),
-        (function (e) {
-          (e.create = function (e, t, n, r, i, o) {
-            var s = { range: e, message: t };
+          });
+      })(r || (r = {})), (e => {
+        (e.create = (e, t, n, i) => {
+          if (Z.number(e) && Z.number(t) && Z.number(n) && Z.number(i))
+            return { start: r.create(e, t), end: r.create(n, i) };
+          if (r.is(e) && r.is(t)) return { start: e, end: t };
+          throw new Error(
+            "Range#create called with invalid arguments[" +
+              e +
+              ", " +
+              t +
+              ", " +
+              n +
+              ", " +
+              i +
+              "]"
+          );
+        }),
+          (e.is = e => {
+            var t = e;
+            return Z.objectLiteral(t) && r.is(t.start) && r.is(t.end);
+          });
+      })(i || (i = {})), (e => {
+        (e.create = (e, t) => {
+          return { uri: e, range: t };
+        }),
+          (e.is = e => {
+            var t = e;
             return (
-              Z.defined(n) && (s.severity = n),
-              Z.defined(r) && (s.code = r),
-              Z.defined(i) && (s.source = i),
-              Z.defined(o) && (s.relatedInformation = o),
-              s
+              Z.defined(t) &&
+              i.is(t.range) &&
+              (Z.string(t.uri) || Z.undefined(t.uri))
             );
-          }),
-            (e.is = function (e) {
-              var t = e;
-              return (
-                Z.defined(t) &&
-                i.is(t.range) &&
-                Z.string(t.message) &&
-                (Z.number(t.severity) || Z.undefined(t.severity)) &&
-                (Z.number(t.code) || Z.string(t.code) || Z.undefined(t.code)) &&
-                (Z.string(t.source) || Z.undefined(t.source)) &&
-                (Z.undefined(t.relatedInformation) ||
-                  Z.typedArray(t.relatedInformation, l.is))
-              );
-            });
-        })(f || (f = {})),
-        (function (e) {
-          (e.create = function (e, t) {
-            for (var n = [], r = 2; r < arguments.length; r++)
-              n[r - 2] = arguments[r];
-            var i = { title: e, command: t };
-            return Z.defined(n) && n.length > 0 && (i.arguments = n), i;
-          }),
-            (e.is = function (e) {
-              var t = e;
-              return Z.defined(t) && Z.string(t.title) && Z.string(t.command);
-            });
-        })(m || (m = {})),
-        (function (e) {
-          (e.replace = function (e, t) {
-            return { range: e, newText: t };
-          }),
-            (e.insert = function (e, t) {
-              return { range: { start: e, end: e }, newText: t };
-            }),
-            (e.del = function (e) {
-              return { range: e, newText: "" };
-            }),
-            (e.is = function (e) {
-              var t = e;
-              return Z.objectLiteral(t) && Z.string(t.newText) && i.is(t.range);
-            });
-        })(g || (g = {})),
-        (function (e) {
-          (e.create = function (e, t) {
-            return { textDocument: e, edits: t };
-          }),
-            (e.is = function (e) {
-              var t = e;
-              return (
-                Z.defined(t) && x.is(t.textDocument) && Array.isArray(t.edits)
-              );
-            });
-        })(h || (h = {})),
-        (function (e) {
-          (e.create = function (e, t) {
-            var n = { kind: "create", uri: e };
+          });
+      })(o || (o = {})), (e => {
+        (e.create = (e, t, n, r) => {
+          return { red: e, green: t, blue: n, alpha: r };
+        }),
+          (e.is = e => {
+            var t = e;
             return (
-              void 0 === t ||
-                (void 0 === t.overwrite && void 0 === t.ignoreIfExists) ||
-                (n.options = t),
-              n
+              Z.number(t.red) &&
+              Z.number(t.green) &&
+              Z.number(t.blue) &&
+              Z.number(t.alpha)
             );
-          }),
-            (e.is = function (e) {
-              var t = e;
-              return (
-                t &&
-                "create" === t.kind &&
-                Z.string(t.uri) &&
-                (void 0 === t.options ||
-                  ((void 0 === t.options.overwrite ||
-                    Z.boolean(t.options.overwrite)) &&
-                    (void 0 === t.options.ignoreIfExists ||
-                      Z.boolean(t.options.ignoreIfExists))))
-              );
-            });
-        })(v || (v = {})),
-        (function (e) {
-          (e.create = function (e, t, n) {
-            var r = { kind: "rename", oldUri: e, newUri: t };
+          });
+      })(s || (s = {})), (e => {
+        (e.create = (e, t) => {
+          return { range: e, color: t };
+        }),
+          (e.is = e => {
+            var t = e;
+            return i.is(t.range) && s.is(t.color);
+          });
+      })(a || (a = {})), (e => {
+        (e.create = (e, t, n) => {
+          return { label: e, textEdit: t, additionalTextEdits: n };
+        }),
+          (e.is = e => {
+            var t = e;
             return (
-              void 0 === n ||
-                (void 0 === n.overwrite && void 0 === n.ignoreIfExists) ||
-                (r.options = n),
-              r
+              Z.string(t.label) &&
+              (Z.undefined(t.textEdit) || g.is(t)) &&
+              (Z.undefined(t.additionalTextEdits) ||
+                Z.typedArray(t.additionalTextEdits, g.is))
             );
-          }),
-            (e.is = function (e) {
-              var t = e;
-              return (
-                t &&
-                "rename" === t.kind &&
-                Z.string(t.oldUri) &&
-                Z.string(t.newUri) &&
-                (void 0 === t.options ||
-                  ((void 0 === t.options.overwrite ||
-                    Z.boolean(t.options.overwrite)) &&
-                    (void 0 === t.options.ignoreIfExists ||
-                      Z.boolean(t.options.ignoreIfExists))))
-              );
-            });
-        })(y || (y = {})),
-        (function (e) {
-          (e.create = function (e, t) {
-            var n = { kind: "delete", uri: e };
+          });
+      })(c || (c = {})), (e => {
+        (e.Comment = "comment"),
+          (e.Imports = "imports"),
+          (e.Region = "region");
+      })(u || (u = {})), (e => {
+        (e.create = (e, t, n, r, i) => {
+          var o = { startLine: e, endLine: t };
+          return (
+            Z.defined(n) && (o.startCharacter = n),
+            Z.defined(r) && (o.endCharacter = r),
+            Z.defined(i) && (o.kind = i),
+            o
+          );
+        }),
+          (e.is = e => {
+            var t = e;
             return (
-              void 0 === t ||
-                (void 0 === t.recursive && void 0 === t.ignoreIfNotExists) ||
-                (n.options = t),
-              n
+              Z.number(t.startLine) &&
+              Z.number(t.startLine) &&
+              (Z.undefined(t.startCharacter) || Z.number(t.startCharacter)) &&
+              (Z.undefined(t.endCharacter) || Z.number(t.endCharacter)) &&
+              (Z.undefined(t.kind) || Z.string(t.kind))
             );
+          });
+      })(d || (d = {})), (e => {
+        (e.create = (e, t) => {
+          return { location: e, message: t };
+        }),
+          (e.is = e => {
+            var t = e;
+            return Z.defined(t) && o.is(t.location) && Z.string(t.message);
+          });
+      })(l || (l = {})), (e => {
+        (e.Error = 1), (e.Warning = 2), (e.Information = 3), (e.Hint = 4);
+      })(p || (p = {})), (e => {
+        (e.create = (e, t, n, r, i, o) => {
+          var s = { range: e, message: t };
+          return (
+            Z.defined(n) && (s.severity = n),
+            Z.defined(r) && (s.code = r),
+            Z.defined(i) && (s.source = i),
+            Z.defined(o) && (s.relatedInformation = o),
+            s
+          );
+        }),
+          (e.is = e => {
+            var t = e;
+            return (
+              Z.defined(t) &&
+              i.is(t.range) &&
+              Z.string(t.message) &&
+              (Z.number(t.severity) || Z.undefined(t.severity)) &&
+              (Z.number(t.code) || Z.string(t.code) || Z.undefined(t.code)) &&
+              (Z.string(t.source) || Z.undefined(t.source)) &&
+              (Z.undefined(t.relatedInformation) ||
+                Z.typedArray(t.relatedInformation, l.is))
+            );
+          });
+      })(f || (f = {})), (e => {
+        (e.create = function (e, t) {
+          for (var n = [], r = 2; r < arguments.length; r++)
+            n[r - 2] = arguments[r];
+          var i = { title: e, command: t };
+          return Z.defined(n) && n.length > 0 && (i.arguments = n), i;
+        }),
+          (e.is = e => {
+            var t = e;
+            return Z.defined(t) && Z.string(t.title) && Z.string(t.command);
+          });
+      })(m || (m = {})), (e => {
+        (e.replace = (e, t) => {
+          return { range: e, newText: t };
+        }),
+          (e.insert = (e, t) => {
+            return { range: { start: e, end: e }, newText: t };
           }),
-            (e.is = function (e) {
-              var t = e;
-              return (
-                t &&
-                "delete" === t.kind &&
-                Z.string(t.uri) &&
-                (void 0 === t.options ||
-                  ((void 0 === t.options.recursive ||
-                    Z.boolean(t.options.recursive)) &&
-                    (void 0 === t.options.ignoreIfNotExists ||
-                      Z.boolean(t.options.ignoreIfNotExists))))
-              );
-            });
-        })(C || (C = {})),
-        (function (e) {
-          e.is = function (e) {
+          (e.del = e => {
+            return { range: e, newText: "" };
+          }),
+          (e.is = e => {
+            var t = e;
+            return Z.objectLiteral(t) && Z.string(t.newText) && i.is(t.range);
+          });
+      })(g || (g = {})), (e => {
+        (e.create = (e, t) => {
+          return { textDocument: e, edits: t };
+        }),
+          (e.is = e => {
+            var t = e;
+            return (
+              Z.defined(t) && x.is(t.textDocument) && Array.isArray(t.edits)
+            );
+          });
+      })(h || (h = {})), (e => {
+        (e.create = (e, t) => {
+          var n = { kind: "create", uri: e };
+          return (
+            void 0 === t ||
+              (void 0 === t.overwrite && void 0 === t.ignoreIfExists) ||
+              (n.options = t),
+            n
+          );
+        }),
+          (e.is = e => {
             var t = e;
             return (
               t &&
-              (void 0 !== t.changes || void 0 !== t.documentChanges) &&
-              (void 0 === t.documentChanges ||
-                t.documentChanges.every(function (e) {
-                  return Z.string(e.kind)
-                    ? v.is(e) || y.is(e) || C.is(e)
-                    : h.is(e);
-                }))
+              "create" === t.kind &&
+              Z.string(t.uri) &&
+              (void 0 === t.options ||
+                ((void 0 === t.options.overwrite ||
+                  Z.boolean(t.options.overwrite)) &&
+                  (void 0 === t.options.ignoreIfExists ||
+                    Z.boolean(t.options.ignoreIfExists))))
             );
-          };
-        })(D || (D = {}));
+          });
+      })(v || (v = {})), (e => {
+        (e.create = (e, t, n) => {
+          var r = { kind: "rename", oldUri: e, newUri: t };
+          return (
+            void 0 === n ||
+              (void 0 === n.overwrite && void 0 === n.ignoreIfExists) ||
+              (r.options = n),
+            r
+          );
+        }),
+          (e.is = e => {
+            var t = e;
+            return (
+              t &&
+              "rename" === t.kind &&
+              Z.string(t.oldUri) &&
+              Z.string(t.newUri) &&
+              (void 0 === t.options ||
+                ((void 0 === t.options.overwrite ||
+                  Z.boolean(t.options.overwrite)) &&
+                  (void 0 === t.options.ignoreIfExists ||
+                    Z.boolean(t.options.ignoreIfExists))))
+            );
+          });
+      })(y || (y = {})), (e => {
+        (e.create = (e, t) => {
+          var n = { kind: "delete", uri: e };
+          return (
+            void 0 === t ||
+              (void 0 === t.recursive && void 0 === t.ignoreIfNotExists) ||
+              (n.options = t),
+            n
+          );
+        }),
+          (e.is = e => {
+            var t = e;
+            return (
+              t &&
+              "delete" === t.kind &&
+              Z.string(t.uri) &&
+              (void 0 === t.options ||
+                ((void 0 === t.options.recursive ||
+                  Z.boolean(t.options.recursive)) &&
+                  (void 0 === t.options.ignoreIfNotExists ||
+                    Z.boolean(t.options.ignoreIfNotExists))))
+            );
+          });
+      })(C || (C = {})), (e => {
+        e.is = e => {
+          var t = e;
+          return t &&
+          (void 0 !== t.changes || void 0 !== t.documentChanges) &&
+          (void 0 === t.documentChanges ||
+            t.documentChanges.every(e => {
+              return Z.string(e.kind)
+                ? v.is(e) || y.is(e) || C.is(e)
+                : h.is(e);
+            }));
+        };
+      })(D || (D = {}));
       var w,
         x,
         b,
@@ -761,7 +623,7 @@
         I,
         N,
         L,
-        K = (function () {
+        K = (() => {
           function e(e) {
             this.edits = e;
           }
@@ -787,21 +649,21 @@
             e
           );
         })(),
-        j = (function () {
+        j = (() => {
           function e(e) {
             var t = this;
             (this._textEditChanges = Object.create(null)),
               e &&
                 ((this._workspaceEdit = e),
                 e.documentChanges
-                  ? e.documentChanges.forEach(function (e) {
+                  ? e.documentChanges.forEach(e => {
                       if (h.is(e)) {
                         var n = new K(e.edits);
                         t._textEditChanges[e.textDocument.uri] = n;
                       }
                     })
                   : e.changes &&
-                    Object.keys(e.changes).forEach(function (n) {
+                    Object.keys(e.changes).forEach(n => {
                       var r = new K(e.changes[n]);
                       t._textEditChanges[n] = r;
                     }));
@@ -870,196 +732,179 @@
           e
         ;
         })();
-      !(function (e) {
-        (e.create = function (e) {
+      !(e => {
+        (e.create = e => {
           return { uri: e };
         }),
-          (e.is = function (e) {
+          (e.is = e => {
             var t = e;
             return Z.defined(t) && Z.string(t.uri);
           });
-      })(w || (w = {})),
-        (function (e) {
-          (e.create = function (e, t) {
-            return { uri: e, version: t };
-          }),
-            (e.is = function (e) {
-              var t = e;
-              return (
-                Z.defined(t) &&
-                Z.string(t.uri) &&
-                (null === t.version || Z.number(t.version))
-              );
-            });
-        })(x || (x = {})),
-        (function (e) {
-          (e.create = function (e, t, n, r) {
-            return { uri: e, languageId: t, version: n, text: r };
-          }),
-            (e.is = function (e) {
-              var t = e;
-              return (
-                Z.defined(t) &&
-                Z.string(t.uri) &&
-                Z.string(t.languageId) &&
-                Z.number(t.version) &&
-                Z.string(t.text)
-              );
-            });
-        })(b || (b = {})),
-        (function (e) {
-          (e.PlainText = "plaintext"), (e.Markdown = "markdown");
-        })(_ || (_ = {})),
-        (function (e) {
-          e.is = function (t) {
-            var n = t;
-            return n === e.PlainText || n === e.Markdown;
-          };
-        })(_ || (_ = {})),
-        (function (e) {
-          e.is = function (e) {
-            var t = e;
-            return Z.objectLiteral(e) && _.is(t.kind) && Z.string(t.value);
-          };
-        })(R || (R = {})),
-        (function (e) {
-          (e.Text = 1),
-            (e.Method = 2),
-            (e.Function = 3),
-            (e.Constructor = 4),
-            (e.Field = 5),
-            (e.Variable = 6),
-            (e.Class = 7),
-            (e.Interface = 8),
-            (e.Module = 9),
-            (e.Property = 10),
-            (e.Unit = 11),
-            (e.Value = 12),
-            (e.Enum = 13),
-            (e.Keyword = 14),
-            (e.Snippet = 15),
-            (e.Color = 16),
-            (e.File = 17),
-            (e.Reference = 18),
-            (e.Folder = 19),
-            (e.EnumMember = 20),
-            (e.Constant = 21),
-            (e.Struct = 22),
-            (e.Event = 23),
-            (e.Operator = 24),
-            (e.TypeParameter = 25);
-        })(T || (T = {})),
-        (function (e) {
-          (e.PlainText = 1), (e.Snippet = 2);
-        })(P || (P = {})),
-        (function (e) {
-          e.create = function (e) {
-            return { label: e };
-          };
-        })(S || (S = {})),
-        (function (e) {
-          e.create = function (e, t) {
-            return { items: e || [], isIncomplete: !!t };
-          };
-        })(k || (k = {})),
-        (function (e) {
-          (e.fromPlainText = function (e) {
-            return e.replace(/[\\`*_{}[\]()#+\-.!]/g, "\\$&");
-          }),
-            (e.is = function (e) {
-              var t = e;
-              return (
-                Z.string(t) ||
-                (Z.objectLiteral(t) &&
-                  Z.string(t.language) &&
-                  Z.string(t.value))
-              );
-            });
-        })(E || (E = {})),
-        (function (e) {
-          e.is = function (e) {
+      })(w || (w = {})), (e => {
+        (e.create = (e, t) => {
+          return { uri: e, version: t };
+        }),
+          (e.is = e => {
             var t = e;
             return (
-              Z.objectLiteral(t) &&
-              (R.is(t.contents) ||
-                E.is(t.contents) ||
-                Z.typedArray(t.contents, E.is)) &&
-              (void 0 === e.range || i.is(e.range))
+              Z.defined(t) &&
+              Z.string(t.uri) &&
+              (null === t.version || Z.number(t.version))
             );
-          };
-        })(O || (O = {})),
-        (function (e) {
-          e.create = function (e, t) {
-            return t ? { label: e, documentation: t } : { label: e };
-          };
-        })(M || (M = {})),
-        (function (e) {
-          e.create = function (e, t) {
-            for (var n = [], r = 2; r < arguments.length; r++)
-              n[r - 2] = arguments[r];
-            var i = { label: e };
+          });
+      })(x || (x = {})), (e => {
+        (e.create = (e, t, n, r) => {
+          return { uri: e, languageId: t, version: n, text: r };
+        }),
+          (e.is = e => {
+            var t = e;
             return (
-              Z.defined(t) && (i.documentation = t),
-              Z.defined(n) ? (i.parameters = n) : (i.parameters = []),
-              i
+              Z.defined(t) &&
+              Z.string(t.uri) &&
+              Z.string(t.languageId) &&
+              Z.number(t.version) &&
+              Z.string(t.text)
             );
-          };
-        })(F || (F = {})),
-        (function (e) {
-          (e.Text = 1), (e.Read = 2), (e.Write = 3);
-        })(q || (q = {})),
-        (function (e) {
-          e.create = function (e, t) {
-            var n = { range: e };
-            return Z.number(t) && (n.kind = t), n;
-          };
-        })(I || (I = {})),
-        (function (e) {
-          (e.File = 1),
-            (e.Module = 2),
-            (e.Namespace = 3),
-            (e.Package = 4),
-            (e.Class = 5),
-            (e.Method = 6),
-            (e.Property = 7),
-            (e.Field = 8),
-            (e.Constructor = 9),
-            (e.Enum = 10),
-            (e.Interface = 11),
-            (e.Function = 12),
-            (e.Variable = 13),
-            (e.Constant = 14),
-            (e.String = 15),
-            (e.Number = 16),
-            (e.Boolean = 17),
-            (e.Array = 18),
-            (e.Object = 19),
-            (e.Key = 20),
-            (e.Null = 21),
-            (e.EnumMember = 22),
-            (e.Struct = 23),
-            (e.Event = 24),
-            (e.Operator = 25),
-            (e.TypeParameter = 26);
-        })(N || (N = {})),
-        (function (e) {
-          e.create = function (e, t, n, r, i) {
-            var o = { name: e, kind: t, location: { uri: r, range: n } };
-            return i && (o.containerName = i), o;
-          };
-        })(L || (L = {}));
+          });
+      })(b || (b = {})), (e => {
+        (e.PlainText = "plaintext"), (e.Markdown = "markdown");
+      })(_ || (_ = {})), (e => {
+        e.is = t => {
+          var n = t;
+          return n === e.PlainText || n === e.Markdown;
+        };
+      })(_ || (_ = {})), (e => {
+        e.is = e => {
+          var t = e;
+          return Z.objectLiteral(e) && _.is(t.kind) && Z.string(t.value);
+        };
+      })(R || (R = {})), (e => {
+        (e.Text = 1),
+          (e.Method = 2),
+          (e.Function = 3),
+          (e.Constructor = 4),
+          (e.Field = 5),
+          (e.Variable = 6),
+          (e.Class = 7),
+          (e.Interface = 8),
+          (e.Module = 9),
+          (e.Property = 10),
+          (e.Unit = 11),
+          (e.Value = 12),
+          (e.Enum = 13),
+          (e.Keyword = 14),
+          (e.Snippet = 15),
+          (e.Color = 16),
+          (e.File = 17),
+          (e.Reference = 18),
+          (e.Folder = 19),
+          (e.EnumMember = 20),
+          (e.Constant = 21),
+          (e.Struct = 22),
+          (e.Event = 23),
+          (e.Operator = 24),
+          (e.TypeParameter = 25);
+      })(T || (T = {})), (e => {
+        (e.PlainText = 1), (e.Snippet = 2);
+      })(P || (P = {})), (e => {
+        e.create = e => {
+          return { label: e };
+        };
+      })(S || (S = {})), (e => {
+        e.create = (e, t) => {
+          return { items: e || [], isIncomplete: !!t };
+        };
+      })(k || (k = {})), (e => {
+        (e.fromPlainText = e => {
+          return e.replace(/[\\`*_{}[\]()#+\-.!]/g, "\\$&");
+        }),
+          (e.is = e => {
+            var t = e;
+            return (
+              Z.string(t) ||
+              (Z.objectLiteral(t) &&
+                Z.string(t.language) &&
+                Z.string(t.value))
+            );
+          });
+      })(E || (E = {})), (e => {
+        e.is = e => {
+          var t = e;
+          return (
+            Z.objectLiteral(t) &&
+            (R.is(t.contents) ||
+              E.is(t.contents) ||
+              Z.typedArray(t.contents, E.is)) &&
+            (void 0 === e.range || i.is(e.range))
+          );
+        };
+      })(O || (O = {})), (e => {
+        e.create = (e, t) => {
+          return t ? { label: e, documentation: t } : { label: e };
+        };
+      })(M || (M = {})), (e => {
+        e.create = function (e, t) {
+          for (var n = [], r = 2; r < arguments.length; r++)
+            n[r - 2] = arguments[r];
+          var i = { label: e };
+          return (
+            Z.defined(t) && (i.documentation = t),
+            Z.defined(n) ? (i.parameters = n) : (i.parameters = []),
+            i
+          );
+        };
+      })(F || (F = {})), (e => {
+        (e.Text = 1), (e.Read = 2), (e.Write = 3);
+      })(q || (q = {})), (e => {
+        e.create = (e, t) => {
+          var n = { range: e };
+          return Z.number(t) && (n.kind = t), n;
+        };
+      })(I || (I = {})), (e => {
+        (e.File = 1),
+          (e.Module = 2),
+          (e.Namespace = 3),
+          (e.Package = 4),
+          (e.Class = 5),
+          (e.Method = 6),
+          (e.Property = 7),
+          (e.Field = 8),
+          (e.Constructor = 9),
+          (e.Enum = 10),
+          (e.Interface = 11),
+          (e.Function = 12),
+          (e.Variable = 13),
+          (e.Constant = 14),
+          (e.String = 15),
+          (e.Number = 16),
+          (e.Boolean = 17),
+          (e.Array = 18),
+          (e.Object = 19),
+          (e.Key = 20),
+          (e.Null = 21),
+          (e.EnumMember = 22),
+          (e.Struct = 23),
+          (e.Event = 24),
+          (e.Operator = 25),
+          (e.TypeParameter = 26);
+      })(N || (N = {})), (e => {
+        e.create = (e, t, n, r, i) => {
+          var o = { name: e, kind: t, location: { uri: r, range: n } };
+          return i && (o.containerName = i), o;
+        };
+      })(L || (L = {}));
       var A,
         W,
         H,
         U,
         z,
-        $ = function () {};
-      !(function (e) {
-        (e.create = function (e, t, n, r, i, o) {
+        $ = () => {};
+      !(e => {
+        (e.create = (e, t, n, r, i, o) => {
           var s = { name: e, detail: t, kind: n, range: r, selectionRange: i };
           return void 0 !== o && (s.children = o), s;
         }),
-          (e.is = function (e) {
+          (e.is = e => {
             var t = e;
             return (
               t &&
@@ -1072,84 +917,79 @@
               (void 0 === t.children || Array.isArray(t.children))
             );
           });
-      })($ || ($ = {})),
-        (function (e) {
-          (e.QuickFix = "quickfix"),
-            (e.Refactor = "refactor"),
-            (e.RefactorExtract = "refactor.extract"),
-            (e.RefactorInline = "refactor.inline"),
-            (e.RefactorRewrite = "refactor.rewrite"),
-            (e.Source = "source"),
-            (e.SourceOrganizeImports = "source.organizeImports");
-        })(A || (A = {})),
-        (function (e) {
-          (e.create = function (e, t) {
-            var n = { diagnostics: e };
-            return void 0 !== t && null !== t && (n.only = t), n;
-          }),
-            (e.is = function (e) {
-              var t = e;
-              return (
-                Z.defined(t) &&
-                Z.typedArray(t.diagnostics, f.is) &&
-                (void 0 === t.only || Z.typedArray(t.only, Z.string))
-              );
-            });
-        })(W || (W = {})),
-        (function (e) {
-          (e.create = function (e, t, n) {
-            var r = { title: e };
+      })($ || ($ = {})), (e => {
+        (e.QuickFix = "quickfix"),
+          (e.Refactor = "refactor"),
+          (e.RefactorExtract = "refactor.extract"),
+          (e.RefactorInline = "refactor.inline"),
+          (e.RefactorRewrite = "refactor.rewrite"),
+          (e.Source = "source"),
+          (e.SourceOrganizeImports = "source.organizeImports");
+      })(A || (A = {})), (e => {
+        (e.create = (e, t) => {
+          var n = { diagnostics: e };
+          return void 0 !== t && null !== t && (n.only = t), n;
+        }),
+          (e.is = e => {
+            var t = e;
             return (
-              m.is(t) ? (r.command = t) : (r.edit = t),
-              void 0 !== n && (r.kind = n),
-              r
+              Z.defined(t) &&
+              Z.typedArray(t.diagnostics, f.is) &&
+              (void 0 === t.only || Z.typedArray(t.only, Z.string))
             );
-          }),
-            (e.is = function (e) {
-              var t = e;
-              return (
-                t &&
-                Z.string(t.title) &&
-                (void 0 === t.diagnostics ||
-                  Z.typedArray(t.diagnostics, f.is)) &&
-                (void 0 === t.kind || Z.string(t.kind)) &&
-                (void 0 !== t.edit || void 0 !== t.command) &&
-                (void 0 === t.command || m.is(t.command)) &&
-                (void 0 === t.edit || D.is(t.edit))
-              );
-            });
-        })(H || (H = {})),
-        (function (e) {
-          (e.create = function (e, t) {
-            var n = { range: e };
-            return Z.defined(t) && (n.data = t), n;
-          }),
-            (e.is = function (e) {
-              var t = e;
-              return (
-                Z.defined(t) &&
-                i.is(t.range) &&
-                (Z.undefined(t.command) || m.is(t.command))
-              );
-            });
-        })(U || (U = {})),
-        (function (e) {
-          (e.create = function (e, t) {
-            return { tabSize: e, insertSpaces: t };
-          }),
-            (e.is = function (e) {
-              var t = e;
-              return (
-                Z.defined(t) && Z.number(t.tabSize) && Z.boolean(t.insertSpaces)
-              );
-            });
-        })(z || (z = {}));
-      var J = function () {};
-      !(function (e) {
-        (e.create = function (e, t, n) {
+          });
+      })(W || (W = {})), (e => {
+        (e.create = (e, t, n) => {
+          var r = { title: e };
+          return (
+            m.is(t) ? (r.command = t) : (r.edit = t),
+            void 0 !== n && (r.kind = n),
+            r
+          );
+        }),
+          (e.is = e => {
+            var t = e;
+            return (
+              t &&
+              Z.string(t.title) &&
+              (void 0 === t.diagnostics ||
+                Z.typedArray(t.diagnostics, f.is)) &&
+              (void 0 === t.kind || Z.string(t.kind)) &&
+              (void 0 !== t.edit || void 0 !== t.command) &&
+              (void 0 === t.command || m.is(t.command)) &&
+              (void 0 === t.edit || D.is(t.edit))
+            );
+          });
+      })(H || (H = {})), (e => {
+        (e.create = (e, t) => {
+          var n = { range: e };
+          return Z.defined(t) && (n.data = t), n;
+        }),
+          (e.is = e => {
+            var t = e;
+            return (
+              Z.defined(t) &&
+              i.is(t.range) &&
+              (Z.undefined(t.command) || m.is(t.command))
+            );
+          });
+      })(U || (U = {})), (e => {
+        (e.create = (e, t) => {
+          return { tabSize: e, insertSpaces: t };
+        }),
+          (e.is = e => {
+            var t = e;
+            return (
+              Z.defined(t) && Z.number(t.tabSize) && Z.boolean(t.insertSpaces)
+            );
+          });
+      })(z || (z = {}));
+      var J = () => {};
+      !(e => {
+        (e.create = (e, t, n) => {
           return { range: e, target: t, data: n };
         }),
-          (e.is = function (e) {
+          (e.is = e => {
             var t = e;
             return (
               Z.defined(t) &&
@@ -1161,7 +1001,7 @@
       var V,
         B,
         G = ["\n", "\r\n", "\r"];
-      !(function (e) {
+      !(e => {
         function t(e, n) {
           if (e.length <= 1) return e;
           var r = (e.length / 2) | 0,
@@ -1176,10 +1016,10 @@
           for (; a < o.length; ) e[c++] = o[a++];
           return e;
         }
-        (e.create = function (e, t, n, r) {
+        (e.create = (e, t, n, r) => {
           return new Q(e, t, n, r);
         }),
-          (e.is = function (e) {
+          (e.is = e => {
             var t = e;
             return !!(
               Z.defined(t) &&
@@ -1191,10 +1031,10 @@
               Z.func(t.offsetAt)
             );
           }),
-          (e.applyEdits = function (e, n) {
+          (e.applyEdits = (e, n) => {
             for (
               var r = e.getText(),
-                i = t(n, function (e, t) {
+                i = t(n, (e, t) => {
                   var n = e.range.start.line - t.range.start.line;
                   return 0 === n
                     ? e.range.start.character - t.range.start.character
@@ -1214,12 +1054,11 @@
             }
             return r;
           });
-      })(V || (V = {})),
-        (function (e) {
-          (e.Manual = 1), (e.AfterDelay = 2), (e.FocusOut = 3);
-        })(B || (B = {}));
+      })(V || (V = {})), (e => {
+        (e.Manual = 1), (e.AfterDelay = 2), (e.FocusOut = 3);
+      })(B || (B = {}));
       var Z,
-        Q = (function () {
+        Q = (() => {
           function e(e, t, n, r) {
             (this._uri = e),
               (this._languageId = t),
@@ -1312,30 +1151,30 @@
           e
         ;
         })();
-      !(function (e) {
+      !(e => {
         var t = Object.prototype.toString;
-        (e.defined = function (e) {
+        (e.defined = e => {
           return "undefined" !== typeof e;
         }),
-          (e.undefined = function (e) {
+          (e.undefined = e => {
             return "undefined" === typeof e;
           }),
-          (e.boolean = function (e) {
+          (e.boolean = e => {
             return !0 === e || !1 === e;
           }),
-          (e.string = function (e) {
+          (e.string = e => {
             return "[object String]" === t.call(e);
           }),
-          (e.number = function (e) {
+          (e.number = e => {
             return "[object Number]" === t.call(e);
           }),
-          (e.func = function (e) {
+          (e.func = e => {
             return "[object Function]" === t.call(e);
           }),
-          (e.objectLiteral = function (e) {
+          (e.objectLiteral = e => {
             return null !== e && "object" === typeof e;
           }),
-          (e.typedArray = function (e, t) {
+          (e.typedArray = (e, t) => {
             return Array.isArray(e) && e.every(t);
           });
       })(Z || (Z = {}));
@@ -1344,25 +1183,24 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
       var r = n("MOv1");
-      !(function (e) {
+      !(e => {
         e.type = new r.RequestType("textDocument/typeDefinition");
       })(t.TypeDefinitionRequest || (t.TypeDefinitionRequest = {}));
     },
     AL8H(e, t, n) {
       "use strict";
       var r =
-        (this && this.__extends) ||
-        (function () {
+        this && this.__extends || (() => {
           var e =
             Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array &&
-              function (e, t) {
+              ((e, t) => {
                 e.__proto__ = t;
-              }) ||
-            function (e, t) {
+              })) ||
+            ((e, t) => {
               for (var n in t) t.hasOwnProperty(n) && (e[n] = t[n]);
-            };
-          return function (t, n) {
+            });
+          return (t, n) => {
             function r() {
               this.constructor = t;
             }
@@ -1374,7 +1212,7 @@
           };
         })();
       Object.defineProperty(t, "__esModule", { value: !0 });
-      var i = (function () {
+      var i = (() => {
           function e(e) {
             this._value = e;
           }
@@ -1388,7 +1226,7 @@
             e
           );
         })(),
-        o = (function (e) {
+        o = (e => {
           function t() {
             return (
               e.call(
@@ -1434,36 +1272,35 @@
               ) || this
             );
           }
-          return (
-            r(t, e),
-            (t._oneOf = function (e) {
-              return e[Math.floor(e.length * Math.random())];
-            }),
-            (t._randomHex = function () {
-              return t._oneOf(t._chars);
-            }),
-            (t._chars = [
-              "0",
-              "1",
-              "2",
-              "3",
-              "4",
-              "5",
-              "6",
-              "6",
-              "7",
-              "8",
-              "9",
-              "a",
-              "b",
-              "c",
-              "d",
-              "e",
-              "f",
-            ]),
-            (t._timeHighBits = ["8", "9", "a", "b"]),
-            t
-          );
+          return r(t, e),
+          (t._oneOf = e => {
+            return e[Math.floor(e.length * Math.random())];
+          }),
+          (t._randomHex = () => {
+            return t._oneOf(t._chars);
+          }),
+          (t._chars = [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "6",
+            "7",
+            "8",
+            "9",
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f",
+          ]),
+          (t._timeHighBits = ["8", "9", "a", "b"]),
+          t
+        ;
         })(i);
       function s() {
         return new o();
@@ -1474,11 +1311,11 @@
         return a.test(e);
       }
       (t.isUUID = c),
-        (t.parse = function (e) {
+        (t.parse = e => {
           if (!c(e)) throw new Error("invalid uuid");
           return new i(e);
         }),
-        (t.generateUuid = function () {
+        (t.generateUuid = () => {
           return s().asHex();
         });
     },
@@ -1488,7 +1325,7 @@
       const r = n("fIkx"),
         i = n("Gkij");
       var o;
-      !(function (e) {
+      !(e => {
         (e.None = Object.freeze({
           isCancellationRequested: !1,
           onCancellationRequested: r.Event.None,
@@ -1497,7 +1334,7 @@
             isCancellationRequested: !0,
             onCancellationRequested: r.Event.None,
           })),
-          (e.is = function (t) {
+          (e.is = t => {
             let n = t;
             return (
               n &&
@@ -1507,8 +1344,8 @@
                   !!n.onCancellationRequested))
             );
           });
-      })((o = t.CancellationToken || (t.CancellationToken = {})));
-      const s = Object.freeze(function (e, t) {
+      })(o = t.CancellationToken || (t.CancellationToken = {}));
+      const s = Object.freeze((e, t) => {
         let n = setTimeout(e.bind(t), 0);
         return {
           dispose() {
@@ -1584,7 +1421,7 @@
         (t.createServerSocketTransport = i.createServerSocketTransport),
         r(n("7Z1E")),
         r(n("+cRy")),
-        (t.createProtocolConnection = function (e, t, n, r) {
+        (t.createProtocolConnection = (e, t, n, r) => {
           return i.createMessageConnection(e, t, n, r);
         });
     },
@@ -1592,25 +1429,24 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
       var r = n("MOv1");
-      !(function (e) {
+      !(e => {
         e.type = new r.RequestType("textDocument/implementation");
       })(t.ImplementationRequest || (t.ImplementationRequest = {}));
     },
     Chfy(e, t, n) {
       "use strict";
       var r =
-        (this && this.__extends) ||
-        (function () {
+        this && this.__extends || (() => {
           var e =
             Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array &&
-              function (e, t) {
+              ((e, t) => {
                 e.__proto__ = t;
-              }) ||
-            function (e, t) {
+              })) ||
+            ((e, t) => {
               for (var n in t) t.hasOwnProperty(n) && (e[n] = t[n]);
-            };
-          return function (t, n) {
+            });
+          return (t, n) => {
             function r() {
               this.constructor = t;
             }
@@ -1629,12 +1465,12 @@
       function c(e, t) {
         return void 0 === e[t] && (e[t] = {}), e[t];
       }
-      var u = (function (e) {
+      var u = (e => {
         function t(t) {
           return e.call(this, t, a.ImplementationRequest.type) || this;
         }
         return r(t, e),
-        (t.prototype.fillClientCapabilities = function (e) {
+        (t.prototype.fillClientCapabilities = e => {
           c(c(e, "textDocument"), "implementation").dynamicRegistration = !0;
         }),
         (t.prototype.initialize = function (e, t) {
@@ -1659,7 +1495,7 @@
         }),
         (t.prototype.registerLanguageProvider = function (e) {
           var t = this._client,
-            n = function (e, n, r) {
+            n = (e, n, r) => {
               return t
                 .sendRequest(
                   a.ImplementationRequest.type,
@@ -1668,7 +1504,7 @@
                 )
                 .then(
                   t.protocol2CodeConverter.asDefinitionResult,
-                  function (e) {
+                  e => {
                     return (
                       t.logFailedRequest(a.ImplementationRequest.type, e),
                       Promise.resolve(null)
@@ -1688,8 +1524,7 @@
             }
           );
         }),
-        t
-      ;
+        t;
       })(n("qRuN").TextDocumentFeature);
       t.ImplementationFeature = u;
     },
@@ -1697,8 +1532,8 @@
       "use strict";
       var r =
           (this && this.__awaiter) ||
-          function (e, t, n, r) {
-            return new (n || (n = Promise))(function (i, o) {
+          ((e, t, n, r) => {
+            return new (n || (n = Promise))((i, o) => {
               function s(e) {
                 try {
                   c(r.next(e));
@@ -1716,16 +1551,16 @@
               function c(e) {
                 e.done
                   ? i(e.value)
-                  : new n(function (t) {
+                  : new n(t => {
                       t(e.value);
                     }).then(s, a);
               }
               c((r = r.apply(e, t || [])).next());
             });
-          },
+          }),
         i =
           (this && this.__generator) ||
-          function (e, t) {
+          ((e, t) => {
             var n,
               r,
               i,
@@ -1748,8 +1583,8 @@
               o
             );
             function a(o) {
-              return function (a) {
-                return (function (o) {
+              return a => {
+                return (o => {
                   if (n) throw new TypeError("Generator is already executing.");
                   for (; s; )
                     try {
@@ -1815,21 +1650,21 @@
                 })([o, a]);
               };
             }
-          };
+          });
       Object.defineProperty(t, "__esModule", { value: !0 });
       var o = n("hde3"),
         s = n("oL6p"),
         a = n("Gz0x");
       t.createVSCodeApi = function (e) {
         var t = this,
-          n = function () {
+          n = () => {
             throw new Error("unsupported");
           },
           c = o.default,
           u = function (e, t) {
             (this.label = e), (this.kind = t);
           },
-          d = (function () {
+          d = (() => {
             function e(e, t) {
               (this.range = e), (this.command = t);
             }
@@ -1846,7 +1681,7 @@
           l = function (e, t) {
             (this.range = e), (this.target = t);
           },
-          p = (function () {
+          p = (() => {
             function e(e) {
               (this.value = e), (this.append = n), (this.contains = n);
             }
@@ -1887,7 +1722,7 @@
             applyEdit(n) {
               return r(t, void 0, void 0, function () {
                 var t;
-                return i(this, function (r) {
+                return i(this, r => {
                   if (((t = e()), a.WorkspaceEdit.is(n)))
                     return [2, t.workspace.applyEdit(n)];
                   throw new Error("unsupported");
@@ -1942,9 +1777,9 @@
             },
             get onDidChangeTextDocument() {
               var t = e();
-              return function (e, n, r) {
+              return (e, n, r) => {
                 return t.workspace.onDidChangeTextDocument(
-                  function (t) {
+                  t => {
                     var r = t.textDocument,
                       i = t.contentChanges;
                     e.bind(n)({ document: r, contentChanges: i });
@@ -1957,9 +1792,9 @@
             get onWillSaveTextDocument() {
               var t = e().workspace.onWillSaveTextDocument;
               return t
-                ? function (e, n, r) {
+                ? (e, n, r) => {
                     return t(
-                      function (t) {
+                      t => {
                         var r = t.textDocument,
                           i = t.reason,
                           o = t.waitUntil;
@@ -2028,7 +1863,7 @@
                 throw new Error("unexpected selector: " + JSON.stringify(t));
               var o = e().languages;
               if (!o.registerCompletionItemProvider)
-                return s.Disposable.create(function () {});
+                return s.Disposable.create(() => {});
               var c = n.resolveCompletionItem;
               return o.registerCompletionItemProvider.apply(
                 o,
@@ -2047,7 +1882,7 @@
                       );
                     },
                     resolveCompletionItem: c
-                      ? function (e, t) {
+                      ? (e, t) => {
                           return c(e, t);
                         }
                       : void 0,
@@ -2068,14 +1903,14 @@
                       return n.provideCodeActions(r, i, o, t);
                     },
                   })
-                : s.Disposable.create(function () {});
+                : s.Disposable.create(() => {});
             },
             registerCodeLensProvider(t, n) {
               if (!a.isDocumentSelector(t))
                 throw new Error("unexpected selector: " + JSON.stringify(t));
               var r = e().languages;
               if (!r.registerCodeLensProvider)
-                return s.Disposable.create(function () {});
+                return s.Disposable.create(() => {});
               var i = n.resolveCodeLens;
               return r.registerCodeLensProvider(t, {
                 provideCodeLenses(e, t) {
@@ -2083,7 +1918,7 @@
                   return n.provideCodeLenses(r, t);
                 },
                 resolveCodeLens: i
-                  ? function (e, t) {
+                  ? (e, t) => {
                       return i(e, t);
                     }
                   : void 0,
@@ -2101,7 +1936,7 @@
                       return n.provideDefinition(r, i, t);
                     },
                   })
-                : s.Disposable.create(function () {});
+                : s.Disposable.create(() => {});
             },
             registerImplementationProvider(t, n) {
               if (!a.isDocumentSelector(t))
@@ -2115,7 +1950,7 @@
                       return n.provideImplementation(r, i, t);
                     },
                   })
-                : s.Disposable.create(function () {});
+                : s.Disposable.create(() => {});
             },
             registerTypeDefinitionProvider(t, n) {
               if (!a.isDocumentSelector(t))
@@ -2129,7 +1964,7 @@
                       return n.provideTypeDefinition(r, i, t);
                     },
                   })
-                : s.Disposable.create(function () {});
+                : s.Disposable.create(() => {});
             },
             registerHoverProvider(t, n) {
               if (!a.isDocumentSelector(t))
@@ -2143,7 +1978,7 @@
                       return n.provideHover(r, i, t);
                     },
                   })
-                : s.Disposable.create(function () {});
+                : s.Disposable.create(() => {});
             },
             registerDocumentHighlightProvider(t, n) {
               if (!a.isDocumentSelector(t))
@@ -2157,7 +1992,7 @@
                       return n.provideDocumentHighlights(r, i, t);
                     },
                   })
-                : s.Disposable.create(function () {});
+                : s.Disposable.create(() => {});
             },
             registerDocumentSymbolProvider(t, n) {
               if (!a.isDocumentSelector(t))
@@ -2170,7 +2005,7 @@
                       return n.provideDocumentSymbols(r, t);
                     },
                   })
-                : s.Disposable.create(function () {});
+                : s.Disposable.create(() => {});
             },
             registerWorkspaceSymbolProvider(t) {
               var n = e().languages;
@@ -2181,7 +2016,7 @@
                       return t.provideWorkspaceSymbols(r, n);
                     },
                   })
-                : s.Disposable.create(function () {});
+                : s.Disposable.create(() => {});
             },
             registerReferenceProvider(t, n) {
               if (!a.isDocumentSelector(t))
@@ -2196,7 +2031,7 @@
                       return n.provideReferences(r, i, o, t);
                     },
                   })
-                : s.Disposable.create(function () {});
+                : s.Disposable.create(() => {});
             },
             registerRenameProvider(t, n) {
               if (!a.isDocumentSelector(t))
@@ -2211,7 +2046,7 @@
                       return n.provideRenameEdits(r, i, o, t);
                     },
                   })
-                : s.Disposable.create(function () {});
+                : s.Disposable.create(() => {});
             },
             registerDocumentFormattingEditProvider(t, n) {
               if (!a.isDocumentSelector(t))
@@ -2225,7 +2060,7 @@
                       return n.provideDocumentFormattingEdits(r, i, t);
                     },
                   })
-                : s.Disposable.create(function () {});
+                : s.Disposable.create(() => {});
             },
             registerDocumentRangeFormattingEditProvider(t, n) {
               if (!a.isDocumentSelector(t))
@@ -2240,7 +2075,7 @@
                       return n.provideDocumentRangeFormattingEdits(r, i, o, t);
                     },
                   })
-                : s.Disposable.create(function () {});
+                : s.Disposable.create(() => {});
             },
             registerOnTypeFormattingEditProvider(t, n, r) {
               for (var i = [], o = 3; o < arguments.length; o++)
@@ -2265,7 +2100,7 @@
                       r,
                     ].concat(i)
                   )
-                : s.Disposable.create(function () {});
+                : s.Disposable.create(() => {});
             },
             registerSignatureHelpProvider(t, n) {
               for (var r = [], i = 2; i < arguments.length; i++)
@@ -2287,14 +2122,14 @@
                       },
                     ].concat(r)
                   )
-                : s.Disposable.create(function () {});
+                : s.Disposable.create(() => {});
             },
             registerDocumentLinkProvider(t, n) {
               if (!a.isDocumentSelector(t))
                 throw new Error("unexpected selector: " + JSON.stringify(t));
               var r = e().languages;
               if (!r.registerDocumentLinkProvider)
-                return s.Disposable.create(function () {});
+                return s.Disposable.create(() => {});
               var i = n.resolveDocumentLink;
               return r.registerDocumentLinkProvider(t, {
                 provideDocumentLinks(e, t) {
@@ -2302,7 +2137,7 @@
                   return n.provideDocumentLinks(r, t);
                 },
                 resolveDocumentLink: i
-                  ? function (e, t) {
+                  ? (e, t) => {
                       return i(e, t);
                     }
                   : void 0,
@@ -2329,7 +2164,7 @@
                       );
                     },
                   })
-                : s.Disposable.create(function () {});
+                : s.Disposable.create(() => {});
             },
             registerFoldingRangeProvider(t, n) {
               if (!a.isDocumentSelector(t))
@@ -2342,7 +2177,7 @@
                       return n.provideFoldingRanges(r, {}, t);
                     },
                   })
-                : s.Disposable.create(function () {});
+                : s.Disposable.create(() => {});
             },
             getLanguages: n,
             getDiagnostics: n,
@@ -2418,13 +2253,13 @@
               var i = e().commands;
               return i
                 ? i.registerCommand(t, n, r)
-                : s.Disposable.create(function () {});
+                : s.Disposable.create(() => {});
             },
             registerTextEditorCommand: n,
             executeCommand: n,
             getCommands: n,
           },
-          y = (function () {
+          y = (() => {
             function e(e) {
               this.callOnDispose = e;
             }
@@ -2458,21 +2293,21 @@
         return Array.isArray(e);
       }
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.boolean = function (e) {
+        (t.boolean = e => {
           return !0 === e || !1 === e;
         }),
         (t.string = r),
-        (t.number = function (e) {
+        (t.number = e => {
           return "number" === typeof e || e instanceof Number;
         }),
-        (t.error = function (e) {
+        (t.error = e => {
           return e instanceof Error;
         }),
-        (t.func = function (e) {
+        (t.func = e => {
           return "function" === typeof e;
         }),
         (t.array = i),
-        (t.stringArray = function (e) {
+        (t.stringArray = e => {
           return i(e) && e.every((e) => r(e));
         });
     },
@@ -2481,54 +2316,44 @@
       Object.defineProperty(t, "__esModule", { value: !0 });
       var r = n("BOov"),
         i = n("C+6V");
-      (t.Disposable = i.Disposable),
-        (t.CancellationToken = i.CancellationToken),
-        (t.Event = i.Event),
-        (t.Emitter = i.Emitter),
-        (function (e) {
-          for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n]);
-        })(n("BOov")),
-        (function (e) {
-          var t = window,
-            n = Symbol("Services");
-          (e.get = function () {
-            var e = t[n];
-            if (!e)
-              throw new Error(
-                "Language Client services has not been installed"
-              );
-            return e;
-          }),
-            (e.install = function (e) {
-              t[n] &&
-                console.error(
-                  new Error("Language Client services has been overriden")
-                ),
-                (t[n] = e);
-            });
-        })(t.Services || (t.Services = {})),
-        (t.isDocumentSelector = function (e) {
-          return (
-            !(!e || !Array.isArray(e)) &&
-            e.every(function (e) {
-              return "string" === typeof e || r.DocumentFilter.is(e);
-            })
-          );
+      t.Disposable = i.Disposable, t.CancellationToken = i.CancellationToken, t.Event = i.Event, t.Emitter = i.Emitter, (e => {
+        for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n]);
+      })(n("BOov")), (e => {
+        var t = window,
+          n = Symbol("Services");
+        (e.get = () => {
+          var e = t[n];
+          if (!e)
+            throw new Error(
+              "Language Client services has not been installed"
+            );
+          return e;
         }),
-        (function (e) {
-          e.is = function (e) {
-            return !!e && "uri" in e && "languageId" in e;
-          };
-        })(t.DocumentIdentifier || (t.DocumentIdentifier = {})),
-        (function (e) {
-          (e[(e.Global = 1)] = "Global"),
-            (e[(e.Workspace = 2)] = "Workspace"),
-            (e[(e.WorkspaceFolder = 3)] = "WorkspaceFolder");
-        })(t.ConfigurationTarget || (t.ConfigurationTarget = {}));
+          (e.install = e => {
+            t[n] &&
+              console.error(
+                new Error("Language Client services has been overriden")
+              ),
+              (t[n] = e);
+          });
+      })(t.Services || (t.Services = {})), t.isDocumentSelector = e => {
+          return !(!e || !Array.isArray(e)) &&
+          e.every(e => {
+            return "string" === typeof e || r.DocumentFilter.is(e);
+          });
+        }, (e => {
+        e.is = e => {
+          return !!e && "uri" in e && "languageId" in e;
+        };
+      })(t.DocumentIdentifier || (t.DocumentIdentifier = {})), (e => {
+        (e[(e.Global = 1)] = "Global"),
+          (e[(e.Workspace = 2)] = "Workspace"),
+          (e[(e.WorkspaceFolder = 3)] = "WorkspaceFolder");
+      })(t.ConfigurationTarget || (t.ConfigurationTarget = {}));
     },
     I0O9(e, t, n) {
       "use strict";
-      (function (e) {
+      ((e => {
         Object.defineProperty(t, "__esModule", { value: !0 });
         const r = n("tpqs"),
           i = n("PENG"),
@@ -2536,13 +2361,13 @@
           s = n("RUQ2"),
           a = n("K4MX"),
           c = n("k5Vz");
-        (t.generateRandomPipeName = function () {
+        (t.generateRandomPipeName = () => {
           const t = o.randomBytes(21).toString("hex");
           return "win32" === e.platform
             ? `\\\\.\\pipe\\vscode-jsonrpc-${t}-sock`
             : r.join(i.tmpdir(), `vscode-${t}.sock`);
         }),
-          (t.createClientPipeTransport = function (e, t = "utf-8") {
+          (t.createClientPipeTransport = (e, t = "utf-8") => {
             let n,
               r = new Promise((e, t) => {
                 n = e;
@@ -2561,18 +2386,18 @@
                 });
             });
           }),
-          (t.createServerPipeTransport = function (e, t = "utf-8") {
+          (t.createServerPipeTransport = (e, t = "utf-8") => {
             const n = s.createConnection(e);
             return [
               new a.SocketMessageReader(n, t),
               new c.SocketMessageWriter(n, t),
             ];
           });
-      }.call(this, n("8oxB")));
+      }).call(this, n("8oxB")));
     },
     K4MX(e, t, n) {
       "use strict";
-      (function (e) {
+      ((e => {
         Object.defineProperty(t, "__esModule", { value: !0 });
         const r = n("fIkx"),
           i = n("Gkij");
@@ -2655,8 +2480,8 @@
             return this.index;
           }
         }
-        !(function (e) {
-          e.is = function (e) {
+        !(e => {
+          e.is = e => {
             let t = e;
             return (
               t &&
@@ -2795,13 +2620,13 @@
             super(e, t);
           }
         };
-      }.call(this, n("HDXh").Buffer));
+      }).call(this, n("HDXh").Buffer));
     },
     LB4s(e, t, n) {
       "use strict";
       var r =
           (this && this.__values) ||
-          function (e) {
+          (e => {
             var t = "function" === typeof Symbol && e[Symbol.iterator],
               n = 0;
             return t
@@ -2814,10 +2639,10 @@
                     );
                   },
                 };
-          },
+          }),
         i =
           (this && this.__read) ||
-          function (e, t) {
+          ((e, t) => {
             var n = "function" === typeof Symbol && e[Symbol.iterator];
             if (!n) return e;
             var r,
@@ -2837,7 +2662,7 @@
               }
             }
             return s;
-          };
+          });
       Object.defineProperty(t, "__esModule", { value: !0 });
       var o,
         s = n("uoVZ"),
@@ -2846,18 +2671,18 @@
         u = n("QGVK"),
         d = n("h0WC"),
         l = n("ojtU");
-      !(function (e) {
-        e.is = function (e) {
+      !(e => {
+        e.is = e => {
           var t = e;
           return t && c.string(t.language) && c.string(t.value);
         };
       })(o || (o = {})),
-        (t.createConverter = function (e) {
+        (t.createConverter = e => {
           var t =
             e ||
-            function (e) {
+            (e => {
               return s.Uri.parse(e);
-            };
+            });
           function n(e) {
             return t(e);
           }
@@ -2920,7 +2745,7 @@
                   : e.documentation.kind)),
               e.filterText && (t.filterText = e.filterText);
             var n,
-              r = (function (e) {
+              r = (e => {
                 return e.textEdit
                   ? e.insertTextFormat === a.InsertTextFormat.Snippet
                     ? {
@@ -3081,17 +2906,16 @@
           function I(e) {
             if (e) {
               var n = new s.WorkspaceEdit();
-              return (
-                e.documentChanges
-                  ? e.documentChanges.forEach(function (e) {
-                      n.set(t(e.textDocument.uri), w(e.edits));
-                    })
-                  : e.changes &&
-                    Object.keys(e.changes).forEach(function (r) {
-                      n.set(t(r), w(e.changes[r]));
-                    }),
-                n
-              );
+              return e.documentChanges
+                ? e.documentChanges.forEach(e => {
+                    n.set(t(e.textDocument.uri), w(e.edits));
+                  })
+                : e.changes &&
+                  Object.keys(e.changes).forEach(r => {
+                    n.set(t(r), w(e.changes[r]));
+                  }),
+              n
+            ;
             }
           }
           function N(e) {
@@ -3157,60 +2981,57 @@
             asDiagnosticSeverity: v,
             asHover(e) {
               if (e)
-                return new s.Hover(
-                  (function (e) {
-                    var t, n;
-                    if (c.string(e)) return new s.MarkdownString(e);
-                    if (o.is(e))
-                      return (i = new s.MarkdownString()).appendCodeblock(
-                        e.value,
-                        e.language
-                      );
-                    if (Array.isArray(e)) {
-                      var i = [];
-                      try {
-                        for (
-                          var u = r(e), d = u.next();
-                          !d.done;
-                          d = u.next()
-                        ) {
-                          var l = d.value,
-                            p = new s.MarkdownString();
-                          o.is(l)
-                            ? p.appendCodeblock(l.value, l.language)
-                            : p.appendMarkdown(l),
-                            i.push(p);
-                        }
-                      } catch (f) {
-                        t = { error: f };
-                      } finally {
-                        try {
-                          d && !d.done && (n = u.return) && n.call(u);
-                        } finally {
-                          if (t) throw t.error;
-                        }
+                return new s.Hover((e => {
+                  var t, n;
+                  if (c.string(e)) return new s.MarkdownString(e);
+                  if (o.is(e))
+                    return (i = new s.MarkdownString()).appendCodeblock(
+                      e.value,
+                      e.language
+                    );
+                  if (Array.isArray(e)) {
+                    var i = [];
+                    try {
+                      for (
+                        var u = r(e), d = u.next();
+                        !d.done;
+                        d = u.next()
+                      ) {
+                        var l = d.value,
+                          p = new s.MarkdownString();
+                        o.is(l)
+                          ? p.appendCodeblock(l.value, l.language)
+                          : p.appendMarkdown(l),
+                          i.push(p);
                       }
-                      return i;
+                    } catch (f) {
+                      t = { error: f };
+                    } finally {
+                      try {
+                        d && !d.done && (n = u.return) && n.call(u);
+                      } finally {
+                        if (t) throw t.error;
+                      }
                     }
-                    switch (((i = void 0), e.kind)) {
-                      case a.MarkupKind.Markdown:
-                        return new s.MarkdownString(e.value);
-                      case a.MarkupKind.PlainText:
-                        return (
-                          (i = new s.MarkdownString()).appendText(e.value), i
-                        );
-                      default:
-                        return (
-                          (i = new s.MarkdownString()).appendText(
-                            "Unsupported Markup content received. Kind is: " +
-                              e.kind
-                          ),
-                          i
-                        );
-                    }
-                  })(e.contents),
-                  h(e.range)
-                );
+                    return i;
+                  }
+                  switch (((i = void 0), e.kind)) {
+                    case a.MarkupKind.Markdown:
+                      return new s.MarkdownString(e.value);
+                    case a.MarkupKind.PlainText:
+                      return (
+                        (i = new s.MarkdownString()).appendText(e.value), i
+                      );
+                    default:
+                      return (
+                        (i = new s.MarkdownString()).appendText(
+                          "Unsupported Markup content received. Kind is: " +
+                            e.kind
+                        ),
+                        i
+                      );
+                  }
+                })(e.contents), h(e.range));
             },
             asCompletionResult(e) {
               if (e) {
@@ -3244,7 +3065,7 @@
             asDefinitionResult(e) {
               if (e)
                 return c.array(e)
-                  ? e.map(function (e) {
+                  ? e.map(e => {
                       return T(e);
                     })
                   : T(e);
@@ -3252,7 +3073,7 @@
             asLocation: T,
             asReferences(e) {
               if (e)
-                return e.map(function (e) {
+                return e.map(e => {
                   return T(e);
                 });
             },
@@ -3263,7 +3084,7 @@
             asDocumentHighlightKind: S,
             asSymbolInformations(e, t) {
               if (e)
-                return e.map(function (e) {
+                return e.map(e => {
                   return E(e, t);
                 });
             },
@@ -3279,47 +3100,46 @@
             asCodeAction(e) {
               if (void 0 !== e && null !== e) {
                 var t = new s.CodeAction(e.title);
-                return (
-                  void 0 !== e.kind &&
-                    (t.kind = (function (e) {
-                      var t, n;
-                      if (void 0 !== e && null !== e) {
-                        var i = F.get(e);
-                        if (i) return i;
-                        var o = e.split(".");
-                        i = s.CodeActionKind.Empty;
-                        try {
-                          for (
-                            var a = r(o), c = a.next();
-                            !c.done;
-                            c = a.next()
-                          ) {
-                            var u = c.value;
-                            i = i.append(u);
-                          }
-                        } catch (d) {
-                          t = { error: d };
-                        } finally {
-                          try {
-                            c && !c.done && (n = a.return) && n.call(a);
-                          } finally {
-                            if (t) throw t.error;
-                          }
+                return void 0 !== e.kind &&
+                  (t.kind = (e => {
+                    var t, n;
+                    if (void 0 !== e && null !== e) {
+                      var i = F.get(e);
+                      if (i) return i;
+                      var o = e.split(".");
+                      i = s.CodeActionKind.Empty;
+                      try {
+                        for (
+                          var a = r(o), c = a.next();
+                          !c.done;
+                          c = a.next()
+                        ) {
+                          var u = c.value;
+                          i = i.append(u);
                         }
-                        return i;
+                      } catch (d) {
+                        t = { error: d };
+                      } finally {
+                        try {
+                          c && !c.done && (n = a.return) && n.call(a);
+                        } finally {
+                          if (t) throw t.error;
+                        }
                       }
-                    })(e.kind)),
-                  e.diagnostics && (t.diagnostics = p(e.diagnostics)),
-                  e.edit && (t.edit = I(e.edit)),
-                  e.command && (t.command = M(e.command)),
-                  t
-                );
+                      return i;
+                    }
+                  })(e.kind)),
+                e.diagnostics && (t.diagnostics = p(e.diagnostics)),
+                e.edit && (t.edit = I(e.edit)),
+                e.command && (t.command = M(e.command)),
+                t
+              ;
               }
             },
             asCodeLens: q,
             asCodeLenses(e) {
               if (e)
-                return e.map(function (e) {
+                return e.map(e => {
                   return q(e);
                 });
             },
@@ -3342,8 +3162,7 @@
             asColorPresentations(e) {
               if (Array.isArray(e)) return e.map(j);
             },
-          }
-        ;
+          };
         });
     },
     LkUo(e, t, n) {
@@ -3361,7 +3180,7 @@
         for (
           var e = [],
             t = 0,
-            n = monaco.languages.getLanguages().map(function (e) {
+            n = monaco.languages.getLanguages().map(e => {
               return e.id;
             });
           t < n.length;
@@ -3372,17 +3191,17 @@
         }
         return e;
       }
-      !(function (e) {
-        (e.fromDocument = function (e) {
+      !(e => {
+        (e.fromDocument = e => {
           return { uri: monaco.Uri.parse(e.uri), languageId: e.languageId };
         }),
-          (e.fromModel = function (e) {
+          (e.fromModel = e => {
             return { uri: e.uri, languageId: e.getModeId() };
           });
-      })((r = t.MonacoModelIdentifier || (t.MonacoModelIdentifier = {}))),
+      })(r = t.MonacoModelIdentifier || (t.MonacoModelIdentifier = {})),
         (t.testGlob = c),
         (t.getLanguages = u);
-      var d = (function () {
+      var d = (() => {
         function e(e, t) {
           (this.p2m = e), (this.m2p = t);
         }
@@ -3420,14 +3239,14 @@
             provideCompletionItems(i, o, s, a) {
               if (!n.matchModel(e, r.fromModel(i))) return [];
               var c = n.m2p.asCompletionParams(i, o, a);
-              return t.provideCompletionItems(c, s).then(function (e) {
+              return t.provideCompletionItems(c, s).then(e => {
                 return n.p2m.asCompletionResult(e);
               });
             },
             resolveCompletionItem: t.resolveCompletionItem
-              ? function (e, r) {
+              ? (e, r) => {
                   var i = n.m2p.asCompletionItem(e);
-                  return t.resolveCompletionItem(i, r).then(function (t) {
+                  return t.resolveCompletionItem(i, r).then(t => {
                     var r = n.p2m.asCompletionItem(t);
                     return Object.assign(e, r), e;
                   });
@@ -3456,7 +3275,7 @@
             provideHover(i, o, s) {
               if (n.matchModel(e, r.fromModel(i))) {
                 var a = n.m2p.asTextDocumentPositionParams(i, o);
-                return t.provideHover(a, s).then(function (e) {
+                return t.provideHover(a, s).then(e => {
                   return n.p2m.asHover(e);
                 });
               }
@@ -3491,7 +3310,7 @@
             provideSignatureHelp(i, o, s) {
               if (n.matchModel(e, r.fromModel(i))) {
                 var a = n.m2p.asTextDocumentPositionParams(i, o);
-                return t.provideSignatureHelp(a, s).then(function (e) {
+                return t.provideSignatureHelp(a, s).then(e => {
                   return n.p2m.asSignatureHelp(e);
                 });
               }
@@ -3519,7 +3338,7 @@
             provideDefinition(i, o, s) {
               if (n.matchModel(e, r.fromModel(i))) {
                 var a = n.m2p.asTextDocumentPositionParams(i, o);
-                return t.provideDefinition(a, s).then(function (e) {
+                return t.provideDefinition(a, s).then(e => {
                   return n.p2m.asDefinitionResult(e);
                 });
               }
@@ -3547,7 +3366,7 @@
             provideReferences(i, o, s, a) {
               if (!n.matchModel(e, r.fromModel(i))) return [];
               var c = n.m2p.asReferenceParams(i, o, s);
-              return t.provideReferences(c, a).then(function (e) {
+              return t.provideReferences(c, a).then(e => {
                 return n.p2m.asReferences(e);
               });
             },
@@ -3576,7 +3395,7 @@
             provideDocumentHighlights(i, o, s) {
               if (!n.matchModel(e, r.fromModel(i))) return [];
               var a = n.m2p.asTextDocumentPositionParams(i, o);
-              return t.provideDocumentHighlights(a, s).then(function (e) {
+              return t.provideDocumentHighlights(a, s).then(e => {
                 return n.p2m.asDocumentHighlights(e);
               });
             },
@@ -3603,7 +3422,7 @@
             provideDocumentSymbols(i, o) {
               if (!n.matchModel(e, r.fromModel(i))) return [];
               var s = n.m2p.asDocumentSymbolParams(i);
-              return t.provideDocumentSymbols(s, o).then(function (e) {
+              return t.provideDocumentSymbols(s, o).then(e => {
                 return n.p2m.asDocumentSymbols(e);
               });
             },
@@ -3630,7 +3449,7 @@
             provideCodeActions(i, o, s, a) {
               if (!n.matchModel(e, r.fromModel(i))) return [];
               var c = n.m2p.asCodeActionParams(i, o, s);
-              return t.provideCodeActions(c, a).then(function (e) {
+              return t.provideCodeActions(c, a).then(e => {
                 return n.p2m.asCodeActions(e);
               });
             },
@@ -3657,20 +3476,20 @@
             provideCodeLenses(i, o) {
               if (!n.matchModel(e, r.fromModel(i))) return [];
               var s = n.m2p.asCodeLensParams(i);
-              return t.provideCodeLenses(s, o).then(function (e) {
+              return t.provideCodeLenses(s, o).then(e => {
                 return n.p2m.asCodeLenses(e);
               });
             },
             resolveCodeLens: t.resolveCodeLens
-              ? function (i, o, s) {
+              ? (i, o, s) => {
                   if (!n.matchModel(e, r.fromModel(i))) return o;
                   var a = n.m2p.asCodeLens(o);
-                  return t.resolveCodeLens(a, s).then(function (e) {
+                  return t.resolveCodeLens(a, s).then(e => {
                     var t = n.p2m.asCodeLens(e);
                     return Object.assign(o, t), o;
                   });
                 }
-              : function (e, t, n) {
+              : (e, t, n) => {
                   return t;
                 },
           };
@@ -3703,7 +3522,7 @@
               var a = n.m2p.asDocumentFormattingParams(i, o);
               return t
                 .provideDocumentFormattingEdits(a, s)
-                .then(function (e) {
+                .then(e => {
                   return n.p2m.asTextEdits(e);
                 });
             },
@@ -3743,7 +3562,7 @@
               var c = n.m2p.asDocumentRangeFormattingParams(i, o, s);
               return t
                 .provideDocumentRangeFormattingEdits(c, a)
-                .then(function (e) {
+                .then(e => {
                   return n.p2m.asTextEdits(e);
                 });
             },
@@ -3784,7 +3603,7 @@
             provideOnTypeFormattingEdits(n, o, s, a, c) {
               if (!i.matchModel(e, r.fromModel(n))) return [];
               var u = i.m2p.asDocumentOnTypeFormattingParams(n, o, s, a);
-              return t.provideOnTypeFormattingEdits(u, c).then(function (e) {
+              return t.provideOnTypeFormattingEdits(u, c).then(e => {
                 return i.p2m.asTextEdits(e);
               });
             },
@@ -3811,7 +3630,7 @@
             provideRenameEdits(i, o, s, a) {
               if (n.matchModel(e, r.fromModel(i))) {
                 var c = n.m2p.asRenameParams(i, o, s);
-                return t.provideRenameEdits(c, a).then(function (e) {
+                return t.provideRenameEdits(c, a).then(e => {
                   return n.p2m.asWorkspaceEdit(e);
                 });
               }
@@ -3839,7 +3658,7 @@
             provideLinks(i, o) {
               if (n.matchModel(e, r.fromModel(i))) {
                 var s = n.m2p.asDocumentLinkParams(i);
-                return t.provideDocumentLinks(s, o).then(function (e) {
+                return t.provideDocumentLinks(s, o).then(e => {
                   return n.p2m.asDocumentLinks(e);
                 });
               }
@@ -3850,7 +3669,7 @@
                 (null === e.url || void 0 === e.url)
               ) {
                 var i = n.m2p.asDocumentLink(e);
-                return t.resolveDocumentLink(i, r).then(function (t) {
+                return t.resolveDocumentLink(i, r).then(t => {
                   var r = n.p2m.asDocumentLink(t);
                   return Object.assign(e, r), e;
                 });
@@ -3880,7 +3699,7 @@
             provideImplementation(i, o, s) {
               if (n.matchModel(e, r.fromModel(i))) {
                 var a = n.m2p.asTextDocumentPositionParams(i, o);
-                return t.provideImplementation(a, s).then(function (e) {
+                return t.provideImplementation(a, s).then(e => {
                   return n.p2m.asDefinitionResult(e);
                 });
               }
@@ -3908,7 +3727,7 @@
             provideTypeDefinition(i, o, s) {
               if (n.matchModel(e, r.fromModel(i))) {
                 var a = n.m2p.asTextDocumentPositionParams(i, o);
-                return t.provideTypeDefinition(a, s).then(function (e) {
+                return t.provideTypeDefinition(a, s).then(e => {
                   return n.p2m.asDefinitionResult(e);
                 });
               }
@@ -3938,7 +3757,7 @@
               var s = n.m2p.asTextDocumentIdentifier(i);
               return t
                 .provideDocumentColors({ textDocument: s }, o)
-                .then(function (e) {
+                .then(e => {
                   return n.p2m.asColorInformations(e);
                 });
             },
@@ -3951,7 +3770,7 @@
                   { textDocument: a, color: o.color, range: c },
                   s
                 )
-                .then(function (e) {
+                .then(e => {
                   return n.p2m.asColorPresentations(e);
                 });
             },
@@ -3980,7 +3799,7 @@
               var a = n.m2p.asTextDocumentIdentifier(i);
               return t
                 .provideFoldingRanges({ textDocument: a }, s)
-                .then(function (e) {
+                .then(e => {
                   return n.p2m.asFoldingRanges(e);
                 });
             },
@@ -3989,7 +3808,7 @@
         (e.prototype.matchModel = function (e, t) {
           var n = this;
           return Array.isArray(e)
-            ? e.some(function (e) {
+            ? e.some(e => {
                 return n.matchModel(e, t);
               })
             : o.DocumentFilter.is(e)
@@ -4001,21 +3820,20 @@
         (e.prototype.matchLanguage = function (e, t) {
           var n = this;
           return Array.isArray(e)
-            ? e.some(function (e) {
+            ? e.some(e => {
                 return n.matchLanguage(e, t);
               })
             : o.DocumentFilter.is(e)
             ? !e.language || e.language === t
             : e === t;
         }),
-        e
-      ;
+        e;
       })();
       t.MonacoLanguages = d;
     },
     MOv1(e, t, n) {
       "use strict";
-      (function (e) {
+      ((e => {
         function r(e) {
           for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n]);
         }
@@ -4065,67 +3883,57 @@
           (t.CancellationToken = u.CancellationToken);
         const d = n("wSv1");
         var l, p, f, m, g, h, v;
-        r(n("I0O9")),
-          r(n("uUC1")),
-          (function (e) {
-            e.type = new o.NotificationType("$/cancelRequest");
-          })(l || (l = {})),
-          (t.NullLogger = Object.freeze({
+        r(n("I0O9")), r(n("uUC1")), (e => {
+          e.type = new o.NotificationType("$/cancelRequest");
+        })(l || (l = {})), t.NullLogger = Object.freeze({
             error: () => {},
             warn: () => {},
             info: () => {},
             log: () => {},
-          })),
-          (function (e) {
-            (e[(e.Off = 0)] = "Off"),
-              (e[(e.Messages = 1)] = "Messages"),
-              (e[(e.Verbose = 2)] = "Verbose");
-          })((p = t.Trace || (t.Trace = {}))),
-          (function (e) {
-            (e.fromString = function (t) {
-              switch ((t = t.toLowerCase())) {
-                case "off":
-                  return e.Off;
-                case "messages":
-                  return e.Messages;
-                case "verbose":
-                  return e.Verbose;
+          }), (e => {
+          (e[(e.Off = 0)] = "Off"),
+            (e[(e.Messages = 1)] = "Messages"),
+            (e[(e.Verbose = 2)] = "Verbose");
+        })(p = t.Trace || (t.Trace = {})), (e => {
+          (e.fromString = t => {
+            switch ((t = t.toLowerCase())) {
+              case "off":
+                return e.Off;
+              case "messages":
+                return e.Messages;
+              case "verbose":
+                return e.Verbose;
+              default:
+                return e.Off;
+            }
+          }),
+            (e.toString = t => {
+              switch (t) {
+                case e.Off:
+                  return "off";
+                case e.Messages:
+                  return "messages";
+                case e.Verbose:
+                  return "verbose";
                 default:
-                  return e.Off;
+                  return "off";
               }
-            }),
-              (e.toString = function (t) {
-                switch (t) {
-                  case e.Off:
-                    return "off";
-                  case e.Messages:
-                    return "messages";
-                  case e.Verbose:
-                    return "verbose";
-                  default:
-                    return "off";
-                }
-              });
-          })((p = t.Trace || (t.Trace = {}))),
-          (function (e) {
-            (e.Text = "text"), (e.JSON = "json");
-          })(t.TraceFormat || (t.TraceFormat = {})),
-          (function (e) {
-            e.fromString = function (t) {
-              return "json" === (t = t.toLowerCase()) ? e.JSON : e.Text;
-            };
-          })((f = t.TraceFormat || (t.TraceFormat = {}))),
-          (function (e) {
-            e.type = new o.NotificationType("$/setTraceNotification");
-          })((m = t.SetTraceNotification || (t.SetTraceNotification = {}))),
-          (function (e) {
-            e.type = new o.NotificationType("$/logTraceNotification");
-          })((g = t.LogTraceNotification || (t.LogTraceNotification = {}))),
-          (function (e) {
-            (e[(e.Closed = 1)] = "Closed"),
-              (e[(e.Disposed = 2)] = "Disposed"),
-              (e[(e.AlreadyListening = 3)] = "AlreadyListening");
-          })((h = t.ConnectionErrors || (t.ConnectionErrors = {})));
+            });
+        })(p = t.Trace || (t.Trace = {})), (e => {
+          (e.Text = "text"), (e.JSON = "json");
+        })(t.TraceFormat || (t.TraceFormat = {})), (e => {
+          e.fromString = t => {
+            return "json" === (t = t.toLowerCase()) ? e.JSON : e.Text;
+          };
+        })(f = t.TraceFormat || (t.TraceFormat = {})), (e => {
+          e.type = new o.NotificationType("$/setTraceNotification");
+        })(m = t.SetTraceNotification || (t.SetTraceNotification = {})), (e => {
+          e.type = new o.NotificationType("$/logTraceNotification");
+        })(g = t.LogTraceNotification || (t.LogTraceNotification = {})), (e => {
+          (e[(e.Closed = 1)] = "Closed"),
+            (e[(e.Disposed = 2)] = "Disposed"),
+            (e[(e.AlreadyListening = 3)] = "AlreadyListening");
+        })(h = t.ConnectionErrors || (t.ConnectionErrors = {}));
         class y extends Error {
           constructor(e, t) {
             super(t), (this.code = e), Object.setPrototypeOf(this, y.prototype);
@@ -4186,327 +3994,319 @@
             _ ||
               0 === S.size ||
               (_ = e(() => {
-                (_ = void 0),
-                  (function () {
-                    if (0 === S.size) return;
-                    let e = S.shift();
-                    try {
-                      o.isRequestMessage(e)
-                        ? (function (e) {
-                            if (U()) return;
-                            function t(t, r, i) {
-                              let s = { jsonrpc: w, id: e.id };
-                              t instanceof o.ResponseError
-                                ? (s.error = t.toJson())
-                                : (s.result = void 0 === t ? null : t),
-                                V(s, r, i),
-                                n.write(s);
-                            }
-                            function r(t, r, i) {
-                              let o = {
-                                jsonrpc: w,
-                                id: e.id,
-                                error: t.toJson(),
-                              };
-                              V(o, r, i), n.write(o);
-                            }
-                            function s(t, r, i) {
-                              void 0 === t && (t = null);
-                              let o = { jsonrpc: w, id: e.id, result: t };
-                              V(o, r, i), n.write(o);
-                            }
-                            !(function (e) {
-                              if (O === p.Off || !R) return;
-                              if (M === f.Text) {
-                                let t;
-                                O === p.Verbose &&
-                                  e.params &&
-                                  (t = `Params: ${JSON.stringify(
-                                    e.params,
-                                    null,
-                                    4
-                                  )}\n\n`),
-                                  R.log(
-                                    `Received request '${e.method} - (${e.id})'.`,
-                                    t
-                                  );
-                              } else B("receive-request", e);
-                            })(e);
-                            let a,
-                              c,
-                              d = T[e.method];
-                            d && ((a = d.type), (c = d.handler));
-                            let l = Date.now();
-                            if (c || x) {
-                              let n = new u.CancellationTokenSource(),
-                                d = String(e.id);
-                              E[d] = n;
-                              try {
-                                let u;
-                                u =
-                                  void 0 === e.params ||
-                                  (void 0 !== a && 0 === a.numberOfParams)
-                                    ? c
-                                      ? c(n.token)
-                                      : x(e.method, n.token)
-                                    : i.array(e.params) &&
-                                      (void 0 === a || a.numberOfParams > 1)
-                                    ? c
-                                      ? c(...e.params, n.token)
-                                      : x(e.method, ...e.params, n.token)
-                                    : c
-                                    ? c(e.params, n.token)
-                                    : x(e.method, e.params, n.token);
-                                let p = u;
-                                u
-                                  ? p.then
-                                    ? p.then(
-                                        (n) => {
-                                          delete E[d], t(n, e.method, l);
-                                        },
-                                        (t) => {
-                                          delete E[d],
-                                            t instanceof o.ResponseError
-                                              ? r(t, e.method, l)
-                                              : t && i.string(t.message)
-                                              ? r(
-                                                  new o.ResponseError(
-                                                    o.ErrorCodes.InternalError,
-                                                    `Request ${e.method} failed with message: ${t.message}`
-                                                  ),
-                                                  e.method,
-                                                  l
-                                                )
-                                              : r(
-                                                  new o.ResponseError(
-                                                    o.ErrorCodes.InternalError,
-                                                    `Request ${e.method} failed unexpectedly without providing any details.`
-                                                  ),
-                                                  e.method,
-                                                  l
-                                                );
-                                        }
-                                      )
-                                    : (delete E[d], t(u, e.method, l))
-                                  : (delete E[d], s(u, e.method, l));
-                              } catch (m) {
-                                delete E[d],
-                                  m instanceof o.ResponseError
-                                    ? t(m, e.method, l)
-                                    : m && i.string(m.message)
-                                    ? r(
-                                        new o.ResponseError(
-                                          o.ErrorCodes.InternalError,
-                                          `Request ${e.method} failed with message: ${m.message}`
-                                        ),
-                                        e.method,
-                                        l
-                                      )
-                                    : r(
-                                        new o.ResponseError(
-                                          o.ErrorCodes.InternalError,
-                                          `Request ${e.method} failed unexpectedly without providing any details.`
-                                        ),
-                                        e.method,
-                                        l
-                                      );
-                              }
-                            } else
-                              r(
-                                new o.ResponseError(
-                                  o.ErrorCodes.MethodNotFound,
-                                  `Unhandled method ${e.method}`
-                                ),
-                                e.method,
-                                l
-                              );
-                          })(e)
-                        : o.isNotificationMessage(e)
-                        ? (function (e) {
-                            if (U()) return;
-                            let t, n;
-                            if (e.method === l.type.method)
-                              n = (e) => {
-                                let t = e.id,
-                                  n = E[String(t)];
-                                n && n.cancel();
-                              };
-                            else {
-                              let r = P[e.method];
-                              r && ((n = r.handler), (t = r.type));
-                            }
-                            if (n || b)
-                              try {
-                                !(function (e) {
-                                  if (
-                                    O === p.Off ||
-                                    !R ||
-                                    e.method === g.type.method
-                                  )
-                                    return;
-                                  if (M === f.Text) {
-                                    let t;
-                                    O === p.Verbose &&
-                                      (t = e.params
-                                        ? `Params: ${JSON.stringify(
-                                            e.params,
-                                            null,
-                                            4
-                                          )}\n\n`
-                                        : "No parameters provided.\n\n"),
-                                      R.log(
-                                        `Received notification '${e.method}'.`,
-                                        t
-                                      );
-                                  } else B("receive-notification", e);
-                                })(e),
-                                  void 0 === e.params ||
-                                  (void 0 !== t && 0 === t.numberOfParams)
-                                    ? n
-                                      ? n()
-                                      : b(e.method)
-                                    : i.array(e.params) &&
-                                      (void 0 === t || t.numberOfParams > 1)
-                                    ? n
-                                      ? n(...e.params)
-                                      : b(e.method, ...e.params)
-                                    : n
-                                    ? n(e.params)
-                                    : b(e.method, e.params);
-                              } catch (o) {
-                                o.message
-                                  ? r.error(
-                                      `Notification handler '${e.method}' failed with message: ${o.message}`
+                _ = void 0, (() => {
+                  if (0 === S.size) return;
+                  let e = S.shift();
+                  try {
+                    o.isRequestMessage(e) ? (e => {
+                          if (U()) return;
+                          function t(t, r, i) {
+                            let s = { jsonrpc: w, id: e.id };
+                            t instanceof o.ResponseError
+                              ? (s.error = t.toJson())
+                              : (s.result = void 0 === t ? null : t),
+                              V(s, r, i),
+                              n.write(s);
+                          }
+                          function r(t, r, i) {
+                            let o = {
+                              jsonrpc: w,
+                              id: e.id,
+                              error: t.toJson(),
+                            };
+                            V(o, r, i), n.write(o);
+                          }
+                          function s(t, r, i) {
+                            void 0 === t && (t = null);
+                            let o = { jsonrpc: w, id: e.id, result: t };
+                            V(o, r, i), n.write(o);
+                          }
+                          !(e => {
+                            if (O === p.Off || !R) return;
+                            if (M === f.Text) {
+                              let t;
+                              O === p.Verbose &&
+                                e.params &&
+                                (t = `Params: ${JSON.stringify(
+                                  e.params,
+                                  null,
+                                  4
+                                )}\n\n`),
+                                R.log(
+                                  `Received request '${e.method} - (${e.id})'.`,
+                                  t
+                                );
+                            } else B("receive-request", e);
+                          })(e);
+                          let a,
+                            c,
+                            d = T[e.method];
+                          d && ((a = d.type), (c = d.handler));
+                          let l = Date.now();
+                          if (c || x) {
+                            let n = new u.CancellationTokenSource(),
+                              d = String(e.id);
+                            E[d] = n;
+                            try {
+                              let u;
+                              u =
+                                void 0 === e.params ||
+                                (void 0 !== a && 0 === a.numberOfParams)
+                                  ? c
+                                    ? c(n.token)
+                                    : x(e.method, n.token)
+                                  : i.array(e.params) &&
+                                    (void 0 === a || a.numberOfParams > 1)
+                                  ? c
+                                    ? c(...e.params, n.token)
+                                    : x(e.method, ...e.params, n.token)
+                                  : c
+                                  ? c(e.params, n.token)
+                                  : x(e.method, e.params, n.token);
+                              let p = u;
+                              u
+                                ? p.then
+                                  ? p.then(
+                                      (n) => {
+                                        delete E[d], t(n, e.method, l);
+                                      },
+                                      (t) => {
+                                        delete E[d],
+                                          t instanceof o.ResponseError
+                                            ? r(t, e.method, l)
+                                            : t && i.string(t.message)
+                                            ? r(
+                                                new o.ResponseError(
+                                                  o.ErrorCodes.InternalError,
+                                                  `Request ${e.method} failed with message: ${t.message}`
+                                                ),
+                                                e.method,
+                                                l
+                                              )
+                                            : r(
+                                                new o.ResponseError(
+                                                  o.ErrorCodes.InternalError,
+                                                  `Request ${e.method} failed unexpectedly without providing any details.`
+                                                ),
+                                                e.method,
+                                                l
+                                              );
+                                      }
                                     )
-                                  : r.error(
-                                      `Notification handler '${e.method}' failed unexpectedly.`
+                                  : (delete E[d], t(u, e.method, l))
+                                : (delete E[d], s(u, e.method, l));
+                            } catch (m) {
+                              delete E[d],
+                                m instanceof o.ResponseError
+                                  ? t(m, e.method, l)
+                                  : m && i.string(m.message)
+                                  ? r(
+                                      new o.ResponseError(
+                                        o.ErrorCodes.InternalError,
+                                        `Request ${e.method} failed with message: ${m.message}`
+                                      ),
+                                      e.method,
+                                      l
+                                    )
+                                  : r(
+                                      new o.ResponseError(
+                                        o.ErrorCodes.InternalError,
+                                        `Request ${e.method} failed unexpectedly without providing any details.`
+                                      ),
+                                      e.method,
+                                      l
                                     );
-                              }
-                            else N.fire(e);
-                          })(e)
-                        : o.isResponseMessage(e)
-                        ? (function (e) {
-                            if (U()) return;
-                            if (null === e.id)
-                              e.error
+                            }
+                          } else
+                            r(
+                              new o.ResponseError(
+                                o.ErrorCodes.MethodNotFound,
+                                `Unhandled method ${e.method}`
+                              ),
+                              e.method,
+                              l
+                            );
+                        })(e) : o.isNotificationMessage(e) ? (e => {
+                          if (U()) return;
+                          let t, n;
+                          if (e.method === l.type.method)
+                            n = (e) => {
+                              let t = e.id,
+                                n = E[String(t)];
+                              n && n.cancel();
+                            };
+                          else {
+                            let r = P[e.method];
+                            r && ((n = r.handler), (t = r.type));
+                          }
+                          if (n || b)
+                            try {
+                              !(e => {
+                                if (
+                                  O === p.Off ||
+                                  !R ||
+                                  e.method === g.type.method
+                                )
+                                  return;
+                                if (M === f.Text) {
+                                  let t;
+                                  O === p.Verbose &&
+                                    (t = e.params
+                                      ? `Params: ${JSON.stringify(
+                                          e.params,
+                                          null,
+                                          4
+                                        )}\n\n`
+                                      : "No parameters provided.\n\n"),
+                                    R.log(
+                                      `Received notification '${e.method}'.`,
+                                      t
+                                    );
+                                } else B("receive-notification", e);
+                              })(e),
+                                void 0 === e.params ||
+                                (void 0 !== t && 0 === t.numberOfParams)
+                                  ? n
+                                    ? n()
+                                    : b(e.method)
+                                  : i.array(e.params) &&
+                                    (void 0 === t || t.numberOfParams > 1)
+                                  ? n
+                                    ? n(...e.params)
+                                    : b(e.method, ...e.params)
+                                  : n
+                                  ? n(e.params)
+                                  : b(e.method, e.params);
+                            } catch (o) {
+                              o.message
                                 ? r.error(
-                                    `Received response message without id: Error is: \n${JSON.stringify(
-                                      e.error,
-                                      void 0,
-                                      4
-                                    )}`
+                                    `Notification handler '${e.method}' failed with message: ${o.message}`
                                   )
                                 : r.error(
-                                    "Received response message without id. No further error information provided."
+                                    `Notification handler '${e.method}' failed unexpectedly.`
                                   );
-                            else {
-                              let n = String(e.id),
-                                i = k[n];
-                              if (
-                                ((function (e, t) {
-                                  if (O === p.Off || !R) return;
-                                  if (M === f.Text) {
-                                    let n;
-                                    if (
-                                      (O === p.Verbose &&
-                                        (e.error && e.error.data
-                                          ? (n = `Error data: ${JSON.stringify(
-                                              e.error.data,
-                                              null,
-                                              4
-                                            )}\n\n`)
-                                          : e.result
-                                          ? (n = `Result: ${JSON.stringify(
-                                              e.result,
-                                              null,
-                                              4
-                                            )}\n\n`)
-                                          : void 0 === e.error &&
-                                            (n = "No result returned.\n\n")),
-                                      t)
-                                    ) {
-                                      let r = e.error
-                                        ? ` Request failed: ${e.error.message} (${e.error.code}).`
-                                        : "";
-                                      R.log(
-                                        `Received response '${t.method} - (${
-                                          e.id
-                                        })' in ${
-                                          Date.now() - t.timerStart
-                                        }ms.${r}`,
-                                        n
-                                      );
-                                    } else
-                                      R.log(
-                                        `Received response ${e.id} without active response promise.`,
-                                        n
-                                      );
-                                  } else B("receive-response", e);
-                                })(e, i),
-                                i)
-                              ) {
-                                delete k[n];
-                                try {
-                                  if (e.error) {
-                                    let t = e.error;
-                                    i.reject(
-                                      new o.ResponseError(
-                                        t.code,
-                                        t.message,
-                                        t.data
-                                      )
+                            }
+                          else N.fire(e);
+                        })(e) : o.isResponseMessage(e) ? (e => {
+                          if (U()) return;
+                          if (null === e.id)
+                            e.error
+                              ? r.error(
+                                  `Received response message without id: Error is: \n${JSON.stringify(
+                                    e.error,
+                                    void 0,
+                                    4
+                                  )}`
+                                )
+                              : r.error(
+                                  "Received response message without id. No further error information provided."
+                                );
+                          else {
+                            let n = String(e.id),
+                              i = k[n];
+                            if (
+                              (((e, t) => {
+                                if (O === p.Off || !R) return;
+                                if (M === f.Text) {
+                                  let n;
+                                  if (
+                                    (O === p.Verbose &&
+                                      (e.error && e.error.data
+                                        ? (n = `Error data: ${JSON.stringify(
+                                            e.error.data,
+                                            null,
+                                            4
+                                          )}\n\n`)
+                                        : e.result
+                                        ? (n = `Result: ${JSON.stringify(
+                                            e.result,
+                                            null,
+                                            4
+                                          )}\n\n`)
+                                        : void 0 === e.error &&
+                                          (n = "No result returned.\n\n")),
+                                    t)
+                                  ) {
+                                    let r = e.error
+                                      ? ` Request failed: ${e.error.message} (${e.error.code}).`
+                                      : "";
+                                    R.log(
+                                      `Received response '${t.method} - (${
+                                        e.id
+                                      })' in ${
+                                        Date.now() - t.timerStart
+                                      }ms.${r}`,
+                                      n
                                     );
-                                  } else {
-                                    if (void 0 === e.result)
-                                      throw new Error("Should never happen.");
-                                    i.resolve(e.result);
-                                  }
-                                } catch (t) {
-                                  t.message
-                                    ? r.error(
-                                        `Response handler '${i.method}' failed with message: ${t.message}`
-                                      )
-                                    : r.error(
-                                        `Response handler '${i.method}' failed unexpectedly.`
-                                      );
+                                  } else
+                                    R.log(
+                                      `Received response ${e.id} without active response promise.`,
+                                      n
+                                    );
+                                } else B("receive-response", e);
+                              })(e, i), i)
+                            ) {
+                              delete k[n];
+                              try {
+                                if (e.error) {
+                                  let t = e.error;
+                                  i.reject(
+                                    new o.ResponseError(
+                                      t.code,
+                                      t.message,
+                                      t.data
+                                    )
+                                  );
+                                } else {
+                                  if (void 0 === e.result)
+                                    throw new Error("Should never happen.");
+                                  i.resolve(e.result);
                                 }
+                              } catch (t) {
+                                t.message
+                                  ? r.error(
+                                      `Response handler '${i.method}' failed with message: ${t.message}`
+                                    )
+                                  : r.error(
+                                      `Response handler '${i.method}' failed unexpectedly.`
+                                    );
                               }
                             }
-                          })(e)
-                        : (function (e) {
-                            if (!e)
-                              return void r.error("Received empty message.");
-                            r.error(
-                              `Received message which is neither a response nor a notification message:\n${JSON.stringify(
-                                e,
-                                null,
-                                4
-                              )}`
-                            );
-                            let t = e;
-                            if (i.string(t.id) || i.number(t.id)) {
-                              let e = String(t.id),
-                                n = k[e];
-                              n &&
-                                n.reject(
-                                  new Error(
-                                    "The received response has neither a result nor an error property."
-                                  )
-                                );
-                            }
-                          })(e);
-                    } finally {
-                      $();
-                    }
-                  })();
+                          }
+                        })(e) : (e => {
+                          if (!e)
+                            return void r.error("Received empty message.");
+                          r.error(
+                            `Received message which is neither a response nor a notification message:\n${JSON.stringify(
+                              e,
+                              null,
+                              4
+                            )}`
+                          );
+                          let t = e;
+                          if (i.string(t.id) || i.number(t.id)) {
+                            let e = String(t.id),
+                              n = k[e];
+                            n &&
+                              n.reject(
+                                new Error(
+                                  "The received response has neither a result nor an error property."
+                                )
+                              );
+                          }
+                        })(e);
+                  } finally {
+                    $();
+                  }
+                })();
               }));
           }
           t.onClose(z),
-            t.onError(function (e) {
+            t.onError(e => {
               q.fire([e, void 0, void 0]);
             }),
             n.onClose(z),
-            n.onError(function (e) {
+            n.onError(e => {
               q.fire(e);
             });
           let J = (e) => {
@@ -4606,7 +4406,7 @@
                 }
               else (r = e.method), (o = Q(e, t));
               let s = { jsonrpc: w, method: r, params: o };
-              !(function (e) {
+              !(e => {
                 if (O !== p.Off && R)
                   if (M === f.Text) {
                     let t;
@@ -4631,11 +4431,9 @@
             sendRequest: (e, ...t) => {
               let r, s, c;
               if (
-                (G(),
-                (function () {
-                  if (!W()) throw new Error("Call listen() first.");
-                })(),
-                i.string(e))
+                (G(), (() => {
+                if (!W()) throw new Error("Call listen() first.");
+              })(), i.string(e))
               )
                 switch (((r = e), t.length)) {
                   case 0:
@@ -4670,7 +4468,7 @@
                       resolve: e,
                       reject: t,
                     };
-                  !(function (e) {
+                  !(e => {
                     if (O !== p.Off && R)
                       if (M === f.Text) {
                         let t;
@@ -4751,16 +4549,13 @@
                 i.func(t.dispose) && t.dispose();
             },
             listen: () => {
-              G(),
-                (function () {
-                  if (W())
-                    throw new y(
-                      h.AlreadyListening,
-                      "Connection is already listening"
-                    );
-                })(),
-                (F = v.Listening),
-                t.listen(J);
+              G(), (() => {
+                if (W())
+                  throw new y(
+                    h.AlreadyListening,
+                    "Connection is already listening"
+                  );
+              })(), F = v.Listening, t.listen(J);
             },
             inspect: () => {
               console.log("inspect");
@@ -4775,54 +4570,47 @@
             X
           );
         }
-        (t.ConnectionError = y),
-          (function (e) {
-            e.is = function (e) {
-              let t = e;
-              return t && i.func(t.cancelUndispatched);
-            };
-          })(t.ConnectionStrategy || (t.ConnectionStrategy = {})),
-          (function (e) {
-            (e[(e.New = 1)] = "New"),
-              (e[(e.Listening = 2)] = "Listening"),
-              (e[(e.Closed = 3)] = "Closed"),
-              (e[(e.Disposed = 4)] = "Disposed");
-          })(v || (v = {})),
-          (t.createMessageConnection = function (e, n, r, i) {
+        t.ConnectionError = y, (e => {
+          e.is = e => {
+            let t = e;
+            return t && i.func(t.cancelUndispatched);
+          };
+        })(t.ConnectionStrategy || (t.ConnectionStrategy = {})), (e => {
+          (e[(e.New = 1)] = "New"),
+            (e[(e.Listening = 2)] = "Listening"),
+            (e[(e.Closed = 3)] = "Closed"),
+            (e[(e.Disposed = 4)] = "Disposed");
+        })(v || (v = {})), t.createMessageConnection = (e, n, r, i) => {
             var o;
-            return (
-              r || (r = t.NullLogger),
-              C(
-                void 0 !== (o = e).listen && void 0 === o.read
-                  ? e
-                  : new s.StreamMessageReader(e),
-                (function (e) {
-                  return void 0 !== e.write && void 0 === e.end;
-                })(n)
-                  ? n
-                  : new a.StreamMessageWriter(n),
-                r,
-                i
-              )
-            );
-          });
-      }.call(this, n("CfyG").setImmediate));
+            return r || (r = t.NullLogger),
+            C(
+              void 0 !== (o = e).listen && void 0 === o.read
+                ? e
+                : new s.StreamMessageReader(e),
+              (e => {
+                return void 0 !== e.write && void 0 === e.end;
+              })(n) ? n : new a.StreamMessageWriter(n),
+              r,
+              i
+            )
+          ;
+          };
+      }).call(this, n("CfyG").setImmediate));
     },
     QGVK(e, t, n) {
       "use strict";
       var r =
-        (this && this.__extends) ||
-        (function () {
+        this && this.__extends || (() => {
           var e =
             Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array &&
-              function (e, t) {
+              ((e, t) => {
                 e.__proto__ = t;
-              }) ||
-            function (e, t) {
+              })) ||
+            ((e, t) => {
               for (var n in t) t.hasOwnProperty(n) && (e[n] = t[n]);
-            };
-          return function (t, n) {
+            });
+          return (t, n) => {
             function r() {
               this.constructor = t;
             }
@@ -4834,7 +4622,7 @@
           };
         })();
       Object.defineProperty(t, "__esModule", { value: !0 });
-      var i = (function (e) {
+      var i = (e => {
         function t(t) {
           return e.call(this, t) || this;
         }
@@ -4845,7 +4633,7 @@
     "U+XB": function (e, t, n) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
-      var r = (function () {
+      var r = (() => {
         function e(e) {
           this.editor = e;
         }
@@ -4867,20 +4655,19 @@
     U5rG(e, t, n) {
       "use strict";
       var r =
-        (this && this.__extends) ||
-        (function () {
-          var e = function (t, n) {
+        this && this.__extends || (() => {
+          var e = (t, n) => {
             return (e =
               Object.setPrototypeOf ||
               ({ __proto__: [] } instanceof Array &&
-                function (e, t) {
+                ((e, t) => {
                   e.__proto__ = t;
-                }) ||
-              function (e, t) {
+                })) ||
+              ((e, t) => {
                 for (var n in t) t.hasOwnProperty(n) && (e[n] = t[n]);
-              })(t, n);
+              }))(t, n);
           };
-          return function (t, n) {
+          return (t, n) => {
             function r() {
               this.constructor = t;
             }
@@ -4898,10 +4685,10 @@
         a = n("orFP"),
         c = n("Wo+m"),
         u = n("WULY");
-      !(function (e) {
+      !(e => {
         for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n]);
       })(n("qRuN"));
-      var d = (function (e) {
+      var d = (e => {
         function t(n) {
           var r = n.id,
             i = n.name,
@@ -4921,7 +4708,7 @@
               return "asUri" === n
                 ? e[n]
                 : "asCompletionParams" === n
-                ? function (t, n, r) {
+                ? (t, n, r) => {
                     return {
                       textDocument: e.asTextDocumentIdentifier(t),
                       position: n,
@@ -4929,7 +4716,7 @@
                     };
                   }
                 : "asWillSaveTextDocumentParams" === n
-                ? function (t) {
+                ? t => {
                     return {
                       textDocument: e.asTextDocumentIdentifier(t.document),
                       reason: t.reason,
@@ -4940,33 +4727,31 @@
                 : t.bypassConversion;
             },
           })),
-          a
-        ;
+          a;
         }
-        return (
-          r(t, e),
-          (t.prototype.doCreateConnection = function () {
-            var e = this.handleConnectionError.bind(this),
-              t = this.handleConnectionClosed.bind(this);
-            return this.connectionProvider.get(e, t, this.outputChannel);
-          }),
-          (t.prototype.createMessageTransports = function (e) {
-            throw new Error("Unsupported");
-          }),
-          (t.prototype.registerBuiltinFeatures = function () {
-            e.prototype.registerBuiltinFeatures.call(this),
-              this.registerFeature(new o.TypeDefinitionFeature(this)),
-              this.registerFeature(new s.ImplementationFeature(this)),
-              this.registerFeature(new a.ColorProviderFeature(this)),
-              this.registerFeature(new c.WorkspaceFoldersFeature(this));
-            var n = new u.FoldingRangeFeature(this);
-            (n.asFoldingRanges = t.bypassConversion), this.registerFeature(n);
-          }),
-          (t.bypassConversion = function (e) {
-            return e || void 0;
-          }),
-          t
-        );
+        return r(t, e),
+        (t.prototype.doCreateConnection = function () {
+          var e = this.handleConnectionError.bind(this),
+            t = this.handleConnectionClosed.bind(this);
+          return this.connectionProvider.get(e, t, this.outputChannel);
+        }),
+        (t.prototype.createMessageTransports = e => {
+          throw new Error("Unsupported");
+        }),
+        (t.prototype.registerBuiltinFeatures = function () {
+          e.prototype.registerBuiltinFeatures.call(this),
+            this.registerFeature(new o.TypeDefinitionFeature(this)),
+            this.registerFeature(new s.ImplementationFeature(this)),
+            this.registerFeature(new a.ColorProviderFeature(this)),
+            this.registerFeature(new c.WorkspaceFoldersFeature(this));
+          var n = new u.FoldingRangeFeature(this);
+          (n.asFoldingRanges = t.bypassConversion), this.registerFeature(n);
+        }),
+        (t.bypassConversion = e => {
+          return e || void 0;
+        }),
+        t
+      ;
       })(i.BaseLanguageClient);
       t.MonacoLanguageClient = d;
     },
@@ -4974,33 +4759,29 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
       var r = n("MOv1");
-      !(function (e) {
+      !(e => {
         e.type = new r.RequestType0("workspace/workspaceFolders");
-      })(t.WorkspaceFoldersRequest || (t.WorkspaceFoldersRequest = {})),
-        (function (e) {
-          e.type = new r.NotificationType(
-            "workspace/didChangeWorkspaceFolders"
-          );
-        })(
-          t.DidChangeWorkspaceFoldersNotification ||
-            (t.DidChangeWorkspaceFoldersNotification = {})
+      })(t.WorkspaceFoldersRequest || (t.WorkspaceFoldersRequest = {})), (e => {
+        e.type = new r.NotificationType(
+          "workspace/didChangeWorkspaceFolders"
         );
+      })(t.DidChangeWorkspaceFoldersNotification ||
+        (t.DidChangeWorkspaceFoldersNotification = {}));
     },
     WULY(e, t, n) {
       "use strict";
       var r =
-        (this && this.__extends) ||
-        (function () {
+        this && this.__extends || (() => {
           var e =
             Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array &&
-              function (e, t) {
+              ((e, t) => {
                 e.__proto__ = t;
-              }) ||
-            function (e, t) {
+              })) ||
+            ((e, t) => {
               for (var n in t) t.hasOwnProperty(n) && (e[n] = t[n]);
-            };
-          return function (t, n) {
+            });
+          return (t, n) => {
             function r() {
               this.constructor = t;
             }
@@ -5019,12 +4800,12 @@
       function c(e, t) {
         return void 0 === e[t] && (e[t] = {}), e[t];
       }
-      var u = (function (e) {
+      var u = (e => {
         function t(t) {
           return e.call(this, t, a.FoldingRangeRequest.type) || this;
         }
         return r(t, e),
-        (t.prototype.fillClientCapabilities = function (e) {
+        (t.prototype.fillClientCapabilities = e => {
           var t = c(c(e, "textDocument"), "foldingRange");
           (t.dynamicRegistration = !0),
             (t.rangeLimit = 5e3),
@@ -5045,14 +4826,14 @@
         (t.prototype.registerLanguageProvider = function (e) {
           var t = this,
             n = this._client,
-            r = function (e, r, i) {
+            r = (e, r, i) => {
               var o = {
                 textDocument:
                   n.code2ProtocolConverter.asTextDocumentIdentifier(e),
               };
               return n
                 .sendRequest(a.FoldingRangeRequest.type, o, i)
-                .then(t.asFoldingRanges.bind(t), function (e) {
+                .then(t.asFoldingRanges.bind(t), e => {
                   return (
                     n.logFailedRequest(a.FoldingRangeRequest.type, e),
                     Promise.resolve(null)
@@ -5071,7 +4852,7 @@
             }
           );
         }),
-        (t.prototype.asFoldingRangeKind = function (e) {
+        (t.prototype.asFoldingRangeKind = e => {
           if (e)
             switch (e) {
               case a.FoldingRangeKind.Comment:
@@ -5085,7 +4866,7 @@
         (t.prototype.asFoldingRanges = function (e) {
           var t = this;
           return Array.isArray(e)
-            ? e.map(function (e) {
+            ? e.map(e => {
                 return new s.FoldingRange(
                   e.startLine,
                   e.endLine,
@@ -5094,8 +4875,7 @@
               })
             : [];
         }),
-        t
-      ;
+        t;
       })(n("qRuN").TextDocumentFeature);
       t.FoldingRangeFeature = u;
     },
@@ -5103,7 +4883,7 @@
       "use strict";
       var r =
         (this && this.__values) ||
-        function (e) {
+        (e => {
           var t = "function" === typeof Symbol && e[Symbol.iterator],
             n = 0;
           return t
@@ -5116,7 +4896,7 @@
                   );
                 },
               };
-        };
+        });
       Object.defineProperty(t, "__esModule", { value: !0 });
       var i = n("AL8H"),
         o = n("uoVZ"),
@@ -5124,7 +4904,7 @@
       function a(e, t) {
         if (void 0 !== e) return e[t];
       }
-      var c = (function () {
+      var c = (() => {
         function e(e) {
           (this._client = e), (this._listeners = new Map());
         }
@@ -5141,23 +4921,23 @@
           e.workspaceFolders =
             void 0 === n
               ? null
-              : n.map(function (e) {
+              : n.map(e => {
                   return t.asProtocol(e);
                 });
         }),
-        (e.prototype.fillClientCapabilities = function (e) {
+        (e.prototype.fillClientCapabilities = e => {
           (e.workspace = e.workspace || {}),
             (e.workspace.workspaceFolders = !0);
         }),
         (e.prototype.initialize = function (e) {
           var t = this,
             n = this._client;
-          n.onRequest(s.WorkspaceFoldersRequest.type, function (e) {
-            var r = function () {
+          n.onRequest(s.WorkspaceFoldersRequest.type, e => {
+            var r = () => {
                 var e = o.workspace.workspaceFolders;
                 return void 0 === e
                   ? null
-                  : e.map(function (e) {
+                  : e.map(e => {
                       return t.asProtocol(e);
                     });
               },
@@ -5182,14 +4962,14 @@
           var n = this,
             r = t.id,
             i = this._client,
-            a = o.workspace.onDidChangeWorkspaceFolders(function (e) {
-              var t = function (e) {
+            a = o.workspace.onDidChangeWorkspaceFolders(e => {
+              var t = e => {
                   var t = {
                     event: {
-                      added: e.added.map(function (e) {
+                      added: e.added.map(e => {
                         return n.asProtocol(e);
                       }),
-                      removed: e.removed.map(function (e) {
+                      removed: e.removed.map(e => {
                         return n.asProtocol(e);
                       }),
                     },
@@ -5239,8 +5019,7 @@
                 name: e.name,
               };
         }),
-        e
-      ;
+        e;
       })();
       t.WorkspaceFoldersFeature = c;
     },
@@ -5249,8 +5028,8 @@
       Object.defineProperty(t, "__esModule", { value: !0 });
       var r = n("BOov"),
         i = n("owkM");
-      t.createConnection = function (e, t, n) {
-        return e.onError(function (e) {
+      t.createConnection = (e, t, n) => {
+        return e.onError(e => {
           t(e[0], e[1], e[2]);
         }),
         e.onClose(n),
@@ -5338,48 +5117,46 @@
           dispose() {
             return e.dispose();
           },
-        }
-      ;
+        };
       };
     },
     bwr2(e, t, n) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
       var r = n("oL6p"),
-        i = (function () {
+        i = (() => {
           function e(e, t) {
             (this.name = e),
               (this.p2m = t),
               (this.diagnostics = new Map()),
               (this.toDispose = new r.DisposableCollection());
           }
-          return (
-            (e.prototype.dispose = function () {
-              this.toDispose.dispose();
-            }),
-            (e.prototype.get = function (e) {
-              var t = this.diagnostics.get(e);
-              return t ? t.diagnostics : [];
-            }),
-            (e.prototype.set = function (e, t) {
-              var n = this,
-                i = this.diagnostics.get(e);
-              if (i) i.diagnostics = t;
-              else {
-                var s = new o(e, t, this.name, this.p2m);
-                this.diagnostics.set(e, s),
-                  this.toDispose.push(
-                    r.Disposable.create(function () {
-                      n.diagnostics.delete(e), s.dispose();
-                    })
-                  );
-              }
-            }),
-            e
-          );
+          return (e.prototype.dispose = function () {
+            this.toDispose.dispose();
+          }),
+          (e.prototype.get = function (e) {
+            var t = this.diagnostics.get(e);
+            return t ? t.diagnostics : [];
+          }),
+          (e.prototype.set = function (e, t) {
+            var n = this,
+              i = this.diagnostics.get(e);
+            if (i) i.diagnostics = t;
+            else {
+              var s = new o(e, t, this.name, this.p2m);
+              this.diagnostics.set(e, s),
+                this.toDispose.push(
+                  r.Disposable.create(() => {
+                    n.diagnostics.delete(e), s.dispose();
+                  })
+                );
+            }
+          }),
+          e
+        ;
         })();
       t.MonacoDiagnosticCollection = i;
-      var o = (function () {
+      var o = (() => {
         function e(e, t, n, r) {
           var i = this;
           (this.owner = n),
@@ -5388,7 +5165,7 @@
             (this._diagnostics = []),
             (this.uri = monaco.Uri.parse(e)),
             (this.diagnostics = t),
-            monaco.editor.onDidCreateModel(function (e) {
+            monaco.editor.onDidCreateModel(e => {
               return i.doUpdateModelMarkers(e);
             });
         }
@@ -5433,7 +5210,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 });
       const r = n("Gkij");
       var i;
-      !(function (e) {
+      !(e => {
         (e.ParseError = -32700),
           (e.InvalidRequest = -32600),
           (e.MethodNotFound = -32601),
@@ -5446,7 +5223,7 @@
           (e.RequestCancelled = -32800),
           (e.MessageWriteError = 1),
           (e.MessageReadError = 2);
-      })((i = t.ErrorCodes || (t.ErrorCodes = {})));
+      })(i = t.ErrorCodes || (t.ErrorCodes = {}));
       class o extends Error {
         constructor(e, t, n) {
           super(t),
@@ -5581,15 +5358,15 @@
           super(e, 9), (this._ = void 0);
         }
       }),
-        (t.isRequestMessage = function (e) {
+        (t.isRequestMessage = e => {
           let t = e;
           return t && r.string(t.method) && (r.string(t.id) || r.number(t.id));
         }),
-        (t.isNotificationMessage = function (e) {
+        (t.isNotificationMessage = e => {
           let t = e;
           return t && r.string(t.method) && void 0 === e.id;
         }),
-        (t.isResponseMessage = function (e) {
+        (t.isResponseMessage = e => {
           let t = e;
           return (
             t &&
@@ -5600,18 +5377,16 @@
     },
     fIkx(e, t, n) {
       "use strict";
-      Object.defineProperty(t, "__esModule", { value: !0 }),
-        (function (e) {
-          e.create = function (e) {
-            return { dispose: e };
-          };
-        })(t.Disposable || (t.Disposable = {})),
-        (function (e) {
-          const t = { dispose() {} };
-          e.None = function () {
-            return t;
-          };
-        })(t.Event || (t.Event = {}));
+      Object.defineProperty(t, "__esModule", { value: !0 }), (e => {
+        e.create = e => {
+          return { dispose: e };
+        };
+      })(t.Disposable || (t.Disposable = {})), (e => {
+        const t = { dispose() {} };
+        e.None = () => {
+          return t;
+        };
+      })(t.Event || (t.Event = {}));
       class r {
         add(e, t = null, n) {
           this._callbacks || ((this._callbacks = []), (this._contexts = [])),
@@ -5702,23 +5477,22 @@
             (this._callbacks.dispose(), (this._callbacks = void 0));
         }
       }
-      (i._noop = function () {}), (t.Emitter = i);
+      (i._noop = () => {}), (t.Emitter = i);
     },
     h0WC(e, t, n) {
       "use strict";
       var r =
-        (this && this.__extends) ||
-        (function () {
+        this && this.__extends || (() => {
           var e =
             Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array &&
-              function (e, t) {
+              ((e, t) => {
                 e.__proto__ = t;
-              }) ||
-            function (e, t) {
+              })) ||
+            ((e, t) => {
               for (var n in t) t.hasOwnProperty(n) && (e[n] = t[n]);
-            };
-          return function (t, n) {
+            });
+          return (t, n) => {
             function r() {
               this.constructor = t;
             }
@@ -5730,7 +5504,7 @@
           };
         })();
       Object.defineProperty(t, "__esModule", { value: !0 });
-      var i = (function (e) {
+      var i = (e => {
         function t(t) {
           return e.call(this, t) || this;
         }
@@ -5751,49 +5525,47 @@
       function s(e) {
         return Array.isArray(e);
       }
-      (t.boolean = function (e) {
+      (t.boolean = e => {
         return !0 === e || !1 === e;
       }),
         (t.string = i),
-        (t.number = function (e) {
+        (t.number = e => {
           return "[object Number]" === r.call(e);
         }),
-        (t.error = function (e) {
+        (t.error = e => {
           return "[object Error]" === r.call(e);
         }),
         (t.func = o),
         (t.array = s),
-        (t.stringArray = function (e) {
-          return (
-            s(e) &&
-            e.every(function (e) {
-              return i(e);
-            })
-          );
+        (t.stringArray = e => {
+          return s(e) &&
+          e.every(e => {
+            return i(e);
+          });
         }),
-        (t.typedArray = function (e, t) {
+        (t.typedArray = (e, t) => {
           return Array.isArray(e) && e.every(t);
         }),
-        (t.thenable = function (e) {
+        (t.thenable = e => {
           return e && o(e.then);
         });
     },
     hde3(e, t, n) {
       "use strict";
       n.r(t),
-        function (e) {
+        (e => {
           var n,
-            r = (function () {
+            r = (() => {
               var e =
                 Object.setPrototypeOf ||
                 ({ __proto__: [] } instanceof Array &&
-                  function (e, t) {
+                  ((e, t) => {
                     e.__proto__ = t;
-                  }) ||
-                function (e, t) {
+                  })) ||
+                ((e, t) => {
                   for (var n in t) t.hasOwnProperty(n) && (e[n] = t[n]);
-                };
-              return function (t, n) {
+                });
+              return (t, n) => {
                 function r() {
                   this.constructor = t;
                 }
@@ -5815,7 +5587,7 @@
           var c = "",
             u = "/",
             d = /^(([^:/?#]+?):)?(\/\/([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?/,
-            l = (function () {
+            l = (() => {
               function e(e, t, n, r, i) {
                 "object" === typeof e
                   ? ((this.scheme = e.scheme || c),
@@ -5823,9 +5595,7 @@
                     (this.path = e.path || c),
                     (this.query = e.query || c),
                     (this.fragment = e.fragment || c))
-                  : ((this.scheme = e || c),
-                    (this.authority = t || c),
-                    (this.path = (function (e, t) {
+                  : (this.scheme = e || c, this.authority = t || c, this.path = ((e, t) => {
                       switch (e) {
                         case "https":
                         case "http":
@@ -5833,27 +5603,24 @@
                           t ? t[0] !== u && (t = u + t) : (t = u);
                       }
                       return t;
-                    })(this.scheme, n || c)),
-                    (this.query = r || c),
-                    (this.fragment = i || c),
-                    (function (e) {
-                      if (e.scheme && !o.test(e.scheme))
+                    })(this.scheme, n || c), this.query = r || c, this.fragment = i || c, (e => {
+                  if (e.scheme && !o.test(e.scheme))
+                    throw new Error(
+                      "[UriError]: Scheme contains illegal characters."
+                    );
+                  if (e.path)
+                    if (e.authority) {
+                      if (!s.test(e.path))
                         throw new Error(
-                          "[UriError]: Scheme contains illegal characters."
+                          '[UriError]: If a URI contains an authority component, then the path component must either be empty or begin with a slash ("/") character'
                         );
-                      if (e.path)
-                        if (e.authority) {
-                          if (!s.test(e.path))
-                            throw new Error(
-                              '[UriError]: If a URI contains an authority component, then the path component must either be empty or begin with a slash ("/") character'
-                            );
-                        } else if (a.test(e.path))
-                          throw new Error(
-                            '[UriError]: If a URI does not contain an authority component, then the path cannot begin with two slash characters ("//")'
-                          );
-                    })(this));
+                    } else if (a.test(e.path))
+                      throw new Error(
+                        '[UriError]: If a URI does not contain an authority component, then the path cannot begin with two slash characters ("//")'
+                      );
+                })(this));
               }
-              return (e.isUri = function (t) {
+              return (e.isUri = t => {
                 return (
                   t instanceof e ||
                   (!!t &&
@@ -5893,7 +5660,7 @@
                     : new f(t, n, r, i, o)
                 );
               }),
-              (e.parse = function (e) {
+              (e.parse = e => {
                 var t = d.exec(e);
                 return t
                   ? new f(
@@ -5905,7 +5672,7 @@
                     )
                   : new f(c, c, c, c, c);
               }),
-              (e.file = function (e) {
+              (e.file = e => {
                 var t = c;
                 if (
                   (n && (e = e.replace(/\\/g, u)), e[0] === u && e[1] === u)
@@ -5917,7 +5684,7 @@
                 }
                 return new f("file", t, e, c, c);
               }),
-              (e.from = function (e) {
+              (e.from = e => {
                 return new f(
                   e.scheme,
                   e.authority,
@@ -5932,7 +5699,7 @@
               (e.prototype.toJSON = function () {
                 return this;
               }),
-              (e.revive = function (t) {
+              (e.revive = t => {
                 if (t) {
                   if (t instanceof e) return t;
                   var n = new f(t);
@@ -5942,12 +5709,11 @@
                 }
                 return t;
               }),
-              e
-            ;
+              e;
             })();
           t.default = l;
           var p,
-            f = (function (e) {
+            f = (e => {
               function t() {
                 var t = (null !== e && e.apply(this, arguments)) || this;
                 return (t._formatted = null), (t._fsPath = null), t;
@@ -6117,13 +5883,13 @@
               r
             );
           }
-        }.call(this, n("8oxB"));
+        }).call(this, n("8oxB"));
     },
     in9m(e, t, n) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
       var r = n("Gz0x"),
-        i = (function () {
+        i = (() => {
           function e() {
             this.channels = new Map();
           }
@@ -6161,7 +5927,7 @@
     ixam(e, t, n) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
-      var r = (function () {
+      var r = (() => {
         function e(e) {
           (this.defaultDelay = e),
             (this.timeout = void 0),
@@ -6169,68 +5935,66 @@
             (this.onSuccess = void 0),
             (this.task = void 0);
         }
-        return (
-          (e.prototype.trigger = function (e, t) {
-            var n = this;
+        return (e.prototype.trigger = function (e, t) {
+          var n = this;
+          return void 0 === t && (t = this.defaultDelay),
+          (this.task = e),
+          t >= 0 && this.cancelTimeout(),
+          this.completionPromise ||
+            (this.completionPromise = new Promise(e => {
+              n.onSuccess = e;
+            }).then(() => {
+              (n.completionPromise = void 0), (n.onSuccess = void 0);
+              var e = n.task();
+              return (n.task = void 0), e;
+            })),
+          (t >= 0 || void 0 === this.timeout) &&
+            (this.timeout = setTimeout(
+              () => {
+                (n.timeout = void 0), n.onSuccess(void 0);
+              },
+              t >= 0 ? t : this.defaultDelay
+            )),
+          this.completionPromise
+        ;
+        }),
+        (e.prototype.forceDelivery = function () {
+          if (this.completionPromise) {
+            this.cancelTimeout();
+            var e = this.task();
             return (
-              void 0 === t && (t = this.defaultDelay),
-              (this.task = e),
-              t >= 0 && this.cancelTimeout(),
-              this.completionPromise ||
-                (this.completionPromise = new Promise(function (e) {
-                  n.onSuccess = e;
-                }).then(function () {
-                  (n.completionPromise = void 0), (n.onSuccess = void 0);
-                  var e = n.task();
-                  return (n.task = void 0), e;
-                })),
-              (t >= 0 || void 0 === this.timeout) &&
-                (this.timeout = setTimeout(
-                  function () {
-                    (n.timeout = void 0), n.onSuccess(void 0);
-                  },
-                  t >= 0 ? t : this.defaultDelay
-                )),
-              this.completionPromise
+              (this.completionPromise = void 0),
+              (this.onSuccess = void 0),
+              (this.task = void 0),
+              e
             );
-          }),
-          (e.prototype.forceDelivery = function () {
-            if (this.completionPromise) {
-              this.cancelTimeout();
-              var e = this.task();
-              return (
-                (this.completionPromise = void 0),
-                (this.onSuccess = void 0),
-                (this.task = void 0),
-                e
-              );
-            }
-          }),
-          (e.prototype.isTriggered = function () {
-            return void 0 !== this.timeout;
-          }),
-          (e.prototype.cancel = function () {
-            this.cancelTimeout(), (this.completionPromise = void 0);
-          }),
-          (e.prototype.cancelTimeout = function () {
-            void 0 !== this.timeout &&
-              (clearTimeout(this.timeout), (this.timeout = void 0));
-          }),
-          e
-        );
+          }
+        }),
+        (e.prototype.isTriggered = function () {
+          return void 0 !== this.timeout;
+        }),
+        (e.prototype.cancel = function () {
+          this.cancelTimeout(), (this.completionPromise = void 0);
+        }),
+        (e.prototype.cancelTimeout = function () {
+          void 0 !== this.timeout &&
+            (clearTimeout(this.timeout), (this.timeout = void 0));
+        }),
+        e
+      ;
       })();
       t.Delayer = r;
     },
     k5Vz(e, t, n) {
       "use strict";
-      (function (e) {
+      ((e => {
         Object.defineProperty(t, "__esModule", { value: !0 });
         const r = n("fIkx"),
           i = n("Gkij");
         let o = "Content-Length: ",
           s = "\r\n";
-        !(function (e) {
-          e.is = function (e) {
+        !(e => {
+          e.is = e => {
             let t = e;
             return (
               t &&
@@ -6371,7 +6135,7 @@
             this.errorCount++, this.fireError(e, t, this.errorCount);
           }
         };
-      }.call(this, n("HDXh").Buffer));
+      }).call(this, n("HDXh").Buffer));
     },
     kjvz(e, t, n) {
       "use strict";
@@ -6393,763 +6157,759 @@
         s,
         a = n("owkM"),
         c = n("Gz0x");
-      !(function (e) {
-        e.is = function (e) {
+      !(e => {
+        e.is = e => {
           return !!e && "data" in e;
         };
-      })((i = t.ProtocolDocumentLink || (t.ProtocolDocumentLink = {}))),
-        (function (e) {
-          e.is = function (e) {
-            return !!e && "data" in e;
-          };
-        })((o = t.ProtocolCodeLens || (t.ProtocolCodeLens = {}))),
-        (function (e) {
-          e.is = function (e) {
-            return !!e && "data" in e;
-          };
-        })((s = t.ProtocolCompletionItem || (t.ProtocolCompletionItem = {})));
-      var u = (function () {
+      })(i = t.ProtocolDocumentLink || (t.ProtocolDocumentLink = {})), (e => {
+        e.is = e => {
+          return !!e && "data" in e;
+        };
+      })(o = t.ProtocolCodeLens || (t.ProtocolCodeLens = {})), (e => {
+        e.is = e => {
+          return !!e && "data" in e;
+        };
+      })(s = t.ProtocolCompletionItem || (t.ProtocolCompletionItem = {}));
+      var u = (() => {
         function e() {}
-        return (
-          (e.prototype.asPosition = function (e, t) {
-            return {
-              line: void 0 === e || null === e ? void 0 : e - 1,
-              character: void 0 === t || null === t ? void 0 : t - 1,
-            };
-          }),
-          (e.prototype.asRange = function (e) {
-            if (void 0 !== e)
-              return null === e
-                ? null
-                : {
-                    start: this.asPosition(e.startLineNumber, e.startColumn),
-                    end: this.asPosition(e.endLineNumber, e.endColumn),
-                  };
-          }),
-          (e.prototype.asTextDocumentIdentifier = function (e) {
-            return { uri: e.uri.toString() };
-          }),
-          (e.prototype.asTextDocumentPositionParams = function (e, t) {
-            return {
-              textDocument: this.asTextDocumentIdentifier(e),
-              position: this.asPosition(t.lineNumber, t.column),
-            };
-          }),
-          (e.prototype.asCompletionParams = function (e, t, n) {
-            return Object.assign(this.asTextDocumentPositionParams(e, t), {
-              context: this.asCompletionContext(n),
-            });
-          }),
-          (e.prototype.asCompletionContext = function (e) {
-            return {
-              triggerKind: this.asTriggerKind(e.triggerKind),
-              triggerCharacter: e.triggerCharacter,
-            };
-          }),
-          (e.prototype.asTriggerKind = function (e) {
-            switch (e) {
-              case monaco.languages.SuggestTriggerKind.TriggerCharacter:
-                return c.CompletionTriggerKind.TriggerCharacter;
-              case monaco.languages.SuggestTriggerKind
-                .TriggerForIncompleteCompletions:
-                return c.CompletionTriggerKind.TriggerForIncompleteCompletions;
-              default:
-                return c.CompletionTriggerKind.Invoked;
-            }
-          }),
-          (e.prototype.asCompletionItem = function (e) {
-            var t = { label: e.label },
-              n = s.is(e) ? e : void 0;
-            return (
-              e.detail && (t.detail = e.detail),
-              e.documentation &&
-                (n && n.documentationFormat
-                  ? (t.documentation = this.asDocumentation(
-                      n.documentationFormat,
-                      e.documentation
-                    ))
-                  : (t.documentation = e.documentation)),
-              e.filterText && (t.filterText = e.filterText),
-              this.fillPrimaryInsertText(t, e),
-              a.number(e.kind) &&
-                (t.kind = this.asCompletionItemKind(
-                  e.kind,
-                  n && n.originalItemKind
-                )),
-              e.sortText && (t.sortText = e.sortText),
-              e.additionalTextEdits &&
-                (t.additionalTextEdits = this.asTextEdits(
-                  e.additionalTextEdits
-                )),
-              e.command && (t.command = this.asCommand(e.command)),
-              e.commitCharacters &&
-                (t.commitCharacters = e.commitCharacters.slice()),
-              e.command && (t.command = this.asCommand(e.command)),
-              n &&
-                (void 0 !== n.data && (t.data = n.data),
-                (!0 !== n.deprecated && !1 !== n.deprecated) ||
-                  (t.deprecated = n.deprecated)),
-              t
-            );
-          }),
-          (e.prototype.asCompletionItemKind = function (e, t) {
-            return void 0 !== t ? t : e + 1;
-          }),
-          (e.prototype.asDocumentation = function (e, t) {
-            switch (e) {
-              case c.MarkupKind.PlainText:
-                return { kind: e, value: t };
-              case c.MarkupKind.Markdown:
-                return { kind: e, value: t.value };
-              default:
-                return "Unsupported Markup content received. Kind is: " + e;
-            }
-          }),
-          (e.prototype.fillPrimaryInsertText = function (e, t) {
-            var n,
-              r,
-              i = c.InsertTextFormat.PlainText;
-            t.textEdit
-              ? ((n = t.textEdit.text), (r = this.asRange(t.textEdit.range)))
-              : "string" === typeof t.insertText
-              ? (n = t.insertText)
-              : t.insertText &&
-                ((i = c.InsertTextFormat.Snippet), (n = t.insertText.value)),
-              t.range && (r = this.asRange(t.range)),
-              (e.insertTextFormat = i),
-              t.fromEdit && n && r
-                ? (e.textEdit = { newText: n, range: r })
-                : (e.insertText = n);
-          }),
-          (e.prototype.asTextEdit = function (e) {
-            return { range: this.asRange(e.range), newText: e.text };
-          }),
-          (e.prototype.asTextEdits = function (e) {
-            var t = this;
-            if (e)
-              return e.map(function (e) {
-                return t.asTextEdit(e);
-              });
-          }),
-          (e.prototype.asReferenceParams = function (e, t, n) {
-            return {
-              textDocument: this.asTextDocumentIdentifier(e),
-              position: this.asPosition(t.lineNumber, t.column),
-              context: { includeDeclaration: n.includeDeclaration },
-            };
-          }),
-          (e.prototype.asDocumentSymbolParams = function (e) {
-            return { textDocument: this.asTextDocumentIdentifier(e) };
-          }),
-          (e.prototype.asCodeLensParams = function (e) {
-            return { textDocument: this.asTextDocumentIdentifier(e) };
-          }),
-          (e.prototype.asDiagnosticSeverity = function (e) {
-            switch (e) {
-              case monaco.MarkerSeverity.Error:
-                return c.DiagnosticSeverity.Error;
-              case monaco.MarkerSeverity.Warning:
-                return c.DiagnosticSeverity.Warning;
-              case monaco.MarkerSeverity.Info:
-                return c.DiagnosticSeverity.Information;
-              case monaco.MarkerSeverity.Hint:
-                return c.DiagnosticSeverity.Hint;
-            }
-          }),
-          (e.prototype.asDiagnostic = function (e) {
-            var t = this.asRange(
-                new monaco.Range(
-                  e.startLineNumber,
-                  e.startColumn,
-                  e.endLineNumber,
-                  e.endColumn
-                )
-              ),
-              n = this.asDiagnosticSeverity(e.severity);
-            return c.Diagnostic.create(t, e.message, n, e.code, e.source);
-          }),
-          (e.prototype.asDiagnostics = function (e) {
-            var t = this;
-            return void 0 === e || null === e
-              ? e
-              : e.map(function (e) {
-                  return t.asDiagnostic(e);
-                });
-          }),
-          (e.prototype.asCodeActionContext = function (e) {
-            if (void 0 === e || null === e) return e;
-            var t = this.asDiagnostics(e.markers);
-            return c.CodeActionContext.create(
-              t,
-              a.string(e.only) ? [e.only] : void 0
-            );
-          }),
-          (e.prototype.asCodeActionParams = function (e, t, n) {
-            return {
-              textDocument: this.asTextDocumentIdentifier(e),
-              range: this.asRange(t),
-              context: this.asCodeActionContext(n),
-            };
-          }),
-          (e.prototype.asCommand = function (e) {
-            if (e) {
-              var t = e.arguments || [];
-              return c.Command.create.apply(
-                c.Command,
-                [e.title, e.id].concat(t)
-              );
-            }
-          }),
-          (e.prototype.asCodeLens = function (e) {
-            var t = c.CodeLens.create(this.asRange(e.range));
-            return (
-              e.command && (t.command = this.asCommand(e.command)),
-              o.is(e) && e.data && (t.data = e.data),
-              t
-            );
-          }),
-          (e.prototype.asFormattingOptions = function (e) {
-            return { tabSize: e.tabSize, insertSpaces: e.insertSpaces };
-          }),
-          (e.prototype.asDocumentFormattingParams = function (e, t) {
-            return {
-              textDocument: this.asTextDocumentIdentifier(e),
-              options: this.asFormattingOptions(t),
-            };
-          }),
-          (e.prototype.asDocumentRangeFormattingParams = function (e, t, n) {
-            return {
-              textDocument: this.asTextDocumentIdentifier(e),
-              range: this.asRange(t),
-              options: this.asFormattingOptions(n),
-            };
-          }),
-          (e.prototype.asDocumentOnTypeFormattingParams = function (
-            e,
-            t,
-            n,
-            r
-          ) {
-            return {
-              textDocument: this.asTextDocumentIdentifier(e),
-              position: this.asPosition(t.lineNumber, t.column),
-              ch: n,
-              options: this.asFormattingOptions(r),
-            };
-          }),
-          (e.prototype.asRenameParams = function (e, t, n) {
-            return {
-              textDocument: this.asTextDocumentIdentifier(e),
-              position: this.asPosition(t.lineNumber, t.column),
-              newName: n,
-            };
-          }),
-          (e.prototype.asDocumentLinkParams = function (e) {
-            return { textDocument: this.asTextDocumentIdentifier(e) };
-          }),
-          (e.prototype.asDocumentLink = function (e) {
-            var t = c.DocumentLink.create(this.asRange(e.range));
-            return (
-              e.url && (t.target = e.url),
-              i.is(e) && e.data && (t.data = e.data),
-              t
-            );
-          }),
-          e
-        );
-      })();
-      t.MonacoToProtocolConverter = u;
-      var d = (function () {
-        function e() {}
-        return (
-          (e.prototype.asResourceEdits = function (e, t, n) {
-            return {
-              resource: e,
-              edits: this.asTextEdits(t),
-              modelVersionId: n,
-            };
-          }),
-          (e.prototype.asWorkspaceEdit = function (e) {
-            if (e) {
-              var t = [];
-              if (e.documentChanges)
-                for (var n = 0, r = e.documentChanges; n < r.length; n++) {
-                  var i = r[n],
-                    o = monaco.Uri.parse(i.textDocument.uri),
-                    s =
-                      "number" === typeof i.textDocument.version
-                        ? i.textDocument.version
-                        : void 0;
-                  t.push(this.asResourceEdits(o, i.edits, s));
-                }
-              else if (e.changes)
-                for (var a = 0, c = Object.keys(e.changes); a < c.length; a++) {
-                  var u = c[a];
-                  o = monaco.Uri.parse(u);
-                  t.push(this.asResourceEdits(o, e.changes[u]));
-                }
-              return { edits: t };
-            }
-          }),
-          (e.prototype.asTextEdit = function (e) {
-            if (e) return { range: this.asRange(e.range), text: e.newText };
-          }),
-          (e.prototype.asTextEdits = function (e) {
-            var t = this;
-            if (e)
-              return e.map(function (e) {
-                return t.asTextEdit(e);
-              });
-          }),
-          (e.prototype.asCodeLens = function (e) {
-            if (e) {
-              var t = { range: this.asRange(e.range) };
-              return (
-                e.command && (t.command = this.asCommand(e.command)),
-                void 0 !== e.data && null !== e.data && (t.data = e.data),
-                t
-              );
-            }
-          }),
-          (e.prototype.asCodeLenses = function (e) {
-            var t = this;
-            if (e)
-              return e.map(function (e) {
-                return t.asCodeLens(e);
-              });
-          }),
-          (e.prototype.asCodeActions = function (e) {
-            var t = this;
-            return e.map(function (e) {
-              return t.asCodeAction(e);
-            });
-          }),
-          (e.prototype.asCodeAction = function (e) {
-            return c.CodeAction.is(e)
-              ? {
-                  title: e.title,
-                  command: this.asCommand(e.command),
-                  edit: this.asWorkspaceEdit(e.edit),
-                  diagnostics: this.asDiagnostics(e.diagnostics),
-                  kind: e.kind,
-                }
+        return (e.prototype.asPosition = (e, t) => {
+          return {
+            line: void 0 === e || null === e ? void 0 : e - 1,
+            character: void 0 === t || null === t ? void 0 : t - 1,
+          };
+        }),
+        (e.prototype.asRange = function (e) {
+          if (void 0 !== e)
+            return null === e
+              ? null
               : {
-                  command: {
-                    id: e.command,
-                    title: e.title,
-                    arguments: e.arguments,
-                  },
-                  title: e.title,
+                  start: this.asPosition(e.startLineNumber, e.startColumn),
+                  end: this.asPosition(e.endLineNumber, e.endColumn),
                 };
-          }),
-          (e.prototype.asCommand = function (e) {
-            if (e)
-              return { id: e.command, title: e.title, arguments: e.arguments };
-          }),
-          (e.prototype.asDocumentSymbol = function (e) {
-            var t = this,
-              n =
-                e.children &&
-                e.children.map(function (e) {
-                  return t.asDocumentSymbol(e);
-                });
-            return {
-              name: e.name,
-              detail: e.detail || "",
-              kind: this.asSymbolKind(e.kind),
-              range: this.asRange(e.range),
-              selectionRange: this.asRange(e.selectionRange),
-              children: n,
-            };
-          }),
-          (e.prototype.asDocumentSymbols = function (e) {
-            var t = this;
-            return c.DocumentSymbol.is(e[0])
-              ? e.map(function (e) {
-                  return t.asDocumentSymbol(e);
-                })
-              : this.asSymbolInformations(e);
-          }),
-          (e.prototype.asSymbolInformations = function (e, t) {
-            var n = this;
-            if (e)
-              return e.map(function (e) {
-                return n.asSymbolInformation(e, t);
-              });
-          }),
-          (e.prototype.asSymbolInformation = function (e, t) {
-            var n = this.asLocation(
-              t ? r({}, e.location, { uri: t.toString() }) : e.location
-            );
-            return {
-              name: e.name,
-              detail: "",
-              containerName: e.containerName,
-              kind: this.asSymbolKind(e.kind),
-              range: n.range,
-              selectionRange: n.range,
-            };
-          }),
-          (e.prototype.asSymbolKind = function (e) {
-            return e <= c.SymbolKind.TypeParameter
-              ? e - 1
-              : monaco.languages.SymbolKind.Property;
-          }),
-          (e.prototype.asDocumentHighlights = function (e) {
-            var t = this;
-            if (e)
-              return e.map(function (e) {
-                return t.asDocumentHighlight(e);
-              });
-          }),
-          (e.prototype.asDocumentHighlight = function (e) {
-            return {
-              range: this.asRange(e.range),
-              kind: a.number(e.kind)
-                ? this.asDocumentHighlightKind(e.kind)
-                : void 0,
-            };
-          }),
-          (e.prototype.asDocumentHighlightKind = function (e) {
-            switch (e) {
-              case c.DocumentHighlightKind.Text:
-                return monaco.languages.DocumentHighlightKind.Text;
-              case c.DocumentHighlightKind.Read:
-                return monaco.languages.DocumentHighlightKind.Read;
-              case c.DocumentHighlightKind.Write:
-                return monaco.languages.DocumentHighlightKind.Write;
-            }
-            return monaco.languages.DocumentHighlightKind.Text;
-          }),
-          (e.prototype.asReferences = function (e) {
-            var t = this;
-            if (e)
-              return e.map(function (e) {
-                return t.asLocation(e);
-              });
-          }),
-          (e.prototype.asDefinitionResult = function (e) {
-            var t = this;
-            if (e)
-              return a.array(e)
-                ? e.map(function (e) {
-                    return t.asLocation(e);
-                  })
-                : this.asLocation(e);
-          }),
-          (e.prototype.asLocation = function (e) {
-            if (e)
-              return {
-                uri: monaco.Uri.parse(e.uri),
-                range: this.asRange(e.range),
-              };
-          }),
-          (e.prototype.asSignatureHelp = function (e) {
-            if (e) {
-              var t = {};
-              return (
-                a.number(e.activeSignature)
-                  ? (t.activeSignature = e.activeSignature)
-                  : (t.activeSignature = 0),
-                a.number(e.activeParameter)
-                  ? (t.activeParameter = e.activeParameter)
-                  : (t.activeParameter = 0),
-                e.signatures
-                  ? (t.signatures = this.asSignatureInformations(e.signatures))
-                  : (t.signatures = []),
-                t
-              );
-            }
-          }),
-          (e.prototype.asSignatureInformations = function (e) {
-            var t = this;
-            return e.map(function (e) {
-              return t.asSignatureInformation(e);
+        }),
+        (e.prototype.asTextDocumentIdentifier = e => {
+          return { uri: e.uri.toString() };
+        }),
+        (e.prototype.asTextDocumentPositionParams = function (e, t) {
+          return {
+            textDocument: this.asTextDocumentIdentifier(e),
+            position: this.asPosition(t.lineNumber, t.column),
+          };
+        }),
+        (e.prototype.asCompletionParams = function (e, t, n) {
+          return Object.assign(this.asTextDocumentPositionParams(e, t), {
+            context: this.asCompletionContext(n),
+          });
+        }),
+        (e.prototype.asCompletionContext = function (e) {
+          return {
+            triggerKind: this.asTriggerKind(e.triggerKind),
+            triggerCharacter: e.triggerCharacter,
+          };
+        }),
+        (e.prototype.asTriggerKind = e => {
+          switch (e) {
+            case monaco.languages.SuggestTriggerKind.TriggerCharacter:
+              return c.CompletionTriggerKind.TriggerCharacter;
+            case monaco.languages.SuggestTriggerKind
+              .TriggerForIncompleteCompletions:
+              return c.CompletionTriggerKind.TriggerForIncompleteCompletions;
+            default:
+              return c.CompletionTriggerKind.Invoked;
+          }
+        }),
+        (e.prototype.asCompletionItem = function (e) {
+          var t = { label: e.label },
+            n = s.is(e) ? e : void 0;
+          return (
+            e.detail && (t.detail = e.detail),
+            e.documentation &&
+              (n && n.documentationFormat
+                ? (t.documentation = this.asDocumentation(
+                    n.documentationFormat,
+                    e.documentation
+                  ))
+                : (t.documentation = e.documentation)),
+            e.filterText && (t.filterText = e.filterText),
+            this.fillPrimaryInsertText(t, e),
+            a.number(e.kind) &&
+              (t.kind = this.asCompletionItemKind(
+                e.kind,
+                n && n.originalItemKind
+              )),
+            e.sortText && (t.sortText = e.sortText),
+            e.additionalTextEdits &&
+              (t.additionalTextEdits = this.asTextEdits(
+                e.additionalTextEdits
+              )),
+            e.command && (t.command = this.asCommand(e.command)),
+            e.commitCharacters &&
+              (t.commitCharacters = e.commitCharacters.slice()),
+            e.command && (t.command = this.asCommand(e.command)),
+            n &&
+              (void 0 !== n.data && (t.data = n.data),
+              (!0 !== n.deprecated && !1 !== n.deprecated) ||
+                (t.deprecated = n.deprecated)),
+            t
+          );
+        }),
+        (e.prototype.asCompletionItemKind = (e, t) => {
+          return void 0 !== t ? t : e + 1;
+        }),
+        (e.prototype.asDocumentation = (e, t) => {
+          switch (e) {
+            case c.MarkupKind.PlainText:
+              return { kind: e, value: t };
+            case c.MarkupKind.Markdown:
+              return { kind: e, value: t.value };
+            default:
+              return "Unsupported Markup content received. Kind is: " + e;
+          }
+        }),
+        (e.prototype.fillPrimaryInsertText = function (e, t) {
+          var n,
+            r,
+            i = c.InsertTextFormat.PlainText;
+          t.textEdit
+            ? ((n = t.textEdit.text), (r = this.asRange(t.textEdit.range)))
+            : "string" === typeof t.insertText
+            ? (n = t.insertText)
+            : t.insertText &&
+              ((i = c.InsertTextFormat.Snippet), (n = t.insertText.value)),
+            t.range && (r = this.asRange(t.range)),
+            (e.insertTextFormat = i),
+            t.fromEdit && n && r
+              ? (e.textEdit = { newText: n, range: r })
+              : (e.insertText = n);
+        }),
+        (e.prototype.asTextEdit = function (e) {
+          return { range: this.asRange(e.range), newText: e.text };
+        }),
+        (e.prototype.asTextEdits = function (e) {
+          var t = this;
+          if (e)
+            return e.map(e => {
+              return t.asTextEdit(e);
             });
-          }),
-          (e.prototype.asSignatureInformation = function (e) {
-            var t = { label: e.label };
-            return (
-              e.documentation &&
-                (t.documentation = this.asDocumentation(e.documentation)),
-              e.parameters
-                ? (t.parameters = this.asParameterInformations(e.parameters))
-                : (t.parameters = []),
-              t
-            );
-          }),
-          (e.prototype.asParameterInformations = function (e) {
-            var t = this;
-            return e.map(function (e) {
-              return t.asParameterInformation(e);
-            });
-          }),
-          (e.prototype.asParameterInformation = function (e) {
-            var t = { label: e.label };
-            return (
-              e.documentation &&
-                (t.documentation = this.asDocumentation(e.documentation)),
-              t
-            );
-          }),
-          (e.prototype.asHover = function (e) {
-            if (e)
-              return {
-                contents: this.asHoverContent(e.contents),
-                range: this.asRange(e.range),
-              };
-          }),
-          (e.prototype.asHoverContent = function (e) {
-            var t = this;
-            return Array.isArray(e)
-              ? e.map(function (e) {
-                  return t.asMarkdownString(e);
-                })
-              : [this.asMarkdownString(e)];
-          }),
-          (e.prototype.asDocumentation = function (e) {
-            return a.string(e)
-              ? e
-              : e.kind === c.MarkupKind.PlainText
-              ? e.value
-              : this.asMarkdownString(e);
-          }),
-          (e.prototype.asMarkdownString = function (e) {
-            return c.MarkupContent.is(e)
-              ? { value: e.value }
-              : a.string(e)
-              ? { value: e }
-              : { value: "```" + e.language + "\n" + e.value + "\n```" };
-          }),
-          (e.prototype.asSeverity = function (e) {
-            return 1 === e
-              ? monaco.MarkerSeverity.Error
-              : 2 === e
-              ? monaco.MarkerSeverity.Warning
-              : 3 === e
-              ? monaco.MarkerSeverity.Info
-              : monaco.MarkerSeverity.Hint;
-          }),
-          (e.prototype.asDiagnostics = function (e) {
-            var t = this;
-            if (e)
-              return e.map(function (e) {
+        }),
+        (e.prototype.asReferenceParams = function (e, t, n) {
+          return {
+            textDocument: this.asTextDocumentIdentifier(e),
+            position: this.asPosition(t.lineNumber, t.column),
+            context: { includeDeclaration: n.includeDeclaration },
+          };
+        }),
+        (e.prototype.asDocumentSymbolParams = function (e) {
+          return { textDocument: this.asTextDocumentIdentifier(e) };
+        }),
+        (e.prototype.asCodeLensParams = function (e) {
+          return { textDocument: this.asTextDocumentIdentifier(e) };
+        }),
+        (e.prototype.asDiagnosticSeverity = e => {
+          switch (e) {
+            case monaco.MarkerSeverity.Error:
+              return c.DiagnosticSeverity.Error;
+            case monaco.MarkerSeverity.Warning:
+              return c.DiagnosticSeverity.Warning;
+            case monaco.MarkerSeverity.Info:
+              return c.DiagnosticSeverity.Information;
+            case monaco.MarkerSeverity.Hint:
+              return c.DiagnosticSeverity.Hint;
+          }
+        }),
+        (e.prototype.asDiagnostic = function (e) {
+          var t = this.asRange(
+              new monaco.Range(
+                e.startLineNumber,
+                e.startColumn,
+                e.endLineNumber,
+                e.endColumn
+              )
+            ),
+            n = this.asDiagnosticSeverity(e.severity);
+          return c.Diagnostic.create(t, e.message, n, e.code, e.source);
+        }),
+        (e.prototype.asDiagnostics = function (e) {
+          var t = this;
+          return void 0 === e || null === e
+            ? e
+            : e.map(e => {
                 return t.asDiagnostic(e);
               });
-          }),
-          (e.prototype.asDiagnostic = function (e) {
-            return {
-              code: "number" === typeof e.code ? e.code.toString() : e.code,
-              severity: this.asSeverity(e.severity),
-              message: e.message,
-              source: e.source,
-              startLineNumber: e.range.start.line + 1,
-              startColumn: e.range.start.character + 1,
-              endLineNumber: e.range.end.line + 1,
-              endColumn: e.range.end.character + 1,
-              relatedInformation: this.asRelatedInformations(
-                e.relatedInformation
-              ),
-            };
-          }),
-          (e.prototype.asRelatedInformations = function (e) {
-            var t = this;
-            if (e)
-              return e.map(function (e) {
-                return t.asRelatedInformation(e);
-              });
-          }),
-          (e.prototype.asRelatedInformation = function (e) {
-            return {
-              resource: monaco.Uri.parse(e.location.uri),
-              startLineNumber: e.location.range.start.line + 1,
-              startColumn: e.location.range.start.character + 1,
-              endLineNumber: e.location.range.end.line + 1,
-              endColumn: e.location.range.end.character + 1,
-              message: e.message,
-            };
-          }),
-          (e.prototype.asCompletionResult = function (e) {
-            var t = this;
-            return e
-              ? Array.isArray(e)
-                ? {
-                    isIncomplete: !1,
-                    items: e.map(function (e) {
-                      return t.asCompletionItem(e);
-                    }),
-                  }
-                : {
-                    isIncomplete: e.isIncomplete,
-                    items: e.items.map(this.asCompletionItem.bind(this)),
-                  }
-              : { isIncomplete: !1, items: [] };
-          }),
-          (e.prototype.asCompletionItem = function (e) {
-            var t = { label: e.label };
-            e.detail && (t.detail = e.detail),
-              e.documentation &&
-                ((t.documentation = this.asDocumentation(e.documentation)),
-                (t.documentationFormat = a.string(e.documentation)
-                  ? void 0
-                  : e.documentation.kind)),
-              e.filterText && (t.filterText = e.filterText);
-            var n = this.asCompletionInsertText(e);
-            if (
-              (n &&
-                ((t.insertText = n.text),
-                (t.range = n.range),
-                (t.fromEdit = n.fromEdit)),
-              a.number(e.kind))
-            ) {
-              var r = this.asCompletionItemKind(e.kind),
-                i = r[0],
-                o = r[1];
-              (t.kind = i), o && (t.originalItemKind = o);
-            }
+        }),
+        (e.prototype.asCodeActionContext = function (e) {
+          if (void 0 === e || null === e) return e;
+          var t = this.asDiagnostics(e.markers);
+          return c.CodeActionContext.create(
+            t,
+            a.string(e.only) ? [e.only] : void 0
+          );
+        }),
+        (e.prototype.asCodeActionParams = function (e, t, n) {
+          return {
+            textDocument: this.asTextDocumentIdentifier(e),
+            range: this.asRange(t),
+            context: this.asCodeActionContext(n),
+          };
+        }),
+        (e.prototype.asCommand = function (e) {
+          if (e) {
+            var t = e.arguments || [];
+            return c.Command.create.apply(
+              c.Command,
+              [e.title, e.id].concat(t)
+            );
+          }
+        }),
+        (e.prototype.asCodeLens = function (e) {
+          var t = c.CodeLens.create(this.asRange(e.range));
+          return (
+            e.command && (t.command = this.asCommand(e.command)),
+            o.is(e) && e.data && (t.data = e.data),
+            t
+          );
+        }),
+        (e.prototype.asFormattingOptions = e => {
+          return { tabSize: e.tabSize, insertSpaces: e.insertSpaces };
+        }),
+        (e.prototype.asDocumentFormattingParams = function (e, t) {
+          return {
+            textDocument: this.asTextDocumentIdentifier(e),
+            options: this.asFormattingOptions(t),
+          };
+        }),
+        (e.prototype.asDocumentRangeFormattingParams = function (e, t, n) {
+          return {
+            textDocument: this.asTextDocumentIdentifier(e),
+            range: this.asRange(t),
+            options: this.asFormattingOptions(n),
+          };
+        }),
+        (e.prototype.asDocumentOnTypeFormattingParams = function (
+          e,
+          t,
+          n,
+          r
+        ) {
+          return {
+            textDocument: this.asTextDocumentIdentifier(e),
+            position: this.asPosition(t.lineNumber, t.column),
+            ch: n,
+            options: this.asFormattingOptions(r),
+          };
+        }),
+        (e.prototype.asRenameParams = function (e, t, n) {
+          return {
+            textDocument: this.asTextDocumentIdentifier(e),
+            position: this.asPosition(t.lineNumber, t.column),
+            newName: n,
+          };
+        }),
+        (e.prototype.asDocumentLinkParams = function (e) {
+          return { textDocument: this.asTextDocumentIdentifier(e) };
+        }),
+        (e.prototype.asDocumentLink = function (e) {
+          var t = c.DocumentLink.create(this.asRange(e.range));
+          return (
+            e.url && (t.target = e.url),
+            i.is(e) && e.data && (t.data = e.data),
+            t
+          );
+        }),
+        e
+      ;
+      })();
+      t.MonacoToProtocolConverter = u;
+      var d = (() => {
+        function e() {}
+        return (e.prototype.asResourceEdits = function (e, t, n) {
+          return {
+            resource: e,
+            edits: this.asTextEdits(t),
+            modelVersionId: n,
+          };
+        }),
+        (e.prototype.asWorkspaceEdit = function (e) {
+          if (e) {
+            var t = [];
+            if (e.documentChanges)
+              for (var n = 0, r = e.documentChanges; n < r.length; n++) {
+                var i = r[n],
+                  o = monaco.Uri.parse(i.textDocument.uri),
+                  s =
+                    "number" === typeof i.textDocument.version
+                      ? i.textDocument.version
+                      : void 0;
+                t.push(this.asResourceEdits(o, i.edits, s));
+              }
+            else if (e.changes)
+              for (var a = 0, c = Object.keys(e.changes); a < c.length; a++) {
+                var u = c[a];
+                o = monaco.Uri.parse(u);
+                t.push(this.asResourceEdits(o, e.changes[u]));
+              }
+            return { edits: t };
+          }
+        }),
+        (e.prototype.asTextEdit = function (e) {
+          if (e) return { range: this.asRange(e.range), text: e.newText };
+        }),
+        (e.prototype.asTextEdits = function (e) {
+          var t = this;
+          if (e)
+            return e.map(e => {
+              return t.asTextEdit(e);
+            });
+        }),
+        (e.prototype.asCodeLens = function (e) {
+          if (e) {
+            var t = { range: this.asRange(e.range) };
             return (
-              e.sortText && (t.sortText = e.sortText),
-              e.additionalTextEdits &&
-                (t.additionalTextEdits = this.asTextEdits(
-                  e.additionalTextEdits
-                )),
-              a.stringArray(e.commitCharacters) &&
-                (t.commitCharacters = e.commitCharacters.slice()),
               e.command && (t.command = this.asCommand(e.command)),
-              (!0 !== e.deprecated && !1 !== e.deprecated) ||
-                (t.deprecated = e.deprecated),
-              void 0 !== e.data && (t.data = e.data),
+              void 0 !== e.data && null !== e.data && (t.data = e.data),
               t
             );
-          }),
-          (e.prototype.asCompletionItemKind = function (e) {
-            return c.CompletionItemKind.Text <= e &&
-              e <= c.CompletionItemKind.TypeParameter
-              ? [e - 1, void 0]
-              : [c.CompletionItemKind.Text, e];
-          }),
-          (e.prototype.asCompletionInsertText = function (e) {
-            if (e.textEdit) {
-              var t = this.asRange(e.textEdit.range),
-                n = e.textEdit.newText;
-              return {
-                text:
-                  e.insertTextFormat === c.InsertTextFormat.Snippet
-                    ? { value: n }
-                    : n,
-                range: t,
-                fromEdit: !0,
-              };
-            }
-            if (e.insertText) {
-              n = e.insertText;
-              return {
-                text:
-                  e.insertTextFormat === c.InsertTextFormat.Snippet
-                    ? { value: n }
-                    : n,
-                fromEdit: !1,
-              };
-            }
-          }),
-          (e.prototype.asDocumentLinks = function (e) {
-            var t = this;
-            return e.map(function (e) {
-              return t.asDocumentLink(e);
+          }
+        }),
+        (e.prototype.asCodeLenses = function (e) {
+          var t = this;
+          if (e)
+            return e.map(e => {
+              return t.asCodeLens(e);
             });
-          }),
-          (e.prototype.asDocumentLink = function (e) {
-            return {
-              range: this.asRange(e.range),
-              url: e.target,
-              data: e.data,
-            };
-          }),
-          (e.prototype.asRange = function (e) {
-            if (void 0 !== e) {
-              if (null === e) return null;
-              var t = this.asPosition(e.start),
-                n = this.asPosition(e.end);
-              return t instanceof monaco.Position &&
-                n instanceof monaco.Position
-                ? new monaco.Range(
-                    t.lineNumber,
-                    t.column,
-                    n.lineNumber,
-                    n.column
-                  )
-                : {
-                    startLineNumber:
-                      t && void 0 !== t.lineNumber ? t.lineNumber : void 0,
-                    startColumn: t && void 0 !== t.column ? t.column : void 0,
-                    endLineNumber:
-                      n && void 0 !== n.lineNumber ? n.lineNumber : void 0,
-                    endColumn: n && void 0 !== n.column ? n.column : void 0,
-                  };
-            }
-          }),
-          (e.prototype.asPosition = function (e) {
-            if (void 0 !== e) {
-              if (null === e) return null;
-              var t = e.line,
-                n = e.character,
-                r = void 0 === t ? void 0 : t + 1,
-                i = void 0 === n ? void 0 : n + 1;
-              return void 0 !== r && void 0 !== i
-                ? new monaco.Position(r, i)
-                : { lineNumber: r, column: i };
-            }
-          }),
-          (e.prototype.asColorInformations = function (e) {
-            var t = this;
-            return e.map(function (e) {
-              return t.asColorInformation(e);
-            });
-          }),
-          (e.prototype.asColorInformation = function (e) {
-            return { range: this.asRange(e.range), color: e.color };
-          }),
-          (e.prototype.asColorPresentations = function (e) {
-            var t = this;
-            return e.map(function (e) {
-              return t.asColorPresentation(e);
-            });
-          }),
-          (e.prototype.asColorPresentation = function (e) {
-            return {
-              label: e.label,
-              textEdit: this.asTextEdit(e.textEdit),
-              additionalTextEdits: this.asTextEdits(e.additionalTextEdits),
-            };
-          }),
-          (e.prototype.asFoldingRanges = function (e) {
-            var t = this;
-            return e
-              ? e.map(function (e) {
-                  return t.asFoldingRange(e);
-                })
-              : e;
-          }),
-          (e.prototype.asFoldingRange = function (e) {
-            return {
-              start: e.startLine + 1,
-              end: e.endLine + 1,
-              kind: this.asFoldingRangeKind(e.kind),
-            };
-          }),
-          (e.prototype.asFoldingRangeKind = function (e) {
-            if (e)
-              switch (e) {
-                case c.FoldingRangeKind.Comment:
-                  return monaco.languages.FoldingRangeKind.Comment;
-                case c.FoldingRangeKind.Imports:
-                  return monaco.languages.FoldingRangeKind.Imports;
-                case c.FoldingRangeKind.Region:
-                  return monaco.languages.FoldingRangeKind.Region;
+        }),
+        (e.prototype.asCodeActions = function (e) {
+          var t = this;
+          return e.map(e => {
+            return t.asCodeAction(e);
+          });
+        }),
+        (e.prototype.asCodeAction = function (e) {
+          return c.CodeAction.is(e)
+            ? {
+                title: e.title,
+                command: this.asCommand(e.command),
+                edit: this.asWorkspaceEdit(e.edit),
+                diagnostics: this.asDiagnostics(e.diagnostics),
+                kind: e.kind,
               }
-          }),
-          e
-        );
+            : {
+                command: {
+                  id: e.command,
+                  title: e.title,
+                  arguments: e.arguments,
+                },
+                title: e.title,
+              };
+        }),
+        (e.prototype.asCommand = function (e) {
+          if (e)
+            return { id: e.command, title: e.title, arguments: e.arguments };
+        }),
+        (e.prototype.asDocumentSymbol = function (e) {
+          var t = this,
+            n =
+              e.children &&
+              e.children.map(e => {
+                return t.asDocumentSymbol(e);
+              });
+          return {
+            name: e.name,
+            detail: e.detail || "",
+            kind: this.asSymbolKind(e.kind),
+            range: this.asRange(e.range),
+            selectionRange: this.asRange(e.selectionRange),
+            children: n,
+          };
+        }),
+        (e.prototype.asDocumentSymbols = function (e) {
+          var t = this;
+          return c.DocumentSymbol.is(e[0])
+            ? e.map(e => {
+                return t.asDocumentSymbol(e);
+              })
+            : this.asSymbolInformations(e);
+        }),
+        (e.prototype.asSymbolInformations = function (e, t) {
+          var n = this;
+          if (e)
+            return e.map(e => {
+              return n.asSymbolInformation(e, t);
+            });
+        }),
+        (e.prototype.asSymbolInformation = function (e, t) {
+          var n = this.asLocation(
+            t ? r({}, e.location, { uri: t.toString() }) : e.location
+          );
+          return {
+            name: e.name,
+            detail: "",
+            containerName: e.containerName,
+            kind: this.asSymbolKind(e.kind),
+            range: n.range,
+            selectionRange: n.range,
+          };
+        }),
+        (e.prototype.asSymbolKind = e => {
+          return e <= c.SymbolKind.TypeParameter
+            ? e - 1
+            : monaco.languages.SymbolKind.Property;
+        }),
+        (e.prototype.asDocumentHighlights = function (e) {
+          var t = this;
+          if (e)
+            return e.map(e => {
+              return t.asDocumentHighlight(e);
+            });
+        }),
+        (e.prototype.asDocumentHighlight = function (e) {
+          return {
+            range: this.asRange(e.range),
+            kind: a.number(e.kind)
+              ? this.asDocumentHighlightKind(e.kind)
+              : void 0,
+          };
+        }),
+        (e.prototype.asDocumentHighlightKind = e => {
+          switch (e) {
+            case c.DocumentHighlightKind.Text:
+              return monaco.languages.DocumentHighlightKind.Text;
+            case c.DocumentHighlightKind.Read:
+              return monaco.languages.DocumentHighlightKind.Read;
+            case c.DocumentHighlightKind.Write:
+              return monaco.languages.DocumentHighlightKind.Write;
+          }
+          return monaco.languages.DocumentHighlightKind.Text;
+        }),
+        (e.prototype.asReferences = function (e) {
+          var t = this;
+          if (e)
+            return e.map(e => {
+              return t.asLocation(e);
+            });
+        }),
+        (e.prototype.asDefinitionResult = function (e) {
+          var t = this;
+          if (e)
+            return a.array(e)
+              ? e.map(e => {
+                  return t.asLocation(e);
+                })
+              : this.asLocation(e);
+        }),
+        (e.prototype.asLocation = function (e) {
+          if (e)
+            return {
+              uri: monaco.Uri.parse(e.uri),
+              range: this.asRange(e.range),
+            };
+        }),
+        (e.prototype.asSignatureHelp = function (e) {
+          if (e) {
+            var t = {};
+            return (
+              a.number(e.activeSignature)
+                ? (t.activeSignature = e.activeSignature)
+                : (t.activeSignature = 0),
+              a.number(e.activeParameter)
+                ? (t.activeParameter = e.activeParameter)
+                : (t.activeParameter = 0),
+              e.signatures
+                ? (t.signatures = this.asSignatureInformations(e.signatures))
+                : (t.signatures = []),
+              t
+            );
+          }
+        }),
+        (e.prototype.asSignatureInformations = function (e) {
+          var t = this;
+          return e.map(e => {
+            return t.asSignatureInformation(e);
+          });
+        }),
+        (e.prototype.asSignatureInformation = function (e) {
+          var t = { label: e.label };
+          return (
+            e.documentation &&
+              (t.documentation = this.asDocumentation(e.documentation)),
+            e.parameters
+              ? (t.parameters = this.asParameterInformations(e.parameters))
+              : (t.parameters = []),
+            t
+          );
+        }),
+        (e.prototype.asParameterInformations = function (e) {
+          var t = this;
+          return e.map(e => {
+            return t.asParameterInformation(e);
+          });
+        }),
+        (e.prototype.asParameterInformation = function (e) {
+          var t = { label: e.label };
+          return (
+            e.documentation &&
+              (t.documentation = this.asDocumentation(e.documentation)),
+            t
+          );
+        }),
+        (e.prototype.asHover = function (e) {
+          if (e)
+            return {
+              contents: this.asHoverContent(e.contents),
+              range: this.asRange(e.range),
+            };
+        }),
+        (e.prototype.asHoverContent = function (e) {
+          var t = this;
+          return Array.isArray(e)
+            ? e.map(e => {
+                return t.asMarkdownString(e);
+              })
+            : [this.asMarkdownString(e)];
+        }),
+        (e.prototype.asDocumentation = function (e) {
+          return a.string(e)
+            ? e
+            : e.kind === c.MarkupKind.PlainText
+            ? e.value
+            : this.asMarkdownString(e);
+        }),
+        (e.prototype.asMarkdownString = e => {
+          return c.MarkupContent.is(e)
+            ? { value: e.value }
+            : a.string(e)
+            ? { value: e }
+            : { value: "```" + e.language + "\n" + e.value + "\n```" };
+        }),
+        (e.prototype.asSeverity = e => {
+          return 1 === e
+            ? monaco.MarkerSeverity.Error
+            : 2 === e
+            ? monaco.MarkerSeverity.Warning
+            : 3 === e
+            ? monaco.MarkerSeverity.Info
+            : monaco.MarkerSeverity.Hint;
+        }),
+        (e.prototype.asDiagnostics = function (e) {
+          var t = this;
+          if (e)
+            return e.map(e => {
+              return t.asDiagnostic(e);
+            });
+        }),
+        (e.prototype.asDiagnostic = function (e) {
+          return {
+            code: "number" === typeof e.code ? e.code.toString() : e.code,
+            severity: this.asSeverity(e.severity),
+            message: e.message,
+            source: e.source,
+            startLineNumber: e.range.start.line + 1,
+            startColumn: e.range.start.character + 1,
+            endLineNumber: e.range.end.line + 1,
+            endColumn: e.range.end.character + 1,
+            relatedInformation: this.asRelatedInformations(
+              e.relatedInformation
+            ),
+          };
+        }),
+        (e.prototype.asRelatedInformations = function (e) {
+          var t = this;
+          if (e)
+            return e.map(e => {
+              return t.asRelatedInformation(e);
+            });
+        }),
+        (e.prototype.asRelatedInformation = e => {
+          return {
+            resource: monaco.Uri.parse(e.location.uri),
+            startLineNumber: e.location.range.start.line + 1,
+            startColumn: e.location.range.start.character + 1,
+            endLineNumber: e.location.range.end.line + 1,
+            endColumn: e.location.range.end.character + 1,
+            message: e.message,
+          };
+        }),
+        (e.prototype.asCompletionResult = function (e) {
+          var t = this;
+          return e
+            ? Array.isArray(e)
+              ? {
+                  isIncomplete: !1,
+                  items: e.map(e => {
+                    return t.asCompletionItem(e);
+                  }),
+                }
+              : {
+                  isIncomplete: e.isIncomplete,
+                  items: e.items.map(this.asCompletionItem.bind(this)),
+                }
+            : { isIncomplete: !1, items: [] };
+        }),
+        (e.prototype.asCompletionItem = function (e) {
+          var t = { label: e.label };
+          e.detail && (t.detail = e.detail),
+            e.documentation &&
+              ((t.documentation = this.asDocumentation(e.documentation)),
+              (t.documentationFormat = a.string(e.documentation)
+                ? void 0
+                : e.documentation.kind)),
+            e.filterText && (t.filterText = e.filterText);
+          var n = this.asCompletionInsertText(e);
+          if (
+            (n &&
+              ((t.insertText = n.text),
+              (t.range = n.range),
+              (t.fromEdit = n.fromEdit)),
+            a.number(e.kind))
+          ) {
+            var r = this.asCompletionItemKind(e.kind),
+              i = r[0],
+              o = r[1];
+            (t.kind = i), o && (t.originalItemKind = o);
+          }
+          return (
+            e.sortText && (t.sortText = e.sortText),
+            e.additionalTextEdits &&
+              (t.additionalTextEdits = this.asTextEdits(
+                e.additionalTextEdits
+              )),
+            a.stringArray(e.commitCharacters) &&
+              (t.commitCharacters = e.commitCharacters.slice()),
+            e.command && (t.command = this.asCommand(e.command)),
+            (!0 !== e.deprecated && !1 !== e.deprecated) ||
+              (t.deprecated = e.deprecated),
+            void 0 !== e.data && (t.data = e.data),
+            t
+          );
+        }),
+        (e.prototype.asCompletionItemKind = e => {
+          return c.CompletionItemKind.Text <= e &&
+            e <= c.CompletionItemKind.TypeParameter
+            ? [e - 1, void 0]
+            : [c.CompletionItemKind.Text, e];
+        }),
+        (e.prototype.asCompletionInsertText = function (e) {
+          if (e.textEdit) {
+            var t = this.asRange(e.textEdit.range),
+              n = e.textEdit.newText;
+            return {
+              text:
+                e.insertTextFormat === c.InsertTextFormat.Snippet
+                  ? { value: n }
+                  : n,
+              range: t,
+              fromEdit: !0,
+            };
+          }
+          if (e.insertText) {
+            n = e.insertText;
+            return {
+              text:
+                e.insertTextFormat === c.InsertTextFormat.Snippet
+                  ? { value: n }
+                  : n,
+              fromEdit: !1,
+            };
+          }
+        }),
+        (e.prototype.asDocumentLinks = function (e) {
+          var t = this;
+          return e.map(e => {
+            return t.asDocumentLink(e);
+          });
+        }),
+        (e.prototype.asDocumentLink = function (e) {
+          return {
+            range: this.asRange(e.range),
+            url: e.target,
+            data: e.data,
+          };
+        }),
+        (e.prototype.asRange = function (e) {
+          if (void 0 !== e) {
+            if (null === e) return null;
+            var t = this.asPosition(e.start),
+              n = this.asPosition(e.end);
+            return t instanceof monaco.Position &&
+              n instanceof monaco.Position
+              ? new monaco.Range(
+                  t.lineNumber,
+                  t.column,
+                  n.lineNumber,
+                  n.column
+                )
+              : {
+                  startLineNumber:
+                    t && void 0 !== t.lineNumber ? t.lineNumber : void 0,
+                  startColumn: t && void 0 !== t.column ? t.column : void 0,
+                  endLineNumber:
+                    n && void 0 !== n.lineNumber ? n.lineNumber : void 0,
+                  endColumn: n && void 0 !== n.column ? n.column : void 0,
+                };
+          }
+        }),
+        (e.prototype.asPosition = e => {
+          if (void 0 !== e) {
+            if (null === e) return null;
+            var t = e.line,
+              n = e.character,
+              r = void 0 === t ? void 0 : t + 1,
+              i = void 0 === n ? void 0 : n + 1;
+            return void 0 !== r && void 0 !== i
+              ? new monaco.Position(r, i)
+              : { lineNumber: r, column: i };
+          }
+        }),
+        (e.prototype.asColorInformations = function (e) {
+          var t = this;
+          return e.map(e => {
+            return t.asColorInformation(e);
+          });
+        }),
+        (e.prototype.asColorInformation = function (e) {
+          return { range: this.asRange(e.range), color: e.color };
+        }),
+        (e.prototype.asColorPresentations = function (e) {
+          var t = this;
+          return e.map(e => {
+            return t.asColorPresentation(e);
+          });
+        }),
+        (e.prototype.asColorPresentation = function (e) {
+          return {
+            label: e.label,
+            textEdit: this.asTextEdit(e.textEdit),
+            additionalTextEdits: this.asTextEdits(e.additionalTextEdits),
+          };
+        }),
+        (e.prototype.asFoldingRanges = function (e) {
+          var t = this;
+          return e
+            ? e.map(e => {
+                return t.asFoldingRange(e);
+              })
+            : e;
+        }),
+        (e.prototype.asFoldingRange = function (e) {
+          return {
+            start: e.startLine + 1,
+            end: e.endLine + 1,
+            kind: this.asFoldingRangeKind(e.kind),
+          };
+        }),
+        (e.prototype.asFoldingRangeKind = e => {
+          if (e)
+            switch (e) {
+              case c.FoldingRangeKind.Comment:
+                return monaco.languages.FoldingRangeKind.Comment;
+              case c.FoldingRangeKind.Imports:
+                return monaco.languages.FoldingRangeKind.Imports;
+              case c.FoldingRangeKind.Region:
+                return monaco.languages.FoldingRangeKind.Region;
+            }
+        }),
+        e
+      ;
       })();
       t.ProtocolToMonacoConverter = d;
     },
@@ -7175,7 +6935,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 });
       var r = n("Gz0x");
       t.Disposable = r.Disposable;
-      var i = (function () {
+      var i = (() => {
         function e() {
           this.disposables = [];
         }
@@ -7202,18 +6962,17 @@
     ojtU(e, t, n) {
       "use strict";
       var r =
-        (this && this.__extends) ||
-        (function () {
+        this && this.__extends || (() => {
           var e =
             Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array &&
-              function (e, t) {
+              ((e, t) => {
                 e.__proto__ = t;
-              }) ||
-            function (e, t) {
+              })) ||
+            ((e, t) => {
               for (var n in t) t.hasOwnProperty(n) && (e[n] = t[n]);
-            };
-          return function (t, n) {
+            });
+          return (t, n) => {
             function r() {
               this.constructor = t;
             }
@@ -7225,7 +6984,7 @@
           };
         })();
       Object.defineProperty(t, "__esModule", { value: !0 });
-      var i = (function (e) {
+      var i = (e => {
         function t(t, n) {
           return e.call(this, t, n) || this;
         }
@@ -7236,18 +6995,17 @@
     orFP(e, t, n) {
       "use strict";
       var r =
-        (this && this.__extends) ||
-        (function () {
+        this && this.__extends || (() => {
           var e =
             Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array &&
-              function (e, t) {
+              ((e, t) => {
                 e.__proto__ = t;
-              }) ||
-            function (e, t) {
+              })) ||
+            ((e, t) => {
               for (var n in t) t.hasOwnProperty(n) && (e[n] = t[n]);
-            };
-          return function (t, n) {
+            });
+          return (t, n) => {
             function r() {
               this.constructor = t;
             }
@@ -7266,12 +7024,12 @@
       function c(e, t) {
         return void 0 === e[t] && (e[t] = {}), e[t];
       }
-      var u = (function (e) {
+      var u = (e => {
         function t(t) {
           return e.call(this, t, a.DocumentColorRequest.type) || this;
         }
         return r(t, e),
-        (t.prototype.fillClientCapabilities = function (e) {
+        (t.prototype.fillClientCapabilities = e => {
           c(c(e, "textDocument"), "colorProvider").dynamicRegistration = !0;
         }),
         (t.prototype.initialize = function (e, t) {
@@ -7289,7 +7047,7 @@
         (t.prototype.registerLanguageProvider = function (e) {
           var t = this,
             n = this._client,
-            r = function (e, r, i) {
+            r = (e, r, i) => {
               var o = {
                 color: e,
                 textDocument:
@@ -7300,21 +7058,21 @@
               };
               return n
                 .sendRequest(a.ColorPresentationRequest.type, o, i)
-                .then(t.asColorPresentations.bind(t), function (e) {
+                .then(t.asColorPresentations.bind(t), e => {
                   return (
                     n.logFailedRequest(a.ColorPresentationRequest.type, e),
                     Promise.resolve(null)
                   );
                 });
             },
-            i = function (e, r) {
+            i = (e, r) => {
               var i = {
                 textDocument:
                   n.code2ProtocolConverter.asTextDocumentIdentifier(e),
               };
               return n
                 .sendRequest(a.DocumentColorRequest.type, i, r)
-                .then(t.asColorInformations.bind(t), function (e) {
+                .then(t.asColorInformations.bind(t), e => {
                   return (
                     n.logFailedRequest(a.ColorPresentationRequest.type, e),
                     Promise.resolve(null)
@@ -7335,13 +7093,13 @@
             },
           });
         }),
-        (t.prototype.asColor = function (e) {
+        (t.prototype.asColor = e => {
           return new s.Color(e.red, e.green, e.blue, e.alpha);
         }),
         (t.prototype.asColorInformations = function (e) {
           var t = this;
           return Array.isArray(e)
-            ? e.map(function (e) {
+            ? e.map(e => {
                 return new s.ColorInformation(
                   t._client.protocol2CodeConverter.asRange(e.range),
                   t.asColor(e.color)
@@ -7352,7 +7110,7 @@
         (t.prototype.asColorPresentations = function (e) {
           var t = this;
           return Array.isArray(e)
-            ? e.map(function (e) {
+            ? e.map(e => {
                 var n = new s.ColorPresentation(e.label);
                 return (
                   (n.additionalTextEdits =
@@ -7367,8 +7125,7 @@
               })
             : [];
         }),
-        t
-      ;
+        t;
       })(n("qRuN").TextDocumentFeature);
       t.ColorProviderFeature = u;
     },
@@ -7384,30 +7141,28 @@
         return Array.isArray(e);
       }
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.boolean = function (e) {
+        (t.boolean = e => {
           return !0 === e || !1 === e;
         }),
         (t.string = r),
-        (t.number = function (e) {
+        (t.number = e => {
           return "number" === typeof e || e instanceof Number;
         }),
-        (t.error = function (e) {
+        (t.error = e => {
           return e instanceof Error;
         }),
         (t.func = i),
         (t.array = o),
-        (t.stringArray = function (e) {
-          return (
-            o(e) &&
-            e.every(function (e) {
-              return r(e);
-            })
-          );
+        (t.stringArray = e => {
+          return o(e) &&
+          e.every(e => {
+            return r(e);
+          });
         }),
-        (t.typedArray = function (e, t) {
+        (t.typedArray = (e, t) => {
           return Array.isArray(e) && e.every(t);
         }),
-        (t.thenable = function (e) {
+        (t.thenable = e => {
           return e && i(e.then);
         });
     },
@@ -7415,18 +7170,17 @@
       "use strict";
       (function (e) {
         var r =
-            (this && this.__extends) ||
-            (function () {
+            this && this.__extends || (() => {
               var e =
                 Object.setPrototypeOf ||
                 ({ __proto__: [] } instanceof Array &&
-                  function (e, t) {
+                  ((e, t) => {
                     e.__proto__ = t;
-                  }) ||
-                function (e, t) {
+                  })) ||
+                ((e, t) => {
                   for (var n in t) t.hasOwnProperty(n) && (e[n] = t[n]);
-                };
-              return function (t, n) {
+                });
+              return (t, n) => {
                 function r() {
                   this.constructor = t;
                 }
@@ -7439,7 +7193,7 @@
             })(),
           i =
             (this && this.__read) ||
-            function (e, t) {
+            ((e, t) => {
               var n = "function" === typeof Symbol && e[Symbol.iterator];
               if (!n) return e;
               var r,
@@ -7459,7 +7213,7 @@
                 }
               }
               return s;
-            },
+            }),
           o =
             (this && this.__spread) ||
             function () {
@@ -7469,7 +7223,7 @@
             },
           s =
             (this && this.__values) ||
-            function (e) {
+            (e => {
               var t = "function" === typeof Symbol && e[Symbol.iterator],
                 n = 0;
               return t
@@ -7482,7 +7236,7 @@
                       );
                     },
                   };
-            };
+            });
         Object.defineProperty(t, "__esModule", { value: !0 });
         var a = n("uoVZ"),
           c = n("BOov"),
@@ -7491,85 +7245,80 @@
           l = n("hC2b"),
           p = n("ixam"),
           f = n("AL8H");
-        !(function (e) {
+        !(e => {
           for (var n in e) t.hasOwnProperty(n) || (t[n] = e[n]);
         })(n("BOov"));
         var m,
           g,
-          h = (function () {
+          h = (() => {
             function e() {}
-            return (
-              (e.prototype.error = function (e) {
-                console.error(e);
-              }),
-              (e.prototype.warn = function (e) {
-                console.warn(e);
-              }),
-              (e.prototype.info = function (e) {
-                console.info(e);
-              }),
-              (e.prototype.log = function (e) {
-                console.log(e);
-              }),
-              e
-            );
+            return (e.prototype.error = e => {
+              console.error(e);
+            }),
+            (e.prototype.warn = e => {
+              console.warn(e);
+            }),
+            (e.prototype.info = e => {
+              console.info(e);
+            }),
+            (e.prototype.log = e => {
+              console.log(e);
+            }),
+            e
+          ;
           })();
-        !(function (e) {
+        !(e => {
           (e[(e.Continue = 1)] = "Continue"),
             (e[(e.Shutdown = 2)] = "Shutdown");
-        })((m = t.ErrorAction || (t.ErrorAction = {}))),
-          (function (e) {
-            (e[(e.DoNotRestart = 1)] = "DoNotRestart"),
-              (e[(e.Restart = 2)] = "Restart");
-          })((g = t.CloseAction || (t.CloseAction = {})));
+        })(m = t.ErrorAction || (t.ErrorAction = {})), (e => {
+          (e[(e.DoNotRestart = 1)] = "DoNotRestart"),
+            (e[(e.Restart = 2)] = "Restart");
+        })(g = t.CloseAction || (t.CloseAction = {}));
         var v,
           y,
           C,
-          D = (function () {
+          D = (() => {
             function e(e) {
               (this.name = e), (this.restarts = []);
             }
-            return (
-              (e.prototype.error = function (e, t, n) {
-                return n && n <= 3 ? m.Continue : m.Shutdown;
-              }),
-              (e.prototype.closed = function () {
-                return (
-                  this.restarts.push(Date.now()),
-                  this.restarts.length < 5
-                    ? g.Restart
-                    : this.restarts[this.restarts.length - 1] -
-                        this.restarts[0] <=
-                      18e4
-                    ? (a.window.showErrorMessage(
-                        "The " +
-                          this.name +
-                          " server crashed 5 times in the last 3 minutes. The server will not be restarted."
-                      ),
-                      g.DoNotRestart)
-                    : (this.restarts.shift(), g.Restart)
-                );
-              }),
-              e
-            );
+            return (e.prototype.error = (e, t, n) => {
+              return n && n <= 3 ? m.Continue : m.Shutdown;
+            }),
+            (e.prototype.closed = function () {
+              return (
+                this.restarts.push(Date.now()),
+                this.restarts.length < 5
+                  ? g.Restart
+                  : this.restarts[this.restarts.length - 1] -
+                      this.restarts[0] <=
+                    18e4
+                  ? (a.window.showErrorMessage(
+                      "The " +
+                        this.name +
+                        " server crashed 5 times in the last 3 minutes. The server will not be restarted."
+                    ),
+                    g.DoNotRestart)
+                  : (this.restarts.shift(), g.Restart)
+              );
+            }),
+            e
+          ;
           })();
-        !(function (e) {
+        !(e => {
           (e[(e.Info = 1)] = "Info"),
             (e[(e.Warn = 2)] = "Warn"),
             (e[(e.Error = 3)] = "Error"),
             (e[(e.Never = 4)] = "Never");
-        })((v = t.RevealOutputChannelOn || (t.RevealOutputChannelOn = {}))),
-          (function (e) {
-            (e[(e.Stopped = 1)] = "Stopped"), (e[(e.Running = 2)] = "Running");
-          })((y = t.State || (t.State = {}))),
-          (function (e) {
-            (e[(e.Initial = 0)] = "Initial"),
-              (e[(e.Starting = 1)] = "Starting"),
-              (e[(e.StartFailed = 2)] = "StartFailed"),
-              (e[(e.Running = 3)] = "Running"),
-              (e[(e.Stopping = 4)] = "Stopping"),
-              (e[(e.Stopped = 5)] = "Stopped");
-          })(C || (C = {}));
+        })(v = t.RevealOutputChannelOn || (t.RevealOutputChannelOn = {})), (e => {
+          (e[(e.Stopped = 1)] = "Stopped"), (e[(e.Running = 2)] = "Running");
+        })(y = t.State || (t.State = {})), (e => {
+          (e[(e.Initial = 0)] = "Initial"),
+            (e[(e.Starting = 1)] = "Starting"),
+            (e[(e.StartFailed = 2)] = "StartFailed"),
+            (e[(e.Running = 3)] = "Running"),
+            (e[(e.Stopping = 4)] = "Stopping"),
+            (e[(e.Stopped = 5)] = "Stopped");
+        })(C || (C = {}));
         var w,
           x = [
             c.SymbolKind.File,
@@ -7629,8 +7378,8 @@
         function _(e, t) {
           return void 0 === e[t] && (e[t] = {}), e[t];
         }
-        !(function (e) {
-          e.is = function (e) {
+        !(e => {
+          e.is = e => {
             var t = e;
             return (
               t &&
@@ -7641,7 +7390,7 @@
             );
           };
         })(w || (w = {}));
-        var R = (function () {
+        var R = (() => {
             function e(e, t, n, r, i, o) {
               (this._client = e),
                 (this._event = t),
@@ -7651,66 +7400,65 @@
                 (this._selectorFilter = o),
                 (this._selectors = new Map());
             }
-            return (
-              (e.textDocumentFilter = function (e, t) {
-                var n, r;
-                try {
-                  for (var i = s(e), o = i.next(); !o.done; o = i.next()) {
-                    var c = o.value;
-                    if (a.languages.match(c, t)) return !0;
-                  }
-                } catch (u) {
-                  n = { error: u };
-                } finally {
-                  try {
-                    o && !o.done && (r = i.return) && r.call(i);
-                  } finally {
-                    if (n) throw n.error;
-                  }
+            return (e.textDocumentFilter = (e, t) => {
+              var n, r;
+              try {
+                for (var i = s(e), o = i.next(); !o.done; o = i.next()) {
+                  var c = o.value;
+                  if (a.languages.match(c, t)) return !0;
                 }
-                return !1;
-              }),
-              (e.prototype.register = function (e, t) {
-                t.registerOptions.documentSelector &&
-                  (this._listener ||
-                    (this._listener = this._event(this.callback, this)),
-                  this._selectors.set(
-                    t.id,
-                    t.registerOptions.documentSelector
-                  ));
-              }),
-              (e.prototype.callback = function (e) {
-                var t = this;
-                (this._selectorFilter &&
-                  !this._selectorFilter(this._selectors.values(), e)) ||
-                  (this._middleware
-                    ? this._middleware(e, function (e) {
-                        return t._client.sendNotification(
-                          t._type,
-                          t._createParams(e)
-                        );
-                      })
-                    : this._client.sendNotification(
-                        this._type,
-                        this._createParams(e)
-                      ),
-                  this.notificationSent(e));
-              }),
-              (e.prototype.notificationSent = function (e) {}),
-              (e.prototype.unregister = function (e) {
-                this._selectors.delete(e),
-                  0 === this._selectors.size &&
-                    this._listener &&
-                    (this._listener.dispose(), (this._listener = void 0));
-              }),
-              (e.prototype.dispose = function () {
-                this._selectors.clear(),
-                  this._listener && this._listener.dispose();
-              }),
-              e
-            );
+              } catch (u) {
+                n = { error: u };
+              } finally {
+                try {
+                  o && !o.done && (r = i.return) && r.call(i);
+                } finally {
+                  if (n) throw n.error;
+                }
+              }
+              return !1;
+            }),
+            (e.prototype.register = function (e, t) {
+              t.registerOptions.documentSelector &&
+                (this._listener ||
+                  (this._listener = this._event(this.callback, this)),
+                this._selectors.set(
+                  t.id,
+                  t.registerOptions.documentSelector
+                ));
+            }),
+            (e.prototype.callback = function (e) {
+              var t = this;
+              (this._selectorFilter &&
+                !this._selectorFilter(this._selectors.values(), e)) ||
+                (this._middleware
+                  ? this._middleware(e, e => {
+                      return t._client.sendNotification(
+                        t._type,
+                        t._createParams(e)
+                      );
+                    })
+                  : this._client.sendNotification(
+                      this._type,
+                      this._createParams(e)
+                    ),
+                this.notificationSent(e));
+            }),
+            (e.prototype.notificationSent = e => {}),
+            (e.prototype.unregister = function (e) {
+              this._selectors.delete(e),
+                0 === this._selectors.size &&
+                  this._listener &&
+                  (this._listener.dispose(), (this._listener = void 0));
+            }),
+            (e.prototype.dispose = function () {
+              this._selectors.clear(),
+                this._listener && this._listener.dispose();
+            }),
+            e
+          ;
           })(),
-          T = (function (e) {
+          T = (e => {
             function t(t, n) {
               var r =
                 e.call(
@@ -7719,7 +7467,7 @@
                   a.workspace.onDidOpenTextDocument,
                   c.DidOpenTextDocumentNotification.type,
                   t.clientOptions.middleware.didOpen,
-                  function (e) {
+                  e => {
                     return t.code2ProtocolConverter.asOpenTextDocumentParams(e);
                   },
                   R.textDocumentFilter
@@ -7734,7 +7482,7 @@
               enumerable: !0,
               configurable: !0,
             }),
-            (t.prototype.fillClientCapabilities = function (e) {
+            (t.prototype.fillClientCapabilities = e => {
               _(_(e, "textDocument"), "synchronization").dynamicRegistration =
                 !0;
             }),
@@ -7755,11 +7503,11 @@
                 n.registerOptions.documentSelector)
               ) {
                 var i = n.registerOptions.documentSelector;
-                a.workspace.textDocuments.forEach(function (e) {
+                a.workspace.textDocuments.forEach(e => {
                   var t = e.uri.toString();
                   if (!r._syncedDocuments.has(t) && a.languages.match(i, e)) {
                     var n = r._client.clientOptions.middleware,
-                      o = function (e) {
+                      o = e => {
                         r._client.sendNotification(
                           r._type,
                           r._createParams(e)
@@ -7775,10 +7523,9 @@
               e.prototype.notificationSent.call(this, t),
                 this._syncedDocuments.set(t.uri.toString(), t);
             }),
-            t
-          ;
+            t;
           })(R),
-          P = (function (e) {
+          P = (e => {
             function t(t, n) {
               var r =
                 e.call(
@@ -7787,7 +7534,7 @@
                   a.workspace.onDidCloseTextDocument,
                   c.DidCloseTextDocumentNotification.type,
                   t.clientOptions.middleware.didClose,
-                  function (e) {
+                  e => {
                     return t.code2ProtocolConverter.asCloseTextDocumentParams(
                       e
                     );
@@ -7804,7 +7551,7 @@
               enumerable: !0,
               configurable: !0,
             }),
-            (t.prototype.fillClientCapabilities = function (e) {
+            (t.prototype.fillClientCapabilities = e => {
               _(_(e, "textDocument"), "synchronization").dynamicRegistration =
                 !0;
             }),
@@ -7827,10 +7574,10 @@
                 r = this._selectors.get(t);
               e.prototype.unregister.call(this, t);
               var i = this._selectors.values();
-              this._syncedDocuments.forEach(function (e) {
+              this._syncedDocuments.forEach(e => {
                 if (a.languages.match(r, e) && !n._selectorFilter(i, e)) {
                   var t = n._client.clientOptions.middleware,
-                    o = function (e) {
+                    o = e => {
                       n._client.sendNotification(n._type, n._createParams(e));
                     };
                   n._syncedDocuments.delete(e.uri.toString()),
@@ -7838,10 +7585,9 @@
                 }
               });
             }),
-            t
-          ;
+            t;
           })(R),
-          S = (function () {
+          S = (() => {
             function e(e) {
               (this._client = e),
                 (this._changeData = new Map()),
@@ -7854,7 +7600,7 @@
               enumerable: !0,
               configurable: !0,
             }),
-            (e.prototype.fillClientCapabilities = function (e) {
+            (e.prototype.fillClientCapabilities = e => {
               _(_(e, "textDocument"), "synchronization").dynamicRegistration =
                 !0;
             }),
@@ -7890,7 +7636,7 @@
                 n,
                 r = this;
               if (0 !== e.contentChanges.length) {
-                var i = function (t) {
+                var i = t => {
                     if (a.languages.match(t.documentSelector, e.document)) {
                       var n = o._client.clientOptions.middleware;
                       if (t.syncKind === c.TextDocumentSyncKind.Incremental) {
@@ -7899,7 +7645,7 @@
                             e
                           );
                         n.didChange
-                          ? n.didChange(e, function () {
+                          ? n.didChange(e, () => {
                               return r._client.sendNotification(
                                 c.DidChangeTextDocumentNotification.type,
                                 i
@@ -7910,14 +7656,14 @@
                               i
                             );
                       } else if (t.syncKind === c.TextDocumentSyncKind.Full) {
-                        var s = function (e) {
+                        var s = e => {
                           r._changeDelayer
                             ? (r._changeDelayer.uri !==
                                 e.document.uri.toString() &&
                                 (r.forceDelivery(),
                                 (r._changeDelayer.uri =
                                   e.document.uri.toString())),
-                              r._changeDelayer.delayer.trigger(function () {
+                              r._changeDelayer.delayer.trigger(() => {
                                 r._client.sendNotification(
                                   c.DidChangeTextDocumentNotification.type,
                                   r._client.code2ProtocolConverter.asChangeTextDocumentParams(
@@ -7929,7 +7675,7 @@
                                 uri: e.document.uri.toString(),
                                 delayer: new p.Delayer(200),
                               }),
-                              r._changeDelayer.delayer.trigger(function () {
+                              r._changeDelayer.delayer.trigger(() => {
                                 r._client.sendNotification(
                                   c.DidChangeTextDocumentNotification.type,
                                   r._client.code2ProtocolConverter.asChangeTextDocumentParams(
@@ -7984,28 +7730,25 @@
                   this._forcingDelivery = !1;
                 }
             }),
-            e
-          ;
+            e;
           })(),
-          k = (function (e) {
+          k = (e => {
             function t(t) {
-              return (
-                e.call(
-                  this,
-                  t,
-                  a.workspace.onWillSaveTextDocument,
-                  c.WillSaveTextDocumentNotification.type,
-                  t.clientOptions.middleware.willSave,
-                  function (e) {
-                    return t.code2ProtocolConverter.asWillSaveTextDocumentParams(
-                      e
-                    );
-                  },
-                  function (e, t) {
-                    return R.textDocumentFilter(e, t.document);
-                  }
-                ) || this
-              );
+              return e.call(
+                this,
+                t,
+                a.workspace.onWillSaveTextDocument,
+                c.WillSaveTextDocumentNotification.type,
+                t.clientOptions.middleware.willSave,
+                e => {
+                  return t.code2ProtocolConverter.asWillSaveTextDocumentParams(
+                    e
+                  );
+                },
+                (e, t) => {
+                  return R.textDocumentFilter(e, t.document);
+                }
+              ) || this;
             }
             return r(t, e),
             Object.defineProperty(t.prototype, "messages", {
@@ -8015,7 +7758,7 @@
               enumerable: !0,
               configurable: !0,
             }),
-            (t.prototype.fillClientCapabilities = function (e) {
+            (t.prototype.fillClientCapabilities = e => {
               _(_(e, "textDocument"), "synchronization").willSave = !0;
             }),
             (t.prototype.initialize = function (e, t) {
@@ -8028,10 +7771,9 @@
                   registerOptions: { documentSelector: t },
                 });
             }),
-            t
-          ;
+            t;
           })(R),
-          E = (function () {
+          E = (() => {
             function e(e) {
               (this._client = e), (this._selectors = new Map());
             }
@@ -8042,7 +7784,7 @@
               enumerable: !0,
               configurable: !0,
             }),
-            (e.prototype.fillClientCapabilities = function (e) {
+            (e.prototype.fillClientCapabilities = e => {
               _(_(e, "textDocument"), "synchronization").willSaveWaitUntil =
                 !0;
             }),
@@ -8074,7 +7816,7 @@
                 R.textDocumentFilter(this._selectors.values(), e.document)
               ) {
                 var n = this._client.clientOptions.middleware,
-                  r = function (e) {
+                  r = e => {
                     return t._client
                       .sendRequest(
                         c.WillSaveTextDocumentWaitUntilRequest.type,
@@ -8082,7 +7824,7 @@
                           e
                         )
                       )
-                      .then(function (e) {
+                      .then(e => {
                         var n =
                           t._client.protocol2CodeConverter.asTextEdits(e);
                         return void 0 === n ? [] : n;
@@ -8104,10 +7846,9 @@
                 this._listener &&
                   (this._listener.dispose(), (this._listener = void 0));
             }),
-            e
-          ;
+            e;
           })(),
-          O = (function (e) {
+          O = (e => {
             function t(t) {
               var n =
                 e.call(
@@ -8116,7 +7857,7 @@
                   a.workspace.onDidSaveTextDocument,
                   c.DidSaveTextDocumentNotification.type,
                   t.clientOptions.middleware.didSave,
-                  function (e) {
+                  e => {
                     return t.code2ProtocolConverter.asSaveTextDocumentParams(
                       e,
                       n._includeText
@@ -8134,7 +7875,7 @@
               enumerable: !0,
               configurable: !0,
             }),
-            (t.prototype.fillClientCapabilities = function (e) {
+            (t.prototype.fillClientCapabilities = e => {
               _(_(e, "textDocument"), "synchronization").didSave = !0;
             }),
             (t.prototype.initialize = function (e, t) {
@@ -8155,10 +7896,9 @@
               (this._includeText = !!n.registerOptions.includeText),
                 e.prototype.register.call(this, t, n);
             }),
-            t
-          ;
+            t;
           })(R),
-          M = (function () {
+          M = (() => {
             function e(e, t) {
               (this._client = e),
                 (this._notifyFileEvent = t),
@@ -8171,13 +7911,13 @@
               enumerable: !0,
               configurable: !0,
             }),
-            (e.prototype.fillClientCapabilities = function (e) {
+            (e.prototype.fillClientCapabilities = e => {
               _(
                 _(e, "workspace"),
                 "didChangeWatchedFiles"
               ).dynamicRegistration = !0;
             }),
-            (e.prototype.initialize = function (e, t) {}),
+            (e.prototype.initialize = (e, t) => {}),
             (e.prototype.register = function (e, t) {
               var n, r;
               if (Array.isArray(t.registerOptions.watchers)) {
@@ -8243,7 +7983,7 @@
               var o = this;
               t &&
                 e.onDidCreate(
-                  function (e) {
+                  e => {
                     return o._notifyFileEvent({
                       uri: o._client.code2ProtocolConverter.asUri(e),
                       type: c.FileChangeType.Created,
@@ -8254,7 +7994,7 @@
                 ),
                 n &&
                   e.onDidChange(
-                    function (e) {
+                    e => {
                       return o._notifyFileEvent({
                         uri: o._client.code2ProtocolConverter.asUri(e),
                         type: c.FileChangeType.Changed,
@@ -8265,7 +8005,7 @@
                   ),
                 r &&
                   e.onDidDelete(
-                    function (e) {
+                    e => {
                       return o._notifyFileEvent({
                         uri: o._client.code2ProtocolConverter.asUri(e),
                         type: c.FileChangeType.Deleted,
@@ -8295,7 +8035,7 @@
                 }
             }),
             (e.prototype.dispose = function () {
-              this._watchers.forEach(function (e) {
+              this._watchers.forEach(e => {
                 var t, n;
                 try {
                   for (var r = s(e), i = r.next(); !i.done; i = r.next()) {
@@ -8313,10 +8053,9 @@
               }),
                 this._watchers.clear();
             }),
-            e
-          ;
+            e;
           })(),
-          F = (function () {
+          F = (() => {
             function e(e, t) {
               (this._client = e),
                 (this._message = t),
@@ -8347,16 +8086,15 @@
               t && t.dispose();
             }),
             (e.prototype.dispose = function () {
-              this._providers.forEach(function (e) {
+              this._providers.forEach(e => {
                 e.dispose();
               }),
                 this._providers.clear();
             }),
-            e
-          ;
+            e;
           })();
         t.TextDocumentFeature = F;
-        var q = (function () {
+        var q = (() => {
             function e(e, t) {
               (this._client = e),
                 (this._message = t),
@@ -8385,20 +8123,19 @@
               t && t.dispose();
             }),
             (e.prototype.dispose = function () {
-              this._providers.forEach(function (e) {
+              this._providers.forEach(e => {
                 e.dispose();
               }),
                 this._providers.clear();
             }),
-            e
-          ;
+            e;
           })(),
-          I = (function (e) {
+          I = (e => {
             function t(t) {
               return e.call(this, t, c.CompletionRequest.type) || this;
             }
             return r(t, e),
-            (t.prototype.fillClientCapabilities = function (e) {
+            (t.prototype.fillClientCapabilities = e => {
               var t = _(_(e, "textDocument"), "completion");
               (t.dynamicRegistration = !0),
                 (t.contextSupport = !0),
@@ -8429,7 +8166,7 @@
             (t.prototype.registerLanguageProvider = function (e) {
               var t = e.triggerCharacters || [],
                 n = this._client,
-                r = function (e, t, r, i) {
+                r = (e, t, r, i) => {
                   return n
                     .sendRequest(
                       c.CompletionRequest.type,
@@ -8438,7 +8175,7 @@
                     )
                     .then(
                       n.protocol2CodeConverter.asCompletionResult,
-                      function (e) {
+                      e => {
                         return (
                           n.logFailedRequest(c.CompletionRequest.type, e),
                           Promise.resolve([])
@@ -8446,7 +8183,7 @@
                       }
                     );
                 },
-                i = function (e, t) {
+                i = (e, t) => {
                   return n
                     .sendRequest(
                       c.CompletionResolveRequest.type,
@@ -8455,7 +8192,7 @@
                     )
                     .then(
                       n.protocol2CodeConverter.asCompletionItem,
-                      function (t) {
+                      t => {
                         return (
                           n.logFailedRequest(
                             c.CompletionResolveRequest.type,
@@ -8479,7 +8216,7 @@
                           : r(e, t, i, n);
                       },
                       resolveCompletionItem: e.resolveProvider
-                        ? function (e, t) {
+                        ? (e, t) => {
                             return s.resolveCompletionItem
                               ? s.resolveCompletionItem(e, t, i)
                               : i(e, t);
@@ -8491,15 +8228,14 @@
                 )
               );
             }),
-            t
-          ;
+            t;
           })(F),
-          N = (function (e) {
+          N = (e => {
             function t(t) {
               return e.call(this, t, c.HoverRequest.type) || this;
             }
             return r(t, e),
-            (t.prototype.fillClientCapabilities = function (e) {
+            (t.prototype.fillClientCapabilities = e => {
               var t = _(_(e, "textDocument"), "hover");
               (t.dynamicRegistration = !0),
                 (t.contentFormat = [
@@ -8517,7 +8253,7 @@
             }),
             (t.prototype.registerLanguageProvider = function (e) {
               var t = this._client,
-                n = function (e, n, r) {
+                n = (e, n, r) => {
                   return t
                     .sendRequest(
                       c.HoverRequest.type,
@@ -8527,7 +8263,7 @@
                       ),
                       r
                     )
-                    .then(t.protocol2CodeConverter.asHover, function (e) {
+                    .then(t.protocol2CodeConverter.asHover, e => {
                       return (
                         t.logFailedRequest(c.HoverRequest.type, e),
                         Promise.resolve(null)
@@ -8543,15 +8279,14 @@
                 },
               });
             }),
-            t
-          ;
+            t;
           })(F),
-          L = (function (e) {
+          L = (e => {
             function t(t) {
               return e.call(this, t, c.SignatureHelpRequest.type) || this;
             }
             return r(t, e),
-            (t.prototype.fillClientCapabilities = function (e) {
+            (t.prototype.fillClientCapabilities = e => {
               var t = _(_(e, "textDocument"), "signatureHelp");
               (t.dynamicRegistration = !0),
                 (t.signatureInformation = {
@@ -8575,7 +8310,7 @@
             }),
             (t.prototype.registerLanguageProvider = function (e) {
               var t = this._client,
-                n = function (e, n, r) {
+                n = (e, n, r) => {
                   return t
                     .sendRequest(
                       c.SignatureHelpRequest.type,
@@ -8587,7 +8322,7 @@
                     )
                     .then(
                       t.protocol2CodeConverter.asSignatureHelp,
-                      function (e) {
+                      e => {
                         return (
                           t.logFailedRequest(c.SignatureHelpRequest.type, e),
                           Promise.resolve(null)
@@ -8614,15 +8349,14 @@
                 )
               );
             }),
-            t
-          ;
+            t;
           })(F),
-          K = (function (e) {
+          K = (e => {
             function t(t) {
               return e.call(this, t, c.DefinitionRequest.type) || this;
             }
             return r(t, e),
-            (t.prototype.fillClientCapabilities = function (e) {
+            (t.prototype.fillClientCapabilities = e => {
               _(_(e, "textDocument"), "definition").dynamicRegistration = !0;
             }),
             (t.prototype.initialize = function (e, t) {
@@ -8635,7 +8369,7 @@
             }),
             (t.prototype.registerLanguageProvider = function (e) {
               var t = this._client,
-                n = function (e, n, r) {
+                n = (e, n, r) => {
                   return t
                     .sendRequest(
                       c.DefinitionRequest.type,
@@ -8647,7 +8381,7 @@
                     )
                     .then(
                       t.protocol2CodeConverter.asDefinitionResult,
-                      function (e) {
+                      e => {
                         return (
                           t.logFailedRequest(c.DefinitionRequest.type, e),
                           Promise.resolve(null)
@@ -8667,15 +8401,14 @@
                 }
               );
             }),
-            t
-          ;
+            t;
           })(F),
-          j = (function (e) {
+          j = (e => {
             function t(t) {
               return e.call(this, t, c.ReferencesRequest.type) || this;
             }
             return r(t, e),
-            (t.prototype.fillClientCapabilities = function (e) {
+            (t.prototype.fillClientCapabilities = e => {
               _(_(e, "textDocument"), "references").dynamicRegistration = !0;
             }),
             (t.prototype.initialize = function (e, t) {
@@ -8688,7 +8421,7 @@
             }),
             (t.prototype.registerLanguageProvider = function (e) {
               var t = this._client,
-                n = function (e, n, r, i) {
+                n = (e, n, r, i) => {
                   return t
                     .sendRequest(
                       c.ReferencesRequest.type,
@@ -8697,7 +8430,7 @@
                     )
                     .then(
                       t.protocol2CodeConverter.asReferences,
-                      function (e) {
+                      e => {
                         return (
                           t.logFailedRequest(c.ReferencesRequest.type, e),
                           Promise.resolve([])
@@ -8717,15 +8450,14 @@
                 }
               );
             }),
-            t
-          ;
+            t;
           })(F),
-          A = (function (e) {
+          A = (e => {
             function t(t) {
               return e.call(this, t, c.DocumentHighlightRequest.type) || this;
             }
             return r(t, e),
-            (t.prototype.fillClientCapabilities = function (e) {
+            (t.prototype.fillClientCapabilities = e => {
               _(
                 _(e, "textDocument"),
                 "documentHighlight"
@@ -8741,7 +8473,7 @@
             }),
             (t.prototype.registerLanguageProvider = function (e) {
               var t = this._client,
-                n = function (e, n, r) {
+                n = (e, n, r) => {
                   return t
                     .sendRequest(
                       c.DocumentHighlightRequest.type,
@@ -8753,7 +8485,7 @@
                     )
                     .then(
                       t.protocol2CodeConverter.asDocumentHighlights,
-                      function (e) {
+                      e => {
                         return (
                           t.logFailedRequest(
                             c.DocumentHighlightRequest.type,
@@ -8776,15 +8508,14 @@
                 }
               );
             }),
-            t
-          ;
+            t;
           })(F),
-          W = (function (e) {
+          W = (e => {
             function t(t) {
               return e.call(this, t, c.DocumentSymbolRequest.type) || this;
             }
             return r(t, e),
-            (t.prototype.fillClientCapabilities = function (e) {
+            (t.prototype.fillClientCapabilities = e => {
               var t = _(_(e, "textDocument"), "documentSymbol");
               (t.dynamicRegistration = !0),
                 (t.symbolKind = { valueSet: x }),
@@ -8800,7 +8531,7 @@
             }),
             (t.prototype.registerLanguageProvider = function (e) {
               var t = this._client,
-                n = function (e, n) {
+                n = (e, n) => {
                   return t
                     .sendRequest(
                       c.DocumentSymbolRequest.type,
@@ -8808,7 +8539,7 @@
                       n
                     )
                     .then(
-                      function (e) {
+                      e => {
                         if (null !== e) {
                           if (0 === e.length) return [];
                           var n = e[0];
@@ -8819,7 +8550,7 @@
                               );
                         }
                       },
-                      function (e) {
+                      e => {
                         return (
                           t.logFailedRequest(c.DocumentSymbolRequest.type, e),
                           Promise.resolve([])
@@ -8839,15 +8570,14 @@
                 }
               );
             }),
-            t
-          ;
+            t;
           })(F),
-          H = (function (e) {
+          H = (e => {
             function t(t) {
               return e.call(this, t, c.WorkspaceSymbolRequest.type) || this;
             }
             return r(t, e),
-            (t.prototype.fillClientCapabilities = function (e) {
+            (t.prototype.fillClientCapabilities = e => {
               var t = _(_(e, "workspace"), "symbol");
               (t.dynamicRegistration = !0), (t.symbolKind = { valueSet: x });
             }),
@@ -8860,7 +8590,7 @@
             }),
             (t.prototype.registerLanguageProvider = function (e) {
               var t = this._client,
-                n = function (e, n) {
+                n = (e, n) => {
                   return t
                     .sendRequest(
                       c.WorkspaceSymbolRequest.type,
@@ -8869,7 +8599,7 @@
                     )
                     .then(
                       t.protocol2CodeConverter.asSymbolInformations,
-                      function (e) {
+                      e => {
                         return (
                           t.logFailedRequest(
                             c.WorkspaceSymbolRequest.type,
@@ -8889,15 +8619,14 @@
                 },
               });
             }),
-            t
-          ;
+            t;
           })(q),
-          U = (function (e) {
+          U = (e => {
             function t(t) {
               return e.call(this, t, c.CodeActionRequest.type) || this;
             }
             return r(t, e),
-            (t.prototype.fillClientCapabilities = function (e) {
+            (t.prototype.fillClientCapabilities = e => {
               var t = _(_(e, "textDocument"), "codeAction");
               (t.dynamicRegistration = !0),
                 (t.codeActionLiteralSupport = {
@@ -8925,7 +8654,7 @@
             }),
             (t.prototype.registerLanguageProvider = function (e) {
               var t = this._client,
-                n = function (e, n, r, i) {
+                n = (e, n, r, i) => {
                   var o = {
                     textDocument:
                       t.code2ProtocolConverter.asTextDocumentIdentifier(e),
@@ -8933,7 +8662,7 @@
                     context: t.code2ProtocolConverter.asCodeActionContext(r),
                   };
                   return t.sendRequest(c.CodeActionRequest.type, o, i).then(
-                    function (e) {
+                    e => {
                       var n, r;
                       if (null !== e) {
                         var i = [];
@@ -8962,7 +8691,7 @@
                         return i;
                       }
                     },
-                    function (e) {
+                    e => {
                       return (
                         t.logFailedRequest(c.CodeActionRequest.type, e),
                         Promise.resolve([])
@@ -8982,15 +8711,14 @@
                 }
               );
             }),
-            t
-          ;
+            t;
           })(F),
-          z = (function (e) {
+          z = (e => {
             function t(t) {
               return e.call(this, t, c.CodeLensRequest.type) || this;
             }
             return r(t, e),
-            (t.prototype.fillClientCapabilities = function (e) {
+            (t.prototype.fillClientCapabilities = e => {
               _(_(e, "textDocument"), "codeLens").dynamicRegistration = !0;
             }),
             (t.prototype.initialize = function (e, t) {
@@ -9007,7 +8735,7 @@
             }),
             (t.prototype.registerLanguageProvider = function (e) {
               var t = this._client,
-                n = function (e, n) {
+                n = (e, n) => {
                   return t
                     .sendRequest(
                       c.CodeLensRequest.type,
@@ -9016,7 +8744,7 @@
                     )
                     .then(
                       t.protocol2CodeConverter.asCodeLenses,
-                      function (e) {
+                      e => {
                         return (
                           t.logFailedRequest(c.CodeLensRequest.type, e),
                           Promise.resolve([])
@@ -9024,14 +8752,14 @@
                       }
                     );
                 },
-                r = function (e, n) {
+                r = (e, n) => {
                   return t
                     .sendRequest(
                       c.CodeLensResolveRequest.type,
                       t.code2ProtocolConverter.asCodeLens(e),
                       n
                     )
-                    .then(t.protocol2CodeConverter.asCodeLens, function (n) {
+                    .then(t.protocol2CodeConverter.asCodeLens, n => {
                       return (
                         t.logFailedRequest(c.CodeLensResolveRequest.type, n),
                         e
@@ -9048,7 +8776,7 @@
                       : n(e, t);
                   },
                   resolveCodeLens: e.resolveProvider
-                    ? function (e, t) {
+                    ? (e, t) => {
                         return i.resolveCodeLens
                           ? i.resolveCodeLens(e, t, r)
                           : r(e, t);
@@ -9057,15 +8785,14 @@
                 }
               );
             }),
-            t
-          ;
+            t;
           })(F),
-          $ = (function (e) {
+          $ = (e => {
             function t(t) {
               return e.call(this, t, c.DocumentFormattingRequest.type) || this;
             }
             return r(t, e),
-            (t.prototype.fillClientCapabilities = function (e) {
+            (t.prototype.fillClientCapabilities = e => {
               _(_(e, "textDocument"), "formatting").dynamicRegistration = !0;
             }),
             (t.prototype.initialize = function (e, t) {
@@ -9078,7 +8805,7 @@
             }),
             (t.prototype.registerLanguageProvider = function (e) {
               var t = this._client,
-                n = function (e, n, r) {
+                n = (e, n, r) => {
                   var i = {
                     textDocument:
                       t.code2ProtocolConverter.asTextDocumentIdentifier(e),
@@ -9086,7 +8813,7 @@
                   };
                   return t
                     .sendRequest(c.DocumentFormattingRequest.type, i, r)
-                    .then(t.protocol2CodeConverter.asTextEdits, function (e) {
+                    .then(t.protocol2CodeConverter.asTextEdits, e => {
                       return (
                         t.logFailedRequest(
                           c.DocumentFormattingRequest.type,
@@ -9108,17 +8835,16 @@
                 }
               );
             }),
-            t
-          ;
+            t;
           })(F),
-          J = (function (e) {
+          J = (e => {
             function t(t) {
               return (
                 e.call(this, t, c.DocumentRangeFormattingRequest.type) || this
               );
             }
             return r(t, e),
-            (t.prototype.fillClientCapabilities = function (e) {
+            (t.prototype.fillClientCapabilities = e => {
               _(_(e, "textDocument"), "rangeFormatting").dynamicRegistration =
                 !0;
             }),
@@ -9132,7 +8858,7 @@
             }),
             (t.prototype.registerLanguageProvider = function (e) {
               var t = this._client,
-                n = function (e, n, r, i) {
+                n = (e, n, r, i) => {
                   var o = {
                     textDocument:
                       t.code2ProtocolConverter.asTextDocumentIdentifier(e),
@@ -9141,7 +8867,7 @@
                   };
                   return t
                     .sendRequest(c.DocumentRangeFormattingRequest.type, o, i)
-                    .then(t.protocol2CodeConverter.asTextEdits, function (e) {
+                    .then(t.protocol2CodeConverter.asTextEdits, e => {
                       return (
                         t.logFailedRequest(
                           c.DocumentRangeFormattingRequest.type,
@@ -9163,17 +8889,16 @@
                 }
               );
             }),
-            t
-          ;
+            t;
           })(F),
-          V = (function (e) {
+          V = (e => {
             function t(t) {
               return (
                 e.call(this, t, c.DocumentOnTypeFormattingRequest.type) || this
               );
             }
             return r(t, e),
-            (t.prototype.fillClientCapabilities = function (e) {
+            (t.prototype.fillClientCapabilities = e => {
               _(
                 _(e, "textDocument"),
                 "onTypeFormatting"
@@ -9194,7 +8919,7 @@
             (t.prototype.registerLanguageProvider = function (e) {
               var t = this._client,
                 n = e.moreTriggerCharacter || [],
-                r = function (e, n, r, i, o) {
+                r = (e, n, r, i, o) => {
                   var s = {
                     textDocument:
                       t.code2ProtocolConverter.asTextDocumentIdentifier(e),
@@ -9204,7 +8929,7 @@
                   };
                   return t
                     .sendRequest(c.DocumentOnTypeFormattingRequest.type, s, o)
-                    .then(t.protocol2CodeConverter.asTextEdits, function (e) {
+                    .then(t.protocol2CodeConverter.asTextEdits, e => {
                       return (
                         t.logFailedRequest(
                           c.DocumentOnTypeFormattingRequest.type,
@@ -9233,15 +8958,14 @@
                 )
               );
             }),
-            t
-          ;
+            t;
           })(F),
-          B = (function (e) {
+          B = (e => {
             function t(t) {
               return e.call(this, t, c.RenameRequest.type) || this;
             }
             return r(t, e),
-            (t.prototype.fillClientCapabilities = function (e) {
+            (t.prototype.fillClientCapabilities = e => {
               _(_(e, "textDocument"), "rename").dynamicRegistration = !0;
             }),
             (t.prototype.initialize = function (e, t) {
@@ -9254,7 +8978,7 @@
             }),
             (t.prototype.registerLanguageProvider = function (e) {
               var t = this._client,
-                n = function (e, n, r, i) {
+                n = (e, n, r, i) => {
                   var o = {
                     textDocument:
                       t.code2ProtocolConverter.asTextDocumentIdentifier(e),
@@ -9265,7 +8989,7 @@
                     .sendRequest(c.RenameRequest.type, o, i)
                     .then(
                       t.protocol2CodeConverter.asWorkspaceEdit,
-                      function (e) {
+                      e => {
                         return (
                           t.logFailedRequest(c.RenameRequest.type, e),
                           Promise.reject(new Error(e.message))
@@ -9282,15 +9006,14 @@
                 },
               });
             }),
-            t
-          ;
+            t;
           })(F),
-          G = (function (e) {
+          G = (e => {
             function t(t) {
               return e.call(this, t, c.DocumentLinkRequest.type) || this;
             }
             return r(t, e),
-            (t.prototype.fillClientCapabilities = function (e) {
+            (t.prototype.fillClientCapabilities = e => {
               _(_(e, "textDocument"), "documentLink").dynamicRegistration =
                 !0;
             }),
@@ -9308,7 +9031,7 @@
             }),
             (t.prototype.registerLanguageProvider = function (e) {
               var t = this._client,
-                n = function (e, n) {
+                n = (e, n) => {
                   return t
                     .sendRequest(
                       c.DocumentLinkRequest.type,
@@ -9317,13 +9040,13 @@
                     )
                     .then(
                       t.protocol2CodeConverter.asDocumentLinks,
-                      function (e) {
+                      e => {
                         t.logFailedRequest(c.DocumentLinkRequest.type, e),
                           Promise.resolve(new Error(e.message));
                       }
                     );
                 },
-                r = function (e, n) {
+                r = (e, n) => {
                   return t
                     .sendRequest(
                       c.DocumentLinkResolveRequest.type,
@@ -9332,7 +9055,7 @@
                     )
                     .then(
                       t.protocol2CodeConverter.asDocumentLink,
-                      function (e) {
+                      e => {
                         t.logFailedRequest(
                           c.DocumentLinkResolveRequest.type,
                           e
@@ -9351,7 +9074,7 @@
                       : n(e, t);
                   },
                   resolveDocumentLink: e.resolveProvider
-                    ? function (e, t) {
+                    ? (e, t) => {
                         return i.resolveDocumentLink
                           ? i.resolveDocumentLink(e, t, r)
                           : r(e, t);
@@ -9360,10 +9083,9 @@
                 }
               );
             }),
-            t
-          ;
+            t;
           })(F),
-          Z = (function () {
+          Z = (() => {
             function e(e) {
               (this._client = e), (this._listeners = new Map());
             }
@@ -9374,7 +9096,7 @@
               enumerable: !0,
               configurable: !0,
             }),
-            (e.prototype.fillClientCapabilities = function (e) {
+            (e.prototype.fillClientCapabilities = e => {
               _(
                 _(e, "workspace"),
                 "didChangeConfiguration"
@@ -9391,7 +9113,7 @@
             }),
             (e.prototype.register = function (e, t) {
               var n = this,
-                r = a.workspace.onDidChangeConfiguration(function (e) {
+                r = a.workspace.onDidChangeConfiguration(e => {
                   n.onDidChangeConfiguration(t.registerOptions.section, e);
                 });
               this._listeners.set(t.id, r),
@@ -9432,12 +9154,12 @@
               if (
                 void 0 !== (n = l.string(e) ? [e] : e) &&
                 void 0 !== t &&
-                !n.some(function (e) {
+                !n.some(e => {
                   return t.affectsConfiguration(e);
                 })
               )
                 return;
-              var i = function (e) {
+              var i = e => {
                   void 0 !== e
                     ? r._client.sendNotification(
                         c.DidChangeConfigurationNotification.type,
@@ -9491,10 +9213,9 @@
                 ? e.workspace.didChangeConfiguration
                 : void 0;
             }),
-            e
-          ;
+            e;
           })(),
-          Q = (function () {
+          Q = (() => {
             function e(e) {
               (this._client = e), (this._commands = new Map());
             }
@@ -9505,7 +9226,7 @@
               enumerable: !0,
               configurable: !0,
             }),
-            (e.prototype.fillClientCapabilities = function (e) {
+            (e.prototype.fillClientCapabilities = e => {
               _(_(e, "workspace"), "executeCommand").dynamicRegistration = !0;
             }),
             (e.prototype.initialize = function (e) {
@@ -9524,7 +9245,7 @@
                 i = this._client;
               if (t.registerOptions.commands) {
                 var o = [],
-                  u = function (e) {
+                  u = e => {
                     o.push(
                       a.commands.registerCommand(e, function () {
                         for (var t = [], n = 0; n < arguments.length; n++)
@@ -9532,7 +9253,7 @@
                         var r = { command: e, arguments: t };
                         return i
                           .sendRequest(c.ExecuteCommandRequest.type, r)
-                          .then(void 0, function (e) {
+                          .then(void 0, e => {
                             i.logFailedRequest(
                               c.ExecuteCommandRequest.type,
                               e
@@ -9564,29 +9285,28 @@
             (e.prototype.unregister = function (e) {
               var t = this._commands.get(e);
               t &&
-                t.forEach(function (e) {
+                t.forEach(e => {
                   return e.dispose();
                 });
             }),
             (e.prototype.dispose = function () {
-              this._commands.forEach(function (e) {
-                e.forEach(function (e) {
+              this._commands.forEach(e => {
+                e.forEach(e => {
                   return e.dispose();
                 });
               }),
                 this._commands.clear();
             }),
-            e
-          ;
+            e;
           })();
-        !(function (e) {
-          e.is = function (e) {
+        !(e => {
+          e.is = e => {
             return (
               e && c.MessageReader.is(e.reader) && c.MessageWriter.is(e.writer)
             );
           };
         })(t.MessageTransports || (t.MessageTransports = {}));
-        var X = (function () {
+        var X = (() => {
           function t(e, t, n) {
             var r = this;
             (this._features = []),
@@ -9625,7 +9345,7 @@
               (this._diagnostics = void 0),
               (this._fileEvents = []),
               (this._fileEventDelayer = new p.Delayer(250)),
-              (this._onReady = new Promise(function (e, t) {
+              (this._onReady = new Promise((e, t) => {
                 r._onReadyCallbacks = { resolve: e, reject: t };
               })),
               (this._onStop = void 0),
@@ -9809,18 +9529,18 @@
               var t = this;
               (this._trace = e),
                 this.onReady().then(
-                  function () {
-                    t.resolveConnection().then(function (n) {
+                  () => {
+                    t.resolveConnection().then(n => {
                       n.trace(e, t._tracer);
                     });
                   },
-                  function () {}
+                  () => {}
                 );
             },
             enumerable: !0,
             configurable: !0,
           }),
-          (t.prototype.data2String = function (e) {
+          (t.prototype.data2String = e => {
             if (e instanceof c.ResponseError) {
               var t = e;
               return (
@@ -9888,87 +9608,85 @@
           }),
           (t.prototype.start = function () {
             var e = this;
-            return (
-              (this._listeners = []),
-              (this._providers = []),
-              this._diagnostics ||
-                (this._diagnostics = this._clientOptions
-                  .diagnosticCollectionName
-                  ? a.languages.createDiagnosticCollection(
-                      this._clientOptions.diagnosticCollectionName
-                    )
-                  : a.languages.createDiagnosticCollection()),
-              (this.state = C.Starting),
-              this.resolveConnection()
-                .then(function (t) {
-                  return (
-                    t.onLogMessage(function (t) {
-                      switch (t.type) {
-                        case c.MessageType.Error:
-                          e.error(t.message);
-                          break;
-                        case c.MessageType.Warning:
-                          e.warn(t.message);
-                          break;
-                        case c.MessageType.Info:
-                          e.info(t.message);
-                          break;
-                        default:
-                          e.outputChannel.appendLine(t.message);
-                      }
-                    }),
-                    t.onShowMessage(function (e) {
-                      switch (e.type) {
-                        case c.MessageType.Error:
-                          a.window.showErrorMessage(e.message);
-                          break;
-                        case c.MessageType.Warning:
-                          a.window.showWarningMessage(e.message);
-                          break;
-                        case c.MessageType.Info:
-                          a.window.showInformationMessage(e.message);
-                          break;
-                        default:
-                          a.window.showInformationMessage(e.message);
-                      }
-                    }),
-                    t.onRequest(c.ShowMessageRequest.type, function (e) {
-                      var t;
-                      switch (e.type) {
-                        case c.MessageType.Error:
-                          t = a.window.showErrorMessage;
-                          break;
-                        case c.MessageType.Warning:
-                          t = a.window.showWarningMessage;
-                          break;
-                        case c.MessageType.Info:
-                          t = a.window.showInformationMessage;
-                          break;
-                        default:
-                          t = a.window.showInformationMessage;
-                      }
-                      var n = e.actions || [];
-                      return t.apply(void 0, o([e.message], n));
-                    }),
-                    t.onTelemetry(function (t) {
-                      e._telemetryEmitter.fire(t);
-                    }),
-                    t.listen(),
-                    e.initialize(t)
-                  );
-                })
-                .then(void 0, function (t) {
-                  (e.state = C.StartFailed),
-                    e._onReadyCallbacks.reject(t),
-                    e.error("Starting client failed", t),
-                    a.window.showErrorMessage(
-                      "Couldn't start client " + e._name
-                    );
+            return (this._listeners = []),
+            (this._providers = []),
+            this._diagnostics ||
+              (this._diagnostics = this._clientOptions
+                .diagnosticCollectionName
+                ? a.languages.createDiagnosticCollection(
+                    this._clientOptions.diagnosticCollectionName
+                  )
+                : a.languages.createDiagnosticCollection()),
+            (this.state = C.Starting),
+            this.resolveConnection()
+              .then(t => {
+                return t.onLogMessage(t => {
+                  switch (t.type) {
+                    case c.MessageType.Error:
+                      e.error(t.message);
+                      break;
+                    case c.MessageType.Warning:
+                      e.warn(t.message);
+                      break;
+                    case c.MessageType.Info:
+                      e.info(t.message);
+                      break;
+                    default:
+                      e.outputChannel.appendLine(t.message);
+                  }
                 }),
-              new a.Disposable(function () {
-                e.needsStop() && e.stop();
+                t.onShowMessage(e => {
+                  switch (e.type) {
+                    case c.MessageType.Error:
+                      a.window.showErrorMessage(e.message);
+                      break;
+                    case c.MessageType.Warning:
+                      a.window.showWarningMessage(e.message);
+                      break;
+                    case c.MessageType.Info:
+                      a.window.showInformationMessage(e.message);
+                      break;
+                    default:
+                      a.window.showInformationMessage(e.message);
+                  }
+                }),
+                t.onRequest(c.ShowMessageRequest.type, e => {
+                  var t;
+                  switch (e.type) {
+                    case c.MessageType.Error:
+                      t = a.window.showErrorMessage;
+                      break;
+                    case c.MessageType.Warning:
+                      t = a.window.showWarningMessage;
+                      break;
+                    case c.MessageType.Info:
+                      t = a.window.showInformationMessage;
+                      break;
+                    default:
+                      t = a.window.showInformationMessage;
+                  }
+                  var n = e.actions || [];
+                  return t.apply(void 0, o([e.message], n));
+                }),
+                t.onTelemetry(t => {
+                  e._telemetryEmitter.fire(t);
+                }),
+                t.listen(),
+                e.initialize(t)
+              ;
               })
-            );
+              .then(void 0, t => {
+                (e.state = C.StartFailed),
+                  e._onReadyCallbacks.reject(t),
+                  e.error("Starting client failed", t),
+                  a.window.showErrorMessage(
+                    "Couldn't start client " + e._name
+                  );
+              }),
+            new a.Disposable(() => {
+              e.needsStop() && e.stop();
+            })
+          ;
           }),
           (t.prototype.resolveConnection = function () {
             return (
@@ -9993,83 +9711,81 @@
                 trace: c.Trace.toString(this._trace),
                 workspaceFolders: null,
               };
-            return (
-              this.fillInitializeParams(o),
-              t
-                .initialize(o)
-                .then(function (e) {
-                  (n._resolvedConnection = t),
-                    (n._initializeResult = e),
-                    (n.state = C.Running);
-                  var r = void 0;
-                  return (
-                    l.number(e.capabilities.textDocumentSync) &&
-                    e.capabilities.textDocumentSync !==
-                      c.TextDocumentSyncKind.None
-                      ? (r = {
-                          openClose: !0,
-                          change: e.capabilities.textDocumentSync,
-                          save: { includeText: !1 },
-                        })
-                      : void 0 !== e.capabilities.textDocumentSync &&
-                        null !== e.capabilities.textDocumentSync &&
-                        (r = e.capabilities.textDocumentSync),
-                    (n._capabilities = Object.assign({}, e.capabilities, {
-                      resolvedTextDocumentSync: r,
-                    })),
-                    t.onDiagnostics(function (e) {
-                      return n.handleDiagnostics(e);
-                    }),
-                    t.onRequest(c.RegistrationRequest.type, function (e) {
-                      return n.handleRegistrationRequest(e);
-                    }),
-                    t.onRequest("client/registerFeature", function (e) {
-                      return n.handleRegistrationRequest(e);
-                    }),
-                    t.onRequest(c.UnregistrationRequest.type, function (e) {
-                      return n.handleUnregistrationRequest(e);
-                    }),
-                    t.onRequest("client/unregisterFeature", function (e) {
-                      return n.handleUnregistrationRequest(e);
-                    }),
-                    t.onRequest(
-                      c.ApplyWorkspaceEditRequest.type,
-                      function (e) {
-                        return n.handleApplyWorkspaceEdit(e);
-                      }
-                    ),
-                    t.sendNotification(c.InitializedNotification.type, {}),
-                    n.hookFileEvents(t),
-                    n.hookConfigurationChanged(t),
-                    n.initializeFeatures(t),
-                    n._onReadyCallbacks.resolve(),
-                    e
-                  );
-                })
-                .then(void 0, function (e) {
-                  n._clientOptions.initializationFailedHandler
-                    ? n._clientOptions.initializationFailedHandler(e)
-                      ? n.initialize(t)
-                      : (n.stop(), n._onReadyCallbacks.reject(e))
-                    : e instanceof c.ResponseError && e.data && e.data.retry
-                    ? a.window
-                        .showErrorMessage(e.message, {
-                          title: "Retry",
-                          id: "retry",
-                        })
-                        .then(function (r) {
-                          r && "retry" === r.id
-                            ? n.initialize(t)
-                            : (n.stop(), n._onReadyCallbacks.reject(e));
-                        })
-                    : (e && e.message && a.window.showErrorMessage(e.message),
-                      n.error("Server initialization failed.", e),
-                      n.stop(),
-                      n._onReadyCallbacks.reject(e));
-                })
-            );
+            return this.fillInitializeParams(o),
+            t
+              .initialize(o)
+              .then(e => {
+                (n._resolvedConnection = t),
+                  (n._initializeResult = e),
+                  (n.state = C.Running);
+                var r = void 0;
+                return l.number(e.capabilities.textDocumentSync) &&
+                e.capabilities.textDocumentSync !==
+                  c.TextDocumentSyncKind.None
+                  ? (r = {
+                      openClose: !0,
+                      change: e.capabilities.textDocumentSync,
+                      save: { includeText: !1 },
+                    })
+                  : void 0 !== e.capabilities.textDocumentSync &&
+                    null !== e.capabilities.textDocumentSync &&
+                    (r = e.capabilities.textDocumentSync),
+                (n._capabilities = Object.assign({}, e.capabilities, {
+                  resolvedTextDocumentSync: r,
+                })),
+                t.onDiagnostics(e => {
+                  return n.handleDiagnostics(e);
+                }),
+                t.onRequest(c.RegistrationRequest.type, e => {
+                  return n.handleRegistrationRequest(e);
+                }),
+                t.onRequest("client/registerFeature", e => {
+                  return n.handleRegistrationRequest(e);
+                }),
+                t.onRequest(c.UnregistrationRequest.type, e => {
+                  return n.handleUnregistrationRequest(e);
+                }),
+                t.onRequest("client/unregisterFeature", e => {
+                  return n.handleUnregistrationRequest(e);
+                }),
+                t.onRequest(
+                  c.ApplyWorkspaceEditRequest.type,
+                  e => {
+                    return n.handleApplyWorkspaceEdit(e);
+                  }
+                ),
+                t.sendNotification(c.InitializedNotification.type, {}),
+                n.hookFileEvents(t),
+                n.hookConfigurationChanged(t),
+                n.initializeFeatures(t),
+                n._onReadyCallbacks.resolve(),
+                e
+              ;
+              })
+              .then(void 0, e => {
+                n._clientOptions.initializationFailedHandler
+                  ? n._clientOptions.initializationFailedHandler(e)
+                    ? n.initialize(t)
+                    : (n.stop(), n._onReadyCallbacks.reject(e))
+                  : e instanceof c.ResponseError && e.data && e.data.retry
+                  ? a.window
+                      .showErrorMessage(e.message, {
+                        title: "Retry",
+                        id: "retry",
+                      })
+                      .then(r => {
+                        r && "retry" === r.id
+                          ? n.initialize(t)
+                          : (n.stop(), n._onReadyCallbacks.reject(e));
+                      })
+                  : (e && e.message && a.window.showErrorMessage(e.message),
+                    n.error("Server initialization failed.", e),
+                    n.stop(),
+                    n._onReadyCallbacks.reject(e));
+              })
+          ;
           }),
-          (t.prototype._clientGetRootPath = function () {
+          (t.prototype._clientGetRootPath = () => {
             var e = a.workspace.workspaceFolders;
             if (e && 0 !== e.length) {
               var t = e[0];
@@ -10078,39 +9794,36 @@
           }),
           (t.prototype.stop = function () {
             var e = this;
-            return (
-              (this._initializeResult = void 0),
-              this._connectionPromise
-                ? this.state === C.Stopping && this._onStop
-                  ? this._onStop
-                  : ((this.state = C.Stopping),
-                    this.cleanUp(),
-                    (this._onStop = this.resolveConnection().then(function (
-                      t
-                    ) {
-                      return t.shutdown().then(function () {
-                        t.exit(),
-                          t.dispose(),
-                          (e.state = C.Stopped),
-                          (e._onStop = void 0),
-                          (e._connectionPromise = void 0),
-                          (e._resolvedConnection = void 0);
-                      });
-                    })))
-                : ((this.state = C.Stopped), Promise.resolve())
-            );
+            return (this._initializeResult = void 0),
+            this._connectionPromise
+              ? this.state === C.Stopping && this._onStop
+                ? this._onStop
+                : ((this.state = C.Stopping),
+                  this.cleanUp(),
+                  (this._onStop = this.resolveConnection().then(t => {
+                    return t.shutdown().then(() => {
+                      t.exit(),
+                        t.dispose(),
+                        (e.state = C.Stopped),
+                        (e._onStop = void 0),
+                        (e._connectionPromise = void 0),
+                        (e._resolvedConnection = void 0);
+                    });
+                  })))
+              : ((this.state = C.Stopped), Promise.resolve())
+          ;
           }),
           (t.prototype.cleanUp = function (e, t) {
             var n, r;
             void 0 === e && (e = !0),
               void 0 === t && (t = !0),
               this._listeners &&
-                (this._listeners.forEach(function (e) {
+                (this._listeners.forEach(e => {
                   return e.dispose();
                 }),
                 (this._listeners = void 0)),
               this._providers &&
-                (this._providers.forEach(function (e) {
+                (this._providers.forEach(e => {
                   return e.dispose();
                 }),
                 (this._providers = void 0)),
@@ -10143,16 +9856,16 @@
           (t.prototype.notifyFileEvent = function (e) {
             var t = this;
             this._fileEvents.push(e),
-              this._fileEventDelayer.trigger(function () {
+              this._fileEventDelayer.trigger(() => {
                 t.onReady().then(
-                  function () {
-                    t.resolveConnection().then(function (e) {
+                  () => {
+                    t.resolveConnection().then(e => {
                       t.isConnectionActive() &&
                         e.didChangeWatchedFiles({ changes: t._fileEvents }),
                         (t._fileEvents = []);
                     });
                   },
-                  function (e) {
+                  e => {
                     t.error("Notify file events failed.", e);
                   }
                 );
@@ -10170,7 +9883,7 @@
                 r = this._p2c.asDiagnostics(e.diagnostics),
                 i = this.clientOptions.middleware.handleDiagnostics;
               i
-                ? i(n, r, function (e, n) {
+                ? i(n, r, (e, n) => {
                     return t.setDiagnostics(e, n);
                   })
                 : this.setDiagnostics(n, r);
@@ -10181,19 +9894,19 @@
           }),
           (t.prototype.createConnection = function () {
             var e = this,
-              t = function (t, n, r) {
+              t = (t, n, r) => {
                 e.handleConnectionError(t, n, r);
               },
-              n = function () {
+              n = () => {
                 e.handleConnectionClosed();
               };
             return this.createMessageTransports(
               this._clientOptions.stdioEncoding || "utf8"
-            ).then(function (e) {
-              return (function (e, t, n, r) {
+            ).then(e => {
+              return ((e, t, n, r) => {
                 var i = new h(),
                   s = c.createProtocolConnection(e, t, i);
-                return s.onError(function (e) {
+                return s.onError(e => {
                   n(e[0], e[1], e[2]);
                 }),
                 s.onClose(r),
@@ -10296,8 +10009,7 @@
                   dispose() {
                     return s.dispose();
                   },
-                }
-              ;
+                };
               })(e.reader, e.writer, t, n);
             });
           }),
@@ -10337,7 +10049,7 @@
           }),
           (t.prototype.hookConfigurationChanged = function (e) {
             var t = this;
-            a.workspace.onDidChangeConfiguration(function () {
+            a.workspace.onDidChangeConfiguration(() => {
               t.refreshTrace(e, !0);
             });
           }),
@@ -10410,7 +10122,7 @@
               this.registerFeature(new O(this)),
               this.registerFeature(new P(this, this._syncedDocuments)),
               this.registerFeature(
-                new M(this, function (t) {
+                new M(this, t => {
                   return e.notifyFileEvent(t);
                 })
               ),
@@ -10505,7 +10217,7 @@
           }),
           (t.prototype.handleRegistrationRequest = function (e) {
             var t = this;
-            return new Promise(function (n, r) {
+            return new Promise((n, r) => {
               var i, o;
               try {
                 for (
@@ -10543,7 +10255,7 @@
           }),
           (t.prototype.handleUnregistrationRequest = function (e) {
             var t = this;
-            return new Promise(function (n, r) {
+            return new Promise((n, r) => {
               var i, o;
               try {
                 for (
@@ -10580,7 +10292,7 @@
               n,
               r = e.edit,
               i = new Map();
-            a.workspace.textDocuments.forEach(function (e) {
+            a.workspace.textDocuments.forEach(e => {
               return i.set(e.uri.toString(), e);
             });
             var o = !1;
@@ -10613,7 +10325,7 @@
               ? Promise.resolve({ applied: !1 })
               : a.workspace
                   .applyEdit(this._p2c.asWorkspaceEdit(e.edit))
-                  .then(function (e) {
+                  .then(e => {
                     return { applied: e };
                   });
           }),
@@ -10622,8 +10334,7 @@
               t.code === c.ErrorCodes.RequestCancelled) ||
               this.error("Request " + e.method + " failed.", t);
           }),
-          t
-        ;
+          t;
         })();
         t.BaseLanguageClient = X;
       }.call(this, n("8oxB")));
@@ -10632,25 +10343,24 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
       var r = n("MOv1");
-      !(function (e) {
+      !(e => {
         e.type = new r.RequestType("workspace/configuration");
       })(t.ConfigurationRequest || (t.ConfigurationRequest = {}));
     },
     uSJ4(e, t, n) {
       "use strict";
       var r =
-        (this && this.__extends) ||
-        (function () {
+        this && this.__extends || (() => {
           var e =
             Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array &&
-              function (e, t) {
+              ((e, t) => {
                 e.__proto__ = t;
-              }) ||
-            function (e, t) {
+              })) ||
+            ((e, t) => {
               for (var n in t) t.hasOwnProperty(n) && (e[n] = t[n]);
-            };
-          return function (t, n) {
+            });
+          return (t, n) => {
             function r() {
               this.constructor = t;
             }
@@ -10669,7 +10379,7 @@
       function c(e, t) {
         return void 0 === e[t] && (e[t] = {}), e[t];
       }
-      var u = (function (e) {
+      var u = (e => {
         class t {
           constructor(t) {
             return e.call(this, t, a.TypeDefinitionRequest.type) || this;
@@ -10678,9 +10388,9 @@
           static createConverter(e) {
             var t =
               e ||
-              function (e) {
+              (e => {
                 return e.toString();
-              };
+              });
             function n(e) {
               return t(e);
             }
@@ -10768,26 +10478,21 @@
                 };
               },
               asChangeTextDocumentParams(e) {
-                if (
-                  (function (e) {
-                    var t = e;
-                    return !!t.uri && !!t.version;
-                  })(e)
-                )
-                  return {
-                    textDocument: { uri: t(e.uri), version: e.version },
-                    contentChanges: [{ text: e.getText() }],
-                  };
-                if (
-                  (function (e) {
-                    var t = e;
-                    return !!t.document && !!t.contentChanges;
-                  })(e)
-                ) {
+                if ((e => {
+                  var t = e;
+                  return !!t.uri && !!t.version;
+                })(e)) return {
+                  textDocument: { uri: t(e.uri), version: e.version },
+                  contentChanges: [{ text: e.getText() }],
+                };
+                if ((e => {
+                  var t = e;
+                  return !!t.document && !!t.contentChanges;
+                })(e)) {
                   var n = e.document;
                   return {
                     textDocument: { uri: t(n.uri), version: n.version },
-                    contentChanges: e.contentChanges.map(function (e) {
+                    contentChanges: e.contentChanges.map(e => {
                       var t = e.range;
                       return {
                         range: {
@@ -10840,62 +10545,49 @@
                   n,
                   a = { label: e.label },
                   c = e instanceof s.default ? e : void 0;
-                return (
-                  e.detail && (a.detail = e.detail),
-                  e.documentation &&
-                    (c && "$string" !== c.documentationFormat
-                      ? (a.documentation = (function (e, t) {
-                          switch (e) {
-                            case "$string":
-                              return t;
-                            case i.MarkupKind.PlainText:
-                              return { kind: e, value: t };
-                            case i.MarkupKind.Markdown:
-                              return { kind: e, value: t.value };
-                            default:
-                              return (
-                                "Unsupported Markup content received. Kind is: " + e
-                              );
-                          }
-                        })(c.documentationFormat, e.documentation))
-                      : (a.documentation = e.documentation)),
-                  e.filterText && (a.filterText = e.filterText),
-                  (function (e, t) {
-                    var n,
-                      o = i.InsertTextFormat.PlainText,
-                      s = void 0;
-                    t.textEdit
-                      ? ((n = t.textEdit.newText), (s = g(t.textEdit.range)))
-                      : t.insertText instanceof r.SnippetString
-                      ? ((o = i.InsertTextFormat.Snippet), (n = t.insertText.value))
-                      : (n = t.insertText);
-                    t.range && (s = g(t.range));
-                    (e.insertTextFormat = o),
-                      t.fromEdit && n && s
-                        ? (e.textEdit = { newText: n, range: s })
-                        : (e.insertText = n);
-                  })(a, e),
-                  o.number(e.kind) &&
-                    (a.kind =
-                      ((t = e.kind),
-                      void 0 !== (n = c && c.originalItemKind) ? n : t + 1)),
-                  e.sortText && (a.sortText = e.sortText),
-                  e.additionalTextEdits &&
-                    (a.additionalTextEdits = (function (e) {
-                      if (void 0 === e || null === e) return e;
-                      return e.map(C);
-                    })(e.additionalTextEdits)),
-                  e.commitCharacters &&
-                    (a.commitCharacters = e.commitCharacters.slice()),
-                  e.command && (a.command = D(e.command)),
-                  (!0 !== e.preselect && !1 !== e.preselect) ||
-                    (a.preselect = e.preselect),
-                  c &&
-                    (void 0 !== c.data && (a.data = c.data),
-                    (!0 !== c.deprecated && !1 !== c.deprecated) ||
-                      (a.deprecated = c.deprecated)),
-                  a
-                );
+                return e.detail && (a.detail = e.detail), e.documentation &&
+                  (c && "$string" !== c.documentationFormat
+                    ? (a.documentation = ((e, t) => {
+                        switch (e) {
+                          case "$string":
+                            return t;
+                          case i.MarkupKind.PlainText:
+                            return { kind: e, value: t };
+                          case i.MarkupKind.Markdown:
+                            return { kind: e, value: t.value };
+                          default:
+                            return (
+                              "Unsupported Markup content received. Kind is: " + e
+                            );
+                        }
+                      })(c.documentationFormat, e.documentation))
+                    : (a.documentation = e.documentation)), e.filterText && (a.filterText = e.filterText), ((e, t) => {
+                  var n,
+                    o = i.InsertTextFormat.PlainText,
+                    s = void 0;
+                  t.textEdit
+                    ? ((n = t.textEdit.newText), (s = g(t.textEdit.range)))
+                    : t.insertText instanceof r.SnippetString
+                    ? ((o = i.InsertTextFormat.Snippet), (n = t.insertText.value))
+                    : (n = t.insertText);
+                  t.range && (s = g(t.range));
+                  (e.insertTextFormat = o),
+                    t.fromEdit && n && s
+                      ? (e.textEdit = { newText: n, range: s })
+                      : (e.insertText = n);
+                })(a, e), o.number(e.kind) &&
+                  (a.kind =
+                    ((t = e.kind),
+                    void 0 !== (n = c && c.originalItemKind) ? n : t + 1)), e.sortText && (a.sortText = e.sortText), e.additionalTextEdits &&
+                  (a.additionalTextEdits = (e => {
+                    if (void 0 === e || null === e) return e;
+                    return e.map(C);
+                  })(e.additionalTextEdits)), e.commitCharacters &&
+                  (a.commitCharacters = e.commitCharacters.slice()), e.command && (a.command = D(e.command)), (!0 !== e.preselect && !1 !== e.preselect) ||
+                  (a.preselect = e.preselect), c &&
+                  (void 0 !== c.data && (a.data = c.data),
+                  (!0 !== c.deprecated && !1 !== c.deprecated) ||
+                    (a.deprecated = c.deprecated)), a;
               },
               asTextEdit: C,
               asReferenceParams(e, t, n) {
@@ -10945,7 +10637,7 @@
         }
 
         return r(t, e),
-        (t.prototype.fillClientCapabilities = function (e) {
+        (t.prototype.fillClientCapabilities = e => {
           c(c(e, "textDocument"), "typeDefinition").dynamicRegistration = !0;
         }),
         (t.prototype.initialize = function (e, t) {
@@ -10970,7 +10662,7 @@
         }),
         (t.prototype.registerLanguageProvider = function (e) {
           var t = this._client,
-            n = function (e, n, r) {
+            n = (e, n, r) => {
               return t
                 .sendRequest(
                   a.TypeDefinitionRequest.type,
@@ -10979,7 +10671,7 @@
                 )
                 .then(
                   t.protocol2CodeConverter.asDefinitionResult,
-                  function (e) {
+                  e => {
                     return (
                       t.logFailedRequest(a.TypeDefinitionRequest.type, e),
                       Promise.resolve(null)
@@ -10999,8 +10691,7 @@
             }
           );
         }),
-        t
-      ;
+        t;
       })(n("qRuN").TextDocumentFeature);
       t.TypeDefinitionFeature = u;
     },
@@ -11010,7 +10701,7 @@
       const r = n("RUQ2"),
         i = n("K4MX"),
         o = n("k5Vz");
-      (t.createClientSocketTransport = function (e, t = "utf-8") {
+      (t.createClientSocketTransport = (e, t = "utf-8") => {
         let n,
           s = new Promise((e, t) => {
             n = e;
@@ -11029,7 +10720,7 @@
             });
         });
       }),
-        (t.createServerSocketTransport = function (e, t = "utf-8") {
+        (t.createServerSocketTransport = (e, t = "utf-8") => {
           const n = r.createConnection(e, "127.0.0.1");
           return [
             new i.SocketMessageReader(n, t),
@@ -11046,10 +10737,9 @@
     wSv1(e, t, n) {
       "use strict";
       var r;
-      Object.defineProperty(t, "__esModule", { value: !0 }),
-        (function (e) {
-          (e.None = 0), (e.First = 1), (e.Last = 2);
-        })((r = t.Touch || (t.Touch = {})));
+      Object.defineProperty(t, "__esModule", { value: !0 }), (e => {
+        (e.None = 0), (e.First = 1), (e.Last = 2);
+      })(r = t.Touch || (t.Touch = {}));
       t.LinkedMap = class {
         constructor() {
           (this._map = new Map()),
@@ -11203,18 +10893,17 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
       var r = n("MOv1");
-      !(function (e) {
+      !(e => {
         e.type = new r.RequestType("textDocument/documentColor");
-      })(t.DocumentColorRequest || (t.DocumentColorRequest = {})),
-        (function (e) {
-          e.type = new r.RequestType("textDocument/colorPresentation");
-        })(t.ColorPresentationRequest || (t.ColorPresentationRequest = {}));
+      })(t.DocumentColorRequest || (t.DocumentColorRequest = {})), (e => {
+        e.type = new r.RequestType("textDocument/colorPresentation");
+      })(t.ColorPresentationRequest || (t.ColorPresentationRequest = {}));
     },
     "zxs+": function (e, t, n) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
       var r = n("Gz0x"),
-        i = (function () {
+        i = (() => {
           function e(e, t, n) {
             void 0 === n && (n = null);
             var i = this;
@@ -11229,10 +10918,10 @@
               var a = s[o];
               this.addModel(a);
             }
-            monaco.editor.onDidCreateModel(function (e) {
+            monaco.editor.onDidCreateModel(e => {
               return i.addModel(e);
             }),
-              monaco.editor.onWillDisposeModel(function (e) {
+              monaco.editor.onWillDisposeModel(e => {
                 return i.removeModel(e);
               });
           }
@@ -11255,7 +10944,7 @@
               n = e.uri.toString(),
               r = this.setModel(n, e);
             this.onDidOpenTextDocumentEmitter.fire(r),
-              e.onDidChangeContent(function (r) {
+              e.onDidChangeContent(r => {
                 return t.onDidChangeContent(n, e, r);
               });
           }),
@@ -11315,7 +11004,7 @@
           }),
           (e.prototype.applyEdit = function (e) {
             var t = this.p2m.asWorkspaceEdit(e),
-              n = t.edits.reduce(function (e, t) {
+              n = t.edits.reduce((e, t) => {
                 var n = t;
                 return (
                   (e[n.resource.toString()] = monaco.editor.getModel(
@@ -11326,46 +11015,44 @@
               }, {});
             if (
               !Object.keys(n)
-                .map(function (e) {
+                .map(e => {
                   return n[e];
                 })
-                .every(function (e) {
+                .every(e => {
                   return !!e;
                 })
             )
               return Promise.resolve(!1);
-            var r = t.edits.reduce(function (e, t) {
+            var r = t.edits.reduce((e, t) => {
               var n,
                 r = t,
                 i = r.resource.toString();
               i in e || (e[i] = []);
-              var o = r.edits.map(function (e) {
+              var o = r.edits.map(e => {
                 return { range: monaco.Range.lift(e.range), text: e.text };
               });
               return (n = e[i]).push.apply(n, o), e;
             }, {});
-            return (
-              Object.keys(r).forEach(function (e) {
-                n[e].pushEditOperations(
-                  [],
-                  r[e].map(function (e) {
-                    return {
-                      identifier: { major: 1, minor: 0 },
-                      range: e.range,
-                      text: e.text,
-                      forceMoveMarkers: !0,
-                    };
-                  }),
-                  function () {
-                    return [];
-                  }
-                );
-              }),
-              Promise.resolve(!0)
-            );
+            return Object.keys(r).forEach(e => {
+              n[e].pushEditOperations(
+                [],
+                r[e].map(e => {
+                  return {
+                    identifier: { major: 1, minor: 0 },
+                    range: e.range,
+                    text: e.text,
+                    forceMoveMarkers: !0,
+                  };
+                }),
+                () => {
+                  return [];
+                }
+              );
+            }),
+            Promise.resolve(!0)
+          ;
           }),
-          e
-        ;
+          e;
         })();
       t.MonacoWorkspace = i;
     },

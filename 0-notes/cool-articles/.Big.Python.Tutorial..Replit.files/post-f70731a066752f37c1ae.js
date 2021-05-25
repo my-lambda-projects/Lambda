@@ -25,17 +25,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         h = n("LOQN"),
         m = n("Vvt1");
       function x(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -55,7 +54,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -66,12 +65,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? g(Object(n), !0).forEach(function (t) {
+            ? g(Object(n), !0).forEach(t => {
                 Object(l.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : g(Object(n)).forEach(function (t) {
+            : g(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -84,7 +83,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
       var y = n.n(m)()(
         Object(p.a)(
           d.a.mark(function e() {
-            return d.a.wrap(function (e) {
+            return d.a.wrap(e => {
               for (;;)
                 switch ((e.prev = e.next)) {
                   case 0:
@@ -93,7 +92,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                       n
                         .e(329)
                         .then(n.bind(null, "4zel"))
-                        .then(function (e) {
+                        .then(e => {
                           return e;
                         })
                     );
@@ -117,7 +116,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           },
         }
       );
-      t.a = function (e) {
+      t.a = e => {
         return Object(r.jsx)(y, {
           rootId: "modal-root",
           children(t) {
@@ -148,7 +147,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           },
         });
       };
-      var O = (function (e) {
+      var O = (e => {
         Object(a.a)(n, e);
         var t = x(n);
         function n() {
@@ -156,18 +155,17 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           Object(o.a)(this, n);
           for (var r = arguments.length, i = new Array(r), a = 0; a < r; a++)
             i[a] = arguments[a];
-          return (
-            ((e = t.call.apply(t, [this].concat(i))).hideModal = function () {
-              var t = e.props.confirmClose;
-              ((t && t()) || !t) && e.props.hideModal();
-            }),
-            (e.addChildProps = function (t) {
-              return Array.isArray(t) || "function" !== typeof t.type
-                ? t
-                : j.cloneElement(t, { hideModal: e.hideModal });
-            }),
-            e
-          );
+          return ((e = t.call.apply(t, [this].concat(i))).hideModal = () => {
+            var t = e.props.confirmClose;
+            ((t && t()) || !t) && e.props.hideModal();
+          }),
+          (e.addChildProps = t => {
+            return Array.isArray(t) || "function" !== typeof t.type
+              ? t
+              : j.cloneElement(t, { hideModal: e.hideModal });
+          }),
+          e
+        ;
         }
         return Object(i.a)(n, [
           {
@@ -179,7 +177,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                   this._eventSubscriber.listen(
                     window.document,
                     "keydown",
-                    function (t) {
+                    t => {
                       return 27 === t.keyCode && e.hideModal();
                     }
                   );
@@ -388,19 +386,18 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             },
           },
         ]),
-        n
-      ;
+        n;
       })(j.Component);
     },
     "/Rnh": function (e, t, n) {
       "use strict";
-      n.d(t, "d", function () {
+      n.d(t, "d", () => {
         return Oe;
       }),
-        n.d(t, "a", function () {
+        n.d(t, "a", () => {
           return we;
         }),
-        n.d(t, "b", function () {
+        n.d(t, "b", () => {
           return ke;
         });
       var r = n("nKUr"),
@@ -433,20 +430,19 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         var e = Object(u.a)([
           "\n  mutation deleteComment($id: Int!) {\n    deleteComment(id: $id) {\n      id\n    }\n  }\n",
         ]);
-        return (
-          (R = function () {
-            return e;
-          }),
-          e
-        );
+        return (R = () => {
+          return e;
+        }),
+        e
+      ;
       }
       var _ = j()(R()),
-        I = function (e) {
+        I = e => {
           var t = Object(v.a)({ id: e.id, __typename: e.__typename }),
-            n = function (e, n) {
+            n = (e, n) => {
               return n.node.id === t;
             };
-          return Object(P.invalidateFields)(function () {
+          return Object(P.invalidateFields)(() => {
             return [
               ["data", /^\$Post:\d+.comments.*/, "items", n],
               ["data", /^Comment:\d+$/, "comments", n],
@@ -454,7 +450,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             ];
           });
         },
-        N = Object(S.c)(void 0, { showMessage: E.b })(function (e) {
+        N = Object(S.c)(void 0, { showMessage: E.b })(e => {
           return Object(r.jsx)(C.Mutation, {
             mutation: _,
             update: I(e.comment),
@@ -464,7 +460,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                   w.a.mark(function n() {
                     var r;
                     return w.a.wrap(
-                      function (n) {
+                      n => {
                         for (;;)
                           switch ((n.prev = n.next)) {
                             case 0:
@@ -523,7 +519,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -534,12 +530,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? L(Object(n), !0).forEach(function (t) {
+            ? L(Object(n), !0).forEach(t => {
                 Object(o.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : L(Object(n)).forEach(function (t) {
+            : L(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -550,17 +546,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         return e;
       }
       function F(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -579,111 +574,108 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         var e = Object(u.a)([
           "\n    fragment EditCommentComment on Comment {\n      id\n      parentComment {\n        id\n      }\n      post {\n        id\n      }\n    }\n  ",
         ]);
-        return (
-          (q = function () {
-            return e;
-          }),
-          e
-        );
+        return (q = () => {
+          return e;
+        }),
+        e
+      ;
       }
       function V() {
         var e = Object(u.a)([
           "\n  mutation updateComment($input: UpdateCommentInput!) {\n    updateComment(input: $input) {\n      comment {\n        id\n        body\n      }\n    }\n  }\n",
         ]);
-        return (
-          (V = function () {
-            return e;
-          }),
-          e
-        );
+        return (V = () => {
+          return e;
+        }),
+        e
+      ;
       }
       var z = j()(V()),
         K = { comment: j()(q()) },
-        B = (function (e) {
+        B = (e => {
           Object(c.a)(n, e);
           var t = F(n);
           function n(e) {
             var r;
-            return (
-              Object(i.a)(this, n),
-              ((r = t.call(this, e)).onChange = function (e) {
-                r.state.tracked ||
-                  Object(M.track)(M.events.COMMENT_WRITTEN, {
-                    editing: !0,
-                    id: r.props.comment.id,
-                  }),
-                  r.setState(A(A({}, e), {}, { tracked: !0 }));
-              }),
-              (r.onSubmit = (function () {
-                var e = Object(k.a)(
-                  w.a.mark(function e(t) {
-                    var n, o, i, a;
-                    return w.a.wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              if (
-                                ((n = r.props.comment.id),
-                                (o = r.state),
-                                (i = o.body),
-                                !o.loading)
-                              ) {
-                                e.next = 4;
-                                break;
-                              }
-                              return e.abrupt("return");
-                            case 4:
-                              return (
-                                r.setState({ loading: !0 }),
-                                (e.prev = 5),
-                                (e.next = 8),
-                                t({ variables: { input: { body: i, id: n } } })
-                              );
-                            case 8:
-                              e.next = 16;
+            return Object(i.a)(this, n),
+            ((r = t.call(this, e)).onChange = e => {
+              r.state.tracked ||
+                Object(M.track)(M.events.COMMENT_WRITTEN, {
+                  editing: !0,
+                  id: r.props.comment.id,
+                }),
+                r.setState(A(A({}, e), {}, { tracked: !0 }));
+            }),
+            (r.onSubmit = (() => {
+              var e = Object(k.a)(
+                w.a.mark(function e(t) {
+                  var n, o, i, a;
+                  return w.a.wrap(
+                    e => {
+                      for (;;)
+                        switch ((e.prev = e.next)) {
+                          case 0:
+                            if (
+                              ((n = r.props.comment.id),
+                              (o = r.state),
+                              (i = o.body),
+                              !o.loading)
+                            ) {
+                              e.next = 4;
                               break;
-                            case 10:
-                              return (
-                                (e.prev = 10),
-                                (e.t0 = e.catch(5)),
-                                r.setState({ loading: !1 }),
-                                (a =
-                                  (e.t0.graphQLErrors.length &&
-                                    e.t0.graphQLErrors[0].message) ||
-                                  "Something went wrong. Please contact support"),
-                                r.props.showMessage({
-                                  content: a,
-                                  type: "error",
-                                  time: 4e3,
-                                }),
-                                e.abrupt("return")
-                              );
-                            case 16:
+                            }
+                            return e.abrupt("return");
+                          case 4:
+                            return (
+                              r.setState({ loading: !0 }),
+                              (e.prev = 5),
+                              (e.next = 8),
+                              t({ variables: { input: { body: i, id: n } } })
+                            );
+                          case 8:
+                            e.next = 16;
+                            break;
+                          case 10:
+                            return (
+                              (e.prev = 10),
+                              (e.t0 = e.catch(5)),
+                              r.setState({ loading: !1 }),
+                              (a =
+                                (e.t0.graphQLErrors.length &&
+                                  e.t0.graphQLErrors[0].message) ||
+                                "Something went wrong. Please contact support"),
                               r.props.showMessage({
-                                content: "Comment updated",
-                                type: "confirm",
+                                content: a,
+                                type: "error",
                                 time: 4e3,
                               }),
-                                r.props.onEdit();
-                            case 18:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      null,
-                      [[5, 10]]
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })()),
-              (r.state = { body: e.comment.body, loading: !1, tracked: !1 }),
-              r
-            );
+                              e.abrupt("return")
+                            );
+                          case 16:
+                            r.props.showMessage({
+                              content: "Comment updated",
+                              type: "confirm",
+                              time: 4e3,
+                            }),
+                              r.props.onEdit();
+                          case 18:
+                          case "end":
+                            return e.stop();
+                        }
+                    },
+                    e,
+                    null,
+                    [[5, 10]]
+                  );
+                })
+              );
+              return function (t) {
+                return e.apply(this, arguments);
+              };
+            })()),
+            (r.state = { body: e.comment.body, loading: !1, tracked: !1 }),
+            r
+          ;
           }
           return Object(a.a)(n, [
             {
@@ -741,7 +733,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -752,12 +744,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? oe(Object(n), !0).forEach(function (t) {
+            ? oe(Object(n), !0).forEach(t => {
                 Object(o.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : oe(Object(n)).forEach(function (t) {
+            : oe(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -772,24 +764,22 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           "\n  mutation selectCommentAsAnswer($id: Int!) {\n    selectCommentAsAnswer(id: $id) {\n      id\n      ...SelectAnswerControlComment\n    }\n  }\n  ",
           "\n",
         ]);
-        return (
-          (ae = function () {
-            return e;
-          }),
-          e
-        );
+        return (ae = () => {
+          return e;
+        }),
+        e
+      ;
       }
       function ce() {
         var e = Object(u.a)([
           "\n  mutation unselectCommentAsAnswer($id: Int!) {\n    unselectCommentAsAnswer(id: $id) {\n      id\n      ...SelectAnswerControlComment\n    }\n  }\n  ",
           "\n",
         ]);
-        return (
-          (ce = function () {
-            return e;
-          }),
-          e
-        );
+        return (ce = () => {
+          return e;
+        }),
+        e
+      ;
       }
       function se() {
         var e = Object(u.a)([
@@ -797,17 +787,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           "\n  ",
           "\n",
         ]);
-        return (
-          (se = function () {
-            return e;
-          }),
-          e
-        );
+        return (se = () => {
+          return e;
+        }),
+        e
+      ;
       }
       var le = j()(se(), re.b.user, re.b.answer),
         ue = j()(ce(), le),
         de = j()(ae(), le),
-        pe = function (e) {
+        pe = e => {
           return Object(r.jsxs)("div", {
             onClick: e.onClick,
             title: e.title,
@@ -835,7 +824,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             ],
           });
         },
-        fe = function (e) {
+        fe = e => {
           return Object(r.jsx)(Z.a, {
             hideModal: e.onCancel,
             children: Object(r.jsxs)(ee.a, {
@@ -854,7 +843,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             }),
           });
         },
-        be = function (e) {
+        be = e => {
           var t = f.useState(!1),
             n = Object(Y.a)(t, 2),
             o = n[0],
@@ -922,7 +911,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -933,12 +922,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? he(Object(n), !0).forEach(function (t) {
+            ? he(Object(n), !0).forEach(t => {
                 Object(o.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : he(Object(n)).forEach(function (t) {
+            : he(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -949,17 +938,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         return e;
       }
       function xe(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -978,24 +966,22 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         var e = Object(u.a)([
           "\n  mutation createBoardReport($postId: Int, $commentId: Int, $reason: String!) {\n    createBoardReport(postId: $postId, commentId: $commentId, reason: $reason) {\n      id\n    }\n  }\n",
         ]);
-        return (
-          (ge = function () {
-            return e;
-          }),
-          e
-        );
+        return (ge = () => {
+          return e;
+        }),
+        e
+      ;
       }
       function ve() {
         var e = Object(u.a)([
           "\n  mutation createComment($input: CreateCommentInput!) {\n    createComment(input: $input) {\n      comment {\n        id\n        ...CommentDetailComment\n        comments {\n          id\n          ...CommentDetailComment\n        }\n        parentComment {\n          id\n        }\n      }\n    }\n  }\n  ",
           "\n",
         ]);
-        return (
-          (ve = function () {
-            return e;
-          }),
-          e
-        );
+        return (ve = () => {
+          return e;
+        }),
+        e
+      ;
       }
       function ye() {
         var e = Object(u.a)([
@@ -1003,17 +989,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           "\n    ",
           "\n  ",
         ]);
-        return (
-          (ye = function () {
-            return e;
-          }),
-          e
-        );
+        return (ye = () => {
+          return e;
+        }),
+        e
+      ;
       }
       var Oe = { comment: j()(ye(), D.a.fragments.user, K.comment) },
         we = j()(ve(), Oe.comment),
         ke = j()(ge()),
-        Ce = (function (e) {
+        Ce = (e => {
           Object(c.a)(n, e);
           var t = xe(n);
           function n() {
@@ -1021,38 +1006,37 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             Object(i.a)(this, n);
             for (var r = arguments.length, o = new Array(r), a = 0; a < r; a++)
               o[a] = arguments[a];
-            return (
-              ((e = t.call.apply(t, [this].concat(o))).state = {
-                isEditing: !1,
-                isReplying: !1,
-                isReporting: !1,
-                expandedReplUrl: void 0,
-              }),
-              (e.onPostBodyClick = function (t) {
-                var n = e.state.expandedReplUrl,
-                  r = t.target;
-                !t.metaKey &&
-                  r instanceof window.HTMLAnchorElement &&
-                  r.href &&
-                  r.href !== n &&
-                  Object(G.b)(r.href) &&
-                  (t.preventDefault(), e.setState({ expandedReplUrl: r.href }));
-              }),
-              (e.toggleEdit = function (t) {
-                e.setState({ isEditing: t });
-              }),
-              (e.updateCacheForReportMutation = function (t) {
-                var n = {
-                    id: Object(v.a)(e.props.comment),
-                    fragment: Oe.comment,
-                    fragmentName: "CommentDetailComment",
-                  },
-                  r = t.readFragment(n);
-                (r.hasReported = !0),
-                  t.writeFragment(me(me({}, n), {}, { data: r }));
-              }),
-              e
-            );
+            return ((e = t.call.apply(t, [this].concat(o))).state = {
+              isEditing: !1,
+              isReplying: !1,
+              isReporting: !1,
+              expandedReplUrl: void 0,
+            }),
+            (e.onPostBodyClick = t => {
+              var n = e.state.expandedReplUrl,
+                r = t.target;
+              !t.metaKey &&
+                r instanceof window.HTMLAnchorElement &&
+                r.href &&
+                r.href !== n &&
+                Object(G.b)(r.href) &&
+                (t.preventDefault(), e.setState({ expandedReplUrl: r.href }));
+            }),
+            (e.toggleEdit = t => {
+              e.setState({ isEditing: t });
+            }),
+            (e.updateCacheForReportMutation = t => {
+              var n = {
+                  id: Object(v.a)(e.props.comment),
+                  fragment: Oe.comment,
+                  fragmentName: "CommentDetailComment",
+                },
+                r = t.readFragment(n);
+              (r.hasReported = !0),
+                t.writeFragment(me(me({}, n), {}, { data: r }));
+            }),
+            e
+          ;
           }
           return Object(a.a)(n, [
             {
@@ -1225,7 +1209,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                             })
                           : null,
                         o.comments && o.comments.length
-                          ? o.comments.map(function (e) {
+                          ? o.comments.map(e => {
                               return Object(r.jsx)(
                                 "div",
                                 {
@@ -1260,15 +1244,14 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               },
             },
           ]),
-          n
-        ;
+          n;
         })(f.Component);
       Ce.fragments = Oe;
       t.c = Ce;
     },
     "07hc": function (e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return d;
       });
       var r = n("zC+P"),
@@ -1291,99 +1274,95 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           j = t.shouldResubscribe,
           h = a;
         "function" !== typeof h &&
-          (h = function () {
+          (h = () => {
             return a;
           });
         var m,
           x = p;
-        return (
-          "function" !== typeof x &&
-            (x = function () {
-              return p;
-            }),
-          function (o) {
-            var a = b + "(" + Object(u.e)(o) + ")",
-              s = (function (c) {
-                function s(e) {
-                  var t = c.call(this, e) || this;
-                  return (t.state = { resubscribe: !1 }), t;
-                }
-                return (
-                  Object(r.c)(s, c),
-                  (s.prototype.componentDidUpate = function (e) {
-                    j && this.setState({ resubscribe: j(e, this.props) });
+        return "function" !== typeof x &&
+          (x = () => {
+            return p;
+          }),
+        o => {
+          var a = b + "(" + Object(u.e)(o) + ")",
+            s = (c => {
+              function s(e) {
+                var t = c.call(this, e) || this;
+                return (t.state = { resubscribe: !1 }), t;
+              }
+              return Object(r.c)(s, c),
+              (s.prototype.componentDidUpate = function (e) {
+                j && this.setState({ resubscribe: j(e, this.props) });
+              }),
+              (s.prototype.render = function () {
+                var c = this,
+                  s = this.props,
+                  d = x(s),
+                  p = d ? Object.create(null) : h(s);
+                return !d &&
+                  !p.variables &&
+                  n.variables.length > 0 &&
+                  (p.variables = Object(u.b)(n, s)),
+                i.a.createElement(
+                  l.Subscription,
+                  Object(r.a)({}, p, {
+                    displayName: a,
+                    skip: d,
+                    subscription: e,
+                    shouldResubscribe: this.state.resubscribe,
                   }),
-                  (s.prototype.render = function () {
-                    var c = this,
-                      s = this.props,
-                      d = x(s),
-                      p = d ? Object.create(null) : h(s);
-                    return (
-                      !d &&
-                        !p.variables &&
-                        n.variables.length > 0 &&
-                        (p.variables = Object(u.b)(n, s)),
-                      i.a.createElement(
-                        l.Subscription,
-                        Object(r.a)({}, p, {
-                          displayName: a,
-                          skip: d,
-                          subscription: e,
-                          shouldResubscribe: this.state.resubscribe,
-                        }),
-                        function (e) {
-                          var n,
-                            a,
-                            l = e.data,
-                            u = Object(r.e)(e, ["data"]);
-                          if (
-                            (t.withRef &&
-                              ((c.withRef = !0),
-                              (s = Object.assign({}, s, {
-                                ref: c.setWrappedInstance,
-                              }))),
-                            d)
-                          )
-                            return i.a.createElement(o, Object(r.a)({}, s, {}));
-                          var p = Object.assign(u, l || {}),
-                            f = t.name || "data",
-                            b = (((n = {})[f] = p), n);
-                          if (t.props) {
-                            var j = (((a = {})[f] = p), (a.ownProps = s), a);
-                            b = m = t.props(j, m);
-                          }
-                          return i.a.createElement(o, Object(r.a)({}, s, b));
-                        }
-                      )
-                    );
-                  }),
-                  (s.displayName = a),
-                  (s.WrappedComponent = o),
-                  s
-                );
-              })(u.a);
-            return c()(s, o, {});
-          }
-        );
+                  e => {
+                    var n,
+                      a,
+                      l = e.data,
+                      u = Object(r.e)(e, ["data"]);
+                    if (
+                      (t.withRef &&
+                        ((c.withRef = !0),
+                        (s = Object.assign({}, s, {
+                          ref: c.setWrappedInstance,
+                        }))),
+                      d)
+                    )
+                      return i.a.createElement(o, Object(r.a)({}, s, {}));
+                    var p = Object.assign(u, l || {}),
+                      f = t.name || "data",
+                      b = (((n = {})[f] = p), n);
+                    if (t.props) {
+                      var j = (((a = {})[f] = p), (a.ownProps = s), a);
+                      b = m = t.props(j, m);
+                    }
+                    return i.a.createElement(o, Object(r.a)({}, s, b));
+                  }
+                )
+              ;
+              }),
+              (s.displayName = a),
+              (s.WrappedComponent = o),
+              s
+            ;
+            })(u.a);
+          return c()(s, o, {});
+        }
+      ;
       }
     },
     "0UBQ": function (e, t, n) {
       "use strict";
       var r = n("nKUr"),
         o = n("q1tI");
-      t.a = function (e) {
+      t.a = e => {
         var t = e.children,
           n = e.session,
           i = e.time;
-        return (
-          o.useEffect(function () {
-            var e = n ? setTimeout(n.next, i || 200) : void 0;
-            return function () {
-              return e && clearTimeout(e);
-            };
-          }, []),
-          t ? Object(r.jsx)(r.Fragment, { children: t }) : null
-        );
+        return o.useEffect(() => {
+          var e = n ? setTimeout(n.next, i || 200) : void 0;
+          return () => {
+            return e && clearTimeout(e);
+          };
+        }, []),
+        t ? Object(r.jsx)(r.Fragment, { children: t }) : null
+      ;
       };
     },
     "0adu": function (e, t, n) {
@@ -1399,8 +1378,8 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               n.line !== r.line || r.column - n.column === e.value.length)
           : t && "blockquote" === e.type;
       }
-      e.exports = function (e, t) {
-        var n = o(function (e, n, r) {
+      e.exports = (e, t) => {
+        var n = o((e, n, r) => {
           var o = r.children,
             a = n && o[n - 1];
           if (a && e.type === a.type && i(a, t) && i(e, t))
@@ -1412,12 +1391,11 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               n
             );
         });
-        return (
-          r(e, function (e) {
-            e.children && n(e);
-          }),
-          e
-        );
+        return r(e, e => {
+          e.children && n(e);
+        }),
+        e
+      ;
       };
     },
     "1VtT": function (e, t, n) {
@@ -1434,98 +1412,97 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           x = {},
           g = !1,
           v = -1;
-        return (
-          (y.data = function (e, t) {
-            if (c(e))
-              return 2 === arguments.length
-                ? (j("data", g), (x[e] = t), y)
-                : (u.call(x, e) && x[e]) || null;
-            if (e) return j("data", g), (x = e), y;
-            return x;
-          }),
-          (y.freeze = O),
-          (y.attachers = t),
-          (y.use = function (e) {
-            var n;
-            if ((j("use", g), null === e || void 0 === e));
-            else if ("function" === typeof e) c.apply(null, arguments);
+        return (y.data = function (e, t) {
+          if (c(e))
+            return 2 === arguments.length
+              ? (j("data", g), (x[e] = t), y)
+              : (u.call(x, e) && x[e]) || null;
+          if (e) return j("data", g), (x = e), y;
+          return x;
+        }),
+        (y.freeze = O),
+        (y.attachers = t),
+        (y.use = function (e) {
+          var n;
+          if ((j("use", g), null === e || void 0 === e));
+          else if ("function" === typeof e) c.apply(null, arguments);
+          else {
+            if ("object" !== typeof e)
+              throw new Error("Expected usable value, not `" + e + "`");
+            "length" in e ? a(e) : o(e);
+          }
+          n && (x.settings = r(x.settings || {}, n));
+          return y;
+          function o(e) {
+            a(e.plugins), e.settings && (n = r(n || {}, e.settings));
+          }
+          function i(e) {
+            if ("function" === typeof e) c(e);
             else {
               if ("object" !== typeof e)
                 throw new Error("Expected usable value, not `" + e + "`");
-              "length" in e ? a(e) : o(e);
+              "length" in e ? c.apply(null, e) : o(e);
             }
-            n && (x.settings = r(x.settings || {}, n));
-            return y;
-            function o(e) {
-              a(e.plugins), e.settings && (n = r(n || {}, e.settings));
+          }
+          function a(e) {
+            var t, n;
+            if (null === e || void 0 === e);
+            else {
+              if ("object" !== typeof e || !("length" in e))
+                throw new Error(
+                  "Expected a list of plugins, not `" + e + "`"
+                );
+              for (t = e.length, n = -1; ++n < t; ) i(e[n]);
             }
-            function i(e) {
-              if ("function" === typeof e) c(e);
-              else {
-                if ("object" !== typeof e)
-                  throw new Error("Expected usable value, not `" + e + "`");
-                "length" in e ? c.apply(null, e) : o(e);
-              }
-            }
-            function a(e) {
-              var t, n;
-              if (null === e || void 0 === e);
-              else {
-                if ("object" !== typeof e || !("length" in e))
-                  throw new Error(
-                    "Expected a list of plugins, not `" + e + "`"
-                  );
-                for (t = e.length, n = -1; ++n < t; ) i(e[n]);
-              }
-            }
-            function c(e, n) {
-              var o = w(e);
-              o
-                ? (s(o[1]) && s(n) && (n = r(o[1], n)), (o[1] = n))
-                : t.push(l.call(arguments));
-            }
-          }),
-          (y.parse = function (e) {
-            var t,
-              n = i(e);
-            if ((O(), f("parse", (t = y.Parser)), p(t)))
-              return new t(String(n), n).parse();
-            return t(String(n), n);
-          }),
-          (y.stringify = function (e, t) {
-            var n,
-              r = i(t);
-            if ((O(), b("stringify", (n = y.Compiler)), h(e), p(n)))
-              return new n(e, r).compile();
-            return n(e, r);
-          }),
-          (y.run = k),
-          (y.runSync = function (e, t) {
-            var n,
-              r = !1;
-            return k(e, t, i), m("runSync", "run", r), n;
-            function i(e, t) {
-              (r = !0), o(e), (n = t);
-            }
-          }),
-          (y.process = C),
-          (y.processSync = function (e) {
-            var t,
-              n = !1;
-            return (
-              O(),
-              f("processSync", y.Parser),
-              b("processSync", y.Compiler),
-              C((t = i(e)), r),
-              m("processSync", "process", n),
-              t
-            );
-            function r(e) {
-              (n = !0), o(e);
-            }
-          }),
-          y
-        );
+          }
+          function c(e, n) {
+            var o = w(e);
+            o
+              ? (s(o[1]) && s(n) && (n = r(o[1], n)), (o[1] = n))
+              : t.push(l.call(arguments));
+          }
+        }),
+        (y.parse = e => {
+          var t,
+            n = i(e);
+          if ((O(), f("parse", (t = y.Parser)), p(t)))
+            return new t(String(n), n).parse();
+          return t(String(n), n);
+        }),
+        (y.stringify = (e, t) => {
+          var n,
+            r = i(t);
+          if ((O(), b("stringify", (n = y.Compiler)), h(e), p(n)))
+            return new n(e, r).compile();
+          return n(e, r);
+        }),
+        (y.run = k),
+        (y.runSync = (e, t) => {
+          var n,
+            r = !1;
+          return k(e, t, i), m("runSync", "run", r), n;
+          function i(e, t) {
+            (r = !0), o(e), (n = t);
+          }
+        }),
+        (y.process = C),
+        (y.processSync = e => {
+          var t,
+            n = !1;
+          return (
+            O(),
+            f("processSync", y.Parser),
+            b("processSync", y.Compiler),
+            C((t = i(e)), r),
+            m("processSync", "process", n),
+            t
+          );
+          function r(e) {
+            (n = !0), o(e);
+          }
+        }),
+        y
+      ;
         function y() {
           for (var n = e(), o = t.length, i = -1; ++i < o; )
             n.use.apply(null, t[i]);
@@ -1555,7 +1532,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           )
             return new Promise(o);
           function o(o, a) {
-            n.run(e, i(t), function (t, n, i) {
+            n.run(e, i(t), (t, n, i) => {
               (n = n || e), t ? a(t) : o ? o(n) : r(null, n, i);
             });
           }
@@ -1566,7 +1543,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             return new Promise(n);
           function n(n, r) {
             var o = i(e);
-            d.run(y, { file: o }, function (e) {
+            d.run(y, { file: o }, e => {
               e ? r(e) : n ? n(o) : t(null, o);
             });
           }
@@ -1576,26 +1553,23 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
       var l = [].slice,
         u = {}.hasOwnProperty,
         d = a()
-          .use(function (e, t) {
+          .use((e, t) => {
             t.tree = e.parse(t.file);
           })
-          .use(function (e, t, n) {
-            e.run(t.tree, t.file, function (e, r, o) {
+          .use((e, t, n) => {
+            e.run(t.tree, t.file, (e, r, o) => {
               e ? n(e) : ((t.tree = r), (t.file = o), n());
             });
           })
-          .use(function (e, t) {
+          .use((e, t) => {
             t.file.contents = e.stringify(t.tree, t.file);
           });
       function p(e) {
-        return (
-          "function" === typeof e &&
-          (function (e) {
-            var t;
-            for (t in e) return !0;
-            return !1;
-          })(e.prototype)
-        );
+        return "function" === typeof e && (e => {
+          var t;
+          for (t in e) return !0;
+          return !1;
+        })(e.prototype);
       }
       function f(e, t) {
         if ("function" !== typeof t)
@@ -1627,7 +1601,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     "1gho": function (e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return d;
       });
       var r = n("zC+P"),
@@ -1649,76 +1623,73 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           b = void 0 === f ? "Apollo" : f,
           j = a;
         "function" !== typeof j &&
-          (j = function () {
+          (j = () => {
             return a;
           });
         var h,
           m = p;
-        return (
-          "function" !== typeof m &&
-            (m = function () {
-              return p;
-            }),
-          function (o) {
-            var a = b + "(" + Object(u.e)(o) + ")",
-              s = (function (c) {
-                function s() {
-                  return (null !== c && c.apply(this, arguments)) || this;
-                }
-                return (
-                  Object(r.c)(s, c),
-                  (s.prototype.render = function () {
-                    var c = this,
-                      s = this.props,
-                      d = m(s),
-                      p = d ? Object.create(null) : Object(r.a)({}, j(s));
-                    return (
-                      !d &&
-                        !p.variables &&
-                        n.variables.length > 0 &&
-                        (p.variables = Object(u.b)(n, s)),
-                      i.a.createElement(
-                        l.Query,
-                        Object(r.a)({}, p, {
-                          displayName: a,
-                          skip: d,
-                          query: e,
-                        }),
-                        function (e) {
-                          e.client;
-                          var n,
-                            a,
-                            l = e.data,
-                            u = Object(r.e)(e, ["client", "data"]);
-                          if (
-                            (t.withRef &&
-                              ((c.withRef = !0),
-                              (s = Object.assign({}, s, {
-                                ref: c.setWrappedInstance,
-                              }))),
-                            d)
-                          )
-                            return i.a.createElement(o, Object(r.a)({}, s, {}));
-                          var p = Object.assign(u, l || {}),
-                            f = t.name || "data",
-                            b = (((n = {})[f] = p), n);
-                          if (t.props) {
-                            var j = (((a = {})[f] = p), (a.ownProps = s), a);
-                            b = h = t.props(j, h);
-                          }
-                          return i.a.createElement(o, Object(r.a)({}, s, b));
-                        }
-                      )
-                    );
+        return "function" !== typeof m &&
+          (m = () => {
+            return p;
+          }),
+        o => {
+          var a = b + "(" + Object(u.e)(o) + ")",
+            s = (c => {
+              function s() {
+                return (null !== c && c.apply(this, arguments)) || this;
+              }
+              return Object(r.c)(s, c),
+              (s.prototype.render = function () {
+                var c = this,
+                  s = this.props,
+                  d = m(s),
+                  p = d ? Object.create(null) : Object(r.a)({}, j(s));
+                return !d &&
+                  !p.variables &&
+                  n.variables.length > 0 &&
+                  (p.variables = Object(u.b)(n, s)),
+                i.a.createElement(
+                  l.Query,
+                  Object(r.a)({}, p, {
+                    displayName: a,
+                    skip: d,
+                    query: e,
                   }),
-                  (s.displayName = a),
-                  (s.WrappedComponent = o),
-                  s
-                );
-              })(u.a);
-            return c()(s, o, {});
-          }
-        );
+                  e => {
+                    e.client;
+                    var n,
+                      a,
+                      l = e.data,
+                      u = Object(r.e)(e, ["client", "data"]);
+                    if (
+                      (t.withRef &&
+                        ((c.withRef = !0),
+                        (s = Object.assign({}, s, {
+                          ref: c.setWrappedInstance,
+                        }))),
+                      d)
+                    )
+                      return i.a.createElement(o, Object(r.a)({}, s, {}));
+                    var p = Object.assign(u, l || {}),
+                      f = t.name || "data",
+                      b = (((n = {})[f] = p), n);
+                    if (t.props) {
+                      var j = (((a = {})[f] = p), (a.ownProps = s), a);
+                      b = h = t.props(j, h);
+                    }
+                    return i.a.createElement(o, Object(r.a)({}, s, b));
+                  }
+                )
+              ;
+              }),
+              (s.displayName = a),
+              (s.WrappedComponent = o),
+              s
+            ;
+            })(u.a);
+          return c()(s, o, {});
+        }
+      ;
       }
     },
     "29vB": function (e, t) {},
@@ -1735,7 +1706,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -1746,12 +1717,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? l(Object(n), !0).forEach(function (t) {
+            ? l(Object(n), !0).forEach(t => {
                 Object(c.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : l(Object(n)).forEach(function (t) {
+            : l(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -1761,7 +1732,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         }
         return e;
       }
-      var d = function (e, t) {
+      var d = (e, t) => {
         switch (t.type) {
           case "SET_INDEX":
             return u(u({}, e), {}, { currentIndex: t.index });
@@ -1798,14 +1769,14 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             return e;
         }
       };
-      t.a = function (e) {
+      t.a = e => {
         var t = e.currentIndex,
           n = e.afterNext,
           a = Object(i.a)(e, ["currentIndex", "afterNext"]),
           c = s.Children.toArray(a.children).filter(s.isValidElement),
           l = s.useReducer(d, {
             currentIndex: t || 0,
-            nodes: c.map(function (e, t) {
+            nodes: c.map((e, t) => {
               return t;
             }),
           }),
@@ -1827,7 +1798,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             return f({ type: "ADD_NODES", fromIndex: e, nodes: n });
           },
           h = p.nodes.length,
-          m = p.nodes.slice(0, p.currentIndex + 1).map(function (e) {
+          m = p.nodes.slice(0, p.currentIndex + 1).map(e => {
             return "number" !== typeof e
               ? e
               : "number" === typeof e && c[e]
@@ -1835,7 +1806,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               : null;
           });
         return Object(r.jsx)("div", {
-          children: s.Children.map(m, function (e, t) {
+          children: s.Children.map(m, (e, t) => {
             if (!e) return null;
             var r = {
               insert() {
@@ -1851,18 +1822,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               index: t,
               count: h,
               next() {
-                return (
-                  !!(function (e) {
-                    return (
-                      e === p.currentIndex &&
-                      p.nodes.length >= e + 1 &&
-                      (f({ type: "SET_INDEX", index: e + 1 }), !0)
-                    );
-                  })(t) &&
-                  (n && n({ currentIndex: t }),
-                  h - 1 === t && a.onDone && a.onDone(),
-                  !0)
-                );
+                return !!(e => {
+                  return (
+                    e === p.currentIndex &&
+                    p.nodes.length >= e + 1 &&
+                    (f({ type: "SET_INDEX", index: e + 1 }), !0)
+                  );
+                })(t) &&
+                (n && n({ currentIndex: t }),
+                h - 1 === t && a.onDone && a.onDone(),
+                !0);
               },
               currentIndex: p.currentIndex,
               last: t === h - 1,
@@ -1914,7 +1883,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     "2oNz": function (e, t, n) {
       "use strict";
-      e.exports = function (e) {
+      e.exports = e => {
         var t = -1 === e.indexOf('"') ? '"' : "'";
         return t + e + t;
       };
@@ -1933,7 +1902,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -1944,12 +1913,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? u(Object(n), !0).forEach(function (t) {
+            ? u(Object(n), !0).forEach(t => {
                 Object(r.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : u(Object(n)).forEach(function (t) {
+            : u(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -1959,7 +1928,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         }
         return e;
       }
-      t.a = function (e) {
+      t.a = e => {
         var t = e.children,
           n = Object(i.a)(e, ["children"]);
         return Object(o.jsxs)(
@@ -2000,12 +1969,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         o = (n("q1tI"), n("2Ct2")),
         i = n("5mGw"),
         a = n("0UBQ");
-      t.a = function (e) {
+      t.a = e => {
         var t = e.session,
           n = e.text,
           c = e.speed,
           s = void 0 === c ? 10 : c,
-          l = n.split("").map(function (e, t) {
+          l = n.split("").map((e, t) => {
             return Object(r.jsx)(a.a, { time: s, children: e }, e + t);
           });
         return Object(r.jsx)(i.b, {
@@ -2026,14 +1995,14 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     "4Njq": function (e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return r;
       });
       var r = n("SXYe").a.tabletMin;
     },
     "4byT": function (e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return h;
       });
       var r = n("nKUr"),
@@ -2049,17 +2018,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         f = n("LOQN"),
         b = n("up5I");
       function j(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -2074,7 +2042,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           return Object(s.a)(this, n);
         };
       }
-      var h = (function (e) {
+      var h = (e => {
         Object(c.a)(n, e);
         var t = j(n);
         function n() {
@@ -2082,35 +2050,34 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           Object(i.a)(this, n);
           for (var r = arguments.length, o = new Array(r), a = 0; a < r; a++)
             o[a] = arguments[a];
-          return (
-            ((e = t.call.apply(t, [this].concat(o))).onSubmit = function (t) {
-              e.props.hideOnSubmit && e.props.hideModal && e.props.hideModal(),
-                e.props.onSubmit(t);
-            }),
-            (e.getBodyAndTitle = function () {
-              var t = e.props.children;
-              if (!Array.isArray(t) && p.Children.count(t) < 2)
-                throw new Error("Expected title and body in ActionModal");
-              var n = t[0];
-              if (Array.isArray(n))
-                throw new Error("title child cannot be an array");
-              var r = p.cloneElement(n, {
-                  className:
-                    "action-modal-title " +
-                    ("undefined" !== typeof n.className ? n.className : ""),
-                }),
-                o = t[1];
-              if (Array.isArray(o))
-                throw new Error("body child cannot be an array");
-              return [
-                r,
-                p.cloneElement(o, {
-                  className: "action-modal-body" + (o.className || ""),
-                }),
-              ];
-            }),
-            e
-          );
+          return ((e = t.call.apply(t, [this].concat(o))).onSubmit = t => {
+            e.props.hideOnSubmit && e.props.hideModal && e.props.hideModal(),
+              e.props.onSubmit(t);
+          }),
+          (e.getBodyAndTitle = () => {
+            var t = e.props.children;
+            if (!Array.isArray(t) && p.Children.count(t) < 2)
+              throw new Error("Expected title and body in ActionModal");
+            var n = t[0];
+            if (Array.isArray(n))
+              throw new Error("title child cannot be an array");
+            var r = p.cloneElement(n, {
+                className:
+                  "action-modal-title " +
+                  ("undefined" !== typeof n.className ? n.className : ""),
+              }),
+              o = t[1];
+            if (Array.isArray(o))
+              throw new Error("body child cannot be an array");
+            return [
+              r,
+              p.cloneElement(o, {
+                className: "action-modal-body" + (o.className || ""),
+              }),
+            ];
+          }),
+          e
+        ;
         }
         return Object(a.a)(n, [
           {
@@ -2121,7 +2088,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                 this._eventSubscriber.listen(
                   window.document,
                   "keydown",
-                  function (t) {
+                  t => {
                     13 !== t.keyCode ||
                       (e.props.submitWithoutCtrl &&
                         !t.ctrlKey &&
@@ -2205,8 +2172,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             },
           },
         ]),
-        n
-      ;
+        n;
       })(p.Component);
       h.defaultProps = { autoFocus: !1 };
     },
@@ -2220,13 +2186,13 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     "4reG": function (e, t, n) {
       "use strict";
       n.r(t),
-        n.d(t, "Viewer", function () {
+        n.d(t, "Viewer", () => {
           return b;
         }),
-        n.d(t, "Component", function () {
+        n.d(t, "Component", () => {
           return j;
         }),
-        n.d(t, "reducer", function () {
+        n.d(t, "reducer", () => {
           return h;
         });
       var r = n("nKUr"),
@@ -2240,7 +2206,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         d = n("S6NQ"),
         p = n("h7rM"),
         f = n("/MKj"),
-        b = function (e) {
+        b = e => {
           var t = e.content,
             n = e.mime;
           if (n.startsWith("video/"))
@@ -2278,13 +2244,13 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               })
             : Object(r.jsx)("div", { children: "File type not supported" });
         },
-        j = function (e) {
+        j = e => {
           var t = e.wid,
             n = e.pud,
             i = e.style,
             u = Object(p.b)(t, n, "mediaview2"),
             d = Object(o.a)(u, 1)[0].files,
-            j = Object(f.f)(function (e) {
+            j = Object(f.f)(e => {
               return e.workspace[t].activeFile;
             });
           if (!j || !Object(l.j)(j))
@@ -2348,7 +2314,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     "55fs": function (e, t, n) {
       "use strict";
-      e.exports = function (e, t) {
+      e.exports = (e, t) => {
         var n,
           o,
           a,
@@ -2474,17 +2440,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         O = n("8Fln"),
         w = n("igIU");
       function k(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -2503,115 +2468,112 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         var e = Object(x.a)([
           "\n  query replSearch($search: String!) {\n    currentUser {\n      id\n      replSearch(search: $search) {\n        id\n        title\n        language\n        hostedUrl\n      }\n    }\n  }\n",
         ]);
-        return (
-          (C = function () {
-            return e;
-          }),
-          e
-        );
+        return (C = () => {
+          return e;
+        }),
+        e
+      ;
       }
       function S() {
         var e = Object(x.a)([
           "\n  {\n    recentRepls {\n      id\n      title\n      hostedUrl\n    }\n  }\n",
         ]);
-        return (
-          (S = function () {
-            return e;
-          }),
-          e
-        );
+        return (S = () => {
+          return e;
+        }),
+        e
+      ;
       }
       var P = v()(S()),
         E = v()(C()),
-        R = (function (e) {
+        R = (e => {
           Object(a.a)(n, e);
           var t = k(n);
           function n(e) {
             var r;
-            return (
-              Object(o.a)(this, n),
-              ((r = t.call(this, e)).onInputChange = function (e) {
-                if (e) {
-                  var t = /http(s?):\/\//.test(e);
-                  r.setState({ search: e, isUrl: t }, function () {
-                    r.searchRepls(e);
-                  });
-                }
-              }),
-              (r.searchRepls = (function () {
-                var e = Object(m.a)(
-                  h.a.mark(function e(t) {
-                    var n, o, i;
-                    return h.a.wrap(function (e) {
-                      for (;;)
-                        switch ((e.prev = e.next)) {
-                          case 0:
-                            return (
-                              (e.next = 2),
-                              r.props.client.query({
-                                query: E,
-                                variables: { search: t },
-                              })
-                            );
-                          case 2:
-                            if (
-                              ((n = e.sent),
-                              (o = n.data),
-                              (i = o.currentUser.replSearch),
-                              !r.state.isUrl || 1 !== i.length)
-                            ) {
-                              e.next = 8;
-                              break;
-                            }
-                            return (
-                              r.props.onChange({
-                                repl: i[0],
-                                showHosted: t.includes("repl.co"),
-                              }),
-                              e.abrupt("return", { options: [] })
-                            );
-                          case 8:
-                            r.setState({ options: i });
-                          case 9:
-                          case "end":
-                            return e.stop();
-                        }
-                    }, e);
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })()),
-              (r.getRecentRepls = Object(m.a)(
-                h.a.mark(function e() {
-                  var t, n;
-                  return h.a.wrap(function (e) {
+            return Object(o.a)(this, n),
+            ((r = t.call(this, e)).onInputChange = e => {
+              if (e) {
+                var t = /http(s?):\/\//.test(e);
+                r.setState({ search: e, isUrl: t }, () => {
+                  r.searchRepls(e);
+                });
+              }
+            }),
+            (r.searchRepls = (() => {
+              var e = Object(m.a)(
+                h.a.mark(function e(t) {
+                  var n, o, i;
+                  return h.a.wrap(e => {
                     for (;;)
                       switch ((e.prev = e.next)) {
                         case 0:
                           return (
-                            (e.next = 2), r.props.client.query({ query: P })
+                            (e.next = 2),
+                            r.props.client.query({
+                              query: E,
+                              variables: { search: t },
+                            })
                           );
                         case 2:
-                          (t = e.sent),
-                            (n = t.data),
-                            r.setState({ recentRepls: n.recentRepls });
-                        case 5:
+                          if (
+                            ((n = e.sent),
+                            (o = n.data),
+                            (i = o.currentUser.replSearch),
+                            !r.state.isUrl || 1 !== i.length)
+                          ) {
+                            e.next = 8;
+                            break;
+                          }
+                          return (
+                            r.props.onChange({
+                              repl: i[0],
+                              showHosted: t.includes("repl.co"),
+                            }),
+                            e.abrupt("return", { options: [] })
+                          );
+                        case 8:
+                          r.setState({ options: i });
+                        case 9:
                         case "end":
                           return e.stop();
                       }
                   }, e);
                 })
-              )),
-              (r.state = {
-                search: "",
-                isUrl: !!e.showHosted,
-                options: e.repl ? [e.repl] : [],
-                recentRepls: [],
-              }),
-              r
-            );
+              );
+              return function (t) {
+                return e.apply(this, arguments);
+              };
+            })()),
+            (r.getRecentRepls = Object(m.a)(
+              h.a.mark(function e() {
+                var t, n;
+                return h.a.wrap(e => {
+                  for (;;)
+                    switch ((e.prev = e.next)) {
+                      case 0:
+                        return (
+                          (e.next = 2), r.props.client.query({ query: P })
+                        );
+                      case 2:
+                        (t = e.sent),
+                          (n = t.data),
+                          r.setState({ recentRepls: n.recentRepls });
+                      case 5:
+                      case "end":
+                        return e.stop();
+                    }
+                }, e);
+              })
+            )),
+            (r.state = {
+              search: "",
+              isUrl: !!e.showHosted,
+              options: e.repl ? [e.repl] : [],
+              recentRepls: [],
+            }),
+            r
+          ;
           }
           return Object(i.a)(n, [
             {
@@ -2672,17 +2634,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
       R.defaultProps = { theme: "replitLight" };
       var _ = Object(y.withApollo)(R);
       function I(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -2697,7 +2658,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           return Object(c.a)(this, n);
         };
       }
-      var N = (function (e) {
+      var N = (e => {
         Object(a.a)(n, e);
         var t = I(n);
         function n() {
@@ -2705,15 +2666,14 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           Object(o.a)(this, n);
           for (var r = arguments.length, i = new Array(r), a = 0; a < r; a++)
             i[a] = arguments[a];
-          return (
-            ((e = t.call.apply(t, [this].concat(i))).beforeUnload =
-              function () {
-                var e =
-                  "Are you sure you want to leave? Changes you made may not be saved.";
-                return (window.event.returnValue = e), e;
-              }),
-            e
-          );
+          return ((e = t.call.apply(t, [this].concat(i))).beforeUnload =
+            () => {
+              var e =
+                "Are you sure you want to leave? Changes you made may not be saved.";
+              return (window.event.returnValue = e), e;
+            }),
+          e
+        ;
         }
         return Object(i.a)(n, [
           {
@@ -2833,7 +2793,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     "5mGw": function (e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return c;
       });
       var r = n("nKUr"),
@@ -2841,7 +2801,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         i = n.n(o),
         a = (n("q1tI"), n("SYH8")),
         c = 24;
-      t.b = function (e) {
+      t.b = e => {
         var t = e.icon,
           n = e.active,
           o = e.children,
@@ -2910,7 +2870,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
       "use strict";
       var r = n("LByj"),
         o = n("RjOF");
-      e.exports = function (e) {
+      e.exports = e => {
         var t = e.value,
           n = o("`", r(t, "`") + 1),
           i = n,
@@ -2922,7 +2882,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     "6NTm": function (e, t, n) {
       "use strict";
-      e.exports = function (e) {
+      e.exports = e => {
         return e.value;
       };
     },
@@ -2951,19 +2911,18 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     "8+hW": function (e, t, n) {
       "use strict";
       var r = n("QxN4");
-      e.exports = function (e, t) {
+      e.exports = (e, t) => {
         var n = e.encode,
           o = e.escape,
           i = e.enterLink();
         if ("shortcut" !== t.referenceType && "collapsed" !== t.referenceType)
           return i;
-        return (
-          (e.escape = r),
-          (e.encode = r),
-          function () {
-            (e.encode = n), (e.escape = o), i();
-          }
-        );
+        return (e.escape = r),
+        (e.encode = r),
+        () => {
+          (e.encode = n), (e.escape = o), i();
+        }
+      ;
       };
     },
     ACLC(e) {
@@ -2973,7 +2932,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     AENu(e, t, n) {
       "use strict";
-      (function (e) {
+      ((e => {
         var r = n("nKUr"),
           o = n("cpVT"),
           i = n("z7pX"),
@@ -3006,7 +2965,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           if (Object.getOwnPropertySymbols) {
             var r = Object.getOwnPropertySymbols(e);
             t &&
-              (r = r.filter(function (t) {
+              (r = r.filter(t => {
                 return Object.getOwnPropertyDescriptor(e, t).enumerable;
               })),
               n.push.apply(n, r);
@@ -3017,12 +2976,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           for (var t = 1; t < arguments.length; t++) {
             var n = null != arguments[t] ? arguments[t] : {};
             t % 2
-              ? _(Object(n), !0).forEach(function (t) {
+              ? _(Object(n), !0).forEach(t => {
                   Object(o.a)(e, t, n[t]);
                 })
               : Object.getOwnPropertyDescriptors
               ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-              : _(Object(n)).forEach(function (t) {
+              : _(Object(n)).forEach(t => {
                   Object.defineProperty(
                     e,
                     t,
@@ -3033,17 +2992,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           return e;
         }
         function N(e) {
-          var t = (function () {
+          var t = (() => {
             if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
             if (Reflect.construct.sham) return !1;
             if ("function" === typeof Proxy) return !0;
             try {
-              return (
-                Date.prototype.toString.call(
-                  Reflect.construct(Date, [], function () {})
-                ),
-                !0
-              );
+              return Date.prototype.toString.call(
+                Reflect.construct(Date, [], () => {})
+              ),
+              !0
+            ;
             } catch (e) {
               return !1;
             }
@@ -3062,15 +3020,14 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           var e = Object(b.a)([
             "\n  query atMentionSuggestions(\n    $search: String\n    $limit: Int\n    $contextType: String\n    $contextId: Int\n  ) {\n    atMentionSuggestions(\n      search: $search\n      limit: $limit\n      contextType: $contextType\n      contextId: $contextId\n    ) {\n      id\n      username\n      fullName\n    }\n  }\n",
           ]);
-          return (
-            (D = function () {
-              return e;
-            }),
-            e
-          );
+          return (D = () => {
+            return e;
+          }),
+          e
+        ;
         }
         var T = w()(D()),
-          U = (function (t) {
+          U = (t => {
             Object(d.a)(o, t);
             var n = N(o);
             function o() {
@@ -3082,145 +3039,143 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                 u++
               )
                 a[u] = arguments[u];
-              return (
-                ((t = n.call.apply(n, [this].concat(a))).state = {}),
-                (t.onPaste = (function () {
-                  var e = Object(s.a)(
-                    c.a.mark(function e(n) {
-                      var r, o;
-                      return c.a.wrap(function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              if (
-                                (r = Array.from(n.clipboardData.items)
-                                  .filter(function (e) {
-                                    return "file" === e.kind;
-                                  })
-                                  .map(function (e) {
-                                    return e.getAsFile();
-                                  })).length
-                              ) {
-                                e.next = 3;
-                                break;
-                              }
-                              return e.abrupt("return");
-                            case 3:
-                              return (e.next = 5), Object(C.a)(r);
-                            case 5:
-                              (o = e.sent), t.onFileLoad(o);
-                            case 7:
-                            case "end":
-                              return e.stop();
-                          }
-                      }, e);
-                    })
-                  );
-                  return function (t) {
-                    return e.apply(this, arguments);
-                  };
-                })()),
-                (t.onSelectFilesClick = function () {
-                  t.fileLoader && t.fileLoader.handleOpenFileBrowser();
-                }),
-                (t.onChange = function (e) {
-                  e.currentTarget.value || t.closeUserMentionsMenu(),
-                    t.props.onChange(e.currentTarget.value);
-                }),
-                (t.onKeyDown = function (e) {
-                  32 === e.which && t.closeUserMentionsMenu(),
-                    t.props.onKeyDown && t.props.onKeyDown(e);
-                }),
-                (t.onFileLoad = (function () {
-                  var e = Object(s.a)(
-                    c.a.mark(function e(n) {
-                      var r, o, a, s, l, u, d, p, f, b;
-                      return c.a.wrap(function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (
-                                (r = t.props),
-                                (o = r.value),
-                                (a = r.onChange),
-                                (s = n.map(function (e) {
-                                  return "![Uploading ".concat(
-                                    e.name,
-                                    "...]()"
-                                  );
-                                })),
-                                (l =
-                                  t.textarea &&
-                                  t.textarea.el &&
-                                  t.textarea.el.selectionStart
-                                    ? t.textarea.el.selectionStart
-                                    : o.length),
-                                (u = o.substr(0, l)),
-                                (d = o.substr(l)),
-                                (p = Object(i.a)(s)),
-                                u && p.unshift(u),
-                                d && p.push(d),
-                                a(p.join("\n")),
-                                (e.next = 11),
-                                Promise.all(
-                                  n.map(function (e) {
-                                    return Object(k.d)("/data/images/upload", {
-                                      image: e.result,
-                                    });
-                                  })
-                                )
+              return ((t = n.call.apply(n, [this].concat(a))).state = {}),
+              (t.onPaste = (() => {
+                var e = Object(s.a)(
+                  c.a.mark(function e(n) {
+                    var r, o;
+                    return c.a.wrap(e => {
+                      for (;;)
+                        switch ((e.prev = e.next)) {
+                          case 0:
+                            if (
+                              (r = Array.from(n.clipboardData.items)
+                                .filter(e => {
+                                  return "file" === e.kind;
+                                })
+                                .map(e => {
+                                  return e.getAsFile();
+                                })).length
+                            ) {
+                              e.next = 3;
+                              break;
+                            }
+                            return e.abrupt("return");
+                          case 3:
+                            return (e.next = 5), Object(C.a)(r);
+                          case 5:
+                            (o = e.sent), t.onFileLoad(o);
+                          case 7:
+                          case "end":
+                            return e.stop();
+                        }
+                    }, e);
+                  })
+                );
+                return function (t) {
+                  return e.apply(this, arguments);
+                };
+              })()),
+              (t.onSelectFilesClick = () => {
+                t.fileLoader && t.fileLoader.handleOpenFileBrowser();
+              }),
+              (t.onChange = e => {
+                e.currentTarget.value || t.closeUserMentionsMenu(),
+                  t.props.onChange(e.currentTarget.value);
+              }),
+              (t.onKeyDown = e => {
+                32 === e.which && t.closeUserMentionsMenu(),
+                  t.props.onKeyDown && t.props.onKeyDown(e);
+              }),
+              (t.onFileLoad = (() => {
+                var e = Object(s.a)(
+                  c.a.mark(function e(n) {
+                    var r, o, a, s, l, u, d, p, f, b;
+                    return c.a.wrap(e => {
+                      for (;;)
+                        switch ((e.prev = e.next)) {
+                          case 0:
+                            return (r = t.props),
+                            (o = r.value),
+                            (a = r.onChange),
+                            (s = n.map(e => {
+                              return "![Uploading ".concat(
+                                e.name,
+                                "...]()"
                               );
-                            case 11:
-                              (f = e.sent),
-                                (b = s.reduce(function (e, t, r) {
-                                  var o = n[r].name.replace(/\.[^/.]+$/, ""),
-                                    i = f[r].url;
-                                  return e.replace(
-                                    t,
-                                    "![".concat(o, "](").concat(i, ")")
-                                  );
-                                }, t.props.value)),
-                                a(b);
-                            case 14:
-                            case "end":
-                              return e.stop();
-                          }
-                      }, e);
-                    })
-                  );
-                  return function (t) {
-                    return e.apply(this, arguments);
-                  };
-                })()),
-                (t.onUserMentionSelect = function (n) {
-                  var r = n.username,
-                    o = t.state.inputTriggerState;
-                  if (o) {
-                    var i = o.cursor,
-                      a = o.text ? o.text.split(/\s/).shift() : "",
-                      c = t.props,
-                      s = c.value,
-                      l = c.onChange,
-                      u = s.slice(0, i.selectionStart - a.length),
-                      d = "".concat(r, " "),
-                      p = s.slice(u.length + a.length + 1);
-                    l(u + d + p),
-                      e(function () {
-                        t.textarea &&
-                          t.textarea.el &&
-                          t.textarea.el.setSelectionRange &&
-                          t.textarea.el.setSelectionRange(
-                            u.length + d.length,
-                            u.length + d.length
-                          ),
-                          e(function () {
-                            return t.closeUserMentionsMenu();
-                          });
-                      });
-                  }
-                }),
-                t
-              );
+                            })),
+                            (l =
+                              t.textarea &&
+                              t.textarea.el &&
+                              t.textarea.el.selectionStart
+                                ? t.textarea.el.selectionStart
+                                : o.length),
+                            (u = o.substr(0, l)),
+                            (d = o.substr(l)),
+                            (p = Object(i.a)(s)),
+                            u && p.unshift(u),
+                            d && p.push(d),
+                            a(p.join("\n")),
+                            (e.next = 11),
+                            Promise.all(
+                              n.map(e => {
+                                return Object(k.d)("/data/images/upload", {
+                                  image: e.result,
+                                });
+                              })
+                            )
+                          ;
+                          case 11:
+                            (f = e.sent),
+                              (b = s.reduce((e, t, r) => {
+                                var o = n[r].name.replace(/\.[^/.]+$/, ""),
+                                  i = f[r].url;
+                                return e.replace(
+                                  t,
+                                  "![".concat(o, "](").concat(i, ")")
+                                );
+                              }, t.props.value)),
+                              a(b);
+                          case 14:
+                          case "end":
+                            return e.stop();
+                        }
+                    }, e);
+                  })
+                );
+                return function (t) {
+                  return e.apply(this, arguments);
+                };
+              })()),
+              (t.onUserMentionSelect = n => {
+                var r = n.username,
+                  o = t.state.inputTriggerState;
+                if (o) {
+                  var i = o.cursor,
+                    a = o.text ? o.text.split(/\s/).shift() : "",
+                    c = t.props,
+                    s = c.value,
+                    l = c.onChange,
+                    u = s.slice(0, i.selectionStart - a.length),
+                    d = "".concat(r, " "),
+                    p = s.slice(u.length + a.length + 1);
+                  l(u + d + p),
+                    e(() => {
+                      t.textarea &&
+                        t.textarea.el &&
+                        t.textarea.el.setSelectionRange &&
+                        t.textarea.el.setSelectionRange(
+                          u.length + d.length,
+                          u.length + d.length
+                        ),
+                        e(() => {
+                          return t.closeUserMentionsMenu();
+                        });
+                    });
+                }
+              }),
+              t
+            ;
             }
             return Object(u.a)(o, [
               {
@@ -3402,7 +3357,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                                                   a.search.toLowerCase();
                                                 c =
                                                   t.atMentionSuggestions.filter(
-                                                    function (e) {
+                                                    e => {
                                                       return e.username
                                                         .toLowerCase()
                                                         .startsWith(s);
@@ -3422,10 +3377,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                                                         className:
                                                           "jsx-1615437136 content-textarea-mentions",
                                                         children: [
-                                                          c.map(function (
-                                                            e,
-                                                            t
-                                                          ) {
+                                                          c.map((e, t) => {
                                                             return Object(
                                                               r.jsxs
                                                             )(
@@ -3573,15 +3525,14 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                 },
               },
             ]),
-            o
-          ;
+            o;
           })(m.Component);
         t.a = U;
-      }.call(this, n("CfyG").setImmediate));
+      }).call(this, n("CfyG").setImmediate));
     },
     AERv(e, t) {
       var n = /^@(\w+)/,
-        r = function (e, t, r) {
+        r = (e, t, r) => {
           var o = n.exec(t);
           if (o)
             return (
@@ -3596,7 +3547,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             );
         };
       (r.notInLink = !0),
-        (r.locator = function (e, t) {
+        (r.locator = (e, t) => {
           var n = e.indexOf("@", t);
           return (
             0 === n || -1 === n || (-1 !== (n = e.indexOf(" @", t - 1)) && n++),
@@ -3624,7 +3575,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     Bjyw(e, t, n) {
       "use strict";
-      e.exports = function (e) {
+      e.exports = e => {
         if ("string" !== typeof e) throw new TypeError("Expected a string");
         return !/[^0-9a-z\xDF-\xFF]/.test(e.toLowerCase());
       };
@@ -3644,15 +3595,14 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         var e = Object(o.a)([
           "\n  {\n    boards {\n      id\n      name\n      cta\n      titleCta\n      bodyCta\n      template\n      buttonCta\n      replRequired\n      description\n      isLocked\n      isPrivate\n      canPost\n    }\n  }\n",
         ]);
-        return (
-          (p = function () {
-            return e;
-          }),
-          e
-        );
+        return (p = () => {
+          return e;
+        }),
+        e
+      ;
       }
       var f = s()(p());
-      t.a = function (e) {
+      t.a = e => {
         return Object(r.jsx)(l.Query, {
           query: f,
           children(t) {
@@ -3670,16 +3620,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                       onChange(t) {
                         var r = t.value;
                         return e.onBoardSelected(
-                          n.boards.find(function (e) {
+                          n.boards.find(e => {
                             return e.id === parseInt(r, 10);
                           })
                         );
                       },
                       options: n.boards
-                        .filter(function (e) {
+                        .filter(e => {
                           return e.canPost;
                         })
-                        .map(function (e) {
+                        .map(e => {
                           return {
                             value: e.id,
                             label: e.name + (e.isPrivate ? " (private)" : ""),
@@ -3703,12 +3653,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     "DI+Y": function (e, t, n) {
       "use strict";
       var r = n("JznV");
-      n.d(t, "graphql", function () {
+      n.d(t, "graphql", () => {
         return r.a;
       });
       n("1gho"), n("QTzV"), n("07hc");
       var o = n("GPHa");
-      n.d(t, "withApollo", function () {
+      n.d(t, "withApollo", () => {
         return o.a;
       });
       n("29vB");
@@ -3716,8 +3666,8 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     DPht(e, t, n) {
       "use strict";
       var r = n("lZTF");
-      e.exports = function (e) {
-        return (function (e) {
+      e.exports = e => {
+        return (e => {
           return t;
           function t(t) {
             var n = t && t.children;
@@ -3725,20 +3675,18 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               throw new Error("Missing children in `parent` for `modifier`");
             return r(n, e, t);
           }
-        })(
-          (function (e) {
-            return t;
-            function t(t, n) {
-              return e(t, n, this);
-            }
-          })(e)
-        );
+        })((e => {
+          return t;
+          function t(t, n) {
+            return e(t, n, this);
+          }
+        })(e));
       };
     },
     DkIQ(e, t, n) {
       "use strict";
       var r = n("ZWk2");
-      e.exports = function (e) {
+      e.exports = e => {
         var t;
         if ("&" !== e.charAt(0)) return 0;
         return (t = e.split("&", 2).join("&")).length - r(t).length;
@@ -3746,7 +3694,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     Dy7O(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return u;
       });
       var r = n("nKUr"),
@@ -3760,7 +3708,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         var t = Object(l.a)().showError,
           n = e.post,
           u = Object(i.e)(),
-          d = Object(i.f)(function (e) {
+          d = Object(i.f)(e => {
             return e.user.userInfo.isLoggedIn;
           }, i.d),
           p = Object(c.td)({
@@ -3817,17 +3765,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         g = n("hYzu"),
         v = n("zgDP");
       function y(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -3842,93 +3789,92 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           return Object(u.a)(this, n);
         };
       }
-      var O = (function (e) {
+      var O = (e => {
         Object(l.a)(n, e);
         var t = y(n);
         function n(e) {
           var r;
-          return (
-            Object(c.a)(this, n),
-            ((r = t.call(this, e)).onSubmit = (function () {
-              var e = Object(a.a)(
-                i.a.mark(function e(t) {
-                  var n, o, a, c, s, l, u, d, p;
-                  return i.a.wrap(
-                    function (e) {
-                      for (;;)
-                        switch ((e.prev = e.next)) {
-                          case 0:
-                            if (
-                              ((n = r.state),
-                              (o = n.reason),
-                              (a = n.loading),
-                              (c = r.props),
-                              (s = c.postId),
-                              (l = c.commentId),
-                              (u = c.onCreate),
-                              !a)
-                            ) {
-                              e.next = 4;
-                              break;
-                            }
-                            return e.abrupt("return");
-                          case 4:
-                            return (
-                              r.setState({ loading: !0 }),
-                              (e.prev = 5),
-                              (e.next = 8),
-                              t({
-                                variables: {
-                                  postId: s,
-                                  commentId: l,
-                                  reason: o,
-                                },
-                              })
-                            );
-                          case 8:
-                            e.next = 16;
+          return Object(c.a)(this, n),
+          ((r = t.call(this, e)).onSubmit = (() => {
+            var e = Object(a.a)(
+              i.a.mark(function e(t) {
+                var n, o, a, c, s, l, u, d, p;
+                return i.a.wrap(
+                  e => {
+                    for (;;)
+                      switch ((e.prev = e.next)) {
+                        case 0:
+                          if (
+                            ((n = r.state),
+                            (o = n.reason),
+                            (a = n.loading),
+                            (c = r.props),
+                            (s = c.postId),
+                            (l = c.commentId),
+                            (u = c.onCreate),
+                            !a)
+                          ) {
+                            e.next = 4;
                             break;
-                          case 10:
-                            return (
-                              (e.prev = 10),
-                              (e.t0 = e.catch(5)),
-                              r.setState({ loading: !1 }),
-                              (d =
-                                (e.t0.graphQLErrors.length &&
-                                  e.t0.graphQLErrors[0].message) ||
-                                "Something went wrong. Please contact support"),
-                              r.props.showMessage({
-                                content: d,
-                                type: "error",
-                                time: 4e3,
-                              }),
-                              e.abrupt("return")
-                            );
-                          case 16:
-                            r.setState({ reason: "", loading: !1 }),
-                              (p = s
-                                ? v.events.BOARD_REPORT_ON_POST
-                                : v.events.BOARD_REPORT_ON_COMMENT),
-                              Object(v.track)(p, { postId: s, commentId: l }),
-                              u && u();
-                          case 20:
-                          case "end":
-                            return e.stop();
-                        }
-                    },
-                    e,
-                    null,
-                    [[5, 10]]
-                  );
-                })
-              );
-              return function (t) {
-                return e.apply(this, arguments);
-              };
-            })()),
-            (r.state = { loading: !1, reason: "" }),
-            r
-          );
+                          }
+                          return e.abrupt("return");
+                        case 4:
+                          return (
+                            r.setState({ loading: !0 }),
+                            (e.prev = 5),
+                            (e.next = 8),
+                            t({
+                              variables: {
+                                postId: s,
+                                commentId: l,
+                                reason: o,
+                              },
+                            })
+                          );
+                        case 8:
+                          e.next = 16;
+                          break;
+                        case 10:
+                          return (
+                            (e.prev = 10),
+                            (e.t0 = e.catch(5)),
+                            r.setState({ loading: !1 }),
+                            (d =
+                              (e.t0.graphQLErrors.length &&
+                                e.t0.graphQLErrors[0].message) ||
+                              "Something went wrong. Please contact support"),
+                            r.props.showMessage({
+                              content: d,
+                              type: "error",
+                              time: 4e3,
+                            }),
+                            e.abrupt("return")
+                          );
+                        case 16:
+                          r.setState({ reason: "", loading: !1 }),
+                            (p = s
+                              ? v.events.BOARD_REPORT_ON_POST
+                              : v.events.BOARD_REPORT_ON_COMMENT),
+                            Object(v.track)(p, { postId: s, commentId: l }),
+                            u && u();
+                        case 20:
+                        case "end":
+                          return e.stop();
+                      }
+                  },
+                  e,
+                  null,
+                  [[5, 10]]
+                );
+              })
+            );
+            return function (t) {
+              return e.apply(this, arguments);
+            };
+          })()),
+          (r.state = { loading: !1, reason: "" }),
+          r
+        ;
         }
         return Object(s.a)(n, [
           {
@@ -4029,7 +3975,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -4040,12 +3986,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? _(Object(n), !0).forEach(function (t) {
+            ? _(Object(n), !0).forEach(t => {
                 Object(c.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : _(Object(n)).forEach(function (t) {
+            : _(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -4055,13 +4001,13 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         }
         return e;
       }
-      var N = function (e) {
+      var N = e => {
           var t = e.children,
             n = e.href,
             r = n.startsWith("/languages") ? { target: "_blank" } : {};
           return Object(a.jsx)("a", I(I({ href: n }, r), {}, { children: t }));
         },
-        D = function (e) {
+        D = e => {
           return Object(a.jsxs)("div", {
             className: "jsx-1147244244 board-header-description-container",
             children: [
@@ -4094,7 +4040,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -4105,12 +4051,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? q(Object(n), !0).forEach(function (t) {
+            ? q(Object(n), !0).forEach(t => {
                 Object(c.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : q(Object(n)).forEach(function (t) {
+            : q(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -4126,14 +4072,14 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           { value: "new", label: "new" },
           { value: "votes", label: "top" },
         ],
-        B = function (e) {
+        B = e => {
           var t = e.currentOrder,
             n = e.link;
           return Object(a.jsxs)("div", {
             className: "jsx-500149214",
             children: [
               Object(a.jsx)(F.a, { level: 5, children: "Comments" }),
-              K.map(function (e) {
+              K.map(e => {
                 var r = e.value,
                   o = e.label;
                 return Object(h.createElement)(
@@ -4173,36 +4119,33 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           "\n  query post($id: Int!, $after: String) {\n    post(id: $id) {\n      id\n      ...PostVotesVotes\n    }\n  }\n  ",
           "\n",
         ]);
-        return (
-          (Y = function () {
-            return e;
-          }),
-          e
-        );
+        return (Y = () => {
+          return e;
+        }),
+        e
+      ;
       }
       function Z() {
         var e = Object(H.a)([
           "\n    fragment PostVotesUser on User {\n      id\n      ...DepreciatedUserLabelWithImageUser\n    }\n    ",
           "\n  ",
         ]);
-        return (
-          (Z = function () {
-            return e;
-          }),
-          e
-        );
+        return (Z = () => {
+          return e;
+        }),
+        e
+      ;
       }
       function ee() {
         var e = Object(H.a)([
           "\n  fragment PostVotesVotes on Post {\n    id\n    voteCount\n    votes(after: $after) {\n      items {\n        id\n        user {\n          id\n          ...DepreciatedUserLabelWithImageUser\n        }\n      }\n      pageInfo {\n        hasNextPage\n        nextCursor\n      }\n    }\n  }\n  ",
           "\n",
         ]);
-        return (
-          (ee = function () {
-            return e;
-          }),
-          e
-        );
+        return (ee = () => {
+          return e;
+        }),
+        e
+      ;
       }
       var te = {
           votes: Q()(ee(), J.a.fragments.user),
@@ -4210,7 +4153,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         },
         ne = Q()(Y(), te.votes),
         re = Object($.a)("post", "votes"),
-        oe = function (e) {
+        oe = e => {
           return Object(a.jsx)(m.Query, {
             query: ne,
             variables: { id: e.postId },
@@ -4234,10 +4177,10 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                       Object(a.jsx)("div", {
                         className: "jsx-312575682 post-votes-list",
                         children: t.post.votes.items
-                          .filter(function (e) {
+                          .filter(e => {
                             return !!e.user;
                           })
-                          .map(function (e, t) {
+                          .map((e, t) => {
                             return Object(a.jsx)(
                               "div",
                               {
@@ -4308,7 +4251,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -4319,12 +4262,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? pe(Object(n), !0).forEach(function (t) {
+            ? pe(Object(n), !0).forEach(t => {
                 Object(c.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : pe(Object(n)).forEach(function (t) {
+            : pe(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -4339,7 +4282,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if ("undefined" === typeof Symbol || null == e[Symbol.iterator]) {
           if (
             Array.isArray(e) ||
-            (n = (function (e, t) {
+            (n = ((e, t) => {
               if (!e) return;
               if ("string" === typeof e) return je(e, t);
               var n = Object.prototype.toString.call(e).slice(8, -1);
@@ -4355,7 +4298,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           ) {
             n && (e = n);
             var r = 0,
-              o = function () {};
+              o = () => {};
             return {
               s: o,
               n() {
@@ -4402,17 +4345,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         return r;
       }
       function he(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -4428,7 +4370,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         };
       }
       var me = Object($.a)("post", "comments"),
-        xe = (function (e) {
+        xe = (e => {
           Object(d.a)(n, e);
           var t = he(n);
           function n() {
@@ -4436,54 +4378,53 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             Object(l.a)(this, n);
             for (var r = arguments.length, o = new Array(r), i = 0; i < r; i++)
               o[i] = arguments[i];
-            return (
-              ((e = t.call.apply(
-                t,
-                [this].concat(o)
-              )).updateCacheForCommentMuation = function (t, n) {
-                var r,
-                  o = n.data,
-                  i = parseInt(e.props.router.query.id, 10),
-                  a = T.b,
-                  c = o.createComment.comment,
-                  l = be(K);
-                try {
-                  for (l.s(); !(r = l.n()).done; ) {
-                    var u = r.value.value,
-                      d = void 0,
-                      p = { id: i, commentsOrder: u !== z ? u : void 0 };
-                    try {
-                      d = t.readQuery({ query: a, variables: p });
-                    } catch (b) {
-                      if (!b.message.startsWith("Can't find field comments"))
-                        throw b;
-                    }
-                    if (d && d.post) {
-                      if (
-                        (d.post.comments.items || (d.post.comments.items = []),
-                        c.parentComment)
-                      ) {
-                        var f = d.post.comments.items.find(function (e) {
-                          return e.id === c.parentComment.id;
-                        });
-                        f &&
-                          (f.comments || (f.comments = []), f.comments.push(c));
-                      } else
-                        d.post.comments.items = [c].concat(
-                          Object(s.a)(d.post.comments.items)
-                        );
-                      t.writeQuery({ query: a, variables: p, data: d }),
-                        e.forceUpdate();
-                    }
+            return ((e = t.call.apply(
+              t,
+              [this].concat(o)
+            )).updateCacheForCommentMuation = (t, n) => {
+              var r,
+                o = n.data,
+                i = parseInt(e.props.router.query.id, 10),
+                a = T.b,
+                c = o.createComment.comment,
+                l = be(K);
+              try {
+                for (l.s(); !(r = l.n()).done; ) {
+                  var u = r.value.value,
+                    d = void 0,
+                    p = { id: i, commentsOrder: u !== z ? u : void 0 };
+                  try {
+                    d = t.readQuery({ query: a, variables: p });
+                  } catch (b) {
+                    if (!b.message.startsWith("Can't find field comments"))
+                      throw b;
                   }
-                } catch (j) {
-                  l.e(j);
-                } finally {
-                  l.f();
+                  if (d && d.post) {
+                    if (
+                      (d.post.comments.items || (d.post.comments.items = []),
+                      c.parentComment)
+                    ) {
+                      var f = d.post.comments.items.find(e => {
+                        return e.id === c.parentComment.id;
+                      });
+                      f &&
+                        (f.comments || (f.comments = []), f.comments.push(c));
+                    } else
+                      d.post.comments.items = [c].concat(
+                        Object(s.a)(d.post.comments.items)
+                      );
+                    t.writeQuery({ query: a, variables: p, data: d }),
+                      e.forceUpdate();
+                  }
                 }
-              }),
-              e
-            );
+              } catch (j) {
+                l.e(j);
+              } finally {
+                l.f();
+              }
+            }),
+            e
+          ;
           }
           return Object(u.a)(n, [
             {
@@ -4655,7 +4596,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                                                 },
                                               })
                                             : null,
-                                          f.comments.items.map(function (t) {
+                                          f.comments.items.map(t => {
                                             return Object(a.jsx)(
                                               "div",
                                               {
@@ -4729,14 +4670,13 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               },
             },
           ]),
-          n
-        ;
+          n;
         })(h.Component);
-      xe.getInitialProps = (function () {
+      xe.getInitialProps = (() => {
         var e = Object(i.a)(
           o.a.mark(function e(t) {
             var n, r;
-            return o.a.wrap(function (e) {
+            return o.a.wrap(e => {
               for (;;)
                 switch ((e.prev = e.next)) {
                   case 0:
@@ -4760,7 +4700,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         };
       })();
       t.default = Object(w.c)(
-        function (e) {
+        e => {
           return { isLoggedIn: e.user.userInfo.isLoggedIn };
         },
         { incrementAuthModalPromptCount: O.c },
@@ -4770,7 +4710,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     F2il(e, t, n) {
       "use strict";
-      e.exports = function (e, t) {
+      e.exports = (e, t) => {
         var n,
           r = 0;
         if (((e = String(e)), "string" !== typeof t || 1 !== t.length))
@@ -4808,7 +4748,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -4819,12 +4759,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? u(Object(n), !0).forEach(function (t) {
+            ? u(Object(n), !0).forEach(t => {
                 Object(r.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : u(Object(n)).forEach(function (t) {
+            : u(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -4834,7 +4774,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         }
         return e;
       }
-      var p = function (e) {
+      var p = e => {
         var t = e.promptCount,
           n = e.promptCountThreshold,
           r = e.dismissed,
@@ -4862,7 +4802,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
       };
       (p.defaultProps = { promptCountThreshold: 5 }),
         (t.a = Object(a.c)(
-          function (e) {
+          e => {
             return {
               isLoggedIn: e.user.userInfo.isLoggedIn,
               show: !e.user.userInfo.isLoggedIn && e.user.authModal.show,
@@ -4877,7 +4817,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
       "use strict";
       var r = n("nKUr"),
         o = (n("q1tI"), n("EQ2k")),
-        i = function (e) {
+        i = e => {
           var t = e.size,
             n = e.color;
           return Object(r.jsx)("svg", {
@@ -4895,7 +4835,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     GPHa(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return u;
       });
       var r = n("zC+P"),
@@ -4908,38 +4848,36 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
       function u(e, t) {
         void 0 === t && (t = {});
         var n =
-            "withApollo(" +
-            (function (e) {
+            "withApollo(" + (e => {
               return e.displayName || e.name || "Component";
             })(e) +
             ")",
-          o = (function (o) {
+          o = (o => {
             function a(e) {
               var t = o.call(this, e) || this;
               return (t.setWrappedInstance = t.setWrappedInstance.bind(t)), t;
             }
-            return (
-              Object(r.c)(a, o),
-              (a.prototype.getWrappedInstance = function () {
-                return Object(s.b)(t.withRef, 32), this.wrappedInstance;
-              }),
-              (a.prototype.setWrappedInstance = function (e) {
-                this.wrappedInstance = e;
-              }),
-              (a.prototype.render = function () {
-                var n = this;
-                return i.a.createElement(l.a, null, function (o) {
-                  var a = Object.assign({}, n.props, {
-                    client: o,
-                    ref: t.withRef ? n.setWrappedInstance : void 0,
-                  });
-                  return i.a.createElement(e, Object(r.a)({}, a));
+            return Object(r.c)(a, o),
+            (a.prototype.getWrappedInstance = function () {
+              return Object(s.b)(t.withRef, 32), this.wrappedInstance;
+            }),
+            (a.prototype.setWrappedInstance = function (e) {
+              this.wrappedInstance = e;
+            }),
+            (a.prototype.render = function () {
+              var n = this;
+              return i.a.createElement(l.a, null, o => {
+                var a = Object.assign({}, n.props, {
+                  client: o,
+                  ref: t.withRef ? n.setWrappedInstance : void 0,
                 });
-              }),
-              (a.displayName = n),
-              (a.WrappedComponent = e),
-              a
-            );
+                return i.a.createElement(e, Object(r.a)({}, a));
+              });
+            }),
+            (a.displayName = n),
+            (a.WrappedComponent = e),
+            a
+          ;
           })(i.a.Component);
         return c()(o, e, {});
       }
@@ -4948,15 +4886,14 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
       "use strict";
       var r = n("nKUr"),
         o = n("q1tI");
-      t.a = function (e) {
+      t.a = e => {
         var t = e.session,
           n = e.children;
-        return (
-          o.useEffect(function () {
-            t && t.next();
-          }, []),
-          Object(r.jsx)(r.Fragment, { children: n })
-        );
+        return o.useEffect(() => {
+          t && t.next();
+        }, []),
+        Object(r.jsx)(r.Fragment, { children: n })
+      ;
       };
     },
     JaEh(e, t, n) {
@@ -4964,20 +4901,19 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
       var r = n("nKUr"),
         o = n("q1tI"),
         i = n("5mGw");
-      t.a = function (e) {
+      t.a = e => {
         var t = e.session,
           n = e.count;
-        return (
-          o.useEffect(function () {
-            t && t.next();
-          }, []),
-          Object(r.jsx)("div", { style: { height: i.a * (n || 1) } })
-        );
+        return o.useEffect(() => {
+          t && t.next();
+        }, []),
+        Object(r.jsx)("div", { style: { height: i.a * (n || 1) } })
+      ;
       };
     },
     JznV(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return c;
       });
       var r = n("v2L8"),
@@ -5005,7 +4941,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     Kd6s(e, t, n) {
       "use strict";
       var r = n("RjOF");
-      e.exports = function (e, t) {
+      e.exports = (e, t) => {
         var n, o;
         (e = e.split("\n")), (n = e.length), (o = r(" ", 4 * t));
         for (; n--; ) 0 !== e[n].length && (e[n] = o + e[n]);
@@ -5040,7 +4976,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         i = n("IPAr"),
         a = n("MQ5/"),
         c = n("DkIQ");
-      e.exports = function (e) {
+      e.exports = e => {
         return function (t, n, u) {
           var j,
             h,
@@ -5170,7 +5106,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     LByj(e, t, n) {
       "use strict";
-      e.exports = function (e, t) {
+      e.exports = (e, t) => {
         var n,
           r,
           o = 0,
@@ -5206,7 +5142,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -5217,12 +5153,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? h(Object(n), !0).forEach(function (t) {
+            ? h(Object(n), !0).forEach(t => {
                 Object(o.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : h(Object(n)).forEach(function (t) {
+            : h(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -5233,17 +5169,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         return e;
       }
       function x(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -5258,7 +5193,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           return Object(l.a)(this, n);
         };
       }
-      var g = (function (e) {
+      var g = (e => {
         Object(s.a)(n, e);
         var t = x(n);
         function n() {
@@ -5298,13 +5233,13 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                 o = t.tall,
                 a = Object(i.a)(t, ["inputTriggerProps", "tall"]),
                 c = n
-                  ? function (e) {
+                  ? e => {
                       return Object(r.jsx)(
                         j.a,
                         m(m({}, n), {}, { children: e })
                       );
                     }
-                  : function (e) {
+                  : e => {
                       return e;
                     };
               return Object(r.jsxs)(r.Fragment, {
@@ -5356,8 +5291,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             },
           },
         ]),
-        n
-      ;
+        n;
       })(f.Component);
       (g.defaultProps = { autoComplete: "off", required: !1 }), (t.a = g);
     },
@@ -5373,7 +5307,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -5384,12 +5318,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? c(Object(n), !0).forEach(function (t) {
+            ? c(Object(n), !0).forEach(t => {
                 Object(r.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : c(Object(n)).forEach(function (t) {
+            : c(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -5399,7 +5333,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         }
         return e;
       }
-      t.a = function (e) {
+      t.a = e => {
         return Object(o.jsxs)(
           "button",
           s(
@@ -5429,7 +5363,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
       var r = n("xvhg"),
         o = n("H+61"),
         i = n("UlJF"),
-        a = (function () {
+        a = (() => {
           function e() {
             Object(o.a)(this, e), (this._listeners = []);
           }
@@ -5456,7 +5390,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             {
               key: "destroy",
               value() {
-                this._listeners.forEach(function (e) {
+                this._listeners.forEach(e => {
                   var t = Object(r.a)(e, 3),
                     n = t[0],
                     o = t[1],
@@ -5468,8 +5402,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               },
             },
           ]),
-          e
-        ;
+          e;
         })();
       t.a = a;
     },
@@ -5489,20 +5422,20 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     MDTK(e, t, n) {
       (window.__NEXT_P = window.__NEXT_P || []).push([
         "/post",
-        function () {
+        () => {
           return n("EhLH");
         },
       ]);
     },
     MZ5i(e, t, n) {
       "use strict";
-      e.exports = function (e) {
+      e.exports = e => {
         return "[^" + e.identifier + "]";
       };
     },
     Mjqs(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return ut;
       });
       var r = n("nKUr"),
@@ -5560,7 +5493,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                 },
                 getNodeType: Object(y.a)(
                   v.a.mark(function e() {
-                    return v.a.wrap(function (e) {
+                    return v.a.wrap(e => {
                       for (;;)
                         switch ((e.prev = e.next)) {
                           case 0:
@@ -5605,7 +5538,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -5616,12 +5549,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? M(Object(n), !0).forEach(function (t) {
+            ? M(Object(n), !0).forEach(t => {
                 Object(N.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : M(Object(n)).forEach(function (t) {
+            : M(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -5631,10 +5564,10 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         }
         return e;
       }
-      var A = (function () {
+      var A = (() => {
           var e = Object(y.a)(
             v.a.mark(function e() {
-              return v.a.wrap(function (e) {
+              return v.a.wrap(e => {
                 for (;;)
                   switch ((e.prev = e.next)) {
                     case 0:
@@ -5643,7 +5576,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                         n
                           .e(65)
                           .then(n.t.bind(null, "KMe3", 7))
-                          .then(function (e) {
+                          .then(e => {
                             return e.default;
                           })
                       );
@@ -5676,52 +5609,50 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           u = Object(o.a)(s, 2),
           d = u[0],
           p = u[1];
-        return (
-          i.useEffect(
-            function () {
-              if (c.current) {
-                p({
-                  width: c.current.getBoundingClientRect().width,
-                  height: c.current.getBoundingClientRect().height,
-                });
-                var e = function () {
-                  c.current &&
-                    p({
-                      width: c.current.getBoundingClientRect().width,
-                      height: c.current.getBoundingClientRect().height,
-                    });
-                };
-                return (
-                  window.addEventListener("resize", e),
-                  function () {
-                    return window.removeEventListener("resize", e);
-                  }
-                );
+        return i.useEffect(
+          () => {
+            if (c.current) {
+              p({
+                width: c.current.getBoundingClientRect().width,
+                height: c.current.getBoundingClientRect().height,
+              });
+              var e = () => {
+                c.current &&
+                  p({
+                    width: c.current.getBoundingClientRect().width,
+                    height: c.current.getBoundingClientRect().height,
+                  });
+              };
+              return window.addEventListener("resize", e),
+              () => {
+                return window.removeEventListener("resize", e);
               }
-            },
-            [c]
-          ),
-          Object(r.jsxs)("div", {
-            ref: c,
-            className: "jsx-866328784 excalidraw-wrapper",
-            children: [
-              Object(r.jsx)(F, {
-                viewModeEnabled: !0,
-                zenModeEnabled: !0,
-                initialData: n,
-                height: d.height,
-                width: d.width,
-                theme: "replitLight" === a ? "light" : "dark",
-              }),
-              Object(r.jsx)(l.a, {
-                id: "866328784",
-                children: [
-                  ".excalidraw-wrapper.jsx-866328784{cursor:all-scroll;height:100%;width:100%;}",
-                ],
-              }),
-            ],
-          })
-        );
+            ;
+            }
+          },
+          [c]
+        ),
+        Object(r.jsxs)("div", {
+          ref: c,
+          className: "jsx-866328784 excalidraw-wrapper",
+          children: [
+            Object(r.jsx)(F, {
+              viewModeEnabled: !0,
+              zenModeEnabled: !0,
+              initialData: n,
+              height: d.height,
+              width: d.width,
+              theme: "replitLight" === a ? "light" : "dark",
+            }),
+            Object(r.jsx)(l.a, {
+              id: "866328784",
+              children: [
+                ".excalidraw-wrapper.jsx-866328784{cursor:all-scroll;height:100%;width:100%;}",
+              ],
+            }),
+          ],
+        })
+      ;
       }
       function V(e) {
         var t = e.fs,
@@ -5746,46 +5677,45 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           M = T[1],
           L = i.useRef(c);
         i.useEffect(
-          function () {
+          () => {
             (null === U || void 0 === U ? void 0 : U.type) === O.d.File &&
               L.current(U.path);
           },
           [U]
         ),
           i.useEffect(
-            function () {
+            () => {
               L.current = c;
             },
             [c]
           ),
           i.useLayoutEffect(
-            function () {
+            () => {
               L.current(a || void 0);
             },
             [a]
           ),
           i.useEffect(
-            function () {
+            () => {
               if (!a) {
                 var e = !1;
-                t.readDir(w.a).then(function (t) {
+                t.readDir(w.a).then(t => {
                   if (!e) {
                     if (t.error) throw new Error(t.error);
                     var r = t.children
-                        .filter(function (e) {
+                        .filter(e => {
                           return e.type === O.d.File;
                         })
-                        .map(function (e) {
+                        .map(e => {
                           return e.filename;
                         }),
                       o = Object(R.a)(r, n);
                     if (o)
-                      return (
-                        M({ path: o, type: O.d.File }),
-                        function () {
-                          e = !0;
-                        }
-                      );
+                      return M({ path: o, type: O.d.File }),
+                      () => {
+                        e = !0;
+                      }
+                    ;
                   }
                 });
               }
@@ -5793,25 +5723,24 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             [a, n, t]
           ),
           i.useEffect(
-            function () {
+            () => {
               if (a) {
                 var e = !1;
-                return (
-                  k(null),
-                  t.readFile(a).then(function (t) {
-                    e || k(t);
-                  }),
-                  function () {
-                    e = !0;
-                  }
-                );
+                return k(null),
+                t.readFile(a).then(t => {
+                  e || k(t);
+                }),
+                () => {
+                  e = !0;
+                }
+              ;
               }
               k(null);
             },
             [t, a]
           ),
           i.useEffect(
-            function () {
+            () => {
               d &&
                 (d.setOptions({
                   fontSize: 13,
@@ -5823,7 +5752,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             [d]
           ),
           i.useEffect(
-            function () {
+            () => {
               d &&
                 N &&
                 y &&
@@ -5834,7 +5763,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           );
         var A = Object(_.g)({ fs: t }),
           F = i.useCallback(
-            function (e) {
+            e => {
               var t = e.src;
               return Object(r.jsx)(_.a, {
                 previewFilePath: a,
@@ -6015,46 +5944,45 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           T = N[1],
           U = i.useRef(a);
         return i.useEffect(
-          function () {
+          () => {
             (null === D || void 0 === D ? void 0 : D.type) === O.d.File &&
               (U.current(D.path), S(!1));
           },
           [D]
         ),
         i.useEffect(
-          function () {
+          () => {
             U.current = a;
           },
           [a]
         ),
         i.useLayoutEffect(
-          function () {
+          () => {
             U.current(n || void 0);
           },
           [n]
         ),
         i.useEffect(
-          function () {
+          () => {
             if (!n) {
               var e = !1;
-              c.readDir(w.a).then(function (t) {
+              c.readDir(w.a).then(t => {
                 if (!e) {
                   if (t.error) throw new Error(t.error);
                   var n = t.children
-                      .filter(function (e) {
+                      .filter(e => {
                         return e.type === O.d.File;
                       })
-                      .map(function (e) {
+                      .map(e => {
                         return e.filename;
                       }),
                     r = Object(R.a)(n, u);
                   if (r)
-                    return (
-                      T({ path: r, type: O.d.File }),
-                      function () {
-                        e = !0;
-                      }
-                    );
+                    return T({ path: r, type: O.d.File }),
+                    () => {
+                      e = !0;
+                    }
+                  ;
                 }
               });
             }
@@ -6062,13 +5990,13 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           [n, u, c]
         ),
         i.useEffect(
-          function () {
+          () => {
             var e = !1;
             function t() {
               return (t = Object(y.a)(
                 v.a.mark(function t() {
                   var r, i, a, c, l, u, d, p;
-                  return v.a.wrap(function (t) {
+                  return v.a.wrap(t => {
                     for (;;)
                       switch ((t.prev = t.next)) {
                         case 0:
@@ -6123,14 +6051,13 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                 })
               )).apply(this, arguments);
             }
-            return (
-              (function () {
-                t.apply(this, arguments);
-              })(),
-              function () {
-                e = !0;
-              }
-            );
+            return (function () {
+              t.apply(this, arguments);
+            })(),
+            () => {
+              e = !0;
+            }
+          ;
           },
           [n, s]
         ),
@@ -6255,8 +6182,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               ],
             }),
           ],
-        })
-      ;
+        });
       }
       var Z,
         ee,
@@ -6276,7 +6202,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -6287,12 +6213,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? pe(Object(n), !0).forEach(function (t) {
+            ? pe(Object(n), !0).forEach(t => {
                 Object(N.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : pe(Object(n)).forEach(function (t) {
+            : pe(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -6373,7 +6299,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           S = a.currentUserPermissions.changeImageUrl;
         return Object(r.jsxs)("div", {
           onDrop: S
-            ? function (e) {
+            ? e => {
                 var t, n;
                 e.preventDefault();
                 var r =
@@ -6390,12 +6316,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               }
             : void 0,
           onDragOver: S
-            ? function (e) {
+            ? e => {
                 e.preventDefault(), p(!0);
               }
             : void 0,
           onDragLeave: S
-            ? function () {
+            ? () => {
                 return p(!1);
               }
             : void 0,
@@ -6551,20 +6477,18 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           ],
         });
       }
-      !(function (e) {
+      !(e => {
         (e[(e.Code = 0)] = "Code"), (e[(e.Output = 1)] = "Output");
-      })(Z || (Z = {})),
-        (function (e) {
-          (e.Running = "Running"), (e.Ended = "Ended"), (e.Stopped = "Stopped");
-        })(ee || (ee = {})),
-        (function (e) {
-          (e.Webview = "Webview"),
-            (e.Terminal = "Terminal"),
-            (e.ReplboxWebview = "ReplboxWebview"),
-            (e.Vnc = "Vnc"),
-            (e.ReplboxConsole = "ReplboxConsole"),
-            (e.GovalConsole = "GovalConsole");
-        })(te || (te = {}));
+      })(Z || (Z = {})), (e => {
+        (e.Running = "Running"), (e.Ended = "Ended"), (e.Stopped = "Stopped");
+      })(ee || (ee = {})), (e => {
+        (e.Webview = "Webview"),
+          (e.Terminal = "Terminal"),
+          (e.ReplboxWebview = "ReplboxWebview"),
+          (e.Vnc = "Vnc"),
+          (e.ReplboxConsole = "ReplboxConsole"),
+          (e.GovalConsole = "GovalConsole");
+      })(te || (te = {}));
       var he = n("YFqc"),
         me = n.n(he),
         xe = n("pDQI");
@@ -6573,7 +6497,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -6584,12 +6508,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? ge(Object(n), !0).forEach(function (t) {
+            ? ge(Object(n), !0).forEach(t => {
                 Object(N.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : ge(Object(n)).forEach(function (t) {
+            : ge(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -6633,7 +6557,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -6644,12 +6568,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? De(Object(n), !0).forEach(function (t) {
+            ? De(Object(n), !0).forEach(t => {
                 Object(N.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : De(Object(n)).forEach(function (t) {
+            : De(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -6881,7 +6805,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -6892,12 +6816,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? Ae(Object(n), !0).forEach(function (t) {
+            ? Ae(Object(n), !0).forEach(t => {
                 Object(N.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : Ae(Object(n)).forEach(function (t) {
+            : Ae(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -7374,29 +7298,28 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           c = Object(o.a)(a, 2),
           s = c[0],
           u = c[1];
-        return (
-          i.useEffect(
-            function () {
-              s || (t && u(!0));
-            },
-            [t, s, u]
-          ),
-          s
-            ? Object(r.jsxs)("div", {
-                className: "jsx-427411075 " + (re()({ "is-hidden": !t }) || ""),
-                children: [
-                  n,
-                  Object(r.jsx)(l.a, {
-                    id: "427411075",
-                    children: [
-                      "div.jsx-427411075{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;visibility:visible;position:relative;-webkit-align-items:stretch;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch;-webkit-box-pack:stretch;-webkit-justify-content:stretch;-ms-flex-pack:stretch;justify-content:stretch;height:100%;width:100%;}",
-                      "div.is-hidden.jsx-427411075{visibility:hidden;position:absolute;}",
-                    ],
-                  }),
-                ],
-              })
-            : null
-        );
+        return i.useEffect(
+          () => {
+            s || (t && u(!0));
+          },
+          [t, s, u]
+        ),
+        s
+          ? Object(r.jsxs)("div", {
+              className: "jsx-427411075 " + (re()({ "is-hidden": !t }) || ""),
+              children: [
+                n,
+                Object(r.jsx)(l.a, {
+                  id: "427411075",
+                  children: [
+                    "div.jsx-427411075{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;visibility:visible;position:relative;-webkit-align-items:stretch;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch;-webkit-box-pack:stretch;-webkit-justify-content:stretch;-ms-flex-pack:stretch;justify-content:stretch;height:100%;width:100%;}",
+                    "div.is-hidden.jsx-427411075{visibility:hidden;position:absolute;}",
+                  ],
+                }),
+              ],
+            })
+          : null
+      ;
       }
       function We(e) {
         var t = e.initialViewMode,
@@ -7420,7 +7343,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           C = k[0],
           S = k[1];
         i.useEffect(
-          function () {
+          () => {
             if (!C && (m === ee.Running || y === Z.Code)) {
               var e = Object(u.b)({ onUnrecoverableError: c }),
                 t = Object(d.a)({ container: e });
@@ -7431,15 +7354,14 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         );
         var P = i.useRef(!1);
         i.useEffect(
-          function () {
+          () => {
             if (C && !P.current)
-              return (
-                C.container.connect({ repl: n, currentUser: a }),
-                (P.current = !0),
-                function () {
-                  C.container.destroy();
-                }
-              );
+              return C.container.connect({ repl: n, currentUser: a }),
+              (P.current = !0),
+              () => {
+                C.container.destroy();
+              }
+            ;
           },
           [C, n, a]
         );
@@ -7555,7 +7477,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           A = M[1],
           F = i.useRef(!1);
         i.useEffect(
-          function () {
+          () => {
             null !== D && (F.current = !0);
           },
           [D]
@@ -7565,13 +7487,13 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           K = z[0],
           B = z[1];
         i.useEffect(
-          function () {
+          () => {
             if (K && g === $e.b.IDLE)
               return s.current && K.runner.getRunState() === $e.b.IDLE
                 ? (K.runner.run(), (p.current = !0), void (s.current = !1))
                 : void (
                     p.current &&
-                    h(function (e) {
+                    h(e => {
                       return e === ee.Stopped ? ee.Stopped : ee.Ended;
                     })
                   );
@@ -7579,13 +7501,13 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           [K, g]
         ),
           i.useEffect(
-            function () {
+            () => {
               g === $e.b.RUNNING && F.current && T("vnc");
             },
             [g]
           ),
           i.useEffect(
-            function () {
+            () => {
               K &&
                 j === ee.Running &&
                 (K.runner.getRunState() === $e.b.IDLE
@@ -7595,7 +7517,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             [K, j]
           ),
           i.useEffect(
-            function () {
+            () => {
               K &&
                 j === ee.Stopped &&
                 K.runner.getRunState() === $e.b.RUNNING &&
@@ -7604,17 +7526,17 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             [K, j]
           ),
           i.useEffect(
-            function () {
+            () => {
               if (!K && (j === ee.Running || C === Z.Code)) {
                 var e = Object(u.b)({ onUnrecoverableError: c }),
                   t = Object(d.a)({ container: e }),
                   r = Object(Ge.a)({ container: e }),
                   o = Object(Xe.a)({
                     container: e,
-                    beforeRun: (function () {
+                    beforeRun: (() => {
                       var e = Object(y.a)(
                         v.a.mark(function e() {
-                          return v.a.wrap(function (e) {
+                          return v.a.wrap(e => {
                             for (;;)
                               switch ((e.prev = e.next)) {
                                 case 0:
@@ -7642,18 +7564,18 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           );
         var H = i.useRef(!1);
         i.useEffect(
-          function () {
+          () => {
             if (K && !H.current) {
               K.container.connect({ repl: n, currentUser: a }),
                 (H.current = !0);
-              var e = K.container.onPortOpened(function (e) {
+              var e = K.container.onPortOpened(e => {
                   e.forwarded && T(e.isVnc ? "vnc" : "server");
                 }),
                 t = K.runner.onStateChanged(O),
-                r = K.runner.onOutput(function () {
+                r = K.runner.onOutput(() => {
                   F.current && A(!0);
                 });
-              return function () {
+              return () => {
                 e(), t(), r(), K.container.destroy();
               };
             }
@@ -7794,7 +7716,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         var t = e.replId,
           n = e.language,
           a = "hostedUrl" in e ? e.hostedUrl : void 0,
-          c = i.useState(function () {
+          c = i.useState(() => {
             return Object(Ze.a)({
               beforeRun() {
                 return Promise.resolve();
@@ -7808,43 +7730,42 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           }),
           s = Object(o.a)(c, 1)[0],
           u = i.useRef(null);
-        return (
-          i.useEffect(
-            function () {
-              if (u.current) {
-                s.load({
-                  replId: t,
-                  language: n,
-                  iframeParent: u.current,
-                  hostedUrl: a,
-                });
-                var e = s.onStateChanged(function (e) {
-                  e === $e.b.IDLE && s.run();
-                });
-                return function () {
-                  e(), s.destroy();
-                };
-              }
-            },
-            [s, t, n, a]
-          ),
-          Object(r.jsxs)("div", {
-            className: "jsx-1810082141 repl-box-wrapper",
-            children: [
-              Object(r.jsx)("div", {
-                ref: u,
-                className: "jsx-1810082141 iframe-container",
-              }),
-              Object(r.jsx)(l.a, {
-                id: "1810082141",
-                children: [
-                  ".repl-box-wrapper.jsx-1810082141,.iframe-container.jsx-1810082141{height:100%;width:100%;}",
-                  ".iframe-container.jsx-1810082141 iframe{background:white;width:100%;height:100%;border:none;display:block;border-bottom-right-radius:var(--border-radius-1);border-bottom-left-radius:var(--border-radius-1);}",
-                ],
-              }),
-            ],
-          })
-        );
+        return i.useEffect(
+          () => {
+            if (u.current) {
+              s.load({
+                replId: t,
+                language: n,
+                iframeParent: u.current,
+                hostedUrl: a,
+              });
+              var e = s.onStateChanged(e => {
+                e === $e.b.IDLE && s.run();
+              });
+              return () => {
+                e(), s.destroy();
+              };
+            }
+          },
+          [s, t, n, a]
+        ),
+        Object(r.jsxs)("div", {
+          className: "jsx-1810082141 repl-box-wrapper",
+          children: [
+            Object(r.jsx)("div", {
+              ref: u,
+              className: "jsx-1810082141 iframe-container",
+            }),
+            Object(r.jsx)(l.a, {
+              id: "1810082141",
+              children: [
+                ".repl-box-wrapper.jsx-1810082141,.iframe-container.jsx-1810082141{height:100%;width:100%;}",
+                ".iframe-container.jsx-1810082141 iframe{background:white;width:100%;height:100%;border:none;display:block;border-bottom-right-radius:var(--border-radius-1);border-bottom-left-radius:var(--border-radius-1);}",
+              ],
+            }),
+          ],
+        })
+      ;
       }
       function nt(e) {
         var t = e.initialViewMode,
@@ -7869,7 +7790,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           C = k[0],
           S = k[1];
         i.useEffect(
-          function () {
+          () => {
             if (!C && (h === Z.Code || !O)) {
               var e = Object(u.b)({ onUnrecoverableError: c }),
                 t = Object(d.a)({ container: e });
@@ -7880,15 +7801,14 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         );
         var P = i.useRef(!1);
         i.useEffect(
-          function () {
+          () => {
             if (C && !P.current)
-              return (
-                C.container.connect({ repl: n, currentUser: a }),
-                (P.current = !0),
-                function () {
-                  C.container.destroy();
-                }
-              );
+              return C.container.connect({ repl: n, currentUser: a }),
+              (P.current = !0),
+              () => {
+                C.container.destroy();
+              }
+            ;
           },
           [C, n, a]
         );
@@ -7978,7 +7898,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         ot = n("8axe"),
         it = n("5sjI"),
         at = T()(
-          function () {
+          () => {
             return Promise.all([n.e(40), n.e(44)]).then(n.bind(null, "yR2o"));
           },
           {
@@ -8026,13 +7946,13 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           z = q[0],
           K = q[1];
         i.useEffect(
-          function () {
+          () => {
             if (z && R === $e.b.IDLE)
               return g.current
                 ? (z.replbox.run(), (O.current = !0), void (g.current = !1))
                 : void (
                     O.current &&
-                    S(function (e) {
+                    S(e => {
                       return e === ee.Stopped ? ee.Stopped : ee.Ended;
                     })
                   );
@@ -8040,7 +7960,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           [z, R]
         ),
           i.useEffect(
-            function () {
+            () => {
               z &&
                 C === ee.Running &&
                 (z.replbox.getRunState() === $e.b.IDLE
@@ -8050,7 +7970,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             [z, C]
           ),
           i.useEffect(
-            function () {
+            () => {
               z &&
                 C === ee.Stopped &&
                 z.replbox.getRunState() === $e.b.RUNNING &&
@@ -8059,15 +7979,15 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             [z, C]
           ),
           i.useEffect(
-            function () {
+            () => {
               if (!z && (C === ee.Running || D === Z.Code)) {
                 var e = Object(u.b)({ onUnrecoverableError: c }),
                   t = Object(d.a)({ container: e }),
                   r = Object(Ze.a)({
-                    beforeRun: (function () {
+                    beforeRun: (() => {
                       var e = Object(y.a)(
                         v.a.mark(function e() {
-                          return v.a.wrap(function (e) {
+                          return v.a.wrap(e => {
                             for (;;)
                               switch ((e.prev = e.next)) {
                                 case 0:
@@ -8081,10 +8001,10 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                         return e.apply(this, arguments);
                       };
                     })(),
-                    getMainFileContents: (function () {
+                    getMainFileContents: (() => {
                       var e = Object(y.a)(
                         v.a.mark(function e() {
-                          return v.a.wrap(function (e) {
+                          return v.a.wrap(e => {
                             for (;;)
                               switch ((e.prev = e.next)) {
                                 case 0:
@@ -8104,8 +8024,8 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                       };
                     })(),
                   });
-                r.onOutput(function (e) {
-                  x(function (t) {
+                r.onOutput(e => {
+                  x(t => {
                     return [].concat(Object(rt.a)(t), [{ data: e, type: "" }]);
                   });
                 }),
@@ -8116,13 +8036,13 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           );
         var B = i.useRef(!1);
         i.useEffect(
-          function () {
+          () => {
             if (z && !B.current) {
               z.container.connect({ repl: n, currentUser: a }),
                 (B.current = !0),
                 z.replbox.load({ language: n.lang.id, replId: n.id });
               var e = z.replbox.onStateChanged(_);
-              return function () {
+              return () => {
                 e(), z.container.destroy();
               };
             }
@@ -8235,7 +8155,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         });
       }
       var st = T()(
-        function () {
+        () => {
           return Promise.all([n.e(40), n.e(44)]).then(n.bind(null, "yR2o"));
         },
         {
@@ -8291,13 +8211,13 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           H = B[0],
           W = B[1];
         i.useEffect(
-          function () {
+          () => {
             if (q && E === $e.b.IDLE)
               return v.current
                 ? ((y.current = !0), void (v.current = !1))
                 : void (
                     y.current &&
-                    C(function (e) {
+                    C(e => {
                       return e === ee.Stopped ? ee.Stopped : ee.Ended;
                     })
                   );
@@ -8305,20 +8225,19 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           [q, E]
         ),
           i.useEffect(
-            function () {
+            () => {
               if (q && H && k === ee.Running) {
                 if (q.container.getConnectionState() === u.a.CONNECTED) {
                   var e = !1;
-                  return (
-                    Object(et.a)({ fs: q.fs, language: n.lang.id }).then(
-                      function (t) {
-                        !e && H && H.send({ eval: t });
-                      }
-                    ),
-                    function () {
-                      e = !0;
+                  return Object(et.a)({ fs: q.fs, language: n.lang.id }).then(
+                    t => {
+                      !e && H && H.send({ eval: t });
                     }
-                  );
+                  ),
+                  () => {
+                    e = !0;
+                  }
+                ;
                 }
                 v.current = !0;
               }
@@ -8326,13 +8245,13 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             [q, H, k, n.lang.id]
           ),
           i.useEffect(
-            function () {
+            () => {
               k === ee.Stopped && E === $e.b.RUNNING && (R($e.b.IDLE), g([]));
             },
             [q, E, k, n.lang.id]
           ),
           i.useEffect(
-            function () {
+            () => {
               if (!q && (k === ee.Running || N === Z.Code)) {
                 var e = Object(u.b)({ onUnrecoverableError: s }),
                   t = Object(d.a)({ container: e });
@@ -8342,31 +8261,31 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             [n, k, N, q, s]
           ),
           i.useEffect(
-            function () {
+            () => {
               if (q) {
                 q.container.connect({ repl: n, currentUser: c });
                 var e = q.container.openChannel(
                   { service: "eval", name: "evaler" },
-                  function (e) {
+                  e => {
                     e.channel && W(e.channel);
                   }
                 );
-                return function () {
+                return () => {
                   e(), q.container.destroy();
                 };
               }
             },
             [q, n, c]
           );
-        var Q = function (e) {
-          return g(function (t) {
+        var Q = e => {
+          return g(t => {
             return [].concat(Object(rt.a)(t), [e]);
           });
         };
         i.useEffect(
-          function () {
+          () => {
             if (H)
-              return H.onCommand(function (e) {
+              return H.onCommand(e => {
                 switch (e.body) {
                   case "output":
                     return void Q({ data: e.output, type: "" });
@@ -8512,8 +8431,8 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           u = Object(o.a)(l, 2),
           d = u[0],
           p = u[1],
-          f = i.useCallback(function (e) {
-            a.m(function (t) {
+          f = i.useCallback(e => {
+            a.m(t => {
               t.setTag("bsod", "true"),
                 t.setTag("replviewer", "true"),
                 console.error(e);
@@ -8521,7 +8440,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               p(n);
             });
           }, []),
-          b = (function (e) {
+          b = (e => {
             return e.config.isServer
               ? te.Webview
               : e.config.isVnc || e.lang.canUseShellRunner
@@ -8535,7 +8454,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               : null;
           })(t);
         return i.useEffect(
-          function () {
+          () => {
             Object(oe.track)(oe.events.REPL_VIEWER_RENDERED, {
               outputType: b,
               language: t.language,
@@ -8588,8 +8507,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               currentUser: n,
               onUnrecoverableError: f,
             })
-          : null
-      ;
+          : null;
       }
     },
     OEiS(e, t, n) {
@@ -8598,7 +8516,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if ("undefined" === typeof Symbol || null == e[Symbol.iterator]) {
           if (
             Array.isArray(e) ||
-            (n = (function (e, t) {
+            (n = ((e, t) => {
               if (!e) return;
               if ("string" === typeof e) return o(e, t);
               var n = Object.prototype.toString.call(e).slice(8, -1);
@@ -8614,7 +8532,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           ) {
             n && (e = n);
             var r = 0,
-              i = function () {};
+              i = () => {};
             return {
               s: i,
               n() {
@@ -8666,7 +8584,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         s = a.markdownMentionPlugin,
         l = i();
       l.use(s);
-      e.exports = function (e) {
+      e.exports = e => {
         var t = [],
           n = [],
           o = [],
@@ -8704,7 +8622,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         o = n("MX0m"),
         i = n.n(o),
         a = (n("q1tI"), n("up5I"));
-      t.a = function (e) {
+      t.a = e => {
         return Object(r.jsxs)("div", {
           className: "jsx-688104393",
           children: [
@@ -8759,19 +8677,18 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         var e = Object(r.a)([
           "\n  {\n    boards {\n      id\n      name\n      url\n      slug\n      color\n    }\n  }\n",
         ]);
-        return (
-          (h = function () {
-            return e;
-          }),
-          e
-        );
+        return (h = () => {
+          return e;
+        }),
+        e
+      ;
       }
       function m(e, t) {
         var n = Object.keys(e);
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -8782,12 +8699,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? m(Object(n), !0).forEach(function (t) {
+            ? m(Object(n), !0).forEach(t => {
                 Object(o.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : m(Object(n)).forEach(function (t) {
+            : m(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -8797,7 +8714,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         }
         return e;
       }
-      var g = function (e) {
+      var g = e => {
           var t = e.board,
             n = e.order,
             r = Object(i.jsxs)("a", {
@@ -8885,7 +8802,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         },
         v = u()(h()),
         y = {};
-      t.a = function (e) {
+      t.a = e => {
         return Object(i.jsxs)("div", {
           className: "jsx-467725132",
           children: [
@@ -8912,7 +8829,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                               active: "all" === e.currentSlug,
                               children: "All",
                             }),
-                            n.boards.map(function (t) {
+                            n.boards.map(t => {
                               return (
                                 y[t.id] ||
                                   ((y[t.id] = !0),
@@ -8971,7 +8888,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -8982,12 +8899,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? g(Object(n), !0).forEach(function (t) {
+            ? g(Object(n), !0).forEach(t => {
                 Object(c.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : g(Object(n)).forEach(function (t) {
+            : g(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -8998,17 +8915,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         return e;
       }
       function y(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -9023,108 +8939,107 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           return Object(d.a)(this, n);
         };
       }
-      var O = (function (e) {
+      var O = (e => {
         Object(u.a)(n, e);
         var t = y(n);
         function n(e) {
           var r;
-          return (
-            Object(s.a)(this, n),
-            ((r = t.call(this, e)).onChange = function (e) {
-              r.state.tracked ||
-                Object(x.track)(x.events.COMMENT_WRITTEN, {
-                  postId: r.props.postId,
-                }),
-                r.setState(v(v({}, e), {}, { expanded: !0, tracked: !0 }));
-            }),
-            (r.onFocus = function () {
-              r.setState({ expanded: !0 });
-            }),
-            (r.onCancel = function () {
-              r.setState(
-                { expanded: !1, loading: !1, body: "" },
-                r.props.onCancel
-              );
-            }),
-            (r.onSubmit = (function () {
-              var e = Object(a.a)(
-                i.a.mark(function e(t) {
-                  var n, o, a, c, s, l, u, d;
-                  return i.a.wrap(
-                    function (e) {
-                      for (;;)
-                        switch ((e.prev = e.next)) {
-                          case 0:
-                            if (
-                              ((n = r.state),
-                              (o = n.body),
-                              (a = n.loading),
-                              (c = r.props),
-                              (s = c.postId),
-                              (l = c.commentId),
-                              (u = c.onCreate),
-                              !a)
-                            ) {
-                              e.next = 4;
-                              break;
-                            }
-                            return e.abrupt("return");
-                          case 4:
-                            return (
-                              r.setState({ loading: !0 }),
-                              (e.prev = 5),
-                              (e.next = 8),
-                              t({
-                                variables: {
-                                  input: { postId: s, commentId: l, body: o },
-                                },
-                              })
-                            );
-                          case 8:
-                            e.next = 16;
+          return Object(s.a)(this, n),
+          ((r = t.call(this, e)).onChange = e => {
+            r.state.tracked ||
+              Object(x.track)(x.events.COMMENT_WRITTEN, {
+                postId: r.props.postId,
+              }),
+              r.setState(v(v({}, e), {}, { expanded: !0, tracked: !0 }));
+          }),
+          (r.onFocus = () => {
+            r.setState({ expanded: !0 });
+          }),
+          (r.onCancel = () => {
+            r.setState(
+              { expanded: !1, loading: !1, body: "" },
+              r.props.onCancel
+            );
+          }),
+          (r.onSubmit = (() => {
+            var e = Object(a.a)(
+              i.a.mark(function e(t) {
+                var n, o, a, c, s, l, u, d;
+                return i.a.wrap(
+                  e => {
+                    for (;;)
+                      switch ((e.prev = e.next)) {
+                        case 0:
+                          if (
+                            ((n = r.state),
+                            (o = n.body),
+                            (a = n.loading),
+                            (c = r.props),
+                            (s = c.postId),
+                            (l = c.commentId),
+                            (u = c.onCreate),
+                            !a)
+                          ) {
+                            e.next = 4;
                             break;
-                          case 10:
-                            return (
-                              (e.prev = 10),
-                              (e.t0 = e.catch(5)),
-                              (d =
-                                (e.t0.graphQLErrors.length &&
-                                  e.t0.graphQLErrors[0].message) ||
-                                "Something went wrong. Please contact support"),
-                              r.setState({ loading: !1 }),
-                              r.props.showMessage({
-                                content: d,
-                                type: "error",
-                                time: 4e3,
-                              }),
-                              e.abrupt("return")
-                            );
-                          case 16:
-                            r.setState({ body: "", loading: !1, expanded: !1 }),
-                              u && u();
-                          case 18:
-                          case "end":
-                            return e.stop();
-                        }
-                    },
-                    e,
-                    null,
-                    [[5, 10]]
-                  );
-                })
-              );
-              return function (t) {
-                return e.apply(this, arguments);
-              };
-            })()),
-            (r.state = {
-              body: e.body || "",
-              loading: !1,
-              expanded: !1,
-              tracked: !1,
-            }),
-            r
-          );
+                          }
+                          return e.abrupt("return");
+                        case 4:
+                          return (
+                            r.setState({ loading: !0 }),
+                            (e.prev = 5),
+                            (e.next = 8),
+                            t({
+                              variables: {
+                                input: { postId: s, commentId: l, body: o },
+                              },
+                            })
+                          );
+                        case 8:
+                          e.next = 16;
+                          break;
+                        case 10:
+                          return (
+                            (e.prev = 10),
+                            (e.t0 = e.catch(5)),
+                            (d =
+                              (e.t0.graphQLErrors.length &&
+                                e.t0.graphQLErrors[0].message) ||
+                              "Something went wrong. Please contact support"),
+                            r.setState({ loading: !1 }),
+                            r.props.showMessage({
+                              content: d,
+                              type: "error",
+                              time: 4e3,
+                            }),
+                            e.abrupt("return")
+                          );
+                        case 16:
+                          r.setState({ body: "", loading: !1, expanded: !1 }),
+                            u && u();
+                        case 18:
+                        case "end":
+                          return e.stop();
+                      }
+                  },
+                  e,
+                  null,
+                  [[5, 10]]
+                );
+              })
+            );
+            return function (t) {
+              return e.apply(this, arguments);
+            };
+          })()),
+          (r.state = {
+            body: e.body || "",
+            loading: !1,
+            expanded: !1,
+            tracked: !1,
+          }),
+          r
+        ;
         }
         return Object(l.a)(n, [
           {
@@ -9182,10 +9097,10 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     QSUB(e, t, n) {
       "use strict";
-      n.d(t, "b", function () {
+      n.d(t, "b", () => {
         return f;
       }),
-        n.d(t, "a", function () {
+        n.d(t, "a", () => {
           return b;
         });
       var r = n("nKUr"),
@@ -9200,7 +9115,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -9211,12 +9126,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? u(Object(n), !0).forEach(function (t) {
+            ? u(Object(n), !0).forEach(t => {
                 Object(i.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : u(Object(n)).forEach(function (t) {
+            : u(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -9253,13 +9168,13 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         ".subtitled.jsx-1612855347 .paper-action-icon-left.jsx-1612855347{width:30px;margin-right:4px;}",
       ];
       p.__hash = "1612855347";
-      var f = function (e) {
+      var f = e => {
           return Object(r.jsx)(j, d({ Component: "a" }, e));
         },
-        b = function (e) {
+        b = e => {
           return Object(r.jsx)(j, d({ Component: "button" }, e));
         },
-        j = function (e) {
+        j = e => {
           var t = e.children,
             n = e.Component,
             i = e.iconRight,
@@ -9483,7 +9398,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     QTzV(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return d;
       });
       var r = n("zC+P"),
@@ -9502,91 +9417,88 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           d = t.alias,
           p = void 0 === d ? "Apollo" : d,
           f = a;
-        return (
-          "function" !== typeof f &&
-            (f = function () {
-              return a;
-            }),
-          function (o) {
-            var a = p + "(" + Object(u.e)(o) + ")",
-              s = (function (c) {
-                function s() {
-                  return (null !== c && c.apply(this, arguments)) || this;
-                }
-                return (
-                  Object(r.c)(s, c),
-                  (s.prototype.render = function () {
-                    var a = this.props,
-                      c = f(a);
-                    return (
-                      t.withRef &&
-                        ((this.withRef = !0),
-                        (a = Object.assign({}, a, {
-                          ref: this.setWrappedInstance,
-                        }))),
-                      !c.variables &&
-                        n.variables.length > 0 &&
-                        (c.variables = Object(u.b)(n, a)),
-                      i.a.createElement(
-                        l.Mutation,
-                        Object(r.a)({ ignoreResults: !0 }, c, { mutation: e }),
-                        function (e, n) {
-                          var c,
-                            s,
-                            l = n.data,
-                            u = Object(r.e)(n, ["data"]),
-                            d = Object.assign(u, l || {}),
-                            p = t.name || "mutate",
-                            f = t.name ? p + "Result" : "result",
-                            b = (((c = {})[p] = e), (c[f] = d), c);
-                          if (t.props) {
-                            var j =
-                              (((s = {})[p] = e),
-                              (s[f] = d),
-                              (s.ownProps = a),
-                              s);
-                            b = t.props(j);
-                          }
-                          return i.a.createElement(o, Object(r.a)({}, a, b));
-                        }
-                      )
-                    );
-                  }),
-                  (s.displayName = a),
-                  (s.WrappedComponent = o),
-                  s
-                );
-              })(u.a);
-            return c()(s, o, {});
-          }
-        );
+        return "function" !== typeof f &&
+          (f = () => {
+            return a;
+          }),
+        o => {
+          var a = p + "(" + Object(u.e)(o) + ")",
+            s = (c => {
+              function s() {
+                return (null !== c && c.apply(this, arguments)) || this;
+              }
+              return Object(r.c)(s, c),
+              (s.prototype.render = function () {
+                var a = this.props,
+                  c = f(a);
+                return t.withRef &&
+                  ((this.withRef = !0),
+                  (a = Object.assign({}, a, {
+                    ref: this.setWrappedInstance,
+                  }))),
+                !c.variables &&
+                  n.variables.length > 0 &&
+                  (c.variables = Object(u.b)(n, a)),
+                i.a.createElement(
+                  l.Mutation,
+                  Object(r.a)({ ignoreResults: !0 }, c, { mutation: e }),
+                  (e, n) => {
+                    var c,
+                      s,
+                      l = n.data,
+                      u = Object(r.e)(n, ["data"]),
+                      d = Object.assign(u, l || {}),
+                      p = t.name || "mutate",
+                      f = t.name ? p + "Result" : "result",
+                      b = (((c = {})[p] = e), (c[f] = d), c);
+                    if (t.props) {
+                      var j =
+                        (((s = {})[p] = e),
+                        (s[f] = d),
+                        (s.ownProps = a),
+                        s);
+                      b = t.props(j);
+                    }
+                    return i.a.createElement(o, Object(r.a)({}, a, b));
+                  }
+                )
+              ;
+              }),
+              (s.displayName = a),
+              (s.WrappedComponent = o),
+              s
+            ;
+            })(u.a);
+          return c()(s, o, {});
+        }
+      ;
       }
     },
     "Qp/i": function (e, t, n) {
       "use strict";
-      n.d(t, "c", function () {
+      n.d(t, "c", () => {
         return c;
       }),
-        n.d(t, "d", function () {
+        n.d(t, "d", () => {
           return s;
         }),
-        n.d(t, "e", function () {
+        n.d(t, "e", () => {
           return l;
         }),
-        n.d(t, "b", function () {
+        n.d(t, "b", () => {
           return u;
         }),
-        n.d(t, "a", function () {
+        n.d(t, "a", () => {
           return d;
         });
       var r = n("zC+P"),
         o = n("q1tI"),
         i = n.n(o),
         a = n("qVdT"),
-        c = function () {
+        c = () => {
           return {};
         },
-        s = function () {
+        s = () => {
           return !1;
         };
       function l(e) {
@@ -9607,7 +9519,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         }
         return n;
       }
-      var d = (function (e) {
+      var d = (e => {
         function t(t) {
           var n = e.call(this, t) || this;
           return (
@@ -9630,13 +9542,13 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     QxN4(e, t, n) {
       "use strict";
-      e.exports = function (e) {
+      e.exports = e => {
         return e;
       };
     },
     R54M(e, t, n) {
       "use strict";
-      n.d(t, "b", function () {
+      n.d(t, "b", () => {
         return Ue;
       });
       var r = n("nKUr"),
@@ -9671,7 +9583,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -9682,12 +9594,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? _(Object(n), !0).forEach(function (t) {
+            ? _(Object(n), !0).forEach(t => {
                 Object(o.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : _(Object(n)).forEach(function (t) {
+            : _(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -9698,17 +9610,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         return e;
       }
       function N(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -9728,141 +9639,137 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           "\n  mutation updatePost($input: UpdatePostInput!) {\n    updatePost(input: $input) {\n      post {\n        id\n        ...EditPostPost\n      }\n    }\n  }\n  ",
           "\n",
         ]);
-        return (
-          (D = function () {
-            return e;
-          }),
-          e
-        );
+        return (D = () => {
+          return e;
+        }),
+        e
+      ;
       }
       function T() {
         var e = Object(u.a)([
           "\n  query post($id: Int!) {\n    post(id: $id) {\n      id\n      ...EditPostPost\n    }\n  }\n  ",
           "\n",
         ]);
-        return (
-          (T = function () {
-            return e;
-          }),
-          e
-        );
+        return (T = () => {
+          return e;
+        }),
+        e
+      ;
       }
       function U() {
         var e = Object(u.a)([
           "\n    fragment EditPostPost on Post {\n      id\n      title\n      body\n      showHosted\n      board {\n        id\n        replRequired\n      }\n      repl {\n        id\n        url\n        hostedUrl\n        title\n      }\n    }\n  ",
         ]);
-        return (
-          (U = function () {
-            return e;
-          }),
-          e
-        );
+        return (U = () => {
+          return e;
+        }),
+        e
+      ;
       }
       var M = { post: j()(U()) },
         L = j()(T(), M.post),
         A = j()(D(), M.post),
-        F = (function (e) {
+        F = (e => {
           Object(c.a)(n, e);
           var t = N(n);
           function n(e) {
             var r;
-            return (
-              Object(i.a)(this, n),
-              ((r = t.call(this, e)).onChange = function (e) {
-                r.state.tracked ||
-                  Object(R.track)(R.events.POST_WRITTEN, {
-                    editing: !0,
-                    id: r.props.post.id,
-                  }),
-                  r.setState(I(I({}, e), {}, { tracked: !0 }));
-              }),
-              (r.onSubmit = (function () {
-                var e = Object(w.a)(
-                  O.a.mark(function e(t) {
-                    var n, o, i, a, c, s, l, u, d;
-                    return O.a.wrap(
-                      function (e) {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              if (
-                                ((n = r.props.post.id),
-                                (o = r.state),
-                                (i = o.title),
-                                (a = o.body),
-                                (c = o.repl),
-                                (s = o.showHosted),
-                                (l = o.loading),
-                                (u = c ? c.id : void 0),
-                                !l)
-                              ) {
-                                e.next = 5;
-                                break;
-                              }
-                              return e.abrupt("return");
-                            case 5:
-                              return (
-                                r.setState({ loading: !0 }),
-                                (e.prev = 6),
-                                (e.next = 9),
-                                t({
-                                  variables: {
-                                    input: {
-                                      title: i,
-                                      body: a,
-                                      replId: u,
-                                      showHosted: s,
-                                      id: n,
-                                    },
-                                  },
-                                })
-                              );
-                            case 9:
-                              r.props.showMessage({
-                                content: "Post updated",
-                                type: "confirm",
-                                time: 4e3,
-                              }),
-                                r.props.onEdit(),
-                                (e.next = 17);
+            return Object(i.a)(this, n),
+            ((r = t.call(this, e)).onChange = e => {
+              r.state.tracked ||
+                Object(R.track)(R.events.POST_WRITTEN, {
+                  editing: !0,
+                  id: r.props.post.id,
+                }),
+                r.setState(I(I({}, e), {}, { tracked: !0 }));
+            }),
+            (r.onSubmit = (() => {
+              var e = Object(w.a)(
+                O.a.mark(function e(t) {
+                  var n, o, i, a, c, s, l, u, d;
+                  return O.a.wrap(
+                    e => {
+                      for (;;)
+                        switch ((e.prev = e.next)) {
+                          case 0:
+                            if (
+                              ((n = r.props.post.id),
+                              (o = r.state),
+                              (i = o.title),
+                              (a = o.body),
+                              (c = o.repl),
+                              (s = o.showHosted),
+                              (l = o.loading),
+                              (u = c ? c.id : void 0),
+                              !l)
+                            ) {
+                              e.next = 5;
                               break;
-                            case 13:
-                              (e.prev = 13),
-                                (e.t0 = e.catch(6)),
-                                (d =
-                                  (e.t0.graphQLErrors.length &&
-                                    e.t0.graphQLErrors[0].message) ||
-                                  "Something went wrong. Please contact support"),
-                                r.props.showMessage({
-                                  content: d,
-                                  type: "error",
-                                  time: 4e3,
-                                });
-                            case 17:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      null,
-                      [[6, 13]]
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })()),
-              (r.state = {
-                title: e.post.title,
-                body: e.post.body,
-                showHosted: e.post.showHosted,
-                repl: e.post.repl,
-                loading: !1,
-                tracked: !1,
-              }),
-              r
-            );
+                            }
+                            return e.abrupt("return");
+                          case 5:
+                            return (
+                              r.setState({ loading: !0 }),
+                              (e.prev = 6),
+                              (e.next = 9),
+                              t({
+                                variables: {
+                                  input: {
+                                    title: i,
+                                    body: a,
+                                    replId: u,
+                                    showHosted: s,
+                                    id: n,
+                                  },
+                                },
+                              })
+                            );
+                          case 9:
+                            r.props.showMessage({
+                              content: "Post updated",
+                              type: "confirm",
+                              time: 4e3,
+                            }),
+                              r.props.onEdit(),
+                              (e.next = 17);
+                            break;
+                          case 13:
+                            (e.prev = 13),
+                              (e.t0 = e.catch(6)),
+                              (d =
+                                (e.t0.graphQLErrors.length &&
+                                  e.t0.graphQLErrors[0].message) ||
+                                "Something went wrong. Please contact support"),
+                              r.props.showMessage({
+                                content: d,
+                                type: "error",
+                                time: 4e3,
+                              });
+                          case 17:
+                          case "end":
+                            return e.stop();
+                        }
+                    },
+                    e,
+                    null,
+                    [[6, 13]]
+                  );
+                })
+              );
+              return function (t) {
+                return e.apply(this, arguments);
+              };
+            })()),
+            (r.state = {
+              title: e.post.title,
+              body: e.post.body,
+              showHosted: e.post.showHosted,
+              repl: e.post.repl,
+              loading: !1,
+              tracked: !1,
+            }),
+            r
+          ;
           }
           return Object(a.a)(n, [
             {
@@ -9902,7 +9809,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           n
         ;
         })(f.Component),
-        q = Object(C.c)(void 0, { showMessage: S.b })(function (e) {
+        q = Object(C.c)(void 0, { showMessage: S.b })(e => {
           var t = e.postId,
             n = Object(v.a)(e, ["postId"]);
           return Object(r.jsx)(k.Query, {
@@ -9923,15 +9830,14 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         var e = Object(u.a)([
           "\n  mutation deletePost($id: Int!) {\n    deletePost(id: $id) {\n      id\n    }\n  }\n",
         ]);
-        return (
-          (z = function () {
-            return e;
-          }),
-          e
-        );
+        return (z = () => {
+          return e;
+        }),
+        e
+      ;
       }
       var K = j()(z()),
-        B = Object(C.c)(void 0, { showMessage: S.b })(function (e) {
+        B = Object(C.c)(void 0, { showMessage: S.b })(e => {
           return Object(r.jsx)(k.Mutation, {
             mutation: K,
             children(t) {
@@ -9940,7 +9846,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                   O.a.mark(function n() {
                     var r;
                     return O.a.wrap(
-                      function (n) {
+                      n => {
                         for (;;)
                           switch ((n.prev = n.next)) {
                             case 0:
@@ -10005,14 +9911,13 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           "\n    ",
           "\n  ",
         ]);
-        return (
-          ($ = function () {
-            return e;
-          }),
-          e
-        );
+        return ($ = () => {
+          return e;
+        }),
+        e
+      ;
       }
-      var G = function (e) {
+      var G = e => {
         var t = e.user;
         return Object(r.jsxs)("div", {
           className: "jsx-784245287 user-post-header",
@@ -10076,7 +9981,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -10087,12 +9992,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? le(Object(n), !0).forEach(function (t) {
+            ? le(Object(n), !0).forEach(t => {
                 Object(o.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : le(Object(n)).forEach(function (t) {
+            : le(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -10107,49 +10012,46 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           "\n  mutation updatePost($input: UpdatePostInput!) {\n    updatePost(input: $input) {\n      post {\n        id\n        ...PostSettingsPost\n      }\n    }\n  }\n  ",
           "\n",
         ]);
-        return (
-          (de = function () {
-            return e;
-          }),
-          e
-        );
+        return (de = () => {
+          return e;
+        }),
+        e
+      ;
       }
       function pe() {
         var e = Object(u.a)([
           "\n  query post($id: Int!) {\n    post(id: $id) {\n      id\n      ...PostSettingsPost\n    }\n  }\n  ",
           "\n",
         ]);
-        return (
-          (pe = function () {
-            return e;
-          }),
-          e
-        );
+        return (pe = () => {
+          return e;
+        }),
+        e
+      ;
       }
       function fe() {
         var e = Object(u.a)([
           "\n    fragment PostSettingsPost on Post {\n      id\n      canPin\n      canSetType\n      canLock\n      canHide\n      canChangeBoard\n      canComment\n      isAnnouncement\n      isPinned\n      isLocked\n      isHidden\n      board {\n        id\n        name\n      }\n    }\n  ",
         ]);
-        return (
-          (fe = function () {
-            return e;
-          }),
-          e
-        );
+        return (fe = () => {
+          return e;
+        }),
+        e
+      ;
       }
       var be = { post: j()(fe()) },
         je = j()(pe(), be.post),
         he = j()(de(), be.post),
-        me = function (e) {
+        me = e => {
           var t = e.post,
             n = e.close;
           return Object(r.jsx)(k.Mutation, {
             mutation: he,
             children(e) {
-              var o = (function () {
+              var o = (() => {
                 var n = Object(w.a)(
                   O.a.mark(function n(r) {
-                    return O.a.wrap(function (n) {
+                    return O.a.wrap(n => {
                       for (;;)
                         switch ((n.prev = n.next)) {
                           case 0:
@@ -10301,7 +10203,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             },
           });
         },
-        xe = function (e) {
+        xe = e => {
           var t = e.postId,
             n = Object(v.a)(e, ["postId"]);
           return Object(r.jsx)(k.Query, {
@@ -10318,7 +10220,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           });
         },
         ge = n("/Rnh"),
-        ve = function () {
+        ve = () => {
           return Object(r.jsxs)("div", {
             className: p.a.dynamic([
               ["560596012", [g.a.activeYellow, g.a.white]],
@@ -10349,7 +10251,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -10360,12 +10262,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? Ee(Object(n), !0).forEach(function (t) {
+            ? Ee(Object(n), !0).forEach(t => {
                 Object(o.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : Ee(Object(n)).forEach(function (t) {
+            : Ee(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -10443,7 +10345,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -10454,12 +10356,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? Ie(Object(n), !0).forEach(function (t) {
+            ? Ie(Object(n), !0).forEach(t => {
                 Object(o.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : Ie(Object(n)).forEach(function (t) {
+            : Ie(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -10470,17 +10372,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         return e;
       }
       function De(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -10500,59 +10401,57 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           '\n    fragment PostDetailPost on Post {\n      id\n      title\n      body\n      timeCreated\n      canEdit\n      canComment\n      canPin\n      canSetType\n      canReport\n      hasReported\n      isAnnouncement\n      isLocked\n      showHosted\n      isAuthor\n      commentCount\n      isAnswered\n      isAnswerable\n      voteCount\n      canVote\n      hasVoted\n      user {\n        id\n        ...UserPostHeaderUser\n      }\n      repl {\n        id\n        embedUrl: url(lite: true)\n        hostedUrl\n        title\n        flagReplTalkSpotlightViewer: gateOnOwner(\n          feature: "flag-repl-talk-spotlight-viewer"\n        )\n      }\n      board {\n        id\n        url\n        slug\n        titleCta\n        bodyCta\n        buttonCta\n      }\n    }\n    ',
           "\n  ",
         ]);
-        return (
-          (Te = function () {
-            return e;
-          }),
-          e
-        );
+        return (Te = () => {
+          return e;
+        }),
+        e
+      ;
       }
       var Ue = { post: j()(Te(), J.fragments.user) },
-        Me = (function (e) {
+        Me = (e => {
           Object(c.a)(n, e);
           var t = De(n);
           function n(e) {
             var r;
-            return (
-              Object(i.a)(this, n),
-              ((r = t.call(this, e)).onDelete = function () {
-                var e = r.props.post;
-                m.a.push(
-                  { pathname: "/board", query: { slug: e.board.slug } },
-                  e.board.url
-                );
-              }),
-              (r.onPostBodyClick = function (e) {
-                var t = r.state.expandedReplUrl,
-                  n = e.target;
-                !e.metaKey &&
-                  n instanceof window.HTMLAnchorElement &&
-                  n.href &&
-                  n.href !== t &&
-                  Object(ae.b)(n.href) &&
-                  (e.preventDefault(), r.setState({ expandedReplUrl: n.href }));
-              }),
-              (r.toggleEdit = function (e) {
-                r.setState({ isEditing: e });
-              }),
-              (r.updateCacheForReportMutation = function (e) {
-                var t = {
-                    id: Object(x.a)(r.props.post),
-                    fragment: Ue.post,
-                    fragmentName: "PostDetailPost",
-                  },
-                  n = e.readFragment(t);
-                (n.hasReported = !0),
-                  e.writeFragment(Ne(Ne({}, t), {}, { data: n }));
-              }),
-              (r.state = {
-                isEditing: !1,
-                isReporting: !1,
-                showSettings: !1,
-                expandedReplUrl: void 0,
-              }),
-              r
-            );
+            return Object(i.a)(this, n),
+            ((r = t.call(this, e)).onDelete = () => {
+              var e = r.props.post;
+              m.a.push(
+                { pathname: "/board", query: { slug: e.board.slug } },
+                e.board.url
+              );
+            }),
+            (r.onPostBodyClick = e => {
+              var t = r.state.expandedReplUrl,
+                n = e.target;
+              !e.metaKey &&
+                n instanceof window.HTMLAnchorElement &&
+                n.href &&
+                n.href !== t &&
+                Object(ae.b)(n.href) &&
+                (e.preventDefault(), r.setState({ expandedReplUrl: n.href }));
+            }),
+            (r.toggleEdit = e => {
+              r.setState({ isEditing: e });
+            }),
+            (r.updateCacheForReportMutation = e => {
+              var t = {
+                  id: Object(x.a)(r.props.post),
+                  fragment: Ue.post,
+                  fragmentName: "PostDetailPost",
+                },
+                n = e.readFragment(t);
+              (n.hasReported = !0),
+                e.writeFragment(Ne(Ne({}, t), {}, { data: n }));
+            }),
+            (r.state = {
+              isEditing: !1,
+              isReporting: !1,
+              showSettings: !1,
+              expandedReplUrl: void 0,
+            }),
+            r
+          ;
           }
           return Object(a.a)(n, [
             {
@@ -10751,10 +10650,10 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     RGhV(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return c;
       }),
-        n.d(t, "b", function () {
+        n.d(t, "b", () => {
           return s;
         });
       var r = n("z7pX"),
@@ -10764,7 +10663,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -10775,12 +10674,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? i(Object(n), !0).forEach(function (t) {
+            ? i(Object(n), !0).forEach(t => {
                 Object(o.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : i(Object(n)).forEach(function (t) {
+            : i(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -10791,7 +10690,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         return e;
       }
       function c(e, t) {
-        return function (n, o) {
+        return (n, o) => {
           if (!o || !o.fetchMoreResult) return n;
           var i = o.fetchMoreResult,
             c = n ? n[e][t].items : [],
@@ -10806,7 +10705,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         };
       }
       function s(e) {
-        return function (t, n) {
+        return (t, n) => {
           if (!n || !n.fetchMoreResult) return t;
           var o = n.fetchMoreResult,
             i = t ? t[e].items : [],
@@ -10890,7 +10789,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             }
             return e;
           },
-        o = (function () {
+        o = (() => {
           class e {
             constructor(e, t) {
               for (var n = 0; n < t.length; n++) {
@@ -10973,21 +10872,20 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               }
               for (n in i) l[typeof i[n]](e, n, p[n], s[n]);
               (t = e.ruleRepetition) && t < 3 && u(t, "options.ruleRepetition");
-              return (
-                (d.encode = (function (e) {
-                  var t = {};
-                  if ("false" === e) return c;
-                  "true" === e && (t.useNamedReferences = !0);
-                  "escape" === e &&
-                    ((t.escapeOnly = !0), (t.useNamedReferences = !0));
-                  return function (e) {
-                    return o(e, t);
-                  };
-                })(String(e.entities))),
-                (d.escape = a(e)),
-                (d.options = e),
-                d
-              );
+              return (d.encode = (e => {
+                var t = {};
+                if ("false" === e) return c;
+                "true" === e && (t.useNamedReferences = !0);
+                "escape" === e &&
+                  ((t.escapeOnly = !0), (t.useNamedReferences = !0));
+                return e => {
+                  return o(e, t);
+                };
+              })(String(e.entities))),
+              (d.escape = a(e)),
+              (d.options = e),
+              d
+            ;
             }
 
             static exports(e) {
@@ -11096,14 +10994,11 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             }
 
             static exports(e) {
-              return (
-                "string" == typeof e ||
-                (!r(e) &&
-                  (function (e) {
-                    return !!e && "object" == typeof e;
-                  })(e) &&
-                  "[object String]" == n.call(e))
-              );
+              return "string" == typeof e ||
+              (!r(e) && (e => {
+                return !!e && "object" == typeof e;
+              })(e) &&
+                "[object String]" == n.call(e));
             }
 
             static exports(t, n, r) {
@@ -11144,11 +11039,10 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
 
             static exports(e) {
               if (
-                !(function (e) {
+                !(e => {
                   return !!e && "object" == typeof e;
                 })(e) ||
-                "[object Object]" != l.call(e) ||
-                (function (e) {
+                "[object Object]" != l.call(e) || (e => {
                   var t = !1;
                   if (null != e && "function" != typeof e.toString)
                     try {
@@ -11165,7 +11059,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             }
           }
 
-          return function (t, n, r) {
+          return (t, n, r) => {
             return n && e(t.prototype, n), r && e(t, r), t;
           };
         })(),
@@ -11190,13 +11084,13 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           };
         return n ? ((o.text = t.value.substr(n, t.selectionStart)), o) : o;
       }
-      var d = (function (e) {
+      var d = (e => {
         function t(e) {
-          !(function (e, t) {
+          !((e, t) => {
             if (!(e instanceof t))
               throw new TypeError("Cannot call a class as a function");
           })(this, t);
-          var n = (function (e, t) {
+          var n = ((e, t) => {
             if (!e)
               throw new ReferenceError(
                 "this hasn't been initialised - super() hasn't been called"
@@ -11213,7 +11107,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             n
           );
         }
-        return (function (e, t) {
+        return ((e, t) => {
           if ("function" !== typeof t && null !== t)
             throw new TypeError(
               "Super expression must either be null or a function, not " +
@@ -11231,8 +11125,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               (Object.setPrototypeOf
                 ? Object.setPrototypeOf(e, t)
                 : (e.__proto__ = t));
-        })(t, e),
-        o(t, [
+        })(t, e), o(t, [
           {
             key: "componentDidMount",
             value() {
@@ -11259,18 +11152,17 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                 h = b.triggerStartPosition;
               if (j) {
                 if (8 === s && f <= h)
-                  return (
-                    this.setState(
-                      { triggered: !1, triggerStartPosition: null },
-                      function () {
-                        setTimeout(function () {
-                          i(u("cancel", t.element));
-                        }, 0);
-                      }
-                    ),
-                    null
-                  );
-                setTimeout(function () {
+                  return this.setState(
+                    { triggered: !1, triggerStartPosition: null },
+                    () => {
+                      setTimeout(() => {
+                        i(u("cancel", t.element));
+                      }, 0);
+                    }
+                  ),
+                  null
+                ;
+                setTimeout(() => {
                   a(u("typing", t.element, h));
                 }, 0);
               } else if (
@@ -11281,20 +11173,19 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                     p === !!r.ctrlKey &&
                     d === !!r.metaKey
               )
-                return (
-                  this.setState(
-                    {
-                      triggered: !0,
-                      triggerStartPosition: f + ("onKeyDown" === c ? 1 : 0),
-                    },
-                    function () {
-                      setTimeout(function () {
-                        o(u("start", t.element));
-                      }, 0);
-                    }
-                  ),
-                  null
-                );
+                return this.setState(
+                  {
+                    triggered: !0,
+                    triggerStartPosition: f + ("onKeyDown" === c ? 1 : 0),
+                  },
+                  () => {
+                    setTimeout(() => {
+                      o(u("start", t.element));
+                    }, 0);
+                  }
+                ),
+                null
+              ;
               return null;
             },
           },
@@ -11318,7 +11209,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                   t.onType,
                   t.endTrigger,
                   t.keyboardEvent),
-                c = (function (e, t) {
+                c = ((e, t) => {
                   var n = {};
                   for (var r in e)
                     t.indexOf(r) >= 0 ||
@@ -11343,7 +11234,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                   ? o
                   : a.default.Children.map(
                       this.props.children,
-                      function (t) {
+                      t => {
                         return a.default.cloneElement(t, {
                           ref(n) {
                             (e.element = n),
@@ -11352,13 +11243,10 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                         });
                       }
                     )
-              )
-            ;
+              );
             },
           },
-        ]),
-        t
-      ;
+        ]), t;
       })(i.Component);
       (d.propTypes = {
         trigger: c.default.oneOfType([
@@ -11391,7 +11279,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     TxNz(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return u;
       });
       var r = n("vJKn"),
@@ -11411,103 +11299,100 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           f = d[1];
         return {
           isLoading: p,
-          uploadImage: c.useCallback(
-            (function () {
-              var e = Object(i.a)(
-                o.a.mark(function e(i) {
-                  var a, c, u, d, p, b;
-                  return o.a.wrap(
-                    function (e) {
-                      for (;;)
-                        switch ((e.prev = e.next)) {
-                          case 0:
-                            return f(!0), (e.next = 3), Object(l.b)(i);
-                          case 3:
-                            if (
-                              null !== (a = e.sent) &&
-                              void 0 !== a &&
-                              a.result
-                            ) {
-                              e.next = 7;
-                              break;
-                            }
-                            return (
-                              r(new Error("Could not read file")),
-                              e.abrupt("return")
-                            );
-                          case 7:
-                            if (!(i.size > 75e4)) {
-                              e.next = 10;
-                              break;
-                            }
-                            return (
-                              r(
-                                new Error(
-                                  "This image is over the 750kb maximum"
-                                )
-                              ),
-                              e.abrupt("return")
-                            );
-                          case 10:
-                            return (
-                              t({ dataUrl: a.result }),
-                              (c = null),
-                              (e.prev = 12),
-                              (e.next = 15),
-                              Object(s.d)("/data/images/upload", {
-                                image: a.result,
-                              })
-                            );
-                          case 15:
-                            (c = e.sent), (e.next = 23);
+          uploadImage: c.useCallback((() => {
+            var e = Object(i.a)(
+              o.a.mark(function e(i) {
+                var a, c, u, d, p, b;
+                return o.a.wrap(
+                  e => {
+                    for (;;)
+                      switch ((e.prev = e.next)) {
+                        case 0:
+                          return f(!0), (e.next = 3), Object(l.b)(i);
+                        case 3:
+                          if (
+                            null !== (a = e.sent) &&
+                            void 0 !== a &&
+                            a.result
+                          ) {
+                            e.next = 7;
                             break;
-                          case 18:
-                            return (
-                              (e.prev = 18),
-                              (e.t0 = e.catch(12)),
-                              (u = e.t0.message
-                                .toLowerCase()
-                                .includes("entity too large")
-                                ? "This image is over the 1mb maximum"
-                                : "Something went wrong"),
-                              r(new Error(u)),
-                              e.abrupt("return")
-                            );
-                          case 23:
-                            if (
-                              ((p = (d = c).id),
-                              (b = d.url),
-                              "number" === typeof p)
-                            ) {
-                              e.next = 26;
-                              break;
-                            }
-                            throw new Error("Expected id");
-                          case 26:
-                            if ("string" === typeof b) {
-                              e.next = 28;
-                              break;
-                            }
-                            throw new Error("Expected url");
-                          case 28:
-                            f(!1), n({ id: p, url: b });
-                          case 30:
-                          case "end":
-                            return e.stop();
-                        }
-                    },
-                    e,
-                    null,
-                    [[12, 18]]
-                  );
-                })
-              );
-              return function (t) {
-                return e.apply(this, arguments);
-              };
-            })(),
-            [r, n, t]
-          ),
+                          }
+                          return (
+                            r(new Error("Could not read file")),
+                            e.abrupt("return")
+                          );
+                        case 7:
+                          if (!(i.size > 75e4)) {
+                            e.next = 10;
+                            break;
+                          }
+                          return (
+                            r(
+                              new Error(
+                                "This image is over the 750kb maximum"
+                              )
+                            ),
+                            e.abrupt("return")
+                          );
+                        case 10:
+                          return (
+                            t({ dataUrl: a.result }),
+                            (c = null),
+                            (e.prev = 12),
+                            (e.next = 15),
+                            Object(s.d)("/data/images/upload", {
+                              image: a.result,
+                            })
+                          );
+                        case 15:
+                          (c = e.sent), (e.next = 23);
+                          break;
+                        case 18:
+                          return (
+                            (e.prev = 18),
+                            (e.t0 = e.catch(12)),
+                            (u = e.t0.message
+                              .toLowerCase()
+                              .includes("entity too large")
+                              ? "This image is over the 1mb maximum"
+                              : "Something went wrong"),
+                            r(new Error(u)),
+                            e.abrupt("return")
+                          );
+                        case 23:
+                          if (
+                            ((p = (d = c).id),
+                            (b = d.url),
+                            "number" === typeof p)
+                          ) {
+                            e.next = 26;
+                            break;
+                          }
+                          throw new Error("Expected id");
+                        case 26:
+                          if ("string" === typeof b) {
+                            e.next = 28;
+                            break;
+                          }
+                          throw new Error("Expected url");
+                        case 28:
+                          f(!1), n({ id: p, url: b });
+                        case 30:
+                        case "end":
+                          return e.stop();
+                      }
+                  },
+                  e,
+                  null,
+                  [[12, 18]]
+                );
+              })
+            );
+            return function (t) {
+              return e.apply(this, arguments);
+            };
+          })(), [r, n, t]),
         };
       }
     },
@@ -11526,7 +11411,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     V4w5(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return s;
       });
       var r = n("cpVT"),
@@ -11537,7 +11422,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -11548,12 +11433,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? a(Object(n), !0).forEach(function (t) {
+            ? a(Object(n), !0).forEach(t => {
                 Object(r.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : a(Object(n)).forEach(function (t) {
+            : a(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -11614,10 +11499,10 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     XpCD(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return v;
       }),
-        n.d(t, "b", function () {
+        n.d(t, "b", () => {
           return y;
         });
       var r = n("cpVT"),
@@ -11639,7 +11524,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -11650,12 +11535,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? m(Object(n), !0).forEach(function (t) {
+            ? m(Object(n), !0).forEach(t => {
                 Object(r.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : m(Object(n)).forEach(function (t) {
+            : m(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -11666,17 +11551,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         return e;
       }
       function g(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -11691,7 +11575,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           return Object(l.a)(this, n);
         };
       }
-      var v = (function (e) {
+      var v = (e => {
         Object(s.a)(n, e);
         var t = g(n);
         function n() {
@@ -11699,26 +11583,22 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           Object(a.a)(this, n);
           for (var r = arguments.length, o = new Array(r), i = 0; i < r; i++)
             o[i] = arguments[i];
-          return (
-            ((e = t.call.apply(t, [this].concat(o))).onValidation = function (
-              t,
-              n
-            ) {
-              e.validations[t] = n;
-            }),
-            (e.onSubmit = function (t) {
-              for (var n in (t.preventDefault(), e.inputs))
-                if ((e.inputs[n].validateNow(), e.validations[n]))
-                  return void e.inputs[n].focus();
-              e.props.onSubmit(t);
-            }),
-            (e.register = function (t, n) {
-              e.inputs[t] = n;
-            }),
-            (e.validations = {}),
-            (e.inputs = {}),
-            e
-          );
+          return ((e = t.call.apply(t, [this].concat(o))).onValidation = (t, n) => {
+            e.validations[t] = n;
+          }),
+          (e.onSubmit = t => {
+            for (var n in (t.preventDefault(), e.inputs))
+              if ((e.inputs[n].validateNow(), e.validations[n]))
+                return void e.inputs[n].focus();
+            e.props.onSubmit(t);
+          }),
+          (e.register = (t, n) => {
+            e.inputs[t] = n;
+          }),
+          (e.validations = {}),
+          (e.inputs = {}),
+          e
+        ;
         }
         return Object(c.a)(n, [
           {
@@ -11755,7 +11635,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
       })(d.Component);
       (v.childContextTypes = { validatedForm: j.a.object }),
         (v.defaultProps = { Component: "form" });
-      var y = (function (e) {
+      var y = (e => {
         Object(s.a)(n, e);
         var t = g(n);
         function n() {
@@ -11839,7 +11719,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         o = n("MX0m"),
         i = n.n(o),
         a = (n("q1tI"), n("EQ2k")),
-        c = function (e) {
+        c = e => {
           var t = e.stroke,
             n = e.width,
             o = e.height;
@@ -11997,7 +11877,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         (t.Profiler = s),
         (t.StrictMode = c),
         (t.Suspense = b),
-        (t.isValidElementType = function (e) {
+        (t.isValidElementType = e => {
           return (
             "string" === typeof e ||
             "function" === typeof e ||
@@ -12015,50 +11895,50 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                 e.$$typeof === f))
           );
         }),
-        (t.isAsyncMode = function (e) {
+        (t.isAsyncMode = e => {
           return x(e) || m(e) === d;
         }),
         (t.isConcurrentMode = x),
-        (t.isContextConsumer = function (e) {
+        (t.isContextConsumer = e => {
           return m(e) === u;
         }),
-        (t.isContextProvider = function (e) {
+        (t.isContextProvider = e => {
           return m(e) === l;
         }),
-        (t.isElement = function (e) {
+        (t.isElement = e => {
           return "object" === typeof e && null !== e && e.$$typeof === o;
         }),
-        (t.isForwardRef = function (e) {
+        (t.isForwardRef = e => {
           return m(e) === f;
         }),
-        (t.isFragment = function (e) {
+        (t.isFragment = e => {
           return m(e) === a;
         }),
-        (t.isLazy = function (e) {
+        (t.isLazy = e => {
           return m(e) === h;
         }),
-        (t.isMemo = function (e) {
+        (t.isMemo = e => {
           return m(e) === j;
         }),
-        (t.isPortal = function (e) {
+        (t.isPortal = e => {
           return m(e) === i;
         }),
-        (t.isProfiler = function (e) {
+        (t.isProfiler = e => {
           return m(e) === s;
         }),
-        (t.isStrictMode = function (e) {
+        (t.isStrictMode = e => {
           return m(e) === c;
         }),
-        (t.isSuspense = function (e) {
+        (t.isSuspense = e => {
           return m(e) === b;
         });
     },
     Zj0H(e, t, n) {
       "use strict";
-      n.d(t, "b", function () {
+      n.d(t, "b", () => {
         return d;
       }),
-        n.d(t, "a", function () {
+        n.d(t, "a", () => {
           return p;
         });
       var r = n("jT3O"),
@@ -12071,12 +11951,11 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         var e = Object(r.a)([
           "\n  query boardBySlug($slug: String!) {\n    board: boardBySlug(slug: $slug) {\n      id\n      name\n      description\n      url\n      cta\n      titleCta\n      bodyCta\n      buttonCta\n      replRequired\n      canPost\n      isLocked\n      template\n    }\n  }\n",
         ]);
-        return (
-          (l = function () {
-            return e;
-          }),
-          e
-        );
+        return (l = () => {
+          return e;
+        }),
+        e
+      ;
       }
       function u() {
         var e = Object(r.a)([
@@ -12086,12 +11965,11 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           "\n  ",
           "\n",
         ]);
-        return (
-          (u = function () {
-            return e;
-          }),
-          e
-        );
+        return (u = () => {
+          return e;
+        }),
+        e
+      ;
       }
       var d = i()(u(), a.b.post, c.d.comment, s.b.user, s.b.answer),
         p = i()(l());
@@ -12108,17 +11986,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         u = n.n(l),
         d = n("q1tI");
       function p(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -12133,7 +12010,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           return Object(a.a)(this, n);
         };
       }
-      var f = function () {
+      var f = () => {
           return Object(s.jsx)("svg", {
             width: "6px",
             height: "9px",
@@ -12167,7 +12044,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             }),
           });
         },
-        b = (function (e) {
+        b = (e => {
           Object(i.a)(n, e);
           var t = p(n);
           function n() {
@@ -12286,7 +12163,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     boci(e, t, n) {
       var r, o, i;
-      !(function (n, a) {
+      !((n, a) => {
         "use strict";
         "object" === typeof e.exports
           ? (e.exports = a())
@@ -12294,7 +12171,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             void 0 ===
               (i = "function" === typeof (r = a) ? r.apply(t, o) : r) ||
               (e.exports = i));
-      })(0, function () {
+      })(0, () => {
         "use strict";
         var e = Object.prototype.toString;
 
@@ -12304,10 +12181,10 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           }
 
           static invalidateFields(e) {
-            return function (t, n) {
-              return d(t.data, e(t, n) || []).forEach(function (e) {
+            return (t, n) => {
+              return d(t.data, e(t, n) || []).forEach(e => {
                 return 1 === e.length && e[0] === c
-                  ? Object.keys(t.data[c]).forEach(function (e) {
+                  ? Object.keys(t.data[c]).forEach(e => {
                       return (0, a.del)(t.data, [c, e]);
                     })
                   : (0, a.del)(t.data, e);
@@ -12362,7 +12239,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               className:
                 i.a.dynamic([["1998241331", [c.a.gray47]]]) + " post-footer",
               children: [
-                a.Children.map(t, function (e, t) {
+                a.Children.map(t, (e, t) => {
                   return Object(r.jsxs)(
                     a.Fragment,
                     { children: [t > 0 && e ? " \xb7 " : null, e] },
@@ -12388,7 +12265,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           static a(e) {
             return Promise.all(
               Array.from(e)
-                .filter(function (e) {
+                .filter(e => {
                   return !!e;
                 })
                 .map(r)
@@ -12419,7 +12296,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               o = n[0],
               a = n[1];
             s.useEffect(
-              function () {
+              () => {
                 a(!0);
               },
               [!0]
@@ -12474,7 +12351,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               f = Object(d.If)().data,
               b = Object(w.a)().showError,
               j = s.a.useCallback(
-                function (t) {
+                t => {
                   if (f && f.currentUser) {
                     var n = f.currentUser;
                     if (
@@ -12491,7 +12368,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                 [f, e.onSubmit]
               );
             s.a.useEffect(
-              function () {
+              () => {
                 f &&
                   f.currentUser &&
                   Object(h.track)(h.events.VERIFY_AND_COMMENT_SPLIT_TEST, {
@@ -12501,7 +12378,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               [f]
             );
             var m = s.a.useCallback(
-              function (e) {
+              e => {
                 13 === e.keyCode &&
                   e.metaKey &&
                   (p.current && p.current.blur && p.current.blur(), j());
@@ -12629,17 +12506,17 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         }
         var o =
           Array.isArray ||
-          function (t) {
+          (t => {
             return "[object Array]" === e.call(t);
-          };
+          });
         function i(e) {
           var t = parseInt(e);
           return t.toString() === e ? t : e;
         }
         function a(e) {
           e = e || {};
-          var a = function (e) {
-            return Object.keys(a).reduce(function (t, n) {
+          var a = e => {
+            return Object.keys(a).reduce((t, n) => {
               return (
                 "create" === n ||
                   ("function" === typeof a[n] && (t[n] = a[n].bind(a, e))),
@@ -12669,101 +12546,98 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                   ("number" === typeof t[1] ? (e[o] = []) : (e[o] = {})),
                 l(e[o], t.slice(1), n, r));
           }
-          return (
-            (a.has = function (n, r) {
+          return (a.has = (n, r) => {
+            if (
+              ("number" === typeof r
+                ? (r = [r])
+                : "string" === typeof r && (r = r.split(".")),
+              !r || 0 === r.length)
+            )
+              return !!n;
+            for (var a = 0; a < r.length; a++) {
+              var c = i(r[a]);
               if (
-                ("number" === typeof r
-                  ? (r = [r])
-                  : "string" === typeof r && (r = r.split(".")),
-                !r || 0 === r.length)
-              )
-                return !!n;
-              for (var a = 0; a < r.length; a++) {
-                var c = i(r[a]);
-                if (
-                  !(
-                    ("number" === typeof c && o(n) && c < n.length) ||
-                    (e.includeInheritedProps ? c in Object(n) : t(n, c))
-                  )
+                !(
+                  ("number" === typeof c && o(n) && c < n.length) ||
+                  (e.includeInheritedProps ? c in Object(n) : t(n, c))
                 )
-                  return !1;
-                n = n[c];
-              }
-              return !0;
-            }),
-            (a.ensureExists = function (e, t, n) {
-              return l(e, t, n, !0);
-            }),
-            (a.set = function (e, t, n, r) {
-              return l(e, t, n, r);
-            }),
-            (a.insert = function (e, t, n, r) {
-              var i = a.get(e, t);
-              (r = ~~r), o(i) || ((i = []), a.set(e, t, i)), i.splice(r, 0, n);
-            }),
-            (a.empty = function (e, t) {
-              var i, s;
-              if (!n(t) && null != e && (i = a.get(e, t))) {
-                if ("string" === typeof i) return a.set(e, t, "");
+              )
+                return !1;
+              n = n[c];
+            }
+            return !0;
+          }),
+          (a.ensureExists = (e, t, n) => {
+            return l(e, t, n, !0);
+          }),
+          (a.set = (e, t, n, r) => {
+            return l(e, t, n, r);
+          }),
+          (a.insert = (e, t, n, r) => {
+            var i = a.get(e, t);
+            (r = ~~r), o(i) || ((i = []), a.set(e, t, i)), i.splice(r, 0, n);
+          }),
+          (a.empty = (e, t) => {
+            var i, s;
+            if (!n(t) && null != e && (i = a.get(e, t))) {
+              if ("string" === typeof i) return a.set(e, t, "");
+              if ((e => {
+                return (
+                  "boolean" === typeof e || "[object Boolean]" === r(e)
+                );
+              })(i))
+                return a.set(e, t, !1);
+              if ("number" === typeof i) return a.set(e, t, 0);
+              if (o(i)) i.length = 0;
+              else {
                 if (
-                  (function (e) {
+                  !(e => {
                     return (
-                      "boolean" === typeof e || "[object Boolean]" === r(e)
+                      "object" === typeof e && "[object Object]" === r(e)
                     );
                   })(i)
                 )
-                  return a.set(e, t, !1);
-                if ("number" === typeof i) return a.set(e, t, 0);
-                if (o(i)) i.length = 0;
-                else {
-                  if (
-                    !(function (e) {
-                      return (
-                        "object" === typeof e && "[object Object]" === r(e)
-                      );
-                    })(i)
-                  )
-                    return a.set(e, t, null);
-                  for (s in i) c(i, s) && delete i[s];
-                }
+                  return a.set(e, t, null);
+                for (s in i) c(i, s) && delete i[s];
               }
-            }),
-            (a.push = function (e, t) {
-              var n = a.get(e, t);
-              o(n) || ((n = []), a.set(e, t, n)),
-                n.push.apply(n, Array.prototype.slice.call(arguments, 2));
-            }),
-            (a.coalesce = function (e, t, n) {
-              for (var r, o = 0, i = t.length; o < i; o++)
-                if (void 0 !== (r = a.get(e, t[o]))) return r;
-              return n;
-            }),
-            (a.get = function (e, t, n) {
-              if (("number" === typeof t && (t = [t]), !t || 0 === t.length))
-                return e;
-              if (null == e) return n;
-              if ("string" === typeof t) return a.get(e, t.split("."), n);
-              var r = i(t[0]),
-                o = s(e, r);
-              return void 0 === o
-                ? n
-                : 1 === t.length
-                ? o
-                : a.get(e[r], t.slice(1), n);
-            }),
-            (a.del = function (e, t) {
-              if (("number" === typeof t && (t = [t]), null == e)) return e;
-              if (n(t)) return e;
-              if ("string" === typeof t) return a.del(e, t.split("."));
-              var r = i(t[0]);
-              return c(e, r)
-                ? 1 !== t.length
-                  ? a.del(e[r], t.slice(1))
-                  : (o(e) ? e.splice(r, 1) : delete e[r], e)
-                : e;
-            }),
-            a
-          );
+            }
+          }),
+          (a.push = function (e, t) {
+            var n = a.get(e, t);
+            o(n) || ((n = []), a.set(e, t, n)),
+              n.push.apply(n, Array.prototype.slice.call(arguments, 2));
+          }),
+          (a.coalesce = (e, t, n) => {
+            for (var r, o = 0, i = t.length; o < i; o++)
+              if (void 0 !== (r = a.get(e, t[o]))) return r;
+            return n;
+          }),
+          (a.get = (e, t, n) => {
+            if (("number" === typeof t && (t = [t]), !t || 0 === t.length))
+              return e;
+            if (null == e) return n;
+            if ("string" === typeof t) return a.get(e, t.split("."), n);
+            var r = i(t[0]),
+              o = s(e, r);
+            return void 0 === o
+              ? n
+              : 1 === t.length
+              ? o
+              : a.get(e[r], t.slice(1), n);
+          }),
+          (a.del = (e, t) => {
+            if (("number" === typeof t && (t = [t]), null == e)) return e;
+            if (n(t)) return e;
+            if ("string" === typeof t) return a.del(e, t.split("."));
+            var r = i(t[0]);
+            return c(e, r)
+              ? 1 !== t.length
+                ? a.del(e[r], t.slice(1))
+                : (o(e) ? e.splice(r, 1) : delete e[r], e)
+              : e;
+          }),
+          a
+        ;
         }
         var c = a();
         return (
@@ -12828,7 +12702,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     ceSv(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return j;
       });
       var r = n("nKUr"),
@@ -12846,7 +12720,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -12857,12 +12731,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? f(Object(n), !0).forEach(function (t) {
+            ? f(Object(n), !0).forEach(t => {
                 Object(o.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : f(Object(n)).forEach(function (t) {
+            : f(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -12890,7 +12764,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           g = x[0],
           v = x[1];
         c.useEffect(
-          function () {
+          () => {
             !g && f && f();
           },
           [g, f]
@@ -12942,7 +12816,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
       }
     },
     eGrx(e, t) {
-      var n = (e.exports = function (e) {
+      var n = (e.exports = e => {
         return new r(e);
       });
       function r(e) {
@@ -13015,29 +12889,28 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           }
           h();
           var m = t.call(j, j.node);
-          return (
-            void 0 !== m && j.update && j.update(m),
-            f.before && f.before.call(j, j.node),
-            b
-              ? ("object" != typeof j.node ||
-                  null === j.node ||
-                  j.circular ||
-                  (o.push(j),
-                  h(),
-                  l(j.keys, function (t, o) {
-                    r.push(t), f.pre && f.pre.call(j, j.node[t], t);
-                    var i = e(j.node[t]);
-                    n && u.call(j.node, t) && (j.node[t] = i.node),
-                      (i.isLast = o == j.keys.length - 1),
-                      (i.isFirst = 0 == o),
-                      f.post && f.post.call(j, i),
-                      r.pop();
-                  }),
-                  o.pop()),
-                f.after && f.after.call(j, j.node),
-                j)
-              : j
-          );
+          return void 0 !== m && j.update && j.update(m),
+          f.before && f.before.call(j, j.node),
+          b
+            ? ("object" != typeof j.node ||
+                null === j.node ||
+                j.circular ||
+                (o.push(j),
+                h(),
+                l(j.keys, (t, o) => {
+                  r.push(t), f.pre && f.pre.call(j, j.node[t], t);
+                  var i = e(j.node[t]);
+                  n && u.call(j.node, t) && (j.node[t] = i.node),
+                    (i.isLast = o == j.keys.length - 1),
+                    (i.isFirst = 0 == o),
+                    f.post && f.post.call(j, i),
+                    r.pop();
+                }),
+                o.pop()),
+              f.after && f.after.call(j, j.node),
+              j)
+            : j
+        ;
         })(e).node;
       }
       function i(e) {
@@ -13046,35 +12919,25 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           if (s(e)) t = [];
           else if ("[object Date]" === c(e))
             t = new Date(e.getTime ? e.getTime() : e);
-          else if (
-            (function (e) {
-              return "[object RegExp]" === c(e);
-            })(e)
-          )
+          else if ((e => {
+            return "[object RegExp]" === c(e);
+          })(e))
             t = new RegExp(e);
-          else if (
-            (function (e) {
-              return "[object Error]" === c(e);
-            })(e)
-          )
+          else if ((e => {
+            return "[object Error]" === c(e);
+          })(e))
             t = { message: e.message };
-          else if (
-            (function (e) {
-              return "[object Boolean]" === c(e);
-            })(e)
-          )
+          else if ((e => {
+            return "[object Boolean]" === c(e);
+          })(e))
             t = new Boolean(e);
-          else if (
-            (function (e) {
-              return "[object Number]" === c(e);
-            })(e)
-          )
+          else if ((e => {
+            return "[object Number]" === c(e);
+          })(e))
             t = new Number(e);
-          else if (
-            (function (e) {
-              return "[object String]" === c(e);
-            })(e)
-          )
+          else if ((e => {
+            return "[object String]" === c(e);
+          })(e))
             t = new String(e);
           else if (Object.create && Object.getPrototypeOf)
             t = Object.create(Object.getPrototypeOf(e));
@@ -13082,15 +12945,14 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           else {
             var n =
                 (e.constructor && e.constructor.prototype) || e.__proto__ || {},
-              r = function () {};
+              r = () => {};
             (r.prototype = n), (t = new r());
           }
-          return (
-            l(a(e), function (n) {
-              t[n] = e[n];
-            }),
-            t
-          );
+          return l(a(e), n => {
+            t[n] = e[n];
+          }),
+          t
+        ;
         }
         return e;
       }
@@ -13161,40 +13023,39 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             for (var o = 0; o < e.length; o++) if (e[o] === r) return t[o];
             if ("object" === typeof r && null !== r) {
               var c = i(r);
-              return (
-                e.push(r),
-                t.push(c),
-                l(a(r), function (e) {
-                  c[e] = n(r[e]);
-                }),
-                e.pop(),
-                t.pop(),
-                c
-              );
+              return e.push(r),
+              t.push(c),
+              l(a(r), e => {
+                c[e] = n(r[e]);
+              }),
+              e.pop(),
+              t.pop(),
+              c
+            ;
             }
             return r;
           })(this.value);
         });
       var a =
         Object.keys ||
-        function (e) {
+        (e => {
           var t = [];
           for (var n in e) t.push(n);
           return t;
-        };
+        });
       function c(e) {
         return Object.prototype.toString.call(e);
       }
       var s =
           Array.isArray ||
-          function (e) {
+          (e => {
             return "[object Array]" === Object.prototype.toString.call(e);
-          },
-        l = function (e, t) {
+          }),
+        l = (e, t) => {
           if (e.forEach) return e.forEach(t);
           for (var n = 0; n < e.length; n++) t(e[n], n, e);
         };
-      l(a(r.prototype), function (e) {
+      l(a(r.prototype), e => {
         n[e] = function (t) {
           var n = [].slice.call(arguments, 1),
             o = new r(t);
@@ -13203,9 +13064,9 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
       });
       var u =
         Object.hasOwnProperty ||
-        function (e, t) {
+        ((e, t) => {
           return t in e;
-        };
+        });
     },
     eoFk(e, t, n) {
       "use strict";
@@ -13237,13 +13098,11 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         l = function () {
           var e =
             arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {};
-          return (
-            Object.keys(e).every(function (e) {
-              return ["type", "id", "generated"].includes(e);
-            }) && Object.keys(e).length > 0
-          );
+          return Object.keys(e).every(e => {
+            return ["type", "id", "generated"].includes(e);
+          }) && Object.keys(e).length > 0;
         },
-        u = (t.findMatchingPaths = function (e, t, n) {
+        u = (t.findMatchingPaths = (e, t, n) => {
           return (0, i.default)(e).reduce(function (e) {
             var r = this;
             return this.isRoot
@@ -13253,7 +13112,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                   n([this.node.id].concat(t.slice(this.path.length))),
                 Array.isArray(this.node) &&
                   l(this.node[0]) &&
-                  this.node.forEach(function (e) {
+                  this.node.forEach(e => {
                     var o = e.id;
                     return n([o].concat(t.slice(r.path.length)));
                   }),
@@ -13262,11 +13121,11 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               : (this.block(), e);
           }, []);
         }),
-        d = (t.matchFinder = function (e, t) {
+        d = (t.matchFinder = (e, t) => {
           for (
             var n = 0,
               r = [],
-              o = function (e) {
+              o = e => {
                 return t.push(e);
               };
             t[n];
@@ -13283,7 +13142,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         i = n.n(o),
         a = (n("q1tI"), n("XLFt")),
         c = n("up5I"),
-        s = function (e) {
+        s = e => {
           return Object(r.jsxs)("div", {
             className: "jsx-665792193 post-form-footer",
             children: [
@@ -13353,7 +13212,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     jmGw(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return m;
       });
       var r = n("nKUr"),
@@ -13370,17 +13229,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         b = n("FIf5"),
         j = n.n(b);
       function h(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -13395,7 +13253,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           return Object(s.a)(this, n);
         };
       }
-      var m = (function (e) {
+      var m = (e => {
         Object(c.a)(n, e);
         var t = h(n);
         function n() {
@@ -13403,17 +13261,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           Object(o.a)(this, n);
           for (var r = arguments.length, i = new Array(r), c = 0; c < r; c++)
             i[c] = arguments[c];
-          return (
-            (e = t.call.apply(t, [this].concat(i))),
-            Object(u.a)(Object(a.a)(e), "codeEl", void 0),
-            Object(u.a)(Object(a.a)(e), "setRef", function (t) {
-              return (e.codeEl = t);
-            }),
-            Object(u.a)(Object(a.a)(e), "highlightCode", function () {
-              e.codeEl && j.a.highlightBlock(e.codeEl);
-            }),
-            e
-          );
+          return (e = t.call.apply(t, [this].concat(i))),
+          Object(u.a)(Object(a.a)(e), "codeEl", void 0),
+          Object(u.a)(Object(a.a)(e), "setRef", t => {
+            return (e.codeEl = t);
+          }),
+          Object(u.a)(Object(a.a)(e), "highlightCode", () => {
+            e.codeEl && j.a.highlightBlock(e.codeEl);
+          }),
+          e
+        ;
         }
         return Object(i.a)(n, [
           {
@@ -13467,7 +13324,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     kFXa(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return h;
       });
       var r = n("nKUr"),
@@ -13482,17 +13339,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         p = n("q1tI"),
         f = n("n/dw");
       function b(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -13507,10 +13363,10 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           return Object(u.a)(this, n);
         };
       }
-      var j = function (e) {
+      var j = e => {
           return e && (e.stopPropagation(), e.preventDefault()), !!e;
         },
-        h = (function (e) {
+        h = (e => {
           Object(l.a)(n, e);
           var t = b(n);
           function n() {
@@ -13518,38 +13374,37 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             Object(c.a)(this, n);
             for (var r = arguments.length, o = new Array(r), i = 0; i < r; i++)
               o[i] = arguments[i];
-            return (
-              ((e = t.call.apply(t, [this].concat(o))).state = {
-                active: !1,
-                loading: !1,
-              }),
-              (e.handleFileChosen = function () {
-                var t =
-                  e._fileInput && e._fileInput.files
-                    ? e._fileInput.files
-                    : null;
-                t && e.readFiles(t);
-              }),
-              (e.handleFileDropped = function (t) {
-                var n = t.dataTransfer.files;
-                n && e.readFiles(n);
-              }),
-              (e.handleActive = function () {
-                return e.setState({ active: !0 });
-              }),
-              (e.handleInactive = function () {
-                return e.setState({ active: !1 });
-              }),
-              (e.handleOpenFileBrowser = function () {
-                e._fileInput && e._fileInput.click();
-              }),
-              e
-            );
+            return ((e = t.call.apply(t, [this].concat(o))).state = {
+              active: !1,
+              loading: !1,
+            }),
+            (e.handleFileChosen = () => {
+              var t =
+                e._fileInput && e._fileInput.files
+                  ? e._fileInput.files
+                  : null;
+              t && e.readFiles(t);
+            }),
+            (e.handleFileDropped = t => {
+              var n = t.dataTransfer.files;
+              n && e.readFiles(n);
+            }),
+            (e.handleActive = () => {
+              return e.setState({ active: !0 });
+            }),
+            (e.handleInactive = () => {
+              return e.setState({ active: !1 });
+            }),
+            (e.handleOpenFileBrowser = () => {
+              e._fileInput && e._fileInput.click();
+            }),
+            e
+          ;
           }
           return Object(s.a)(n, [
             {
               key: "readFiles",
-              value: (function () {
+              value: (() => {
                 var e = Object(a.a)(
                   i.a.mark(function e(t) {
                     var n;
@@ -13639,8 +13494,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               },
             },
           ]),
-          n
-        ;
+          n;
         })(p.Component);
     },
     kFyI(e, t, n) {
@@ -13649,7 +13503,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         o = n("MX0m"),
         i = n.n(o),
         a = (n("q1tI"), n("EQ2k")),
-        c = function (e) {
+        c = e => {
           var t = e.fill,
             n = e.width,
             o = e.height;
@@ -13723,11 +13577,11 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         a = n("J5yW"),
         c = n("uqHX");
       (e.exports = f),
-        (f.escape = function (e) {
+        (f.escape = e => {
           return f(e, { escapeOnly: !0, useNamedReferences: !0 });
         });
       var s = {}.hasOwnProperty,
-        l = (function () {
+        l = (() => {
           var e,
             t = {};
           for (e in r) t[r[e]] = e;
@@ -13742,50 +13596,48 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           o = r ? h(r) : u,
           i = n.escapeOnly,
           a = n.omitOptionalSemicolons;
-        return (
-          (e = e.replace(o, function (e, t, r) {
-            return b(e, r.charAt(t + 1), n);
-          })),
-          r || i
-            ? e
-            : e
-                .replace(d, function (e, t, n) {
-                  return j(
-                    1024 * (e.charCodeAt(0) - 55296) +
-                      e.charCodeAt(1) -
-                      56320 +
-                      65536,
-                    n.charAt(t + 2),
-                    a
-                  );
-                })
-                .replace(p, function (e, t, r) {
-                  return b(e, r.charAt(t + 1), n);
-                })
-        );
+        return (e = e.replace(o, (e, t, r) => {
+          return b(e, r.charAt(t + 1), n);
+        })),
+        r || i
+          ? e
+          : e
+              .replace(d, (e, t, n) => {
+                return j(
+                  1024 * (e.charCodeAt(0) - 55296) +
+                    e.charCodeAt(1) -
+                    56320 +
+                    65536,
+                  n.charAt(t + 2),
+                  a
+                );
+              })
+              .replace(p, (e, t, r) => {
+                return b(e, r.charAt(t + 1), n);
+              })
+      ;
       }
       function b(e, t, n) {
         var r,
           i,
           u = n.useShortestReferences,
           d = n.omitOptionalSemicolons;
-        return (
-          (u || n.useNamedReferences) &&
-            s.call(l, e) &&
-            (r = (function (e, t, n, r) {
-              var i = "&" + e;
-              if (
-                n &&
-                s.call(o, e) &&
-                -1 === c.indexOf(e) &&
-                (!r || (t && "=" !== t && !a(t)))
-              )
-                return i;
-              return i + ";";
-            })(l[e], t, d, n.attribute)),
-          (!u && r) || (i = j(e.charCodeAt(0), t, d)),
-          r && (!u || r.length < i.length) ? r : i
-        );
+        return (u || n.useNamedReferences) &&
+          s.call(l, e) &&
+          (r = ((e, t, n, r) => {
+            var i = "&" + e;
+            if (
+              n &&
+              s.call(o, e) &&
+              -1 === c.indexOf(e) &&
+              (!r || (t && "=" !== t && !a(t)))
+            )
+              return i;
+            return i + ";";
+          })(l[e], t, d, n.attribute)),
+        (!u && r) || (i = j(e.charCodeAt(0), t, d)),
+        r && (!u || r.length < i.length) ? r : i
+      ;
       }
       function j(e, t, n) {
         var r = "&#x" + e.toString(16).toUpperCase();
@@ -13814,13 +13666,13 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     "n/dw": function (e, t, n) {
       "use strict";
-      n.d(t, "b", function () {
+      n.d(t, "b", () => {
         return r;
       });
-      var r = function (e) {
-        return new Promise(function (t, n) {
+      var r = e => {
+        return new Promise((t, n) => {
           var r = new window.FileReader();
-          (r.onload = function (n) {
+          (r.onload = n => {
             n.target ? t({ name: e.name, result: n.target.result }) : t(null);
           }),
             (r.onerror = n),
@@ -13834,7 +13686,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     nhGb(e, t, n) {
       "use strict";
-      n.d(t, "b", function () {
+      n.d(t, "b", () => {
         return l;
       });
       var r = n("cpVT"),
@@ -13845,7 +13697,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -13856,12 +13708,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? a(Object(n), !0).forEach(function (t) {
+            ? a(Object(n), !0).forEach(t => {
                 Object(r.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : a(Object(n)).forEach(function (t) {
+            : a(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -13872,12 +13724,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         return e;
       }
       var s = ["gmail.com", "hotmail.com", "yahoo.com"],
-        l = function (e) {
-          return s.some(function (t) {
+        l = e => {
+          return s.some(t => {
             return e.endsWith(t);
           });
         },
-        u = function () {
+        u = () => {
           return Object(o.jsxs)("svg", {
             xmlns: "http://www.w3.org/2000/svg",
             width: "24",
@@ -13893,7 +13745,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         };
     },
     oOwn(e, t, n) {
-      !(function () {
+      !(() => {
         var t = [
             "direction",
             "boxSizing",
@@ -13953,7 +13805,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             d || (l.wordWrap = "break-word"),
             (l.position = "absolute"),
             a || (l.visibility = "hidden"),
-            t.forEach(function (e) {
+            t.forEach(e => {
               d && "lineHeight" === e
                 ? (l.lineHeight = u.height)
                 : (l[e] = u[e]);
@@ -13984,7 +13836,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     rcAQ(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return u;
       });
       var r = n("nKUr"),
@@ -13998,7 +13850,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         var t = Object(l.a)().showError,
           n = e.comment,
           u = Object(i.e)(),
-          d = Object(i.f)(function (e) {
+          d = Object(i.f)(e => {
             return e.user.userInfo.isLoggedIn;
           }, i.d),
           p = Object(c.Db)({
@@ -14036,7 +13888,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     sLtE(e, t, n) {
       "use strict";
-      n.d(t, "a", function () {
+      n.d(t, "a", () => {
         return s;
       });
       var r = n("nKUr"),
@@ -14152,7 +14004,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     vKT1(e, t, n) {
       "use strict";
-      n.d(t, "b", function () {
+      n.d(t, "b", () => {
         return y;
       });
       var r = n("nKUr"),
@@ -14213,7 +14065,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var r = Object.getOwnPropertySymbols(e);
           t &&
-            (r = r.filter(function (t) {
+            (r = r.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             n.push.apply(n, r);
@@ -14224,12 +14076,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var n = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? h(Object(n), !0).forEach(function (t) {
+            ? h(Object(n), !0).forEach(t => {
                 Object(o.a)(e, t, n[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n))
-            : h(Object(n)).forEach(function (t) {
+            : h(Object(n)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -14240,10 +14092,10 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         return e;
       }
       var x = /\/(@[0-9a-zA-Z_]+|repls)\/[0-9a-zA-Z-]+$/,
-        g = function (e) {
+        g = e => {
           return e.hostname && e.hostname.includes("repl.co");
         },
-        v = function (e) {
+        v = e => {
           if (!e.href) return !1;
           if (!e.hostname && x.test(e.pathname)) return !0;
           var t = "repl.it" === e.hostname;
@@ -14251,7 +14103,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             (e.href.startsWith("https://replit.com") || t) && x.test(e.pathname)
           );
         },
-        y = function (e) {
+        y = e => {
           var t = new u.a(e);
           return !!g(t) || v(t);
         };
@@ -14308,7 +14160,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         x = n("EQ2k"),
         g = n("2vPd"),
         v = n("J1fo"),
-        y = function () {
+        y = () => {
           var e = Object(d.Jf)(),
             t = Object(o.a)(e, 2),
             n = t[0],
@@ -14340,7 +14192,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             }),
           });
         },
-        O = function (e) {
+        O = e => {
           var t = e.onVerification,
             n = Object(d.If)(),
             o = n.data,
@@ -14348,7 +14200,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             c = n.stopPolling;
           if (
             (s.a.useEffect(
-              function () {
+              () => {
                 return (
                   o &&
                     o.currentUser &&
@@ -14432,13 +14284,13 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         u =
           ((n = Object.getPrototypeOf),
           (r = Object),
-          function (e) {
+          e => {
             return n(r(e));
           });
     },
     zhTl(e, t, n) {
       "use strict";
-      n.d(t, "b", function () {
+      n.d(t, "b", () => {
         return j;
       });
       var r = n("nKUr"),
@@ -14455,24 +14307,22 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         var e = Object(o.a)([
           "\n    fragment PostAnsweredCardComment on Comment {\n      id\n      url\n    }\n  ",
         ]);
-        return (
-          (f = function () {
-            return e;
-          }),
-          e
-        );
+        return (f = () => {
+          return e;
+        }),
+        e
+      ;
       }
       function b() {
         var e = Object(o.a)([
           "\n    fragment PostAnsweredCardUser on User {\n      id\n      username\n      ...DepreciatedUserLabelUser\n    }\n    ",
           "\n  ",
         ]);
-        return (
-          (b = function () {
-            return e;
-          }),
-          e
-        );
+        return (b = () => {
+          return e;
+        }),
+        e
+      ;
       }
       var j = { user: s()(b(), p.b.fragments.user), answer: s()(f()) };
     },

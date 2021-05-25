@@ -4,7 +4,7 @@
     "+0Jc": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (
             (0, a.default)(e),
             e
@@ -25,7 +25,7 @@
     "+G+R": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), l.fullWidth.test(e) && o.halfWidth.test(e);
         });
       var u,
@@ -39,10 +39,10 @@
       function u(e) {
         return (u =
           "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
-            ? function (e) {
+            ? e => {
                 return typeof e;
               }
-            : function (e) {
+            : e => {
                 return e &&
                   "function" === typeof Symbol &&
                   e.constructor === Symbol &&
@@ -141,12 +141,11 @@
       function Te() {
         if ("function" !== typeof WeakMap) return null;
         var e = new WeakMap();
-        return (
-          (Te = function () {
-            return e;
-          }),
-          e
-        );
+        return (Te = () => {
+          return e;
+        }),
+        e
+      ;
       }
       function je(e) {
         if (e && e.__esModule) return e;
@@ -283,7 +282,7 @@
     "/Cot": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           t = (0, a.default)(t, l);
           var r = e.split("@"),
             u = r.pop(),
@@ -461,7 +460,7 @@
     "0Ibz": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), l.test(e);
         });
       var u,
@@ -472,7 +471,7 @@
     "1J+o": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           (0, a.default)(e), (t = t || {});
           var r = new RegExp(
             "^(?:[-+])?(?:[0-9]+)?(?:\\".concat(
@@ -502,10 +501,10 @@
       function u(e) {
         return (u =
           "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
-            ? function (e) {
+            ? e => {
                 return typeof e;
               }
-            : function (e) {
+            : e => {
                 return e &&
                   "function" === typeof Symbol &&
                   e.constructor === Symbol &&
@@ -515,7 +514,7 @@
               })(e);
       }
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           if (!("string" === typeof e || e instanceof String)) {
             var t;
             throw (
@@ -537,7 +536,7 @@
     "2JKs": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           if (((0, a.default)(e), t && t.no_symbols)) return o.test(e);
           return l.test(e);
         });
@@ -550,7 +549,7 @@
     "2yzk": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           (0, a.default)(e);
           var r = t
             ? new RegExp(
@@ -567,7 +566,7 @@
     "3D9P": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), l.test(e);
         }),
         (t.fullWidth = void 0);
@@ -580,7 +579,7 @@
     "3iRO": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           return (
             (0, a.default)(e),
             new RegExp("^[a-fA-F0-9]{".concat(l[t], "}$")).test(e)
@@ -608,7 +607,7 @@
     "538l": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), l.test(e);
         });
       var u,
@@ -634,7 +633,7 @@
     "7UCG": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), l.test(e);
         });
       var u,
@@ -645,12 +644,12 @@
     "8xe9": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           if (((0, a.default)(e), !l.test(e))) return !1;
           for (
             var t,
               r,
-              u = e.replace(/[A-Z]/g, function (e) {
+              u = e.replace(/[A-Z]/g, e => {
                 return parseInt(e, 36);
               }),
               o = 0,
@@ -673,7 +672,7 @@
     "9+9c": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), ["true", "false", "1", "0"].indexOf(e) >= 0;
         });
       var u,
@@ -697,10 +696,10 @@
       function l(e) {
         return (l =
           "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
-            ? function (e) {
+            ? e => {
                 return typeof e;
               }
-            : function (e) {
+            : e => {
                 return e &&
                   "function" === typeof Symbol &&
                   e.constructor === Symbol &&
@@ -714,7 +713,7 @@
     "D/nH": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), l.test(e);
         });
       var u,
@@ -725,7 +724,7 @@
     "DO/+": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t, r) {
+        (t.default = (e, t, r) => {
           (0, a.default)(e),
             "[object RegExp]" !== Object.prototype.toString.call(t) &&
               (t = new RegExp(t, r));
@@ -753,10 +752,10 @@
       function l(e) {
         return (l =
           "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
-            ? function (e) {
+            ? e => {
                 return typeof e;
               }
-            : function (e) {
+            : e => {
                 return e &&
                   "function" === typeof Symbol &&
                   e.constructor === Symbol &&
@@ -770,7 +769,7 @@
     EAgE(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), l.test(e) || o.test(e) || n.test(e);
         });
       var u,
@@ -786,7 +785,7 @@
     EFtU(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           if (((0, a.default)(e), t)) return "1" === e || /^true$/i.test(e);
           return "0" !== e && !/^false$/i.test(e) && "" !== e;
         });
@@ -797,7 +796,7 @@
     ErBW(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           var r = e.replace(/\s/g, "").toUpperCase();
           return t.toUpperCase() in u && u[t].test(r);
         });
@@ -849,7 +848,7 @@
     FtRZ(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           if (((0, a.default)(e), !e.includes(","))) return !1;
           var t = e.split(",");
           return (
@@ -871,8 +870,8 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = void 0);
-      var u = function (e, t) {
-        return e.some(function (e) {
+      var u = (e, t) => {
+        return e.some(e => {
           return t === e;
         });
       };
@@ -881,7 +880,7 @@
     HNc6(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), l.test(e);
         });
       var u,
@@ -893,7 +892,7 @@
     HpFX(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), e === e.toLowerCase();
         });
       var u,
@@ -903,7 +902,7 @@
     J75B(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (
             (0, a.default)(e),
             e
@@ -924,7 +923,7 @@
     "JJH+": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), e === e.toUpperCase();
         });
       var u,
@@ -1088,7 +1087,7 @@
     JbVE(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), l.test(e) || o.test(e);
         });
       var u,
@@ -1102,48 +1101,47 @@
     Kydv(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
-          return (
-            (0, a.default)(e),
-            (function (e) {
-              var t = "\\d{".concat(e.digits_after_decimal[0], "}");
-              e.digits_after_decimal.forEach(function (e, r) {
-                0 !== r && (t = "".concat(t, "|\\d{").concat(e, "}"));
-              });
-              var r = "(\\"
-                  .concat(e.symbol.replace(/\./g, "\\."), ")")
-                  .concat(e.require_symbol ? "" : "?"),
-                u = "-?",
-                a = "[1-9]\\d{0,2}(\\".concat(
-                  e.thousands_separator,
-                  "\\d{3})*"
-                ),
-                l = "(".concat(["0", "[1-9]\\d*", a].join("|"), ")?"),
-                o = "(\\"
-                  .concat(e.decimal_separator, "(")
-                  .concat(t, "))")
-                  .concat(e.require_decimal ? "" : "?"),
-                n = l + (e.allow_decimal || e.require_decimal ? o : "");
-              e.allow_negatives &&
-                !e.parens_for_negatives &&
-                (e.negative_sign_after_digits
-                  ? (n += u)
-                  : e.negative_sign_before_digits && (n = u + n));
-              e.allow_negative_sign_placeholder
-                ? (n = "( (?!\\-))?".concat(n))
-                : e.allow_space_after_symbol
-                ? (n = " ?".concat(n))
-                : e.allow_space_after_digits && (n += "( (?!$))?");
-              e.symbol_after_digits ? (n += r) : (n = r + n);
-              e.allow_negatives &&
-                (e.parens_for_negatives
-                  ? (n = "(\\(".concat(n, "\\)|").concat(n, ")"))
-                  : e.negative_sign_before_digits ||
-                    e.negative_sign_after_digits ||
-                    (n = u + n));
-              return new RegExp("^(?!-? )(?=.*\\d)".concat(n, "$"));
-            })((t = (0, u.default)(t, o))).test(e)
-          );
+        (t.default = (e, t) => {
+          return (0, a.default)(e),
+          (e => {
+            var t = "\\d{".concat(e.digits_after_decimal[0], "}");
+            e.digits_after_decimal.forEach((e, r) => {
+              0 !== r && (t = "".concat(t, "|\\d{").concat(e, "}"));
+            });
+            var r = "(\\"
+                .concat(e.symbol.replace(/\./g, "\\."), ")")
+                .concat(e.require_symbol ? "" : "?"),
+              u = "-?",
+              a = "[1-9]\\d{0,2}(\\".concat(
+                e.thousands_separator,
+                "\\d{3})*"
+              ),
+              l = "(".concat(["0", "[1-9]\\d*", a].join("|"), ")?"),
+              o = "(\\"
+                .concat(e.decimal_separator, "(")
+                .concat(t, "))")
+                .concat(e.require_decimal ? "" : "?"),
+              n = l + (e.allow_decimal || e.require_decimal ? o : "");
+            e.allow_negatives &&
+              !e.parens_for_negatives &&
+              (e.negative_sign_after_digits
+                ? (n += u)
+                : e.negative_sign_before_digits && (n = u + n));
+            e.allow_negative_sign_placeholder
+              ? (n = "( (?!\\-))?".concat(n))
+              : e.allow_space_after_symbol
+              ? (n = " ?".concat(n))
+              : e.allow_space_after_digits && (n += "( (?!$))?");
+            e.symbol_after_digits ? (n += r) : (n = r + n);
+            e.allow_negatives &&
+              (e.parens_for_negatives
+                ? (n = "(\\(".concat(n, "\\)|").concat(n, ")"))
+                : e.negative_sign_before_digits ||
+                  e.negative_sign_after_digits ||
+                  (n = u + n));
+            return new RegExp("^(?!-? )(?=.*\\d)".concat(n, "$"));
+          })(t = (0, u.default)(t, o)).test(e)
+        ;
         });
       var u = l(r("5AlR")),
         a = l(r("2Idn"));
@@ -1202,7 +1200,7 @@
     O24X(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           if (
             ((0, a.default)(e), "en_US_POSIX" === e || "ca_ES_VALENCIA" === e)
           )
@@ -1217,29 +1215,25 @@
     OPR6(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
-          return (
-            (0, a.default)(e),
-            (function (e) {
-              var t = e.replace(/[\s\-]+/gi, "").toUpperCase(),
-                r = t.slice(0, 2).toUpperCase();
-              return r in l && l[r].test(t);
-            })(e) &&
-              (function (e) {
-                var t = e.replace(/[^A-Z0-9]+/gi, "").toUpperCase();
-                return (
-                  1 ===
-                  (t.slice(4) + t.slice(0, 4))
-                    .replace(/[A-Z]/g, function (e) {
-                      return e.charCodeAt(0) - 55;
-                    })
-                    .match(/\d{1,7}/g)
-                    .reduce(function (e, t) {
-                      return Number(e + t) % 97;
-                    }, "")
-                );
-              })(e)
-          );
+        (t.default = e => {
+          return (0, a.default)(e),
+          (e => {
+            var t = e.replace(/[\s\-]+/gi, "").toUpperCase(),
+              r = t.slice(0, 2).toUpperCase();
+            return r in l && l[r].test(t);
+          })(e) && (e => {
+            var t = e.replace(/[^A-Z0-9]+/gi, "").toUpperCase();
+            return 1 ===
+            (t.slice(4) + t.slice(0, 4))
+              .replace(/[A-Z]/g, e => {
+                return e.charCodeAt(0) - 55;
+              })
+              .match(/\d{1,7}/g)
+              .reduce((e, t) => {
+                return Number(e + t) % 97;
+              }, "");
+          })(e)
+        ;
         });
       var u,
         a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
@@ -1357,7 +1351,7 @@
     PBn2(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, u.default)(e), (0, a.default)(o, e.toUpperCase());
         });
       var u = l(r("2Idn")),
@@ -1621,7 +1615,7 @@
     PKOW(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           return (
             (0, a.default)(e),
             e.replace(new RegExp("[^".concat(t, "]+"), "g"), "")
@@ -1642,84 +1636,78 @@
         isEmail: [[o.isEmail, "Invalid email address"]],
         email: [
           [o.isEmail, "Invalid email address"],
-          [
-            (function () {
-              var e = Object(l.a)(
-                a.a.mark(function e(t) {
-                  var r, u;
-                  return a.a.wrap(function (e) {
-                    for (;;)
-                      switch ((e.prev = e.next)) {
-                        case 0:
-                          return (
-                            (e.next = 2),
-                            Object(n.d)("/data/user/exists", { email: t })
-                          );
-                        case 2:
-                          return (
-                            (r = e.sent), (u = r.exists), e.abrupt("return", !u)
-                          );
-                        case 5:
-                        case "end":
-                          return e.stop();
-                      }
-                  }, e);
-                })
-              );
-              return function (t) {
-                return e.apply(this, arguments);
-              };
-            })(),
-            "Email already in use",
-          ],
+          [(() => {
+            var e = Object(l.a)(
+              a.a.mark(function e(t) {
+                var r, u;
+                return a.a.wrap(e => {
+                  for (;;)
+                    switch ((e.prev = e.next)) {
+                      case 0:
+                        return (
+                          (e.next = 2),
+                          Object(n.d)("/data/user/exists", { email: t })
+                        );
+                      case 2:
+                        return (
+                          (r = e.sent), (u = r.exists), e.abrupt("return", !u)
+                        );
+                      case 5:
+                      case "end":
+                        return e.stop();
+                    }
+                }, e);
+              })
+            );
+            return function (t) {
+              return e.apply(this, arguments);
+            };
+          })(), "Email already in use"],
         ],
         username: [
           [
-            function (e) {
+            e => {
               return Object(o.isByteLength)(e, 2, 15);
             },
             "Your username must be between 2 and 15 characters",
           ],
           [
-            function (e) {
+            e => {
               return !!e.match(/^[0-9a-zA-Z]+$/);
             },
             "Your username can only contain alphanumeric characters (letters A-Z, numbers 0-9)",
           ],
-          [
-            (function () {
-              var e = Object(l.a)(
-                a.a.mark(function e(t) {
-                  var r, u;
-                  return a.a.wrap(function (e) {
-                    for (;;)
-                      switch ((e.prev = e.next)) {
-                        case 0:
-                          return (
-                            (e.next = 2),
-                            Object(n.d)("/data/user/exists", { username: t })
-                          );
-                        case 2:
-                          return (
-                            (r = e.sent), (u = r.exists), e.abrupt("return", !u)
-                          );
-                        case 5:
-                        case "end":
-                          return e.stop();
-                      }
-                  }, e);
-                })
-              );
-              return function (t) {
-                return e.apply(this, arguments);
-              };
-            })(),
-            "Username is taken",
-          ],
+          [(() => {
+            var e = Object(l.a)(
+              a.a.mark(function e(t) {
+                var r, u;
+                return a.a.wrap(e => {
+                  for (;;)
+                    switch ((e.prev = e.next)) {
+                      case 0:
+                        return (
+                          (e.next = 2),
+                          Object(n.d)("/data/user/exists", { username: t })
+                        );
+                      case 2:
+                        return (
+                          (r = e.sent), (u = r.exists), e.abrupt("return", !u)
+                        );
+                      case 5:
+                      case "end":
+                        return e.stop();
+                    }
+                }, e);
+              })
+            );
+            return function (t) {
+              return e.apply(this, arguments);
+            };
+          })(), "Username is taken"],
         ],
         name: [
           [
-            function (e) {
+            e => {
               return Object(o.isByteLength)(e, 1, 255);
             },
             "Your name must be at least 1 character long",
@@ -1727,7 +1715,7 @@
         ],
         password: [
           [
-            function (e) {
+            e => {
               return Object(o.isByteLength)(e, 6, 255);
             },
             "Your password must be at least 6 characters long",
@@ -1735,7 +1723,7 @@
         ],
         classroomName: [
           [
-            function (e) {
+            e => {
               return Object(o.isByteLength)(e, 1, 255);
             },
             "Classroom name must be at least 1 character long",
@@ -1743,7 +1731,7 @@
         ],
         replTitle: [
           [
-            function (e) {
+            e => {
               return Object(o.isByteLength)(e, 1, 60);
             },
             "Titles must be between 1 and 60 characters",
@@ -1751,7 +1739,7 @@
         ],
         replDescription: [
           [
-            function (e) {
+            e => {
               return Object(o.isByteLength)(e, 0, 255);
             },
             "Description should not be longer than 255 characters",
@@ -1759,7 +1747,7 @@
         ],
         notEmpty: [
           [
-            function (e) {
+            e => {
               return !Object(o.isEmpty)(e);
             },
             "Cannot be empty",
@@ -1767,7 +1755,7 @@
         ],
         postTitle: [
           [
-            function (e) {
+            e => {
               return (
                 Object(o.isByteLength)(e, 1, 100) && !!e.match(/[0-9a-zA-Z]+/)
               );
@@ -1777,13 +1765,13 @@
         ],
         replTag: [
           [
-            function (e) {
+            e => {
               return Object(o.isByteLength)(e, 2, 15);
             },
             "Tag must be between 2 and 15 characters",
           ],
           [
-            function (e) {
+            e => {
               return !!e.match(/^[0-9a-zA-Z_]+$/);
             },
             "Tag must be alphanumeric characters",
@@ -1791,13 +1779,13 @@
         ],
         replFolderName: [
           [
-            function (e) {
+            e => {
               return Object(o.isByteLength)(e.trim(), 1, 60);
             },
             "Folder name must be between 1 and 60 characters",
           ],
           [
-            function (e) {
+            e => {
               return !e.match(/[/*?"\\]+/);
             },
             'Folder name cannot contain /, *, ", ? \\',
@@ -1808,7 +1796,7 @@
     RQtV(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (
             (0, a.default)(e),
             (e = Date.parse(e)),
@@ -1822,7 +1810,7 @@
     RSp8(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), l.test(e);
         });
       var u,
@@ -1833,7 +1821,7 @@
     T6ea(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), l.test(e);
         });
       var u,
@@ -1844,7 +1832,7 @@
     T92C(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           return (0, u.default)(e), (0, a.default)(e) % parseInt(t, 10) === 0;
         });
       var u = l(r("2Idn")),
@@ -1857,7 +1845,7 @@
     TCPB(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           (0, a.default)(e);
           try {
             var t = JSON.parse(e);
@@ -1870,10 +1858,10 @@
       function l(e) {
         return (l =
           "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
-            ? function (e) {
+            ? e => {
                 return typeof e;
               }
-            : function (e) {
+            : e => {
                 return e &&
                   "function" === typeof Symbol &&
                   e.constructor === Symbol &&
@@ -1887,7 +1875,7 @@
     "Tz/F": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           (0, a.default)(e);
           var t = e.split(",");
           if (t.length < 2) return !1;
@@ -1912,7 +1900,7 @@
     UqDR(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), l.test(e);
         });
       var u,
@@ -1941,7 +1929,7 @@
     WYc2(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, u.default)(e), (0, a.default)(e) && 24 === e.length;
         });
       var u = l(r("2Idn")),
@@ -1954,7 +1942,7 @@
     XaH3(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           (0, a.default)(e);
           for (var r = e.length - 1; r >= 0; r--)
             if (-1 === t.indexOf(e[r])) return !1;
@@ -1967,21 +1955,19 @@
     XmUC(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           if (
             ((0, a.default)(e), (t = (0, u.default)(t, d)).locale in o.decimal)
           )
-            return (
-              !(0, l.default)(f, e.replace(/ /g, "")) &&
-              (function (e) {
-                return new RegExp(
-                  "^[-+]?([0-9]+)?(\\"
-                    .concat(o.decimal[e.locale], "[0-9]{")
-                    .concat(e.decimal_digits, "})")
-                    .concat(e.force_decimal ? "" : "?", "$")
-                );
-              })(t).test(e)
-            );
+            return !(0, l.default)(f, e.replace(/ /g, "")) &&
+            (e => {
+              return new RegExp(
+                "^[-+]?([0-9]+)?(\\"
+                  .concat(o.decimal[e.locale], "[0-9]{")
+                  .concat(e.decimal_digits, "})")
+                  .concat(e.force_decimal ? "" : "?", "$")
+              );
+            })(t).test(e);
           throw new Error("Invalid locale '".concat(t.locale, "'"));
         });
       var u = n(r("5AlR")),
@@ -1998,7 +1984,7 @@
     YAXW(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           if (((0, a.default)(e), t in l)) return l[t](e);
           if ("any" === t) {
             for (var r in l) {
@@ -2016,7 +2002,7 @@
           var t = { X: 0, Y: 1, Z: 2 },
             r = e.trim().toUpperCase();
           if (!/^[0-9X-Z][0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKE]$/.test(r)) return !1;
-          var u = r.slice(0, -1).replace(/[X,Y,Z]/g, function (e) {
+          var u = r.slice(0, -1).replace(/[X,Y,Z]/g, e => {
             return t[e];
           });
           return r.endsWith(
@@ -2084,18 +2070,16 @@
               Z: 33,
             },
             r = e.trim().toUpperCase();
-          return (
-            !!/^[A-Z][0-9]{9}$/.test(r) &&
-            Array.from(r).reduce(function (e, r, u) {
-              if (0 === u) {
-                var a = t[r];
-                return (a % 10) * 9 + Math.floor(a / 10);
-              }
-              return 9 === u
-                ? (10 - (e % 10) - Number(r)) % 10 === 0
-                : e + Number(r) * (9 - u);
-            }, 0)
-          );
+          return !!/^[A-Z][0-9]{9}$/.test(r) &&
+          Array.from(r).reduce((e, r, u) => {
+            if (0 === u) {
+              var a = t[r];
+              return (a % 10) * 9 + Math.floor(a / 10);
+            }
+            return 9 === u
+              ? (10 - (e % 10) - Number(r)) % 10 === 0
+              : e + Number(r) * (9 - u);
+          }, 0);
         },
       };
       (e.exports = t.default), (e.exports.default = t.default);
@@ -2103,7 +2087,7 @@
     a4yE(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), l.test(e);
         });
       var u,
@@ -2116,10 +2100,10 @@
       function u(e) {
         return (u =
           "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
-            ? function (e) {
+            ? e => {
                 return typeof e;
               }
-            : function (e) {
+            : e => {
                 return e &&
                   "function" === typeof Symbol &&
                   e.constructor === Symbol &&
@@ -2129,7 +2113,7 @@
               })(e);
       }
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           "object" === u(e) && null !== e
             ? (e =
                 "function" === typeof e.toString
@@ -2147,7 +2131,7 @@
     b6et(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), l.test(e);
         });
       var u,
@@ -2158,7 +2142,7 @@
     "bM/q": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           if (((0, u.default)(e), !e || e.length >= 2083 || /[\s<>]/.test(e)))
             return !1;
           if (0 === e.indexOf("mailto:")) return !1;
@@ -2251,11 +2235,11 @@
     bZbt(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t, r) {
+        (t.default = (e, t, r) => {
           if (((0, a.default)(e), r && r.strictMode && !e.startsWith("+")))
             return !1;
           if (Array.isArray(t))
-            return t.some(function (t) {
+            return t.some(t => {
               if (l.hasOwnProperty(t) && l[t].test(e)) return !0;
               return !1;
             });
@@ -2379,7 +2363,7 @@
     bzqU(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, u.default)(e), l.test(e);
         });
       var u = a(r("2Idn"));
@@ -2396,7 +2380,7 @@
     cx81(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           (0, a.default)(e);
           var r = t
             ? new RegExp(
@@ -2413,7 +2397,7 @@
     eWa3(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           if (
             ((0, u.default)(e),
             (t = (0, a.default)(t, f)).require_display_name ||
@@ -2422,52 +2406,48 @@
             var r = e.match(s);
             if (r) {
               var d,
-                A = (function (e, t) {
-                  return (
-                    (function (e) {
-                      if (Array.isArray(e)) return e;
-                    })(e) ||
-                    (function (e, t) {
-                      if (
-                        !(Symbol.iterator in Object(e)) &&
-                        "[object Arguments]" !==
-                          Object.prototype.toString.call(e)
-                      )
-                        return;
-                      var r = [],
-                        u = !0,
-                        a = !1,
-                        l = void 0;
-                      try {
-                        for (
-                          var o, n = e[Symbol.iterator]();
-                          !(u = (o = n.next()).done) &&
-                          (r.push(o.value), !t || r.length !== t);
-                          u = !0
-                        );
-                      } catch (d) {
-                        (a = !0), (l = d);
-                      } finally {
-                        try {
-                          u || null == n.return || n.return();
-                        } finally {
-                          if (a) throw l;
-                        }
-                      }
-                      return r;
-                    })(e, t) ||
-                    (function () {
-                      throw new TypeError(
-                        "Invalid attempt to destructure non-iterable instance"
+                A = ((e, t) => {
+                  return (e => {
+                    if (Array.isArray(e)) return e;
+                  })(e) || ((e, t) => {
+                    if (
+                      !(Symbol.iterator in Object(e)) &&
+                      "[object Arguments]" !==
+                        Object.prototype.toString.call(e)
+                    )
+                      return;
+                    var r = [],
+                      u = !0,
+                      a = !1,
+                      l = void 0;
+                    try {
+                      for (
+                        var o, n = e[Symbol.iterator]();
+                        !(u = (o = n.next()).done) &&
+                        (r.push(o.value), !t || r.length !== t);
+                        u = !0
                       );
-                    })()
-                  );
+                    } catch (d) {
+                      (a = !0), (l = d);
+                    } finally {
+                      try {
+                        u || null == n.return || n.return();
+                      } finally {
+                        if (a) throw l;
+                      }
+                    }
+                    return r;
+                  })(e, t) || (() => {
+                    throw new TypeError(
+                      "Invalid attempt to destructure non-iterable instance"
+                    );
+                  })();
                 })(r, 3);
               if (
                 ((d = A[1]),
                 (e = A[2]),
                 d.endsWith(" ") && (d = d.substr(0, d.length - 1)),
-                !(function (e) {
+                !(e => {
                   var t = e.match(/^"(.+)"$/i),
                     r = t ? t[1] : e;
                   if (!r.trim()) return !1;
@@ -2551,7 +2531,7 @@
     eX7M(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           if (((0, a.default)(e), t in d)) return d[t].test(e);
           if ("any" === t) {
             for (var r in d) {
@@ -2627,7 +2607,7 @@
     ep6D(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           (0, a.default)(e);
           var t = e.replace(/[- ]+/g, "");
           if (!l.test(t)) return !1;
@@ -2647,7 +2627,7 @@
     f2Qg(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           (0, u.default)(e),
             (t = (0, a.default)(t, o)).allow_trailing_dot &&
               "." === e[e.length - 1] &&
@@ -2691,7 +2671,7 @@
     fFTU(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), l.test(e.trim());
         });
       var u,
@@ -2702,7 +2682,7 @@
     "fo/I": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           return (0, a.default)(e), parseInt(e, t || 10);
         });
       var u,
@@ -2712,7 +2692,7 @@
     fsKV(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, u.default)(e), (0, a.default)(o, e.toUpperCase());
         });
       var u = l(r("2Idn")),
@@ -2976,34 +2956,28 @@
     "gL+o": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           (0, a.default)(e);
           var t = Number(e.slice(-1));
-          return (
-            l.test(e) &&
-            t ===
-              (function (e) {
-                var t =
-                  10 -
-                  (e
-                    .slice(0, -1)
-                    .split("")
-                    .map(function (t, r) {
-                      return (
-                        Number(t) *
-                        (function (e, t) {
-                          if (8 === e) return t % 2 === 0 ? 3 : 1;
-                          return t % 2 === 0 ? 1 : 3;
-                        })(e.length, r)
-                      );
-                    })
-                    .reduce(function (e, t) {
-                      return e + t;
-                    }, 0) %
-                    10);
-                return t < 10 ? t : 0;
-              })(e)
-          );
+          return l.test(e) &&
+          t === (e => {
+            var t =
+              10 -
+              (e
+                .slice(0, -1)
+                .split("")
+                .map((t, r) => {
+                  return Number(t) * ((e, t) => {
+                    if (8 === e) return t % 2 === 0 ? 3 : 1;
+                    return t % 2 === 0 ? 1 : 3;
+                  })(e.length, r);
+                })
+                .reduce((e, t) => {
+                  return e + t;
+                }, 0) %
+                10);
+            return t < 10 ? t : 0;
+          })(e);
         });
       var u,
         a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
@@ -3013,7 +2987,7 @@
     h5fY(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           (0, u.default)(e);
           var r = t
             ? "\\x00-\\x09\\x0B\\x0C\\x0E-\\x1F\\x7F"
@@ -3030,7 +3004,7 @@
     h61a(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), l.test(e);
         });
       var u,
@@ -3047,7 +3021,7 @@
           if (((0, a.default)(t), !(r = String(r)))) return e(t, 4) || e(t, 6);
           if ("4" === r) {
             if (!l.test(t)) return !1;
-            var u = t.split(".").sort(function (e, t) {
+            var u = t.split(".").sort((e, t) => {
               return e - t;
             });
             return u[3] <= 255;
@@ -3088,11 +3062,10 @@
     iDGw(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           (0, a.default)(e);
           var r = l.test(e);
-          return t && r && t.strict
-            ? (function (e) {
+          return t && r && t.strict ? (e => {
                 var t = e.match(/^(\d{4})-?(\d{3})([ T]{1}\.*|$)/);
                 if (t) {
                   var r = Number(t[1]),
@@ -3120,8 +3093,7 @@
                     s.getUTCDate() === n
                   );
                 return !0;
-              })(e)
-            : r;
+              })(e) : r;
         });
       var u,
         a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
@@ -3132,7 +3104,7 @@
     iUSg(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           return (
             (0, a.default)(e),
             e.replace(new RegExp("[".concat(t, "]+"), "g"), "")
@@ -3145,7 +3117,7 @@
     ioLy(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           if (((0, a.default)(e), t && t.no_colons)) return o.test(e);
           return l.test(e) || n.test(e) || d.test(e) || f.test(e);
         });
@@ -3161,7 +3133,7 @@
     "j+5W": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), l.test(e);
         }),
         (t.halfWidth = void 0);
@@ -3173,7 +3145,7 @@
     jq9p(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           (0, a.default)(e);
           var r =
               (t = t || {}).hasOwnProperty("allow_leading_zeroes") &&
@@ -3234,7 +3206,7 @@
     kV3J(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           (0, a.default)(e);
           var t = e.length;
           if (!t || t % 4 !== 0 || l.test(e)) return !1;
@@ -3249,7 +3221,7 @@
     keew(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           (0, u.default)(e);
           var t = e.split("/");
           if (2 !== t.length) return !1;
@@ -3268,7 +3240,7 @@
     lL5U(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           return (
             (0, u.default)(e),
             0 ===
@@ -3310,7 +3282,7 @@
     mIlm(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e) ? parseFloat(e) : NaN;
         });
       var u,
@@ -3320,7 +3292,7 @@
     nPKI(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), l.test(e);
         });
       var u,
@@ -3351,7 +3323,7 @@
     oIoB(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e, { min: 0, max: 65535 });
         });
       var u,
@@ -3361,7 +3333,7 @@
     pkq8(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           return (0, u.default)((0, a.default)(e, t), t);
         });
       var u = l(r("2yzk")),
@@ -3374,7 +3346,7 @@
     sRd9(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           var r;
           if (
             ((0, u.default)(e),
@@ -3397,10 +3369,10 @@
       function o(e) {
         return (o =
           "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
-            ? function (e) {
+            ? e => {
                 return typeof e;
               }
-            : function (e) {
+            : e => {
                 return e &&
                   "function" === typeof Symbol &&
                   e.constructor === Symbol &&
@@ -3433,7 +3405,7 @@
     uiY1(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           (0, a.default)(e);
           var t = e.length;
           if (t > 0 && t % 8 === 0 && l.test(e)) return !0;
@@ -3447,7 +3419,7 @@
     uwHo(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           return (0, a.default)(e), e === t;
         });
       var u,
@@ -3457,7 +3429,7 @@
     wnSO(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), c.test(e);
         });
       var u,
@@ -3486,7 +3458,7 @@
     wzbs(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e, t) {
+        (t.default = (e, t) => {
           return (0, u.default)(e), e.indexOf((0, a.default)(t)) >= 0;
         });
       var u = l(r("2Idn")),
@@ -3499,7 +3471,7 @@
     "z/bg": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = function (e) {
+        (t.default = e => {
           return (0, a.default)(e), l.test(e);
         });
       var u,

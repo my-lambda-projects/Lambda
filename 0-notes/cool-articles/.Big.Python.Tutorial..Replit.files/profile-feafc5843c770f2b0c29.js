@@ -4,7 +4,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     "+wdE": function (e, t, r) {
       (window.__NEXT_P = window.__NEXT_P || []).push([
         "/profile",
-        function () {
+        () => {
           return r("btdU");
         },
       ]);
@@ -17,17 +17,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         s = r("tCBg"),
         a = r("T0f4");
       function c(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -59,7 +58,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           statusCode: t && t.statusCode ? t.statusCode : r ? r.statusCode : 404,
         };
       }
-      var f = (function (e) {
+      var f = (e => {
         o(r, e);
         var t = c(r);
         function r() {
@@ -153,11 +152,11 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         i = r.n(n),
         o = r("rg98"),
         s = r("G5Ub");
-      t.a = (function () {
+      t.a = (() => {
         var e = Object(o.a)(
           i.a.mark(function e(t, r) {
             var n, o, a;
-            return i.a.wrap(function (e) {
+            return i.a.wrap(e => {
               for (;;)
                 switch ((e.prev = e.next)) {
                   case 0:
@@ -212,53 +211,43 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     "8v8i": function (e, t, r) {
       "use strict";
       var n, i, o, s, a, c;
-      r.d(t, "a", function () {
+      r.d(t, "a", () => {
         return n;
-      }),
-        r.d(t, "b", function () {
-          return i;
-        }),
-        r.d(t, "d", function () {
-          return o;
-        }),
-        r.d(t, "e", function () {
-          return s;
-        }),
-        r.d(t, "c", function () {
-          return c;
-        }),
-        (function (e) {
-          (e.Create = "CREATE"),
-            (e.Move = "MOVE"),
-            (e.Delete = "DELETE"),
-            (e.Modify = "MODIFY");
-        })(n || (n = {})),
-        (function (e) {
-          (e.Local = "LOCAL"), (e.Container = "CONTAINER");
-        })(i || (i = {})),
-        (function (e) {
-          (e.File = "FILE"), (e.Directory = "DIRECTORY");
-        })(o || (o = {})),
-        (function (e) {
-          (e.NotFound = "NOT_FOUND"),
-            (e.AlreadyExists = "ALREADY_EXIST"),
-            (e.NotDirectory = "NOT_DIRECTORY"),
-            (e.IsDirectory = "IS_DIRECTORY");
-        })(s || (s = {})),
-        (function (e) {
-          (e.Offline = "OFFLINE"),
-            (e.Loading = "LOADING"),
-            (e.Syncing = "SYNCING"),
-            (e.Clean = "CLEAN"),
-            (e.Error = "ERROR");
-        })(a || (a = {})),
-        (function (e) {
-          (e.Dirty = "DIRTY"), (e.Syncing = "SYNCING"), (e.Clean = "CLEAN");
-        })(c || (c = {}));
+      }), r.d(t, "b", () => {
+        return i;
+      }), r.d(t, "d", () => {
+        return o;
+      }), r.d(t, "e", () => {
+        return s;
+      }), r.d(t, "c", () => {
+        return c;
+      }), (e => {
+        (e.Create = "CREATE"),
+          (e.Move = "MOVE"),
+          (e.Delete = "DELETE"),
+          (e.Modify = "MODIFY");
+      })(n || (n = {})), (e => {
+        (e.Local = "LOCAL"), (e.Container = "CONTAINER");
+      })(i || (i = {})), (e => {
+        (e.File = "FILE"), (e.Directory = "DIRECTORY");
+      })(o || (o = {})), (e => {
+        (e.NotFound = "NOT_FOUND"),
+          (e.AlreadyExists = "ALREADY_EXIST"),
+          (e.NotDirectory = "NOT_DIRECTORY"),
+          (e.IsDirectory = "IS_DIRECTORY");
+      })(s || (s = {})), (e => {
+        (e.Offline = "OFFLINE"),
+          (e.Loading = "LOADING"),
+          (e.Syncing = "SYNCING"),
+          (e.Clean = "CLEAN"),
+          (e.Error = "ERROR");
+      })(a || (a = {})), (e => {
+        (e.Dirty = "DIRTY"), (e.Syncing = "SYNCING"), (e.Clean = "CLEAN");
+      })(c || (c = {}));
     },
     AERv(e, t) {
       var r = /^@(\w+)/,
-        n = function (e, t, n) {
+        n = (e, t, n) => {
           var i = r.exec(t);
           if (i)
             return (
@@ -273,7 +262,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             );
         };
       (n.notInLink = !0),
-        (n.locator = function (e, t) {
+        (n.locator = (e, t) => {
           var r = e.indexOf("@", t);
           return (
             0 === r || -1 === r || (-1 !== (r = e.indexOf(" @", t - 1)) && r++),
@@ -296,7 +285,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         i = r("MX0m"),
         o = r.n(i),
         s = (r("q1tI"), r("up5I"));
-      t.a = function (e) {
+      t.a = e => {
         return Object(n.jsxs)("div", {
           className: "jsx-688104393",
           children: [
@@ -334,10 +323,10 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     RGhV(e, t, r) {
       "use strict";
-      r.d(t, "a", function () {
+      r.d(t, "a", () => {
         return a;
       }),
-        r.d(t, "b", function () {
+        r.d(t, "b", () => {
           return c;
         });
       var n = r("z7pX"),
@@ -347,7 +336,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var n = Object.getOwnPropertySymbols(e);
           t &&
-            (n = n.filter(function (t) {
+            (n = n.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             r.push.apply(r, n);
@@ -358,12 +347,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var r = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? o(Object(r), !0).forEach(function (t) {
+            ? o(Object(r), !0).forEach(t => {
                 Object(i.a)(e, t, r[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r))
-            : o(Object(r)).forEach(function (t) {
+            : o(Object(r)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -374,7 +363,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         return e;
       }
       function a(e, t) {
-        return function (r, i) {
+        return (r, i) => {
           if (!i || !i.fetchMoreResult) return r;
           var o = i.fetchMoreResult,
             a = r ? r[e][t].items : [],
@@ -389,7 +378,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         };
       }
       function c(e) {
-        return function (t, r) {
+        return (t, r) => {
           if (!r || !r.fetchMoreResult) return t;
           var i = r.fetchMoreResult,
             o = t ? t[e].items : [],
@@ -408,7 +397,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         s = r.n(o),
         a = (r("q1tI"), r("TSYQ")),
         c = r.n(a),
-        l = function (e) {
+        l = e => {
           var t = e.fill,
             r = e.stroke,
             n = e.hoverColor;
@@ -444,7 +433,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var n = Object.getOwnPropertySymbols(e);
           t &&
-            (n = n.filter(function (t) {
+            (n = n.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             r.push.apply(r, n);
@@ -455,12 +444,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var r = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? d(Object(r), !0).forEach(function (t) {
+            ? d(Object(r), !0).forEach(t => {
                 Object(n.a)(e, t, r[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r))
-            : d(Object(r)).forEach(function (t) {
+            : d(Object(r)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -471,7 +460,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         return e;
       }
       var u = "#336a98";
-      t.a = function (e) {
+      t.a = e => {
         var t,
           r,
           n = e.pinned,
@@ -528,17 +517,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         d = r.n(l),
         p = r("q1tI");
       function u(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -553,7 +541,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           return Object(s.a)(this, r);
         };
       }
-      var j = function () {
+      var j = () => {
           return Object(c.jsx)("svg", {
             width: "6px",
             height: "9px",
@@ -587,7 +575,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             }),
           });
         },
-        f = (function (e) {
+        f = (e => {
           Object(o.a)(r, e);
           var t = u(r);
           function r() {
@@ -736,7 +724,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var n = Object.getOwnPropertySymbols(e);
           t &&
-            (n = n.filter(function (t) {
+            (n = n.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             r.push.apply(r, n);
@@ -747,12 +735,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var r = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? E(Object(r), !0).forEach(function (t) {
+            ? E(Object(r), !0).forEach(t => {
                 Object(h.a)(e, t, r[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r))
-            : E(Object(r)).forEach(function (t) {
+            : E(Object(r)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -762,7 +750,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         }
         return e;
       }
-      var _ = function (e) {
+      var _ = e => {
           var t = e.repl,
             r = e.onPinToggleClick;
           return Object(s.jsx)(
@@ -790,7 +778,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                       pinned: t.pinnedToProfile,
                       isOwner: !!t.isOwner,
                       onClick: t.isOwner
-                        ? function (e) {
+                        ? e => {
                             e.preventDefault(),
                               e.stopPropagation(),
                               r && r({ id: t.id, pin: !t.pinnedToProfile });
@@ -835,7 +823,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var n = Object.getOwnPropertySymbols(e);
           t &&
-            (n = n.filter(function (t) {
+            (n = n.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             r.push.apply(r, n);
@@ -846,12 +834,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var r = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? R(Object(r), !0).forEach(function (t) {
+            ? R(Object(r), !0).forEach(t => {
                 Object(h.a)(e, t, r[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r))
-            : R(Object(r)).forEach(function (t) {
+            : R(Object(r)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -861,7 +849,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         }
         return e;
       }
-      var T = function (e) {
+      var T = e => {
           var t = e.pinnedCount;
           return Object(s.jsxs)("div", {
             className: "jsx-1254945903 public-repls-pinned-counter",
@@ -884,7 +872,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             ],
           });
         },
-        L = function (e) {
+        L = e => {
           var t = e.username,
             r = e.after,
             n = Object(x.Gd)({
@@ -911,7 +899,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             L = N.loading || b.loading;
           if (
             (l.useEffect(
-              function () {
+              () => {
                 N.data &&
                   (E("Repl unpinned"),
                   d(),
@@ -928,7 +916,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               [N.data, b.data]
             ),
             l.useEffect(
-              function () {
+              () => {
                 b.error && C(b.error.message), N.error && C(N.error.message);
               },
               [b.error, N.error]
@@ -960,7 +948,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
                 }),
               ],
             });
-          var V = function (e) {
+          var V = e => {
               (e.pin ? f : k)({ variables: { replId: e.id } });
             },
             U = "/@".concat(M.username, "?after=").concat(q.nextCursor);
@@ -968,12 +956,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             children: [
               M.isLoggedIn
                 ? Object(s.jsx)(T, {
-                    pinnedCount: F.items.filter(function (e) {
+                    pinnedCount: F.items.filter(e => {
                       return e.pinnedToProfile;
                     }).length,
                   })
                 : null,
-              z.map(function (e) {
+              z.map(e => {
                 return Object(s.jsx)(
                   _,
                   {
@@ -1038,7 +1026,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var n = Object.getOwnPropertySymbols(e);
           t &&
-            (n = n.filter(function (t) {
+            (n = n.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             r.push.apply(r, n);
@@ -1049,12 +1037,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var r = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? F(Object(r), !0).forEach(function (t) {
+            ? F(Object(r), !0).forEach(t => {
                 Object(h.a)(e, t, r[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r))
-            : F(Object(r)).forEach(function (t) {
+            : F(Object(r)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -1064,7 +1052,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         }
         return e;
       }
-      var z = function (e) {
+      var z = e => {
           Object(A.a)({
             event: w.events.RECENT_POST_COMMENTS_SPLIT_TEST,
             gate: "recent-post-comments",
@@ -1084,7 +1072,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               Object(s.jsxs)("div", {
                 className: "jsx-4061287483",
                 children: [
-                  a.items.map(function (e) {
+                  a.items.map(e => {
                     return Object(s.jsx)(
                       "div",
                       {
@@ -1187,7 +1175,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var n = Object.getOwnPropertySymbols(e);
           t &&
-            (n = n.filter(function (t) {
+            (n = n.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             r.push.apply(r, n);
@@ -1198,12 +1186,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var r = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? K(Object(r), !0).forEach(function (t) {
+            ? K(Object(r), !0).forEach(t => {
                 Object(h.a)(e, t, r[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r))
-            : K(Object(r)).forEach(function (t) {
+            : K(Object(r)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -1214,7 +1202,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         return e;
       }
       var B = Object(X.a)("user", "comments"),
-        J = function (e) {
+        J = e => {
           var t = e.comment;
           return Object(s.jsxs)("div", {
             className: "jsx-2342438167 profile-comments-item",
@@ -1336,7 +1324,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             ],
           });
         },
-        Q = function (e) {
+        Q = e => {
           return Object(s.jsx)(x.v, {
             notifyOnNetworkStatusChange: !0,
             variables: { username: e.username, order: e.order },
@@ -1353,7 +1341,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               var a = r.user.comments;
               return Object(s.jsxs)("div", {
                 children: [
-                  a.items.map(function (e) {
+                  a.items.map(e => {
                     return Object(s.jsx)(J, { comment: e }, e.id);
                   }),
                   a.pageInfo.nextCursor
@@ -1381,7 +1369,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             },
           });
         },
-        W = function (e) {
+        W = e => {
           var t = e.completed;
           return Object(s.jsxs)("div", {
             className: c.a.dynamic([["2684884750", [t]]]) + " progress-bar",
@@ -1406,7 +1394,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         Z = r("imBe"),
         $ = r("M1F+"),
         ee = r("IdsG"),
-        te = function (e) {
+        te = e => {
           var t = e.level;
           return Object(s.jsxs)("div", {
             className: "jsx-2079872645 level-tag",
@@ -1422,7 +1410,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             ],
           });
         },
-        re = function (e) {
+        re = e => {
           var t = e,
             r = Object(x.Cd)({ variables: t }),
             n = r.data;
@@ -1468,7 +1456,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               Object(s.jsxs)("div", {
                 className: "jsx-531115565 achievement-wrapper",
                 children: [
-                  i.map(function (e) {
+                  i.map(e => {
                     var t;
                     return Object(s.jsxs)(
                       "div",
@@ -1587,18 +1575,17 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
       function ne(e) {
         var t = e.username,
           r = Object(O.useRouter)();
-        return (
-          l.useEffect(
-            function () {
-              r.replace(
-                { pathname: "/teamDashboard", query: { teamname: t } },
-                "/team/".concat(t)
-              );
-            },
-            [r, t]
-          ),
-          null
-        );
+        return l.useEffect(
+          () => {
+            r.replace(
+              { pathname: "/teamDashboard", query: { teamname: t } },
+              "/team/".concat(t)
+            );
+          },
+          [r, t]
+        ),
+        null
+      ;
       }
       var ie = r("cm4/"),
         oe = r.n(ie),
@@ -1608,9 +1595,9 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         le = r("CJNb"),
         de = r("Dlgg"),
         pe = r("tcye"),
-        ue = function (e) {
+        ue = e => {
           var t = e.user,
-            r = t.roles.map(function (e) {
+            r = t.roles.map(e => {
               var t,
                 r = Object(s.jsx)(
                   de.a,
@@ -1722,7 +1709,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
               t.languages && t.languages.length
                 ? Object(s.jsx)("div", {
                     className: "jsx-1351853196 profile-languages",
-                    children: t.languages.map(function (e) {
+                    children: t.languages.map(e => {
                       return Object(s.jsx)(
                         "div",
                         {
@@ -1775,7 +1762,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var n = Object.getOwnPropertySymbols(e);
           t &&
-            (n = n.filter(function (t) {
+            (n = n.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             r.push.apply(r, n);
@@ -1786,12 +1773,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var r = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? fe(Object(r), !0).forEach(function (t) {
+            ? fe(Object(r), !0).forEach(t => {
                 Object(h.a)(e, t, r[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r))
-            : fe(Object(r)).forEach(function (t) {
+            : fe(Object(r)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -1801,7 +1788,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         }
         return e;
       }
-      var be = function (e) {
+      var be = e => {
           return Object(s.jsxs)("div", {
             className: "jsx-688519274",
             children: [
@@ -1815,7 +1802,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             ],
           });
         },
-        me = function (e) {
+        me = e => {
           return Object(s.jsxs)("div", {
             onClick: e.onClick,
             className:
@@ -1833,7 +1820,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             ],
           });
         },
-        he = function (e) {
+        he = e => {
           var t = e.active,
             r = e.onClick,
             n = e.children,
@@ -1867,7 +1854,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         if (Object.getOwnPropertySymbols) {
           var n = Object.getOwnPropertySymbols(e);
           t &&
-            (n = n.filter(function (t) {
+            (n = n.filter(t => {
               return Object.getOwnPropertyDescriptor(e, t).enumerable;
             })),
             r.push.apply(r, n);
@@ -1878,12 +1865,12 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         for (var t = 1; t < arguments.length; t++) {
           var r = null != arguments[t] ? arguments[t] : {};
           t % 2
-            ? ge(Object(r), !0).forEach(function (t) {
+            ? ge(Object(r), !0).forEach(t => {
                 Object(h.a)(e, t, r[t]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(r))
-            : ge(Object(r)).forEach(function (t) {
+            : ge(Object(r)).forEach(t => {
                 Object.defineProperty(
                   e,
                   t,
@@ -1894,7 +1881,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         return e;
       }
       var ve = ["posts", "comments", "achievements"],
-        ye = function (e) {
+        ye = e => {
           var t = e.user,
             r = e.tab;
           return {
@@ -1905,7 +1892,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
             as: { pathname: t.url, query: r ? { tab: r } : {} },
           };
         },
-        we = function (e) {
+        we = e => {
           var t = e.user,
             r = e.currentTab,
             n = e.isAchievementsGated;
@@ -1960,7 +1947,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           t = Object(O.useRouter)().query,
           r = t.username.toString(),
           n = t.tab
-            ? ve.find(function (e) {
+            ? ve.find(e => {
                 return e === t.tab.toString();
               })
             : void 0,
@@ -2057,11 +2044,11 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           ],
         });
       }
-      Pe.getInitialProps = (function () {
+      Pe.getInitialProps = (() => {
         var e = Object(o.a)(
           i.a.mark(function e(t) {
             var r, n;
-            return i.a.wrap(function (e) {
+            return i.a.wrap(e => {
               for (;;)
                 switch ((e.prev = e.next)) {
                   case 0:
@@ -2101,7 +2088,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         d = r("XmHG"),
         p = r("jmGw"),
         u = r("AERv");
-      t.a = function (e) {
+      t.a = e => {
         var t = e.text,
           r = e.onClick;
         return Object(n.jsxs)("div", {
@@ -2149,13 +2136,13 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         o = r.n(i),
         s = r("q1tI"),
         a = r("EQ2k");
-      t.a = function (e) {
+      t.a = e => {
         var t = e.children;
         return Object(n.jsxs)("div", {
           className:
             o.a.dynamic([["1998241331", [a.a.gray47]]]) + " post-footer",
           children: [
-            s.Children.map(t, function (e, t) {
+            s.Children.map(t, (e, t) => {
               return Object(n.jsxs)(
                 s.Fragment,
                 { children: [t > 0 && e ? " \xb7 " : null, e] },
@@ -2180,7 +2167,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     },
     jmGw(e, t, r) {
       "use strict";
-      r.d(t, "a", function () {
+      r.d(t, "a", () => {
         return m;
       });
       var n = r("nKUr"),
@@ -2197,17 +2184,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         f = r("FIf5"),
         x = r.n(f);
       function b(e) {
-        var t = (function () {
+        var t = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return (
-              Date.prototype.toString.call(
-                Reflect.construct(Date, [], function () {})
-              ),
-              !0
-            );
+            return Date.prototype.toString.call(
+              Reflect.construct(Date, [], () => {})
+            ),
+            !0
+          ;
           } catch (e) {
             return !1;
           }
@@ -2222,7 +2208,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           return Object(c.a)(this, r);
         };
       }
-      var m = (function (e) {
+      var m = (e => {
         Object(a.a)(r, e);
         var t = b(r);
         function r() {
@@ -2230,17 +2216,16 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
           Object(i.a)(this, r);
           for (var n = arguments.length, o = new Array(n), a = 0; a < n; a++)
             o[a] = arguments[a];
-          return (
-            (e = t.call.apply(t, [this].concat(o))),
-            Object(d.a)(Object(s.a)(e), "codeEl", void 0),
-            Object(d.a)(Object(s.a)(e), "setRef", function (t) {
-              return (e.codeEl = t);
-            }),
-            Object(d.a)(Object(s.a)(e), "highlightCode", function () {
-              e.codeEl && x.a.highlightBlock(e.codeEl);
-            }),
-            e
-          );
+          return (e = t.call.apply(t, [this].concat(o))),
+          Object(d.a)(Object(s.a)(e), "codeEl", void 0),
+          Object(d.a)(Object(s.a)(e), "setRef", t => {
+            return (e.codeEl = t);
+          }),
+          Object(d.a)(Object(s.a)(e), "highlightCode", () => {
+            e.codeEl && x.a.highlightBlock(e.codeEl);
+          }),
+          e
+        ;
         }
         return Object(o.a)(r, [
           {
@@ -2290,20 +2275,17 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
     mfmY(e, t) {
       var r = Object.prototype.toString,
         n = Array.isArray;
-      e.exports = function (e) {
-        return (
-          "string" == typeof e ||
-          (!n(e) &&
-            (function (e) {
-              return !!e && "object" == typeof e;
-            })(e) &&
-            "[object String]" == r.call(e))
-        );
+      e.exports = e => {
+        return "string" == typeof e ||
+        (!n(e) && (e => {
+          return !!e && "object" == typeof e;
+        })(e) &&
+          "[object String]" == r.call(e));
       };
     },
     rcAQ(e, t, r) {
       "use strict";
-      r.d(t, "a", function () {
+      r.d(t, "a", () => {
         return d;
       });
       var n = r("nKUr"),
@@ -2317,7 +2299,7 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         var t = Object(l.a)().showError,
           r = e.comment,
           d = Object(o.e)(),
-          p = Object(o.f)(function (e) {
+          p = Object(o.f)(e => {
             return e.user.userInfo.isLoggedIn;
           }, o.d),
           u = Object(a.Db)({
@@ -2365,16 +2347,15 @@ _N_E = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []).push([
         d =
           ((r = Object.getPrototypeOf),
           (n = Object),
-          function (e) {
+          e => {
             return r(n(e));
           });
-      e.exports = function (e) {
+      e.exports = e => {
         if (
-          !(function (e) {
+          !(e => {
             return !!e && "object" == typeof e;
           })(e) ||
-          "[object Object]" != l.call(e) ||
-          (function (e) {
+          "[object Object]" != l.call(e) || (e => {
             var t = !1;
             if (null != e && "function" != typeof e.toString)
               try {
