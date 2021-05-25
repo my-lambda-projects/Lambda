@@ -6,21 +6,21 @@
 
 React components let you split the UI into independent, reusable pieces, and think about each piece in isolation. React components can be defined by subclassing `React.Component` or `React.PureComponent`.
 
--   [`React.Component`](https://reactjs.org/docs/react-api.html#reactcomponent)
--   [`React.PureComponent`](https://reactjs.org/docs/react-api.html#reactpurecomponent)
+- [`React.Component`](https://reactjs.org/docs/react-api.html#reactcomponent)
+- [`React.PureComponent`](https://reactjs.org/docs/react-api.html#reactpurecomponent)
 
 If you don’t use ES6 classes, you may use the `create-react-class` module instead. See [Using React without ES6](https://reactjs.org/docs/react-without-es6.html) for more information.
 
 React components can also be defined as functions which can be wrapped:
 
--   [`React.memo`](https://reactjs.org/docs/react-api.html#reactmemo)
+- [`React.memo`](https://reactjs.org/docs/react-api.html#reactmemo)
 
 ### [](https://reactjs.org/docs/react-api.html#creating-react-elements)Creating React Elements
 
 We recommend [using JSX](https://reactjs.org/docs/introducing-jsx.html) to describe what your UI should look like. Each JSX element is just syntactic sugar for calling [`React.createElement()`](https://reactjs.org/docs/react-api.html#createelement). You will not typically invoke the following methods directly if you are using JSX.
 
--   [`createElement()`](https://reactjs.org/docs/react-api.html#createelement)
--   [`createFactory()`](https://reactjs.org/docs/react-api.html#createfactory)
+- [`createElement()`](https://reactjs.org/docs/react-api.html#createelement)
+- [`createFactory()`](https://reactjs.org/docs/react-api.html#createfactory)
 
 See [Using React without JSX](https://reactjs.org/docs/react-without-jsx.html) for more information.
 
@@ -28,48 +28,49 @@ See [Using React without JSX](https://reactjs.org/docs/react-without-jsx.html) f
 
 `React` provides several APIs for manipulating elements:
 
--   [`cloneElement()`](https://reactjs.org/docs/react-api.html#cloneelement)
--   [`isValidElement()`](https://reactjs.org/docs/react-api.html#isvalidelement)
--   [`React.Children`](https://reactjs.org/docs/react-api.html#reactchildren)
+- [`cloneElement()`](https://reactjs.org/docs/react-api.html#cloneelement)
+- [`isValidElement()`](https://reactjs.org/docs/react-api.html#isvalidelement)
+- [`React.Children`](https://reactjs.org/docs/react-api.html#reactchildren)
 
 ### [](https://reactjs.org/docs/react-api.html#fragments)Fragments
 
 `React` also provides a component for rendering multiple elements without a wrapper.
 
--   [`React.Fragment`](https://reactjs.org/docs/react-api.html#reactfragment)
+- [`React.Fragment`](https://reactjs.org/docs/react-api.html#reactfragment)
 
 ### [](https://reactjs.org/docs/react-api.html#refs)Refs
 
--   [`React.createRef`](https://reactjs.org/docs/react-api.html#reactcreateref)
--   [`React.forwardRef`](https://reactjs.org/docs/react-api.html#reactforwardref)
+- [`React.createRef`](https://reactjs.org/docs/react-api.html#reactcreateref)
+- [`React.forwardRef`](https://reactjs.org/docs/react-api.html#reactforwardref)
 
 ### [](https://reactjs.org/docs/react-api.html#suspense)Suspense
 
 Suspense lets components “wait” for something before rendering. Today, Suspense only supports one use case: [loading components dynamically with `React.lazy`](https://reactjs.org/docs/code-splitting.html#reactlazy). In the future, it will support other use cases like data fetching.
 
--   [`React.lazy`](https://reactjs.org/docs/react-api.html#reactlazy)
--   [`React.Suspense`](https://reactjs.org/docs/react-api.html#reactsuspense)
+- [`React.lazy`](https://reactjs.org/docs/react-api.html#reactlazy)
+- [`React.Suspense`](https://reactjs.org/docs/react-api.html#reactsuspense)
 
 ### [](https://reactjs.org/docs/react-api.html#hooks)Hooks
 
 _Hooks_ are a new addition in React 16.8. They let you use state and other React features without writing a class. Hooks have a [dedicated docs section](https://reactjs.org/docs/hooks-intro.html) and a separate API reference:
 
--   [Basic Hooks](https://reactjs.org/docs/hooks-reference.html#basic-hooks)
-    
-    -   [`useState`](https://reactjs.org/docs/hooks-reference.html#usestate)
-    -   [`useEffect`](https://reactjs.org/docs/hooks-reference.html#useeffect)
-    -   [`useContext`](https://reactjs.org/docs/hooks-reference.html#usecontext)
--   [Additional Hooks](https://reactjs.org/docs/hooks-reference.html#additional-hooks)
-    
-    -   [`useReducer`](https://reactjs.org/docs/hooks-reference.html#usereducer)
-    -   [`useCallback`](https://reactjs.org/docs/hooks-reference.html#usecallback)
-    -   [`useMemo`](https://reactjs.org/docs/hooks-reference.html#usememo)
-    -   [`useRef`](https://reactjs.org/docs/hooks-reference.html#useref)
-    -   [`useImperativeHandle`](https://reactjs.org/docs/hooks-reference.html#useimperativehandle)
-    -   [`useLayoutEffect`](https://reactjs.org/docs/hooks-reference.html#uselayouteffect)
-    -   [`useDebugValue`](https://reactjs.org/docs/hooks-reference.html#usedebugvalue)
+- [Basic Hooks](https://reactjs.org/docs/hooks-reference.html#basic-hooks)
 
-___
+  - [`useState`](https://reactjs.org/docs/hooks-reference.html#usestate)
+  - [`useEffect`](https://reactjs.org/docs/hooks-reference.html#useeffect)
+  - [`useContext`](https://reactjs.org/docs/hooks-reference.html#usecontext)
+
+- [Additional Hooks](https://reactjs.org/docs/hooks-reference.html#additional-hooks)
+
+  - [`useReducer`](https://reactjs.org/docs/hooks-reference.html#usereducer)
+  - [`useCallback`](https://reactjs.org/docs/hooks-reference.html#usecallback)
+  - [`useMemo`](https://reactjs.org/docs/hooks-reference.html#usememo)
+  - [`useRef`](https://reactjs.org/docs/hooks-reference.html#useref)
+  - [`useImperativeHandle`](https://reactjs.org/docs/hooks-reference.html#useimperativehandle)
+  - [`useLayoutEffect`](https://reactjs.org/docs/hooks-reference.html#uselayouteffect)
+  - [`useDebugValue`](https://reactjs.org/docs/hooks-reference.html#usedebugvalue)
+
+---
 
 ## [](https://reactjs.org/docs/react-api.html#reference)Reference
 
@@ -87,7 +88,7 @@ class Greeting extends React.Component {
 
 See the [React.Component API Reference](https://reactjs.org/docs/react-component.html) for a list of methods and properties related to the base `React.Component` class.
 
-___
+---
 
 ### [](https://reactjs.org/docs/react-api.html#reactpurecomponent)`React.PureComponent`
 
@@ -96,18 +97,18 @@ ___
 If your React component’s `render()` function renders the same result given the same props and state, you can use `React.PureComponent` for a performance boost in some cases.
 
 > Note
-> 
+>
 > `React.PureComponent`’s `shouldComponentUpdate()` only shallowly compares the objects. If these contain complex data structures, it may produce false-negatives for deeper differences. Only extend `PureComponent` when you expect to have simple props and state, or use [`forceUpdate()`](https://reactjs.org/docs/react-component.html#forceupdate) when you know deep data structures have changed. Or, consider using [immutable objects](https://facebook.github.io/immutable-js/) to facilitate fast comparisons of nested data.
-> 
+>
 > Furthermore, `React.PureComponent`’s `shouldComponentUpdate()` skips prop updates for the whole component subtree. Make sure all the children components are also “pure”.
 
-___
+---
 
 ### [](https://reactjs.org/docs/react-api.html#reactmemo)`React.memo`
 
 ```
 const MyComponent = React.memo(function MyComponent(props) {
-  
+
 });
 ```
 
@@ -121,10 +122,10 @@ By default it will only shallowly compare complex objects in the props object. I
 
 ```
 function MyComponent(props) {
-  
+
 }
 function areEqual(prevProps, nextProps) {
-  
+
 }
 export default React.memo(MyComponent, areEqual);
 ```
@@ -132,10 +133,10 @@ export default React.memo(MyComponent, areEqual);
 This method only exists as a **[performance optimization](https://reactjs.org/docs/optimizing-performance.html).** Do not rely on it to “prevent” a render, as this can lead to bugs.
 
 > Note
-> 
+>
 > Unlike the [`shouldComponentUpdate()`](https://reactjs.org/docs/react-component.html#shouldcomponentupdate) method on class components, the `areEqual` function returns `true` if the props are equal and `false` if the props are not equal. This is the inverse from `shouldComponentUpdate`.
 
-___
+---
 
 ### [](https://reactjs.org/docs/react-api.html#createelement)`createElement()`
 
@@ -151,7 +152,7 @@ Create and return a new [React element](https://reactjs.org/docs/rendering-eleme
 
 Code written with [JSX](https://reactjs.org/docs/introducing-jsx.html) will be converted to use `React.createElement()`. You will not typically invoke `React.createElement()` directly if you are using JSX. See [React Without JSX](https://reactjs.org/docs/react-without-jsx.html) to learn more.
 
-___
+---
 
 ### [](https://reactjs.org/docs/react-api.html#cloneelement)`cloneElement()`
 
@@ -175,7 +176,7 @@ However, it also preserves `ref`s. This means that if you get a child with a `re
 
 This API was introduced as a replacement of the deprecated `React.addons.cloneWithProps()`.
 
-___
+---
 
 ### [](https://reactjs.org/docs/react-api.html#createfactory)`createFactory()`
 
@@ -189,7 +190,7 @@ This helper is considered legacy, and we encourage you to either use JSX or use 
 
 You will not typically invoke `React.createFactory()` directly if you are using JSX. See [React Without JSX](https://reactjs.org/docs/react-without-jsx.html) to learn more.
 
-___
+---
 
 ### [](https://reactjs.org/docs/react-api.html#isvalidelement)`isValidElement()`
 
@@ -199,7 +200,7 @@ React.isValidElement(object)
 
 Verifies the object is a React element. Returns `true` or `false`.
 
-___
+---
 
 ### [](https://reactjs.org/docs/react-api.html#reactchildren)`React.Children`
 
@@ -214,7 +215,7 @@ React.Children.map(children, function[(thisArg)])
 Invokes a function on every immediate child contained within `children` with `this` set to `thisArg`. If `children` is an array it will be traversed and the function will be called for each child in the array. If children is `null` or `undefined`, this method will return `null` or `undefined` rather than an array.
 
 > Note
-> 
+>
 > If `children` is a `Fragment` it will be treated as a single child and not traversed.
 
 #### [](https://reactjs.org/docs/react-api.html#reactchildrenforeach)`React.Children.forEach`
@@ -242,7 +243,7 @@ React.Children.only(children)
 Verifies that `children` has only one child (a React element) and returns it. Otherwise this method throws an error.
 
 > Note:
-> 
+>
 > `React.Children.only()` does not accept the return value of [`React.Children.map()`](https://reactjs.org/docs/react-api.html#reactchildrenmap) because it is an array rather than a React element.
 
 #### [](https://reactjs.org/docs/react-api.html#reactchildrentoarray)`React.Children.toArray`
@@ -254,10 +255,10 @@ React.Children.toArray(children)
 Returns the `children` opaque data structure as a flat array with keys assigned to each child. Useful if you want to manipulate collections of children in your render methods, especially if you want to reorder or slice `this.props.children` before passing it down.
 
 > Note:
-> 
+>
 > `React.Children.toArray()` changes keys to preserve the semantics of nested arrays when flattening lists of children. That is, `toArray` prefixes each key in the returned array so that each element’s key is scoped to the input array containing it.
 
-___
+---
 
 ### [](https://reactjs.org/docs/react-api.html#reactfragment)`React.Fragment`
 
@@ -299,8 +300,8 @@ class MyComponent extends React.Component {
 
 `React.forwardRef` creates a React component that forwards the [ref](https://reactjs.org/docs/refs-and-the-dom.html) attribute it receives to another component below in the tree. This technique is not very common but is particularly useful in two scenarios:
 
--   [Forwarding refs to DOM components](https://reactjs.org/docs/forwarding-refs.html#forwarding-refs-to-dom-components)
--   [Forwarding refs in higher-order-components](https://reactjs.org/docs/forwarding-refs.html#forwarding-refs-in-higher-order-components)
+- [Forwarding refs to DOM components](https://reactjs.org/docs/forwarding-refs.html#forwarding-refs-to-dom-components)
+- [Forwarding refs in higher-order-components](https://reactjs.org/docs/forwarding-refs.html#forwarding-refs-in-higher-order-components)
 
 `React.forwardRef` accepts a rendering function as an argument. React will call this function with `props` and `ref` as two arguments. This function should return a React node.
 
@@ -334,7 +335,7 @@ const SomeComponent = React.lazy(() => import('./SomeComponent'));
 Note that rendering `lazy` components requires that there’s a `<React.Suspense>` component higher in the rendering tree. This is how you specify a loading indicator.
 
 > **Note**
-> 
+>
 > Using `React.lazy`with dynamic import requires Promises to be available in the JS environment. This requires a polyfill on IE11 and below.
 
 ### [](https://reactjs.org/docs/react-api.html#reactsuspense)`React.Suspense`
@@ -347,7 +348,7 @@ const OtherComponent = React.lazy(() => import('./OtherComponent'));
 
 function MyComponent() {
   return (
-    
+
     <React.Suspense fallback={<Spinner />}>
       <div>
         <OtherComponent />
@@ -362,5 +363,5 @@ It is documented in our [code splitting guide](https://reactjs.org/docs/code-spl
 While this is not supported today, in the future we plan to let `Suspense` handle more scenarios such as data fetching. You can read about this in [our roadmap](https://reactjs.org/blog/2018/11/27/react-16-roadmap.html).
 
 > Note:
-> 
+>
 > `React.lazy()` and `<React.Suspense>` are not yet supported by `ReactDOMServer`. This is a known limitation that will be resolved in the future.

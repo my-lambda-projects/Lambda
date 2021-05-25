@@ -45,7 +45,7 @@ If you want to mark an `<option>` as selected, reference the value of that optio
 ### [](https://reactjs.org/docs/dom-elements.html#style)style
 
 > Note
-> 
+>
 > Some examples in the documentation use `style` for convenience, but **using the `style` attribute as the primary means of styling elements is generally not recommended.** In most cases, [`className`](https://reactjs.org/docs/dom-elements.html#classname) should be used to reference classes defined in an external CSS stylesheet. `style` is most often used in React applications to add dynamically-computed styles at render time. See also [FAQ: Styling and CSS](https://reactjs.org/docs/faq-styling.html).
 
 The `style` attribute accepts a JavaScript object with camelCased properties rather than a CSS string. This is consistent with the DOM `style` JavaScript property, is more efficient, and prevents XSS security holes. For example:
@@ -65,8 +65,8 @@ Note that styles are not autoprefixed. To support older browsers, you need to su
 
 ```
 const divStyle = {
-  WebkitTransition: 'all', 
-  msTransition: 'all' 
+  WebkitTransition: 'all',
+  msTransition: 'all'
 };
 
 function ComponentWithTransition() {
@@ -113,9 +113,9 @@ As of React 16, any standard [or custom](https://reactjs.org/blog/2017/09/08/dom
 React has always provided a JavaScript-centric API to the DOM. Since React components often take both custom and DOM-related props, React uses the `camelCase` convention just like the DOM APIs:
 
 ```
-<div tabIndex={-1} />      
-<div className="Button" /> 
-<input readOnly={true} />  
+<div tabIndex={-1} />
+<div className="Button" />
+<input readOnly={true} />
 ```
 
 These props work similarly to the corresponding HTML attributes, with the exception of the special cases documented above.

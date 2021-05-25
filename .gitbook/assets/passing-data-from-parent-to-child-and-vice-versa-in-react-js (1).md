@@ -17,23 +17,23 @@ Child components can relay data back to parents either as events or input data. 
 I created a parent component that contains a title and count state.
 
 class Parent extends React.Component {  
-  constructor() {  
-    super()  
-    this.state = {  
-      title: ‘Button’,  
-      count: 0,  
-    }  
-  }
+ constructor() {  
+ super()  
+ this.state = {  
+ title: ‘Button’,  
+ count: 0,  
+ }  
+ }
 
 **Event Handler**
 
 This function changes the title state to a new given title and increments the count.
 
 changeStates(newTitle) {  
-  this.setState({  
-    title: newTitle,  
-    count: this.state.count + 1,  
-  })  
+ this.setState({  
+ title: newTitle,  
+ count: this.state.count + 1,  
+ })  
 }
 
 **Parent renders to the page**
@@ -41,26 +41,27 @@ changeStates(newTitle) {
 The parent then will post this div to the DOM. This is where the title, count and changeStates function are given to the Child. For the changeStates function, the newTitle of ‘What?’ and ‘This!’ were hard coded to one of the Child components below (top button has ‘What?’, bottom button has ‘This!’).
 
 render() {  
-  return (  
-    <div>  
-      <h1>{this.state.title}</h1>  
-      <h2>{this.state.count}</h2>  
-      <Child doWhat={this.changeStates.bind(this, ‘What?’)}  
-      title={this.state.title}  
-      count={this.state.count}/>  
-      <Child doWhat={this.changeStates.bind(this, ‘This!’)}  
-      title={this.state.title}  
-      count={this.state.count}/>  
-    </div>  
-  )  
-  }  
+ return (  
+ <div>  
+ <h1>{this.state.title}</h1>  
+ <h2>{this.state.count}</h2>  
+ <Child doWhat={this.changeStates.bind(this, ‘What?’)}  
+ title={this.state.title}  
+ count={this.state.count}/>  
+ <Child doWhat={this.changeStates.bind(this, ‘This!’)}  
+ title={this.state.title}  
+ count={this.state.count}/>  
+ </div>  
+ )  
+ }  
 }
 
 **Child Component**
 
 This child component takes in the title, count and event handler (passed to the child as doWhat instead of changeStates). Here the child component determines what to do with the prop given by the parent component.
 
-const Child = ({ title, count, doWhat }) => (  
+const Child = ({ title, count, doWhat }) => (
+
   <div>  
     <span>{count}</span>  
     <button onClick={doWhat}>{title}</button>  

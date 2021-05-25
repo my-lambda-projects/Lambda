@@ -4,21 +4,21 @@ If you load React from a `<script>` tag, these top-level APIs are available on t
 
 The `react-dom` package provides DOM-specific methods that can be used at the top level of your app and as an escape hatch to get outside of the React model if you need to. Most of your components should not need to use this module.
 
--   [`render()`](https://reactjs.org/docs/react-dom.html#render)
--   [`hydrate()`](https://reactjs.org/docs/react-dom.html#hydrate)
--   [`unmountComponentAtNode()`](https://reactjs.org/docs/react-dom.html#unmountcomponentatnode)
--   [`findDOMNode()`](https://reactjs.org/docs/react-dom.html#finddomnode)
--   [`createPortal()`](https://reactjs.org/docs/react-dom.html#createportal)
+- [`render()`](https://reactjs.org/docs/react-dom.html#render)
+- [`hydrate()`](https://reactjs.org/docs/react-dom.html#hydrate)
+- [`unmountComponentAtNode()`](https://reactjs.org/docs/react-dom.html#unmountcomponentatnode)
+- [`findDOMNode()`](https://reactjs.org/docs/react-dom.html#finddomnode)
+- [`createPortal()`](https://reactjs.org/docs/react-dom.html#createportal)
 
 ### [](https://reactjs.org/docs/react-dom.html#browser-support)Browser Support
 
 React supports all popular browsers, including Internet Explorer 9 and above, although [some polyfills are required](https://reactjs.org/docs/javascript-environment-requirements.html) for older browsers such as IE 9 and IE 10.
 
 > Note
-> 
+>
 > We don’t support older browsers that don’t support ES5 methods, but you may find that your apps do work in older browsers if polyfills such as [es5-shim and es5-sham](https://github.com/es-shims/es5-shim) are included in the page. You’re on your own if you choose to take this path.
 
-___
+---
 
 ## [](https://reactjs.org/docs/react-dom.html#reference)Reference
 
@@ -35,16 +35,16 @@ If the React element was previously rendered into `container`, this will perform
 If the optional callback is provided, it will be executed after the component is rendered or updated.
 
 > Note:
-> 
+>
 > `ReactDOM.render()` controls the contents of the container node you pass in. Any existing DOM elements inside are replaced when first called. Later calls use React’s DOM diffing algorithm for efficient updates.
-> 
+>
 > `ReactDOM.render()` does not modify the container node (only modifies the children of the container). It may be possible to insert a component to an existing DOM node without overwriting the existing children.
-> 
+>
 > `ReactDOM.render()` currently returns a reference to the root `ReactComponent` instance. However, using this return value is legacy and should be avoided because future versions of React may render components asynchronously in some cases. If you need a reference to the root `ReactComponent` instance, the preferred solution is to attach a [callback ref](https://reactjs.org/docs/more-about-refs.html#the-ref-callback-attribute) to the root element.
-> 
+>
 > Using `ReactDOM.render()` to hydrate a server-rendered container is deprecated and will be removed in React 17. Use [`hydrate()`](https://reactjs.org/docs/react-dom.html#hydrate) instead.
 
-___
+---
 
 ### [](https://reactjs.org/docs/react-dom.html#hydrate)`hydrate()`
 
@@ -62,7 +62,7 @@ If you intentionally need to render something different on the server and the cl
 
 Remember to be mindful of user experience on slow connections. The JavaScript code may load significantly later than the initial HTML render, so if you render something different in the client-only pass, the transition can be jarring. However, if executed well, it may be beneficial to render a “shell” of the application on the server, and only show some of the extra widgets on the client. To learn how to do this without getting the markup mismatch issues, refer to the explanation in the previous paragraph.
 
-___
+---
 
 ### [](https://reactjs.org/docs/react-dom.html#unmountcomponentatnode)`unmountComponentAtNode()`
 
@@ -72,12 +72,12 @@ ReactDOM.unmountComponentAtNode(container)
 
 Remove a mounted React component from the DOM and clean up its event handlers and state. If no component was mounted in the container, calling this function does nothing. Returns `true` if a component was unmounted and `false` if there was no component to unmount.
 
-___
+---
 
 ### [](https://reactjs.org/docs/react-dom.html#finddomnode)`findDOMNode()`
 
 > Note:
-> 
+>
 > `findDOMNode` is an escape hatch used to access the underlying DOM node. In most cases, use of this escape hatch is discouraged because it pierces the component abstraction. [It has been deprecated in `StrictMode`.](https://reactjs.org/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
 
 ```
@@ -89,12 +89,12 @@ If this component has been mounted into the DOM, this returns the corresponding 
 When a component renders to `null` or `false`, `findDOMNode` returns `null`. When a component renders to a string, `findDOMNode` returns a text DOM node containing that value. As of React 16, a component may return a fragment with multiple children, in which case `findDOMNode` will return the DOM node corresponding to the first non-empty child.
 
 > Note:
-> 
+>
 > `findDOMNode` only works on mounted components (that is, components that have been placed in the DOM). If you try to call this on a component that has not been mounted yet (like calling `findDOMNode()` in `render()` on a component that has yet to be created) an exception will be thrown.
-> 
+>
 > `findDOMNode` cannot be used on function components.
 
-___
+---
 
 ### [](https://reactjs.org/docs/react-dom.html#createportal)`createPortal()`
 

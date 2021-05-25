@@ -3,7 +3,7 @@ _Hooks_ are a new addition in React 16.8. They let you use state and other React
 Hooks are [backwards-compatible](https://reactjs.org/docs/hooks-intro.html#no-breaking-changes). This page provides an overview of Hooks for experienced React users. This is a fast-paced overview. If you get confused, look for a yellow box like this:
 
 > Detailed Explanation
-> 
+>
 > Read the [Motivation](https://reactjs.org/docs/hooks-intro.html#motivation) to learn why we’re introducing Hooks to React.
 
 **↑↑↑ Each section ends with a yellow box like this.** They link to detailed explanations.
@@ -37,11 +37,11 @@ You can use the State Hook more than once in a single component:
 
 ```
 function ExampleWithManyStates() {
-  
+
   const [age, setAge] = useState(42);
   const [fruit, setFruit] = useState('banana');
   const [todos, setTodos] = useState([{ text: 'Learn Hooks' }]);
-  
+
 }
 ```
 
@@ -54,7 +54,7 @@ Hooks are functions that let you “hook into” React state and lifecycle featu
 React provides a few built-in Hooks like `useState`. You can also create your own Hooks to reuse stateful behavior between different components. We’ll look at the built-in Hooks first.
 
 > Detailed Explanation
-> 
+>
 > You can learn more about the State Hook on a dedicated page: [Using the State Hook](https://reactjs.org/docs/hooks-state.html).
 
 ## [](https://reactjs.org/docs/hooks-overview.html#effect-hook)⚡️ Effect Hook
@@ -124,26 +124,26 @@ function FriendStatusWithCounter(props) {
   function handleStatusChange(status) {
     setIsOnline(status.isOnline);
   }
-  
+
 ```
 
 Hooks let you organize side effects in a component by what pieces are related (such as adding and removing a subscription), rather than forcing a split based on lifecycle methods.
 
 > Detailed Explanation
-> 
+>
 > You can learn more about `useEffect` on a dedicated page: [Using the Effect Hook](https://reactjs.org/docs/hooks-effect.html).
 
 ## [](https://reactjs.org/docs/hooks-overview.html#rules-of-hooks)✌️ Rules of Hooks
 
 Hooks are JavaScript functions, but they impose two additional rules:
 
--   Only call Hooks **at the top level**. Don’t call Hooks inside loops, conditions, or nested functions.
--   Only call Hooks **from React function components**. Don’t call Hooks from regular JavaScript functions. (There is just one other valid place to call Hooks — your own custom Hooks. We’ll learn about them in a moment.)
+- Only call Hooks **at the top level**. Don’t call Hooks inside loops, conditions, or nested functions.
+- Only call Hooks **from React function components**. Don’t call Hooks from regular JavaScript functions. (There is just one other valid place to call Hooks — your own custom Hooks. We’ll learn about them in a moment.)
 
 We provide a [linter plugin](https://www.npmjs.com/package/eslint-plugin-react-hooks) to enforce these rules automatically. We understand these rules might seem limiting or confusing at first, but they are essential to making Hooks work well.
 
 > Detailed Explanation
-> 
+>
 > You can learn more about these rules on a dedicated page: [Rules of Hooks](https://reactjs.org/docs/hooks-rules.html).
 
 ## [](https://reactjs.org/docs/hooks-overview.html#building-your-own-hooks)💡 Building Your Own Hooks
@@ -206,7 +206,7 @@ Custom Hooks are more of a convention than a feature. If a function’s name sta
 You can write custom Hooks that cover a wide range of use cases like form handling, animation, declarative subscriptions, timers, and probably many more we haven’t considered. We are excited to see what custom Hooks the React community will come up with.
 
 > Detailed Explanation
-> 
+>
 > You can learn more about custom Hooks on a dedicated page: [Building Your Own Hooks](https://reactjs.org/docs/hooks-custom.html).
 
 ## [](https://reactjs.org/docs/hooks-overview.html#other-hooks)🔌 Other Hooks
@@ -215,7 +215,7 @@ There are a few less commonly used built-in Hooks that you might find useful. Fo
 
 ```
 function Example() {
-  const locale = useContext(LocaleContext);  const theme = useContext(ThemeContext);  
+  const locale = useContext(LocaleContext);  const theme = useContext(ThemeContext);
 }
 ```
 
@@ -223,11 +223,11 @@ And [`useReducer`](https://reactjs.org/docs/hooks-reference.html#usereducer) let
 
 ```
 function Todos() {
-  const [todos, dispatch] = useReducer(todosReducer);  
+  const [todos, dispatch] = useReducer(todosReducer);
 ```
 
 > Detailed Explanation
-> 
+>
 > You can learn more about all the built-in Hooks on a dedicated page: [Hooks API Reference](https://reactjs.org/docs/hooks-reference.html).
 
 ## [](https://reactjs.org/docs/hooks-overview.html#next-steps)Next Steps

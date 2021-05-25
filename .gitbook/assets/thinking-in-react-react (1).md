@@ -6,7 +6,7 @@ One of the many great parts of React is how it makes you think about apps as you
 
 Imagine that we already have a JSON API and a mock from our designer. The mock looks like this:
 
- ![Mockup](https://reactjs.org/static/1071fbcc9eed01fddc115b41e193ec11/d4770/thinking-in-react-mock.png) 
+![Mockup](https://reactjs.org/static/1071fbcc9eed01fddc115b41e193ec11/d4770/thinking-in-react-mock.png)
 
 Our JSON API returns some data that looks like this:
 
@@ -29,7 +29,7 @@ But how do you know what should be its own component? Use the same techniques fo
 
 Since you’re often displaying a JSON data model to a user, you’ll find that if your model was built correctly, your UI (and therefore your component structure) will map nicely. That’s because UI and data models tend to adhere to the same _information architecture_. Separate your UI into components, where each component matches one piece of your data model.
 
- ![Component diagram](https://reactjs.org/static/eb8bda25806a89ebdc838813bdfa3601/6b2ea/thinking-in-react-components.png) 
+![Component diagram](https://reactjs.org/static/eb8bda25806a89ebdc838813bdfa3601/6b2ea/thinking-in-react-components.png)
 
 You’ll see here that we have five components in our app. We’ve italicized the data each component represents.
 
@@ -43,13 +43,13 @@ If you look at `ProductTable`, you’ll see that the table header (containing th
 
 Now that we’ve identified the components in our mock, let’s arrange them into a hierarchy. Components that appear within another component in the mock should appear as a child in the hierarchy:
 
--   `FilterableProductTable`
-    
-    -   `SearchBar`
-    -   `ProductTable`
-        
-        -   `ProductCategoryRow`
-        -   `ProductRow`
+- `FilterableProductTable`
+
+  - `SearchBar`
+  - `ProductTable`
+
+    - `ProductCategoryRow`
+    - `ProductRow`
 
 ## [](https://reactjs.org/docs/thinking-in-react.html#step-2-build-a-static-version-in-react)Step 2: Build A Static Version in React
 
@@ -75,10 +75,10 @@ To build your app correctly, you first need to think of the minimal set of mutab
 
 Think of all of the pieces of data in our example application. We have:
 
--   The original list of products
--   The search text the user has entered
--   The value of the checkbox
--   The filtered list of products
+- The original list of products
+- The search text the user has entered
+- The value of the checkbox
+- The filtered list of products
 
 Let’s go through each one and figure out which one is state. Ask three questions about each piece of data:
 
@@ -90,8 +90,8 @@ The original list of products is passed in as props, so that’s not state. The 
 
 So finally, our state is:
 
--   The search text the user has entered
--   The value of the checkbox
+- The search text the user has entered
+- The value of the checkbox
 
 ## [](https://reactjs.org/docs/thinking-in-react.html#step-4-identify-where-your-state-should-live)Step 4: Identify Where Your State Should Live
 
@@ -101,16 +101,16 @@ Remember: React is all about one-way data flow down the component hierarchy. It 
 
 For each piece of state in your application:
 
--   Identify every component that renders something based on that state.
--   Find a common owner component (a single component above all the components that need the state in the hierarchy).
--   Either the common owner or another component higher up in the hierarchy should own the state.
--   If you can’t find a component where it makes sense to own the state, create a new component solely for holding the state and add it somewhere in the hierarchy above the common owner component.
+- Identify every component that renders something based on that state.
+- Find a common owner component (a single component above all the components that need the state in the hierarchy).
+- Either the common owner or another component higher up in the hierarchy should own the state.
+- If you can’t find a component where it makes sense to own the state, create a new component solely for holding the state and add it somewhere in the hierarchy above the common owner component.
 
 Let’s run through this strategy for our application:
 
--   `ProductTable` needs to filter the product list based on state and `SearchBar` needs to display the search text and checked state.
--   The common owner component is `FilterableProductTable`.
--   It conceptually makes sense for the filter text and checked value to live in `FilterableProductTable`
+- `ProductTable` needs to filter the product list based on state and `SearchBar` needs to display the search text and checked state.
+- The common owner component is `FilterableProductTable`.
+- It conceptually makes sense for the filter text and checked value to live in `FilterableProductTable`
 
 Cool, so we’ve decided that our state lives in `FilterableProductTable`. First, add an instance property `this.state = {filterText: '', inStockOnly: false}` to `FilterableProductTable`’s `constructor` to reflect the initial state of your application. Then, pass `filterText` and `inStockOnly` to `ProductTable` and `SearchBar` as a prop. Finally, use these props to filter the rows in `ProductTable` and set the values of the form fields in `SearchBar`.
 

@@ -62,9 +62,9 @@ Let’s recap what happens in this example:
 4.  React DOM efficiently updates the DOM to match `<h1>Hello, Sara</h1>`.
 
 > **Note:** Always start component names with a capital letter.
-> 
+>
 > React treats components starting with lowercase letters as DOM tags. For example, `<div />` represents an HTML div tag, but `<Welcome />` represents a component and requires `Welcome` to be in scope.
-> 
+>
 > To learn more about the reasoning behind this convention, please read [JSX In Depth](https://reactjs.org/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
 
 ## [](https://reactjs.org/docs/components-and-props.html#composing-components)Composing Components

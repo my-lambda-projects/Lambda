@@ -82,7 +82,7 @@ For example, this code will not run as expected:
 ```
 import React from 'react';
 
-function hello(props) {  
+function hello(props) {
   return <div>Hello {props.toWhat}</div>;
 }
 
@@ -95,7 +95,7 @@ To fix this, we will rename `hello` to `Hello` and use `<Hello />` when referrin
 ```
 import React from 'react';
 
-function Hello(props) {  
+function Hello(props) {
   return <div>Hello {props.toWhat}</div>;
 }
 
@@ -294,9 +294,9 @@ A React component can also return an array of elements:
 
 ```
 render() {
-  
+
   return [
-    
+
     <li key="A">First item</li>,
     <li key="B">Second item</li>,
     <li key="C">Third item</li>,

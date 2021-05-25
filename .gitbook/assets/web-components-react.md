@@ -13,9 +13,9 @@ class HelloMessage extends React.Component {
 ```
 
 > Note:
-> 
+>
 > Web Components often expose an imperative API. For instance, a `video` Web Component might expose `play()` and `pause()` functions. To access the imperative APIs of a Web Component, you will need to use a ref to interact with the DOM node directly. If you are using third-party Web Components, the best solution is to write a React component that behaves as a wrapper for your Web Component.
-> 
+>
 > Events emitted by a Web Component may not properly propagate through a React render tree. You will need to manually attach event handlers to handle these events within your React components.
 
 One common confusion is that Web Components use “class” instead of “className”.
@@ -48,5 +48,5 @@ customElements.define('x-search', XSearch);
 ```
 
 > Note:
-> 
+>
 > This code **will not** work if you transform classes with Babel. See [this issue](https://github.com/w3c/webcomponents/issues/587) for the discussion. Include the [custom-elements-es5-adapter](https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs#custom-elements-es5-adapterjs) before you load your web components to fix this issue.
