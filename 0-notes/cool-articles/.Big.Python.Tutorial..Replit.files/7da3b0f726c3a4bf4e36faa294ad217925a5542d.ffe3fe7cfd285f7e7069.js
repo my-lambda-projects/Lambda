@@ -59,83 +59,84 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 });
       const n = r("Z5Wq"),
-            o = (e) => {
-              if (!Array.isArray(e))
-                throw Error("Op must be an array of components");
-              for (var t = null, r = 0; r < e.length; r++) {
-                const n = e[r];
-                switch (typeof n) {
-                  case "object":
-                    if (!("number" === typeof n.d && n.d > 0))
-                      throw Error("Object components must be deletes of size > 0");
-                    break;
-                  case "string":
-                    if (!(n.length > 0)) throw Error("Inserts cannot be empty");
-                    break;
-                  case "number":
-                    if (!(n > 0)) throw Error("Skip components must be >0");
-                    if ("number" === typeof t)
-                      throw Error("Adjacent skip components should be combined");
-                }
-                t = n;
+        o = (e) => {
+          if (!Array.isArray(e))
+            throw Error("Op must be an array of components");
+          for (var t = null, r = 0; r < e.length; r++) {
+            const n = e[r];
+            switch (typeof n) {
+              case "object":
+                if (!("number" === typeof n.d && n.d > 0))
+                  throw Error("Object components must be deletes of size > 0");
+                break;
+              case "string":
+                if (!(n.length > 0)) throw Error("Inserts cannot be empty");
+                break;
+              case "number":
+                if (!(n > 0)) throw Error("Skip components must be >0");
+                if ("number" === typeof t)
+                  throw Error("Adjacent skip components should be combined");
+            }
+            t = n;
+          }
+          if ("number" === typeof t) throw Error("Op has a trailing skip");
+        },
+        i = (e) => {
+          for (var t = [], r = a(t), n = 0; n < e.length; n++) r(e[n]);
+          return u(t);
+        },
+        a = (e) => {
+          return (t) => {
+            t &&
+              0 !== t.d &&
+              (0 === e.length
+                ? e.push(t)
+                : typeof t === typeof e[e.length - 1]
+                ? "object" === typeof t
+                  ? (e[e.length - 1].d += t.d)
+                  : (e[e.length - 1] += t)
+                : e.push(t));
+          };
+        },
+        c = (e) => {
+          return "number" === typeof e
+            ? e
+            : "string" === typeof e
+            ? n.strPosToUni(e)
+            : e.d;
+        },
+        s = (e) => {
+          let t = 0,
+            r = 0;
+          return {
+            take(o, i) {
+              if (t === e.length) return -1 === o ? null : o;
+              let a;
+              const c = e[t];
+              if ("number" === typeof c)
+                return -1 === o || c - r <= o
+                  ? ((a = c - r), ++t, (r = 0), a)
+                  : ((r += o), o);
+              if ("string" === typeof c) {
+                if (-1 === o || "i" === i || n.strPosToUni(c.slice(r)) <= o)
+                  return (a = c.slice(r)), ++t, (r = 0), a;
+                const s = r + n.uniToStrPos(c.slice(r), o);
+                return (a = c.slice(r, s)), (r = s), a;
               }
-              if ("number" === typeof t) throw Error("Op has a trailing skip");
+              return -1 === o || "d" === i || c.d - r <= o
+                ? ((a = { d: c.d - r }), ++t, (r = 0), a)
+                : ((r += o), { d: o });
             },
-            i = (e) => {
-              for (var t = [], r = a(t), n = 0; n < e.length; n++) r(e[n]);
-              return u(t);
+            peek() {
+              return e[t];
             },
-            a = (e) => {
-              return (t) => {
-                t &&
-                  0 !== t.d &&
-                  (0 === e.length
-                    ? e.push(t)
-                    : typeof t === typeof e[e.length - 1]
-                    ? "object" === typeof t
-                      ? (e[e.length - 1].d += t.d)
-                      : (e[e.length - 1] += t)
-                    : e.push(t));
-              };
-            },
-            c = (e) => {
-              return "number" === typeof e
-                ? e
-                : "string" === typeof e
-                ? n.strPosToUni(e)
-                : e.d;
-            },
-            s = (e) => {
-              let t = 0, r = 0;
-              return {
-                take(o, i) {
-                  if (t === e.length) return -1 === o ? null : o;
-                  let a;
-                  const c = e[t];
-                  if ("number" === typeof c)
-                    return -1 === o || c - r <= o
-                      ? ((a = c - r), ++t, (r = 0), a)
-                      : ((r += o), o);
-                  if ("string" === typeof c) {
-                    if (-1 === o || "i" === i || n.strPosToUni(c.slice(r)) <= o)
-                      return (a = c.slice(r)), ++t, (r = 0), a;
-                    const s = r + n.uniToStrPos(c.slice(r), o);
-                    return (a = c.slice(r, s)), (r = s), a;
-                  }
-                  return -1 === o || "d" === i || c.d - r <= o
-                    ? ((a = { d: c.d - r }), ++t, (r = 0), a)
-                    : ((r += o), { d: o });
-                },
-                peek() {
-                  return e[t];
-                },
-              };
-            },
-            u = (e) => {
-              return (
-                e.length > 0 && "number" === typeof e[e.length - 1] && e.pop(), e
-              );
-            };
+          };
+        },
+        u = (e) => {
+          return (
+            e.length > 0 && "number" === typeof e[e.length - 1] && e.pop(), e
+          );
+        };
       function l(e, t, r) {
         if ("left" !== r && "right" !== r)
           throw Error("side (" + r + ") must be 'left' or 'right'");
@@ -206,29 +207,29 @@
         return u(i);
       }
       const p = (e, t) => {
-                for (let r = 0, o = 0; o < t.length && e > r; o++) {
-                  const i = t[o];
-                  switch (typeof i) {
-                    case "number":
-                      r += i;
-                      break;
-                    case "string":
-                      const a = n.strPosToUni(i);
-                      (r += a), (e += a);
-                      break;
-                    case "object":
-                      e -= Math.min(i.d, e - r);
-                  }
-                }
-                return e;
-              },
-            d = (e, t) => {
-              return "number" === typeof e
-                ? p(e, t)
-                : e.map((e) => {
-                    return p(e, t);
-                  });
-            };
+          for (let r = 0, o = 0; o < t.length && e > r; o++) {
+            const i = t[o];
+            switch (typeof i) {
+              case "number":
+                r += i;
+                break;
+              case "string":
+                const a = n.strPosToUni(i);
+                (r += a), (e += a);
+                break;
+              case "object":
+                e -= Math.min(i.d, e - r);
+            }
+          }
+          return e;
+        },
+        d = (e, t) => {
+          return "number" === typeof e
+            ? p(e, t)
+            : e.map((e) => {
+                return p(e, t);
+              });
+        };
       t.default = (e) => {
         return {
           name: "text-unicode",
@@ -280,7 +281,13 @@
         r.d(t, "b", () => {
           return O;
         });
-      const n = r("nKUr"), o = r("xvhg"), i = r("MX0m"), a = r.n(i), c = r("q1tI"), s = r("HADy"), u = r("4A0d");
+      const n = r("nKUr"),
+        o = r("xvhg"),
+        i = r("MX0m"),
+        a = r.n(i),
+        c = r("q1tI"),
+        s = r("HADy"),
+        u = r("4A0d");
       function l(e, t) {
         let r;
         if ("undefined" === typeof Symbol || null == e[Symbol.iterator]) {
@@ -320,7 +327,9 @@
             "Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
           );
         }
-        let i, a = !0, c = !1;
+        let i,
+          a = !0,
+          c = !1;
         return {
           s() {
             r = e[Symbol.iterator]();
@@ -347,182 +356,201 @@
         return n;
       }
       const p = r("YuJD"),
-            d = r("up5I"),
-            h = r("DgdK"),
-            b = r("5zsw"),
-            v = r("xom/"),
-            g = (e, t) => {
-              const r = e.runner,
-                    i = e.packager,
-                    f = e.languageHeader,
-                    d = e.onClear,
-                    h = ((e) => {
-                      const t = e.runner, r = e.packager, n = e.languageHeader, i = Object(u.a)(), a = Object(o.a)(i, 2), f = a[0], p = a[1], d = c.useState(""), h = Object(o.a)(d, 2), b = h[0], v = h[1];
-                      return c.useEffect(() => {
-                        if (!f)
-                          return t.onOutput((e) => {
-                            return v((t) => {
-                              return t + e;
-                            });
-                          });
-                      }, [f, t, v]),
-                      c.useEffect(() => {
-                        if (!f && r)
-                          return r.onOutput((e) => {
-                            return v((t) => {
-                              return t + e.replace(/\n/g, "\n\r");
-                            });
-                          });
-                      }, [f, r, v]),
-                      c.useEffect(() => {
-                        if (f && r)
-                          return r.onOutput((e) => {
-                            return f.write(e.replace(/\n/g, "\n\r"));
-                          });
-                      }, [f, r]),
-                      c.useEffect(() => {
-                        b && f && (f.write(b), v(""));
-                      }, [f, b]),
-                      c.useEffect(() => {
-                        n &&
-                          v((e) => {
-                            return e + "".concat(n.replace(/\n/g, "\n\r"), "\n\r");
-                          });
-                      }, [n, v]),
-                      c.useEffect(() => {
-                        if (f) {
-                          const e = () => {
-                                    t.getRunState() !== s.b.OFFLINE &&
-                                      t.resizeTerminal(f.getSize());
-                                  },
-                                r = [];
-                          r.push(f.onResize(e).dispose);
-                          let n = [];
-                          r.push(
-                            f.onData((e) => {
-                              t.getRunState() !== s.b.OFFLINE
-                                ? t.sendInput(e)
-                                : n.push(e);
-                            }).dispose
-                          ),
-                            r.push(
-                              t.onOutput((e) => {
-                                f.write(e);
-                              })
-                            );
-                          let o = !1;
-                          return r.push(
-                            t.onStateChanged((r) => {
-                              if (r !== s.b.OFFLINE) {
-                                if ((o || (e(), (o = !0)), n.length)) {
-                                  let i;
-                                  const a = l(n);
-                                  try {
-                                    for (a.s(); !(i = a.n()).done; ) {
-                                      const c = i.value;
-                                      t.sendInput(c);
-                                    }
-                                  } catch (u) {
-                                    a.e(u);
-                                  } finally {
-                                    a.f();
-                                  }
-                                  n = [];
-                                }
-                              } else o = !1;
-                            })
-                          ),
-                          t.getRunState() !== s.b.OFFLINE && (e(), (o = !0)),
-                          () => {
-                            r.forEach((e) => {
-                              return e();
-                            });
-                          }
-                        ;
-                        }
-                      }, [f, t]),
-                      [f, p]
-                    ;
-                    })({ runner: r, packager: i, languageHeader: f }),
-                    b = Object(o.a)(h, 2),
-                    g = b[0],
-                    x = b[1],
-                    w = c.useState(!1),
-                    j = Object(o.a)(w, 2),
-                    k = j[0],
-                    E = j[1];
+        d = r("up5I"),
+        h = r("DgdK"),
+        b = r("5zsw"),
+        v = r("xom/"),
+        g = (e, t) => {
+          const r = e.runner,
+            i = e.packager,
+            f = e.languageHeader,
+            d = e.onClear,
+            h = ((e) => {
+              const t = e.runner,
+                r = e.packager,
+                n = e.languageHeader,
+                i = Object(u.a)(),
+                a = Object(o.a)(i, 2),
+                f = a[0],
+                p = a[1],
+                d = c.useState(""),
+                h = Object(o.a)(d, 2),
+                b = h[0],
+                v = h[1];
               return (
-                c.useImperativeHandle(t, () => {
-                  return {
-                    clear() {
-                      g && g.clear();
-                    },
-                  };
-                }),
-                Object(n.jsxs)("div", {
-                  onKeyDown(e) {
-                    "f" === e.key &&
-                      Object(p.b)(e) &&
-                      !e.shiftKey &&
-                      (E(!0), e.preventDefault());
-                  },
-                  className: "jsx-3520147872 replit-ui-theme-root dark terminal",
-                  children: [
-                    Object(n.jsx)("div", {
-                      className: "jsx-3520147872 controls",
-                      children: Object(n.jsxs)(v.a, {
-                        align: "center",
-                        wrap: "nowrap",
-                        children: [
-                          k && g
-                            ? Object(n.jsx)(m, {
-                                findPrevious: g.findPrevious,
-                                findNext: g.findNext,
-                                exit() {
-                                  return E(!1);
-                                },
-                              })
-                            : Object(n.jsx)(O, {
-                                onClick() {
-                                  return E(!0);
-                                },
-                              }),
-                          Object(n.jsx)(y, {
+                c.useEffect(() => {
+                  if (!f)
+                    return t.onOutput((e) => {
+                      return v((t) => {
+                        return t + e;
+                      });
+                    });
+                }, [f, t, v]),
+                c.useEffect(() => {
+                  if (!f && r)
+                    return r.onOutput((e) => {
+                      return v((t) => {
+                        return t + e.replace(/\n/g, "\n\r");
+                      });
+                    });
+                }, [f, r, v]),
+                c.useEffect(() => {
+                  if (f && r)
+                    return r.onOutput((e) => {
+                      return f.write(e.replace(/\n/g, "\n\r"));
+                    });
+                }, [f, r]),
+                c.useEffect(() => {
+                  b && f && (f.write(b), v(""));
+                }, [f, b]),
+                c.useEffect(() => {
+                  n &&
+                    v((e) => {
+                      return e + "".concat(n.replace(/\n/g, "\n\r"), "\n\r");
+                    });
+                }, [n, v]),
+                c.useEffect(() => {
+                  if (f) {
+                    const e = () => {
+                        t.getRunState() !== s.b.OFFLINE &&
+                          t.resizeTerminal(f.getSize());
+                      },
+                      r = [];
+                    r.push(f.onResize(e).dispose);
+                    let n = [];
+                    r.push(
+                      f.onData((e) => {
+                        t.getRunState() !== s.b.OFFLINE
+                          ? t.sendInput(e)
+                          : n.push(e);
+                      }).dispose
+                    ),
+                      r.push(
+                        t.onOutput((e) => {
+                          f.write(e);
+                        })
+                      );
+                    let o = !1;
+                    return (
+                      r.push(
+                        t.onStateChanged((r) => {
+                          if (r !== s.b.OFFLINE) {
+                            if ((o || (e(), (o = !0)), n.length)) {
+                              let i;
+                              const a = l(n);
+                              try {
+                                for (a.s(); !(i = a.n()).done; ) {
+                                  const c = i.value;
+                                  t.sendInput(c);
+                                }
+                              } catch (u) {
+                                a.e(u);
+                              } finally {
+                                a.f();
+                              }
+                              n = [];
+                            }
+                          } else o = !1;
+                        })
+                      ),
+                      t.getRunState() !== s.b.OFFLINE && (e(), (o = !0)),
+                      () => {
+                        r.forEach((e) => {
+                          return e();
+                        });
+                      }
+                    );
+                  }
+                }, [f, t]),
+                [f, p]
+              );
+            })({ runner: r, packager: i, languageHeader: f }),
+            b = Object(o.a)(h, 2),
+            g = b[0],
+            x = b[1],
+            w = c.useState(!1),
+            j = Object(o.a)(w, 2),
+            k = j[0],
+            E = j[1];
+          return (
+            c.useImperativeHandle(t, () => {
+              return {
+                clear() {
+                  g && g.clear();
+                },
+              };
+            }),
+            Object(n.jsxs)("div", {
+              onKeyDown(e) {
+                "f" === e.key &&
+                  Object(p.b)(e) &&
+                  !e.shiftKey &&
+                  (E(!0), e.preventDefault());
+              },
+              className: "jsx-3520147872 replit-ui-theme-root dark terminal",
+              children: [
+                Object(n.jsx)("div", {
+                  className: "jsx-3520147872 controls",
+                  children: Object(n.jsxs)(v.a, {
+                    align: "center",
+                    wrap: "nowrap",
+                    children: [
+                      k && g
+                        ? Object(n.jsx)(m, {
+                            findPrevious: g.findPrevious,
+                            findNext: g.findNext,
+                            exit() {
+                              return E(!1);
+                            },
+                          })
+                        : Object(n.jsx)(O, {
                             onClick() {
-                              g &&
-                                (g.clear(),
-                                d && d(),
-                                f &&
-                                  g.write(
-                                    "".concat(f.replace(/\n/g, "\n\r"), "\n\r")
-                                  ),
-                                g.focus());
+                              return E(!0);
                             },
                           }),
-                        ],
+                      Object(n.jsx)(y, {
+                        onClick() {
+                          g &&
+                            (g.clear(),
+                            d && d(),
+                            f &&
+                              g.write(
+                                "".concat(f.replace(/\n/g, "\n\r"), "\n\r")
+                              ),
+                            g.focus());
+                        },
                       }),
-                    }),
-                    Object(n.jsx)("div", {
-                      ref: x,
-                      className: "jsx-3520147872 xterm-container",
-                    }),
-                    Object(n.jsx)(a.a, {
-                      id: "3520147872",
-                      children: [
-                        ".terminal.jsx-3520147872{height:100%;width:100%;position:relative;background-color:var(--color-brand-dark-blue);border-radius:var(--border-radius-1);}",
-                        ".controls.jsx-3520147872{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end;position:absolute;top:var(--spacing-1);right:var(--spacing-1);z-index:100;min-height:30px;}",
-                        ".xterm-container.jsx-3520147872{height:100%;overflow:auto;}",
-                        ".xterm-container.jsx-3520147872 .xterm{height:100%;padding:var(--spacing-2) var(--spacing-2) var(--spacing-half);}",
-                        ".xterm-container.jsx-3520147872 .xterm-viewport{overflow-y:auto !important;border-radius:var(--border-radius-1);}",
-                      ],
-                    }),
+                    ],
+                  }),
+                }),
+                Object(n.jsx)("div", {
+                  ref: x,
+                  className: "jsx-3520147872 xterm-container",
+                }),
+                Object(n.jsx)(a.a, {
+                  id: "3520147872",
+                  children: [
+                    ".terminal.jsx-3520147872{height:100%;width:100%;position:relative;background-color:var(--color-brand-dark-blue);border-radius:var(--border-radius-1);}",
+                    ".controls.jsx-3520147872{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end;position:absolute;top:var(--spacing-1);right:var(--spacing-1);z-index:100;min-height:30px;}",
+                    ".xterm-container.jsx-3520147872{height:100%;overflow:auto;}",
+                    ".xterm-container.jsx-3520147872 .xterm{height:100%;padding:var(--spacing-2) var(--spacing-2) var(--spacing-half);}",
+                    ".xterm-container.jsx-3520147872 .xterm-viewport{overflow-y:auto !important;border-radius:var(--border-radius-1);}",
                   ],
-                })
-              );
-            };
+                }),
+              ],
+            })
+          );
+        };
       t.d = c.forwardRef(g);
       function m(e) {
-        const t = e.findNext, r = e.findPrevious, i = e.exit, s = c.useRef(null), u = c.useState(""), l = Object(o.a)(u, 2), f = l[0], p = l[1];
+        const t = e.findNext,
+          r = e.findPrevious,
+          i = e.exit,
+          s = c.useRef(null),
+          u = c.useState(""),
+          l = Object(o.a)(u, 2),
+          f = l[0],
+          p = l[1];
         c.useEffect(() => {
           s.current && s.current.focus();
         }, []);
@@ -681,61 +709,61 @@
         return J;
       });
       const n = r("vJKn"),
-            o = r.n(n),
-            i = r("rg98"),
-            a = r("cpVT"),
-            c = r("z7pX"),
-            s = r("gfZM"),
-            u = r("8v8i"),
-            l = r("dI/k"),
-            f = r("NuhN"),
-            p = r("8/ze"),
-            d = r("5/z4"),
-            h = r("H+61"),
-            b = r("UlJF"),
-            v = r("+Css"),
-            g = r("7LId"),
-            m = r("VIvw"),
-            y = r("iHvq"),
-            O = r("+qE3"),
-            x = r("cC09"),
-            w = r("cHV+"),
-            j = r("9/5/"),
-            k = r.n(j),
-            E = r("Z5Wq"),
-            C = r("zgDP"),
-            T = r("xvhg"),
-            S = r("Yk1I"),
-            D = r.n(S),
-            R = (e) => {
-              if (!Array.isArray(e))
-                throw Error("Op must be an array of components");
-              for (var t = null, r = 0; r < e.length; r++) {
-                const n = e[r];
-                switch (typeof n) {
-                  case "object":
-                    if (!("number" === typeof n.d && n.d > 0))
-                      throw Error("Object components must be deletes of size > 0");
-                    break;
-                  case "string":
-                    if (!(n.length > 0)) throw Error("Inserts cannot be empty");
-                    break;
-                  case "number":
-                    if (!(n > 0)) throw Error("Skip components must be >0");
-                    if ("number" === typeof t)
-                      throw Error("Adjacent skip components should be combined");
-                }
-                t = n;
-              }
-              if ("number" === typeof t) throw Error("Op has a trailing skip");
-            },
-            N = (e) => {
-              return "number" === typeof e
-                ? e
-                : "string" === typeof e
-                ? e.length
-                : e.d;
-            };
+        o = r.n(n),
+        i = r("rg98"),
+        a = r("cpVT"),
+        c = r("z7pX"),
+        s = r("gfZM"),
+        u = r("8v8i"),
+        l = r("dI/k"),
+        f = r("NuhN"),
+        p = r("8/ze"),
+        d = r("5/z4"),
+        h = r("H+61"),
+        b = r("UlJF"),
+        v = r("+Css"),
+        g = r("7LId"),
+        m = r("VIvw"),
+        y = r("iHvq"),
+        O = r("+qE3"),
+        x = r("cC09"),
+        w = r("cHV+"),
+        j = r("9/5/"),
+        k = r.n(j),
+        E = r("Z5Wq"),
+        C = r("zgDP"),
+        T = r("xvhg"),
+        S = r("Yk1I"),
+        D = r.n(S),
+        R = (e) => {
+          if (!Array.isArray(e))
+            throw Error("Op must be an array of components");
+          for (var t = null, r = 0; r < e.length; r++) {
+            const n = e[r];
+            switch (typeof n) {
+              case "object":
+                if (!("number" === typeof n.d && n.d > 0))
+                  throw Error("Object components must be deletes of size > 0");
+                break;
+              case "string":
+                if (!(n.length > 0)) throw Error("Inserts cannot be empty");
+                break;
+              case "number":
+                if (!(n > 0)) throw Error("Skip components must be >0");
+                if ("number" === typeof t)
+                  throw Error("Adjacent skip components should be combined");
+            }
+            t = n;
+          }
+          if ("number" === typeof t) throw Error("Op has a trailing skip");
+        },
+        N = (e) => {
+          return "number" === typeof e
+            ? e
+            : "string" === typeof e
+            ? e.length
+            : e.d;
+        };
       function A(e, t) {
         R(e), R(t);
         for (
@@ -756,7 +784,8 @@
                     : r.push(e));
               }),
             a = ((e) => {
-              let t = 0, r = 0;
+              let t = 0,
+                r = 0;
               return [
                 (n, o) => {
                   if (t === e.length) return -1 === n ? null : n;
@@ -818,33 +847,36 @@
       function I(e, t) {
         if (e === t) return [];
         const r = [],
-              n = (e) => {
-                e &&
-                  0 !== e.d &&
-                  (0 === r.length
-                    ? r.push(e)
-                    : typeof e === typeof r[r.length - 1]
-                    ? "object" === typeof e
-                      ? (r[r.length - 1].d += e.d)
-                      : (r[r.length - 1] += e)
-                    : r.push(e));
-              };
-        return D()(e, t).forEach((e) => {
-          const t = Object(T.a)(e, 2), r = t[0], o = t[1];
-          switch (r) {
-            case D.a.INSERT:
-              n(o);
-              break;
-            case D.a.DELETE:
-              n({ d: o.length });
-              break;
-            case D.a.EQUAL:
-              n(o.length);
-          }
-        }),
-        r.length > 0 && "number" === typeof r[r.length - 1] && r.pop(),
-        r
-      ;
+          n = (e) => {
+            e &&
+              0 !== e.d &&
+              (0 === r.length
+                ? r.push(e)
+                : typeof e === typeof r[r.length - 1]
+                ? "object" === typeof e
+                  ? (r[r.length - 1].d += e.d)
+                  : (r[r.length - 1] += e)
+                : r.push(e));
+          };
+        return (
+          D()(e, t).forEach((e) => {
+            const t = Object(T.a)(e, 2),
+              r = t[0],
+              o = t[1];
+            switch (r) {
+              case D.a.INSERT:
+                n(o);
+                break;
+              case D.a.DELETE:
+                n({ d: o.length });
+                break;
+              case D.a.EQUAL:
+                n(o.length);
+            }
+          }),
+          r.length > 0 && "number" === typeof r[r.length - 1] && r.pop(),
+          r
+        );
       }
       function F(e, t) {
         const r = Object.keys(e);
@@ -926,7 +958,9 @@
             "Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
           );
         }
-        let i, a = !0, c = !1;
+        let i,
+          a = !0,
+          c = !1;
         return {
           s() {
             r = e[Symbol.iterator]();
@@ -1001,1160 +1035,1198 @@
         const t = U(r);
         function r(e, n) {
           let c;
-          return Object(h.a)(this, r),
-          (c = t.call(this)),
-          Object(a.a)(Object(v.a)(c), "linkedFile", void 0),
-          Object(a.a)(Object(v.a)(c), "channel", void 0),
-          Object(a.a)(Object(v.a)(c), "destroy", void 0),
-          Object(a.a)(Object(v.a)(c), "pending", void 0),
-          Object(a.a)(Object(v.a)(c), "inflight", void 0),
-          Object(a.a)(Object(v.a)(c), "inflightOpsPromise", void 0),
-          Object(a.a)(Object(v.a)(c), "version", void 0),
-          Object(a.a)(Object(v.a)(c), "otContents", void 0),
-          Object(a.a)(Object(v.a)(c), "pendingCursors", void 0),
-          Object(a.a)(Object(v.a)(c), "flushedCursorIds", void 0),
-          Object(a.a)(Object(v.a)(c), "user", void 0),
-          Object(a.a)(Object(v.a)(c), "debounceSend", void 0),
-          Object(a.a)(Object(v.a)(c), "debounceCommit", void 0),
-          Object(a.a)(Object(v.a)(c), "isCommitting", void 0),
-          Object(a.a)(Object(v.a)(c), "resolveStatusOp", void 0),
-          Object(a.a)(Object(v.a)(c), "isReconnecting", void 0),
-          Object(a.a)(Object(v.a)(c), "uncommittedOps", void 0),
-          Object(a.a)(Object(v.a)(c), "hasUncommittedMultiplayerOps", void 0),
-          Object(a.a)(Object(v.a)(c), "committedVersion", void 0),
-          Object(a.a)(Object(v.a)(c), "committedContent", void 0),
-          Object(a.a)(Object(v.a)(c), "bufferedReconnectingOps", void 0),
-          Object(a.a)(Object(v.a)(c), "didEditOffline", void 0),
-          Object(a.a)(Object(v.a)(c), "reconnectTrackedData", void 0),
-          Object(a.a)(Object(v.a)(c), "timeDisconnected", void 0),
-          Object(a.a)(Object(v.a)(c), "writeOps", (e) => {
-            if (!c.channel && !c.isReconnecting)
-              throw new Error(
-                "Trying to send changes before ever coming online"
-              );
-            c.isReconnecting && (c.didEditOffline = !0);
-            let t = "";
-            try {
-              t = c.getLocalContent();
-            } catch (f) {
-              return void c.emit(
-                "error",
-                new Error("OT Error: unable to get local content"),
-                { originalError: f }
-              );
-            }
-            let r;
-            let n = [];
-            let o = 0;
-            const i = _(e);
-            try {
-              for (i.s(); !(r = i.n()).done; ) {
-                const a = r.value;
-                switch (typeof a) {
-                  case "number":
-                    o += a;
-                    break;
-                  case "string":
-                    const s = Object(E.strPosToUni)(t, o);
-                    (n =
-                      s > 0
-                        ? w.type.compose(n, [s, a])
-                        : w.type.compose(n, [a])),
-                      (o += a.length);
-                    break;
-                  case "object":
-                    const u = Object(E.strPosToUni)(t, o), l = Object(E.strPosToUni)(t, o + a.d) - u;
-                    n =
-                      u > 0
-                        ? w.type.compose(n, [u, { d: l }])
-                        : w.type.compose(n, [{ d: l }]);
-                    break;
-                  default:
-                    return void c.emit(
-                      "error",
-                      new Error("OT Error: unknown op type")
-                    );
-                }
+          return (
+            Object(h.a)(this, r),
+            (c = t.call(this)),
+            Object(a.a)(Object(v.a)(c), "linkedFile", void 0),
+            Object(a.a)(Object(v.a)(c), "channel", void 0),
+            Object(a.a)(Object(v.a)(c), "destroy", void 0),
+            Object(a.a)(Object(v.a)(c), "pending", void 0),
+            Object(a.a)(Object(v.a)(c), "inflight", void 0),
+            Object(a.a)(Object(v.a)(c), "inflightOpsPromise", void 0),
+            Object(a.a)(Object(v.a)(c), "version", void 0),
+            Object(a.a)(Object(v.a)(c), "otContents", void 0),
+            Object(a.a)(Object(v.a)(c), "pendingCursors", void 0),
+            Object(a.a)(Object(v.a)(c), "flushedCursorIds", void 0),
+            Object(a.a)(Object(v.a)(c), "user", void 0),
+            Object(a.a)(Object(v.a)(c), "debounceSend", void 0),
+            Object(a.a)(Object(v.a)(c), "debounceCommit", void 0),
+            Object(a.a)(Object(v.a)(c), "isCommitting", void 0),
+            Object(a.a)(Object(v.a)(c), "resolveStatusOp", void 0),
+            Object(a.a)(Object(v.a)(c), "isReconnecting", void 0),
+            Object(a.a)(Object(v.a)(c), "uncommittedOps", void 0),
+            Object(a.a)(Object(v.a)(c), "hasUncommittedMultiplayerOps", void 0),
+            Object(a.a)(Object(v.a)(c), "committedVersion", void 0),
+            Object(a.a)(Object(v.a)(c), "committedContent", void 0),
+            Object(a.a)(Object(v.a)(c), "bufferedReconnectingOps", void 0),
+            Object(a.a)(Object(v.a)(c), "didEditOffline", void 0),
+            Object(a.a)(Object(v.a)(c), "reconnectTrackedData", void 0),
+            Object(a.a)(Object(v.a)(c), "timeDisconnected", void 0),
+            Object(a.a)(Object(v.a)(c), "writeOps", (e) => {
+              if (!c.channel && !c.isReconnecting)
+                throw new Error(
+                  "Trying to send changes before ever coming online"
+                );
+              c.isReconnecting && (c.didEditOffline = !0);
+              let t = "";
+              try {
+                t = c.getLocalContent();
+              } catch (f) {
+                return void c.emit(
+                  "error",
+                  new Error("OT Error: unable to get local content"),
+                  { originalError: f }
+                );
               }
-            } catch (p) {
-              i.e(p);
-            } finally {
-              i.f();
-            }
-            (c.pending = w.type.compose(c.pending, n)),
-              0 !== c.pending.length
-                ? c.emit("fileDirty")
-                : c.isCommitting && c.emit("commitStart");
-            try {
-              c.getLocalContent();
-            } catch (f) {
-              c.emit(
-                "error",
-                new Error("OT Error: unable to get local content"),
-                { originalError: f }
-              );
-            }
-            c.debounceSend();
-          }),
-          Object(a.a)(Object(v.a)(c), "updateCursors", (e) => {
-            (c.pendingCursors = e), c.debounceSend();
-          }),
-          Object(a.a)(Object(v.a)(c), "isClean", () => {
-            return (
-              c.committedVersion === c.version &&
-              0 === c.inflight.length &&
-              0 === c.pending.length
-            );
-          }),
-          Object(a.a)(Object(v.a)(c), "sendOps", () => {
-            if (
-              c.channel &&
-              "open" === c.channel.status &&
-              !c.isReconnecting &&
-              !(c.inflight.length > 0)
-            ) {
-              if (0 !== c.pending.length) {
-                const e = c.pending.map((e) => {
-                  return "object" === typeof e
-                    ? { delete: e.d }
-                    : "number" === typeof e
-                    ? { skip: e }
-                    : { insert: e };
-                });
-                (c.inflight = c.pending),
-                  (c.pending = []),
-                  (c.inflightOpsPromise = c.channel.request({
-                    ot: { spookyVersion: c.version, ops: e },
-                  })),
-                  c.inflightOpsPromise.then((t) => {
-                    t.error &&
-                      c.emit(
+              let r;
+              let n = [];
+              let o = 0;
+              const i = _(e);
+              try {
+                for (i.s(); !(r = i.n()).done; ) {
+                  const a = r.value;
+                  switch (typeof a) {
+                    case "number":
+                      o += a;
+                      break;
+                    case "string":
+                      const s = Object(E.strPosToUni)(t, o);
+                      (n =
+                        s > 0
+                          ? w.type.compose(n, [s, a])
+                          : w.type.compose(n, [a])),
+                        (o += a.length);
+                      break;
+                    case "object":
+                      const u = Object(E.strPosToUni)(t, o),
+                        l = Object(E.strPosToUni)(t, o + a.d) - u;
+                      n =
+                        u > 0
+                          ? w.type.compose(n, [u, { d: l }])
+                          : w.type.compose(n, [{ d: l }]);
+                      break;
+                    default:
+                      return void c.emit(
                         "error",
-                        new Error("OT Error: error accepting packet"),
-                        { originalError: t.error, ops: e }
+                        new Error("OT Error: unknown op type")
                       );
-                  });
-              }
-              if (0 !== c.pendingCursors.length) {
-                let t;
-                const r = _(c.flushedCursorIds);
-                try {
-                  for (r.s(); !(t = r.n()).done; ) {
-                    const n = t.value;
-                    c.channel.send({ otDeleteCursor: { id: n } });
                   }
-                } catch (u) {
-                  r.e(u);
-                } finally {
-                  r.f();
                 }
-                c.flushedCursorIds = [];
-                let o;
-                const i = _(c.pendingCursors);
-                try {
-                  for (i.s(); !(o = i.n()).done; ) {
-                    const a = o.value,
-                          s = Number(
-                            Math.random().toString().split(".")[1]
-                          ).toString(36);
-                    c.flushedCursorIds.push(s),
-                      c.channel.send({
-                        otNewCursor: P({ id: s, user: c.user }, a),
-                      });
-                  }
-                } catch (u) {
-                  i.e(u);
-                } finally {
-                  i.f();
-                }
-                c.pendingCursors = [];
+              } catch (p) {
+                i.e(p);
+              } finally {
+                i.f();
               }
-            }
-          }),
-          Object(a.a)(Object(v.a)(c), "handlePacket", (e, t) => {
-            let r = e.ops;
-            const n = e.version;
-            const o = e.crc32;
-            const i = t.overrideReconnectringBuffer;
-            if (c.resolveStatusOp)
+              (c.pending = w.type.compose(c.pending, n)),
+                0 !== c.pending.length
+                  ? c.emit("fileDirty")
+                  : c.isCommitting && c.emit("commitStart");
+              try {
+                c.getLocalContent();
+              } catch (f) {
+                c.emit(
+                  "error",
+                  new Error("OT Error: unable to get local content"),
+                  { originalError: f }
+                );
+              }
+              c.debounceSend();
+            }),
+            Object(a.a)(Object(v.a)(c), "updateCursors", (e) => {
+              (c.pendingCursors = e), c.debounceSend();
+            }),
+            Object(a.a)(Object(v.a)(c), "isClean", () => {
               return (
-                c.resolveStatusOp({ ops: r, version: n }),
-                void (c.resolveStatusOp = null)
+                c.committedVersion === c.version &&
+                0 === c.inflight.length &&
+                0 === c.pending.length
               );
-            if (!c.isReconnecting || i)
-              if (-1 !== c.version)
-                if ((c.version++, n === c.version)) {
-                  let a = "";
+            }),
+            Object(a.a)(Object(v.a)(c), "sendOps", () => {
+              if (
+                c.channel &&
+                "open" === c.channel.status &&
+                !c.isReconnecting &&
+                !(c.inflight.length > 0)
+              ) {
+                if (0 !== c.pending.length) {
+                  const e = c.pending.map((e) => {
+                    return "object" === typeof e
+                      ? { delete: e.d }
+                      : "number" === typeof e
+                      ? { skip: e }
+                      : { insert: e };
+                  });
+                  (c.inflight = c.pending),
+                    (c.pending = []),
+                    (c.inflightOpsPromise = c.channel.request({
+                      ot: { spookyVersion: c.version, ops: e },
+                    })),
+                    c.inflightOpsPromise.then((t) => {
+                      t.error &&
+                        c.emit(
+                          "error",
+                          new Error("OT Error: error accepting packet"),
+                          { originalError: t.error, ops: e }
+                        );
+                    });
+                }
+                if (0 !== c.pendingCursors.length) {
+                  let t;
+                  const r = _(c.flushedCursorIds);
                   try {
-                    a = w.type.apply(c.otContents, r);
-                  } catch (O) {
-                    return void c.emit(
-                      "error",
-                      new Error("OT Error: unable to apply updated content"),
-                      { originalError: O, incomingOps: r }
-                    );
+                    for (r.s(); !(t = r.n()).done; ) {
+                      const n = t.value;
+                      c.channel.send({ otDeleteCursor: { id: n } });
+                    }
+                  } catch (u) {
+                    r.e(u);
+                  } finally {
+                    r.f();
                   }
-                  const s = x.str(a) >>> 0;
-                  if (s === o) {
-                    if (
-                      (c.uncommittedOps.push({
-                        version: n,
-                        crc32: o,
-                        ops: r,
-                      }),
-                      JSON.stringify(r) === JSON.stringify(c.inflight))
-                    )
-                      return (
-                        c.debounceCommit(),
-                        (c.inflight = []),
-                        (c.inflightOpsPromise = null),
-                        (c.otContents = a),
-                        c.debounceSend(),
-                        void c.debounceSend.flush()
-                      );
-                    c.isCommitting || c.emit("fileDirty"),
-                      c.debounceCommit(),
-                      (c.hasUncommittedMultiplayerOps = !0);
-                    let u = "";
+                  c.flushedCursorIds = [];
+                  let o;
+                  const i = _(c.pendingCursors);
+                  try {
+                    for (i.s(); !(o = i.n()).done; ) {
+                      const a = o.value,
+                        s = Number(
+                          Math.random().toString().split(".")[1]
+                        ).toString(36);
+                      c.flushedCursorIds.push(s),
+                        c.channel.send({
+                          otNewCursor: P({ id: s, user: c.user }, a),
+                        });
+                    }
+                  } catch (u) {
+                    i.e(u);
+                  } finally {
+                    i.f();
+                  }
+                  c.pendingCursors = [];
+                }
+              }
+            }),
+            Object(a.a)(Object(v.a)(c), "handlePacket", (e, t) => {
+              let r = e.ops;
+              const n = e.version;
+              const o = e.crc32;
+              const i = t.overrideReconnectringBuffer;
+              if (c.resolveStatusOp)
+                return (
+                  c.resolveStatusOp({ ops: r, version: n }),
+                  void (c.resolveStatusOp = null)
+                );
+              if (!c.isReconnecting || i)
+                if (-1 !== c.version)
+                  if ((c.version++, n === c.version)) {
+                    let a = "";
                     try {
-                      u = c.getLocalContent();
+                      a = w.type.apply(c.otContents, r);
                     } catch (O) {
                       return void c.emit(
                         "error",
-                        new Error("OT Error: unable to get local content"),
-                        { originalError: O }
+                        new Error("OT Error: unable to apply updated content"),
+                        { originalError: O, incomingOps: r }
                       );
                     }
-                    if (c.inflight.length) {
-                      const l = w.type.transform(c.inflight, r, "right");
-                      (r = w.type.transform(r, c.inflight, "left")),
-                        (c.inflight = l);
-                    }
-                    if (c.pending.length) {
-                      const f = w.type.transform(c.pending, r, "right");
-                      (r = w.type.transform(r, c.pending, "left")),
-                        (c.pending = f);
-                    }
-                    let p;
-                    let d = [];
-                    let h = 0;
-                    const b = _(r);
-                    try {
-                      for (b.s(); !(p = b.n()).done; ) {
-                        const v = p.value;
-                        switch (typeof v) {
-                          case "number":
-                            h += v;
-                            break;
-                          case "string":
-                            const g = Object(E.uniToStrPos)(u, h);
-                            (d = A(d, g > 0 ? [g, v] : [v])),
-                              (h += Object(E.strPosToUni)(v));
-                            break;
-                          case "object":
-                            const m = Object(E.uniToStrPos)(u, h), y = Object(E.uniToStrPos)(u, h + v.d) - m;
-                            d = A(d, m > 0 ? [m, { d: y }] : [{ d: y }]);
-                            break;
-                          default:
-                            return void c.emit(
-                              "error",
-                              new Error("OT Error: unknown op type")
-                            );
-                        }
+                    const s = x.str(a) >>> 0;
+                    if (s === o) {
+                      if (
+                        (c.uncommittedOps.push({
+                          version: n,
+                          crc32: o,
+                          ops: r,
+                        }),
+                        JSON.stringify(r) === JSON.stringify(c.inflight))
+                      )
+                        return (
+                          c.debounceCommit(),
+                          (c.inflight = []),
+                          (c.inflightOpsPromise = null),
+                          (c.otContents = a),
+                          c.debounceSend(),
+                          void c.debounceSend.flush()
+                        );
+                      c.isCommitting || c.emit("fileDirty"),
+                        c.debounceCommit(),
+                        (c.hasUncommittedMultiplayerOps = !0);
+                      let u = "";
+                      try {
+                        u = c.getLocalContent();
+                      } catch (O) {
+                        return void c.emit(
+                          "error",
+                          new Error("OT Error: unable to get local content"),
+                          { originalError: O }
+                        );
                       }
-                    } catch (j) {
-                      b.e(j);
-                    } finally {
-                      b.f();
-                    }
-                    (c.otContents = a), c.emit("op", d);
+                      if (c.inflight.length) {
+                        const l = w.type.transform(c.inflight, r, "right");
+                        (r = w.type.transform(r, c.inflight, "left")),
+                          (c.inflight = l);
+                      }
+                      if (c.pending.length) {
+                        const f = w.type.transform(c.pending, r, "right");
+                        (r = w.type.transform(r, c.pending, "left")),
+                          (c.pending = f);
+                      }
+                      let p;
+                      let d = [];
+                      let h = 0;
+                      const b = _(r);
+                      try {
+                        for (b.s(); !(p = b.n()).done; ) {
+                          const v = p.value;
+                          switch (typeof v) {
+                            case "number":
+                              h += v;
+                              break;
+                            case "string":
+                              const g = Object(E.uniToStrPos)(u, h);
+                              (d = A(d, g > 0 ? [g, v] : [v])),
+                                (h += Object(E.strPosToUni)(v));
+                              break;
+                            case "object":
+                              const m = Object(E.uniToStrPos)(u, h),
+                                y = Object(E.uniToStrPos)(u, h + v.d) - m;
+                              d = A(d, m > 0 ? [m, { d: y }] : [{ d: y }]);
+                              break;
+                            default:
+                              return void c.emit(
+                                "error",
+                                new Error("OT Error: unknown op type")
+                              );
+                          }
+                        }
+                      } catch (j) {
+                        b.e(j);
+                      } finally {
+                        b.f();
+                      }
+                      (c.otContents = a), c.emit("op", d);
+                    } else
+                      c.emit("error", new Error("OT Error: crc32 mismatch"), {
+                        server: o,
+                        client: s,
+                        incomingOps: r,
+                      });
                   } else
-                    c.emit("error", new Error("OT Error: crc32 mismatch"), {
-                      server: o,
-                      client: s,
-                      incomingOps: r,
-                    });
-                } else
+                    c.emit(
+                      "error",
+                      new Error("OT Error: invalid server version"),
+                      {
+                        expectedVersion: c.version,
+                        receievedVersion: n,
+                        incomingOps: r,
+                      }
+                    );
+                else
                   c.emit(
                     "error",
-                    new Error("OT Error: invalid server version"),
-                    {
-                      expectedVersion: c.version,
-                      receievedVersion: n,
-                      incomingOps: r,
-                    }
+                    new Error(
+                      "Got packet while version is still -1, expected version to be set in handleStatus"
+                    )
                   );
               else
-                c.emit(
-                  "error",
-                  new Error(
-                    "Got packet while version is still -1, expected version to be set in handleStatus"
-                  )
-                );
-            else
-              c.bufferedReconnectingOps.push({
-                crc32: o,
-                ops: r,
-                version: n,
-              });
-          }),
-          Object(a.a)(Object(v.a)(c), "handleNewCursor", (e) => {
-            c.emit("cursor", e);
-          }),
-          Object(a.a)(Object(v.a)(c), "handleDeleteCursor", (e) => {
-            const t = e.id;
-            c.emit("removeCursor", t);
-          }),
-          Object(a.a)(
-            Object(v.a)(c),
-            "handleStatus",
-            (() => {
-              const e = Object(i.a)(
-                o.a.mark(function e(t) {
-                  let r, n, i, a, s, u;
-                  return o.a.wrap((e) => {
-                    for (;;)
-                      switch ((e.prev = e.next)) {
-                        case 0:
-                          if (c.channel) {
-                            e.next = 2;
-                            break;
-                          }
-                          return e.abrupt("return");
-                        case 2:
-                          if (!t.linkedFile) {
-                            e.next = 23;
-                            break;
-                          }
-                          if (null != t.contents) {
-                            e.next = 6;
-                            break;
-                          }
-                          return (
-                            c.emit(
-                              "error",
-                              new Error(
-                                "expected status contents,  got null or undefined"
-                              )
-                            ),
-                            e.abrupt("return")
-                          );
-                        case 6:
-                          if (null != t.cursors) {
-                            e.next = 9;
-                            break;
-                          }
-                          return (
-                            c.emit(
-                              "error",
-                              new Error(
-                                "expected status cursors, got null or undefined"
-                              )
-                            ),
-                            e.abrupt("return")
-                          );
-                        case 9:
-                          if (null != t.version) {
-                            e.next = 12;
-                            break;
-                          }
-                          return (
-                            c.emit(
-                              "error",
-                              new Error(
-                                "expected status version, got null or undefined"
-                              )
-                            ),
-                            e.abrupt("return")
-                          );
-                        case 12:
-                          if (!c.isReconnecting) {
-                            e.next = 15;
-                            break;
-                          }
-                          return (
-                            c.handleReconnect(t.contents, t.version),
-                            e.abrupt("return")
-                          );
-                        case 15:
-                          return (
-                            (c.otContents = t.contents),
-                            (c.version = t.version),
-                            c.emit("firstConnect"),
-                            c.emit("op", [c.otContents]),
-                            t.cursors.forEach(c.handleNewCursor),
-                            c.emit("fileDirty"),
-                            c.debounceCommit(),
-                            e.abrupt("return")
-                          );
-                        case 23:
-                          return (
-                            (r = new Promise((e) => {
-                              return (c.resolveStatusOp = e);
-                            })),
-                            (e.next = 26),
-                            c.channel.request({
-                              otLinkFile: {
-                                file: { path: c.linkedFile },
-                                highConsistency: Boolean(
-                                  window["flag-ot-high-consitency"]
-                                ),
-                              },
-                            })
-                          );
-                        case 26:
-                          if (!(n = e.sent).channelClosed) {
-                            e.next = 29;
-                            break;
-                          }
-                          return e.abrupt("return");
-                        case 29:
-                          if (!n.error) {
-                            e.next = 32;
-                            break;
-                          }
-                          return (
-                            c.emit(
-                              "error",
-                              new Error("link file error " + n.error)
-                            ),
-                            e.abrupt("return")
-                          );
-                        case 32:
-                          return (e.next = 34), r;
-                        case 34:
-                          if (
-                            ((i = e.sent),
-                            (a = i.ops),
-                            (s = i.version),
-                            !(a.length > 1))
-                          ) {
-                            e.next = 40;
-                            break;
-                          }
-                          return (
-                            c.emit(
-                              "error",
-                              new Error("Expected a single status op")
-                            ),
-                            e.abrupt("return")
-                          );
-                        case 40:
-                          if ("string" === typeof (u = a[0] || "")) {
-                            e.next = 44;
-                            break;
-                          }
-                          return (
-                            c.emit(
-                              "error",
-                              new Error(
-                                "Expected a status op to be an insert or empty"
-                              )
-                            ),
-                            e.abrupt("return")
-                          );
-                        case 44:
-                          if (!c.isReconnecting) {
-                            e.next = 47;
-                            break;
-                          }
-                          return c.handleReconnect(u, s), e.abrupt("return");
-                        case 47:
-                          (c.otContents = u),
-                            (c.version = s),
-                            (c.committedVersion = s),
-                            (c.committedContent = c.otContents),
-                            c.emit("firstConnect"),
-                            c.emit("op", a);
-                        case 53:
-                        case "end":
-                          return e.stop();
-                      }
-                  }, e);
-                })
-              );
-              return function (t) {
-                return e.apply(this, arguments);
-              };
-            })()
-          ),
-          Object(a.a)(
-            Object(v.a)(c),
-            "handleReconnect",
-            (() => {
-              const e = Object(i.a)(
-                o.a.mark(function e(t, r) {
-                  let n, i, a, s, u, l, f, p, d, h, b, v, g, m, y, O, x, j, k, E, T, S, D, R, N, A, I, F, L, U, M;
-                  return o.a.wrap(
-                    (e) => {
+                c.bufferedReconnectingOps.push({
+                  crc32: o,
+                  ops: r,
+                  version: n,
+                });
+            }),
+            Object(a.a)(Object(v.a)(c), "handleNewCursor", (e) => {
+              c.emit("cursor", e);
+            }),
+            Object(a.a)(Object(v.a)(c), "handleDeleteCursor", (e) => {
+              const t = e.id;
+              c.emit("removeCursor", t);
+            }),
+            Object(a.a)(
+              Object(v.a)(c),
+              "handleStatus",
+              (() => {
+                const e = Object(i.a)(
+                  o.a.mark(function e(t) {
+                    let r, n, i, a, s, u;
+                    return o.a.wrap((e) => {
                       for (;;)
                         switch ((e.prev = e.next)) {
                           case 0:
-                            if (c.timeDisconnected) {
+                            if (c.channel) {
                               e.next = 2;
                               break;
                             }
-                            throw new Error("wat");
+                            return e.abrupt("return");
                           case 2:
-                            if (
-                              ((n = Date.now() - c.timeDisconnected),
-                              (i = (e) => {
-                                c.reconnectTrackedData = P(
-                                  P({}, e),
-                                  {},
-                                  {
-                                    serverVersion: r,
-                                    ourVersion: c.version,
-                                    ourCommittedVersion: c.committedVersion,
-                                    areContentsEqual: c.otContents === t,
-                                    areCommittedContentsEqual:
-                                      c.committedContent === t,
-                                    didReceiveOpsWhileReconnecting: Boolean(
-                                      c.bufferedReconnectingOps
-                                    ),
-                                    didEditOffline: c.didEditOffline,
-                                    hasPendingOps: Boolean(c.pending.length),
-                                    disconnectDuration: n,
-                                  }
-                                );
-                              }),
-                              (a = () => {
-                                (c.isReconnecting = !1),
-                                  (c.bufferedReconnectingOps = []),
-                                  (c.didEditOffline = !1),
-                                  (c.timeDisconnected = null),
-                                  c.debounceSend(),
-                                  c.debounceCommit(),
-                                  c.emit("reconnected");
-                              }),
-                              !c.inflight.length)
-                            ) {
-                              e.next = 26;
+                            if (!t.linkedFile) {
+                              e.next = 23;
                               break;
                             }
-                            if (r !== c.version || c.otContents !== t) {
-                              e.next = 14;
+                            if (null != t.contents) {
+                              e.next = 6;
                               break;
                             }
                             return (
-                              i({
-                                case: "has_inflight_happy_path_ops_unreached",
-                                prompted: !1,
-                              }),
-                              Object(C.track)(
-                                C.events.FILE_RECONNECTED_STATUS2,
-                                c.reconnectTrackedData
+                              c.emit(
+                                "error",
+                                new Error(
+                                  "expected status contents,  got null or undefined"
+                                )
                               ),
-                              (c.pending = w.type.compose(
-                                c.inflight,
-                                c.pending
-                              )),
-                              (c.inflight = []),
-                              (c.inflightOpsPromise = null),
-                              a(),
                               e.abrupt("return")
                             );
-                          case 14:
-                            (s = !1), (u = c.otContents);
-                            try {
-                              u = w.type.apply(t, c.inflight);
-                            } catch (o) {
-                              s = !0;
-                            }
-                            if (s || c.version + 1 !== r || u !== t) {
-                              e.next = 22;
+                          case 6:
+                            if (null != t.cursors) {
+                              e.next = 9;
                               break;
                             }
                             return (
-                              i({
-                                case: "has_inflight_happy_path_ops_reached",
-                                prompted: !0,
-                              }),
-                              Object(C.track)(
-                                C.events.FILE_RECONNECTED_STATUS2,
-                                c.reconnectTrackedData
+                              c.emit(
+                                "error",
+                                new Error(
+                                  "expected status cursors, got null or undefined"
+                                )
                               ),
-                              c.emit("promptUserReconnect"),
                               e.abrupt("return")
                             );
-                          case 22:
+                          case 9:
+                            if (null != t.version) {
+                              e.next = 12;
+                              break;
+                            }
                             return (
-                              i({ case: "has_inflight", prompted: !0 }),
-                              Object(C.track)(
-                                C.events.FILE_RECONNECTED_STATUS2,
-                                c.reconnectTrackedData
+                              c.emit(
+                                "error",
+                                new Error(
+                                  "expected status version, got null or undefined"
+                                )
                               ),
-                              c.emit("promptUserReconnect"),
                               e.abrupt("return")
+                            );
+                          case 12:
+                            if (!c.isReconnecting) {
+                              e.next = 15;
+                              break;
+                            }
+                            return (
+                              c.handleReconnect(t.contents, t.version),
+                              e.abrupt("return")
+                            );
+                          case 15:
+                            return (
+                              (c.otContents = t.contents),
+                              (c.version = t.version),
+                              c.emit("firstConnect"),
+                              c.emit("op", [c.otContents]),
+                              t.cursors.forEach(c.handleNewCursor),
+                              c.emit("fileDirty"),
+                              c.debounceCommit(),
+                              e.abrupt("return")
+                            );
+                          case 23:
+                            return (
+                              (r = new Promise((e) => {
+                                return (c.resolveStatusOp = e);
+                              })),
+                              (e.next = 26),
+                              c.channel.request({
+                                otLinkFile: {
+                                  file: { path: c.linkedFile },
+                                  highConsistency: Boolean(
+                                    window["flag-ot-high-consitency"]
+                                  ),
+                                },
+                              })
                             );
                           case 26:
-                            if (!c.hasUncommittedMultiplayerOps) {
-                              e.next = 31;
+                            if (!(n = e.sent).channelClosed) {
+                              e.next = 29;
+                              break;
+                            }
+                            return e.abrupt("return");
+                          case 29:
+                            if (!n.error) {
+                              e.next = 32;
                               break;
                             }
                             return (
-                              i({ case: "multiplayer", prompted: !0 }),
-                              Object(C.track)(
-                                C.events.FILE_RECONNECTED_STATUS2,
-                                c.reconnectTrackedData
+                              c.emit(
+                                "error",
+                                new Error("link file error " + n.error)
                               ),
-                              c.emit("promptUserReconnect"),
                               e.abrupt("return")
                             );
-                          case 31:
-                            if (c.version !== r) {
-                              e.next = 41;
-                              break;
-                            }
-                            if (t !== c.otContents) {
-                              e.next = 37;
-                              break;
-                            }
-                            return (
-                              i({ case: "happy_path", prompted: !1 }),
-                              Object(C.track)(
-                                C.events.FILE_RECONNECTED_STATUS2,
-                                c.reconnectTrackedData
-                              ),
-                              a(),
-                              e.abrupt("return")
-                            );
-                          case 37:
-                            return (
-                              i({
-                                case: "same_version_different_content",
-                                prompted: !0,
-                              }),
-                              Object(C.track)(
-                                C.events.FILE_RECONNECTED_STATUS2,
-                                c.reconnectTrackedData
-                              ),
-                              c.emit("promptUserReconnect"),
-                              e.abrupt("return")
-                            );
-                          case 41:
-                            if (c.committedVersion !== r) {
-                              e.next = 70;
-                              break;
-                            }
-                            (l = t), (e.prev = 43), (f = _(c.uncommittedOps));
-                            try {
-                              for (f.s(); !(p = f.n()).done; )
-                                (d = p.value.ops), (l = w.type.apply(l, d));
-                            } catch (z) {
-                              f.e(z);
-                            } finally {
-                              f.f();
-                            }
-                            e.next = 54;
-                            break;
-                          case 48:
-                            return (
-                              (e.prev = 48),
-                              (e.t0 = e.catch(43)),
-                              i({
-                                case: "same_committed_version_unable_to_apply_ops",
-                                prompted: !0,
-                              }),
-                              Object(C.track)(
-                                C.events.FILE_RECONNECTED_STATUS2,
-                                c.reconnectTrackedData
-                              ),
-                              c.emit("promptUserReconnect"),
-                              e.abrupt("return")
-                            );
-                          case 54:
-                            if (l !== c.otContents) {
-                              e.next = 66;
-                              break;
-                            }
-                            i({
-                              case: "happy_path_uncommitted",
-                              prompted: !1,
-                            }),
-                              Object(C.track)(
-                                C.events.FILE_RECONNECTED_STATUS2,
-                                c.reconnectTrackedData
-                              ),
-                              (h = []),
-                              (b = _(c.uncommittedOps));
-                            try {
-                              for (b.s(); !(v = b.n()).done; )
-                                (g = v.value.ops), (h = w.type.compose(h, g));
-                            } catch (z) {
-                              b.e(z);
-                            } finally {
-                              b.f();
-                            }
-                            return (
-                              (c.pending = w.type.compose(h, c.pending)),
-                              (c.uncommittedOps = []),
-                              (c.version = r),
-                              (c.otContents = t),
-                              a(),
-                              e.abrupt("return")
-                            );
-                          case 66:
-                            return (
-                              i({
-                                case: "same_committed_version_different_content_fixed",
-                                prompted: !0,
-                              }),
-                              Object(C.track)(
-                                C.events.FILE_RECONNECTED_STATUS2,
-                                c.reconnectTrackedData
-                              ),
-                              c.emit("promptUserReconnect"),
-                              e.abrupt("return")
-                            );
-                          case 70:
-                            if (!(c.version < r)) {
-                              e.next = 95;
+                          case 32:
+                            return (e.next = 34), r;
+                          case 34:
+                            if (
+                              ((i = e.sent),
+                              (a = i.ops),
+                              (s = i.version),
+                              !(a.length > 1))
+                            ) {
+                              e.next = 40;
                               break;
                             }
                             return (
-                              (e.next = 73), c.fetchOps(c.version + 1, r)
+                              c.emit(
+                                "error",
+                                new Error("Expected a single status op")
+                              ),
+                              e.abrupt("return")
                             );
-                          case 73:
-                            (m = e.sent), (y = !1), (O = c.otContents);
-                            try {
-                              x = _(m);
-                              try {
-                                for (x.s(); !(j = x.n()).done; )
-                                  (k = j.value.ops), (O = w.type.apply(O, k));
-                              } catch (z) {
-                                x.e(z);
-                              } finally {
-                                x.f();
+                          case 40:
+                            if ("string" === typeof (u = a[0] || "")) {
+                              e.next = 44;
+                              break;
+                            }
+                            return (
+                              c.emit(
+                                "error",
+                                new Error(
+                                  "Expected a status op to be an insert or empty"
+                                )
+                              ),
+                              e.abrupt("return")
+                            );
+                          case 44:
+                            if (!c.isReconnecting) {
+                              e.next = 47;
+                              break;
+                            }
+                            return c.handleReconnect(u, s), e.abrupt("return");
+                          case 47:
+                            (c.otContents = u),
+                              (c.version = s),
+                              (c.committedVersion = s),
+                              (c.committedContent = c.otContents),
+                              c.emit("firstConnect"),
+                              c.emit("op", a);
+                          case 53:
+                          case "end":
+                            return e.stop();
+                        }
+                    }, e);
+                  })
+                );
+                return function (t) {
+                  return e.apply(this, arguments);
+                };
+              })()
+            ),
+            Object(a.a)(
+              Object(v.a)(c),
+              "handleReconnect",
+              (() => {
+                const e = Object(i.a)(
+                  o.a.mark(function e(t, r) {
+                    let n,
+                      i,
+                      a,
+                      s,
+                      u,
+                      l,
+                      f,
+                      p,
+                      d,
+                      h,
+                      b,
+                      v,
+                      g,
+                      m,
+                      y,
+                      O,
+                      x,
+                      j,
+                      k,
+                      E,
+                      T,
+                      S,
+                      D,
+                      R,
+                      N,
+                      A,
+                      I,
+                      F,
+                      L,
+                      U,
+                      M;
+                    return o.a.wrap(
+                      (e) => {
+                        for (;;)
+                          switch ((e.prev = e.next)) {
+                            case 0:
+                              if (c.timeDisconnected) {
+                                e.next = 2;
+                                break;
                               }
-                            } catch (o) {
-                              y = !0;
-                            }
-                            if (y || O !== t) {
-                              e.next = 86;
-                              break;
-                            }
-                            i({
-                              case: "happy_path_server_ahead",
-                              prompted: !1,
-                            }),
-                              Object(C.track)(
-                                C.events.FILE_RECONNECTED_STATUS2,
-                                c.reconnectTrackedData
-                              ),
-                              (E = _(m));
-                            try {
-                              for (E.s(); !(T = E.n()).done; )
-                                (S = T.value),
-                                  c.handlePacket(S, {
-                                    overrideReconnectringBuffer: !0,
-                                  });
-                            } catch (z) {
-                              E.e(z);
-                            } finally {
-                              E.f();
-                            }
-                            D = _(c.bufferedReconnectingOps);
-                            try {
-                              for (D.s(); !(R = D.n()).done; )
-                                (N = R.value),
-                                  c.handlePacket(N, {
-                                    overrideReconnectringBuffer: !0,
-                                  });
-                            } catch (z) {
-                              D.e(z);
-                            } finally {
-                              D.f();
-                            }
-                            return a(), e.abrupt("return");
-                          case 86:
-                            return (
-                              (e.next = 88),
-                              c.fetchOps(c.committedVersion + 1, r)
-                            );
-                          case 88:
-                            (A = e.sent), (I = !1), (F = c.committedContent);
-                            try {
-                              L = _(A);
-                              try {
-                                for (L.s(); !(U = L.n()).done; )
-                                  (M = U.value.ops), (F = w.type.apply(F, M));
-                              } catch (z) {
-                                L.e(z);
-                              } finally {
-                                L.f();
+                              throw new Error("wat");
+                            case 2:
+                              if (
+                                ((n = Date.now() - c.timeDisconnected),
+                                (i = (e) => {
+                                  c.reconnectTrackedData = P(
+                                    P({}, e),
+                                    {},
+                                    {
+                                      serverVersion: r,
+                                      ourVersion: c.version,
+                                      ourCommittedVersion: c.committedVersion,
+                                      areContentsEqual: c.otContents === t,
+                                      areCommittedContentsEqual:
+                                        c.committedContent === t,
+                                      didReceiveOpsWhileReconnecting: Boolean(
+                                        c.bufferedReconnectingOps
+                                      ),
+                                      didEditOffline: c.didEditOffline,
+                                      hasPendingOps: Boolean(c.pending.length),
+                                      disconnectDuration: n,
+                                    }
+                                  );
+                                }),
+                                (a = () => {
+                                  (c.isReconnecting = !1),
+                                    (c.bufferedReconnectingOps = []),
+                                    (c.didEditOffline = !1),
+                                    (c.timeDisconnected = null),
+                                    c.debounceSend(),
+                                    c.debounceCommit(),
+                                    c.emit("reconnected");
+                                }),
+                                !c.inflight.length)
+                              ) {
+                                e.next = 26;
+                                break;
                               }
-                            } catch (o) {
-                              I = !0;
-                            }
-                            return (
-                              I ||
-                                F !== t ||
-                                (i({
-                                  case: "happy_path_uncommitted_server_ahead",
+                              if (r !== c.version || c.otContents !== t) {
+                                e.next = 14;
+                                break;
+                              }
+                              return (
+                                i({
+                                  case: "has_inflight_happy_path_ops_unreached",
+                                  prompted: !1,
+                                }),
+                                Object(C.track)(
+                                  C.events.FILE_RECONNECTED_STATUS2,
+                                  c.reconnectTrackedData
+                                ),
+                                (c.pending = w.type.compose(
+                                  c.inflight,
+                                  c.pending
+                                )),
+                                (c.inflight = []),
+                                (c.inflightOpsPromise = null),
+                                a(),
+                                e.abrupt("return")
+                              );
+                            case 14:
+                              (s = !1), (u = c.otContents);
+                              try {
+                                u = w.type.apply(t, c.inflight);
+                              } catch (o) {
+                                s = !0;
+                              }
+                              if (s || c.version + 1 !== r || u !== t) {
+                                e.next = 22;
+                                break;
+                              }
+                              return (
+                                i({
+                                  case: "has_inflight_happy_path_ops_reached",
                                   prompted: !0,
                                 }),
                                 Object(C.track)(
                                   C.events.FILE_RECONNECTED_STATUS2,
                                   c.reconnectTrackedData
-                                )),
-                              c.emit("promptUserReconnect"),
-                              e.abrupt("return")
-                            );
-                          case 95:
-                            i({ case: "other", prompted: !0 }),
-                              Object(C.track)(
-                                C.events.FILE_RECONNECTED_STATUS2,
-                                c.reconnectTrackedData
-                              ),
-                              c.emit("promptUserReconnect");
-                          case 98:
-                          case "end":
-                            return e.stop();
-                        }
-                    },
-                    e,
-                    null,
-                    [[43, 48]]
-                  );
-                })
+                                ),
+                                c.emit("promptUserReconnect"),
+                                e.abrupt("return")
+                              );
+                            case 22:
+                              return (
+                                i({ case: "has_inflight", prompted: !0 }),
+                                Object(C.track)(
+                                  C.events.FILE_RECONNECTED_STATUS2,
+                                  c.reconnectTrackedData
+                                ),
+                                c.emit("promptUserReconnect"),
+                                e.abrupt("return")
+                              );
+                            case 26:
+                              if (!c.hasUncommittedMultiplayerOps) {
+                                e.next = 31;
+                                break;
+                              }
+                              return (
+                                i({ case: "multiplayer", prompted: !0 }),
+                                Object(C.track)(
+                                  C.events.FILE_RECONNECTED_STATUS2,
+                                  c.reconnectTrackedData
+                                ),
+                                c.emit("promptUserReconnect"),
+                                e.abrupt("return")
+                              );
+                            case 31:
+                              if (c.version !== r) {
+                                e.next = 41;
+                                break;
+                              }
+                              if (t !== c.otContents) {
+                                e.next = 37;
+                                break;
+                              }
+                              return (
+                                i({ case: "happy_path", prompted: !1 }),
+                                Object(C.track)(
+                                  C.events.FILE_RECONNECTED_STATUS2,
+                                  c.reconnectTrackedData
+                                ),
+                                a(),
+                                e.abrupt("return")
+                              );
+                            case 37:
+                              return (
+                                i({
+                                  case: "same_version_different_content",
+                                  prompted: !0,
+                                }),
+                                Object(C.track)(
+                                  C.events.FILE_RECONNECTED_STATUS2,
+                                  c.reconnectTrackedData
+                                ),
+                                c.emit("promptUserReconnect"),
+                                e.abrupt("return")
+                              );
+                            case 41:
+                              if (c.committedVersion !== r) {
+                                e.next = 70;
+                                break;
+                              }
+                              (l = t), (e.prev = 43), (f = _(c.uncommittedOps));
+                              try {
+                                for (f.s(); !(p = f.n()).done; )
+                                  (d = p.value.ops), (l = w.type.apply(l, d));
+                              } catch (z) {
+                                f.e(z);
+                              } finally {
+                                f.f();
+                              }
+                              e.next = 54;
+                              break;
+                            case 48:
+                              return (
+                                (e.prev = 48),
+                                (e.t0 = e.catch(43)),
+                                i({
+                                  case: "same_committed_version_unable_to_apply_ops",
+                                  prompted: !0,
+                                }),
+                                Object(C.track)(
+                                  C.events.FILE_RECONNECTED_STATUS2,
+                                  c.reconnectTrackedData
+                                ),
+                                c.emit("promptUserReconnect"),
+                                e.abrupt("return")
+                              );
+                            case 54:
+                              if (l !== c.otContents) {
+                                e.next = 66;
+                                break;
+                              }
+                              i({
+                                case: "happy_path_uncommitted",
+                                prompted: !1,
+                              }),
+                                Object(C.track)(
+                                  C.events.FILE_RECONNECTED_STATUS2,
+                                  c.reconnectTrackedData
+                                ),
+                                (h = []),
+                                (b = _(c.uncommittedOps));
+                              try {
+                                for (b.s(); !(v = b.n()).done; )
+                                  (g = v.value.ops), (h = w.type.compose(h, g));
+                              } catch (z) {
+                                b.e(z);
+                              } finally {
+                                b.f();
+                              }
+                              return (
+                                (c.pending = w.type.compose(h, c.pending)),
+                                (c.uncommittedOps = []),
+                                (c.version = r),
+                                (c.otContents = t),
+                                a(),
+                                e.abrupt("return")
+                              );
+                            case 66:
+                              return (
+                                i({
+                                  case: "same_committed_version_different_content_fixed",
+                                  prompted: !0,
+                                }),
+                                Object(C.track)(
+                                  C.events.FILE_RECONNECTED_STATUS2,
+                                  c.reconnectTrackedData
+                                ),
+                                c.emit("promptUserReconnect"),
+                                e.abrupt("return")
+                              );
+                            case 70:
+                              if (!(c.version < r)) {
+                                e.next = 95;
+                                break;
+                              }
+                              return (
+                                (e.next = 73), c.fetchOps(c.version + 1, r)
+                              );
+                            case 73:
+                              (m = e.sent), (y = !1), (O = c.otContents);
+                              try {
+                                x = _(m);
+                                try {
+                                  for (x.s(); !(j = x.n()).done; )
+                                    (k = j.value.ops), (O = w.type.apply(O, k));
+                                } catch (z) {
+                                  x.e(z);
+                                } finally {
+                                  x.f();
+                                }
+                              } catch (o) {
+                                y = !0;
+                              }
+                              if (y || O !== t) {
+                                e.next = 86;
+                                break;
+                              }
+                              i({
+                                case: "happy_path_server_ahead",
+                                prompted: !1,
+                              }),
+                                Object(C.track)(
+                                  C.events.FILE_RECONNECTED_STATUS2,
+                                  c.reconnectTrackedData
+                                ),
+                                (E = _(m));
+                              try {
+                                for (E.s(); !(T = E.n()).done; )
+                                  (S = T.value),
+                                    c.handlePacket(S, {
+                                      overrideReconnectringBuffer: !0,
+                                    });
+                              } catch (z) {
+                                E.e(z);
+                              } finally {
+                                E.f();
+                              }
+                              D = _(c.bufferedReconnectingOps);
+                              try {
+                                for (D.s(); !(R = D.n()).done; )
+                                  (N = R.value),
+                                    c.handlePacket(N, {
+                                      overrideReconnectringBuffer: !0,
+                                    });
+                              } catch (z) {
+                                D.e(z);
+                              } finally {
+                                D.f();
+                              }
+                              return a(), e.abrupt("return");
+                            case 86:
+                              return (
+                                (e.next = 88),
+                                c.fetchOps(c.committedVersion + 1, r)
+                              );
+                            case 88:
+                              (A = e.sent), (I = !1), (F = c.committedContent);
+                              try {
+                                L = _(A);
+                                try {
+                                  for (L.s(); !(U = L.n()).done; )
+                                    (M = U.value.ops), (F = w.type.apply(F, M));
+                                } catch (z) {
+                                  L.e(z);
+                                } finally {
+                                  L.f();
+                                }
+                              } catch (o) {
+                                I = !0;
+                              }
+                              return (
+                                I ||
+                                  F !== t ||
+                                  (i({
+                                    case: "happy_path_uncommitted_server_ahead",
+                                    prompted: !0,
+                                  }),
+                                  Object(C.track)(
+                                    C.events.FILE_RECONNECTED_STATUS2,
+                                    c.reconnectTrackedData
+                                  )),
+                                c.emit("promptUserReconnect"),
+                                e.abrupt("return")
+                              );
+                            case 95:
+                              i({ case: "other", prompted: !0 }),
+                                Object(C.track)(
+                                  C.events.FILE_RECONNECTED_STATUS2,
+                                  c.reconnectTrackedData
+                                ),
+                                c.emit("promptUserReconnect");
+                            case 98:
+                            case "end":
+                              return e.stop();
+                          }
+                      },
+                      e,
+                      null,
+                      [[43, 48]]
+                    );
+                  })
+                );
+                return function (t, r) {
+                  return e.apply(this, arguments);
+                };
+              })()
+            ),
+            Object(a.a)(Object(v.a)(c), "getLocalContent", () => {
+              const e = Object(v.a)(c);
+              const t = e.inflight;
+              const r = e.otContents;
+              const n = e.pending;
+              let o = r;
+              return (
+                t.length && (o = w.type.apply(o, t)),
+                n.length && (o = w.type.apply(o, n)),
+                o
               );
-              return function (t, r) {
-                return e.apply(this, arguments);
-              };
-            })()
-          ),
-          Object(a.a)(Object(v.a)(c), "getLocalContent", () => {
-            const e = Object(v.a)(c);
-            const t = e.inflight;
-            const r = e.otContents;
-            const n = e.pending;
-            let o = r;
-            return (
-              t.length && (o = w.type.apply(o, t)),
-              n.length && (o = w.type.apply(o, n)),
-              o
-            );
-          }),
-          Object(a.a)(
-            Object(v.a)(c),
-            "fetchOps",
-            (() => {
-              const e = Object(i.a)(
-                o.a.mark(function e(t, r) {
-                  let n;
-                  return o.a.wrap((e) => {
-                    for (;;)
-                      switch ((e.prev = e.next)) {
-                        case 0:
-                          if (c.channel) {
-                            e.next = 2;
-                            break;
-                          }
-                          throw new Error("No cahnnel, cannot fetch");
-                        case 2:
-                          return (
-                            (e.next = 4),
-                            c.channel.request({
-                              otFetchRequest: {
-                                versionFrom: t,
-                                versionTo: r,
-                              },
-                            })
-                          );
-                        case 4:
-                          if (!(n = e.sent).channelClosed) {
-                            e.next = 7;
-                            break;
-                          }
-                          throw new Error("Channel closed while requesting");
-                        case 7:
-                          if (!n.error) {
-                            e.next = 9;
-                            break;
-                          }
-                          throw new Error(
-                            "Fetch ops returned an error" + n.error
-                          );
-                        case 9:
-                          if (n.otFetchResponse) {
-                            e.next = 11;
-                            break;
-                          }
-                          throw new Error("Expected otFetchResponse");
-                        case 11:
-                          if (n.otFetchResponse.packets) {
-                            e.next = 13;
-                            break;
-                          }
-                          throw new Error("Expected otFetchResponse.packets");
-                        case 13:
-                          return e.abrupt(
-                            "return",
-                            n.otFetchResponse.packets.map((e) => {
-                              const t = e.crc32, r = e.ops, n = e.version;
-                              if (null == t)
-                                throw new Error("Expected crc32 in packet");
-                              if (null == r)
-                                throw new Error("Expected ops in packet");
-                              if (null == n)
-                                throw new Error("Expected version in packet");
-                              return { crc32: t, version: n, ops: M(r) };
-                            })
-                          );
-                        case 14:
-                        case "end":
-                          return e.stop();
-                      }
-                  }, e);
-                })
-              );
-              return function (t, r) {
-                return e.apply(this, arguments);
-              };
-            })()
-          ),
-          (c.linkedFile = e),
-          (c.channel = null),
-          (c.inflight = []),
-          (c.inflightOpsPromise = null),
-          (c.uncommittedOps = []),
-          (c.hasUncommittedMultiplayerOps = !1),
-          (c.committedVersion = -1),
-          (c.isReconnecting = !1),
-          (c.bufferedReconnectingOps = []),
-          (c.didEditOffline = !1),
-          (c.pending = []),
-          (c.version = -1),
-          (c.otContents = ""),
-          (c.committedContent = ""),
-          (c.flushedCursorIds = []),
-          (c.pendingCursors = []),
-          (c.user = null),
-          (c.debounceSend = k()(
-            () => {
-              return c.sendOps();
-            },
-            20,
-            { maxWait: 60 }
-          )),
-          (c.debounceCommit = k()(
-            () => {
-              return c.commitToDisk();
-            },
-            1e3,
-            { maxWait: 3e3 }
-          )),
-          (c.resolveStatusOp = null),
-          (c.isCommitting = !1),
-          (c.timeDisconnected = null),
-          (c.destroy = n.openChannel(
-            { service: "ot", name: "ot:".concat(e) },
-            (e) => {
-              if (!e.error) {
-                const t = e.channel, r = e.context;
-                return (c.user = r.currentUser
-                  ? { name: r.currentUser.username, id: r.currentUser.id }
-                  : null),
-                (c.channel = t),
-                t.onCommand((e) => {
-                  switch (e.body) {
-                    case "ot":
-                      if (
-                        !e.ot ||
-                        null == e.ot.ops ||
-                        null == e.ot.spookyVersion ||
-                        null == e.ot.crc32
-                      )
-                        return void c.emit(
-                          "error",
-                          new Error("OT Error: missing data in ot packet"),
-                          e.ot || {}
-                        );
-                      const t = {
-                        crc32: e.ot.crc32,
-                        ops: M(e.ot.ops),
-                        version: e.ot.spookyVersion,
-                      };
-                      return c.handlePacket(t, {
-                        overrideReconnectringBuffer: !1,
-                      });
-                    case "otstatus":
-                      return c.handleStatus(e.otstatus);
-                    case "error":
-                      if (e.ref) return;
-                      return c.emit(
-                        "error",
-                        new Error("Unkown protocol error OT channel"),
-                        { originalError: e.error || "Server error" }
-                      );
-                    case "otNewCursor":
-                      return c.handleNewCursor(e.otNewCursor);
-                    case "otDeleteCursor":
-                      return c.handleDeleteCursor(e.otDeleteCursor);
-                  }
-                }),
-                () => {
-                  (c.channel = null),
-                    (c.isReconnecting = !0),
-                    c.debounceSend.cancel(),
-                    c.debounceCommit.cancel(),
-                    c.timeDisconnected || (c.timeDisconnected = Date.now());
-                }
-              ;
-              }
-            }
-          )),
-          c
-        ;
-        }
-        return Object(b.a)(r, [
-          {
-            key: "commitToDisk",
-            value: (() => {
-              const e = Object(i.a)(
-                o.a.mark(function e() {
-                  let t, r, n;
-                  return o.a.wrap(
-                    function (e) {
+            }),
+            Object(a.a)(
+              Object(v.a)(c),
+              "fetchOps",
+              (() => {
+                const e = Object(i.a)(
+                  o.a.mark(function e(t, r) {
+                    let n;
+                    return o.a.wrap((e) => {
                       for (;;)
                         switch ((e.prev = e.next)) {
                           case 0:
-                            if (this.channel) {
+                            if (c.channel) {
                               e.next = 2;
                               break;
                             }
-                            throw new Error("Tryna commit while offline");
+                            throw new Error("No cahnnel, cannot fetch");
                           case 2:
-                            if ("open" === this.channel.status) {
-                              e.next = 4;
-                              break;
-                            }
-                            return e.abrupt("return");
+                            return (
+                              (e.next = 4),
+                              c.channel.request({
+                                otFetchRequest: {
+                                  versionFrom: t,
+                                  versionTo: r,
+                                },
+                              })
+                            );
                           case 4:
-                            if (!this.isReconnecting) {
-                              e.next = 6;
+                            if (!(n = e.sent).channelClosed) {
+                              e.next = 7;
                               break;
                             }
-                            throw new Error("Committing while reconnecting");
-                          case 6:
-                            if (!this.isClean()) {
-                              e.next = 8;
+                            throw new Error("Channel closed while requesting");
+                          case 7:
+                            if (!n.error) {
+                              e.next = 9;
                               break;
                             }
-                            return e.abrupt("return");
-                          case 8:
-                            if (!this.isCommitting) {
+                            throw new Error(
+                              "Fetch ops returned an error" + n.error
+                            );
+                          case 9:
+                            if (n.otFetchResponse) {
                               e.next = 11;
                               break;
                             }
-                            return this.debounceCommit(), e.abrupt("return");
+                            throw new Error("Expected otFetchResponse");
                           case 11:
-                            if (
-                              ((this.isCommitting = !0),
-                              !this.inflightOpsPromise)
-                            ) {
-                              e.next = 19;
+                            if (n.otFetchResponse.packets) {
+                              e.next = 13;
                               break;
                             }
-                            return (e.next = 15), this.inflightOpsPromise;
-                          case 15:
-                            if (!e.sent.channelClosed) {
-                              e.next = 19;
-                              break;
-                            }
-                            return (
-                              (this.isCommitting = !1), e.abrupt("return")
+                            throw new Error("Expected otFetchResponse.packets");
+                          case 13:
+                            return e.abrupt(
+                              "return",
+                              n.otFetchResponse.packets.map((e) => {
+                                const t = e.crc32,
+                                  r = e.ops,
+                                  n = e.version;
+                                if (null == t)
+                                  throw new Error("Expected crc32 in packet");
+                                if (null == r)
+                                  throw new Error("Expected ops in packet");
+                                if (null == n)
+                                  throw new Error("Expected version in packet");
+                                return { crc32: t, version: n, ops: M(r) };
+                              })
                             );
-                          case 19:
-                            if (!(this.pending.length > 0)) {
-                              e.next = 32;
-                              break;
-                            }
-                            if (
-                              (this.debounceSend(),
-                              this.debounceSend.flush(),
-                              this.inflightOpsPromise)
-                            ) {
-                              e.next = 26;
-                              break;
-                            }
-                            return (
-                              (this.isCommitting = !1),
-                              this.emit(
-                                "error",
-                                new Error("expected inflight promise")
-                              ),
-                              e.abrupt("return")
-                            );
-                          case 26:
-                            return (e.next = 28), this.inflightOpsPromise;
-                          case 28:
-                            if (!e.sent.channelClosed) {
-                              e.next = 32;
-                              break;
-                            }
-                            return (
-                              (this.isCommitting = !1), e.abrupt("return")
-                            );
-                          case 32:
-                            return (
-                              this.emit("commitStart"),
-                              (t = this.version),
-                              (r = this.otContents),
-                              (e.next = 37),
-                              this.channel.request({ flush: {} })
-                            );
-                          case 37:
-                            if (!(n = e.sent).channelClosed) {
-                              e.next = 41;
-                              break;
-                            }
-                            return (
-                              (this.isCommitting = !1), e.abrupt("return")
-                            );
-                          case 41:
-                            if ("ok" === n.body) {
-                              e.next = 45;
-                              break;
-                            }
-                            return (
-                              (this.isCommitting = !1),
-                              this.emit(
-                                "error",
-                                new Error("OT Error: unable to flush"),
-                                { originalError: n.error || n.toString() }
-                              ),
-                              e.abrupt("return")
-                            );
-                          case 45:
-                            return (
-                              (this.uncommittedOps = []),
-                              (this.hasUncommittedMultiplayerOps = !1),
-                              (this.committedVersion = t),
-                              (this.committedContent = r),
-                              this.isClean() && this.emit("commitClean"),
-                              (this.isCommitting = !1),
-                              e.abrupt("return", n)
-                            );
-                          case 52:
+                          case 14:
                           case "end":
                             return e.stop();
                         }
-                    },
-                    e,
-                    this
+                    }, e);
+                  })
+                );
+                return function (t, r) {
+                  return e.apply(this, arguments);
+                };
+              })()
+            ),
+            (c.linkedFile = e),
+            (c.channel = null),
+            (c.inflight = []),
+            (c.inflightOpsPromise = null),
+            (c.uncommittedOps = []),
+            (c.hasUncommittedMultiplayerOps = !1),
+            (c.committedVersion = -1),
+            (c.isReconnecting = !1),
+            (c.bufferedReconnectingOps = []),
+            (c.didEditOffline = !1),
+            (c.pending = []),
+            (c.version = -1),
+            (c.otContents = ""),
+            (c.committedContent = ""),
+            (c.flushedCursorIds = []),
+            (c.pendingCursors = []),
+            (c.user = null),
+            (c.debounceSend = k()(
+              () => {
+                return c.sendOps();
+              },
+              20,
+              { maxWait: 60 }
+            )),
+            (c.debounceCommit = k()(
+              () => {
+                return c.commitToDisk();
+              },
+              1e3,
+              { maxWait: 3e3 }
+            )),
+            (c.resolveStatusOp = null),
+            (c.isCommitting = !1),
+            (c.timeDisconnected = null),
+            (c.destroy = n.openChannel(
+              { service: "ot", name: "ot:".concat(e) },
+              (e) => {
+                if (!e.error) {
+                  const t = e.channel,
+                    r = e.context;
+                  return (
+                    (c.user = r.currentUser
+                      ? { name: r.currentUser.username, id: r.currentUser.id }
+                      : null),
+                    (c.channel = t),
+                    t.onCommand((e) => {
+                      switch (e.body) {
+                        case "ot":
+                          if (
+                            !e.ot ||
+                            null == e.ot.ops ||
+                            null == e.ot.spookyVersion ||
+                            null == e.ot.crc32
+                          )
+                            return void c.emit(
+                              "error",
+                              new Error("OT Error: missing data in ot packet"),
+                              e.ot || {}
+                            );
+                          const t = {
+                            crc32: e.ot.crc32,
+                            ops: M(e.ot.ops),
+                            version: e.ot.spookyVersion,
+                          };
+                          return c.handlePacket(t, {
+                            overrideReconnectringBuffer: !1,
+                          });
+                        case "otstatus":
+                          return c.handleStatus(e.otstatus);
+                        case "error":
+                          if (e.ref) return;
+                          return c.emit(
+                            "error",
+                            new Error("Unkown protocol error OT channel"),
+                            { originalError: e.error || "Server error" }
+                          );
+                        case "otNewCursor":
+                          return c.handleNewCursor(e.otNewCursor);
+                        case "otDeleteCursor":
+                          return c.handleDeleteCursor(e.otDeleteCursor);
+                      }
+                    }),
+                    () => {
+                      (c.channel = null),
+                        (c.isReconnecting = !0),
+                        c.debounceSend.cancel(),
+                        c.debounceCommit.cancel(),
+                        c.timeDisconnected || (c.timeDisconnected = Date.now());
+                    }
                   );
-                })
-              );
-              return function () {
-                return e.apply(this, arguments);
-              };
-            })(),
-          },
-        ]),
-        r
-      ;
+                }
+              }
+            )),
+            c
+          );
+        }
+        return (
+          Object(b.a)(r, [
+            {
+              key: "commitToDisk",
+              value: (() => {
+                const e = Object(i.a)(
+                  o.a.mark(function e() {
+                    let t, r, n;
+                    return o.a.wrap(
+                      function (e) {
+                        for (;;)
+                          switch ((e.prev = e.next)) {
+                            case 0:
+                              if (this.channel) {
+                                e.next = 2;
+                                break;
+                              }
+                              throw new Error("Tryna commit while offline");
+                            case 2:
+                              if ("open" === this.channel.status) {
+                                e.next = 4;
+                                break;
+                              }
+                              return e.abrupt("return");
+                            case 4:
+                              if (!this.isReconnecting) {
+                                e.next = 6;
+                                break;
+                              }
+                              throw new Error("Committing while reconnecting");
+                            case 6:
+                              if (!this.isClean()) {
+                                e.next = 8;
+                                break;
+                              }
+                              return e.abrupt("return");
+                            case 8:
+                              if (!this.isCommitting) {
+                                e.next = 11;
+                                break;
+                              }
+                              return this.debounceCommit(), e.abrupt("return");
+                            case 11:
+                              if (
+                                ((this.isCommitting = !0),
+                                !this.inflightOpsPromise)
+                              ) {
+                                e.next = 19;
+                                break;
+                              }
+                              return (e.next = 15), this.inflightOpsPromise;
+                            case 15:
+                              if (!e.sent.channelClosed) {
+                                e.next = 19;
+                                break;
+                              }
+                              return (
+                                (this.isCommitting = !1), e.abrupt("return")
+                              );
+                            case 19:
+                              if (!(this.pending.length > 0)) {
+                                e.next = 32;
+                                break;
+                              }
+                              if (
+                                (this.debounceSend(),
+                                this.debounceSend.flush(),
+                                this.inflightOpsPromise)
+                              ) {
+                                e.next = 26;
+                                break;
+                              }
+                              return (
+                                (this.isCommitting = !1),
+                                this.emit(
+                                  "error",
+                                  new Error("expected inflight promise")
+                                ),
+                                e.abrupt("return")
+                              );
+                            case 26:
+                              return (e.next = 28), this.inflightOpsPromise;
+                            case 28:
+                              if (!e.sent.channelClosed) {
+                                e.next = 32;
+                                break;
+                              }
+                              return (
+                                (this.isCommitting = !1), e.abrupt("return")
+                              );
+                            case 32:
+                              return (
+                                this.emit("commitStart"),
+                                (t = this.version),
+                                (r = this.otContents),
+                                (e.next = 37),
+                                this.channel.request({ flush: {} })
+                              );
+                            case 37:
+                              if (!(n = e.sent).channelClosed) {
+                                e.next = 41;
+                                break;
+                              }
+                              return (
+                                (this.isCommitting = !1), e.abrupt("return")
+                              );
+                            case 41:
+                              if ("ok" === n.body) {
+                                e.next = 45;
+                                break;
+                              }
+                              return (
+                                (this.isCommitting = !1),
+                                this.emit(
+                                  "error",
+                                  new Error("OT Error: unable to flush"),
+                                  { originalError: n.error || n.toString() }
+                                ),
+                                e.abrupt("return")
+                              );
+                            case 45:
+                              return (
+                                (this.uncommittedOps = []),
+                                (this.hasUncommittedMultiplayerOps = !1),
+                                (this.committedVersion = t),
+                                (this.committedContent = r),
+                                this.isClean() && this.emit("commitClean"),
+                                (this.isCommitting = !1),
+                                e.abrupt("return", n)
+                              );
+                            case 52:
+                            case "end":
+                              return e.stop();
+                          }
+                      },
+                      e,
+                      this
+                    );
+                  })
+                );
+                return function () {
+                  return e.apply(this, arguments);
+                };
+              })(),
+            },
+          ]),
+          r
+        );
       })(O.EventEmitter);
       function q(e, t) {
         const r = Object.keys(e);
@@ -2226,7 +2298,9 @@
             "Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
           );
         }
-        let i, a = !0, c = !1;
+        let i,
+          a = !0,
+          c = !1;
         return {
           s() {
             r = e[Symbol.iterator]();
@@ -2288,14 +2362,18 @@
         const a = {};
         const h = {};
         r.openChannel({ service: "fsevents" }, (e) => {
-          const t = e.error, r = e.channel;
+          const t = e.error,
+            r = e.channel;
           if (!t) {
             if (!r) throw new Error("Expected channel");
             (n = r),
               r.onCommand((e) => {
                 if ("fileEvent" === e.body) {
                   if (!e.fileEvent) throw new Error("Expected fileEvent");
-                  const t = e.fileEvent, r = t.file, n = t.dest, o = t.op;
+                  const t = e.fileEvent,
+                    r = t.file,
+                    n = t.dest,
+                    o = t.op;
                   if (r) {
                     const i = r.path;
                     if (
@@ -2309,13 +2387,13 @@
                         c = u.d.Directory;
                       else {
                         const s = Object.keys(a).find((e) => {
-                                  return Object(f.b)(e, i);
-                                }),
-                              l =
-                                s &&
-                                a[s].children.find((e) => {
-                                  return e.filename === i.split("/").pop();
-                                });
+                            return Object(f.b)(e, i);
+                          }),
+                          l =
+                            s &&
+                            a[s].children.find((e) => {
+                              return e.filename === i.split("/").pop();
+                            });
                         c = l ? l.type : u.d.File;
                       }
                       switch (o) {
@@ -2387,7 +2465,9 @@
                 const n = V(t.listeners);
                 try {
                   for (n.s(); !(r = n.n()).done; ) {
-                    const o = r.value, i = o.onMoveOrDelete, s = o.dispose;
+                    const o = r.value,
+                      i = o.onMoveOrDelete,
+                      s = o.dispose;
                     i && i(e), s();
                   }
                 } catch (A) {
@@ -2398,7 +2478,8 @@
                 break;
               case u.a.Modify:
             }
-          const f = e.node.path.includes("/") ? Object(l.e)(e.node.path) : p.a, d = a[f];
+          const f = e.node.path.includes("/") ? Object(l.e)(e.node.path) : p.a,
+            d = a[f];
           if (d)
             switch (e.eventType) {
               case u.a.Create:
@@ -2445,7 +2526,8 @@
                   x.f();
                 }
                 d.children = O;
-                const w = e.to.split("/").slice(0, -1).join("/"), j = a[w];
+                const w = e.to.split("/").slice(0, -1).join("/"),
+                  j = a[w];
                 if (!j) return;
                 let k;
                 const E = { filename: e.node.path, type: e.node.type };
@@ -2495,7 +2577,8 @@
             },
           },
           (e) => {
-            const r = e.error, n = e.channel;
+            const r = e.error,
+              n = e.channel;
             if (!r) {
               if (!n) throw new Error("Expected channel");
               return (
@@ -2522,31 +2605,32 @@
                   0 === a[e].listeners.length && delete a[e]);
             };
 
-            return g
-              .readDir(e)
-              .then((i) => {
-                if (!r) {
-                  if (i.error) {
-                    const c = new Error(i.error);
-                    return (c.code = i.error), t.onError(c), void o();
+            return (
+              g
+                .readDir(e)
+                .then((i) => {
+                  if (!r) {
+                    if (i.error) {
+                      const c = new Error(i.error);
+                      return (c.code = i.error), t.onError(c), void o();
+                    }
+                    a[e] ||
+                      ((a[e] = {
+                        path: e,
+                        type: u.d.Directory,
+                        children: i.children,
+                        listeners: [],
+                      }),
+                      n && n.send({ subscribeFile: { files: [{ path: e }] } })),
+                      a[e].listeners.push(B(B({}, t), {}, { dispose: o })),
+                      t.onChange(i.children);
                   }
-                  a[e] ||
-                    ((a[e] = {
-                      path: e,
-                      type: u.d.Directory,
-                      children: i.children,
-                      listeners: [],
-                    }),
-                    n && n.send({ subscribeFile: { files: [{ path: e }] } })),
-                    a[e].listeners.push(B(B({}, t), {}, { dispose: o })),
-                    t.onChange(i.children);
-                }
-              })
-              .catch((e) => {
-                o(), t.onError(e);
-              }),
-            o
-          ;
+                })
+                .catch((e) => {
+                  o(), t.onError(e);
+                }),
+              o
+            );
           },
           writeFile(e, t) {
             return Object(i.a)(
@@ -3197,25 +3281,25 @@
               };
               h[e].otClient.on("error", y);
               const O = (r) => {
-                      h[e].otClient.writeOps(r);
-                      let n;
-                      const o = V(h[e].listeners);
-                      try {
-                        for (o.s(); !(n = o.n()).done; ) {
-                          const i = n.value.onChange;
-                          i &&
-                            i !== t.onChange &&
-                            i({ ops: r, changeSource: u.b.Local });
-                        }
-                      } catch (a) {
-                        o.e(a);
-                      } finally {
-                        o.f();
-                      }
-                    },
-                    x = (t) => {
-                      h[e].otClient.updateCursors([t]);
-                    };
+                  h[e].otClient.writeOps(r);
+                  let n;
+                  const o = V(h[e].listeners);
+                  try {
+                    for (o.s(); !(n = o.n()).done; ) {
+                      const i = n.value.onChange;
+                      i &&
+                        i !== t.onChange &&
+                        i({ ops: r, changeSource: u.b.Local });
+                    }
+                  } catch (a) {
+                    o.e(a);
+                  } finally {
+                    o.f();
+                  }
+                },
+                x = (t) => {
+                  h[e].otClient.updateCursors([t]);
+                };
               if (
                 (-1 !== h[e].otClient.version &&
                   setTimeout(() => {
@@ -3303,7 +3387,15 @@
       r.d(t, "a", () => {
         return p;
       });
-      const n = r("vJKn"), o = r.n(n), i = r("rg98"), a = r("0gYX"), c = r.n(a), s = r("5/z4"), u = r("HADy"), l = r("Fz/E"), f = r("6bXu");
+      const n = r("vJKn"),
+        o = r.n(n),
+        i = r("rg98"),
+        a = r("0gYX"),
+        c = r.n(a),
+        s = r("5/z4"),
+        u = r("HADy"),
+        l = r("Fz/E"),
+        f = r("6bXu");
       function p(e) {
         const t = e.container;
         const r = e.beforeRun;
@@ -3419,91 +3511,93 @@
             })
           )).apply(this, arguments);
         }
-        return t.openChannel(
+        return (
+          t.openChannel(
+            {
+              name: "shellrunner",
+              service: "shellrun2",
+              skip(e) {
+                let t;
+                const r = e.repl;
+                return (
+                  !Object(f.a)() ||
+                  ((t = r.language),
+                  !(
+                    !0 === c.a.usesInterpreter(t) ||
+                    !1 !== c.a.usesRunProject(t)
+                  ))
+                );
+              },
+            },
+            (e) => {
+              const t = e.channel;
+              if (!e.error) {
+                if (!t) throw new Error("Expected error");
+                return (
+                  (a = t),
+                  v(),
+                  t.onCommand((e) => {
+                    switch (e.body) {
+                      case "state":
+                        const t = e.state === s.api.State.Stopped;
+                        h && t && (h = !1),
+                          t ? "server" === d && (d = "none") : (d = "server"),
+                          v();
+                        break;
+                      case "output":
+                        n.emit(u.a.OUTPUT, e.output);
+                    }
+                  }),
+                  () => {
+                    (d = "none"), (h = !1), (a = null), v();
+                  }
+                );
+              }
+            }
+          ),
           {
-            name: "shellrunner",
-            service: "shellrun2",
-            skip(e) {
-              let t;
-              const r = e.repl;
+            run() {
+              return g.apply(this, arguments);
+            },
+            stopRun() {
+              if (p !== u.b.RUNNING)
+                throw new Error(
+                  "stopRun must be called when running but got ".concat(p)
+                );
+              if (!a)
+                throw new Error("State is RUNNING but shellrunner is null?");
+              if ("before-run" === d) return (d = "none"), void v();
+              (d = "none"), (h = !0), v(), a.send({ clear: {} });
+            },
+            sendInput(e) {
+              return m.apply(this, arguments);
+            },
+            resizeTerminal(e) {
+              if (!a)
+                throw new Error("resizeTerminal must be called when online");
+              a.send({ resizeTerm: e });
+            },
+            onOutput(e) {
               return (
-                !Object(f.a)() ||
-                ((t = r.language),
-                !(
-                  !0 === c.a.usesInterpreter(t) ||
-                  !1 !== c.a.usesRunProject(t)
-                ))
+                n.on(u.a.OUTPUT, e),
+                () => {
+                  n.removeListener(u.a.OUTPUT, e);
+                }
               );
             },
-          },
-          (e) => {
-            const t = e.channel;
-            if (!e.error) {
-              if (!t) throw new Error("Expected error");
-              return (a = t),
-              v(),
-              t.onCommand((e) => {
-                switch (e.body) {
-                  case "state":
-                    const t = e.state === s.api.State.Stopped;
-                    h && t && (h = !1),
-                      t ? "server" === d && (d = "none") : (d = "server"),
-                      v();
-                    break;
-                  case "output":
-                    n.emit(u.a.OUTPUT, e.output);
+            onStateChanged(e) {
+              return (
+                n.on(u.a.STATE_CHANGE, e),
+                () => {
+                  n.removeListener(u.a.STATE_CHANGE, e);
                 }
-              }),
-              () => {
-                (d = "none"), (h = !1), (a = null), v();
-              }
-            ;
-            }
-          }
-        ),
-        {
-          run() {
-            return g.apply(this, arguments);
-          },
-          stopRun() {
-            if (p !== u.b.RUNNING)
-              throw new Error(
-                "stopRun must be called when running but got ".concat(p)
               );
-            if (!a)
-              throw new Error("State is RUNNING but shellrunner is null?");
-            if ("before-run" === d) return (d = "none"), void v();
-            (d = "none"), (h = !0), v(), a.send({ clear: {} });
-          },
-          sendInput(e) {
-            return m.apply(this, arguments);
-          },
-          resizeTerminal(e) {
-            if (!a)
-              throw new Error("resizeTerminal must be called when online");
-            a.send({ resizeTerm: e });
-          },
-          onOutput(e) {
-            return (
-              n.on(u.a.OUTPUT, e),
-              () => {
-                n.removeListener(u.a.OUTPUT, e);
-              }
-            );
-          },
-          onStateChanged(e) {
-            return (
-              n.on(u.a.STATE_CHANGE, e),
-              () => {
-                n.removeListener(u.a.STATE_CHANGE, e);
-              }
-            );
-          },
-          getRunState() {
-            return p;
-          },
-        }
-      ;
+            },
+            getRunState() {
+              return p;
+            },
+          }
+        );
       }
     },
     Yk1I(e, t) {
@@ -3513,12 +3607,16 @@
         if (null != s) {
           const l = ((e, t, r) => {
             const n =
-                      "number" === typeof r ? { index: r, length: 0 } : r.oldRange,
-                  o = "number" === typeof r ? null : r.newRange,
-                  i = e.length,
-                  a = t.length;
+                "number" === typeof r ? { index: r, length: 0 } : r.oldRange,
+              o = "number" === typeof r ? null : r.newRange,
+              i = e.length,
+              a = t.length;
             if (0 === n.length && (null === o || 0 === o.length)) {
-              const c = n.index, s = e.slice(0, c), u = e.slice(c), l = o ? o.index : null, f = c + a - i;
+              const c = n.index,
+                s = e.slice(0, c),
+                u = e.slice(c),
+                l = o ? o.index : null,
+                f = c + a - i;
               if ((null === l || l === f) && !(f < 0 || f > a)) {
                 var d = t.slice(0, f);
                 if ((v = t.slice(f)) === u) {
@@ -3562,148 +3660,169 @@
         const d = e.substring(0, f);
         f = a((e = e.substring(f)), (t = t.substring(f)));
         const h = e.substring(e.length - f),
-              b = ((e, t) => {
-                let c;
-                if (!e) return [[1, t]];
-                if (!t) return [[r, e]];
-                const s = e.length > t.length ? e : t, u = e.length > t.length ? t : e, l = s.indexOf(u);
-                if (-1 !== l)
-                  return (
-                    (c = [
-                      [1, s.substring(0, l)],
-                      [0, u],
-                      [1, s.substring(l + u.length)],
-                    ]),
-                    e.length > t.length && (c[0][0] = c[2][0] = r),
-                    c
-                  );
-                if (1 === u.length)
-                  return [
-                    [r, e],
-                    [1, t],
-                  ];
-                const f = ((e, t) => {
-                  const r = e.length > t.length ? e : t, n = e.length > t.length ? t : e;
-                  if (r.length < 4 || 2 * n.length < r.length) return null;
-                  function o(e, t, r) {
-                    for (
-                      var n,
-                        o,
-                        c,
-                        s,
-                        u = e.substring(r, r + Math.floor(e.length / 4)),
-                        l = -1,
-                        f = "";
-                      -1 !== (l = t.indexOf(u, l + 1));
-
-                    ) {
-                      const p = i(e.substring(r), t.substring(l)), d = a(e.substring(0, r), t.substring(0, l));
-                      f.length < d + p &&
-                        ((f = t.substring(l - d, l) + t.substring(l, l + p)),
-                        (n = e.substring(0, r - d)),
-                        (o = e.substring(r + p)),
-                        (c = t.substring(0, l - d)),
-                        (s = t.substring(l + p)));
-                    }
-                    return 2 * f.length >= e.length ? [n, o, c, s, f] : null;
-                  }
-                  let c;
-                  let s;
-                  let u;
-                  let l;
-                  let f;
-                  const p = o(r, n, Math.ceil(r.length / 4));
-                  const d = o(r, n, Math.ceil(r.length / 2));
-                  if (!p && !d) return null;
-                  c = d ? (p && p[4].length > d[4].length ? p : d) : p;
-                  e.length > t.length
-                    ? ((s = c[0]), (u = c[1]), (l = c[2]), (f = c[3]))
-                    : ((l = c[0]), (f = c[1]), (s = c[2]), (u = c[3]));
-                  const h = c[4];
-                  return [s, u, l, f, h];
-                })(e, t);
-                if (f) {
-                  const p = f[0], d = f[1], h = f[2], b = f[3], v = f[4], g = n(p, h), m = n(d, b);
-                  return g.concat([[0, v]], m);
-                }
-                return ((e, t) => {
-                  for (
-                    var n = e.length,
-                      i = t.length,
-                      a = Math.ceil((n + i) / 2),
-                      c = a,
-                      s = 2 * a,
-                      u = new Array(s),
-                      l = new Array(s),
-                      f = 0;
-                    f < s;
-                    f++
-                  )
-                    (u[f] = -1), (l[f] = -1);
-                  (u[c + 1] = 0), (l[c + 1] = 0);
-                  for (
-                    let p = n - i, d = p % 2 !== 0, h = 0, b = 0, v = 0, g = 0, m = 0;
-                    m < a;
-                    m++
-                  ) {
-                    for (let y = -m + h; y <= m - b; y += 2) {
-                      for (
-                        var O = c + y,
-                          x =
-                            (C =
-                              y === -m || (y !== m && u[O - 1] < u[O + 1])
-                                ? u[O + 1]
-                                : u[O - 1] + 1) - y;
-                        C < n && x < i && e.charAt(C) === t.charAt(x);
-
-                      )
-                        C++, x++;
-                      if (((u[O] = C), C > n)) b += 2;
-                      else if (x > i) h += 2;
-                      else if (d) {
-                        if ((k = c + p - y) >= 0 && k < s && -1 !== l[k])
-                          if (C >= (j = n - l[k])) return o(e, t, C, x);
-                      }
-                    }
-                    for (let w = -m + v; w <= m - g; w += 2) {
-                      for (
-                        var j,
-                          k = c + w,
-                          E =
-                            (j =
-                              w === -m || (w !== m && l[k - 1] < l[k + 1])
-                                ? l[k + 1]
-                                : l[k - 1] + 1) - w;
-                        j < n &&
-                        E < i &&
-                        e.charAt(n - j - 1) === t.charAt(i - E - 1);
-
-                      )
-                        j++, E++;
-                      if (((l[k] = j), j > n)) g += 2;
-                      else if (E > i) v += 2;
-                      else if (!d) {
-                        if ((O = c + p - w) >= 0 && O < s && -1 !== u[O]) {
-                          var C;
-                          x = c + (C = u[O]) - O;
-                          if (C >= (j = n - j)) return o(e, t, C, x);
-                        }
-                      }
-                    }
-                  }
-                  return [
-                    [r, e],
-                    [1, t],
-                  ];
-                })(e, t);
-              })(
-                (e = e.substring(0, e.length - f)),
-                (t = t.substring(0, t.length - f))
+          b = ((e, t) => {
+            let c;
+            if (!e) return [[1, t]];
+            if (!t) return [[r, e]];
+            const s = e.length > t.length ? e : t,
+              u = e.length > t.length ? t : e,
+              l = s.indexOf(u);
+            if (-1 !== l)
+              return (
+                (c = [
+                  [1, s.substring(0, l)],
+                  [0, u],
+                  [1, s.substring(l + u.length)],
+                ]),
+                e.length > t.length && (c[0][0] = c[2][0] = r),
+                c
               );
+            if (1 === u.length)
+              return [
+                [r, e],
+                [1, t],
+              ];
+            const f = ((e, t) => {
+              const r = e.length > t.length ? e : t,
+                n = e.length > t.length ? t : e;
+              if (r.length < 4 || 2 * n.length < r.length) return null;
+              function o(e, t, r) {
+                for (
+                  var n,
+                    o,
+                    c,
+                    s,
+                    u = e.substring(r, r + Math.floor(e.length / 4)),
+                    l = -1,
+                    f = "";
+                  -1 !== (l = t.indexOf(u, l + 1));
+
+                ) {
+                  const p = i(e.substring(r), t.substring(l)),
+                    d = a(e.substring(0, r), t.substring(0, l));
+                  f.length < d + p &&
+                    ((f = t.substring(l - d, l) + t.substring(l, l + p)),
+                    (n = e.substring(0, r - d)),
+                    (o = e.substring(r + p)),
+                    (c = t.substring(0, l - d)),
+                    (s = t.substring(l + p)));
+                }
+                return 2 * f.length >= e.length ? [n, o, c, s, f] : null;
+              }
+              let c;
+              let s;
+              let u;
+              let l;
+              let f;
+              const p = o(r, n, Math.ceil(r.length / 4));
+              const d = o(r, n, Math.ceil(r.length / 2));
+              if (!p && !d) return null;
+              c = d ? (p && p[4].length > d[4].length ? p : d) : p;
+              e.length > t.length
+                ? ((s = c[0]), (u = c[1]), (l = c[2]), (f = c[3]))
+                : ((l = c[0]), (f = c[1]), (s = c[2]), (u = c[3]));
+              const h = c[4];
+              return [s, u, l, f, h];
+            })(e, t);
+            if (f) {
+              const p = f[0],
+                d = f[1],
+                h = f[2],
+                b = f[3],
+                v = f[4],
+                g = n(p, h),
+                m = n(d, b);
+              return g.concat([[0, v]], m);
+            }
+            return ((e, t) => {
+              for (
+                var n = e.length,
+                  i = t.length,
+                  a = Math.ceil((n + i) / 2),
+                  c = a,
+                  s = 2 * a,
+                  u = new Array(s),
+                  l = new Array(s),
+                  f = 0;
+                f < s;
+                f++
+              )
+                (u[f] = -1), (l[f] = -1);
+              (u[c + 1] = 0), (l[c + 1] = 0);
+              for (
+                let p = n - i,
+                  d = p % 2 !== 0,
+                  h = 0,
+                  b = 0,
+                  v = 0,
+                  g = 0,
+                  m = 0;
+                m < a;
+                m++
+              ) {
+                for (let y = -m + h; y <= m - b; y += 2) {
+                  for (
+                    var O = c + y,
+                      x =
+                        (C =
+                          y === -m || (y !== m && u[O - 1] < u[O + 1])
+                            ? u[O + 1]
+                            : u[O - 1] + 1) - y;
+                    C < n && x < i && e.charAt(C) === t.charAt(x);
+
+                  )
+                    C++, x++;
+                  if (((u[O] = C), C > n)) b += 2;
+                  else if (x > i) h += 2;
+                  else if (d) {
+                    if ((k = c + p - y) >= 0 && k < s && -1 !== l[k])
+                      if (C >= (j = n - l[k])) return o(e, t, C, x);
+                  }
+                }
+                for (let w = -m + v; w <= m - g; w += 2) {
+                  for (
+                    var j,
+                      k = c + w,
+                      E =
+                        (j =
+                          w === -m || (w !== m && l[k - 1] < l[k + 1])
+                            ? l[k + 1]
+                            : l[k - 1] + 1) - w;
+                    j < n &&
+                    E < i &&
+                    e.charAt(n - j - 1) === t.charAt(i - E - 1);
+
+                  )
+                    j++, E++;
+                  if (((l[k] = j), j > n)) g += 2;
+                  else if (E > i) v += 2;
+                  else if (!d) {
+                    if ((O = c + p - w) >= 0 && O < s && -1 !== u[O]) {
+                      var C;
+                      x = c + (C = u[O]) - O;
+                      if (C >= (j = n - j)) return o(e, t, C, x);
+                    }
+                  }
+                }
+              }
+              return [
+                [r, e],
+                [1, t],
+              ];
+            })(e, t);
+          })(
+            (e = e.substring(0, e.length - f)),
+            (t = t.substring(0, t.length - f))
+          );
         return d && b.unshift([0, d]), h && b.push([0, h]), c(b, u), b;
       }
       function o(e, t, r, o) {
-        const i = e.substring(0, r), a = t.substring(0, o), c = e.substring(r), s = t.substring(o), u = n(i, a), l = n(c, s);
+        const i = e.substring(0, r),
+          a = t.substring(0, o),
+          c = e.substring(r),
+          s = t.substring(o),
+          u = n(i, a),
+          l = n(c, s);
         return u.concat(l);
       }
       function i(e, t) {
@@ -4011,40 +4130,40 @@
         });
       Object.defineProperty(t, "__esModule", { value: !0 });
       const o = r("Z5Wq"),
-            i = n(r("HtvZ")),
-            a = n(r("qpVQ")),
-            c = {
-              create(e) {
-                return e;
+        i = n(r("HtvZ")),
+        a = n(r("qpVQ")),
+        c = {
+          create(e) {
+            return e;
+          },
+          toString(e) {
+            return e;
+          },
+          builder(e) {
+            if ("string" !== typeof e)
+              throw Error("Invalid document snapshot: " + e);
+            const t = [];
+            return {
+              skip(r) {
+                const n = o.uniToStrPos(e, r);
+                if (n > e.length)
+                  throw Error("The op is too long for this document");
+                t.push(e.slice(0, n)), (e = e.slice(n));
               },
-              toString(e) {
-                return e;
+              append(e) {
+                t.push(e);
               },
-              builder(e) {
-                if ("string" !== typeof e)
-                  throw Error("Invalid document snapshot: " + e);
-                const t = [];
-                return {
-                  skip(r) {
-                    const n = o.uniToStrPos(e, r);
-                    if (n > e.length)
-                      throw Error("The op is too long for this document");
-                    t.push(e.slice(0, n)), (e = e.slice(n));
-                  },
-                  append(e) {
-                    t.push(e);
-                  },
-                  del(t) {
-                    e = e.slice(o.uniToStrPos(e, t));
-                  },
-                  build() {
-                    return t.join("") + e;
-                  },
-                };
+              del(t) {
+                e = e.slice(o.uniToStrPos(e, t));
               },
-            },
-            s = i.default(c),
-            u = Object.assign({}, s, { api: a.default });
+              build() {
+                return t.join("") + e;
+              },
+            };
+          },
+        },
+        s = i.default(c),
+        u = Object.assign({}, s, { api: a.default });
       t.type = u;
       const l = r("HtvZ");
       t.makeType = l.default;
@@ -4053,98 +4172,100 @@
       "use strict";
       ((e) => {
         const n = r("H+61"),
-              o = r("UlJF"),
-              i = (() => {
-                function t(r, o) {
-                  if (
-                    (Object(n.a)(this, t),
-                    (this.asEncoding = {}),
-                    (this.asBuffer = null),
-                    o && "string" === typeof r)
-                  )
-                    this.asEncoding[o] = r;
-                  else if (void 0 === r || null === r) this.asBuffer = e.alloc(0);
-                  else if (r instanceof e) this.asBuffer = r;
-                  else if ("string" === typeof r) this.asEncoding.utf8 = r;
-                  else if (r instanceof ArrayBuffer) this.asBuffer = e.from(r);
-                  else {
-                    if (r instanceof t) return r;
-                    r instanceof Uint8Array
-                      ? (this.asBuffer = e.from(r))
-                      : "object" === typeof r &&
-                        "object" === typeof r.asEncoding &&
-                        null !== r.asEncoding &&
-                        (r.asBuffer instanceof e || null === r.asBuffer) &&
-                        ((this.asBuffer = r.asBuffer || null),
-                        "string" === typeof r.asEncoding.base64 &&
-                          (this.asEncoding = { base64: r.asEncoding.base64 }),
-                        "string" === typeof r.asEncoding.utf8 &&
-                          (this.asEncoding = { utf8: r.asEncoding.utf8 }));
-                  }
-                }
-                return Object(o.a)(t, null, [
-                  {
-                    key: "from",
-                    value(e, r) {
-                      return new t(e, r);
-                    },
+          o = r("UlJF"),
+          i = (() => {
+            function t(r, o) {
+              if (
+                (Object(n.a)(this, t),
+                (this.asEncoding = {}),
+                (this.asBuffer = null),
+                o && "string" === typeof r)
+              )
+                this.asEncoding[o] = r;
+              else if (void 0 === r || null === r) this.asBuffer = e.alloc(0);
+              else if (r instanceof e) this.asBuffer = r;
+              else if ("string" === typeof r) this.asEncoding.utf8 = r;
+              else if (r instanceof ArrayBuffer) this.asBuffer = e.from(r);
+              else {
+                if (r instanceof t) return r;
+                r instanceof Uint8Array
+                  ? (this.asBuffer = e.from(r))
+                  : "object" === typeof r &&
+                    "object" === typeof r.asEncoding &&
+                    null !== r.asEncoding &&
+                    (r.asBuffer instanceof e || null === r.asBuffer) &&
+                    ((this.asBuffer = r.asBuffer || null),
+                    "string" === typeof r.asEncoding.base64 &&
+                      (this.asEncoding = { base64: r.asEncoding.base64 }),
+                    "string" === typeof r.asEncoding.utf8 &&
+                      (this.asEncoding = { utf8: r.asEncoding.utf8 }));
+              }
+            }
+            return (
+              Object(o.a)(t, null, [
+                {
+                  key: "from",
+                  value(e, r) {
+                    return new t(e, r);
                   },
-                  {
-                    key: "isBuffer",
-                    value(e) {
-                      return e instanceof t;
-                    },
+                },
+                {
+                  key: "isBuffer",
+                  value(e) {
+                    return e instanceof t;
                   },
-                ]),
-                Object(o.a)(t, [
-                  {
-                    key: "toString",
-                    value() {
-                      const e =
-                        arguments.length > 0 && void 0 !== arguments[0]
-                          ? arguments[0]
-                          : "utf8";
-                      if (void 0 !== this.asEncoding[e])
-                        return this.asEncoding[e];
-                      const t = this.toBuffer(), r = t.toString(e);
-                      return (this.asEncoding[e] = r), r;
-                    },
+                },
+              ]),
+              Object(o.a)(t, [
+                {
+                  key: "toString",
+                  value() {
+                    const e =
+                      arguments.length > 0 && void 0 !== arguments[0]
+                        ? arguments[0]
+                        : "utf8";
+                    if (void 0 !== this.asEncoding[e])
+                      return this.asEncoding[e];
+                    const t = this.toBuffer(),
+                      r = t.toString(e);
+                    return (this.asEncoding[e] = r), r;
                   },
-                  {
-                    key: "toJSON",
-                    value() {
-                      return {
-                        asEncoding: { base64: this.toString("base64") },
-                        asBuffer: null,
-                      };
-                    },
+                },
+                {
+                  key: "toJSON",
+                  value() {
+                    return {
+                      asEncoding: { base64: this.toString("base64") },
+                      asBuffer: null,
+                    };
                   },
-                  {
-                    key: "toBuffer",
-                    value() {
-                      if (this.asBuffer) return this.asBuffer;
-                      for (const t in this.asEncoding) {
-                        const r = this.asEncoding[t];
-                        if ("string" === typeof r) {
-                          const n = e.from(r, t);
-                          return (this.asBuffer = n), n;
-                        }
+                },
+                {
+                  key: "toBuffer",
+                  value() {
+                    if (this.asBuffer) return this.asBuffer;
+                    for (const t in this.asEncoding) {
+                      const r = this.asEncoding[t];
+                      if ("string" === typeof r) {
+                        const n = e.from(r, t);
+                        return (this.asBuffer = n), n;
                       }
-                      return (this.asBuffer = e.alloc(0)), this.asBuffer;
-                    },
+                    }
+                    return (this.asBuffer = e.alloc(0)), this.asBuffer;
                   },
-                  {
-                    key: "length",
-                    get() {
-                      return void 0 !== this.asEncoding.utf8
-                        ? this.asEncoding.utf8.length
-                        : this.toBuffer().length;
-                    },
+                },
+                {
+                  key: "length",
+                  get() {
+                    return void 0 !== this.asEncoding.utf8
+                      ? this.asEncoding.utf8.length
+                      : this.toBuffer().length;
                   },
-                ]),
-                t
-              ;
-              })();
+                },
+              ]),
+              t
+            );
+          })();
         t.a = i;
       }).call(this, r("HDXh").Buffer);
     },
@@ -4192,7 +4313,18 @@
       r.d(t, "a", () => {
         return m;
       });
-      const n = r("nKUr"), o = r("cpVT"), i = r("H+61"), a = r("UlJF"), c = r("7LId"), s = r("VIvw"), u = r("iHvq"), l = r("MX0m"), f = r.n(l), p = r("q1tI"), d = r("xom/"), h = r("2tbh");
+      const n = r("nKUr"),
+        o = r("cpVT"),
+        i = r("H+61"),
+        a = r("UlJF"),
+        c = r("7LId"),
+        s = r("VIvw"),
+        u = r("iHvq"),
+        l = r("MX0m"),
+        f = r.n(l),
+        p = r("q1tI"),
+        d = r("xom/"),
+        h = r("2tbh");
       function b(e, t) {
         const r = Object.keys(e);
         if (Object.getOwnPropertySymbols) {
@@ -4277,65 +4409,66 @@
             e
           );
         }
-        return Object(a.a)(r, [
-          {
-            key: "render",
-            value() {
-              const e = this;
-              return Object(n.jsxs)("div", {
-                className: "jsx-101910848 auth-modal",
-                children: [
-                  Object(n.jsxs)(d.b, {
-                    align: "center",
-                    spacing: 2,
-                    children: [
-                      Object(n.jsx)("div", {
-                        className: "jsx-101910848 auth-modal-title",
-                        children: this.props.title || "Sign up",
-                      }),
-                      Object(n.jsx)("div", {
-                        className: "jsx-101910848 auth-modal-description",
-                        children:
-                          this.props.description ||
-                          "Code, create, and learn together on Replit",
-                      }),
-                      Object(n.jsx)(h.a, {
-                        onChangeAuth: this.handleChangeAuth,
-                        isTeacher: this.props.isTeacher,
-                        isLogin: this.state.isLogin,
-                        onSubmit: this.handleSubmit,
-                      }),
-                      this.props.allowAnon &&
+        return (
+          Object(a.a)(r, [
+            {
+              key: "render",
+              value() {
+                const e = this;
+                return Object(n.jsxs)("div", {
+                  className: "jsx-101910848 auth-modal",
+                  children: [
+                    Object(n.jsxs)(d.b, {
+                      align: "center",
+                      spacing: 2,
+                      children: [
                         Object(n.jsx)("div", {
-                          className: "jsx-101910848 auth-modal-anon",
-                          children: Object(n.jsx)("a", {
-                            onClick() {
-                              return e.props.onSuccess();
-                            },
-                            className: "jsx-101910848",
-                            children: "continue as Anonymous",
-                          }),
+                          className: "jsx-101910848 auth-modal-title",
+                          children: this.props.title || "Sign up",
                         }),
-                    ],
-                  }),
-                  Object(n.jsx)(f.a, {
-                    id: "101910848",
-                    children: [
-                      ".auth-modal.jsx-101910848{max-width:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;padding:var(--spacing-4) var(--spacing-2);}",
-                      ".title-container.jsx-101910848{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;margin-bottom:var(--spacing-2);}",
-                      ".auth-modal-title.jsx-101910848{-webkit-align-self:flex-start;-ms-flex-item-align:start;align-self:flex-start;color:var(--color-foreground-1);font-size:var(--font-size-desktop-heading-2);font-weight:var(--font-weight-medium);}",
-                      ".auth-modal-description.jsx-101910848{text-align:center;color:var(--color-foreground-2);font-size:var(--font-size-deskptop-text-medium);}",
-                      ".auth-modal-anon.jsx-101910848{margin-top:14px;font-size:14px;}",
-                      ".auth-modal-anon.jsx-101910848 a.jsx-101910848{color:var(--color-primary-1);-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}",
-                    ],
-                  }),
-                ],
-              });
+                        Object(n.jsx)("div", {
+                          className: "jsx-101910848 auth-modal-description",
+                          children:
+                            this.props.description ||
+                            "Code, create, and learn together on Replit",
+                        }),
+                        Object(n.jsx)(h.a, {
+                          onChangeAuth: this.handleChangeAuth,
+                          isTeacher: this.props.isTeacher,
+                          isLogin: this.state.isLogin,
+                          onSubmit: this.handleSubmit,
+                        }),
+                        this.props.allowAnon &&
+                          Object(n.jsx)("div", {
+                            className: "jsx-101910848 auth-modal-anon",
+                            children: Object(n.jsx)("a", {
+                              onClick() {
+                                return e.props.onSuccess();
+                              },
+                              className: "jsx-101910848",
+                              children: "continue as Anonymous",
+                            }),
+                          }),
+                      ],
+                    }),
+                    Object(n.jsx)(f.a, {
+                      id: "101910848",
+                      children: [
+                        ".auth-modal.jsx-101910848{max-width:100%;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;padding:var(--spacing-4) var(--spacing-2);}",
+                        ".title-container.jsx-101910848{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;margin-bottom:var(--spacing-2);}",
+                        ".auth-modal-title.jsx-101910848{-webkit-align-self:flex-start;-ms-flex-item-align:start;align-self:flex-start;color:var(--color-foreground-1);font-size:var(--font-size-desktop-heading-2);font-weight:var(--font-weight-medium);}",
+                        ".auth-modal-description.jsx-101910848{text-align:center;color:var(--color-foreground-2);font-size:var(--font-size-deskptop-text-medium);}",
+                        ".auth-modal-anon.jsx-101910848{margin-top:14px;font-size:14px;}",
+                        ".auth-modal-anon.jsx-101910848 a.jsx-101910848{color:var(--color-primary-1);-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}",
+                      ],
+                    }),
+                  ],
+                });
+              },
             },
-          },
-        ]),
-        r
-      ;
+          ]),
+          r
+        );
       })(p.Component);
       m.defaultProps = {
         showLoginFirst: !1,

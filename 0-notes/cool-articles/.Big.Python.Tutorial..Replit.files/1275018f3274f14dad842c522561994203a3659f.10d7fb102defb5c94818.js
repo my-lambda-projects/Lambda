@@ -381,7 +381,7 @@
         });
       };
 
-      var b = ({backgroundColor, foregroundColor}) => {
+      var b = ({ backgroundColor, foregroundColor }) => {
         const e = backgroundColor;
         const s = foregroundColor;
         return Object(l.jsxs)("svg", {
@@ -502,7 +502,7 @@
         });
       };
 
-      var f = ({backgroundColor, foregroundColor}) => {
+      var f = ({ backgroundColor, foregroundColor }) => {
         const e = backgroundColor;
         const s = foregroundColor;
         return Object(l.jsxs)("svg", {
@@ -612,7 +612,7 @@
         return c;
       }
 
-      var y = ({style}) => {
+      var y = ({ style }) => {
         return Object(l.jsxs)("svg", {
           className: "error-icon-svg",
           "data-name": "Layer 1",
@@ -680,7 +680,7 @@
         });
       };
 
-      var M = ({backgroundColor}) => {
+      var M = ({ backgroundColor }) => {
         const e = backgroundColor;
         return Object(l.jsxs)("svg", {
           className: "eye-icon-svg",
@@ -857,7 +857,7 @@
         });
       };
 
-      var A = ({color}) => {
+      var A = ({ color }) => {
         const e = color;
         return Object(l.jsxs)("svg", {
           className: "globe-svg-icon",
@@ -912,7 +912,7 @@
             return !1;
           }
         })();
-        return function(...args) {
+        return function (...args) {
           let s;
           const t = Object(P.a)(c);
           if (e) {
@@ -1054,7 +1054,7 @@
         });
       };
 
-      var _ = ({language, fill}) => {
+      var _ = ({ language, fill }) => {
         let e;
         switch (language) {
           case "py":
@@ -1113,7 +1113,7 @@
         });
       };
 
-      var K = ({backgroundColor}) => {
+      var K = ({ backgroundColor }) => {
         const e = backgroundColor;
         return Object(l.jsxs)("svg", {
           className: "lock-svg-icon",
@@ -1157,7 +1157,7 @@
         });
       };
 
-      var X = ({strokeWidth}) => {
+      var X = ({ strokeWidth }) => {
         const e = strokeWidth;
         return Object(l.jsxs)("svg", {
           className: "minimize-icon-svg",
@@ -1575,7 +1575,7 @@
         });
       };
 
-      var oc = ({strokeWidth}) => {
+      var oc = ({ strokeWidth }) => {
         const e = strokeWidth;
         return Object(l.jsxs)("svg", {
           className: "wall-arrow-icon-svg",
@@ -1711,7 +1711,7 @@
       const l = s("MX0m");
       const n = s.n(l);
       s("q1tI");
-      e.a = ({backgroundColor, foregroundColor, borderColor}) => {
+      e.a = ({ backgroundColor, foregroundColor, borderColor }) => {
         const e = backgroundColor;
         const s = foregroundColor;
         const l = borderColor;
@@ -1745,8 +1745,9 @@
                     y: "-650.947",
                     width: "243.472",
                     height: "517.878",
-                    className:
-                      `${n.a.dynamic([["4239907680", [e, l, l, s]]])} cls-1`,
+                    className: `${n.a.dynamic([
+                      ["4239907680", [e, l, l, s]],
+                    ])} cls-1`,
                   }),
                 }),
               ],

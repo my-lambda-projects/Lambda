@@ -94,7 +94,14 @@
           o(this.listener, this.target, e));
       }
       function c(e, t, i) {
-        const n = { fired: !1, wrapFn: void 0, target: e, type: t, listener: i }, r = m.bind(n);
+        const n = {
+            fired: !1,
+            wrapFn: void 0,
+            target: e,
+            type: t,
+            listener: i,
+          },
+          r = m.bind(n);
         return (r.listener = i), (n.wrapFn = r), r;
       }
       function v(e, t, i) {
@@ -162,29 +169,30 @@
           return d(this);
         }),
         (s.prototype.emit = function (e) {
-        for (var t = [], i = 1; i < arguments.length; i++)
-          t.push(arguments[i]);
-        let n = "error" === e;
-        const r = this._events;
-        if (void 0 !== r) n = n && void 0 === r.error;
-        else if (!n) return !1;
-        if (n) {
-          let a;
-          if ((t.length > 0 && (a = t[0]), a instanceof Error)) throw a;
-          const s = new Error(
-            "Unhandled error." + (a ? " (" + a.message + ")" : "")
-          );
-          throw ((s.context = a), s);
-        }
-        const p = r[e];
-        if (void 0 === p) return !1;
-        if ("function" === typeof p) o(p, this, t);
-        else {
-          const d = p.length, u = l(p, d);
-          for (i = 0; i < d; ++i) o(u[i], this, t);
-        }
-        return !0;
-      }),
+          for (var t = [], i = 1; i < arguments.length; i++)
+            t.push(arguments[i]);
+          let n = "error" === e;
+          const r = this._events;
+          if (void 0 !== r) n = n && void 0 === r.error;
+          else if (!n) return !1;
+          if (n) {
+            let a;
+            if ((t.length > 0 && (a = t[0]), a instanceof Error)) throw a;
+            const s = new Error(
+              "Unhandled error." + (a ? " (" + a.message + ")" : "")
+            );
+            throw ((s.context = a), s);
+          }
+          const p = r[e];
+          if (void 0 === p) return !1;
+          if ("function" === typeof p) o(p, this, t);
+          else {
+            const d = p.length,
+              u = l(p, d);
+            for (i = 0; i < d; ++i) o(u[i], this, t);
+          }
+          return !0;
+        }),
         (s.prototype.addListener = function (e, t) {
           return u(this, e, t, !1);
         }),
@@ -305,22 +313,23 @@
         }
       };
       e.exports = (e, t, i, s) => {
-        return (t = t || "&"),
-        (i = i || "="),
-        null === e && (e = void 0),
-        "object" === typeof e
-          ? o(a(e), (a) => {
-              const s = encodeURIComponent(n(a)) + i;
-              return r(e[a])
-                ? o(e[a], (e) => {
-                    return s + encodeURIComponent(n(e));
-                  }).join(t)
-                : s + encodeURIComponent(n(e[a]));
-            }).join(t)
-          : s
-          ? encodeURIComponent(n(s)) + i + encodeURIComponent(n(e))
-          : ""
-      ;
+        return (
+          (t = t || "&"),
+          (i = i || "="),
+          null === e && (e = void 0),
+          "object" === typeof e
+            ? o(a(e), (a) => {
+                const s = encodeURIComponent(n(a)) + i;
+                return r(e[a])
+                  ? o(e[a], (e) => {
+                      return s + encodeURIComponent(n(e));
+                    }).join(t)
+                  : s + encodeURIComponent(n(e[a]));
+              }).join(t)
+            : s
+            ? encodeURIComponent(n(s)) + i + encodeURIComponent(n(e))
+            : ""
+        );
       };
       var r =
         Array.isArray ||
@@ -386,7 +395,11 @@
         })(e, r, o);
         return "" + t.protocol + t.host + t.pathname + t.search + t.hash;
       }
-      const s = "http://", p = "w.w", d = s + p, u = /^([a-z0-9.+-]*:\/\/\/)([a-z0-9.+-]:\/*)?/i, m = /https?|ftp|gopher|file/;
+      const s = "http://",
+        p = "w.w",
+        d = s + p,
+        u = /^([a-z0-9.+-]*:\/\/\/)([a-z0-9.+-]:\/*)?/i,
+        m = /https?|ftp|gopher|file/;
       function c(e, t) {
         const i = "string" == typeof e ? y(e) : e;
         e = "object" == typeof e ? a(e) : e;
@@ -427,7 +440,11 @@
         (v.prototype.format = a),
         (v.prototype.resolve = c),
         (v.prototype.resolveObject = c);
-      const f = /^https?|ftp|gopher|file/, l = /^(.*?)([#?].*)/, h = /^([a-z0-9.+-]*:)(\/{0,3})(.*)/i, g = /^([a-z0-9.+-]*:)?\/\/\/*/i, x = /^([a-z0-9.+-]*:)(\/{0,2})\[(.*)\]$/i;
+      const f = /^https?|ftp|gopher|file/,
+        l = /^(.*?)([#?].*)/,
+        h = /^([a-z0-9.+-]*:)(\/{0,3})(.*)/i,
+        g = /^([a-z0-9.+-]*:)?\/\/\/*/i,
+        x = /^([a-z0-9.+-]*:)(\/{0,2})\[(.*)\]$/i;
       function y(e, t, i) {
         if (
           (void 0 === t && (t = !1),
@@ -577,212 +594,212 @@
           return x;
         });
       const n = i("tpqs"),
-            r = {
-              pdf: "application/pdf",
-              "3gpp": "video/3gpp",
-              adp: "audio/adpcm",
-              au: "audio/basic",
-              snd: "audio/basic",
-              mid: "audio/midi",
-              midi: "audio/midi",
-              kar: "audio/midi",
-              rmi: "audio/midi",
-              mp3: "audio/mpeg",
-              m4a: "audio/mp4",
-              mp4a: "audio/mp4",
-              mpga: "audio/mpeg",
-              mp2: "audio/mpeg",
-              mp2a: "audio/mpeg",
-              m2a: "audio/mpeg",
-              m3a: "audio/mpeg",
-              oga: "audio/ogg",
-              ogg: "audio/ogg",
-              spx: "audio/ogg",
-              s3m: "audio/s3m",
-              sil: "audio/silk",
-              uva: "audio/vnd.dece.audio",
-              uvva: "audio/vnd.dece.audio",
-              eol: "audio/vnd.digital-winds",
-              dra: "audio/vnd.dra",
-              dts: "audio/vnd.dts",
-              dtshd: "audio/vnd.dts.hd",
-              lvp: "audio/vnd.lucent.voice",
-              pya: "audio/vnd.ms-playready.media.pya",
-              ecelp4800: "audio/vnd.nuera.ecelp4800",
-              ecelp7470: "audio/vnd.nuera.ecelp7470",
-              ecelp9600: "audio/vnd.nuera.ecelp9600",
-              rip: "audio/vnd.rip",
-              wav: "audio/wave",
-              weba: "audio/webm",
-              aac: "audio/x-aac",
-              aif: "audio/x-aiff",
-              aiff: "audio/x-aiff",
-              aifc: "audio/x-aiff",
-              caf: "audio/x-caf",
-              flac: "audio/x-flac",
-              mka: "audio/x-matroska",
-              m3u: "audio/x-mpegurl",
-              wax: "audio/x-ms-wax",
-              wma: "audio/x-ms-wma",
-              ram: "audio/x-pn-realaudio",
-              ra: "audio/x-pn-realaudio",
-              rmp: "audio/x-pn-realaudio-plugin",
-              xm: "audio/xm",
-              exr: "image/aces",
-              apng: "image/apng",
-              bmp: "image/bmp",
-              cgm: "image/cgm",
-              drle: "image/dicom-rle",
-              emf: "image/emf",
-              fits: "image/fits",
-              g3: "image/g3fax",
-              gif: "image/gif",
-              heic: "image/heic",
-              heics: "image/heic-sequence",
-              heif: "image/heif",
-              heifs: "image/heif-sequence",
-              hej2: "image/hej2k",
-              hsj2: "image/hsj2",
-              ief: "image/ief",
-              jls: "image/jls",
-              jp2: "image/jp2",
-              jpg2: "image/jp2",
-              jpeg: "image/jpeg",
-              jpg: "image/jpeg",
-              jpe: "image/jpeg",
-              jph: "image/jph",
-              jhc: "image/jphc",
-              jpm: "image/jpm",
-              jpx: "image/jpx",
-              jpf: "image/jpx",
-              jxr: "image/jxr",
-              jxra: "image/jxra",
-              jxrs: "image/jxrs",
-              jxs: "image/jxs",
-              jxsc: "image/jxsc",
-              jxsi: "image/jxsi",
-              jxss: "image/jxss",
-              ktx: "image/ktx",
-              png: "image/png",
-              btif: "image/prs.btif",
-              pti: "image/prs.pti",
-              sgi: "image/sgi",
-              svg: "image/svg+xml",
-              svgz: "image/svg+xml",
-              t38: "image/t38",
-              tif: "image/tiff",
-              tiff: "image/tiff",
-              tfx: "image/tiff-fx",
-              psd: "image/vnd.adobe.photoshop",
-              azv: "image/vnd.airzip.accelerator.azv",
-              uvi: "image/vnd.dece.graphic",
-              uvvi: "image/vnd.dece.graphic",
-              uvg: "image/vnd.dece.graphic",
-              uvvg: "image/vnd.dece.graphic",
-              djvu: "image/vnd.djvu",
-              djv: "image/vnd.djvu",
-              sub: "image/vnd.dvb.subtitle",
-              dwg: "image/vnd.dwg",
-              dxf: "image/vnd.dxf",
-              fbs: "image/vnd.fastbidsheet",
-              fpx: "image/vnd.fpx",
-              fst: "image/vnd.fst",
-              mmr: "image/vnd.fujixerox.edmics-mmr",
-              rlc: "image/vnd.fujixerox.edmics-rlc",
-              ico: "image/vnd.microsoft.icon",
-              dds: "image/vnd.ms-dds",
-              mdi: "image/vnd.ms-modi",
-              wdp: "image/vnd.ms-photo",
-              npx: "image/vnd.net-fpx",
-              tap: "image/vnd.tencent.tap",
-              vtf: "image/vnd.valve.source.texture",
-              wbmp: "image/vnd.wap.wbmp",
-              xif: "image/vnd.xiff",
-              pcx: "image/vnd.zbrush.pcx",
-              webp: "image/webp",
-              wmf: "image/wmf",
-              "3ds": "image/x-3ds",
-              ras: "image/x-cmu-raster",
-              cmx: "image/x-cmx",
-              fh: "image/x-freehand",
-              fhc: "image/x-freehand",
-              fh4: "image/x-freehand",
-              fh5: "image/x-freehand",
-              fh7: "image/x-freehand",
-              jng: "image/x-jng",
-              sid: "image/x-mrsid-image",
-              pic: "image/x-pict",
-              pct: "image/x-pict",
-              pnm: "image/x-portable-anymap",
-              pbm: "image/x-portable-bitmap",
-              pgm: "image/x-portable-graymap",
-              ppm: "image/x-portable-pixmap",
-              rgb: "image/x-rgb",
-              tga: "image/x-tga",
-              xbm: "image/x-xbitmap",
-              xpm: "image/x-xpixmap",
-              xwd: "image/x-xwindowdump",
-              "3gp": "video/3gpp",
-              "3g2": "video/3gpp2",
-              h261: "video/h261",
-              h263: "video/h263",
-              h264: "video/h264",
-              jpgv: "video/jpeg",
-              jpgm: "video/jpm",
-              mj2: "video/mj2",
-              mjp2: "video/mj2",
-              ts: "video/mp2t",
-              mp4: "video/mp4",
-              mp4v: "video/mp4",
-              mpg4: "video/mp4",
-              mpeg: "video/mpeg",
-              mpg: "video/mpeg",
-              mpe: "video/mpeg",
-              m1v: "video/mpeg",
-              m2v: "video/mpeg",
-              ogv: "video/ogg",
-              qt: "video/quicktime",
-              mov: "video/quicktime",
-              uvh: "video/vnd.dece.hd",
-              uvvh: "video/vnd.dece.hd",
-              uvm: "video/vnd.dece.mobile",
-              uvvm: "video/vnd.dece.mobile",
-              uvp: "video/vnd.dece.pd",
-              uvvp: "video/vnd.dece.pd",
-              uvs: "video/vnd.dece.sd",
-              uvvs: "video/vnd.dece.sd",
-              uvv: "video/vnd.dece.video",
-              uvvv: "video/vnd.dece.video",
-              dvb: "video/vnd.dvb.file",
-              fvt: "video/vnd.fvt",
-              mxu: "video/vnd.mpegurl",
-              m4u: "video/vnd.mpegurl",
-              pyv: "video/vnd.ms-playready.media.pyv",
-              uvu: "video/vnd.uvvu.mp4",
-              uvvu: "video/vnd.uvvu.mp4",
-              viv: "video/vnd.vivo",
-              webm: "video/webm",
-              f4v: "video/x-f4v",
-              fli: "video/x-fli",
-              flv: "video/x-flv",
-              m4v: "video/x-m4v",
-              mkv: "video/x-matroska",
-              mk3d: "video/x-matroska",
-              mks: "video/x-matroska",
-              mng: "video/x-mng",
-              asf: "video/x-ms-asf",
-              asx: "video/x-ms-asf",
-              vob: "video/x-ms-vob",
-              wm: "video/x-ms-wm",
-              wmv: "video/x-ms-wmv",
-              wmx: "video/x-ms-wmx",
-              wvx: "video/x-ms-wvx",
-              avi: "video/x-msvideo",
-              movie: "video/x-sgi-movie",
-              smv: "video/x-smv",
-            },
-            o = i("tSgl"),
-            a = i.n(o);
+        r = {
+          pdf: "application/pdf",
+          "3gpp": "video/3gpp",
+          adp: "audio/adpcm",
+          au: "audio/basic",
+          snd: "audio/basic",
+          mid: "audio/midi",
+          midi: "audio/midi",
+          kar: "audio/midi",
+          rmi: "audio/midi",
+          mp3: "audio/mpeg",
+          m4a: "audio/mp4",
+          mp4a: "audio/mp4",
+          mpga: "audio/mpeg",
+          mp2: "audio/mpeg",
+          mp2a: "audio/mpeg",
+          m2a: "audio/mpeg",
+          m3a: "audio/mpeg",
+          oga: "audio/ogg",
+          ogg: "audio/ogg",
+          spx: "audio/ogg",
+          s3m: "audio/s3m",
+          sil: "audio/silk",
+          uva: "audio/vnd.dece.audio",
+          uvva: "audio/vnd.dece.audio",
+          eol: "audio/vnd.digital-winds",
+          dra: "audio/vnd.dra",
+          dts: "audio/vnd.dts",
+          dtshd: "audio/vnd.dts.hd",
+          lvp: "audio/vnd.lucent.voice",
+          pya: "audio/vnd.ms-playready.media.pya",
+          ecelp4800: "audio/vnd.nuera.ecelp4800",
+          ecelp7470: "audio/vnd.nuera.ecelp7470",
+          ecelp9600: "audio/vnd.nuera.ecelp9600",
+          rip: "audio/vnd.rip",
+          wav: "audio/wave",
+          weba: "audio/webm",
+          aac: "audio/x-aac",
+          aif: "audio/x-aiff",
+          aiff: "audio/x-aiff",
+          aifc: "audio/x-aiff",
+          caf: "audio/x-caf",
+          flac: "audio/x-flac",
+          mka: "audio/x-matroska",
+          m3u: "audio/x-mpegurl",
+          wax: "audio/x-ms-wax",
+          wma: "audio/x-ms-wma",
+          ram: "audio/x-pn-realaudio",
+          ra: "audio/x-pn-realaudio",
+          rmp: "audio/x-pn-realaudio-plugin",
+          xm: "audio/xm",
+          exr: "image/aces",
+          apng: "image/apng",
+          bmp: "image/bmp",
+          cgm: "image/cgm",
+          drle: "image/dicom-rle",
+          emf: "image/emf",
+          fits: "image/fits",
+          g3: "image/g3fax",
+          gif: "image/gif",
+          heic: "image/heic",
+          heics: "image/heic-sequence",
+          heif: "image/heif",
+          heifs: "image/heif-sequence",
+          hej2: "image/hej2k",
+          hsj2: "image/hsj2",
+          ief: "image/ief",
+          jls: "image/jls",
+          jp2: "image/jp2",
+          jpg2: "image/jp2",
+          jpeg: "image/jpeg",
+          jpg: "image/jpeg",
+          jpe: "image/jpeg",
+          jph: "image/jph",
+          jhc: "image/jphc",
+          jpm: "image/jpm",
+          jpx: "image/jpx",
+          jpf: "image/jpx",
+          jxr: "image/jxr",
+          jxra: "image/jxra",
+          jxrs: "image/jxrs",
+          jxs: "image/jxs",
+          jxsc: "image/jxsc",
+          jxsi: "image/jxsi",
+          jxss: "image/jxss",
+          ktx: "image/ktx",
+          png: "image/png",
+          btif: "image/prs.btif",
+          pti: "image/prs.pti",
+          sgi: "image/sgi",
+          svg: "image/svg+xml",
+          svgz: "image/svg+xml",
+          t38: "image/t38",
+          tif: "image/tiff",
+          tiff: "image/tiff",
+          tfx: "image/tiff-fx",
+          psd: "image/vnd.adobe.photoshop",
+          azv: "image/vnd.airzip.accelerator.azv",
+          uvi: "image/vnd.dece.graphic",
+          uvvi: "image/vnd.dece.graphic",
+          uvg: "image/vnd.dece.graphic",
+          uvvg: "image/vnd.dece.graphic",
+          djvu: "image/vnd.djvu",
+          djv: "image/vnd.djvu",
+          sub: "image/vnd.dvb.subtitle",
+          dwg: "image/vnd.dwg",
+          dxf: "image/vnd.dxf",
+          fbs: "image/vnd.fastbidsheet",
+          fpx: "image/vnd.fpx",
+          fst: "image/vnd.fst",
+          mmr: "image/vnd.fujixerox.edmics-mmr",
+          rlc: "image/vnd.fujixerox.edmics-rlc",
+          ico: "image/vnd.microsoft.icon",
+          dds: "image/vnd.ms-dds",
+          mdi: "image/vnd.ms-modi",
+          wdp: "image/vnd.ms-photo",
+          npx: "image/vnd.net-fpx",
+          tap: "image/vnd.tencent.tap",
+          vtf: "image/vnd.valve.source.texture",
+          wbmp: "image/vnd.wap.wbmp",
+          xif: "image/vnd.xiff",
+          pcx: "image/vnd.zbrush.pcx",
+          webp: "image/webp",
+          wmf: "image/wmf",
+          "3ds": "image/x-3ds",
+          ras: "image/x-cmu-raster",
+          cmx: "image/x-cmx",
+          fh: "image/x-freehand",
+          fhc: "image/x-freehand",
+          fh4: "image/x-freehand",
+          fh5: "image/x-freehand",
+          fh7: "image/x-freehand",
+          jng: "image/x-jng",
+          sid: "image/x-mrsid-image",
+          pic: "image/x-pict",
+          pct: "image/x-pict",
+          pnm: "image/x-portable-anymap",
+          pbm: "image/x-portable-bitmap",
+          pgm: "image/x-portable-graymap",
+          ppm: "image/x-portable-pixmap",
+          rgb: "image/x-rgb",
+          tga: "image/x-tga",
+          xbm: "image/x-xbitmap",
+          xpm: "image/x-xpixmap",
+          xwd: "image/x-xwindowdump",
+          "3gp": "video/3gpp",
+          "3g2": "video/3gpp2",
+          h261: "video/h261",
+          h263: "video/h263",
+          h264: "video/h264",
+          jpgv: "video/jpeg",
+          jpgm: "video/jpm",
+          mj2: "video/mj2",
+          mjp2: "video/mj2",
+          ts: "video/mp2t",
+          mp4: "video/mp4",
+          mp4v: "video/mp4",
+          mpg4: "video/mp4",
+          mpeg: "video/mpeg",
+          mpg: "video/mpeg",
+          mpe: "video/mpeg",
+          m1v: "video/mpeg",
+          m2v: "video/mpeg",
+          ogv: "video/ogg",
+          qt: "video/quicktime",
+          mov: "video/quicktime",
+          uvh: "video/vnd.dece.hd",
+          uvvh: "video/vnd.dece.hd",
+          uvm: "video/vnd.dece.mobile",
+          uvvm: "video/vnd.dece.mobile",
+          uvp: "video/vnd.dece.pd",
+          uvvp: "video/vnd.dece.pd",
+          uvs: "video/vnd.dece.sd",
+          uvvs: "video/vnd.dece.sd",
+          uvv: "video/vnd.dece.video",
+          uvvv: "video/vnd.dece.video",
+          dvb: "video/vnd.dvb.file",
+          fvt: "video/vnd.fvt",
+          mxu: "video/vnd.mpegurl",
+          m4u: "video/vnd.mpegurl",
+          pyv: "video/vnd.ms-playready.media.pyv",
+          uvu: "video/vnd.uvvu.mp4",
+          uvvu: "video/vnd.uvvu.mp4",
+          viv: "video/vnd.vivo",
+          webm: "video/webm",
+          f4v: "video/x-f4v",
+          fli: "video/x-fli",
+          flv: "video/x-flv",
+          m4v: "video/x-m4v",
+          mkv: "video/x-matroska",
+          mk3d: "video/x-matroska",
+          mks: "video/x-matroska",
+          mng: "video/x-mng",
+          asf: "video/x-ms-asf",
+          asx: "video/x-ms-asf",
+          vob: "video/x-ms-vob",
+          wm: "video/x-ms-wm",
+          wmv: "video/x-ms-wmv",
+          wmx: "video/x-ms-wmx",
+          wvx: "video/x-ms-wvx",
+          avi: "video/x-msvideo",
+          movie: "video/x-sgi-movie",
+          smv: "video/x-smv",
+        },
+        o = i("tSgl"),
+        a = i.n(o);
       function s(e) {
         return e.split("/")[0];
       }
@@ -818,7 +835,10 @@
         return e.split("/").slice(0, -1).join("/");
       }
       function g(e) {
-        const t = e.files, i = e.fileName, n = e.initialValue, r = e.disallowDotEnv;
+        const t = e.files,
+          i = e.fileName,
+          n = e.initialValue,
+          r = e.disallowDotEnv;
         return i.includes("/")
           ? "File names cannot include forward slashes"
           : "." === i || ".." === i

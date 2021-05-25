@@ -53,7 +53,91 @@
       }
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = void 0);
-      const a = we(r("RQtV")), l = we(r("mIlm")), o = we(r("fo/I")), n = we(r("EFtU")), d = we(r("uwHo")), f = we(r("wzbs")), s = we(r("DO/+")), i = we(r("eWa3")), c = we(r("bM/q")), p = we(r("ioLy")), _ = we(r("hHZz")), v = we(r("keew")), A = we(r("f2Qg")), $ = we(r("9+9c")), m = we(r("O24X")), M = je(r("UrG+")), h = je(r("u8/g")), b = we(r("2JKs")), y = we(r("ErBW")), x = we(r("oIoB")), g = we(r("HpFX")), O = we(r("JJH+")), I = we(r("T6ea")), S = we(r("3D9P")), Z = we(r("j+5W")), P = we(r("+G+R")), R = we(r("z/bg")), F = we(r("bzqU")), E = we(r("b6et")), L = we(r("jq9p")), C = je(r("1J+o")), T = we(r("XmUC")), j = we(r("UqDR")), w = we(r("nPKI")), B = we(r("T92C")), N = we(r("RSp8")), U = we(r("k6TV")), G = we(r("JbVE")), D = we(r("7UCG")), K = we(r("OPR6")), H = we(r("h61a")), k = we(r("a4yE")), z = we(r("3iRO")), W = we(r("HNc6")), V = we(r("TCPB")), Y = we(r("lL5U")), J = we(r("DdlK")), X = we(r("91Rb")), Q = we(r("lTe1")), q = we(r("WYc2")), ee = we(r("oC6C")), te = we(r("jzpV")), re = we(r("sRd9")), ue = we(r("ep6D")), ae = we(r("YAXW")), le = we(r("gL+o")), oe = we(r("8xe9")), ne = we(r("OzCQ")), de = we(r("MAX4")), fe = je(r("bZbt")), se = we(r("0Ibz")), ie = we(r("Kydv")), ce = we(r("538l")), pe = we(r("iDGw")), _e = we(r("wnSO")), ve = we(r("PBn2")), Ae = we(r("fsKV")), $e = we(r("uiY1")), me = we(r("kV3J")), Me = we(r("Tz/F")), he = we(r("fFTU")), be = we(r("EAgE")), ye = we(r("FtRZ")), xe = je(r("eX7M")), ge = we(r("cx81")), Oe = we(r("2yzk")), Ie = we(r("pkq8")), Se = we(r("J75B")), Ze = we(r("+0Jc")), Pe = we(r("h5fY")), Re = we(r("PKOW")), Fe = we(r("iUSg")), Ee = we(r("XaH3")), Le = we(r("/Cot")), Ce = we(r("D/nH"));
+      const a = we(r("RQtV")),
+        l = we(r("mIlm")),
+        o = we(r("fo/I")),
+        n = we(r("EFtU")),
+        d = we(r("uwHo")),
+        f = we(r("wzbs")),
+        s = we(r("DO/+")),
+        i = we(r("eWa3")),
+        c = we(r("bM/q")),
+        p = we(r("ioLy")),
+        _ = we(r("hHZz")),
+        v = we(r("keew")),
+        A = we(r("f2Qg")),
+        $ = we(r("9+9c")),
+        m = we(r("O24X")),
+        M = je(r("UrG+")),
+        h = je(r("u8/g")),
+        b = we(r("2JKs")),
+        y = we(r("ErBW")),
+        x = we(r("oIoB")),
+        g = we(r("HpFX")),
+        O = we(r("JJH+")),
+        I = we(r("T6ea")),
+        S = we(r("3D9P")),
+        Z = we(r("j+5W")),
+        P = we(r("+G+R")),
+        R = we(r("z/bg")),
+        F = we(r("bzqU")),
+        E = we(r("b6et")),
+        L = we(r("jq9p")),
+        C = je(r("1J+o")),
+        T = we(r("XmUC")),
+        j = we(r("UqDR")),
+        w = we(r("nPKI")),
+        B = we(r("T92C")),
+        N = we(r("RSp8")),
+        U = we(r("k6TV")),
+        G = we(r("JbVE")),
+        D = we(r("7UCG")),
+        K = we(r("OPR6")),
+        H = we(r("h61a")),
+        k = we(r("a4yE")),
+        z = we(r("3iRO")),
+        W = we(r("HNc6")),
+        V = we(r("TCPB")),
+        Y = we(r("lL5U")),
+        J = we(r("DdlK")),
+        X = we(r("91Rb")),
+        Q = we(r("lTe1")),
+        q = we(r("WYc2")),
+        ee = we(r("oC6C")),
+        te = we(r("jzpV")),
+        re = we(r("sRd9")),
+        ue = we(r("ep6D")),
+        ae = we(r("YAXW")),
+        le = we(r("gL+o")),
+        oe = we(r("8xe9")),
+        ne = we(r("OzCQ")),
+        de = we(r("MAX4")),
+        fe = je(r("bZbt")),
+        se = we(r("0Ibz")),
+        ie = we(r("Kydv")),
+        ce = we(r("538l")),
+        pe = we(r("iDGw")),
+        _e = we(r("wnSO")),
+        ve = we(r("PBn2")),
+        Ae = we(r("fsKV")),
+        $e = we(r("uiY1")),
+        me = we(r("kV3J")),
+        Me = we(r("Tz/F")),
+        he = we(r("fFTU")),
+        be = we(r("EAgE")),
+        ye = we(r("FtRZ")),
+        xe = je(r("eX7M")),
+        ge = we(r("cx81")),
+        Oe = we(r("2yzk")),
+        Ie = we(r("pkq8")),
+        Se = we(r("J75B")),
+        Ze = we(r("+0Jc")),
+        Pe = we(r("h5fY")),
+        Re = we(r("PKOW")),
+        Fe = we(r("iUSg")),
+        Ee = we(r("XaH3")),
+        Le = we(r("/Cot")),
+        Ce = we(r("D/nH"));
       function Te() {
         if ("function" !== typeof WeakMap) return null;
         const e = new WeakMap();
@@ -70,7 +154,8 @@
           return { default: e };
         const t = Te();
         if (t && t.has(e)) return t.get(e);
-        const r = {}, a = Object.defineProperty && Object.getOwnPropertyDescriptor;
+        const r = {},
+          a = Object.defineProperty && Object.getOwnPropertyDescriptor;
         for (const l in e)
           if (Object.prototype.hasOwnProperty.call(e, l)) {
             const o = a ? Object.getOwnPropertyDescriptor(e, l) : null;
@@ -186,10 +271,10 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = function (e) {
           const t =
-                    arguments.length > 1 && void 0 !== arguments[1]
-                      ? arguments[1]
-                      : "",
-                r = e.join("");
+              arguments.length > 1 && void 0 !== arguments[1]
+                ? arguments[1]
+                : "",
+            r = e.join("");
           return new RegExp(r, t);
         }),
         (e.exports = t.default),
@@ -200,7 +285,9 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = (e, t) => {
           t = (0, a.default)(t, l);
-          const r = e.split("@"), u = r.pop(), i = [r.join("@"), u];
+          const r = e.split("@"),
+            u = r.pop(),
+            i = [r.join("@"), u];
           if (
             ((i[1] = i[1].toLowerCase()),
             "gmail.com" === i[1] || "googlemail.com" === i[1])
@@ -534,10 +621,10 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = function () {
           const e =
-                    arguments.length > 0 && void 0 !== arguments[0]
-                      ? arguments[0]
-                      : {},
-                t = arguments.length > 1 ? arguments[1] : void 0;
+              arguments.length > 0 && void 0 !== arguments[0]
+                ? arguments[0]
+                : {},
+            t = arguments.length > 1 ? arguments[1] : void 0;
           for (const r in t) "undefined" === typeof e[r] && (e[r] = t[r]);
           return e;
         }),
@@ -657,7 +744,8 @@
             "object" === l(t)
               ? ((r = t.min || 0), (u = t.max))
               : ((r = arguments[1] || 0), (u = arguments[2]));
-          const o = e.match(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g) || [], n = e.length - o.length;
+          const o = e.match(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g) || [],
+            n = e.length - o.length;
           return n >= r && ("undefined" === typeof u || n <= u);
         });
       let u;
@@ -1015,52 +1103,53 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = (e, t) => {
-          return (0, a.default)(e),
-          ((e) => {
-            let t = "\\d{".concat(e.digits_after_decimal[0], "}");
-            e.digits_after_decimal.forEach((e, r) => {
-              0 !== r && (t = "".concat(t, "|\\d{").concat(e, "}"));
-            });
+          return (
+            (0, a.default)(e),
+            ((e) => {
+              let t = "\\d{".concat(e.digits_after_decimal[0], "}");
+              e.digits_after_decimal.forEach((e, r) => {
+                0 !== r && (t = "".concat(t, "|\\d{").concat(e, "}"));
+              });
 
-            const r = "(\\"
+              const r = "(\\"
                 .concat(e.symbol.replace(/\./g, "\\."), ")")
                 .concat(e.require_symbol ? "" : "?");
 
-            const u = "-?";
+              const u = "-?";
 
-            const a = "[1-9]\\d{0,2}(\\".concat(
-              e.thousands_separator,
-              "\\d{3})*"
-            );
+              const a = "[1-9]\\d{0,2}(\\".concat(
+                e.thousands_separator,
+                "\\d{3})*"
+              );
 
-            const l = "(".concat(["0", "[1-9]\\d*", a].join("|"), ")?");
+              const l = "(".concat(["0", "[1-9]\\d*", a].join("|"), ")?");
 
-            const o = "(\\"
-              .concat(e.decimal_separator, "(")
-              .concat(t, "))")
-              .concat(e.require_decimal ? "" : "?");
+              const o = "(\\"
+                .concat(e.decimal_separator, "(")
+                .concat(t, "))")
+                .concat(e.require_decimal ? "" : "?");
 
-            let n = l + (e.allow_decimal || e.require_decimal ? o : "");
-            e.allow_negatives &&
-              !e.parens_for_negatives &&
-              (e.negative_sign_after_digits
-                ? (n += u)
-                : e.negative_sign_before_digits && (n = u + n));
-            e.allow_negative_sign_placeholder
-              ? (n = "( (?!\\-))?".concat(n))
-              : e.allow_space_after_symbol
-              ? (n = " ?".concat(n))
-              : e.allow_space_after_digits && (n += "( (?!$))?");
-            e.symbol_after_digits ? (n += r) : (n = r + n);
-            e.allow_negatives &&
-              (e.parens_for_negatives
-                ? (n = "(\\(".concat(n, "\\)|").concat(n, ")"))
-                : e.negative_sign_before_digits ||
-                  e.negative_sign_after_digits ||
-                  (n = u + n));
-            return new RegExp("^(?!-? )(?=.*\\d)".concat(n, "$"));
-          })((t = (0, u.default)(t, o))).test(e)
-        ;
+              let n = l + (e.allow_decimal || e.require_decimal ? o : "");
+              e.allow_negatives &&
+                !e.parens_for_negatives &&
+                (e.negative_sign_after_digits
+                  ? (n += u)
+                  : e.negative_sign_before_digits && (n = u + n));
+              e.allow_negative_sign_placeholder
+                ? (n = "( (?!\\-))?".concat(n))
+                : e.allow_space_after_symbol
+                ? (n = " ?".concat(n))
+                : e.allow_space_after_digits && (n += "( (?!$))?");
+              e.symbol_after_digits ? (n += r) : (n = r + n);
+              e.allow_negatives &&
+                (e.parens_for_negatives
+                  ? (n = "(\\(".concat(n, "\\)|").concat(n, ")"))
+                  : e.negative_sign_before_digits ||
+                    e.negative_sign_after_digits ||
+                    (n = u + n));
+              return new RegExp("^(?!-? )(?=.*\\d)".concat(n, "$"));
+            })((t = (0, u.default)(t, o))).test(e)
+          );
         });
       var u = l(r("5AlR")),
         a = l(r("2Idn"));
@@ -1135,26 +1224,28 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = (e) => {
-          return (0, a.default)(e),
-          ((e) => {
-            const t = e.replace(/[\s\-]+/gi, "").toUpperCase(), r = t.slice(0, 2).toUpperCase();
-            return r in l && l[r].test(t);
-          })(e) &&
+          return (
+            (0, a.default)(e),
             ((e) => {
-              const t = e.replace(/[^A-Z0-9]+/gi, "").toUpperCase();
-              return (
-                1 ===
-                (t.slice(4) + t.slice(0, 4))
-                  .replace(/[A-Z]/g, (e) => {
-                    return e.charCodeAt(0) - 55;
-                  })
-                  .match(/\d{1,7}/g)
-                  .reduce((e, t) => {
-                    return Number(e + t) % 97;
-                  }, "")
-              );
-            })(e)
-        ;
+              const t = e.replace(/[\s\-]+/gi, "").toUpperCase(),
+                r = t.slice(0, 2).toUpperCase();
+              return r in l && l[r].test(t);
+            })(e) &&
+              ((e) => {
+                const t = e.replace(/[^A-Z0-9]+/gi, "").toUpperCase();
+                return (
+                  1 ===
+                  (t.slice(4) + t.slice(0, 4))
+                    .replace(/[A-Z]/g, (e) => {
+                      return e.charCodeAt(0) - 55;
+                    })
+                    .match(/\d{1,7}/g)
+                    .reduce((e, t) => {
+                      return Number(e + t) % 97;
+                    }, "")
+                );
+              })(e)
+          );
         });
       let u;
       var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
@@ -1240,28 +1331,28 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = function e(t) {
-        let r =
-          arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "";
-        if (((0, a.default)(t), !(r = String(r))))
-          return e(t, 10) || e(t, 13);
-        let u;
-        const d = t.replace(/[\s-]+/g, "");
-        let f = 0;
-        if ("10" === r) {
-          if (!l.test(d)) return !1;
-          for (u = 0; u < 9; u++) f += (u + 1) * d.charAt(u);
-          if (
-            ("X" === d.charAt(9) ? (f += 100) : (f += 10 * d.charAt(9)),
-            f % 11 === 0)
-          )
-            return !!d;
-        } else if ("13" === r) {
-          if (!o.test(d)) return !1;
-          for (u = 0; u < 12; u++) f += n[u % 2] * d.charAt(u);
-          if (d.charAt(12) - ((10 - (f % 10)) % 10) === 0) return !!d;
-        }
-        return !1;
-      });
+          let r =
+            arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "";
+          if (((0, a.default)(t), !(r = String(r))))
+            return e(t, 10) || e(t, 13);
+          let u;
+          const d = t.replace(/[\s-]+/g, "");
+          let f = 0;
+          if ("10" === r) {
+            if (!l.test(d)) return !1;
+            for (u = 0; u < 9; u++) f += (u + 1) * d.charAt(u);
+            if (
+              ("X" === d.charAt(9) ? (f += 100) : (f += 10 * d.charAt(9)),
+              f % 11 === 0)
+            )
+              return !!d;
+          } else if ("13" === r) {
+            if (!o.test(d)) return !1;
+            for (u = 0; u < 12; u++) f += n[u % 2] * d.charAt(u);
+            if (d.charAt(12) - ((10 - (f % 10)) % 10) === 0) return !!d;
+          }
+          return !1;
+        });
       let u;
       var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^(?:[0-9]{9}X|[0-9]{10})$/,
@@ -1548,7 +1639,11 @@
     },
     QKoY(e, t, r) {
       "use strict";
-      const u = r("vJKn"), a = r.n(u), l = r("rg98"), o = r("+QwO"), n = r("G5Ub");
+      const u = r("vJKn"),
+        a = r.n(u),
+        l = r("rg98"),
+        o = r("+QwO"),
+        n = r("G5Ub");
       t.a = {
         isEmail: [[o.isEmail, "Invalid email address"]],
         email: [
@@ -1802,7 +1897,8 @@
           (0, a.default)(e);
           const t = e.split(",");
           if (t.length < 2) return !1;
-          const r = t.shift().trim().split(";"), u = r.shift();
+          const r = t.shift().trim().split(";"),
+            u = r.shift();
           if ("data:" !== u.substr(0, 5)) return !1;
           const d = u.substr(5);
           if ("" !== d && !l.test(d)) return !1;
@@ -1923,7 +2019,8 @@
       var l = {
         ES(e) {
           (0, a.default)(e);
-          const t = { X: 0, Y: 1, Z: 2 }, r = e.trim().toUpperCase();
+          const t = { X: 0, Y: 1, Z: 2 },
+            r = e.trim().toUpperCase();
           if (!/^[0-9X-Z][0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKE]$/.test(r)) return !1;
           const u = r.slice(0, -1).replace(/[X,Y,Z]/g, (e) => {
             return t[e];
@@ -1965,44 +2062,46 @@
         },
         "zh-TW": function (e) {
           const t = {
-                    A: 10,
-                    B: 11,
-                    C: 12,
-                    D: 13,
-                    E: 14,
-                    F: 15,
-                    G: 16,
-                    H: 17,
-                    I: 34,
-                    J: 18,
-                    K: 19,
-                    L: 20,
-                    M: 21,
-                    N: 22,
-                    O: 35,
-                    P: 23,
-                    Q: 24,
-                    R: 25,
-                    S: 26,
-                    T: 27,
-                    U: 28,
-                    V: 29,
-                    W: 32,
-                    X: 30,
-                    Y: 31,
-                    Z: 33,
-                  },
-                r = e.trim().toUpperCase();
-          return !!/^[A-Z][0-9]{9}$/.test(r) &&
-          Array.from(r).reduce((e, r, u) => {
-            if (0 === u) {
-              const a = t[r];
-              return (a % 10) * 9 + Math.floor(a / 10);
-            }
-            return 9 === u
-              ? (10 - (e % 10) - Number(r)) % 10 === 0
-              : e + Number(r) * (9 - u);
-          }, 0);
+              A: 10,
+              B: 11,
+              C: 12,
+              D: 13,
+              E: 14,
+              F: 15,
+              G: 16,
+              H: 17,
+              I: 34,
+              J: 18,
+              K: 19,
+              L: 20,
+              M: 21,
+              N: 22,
+              O: 35,
+              P: 23,
+              Q: 24,
+              R: 25,
+              S: 26,
+              T: 27,
+              U: 28,
+              V: 29,
+              W: 32,
+              X: 30,
+              Y: 31,
+              Z: 33,
+            },
+            r = e.trim().toUpperCase();
+          return (
+            !!/^[A-Z][0-9]{9}$/.test(r) &&
+            Array.from(r).reduce((e, r, u) => {
+              if (0 === u) {
+                const a = t[r];
+                return (a % 10) * 9 + Math.floor(a / 10);
+              }
+              return 9 === u
+                ? (10 - (e % 10) - Number(r)) % 10 === 0
+                : e + Number(r) * (9 - u);
+            }, 0)
+          );
         },
       };
       (e.exports = t.default), (e.exports.default = t.default);
@@ -2321,114 +2420,116 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = (e, t) => {
-        if (
-          ((0, u.default)(e),
-          (t = (0, a.default)(t, f)).require_display_name ||
-            t.allow_display_name)
-        ) {
-          const r = e.match(s);
-          if (r) {
-            let d;
+          if (
+            ((0, u.default)(e),
+            (t = (0, a.default)(t, f)).require_display_name ||
+              t.allow_display_name)
+          ) {
+            const r = e.match(s);
+            if (r) {
+              let d;
 
-            const A = ((e, t) => {
-              return ((e) => {
-                if (Array.isArray(e)) return e;
-              })(e) ||
-              ((e, t) => {
-                if (
-                  !(Symbol.iterator in Object(e)) &&
-                  "[object Arguments]" !==
-                    Object.prototype.toString.call(e)
-                )
-                  return;
-                const r = [];
-                let u = !0;
-                let a = !1;
-                let l = void 0;
-                try {
-                  for (
-                    var o, n = e[Symbol.iterator]();
-                    !(u = (o = n.next()).done) &&
-                    (r.push(o.value), !t || r.length !== t);
-                    u = !0
-                  );
-                } catch (d) {
-                  (a = !0), (l = d);
-                } finally {
-                  try {
-                    u || null == n.return || n.return();
-                  } finally {
-                    if (a) throw l;
-                  }
-                }
-                return r;
-              })(e, t) ||
-              (() => {
-                throw new TypeError(
-                  "Invalid attempt to destructure non-iterable instance"
+              const A = ((e, t) => {
+                return (
+                  ((e) => {
+                    if (Array.isArray(e)) return e;
+                  })(e) ||
+                  ((e, t) => {
+                    if (
+                      !(Symbol.iterator in Object(e)) &&
+                      "[object Arguments]" !== Object.prototype.toString.call(e)
+                    )
+                      return;
+                    const r = [];
+                    let u = !0;
+                    let a = !1;
+                    let l = void 0;
+                    try {
+                      for (
+                        var o, n = e[Symbol.iterator]();
+                        !(u = (o = n.next()).done) &&
+                        (r.push(o.value), !t || r.length !== t);
+                        u = !0
+                      );
+                    } catch (d) {
+                      (a = !0), (l = d);
+                    } finally {
+                      try {
+                        u || null == n.return || n.return();
+                      } finally {
+                        if (a) throw l;
+                      }
+                    }
+                    return r;
+                  })(e, t) ||
+                  (() => {
+                    throw new TypeError(
+                      "Invalid attempt to destructure non-iterable instance"
+                    );
+                  })()
                 );
-              })();
-            })(r, 3);
+              })(r, 3);
 
-            if (
-              ((d = A[1]),
-              (e = A[2]),
-              d.endsWith(" ") && (d = d.substr(0, d.length - 1)),
-              !((e) => {
-                const t = e.match(/^"(.+)"$/i), r = t ? t[1] : e;
-                if (!r.trim()) return !1;
-                if (/[\.";<>]/.test(r)) {
-                  if (!t) return !1;
-                  if (!(r.split('"').length === r.split('\\"').length))
-                    return !1;
-                }
-                return !0;
-              })(d))
-            )
-              return !1;
-          } else if (t.require_display_name) return !1;
-        }
-        if (!t.ignore_max_length && e.length > 254) return !1;
-        const $ = e.split("@");
-        const m = $.pop();
-        let M = $.join("@");
-        const h = m.toLowerCase();
-        if (
-          t.domain_specific_validation &&
-          ("gmail.com" === h || "googlemail.com" === h)
-        ) {
-          const b = (M = M.toLowerCase()).split("+")[0];
-          if (!(0, l.default)(b.replace(".", ""), { min: 6, max: 30 }))
-            return !1;
-          for (let y = b.split("."), x = 0; x < y.length; x++)
-            if (!c.test(y[x])) return !1;
-        }
-        if (
-          !(0, l.default)(M, { max: 64 }) ||
-          !(0, l.default)(m, { max: 254 })
-        )
-          return !1;
-        if (!(0, o.default)(m, { require_tld: t.require_tld })) {
-          if (!t.allow_ip_domain) return !1;
-          if (!(0, n.default)(m)) {
-            if (!m.startsWith("[") || !m.endsWith("]")) return !1;
-            const g = m.substr(1, m.length - 2);
-            if (0 === g.length || !(0, n.default)(g)) return !1;
+              if (
+                ((d = A[1]),
+                (e = A[2]),
+                d.endsWith(" ") && (d = d.substr(0, d.length - 1)),
+                !((e) => {
+                  const t = e.match(/^"(.+)"$/i),
+                    r = t ? t[1] : e;
+                  if (!r.trim()) return !1;
+                  if (/[\.";<>]/.test(r)) {
+                    if (!t) return !1;
+                    if (!(r.split('"').length === r.split('\\"').length))
+                      return !1;
+                  }
+                  return !0;
+                })(d))
+              )
+                return !1;
+            } else if (t.require_display_name) return !1;
           }
-        }
-        if ('"' === M[0])
-          return (
-            (M = M.slice(1, M.length - 1)),
-            t.allow_utf8_local_part ? v.test(M) : p.test(M)
-          );
-        for (
-          let O = t.allow_utf8_local_part ? _ : i, I = M.split("."), S = 0;
-          S < I.length;
-          S++
-        )
-          if (!O.test(I[S])) return !1;
-        return !0;
-      });
+          if (!t.ignore_max_length && e.length > 254) return !1;
+          const $ = e.split("@");
+          const m = $.pop();
+          let M = $.join("@");
+          const h = m.toLowerCase();
+          if (
+            t.domain_specific_validation &&
+            ("gmail.com" === h || "googlemail.com" === h)
+          ) {
+            const b = (M = M.toLowerCase()).split("+")[0];
+            if (!(0, l.default)(b.replace(".", ""), { min: 6, max: 30 }))
+              return !1;
+            for (let y = b.split("."), x = 0; x < y.length; x++)
+              if (!c.test(y[x])) return !1;
+          }
+          if (
+            !(0, l.default)(M, { max: 64 }) ||
+            !(0, l.default)(m, { max: 254 })
+          )
+            return !1;
+          if (!(0, o.default)(m, { require_tld: t.require_tld })) {
+            if (!t.allow_ip_domain) return !1;
+            if (!(0, n.default)(m)) {
+              if (!m.startsWith("[") || !m.endsWith("]")) return !1;
+              const g = m.substr(1, m.length - 2);
+              if (0 === g.length || !(0, n.default)(g)) return !1;
+            }
+          }
+          if ('"' === M[0])
+            return (
+              (M = M.slice(1, M.length - 1)),
+              t.allow_utf8_local_part ? v.test(M) : p.test(M)
+            );
+          for (
+            let O = t.allow_utf8_local_part ? _ : i, I = M.split("."), S = 0;
+            S < I.length;
+            S++
+          )
+            if (!O.test(I[S])) return !1;
+          return !0;
+        });
       var u = d(r("2Idn")),
         a = d(r("5AlR")),
         l = d(r("91Rb")),
@@ -2887,29 +2988,31 @@
         (t.default = (e) => {
           (0, a.default)(e);
           const t = Number(e.slice(-1));
-          return l.test(e) &&
-          t ===
-            ((e) => {
-              const t =
-                10 -
-                (e
-                  .slice(0, -1)
-                  .split("")
-                  .map((t, r) => {
-                    return (
-                      Number(t) *
-                      ((e, t) => {
-                        if (8 === e) return t % 2 === 0 ? 3 : 1;
-                        return t % 2 === 0 ? 1 : 3;
-                      })(e.length, r)
-                    );
-                  })
-                  .reduce((e, t) => {
-                    return e + t;
-                  }, 0) %
-                  10);
-              return t < 10 ? t : 0;
-            })(e);
+          return (
+            l.test(e) &&
+            t ===
+              ((e) => {
+                const t =
+                  10 -
+                  (e
+                    .slice(0, -1)
+                    .split("")
+                    .map((t, r) => {
+                      return (
+                        Number(t) *
+                        ((e, t) => {
+                          if (8 === e) return t % 2 === 0 ? 3 : 1;
+                          return t % 2 === 0 ? 1 : 3;
+                        })(e.length, r)
+                      );
+                    })
+                    .reduce((e, t) => {
+                      return e + t;
+                    }, 0) %
+                    10);
+                return t < 10 ? t : 0;
+              })(e)
+          );
         });
       let u;
       var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
@@ -3001,23 +3104,24 @@
             ? ((e) => {
                 const t = e.match(/^(\d{4})-?(\d{3})([ T]{1}\.*|$)/);
                 if (t) {
-                  const r = Number(t[1]), u = Number(t[2]);
+                  const r = Number(t[1]),
+                    u = Number(t[2]);
                   return (r % 4 === 0 && r % 100 !== 0) || r % 400 === 0
                     ? u <= 366
                     : u <= 365;
                 }
                 const a = e.match(/(\d{4})-?(\d{0,2})-?(\d*)/).map(Number),
-                      l = a[1],
-                      o = a[2],
-                      n = a[3],
-                      d = o ? "0".concat(o).slice(-2) : o,
-                      f = n ? "0".concat(n).slice(-2) : n,
-                      s = new Date(
-                        ""
-                          .concat(l, "-")
-                          .concat(d || "01", "-")
-                          .concat(f || "01")
-                      );
+                  l = a[1],
+                  o = a[2],
+                  n = a[3],
+                  d = o ? "0".concat(o).slice(-2) : o,
+                  f = n ? "0".concat(n).slice(-2) : n,
+                  s = new Date(
+                    ""
+                      .concat(l, "-")
+                      .concat(d || "01", "-")
+                      .concat(f || "01")
+                  );
                 if (o && n)
                   return (
                     s.getUTCFullYear() === l &&
@@ -3081,14 +3185,14 @@
         (t.default = (e, t) => {
           (0, a.default)(e);
           const r =
-                    (t = t || {}).hasOwnProperty("allow_leading_zeroes") &&
-                    !t.allow_leading_zeroes
-                      ? l
-                      : o,
-                u = !t.hasOwnProperty("min") || e >= t.min,
-                n = !t.hasOwnProperty("max") || e <= t.max,
-                d = !t.hasOwnProperty("lt") || e < t.lt,
-                f = !t.hasOwnProperty("gt") || e > t.gt;
+              (t = t || {}).hasOwnProperty("allow_leading_zeroes") &&
+              !t.allow_leading_zeroes
+                ? l
+                : o,
+            u = !t.hasOwnProperty("min") || e >= t.min,
+            n = !t.hasOwnProperty("max") || e <= t.max,
+            d = !t.hasOwnProperty("lt") || e < t.lt,
+            f = !t.hasOwnProperty("gt") || e > t.gt;
           return r.test(e) && u && n && d && f;
         });
       let u;
@@ -3106,7 +3210,8 @@
               ? arguments[1]
               : String(new Date());
           (0, u.default)(e);
-          const r = (0, a.default)(t), l = (0, a.default)(e);
+          const r = (0, a.default)(t),
+            l = (0, a.default)(e);
           return !!(l && r && l < r);
         });
       var u = l(r("2Idn")),
@@ -3241,7 +3346,8 @@
               ? arguments[1]
               : String(new Date());
           (0, u.default)(e);
-          const r = (0, a.default)(t), l = (0, a.default)(e);
+          const r = (0, a.default)(t),
+            l = (0, a.default)(e);
           return !!(l && r && l > r);
         });
       var u = l(r("2Idn")),

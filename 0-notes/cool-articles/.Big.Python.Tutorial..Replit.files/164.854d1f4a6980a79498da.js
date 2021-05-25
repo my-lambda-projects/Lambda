@@ -34,15 +34,17 @@
             }
             function o(n, t, o) {
               let s;
-              return ((s =
-                "translate3d" === e.positionUsing
-                  ? { transform: `translate3d(${r(n)}%,0,0)` }
-                  : "translate" === e.positionUsing
-                  ? { transform: `translate(${r(n)}%,0)` }
-                  : { "margin-left": `${r(n)}%` }).transition =
-                `all ${t}ms ${o}`),
-              s
-            ;
+              return (
+                ((s =
+                  "translate3d" === e.positionUsing
+                    ? { transform: `translate3d(${r(n)}%,0,0)` }
+                    : "translate" === e.positionUsing
+                    ? { transform: `translate(${r(n)}%,0)` }
+                    : {
+                        "margin-left": `${r(n)}%`,
+                      }).transition = `all ${t}ms ${o}`),
+                s
+              );
             }
             (n.configure = function (n) {
               let t;
@@ -53,34 +55,35 @@
             }),
               (n.status = null),
               (n.set = function (r) {
-              const a = n.isStarted();
-              (r = t(r, e.minimum, 1)), (n.status = 1 === r ? null : r);
-              const u = n.render(!a);
-              const c = u.querySelector(e.barSelector);
-              const l = e.speed;
-              const d = e.easing;
-              return u.offsetWidth,
-              s((t) => {
-                "" === e.positionUsing &&
-                  (e.positionUsing = n.getPositioningCSS()),
-                  i(c, o(r, l, d)),
-                  1 === r
-                    ? (i(u, { transition: "none", opacity: 1 }),
-                      u.offsetWidth,
-                      setTimeout(() => {
-                        i(u, {
-                          transition: `all ${l}ms linear`,
-                          opacity: 0,
-                        }),
+                const a = n.isStarted();
+                (r = t(r, e.minimum, 1)), (n.status = 1 === r ? null : r);
+                const u = n.render(!a);
+                const c = u.querySelector(e.barSelector);
+                const l = e.speed;
+                const d = e.easing;
+                return (
+                  u.offsetWidth,
+                  s((t) => {
+                    "" === e.positionUsing &&
+                      (e.positionUsing = n.getPositioningCSS()),
+                      i(c, o(r, l, d)),
+                      1 === r
+                        ? (i(u, { transition: "none", opacity: 1 }),
+                          u.offsetWidth,
                           setTimeout(() => {
-                            n.remove(), t();
-                          }, l);
-                      }, l))
-                    : setTimeout(t, l);
+                            i(u, {
+                              transition: `all ${l}ms linear`,
+                              opacity: 0,
+                            }),
+                              setTimeout(() => {
+                                n.remove(), t();
+                              }, l);
+                          }, l))
+                        : setTimeout(t, l);
+                  }),
+                  this
+                );
               }),
-              this
-            ;
-            }),
               (n.isStarted = () => {
                 return "number" === typeof n.status;
               }),
@@ -134,16 +137,17 @@
                 const a = o.querySelector(e.barSelector);
                 const c = t ? "-100" : r(n.status || 0);
                 const l = document.querySelector(e.parent);
-                return i(a, {
-                  transition: "all 0 linear",
-                  transform: `translate3d(${c}%,0,0)`,
-                }),
-                e.showSpinner ||
-                  ((s = o.querySelector(e.spinnerSelector)) && d(s)),
-                l != document.body && u(l, "nprogress-custom-parent"),
-                l.appendChild(o),
-                o
-              ;
+                return (
+                  i(a, {
+                    transition: "all 0 linear",
+                    transform: `translate3d(${c}%,0,0)`,
+                  }),
+                  e.showSpinner ||
+                    ((s = o.querySelector(e.spinnerSelector)) && d(s)),
+                  l != document.body && u(l, "nprogress-custom-parent"),
+                  l.appendChild(o),
+                  o
+                );
               }),
               (n.remove = () => {
                 c(document.documentElement, "nprogress-busy"),
@@ -158,36 +162,36 @@
                 return !!document.getElementById("nprogress");
               }),
               (n.getPositioningCSS = () => {
-              const n = document.body.style;
+                const n = document.body.style;
 
-              const e =
-                "WebkitTransform" in n
-                  ? "Webkit"
-                  : "MozTransform" in n
-                  ? "Moz"
-                  : "msTransform" in n
-                  ? "ms"
-                  : "OTransform" in n
-                  ? "O"
-                  : "";
+                const e =
+                  "WebkitTransform" in n
+                    ? "Webkit"
+                    : "MozTransform" in n
+                    ? "Moz"
+                    : "msTransform" in n
+                    ? "ms"
+                    : "OTransform" in n
+                    ? "O"
+                    : "";
 
-              return `${e}Perspective` in n
-                ? "translate3d"
-                : `${e}Transform` in n
-                ? "translate"
-                : "margin";
-            });
+                return `${e}Perspective` in n
+                  ? "translate3d"
+                  : `${e}Transform` in n
+                  ? "translate"
+                  : "margin";
+              });
 
             var s = (() => {
-                const n = [];
-                function e() {
-                  const t = n.shift();
-                  t && t(e);
-                }
-                return (t) => {
-                  n.push(t), 1 == n.length && e();
-                };
-              })();
+              const n = [];
+              function e() {
+                const t = n.shift();
+                t && t(e);
+              }
+              return (t) => {
+                n.push(t), 1 == n.length && e();
+              };
+            })();
 
             var i = (() => {
               const n = ["Webkit", "O", "Moz", "ms"],
@@ -224,9 +228,7 @@
                 const o = arguments;
                 if (2 == o.length)
                   for (t in e)
-                    void 0 !== (r = e[t]) &&
-                      e.hasOwnProperty(t) &&
-                      s(n, t, r);
+                    void 0 !== (r = e[t]) && e.hasOwnProperty(t) && s(n, t, r);
                 else s(n, o[1], o[2]);
               };
             })();
@@ -247,7 +249,7 @@
                 (n.className = t.substring(1, t.length - 1)));
             }
             function l(n) {
-              return (` ${n.className || ""} `).replace(/\s+/gi, " ");
+              return ` ${n.className || ""} `.replace(/\s+/gi, " ");
             }
             function d(n) {
               n && n.parentNode && n.parentNode.removeChild(n);

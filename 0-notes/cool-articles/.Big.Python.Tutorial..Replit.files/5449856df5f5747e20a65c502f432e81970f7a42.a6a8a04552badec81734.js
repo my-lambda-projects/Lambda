@@ -28,155 +28,156 @@
               e
             ));
         }
-        return (t.prototype.addSentryBreadcrumb = function (t) {
-          this._options.sentry &&
-            Object(o.b)().addBreadcrumb(
-              {
-                category:
-                  "sentry." +
-                  ("transaction" === t.type ? "transaction" : "event"),
-                event_id: t.event_id,
-                level: t.level,
-                message: Object(a.d)(t),
-              },
-              { event: t }
-            );
-        }),
-        (t.prototype._consoleBreadcrumb = function (t) {
-          const e = {
-            category: "console",
-            data: { arguments: t.args, logger: "console" },
-            level: i.a.fromString(t.level),
-            message: Object(c.b)(t.args, " "),
-          };
-          if ("assert" === t.level) {
-            if (!1 !== t.args[0]) return;
-            (e.message =
-              "Assertion failed: " +
-              (Object(c.b)(t.args.slice(1), " ") || "console.assert")),
-              (e.data.arguments = t.args.slice(1));
-          }
-          Object(o.b)().addBreadcrumb(e, { input: t.args, level: t.level });
-        }),
-        (t.prototype._domBreadcrumb = (t) => {
-          let e;
-          try {
-            e = t.event.target
-              ? Object(a.h)(t.event.target)
-              : Object(a.h)(t.event);
-          } catch (n) {
-            e = "<unknown>";
-          }
-          0 !== e.length &&
-            Object(o.b)().addBreadcrumb(
-              { category: "ui." + t.name, message: e },
-              { event: t.event, name: t.name }
-            );
-        }),
-        (t.prototype._xhrBreadcrumb = (t) => {
-          if (t.endTimestamp) {
-            if (t.xhr.__sentry_own_request__) return;
-            Object(o.b)().addBreadcrumb(
-              { category: "xhr", data: t.xhr.__sentry_xhr__, type: "http" },
-              { xhr: t.xhr }
-            );
-          } else;
-        }),
-        (t.prototype._fetchBreadcrumb = (t) => {
-          t.endTimestamp &&
-            ((t.fetchData.url.match(/sentry_key/) &&
-              "POST" === t.fetchData.method) ||
-              (t.error
-                ? Object(o.b)().addBreadcrumb(
-                    {
-                      category: "fetch",
-                      data: t.fetchData,
-                      level: i.a.Error,
-                      type: "http",
-                    },
-                    { data: t.error, input: t.args }
-                  )
-                : Object(o.b)().addBreadcrumb(
-                    {
-                      category: "fetch",
-                      data: r.a({}, t.fetchData, {
-                        status_code: t.response.status,
-                      }),
-                      type: "http",
-                    },
-                    { input: t.args, response: t.response }
-                  )));
-        }),
-        (t.prototype._historyBreadcrumb = (t) => {
-          const e = Object(a.f)();
-          let n = t.from;
-          let r = t.to;
-          const i = Object(a.k)(e.location.href);
-          let c = Object(a.k)(n);
-          const s = Object(a.k)(r);
-          c.path || (c = i),
-            i.protocol === s.protocol &&
-              i.host === s.host &&
-              (r = s.relative),
-            i.protocol === c.protocol &&
-              i.host === c.host &&
-              (n = c.relative),
-            Object(o.b)().addBreadcrumb({
-              category: "navigation",
-              data: { from: n, to: r },
-            });
-        }),
-        (t.prototype.setupOnce = function () {
-          const t = this;
-          this._options.console &&
-            Object(s.a)({
-              callback() {
-                for (var e = [], n = 0; n < arguments.length; n++)
-                  e[n] = arguments[n];
-                t._consoleBreadcrumb.apply(t, r.d(e));
-              },
-              type: "console",
-            }),
-            this._options.dom &&
-              Object(s.a)({
-                callback() {
-                  for (var e = [], n = 0; n < arguments.length; n++)
-                    e[n] = arguments[n];
-                  t._domBreadcrumb.apply(t, r.d(e));
+        return (
+          (t.prototype.addSentryBreadcrumb = function (t) {
+            this._options.sentry &&
+              Object(o.b)().addBreadcrumb(
+                {
+                  category:
+                    "sentry." +
+                    ("transaction" === t.type ? "transaction" : "event"),
+                  event_id: t.event_id,
+                  level: t.level,
+                  message: Object(a.d)(t),
                 },
-                type: "dom",
-              }),
-            this._options.xhr &&
-              Object(s.a)({
-                callback() {
-                  for (var e = [], n = 0; n < arguments.length; n++)
-                    e[n] = arguments[n];
-                  t._xhrBreadcrumb.apply(t, r.d(e));
-                },
-                type: "xhr",
-              }),
-            this._options.fetch &&
-              Object(s.a)({
-                callback() {
-                  for (var e = [], n = 0; n < arguments.length; n++)
-                    e[n] = arguments[n];
-                  t._fetchBreadcrumb.apply(t, r.d(e));
-                },
-                type: "fetch",
-              }),
-            this._options.history &&
-              Object(s.a)({
-                callback() {
-                  for (var e = [], n = 0; n < arguments.length; n++)
-                    e[n] = arguments[n];
-                  t._historyBreadcrumb.apply(t, r.d(e));
-                },
-                type: "history",
+                { event: t }
+              );
+          }),
+          (t.prototype._consoleBreadcrumb = function (t) {
+            const e = {
+              category: "console",
+              data: { arguments: t.args, logger: "console" },
+              level: i.a.fromString(t.level),
+              message: Object(c.b)(t.args, " "),
+            };
+            if ("assert" === t.level) {
+              if (!1 !== t.args[0]) return;
+              (e.message =
+                "Assertion failed: " +
+                (Object(c.b)(t.args.slice(1), " ") || "console.assert")),
+                (e.data.arguments = t.args.slice(1));
+            }
+            Object(o.b)().addBreadcrumb(e, { input: t.args, level: t.level });
+          }),
+          (t.prototype._domBreadcrumb = (t) => {
+            let e;
+            try {
+              e = t.event.target
+                ? Object(a.h)(t.event.target)
+                : Object(a.h)(t.event);
+            } catch (n) {
+              e = "<unknown>";
+            }
+            0 !== e.length &&
+              Object(o.b)().addBreadcrumb(
+                { category: "ui." + t.name, message: e },
+                { event: t.event, name: t.name }
+              );
+          }),
+          (t.prototype._xhrBreadcrumb = (t) => {
+            if (t.endTimestamp) {
+              if (t.xhr.__sentry_own_request__) return;
+              Object(o.b)().addBreadcrumb(
+                { category: "xhr", data: t.xhr.__sentry_xhr__, type: "http" },
+                { xhr: t.xhr }
+              );
+            } else;
+          }),
+          (t.prototype._fetchBreadcrumb = (t) => {
+            t.endTimestamp &&
+              ((t.fetchData.url.match(/sentry_key/) &&
+                "POST" === t.fetchData.method) ||
+                (t.error
+                  ? Object(o.b)().addBreadcrumb(
+                      {
+                        category: "fetch",
+                        data: t.fetchData,
+                        level: i.a.Error,
+                        type: "http",
+                      },
+                      { data: t.error, input: t.args }
+                    )
+                  : Object(o.b)().addBreadcrumb(
+                      {
+                        category: "fetch",
+                        data: r.a({}, t.fetchData, {
+                          status_code: t.response.status,
+                        }),
+                        type: "http",
+                      },
+                      { input: t.args, response: t.response }
+                    )));
+          }),
+          (t.prototype._historyBreadcrumb = (t) => {
+            const e = Object(a.f)();
+            let n = t.from;
+            let r = t.to;
+            const i = Object(a.k)(e.location.href);
+            let c = Object(a.k)(n);
+            const s = Object(a.k)(r);
+            c.path || (c = i),
+              i.protocol === s.protocol &&
+                i.host === s.host &&
+                (r = s.relative),
+              i.protocol === c.protocol &&
+                i.host === c.host &&
+                (n = c.relative),
+              Object(o.b)().addBreadcrumb({
+                category: "navigation",
+                data: { from: n, to: r },
               });
-        }),
-        (t.id = "Breadcrumbs"),
-        t
-      ;
+          }),
+          (t.prototype.setupOnce = function () {
+            const t = this;
+            this._options.console &&
+              Object(s.a)({
+                callback() {
+                  for (var e = [], n = 0; n < arguments.length; n++)
+                    e[n] = arguments[n];
+                  t._consoleBreadcrumb.apply(t, r.d(e));
+                },
+                type: "console",
+              }),
+              this._options.dom &&
+                Object(s.a)({
+                  callback() {
+                    for (var e = [], n = 0; n < arguments.length; n++)
+                      e[n] = arguments[n];
+                    t._domBreadcrumb.apply(t, r.d(e));
+                  },
+                  type: "dom",
+                }),
+              this._options.xhr &&
+                Object(s.a)({
+                  callback() {
+                    for (var e = [], n = 0; n < arguments.length; n++)
+                      e[n] = arguments[n];
+                    t._xhrBreadcrumb.apply(t, r.d(e));
+                  },
+                  type: "xhr",
+                }),
+              this._options.fetch &&
+                Object(s.a)({
+                  callback() {
+                    for (var e = [], n = 0; n < arguments.length; n++)
+                      e[n] = arguments[n];
+                    t._fetchBreadcrumb.apply(t, r.d(e));
+                  },
+                  type: "fetch",
+                }),
+              this._options.history &&
+                Object(s.a)({
+                  callback() {
+                    for (var e = [], n = 0; n < arguments.length; n++)
+                      e[n] = arguments[n];
+                    t._historyBreadcrumb.apply(t, r.d(e));
+                  },
+                  type: "history",
+                });
+          }),
+          (t.id = "Breadcrumbs"),
+          t
+        );
       })();
     },
     "2O0U": function (t, e, n) {
@@ -199,52 +200,54 @@
           const e = (null !== t && t.apply(this, arguments)) || this;
           return (e._disabledUntil = new Date(Date.now())), e;
         }
-        return r.b(e, t),
-        (e.prototype.sendEvent = function (t) {
-          const e = this;
-          if (new Date(Date.now()) < this._disabledUntil)
-            return Promise.reject({
-              event: t,
-              reason:
-                "Transport locked till " +
-                this._disabledUntil +
-                " due to too many requests.",
-              status: 429,
-            });
-          const n = Object(o.a)(t, this._api),
-                r = {
-                  body: n.body,
-                  method: "POST",
-                  referrerPolicy: Object(c.d)() ? "origin" : "",
-                };
-          return void 0 !== this.options.headers &&
-            (r.headers = this.options.headers),
-          this._buffer.add(
-            new s.a((t, o) => {
-              p.fetch(n.url, r)
-                .then((n) => {
-                  const r = i.a.fromHttpCode(n.status);
-                  if (r !== i.a.Success) {
-                    if (r === i.a.RateLimit) {
-                      const c = Date.now();
-                      (e._disabledUntil = new Date(
-                        c + Object(a.j)(c, n.headers.get("Retry-After"))
-                      )),
-                        u.a.warn(
-                          "Too many requests, backing off till: " +
-                            e._disabledUntil
-                        );
-                    }
-                    o(n);
-                  } else t({ status: r });
+        return (
+          r.b(e, t),
+          (e.prototype.sendEvent = function (t) {
+            const e = this;
+            if (new Date(Date.now()) < this._disabledUntil)
+              return Promise.reject({
+                event: t,
+                reason:
+                  "Transport locked till " +
+                  this._disabledUntil +
+                  " due to too many requests.",
+                status: 429,
+              });
+            const n = Object(o.a)(t, this._api),
+              r = {
+                body: n.body,
+                method: "POST",
+                referrerPolicy: Object(c.d)() ? "origin" : "",
+              };
+            return (
+              void 0 !== this.options.headers &&
+                (r.headers = this.options.headers),
+              this._buffer.add(
+                new s.a((t, o) => {
+                  p.fetch(n.url, r)
+                    .then((n) => {
+                      const r = i.a.fromHttpCode(n.status);
+                      if (r !== i.a.Success) {
+                        if (r === i.a.RateLimit) {
+                          const c = Date.now();
+                          (e._disabledUntil = new Date(
+                            c + Object(a.j)(c, n.headers.get("Retry-After"))
+                          )),
+                            u.a.warn(
+                              "Too many requests, backing off till: " +
+                                e._disabledUntil
+                            );
+                        }
+                        o(n);
+                      } else t({ status: r });
+                    })
+                    .catch(o);
                 })
-                .catch(o);
-            })
-          )
-        ;
-        }),
-        e
-      ;
+              )
+            );
+          }),
+          e
+        );
       })(l.a);
     },
     "3CEA": function (t, e, n) {
@@ -344,79 +347,84 @@
       });
       const r = n("SDrh");
       const o = n("ZjPo");
-      const i = /^(?:(\w+):)\/\/(?:(\w+)(?::(\w+))?@)([\w\.-]+)(?::(\d+))?\/(.+)/;
+      const i =
+        /^(?:(\w+):)\/\/(?:(\w+)(?::(\w+))?@)([\w\.-]+)(?::(\d+))?\/(.+)/;
       const a = "Invalid Dsn";
 
       var c = (() => {
         function t(t) {
-          "string" === typeof t
-            ? this._fromString(t)
-            : this._fromComponents(t),
+          "string" === typeof t ? this._fromString(t) : this._fromComponents(t),
             this._validate();
         }
-        return (t.prototype.toString = function (t) {
-          void 0 === t && (t = !1);
-          const e = this, n = e.host, r = e.path, o = e.pass, i = e.port, a = e.projectId;
-          return (
-            e.protocol +
-            "://" +
-            e.user +
-            (t && o ? ":" + o : "") +
-            "@" +
-            n +
-            (i ? ":" + i : "") +
-            "/" +
-            (r ? r + "/" : r) +
-            a
-          );
-        }),
-        (t.prototype._fromString = function (t) {
-          const e = i.exec(t);
-          if (!e) throw new o.a(a);
-          const n = r.c(e.slice(1), 6);
-          const c = n[0];
-          const s = n[1];
-          const u = n[2];
-          const l = void 0 === u ? "" : u;
-          const p = n[3];
-          const d = n[4];
-          const f = void 0 === d ? "" : d;
-          let h = "";
-          let v = n[5];
-          const b = v.split("/");
-          b.length > 1 && ((h = b.slice(0, -1).join("/")), (v = b.pop())),
-            this._fromComponents({
-              host: p,
-              pass: l,
-              path: h,
-              projectId: v,
-              port: f,
-              protocol: c,
-              user: s,
-            });
-        }),
-        (t.prototype._fromComponents = function (t) {
-          (this.protocol = t.protocol),
-            (this.user = t.user),
-            (this.pass = t.pass || ""),
-            (this.host = t.host),
-            (this.port = t.port || ""),
-            (this.path = t.path || ""),
-            (this.projectId = t.projectId);
-        }),
-        (t.prototype._validate = function () {
-          const t = this;
-          if (
-            (["protocol", "user", "host", "projectId"].forEach((e) => {
-              if (!t[e]) throw new o.a(a);
-            }),
-            "http" !== this.protocol && "https" !== this.protocol)
-          )
-            throw new o.a(a);
-          if (this.port && isNaN(parseInt(this.port, 10))) throw new o.a(a);
-        }),
-        t
-      ;
+        return (
+          (t.prototype.toString = function (t) {
+            void 0 === t && (t = !1);
+            const e = this,
+              n = e.host,
+              r = e.path,
+              o = e.pass,
+              i = e.port,
+              a = e.projectId;
+            return (
+              e.protocol +
+              "://" +
+              e.user +
+              (t && o ? ":" + o : "") +
+              "@" +
+              n +
+              (i ? ":" + i : "") +
+              "/" +
+              (r ? r + "/" : r) +
+              a
+            );
+          }),
+          (t.prototype._fromString = function (t) {
+            const e = i.exec(t);
+            if (!e) throw new o.a(a);
+            const n = r.c(e.slice(1), 6);
+            const c = n[0];
+            const s = n[1];
+            const u = n[2];
+            const l = void 0 === u ? "" : u;
+            const p = n[3];
+            const d = n[4];
+            const f = void 0 === d ? "" : d;
+            let h = "";
+            let v = n[5];
+            const b = v.split("/");
+            b.length > 1 && ((h = b.slice(0, -1).join("/")), (v = b.pop())),
+              this._fromComponents({
+                host: p,
+                pass: l,
+                path: h,
+                projectId: v,
+                port: f,
+                protocol: c,
+                user: s,
+              });
+          }),
+          (t.prototype._fromComponents = function (t) {
+            (this.protocol = t.protocol),
+              (this.user = t.user),
+              (this.pass = t.pass || ""),
+              (this.host = t.host),
+              (this.port = t.port || ""),
+              (this.path = t.path || ""),
+              (this.projectId = t.projectId);
+          }),
+          (t.prototype._validate = function () {
+            const t = this;
+            if (
+              (["protocol", "user", "host", "projectId"].forEach((e) => {
+                if (!t[e]) throw new o.a(a);
+              }),
+              "http" !== this.protocol && "https" !== this.protocol)
+            )
+              throw new o.a(a);
+            if (this.port && isNaN(parseInt(this.port, 10))) throw new o.a(a);
+          }),
+          t
+        );
       })();
     },
     "8WnW": function (t, e, n) {
@@ -445,9 +453,7 @@
             );
           }),
           (t.prototype.eventFromMessage = (t, e, n) => {
-            throw new o.a(
-              "Backend has to implement `eventFromMessage` method"
-            );
+            throw new o.a("Backend has to implement `eventFromMessage` method");
           }),
           (t.prototype.sendEvent = function (t) {
             this._transport.sendEvent(t).then(null, (t) => {
@@ -477,10 +483,11 @@
         });
 
       var i = (() => {
-          function t() {
-            this.name = t.id;
-          }
-          return (t.prototype.setupOnce = () => {
+        function t() {
+          this.name = t.id;
+        }
+        return (
+          (t.prototype.setupOnce = () => {
             (r = Function.prototype.toString),
               (Function.prototype.toString = function () {
                 for (var t = [], e = 0; e < arguments.length; e++)
@@ -491,8 +498,8 @@
           }),
           (t.id = "FunctionToString"),
           t
-        ;
-        })();
+        );
+      })();
 
       const a = n("SDrh");
       const c = n("Ii+B");
@@ -510,165 +517,172 @@
         function t(e) {
           void 0 === e && (e = {}), (this._options = e), (this.name = t.id);
         }
-        return (t.prototype.setupOnce = () => {
-          Object(c.b)((e) => {
-            const n = Object(s.b)();
-            if (!n) return e;
-            const r = n.getIntegration(t);
-            if (r) {
-              const o = n.getClient(), i = o ? o.getOptions() : {}, a = r._mergeOptions(i);
-              if (r._shouldDropEvent(e, a)) return null;
-            }
-            return e;
-          });
-        }),
-        (t.prototype._shouldDropEvent = function (t, e) {
-          return this._isSentryError(t, e)
-            ? (u.a.warn(
-                "Event dropped due to being internal Sentry Error.\nEvent: " +
-                  Object(l.d)(t)
-              ),
-              !0)
-            : this._isIgnoredError(t, e)
-            ? (u.a.warn(
-                "Event dropped due to being matched by `ignoreErrors` option.\nEvent: " +
-                  Object(l.d)(t)
-              ),
-              !0)
-            : this._isBlacklistedUrl(t, e)
-            ? (u.a.warn(
-                "Event dropped due to being matched by `blacklistUrls` option.\nEvent: " +
-                  Object(l.d)(t) +
-                  ".\nUrl: " +
-                  this._getEventFilterUrl(t)
-              ),
-              !0)
-            : !this._isWhitelistedUrl(t, e) &&
-              (u.a.warn(
-                "Event dropped due to not being matched by `whitelistUrls` option.\nEvent: " +
-                  Object(l.d)(t) +
-                  ".\nUrl: " +
-                  this._getEventFilterUrl(t)
-              ),
-              !0);
-        }),
-        (t.prototype._isSentryError = (t, e) => {
-          if ((void 0 === e && (e = {}), !e.ignoreInternal)) return !1;
-          try {
-            return (
-              (t &&
-                t.exception &&
-                t.exception.values &&
-                t.exception.values[0] &&
-                "SentryError" === t.exception.values[0].type) ||
-              !1
-            );
-          } catch (n) {
-            return !1;
-          }
-        }),
-        (t.prototype._isIgnoredError = function (t, e) {
-          return (
-            void 0 === e && (e = {}),
-            !(!e.ignoreErrors || !e.ignoreErrors.length) &&
-              this._getPossibleEventMessages(t).some((t) => {
-                return e.ignoreErrors.some((e) => {
-                  return Object(p.a)(t, e);
-                });
-              })
-          );
-        }),
-        (t.prototype._isBlacklistedUrl = function (t, e) {
-          if (
-            (void 0 === e && (e = {}),
-            !e.blacklistUrls || !e.blacklistUrls.length)
-          )
-            return !1;
-          const n = this._getEventFilterUrl(t);
-          return (
-            !!n &&
-            e.blacklistUrls.some((t) => {
-              return Object(p.a)(n, t);
-            })
-          );
-        }),
-        (t.prototype._isWhitelistedUrl = function (t, e) {
-          if (
-            (void 0 === e && (e = {}),
-            !e.whitelistUrls || !e.whitelistUrls.length)
-          )
-            return !0;
-          const n = this._getEventFilterUrl(t);
-          return (
-            !n ||
-            e.whitelistUrls.some((t) => {
-              return Object(p.a)(n, t);
-            })
-          );
-        }),
-        (t.prototype._mergeOptions = function (t) {
-          return (
-            void 0 === t && (t = {}),
-            {
-              blacklistUrls: a.d(
-                this._options.blacklistUrls || [],
-                t.blacklistUrls || []
-              ),
-              ignoreErrors: a.d(
-                this._options.ignoreErrors || [],
-                t.ignoreErrors || [],
-                d
-              ),
-              ignoreInternal:
-                "undefined" === typeof this._options.ignoreInternal ||
-                this._options.ignoreInternal,
-              whitelistUrls: a.d(
-                this._options.whitelistUrls || [],
-                t.whitelistUrls || []
-              ),
-            }
-          );
-        }),
-        (t.prototype._getPossibleEventMessages = (t) => {
-          if (t.message) return [t.message];
-          if (t.exception)
-            try {
-              const e = (t.exception.values && t.exception.values[0]) || {}, n = e.type, r = void 0 === n ? "" : n, o = e.value, i = void 0 === o ? "" : o;
-              return ["" + i, r + ": " + i];
-            } catch (a) {
-              return (
-                u.a.error(
-                  "Cannot extract message for event " + Object(l.d)(t)
+        return (
+          (t.prototype.setupOnce = () => {
+            Object(c.b)((e) => {
+              const n = Object(s.b)();
+              if (!n) return e;
+              const r = n.getIntegration(t);
+              if (r) {
+                const o = n.getClient(),
+                  i = o ? o.getOptions() : {},
+                  a = r._mergeOptions(i);
+                if (r._shouldDropEvent(e, a)) return null;
+              }
+              return e;
+            });
+          }),
+          (t.prototype._shouldDropEvent = function (t, e) {
+            return this._isSentryError(t, e)
+              ? (u.a.warn(
+                  "Event dropped due to being internal Sentry Error.\nEvent: " +
+                    Object(l.d)(t)
                 ),
-                []
+                !0)
+              : this._isIgnoredError(t, e)
+              ? (u.a.warn(
+                  "Event dropped due to being matched by `ignoreErrors` option.\nEvent: " +
+                    Object(l.d)(t)
+                ),
+                !0)
+              : this._isBlacklistedUrl(t, e)
+              ? (u.a.warn(
+                  "Event dropped due to being matched by `blacklistUrls` option.\nEvent: " +
+                    Object(l.d)(t) +
+                    ".\nUrl: " +
+                    this._getEventFilterUrl(t)
+                ),
+                !0)
+              : !this._isWhitelistedUrl(t, e) &&
+                (u.a.warn(
+                  "Event dropped due to not being matched by `whitelistUrls` option.\nEvent: " +
+                    Object(l.d)(t) +
+                    ".\nUrl: " +
+                    this._getEventFilterUrl(t)
+                ),
+                !0);
+          }),
+          (t.prototype._isSentryError = (t, e) => {
+            if ((void 0 === e && (e = {}), !e.ignoreInternal)) return !1;
+            try {
+              return (
+                (t &&
+                  t.exception &&
+                  t.exception.values &&
+                  t.exception.values[0] &&
+                  "SentryError" === t.exception.values[0].type) ||
+                !1
+              );
+            } catch (n) {
+              return !1;
+            }
+          }),
+          (t.prototype._isIgnoredError = function (t, e) {
+            return (
+              void 0 === e && (e = {}),
+              !(!e.ignoreErrors || !e.ignoreErrors.length) &&
+                this._getPossibleEventMessages(t).some((t) => {
+                  return e.ignoreErrors.some((e) => {
+                    return Object(p.a)(t, e);
+                  });
+                })
+            );
+          }),
+          (t.prototype._isBlacklistedUrl = function (t, e) {
+            if (
+              (void 0 === e && (e = {}),
+              !e.blacklistUrls || !e.blacklistUrls.length)
+            )
+              return !1;
+            const n = this._getEventFilterUrl(t);
+            return (
+              !!n &&
+              e.blacklistUrls.some((t) => {
+                return Object(p.a)(n, t);
+              })
+            );
+          }),
+          (t.prototype._isWhitelistedUrl = function (t, e) {
+            if (
+              (void 0 === e && (e = {}),
+              !e.whitelistUrls || !e.whitelistUrls.length)
+            )
+              return !0;
+            const n = this._getEventFilterUrl(t);
+            return (
+              !n ||
+              e.whitelistUrls.some((t) => {
+                return Object(p.a)(n, t);
+              })
+            );
+          }),
+          (t.prototype._mergeOptions = function (t) {
+            return (
+              void 0 === t && (t = {}),
+              {
+                blacklistUrls: a.d(
+                  this._options.blacklistUrls || [],
+                  t.blacklistUrls || []
+                ),
+                ignoreErrors: a.d(
+                  this._options.ignoreErrors || [],
+                  t.ignoreErrors || [],
+                  d
+                ),
+                ignoreInternal:
+                  "undefined" === typeof this._options.ignoreInternal ||
+                  this._options.ignoreInternal,
+                whitelistUrls: a.d(
+                  this._options.whitelistUrls || [],
+                  t.whitelistUrls || []
+                ),
+              }
+            );
+          }),
+          (t.prototype._getPossibleEventMessages = (t) => {
+            if (t.message) return [t.message];
+            if (t.exception)
+              try {
+                const e = (t.exception.values && t.exception.values[0]) || {},
+                  n = e.type,
+                  r = void 0 === n ? "" : n,
+                  o = e.value,
+                  i = void 0 === o ? "" : o;
+                return ["" + i, r + ": " + i];
+              } catch (a) {
+                return (
+                  u.a.error(
+                    "Cannot extract message for event " + Object(l.d)(t)
+                  ),
+                  []
+                );
+              }
+            return [];
+          }),
+          (t.prototype._getEventFilterUrl = (t) => {
+            try {
+              if (t.stacktrace) {
+                const e = t.stacktrace.frames;
+                return (e && e[e.length - 1].filename) || null;
+              }
+              if (t.exception) {
+                const n =
+                  t.exception.values &&
+                  t.exception.values[0].stacktrace &&
+                  t.exception.values[0].stacktrace.frames;
+                return (n && n[n.length - 1].filename) || null;
+              }
+              return null;
+            } catch (r) {
+              return (
+                u.a.error("Cannot extract url for event " + Object(l.d)(t)),
+                null
               );
             }
-          return [];
-        }),
-        (t.prototype._getEventFilterUrl = (t) => {
-          try {
-            if (t.stacktrace) {
-              const e = t.stacktrace.frames;
-              return (e && e[e.length - 1].filename) || null;
-            }
-            if (t.exception) {
-              const n =
-                t.exception.values &&
-                t.exception.values[0].stacktrace &&
-                t.exception.values[0].stacktrace.frames;
-              return (n && n[n.length - 1].filename) || null;
-            }
-            return null;
-          } catch (r) {
-            return (
-              u.a.error("Cannot extract url for event " + Object(l.d)(t)),
-              null
-            );
-          }
-        }),
-        (t.id = "InboundFilters"),
-        t
-      ;
+          }),
+          (t.id = "InboundFilters"),
+          t
+        );
       })();
     },
     DTjN(t, e, n) {
@@ -684,49 +698,50 @@
         function t(t) {
           (this._limit = t), (this._buffer = []);
         }
-        return (t.prototype.isReady = function () {
-          return void 0 === this._limit || this.length() < this._limit;
-        }),
-        (t.prototype.add = function (t) {
-          const e = this;
-          return this.isReady()
-            ? (-1 === this._buffer.indexOf(t) && this._buffer.push(t),
-              t
+        return (
+          (t.prototype.isReady = function () {
+            return void 0 === this._limit || this.length() < this._limit;
+          }),
+          (t.prototype.add = function (t) {
+            const e = this;
+            return this.isReady()
+              ? (-1 === this._buffer.indexOf(t) && this._buffer.push(t),
+                t
+                  .then(() => {
+                    return e.remove(t);
+                  })
+                  .then(null, () => {
+                    return e.remove(t).then(null, () => {});
+                  }),
+                t)
+              : i.a.reject(
+                  new o.a("Not adding Promise due to buffer limit reached.")
+                );
+          }),
+          (t.prototype.remove = function (t) {
+            return this._buffer.splice(this._buffer.indexOf(t), 1)[0];
+          }),
+          (t.prototype.length = function () {
+            return this._buffer.length;
+          }),
+          (t.prototype.drain = function (t) {
+            const e = this;
+            return new i.a((n) => {
+              const r = setTimeout(() => {
+                t && t > 0 && n(!1);
+              }, t);
+              i.a
+                .all(e._buffer)
                 .then(() => {
-                  return e.remove(t);
+                  clearTimeout(r), n(!0);
                 })
                 .then(null, () => {
-                  return e.remove(t).then(null, () => {});
-                }),
-              t)
-            : i.a.reject(
-                new o.a("Not adding Promise due to buffer limit reached.")
-              );
-        }),
-        (t.prototype.remove = function (t) {
-          return this._buffer.splice(this._buffer.indexOf(t), 1)[0];
-        }),
-        (t.prototype.length = function () {
-          return this._buffer.length;
-        }),
-        (t.prototype.drain = function (t) {
-          const e = this;
-          return new i.a((n) => {
-            const r = setTimeout(() => {
-              t && t > 0 && n(!1);
-            }, t);
-            i.a
-              .all(e._buffer)
-              .then(() => {
-                clearTimeout(r), n(!0);
-              })
-              .then(null, () => {
-                n(!0);
-              });
-          });
-        }),
-        t
-      ;
+                  n(!0);
+                });
+            });
+          }),
+          t
+        );
       })();
 
       var c = (() => {
@@ -757,13 +772,18 @@
         n.d(e, "a", () => {
           return s;
         });
-      const r = n("Gqt4"), o = n("zNuj"), i = n("hj4m"), a = n("yCKT");
+      const r = n("Gqt4"),
+        o = n("zNuj"),
+        i = n("hj4m"),
+        a = n("yCKT");
       function c(t, e, n) {
         let c;
         if ((void 0 === n && (n = {}), Object(r.e)(t) && t.error))
           return (t = t.error), (c = Object(i.b)(Object(a.a)(t)));
         if (Object(r.a)(t) || Object(r.b)(t)) {
-          const u = t, l = u.name || (Object(r.a)(u) ? "DOMError" : "DOMException"), p = u.message ? l + ": " + u.message : l;
+          const u = t,
+            l = u.name || (Object(r.a)(u) ? "DOMError" : "DOMException"),
+            p = u.message ? l + ": " + u.message : l;
           return (c = s(p, e, n)), Object(o.b)(c, p), c;
         }
         if (Object(r.d)(t)) return (c = Object(i.b)(Object(a.a)(t)));
@@ -786,7 +806,8 @@
         void 0 === n && (n = {});
         const r = { message: t };
         if (n.attachStacktrace && e) {
-          const o = Object(a.a)(e), c = Object(i.d)(o.stack);
+          const o = Object(a.a)(e),
+            c = Object(i.d)(o.stack);
           r.stacktrace = { frames: c };
         }
         return r;
@@ -804,77 +825,81 @@
         function t(t) {
           (this.dsn = t), (this._dsnObject = new r.a(t));
         }
-        return (t.prototype.getDsn = function () {
-          return this._dsnObject;
-        }),
-        (t.prototype.getBaseApiEndpoint = function () {
-          const t = this._dsnObject, e = t.protocol ? t.protocol + ":" : "", n = t.port ? ":" + t.port : "";
-          return (
-            e + "//" + t.host + n + (t.path ? "/" + t.path : "") + "/api/"
-          );
-        }),
-        (t.prototype.getStoreEndpoint = function () {
-          return this._getIngestEndpoint("store");
-        }),
-        (t.prototype._getEnvelopeEndpoint = function () {
-          return this._getIngestEndpoint("envelope");
-        }),
-        (t.prototype._getIngestEndpoint = function (t) {
-          return (
-            "" +
-            this.getBaseApiEndpoint() +
-            this._dsnObject.projectId +
-            "/" +
-            t +
-            "/"
-          );
-        }),
-        (t.prototype.getStoreEndpointWithUrlEncodedAuth = function () {
-          return this.getStoreEndpoint() + "?" + this._encodedAuth();
-        }),
-        (t.prototype.getEnvelopeEndpointWithUrlEncodedAuth = function () {
-          return this._getEnvelopeEndpoint() + "?" + this._encodedAuth();
-        }),
-        (t.prototype._encodedAuth = function () {
-          const t = { sentry_key: this._dsnObject.user, sentry_version: "7" };
-          return Object(o.e)(t);
-        }),
-        (t.prototype.getStoreEndpointPath = function () {
-          const t = this._dsnObject;
-          return (
-            (t.path ? "/" + t.path : "") + "/api/" + t.projectId + "/store/"
-          );
-        }),
-        (t.prototype.getRequestHeaders = function (t, e) {
-          const n = this._dsnObject, r = ["Sentry sentry_version=7"];
-          return (
-            r.push("sentry_client=" + t + "/" + e),
-            r.push("sentry_key=" + n.user),
-            n.pass && r.push("sentry_secret=" + n.pass),
-            {
-              "Content-Type": "application/json",
-              "X-Sentry-Auth": r.join(", "),
-            }
-          );
-        }),
-        (t.prototype.getReportDialogEndpoint = function (t) {
-          void 0 === t && (t = {});
-          const e = this._dsnObject, n = this.getBaseApiEndpoint() + "embed/error-page/", r = [];
-          for (const o in (r.push("dsn=" + e.toString()), t))
-            if ("user" === o) {
-              if (!t.user) continue;
-              t.user.name &&
-                r.push("name=" + encodeURIComponent(t.user.name)),
-                t.user.email &&
-                  r.push("email=" + encodeURIComponent(t.user.email));
-            } else
-              r.push(
-                encodeURIComponent(o) + "=" + encodeURIComponent(t[o])
-              );
-          return r.length ? n + "?" + r.join("&") : n;
-        }),
-        t
-      ;
+        return (
+          (t.prototype.getDsn = function () {
+            return this._dsnObject;
+          }),
+          (t.prototype.getBaseApiEndpoint = function () {
+            const t = this._dsnObject,
+              e = t.protocol ? t.protocol + ":" : "",
+              n = t.port ? ":" + t.port : "";
+            return (
+              e + "//" + t.host + n + (t.path ? "/" + t.path : "") + "/api/"
+            );
+          }),
+          (t.prototype.getStoreEndpoint = function () {
+            return this._getIngestEndpoint("store");
+          }),
+          (t.prototype._getEnvelopeEndpoint = function () {
+            return this._getIngestEndpoint("envelope");
+          }),
+          (t.prototype._getIngestEndpoint = function (t) {
+            return (
+              "" +
+              this.getBaseApiEndpoint() +
+              this._dsnObject.projectId +
+              "/" +
+              t +
+              "/"
+            );
+          }),
+          (t.prototype.getStoreEndpointWithUrlEncodedAuth = function () {
+            return this.getStoreEndpoint() + "?" + this._encodedAuth();
+          }),
+          (t.prototype.getEnvelopeEndpointWithUrlEncodedAuth = function () {
+            return this._getEnvelopeEndpoint() + "?" + this._encodedAuth();
+          }),
+          (t.prototype._encodedAuth = function () {
+            const t = { sentry_key: this._dsnObject.user, sentry_version: "7" };
+            return Object(o.e)(t);
+          }),
+          (t.prototype.getStoreEndpointPath = function () {
+            const t = this._dsnObject;
+            return (
+              (t.path ? "/" + t.path : "") + "/api/" + t.projectId + "/store/"
+            );
+          }),
+          (t.prototype.getRequestHeaders = function (t, e) {
+            const n = this._dsnObject,
+              r = ["Sentry sentry_version=7"];
+            return (
+              r.push("sentry_client=" + t + "/" + e),
+              r.push("sentry_key=" + n.user),
+              n.pass && r.push("sentry_secret=" + n.pass),
+              {
+                "Content-Type": "application/json",
+                "X-Sentry-Auth": r.join(", "),
+              }
+            );
+          }),
+          (t.prototype.getReportDialogEndpoint = function (t) {
+            void 0 === t && (t = {});
+            const e = this._dsnObject,
+              n = this.getBaseApiEndpoint() + "embed/error-page/",
+              r = [];
+            for (const o in (r.push("dsn=" + e.toString()), t))
+              if ("user" === o) {
+                if (!t.user) continue;
+                t.user.name &&
+                  r.push("name=" + encodeURIComponent(t.user.name)),
+                  t.user.email &&
+                    r.push("email=" + encodeURIComponent(t.user.email));
+              } else
+                r.push(encodeURIComponent(o) + "=" + encodeURIComponent(t[o]));
+            return r.length ? n + "?" + r.join("&") : n;
+          }),
+          t
+        );
       })();
     },
     "MT+3": function (t, e, n) {
@@ -894,51 +919,51 @@
           const e = (null !== t && t.apply(this, arguments)) || this;
           return (e._disabledUntil = new Date(Date.now())), e;
         }
-        return r.b(e, t),
-        (e.prototype.sendEvent = function (t) {
-          const e = this;
-          if (new Date(Date.now()) < this._disabledUntil)
-            return Promise.reject({
-              event: t,
-              reason:
-                "Transport locked till " +
-                this._disabledUntil +
-                " due to too many requests.",
-              status: 429,
-            });
-          const n = Object(o.a)(t, this._api);
-          return this._buffer.add(
-            new a.a((t, r) => {
-              const o = new XMLHttpRequest();
-              for (const a in ((o.onreadystatechange = () => {
-                if (4 === o.readyState) {
-                  const n = i.a.fromHttpCode(o.status);
-                  if (n !== i.a.Success) {
-                    if (n === i.a.RateLimit) {
-                      const a = Date.now();
-                      (e._disabledUntil = new Date(
-                        a +
-                          Object(c.j)(a, o.getResponseHeader("Retry-After"))
-                      )),
-                        s.a.warn(
-                          "Too many requests, backing off till: " +
-                            e._disabledUntil
-                        );
-                    }
-                    r(o);
-                  } else t({ status: n });
-                }
-              }),
-              o.open("POST", n.url),
-              e.options.headers))
-                e.options.headers.hasOwnProperty(a) &&
-                  o.setRequestHeader(a, e.options.headers[a]);
-              o.send(n.body);
-            })
-          );
-        }),
-        e
-      ;
+        return (
+          r.b(e, t),
+          (e.prototype.sendEvent = function (t) {
+            const e = this;
+            if (new Date(Date.now()) < this._disabledUntil)
+              return Promise.reject({
+                event: t,
+                reason:
+                  "Transport locked till " +
+                  this._disabledUntil +
+                  " due to too many requests.",
+                status: 429,
+              });
+            const n = Object(o.a)(t, this._api);
+            return this._buffer.add(
+              new a.a((t, r) => {
+                const o = new XMLHttpRequest();
+                for (const a in ((o.onreadystatechange = () => {
+                  if (4 === o.readyState) {
+                    const n = i.a.fromHttpCode(o.status);
+                    if (n !== i.a.Success) {
+                      if (n === i.a.RateLimit) {
+                        const a = Date.now();
+                        (e._disabledUntil = new Date(
+                          a + Object(c.j)(a, o.getResponseHeader("Retry-After"))
+                        )),
+                          s.a.warn(
+                            "Too many requests, backing off till: " +
+                              e._disabledUntil
+                          );
+                      }
+                      r(o);
+                    } else t({ status: n });
+                  }
+                }),
+                o.open("POST", n.url),
+                e.options.headers))
+                  e.options.headers.hasOwnProperty(a) &&
+                    o.setRequestHeader(a, e.options.headers[a]);
+                o.send(n.body);
+              })
+            );
+          }),
+          e
+        );
       })(n("DTjN").a);
     },
     MepA(t, e, n) {
@@ -951,25 +976,26 @@
           (this._hasWeakSet = "function" === typeof WeakSet),
             (this._inner = this._hasWeakSet ? new WeakSet() : []);
         }
-        return (t.prototype.memoize = function (t) {
-          if (this._hasWeakSet)
-            return !!this._inner.has(t) || (this._inner.add(t), !1);
-          for (let e = 0; e < this._inner.length; e++) {
-            if (this._inner[e] === t) return !0;
-          }
-          return this._inner.push(t), !1;
-        }),
-        (t.prototype.unmemoize = function (t) {
-          if (this._hasWeakSet) this._inner.delete(t);
-          else
-            for (let e = 0; e < this._inner.length; e++)
-              if (this._inner[e] === t) {
-                this._inner.splice(e, 1);
-                break;
-              }
-        }),
-        t
-      ;
+        return (
+          (t.prototype.memoize = function (t) {
+            if (this._hasWeakSet)
+              return !!this._inner.has(t) || (this._inner.add(t), !1);
+            for (let e = 0; e < this._inner.length; e++) {
+              if (this._inner[e] === t) return !0;
+            }
+            return this._inner.push(t), !1;
+          }),
+          (t.prototype.unmemoize = function (t) {
+            if (this._hasWeakSet) this._inner.delete(t);
+            else
+              for (let e = 0; e < this._inner.length; e++)
+                if (this._inner[e] === t) {
+                  this._inner.splice(e, 1);
+                  break;
+                }
+          }),
+          t
+        );
       })();
     },
     MjtW(t, e, n) {
@@ -977,50 +1003,62 @@
       n.d(e, "a", () => {
         return v;
       });
-      const r = n("SDrh"), o = n("Ii+B"), i = n("71wH"), a = n("Gqt4"), c = n("XmZJ"), s = n("Wbq7"), u = n("zNuj"), l = n("Qc63"), p = n("7Ki+"), d = n("zoce"), f = [];
+      const r = n("SDrh"),
+        o = n("Ii+B"),
+        i = n("71wH"),
+        a = n("Gqt4"),
+        c = n("XmZJ"),
+        s = n("Wbq7"),
+        u = n("zNuj"),
+        l = n("Qc63"),
+        p = n("7Ki+"),
+        d = n("zoce"),
+        f = [];
       function h(t) {
         const e = {};
-        return ((t) => {
-          const e = (t.defaultIntegrations && r.d(t.defaultIntegrations)) || [];
-          const n = t.integrations;
-          let o = [];
-          if (Array.isArray(n)) {
-            const i = n.map((t) => {
-                      return t.name;
-                    }),
-                  a = [];
-            e.forEach((t) => {
-              -1 === i.indexOf(t.name) &&
-                -1 === a.indexOf(t.name) &&
-                (o.push(t), a.push(t.name));
-            }),
-              n.forEach((t) => {
-                -1 === a.indexOf(t.name) && (o.push(t), a.push(t.name));
-              });
-          } else
-            "function" === typeof n
-              ? ((o = n(e)), (o = Array.isArray(o) ? o : [o]))
-              : (o = r.d(e));
-          const c = o.map((t) => {
-                    return t.name;
-                  }),
-                s = "Debug";
-          return (
-            -1 !== c.indexOf(s) &&
-              o.push.apply(o, r.d(o.splice(c.indexOf(s), 1))),
-            o
-          );
-        })(t).forEach((t) => {
-          (e[t.name] = t),
-            ((t) => {
-              -1 === f.indexOf(t.name) &&
-                (t.setupOnce(o.b, d.b),
-                f.push(t.name),
-                c.a.log("Integration installed: " + t.name));
-            })(t);
-        }),
-        e
-      ;
+        return (
+          ((t) => {
+            const e =
+              (t.defaultIntegrations && r.d(t.defaultIntegrations)) || [];
+            const n = t.integrations;
+            let o = [];
+            if (Array.isArray(n)) {
+              const i = n.map((t) => {
+                  return t.name;
+                }),
+                a = [];
+              e.forEach((t) => {
+                -1 === i.indexOf(t.name) &&
+                  -1 === a.indexOf(t.name) &&
+                  (o.push(t), a.push(t.name));
+              }),
+                n.forEach((t) => {
+                  -1 === a.indexOf(t.name) && (o.push(t), a.push(t.name));
+                });
+            } else
+              "function" === typeof n
+                ? ((o = n(e)), (o = Array.isArray(o) ? o : [o]))
+                : (o = r.d(e));
+            const c = o.map((t) => {
+                return t.name;
+              }),
+              s = "Debug";
+            return (
+              -1 !== c.indexOf(s) &&
+                o.push.apply(o, r.d(o.splice(c.indexOf(s), 1))),
+              o
+            );
+          })(t).forEach((t) => {
+            (e[t.name] = t),
+              ((t) => {
+                -1 === f.indexOf(t.name) &&
+                  (t.setupOnce(o.b, d.b),
+                  f.push(t.name),
+                  c.a.log("Integration installed: " + t.name));
+              })(t);
+          }),
+          e
+        );
       }
       var v = (() => {
         function t(t, e) {
@@ -1030,236 +1068,248 @@
             (this._options = e),
             e.dsn && (this._dsn = new i.a(e.dsn));
         }
-        return (t.prototype.captureException = function (t, e, n) {
-          const r = this;
-          let o = e && e.event_id;
-          return (
-            (this._processing = !0),
-            this._getBackend()
-              .eventFromException(t, e)
-              .then((t) => {
-                o = r.captureEvent(t, e, n);
-              }),
-            o
-          );
-        }),
-        (t.prototype.captureMessage = function (t, e, n, r) {
-          const o = this;
-          let i = n && n.event_id;
-          return (
-            (this._processing = !0),
-            (Object(a.i)(t)
-              ? this._getBackend().eventFromMessage("" + t, e, n)
-              : this._getBackend().eventFromException(t, n)
-            ).then((t) => {
-              i = o.captureEvent(t, n, r);
-            }),
-            i
-          );
-        }),
-        (t.prototype.captureEvent = function (t, e, n) {
-          const r = this;
-          let o = e && e.event_id;
-          return (
-            (this._processing = !0),
-            this._processEvent(t, e, n)
-              .then((t) => {
-                (o = t && t.event_id), (r._processing = !1);
-              })
-              .then(null, (t) => {
-                c.a.error(t), (r._processing = !1);
-              }),
-            o
-          );
-        }),
-        (t.prototype.getDsn = function () {
-          return this._dsn;
-        }),
-        (t.prototype.getOptions = function () {
-          return this._options;
-        }),
-        (t.prototype.flush = function (t) {
-          const e = this;
-          return this._isClientProcessing(t).then((n) => {
+        return (
+          (t.prototype.captureException = function (t, e, n) {
+            const r = this;
+            let o = e && e.event_id;
             return (
-              clearInterval(n.interval),
-              e
-                ._getBackend()
-                .getTransport()
-                .close(t)
+              (this._processing = !0),
+              this._getBackend()
+                .eventFromException(t, e)
                 .then((t) => {
-                  return n.ready && t;
-                })
+                  o = r.captureEvent(t, e, n);
+                }),
+              o
             );
-          });
-        }),
-        (t.prototype.close = function (t) {
-          const e = this;
-          return this.flush(t).then((t) => {
-            return (e.getOptions().enabled = !1), t;
-          });
-        }),
-        (t.prototype.setupIntegrations = function () {
-          this._isEnabled() && (this._integrations = h(this._options));
-        }),
-        (t.prototype.getIntegration = function (t) {
-          try {
-            return this._integrations[t.id] || null;
-          } catch (e) {
+          }),
+          (t.prototype.captureMessage = function (t, e, n, r) {
+            const o = this;
+            let i = n && n.event_id;
             return (
-              c.a.warn(
-                "Cannot retrieve integration " +
-                  t.id +
-                  " from the current Client"
-              ),
-              null
+              (this._processing = !0),
+              (Object(a.i)(t)
+                ? this._getBackend().eventFromMessage("" + t, e, n)
+                : this._getBackend().eventFromException(t, n)
+              ).then((t) => {
+                i = o.captureEvent(t, n, r);
+              }),
+              i
             );
-          }
-        }),
-        (t.prototype._isClientProcessing = function (t) {
-          const e = this;
-          return new s.a((n) => {
-            let r = 0, o = 0;
-            clearInterval(o),
-              (o = setInterval(() => {
-                e._processing
-                  ? ((r += 1), t && r >= t && n({ interval: o, ready: !1 }))
-                  : n({ interval: o, ready: !0 });
-              }, 1));
-          });
-        }),
-        (t.prototype._getBackend = function () {
-          return this._backend;
-        }),
-        (t.prototype._isEnabled = function () {
-          return !1 !== this.getOptions().enabled && void 0 !== this._dsn;
-        }),
-        (t.prototype._prepareEvent = function (t, e, n) {
-          const i = this,
-                a = this.getOptions().normalizeDepth,
-                c = void 0 === a ? 3 : a,
-                l = r.a({}, t, {
-                  event_id:
-                    t.event_id || (n && n.event_id ? n.event_id : Object(u.m)()),
-                  timestamp: t.timestamp || Object(u.l)(),
-                });
-          this._applyClientOptions(l), this._applyIntegrationsMetadata(l);
-          let p = e;
-          n &&
-            n.captureContext &&
-            (p = o.a.clone(p).update(n.captureContext));
-          let d = s.a.resolve(l);
-          return (
-            p && (d = p.applyToEvent(l, n)),
-            d.then((t) => {
-              return "number" === typeof c && c > 0
-                ? i._normalizeEvent(t, c)
-                : t;
-            })
-          );
-        }),
-        (t.prototype._normalizeEvent = (t, e) => {
-          return t
-            ? r.a(
-                {},
-                t,
-                t.breadcrumbs && {
-                  breadcrumbs: t.breadcrumbs.map((t) => {
-                    return r.a(
-                      {},
-                      t,
-                      t.data && { data: Object(l.c)(t.data, e) }
-                    );
-                  }),
-                },
-                t.user && { user: Object(l.c)(t.user, e) },
-                t.contexts && { contexts: Object(l.c)(t.contexts, e) },
-                t.extra && { extra: Object(l.c)(t.extra, e) }
-              )
-            : null;
-        }),
-        (t.prototype._applyClientOptions = function (t) {
-          const e = this.getOptions(), n = e.environment, r = e.release, o = e.dist, i = e.maxValueLength, a = void 0 === i ? 250 : i;
-          void 0 === t.environment && void 0 !== n && (t.environment = n),
-            void 0 === t.release && void 0 !== r && (t.release = r),
-            void 0 === t.dist && void 0 !== o && (t.dist = o),
-            t.message && (t.message = Object(p.d)(t.message, a));
-          const c = t.exception && t.exception.values && t.exception.values[0];
-          c && c.value && (c.value = Object(p.d)(c.value, a));
-          const s = t.request;
-          s && s.url && (s.url = Object(p.d)(s.url, a));
-        }),
-        (t.prototype._applyIntegrationsMetadata = function (t) {
-          const e = t.sdk, n = Object.keys(this._integrations);
-          e && n.length > 0 && (e.integrations = n);
-        }),
-        (t.prototype._sendEvent = function (t) {
-          this._getBackend().sendEvent(t);
-        }),
-        (t.prototype._processEvent = function (t, e, n) {
-          const r = this, o = this.getOptions(), i = o.beforeSend, u = o.sampleRate;
-          if (!this._isEnabled())
-            return s.a.reject("SDK not enabled, will not send event.");
-          const l = "transaction" === t.type;
-          return !l && "number" === typeof u && Math.random() > u
-            ? s.a.reject("This event has been sampled, will not send event.")
-            : new s.a((o, s) => {
-                r._prepareEvent(t, n, e)
+          }),
+          (t.prototype.captureEvent = function (t, e, n) {
+            const r = this;
+            let o = e && e.event_id;
+            return (
+              (this._processing = !0),
+              this._processEvent(t, e, n)
+                .then((t) => {
+                  (o = t && t.event_id), (r._processing = !1);
+                })
+                .then(null, (t) => {
+                  c.a.error(t), (r._processing = !1);
+                }),
+              o
+            );
+          }),
+          (t.prototype.getDsn = function () {
+            return this._dsn;
+          }),
+          (t.prototype.getOptions = function () {
+            return this._options;
+          }),
+          (t.prototype.flush = function (t) {
+            const e = this;
+            return this._isClientProcessing(t).then((n) => {
+              return (
+                clearInterval(n.interval),
+                e
+                  ._getBackend()
+                  .getTransport()
+                  .close(t)
                   .then((t) => {
-                    if (null !== t) {
-                      let n = t;
-                      if (
-                        (e && e.data && !0 === e.data.__sentry__) ||
-                        !i ||
-                        l
-                      )
-                        return r._sendEvent(n), void o(n);
-                      const u = i(t, e);
-                      if ("undefined" === typeof u)
-                        c.a.error(
-                          "`beforeSend` method has to return `null` or a valid event."
-                        );
-                      else if (Object(a.m)(u))
-                        r._handleAsyncBeforeSend(u, o, s);
-                      else {
-                        if (null === (n = u))
-                          return (
-                            c.a.log(
-                              "`beforeSend` returned `null`, will not send event."
-                            ),
-                            void o(null)
-                          );
-                        r._sendEvent(n), o(n);
-                      }
-                    } else
-                      s(
-                        "An event processor returned null, will not send event."
-                      );
+                    return n.ready && t;
                   })
-                  .then(null, (t) => {
-                    r.captureException(t, {
-                      data: { __sentry__: !0 },
-                      originalException: t,
-                    }),
-                      s(
-                        "Event processing pipeline threw an error, original event will not be sent. Details have been sent as a new event.\nReason: " +
-                          t
-                      );
-                  });
+              );
+            });
+          }),
+          (t.prototype.close = function (t) {
+            const e = this;
+            return this.flush(t).then((t) => {
+              return (e.getOptions().enabled = !1), t;
+            });
+          }),
+          (t.prototype.setupIntegrations = function () {
+            this._isEnabled() && (this._integrations = h(this._options));
+          }),
+          (t.prototype.getIntegration = function (t) {
+            try {
+              return this._integrations[t.id] || null;
+            } catch (e) {
+              return (
+                c.a.warn(
+                  "Cannot retrieve integration " +
+                    t.id +
+                    " from the current Client"
+                ),
+                null
+              );
+            }
+          }),
+          (t.prototype._isClientProcessing = function (t) {
+            const e = this;
+            return new s.a((n) => {
+              let r = 0,
+                o = 0;
+              clearInterval(o),
+                (o = setInterval(() => {
+                  e._processing
+                    ? ((r += 1), t && r >= t && n({ interval: o, ready: !1 }))
+                    : n({ interval: o, ready: !0 });
+                }, 1));
+            });
+          }),
+          (t.prototype._getBackend = function () {
+            return this._backend;
+          }),
+          (t.prototype._isEnabled = function () {
+            return !1 !== this.getOptions().enabled && void 0 !== this._dsn;
+          }),
+          (t.prototype._prepareEvent = function (t, e, n) {
+            const i = this,
+              a = this.getOptions().normalizeDepth,
+              c = void 0 === a ? 3 : a,
+              l = r.a({}, t, {
+                event_id:
+                  t.event_id || (n && n.event_id ? n.event_id : Object(u.m)()),
+                timestamp: t.timestamp || Object(u.l)(),
               });
-        }),
-        (t.prototype._handleAsyncBeforeSend = function (t, e, n) {
-          const r = this;
-          t.then((t) => {
-            null !== t
-              ? (r._sendEvent(t), e(t))
-              : n("`beforeSend` returned `null`, will not send event.");
-          }).then(null, (t) => {
-            n("beforeSend rejected with " + t);
-          });
-        }),
-        t
-      ;
+            this._applyClientOptions(l), this._applyIntegrationsMetadata(l);
+            let p = e;
+            n &&
+              n.captureContext &&
+              (p = o.a.clone(p).update(n.captureContext));
+            let d = s.a.resolve(l);
+            return (
+              p && (d = p.applyToEvent(l, n)),
+              d.then((t) => {
+                return "number" === typeof c && c > 0
+                  ? i._normalizeEvent(t, c)
+                  : t;
+              })
+            );
+          }),
+          (t.prototype._normalizeEvent = (t, e) => {
+            return t
+              ? r.a(
+                  {},
+                  t,
+                  t.breadcrumbs && {
+                    breadcrumbs: t.breadcrumbs.map((t) => {
+                      return r.a(
+                        {},
+                        t,
+                        t.data && { data: Object(l.c)(t.data, e) }
+                      );
+                    }),
+                  },
+                  t.user && { user: Object(l.c)(t.user, e) },
+                  t.contexts && { contexts: Object(l.c)(t.contexts, e) },
+                  t.extra && { extra: Object(l.c)(t.extra, e) }
+                )
+              : null;
+          }),
+          (t.prototype._applyClientOptions = function (t) {
+            const e = this.getOptions(),
+              n = e.environment,
+              r = e.release,
+              o = e.dist,
+              i = e.maxValueLength,
+              a = void 0 === i ? 250 : i;
+            void 0 === t.environment && void 0 !== n && (t.environment = n),
+              void 0 === t.release && void 0 !== r && (t.release = r),
+              void 0 === t.dist && void 0 !== o && (t.dist = o),
+              t.message && (t.message = Object(p.d)(t.message, a));
+            const c =
+              t.exception && t.exception.values && t.exception.values[0];
+            c && c.value && (c.value = Object(p.d)(c.value, a));
+            const s = t.request;
+            s && s.url && (s.url = Object(p.d)(s.url, a));
+          }),
+          (t.prototype._applyIntegrationsMetadata = function (t) {
+            const e = t.sdk,
+              n = Object.keys(this._integrations);
+            e && n.length > 0 && (e.integrations = n);
+          }),
+          (t.prototype._sendEvent = function (t) {
+            this._getBackend().sendEvent(t);
+          }),
+          (t.prototype._processEvent = function (t, e, n) {
+            const r = this,
+              o = this.getOptions(),
+              i = o.beforeSend,
+              u = o.sampleRate;
+            if (!this._isEnabled())
+              return s.a.reject("SDK not enabled, will not send event.");
+            const l = "transaction" === t.type;
+            return !l && "number" === typeof u && Math.random() > u
+              ? s.a.reject("This event has been sampled, will not send event.")
+              : new s.a((o, s) => {
+                  r._prepareEvent(t, n, e)
+                    .then((t) => {
+                      if (null !== t) {
+                        let n = t;
+                        if (
+                          (e && e.data && !0 === e.data.__sentry__) ||
+                          !i ||
+                          l
+                        )
+                          return r._sendEvent(n), void o(n);
+                        const u = i(t, e);
+                        if ("undefined" === typeof u)
+                          c.a.error(
+                            "`beforeSend` method has to return `null` or a valid event."
+                          );
+                        else if (Object(a.m)(u))
+                          r._handleAsyncBeforeSend(u, o, s);
+                        else {
+                          if (null === (n = u))
+                            return (
+                              c.a.log(
+                                "`beforeSend` returned `null`, will not send event."
+                              ),
+                              void o(null)
+                            );
+                          r._sendEvent(n), o(n);
+                        }
+                      } else
+                        s(
+                          "An event processor returned null, will not send event."
+                        );
+                    })
+                    .then(null, (t) => {
+                      r.captureException(t, {
+                        data: { __sentry__: !0 },
+                        originalException: t,
+                      }),
+                        s(
+                          "Event processing pipeline threw an error, original event will not be sent. Details have been sent as a new event.\nReason: " +
+                            t
+                        );
+                    });
+                });
+          }),
+          (t.prototype._handleAsyncBeforeSend = function (t, e, n) {
+            const r = this;
+            t.then((t) => {
+              null !== t
+                ? (r._sendEvent(t), e(t))
+                : n("`beforeSend` returned `null`, will not send event.");
+            }).then(null, (t) => {
+              n("beforeSend rejected with " + t);
+            });
+          }),
+          t
+        );
       })();
     },
     PKZu(t, e, n) {
@@ -1319,10 +1369,14 @@
             return v;
           });
         n("SDrh");
-        const r = n("Gqt4"), o = n("MepA"), i = n("zNuj"), a = n("7Ki+");
+        const r = n("Gqt4"),
+          o = n("MepA"),
+          i = n("zNuj"),
+          a = n("7Ki+");
         function c(t, e, n) {
           if (e in t) {
-            const r = t[e], o = n(r);
+            const r = t[e],
+              o = n(r);
             if ("function" === typeof o)
               try {
                 (o.prototype = o.prototype || {}),
@@ -1342,13 +1396,15 @@
         }
         function u(t) {
           if (Object(r.d)(t)) {
-            const e = t, n = { message: e.message, name: e.name, stack: e.stack };
+            const e = t,
+              n = { message: e.message, name: e.name, stack: e.stack };
             for (var o in e)
               Object.prototype.hasOwnProperty.call(e, o) && (n[o] = e[o]);
             return n;
           }
           if (Object(r.f)(t)) {
-            const a = t, c = {};
+            const a = t,
+              c = {};
             c.type = a.type;
             try {
               c.target = Object(r.c)(a.target)
@@ -1422,7 +1478,8 @@
             return e.toJSON();
           const a = d(e, t);
           if (Object(r.i)(a)) return a;
-          const c = u(e), s = Array.isArray(e) ? [] : {};
+          const c = u(e),
+            s = Array.isArray(e) ? [] : {};
           if (i.memoize(e)) return "[Circular ~]";
           for (const l in c)
             Object.prototype.hasOwnProperty.call(c, l) &&
@@ -1575,7 +1632,8 @@
                     return function () {
                       for (var e = [], n = 0; n < arguments.length; n++)
                         e[n] = arguments[n];
-                      const r = this, i = { args: e, startTimestamp: Date.now(), xhr: r };
+                      const r = this,
+                        i = { args: e, startTimestamp: Date.now(), xhr: r };
                       return (
                         v("xhr", o.a({}, i)),
                         r.addEventListener("readystatechange", () => {
@@ -1645,7 +1703,8 @@
                       e[n] = arguments[n];
                     const o = e.length > 2 ? e[2] : void 0;
                     if (o) {
-                      const i = r, a = String(o);
+                      const i = r,
+                        a = String(o);
                       (r = a), v("history", { from: i, to: a });
                     }
                     return t.apply(this, e);
@@ -1654,7 +1713,8 @@
                 (l.onpopstate = function () {
                   for (var e = [], n = 0; n < arguments.length; n++)
                     e[n] = arguments[n];
-                  const o = l.location.href, i = r;
+                  const o = l.location.href,
+                    i = r;
                   if (((r = o), v("history", { from: i, to: o }), t))
                     return t.apply(this, e);
                 }),
@@ -1746,7 +1806,9 @@
             : String(t[0])
         );
       }
-      let m, _, g = 0;
+      let m,
+        _,
+        g = 0;
       function j(t, e, n) {
         return (
           void 0 === n && (n = !1),
@@ -1805,55 +1867,55 @@
           (this.name = t.id),
             (this._onErrorHandlerInstalled = !1),
             (this._onUnhandledRejectionHandlerInstalled = !1),
-            (this._options = r.a(
-              { onerror: !0, onunhandledrejection: !0 },
-              e
-            ));
+            (this._options = r.a({ onerror: !0, onunhandledrejection: !0 }, e));
         }
-        return (t.prototype.setupOnce = function () {
-          (Error.stackTraceLimit = 50),
-            this._options.onerror &&
-              (a.a.log("Global Handler attached: onerror"),
-              this._installGlobalOnErrorHandler()),
-            this._options.onunhandledrejection &&
-              (a.a.log("Global Handler attached: onunhandledrejection"),
-              this._installGlobalOnUnhandledRejectionHandler());
-        }),
-        (t.prototype._installGlobalOnErrorHandler = function () {
-          const e = this;
-          this._onErrorHandlerInstalled ||
-            (Object(c.a)({
-              callback(n) {
-                const r = n.error, i = Object(o.b)(), a = i.getIntegration(t), c = r && !0 === r.__sentry_own_request__;
-                if (a && !Object(p.a)() && !c) {
-                  const d = i.getClient(),
-                        f = Object(s.i)(r)
-                          ? e._eventFromIncompleteOnError(
-                              n.msg,
-                              n.url,
-                              n.line,
-                              n.column
-                            )
-                          : e._enhanceEventWithInitialFrame(
-                              Object(l.b)(r, void 0, {
-                                attachStacktrace:
-                                  d && d.getOptions().attachStacktrace,
-                                rejection: !1,
-                              }),
-                              n.url,
-                              n.line,
-                              n.column
-                            );
-                  Object(u.a)(f, { handled: !1, type: "onerror" }),
-                    i.captureEvent(f, { originalException: r });
-                }
-              },
-              type: "error",
-            }),
-            (this._onErrorHandlerInstalled = !0));
-        }),
-        (t.prototype._installGlobalOnUnhandledRejectionHandler =
-          function () {
+        return (
+          (t.prototype.setupOnce = function () {
+            (Error.stackTraceLimit = 50),
+              this._options.onerror &&
+                (a.a.log("Global Handler attached: onerror"),
+                this._installGlobalOnErrorHandler()),
+              this._options.onunhandledrejection &&
+                (a.a.log("Global Handler attached: onunhandledrejection"),
+                this._installGlobalOnUnhandledRejectionHandler());
+          }),
+          (t.prototype._installGlobalOnErrorHandler = function () {
+            const e = this;
+            this._onErrorHandlerInstalled ||
+              (Object(c.a)({
+                callback(n) {
+                  const r = n.error,
+                    i = Object(o.b)(),
+                    a = i.getIntegration(t),
+                    c = r && !0 === r.__sentry_own_request__;
+                  if (a && !Object(p.a)() && !c) {
+                    const d = i.getClient(),
+                      f = Object(s.i)(r)
+                        ? e._eventFromIncompleteOnError(
+                            n.msg,
+                            n.url,
+                            n.line,
+                            n.column
+                          )
+                        : e._enhanceEventWithInitialFrame(
+                            Object(l.b)(r, void 0, {
+                              attachStacktrace:
+                                d && d.getOptions().attachStacktrace,
+                              rejection: !1,
+                            }),
+                            n.url,
+                            n.line,
+                            n.column
+                          );
+                    Object(u.a)(f, { handled: !1, type: "onerror" }),
+                      i.captureEvent(f, { originalException: r });
+                  }
+                },
+                type: "error",
+              }),
+              (this._onErrorHandlerInstalled = !0));
+          }),
+          (t.prototype._installGlobalOnUnhandledRejectionHandler = function () {
             const e = this;
             this._onUnhandledRejectionHandlerInstalled ||
               (Object(c.a)({
@@ -1866,16 +1928,18 @@
                         "reason" in n.detail &&
                         (r = n.detail.reason);
                   } catch (v) {}
-                  const a = Object(o.b)(), c = a.getIntegration(t), d = r && !0 === r.__sentry_own_request__;
+                  const a = Object(o.b)(),
+                    c = a.getIntegration(t),
+                    d = r && !0 === r.__sentry_own_request__;
                   if (!c || Object(p.a)() || d) return !0;
                   const f = a.getClient(),
-                        h = Object(s.i)(r)
-                          ? e._eventFromIncompleteRejection(r)
-                          : Object(l.b)(r, void 0, {
-                              attachStacktrace:
-                                f && f.getOptions().attachStacktrace,
-                              rejection: !0,
-                            });
+                    h = Object(s.i)(r)
+                      ? e._eventFromIncompleteRejection(r)
+                      : Object(l.b)(r, void 0, {
+                          attachStacktrace:
+                            f && f.getOptions().attachStacktrace,
+                          rejection: !0,
+                        });
                   (h.level = i.a.Error),
                     Object(u.a)(h, {
                       handled: !1,
@@ -1887,56 +1951,59 @@
               }),
               (this._onUnhandledRejectionHandlerInstalled = !0));
           }),
-        (t.prototype._eventFromIncompleteOnError = function (t, e, n, r) {
-          let o, i = Object(s.e)(t) ? t.message : t;
-          if (Object(s.k)(i)) {
-            const a = i.match(
-              /^(?:[Uu]ncaught (?:exception: )?)?(?:((?:Eval|Internal|Range|Reference|Syntax|Type|URI|)Error): )?(.*)$/i
+          (t.prototype._eventFromIncompleteOnError = function (t, e, n, r) {
+            let o,
+              i = Object(s.e)(t) ? t.message : t;
+            if (Object(s.k)(i)) {
+              const a = i.match(
+                /^(?:[Uu]ncaught (?:exception: )?)?(?:((?:Eval|Internal|Range|Reference|Syntax|Type|URI|)Error): )?(.*)$/i
+              );
+              a && ((o = a[1]), (i = a[2]));
+            }
+            const c = {
+              exception: { values: [{ type: o || "Error", value: i }] },
+            };
+            return this._enhanceEventWithInitialFrame(c, e, n, r);
+          }),
+          (t.prototype._eventFromIncompleteRejection = (t) => {
+            return {
+              exception: {
+                values: [
+                  {
+                    type: "UnhandledRejection",
+                    value:
+                      "Non-Error promise rejection captured with value: " + t,
+                  },
+                ],
+              },
+            };
+          }),
+          (t.prototype._enhanceEventWithInitialFrame = (t, e, n, r) => {
+            (t.exception = t.exception || {}),
+              (t.exception.values = t.exception.values || []),
+              (t.exception.values[0] = t.exception.values[0] || {}),
+              (t.exception.values[0].stacktrace =
+                t.exception.values[0].stacktrace || {}),
+              (t.exception.values[0].stacktrace.frames =
+                t.exception.values[0].stacktrace.frames || []);
+            const o = isNaN(parseInt(r, 10)) ? void 0 : r,
+              i = isNaN(parseInt(n, 10)) ? void 0 : n,
+              a = Object(s.k)(e) && e.length > 0 ? e : Object(u.g)();
+            return (
+              0 === t.exception.values[0].stacktrace.frames.length &&
+                t.exception.values[0].stacktrace.frames.push({
+                  colno: o,
+                  filename: a,
+                  function: "?",
+                  in_app: !0,
+                  lineno: i,
+                }),
+              t
             );
-            a && ((o = a[1]), (i = a[2]));
-          }
-          const c = {
-            exception: { values: [{ type: o || "Error", value: i }] },
-          };
-          return this._enhanceEventWithInitialFrame(c, e, n, r);
-        }),
-        (t.prototype._eventFromIncompleteRejection = (t) => {
-          return {
-            exception: {
-              values: [
-                {
-                  type: "UnhandledRejection",
-                  value:
-                    "Non-Error promise rejection captured with value: " + t,
-                },
-              ],
-            },
-          };
-        }),
-        (t.prototype._enhanceEventWithInitialFrame = (t, e, n, r) => {
-          (t.exception = t.exception || {}),
-            (t.exception.values = t.exception.values || []),
-            (t.exception.values[0] = t.exception.values[0] || {}),
-            (t.exception.values[0].stacktrace =
-              t.exception.values[0].stacktrace || {}),
-            (t.exception.values[0].stacktrace.frames =
-              t.exception.values[0].stacktrace.frames || []);
-          const o = isNaN(parseInt(r, 10)) ? void 0 : r, i = isNaN(parseInt(n, 10)) ? void 0 : n, a = Object(s.k)(e) && e.length > 0 ? e : Object(u.g)();
-          return (
-            0 === t.exception.values[0].stacktrace.frames.length &&
-              t.exception.values[0].stacktrace.frames.push({
-                colno: o,
-                filename: a,
-                function: "?",
-                in_app: !0,
-                lineno: i,
-              }),
-            t
-          );
-        }),
-        (t.id = "GlobalHandlers"),
-        t
-      ;
+          }),
+          (t.id = "GlobalHandlers"),
+          t
+        );
       })();
     },
     ZAf6(t, e, n) {
@@ -1958,35 +2025,37 @@
             (this._key = e.key || "cause"),
             (this._limit = e.limit || 5);
         }
-        return (t.prototype.setupOnce = () => {
-          Object(o.b)((e, n) => {
-            const r = Object(i.b)().getIntegration(t);
-            return r ? r._handler(e, n) : e;
-          });
-        }),
-        (t.prototype._handler = function (t, e) {
-          if (
-            !t.exception ||
-            !t.exception.values ||
-            !e ||
-            !Object(a.g)(e.originalException, Error)
-          )
-            return t;
-          const n = this._walkErrorTree(e.originalException, this._key);
-          return (t.exception.values = r.d(n, t.exception.values)), t;
-        }),
-        (t.prototype._walkErrorTree = function (t, e, n) {
-          if (
-            (void 0 === n && (n = []),
-            !Object(a.g)(t[e], Error) || n.length + 1 >= this._limit)
-          )
-            return n;
-          const o = Object(s.a)(t[e]), i = Object(c.c)(o);
-          return this._walkErrorTree(t[e], e, r.d([i], n));
-        }),
-        (t.id = "LinkedErrors"),
-        t
-      ;
+        return (
+          (t.prototype.setupOnce = () => {
+            Object(o.b)((e, n) => {
+              const r = Object(i.b)().getIntegration(t);
+              return r ? r._handler(e, n) : e;
+            });
+          }),
+          (t.prototype._handler = function (t, e) {
+            if (
+              !t.exception ||
+              !t.exception.values ||
+              !e ||
+              !Object(a.g)(e.originalException, Error)
+            )
+              return t;
+            const n = this._walkErrorTree(e.originalException, this._key);
+            return (t.exception.values = r.d(n, t.exception.values)), t;
+          }),
+          (t.prototype._walkErrorTree = function (t, e, n) {
+            if (
+              (void 0 === n && (n = []),
+              !Object(a.g)(t[e], Error) || n.length + 1 >= this._limit)
+            )
+              return n;
+            const o = Object(s.a)(t[e]),
+              i = Object(c.c)(o);
+            return this._walkErrorTree(t[e], e, r.d([i], n));
+          }),
+          (t.id = "LinkedErrors"),
+          t
+        );
       })();
     },
     ZjPo(t, e, n) {
@@ -1995,19 +2064,20 @@
         return i;
       });
       const r = n("SDrh"),
-            o =
-              Object.setPrototypeOf ||
-              ({ __proto__: [] } instanceof Array
-                ? (t, e) => {
-                    return (t.__proto__ = e), t;
-                  }
-                : (t, e) => {
-                    for (const n in e) t.hasOwnProperty(n) || (t[n] = e[n]);
-                    return t;
-                  });
+        o =
+          Object.setPrototypeOf ||
+          ({ __proto__: [] } instanceof Array
+            ? (t, e) => {
+                return (t.__proto__ = e), t;
+              }
+            : (t, e) => {
+                for (const n in e) t.hasOwnProperty(n) || (t[n] = e[n]);
+                return t;
+              });
       var i = ((t) => {
         function e(e) {
-          const n = this.constructor, r = t.call(this, e) || this;
+          const n = this.constructor,
+            r = t.call(this, e) || this;
           return (
             (r.message = e),
             (r.name = n.prototype.constructor.name),
@@ -2032,7 +2102,8 @@
         n.d(e, "b", () => {
           return u;
         });
-      const r = n("XmZJ"), o = n("zNuj");
+      const r = n("XmZJ"),
+        o = n("zNuj");
       function i() {
         if (!("fetch" in Object(o.f)())) return !1;
         try {
@@ -2080,10 +2151,10 @@
       }
       function u() {
         const t = Object(o.f)(),
-              e = t.chrome,
-              n = e && e.app && e.app.runtime,
-              r =
-                "history" in t && !!t.history.pushState && !!t.history.replaceState;
+          e = t.chrome,
+          n = e && e.app && e.app.runtime,
+          r =
+            "history" in t && !!t.history.pushState && !!t.history.replaceState;
         return !n && r;
       }
     },
@@ -2095,12 +2166,12 @@
       const r = n("zNuj");
       function o(t, e) {
         const n = "transaction" === t.type,
-              o = {
-                body: JSON.stringify(t),
-                url: n
-                  ? e.getEnvelopeEndpointWithUrlEncodedAuth()
-                  : e.getStoreEndpointWithUrlEncodedAuth(),
-              };
+          o = {
+            body: JSON.stringify(t),
+            url: n
+              ? e.getEnvelopeEndpointWithUrlEncodedAuth()
+              : e.getStoreEndpointWithUrlEncodedAuth(),
+          };
         if (n) {
           const i =
             JSON.stringify({
@@ -2146,10 +2217,12 @@
       n.d(e, "a", () => {
         return i;
       });
-      const r = n("zoce"), o = n("XmZJ");
+      const r = n("zoce"),
+        o = n("XmZJ");
       function i(t, e) {
         !0 === e.debug && o.a.enable();
-        const n = Object(r.b)(), i = new t(e);
+        const n = Object(r.b)(),
+          i = new t(e);
         n.bindClient(i);
       }
     },
@@ -2195,9 +2268,12 @@
         n.d(e, "d", () => {
           return u;
         });
-      const r = n("Gqt4"), o = n("Qc63"), i = n("yCKT");
+      const r = n("Gqt4"),
+        o = n("Qc63"),
+        i = n("yCKT");
       function a(t) {
-        const e = u(t.stack), n = { type: t.name, value: t.message };
+        const e = u(t.stack),
+          n = { type: t.name, value: t.message };
         return (
           e && e.length && (n.stacktrace = { frames: e }),
           void 0 === n.type &&
@@ -2282,45 +2358,46 @@
         function e() {
           return (null !== t && t.apply(this, arguments)) || this;
         }
-        return r.b(e, t),
-        (e.prototype._setupTransport = function () {
-          if (!this._options.dsn)
-            return t.prototype._setupTransport.call(this);
-          const e = r.a({}, this._options.transportOptions, {
-            dsn: this._options.dsn,
-          });
-          return this._options.transport
-            ? new this._options.transport(e)
-            : Object(l.a)()
-            ? new f.a(e)
-            : new h.a(e);
-        }),
-        (e.prototype.eventFromException = function (t, e) {
-          const n = (e && e.syntheticException) || void 0,
-                r = Object(d.b)(t, n, {
-                  attachStacktrace: this._options.attachStacktrace,
-                });
-          return (
-            Object(a.a)(r, { handled: !0, type: "generic" }),
-            (r.level = u.a.Error),
-            e && e.event_id && (r.event_id = e.event_id),
-            p.a.resolve(r)
-          );
-        }),
-        (e.prototype.eventFromMessage = function (t, e, n) {
-          void 0 === e && (e = u.a.Info);
-          const r = (n && n.syntheticException) || void 0,
-                o = Object(d.a)(t, r, {
-                  attachStacktrace: this._options.attachStacktrace,
-                });
-          return (
-            (o.level = e),
-            n && n.event_id && (o.event_id = n.event_id),
-            p.a.resolve(o)
-          );
-        }),
-        e
-      ;
+        return (
+          r.b(e, t),
+          (e.prototype._setupTransport = function () {
+            if (!this._options.dsn)
+              return t.prototype._setupTransport.call(this);
+            const e = r.a({}, this._options.transportOptions, {
+              dsn: this._options.dsn,
+            });
+            return this._options.transport
+              ? new this._options.transport(e)
+              : Object(l.a)()
+              ? new f.a(e)
+              : new h.a(e);
+          }),
+          (e.prototype.eventFromException = function (t, e) {
+            const n = (e && e.syntheticException) || void 0,
+              r = Object(d.b)(t, n, {
+                attachStacktrace: this._options.attachStacktrace,
+              });
+            return (
+              Object(a.a)(r, { handled: !0, type: "generic" }),
+              (r.level = u.a.Error),
+              e && e.event_id && (r.event_id = e.event_id),
+              p.a.resolve(r)
+            );
+          }),
+          (e.prototype.eventFromMessage = function (t, e, n) {
+            void 0 === e && (e = u.a.Info);
+            const r = (n && n.syntheticException) || void 0,
+              o = Object(d.a)(t, r, {
+                attachStacktrace: this._options.attachStacktrace,
+              });
+            return (
+              (o.level = e),
+              n && n.event_id && (o.event_id = n.event_id),
+              p.a.resolve(o)
+            );
+          }),
+          e
+        );
       })(s.a);
 
       const b = n("/ZhC");
@@ -2330,53 +2407,51 @@
         function e(e) {
           return void 0 === e && (e = {}), t.call(this, v, e) || this;
         }
-        return r.b(e, t),
-        (e.prototype._prepareEvent = function (e, n, o) {
-          return (
-            (e.platform = e.platform || "javascript"),
-            (e.sdk = r.a({}, e.sdk, {
-              name: y.a,
-              packages: r.d((e.sdk && e.sdk.packages) || [], [
-                { name: "npm:@sentry/browser", version: y.b },
-              ]),
-              version: y.b,
-            })),
-            t.prototype._prepareEvent.call(this, e, n, o)
-          );
-        }),
-        (e.prototype._sendEvent = function (e) {
-          const n = this.getIntegration(b.a);
-          n && n.addSentryBreadcrumb(e),
-            t.prototype._sendEvent.call(this, e);
-        }),
-        (e.prototype.showReportDialog = function (t) {
-          void 0 === t && (t = {});
-          const e = Object(a.f)().document;
-          if (e)
-            if (this._isEnabled()) {
-              const n = t.dsn || this.getDsn();
-              if (t.eventId)
-                if (n) {
-                  const r = e.createElement("script");
-                  (r.async = !0),
-                    (r.src = new o.a(n).getReportDialogEndpoint(t)),
-                    t.onLoad && (r.onload = t.onLoad),
-                    (e.head || e.body).appendChild(r);
-                } else
+        return (
+          r.b(e, t),
+          (e.prototype._prepareEvent = function (e, n, o) {
+            return (
+              (e.platform = e.platform || "javascript"),
+              (e.sdk = r.a({}, e.sdk, {
+                name: y.a,
+                packages: r.d((e.sdk && e.sdk.packages) || [], [
+                  { name: "npm:@sentry/browser", version: y.b },
+                ]),
+                version: y.b,
+              })),
+              t.prototype._prepareEvent.call(this, e, n, o)
+            );
+          }),
+          (e.prototype._sendEvent = function (e) {
+            const n = this.getIntegration(b.a);
+            n && n.addSentryBreadcrumb(e), t.prototype._sendEvent.call(this, e);
+          }),
+          (e.prototype.showReportDialog = function (t) {
+            void 0 === t && (t = {});
+            const e = Object(a.f)().document;
+            if (e)
+              if (this._isEnabled()) {
+                const n = t.dsn || this.getDsn();
+                if (t.eventId)
+                  if (n) {
+                    const r = e.createElement("script");
+                    (r.async = !0),
+                      (r.src = new o.a(n).getReportDialogEndpoint(t)),
+                      t.onLoad && (r.onload = t.onLoad),
+                      (e.head || e.body).appendChild(r);
+                  } else
+                    c.a.error("Missing `Dsn` option in showReportDialog call");
+                else
                   c.a.error(
-                    "Missing `Dsn` option in showReportDialog call"
+                    "Missing `eventId` option in showReportDialog call"
                   );
-              else
+              } else
                 c.a.error(
-                  "Missing `eventId` option in showReportDialog call"
+                  "Trying to call showReportDialog with Sentry Client is disabled"
                 );
-            } else
-              c.a.error(
-                "Trying to call showReportDialog with Sentry Client is disabled"
-              );
-        }),
-        e
-      ;
+          }),
+          e
+        );
       })(i.a);
     },
     nmNn(t, e, n) {
@@ -2394,24 +2469,25 @@
         function t() {
           this.name = t.id;
         }
-        return (t.prototype.setupOnce = () => {
-          Object(o.b)((e) => {
-            if (Object(i.b)().getIntegration(t)) {
-              if (!c.navigator || !c.location) return e;
-              const n = e.request || {};
-              return (
-                (n.url = n.url || c.location.href),
-                (n.headers = n.headers || {}),
-                (n.headers["User-Agent"] = c.navigator.userAgent),
-                r.a({}, e, { request: n })
-              );
-            }
-            return e;
-          });
-        }),
-        (t.id = "UserAgent"),
-        t
-      ;
+        return (
+          (t.prototype.setupOnce = () => {
+            Object(o.b)((e) => {
+              if (Object(i.b)().getIntegration(t)) {
+                if (!c.navigator || !c.location) return e;
+                const n = e.request || {};
+                return (
+                  (n.url = n.url || c.location.href),
+                  (n.headers = n.headers || {}),
+                  (n.headers["User-Agent"] = c.navigator.userAgent),
+                  r.a({}, e, { request: n })
+                );
+              }
+              return e;
+            });
+          }),
+          (t.id = "UserAgent"),
+          t
+        );
       })();
     },
     omaz(t, e, n) {
@@ -2565,150 +2641,146 @@
               e
             ));
         }
-        return (t.prototype._wrapTimeFunction = (t) => {
-          return function () {
-            for (var e = [], n = 0; n < arguments.length; n++)
-              e[n] = arguments[n];
-            const r = e[0];
-            return (
-              (e[0] = Object(a.b)(r, {
-                mechanism: {
-                  data: { function: Object(o.e)(t) },
-                  handled: !0,
-                  type: "instrument",
-                },
-              })),
-              t.apply(this, e)
-            );
-          };
-        }),
-        (t.prototype._wrapRAF = (t) => {
-          return function (e) {
-            return t.call(
-              this,
-              Object(a.b)(e, {
-                mechanism: {
-                  data: {
-                    function: "requestAnimationFrame",
-                    handler: Object(o.e)(t),
+        return (
+          (t.prototype._wrapTimeFunction = (t) => {
+            return function () {
+              for (var e = [], n = 0; n < arguments.length; n++)
+                e[n] = arguments[n];
+              const r = e[0];
+              return (
+                (e[0] = Object(a.b)(r, {
+                  mechanism: {
+                    data: { function: Object(o.e)(t) },
+                    handled: !0,
+                    type: "instrument",
                   },
-                  handled: !0,
-                  type: "instrument",
-                },
-              })
-            );
-          };
-        }),
-        (t.prototype._wrapEventTarget = (t) => {
-          const e = Object(o.f)(), n = e[t] && e[t].prototype;
-          n &&
-            n.hasOwnProperty &&
-            n.hasOwnProperty("addEventListener") &&
-            (Object(i.b)(n, "addEventListener", (e) => {
-              return function (n, r, i) {
-                try {
-                  "function" === typeof r.handleEvent &&
-                    (r.handleEvent = Object(a.b)(r.handleEvent.bind(r), {
+                })),
+                t.apply(this, e)
+              );
+            };
+          }),
+          (t.prototype._wrapRAF = (t) => {
+            return function (e) {
+              return t.call(
+                this,
+                Object(a.b)(e, {
+                  mechanism: {
+                    data: {
+                      function: "requestAnimationFrame",
+                      handler: Object(o.e)(t),
+                    },
+                    handled: !0,
+                    type: "instrument",
+                  },
+                })
+              );
+            };
+          }),
+          (t.prototype._wrapEventTarget = (t) => {
+            const e = Object(o.f)(),
+              n = e[t] && e[t].prototype;
+            n &&
+              n.hasOwnProperty &&
+              n.hasOwnProperty("addEventListener") &&
+              (Object(i.b)(n, "addEventListener", (e) => {
+                return function (n, r, i) {
+                  try {
+                    "function" === typeof r.handleEvent &&
+                      (r.handleEvent = Object(a.b)(r.handleEvent.bind(r), {
+                        mechanism: {
+                          data: {
+                            function: "handleEvent",
+                            handler: Object(o.e)(r),
+                            target: t,
+                          },
+                          handled: !0,
+                          type: "instrument",
+                        },
+                      }));
+                  } catch (c) {}
+                  return e.call(
+                    this,
+                    n,
+                    Object(a.b)(r, {
                       mechanism: {
                         data: {
-                          function: "handleEvent",
+                          function: "addEventListener",
                           handler: Object(o.e)(r),
                           target: t,
                         },
                         handled: !0,
                         type: "instrument",
                       },
-                    }));
-                } catch (c) {}
-                return e.call(
-                  this,
-                  n,
-                  Object(a.b)(r, {
-                    mechanism: {
-                      data: {
-                        function: "addEventListener",
-                        handler: Object(o.e)(r),
-                        target: t,
-                      },
-                      handled: !0,
-                      type: "instrument",
-                    },
-                  }),
-                  i
-                );
-              };
-            }),
-            Object(i.b)(n, "removeEventListener", (t) => {
-              return function (e, n, r) {
-                let o = n;
-                try {
-                  o = o && (o.__sentry_wrapped__ || o);
-                } catch (i) {}
-                return t.call(this, e, o, r);
-              };
-            }));
-        }),
-        (t.prototype._wrapXHR = (t) => {
-          return function () {
-            for (var e = [], n = 0; n < arguments.length; n++)
-              e[n] = arguments[n];
-            const r = this, c = ["onload", "onerror", "onprogress", "onreadystatechange"];
-            return c.forEach((t) => {
-              t in r &&
-                "function" === typeof r[t] &&
-                Object(i.b)(r, t, (e) => {
-                  const n = {
-                    mechanism: {
-                      data: { function: t, handler: Object(o.e)(e) },
-                      handled: !0,
-                      type: "instrument",
-                    },
-                  };
-                  return (
-                    e.__sentry_original__ &&
-                      (n.mechanism.data.handler = Object(o.e)(
-                        e.__sentry_original__
-                      )),
-                    Object(a.b)(e, n)
+                    }),
+                    i
                   );
-                });
-            }),
-            t.apply(this, e)
-          ;
-          };
-        }),
-        (t.prototype.setupOnce = function () {
-          const t = Object(o.f)();
-          (this._options.setTimeout &&
-            Object(i.b)(t, "setTimeout", this._wrapTimeFunction.bind(this)),
-          this._options.setInterval &&
-            Object(i.b)(
-              t,
-              "setInterval",
-              this._wrapTimeFunction.bind(this)
-            ),
-          this._options.requestAnimationFrame &&
-            Object(i.b)(
-              t,
-              "requestAnimationFrame",
-              this._wrapRAF.bind(this)
-            ),
-          this._options.XMLHttpRequest &&
-            "XMLHttpRequest" in t &&
-            Object(i.b)(
-              XMLHttpRequest.prototype,
-              "send",
-              this._wrapXHR.bind(this)
-            ),
-          this._options.eventTarget) &&
-            (Array.isArray(this._options.eventTarget)
-              ? this._options.eventTarget
-              : c
-            ).forEach(this._wrapEventTarget.bind(this));
-        }),
-        (t.id = "TryCatch"),
-        t
-      ;
+                };
+              }),
+              Object(i.b)(n, "removeEventListener", (t) => {
+                return function (e, n, r) {
+                  let o = n;
+                  try {
+                    o = o && (o.__sentry_wrapped__ || o);
+                  } catch (i) {}
+                  return t.call(this, e, o, r);
+                };
+              }));
+          }),
+          (t.prototype._wrapXHR = (t) => {
+            return function () {
+              for (var e = [], n = 0; n < arguments.length; n++)
+                e[n] = arguments[n];
+              const r = this,
+                c = ["onload", "onerror", "onprogress", "onreadystatechange"];
+              return (
+                c.forEach((t) => {
+                  t in r &&
+                    "function" === typeof r[t] &&
+                    Object(i.b)(r, t, (e) => {
+                      const n = {
+                        mechanism: {
+                          data: { function: t, handler: Object(o.e)(e) },
+                          handled: !0,
+                          type: "instrument",
+                        },
+                      };
+                      return (
+                        e.__sentry_original__ &&
+                          (n.mechanism.data.handler = Object(o.e)(
+                            e.__sentry_original__
+                          )),
+                        Object(a.b)(e, n)
+                      );
+                    });
+                }),
+                t.apply(this, e)
+              );
+            };
+          }),
+          (t.prototype.setupOnce = function () {
+            const t = Object(o.f)();
+            (this._options.setTimeout &&
+              Object(i.b)(t, "setTimeout", this._wrapTimeFunction.bind(this)),
+            this._options.setInterval &&
+              Object(i.b)(t, "setInterval", this._wrapTimeFunction.bind(this)),
+            this._options.requestAnimationFrame &&
+              Object(i.b)(t, "requestAnimationFrame", this._wrapRAF.bind(this)),
+            this._options.XMLHttpRequest &&
+              "XMLHttpRequest" in t &&
+              Object(i.b)(
+                XMLHttpRequest.prototype,
+                "send",
+                this._wrapXHR.bind(this)
+              ),
+            this._options.eventTarget) &&
+              (Array.isArray(this._options.eventTarget)
+                ? this._options.eventTarget
+                : c
+              ).forEach(this._wrapEventTarget.bind(this));
+          }),
+          (t.id = "TryCatch"),
+          t
+        );
       })();
     },
     yCKT(t, e, n) {
@@ -2717,15 +2789,15 @@
         return l;
       });
       const r = n("SDrh"),
-            o = "?",
-            i =
-              /^\s*at (?:(.*?) ?\()?((?:file|https?|blob|chrome-extension|address|native|eval|webpack|<anonymous>|[-a-z]+:|.*bundle|\/).*?)(?::(\d+))?(?::(\d+))?\)?\s*$/i,
-            a =
-              /^\s*(.*?)(?:\((.*?)\))?(?:^|@)?((?:file|https?|blob|chrome|webpack|resource|moz-extension).*?:\/.*?|\[native code\]|[^@]*(?:bundle|\d+\.js))(?::(\d+))?(?::(\d+))?\s*$/i,
-            c =
-              /^\s*at (?:((?:\[object object\])?.+) )?\(?((?:file|ms-appx|https?|webpack|blob):.*?):(\d+)(?::(\d+))?\)?\s*$/i,
-            s = /(\S+) line (\d+)(?: > eval line \d+)* > eval/i,
-            u = /\((\S*)(?::(\d+))(?::(\d+))\)/;
+        o = "?",
+        i =
+          /^\s*at (?:(.*?) ?\()?((?:file|https?|blob|chrome-extension|address|native|eval|webpack|<anonymous>|[-a-z]+:|.*bundle|\/).*?)(?::(\d+))?(?::(\d+))?\)?\s*$/i,
+        a =
+          /^\s*(.*?)(?:\((.*?)\))?(?:^|@)?((?:file|https?|blob|chrome|webpack|resource|moz-extension).*?:\/.*?|\[native code\]|[^@]*(?:bundle|\d+\.js))(?::(\d+))?(?::(\d+))?\s*$/i,
+        c =
+          /^\s*at (?:((?:\[object object\])?.+) )?\(?((?:file|ms-appx|https?|webpack|blob):.*?):(\d+)(?::(\d+))?\)?\s*$/i,
+        s = /(\S+) line (\d+)(?: > eval line \d+)* > eval/i,
+        u = /\((\S*)(?::(\d+))(?::(\d+))\)/;
       function l(t) {
         let e = null;
         const n = t && t.framesToPop;

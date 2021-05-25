@@ -292,140 +292,141 @@
             (this._tail = void 0),
             (this._size = 0);
         }
-        return (e.prototype.clear = function () {
-          this._map.clear(),
-            (this._head = void 0),
-            (this._tail = void 0),
-            (this._size = 0);
-        }),
-        (e.prototype.isEmpty = function () {
-          return !this._head && !this._tail;
-        }),
-        Object.defineProperty(e.prototype, "size", {
-          get() {
-            return this._size;
-          },
-          enumerable: !0,
-          configurable: !0,
-        }),
-        (e.prototype.has = function (e) {
-          return this._map.has(e);
-        }),
-        (e.prototype.get = function (e) {
-          const t = this._map.get(e);
-          if (t) return t.value;
-        }),
-        (e.prototype.set = function (e, t, r) {
-          void 0 === r && (r = n.None);
-          let i = this._map.get(e);
-          if (i) (i.value = t), r !== n.None && this.touch(i, r);
-          else {
-            switch (
-              ((i = { key: e, value: t, next: void 0, previous: void 0 }), r)
-            ) {
-              case n.None:
-                this.addItemLast(i);
-                break;
-              case n.First:
-                this.addItemFirst(i);
-                break;
-              case n.Last:
-              default:
-                this.addItemLast(i);
+        return (
+          (e.prototype.clear = function () {
+            this._map.clear(),
+              (this._head = void 0),
+              (this._tail = void 0),
+              (this._size = 0);
+          }),
+          (e.prototype.isEmpty = function () {
+            return !this._head && !this._tail;
+          }),
+          Object.defineProperty(e.prototype, "size", {
+            get() {
+              return this._size;
+            },
+            enumerable: !0,
+            configurable: !0,
+          }),
+          (e.prototype.has = function (e) {
+            return this._map.has(e);
+          }),
+          (e.prototype.get = function (e) {
+            const t = this._map.get(e);
+            if (t) return t.value;
+          }),
+          (e.prototype.set = function (e, t, r) {
+            void 0 === r && (r = n.None);
+            let i = this._map.get(e);
+            if (i) (i.value = t), r !== n.None && this.touch(i, r);
+            else {
+              switch (
+                ((i = { key: e, value: t, next: void 0, previous: void 0 }), r)
+              ) {
+                case n.None:
+                  this.addItemLast(i);
+                  break;
+                case n.First:
+                  this.addItemFirst(i);
+                  break;
+                case n.Last:
+                default:
+                  this.addItemLast(i);
+              }
+              this._map.set(e, i), this._size++;
             }
-            this._map.set(e, i), this._size++;
-          }
-        }),
-        (e.prototype.delete = function (e) {
-          const t = this._map.get(e);
-          return (
-            !!t && (this._map.delete(e), this.removeItem(t), this._size--, !0)
-          );
-        }),
-        (e.prototype.shift = function () {
-          if (this._head || this._tail) {
-            if (!this._head || !this._tail) throw new Error("Invalid list");
-            const e = this._head;
+          }),
+          (e.prototype.delete = function (e) {
+            const t = this._map.get(e);
             return (
-              this._map.delete(e.key),
-              this.removeItem(e),
-              this._size--,
-              e.value
+              !!t && (this._map.delete(e), this.removeItem(t), this._size--, !0)
             );
-          }
-        }),
-        (e.prototype.forEach = function (e, t) {
-          for (let r = this._head; r; )
-            t ? e.bind(t)(r.value, r.key, this) : e(r.value, r.key, this),
-              (r = r.next);
-        }),
-        (e.prototype.forEachReverse = function (e, t) {
-          for (let r = this._tail; r; )
-            t ? e.bind(t)(r.value, r.key, this) : e(r.value, r.key, this),
-              (r = r.previous);
-        }),
-        (e.prototype.values = function () {
-          for (var e = [], t = this._head; t; ) e.push(t.value), (t = t.next);
-          return e;
-        }),
-        (e.prototype.keys = function () {
-          for (var e = [], t = this._head; t; ) e.push(t.key), (t = t.next);
-          return e;
-        }),
-        (e.prototype.addItemFirst = function (e) {
-          if (this._head || this._tail) {
-            if (!this._head) throw new Error("Invalid list");
-            (e.next = this._head), (this._head.previous = e);
-          } else this._tail = e;
-          this._head = e;
-        }),
-        (e.prototype.addItemLast = function (e) {
-          if (this._head || this._tail) {
-            if (!this._tail) throw new Error("Invalid list");
-            (e.previous = this._tail), (this._tail.next = e);
-          } else this._head = e;
-          this._tail = e;
-        }),
-        (e.prototype.removeItem = function (e) {
-          if (e === this._head && e === this._tail)
-            (this._head = void 0), (this._tail = void 0);
-          else if (e === this._head) this._head = e.next;
-          else if (e === this._tail) this._tail = e.previous;
-          else {
-            const t = e.next;
-            const r = e.previous;
-            if (!t || !r) throw new Error("Invalid list");
-            (t.previous = r), (r.next = t);
-          }
-        }),
-        (e.prototype.touch = function (e, t) {
-          if (!this._head || !this._tail) throw new Error("Invalid list");
-          if (t === n.First || t === n.Last)
-            if (t === n.First) {
-              if (e === this._head) return;
-              var r = e.next;
-              var i = e.previous;
-              e === this._tail
-                ? ((i.next = void 0), (this._tail = i))
-                : ((r.previous = i), (i.next = r)),
-                (e.previous = void 0),
-                (e.next = this._head),
-                (this._head.previous = e),
-                (this._head = e);
-            } else if (t === n.Last) {
-              if (e === this._tail) return;
-              (r = e.next), (i = e.previous);
-              e === this._head
-                ? ((r.previous = void 0), (this._head = r))
-                : ((r.previous = i), (i.next = r)),
-                (e.next = void 0),
-                (e.previous = this._tail),
-                (this._tail.next = e),
-                (this._tail = e);
+          }),
+          (e.prototype.shift = function () {
+            if (this._head || this._tail) {
+              if (!this._head || !this._tail) throw new Error("Invalid list");
+              const e = this._head;
+              return (
+                this._map.delete(e.key),
+                this.removeItem(e),
+                this._size--,
+                e.value
+              );
             }
-        }),
-        e
-      ;
+          }),
+          (e.prototype.forEach = function (e, t) {
+            for (let r = this._head; r; )
+              t ? e.bind(t)(r.value, r.key, this) : e(r.value, r.key, this),
+                (r = r.next);
+          }),
+          (e.prototype.forEachReverse = function (e, t) {
+            for (let r = this._tail; r; )
+              t ? e.bind(t)(r.value, r.key, this) : e(r.value, r.key, this),
+                (r = r.previous);
+          }),
+          (e.prototype.values = function () {
+            for (var e = [], t = this._head; t; ) e.push(t.value), (t = t.next);
+            return e;
+          }),
+          (e.prototype.keys = function () {
+            for (var e = [], t = this._head; t; ) e.push(t.key), (t = t.next);
+            return e;
+          }),
+          (e.prototype.addItemFirst = function (e) {
+            if (this._head || this._tail) {
+              if (!this._head) throw new Error("Invalid list");
+              (e.next = this._head), (this._head.previous = e);
+            } else this._tail = e;
+            this._head = e;
+          }),
+          (e.prototype.addItemLast = function (e) {
+            if (this._head || this._tail) {
+              if (!this._tail) throw new Error("Invalid list");
+              (e.previous = this._tail), (this._tail.next = e);
+            } else this._head = e;
+            this._tail = e;
+          }),
+          (e.prototype.removeItem = function (e) {
+            if (e === this._head && e === this._tail)
+              (this._head = void 0), (this._tail = void 0);
+            else if (e === this._head) this._head = e.next;
+            else if (e === this._tail) this._tail = e.previous;
+            else {
+              const t = e.next;
+              const r = e.previous;
+              if (!t || !r) throw new Error("Invalid list");
+              (t.previous = r), (r.next = t);
+            }
+          }),
+          (e.prototype.touch = function (e, t) {
+            if (!this._head || !this._tail) throw new Error("Invalid list");
+            if (t === n.First || t === n.Last)
+              if (t === n.First) {
+                if (e === this._head) return;
+                var r = e.next;
+                var i = e.previous;
+                e === this._tail
+                  ? ((i.next = void 0), (this._tail = i))
+                  : ((r.previous = i), (i.next = r)),
+                  (e.previous = void 0),
+                  (e.next = this._head),
+                  (this._head.previous = e),
+                  (this._head = e);
+              } else if (t === n.Last) {
+                if (e === this._tail) return;
+                (r = e.next), (i = e.previous);
+                e === this._head
+                  ? ((r.previous = void 0), (this._head = r))
+                  : ((r.previous = i), (i.next = r)),
+                  (e.next = void 0),
+                  (e.previous = this._tail),
+                  (this._tail.next = e),
+                  (this._tail = e);
+              }
+          }),
+          e
+        );
       })();
       t.LinkedMap = i;
     },
@@ -699,8 +700,11 @@
                               let t = void 0;
                               S === l.Verbose &&
                                 e.params &&
-                                (t =
-                                  `Params: ${JSON.stringify(e.params, null, 4)}\n\n`);
+                                (t = `Params: ${JSON.stringify(
+                                  e.params,
+                                  null,
+                                  4
+                                )}\n\n`);
                               u.log(
                                 `Received request '${e.method} - (${e.id})'.`,
                                 t
@@ -804,72 +808,80 @@
                           })(e)
                         : s.isNotificationMessage(e)
                         ? ((e) => {
-                        if (J()) return;
-                        let t;
-                        let r = void 0;
-                        if (e.method === d.type.method)
-                          t = (e) => {
-                            const t = e.id;
-                            const r = q[String(t)];
-                            r && r.cancel();
-                          };
-                        else {
-                          const i = C[e.method];
-                          i && ((t = i.handler), (r = i.type));
-                        }
-                        if (t || E)
-                          try {
-                            !((e) => {
-                              if (
-                                S === l.Off ||
-                                !u ||
-                                e.method === h.type.method
-                              )
-                                return;
-                              let t = void 0;
-                              S === l.Verbose &&
-                                (t = e.params
-                                  ? `Params: ${JSON.stringify(e.params, null, 4)}\n\n`
-                                  : "No parameters provided.\n\n");
-                              u.log(
-                                `Received notification '${e.method}'.`,
-                                t
-                              );
-                            })(e),
-                              void 0 === e.params ||
-                              (void 0 !== r && 0 === r.numberOfParams)
-                                ? t
-                                  ? t()
-                                  : E(e.method)
-                                : o.array(e.params) &&
-                                  (void 0 === r || r.numberOfParams > 1)
-                                ? t
-                                  ? t.apply(void 0, e.params)
-                                  : E.apply(
-                                      void 0,
-                                      [e.method].concat(e.params)
+                            if (J()) return;
+                            let t;
+                            let r = void 0;
+                            if (e.method === d.type.method)
+                              t = (e) => {
+                                const t = e.id;
+                                const r = q[String(t)];
+                                r && r.cancel();
+                              };
+                            else {
+                              const i = C[e.method];
+                              i && ((t = i.handler), (r = i.type));
+                            }
+                            if (t || E)
+                              try {
+                                !((e) => {
+                                  if (
+                                    S === l.Off ||
+                                    !u ||
+                                    e.method === h.type.method
+                                  )
+                                    return;
+                                  let t = void 0;
+                                  S === l.Verbose &&
+                                    (t = e.params
+                                      ? `Params: ${JSON.stringify(
+                                          e.params,
+                                          null,
+                                          4
+                                        )}\n\n`
+                                      : "No parameters provided.\n\n");
+                                  u.log(
+                                    `Received notification '${e.method}'.`,
+                                    t
+                                  );
+                                })(e),
+                                  void 0 === e.params ||
+                                  (void 0 !== r && 0 === r.numberOfParams)
+                                    ? t
+                                      ? t()
+                                      : E(e.method)
+                                    : o.array(e.params) &&
+                                      (void 0 === r || r.numberOfParams > 1)
+                                    ? t
+                                      ? t.apply(void 0, e.params)
+                                      : E.apply(
+                                          void 0,
+                                          [e.method].concat(e.params)
+                                        )
+                                    : t
+                                    ? t(e.params)
+                                    : E(e.method, e.params);
+                              } catch (s) {
+                                s.message
+                                  ? n.error(
+                                      `Notification handler '${e.method}' failed with message: ${s.message}`
                                     )
-                                : t
-                                ? t(e.params)
-                                : E(e.method, e.params);
-                          } catch (s) {
-                            s.message
-                              ? n.error(
-                                  `Notification handler '${e.method}' failed with message: ${s.message}`
-                                )
-                              : n.error(
-                                  `Notification handler '${e.method}' failed unexpectedly.`
-                                );
-                          }
-                        else I.fire(e);
-                      })(e)
+                                  : n.error(
+                                      `Notification handler '${e.method}' failed unexpectedly.`
+                                    );
+                              }
+                            else I.fire(e);
+                          })(e)
                         : s.isResponseMessage(e)
                         ? ((e) => {
                             if (J()) return;
                             if (null === e.id)
                               e.error
                                 ? n.error(
-                                    `Received response message without id: Error is: \n${JSON.stringify(e.error, void 0, 4)}`
+                                    `Received response message without id: Error is: \n${JSON.stringify(
+                                      e.error,
+                                      void 0,
+                                      4
+                                    )}`
                                   )
                                 : n.error(
                                     "Received response message without id. No further error information provided."
@@ -883,15 +895,17 @@
                                   let r = void 0;
                                   S === l.Verbose &&
                                     (e.error && e.error.data
-                                      ? (r =
-                                          `Error data: ${JSON.stringify(
-  e.error.data,
-  null,
-  4
-)}\n\n`)
+                                      ? (r = `Error data: ${JSON.stringify(
+                                          e.error.data,
+                                          null,
+                                          4
+                                        )}\n\n`)
                                       : e.result
-                                      ? (r =
-                                          `Result: ${JSON.stringify(e.result, null, 4)}\n\n`)
+                                      ? (r = `Result: ${JSON.stringify(
+                                          e.result,
+                                          null,
+                                          4
+                                        )}\n\n`)
                                       : void 0 === e.error &&
                                         (r = "No result returned.\n\n"));
                                   if (t) {
@@ -899,7 +913,11 @@
                                       ? ` Request failed: ${e.error.message} (${e.error.code}).`
                                       : "";
                                     u.log(
-                                      `Received response '${t.method} - (${e.id})' in ${Date.now() - t.timerStart}ms.${n}`,
+                                      `Received response '${t.method} - (${
+                                        e.id
+                                      })' in ${
+                                        Date.now() - t.timerStart
+                                      }ms.${n}`,
                                       r
                                     );
                                   } else
@@ -942,7 +960,11 @@
                             if (!e)
                               return void n.error("Received empty message.");
                             n.error(
-                              `Received message which is neither a response nor a notification message:\n${JSON.stringify(e, null, 4)}`
+                              `Received message which is neither a response nor a notification message:\n${JSON.stringify(
+                                e,
+                                null,
+                                4
+                              )}`
                             );
                             const t = e;
                             if (o.string(t.id) || o.number(t.id)) {
@@ -1000,10 +1022,7 @@
               S === l.Verbose &&
                 e.params &&
                 (t = `Params: ${JSON.stringify(e.params, null, 4)}\n\n`),
-                u.log(
-                  `Sending request '${e.method} - (${e.id})'.`,
-                  t
-                );
+                u.log(`Sending request '${e.method} - (${e.id})'.`, t);
             }
           }
           function X(e) {
@@ -1021,14 +1040,18 @@
               let n = void 0;
               S === l.Verbose &&
                 (e.error && e.error.data
-                  ? (n =
-                      `Error data: ${JSON.stringify(e.error.data, null, 4)}\n\n`)
+                  ? (n = `Error data: ${JSON.stringify(
+                      e.error.data,
+                      null,
+                      4
+                    )}\n\n`)
                   : e.result
-                  ? (n =
-                      `Result: ${JSON.stringify(e.result, null, 4)}\n\n`)
+                  ? (n = `Result: ${JSON.stringify(e.result, null, 4)}\n\n`)
                   : void 0 === e.error && (n = "No result returned.\n\n")),
                 u.log(
-                  `Sending response '${t} - (${e.id})'. Processing request took ${Date.now() - r}ms`,
+                  `Sending response '${t} - (${
+                    e.id
+                  })'. Processing request took ${Date.now() - r}ms`,
                   n
                 );
             }
@@ -1278,13 +1301,13 @@
       })((n = t.CancellationToken || (t.CancellationToken = {})));
 
       const s = Object.freeze((e, t) => {
-          const r = setTimeout(e.bind(t), 0);
-          return {
-            dispose() {
-              clearTimeout(r);
-            },
-          };
-        });
+        const r = setTimeout(e.bind(t), 0);
+        return {
+          dispose() {
+            clearTimeout(r);
+          },
+        };
+      });
 
       const a = (() => {
         function e() {

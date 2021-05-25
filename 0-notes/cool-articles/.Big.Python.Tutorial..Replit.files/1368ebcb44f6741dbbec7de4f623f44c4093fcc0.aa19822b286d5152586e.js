@@ -42,28 +42,28 @@
             r.prototype.doClose.call(this);
         }),
         (l.prototype.doPoll = function () {
-        const e = this;
-        const t = document.createElement("script");
-        this.script &&
-          (this.script.parentNode.removeChild(this.script),
-          (this.script = null)),
-          (t.async = !0),
-          (t.src = this.uri()),
-          (t.onerror = (t) => {
-            e.onError("jsonp poll error", t);
-          });
-        const n = document.getElementsByTagName("script")[0];
-        n
-          ? n.parentNode.insertBefore(t, n)
-          : (document.head || document.body).appendChild(t),
-          (this.script = t),
-          "undefined" !== typeof navigator &&
-            /gecko/i.test(navigator.userAgent) &&
-            setTimeout(() => {
-              const e = document.createElement("iframe");
-              document.body.appendChild(e), document.body.removeChild(e);
-            }, 100);
-      }),
+          const e = this;
+          const t = document.createElement("script");
+          this.script &&
+            (this.script.parentNode.removeChild(this.script),
+            (this.script = null)),
+            (t.async = !0),
+            (t.src = this.uri()),
+            (t.onerror = (t) => {
+              e.onError("jsonp poll error", t);
+            });
+          const n = document.getElementsByTagName("script")[0];
+          n
+            ? n.parentNode.insertBefore(t, n)
+            : (document.head || document.body).appendChild(t),
+            (this.script = t),
+            "undefined" !== typeof navigator &&
+              /gecko/i.test(navigator.userAgent) &&
+              setTimeout(() => {
+                const e = document.createElement("iframe");
+                document.body.appendChild(e), document.body.removeChild(e);
+              }, 100);
+        }),
         (l.prototype.doWrite = function (e, t) {
           const n = this;
           if (!this.form) {
@@ -121,37 +121,37 @@
       "use strict";
 
       const r =
-          (this && this.__awaiter) ||
-          ((e, t, n, r) => {
-            return new (n || (n = Promise))((o, i) => {
-              function a(e) {
-                try {
-                  c(r.next(e));
-                } catch (t) {
-                  i(t);
-                }
+        (this && this.__awaiter) ||
+        ((e, t, n, r) => {
+          return new (n || (n = Promise))((o, i) => {
+            function a(e) {
+              try {
+                c(r.next(e));
+              } catch (t) {
+                i(t);
               }
-              function s(e) {
-                try {
-                  c(r.throw(e));
-                } catch (t) {
-                  i(t);
-                }
+            }
+            function s(e) {
+              try {
+                c(r.throw(e));
+              } catch (t) {
+                i(t);
               }
-              function c({done, value}) {
-                let t;
-                done
-                  ? o(value)
-                  : ((t = value),
-                    t instanceof n
-                      ? t
-                      : new n((e) => {
-                          e(t);
-                        })).then(a, s);
-              }
-              c((r = r.apply(e, t || [])).next());
-            });
+            }
+            function c({ done, value }) {
+              let t;
+              done
+                ? o(value)
+                : ((t = value),
+                  t instanceof n
+                    ? t
+                    : new n((e) => {
+                        e(t);
+                      })).then(a, s);
+            }
+            c((r = r.apply(e, t || [])).next());
           });
+        });
 
       const o =
         (this && this.__generator) ||
@@ -253,7 +253,7 @@
         (t.Channel = void 0);
       const i = n("5/z4");
 
-      const a = function({id, send, onUnrecoverableError}) {
+      const a = function ({ id, send, onUnrecoverableError }) {
         const t = this;
         const n = id;
         const a = send;
@@ -295,9 +295,9 @@
               const n = this;
               return o(this, (r) => {
                 return (
-                  (t = Number(
-                    Math.random().toString().split(".")[1]
-                  ).toString(36)),
+                  (t = Number(Math.random().toString().split(".")[1]).toString(
+                    36
+                  )),
                   (e.ref = t),
                   [
                     2,
@@ -325,9 +325,7 @@
           (this.handleClose = (e) => {
             Object.keys(t.requestMap).forEach((n) => {
               const r = i.api.Command.fromObject({});
-              (r.channelClosed = e),
-                t.requestMap[n](r),
-                delete t.requestMap[n];
+              (r.channelClosed = e), t.requestMap[n](r), delete t.requestMap[n];
             }),
               (t.status = "closed"),
               (t.onCommandListeners = []);
@@ -344,7 +342,7 @@
     },
     "1vQi": function (e, t) {
       const n =
-          /^(?:(?![^:@]+:[^:@\/]*@)(http|https|ws|wss):\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?((?:[a-f0-9]{0,4}:){2,7}[a-f0-9]{0,4}|[^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/;
+        /^(?:(?![^:@]+:[^:@\/]*@)(http|https|ws|wss):\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?((?:[a-f0-9]{0,4}:){2,7}[a-f0-9]{0,4}|[^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/;
 
       const r = [
         "source",
@@ -375,35 +373,36 @@
             e.substring(i, e.length));
         for (var a = n.exec(e || ""), s = {}, c = 14; c--; )
           s[r[c]] = a[c] || "";
-        return -1 != o &&
-          -1 != i &&
-          ((s.source = t),
-          (s.host = s.host
-            .substring(1, s.host.length - 1)
-            .replace(/;/g, ":")),
-          (s.authority = s.authority
-            .replace("[", "")
-            .replace("]", "")
-            .replace(/;/g, ":")),
-          (s.ipv6uri = !0)),
-        (s.pathNames = ((e, t) => {
-          const n = /\/{2,9}/g;
-          const r = t.replace(n, "/").split("/");
-          ("/" != t.substr(0, 1) && 0 !== t.length) || r.splice(0, 1);
-          "/" == t.substr(t.length - 1, 1) && r.splice(r.length - 1, 1);
-          return r;
-        })(0, s.path)),
-        (s.queryKey = ((e, t) => {
-          const n = {};
-          return (
-            t.replace(/(?:^|&)([^&=]*)=?([^&]*)/g, (e, t, r) => {
-              t && (n[t] = r);
-            }),
-            n
-          );
-        })(0, s.query)),
-        s
-      ;
+        return (
+          -1 != o &&
+            -1 != i &&
+            ((s.source = t),
+            (s.host = s.host
+              .substring(1, s.host.length - 1)
+              .replace(/;/g, ":")),
+            (s.authority = s.authority
+              .replace("[", "")
+              .replace("]", "")
+              .replace(/;/g, ":")),
+            (s.ipv6uri = !0)),
+          (s.pathNames = ((e, t) => {
+            const n = /\/{2,9}/g;
+            const r = t.replace(n, "/").split("/");
+            ("/" != t.substr(0, 1) && 0 !== t.length) || r.splice(0, 1);
+            "/" == t.substr(t.length - 1, 1) && r.splice(r.length - 1, 1);
+            return r;
+          })(0, s.path)),
+          (s.queryKey = ((e, t) => {
+            const n = {};
+            return (
+              t.replace(/(?:^|&)([^&=]*)=?([^&]*)/g, (e, t, r) => {
+                t && (n[t] = r);
+              }),
+              n
+            );
+          })(0, s.query)),
+          s
+        );
       };
     },
     25: function (e, t) {},
@@ -444,12 +443,8 @@
         const b = f[1];
 
         const y = Object(s.a)(
-          ({width, height}) => {
-            return h(
-              width && height
-                ? { width: width, height: height }
-                : null
-            );
+          ({ width, height }) => {
+            return h(width && height ? { width: width, height: height } : null);
           },
           { type: "throttle", wait: 100 }
         );
@@ -461,56 +456,58 @@
         const v = Object(r.a)(g, 2);
         const m = v[0];
         const C = v[1];
-        return o.useEffect(() => {
-          m && A && m.fit();
-        }, [A, m]),
-        o.useLayoutEffect(() => {
-          if (d && n) {
-            const e = n.xterm;
-            const t = n.fitAddon;
-            const r = n.searchAddon;
-            const o = [];
-            return e.open(d),
-            o.push(() => {
-              return e.dispose();
-            }),
-            C({
-              onKey: e.onKey.bind(e),
-              onData: e.onData.bind(e),
-              onResize: e.onResize.bind(e),
-              write: e.write.bind(e),
-              fit() {
-                const e = d.getBoundingClientRect();
-                const n = e.width;
-                const r = e.height;
-                n > 0 && r > 0 && t.fit();
-              },
-              focus() {
-                return e.focus();
-              },
-              clear() {
-                return e.clear();
-              },
-              findPrevious(e) {
-                return r.findPrevious(e);
-              },
-              findNext(e) {
-                return r.findNext(e);
-              },
-              getSize() {
-                return { cols: e.cols, rows: e.rows };
-              },
-            }),
-            () => {
-              o.forEach((e) => {
-                return e();
-              });
+        return (
+          o.useEffect(() => {
+            m && A && m.fit();
+          }, [A, m]),
+          o.useLayoutEffect(() => {
+            if (d && n) {
+              const e = n.xterm;
+              const t = n.fitAddon;
+              const r = n.searchAddon;
+              const o = [];
+              return (
+                e.open(d),
+                o.push(() => {
+                  return e.dispose();
+                }),
+                C({
+                  onKey: e.onKey.bind(e),
+                  onData: e.onData.bind(e),
+                  onResize: e.onResize.bind(e),
+                  write: e.write.bind(e),
+                  fit() {
+                    const e = d.getBoundingClientRect();
+                    const n = e.width;
+                    const r = e.height;
+                    n > 0 && r > 0 && t.fit();
+                  },
+                  focus() {
+                    return e.focus();
+                  },
+                  clear() {
+                    return e.clear();
+                  },
+                  findPrevious(e) {
+                    return r.findPrevious(e);
+                  },
+                  findNext(e) {
+                    return r.findNext(e);
+                  },
+                  getSize() {
+                    return { cols: e.cols, rows: e.rows };
+                  },
+                }),
+                () => {
+                  o.forEach((e) => {
+                    return e();
+                  });
+                }
+              );
             }
-          ;
-          }
-        }, [d, n]),
-        [m, b]
-      ;
+          }, [d, n]),
+          [m, b]
+        );
       }
     },
     "5FiH": function (e, t) {
@@ -526,34 +523,35 @@
               (i += e[((3 & r[n]) << 4) | (r[n + 1] >> 4)]),
               (i += e[((15 & r[n + 1]) << 2) | (r[n + 2] >> 6)]),
               (i += e[63 & r[n + 2]]);
-          return o % 3 === 2
-            ? (i = `${i.substring(0, i.length - 1)}=`)
-            : o % 3 === 1 && (i = `${i.substring(0, i.length - 2)}==`),
-          i
-        ;
+          return (
+            o % 3 === 2
+              ? (i = `${i.substring(0, i.length - 1)}=`)
+              : o % 3 === 1 && (i = `${i.substring(0, i.length - 2)}==`),
+            i
+          );
         }),
           (t.decode = (t) => {
-          let n;
-          let r;
-          let o;
-          let i;
-          let a;
-          let s = 0.75 * t.length;
-          const c = t.length;
-          let u = 0;
-          "=" === t[t.length - 1] && (s--, "=" === t[t.length - 2] && s--);
-          const l = new ArrayBuffer(s);
-          const A = new Uint8Array(l);
-          for (n = 0; n < c; n += 4)
-            (r = e.indexOf(t[n])),
-              (o = e.indexOf(t[n + 1])),
-              (i = e.indexOf(t[n + 2])),
-              (a = e.indexOf(t[n + 3])),
-              (A[u++] = (r << 2) | (o >> 4)),
-              (A[u++] = ((15 & o) << 4) | (i >> 2)),
-              (A[u++] = ((3 & i) << 6) | (63 & a));
-          return l;
-        });
+            let n;
+            let r;
+            let o;
+            let i;
+            let a;
+            let s = 0.75 * t.length;
+            const c = t.length;
+            let u = 0;
+            "=" === t[t.length - 1] && (s--, "=" === t[t.length - 2] && s--);
+            const l = new ArrayBuffer(s);
+            const A = new Uint8Array(l);
+            for (n = 0; n < c; n += 4)
+              (r = e.indexOf(t[n])),
+                (o = e.indexOf(t[n + 1])),
+                (i = e.indexOf(t[n + 2])),
+                (a = e.indexOf(t[n + 3])),
+                (A[u++] = (r << 2) | (o >> 4)),
+                (A[u++] = ((15 & o) << 4) | (i >> 2)),
+                (A[u++] = ((3 & i) << 6) | (63 & a));
+            return l;
+          });
       })("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/");
     },
     "6bXu": function (e, t, n) {
@@ -654,17 +652,19 @@
           let e = this.query || {};
           const t = this.secure ? "https" : "http";
           let n = "";
-          return !1 !== this.timestampRequests && (e[this.timestampParam] = s()),
-          this.supportsBinary || e.sid || (e.b64 = 1),
-          (e = o.encode(e)),
-          this.port &&
-            (("https" === t && 443 !== Number(this.port)) ||
-              ("http" === t && 80 !== Number(this.port))) &&
-            (n = `:${this.port}`),
-          e.length && (e = `?${e}`),
-          `${t}://${this.hostname.includes(":")
-    ? `[${this.hostname}]`
-    : this.hostname}${n}${this.path}${e}`;
+          return (
+            !1 !== this.timestampRequests && (e[this.timestampParam] = s()),
+            this.supportsBinary || e.sid || (e.b64 = 1),
+            (e = o.encode(e)),
+            this.port &&
+              (("https" === t && 443 !== Number(this.port)) ||
+                ("http" === t && 80 !== Number(this.port))) &&
+              (n = `:${this.port}`),
+            e.length && (e = `?${e}`),
+            `${t}://${
+              this.hostname.includes(":") ? `[${this.hostname}]` : this.hostname
+            }${n}${this.path}${e}`
+          );
         });
     },
     AJXi(e, t, n) {
@@ -707,15 +707,16 @@
             "Please pass in a WebSocket class or add it to global"
           );
         }),
-        (t.getConnectionStr = ({gurl, token}, t) => {
+        (t.getConnectionStr = ({ gurl, token }, t) => {
           const n = r.parse(gurl);
-          return t
-            ? ((n.hostname = "gp-v2.herokuapp.com"),
-              (n.host = "gp-v2.herokuapp.com"),
-              (n.pathname =
-                `/wsv2/${token}/${encodeURIComponent(gurl)}`))
-            : (n.pathname = `/wsv2/${token}`),
-          r.format(n);
+          return (
+            t
+              ? ((n.hostname = "gp-v2.herokuapp.com"),
+                (n.host = "gp-v2.herokuapp.com"),
+                (n.pathname = `/wsv2/${token}/${encodeURIComponent(gurl)}`))
+              : (n.pathname = `/wsv2/${token}`),
+            r.format(n)
+          );
         });
     },
     BQO9(e, t) {
@@ -732,8 +733,8 @@
       "undefined" !== typeof ArrayBuffer && (r = n("5FiH"));
 
       const u =
-          "undefined" !== typeof navigator &&
-          /Android/i.test(navigator.userAgent);
+        "undefined" !== typeof navigator &&
+        /Android/i.test(navigator.userAgent);
 
       const l =
         "undefined" !== typeof navigator &&
@@ -743,14 +744,14 @@
       t.protocol = 3;
 
       const h = (t.packets = {
-          open: 0,
-          close: 1,
-          ping: 2,
-          pong: 3,
-          message: 4,
-          upgrade: 5,
-          noop: 6,
-        });
+        open: 0,
+        close: 1,
+        ping: 2,
+        pong: 3,
+        message: 4,
+        upgrade: 5,
+        noop: 6,
+      });
 
       const p = o(h);
       const f = { type: "error", data: "parser error" };
@@ -804,43 +805,45 @@
             return r(i);
           })(e, n, o);
         if (i && i.base64)
-          return (({type, data}, n) => {
+          return (({ type, data }, n) => {
             const r = `b${t.packets[type]}${data.data}`;
             return n(r);
           })(e, o);
         let a = h[e.type];
-        return void 0 !== e.data &&
-          (a += r
-            ? c.encode(String(e.data), { strict: !1 })
-            : String(e.data)),
-        o(`${a}`)
-      ;
+        return (
+          void 0 !== e.data &&
+            (a += r
+              ? c.encode(String(e.data), { strict: !1 })
+              : String(e.data)),
+          o(`${a}`)
+        );
       }),
-        (t.encodeBase64Packet = ({type, data}, n) => {
-        let r;
-        let o = `b${t.packets[type]}`;
-        if ("undefined" !== typeof d && data instanceof d) {
-          const i = new FileReader();
-          return (i.onload = () => {
-            const e = i.result.split(",")[1];
-            n(o + e);
-          }),
-          i.readAsDataURL(data)
-        ;
-        }
-        try {
-          r = String.fromCharCode.apply(null, new Uint8Array(data));
-        } catch (u) {
-          for (
-            var a = new Uint8Array(data), s = new Array(a.length), c = 0;
-            c < a.length;
-            c++
-          )
-            s[c] = a[c];
-          r = String.fromCharCode.apply(null, s);
-        }
-        return (o += btoa(r)), n(o);
-      }),
+        (t.encodeBase64Packet = ({ type, data }, n) => {
+          let r;
+          let o = `b${t.packets[type]}`;
+          if ("undefined" !== typeof d && data instanceof d) {
+            const i = new FileReader();
+            return (
+              (i.onload = () => {
+                const e = i.result.split(",")[1];
+                n(o + e);
+              }),
+              i.readAsDataURL(data)
+            );
+          }
+          try {
+            r = String.fromCharCode.apply(null, new Uint8Array(data));
+          } catch (u) {
+            for (
+              var a = new Uint8Array(data), s = new Array(a.length), c = 0;
+              c < a.length;
+              c++
+            )
+              s[c] = a[c];
+            r = String.fromCharCode.apply(null, s);
+          }
+          return (o += btoa(r)), n(o);
+        }),
         (t.decodePacket = (e, n, r) => {
           if (void 0 === e) return f;
           if ("string" === typeof e) {
@@ -990,8 +993,8 @@
                 }
 
                 const i = (
-                    e instanceof ArrayBuffer ? e.byteLength : e.size
-                  ).toString();
+                  e instanceof ArrayBuffer ? e.byteLength : e.size
+                ).toString();
 
                 const a = new Uint8Array(i.length + 1);
                 for (o = 0; o < i.length; o++) a[o] = parseInt(i[o]);
@@ -1039,7 +1042,7 @@
       "use strict";
       let r =
         (this && this.__assign) ||
-        function(...args) {
+        function (...args) {
           return (r =
             Object.assign ||
             function (e) {
@@ -1220,31 +1223,34 @@
           );
         }
         ((t = e.exports = n("m+yM")).log = (...args) => {
-          return "object" === typeof console &&
-          console.log &&
-          Function.prototype.apply.call(console.log, console, args);
+          return (
+            "object" === typeof console &&
+            console.log &&
+            Function.prototype.apply.call(console.log, console, args)
+          );
         }),
           (t.formatArgs = function (e) {
-          const n = this.useColors;
-          if (
-            ((e[0] =
-              `${(n ? "%c" : "") +
-this.namespace +
-(n ? " %c" : " ") +
-e[0] +
-(n ? "%c " : " ")}+${t.humanize(this.diff)}`),
-            !n)
-          )
-            return;
-          const r = `color: ${this.color}`;
-          e.splice(1, 0, r, "color: inherit");
-          let o = 0;
-          let i = 0;
-          e[0].replace(/%[a-zA-Z%]/g, (e) => {
-            "%%" !== e && (o++, "%c" === e && (i = o));
+            const n = this.useColors;
+            if (
+              ((e[0] = `${
+                (n ? "%c" : "") +
+                this.namespace +
+                (n ? " %c" : " ") +
+                e[0] +
+                (n ? "%c " : " ")
+              }+${t.humanize(this.diff)}`),
+              !n)
+            )
+              return;
+            const r = `color: ${this.color}`;
+            e.splice(1, 0, r, "color: inherit");
+            let o = 0;
+            let i = 0;
+            e[0].replace(/%[a-zA-Z%]/g, (e) => {
+              "%%" !== e && (o++, "%c" === e && (i = o));
+            }),
+              e.splice(i, 0, r);
           }),
-            e.splice(i, 0, r);
-        }),
           (t.save = (e) => {
             try {
               null == e ? t.storage.removeItem("debug") : (t.storage.debug = e);
@@ -1593,7 +1599,7 @@ e[0] +
             n ||
               (i('probe transport "%s" opened', e),
               t.send([{ type: "ping", data: "probe" }]),
-              t.once("packet", ({type, data}) => {
+              t.once("packet", ({ type, data }) => {
                 if (!n)
                   if ("pong" === type && "probe" === data) {
                     if (
@@ -1640,7 +1646,7 @@ e[0] +
           function u() {
             s("socket closed");
           }
-          function A({name}) {
+          function A({ name }) {
             t &&
               name !== t.name &&
               (i('"%s" works - aborting "%s"', name, t.name), a());
@@ -2067,7 +2073,7 @@ e[0] +
     },
     P2Oe(e, t, n) {
       "use strict";
-      (({env}, r) => {
+      (({ env }, r) => {
         n.d(t, "d", () => {
           return h;
         }),
@@ -2119,13 +2125,14 @@ e[0] +
           const r = t.slug;
           const o = t.id;
           let i = "".concat(r, "--").concat(n);
-          return i.length > 63 && (i = "".concat(o, ".id")),
-          A.includes("lvh.me:8080")
-            ? "ws://".concat(i, ".").concat(A)
-            : "wss://".concat(i, ".").concat(A)
-        ;
+          return (
+            i.length > 63 && (i = "".concat(o, ".id")),
+            A.includes("lvh.me:8080")
+              ? "ws://".concat(i, ".").concat(A)
+              : "wss://".concat(i, ".").concat(A)
+          );
         }
-        function f({language, files}) {
+        function f({ language, files }) {
           const t = language;
           const n = files;
           return n.includes(".replit")
@@ -2181,13 +2188,13 @@ e[0] +
     },
     "Qz/J": function (e, t) {
       const n =
-          "undefined" !== typeof n
-            ? n
-            : "undefined" !== typeof WebKitBlobBuilder
-            ? WebKitBlobBuilder
-            : "undefined" !== typeof MSBlobBuilder
-            ? MSBlobBuilder
-            : "undefined" !== typeof MozBlobBuilder && MozBlobBuilder;
+        "undefined" !== typeof n
+          ? n
+          : "undefined" !== typeof WebKitBlobBuilder
+          ? WebKitBlobBuilder
+          : "undefined" !== typeof MSBlobBuilder
+          ? MSBlobBuilder
+          : "undefined" !== typeof MozBlobBuilder && MozBlobBuilder;
 
       const r = (() => {
         try {
@@ -2297,7 +2304,9 @@ e[0] +
         if (e >= 55296 && e <= 57343) {
           if (t)
             throw Error(
-              `Lone surrogate U+${e.toString(16).toUpperCase()} is not a scalar value`
+              `Lone surrogate U+${e
+                .toString(16)
+                .toUpperCase()} is not a scalar value`
             );
           return !1;
         }
@@ -2558,108 +2567,108 @@ e[0] +
           );
         }),
         (l.prototype.doWrite = function (e, t) {
-        const n = "string" !== typeof e && void 0 !== e;
-        const r = this.request({ method: "POST", data: e, isBinary: n });
-        const o = this;
-        r.on("success", t),
-          r.on("error", (e) => {
-            o.onError("xhr post error", e);
-          }),
-          (this.sendXhr = r);
-      }),
-        (l.prototype.doPoll = function () {
-        s("xhr poll");
-        const e = this.request();
-        const t = this;
-        e.on("data", (e) => {
-          t.onData(e);
+          const n = "string" !== typeof e && void 0 !== e;
+          const r = this.request({ method: "POST", data: e, isBinary: n });
+          const o = this;
+          r.on("success", t),
+            r.on("error", (e) => {
+              o.onError("xhr post error", e);
+            }),
+            (this.sendXhr = r);
         }),
-          e.on("error", (e) => {
-            t.onError("xhr poll error", e);
+        (l.prototype.doPoll = function () {
+          s("xhr poll");
+          const e = this.request();
+          const t = this;
+          e.on("data", (e) => {
+            t.onData(e);
           }),
-          (this.pollXhr = e);
-      }),
+            e.on("error", (e) => {
+              t.onError("xhr poll error", e);
+            }),
+            (this.pollXhr = e);
+        }),
         i(A.prototype),
         (A.prototype.create = function () {
-        const e = {
-          agent: this.agent,
-          xdomain: this.xd,
-          xscheme: this.xs,
-          enablesXDR: this.enablesXDR,
-        };
-        (e.pfx = this.pfx),
-          (e.key = this.key),
-          (e.passphrase = this.passphrase),
-          (e.cert = this.cert),
-          (e.ca = this.ca),
-          (e.ciphers = this.ciphers),
-          (e.rejectUnauthorized = this.rejectUnauthorized);
-        const t = (this.xhr = new r(e));
-        const n = this;
-        try {
-          s("xhr open %s: %s", this.method, this.uri),
-            t.open(this.method, this.uri, this.async);
+          const e = {
+            agent: this.agent,
+            xdomain: this.xd,
+            xscheme: this.xs,
+            enablesXDR: this.enablesXDR,
+          };
+          (e.pfx = this.pfx),
+            (e.key = this.key),
+            (e.passphrase = this.passphrase),
+            (e.cert = this.cert),
+            (e.ca = this.ca),
+            (e.ciphers = this.ciphers),
+            (e.rejectUnauthorized = this.rejectUnauthorized);
+          const t = (this.xhr = new r(e));
+          const n = this;
           try {
-            if (this.extraHeaders)
-              for (const o in (t.setDisableHeaderCheck &&
-                t.setDisableHeaderCheck(!0),
-              this.extraHeaders))
-                this.extraHeaders.hasOwnProperty(o) &&
-                  t.setRequestHeader(o, this.extraHeaders[o]);
-          } catch (i) {}
-          if ("POST" === this.method)
+            s("xhr open %s: %s", this.method, this.uri),
+              t.open(this.method, this.uri, this.async);
             try {
-              this.isBinary
-                ? t.setRequestHeader(
-                    "Content-type",
-                    "application/octet-stream"
-                  )
-                : t.setRequestHeader(
-                    "Content-type",
-                    "text/plain;charset=UTF-8"
-                  );
+              if (this.extraHeaders)
+                for (const o in (t.setDisableHeaderCheck &&
+                  t.setDisableHeaderCheck(!0),
+                this.extraHeaders))
+                  this.extraHeaders.hasOwnProperty(o) &&
+                    t.setRequestHeader(o, this.extraHeaders[o]);
             } catch (i) {}
-          try {
-            t.setRequestHeader("Accept", "*/*");
-          } catch (i) {}
-          "withCredentials" in t &&
-            (t.withCredentials = this.withCredentials),
-            this.requestTimeout && (t.timeout = this.requestTimeout),
-            this.hasXDR()
-              ? ((t.onload = () => {
-                  n.onLoad();
-                }),
-                (t.onerror = () => {
-                  n.onError(t.responseText);
-                }))
-              : (t.onreadystatechange = () => {
-                  if (2 === t.readyState)
-                    try {
-                      const e = t.getResponseHeader("Content-Type");
-                      ((n.supportsBinary &&
-                        "application/octet-stream" === e) ||
-                        "application/octet-stream; charset=UTF-8" === e) &&
-                        (t.responseType = "arraybuffer");
-                    } catch (i) {}
-                  4 === t.readyState &&
-                    (200 === t.status || 1223 === t.status
-                      ? n.onLoad()
-                      : setTimeout(() => {
-                          n.onError(
-                            "number" === typeof t.status ? t.status : 0
-                          );
-                        }, 0));
-                }),
-            s("xhr data %s", this.data),
-            t.send(this.data);
-        } catch (i) {
-          return void setTimeout(() => {
-            n.onError(i);
-          }, 0);
-        }
-        "undefined" !== typeof document &&
-          ((this.index = A.requestsCount++), (A.requests[this.index] = this));
-      }),
+            if ("POST" === this.method)
+              try {
+                this.isBinary
+                  ? t.setRequestHeader(
+                      "Content-type",
+                      "application/octet-stream"
+                    )
+                  : t.setRequestHeader(
+                      "Content-type",
+                      "text/plain;charset=UTF-8"
+                    );
+              } catch (i) {}
+            try {
+              t.setRequestHeader("Accept", "*/*");
+            } catch (i) {}
+            "withCredentials" in t &&
+              (t.withCredentials = this.withCredentials),
+              this.requestTimeout && (t.timeout = this.requestTimeout),
+              this.hasXDR()
+                ? ((t.onload = () => {
+                    n.onLoad();
+                  }),
+                  (t.onerror = () => {
+                    n.onError(t.responseText);
+                  }))
+                : (t.onreadystatechange = () => {
+                    if (2 === t.readyState)
+                      try {
+                        const e = t.getResponseHeader("Content-Type");
+                        ((n.supportsBinary &&
+                          "application/octet-stream" === e) ||
+                          "application/octet-stream; charset=UTF-8" === e) &&
+                          (t.responseType = "arraybuffer");
+                      } catch (i) {}
+                    4 === t.readyState &&
+                      (200 === t.status || 1223 === t.status
+                        ? n.onLoad()
+                        : setTimeout(() => {
+                            n.onError(
+                              "number" === typeof t.status ? t.status : 0
+                            );
+                          }, 0));
+                  }),
+              s("xhr data %s", this.data),
+              t.send(this.data);
+          } catch (i) {
+            return void setTimeout(() => {
+              n.onError(i);
+            }, 0);
+          }
+          "undefined" !== typeof document &&
+            ((this.index = A.requestsCount++), (A.requests[this.index] = this));
+        }),
         (A.prototype.onSuccess = function () {
           this.emit("success"), this.cleanup();
         }),
@@ -2754,7 +2763,7 @@ e[0] +
                   );
                 }
 
-                static exports({xdomain, xscheme, enablesXDR}) {
+                static exports({ xdomain, xscheme, enablesXDR }) {
                   const t = xdomain;
                   const n = xscheme;
                   const i = enablesXDR;
@@ -2768,7 +2777,7 @@ e[0] +
                   } catch (a) {}
                   if (!t)
                     try {
-                      return new (o[["Active"].concat("Object").join("X")])(
+                      return new o[["Active"].concat("Object").join("X")](
                         "Microsoft.XMLHTTP"
                       );
                     } catch (a) {}
@@ -2776,7 +2785,7 @@ e[0] +
               }
 
               function t(e, t) {
-                t.forEach(r => {
+                t.forEach((r) => {
                   (r.enumerable = r.enumerable || !1),
                     (r.configurable = !0),
                     "value" in r && (r.writable = !0),
@@ -2840,7 +2849,7 @@ e[0] +
               }
               function l(e) {
                 const t = s();
-                return function(...args) {
+                return function (...args) {
                   let n;
                   const r = i(e);
                   if (t) {
@@ -3055,7 +3064,7 @@ e[0] +
 
       let r =
         (this && this.__assign) ||
-        function(...args) {
+        function (...args) {
           return (r =
             Object.assign ||
             function (e) {
@@ -3084,7 +3093,7 @@ e[0] +
                 i(t);
               }
             }
-            function c({done, value}) {
+            function c({ done, value }) {
               let t;
               done
                 ? o(value)
@@ -3243,27 +3252,26 @@ e[0] +
                     case 0:
                       return r.trys.push([0, 2, , 3]), [4, c(t)];
                     case 1:
-                      return (e = r.sent()),
-                      (n = e.token),
-                      e.aborted || !n
-                        ? [
-                            2,
-                            {
-                              error: A.FetchConnectionMetadataError.Aborted,
-                            },
-                          ]
-                        : [
-                            2,
-                            {
-                              token: n,
-                              gurl:
-                                `ws${l ? "s" : ""}://${p}:${f}`,
-                              conmanURL:
-                                `http${l ? "s" : ""}://${p}:${f}`,
-                              error: null,
-                            },
-                          ]
-                    ;
+                      return (
+                        (e = r.sent()),
+                        (n = e.token),
+                        e.aborted || !n
+                          ? [
+                              2,
+                              {
+                                error: A.FetchConnectionMetadataError.Aborted,
+                              },
+                            ]
+                          : [
+                              2,
+                              {
+                                token: n,
+                                gurl: `ws${l ? "s" : ""}://${p}:${f}`,
+                                conmanURL: `http${l ? "s" : ""}://${p}:${f}`,
+                                error: null,
+                              },
+                            ]
+                      );
                     case 2:
                       return [2, { error: r.sent() }];
                     case 3:
@@ -3296,13 +3304,11 @@ e[0] +
           (this.openChannel = (t, n) => {
             if (
               t.name &&
-              e.channelRequests.some(({closeRequested, options}) => {
+              e.channelRequests.some(({ closeRequested, options }) => {
                 return !closeRequested && options.name === t.name;
               })
             ) {
-              var r = new Error(
-                `Channel with name ${t.name} already opened`
-              );
+              var r = new Error(`Channel with name ${t.name} already opened`);
               throw (e.onUnrecoverableError(r), r);
             }
             if (e.destroyed)
@@ -3335,99 +3341,101 @@ e[0] +
             };
           }),
           (this.requestOpenChannel = (t) => {
-          const n = t.options;
-          const r = t.openChannelCb;
-          if (e.connectOptions) {
-            const o = n.skip;
-            if (!o || !o(e.connectOptions.context)) {
-              let i = n.action;
-              if (
-                (i ||
-                  (i =
-                    null == n.name
-                      ? s.api.OpenChannel.Action.CREATE
-                      : s.api.OpenChannel.Action.ATTACH_OR_CREATE),
-                t.channelId)
-              )
-                e.onUnrecoverableError(new Error("Unexpected channelId"));
-              else {
-                const a =
-                  "string" === typeof n.service
-                    ? n.service
-                    : n.service(e.connectOptions.context);
-                e.debug({
-                  type: "breadcrumb",
-                  message: "handleOpenChannel",
-                  data: { name: n.name, service: a, action: i },
-                });
-                const u = e.getChannel(0);
+            const n = t.options;
+            const r = t.openChannelCb;
+            if (e.connectOptions) {
+              const o = n.skip;
+              if (!o || !o(e.connectOptions.context)) {
+                let i = n.action;
+                if (
+                  (i ||
+                    (i =
+                      null == n.name
+                        ? s.api.OpenChannel.Action.CREATE
+                        : s.api.OpenChannel.Action.ATTACH_OR_CREATE),
+                  t.channelId)
+                )
+                  e.onUnrecoverableError(new Error("Unexpected channelId"));
+                else {
+                  const a =
+                    "string" === typeof n.service
+                      ? n.service
+                      : n.service(e.connectOptions.context);
+                  e.debug({
+                    type: "breadcrumb",
+                    message: "handleOpenChannel",
+                    data: { name: n.name, service: a, action: i },
+                  });
+                  const u = e.getChannel(0);
 
-                const l = Number(
-                  Math.random().toString().split(".")[1]
-                ).toString(36);
+                  const l = Number(
+                    Math.random().toString().split(".")[1]
+                  ).toString(36);
 
-                u.send({
-                  ref: l,
-                  openChan: { name: n.name, service: a, action: i },
-                });
-                const A = u.onCommand(({ref, openChanRes}) => {
-                  if (l === ref)
-                    if ((A(), null != openChanRes)) {
-                      const o = openChanRes;
-                      const i = o.id;
-                      const a = o.state;
-                      const u = o.error;
-                      if (
-                        (e.debug({
-                          type: "breadcrumb",
-                          message: "openChanres",
-                        }),
-                        e.connectOptions)
-                      )
-                        if (a !== s.api.OpenChannelRes.State.ERROR)
-                          if (
-                            "number" === typeof i &&
-                            "number" === typeof a
-                          ) {
-                            const h = new c.Channel({
-                              id: i,
-                              onUnrecoverableError: e.onUnrecoverableError,
-                              send: e.send,
-                            });
-                            (e.channels[i] = h),
-                              (t.channelId = i),
-                              (t.isOpen = !0);
-                            const p = t.closeRequested;
-                            (t.cleanupCb = r({
-                              channel: h,
-                              error: null,
-                              context: e.connectOptions.context,
-                            })),
-                              p && e.requestCloseChannel(t);
-                          } else
+                  u.send({
+                    ref: l,
+                    openChan: { name: n.name, service: a, action: i },
+                  });
+                  const A = u.onCommand(({ ref, openChanRes }) => {
+                    if (l === ref)
+                      if ((A(), null != openChanRes)) {
+                        const o = openChanRes;
+                        const i = o.id;
+                        const a = o.state;
+                        const u = o.error;
+                        if (
+                          (e.debug({
+                            type: "breadcrumb",
+                            message: "openChanres",
+                          }),
+                          e.connectOptions)
+                        )
+                          if (a !== s.api.OpenChannelRes.State.ERROR)
+                            if (
+                              "number" === typeof i &&
+                              "number" === typeof a
+                            ) {
+                              const h = new c.Channel({
+                                id: i,
+                                onUnrecoverableError: e.onUnrecoverableError,
+                                send: e.send,
+                              });
+                              (e.channels[i] = h),
+                                (t.channelId = i),
+                                (t.isOpen = !0);
+                              const p = t.closeRequested;
+                              (t.cleanupCb = r({
+                                channel: h,
+                                error: null,
+                                context: e.connectOptions.context,
+                              })),
+                                p && e.requestCloseChannel(t);
+                            } else
+                              e.onUnrecoverableError(
+                                new Error("Expected state and channel id")
+                              );
+                          else
                             e.onUnrecoverableError(
-                              new Error("Expected state and channel id")
+                              new Error(
+                                `Channel open resulted with an error: ${
+                                  u || "with no message"
+                                }`
+                              )
                             );
                         else
                           e.onUnrecoverableError(
-                            new Error(
-                              `Channel open resulted with an error: ${u || "with no message"}`
-                            )
+                            new Error("Expected connectionOptions")
                           );
-                      else
+                      } else
                         e.onUnrecoverableError(
-                          new Error("Expected connectionOptions")
+                          new Error("Expected openChanRes on command")
                         );
-                    } else
-                      e.onUnrecoverableError(
-                        new Error("Expected openChanRes on command")
-                      );
-                });
+                  });
+                }
               }
-            }
-          } else
-            e.onUnrecoverableError(new Error("Expected connectionOptions"));
-        }),
+            } else
+              e.onUnrecoverableError(new Error("Expected connectionOptions"));
+          }),
           (this.requestCloseChannel = (t) => {
             return o(e, void 0, void 0, function () {
               let e;
@@ -3440,8 +3448,7 @@ e[0] +
                   case 0:
                     return t.isOpen
                       ? ((e = t.channelId),
-                        ((n = this.getChannel(t.channelId)).status =
-                          "closing"),
+                        ((n = this.getChannel(t.channelId)).status = "closing"),
                         (r = this.getChannel(0))
                           ? (this.debug({
                               type: "breadcrumb",
@@ -3493,19 +3500,21 @@ e[0] +
                           [2]
                         );
                       if (null == (a = o.closeChanRes.id))
-                        return this.onUnrecoverableError(
-                          new Error(`Expected id, got ${a}`)
-                        ),
-                        [2]
-                      ;
+                        return (
+                          this.onUnrecoverableError(
+                            new Error(`Expected id, got ${a}`)
+                          ),
+                          [2]
+                        );
                       if (a !== e)
-                        return this.onUnrecoverableError(
-                          new Error(
-                            `Expected id from closeChanRes to be ${e} got ${a}`
-                          )
-                        ),
-                        [2]
-                      ;
+                        return (
+                          this.onUnrecoverableError(
+                            new Error(
+                              `Expected id from closeChanRes to be ${e} got ${a}`
+                            )
+                          ),
+                          [2]
+                        );
                       this.debug({
                         type: "breadcrumb",
                         message: "requestChannelClose:closeChanRes",
@@ -3555,8 +3564,7 @@ e[0] +
           (this.destroy = () => {
             (e.destroyed = !0),
               e.debug({ type: "breadcrumb", message: "destroy" }),
-              e.connectionState !== A.ConnectionState.DISCONNECTED &&
-                e.close(),
+              e.connectionState !== A.ConnectionState.DISCONNECTED && e.close(),
               (e.debug = () => {}),
               (e.userUnrecoverableErrorHandler = null),
               (e.channelRequests = []),
@@ -3579,381 +3587,373 @@ e[0] +
           (this.getConnectionMetadata = () => {
             return e.connectionMetadata;
           }),
-          (this.connect = ({tryCount, websocketFailureCount}) => {
-          const n = tryCount;
-          const r = websocketFailureCount;
-          return o(e, void 0, void 0, function () {
-            let e;
-            let t;
-            let o;
-            let a;
-            let h;
-            let p;
-            let f;
-            let d;
-            let b;
-            let y;
-            let g;
-            let v;
-            let m;
-            let C;
-            let w;
-            let E;
-            let O;
-            let k;
-            const S = this;
-            return i(this, function (i) {
-              switch (i.label) {
-                case 0:
-                  if (
-                    (this.debug({
-                      type: "breadcrumb",
-                      message: "connecting",
-                      data: {
-                        connectionState: this.connectionState,
-                        connectTries: n,
-                        websocketFailureCount: r,
-                        readyState: this.ws ? this.ws.readyState : void 0,
-                        chan0CbExists: Boolean(this.chan0Cb),
-                      },
-                    }),
-                    this.connectionState !== A.ConnectionState.DISCONNECTED)
-                  )
-                    throw (
-                      ((e = new Error(
-                        "Client must be disconnected to connect"
-                      )),
-                      this.onUnrecoverableError(e),
-                      e)
-                    );
-                  if (this.ws)
-                    throw (
-                      ((e = new Error(
-                        "Unexpected existing websocket instance"
-                      )),
-                      this.onUnrecoverableError(e),
-                      e)
-                    );
-                  if (!this.connectOptions)
-                    throw (
-                      ((e = new Error("Expected connectionOptions")),
-                      this.onUnrecoverableError(e),
-                      e)
-                    );
-                  if (!this.chan0Cb)
-                    return (
-                      this.onUnrecoverableError(
-                        new Error("Expected chan0Cb")
-                      ),
-                      [2]
-                    );
-                  if (this.chan0CleanupCb)
-                    return (
-                      this.onUnrecoverableError(
-                        new Error(
-                          "Unexpected chan0CleanupCb, are you sure you closed"
-                        )
-                      ),
-                      [2]
-                    );
-                  if (
-                    this.channelRequests.some(({isOpen}) => {
-                      return isOpen;
-                    })
-                  )
-                    return (
-                      this.onUnrecoverableError(
-                        new Error(
-                          "All channels should be closed when we connect"
-                        )
-                      ),
-                      [2]
-                    );
-                  if (Object.keys(this.channels).length)
-                    return (
-                      this.onUnrecoverableError(
-                        new Error(
-                          "Found an an unexpected existing channels"
-                        )
-                      ),
-                      [2]
-                    );
-                  if (
-                    ((this.connectionState = A.ConnectionState.CONNECTING),
-                    (t = new c.Channel({
-                      id: 0,
-                      onUnrecoverableError: this.onUnrecoverableError,
-                      send: this.send,
-                    })),
-                    (this.channels[0] = t),
-                    this.fetchTokenAbortController)
-                  )
-                    return (
-                      this.onUnrecoverableError(
-                        new Error(
-                          "Expected fetchTokenAbortController to be null"
-                        )
-                      ),
-                      [2]
-                    );
-                  (o = new AbortController()),
-                    (this.fetchTokenAbortController = o),
-                    (i.label = 1);
-                case 1:
-                  return (
-                    i.trys.push([1, 3, , 4]),
-                    [
-                      4,
-                      this.connectOptions.fetchConnectionMetadata(o.signal),
-                    ]
-                  );
-                case 2:
-                  return (a = i.sent()), [3, 4];
-                case 3:
-                  return (h = i.sent()), this.onUnrecoverableError(h), [2];
-                case 4:
-                  return (this.fetchTokenAbortController = null),
-                  (f =
-                    (p = a).error ===
-                    A.FetchConnectionMetadataError.Aborted),
-                  o.signal.aborted !== f
-                    ? o.signal.aborted
-                      ? (this.onUnrecoverableError(
+          (this.connect = ({ tryCount, websocketFailureCount }) => {
+            const n = tryCount;
+            const r = websocketFailureCount;
+            return o(e, void 0, void 0, function () {
+              let e;
+              let t;
+              let o;
+              let a;
+              let h;
+              let p;
+              let f;
+              let d;
+              let b;
+              let y;
+              let g;
+              let v;
+              let m;
+              let C;
+              let w;
+              let E;
+              let O;
+              let k;
+              const S = this;
+              return i(this, function (i) {
+                switch (i.label) {
+                  case 0:
+                    if (
+                      (this.debug({
+                        type: "breadcrumb",
+                        message: "connecting",
+                        data: {
+                          connectionState: this.connectionState,
+                          connectTries: n,
+                          websocketFailureCount: r,
+                          readyState: this.ws ? this.ws.readyState : void 0,
+                          chan0CbExists: Boolean(this.chan0Cb),
+                        },
+                      }),
+                      this.connectionState !== A.ConnectionState.DISCONNECTED)
+                    )
+                      throw (
+                        ((e = new Error(
+                          "Client must be disconnected to connect"
+                        )),
+                        this.onUnrecoverableError(e),
+                        e)
+                      );
+                    if (this.ws)
+                      throw (
+                        ((e = new Error(
+                          "Unexpected existing websocket instance"
+                        )),
+                        this.onUnrecoverableError(e),
+                        e)
+                      );
+                    if (!this.connectOptions)
+                      throw (
+                        ((e = new Error("Expected connectionOptions")),
+                        this.onUnrecoverableError(e),
+                        e)
+                      );
+                    if (!this.chan0Cb)
+                      return (
+                        this.onUnrecoverableError(
+                          new Error("Expected chan0Cb")
+                        ),
+                        [2]
+                      );
+                    if (this.chan0CleanupCb)
+                      return (
+                        this.onUnrecoverableError(
                           new Error(
-                            "Expected abort returned from fetchConnectionMetadata to be truthy when the controller aborts"
+                            "Unexpected chan0CleanupCb, are you sure you closed"
                           )
                         ),
-                        [2])
-                      : (this.onUnrecoverableError(
+                        [2]
+                      );
+                    if (
+                      this.channelRequests.some(({ isOpen }) => {
+                        return isOpen;
+                      })
+                    )
+                      return (
+                        this.onUnrecoverableError(
                           new Error(
-                            "Abort should only be truthy returned when the abort signal is triggered"
+                            "All channels should be closed when we connect"
                           )
                         ),
-                        [2])
-                    : p.error === A.FetchConnectionMetadataError.Aborted
-                    ? [2]
-                    : p.error === A.FetchConnectionMetadataError.Retriable
-                    ? (this.retryConnect({
-                        tryCount: n + 1,
-                        websocketFailureCount: r,
-                        chan0: t,
-                        error: new Error("Retriable error"),
-                      }),
-                      [2])
-                    : this.connectionState !==
-                      A.ConnectionState.CONNECTING
-                    ? (this.onUnrecoverableError(
-                        new Error("Client was closed before connecting")
-                      ),
-                      [2])
-                    : p.error
-                    ? (this.onUnrecoverableError(p.error), [2])
-                    : (3 === r &&
-                        this.debug({
-                          type: "breadcrumb",
-                          message: "polling fallback",
-                        }),
-                      (b = (d = r >= 3)
-                        ? l.EIOCompat
-                        : u.getWebSocketClass(
-                            this.connectOptions.WebSocketClass
-                          )),
-                      (y = u.getConnectionStr(p, d)),
-                      ((g = new b(y)).binaryType = "arraybuffer"),
-                      (g.onmessage = this.onSocketMessage),
-                      (this.ws = g),
-                      (this.connectionMetadata = p),
-                      (v = null),
-                      (g.onerror = () => {
-                        v
-                          ? v(new Error("WebSocket errored"))
-                          : S.onUnrecoverableError(
+                        [2]
+                      );
+                    if (Object.keys(this.channels).length)
+                      return (
+                        this.onUnrecoverableError(
+                          new Error("Found an an unexpected existing channels")
+                        ),
+                        [2]
+                      );
+                    if (
+                      ((this.connectionState = A.ConnectionState.CONNECTING),
+                      (t = new c.Channel({
+                        id: 0,
+                        onUnrecoverableError: this.onUnrecoverableError,
+                        send: this.send,
+                      })),
+                      (this.channels[0] = t),
+                      this.fetchTokenAbortController)
+                    )
+                      return (
+                        this.onUnrecoverableError(
+                          new Error(
+                            "Expected fetchTokenAbortController to be null"
+                          )
+                        ),
+                        [2]
+                      );
+                    (o = new AbortController()),
+                      (this.fetchTokenAbortController = o),
+                      (i.label = 1);
+                  case 1:
+                    return (
+                      i.trys.push([1, 3, , 4]),
+                      [4, this.connectOptions.fetchConnectionMetadata(o.signal)]
+                    );
+                  case 2:
+                    return (a = i.sent()), [3, 4];
+                  case 3:
+                    return (h = i.sent()), this.onUnrecoverableError(h), [2];
+                  case 4:
+                    return (
+                      (this.fetchTokenAbortController = null),
+                      (f =
+                        (p = a).error ===
+                        A.FetchConnectionMetadataError.Aborted),
+                      o.signal.aborted !== f
+                        ? o.signal.aborted
+                          ? (this.onUnrecoverableError(
                               new Error(
-                                "Got websocket error but no `onFailed` cb"
+                                "Expected abort returned from fetchConnectionMetadata to be truthy when the controller aborts"
                               )
-                            );
-                      }),
-                      (g.onclose = () => {
-                        v
-                          ? v(
+                            ),
+                            [2])
+                          : (this.onUnrecoverableError(
                               new Error(
-                                "WebSocket closed before we got READY"
+                                "Abort should only be truthy returned when the abort signal is triggered"
                               )
-                            )
-                          : S.onUnrecoverableError(
-                              new Error(
-                                "Got websocket closure but no `onFailed` cb"
-                              )
-                            );
-                      }),
-                      (m = () => {}),
-                      (C = () => {}),
-                      null !== (w = this.connectOptions.timeout) &&
-                        ((C = () => {
-                          S.debug({
-                            type: "breadcrumb",
-                            message: "cancel timeout",
+                            ),
+                            [2])
+                        : p.error === A.FetchConnectionMetadataError.Aborted
+                        ? [2]
+                        : p.error === A.FetchConnectionMetadataError.Retriable
+                        ? (this.retryConnect({
+                            tryCount: n + 1,
+                            websocketFailureCount: r,
+                            chan0: t,
+                            error: new Error("Retriable error"),
                           }),
-                            clearTimeout(E);
-                        }),
-                        (m = () => {
-                          S.debug({
-                            type: "breadcrumb",
-                            message: "reset timeout",
-                          }),
-                            clearTimeout(E),
-                            (E = setTimeout(() => {
-                              S.debug({
-                                type: "breadcrumb",
-                                message: "connect timeout",
-                              }),
-                                v
-                                  ? v(new Error("timeout"))
-                                  : S.onUnrecoverableError(
-                                      new Error(
-                                        "Connecting timed out but there was no `onFailed` cb"
-                                      )
-                                    );
-                            }, w));
-                        })()),
-                      (O = !1),
-                      (k = t.onCommand(({containerState}) => {
-                        if (((O = !0), m(), null != containerState))
-                          if (null != containerState.state) {
-                            const n = containerState.state;
-                            S.debug({
+                          [2])
+                        : this.connectionState !== A.ConnectionState.CONNECTING
+                        ? (this.onUnrecoverableError(
+                            new Error("Client was closed before connecting")
+                          ),
+                          [2])
+                        : p.error
+                        ? (this.onUnrecoverableError(p.error), [2])
+                        : (3 === r &&
+                            this.debug({
                               type: "breadcrumb",
-                              message: "containerState",
-                              data: n,
-                            });
-                            const r = s.api.ContainerState.State;
-                            switch (n) {
-                              case r.READY:
-                                if ((k(), C(), !S.connectOptions))
-                                  return void S.onUnrecoverableError(
-                                    new Error(
-                                      "Expected connectionOptions"
-                                    )
-                                  );
-                                if (!t)
-                                  return void S.onUnrecoverableError(
-                                    new Error(
-                                      "Expected chan0 to be truthy"
-                                    )
-                                  );
-                                if (!S.chan0Cb)
-                                  return void S.onUnrecoverableError(
-                                    new Error(
-                                      "Expected chan0Cb to be truthy"
-                                    )
-                                  );
-                                S.handleConnect();
-                                const o = S.close;
-                                (S.close = () => {
-                                  return setTimeout(() => {
-                                    o();
-                                  }, 0);
-                                }),
-                                  (S.chan0CleanupCb = S.chan0Cb({
-                                    channel: t,
-                                    error: null,
-                                    context: S.connectOptions.context,
-                                  })),
-                                  (S.close = o);
-                                break;
-                              case r.SLEEP:
-                                if (!v)
-                                  return void S.onUnrecoverableError(
-                                    new Error(
-                                      "Got SLEEP but there was no `onFailed` cb"
-                                    )
-                                  );
-                                v(
+                              message: "polling fallback",
+                            }),
+                          (b = (d = r >= 3)
+                            ? l.EIOCompat
+                            : u.getWebSocketClass(
+                                this.connectOptions.WebSocketClass
+                              )),
+                          (y = u.getConnectionStr(p, d)),
+                          ((g = new b(y)).binaryType = "arraybuffer"),
+                          (g.onmessage = this.onSocketMessage),
+                          (this.ws = g),
+                          (this.connectionMetadata = p),
+                          (v = null),
+                          (g.onerror = () => {
+                            v
+                              ? v(new Error("WebSocket errored"))
+                              : S.onUnrecoverableError(
                                   new Error(
-                                    "Got SLEEP as container state"
+                                    "Got websocket error but no `onFailed` cb"
                                   )
                                 );
-                            }
-                          } else
-                            S.onUnrecoverableError(
-                              new Error(
-                                "Got containterState but state was not defined"
-                              )
-                            );
-                      })),
-                      (v = (e) => {
-                        (v = null),
-                          S.cleanupSocket(),
-                          C(),
-                          k(),
-                          S.retryConnect({
-                            tryCount: n + 1,
-                            websocketFailureCount: O ? 0 : r + 1,
-                            chan0: t,
-                            error: e,
-                          });
-                      }),
-                      [2])
-                ;
-              }
-            });
-          });
-        }),
-          (this.retryConnect = ({tryCount, websocketFailureCount, chan0, error}) => {
-          const n = tryCount;
-          const r = websocketFailureCount;
-          const o = chan0;
-          const i = error;
-          e.retryTimeoutId
-            ? e.onUnrecoverableError(
-                new Error("unexpected existing retryTimeoutId")
-              )
-            : e.chan0Cb &&
-              (e.retryTimeoutId = setTimeout(() => {
-                e.chan0Cb
-                  ? ((e.retryTimeoutId = null),
-                    e.debug({
-                      type: "breadcrumb",
-                      message: "retrying",
-                      data: {
-                        connectionState: e.connectionState,
-                        connectTries: n,
-                        websocketFailureCount: r,
-                        error: i,
-                        wsReadyState: e.ws ? e.ws.readyState : void 0,
-                      },
-                    }),
-                    o.handleClose({
-                      initiator: "client",
-                      willReconnect: !0,
-                    }),
-                    delete e.channels[0],
-                    (e.connectionState = A.ConnectionState.DISCONNECTED),
-                    e.connect({ tryCount: n, websocketFailureCount: r }))
-                  : e.onUnrecoverableError(
-                      new Error(
-                        "Scheduled retry is called after we closed?"
-                      )
+                          }),
+                          (g.onclose = () => {
+                            v
+                              ? v(
+                                  new Error(
+                                    "WebSocket closed before we got READY"
+                                  )
+                                )
+                              : S.onUnrecoverableError(
+                                  new Error(
+                                    "Got websocket closure but no `onFailed` cb"
+                                  )
+                                );
+                          }),
+                          (m = () => {}),
+                          (C = () => {}),
+                          null !== (w = this.connectOptions.timeout) &&
+                            ((C = () => {
+                              S.debug({
+                                type: "breadcrumb",
+                                message: "cancel timeout",
+                              }),
+                                clearTimeout(E);
+                            }),
+                            (m = () => {
+                              S.debug({
+                                type: "breadcrumb",
+                                message: "reset timeout",
+                              }),
+                                clearTimeout(E),
+                                (E = setTimeout(() => {
+                                  S.debug({
+                                    type: "breadcrumb",
+                                    message: "connect timeout",
+                                  }),
+                                    v
+                                      ? v(new Error("timeout"))
+                                      : S.onUnrecoverableError(
+                                          new Error(
+                                            "Connecting timed out but there was no `onFailed` cb"
+                                          )
+                                        );
+                                }, w));
+                            })()),
+                          (O = !1),
+                          (k = t.onCommand(({ containerState }) => {
+                            if (((O = !0), m(), null != containerState))
+                              if (null != containerState.state) {
+                                const n = containerState.state;
+                                S.debug({
+                                  type: "breadcrumb",
+                                  message: "containerState",
+                                  data: n,
+                                });
+                                const r = s.api.ContainerState.State;
+                                switch (n) {
+                                  case r.READY:
+                                    if ((k(), C(), !S.connectOptions))
+                                      return void S.onUnrecoverableError(
+                                        new Error("Expected connectionOptions")
+                                      );
+                                    if (!t)
+                                      return void S.onUnrecoverableError(
+                                        new Error("Expected chan0 to be truthy")
+                                      );
+                                    if (!S.chan0Cb)
+                                      return void S.onUnrecoverableError(
+                                        new Error(
+                                          "Expected chan0Cb to be truthy"
+                                        )
+                                      );
+                                    S.handleConnect();
+                                    const o = S.close;
+                                    (S.close = () => {
+                                      return setTimeout(() => {
+                                        o();
+                                      }, 0);
+                                    }),
+                                      (S.chan0CleanupCb = S.chan0Cb({
+                                        channel: t,
+                                        error: null,
+                                        context: S.connectOptions.context,
+                                      })),
+                                      (S.close = o);
+                                    break;
+                                  case r.SLEEP:
+                                    if (!v)
+                                      return void S.onUnrecoverableError(
+                                        new Error(
+                                          "Got SLEEP but there was no `onFailed` cb"
+                                        )
+                                      );
+                                    v(
+                                      new Error("Got SLEEP as container state")
+                                    );
+                                }
+                              } else
+                                S.onUnrecoverableError(
+                                  new Error(
+                                    "Got containterState but state was not defined"
+                                  )
+                                );
+                          })),
+                          (v = (e) => {
+                            (v = null),
+                              S.cleanupSocket(),
+                              C(),
+                              k(),
+                              S.retryConnect({
+                                tryCount: n + 1,
+                                websocketFailureCount: O ? 0 : r + 1,
+                                chan0: t,
+                                error: e,
+                              });
+                          }),
+                          [2])
                     );
-              }, u.getNextRetryDelay(n)));
-        }),
+                }
+              });
+            });
+          }),
+          (this.retryConnect = ({
+            tryCount,
+            websocketFailureCount,
+            chan0,
+            error,
+          }) => {
+            const n = tryCount;
+            const r = websocketFailureCount;
+            const o = chan0;
+            const i = error;
+            e.retryTimeoutId
+              ? e.onUnrecoverableError(
+                  new Error("unexpected existing retryTimeoutId")
+                )
+              : e.chan0Cb &&
+                (e.retryTimeoutId = setTimeout(() => {
+                  e.chan0Cb
+                    ? ((e.retryTimeoutId = null),
+                      e.debug({
+                        type: "breadcrumb",
+                        message: "retrying",
+                        data: {
+                          connectionState: e.connectionState,
+                          connectTries: n,
+                          websocketFailureCount: r,
+                          error: i,
+                          wsReadyState: e.ws ? e.ws.readyState : void 0,
+                        },
+                      }),
+                      o.handleClose({
+                        initiator: "client",
+                        willReconnect: !0,
+                      }),
+                      delete e.channels[0],
+                      (e.connectionState = A.ConnectionState.DISCONNECTED),
+                      e.connect({ tryCount: n, websocketFailureCount: r }))
+                    : e.onUnrecoverableError(
+                        new Error("Scheduled retry is called after we closed?")
+                      );
+                }, u.getNextRetryDelay(n)));
+          }),
           (this.send = (t) => {
-          e.debug({ type: "log", log: { direction: "out", cmd: t } });
-          const n = s.api.Command.encode(t).finish();
-          const r = n.buffer.slice(n.byteOffset, n.byteOffset + n.length);
-          null != e.ws
-            ? e.ws.send(r)
-            : e.onUnrecoverableError(
-                new Error("Calling send on a closed client")
-              );
-        }),
-          (this.onSocketMessage = ({data}) => {
-          const n = data;
-          const r = new Uint8Array(n);
-          const o = s.api.Command.decode(r);
-          e.debug({ type: "log", log: { direction: "in", cmd: o } }),
-            e.getChannel(o.channel).handleCommand(o);
-        }),
+            e.debug({ type: "log", log: { direction: "out", cmd: t } });
+            const n = s.api.Command.encode(t).finish();
+            const r = n.buffer.slice(n.byteOffset, n.byteOffset + n.length);
+            null != e.ws
+              ? e.ws.send(r)
+              : e.onUnrecoverableError(
+                  new Error("Calling send on a closed client")
+                );
+          }),
+          (this.onSocketMessage = ({ data }) => {
+            const n = data;
+            const r = new Uint8Array(n);
+            const o = s.api.Command.decode(r);
+            e.debug({ type: "log", log: { direction: "in", cmd: o } }),
+              e.getChannel(o.channel).handleCommand(o);
+          }),
           (this.handleConnect = () => {
             if (
               ((e.connectionState = A.ConnectionState.CONNECTED),
@@ -3983,11 +3983,9 @@ e[0] +
                   e.requestOpenChannel(t);
                 });
             } else
-              e.onUnrecoverableError(
-                new Error("Expected Websocket instance")
-              );
+              e.onUnrecoverableError(new Error("Expected Websocket instance"));
           }),
-          (this.handleClose = ({closeReason}) => {
+          (this.handleClose = ({ closeReason }) => {
             if (closeReason !== a.Error) {
               if (e.connectionState === A.ConnectionState.DISCONNECTED)
                 return void e.onUnrecoverableError(
@@ -4100,9 +4098,7 @@ e[0] +
               try {
                 e.handleClose({ closeReason: a.Error, error: t });
               } catch (n) {
-                console.error(
-                  "handleClose errored during unrecoverable error"
-                ),
+                console.error("handleClose errored during unrecoverable error"),
                   console.error(n);
               }
             if (!e.userUnrecoverableErrorHandler)
@@ -4160,41 +4156,46 @@ e[0] +
               for (;;)
                 switch ((e.prev = e.next)) {
                   case 0:
-                    return (n = t.client),
-                    (r = t.args),
-                    (i = t.env),
-                    e.abrupt(
-                      "return",
-                      new Promise((e) => {
-                        const t = n.openChannel({ service: "exec" }, ({error, channel}) => {
-                          const o = error;
-                          const a = channel;
-                          if (o) e({ error: o.message, output: null });
-                          else {
-                            if (!a) throw new Error("Expected channel");
-                            let s = "";
-                            a.onCommand(({output}) => {
-                              output && (s += output);
-                            }),
-                              a
-                                .request({ exec: { args: r, env: i } })
-                                .then(({channelClosed, error}) => {
-                                  channelClosed
-                                    ? e({
-                                        error: "Channel closed",
-                                        output: s || null,
-                                      })
-                                    : ("open" === a.status && t(),
-                                      error
+                    return (
+                      (n = t.client),
+                      (r = t.args),
+                      (i = t.env),
+                      e.abrupt(
+                        "return",
+                        new Promise((e) => {
+                          const t = n.openChannel(
+                            { service: "exec" },
+                            ({ error, channel }) => {
+                              const o = error;
+                              const a = channel;
+                              if (o) e({ error: o.message, output: null });
+                              else {
+                                if (!a) throw new Error("Expected channel");
+                                let s = "";
+                                a.onCommand(({ output }) => {
+                                  output && (s += output);
+                                }),
+                                  a
+                                    .request({ exec: { args: r, env: i } })
+                                    .then(({ channelClosed, error }) => {
+                                      channelClosed
                                         ? e({
-                                            error: error,
+                                            error: "Channel closed",
                                             output: s || null,
                                           })
-                                        : e({ output: s, error: null }));
-                                });
-                          }
-                        });
-                      })
+                                        : ("open" === a.status && t(),
+                                          error
+                                            ? e({
+                                                error: error,
+                                                output: s || null,
+                                              })
+                                            : e({ output: s, error: null }));
+                                    });
+                              }
+                            }
+                          );
+                        })
+                      )
                     );
                   case 2:
                   case "end":
@@ -4365,7 +4366,7 @@ e[0] +
         return e;
       }
       let O;
-      function k({onUnrecoverableError}) {
+      function k({ onUnrecoverableError }) {
         const t = onUnrecoverableError;
         const n = Object(v.a)();
         let r = null;
@@ -4379,344 +4380,343 @@ e[0] +
         let f = null;
         p.setUnrecoverableErrorHandler(t);
         const d = window.location.search.includes("debug=1");
-        return d &&
-          p.setDebugFunc(({type, log}) => {
-            "log" === type &&
-              console.log(
-                "in" === log.direction ? "--\x3e" : "<--",
-                log.cmd
-              );
-          }),
-        {
-          onPortOpened(e) {
-            return (
-              n.on(O.PORT_OPEN, e),
-              () => {
-                n.removeListener(O.PORT_OPEN, e);
-              }
-            );
-          },
-          onConnectionStateChanged(e) {
-            return (
-              n.on(O.CONNECTION_STATE_CHANGE, e),
-              () => {
-                n.removeListener(O.CONNECTION_STATE_CHANGE, e);
-              }
-            );
-          },
-          connect(e) {
-            const t = e.repl;
-            const l = e.currentUser;
-            const b = e.overrideClusterMetadata;
-            const g = e.customConnectionMetadata;
-            const v = e.fetchConnectionMetadataExtras;
-
-            const m = Object(s.a)(e, [
-              "repl",
-              "currentUser",
-              "overrideClusterMetadata",
-              "customConnectionMetadata",
-              "fetchConnectionMetadataExtras",
-            ]);
-
-            (r = t), i !== h.DISCONNECTED && p.close();
-            const w = Boolean(l);
-            let k = null;
-
-            const S = {
-              context: { repl: t, currentUser: l },
-              fetchConnectionMetadata: (() => {
-                const e = Object(a.a)(
-                  o.a.mark(function e(n) {
-                    let r;
-                    let i;
-                    return o.a.wrap(
-                      (e) => {
-                        for (;;)
-                          switch ((e.prev = e.next)) {
-                            case 0:
-                              return (e.next = 2), Object(C.a)();
-                            case 2:
-                              if (!n.aborted) {
-                                e.next = 4;
-                                break;
-                              }
-                              return e.abrupt("return", {
-                                error: c.FetchConnectionMetadataError.Aborted,
-                              });
-                            case 4:
-                              if (b || !g || k === g.token) {
-                                e.next = 8;
-                                break;
-                              }
-                              return (
-                                (f = g),
-                                (k = g.token),
-                                e.abrupt(
-                                  "return",
-                                  E(E({}, g), {}, { error: null })
-                                )
-                              );
-                            case 8:
-                              if (
-                                ((e.prev = 8), !m.fetchConnectionMetadata)
-                              ) {
-                                e.next = 15;
-                                break;
-                              }
-                              return (
-                                (e.next = 12), m.fetchConnectionMetadata()
-                              );
-                            case 12:
-                              (r = e.sent), (e.next = 18);
-                              break;
-                            case 15:
-                              return (
-                                (e.next = 17),
-                                y(
-                                  E(
-                                    {
-                                      replId: t.id,
-                                      isVnc: Boolean(t.config.isVnc),
-                                      canWrite: Boolean(
-                                        null ===
-                                          (i = t.currentUserPermissions) ||
-                                          void 0 === i
-                                          ? void 0
-                                          : i.containerWrite
-                                      ),
-                                      isLoggedIn: w,
-                                      overrideClusterMetadata: b,
-                                      currentUser: l,
-                                    },
-                                    v
-                                  )
-                                )
-                              );
-                            case 17:
-                              r = e.sent;
-                            case 18:
-                              e.next = 27;
-                              break;
-                            case 20:
-                              (e.prev = 20),
-                                (e.t0 = e.catch(8)),
-                                (e.t1 = (e.t0 && e.t0.statusCode) || 500),
-                                (e.next =
-                                  408 === e.t1 ||
-                                  409 === e.t1 ||
-                                  429 === e.t1 ||
-                                  502 === e.t1 ||
-                                  503 === e.t1 ||
-                                  504 === e.t1
-                                    ? 25
-                                    : 26);
-                              break;
-                            case 25:
-                              return e.abrupt("return", {
-                                error:
-                                  c.FetchConnectionMetadataError.Retriable,
-                              });
-                            case 26:
-                              throw e.t0;
-                            case 27:
-                              if (!n.aborted) {
-                                e.next = 29;
-                                break;
-                              }
-                              return e.abrupt("return", {
-                                error: c.FetchConnectionMetadataError.Aborted,
-                              });
-                            case 29:
-                              return (
-                                (f = r),
-                                d && console.log("connecting", r),
-                                e.abrupt(
-                                  "return",
-                                  E(E({}, r), {}, { error: null })
-                                )
-                              );
-                            case 32:
-                            case "end":
-                              return e.stop();
-                          }
-                      },
-                      e,
-                      null,
-                      [[8, 20]]
-                    );
-                  })
-                );
-                return function (t) {
-                  return e.apply(this, arguments);
-                };
-              })(),
-            };
-
-            let x = window.performance.now();
-            let B = 0;
-            p.open(S, ({channel, error}) => {
-              const r = channel;
-              if (error) return A(h.DISCONNECTED), () => {};
-              if (!r) throw new Error("Expected channel");
-              d && console.log("connected", { replId: t.id });
-              const o = r.onCommand(({body, portOpen}) => {
-                switch (body) {
-                  case "portOpen":
-                    if (!portOpen)
-                      throw new Error(
-                        "portOpen only handles portOpen commands"
-                      );
-                    const t = portOpen.port || 0;
-                    if (5901 === t) return;
-                    n.emit(O.PORT_OPEN, {
-                      port: t,
-                      isVnc: 5900 === t,
-                      forwarded: Boolean(portOpen.forwarded),
-                    });
-                }
-              });
-              window.v6ws = p.ws;
-              const i = t.id;
-              const a = t.language;
-              return (
-                Object(u.track)(u.events.CONTAINER_SERVICE_CONNECTED, {
-                  time: window.performance.now() - x,
-                  reconnect: B,
-                  replId: i,
-                  language: a,
-                }),
-                A(h.CONNECTED),
-                (e) => {
-                  if (
-                    (o(), (f = null), "willReconnect" in e && e.willReconnect)
-                  )
-                    return (
-                      (x = window.performance.now()),
-                      B++,
-                      void A(h.CONNECTING)
-                    );
-                  A(h.DISCONNECTED);
-                }
-              );
+        return (
+          d &&
+            p.setDebugFunc(({ type, log }) => {
+              "log" === type &&
+                console.log("in" === log.direction ? "--\x3e" : "<--", log.cmd);
             }),
-              A(h.CONNECTING);
-          },
-          openChannel(e, t) {
-            let n = window.performance.now();
-            let o = 0;
-            const i = e.name;
-            const a = e.service;
-            return p.openChannel(e, (e) => {
-              let s;
-              let c;
-              let l;
-              Object(u.track)(u.events.OPEN_CHANNEL_CALLBACK_CALLED, {
-                timeToOpen: window.performance.now() - n,
-                replId: null === (s = r) || void 0 === s ? void 0 : s.id,
-                language:
-                  null === (c = r) || void 0 === c ? void 0 : c.language,
-                slug: null === (l = r) || void 0 === l ? void 0 : l.slug,
-                error: e.error,
-                reconnect: o,
-                name: i,
-                service: a,
-              });
-              const A = t(e);
-              return (e) => {
-                A && A(e), (n = window.performance.now()), o++;
-              };
-            });
-          },
-          getConnectionState() {
-            return i;
-          },
-          exec: (() => {
-            const e = Object(a.a)(
-              o.a.mark(function e() {
-                let t;
-                let n;
-                let r;
-                const i = arguments;
-                return o.a.wrap((e) => {
-                  for (;;)
-                    switch ((e.prev = e.next)) {
-                      case 0:
-                        for (
-                          t = i.length, n = new Array(t), r = 0;
-                          r < t;
-                          r++
-                        )
-                          n[r] = i[r];
-                        return e.abrupt("return", l({ client: p, args: n }));
-                      case 2:
-                      case "end":
-                        return e.stop();
-                    }
-                }, e);
-              })
-            );
-            return function(...args) {
-              return e.apply(this, args);
-            };
-          })(),
-          execWithEnv: (() => {
-            const e = Object(a.a)(
-              o.a.mark(function e(t) {
-                let n;
-                let r;
-                let i;
-                const a = arguments;
-                return o.a.wrap((e) => {
-                  for (;;)
-                    switch ((e.prev = e.next)) {
-                      case 0:
-                        for (
-                          n = a.length,
-                            r = new Array(n > 1 ? n - 1 : 0),
-                            i = 1;
-                          i < n;
-                          i++
-                        )
-                          r[i - 1] = a[i];
-                        return e.abrupt(
-                          "return",
-                          l({ client: p, args: r, env: t })
-                        );
-                      case 2:
-                      case "end":
-                        return e.stop();
-                    }
-                }, e);
-              })
-            );
-            return function (t) {
-              return e.apply(this, arguments);
-            };
-          })(),
-          close() {
-            (r = null), i !== h.DISCONNECTED && p.close();
-          },
-          destroy() {
-            (r = null), p.destroy(), n.removeAllListeners();
-          },
-          client() {
-            return p;
-          },
-          getConnectionMetadata() {
-            return f;
-          },
-          getRepl() {
-            return r;
-          },
-          getVncUrl() {
-            if (!f || i !== h.CONNECTED)
-              throw new Error(
-                "Cannot get vnc url when container is not connected"
+          {
+            onPortOpened(e) {
+              return (
+                n.on(O.PORT_OPEN, e),
+                () => {
+                  n.removeListener(O.PORT_OPEN, e);
+                }
               );
-            return Object(m.c)(f.token);
-          },
-        };
+            },
+            onConnectionStateChanged(e) {
+              return (
+                n.on(O.CONNECTION_STATE_CHANGE, e),
+                () => {
+                  n.removeListener(O.CONNECTION_STATE_CHANGE, e);
+                }
+              );
+            },
+            connect(e) {
+              const t = e.repl;
+              const l = e.currentUser;
+              const b = e.overrideClusterMetadata;
+              const g = e.customConnectionMetadata;
+              const v = e.fetchConnectionMetadataExtras;
+
+              const m = Object(s.a)(e, [
+                "repl",
+                "currentUser",
+                "overrideClusterMetadata",
+                "customConnectionMetadata",
+                "fetchConnectionMetadataExtras",
+              ]);
+
+              (r = t), i !== h.DISCONNECTED && p.close();
+              const w = Boolean(l);
+              let k = null;
+
+              const S = {
+                context: { repl: t, currentUser: l },
+                fetchConnectionMetadata: (() => {
+                  const e = Object(a.a)(
+                    o.a.mark(function e(n) {
+                      let r;
+                      let i;
+                      return o.a.wrap(
+                        (e) => {
+                          for (;;)
+                            switch ((e.prev = e.next)) {
+                              case 0:
+                                return (e.next = 2), Object(C.a)();
+                              case 2:
+                                if (!n.aborted) {
+                                  e.next = 4;
+                                  break;
+                                }
+                                return e.abrupt("return", {
+                                  error: c.FetchConnectionMetadataError.Aborted,
+                                });
+                              case 4:
+                                if (b || !g || k === g.token) {
+                                  e.next = 8;
+                                  break;
+                                }
+                                return (
+                                  (f = g),
+                                  (k = g.token),
+                                  e.abrupt(
+                                    "return",
+                                    E(E({}, g), {}, { error: null })
+                                  )
+                                );
+                              case 8:
+                                if (
+                                  ((e.prev = 8), !m.fetchConnectionMetadata)
+                                ) {
+                                  e.next = 15;
+                                  break;
+                                }
+                                return (
+                                  (e.next = 12), m.fetchConnectionMetadata()
+                                );
+                              case 12:
+                                (r = e.sent), (e.next = 18);
+                                break;
+                              case 15:
+                                return (
+                                  (e.next = 17),
+                                  y(
+                                    E(
+                                      {
+                                        replId: t.id,
+                                        isVnc: Boolean(t.config.isVnc),
+                                        canWrite: Boolean(
+                                          null ===
+                                            (i = t.currentUserPermissions) ||
+                                            void 0 === i
+                                            ? void 0
+                                            : i.containerWrite
+                                        ),
+                                        isLoggedIn: w,
+                                        overrideClusterMetadata: b,
+                                        currentUser: l,
+                                      },
+                                      v
+                                    )
+                                  )
+                                );
+                              case 17:
+                                r = e.sent;
+                              case 18:
+                                e.next = 27;
+                                break;
+                              case 20:
+                                (e.prev = 20),
+                                  (e.t0 = e.catch(8)),
+                                  (e.t1 = (e.t0 && e.t0.statusCode) || 500),
+                                  (e.next =
+                                    408 === e.t1 ||
+                                    409 === e.t1 ||
+                                    429 === e.t1 ||
+                                    502 === e.t1 ||
+                                    503 === e.t1 ||
+                                    504 === e.t1
+                                      ? 25
+                                      : 26);
+                                break;
+                              case 25:
+                                return e.abrupt("return", {
+                                  error:
+                                    c.FetchConnectionMetadataError.Retriable,
+                                });
+                              case 26:
+                                throw e.t0;
+                              case 27:
+                                if (!n.aborted) {
+                                  e.next = 29;
+                                  break;
+                                }
+                                return e.abrupt("return", {
+                                  error: c.FetchConnectionMetadataError.Aborted,
+                                });
+                              case 29:
+                                return (
+                                  (f = r),
+                                  d && console.log("connecting", r),
+                                  e.abrupt(
+                                    "return",
+                                    E(E({}, r), {}, { error: null })
+                                  )
+                                );
+                              case 32:
+                              case "end":
+                                return e.stop();
+                            }
+                        },
+                        e,
+                        null,
+                        [[8, 20]]
+                      );
+                    })
+                  );
+                  return function (t) {
+                    return e.apply(this, arguments);
+                  };
+                })(),
+              };
+
+              let x = window.performance.now();
+              let B = 0;
+              p.open(S, ({ channel, error }) => {
+                const r = channel;
+                if (error) return A(h.DISCONNECTED), () => {};
+                if (!r) throw new Error("Expected channel");
+                d && console.log("connected", { replId: t.id });
+                const o = r.onCommand(({ body, portOpen }) => {
+                  switch (body) {
+                    case "portOpen":
+                      if (!portOpen)
+                        throw new Error(
+                          "portOpen only handles portOpen commands"
+                        );
+                      const t = portOpen.port || 0;
+                      if (5901 === t) return;
+                      n.emit(O.PORT_OPEN, {
+                        port: t,
+                        isVnc: 5900 === t,
+                        forwarded: Boolean(portOpen.forwarded),
+                      });
+                  }
+                });
+                window.v6ws = p.ws;
+                const i = t.id;
+                const a = t.language;
+                return (
+                  Object(u.track)(u.events.CONTAINER_SERVICE_CONNECTED, {
+                    time: window.performance.now() - x,
+                    reconnect: B,
+                    replId: i,
+                    language: a,
+                  }),
+                  A(h.CONNECTED),
+                  (e) => {
+                    if (
+                      (o(), (f = null), "willReconnect" in e && e.willReconnect)
+                    )
+                      return (
+                        (x = window.performance.now()),
+                        B++,
+                        void A(h.CONNECTING)
+                      );
+                    A(h.DISCONNECTED);
+                  }
+                );
+              }),
+                A(h.CONNECTING);
+            },
+            openChannel(e, t) {
+              let n = window.performance.now();
+              let o = 0;
+              const i = e.name;
+              const a = e.service;
+              return p.openChannel(e, (e) => {
+                let s;
+                let c;
+                let l;
+                Object(u.track)(u.events.OPEN_CHANNEL_CALLBACK_CALLED, {
+                  timeToOpen: window.performance.now() - n,
+                  replId: null === (s = r) || void 0 === s ? void 0 : s.id,
+                  language:
+                    null === (c = r) || void 0 === c ? void 0 : c.language,
+                  slug: null === (l = r) || void 0 === l ? void 0 : l.slug,
+                  error: e.error,
+                  reconnect: o,
+                  name: i,
+                  service: a,
+                });
+                const A = t(e);
+                return (e) => {
+                  A && A(e), (n = window.performance.now()), o++;
+                };
+              });
+            },
+            getConnectionState() {
+              return i;
+            },
+            exec: (() => {
+              const e = Object(a.a)(
+                o.a.mark(function e() {
+                  let t;
+                  let n;
+                  let r;
+                  const i = arguments;
+                  return o.a.wrap((e) => {
+                    for (;;)
+                      switch ((e.prev = e.next)) {
+                        case 0:
+                          for (
+                            t = i.length, n = new Array(t), r = 0;
+                            r < t;
+                            r++
+                          )
+                            n[r] = i[r];
+                          return e.abrupt("return", l({ client: p, args: n }));
+                        case 2:
+                        case "end":
+                          return e.stop();
+                      }
+                  }, e);
+                })
+              );
+              return function (...args) {
+                return e.apply(this, args);
+              };
+            })(),
+            execWithEnv: (() => {
+              const e = Object(a.a)(
+                o.a.mark(function e(t) {
+                  let n;
+                  let r;
+                  let i;
+                  const a = arguments;
+                  return o.a.wrap((e) => {
+                    for (;;)
+                      switch ((e.prev = e.next)) {
+                        case 0:
+                          for (
+                            n = a.length,
+                              r = new Array(n > 1 ? n - 1 : 0),
+                              i = 1;
+                            i < n;
+                            i++
+                          )
+                            r[i - 1] = a[i];
+                          return e.abrupt(
+                            "return",
+                            l({ client: p, args: r, env: t })
+                          );
+                        case 2:
+                        case "end":
+                          return e.stop();
+                      }
+                  }, e);
+                })
+              );
+              return function (t) {
+                return e.apply(this, arguments);
+              };
+            })(),
+            close() {
+              (r = null), i !== h.DISCONNECTED && p.close();
+            },
+            destroy() {
+              (r = null), p.destroy(), n.removeAllListeners();
+            },
+            client() {
+              return p;
+            },
+            getConnectionMetadata() {
+              return f;
+            },
+            getRepl() {
+              return r;
+            },
+            getVncUrl() {
+              if (!f || i !== h.CONNECTED)
+                throw new Error(
+                  "Cannot get vnc url when container is not connected"
+                );
+              return Object(m.c)(f.token);
+            },
+          }
+        );
       }
       !((e) => {
         (e.CONNECTION_STATE_CHANGE = "CONNECTION_STATE_CHANGE"),
@@ -4734,12 +4734,13 @@ e[0] +
       (e.exports = r),
         (r.prototype.on = r.prototype.addEventListener =
           function (e, t) {
-            return (this._callbacks = this._callbacks || {}),
-            (this._callbacks[`$${e}`] = this._callbacks[`$${e}`] || []).push(
-              t
-            ),
-            this
-          ;
+            return (
+              (this._callbacks = this._callbacks || {}),
+              (this._callbacks[`$${e}`] = this._callbacks[`$${e}`] || []).push(
+                t
+              ),
+              this
+            );
           }),
         (r.prototype.once = function (e, t) {
           function n(...args) {
@@ -4787,9 +4788,10 @@ e[0] +
           return this;
         }),
         (r.prototype.listeners = function (e) {
-          return (this._callbacks = this._callbacks || {}),
-          this._callbacks[`$${e}`] || []
-        ;
+          return (
+            (this._callbacks = this._callbacks || {}),
+            this._callbacks[`$${e}`] || []
+          );
         }),
         (r.prototype.hasListeners = function (e) {
           return !!this.listeners(e).length;
@@ -4804,7 +4806,8 @@ e[0] +
         const a = /^0o[0-7]+$/i;
         const s = parseInt;
         const c = "object" == typeof t && t && t.Object === Object && t;
-        const u = "object" == typeof self && self && self.Object === Object && self;
+        const u =
+          "object" == typeof self && self && self.Object === Object && self;
         const l = c || u || Function("return this")();
         const A = Object.prototype.toString;
         const h = Math.max;
@@ -4958,37 +4961,38 @@ e[0] +
 
         const v = i.a.useRef(null);
         const m = i.a.useRef({ width: void 0, height: void 0 });
-        return i.a.useEffect(() => {
-          const e = new window.ResizeObserver((e) => {
-            const t = e[0];
-            if (t) {
-              const r = Math.round(t.contentRect.width);
-              const o = Math.round(t.contentRect.height);
-              (m.current.width === r && m.current.height === o) ||
-                window.requestAnimationFrame(() => {
-                  n.current && p.current({ width: r, height: o });
-                });
-            }
-          });
-          return (
-            (v.current = e),
-            () => {
-              e.disconnect(), (v.current = null);
-            }
-          );
-        }, []),
-        i.a.useEffect(() => {
-          if (v.current && b)
+        return (
+          i.a.useEffect(() => {
+            const e = new window.ResizeObserver((e) => {
+              const t = e[0];
+              if (t) {
+                const r = Math.round(t.contentRect.width);
+                const o = Math.round(t.contentRect.height);
+                (m.current.width === r && m.current.height === o) ||
+                  window.requestAnimationFrame(() => {
+                    n.current && p.current({ width: r, height: o });
+                  });
+              }
+            });
             return (
-              v.current.observe(b),
+              (v.current = e),
               () => {
-                v.current && v.current.unobserve(b),
-                  "cancel" in p.current && p.current.cancel();
+                e.disconnect(), (v.current = null);
               }
             );
-        }, [b]),
-        g
-      ;
+          }, []),
+          i.a.useEffect(() => {
+            if (v.current && b)
+              return (
+                v.current.observe(b),
+                () => {
+                  v.current && v.current.unobserve(b),
+                    "cancel" in p.current && p.current.cancel();
+                }
+              );
+          }, [b]),
+          g
+        );
       }
     },
     "m+yM": function (e, t, n) {
@@ -5020,20 +5024,21 @@ e[0] +
             u.apply(e, a);
           }
         }
-        return (r.namespace = e),
-        (r.enabled = t.enabled(e)),
-        (r.useColors = t.useColors()),
-        (r.color = ((e) => {
-          let n;
-          let r = 0;
-          for (n in e) (r = (r << 5) - r + e.charCodeAt(n)), (r |= 0);
-          return t.colors[Math.abs(r) % t.colors.length];
-        })(e)),
-        (r.destroy = o),
-        "function" === typeof t.init && t.init(r),
-        t.instances.push(r),
-        r
-      ;
+        return (
+          (r.namespace = e),
+          (r.enabled = t.enabled(e)),
+          (r.useColors = t.useColors()),
+          (r.color = ((e) => {
+            let n;
+            let r = 0;
+            for (n in e) (r = (r << 5) - r + e.charCodeAt(n)), (r |= 0);
+            return t.colors[Math.abs(r) % t.colors.length];
+          })(e)),
+          (r.destroy = o),
+          "function" === typeof t.init && t.init(r),
+          t.instances.push(r),
+          r
+        );
       }
       function o() {
         const e = t.instances.indexOf(this);
@@ -5046,30 +5051,30 @@ e[0] +
           t.enable("");
         }),
         (t.enable = (e) => {
-        let n;
-        t.save(e), (t.names = []), (t.skips = []);
-        const r = ("string" === typeof e ? e : "").split(/[\s,]+/);
-        const o = r.length;
-        for (n = 0; n < o; n++)
-          r[n] &&
-            ("-" === (e = r[n].replace(/\*/g, ".*?"))[0]
-              ? t.skips.push(new RegExp(`^${e.substr(1)}$`))
-              : t.names.push(new RegExp(`^${e}$`)));
-        for (n = 0; n < t.instances.length; n++) {
-          const i = t.instances[n];
-          i.enabled = t.enabled(i.namespace);
-        }
-      }),
+          let n;
+          t.save(e), (t.names = []), (t.skips = []);
+          const r = ("string" === typeof e ? e : "").split(/[\s,]+/);
+          const o = r.length;
+          for (n = 0; n < o; n++)
+            r[n] &&
+              ("-" === (e = r[n].replace(/\*/g, ".*?"))[0]
+                ? t.skips.push(new RegExp(`^${e.substr(1)}$`))
+                : t.names.push(new RegExp(`^${e}$`)));
+          for (n = 0; n < t.instances.length; n++) {
+            const i = t.instances[n];
+            i.enabled = t.enabled(i.namespace);
+          }
+        }),
         (t.enabled = (e) => {
-        if ("*" === e[e.length - 1]) return !0;
-        let n;
-        let r;
-        for (n = 0, r = t.skips.length; n < r; n++)
-          if (t.skips[n].test(e)) return !1;
-        for (n = 0, r = t.names.length; n < r; n++)
-          if (t.names[n].test(e)) return !0;
-        return !1;
-      }),
+          if ("*" === e[e.length - 1]) return !0;
+          let n;
+          let r;
+          for (n = 0, r = t.skips.length; n < r; n++)
+            if (t.skips[n].test(e)) return !1;
+          for (n = 0, r = t.names.length; n < r; n++)
+            if (t.names[n].test(e)) return !0;
+          return !1;
+        }),
         (t.humanize = n("FGiv")),
         (t.instances = []),
         (t.names = []),
@@ -5252,19 +5257,17 @@ e[0] +
                       "return",
                       new Promise((e, t) => {
                         const n = setInterval(() => {
-                            a() &&
-                              (clearInterval(n),
-                              clearTimeout(o),
-                              document.body.removeChild(r),
-                              e());
-                          }, 50);
+                          a() &&
+                            (clearInterval(n),
+                            clearTimeout(o),
+                            document.body.removeChild(r),
+                            e());
+                        }, 50);
 
                         const o = setTimeout(() => {
                           clearInterval(n),
                             document.body.removeChild(r),
-                            a()
-                              ? e()
-                              : t(new Error("Font loading timed out"));
+                            a() ? e() : t(new Error("Font loading timed out"));
                         }, 3e3);
                       })
                     );
@@ -5374,7 +5377,7 @@ e[0] +
               (this.ws.onclose = () => {
                 e.onClose();
               }),
-              (this.ws.onmessage = ({data}) => {
+              (this.ws.onmessage = ({ data }) => {
                 e.onData(data);
               }),
               (this.ws.onerror = (t) => {
@@ -5421,16 +5424,20 @@ e[0] +
             let e = this.query || {};
             const t = this.secure ? "wss" : "ws";
             let n = "";
-            return this.port &&
-              (("wss" === t && 443 !== Number(this.port)) ||
-                ("ws" === t && 80 !== Number(this.port))) &&
-              (n = `:${this.port}`),
-            this.timestampRequests && (e[this.timestampParam] = u()),
-            this.supportsBinary || (e.b64 = 1),
-            (e = s.encode(e)).length && (e = `?${e}`),
-            `${t}://${this.hostname.includes(":")
-    ? `[${this.hostname}]`
-    : this.hostname}${n}${this.path}${e}`;
+            return (
+              this.port &&
+                (("wss" === t && 443 !== Number(this.port)) ||
+                  ("ws" === t && 80 !== Number(this.port))) &&
+                (n = `:${this.port}`),
+              this.timestampRequests && (e[this.timestampParam] = u()),
+              this.supportsBinary || (e.b64 = 1),
+              (e = s.encode(e)).length && (e = `?${e}`),
+              `${t}://${
+                this.hostname.includes(":")
+                  ? `[${this.hostname}]`
+                  : this.hostname
+              }${n}${this.path}${e}`
+            );
           }),
           (h.prototype.check = function () {
             return (

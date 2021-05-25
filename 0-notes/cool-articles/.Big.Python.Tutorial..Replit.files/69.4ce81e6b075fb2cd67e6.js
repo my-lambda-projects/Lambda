@@ -69,9 +69,7 @@
           },
           {
             beforeText: new RegExp(
-              "<(?!(?:" +
-                o.join("|") +
-                "))(\\w[\\w\\d]*)([^/>]*(?!/)>)[^<]*$",
+              "<(?!(?:" + o.join("|") + "))(\\w[\\w\\d]*)([^/>]*(?!/)>)[^<]*$",
               "i"
             ),
             action: { indentAction: i.languages.IndentAction.Indent },

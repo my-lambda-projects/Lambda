@@ -58,7 +58,11 @@
         n.d(e, "startCompletion", () => {
           return F;
         });
-      const i = n("4eob"), r = n("uZp5"), s = n("AtEE"), o = n("fK0Z"), l = n("yqQ+");
+      const i = n("4eob"),
+        r = n("uZp5"),
+        s = n("AtEE"),
+        o = n("fK0Z"),
+        l = n("yqQ+");
       class a {
         constructor(t, e, n) {
           (this.state = t),
@@ -1588,10 +1592,7 @@
             [/'/, "string", "@pop"],
           ],
           string_backtick: [
-            [
-              /\$\{/,
-              { token: "delimiter.bracket", next: "@bracketCounting" },
-            ],
+            [/\$\{/, { token: "delimiter.bracket", next: "@bracketCounting" }],
             [/[^\\`$]+/, "string"],
             [/@escapes/, "string.escape"],
             [/\\./, "string.escape.invalid"],
@@ -4287,7 +4288,7 @@
                 if (i.buffer.buffer[t + 3] < this.index) return !1;
             ({ index: e, parent: n } = i);
           } else ({ index: e, _parent: n } = this._tree);
-          for (; n; ({ index: e, _parent: n } = n))
+          for (; n; { index: e, _parent: n } = n)
             for (
               let i = e + t, r = t < 0 ? -1 : n.node.children.length;
               i != r;
@@ -4529,7 +4530,8 @@
         n.d(e, "tooltips", () => {
           return h;
         });
-      const i = n("AtEE"), r = n("4eob");
+      const i = n("AtEE"),
+        r = n("4eob");
       const s =
           "undefined" != typeof navigator &&
           !/Edge\/(\d+)/.exec(navigator.userAgent) &&
@@ -4862,7 +4864,12 @@
         n.d(e, "tags", () => {
           return z;
         });
-      const i = n("WQMp"), r = n("rknV"), s = n("AtEE"), o = n("4eob"), l = n("yqQ+"), a = n("wG49");
+      const i = n("WQMp"),
+        r = n("rknV"),
+        s = n("AtEE"),
+        o = n("4eob"),
+        l = n("yqQ+"),
+        a = n("wG49");
       let h = 0;
       class c {
         constructor(t, e, n) {
@@ -5368,7 +5375,10 @@
         n.d(e, "syntaxTree", () => {
           return f;
         });
-      const i = n("WQMp"), r = n("uZp5"), s = n("4eob"), o = n("AtEE");
+      const i = n("WQMp"),
+        r = n("uZp5"),
+        s = n("4eob"),
+        o = n("AtEE");
       const l = new i.b();
       function a(t) {
         return s.Facet.define({ combine: t ? (e) => e.concat(t) : void 0 });

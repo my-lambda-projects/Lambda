@@ -7,7 +7,8 @@
         return r;
       });
       var r = (e) => {
-        const t = e.ace, n = e.path;
+        const t = e.ace,
+          n = e.path;
         if (n.endsWith(".php")) return { path: "ace/mode/php", inline: !0 };
         const r = ((e) => {
           return e.endsWith(".litcoffee")
@@ -36,7 +37,9 @@
       n.d(t, "a", () => {
         return s;
       });
-      const r = n("cpVT"), a = n("nKUr"), o = (n("q1tI"), n("pDQI"));
+      const r = n("cpVT"),
+        a = n("nKUr"),
+        o = (n("q1tI"), n("pDQI"));
       function i(e, t) {
         const n = Object.keys(e);
         if (Object.getOwnPropertySymbols) {
@@ -105,9 +108,51 @@
       n.d(t, "a", () => {
         return pe;
       });
-      const r = n("nKUr"), a = n("cpVT"), o = n("xvhg"), i = n("dhJC"), c = n("MX0m"), s = n.n(c), l = n("q1tI"), u = n("TSYQ"), d = n.n(u), p = n("qJlv"), f = n("b0NY"), b = n("vJKn"), j = n.n(b), h = n("rg98"), g = n("z7pX"), v = n("zgDP"), x = n("JOwT"), O = n("8v8i"), m = n("up5I"), y = n("YuJD"), w = n("kDUs"), k = n("8PE+"), E = n("kx/0"), C = n("nXXz"), P = n("VwSA"), D = n("UWUU"), T = n("0HhJ"), N = n("Wjzo"), S = n("dI/k");
+      const r = n("nKUr"),
+        a = n("cpVT"),
+        o = n("xvhg"),
+        i = n("dhJC"),
+        c = n("MX0m"),
+        s = n.n(c),
+        l = n("q1tI"),
+        u = n("TSYQ"),
+        d = n.n(u),
+        p = n("qJlv"),
+        f = n("b0NY"),
+        b = n("vJKn"),
+        j = n.n(b),
+        h = n("rg98"),
+        g = n("z7pX"),
+        v = n("zgDP"),
+        x = n("JOwT"),
+        O = n("8v8i"),
+        m = n("up5I"),
+        y = n("YuJD"),
+        w = n("kDUs"),
+        k = n("8PE+"),
+        E = n("kx/0"),
+        C = n("nXXz"),
+        P = n("VwSA"),
+        D = n("UWUU"),
+        T = n("0HhJ"),
+        N = n("Wjzo"),
+        S = n("dI/k");
       function R(e) {
-        const t = e.depth, n = e.active, a = e.children, i = e.onClick, c = e.interactive, u = void 0 === c || c, p = e.className, f = e.actions, b = e.onAction, j = l.useRef(null), h = l.useState(!1), g = Object(o.a)(h, 2), v = g[0], x = g[1], O = l.useRef(null);
+        const t = e.depth,
+          n = e.active,
+          a = e.children,
+          i = e.onClick,
+          c = e.interactive,
+          u = void 0 === c || c,
+          p = e.className,
+          f = e.actions,
+          b = e.onAction,
+          j = l.useRef(null),
+          h = l.useState(!1),
+          g = Object(o.a)(h, 2),
+          v = g[0],
+          x = g[1],
+          O = l.useRef(null);
         return Object(r.jsxs)("div", {
           ref: j,
           onClick: i
@@ -253,7 +298,8 @@
         });
       }
       function L(e) {
-        const t = e.onCreateClick, n = e.depth;
+        const t = e.onCreateClick,
+          n = e.depth;
         return Object(r.jsxs)(R, {
           interactive: !1,
           depth: n,
@@ -290,7 +336,11 @@
           ],
         });
       }
-      const I = n("CLjb"), F = n("IjuC"), U = n("8Vt8"), M = n("QdtJ"), V = n("VoYB");
+      const I = n("CLjb"),
+        F = n("IjuC"),
+        U = n("8Vt8"),
+        M = n("QdtJ"),
+        V = n("VoYB");
       function z(e, t) {
         const n = Object.keys(e);
         if (Object.getOwnPropertySymbols) {
@@ -324,76 +374,77 @@
       }
       function H(e) {
         const t = e.path,
-              n = e.readOnly,
-              a = e.onRename,
-              c = e.onDelete,
-              u = e.overwriteNode,
-              p = e.getNodeType,
-              f = Object(i.a)(e, [
-                "path",
-                "readOnly",
-                "onRename",
-                "onDelete",
-                "overwriteNode",
-                "getNodeType",
-              ]),
-              b = t.split("/"),
-              j = b[b.length - 1],
-              h = b.length - 1,
-              g = l.useState(null),
-              v = Object(o.a)(g, 2),
-              x = v[0],
-              m = v[1],
-              y = Object(V.a)().showError,
-              k = l.useState(null),
-              E = Object(o.a)(k, 2),
-              C = E[0],
-              P = E[1];
+          n = e.readOnly,
+          a = e.onRename,
+          c = e.onDelete,
+          u = e.overwriteNode,
+          p = e.getNodeType,
+          f = Object(i.a)(e, [
+            "path",
+            "readOnly",
+            "onRename",
+            "onDelete",
+            "overwriteNode",
+            "getNodeType",
+          ]),
+          b = t.split("/"),
+          j = b[b.length - 1],
+          h = b.length - 1,
+          g = l.useState(null),
+          v = Object(o.a)(g, 2),
+          x = v[0],
+          m = v[1],
+          y = Object(V.a)().showError,
+          k = l.useState(null),
+          E = Object(o.a)(k, 2),
+          C = E[0],
+          P = E[1];
         l.useEffect(() => {
           if (x) {
             let e = !1;
-            return x.file.then((n) => {
-              if (!e) {
-                if (n.error) {
-                  if (n.error === O.e.AlreadyExists) {
-                    const r =
-                      "." === x.path ? j : "".concat(x.path, "/").concat(j);
-                    return (
-                      p(r).then((e) => {
-                        r !== t && P({ path: r, type: e });
-                      }),
-                      void m(null)
-                    );
+            return (
+              x.file.then((n) => {
+                if (!e) {
+                  if (n.error) {
+                    if (n.error === O.e.AlreadyExists) {
+                      const r =
+                        "." === x.path ? j : "".concat(x.path, "/").concat(j);
+                      return (
+                        p(r).then((e) => {
+                          r !== t && P({ path: r, type: e });
+                        }),
+                        void m(null)
+                      );
+                    }
+                    y("Something went wrong trying to remove ".concat(j));
                   }
-                  y("Something went wrong trying to remove ".concat(j));
+                  m(null);
                 }
-                m(null);
+              }),
+              () => {
+                e = !0;
               }
-            }),
-            () => {
-              e = !0;
-            }
-          ;
+            );
           }
         }, [x, j, t, p, y]);
         const D = Object(I.a)({
-                  item: { type: O.d.File, path: t },
-                  canDrag() {
-                    return !n;
-                  },
-                  collect(e) {
-                    return { isDragging: e.isDragging() };
-                  },
-                  end(e, t) {
-                    if (t.didDrop()) {
-                      const n = t.getDropResult();
-                      n.file && m(n);
-                    }
-                  },
-                }),
-              T = Object(o.a)(D, 2),
-              N = T[0].isDragging,
-              S = T[1];
+            item: { type: O.d.File, path: t },
+            canDrag() {
+              return !n;
+            },
+            collect(e) {
+              return { isDragging: e.isDragging() };
+            },
+            end(e, t) {
+              if (t.didDrop()) {
+                const n = t.getDropResult();
+                n.file && m(n);
+              }
+            },
+          }),
+          T = Object(o.a)(D, 2),
+          N = T[0].isDragging,
+          S = T[1];
         return Object(r.jsxs)("div", {
           ref: S,
           className:
@@ -416,7 +467,9 @@
                       case w.a.OpenTab:
                         return void f.onClick({ newTab: !0 });
                       case w.a.CopyLink:
-                        const n = window.location.href, r = n.includes("#") ? n.indexOf("#") : n.length, o = "".concat(n.slice(0, r), "#").concat(t);
+                        const n = window.location.href,
+                          r = n.includes("#") ? n.indexOf("#") : n.length,
+                          o = "".concat(n.slice(0, r), "#").concat(t);
                         return void Object(F.a)(o);
                       case w.a.Delete:
                         c();
@@ -465,100 +518,116 @@
           ],
         });
       }
-      const q = n("yzOi"), B = n("KRxe"), J = n("5QjX");
+      const q = n("yzOi"),
+        B = n("KRxe"),
+        J = n("5QjX");
       function W(e) {
         const t = e.type,
-              n = e.initialValue,
-              a = e.onSubmit,
-              o = e.onCancel,
-              i = e.siblings,
-              c = e.depth,
-              u = l.useRef(null),
-              d = Object(J.a)("flag-repl-secrets"),
-              p = Object(q.a)(n || "", (e) => {
-                const t = Object(S.i)({
-                  files: i.map((e) => {
-                    return e.filename;
-                  }),
-                  fileName: e,
-                  initialValue: n,
-                  disallowDotEnv: d,
-                });
-                return t ? { message: t } : null;
-              });
-        return l.useEffect(() => {
-          if (n) {
-            let e = n.lastIndexOf(".");
-            -1 === e && (e = n.length),
-              u.current && u.current.setSelectionRange(0, e);
-          }
-        }, [n]),
-        Object(r.jsxs)("div", {
-          className:
-            "jsx-125275207 " +
-            s.a.dynamic([["2358739874", [c, c]]]) +
-            " input-wrap",
-          children: [
-            Object(r.jsx)(B.b, {
-              ref: u,
-              validationResults: p.error
-                ? [{ state: "error", message: p.error.message }]
-                : void 0,
-              autoFocus: !0,
-              value: p.value,
-              onBlur() {
-                p.value && p.value !== n ? (p.error ? o() : a(p.value)) : o();
-              },
-              onKeyUp: p.validate,
-              onKeyDown(e) {
-                if ("Enter" === e.key) {
-                  if (p.error) return;
-                  return p.value !== n && p.value
-                    ? void a(p.value)
-                    : void o();
-                }
-                "Escape" === e.key && o();
-              },
-              onChange(e) {
-                p.setValue(e.target.value);
-              },
-            }),
-            Object(r.jsx)("div", {
-              className:
-                "jsx-125275207 " +
-                s.a.dynamic([["2358739874", [c, c]]]) +
-                " icon",
-              children: Object(r.jsx)(_, { type: t, path: p.value }),
-            }),
-            Object(r.jsx)(s.a, {
-              id: "2358739874",
-              dynamic: [c, c],
-              children: [
-                ".input-wrap.__jsx-style-dynamic-selector input{padding-left:calc(".concat(
-                  c,
-                  " * var(--spacing-2) + var(--spacing-6));}"
-                ),
-                ".icon.__jsx-style-dynamic-selector{padding-left:calc(".concat(
-                  c,
-                  " * var(--spacing-2));}"
-                ),
-              ],
-            }),
-            Object(r.jsx)(s.a, {
-              id: "125275207",
-              children: [
-                ".input-wrap.jsx-125275207{-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto;font-size:var(--font-size-desktop-text-small);position:relative;}",
-                ".input-wrap.jsx-125275207 input{font-size:inherit;padding-top:var(--spacing-half);padding-bottom:var(--spacing-half);}",
-                ".icon.jsx-125275207{color:var(--color-foreground-2);pointer-events:none;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:absolute;top:0;left:0;height:100%;}",
-              ],
-            }),
-          ],
-        })
-      ;
+          n = e.initialValue,
+          a = e.onSubmit,
+          o = e.onCancel,
+          i = e.siblings,
+          c = e.depth,
+          u = l.useRef(null),
+          d = Object(J.a)("flag-repl-secrets"),
+          p = Object(q.a)(n || "", (e) => {
+            const t = Object(S.i)({
+              files: i.map((e) => {
+                return e.filename;
+              }),
+              fileName: e,
+              initialValue: n,
+              disallowDotEnv: d,
+            });
+            return t ? { message: t } : null;
+          });
+        return (
+          l.useEffect(() => {
+            if (n) {
+              let e = n.lastIndexOf(".");
+              -1 === e && (e = n.length),
+                u.current && u.current.setSelectionRange(0, e);
+            }
+          }, [n]),
+          Object(r.jsxs)("div", {
+            className:
+              "jsx-125275207 " +
+              s.a.dynamic([["2358739874", [c, c]]]) +
+              " input-wrap",
+            children: [
+              Object(r.jsx)(B.b, {
+                ref: u,
+                validationResults: p.error
+                  ? [{ state: "error", message: p.error.message }]
+                  : void 0,
+                autoFocus: !0,
+                value: p.value,
+                onBlur() {
+                  p.value && p.value !== n ? (p.error ? o() : a(p.value)) : o();
+                },
+                onKeyUp: p.validate,
+                onKeyDown(e) {
+                  if ("Enter" === e.key) {
+                    if (p.error) return;
+                    return p.value !== n && p.value
+                      ? void a(p.value)
+                      : void o();
+                  }
+                  "Escape" === e.key && o();
+                },
+                onChange(e) {
+                  p.setValue(e.target.value);
+                },
+              }),
+              Object(r.jsx)("div", {
+                className:
+                  "jsx-125275207 " +
+                  s.a.dynamic([["2358739874", [c, c]]]) +
+                  " icon",
+                children: Object(r.jsx)(_, { type: t, path: p.value }),
+              }),
+              Object(r.jsx)(s.a, {
+                id: "2358739874",
+                dynamic: [c, c],
+                children: [
+                  ".input-wrap.__jsx-style-dynamic-selector input{padding-left:calc(".concat(
+                    c,
+                    " * var(--spacing-2) + var(--spacing-6));}"
+                  ),
+                  ".icon.__jsx-style-dynamic-selector{padding-left:calc(".concat(
+                    c,
+                    " * var(--spacing-2));}"
+                  ),
+                ],
+              }),
+              Object(r.jsx)(s.a, {
+                id: "125275207",
+                children: [
+                  ".input-wrap.jsx-125275207{-webkit-flex:1 1 auto;-ms-flex:1 1 auto;flex:1 1 auto;font-size:var(--font-size-desktop-text-small);position:relative;}",
+                  ".input-wrap.jsx-125275207 input{font-size:inherit;padding-top:var(--spacing-half);padding-bottom:var(--spacing-half);}",
+                  ".icon.jsx-125275207{color:var(--color-foreground-2);pointer-events:none;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:absolute;top:0;left:0;height:100%;}",
+                ],
+              }),
+            ],
+          })
+        );
       }
       const K = n("7njZ");
       function Z(e) {
-        const t = e.type, n = e.create, a = e.onCreate, i = e.onError, c = e.onCancel, u = e.parentPath, d = e.depth, p = void 0 === d ? 0 : d, f = e.siblings, b = Object(K.a)(), j = l.useState(null), h = Object(o.a)(j, 2), g = h[0], v = h[1];
+        const t = e.type,
+          n = e.create,
+          a = e.onCreate,
+          i = e.onError,
+          c = e.onCancel,
+          u = e.parentPath,
+          d = e.depth,
+          p = void 0 === d ? 0 : d,
+          f = e.siblings,
+          b = Object(K.a)(),
+          j = l.useState(null),
+          h = Object(o.a)(j, 2),
+          g = h[0],
+          v = h[1];
         return g
           ? Object(r.jsxs)("div", {
               className: "jsx-4270797373 pending-node",
@@ -601,9 +670,14 @@
               },
             });
       }
-      const X = n("gfZM"), Q = n("V6K1"), Y = n("xom/"), $ = n("IdsG");
+      const X = n("gfZM"),
+        Q = n("V6K1"),
+        Y = n("xom/"),
+        $ = n("IdsG");
       function ee(e) {
-        const t = e.filename, n = e.onCancel, a = e.onConfirm;
+        const t = e.filename,
+          n = e.onCancel,
+          a = e.onConfirm;
         return Object(r.jsxs)("div", {
           className: "jsx-4280829187 content",
           children: [
@@ -651,7 +725,11 @@
       }
       const te = n("GRpk");
       function ne(e) {
-        const t = e.rows, n = void 0 === t ? 3 : t, a = e.depth, o = void 0 === a ? 0 : a, i = "fileTreeLoader2-" + Math.random().toString();
+        const t = e.rows,
+          n = void 0 === t ? 3 : t,
+          a = e.depth,
+          o = void 0 === a ? 0 : a,
+          i = "fileTreeLoader2-" + Math.random().toString();
         return Object(r.jsxs)("div", {
           className: s.a.dynamic([["772706436", [o]]]) + " loader",
           children: [
@@ -740,74 +818,82 @@
       }
       function oe(e) {
         const t = e.parentPath,
-              n = e.nodes,
-              a = e.loading,
-              c = e.error,
-              s = e.readOnly,
-              u = Object(i.a)(e, [
-                "parentPath",
-                "nodes",
-                "loading",
-                "error",
-                "readOnly",
-              ]),
-              d = Object(V.a)().showError,
-              p = t ? t.split("/") : [],
-              f = u.fs,
-              b = u.pendingFileType,
-              m = u.setPendingFileType,
-              y = u.onNodeClick,
-              w = u.activePath,
-              k = ((e) => {
-                const t = l.useState(null), n = Object(o.a)(t, 2), r = n[0], a = n[1], i = l.useState(null), c = Object(o.a)(i, 2), s = c[0], u = c[1];
-                return l.useEffect(() => {
-                  if (s) {
-                    let t = !1;
-                    return (
-                      "rename" === s.type
-                        ? (s.fileType === O.d.File
-                            ? e.moveFile(s.path, s.to)
-                            : e.moveDir(s.path, s.to)
-                          ).then((e) => {
-                            t || (u(null), e.error && a(e.error));
-                          })
-                        : (s.fileType === O.d.File
-                            ? e.deleteFile(s.path)
-                            : e.deleteDir(s.path)
-                          ).then((e) => {
-                            t || (u(null), e.error && a(e.error));
-                          }),
-                      () => {
-                        t = !0;
-                      }
-                    );
-                  }
-                  a(null);
-                }, [s, e]),
-                {
-                  renameNode(e) {
-                    return u(ae(ae({}, e), {}, { type: "rename" }));
-                  },
-                  deleteNode(e) {
-                    return u(ae(ae({}, e), {}, { type: "delete" }));
-                  },
-                  currentOp: s,
-                  error: r,
+          n = e.nodes,
+          a = e.loading,
+          c = e.error,
+          s = e.readOnly,
+          u = Object(i.a)(e, [
+            "parentPath",
+            "nodes",
+            "loading",
+            "error",
+            "readOnly",
+          ]),
+          d = Object(V.a)().showError,
+          p = t ? t.split("/") : [],
+          f = u.fs,
+          b = u.pendingFileType,
+          m = u.setPendingFileType,
+          y = u.onNodeClick,
+          w = u.activePath,
+          k = ((e) => {
+            const t = l.useState(null),
+              n = Object(o.a)(t, 2),
+              r = n[0],
+              a = n[1],
+              i = l.useState(null),
+              c = Object(o.a)(i, 2),
+              s = c[0],
+              u = c[1];
+            return (
+              l.useEffect(() => {
+                if (s) {
+                  let t = !1;
+                  return (
+                    "rename" === s.type
+                      ? (s.fileType === O.d.File
+                          ? e.moveFile(s.path, s.to)
+                          : e.moveDir(s.path, s.to)
+                        ).then((e) => {
+                          t || (u(null), e.error && a(e.error));
+                        })
+                      : (s.fileType === O.d.File
+                          ? e.deleteFile(s.path)
+                          : e.deleteDir(s.path)
+                        ).then((e) => {
+                          t || (u(null), e.error && a(e.error));
+                        }),
+                    () => {
+                      t = !0;
+                    }
+                  );
                 }
-              ;
-              })(f),
-              E = k.renameNode,
-              C = k.deleteNode,
-              P = k.currentOp,
-              D = k.error,
-              T = l.useState(null),
-              N = Object(o.a)(T, 2),
-              S = N[0],
-              I = N[1],
-              F = l.useState(null),
-              M = Object(o.a)(F, 2),
-              z = M[0],
-              G = M[1];
+                a(null);
+              }, [s, e]),
+              {
+                renameNode(e) {
+                  return u(ae(ae({}, e), {}, { type: "rename" }));
+                },
+                deleteNode(e) {
+                  return u(ae(ae({}, e), {}, { type: "delete" }));
+                },
+                currentOp: s,
+                error: r,
+              }
+            );
+          })(f),
+          E = k.renameNode,
+          C = k.deleteNode,
+          P = k.currentOp,
+          D = k.error,
+          T = l.useState(null),
+          N = Object(o.a)(T, 2),
+          S = N[0],
+          I = N[1],
+          F = l.useState(null),
+          M = Object(o.a)(F, 2),
+          z = M[0],
+          G = M[1];
         if (
           (l.useEffect(() => {
             D && d("Something went wrong trying to more or remove a file.");
@@ -823,16 +909,16 @@
           });
         if (!n) return null;
         const q = n.some((e) => {
-                  if (w)
-                    return (
-                      e.type === O.d.File &&
-                      (t ? w.endsWith("/" + e.filename) : w === e.filename)
-                    );
-                }),
-              B =
-                !s &&
-                b &&
-                ((!t && !w) || w === t || q || (!t && w && x.a.includes(w)));
+            if (w)
+              return (
+                e.type === O.d.File &&
+                (t ? w.endsWith("/" + e.filename) : w === e.filename)
+              );
+          }),
+          B =
+            !s &&
+            b &&
+            ((!t && !w) || w === t || q || (!t && w && x.a.includes(w)));
         return Object(r.jsxs)(r.Fragment, {
           children: [
             Object(r.jsx)("div", {
@@ -852,11 +938,11 @@
             }),
             n.map((e) => {
               const t = e.filename,
-                    a = e.type,
-                    o = [].concat(Object(g.a)(p), [t]).join("/"),
-                    i = n.filter((e) => {
-                      return e.filename !== t;
-                    });
+                a = e.type,
+                o = [].concat(Object(g.a)(p), [t]).join("/"),
+                i = n.filter((e) => {
+                  return e.filename !== t;
+                });
               if ((null === P || void 0 === P ? void 0 : P.path) === o)
                 return "rename" === P.type
                   ? Object(r.jsxs)(
@@ -982,10 +1068,10 @@
                 })(),
                 onClick() {
                   const e =
-                            arguments.length > 0 && void 0 !== arguments[0]
-                              ? arguments[0]
-                              : { newTab: !1 },
-                        t = e.newTab;
+                      arguments.length > 0 && void 0 !== arguments[0]
+                        ? arguments[0]
+                        : { newTab: !1 },
+                    t = e.newTab;
                   return y({ path: o, type: a, newTab: t });
                 },
                 onRename() {
@@ -1052,7 +1138,8 @@
                   depth: p.length,
                   parentPath: t,
                   create(e) {
-                    const t = e.path, n = e.type;
+                    const t = e.path,
+                      n = e.type;
                     return (
                       n === O.d.File &&
                         "readme.md" === t.toLowerCase() &&
@@ -1100,7 +1187,10 @@
           ],
         });
       }
-      const ie = n("aMZS"), ce = n("8/ze"), se = n("NuhN"), le = n("v0rv");
+      const ie = n("aMZS"),
+        ce = n("8/ze"),
+        se = n("NuhN"),
+        le = n("v0rv");
       function ue(e, t) {
         const n = Object.keys(e);
         if (Object.getOwnPropertySymbols) {
@@ -1134,69 +1224,73 @@
       }
       function pe(e) {
         const t = e.path,
-              n = e.active,
-              a = e.onClick,
-              c = e.onRename,
-              u = e.onDelete,
-              b = e.overwriteNode,
-              j = Object(i.a)(e, [
-                "path",
-                "active",
-                "onClick",
-                "onRename",
-                "onDelete",
-                "overwriteNode",
-              ]),
-              h = j.fs,
-              g = j.transformChildren,
-              v = j.uploadFiles,
-              m = j.readOnly,
-              y = j.getNodeType,
-              k = j.setPendingFileType,
-              E = j.activePath ? j.activePath.split("/") : [],
-              C = t.split("/"),
-              P = C.length - 1,
-              D = C[P],
-              T = !n && E[P] === D,
-              N = t === ce.a,
-              S = Object(V.a)().showError,
-              L = l.useState(null),
-              F = Object(o.a)(L, 2),
-              z = F[0],
-              G = F[1],
-              H = l.useState(null),
-              q = Object(o.a)(H, 2),
-              B = q[0],
-              J = q[1],
-              W = l.useState([]),
-              K = Object(o.a)(W, 2),
-              Z = K[0],
-              X = K[1];
+          n = e.active,
+          a = e.onClick,
+          c = e.onRename,
+          u = e.onDelete,
+          b = e.overwriteNode,
+          j = Object(i.a)(e, [
+            "path",
+            "active",
+            "onClick",
+            "onRename",
+            "onDelete",
+            "overwriteNode",
+          ]),
+          h = j.fs,
+          g = j.transformChildren,
+          v = j.uploadFiles,
+          m = j.readOnly,
+          y = j.getNodeType,
+          k = j.setPendingFileType,
+          E = j.activePath ? j.activePath.split("/") : [],
+          C = t.split("/"),
+          P = C.length - 1,
+          D = C[P],
+          T = !n && E[P] === D,
+          N = t === ce.a,
+          S = Object(V.a)().showError,
+          L = l.useState(null),
+          F = Object(o.a)(L, 2),
+          z = F[0],
+          G = F[1],
+          H = l.useState(null),
+          q = Object(o.a)(H, 2),
+          B = q[0],
+          J = q[1],
+          W = l.useState([]),
+          K = Object(o.a)(W, 2),
+          Z = K[0],
+          X = K[1];
         l.useEffect(() => {
           if (z) {
             let e = !1;
-            return z.dir.then((t) => {
-              if (!e) {
-                if (t.error) {
-                  if (t.error === O.e.AlreadyExists) {
-                    const n =
-                      "." === z.path ? D : "".concat(z.path, "/").concat(D);
-                    return void y(n).then((e) => {
-                      J({ path: n, type: e }), G(null);
-                    });
+            return (
+              z.dir.then((t) => {
+                if (!e) {
+                  if (t.error) {
+                    if (t.error === O.e.AlreadyExists) {
+                      const n =
+                        "." === z.path ? D : "".concat(z.path, "/").concat(D);
+                      return void y(n).then((e) => {
+                        J({ path: n, type: e }), G(null);
+                      });
+                    }
+                    S("Something went wrong trying to remove ".concat(D));
                   }
-                  S("Something went wrong trying to remove ".concat(D));
+                  G(null);
                 }
-                G(null);
+              }),
+              () => {
+                e = !0;
               }
-            }),
-            () => {
-              e = !0;
-            }
-          ;
+            );
           }
         }, [z, D, y, S]);
-        const Q = l.useState(null), Y = Object(o.a)(Q, 2), $ = Y[0], ee = Y[1];
+        const Q = l.useState(null),
+          Y = Object(o.a)(Q, 2),
+          $ = Y[0],
+          ee = Y[1];
         l.useEffect(() => {
           if ($) {
             let e = !1;
@@ -1211,16 +1305,16 @@
           }
         }, [$]);
         const te = Object(f.a)({
-                  path: t,
-                  initialExpanded: N || T || n,
-                  fs: j.fs,
-                }),
-              ne = te.collapse,
-              re = te.expand,
-              ae = te.children,
-              le = te.loading,
-              ue = te.error,
-              pe = te.expanded;
+            path: t,
+            initialExpanded: N || T || n,
+            fs: j.fs,
+          }),
+          ne = te.collapse,
+          re = te.expand,
+          ae = te.children,
+          le = te.loading,
+          ue = te.error,
+          pe = te.expanded;
         l.useEffect(() => {
           !pe && T && re();
         }, [re, pe, T]),
@@ -1228,87 +1322,88 @@
             !pe && n && j.pendingFileType && re();
           }, [re, pe, n, j.pendingFileType]);
         const be = Object(I.a)({
-                  item: { type: O.d.Directory, path: t },
-                  canDrag() {
-                    return !j.readOnly;
-                  },
-                  collect(e) {
-                    return { isDragging: e.isDragging() };
-                  },
-                  end(e, t) {
-                    t.didDrop() && G(t.getDropResult());
-                  },
-                }),
-              je = Object(o.a)(be, 2),
-              he = je[0].isDragging,
-              ge = je[1],
-              ve = Object(ie.a)({
-                accept: [O.d.File, O.d.Directory, p.b.FILE],
-                canDrop(e) {
-                  return (
-                    "files" in e ||
-                    (e.path !== t &&
-                      !Object(se.d)(e.path, t) &&
-                      !(
-                        Object(se.b)(t, e.path) ||
-                        (t === ce.a && !e.path.includes("/"))
-                      ))
-                  );
-                },
-                drop(e, n) {
-                  if (!n.didDrop()) {
-                    if (!("dirContent" in e)) {
-                      const r = e.path.split("/"), a = r[r.length - 1];
-                      if (
-                        null === ae || void 0 === ae
-                          ? void 0
-                          : ae.find((e) => {
-                              return e.filename === a;
-                            })
-                      )
-                        return e.type === O.d.Directory
-                          ? {
-                              dir: Promise.resolve({ error: O.e.AlreadyExists }),
-                              path: t,
-                            }
-                          : {
-                              file: Promise.resolve({ error: O.e.AlreadyExists }),
-                              path: t,
-                            };
-                      if (
-                        null !== ae &&
-                        void 0 !== ae &&
-                        ae.some((n) => {
-                          return (
-                            "".concat(t, "/").concat(n.filename, "}") === e.path
-                          );
+            item: { type: O.d.Directory, path: t },
+            canDrag() {
+              return !j.readOnly;
+            },
+            collect(e) {
+              return { isDragging: e.isDragging() };
+            },
+            end(e, t) {
+              t.didDrop() && G(t.getDropResult());
+            },
+          }),
+          je = Object(o.a)(be, 2),
+          he = je[0].isDragging,
+          ge = je[1],
+          ve = Object(ie.a)({
+            accept: [O.d.File, O.d.Directory, p.b.FILE],
+            canDrop(e) {
+              return (
+                "files" in e ||
+                (e.path !== t &&
+                  !Object(se.d)(e.path, t) &&
+                  !(
+                    Object(se.b)(t, e.path) ||
+                    (t === ce.a && !e.path.includes("/"))
+                  ))
+              );
+            },
+            drop(e, n) {
+              if (!n.didDrop()) {
+                if (!("dirContent" in e)) {
+                  const r = e.path.split("/"),
+                    a = r[r.length - 1];
+                  if (
+                    null === ae || void 0 === ae
+                      ? void 0
+                      : ae.find((e) => {
+                          return e.filename === a;
                         })
-                      ) {
-                        const o = Promise.resolve({ error: null });
-                        return e.type === O.d.Directory
-                          ? { dir: o, path: t }
-                          : { file: o, path: t };
-                      }
-                      const i = t + "/" + a;
-                      if (e.type === O.d.Directory) {
-                        const c = h.moveDir(e.path, i);
-                        return ee({ dir: c }), { dir: c, path: t };
-                      }
-                      const s = h.moveFile(e.path, i);
-                      return ee({ file: s }), { file: s, path: t };
-                    }
-                    e.dirContent.then((e) => {
-                      v({ parentPath: N ? void 0 : t, files: e });
-                    });
+                  )
+                    return e.type === O.d.Directory
+                      ? {
+                          dir: Promise.resolve({ error: O.e.AlreadyExists }),
+                          path: t,
+                        }
+                      : {
+                          file: Promise.resolve({ error: O.e.AlreadyExists }),
+                          path: t,
+                        };
+                  if (
+                    null !== ae &&
+                    void 0 !== ae &&
+                    ae.some((n) => {
+                      return (
+                        "".concat(t, "/").concat(n.filename, "}") === e.path
+                      );
+                    })
+                  ) {
+                    const o = Promise.resolve({ error: null });
+                    return e.type === O.d.Directory
+                      ? { dir: o, path: t }
+                      : { file: o, path: t };
                   }
-                },
-                collect(e) {
-                  return { isOver: e.canDrop() && e.isOver({ shallow: !0 }) };
-                },
-              }),
-              xe = Object(o.a)(ve, 2),
-              Oe = xe[0].isOver,
-              me = xe[1];
+                  const i = t + "/" + a;
+                  if (e.type === O.d.Directory) {
+                    const c = h.moveDir(e.path, i);
+                    return ee({ dir: c }), { dir: c, path: t };
+                  }
+                  const s = h.moveFile(e.path, i);
+                  return ee({ file: s }), { file: s, path: t };
+                }
+                e.dirContent.then((e) => {
+                  v({ parentPath: N ? void 0 : t, files: e });
+                });
+              }
+            },
+            collect(e) {
+              return { isOver: e.canDrop() && e.isOver({ shallow: !0 }) };
+            },
+          }),
+          xe = Object(o.a)(ve, 2),
+          Oe = xe[0].isOver,
+          me = xe[1];
         l.useEffect(() => {
           if (Oe && !pe) {
             const e = setTimeout(re, 500);
@@ -1446,7 +1541,8 @@
         );
       }
       function fe(e) {
-        const t = e.socialView, n = e.children;
+        const t = e.socialView,
+          n = e.children;
         return t
           ? Object(r.jsxs)(r.Fragment, {
               children: [
@@ -1500,7 +1596,8 @@
       n.d(t, "a", () => {
         return o;
       });
-      const r = n("q1tI"), a = n("f47c");
+      const r = n("q1tI"),
+        a = n("f47c");
       function o() {
         const e = r.useContext(a.a);
         if (!e) throw new Error("Expected repl id to be in context");
@@ -1512,7 +1609,10 @@
       n.d(t, "a", () => {
         return l;
       });
-      const r = n("cpVT"), a = n("nKUr"), o = n("dhJC"), i = (n("q1tI"), n("pDQI"));
+      const r = n("cpVT"),
+        a = n("nKUr"),
+        o = n("dhJC"),
+        i = (n("q1tI"), n("pDQI"));
       function c(e, t) {
         const n = Object.keys(e);
         if (Object.getOwnPropertySymbols) {
@@ -1545,7 +1645,9 @@
         return e;
       }
       function l(e) {
-        const t = e.orientation, n = Object(o.a)(e, ["orientation"]), r = "horizontal" === t ? 90 : 0;
+        const t = e.orientation,
+          n = Object(o.a)(e, ["orientation"]),
+          r = "horizontal" === t ? 90 : 0;
         return Object(a.jsxs)(
           i.a,
           s(
@@ -1651,7 +1753,12 @@
       n.d(t, "a", () => {
         return l;
       });
-      const r = n("vJKn"), a = n.n(r), o = n("rg98"), i = n("0gYX"), c = n.n(i), s = n("gfZM");
+      const r = n("vJKn"),
+        a = n.n(r),
+        o = n("rg98"),
+        i = n("0gYX"),
+        c = n.n(i),
+        s = n("gfZM");
       function l(e) {
         return u.apply(this, arguments);
       }
@@ -1703,7 +1810,9 @@
       n.d(t, "a", () => {
         return i;
       });
-      const r = n("vJKn"), a = n.n(r), o = n("rg98");
+      const r = n("vJKn"),
+        a = n.n(r),
+        o = n("rg98");
       function i(e) {
         return c.apply(this, arguments);
       }
@@ -1782,7 +1891,14 @@
         n.d(t, "a", () => {
           return d;
         });
-        const r = n("vJKn"), a = n.n(r), o = n("rg98"), i = n("RPwF"), c = n("zgDP"), s = n("dZ/7"), l = n("HADy"), u = n("Fz/E");
+        const r = n("vJKn"),
+          a = n.n(r),
+          o = n("rg98"),
+          i = n("RPwF"),
+          c = n("zgDP"),
+          s = n("dZ/7"),
+          l = n("HADy"),
+          u = n("Fz/E");
         function d(t) {
           let r;
           const d = t.beforeRun;
@@ -1846,40 +1962,41 @@
                       case 12:
                         y = d + "/__debug_wrapper.html";
                       case 13:
-                        return (w = "kaboom" === p ? "html" : p),
-                        (k = ""
-                          .concat(
-                            window.location.origin,
-                            "/public/replbox_lang/"
-                          )
-                          .concat(i.version, "/")
-                          .concat(w, ".js")),
-                        (E = !1),
-                        (t.next = 18),
-                        new Promise((e, t) => {
-                          const n = setTimeout(() => {
-                                    (E = !0),
-                                      Object(c.track)(
-                                        c.events.LOAD_REPLBOX_ENGINE_TIMED_OUT,
-                                        { language: p }
-                                      ),
-                                      e();
-                                  }, x),
-                                r = window.performance.now();
-                          m.load({ iframeOrigin: y, languageBundleSrc: k })
-                            .then(() => {
-                              clearTimeout(n),
-                                Object(c.track)(
-                                  c.events.LOAD_REPLBOX_ENGINE_TIME,
-                                  { time: window.performance.now() - r }
-                                ),
-                                e();
-                            })
-                            .catch((e) => {
-                              clearTimeout(n), t(e);
-                            });
-                        })
-                      ;
+                        return (
+                          (w = "kaboom" === p ? "html" : p),
+                          (k = ""
+                            .concat(
+                              window.location.origin,
+                              "/public/replbox_lang/"
+                            )
+                            .concat(i.version, "/")
+                            .concat(w, ".js")),
+                          (E = !1),
+                          (t.next = 18),
+                          new Promise((e, t) => {
+                            const n = setTimeout(() => {
+                                (E = !0),
+                                  Object(c.track)(
+                                    c.events.LOAD_REPLBOX_ENGINE_TIMED_OUT,
+                                    { language: p }
+                                  ),
+                                  e();
+                              }, x),
+                              r = window.performance.now();
+                            m.load({ iframeOrigin: y, languageBundleSrc: k })
+                              .then(() => {
+                                clearTimeout(n),
+                                  Object(c.track)(
+                                    c.events.LOAD_REPLBOX_ENGINE_TIME,
+                                    { time: window.performance.now() - r }
+                                  ),
+                                  e();
+                              })
+                              .catch((e) => {
+                                clearTimeout(n), t(e);
+                              });
+                          })
+                        );
                       case 18:
                         if (!E) {
                           t.next = 21;
@@ -2118,8 +2235,8 @@
       var r = "idle";
       function a() {
         const e =
-                  arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : r,
-              t = arguments.length > 1 ? arguments[1] : void 0;
+            arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : r,
+          t = arguments.length > 1 ? arguments[1] : void 0;
         switch (t.type) {
           case "EVAL_STARTED":
           case "EVAL_SETUP":
@@ -2211,7 +2328,9 @@
             "Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
           );
         }
-        let o, i = !0, s = !1;
+        let o,
+          i = !0,
+          s = !1;
         return {
           s() {
             n = e[Symbol.iterator]();
@@ -2256,7 +2375,9 @@
             for (l.s(); !(a = l.n()).done; ) {
               const u = a.value;
               if ("primary" !== u) {
-                const d = e[u], p = n ? n[u] : void 0, f = d(p, r);
+                const d = e[u],
+                  p = n ? n[u] : void 0,
+                  f = d(p, r);
                 (s[u] = f), (c = c || f !== p);
               }
             }
@@ -2265,7 +2386,8 @@
           } finally {
             l.f();
           }
-          const b = n ? (c ? o(o({}, n), s) : n) : void 0, j = e.primary(b, r);
+          const b = n ? (c ? o(o({}, n), s) : n) : void 0,
+            j = e.primary(b, r);
           return (c = c || j !== b) ? o(o({}, s), j) : n;
         };
       }
@@ -2275,7 +2397,14 @@
       n.d(t, "a", () => {
         return d;
       });
-      const r = n("nKUr"), a = n("MX0m"), o = n.n(a), i = (n("q1tI"), n("up5I")), c = n("V6K1"), s = n("xom/"), l = n("IdsG"), u = n("dI/k");
+      const r = n("nKUr"),
+        a = n("MX0m"),
+        o = n.n(a),
+        i = (n("q1tI"), n("up5I")),
+        c = n("V6K1"),
+        s = n("xom/"),
+        l = n("IdsG"),
+        u = n("dI/k");
       function d(e) {
         let t;
         const n = e.paths;
@@ -2351,7 +2480,14 @@
         n.d(t, "a", () => {
           return h;
         });
-      const r = n("xvhg"), a = n("cpVT"), o = n("g7Gn"), i = n("gfZM"), c = n("NuhN"), s = n("tSgl"), l = n.n(s), u = n("XE6U");
+      const r = n("xvhg"),
+        a = n("cpVT"),
+        o = n("g7Gn"),
+        i = n("gfZM"),
+        c = n("NuhN"),
+        s = n("tSgl"),
+        l = n.n(s),
+        u = n("XE6U");
       function d(e, t) {
         let n;
         if ("undefined" === typeof Symbol || null == e[Symbol.iterator]) {
@@ -2391,7 +2527,9 @@
             "Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
           );
         }
-        let o, i = !0, c = !1;
+        let o,
+          i = !0,
+          c = !1;
         return {
           s() {
             n = e[Symbol.iterator]();
@@ -2451,8 +2589,8 @@
       var j = {};
       function h() {
         const e =
-                  arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : j,
-              t = arguments.length > 1 ? arguments[1] : void 0;
+            arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : j,
+          t = arguments.length > 1 ? arguments[1] : void 0;
         if ("string" === typeof t.path && l()(t.path)) return e;
         const n = (() => {
           switch (t.type) {
@@ -2479,15 +2617,18 @@
               const n = Object(c.g)(e, t.path, t.to);
               if (!n.length) return e;
               const o = b({}, e);
-              return n.forEach((t) => {
-                const n = Object(r.a)(t, 2), a = n[0], i = n[1];
-                delete o[a];
-                const c = e[a];
-                if (!c) throw new Error("No source file!");
-                o[i] = b(b({}, c), {}, { path: i });
-              }),
-              o
-            ;
+              return (
+                n.forEach((t) => {
+                  const n = Object(r.a)(t, 2),
+                    a = n[0],
+                    i = n[1];
+                  delete o[a];
+                  const c = e[a];
+                  if (!c) throw new Error("No source file!");
+                  o[i] = b(b({}, c), {}, { path: i });
+                }),
+                o
+              );
             case "DELETE_FILE":
               const s = Object(c.e)(e, t.path);
               if (s.length && e[t.path])
@@ -2578,7 +2719,9 @@
       n.d(t, "a", () => {
         return s;
       });
-      const r = n("cpVT"), a = n("nKUr"), o = (n("q1tI"), n("pDQI"));
+      const r = n("cpVT"),
+        a = n("nKUr"),
+        o = (n("q1tI"), n("pDQI"));
       function i(e, t) {
         const n = Object.keys(e);
         if (Object.getOwnPropertySymbols) {
@@ -2664,9 +2807,28 @@
       n.d(t, "a", () => {
         return s;
       });
-      const r = n("xvhg"), a = n("q1tI"), o = n("7njZ"), i = n("tSgl"), c = n.n(i);
+      const r = n("xvhg"),
+        a = n("q1tI"),
+        o = n("7njZ"),
+        i = n("tSgl"),
+        c = n.n(i);
       function s(e) {
-        const t = e.path, n = e.initialExpanded, i = e.fs, s = a.useState(null), l = Object(r.a)(s, 2), u = l[0], d = l[1], p = a.useState(null), f = Object(r.a)(p, 2), b = f[0], j = f[1], h = a.useState(Boolean(n)), g = Object(r.a)(h, 2), v = g[0], x = g[1], O = Object(o.a)();
+        const t = e.path,
+          n = e.initialExpanded,
+          i = e.fs,
+          s = a.useState(null),
+          l = Object(r.a)(s, 2),
+          u = l[0],
+          d = l[1],
+          p = a.useState(null),
+          f = Object(r.a)(p, 2),
+          b = f[0],
+          j = f[1],
+          h = a.useState(Boolean(n)),
+          g = Object(r.a)(h, 2),
+          v = g[0],
+          x = g[1],
+          O = Object(o.a)();
         a.useEffect(() => {
           if (v) {
             const e = i.watchDir(t, {
@@ -2687,11 +2849,11 @@
           }
         }, [i, t, v, d, j]);
         const m = a.useCallback(() => {
-                  x(!0);
-                }, []),
-              y = a.useCallback(() => {
-                x(!1);
-              }, []);
+            x(!0);
+          }, []),
+          y = a.useCallback(() => {
+            x(!1);
+          }, []);
         return v
           ? b
             ? {
@@ -2743,7 +2905,8 @@
     },
     f47c(e, t, n) {
       "use strict";
-      const r = n("q1tI"), a = r.createContext(null);
+      const r = n("q1tI"),
+        a = r.createContext(null);
       t.a = a;
     },
     gnTG(e, t, n) {
@@ -2833,7 +2996,8 @@
                           const a = t.openChannel(
                             { service: "packager3", skip: d },
                             (t) => {
-                              const o = t.channel, i = t.error;
+                              const o = t.channel,
+                                i = t.error;
                               if (r)
                                 throw new Error(
                                   "getAnonymousChannel fullfilled but openChannelCb called again"
@@ -2865,400 +3029,402 @@
             })
           )).apply(this, arguments);
         }
-        return t.openChannel(
-          { service: "packager3", name: "packager", skip: d },
-          (e) => {
-            const t = e.channel;
-            if (!e.error) {
-              if (!t) throw new Error("Expected channel");
-              return t.onCommand((e) => {
-                switch (e.body) {
-                  case "state":
-                    const t = e.state === u.api.State.Running;
-                    n.emit(r.STATE_CHANGED, t);
-                    break;
-                  case "output":
-                    n.emit(r.OUTPUT, e.output);
-                    break;
-                  case "error":
-                    n.emit(r.ERROR, e.error);
-                }
-              }),
-              (o = t),
-              n.emit(r.CHANNEL_OPENED, t),
-              () => {
-                o = null;
+        return (
+          t.openChannel(
+            { service: "packager3", name: "packager", skip: d },
+            (e) => {
+              const t = e.channel;
+              if (!e.error) {
+                if (!t) throw new Error("Expected channel");
+                return (
+                  t.onCommand((e) => {
+                    switch (e.body) {
+                      case "state":
+                        const t = e.state === u.api.State.Running;
+                        n.emit(r.STATE_CHANGED, t);
+                        break;
+                      case "output":
+                        n.emit(r.OUTPUT, e.output);
+                        break;
+                      case "error":
+                        n.emit(r.ERROR, e.error);
+                    }
+                  }),
+                  (o = t),
+                  n.emit(r.CHANNEL_OPENED, t),
+                  () => {
+                    o = null;
+                  }
+                );
               }
-            ;
             }
-          }
-        ),
-        {
-          addPackages(e) {
-            return Object(c.a)(
-              i.a.mark(function t() {
-                let n, r, a;
-                return i.a.wrap((t) => {
-                  for (;;)
-                    switch ((t.prev = t.next)) {
-                      case 0:
-                        return (t.next = 2), f();
-                      case 2:
-                        return (
-                          (n = t.sent),
-                          (r = e.map((e) => {
-                            return { name: e };
-                          })),
-                          (t.next = 6),
-                          n.request({ packageAdd: { pkgs: r } })
-                        );
-                      case 6:
-                        if (!(a = t.sent).channelClosed) {
-                          t.next = 9;
-                          break;
-                        }
-                        return t.abrupt("return", !1);
-                      case 9:
-                        return t.abrupt("return", Boolean(a.ok));
-                      case 10:
-                      case "end":
-                        return t.stop();
-                    }
-                }, t);
-              })
-            )();
-          },
-          removePackages(e) {
-            return Object(c.a)(
-              i.a.mark(function t() {
-                let n, r, a;
-                return i.a.wrap((t) => {
-                  for (;;)
-                    switch ((t.prev = t.next)) {
-                      case 0:
-                        return (t.next = 2), f();
-                      case 2:
-                        return (
-                          (n = t.sent),
-                          (r = e.map((e) => {
-                            return { name: e };
-                          })),
-                          (t.next = 6),
-                          n.request({ packageRemove: { pkgs: r } })
-                        );
-                      case 6:
-                        if (!(a = t.sent).channelClosed) {
-                          t.next = 9;
-                          break;
-                        }
-                        return t.abrupt("return", !1);
-                      case 9:
-                        return t.abrupt("return", Boolean(a.ok));
-                      case 10:
-                      case "end":
-                        return t.stop();
-                    }
-                }, t);
-              })
-            )();
-          },
-          searchPackages(e) {
-            return Object(c.a)(
-              i.a.mark(function n() {
-                let r, o, c, s, u, d, p;
-                return i.a.wrap(
-                  (n) => {
+          ),
+          {
+            addPackages(e) {
+              return Object(c.a)(
+                i.a.mark(function t() {
+                  let n, r, a;
+                  return i.a.wrap((t) => {
                     for (;;)
-                      switch ((n.prev = n.next)) {
+                      switch ((t.prev = t.next)) {
                         case 0:
-                          if (
-                            !(
-                              (null !==
-                                (o =
-                                  null === (r = t.getRepl()) || void 0 === r
-                                    ? void 0
-                                    : r.language) &&
-                                void 0 !== o &&
-                                o.includes("python")) ||
-                              "pygame" === o
-                            )
-                          ) {
-                            n.next = 10;
-                            break;
-                          }
+                          return (t.next = 2), f();
+                        case 2:
                           return (
-                            (n.prev = 2),
-                            n.abrupt(
-                              "return",
-                              b()(
-                                "https://pipsearch.amasad.repl.co/search?name=" +
-                                  encodeURIComponent(e),
-                                { mode: "cors" }
-                              ).then((e) => {
-                                return e.json();
-                              })
-                            )
+                            (n = t.sent),
+                            (r = e.map((e) => {
+                              return { name: e };
+                            })),
+                            (t.next = 6),
+                            n.request({ packageAdd: { pkgs: r } })
                           );
                         case 6:
-                          return (
-                            (n.prev = 6),
-                            (n.t0 = n.catch(2)),
-                            l.c(n.t0),
-                            n.abrupt("return", [])
-                          );
+                          if (!(a = t.sent).channelClosed) {
+                            t.next = 9;
+                            break;
+                          }
+                          return t.abrupt("return", !1);
+                        case 9:
+                          return t.abrupt("return", Boolean(a.ok));
                         case 10:
-                          return (n.next = 12), g();
-                        case 12:
+                        case "end":
+                          return t.stop();
+                      }
+                  }, t);
+                })
+              )();
+            },
+            removePackages(e) {
+              return Object(c.a)(
+                i.a.mark(function t() {
+                  let n, r, a;
+                  return i.a.wrap((t) => {
+                    for (;;)
+                      switch ((t.prev = t.next)) {
+                        case 0:
+                          return (t.next = 2), f();
+                        case 2:
                           return (
-                            (c = n.sent),
-                            (s = Object(a.a)(c, 2)),
-                            (u = s[0]),
-                            (d = s[1]),
-                            (n.next = 18),
-                            u.request({ packageSearch: { query: e } })
+                            (n = t.sent),
+                            (r = e.map((e) => {
+                              return { name: e };
+                            })),
+                            (t.next = 6),
+                            n.request({ packageRemove: { pkgs: r } })
                           );
-                        case 18:
-                          if (!(p = n.sent).channelClosed) {
-                            n.next = 21;
+                        case 6:
+                          if (!(a = t.sent).channelClosed) {
+                            t.next = 9;
                             break;
                           }
-                          return n.abrupt("return", []);
-                        case 21:
+                          return t.abrupt("return", !1);
+                        case 9:
+                          return t.abrupt("return", Boolean(a.ok));
+                        case 10:
+                        case "end":
+                          return t.stop();
+                      }
+                  }, t);
+                })
+              )();
+            },
+            searchPackages(e) {
+              return Object(c.a)(
+                i.a.mark(function n() {
+                  let r, o, c, s, u, d, p;
+                  return i.a.wrap(
+                    (n) => {
+                      for (;;)
+                        switch ((n.prev = n.next)) {
+                          case 0:
+                            if (
+                              !(
+                                (null !==
+                                  (o =
+                                    null === (r = t.getRepl()) || void 0 === r
+                                      ? void 0
+                                      : r.language) &&
+                                  void 0 !== o &&
+                                  o.includes("python")) ||
+                                "pygame" === o
+                              )
+                            ) {
+                              n.next = 10;
+                              break;
+                            }
+                            return (
+                              (n.prev = 2),
+                              n.abrupt(
+                                "return",
+                                b()(
+                                  "https://pipsearch.amasad.repl.co/search?name=" +
+                                    encodeURIComponent(e),
+                                  { mode: "cors" }
+                                ).then((e) => {
+                                  return e.json();
+                                })
+                              )
+                            );
+                          case 6:
+                            return (
+                              (n.prev = 6),
+                              (n.t0 = n.catch(2)),
+                              l.c(n.t0),
+                              n.abrupt("return", [])
+                            );
+                          case 10:
+                            return (n.next = 12), g();
+                          case 12:
+                            return (
+                              (c = n.sent),
+                              (s = Object(a.a)(c, 2)),
+                              (u = s[0]),
+                              (d = s[1]),
+                              (n.next = 18),
+                              u.request({ packageSearch: { query: e } })
+                            );
+                          case 18:
+                            if (!(p = n.sent).channelClosed) {
+                              n.next = 21;
+                              break;
+                            }
+                            return n.abrupt("return", []);
+                          case 21:
+                            if (
+                              (d(),
+                              "packageSearchResp" !== p.body ||
+                                !p.packageSearchResp)
+                            ) {
+                              n.next = 24;
+                              break;
+                            }
+                            return n.abrupt(
+                              "return",
+                              p.packageSearchResp.results || []
+                            );
+                          case 24:
+                            return (
+                              l.c(
+                                new Error(
+                                  "Unknown packager3 command ".concat(
+                                    p.body,
+                                    ". "
+                                  ) +
+                                    "Expected packageSearchResp. Received error: ".concat(
+                                      p.error
+                                    )
+                                )
+                              ),
+                              n.abrupt("return", [])
+                            );
+                          case 26:
+                          case "end":
+                            return n.stop();
+                        }
+                    },
+                    n,
+                    null,
+                    [[2, 6]]
+                  );
+                })
+              )();
+            },
+            fetchPackageInfo(e) {
+              return Object(c.a)(
+                i.a.mark(function t() {
+                  let n, r, o, c, s;
+                  return i.a.wrap((t) => {
+                    for (;;)
+                      switch ((t.prev = t.next)) {
+                        case 0:
+                          return (t.next = 2), g();
+                        case 2:
+                          return (
+                            (n = t.sent),
+                            (r = Object(a.a)(n, 2)),
+                            (o = r[0]),
+                            (c = r[1]),
+                            (t.next = 8),
+                            o.request({ packageInfo: { pkg: { name: e } } })
+                          );
+                        case 8:
+                          if (!(s = t.sent).channelClosed) {
+                            t.next = 11;
+                            break;
+                          }
+                          return t.abrupt("return", void 0);
+                        case 11:
                           if (
-                            (d(),
-                            "packageSearchResp" !== p.body ||
-                              !p.packageSearchResp)
+                            (c(),
+                            "packageInfoResp" !== s.body || !s.packageInfoResp)
                           ) {
-                            n.next = 24;
+                            t.next = 14;
                             break;
                           }
-                          return n.abrupt(
+                          return t.abrupt(
                             "return",
-                            p.packageSearchResp.results || []
+                            s.packageInfoResp.pkg || void 0
                           );
-                        case 24:
+                        case 14:
                           return (
                             l.c(
                               new Error(
                                 "Unknown packager3 command ".concat(
-                                  p.body,
+                                  s.body,
                                   ". "
                                 ) +
-                                  "Expected packageSearchResp. Received error: ".concat(
-                                    p.error
+                                  "Expected packageInfoResp. Received error: ".concat(
+                                    s.error
                                   )
                               )
                             ),
-                            n.abrupt("return", [])
+                            t.abrupt("return", void 0)
                           );
-                        case 26:
+                        case 16:
                         case "end":
-                          return n.stop();
+                          return t.stop();
                       }
-                  },
-                  n,
-                  null,
-                  [[2, 6]]
-                );
-              })
-            )();
-          },
-          fetchPackageInfo(e) {
-            return Object(c.a)(
-              i.a.mark(function t() {
-                let n, r, o, c, s;
-                return i.a.wrap((t) => {
-                  for (;;)
-                    switch ((t.prev = t.next)) {
-                      case 0:
-                        return (t.next = 2), g();
-                      case 2:
-                        return (
-                          (n = t.sent),
-                          (r = Object(a.a)(n, 2)),
-                          (o = r[0]),
-                          (c = r[1]),
-                          (t.next = 8),
-                          o.request({ packageInfo: { pkg: { name: e } } })
-                        );
-                      case 8:
-                        if (!(s = t.sent).channelClosed) {
-                          t.next = 11;
+                  }, t);
+                })
+              )();
+            },
+            installPackages() {
+              return Object(c.a)(
+                i.a.mark(function e() {
+                  let t, n;
+                  return i.a.wrap((e) => {
+                    for (;;)
+                      switch ((e.prev = e.next)) {
+                        case 0:
+                          return (e.next = 2), f();
+                        case 2:
+                          return (
+                            (t = e.sent),
+                            (e.next = 5),
+                            t.request({ packageInstall: {} })
+                          );
+                        case 5:
+                          if (!(n = e.sent).channelClosed) {
+                            e.next = 8;
+                            break;
+                          }
+                          return e.abrupt("return", !1);
+                        case 8:
+                          return e.abrupt("return", Boolean(n.ok));
+                        case 9:
+                        case "end":
+                          return e.stop();
+                      }
+                  }, e);
+                })
+              )();
+            },
+            listSpecfile() {
+              return Object(c.a)(
+                i.a.mark(function e() {
+                  let t, n, r, o, c, s, u, d;
+                  return i.a.wrap((e) => {
+                    for (;;)
+                      switch ((e.prev = e.next)) {
+                        case 0:
+                          return (e.next = 2), g();
+                        case 2:
+                          return (
+                            (t = e.sent),
+                            (n = Object(a.a)(t, 2)),
+                            (r = n[0]),
+                            (o = n[1]),
+                            (e.next = 8),
+                            r.request({ packageListSpecfile: {} })
+                          );
+                        case 8:
+                          if (!(c = e.sent).channelClosed) {
+                            e.next = 11;
+                            break;
+                          }
+                          return e.abrupt("return", {
+                            packages: null,
+                            error: "channel closed",
+                          });
+                        case 11:
+                          o(),
+                            (e.t0 = c.body),
+                            (e.next =
+                              "error" === e.t0
+                                ? 15
+                                : "packageListSpecfileResp" === e.t0
+                                ? 16
+                                : 20);
                           break;
-                        }
-                        return t.abrupt("return", void 0);
-                      case 11:
-                        if (
-                          (c(),
-                          "packageInfoResp" !== s.body || !s.packageInfoResp)
-                        ) {
-                          t.next = 14;
-                          break;
-                        }
-                        return t.abrupt(
-                          "return",
-                          s.packageInfoResp.pkg || void 0
-                        );
-                      case 14:
-                        return (
-                          l.c(
-                            new Error(
-                              "Unknown packager3 command ".concat(
-                                s.body,
+                        case 15:
+                          return e.abrupt("return", {
+                            packages: null,
+                            error: "list specfile failed: ".concat(c.error),
+                          });
+                        case 16:
+                          if (
+                            (u =
+                              null === (s = c.packageListSpecfileResp) ||
+                              void 0 === s
+                                ? void 0
+                                : s.pkgs)
+                          ) {
+                            e.next = 19;
+                            break;
+                          }
+                          return e.abrupt("return", {
+                            packages: null,
+                            error: "list specfile returned an empty response",
+                          });
+                        case 19:
+                          return e.abrupt("return", {
+                            packages: u,
+                            error: null,
+                          });
+                        case 20:
+                          return (
+                            (d =
+                              "Unknown packager3 listSpecFile command ".concat(
+                                c.body,
                                 ". "
-                              ) +
-                                "Expected packageInfoResp. Received error: ".concat(
-                                  s.error
-                                )
-                            )
-                          ),
-                          t.abrupt("return", void 0)
-                        );
-                      case 16:
-                      case "end":
-                        return t.stop();
-                    }
-                }, t);
-              })
-            )();
-          },
-          installPackages() {
-            return Object(c.a)(
-              i.a.mark(function e() {
-                let t, n;
-                return i.a.wrap((e) => {
-                  for (;;)
-                    switch ((e.prev = e.next)) {
-                      case 0:
-                        return (e.next = 2), f();
-                      case 2:
-                        return (
-                          (t = e.sent),
-                          (e.next = 5),
-                          t.request({ packageInstall: {} })
-                        );
-                      case 5:
-                        if (!(n = e.sent).channelClosed) {
-                          e.next = 8;
-                          break;
-                        }
-                        return e.abrupt("return", !1);
-                      case 8:
-                        return e.abrupt("return", Boolean(n.ok));
-                      case 9:
-                      case "end":
-                        return e.stop();
-                    }
-                }, e);
-              })
-            )();
-          },
-          listSpecfile() {
-            return Object(c.a)(
-              i.a.mark(function e() {
-                let t, n, r, o, c, s, u, d;
-                return i.a.wrap((e) => {
-                  for (;;)
-                    switch ((e.prev = e.next)) {
-                      case 0:
-                        return (e.next = 2), g();
-                      case 2:
-                        return (
-                          (t = e.sent),
-                          (n = Object(a.a)(t, 2)),
-                          (r = n[0]),
-                          (o = n[1]),
-                          (e.next = 8),
-                          r.request({ packageListSpecfile: {} })
-                        );
-                      case 8:
-                        if (!(c = e.sent).channelClosed) {
-                          e.next = 11;
-                          break;
-                        }
-                        return e.abrupt("return", {
-                          packages: null,
-                          error: "channel closed",
-                        });
-                      case 11:
-                        o(),
-                          (e.t0 = c.body),
-                          (e.next =
-                            "error" === e.t0
-                              ? 15
-                              : "packageListSpecfileResp" === e.t0
-                              ? 16
-                              : 20);
-                        break;
-                      case 15:
-                        return e.abrupt("return", {
-                          packages: null,
-                          error: "list specfile failed: ".concat(c.error),
-                        });
-                      case 16:
-                        if (
-                          (u =
-                            null === (s = c.packageListSpecfileResp) ||
-                            void 0 === s
-                              ? void 0
-                              : s.pkgs)
-                        ) {
-                          e.next = 19;
-                          break;
-                        }
-                        return e.abrupt("return", {
-                          packages: null,
-                          error: "list specfile returned an empty response",
-                        });
-                      case 19:
-                        return e.abrupt("return", {
-                          packages: u,
-                          error: null,
-                        });
-                      case 20:
-                        return (
-                          (d =
-                            "Unknown packager3 listSpecFile command ".concat(
-                              c.body,
-                              ". "
-                            ) + "Expected error or packageListSpecfileResp"),
-                          l.c(new Error(d)),
-                          e.abrupt("return", { packages: null, error: d })
-                        );
-                      case 23:
-                      case "end":
-                        return e.stop();
-                    }
-                }, e);
-              })
-            )();
-          },
-          onOutput(e) {
-            return (
-              n.on(r.OUTPUT, e),
-              () => {
-                n.removeListener(r.OUTPUT, e);
-              }
-            );
-          },
-          onError(e) {
-            return (
-              n.on(r.ERROR, e),
-              () => {
-                n.removeListener(r.ERROR, e);
-              }
-            );
-          },
-          onStateChanged(e) {
-            return (
-              n.on(r.STATE_CHANGED, e),
-              () => {
-                n.removeListener(r.STATE_CHANGED, e);
-              }
-            );
-          },
-        }
-      ;
+                              ) + "Expected error or packageListSpecfileResp"),
+                            l.c(new Error(d)),
+                            e.abrupt("return", { packages: null, error: d })
+                          );
+                        case 23:
+                        case "end":
+                          return e.stop();
+                      }
+                  }, e);
+                })
+              )();
+            },
+            onOutput(e) {
+              return (
+                n.on(r.OUTPUT, e),
+                () => {
+                  n.removeListener(r.OUTPUT, e);
+                }
+              );
+            },
+            onError(e) {
+              return (
+                n.on(r.ERROR, e),
+                () => {
+                  n.removeListener(r.ERROR, e);
+                }
+              );
+            },
+            onStateChanged(e) {
+              return (
+                n.on(r.STATE_CHANGED, e),
+                () => {
+                  n.removeListener(r.STATE_CHANGED, e);
+                }
+              );
+            },
+          }
+        );
       }
     },
     h7rM(e, t, n) {
@@ -3277,9 +3443,9 @@
       }
       function o(e, t, n, o) {
         const i = Object(r.f)((r) => {
-                  return a(r, e, t, n);
-                }, o),
-              c = Object(r.e)();
+            return a(r, e, t, n);
+          }, o),
+          c = Object(r.e)();
         return [
           i,
           (n) => {
@@ -3293,19 +3459,24 @@
       n.d(t, "a", () => {
         return s;
       });
-      const r = n("0gYX"), a = n.n(r), o = n("8v8i"), i = n("8/ze"), c = n("JOwT");
+      const r = n("0gYX"),
+        a = n.n(r),
+        o = n("8v8i"),
+        i = n("8/ze"),
+        c = n("JOwT");
       function s(e) {
-        const t = arguments.length > 1 && void 0 !== arguments[1] && arguments[1];
+        const t =
+          arguments.length > 1 && void 0 !== arguments[1] && arguments[1];
         return (n) => {
           const r = n.path,
-                s = n.children,
-                l =
-                  r === i.a
-                    ? s.filter((e) => {
-                        return !c.a.includes(e.filename);
-                      })
-                    : s,
-                u = a.a.getMainFileName(e);
+            s = n.children,
+            l =
+              r === i.a
+                ? s.filter((e) => {
+                    return !c.a.includes(e.filename);
+                  })
+                : s,
+            u = a.a.getMainFileName(e);
           return l
             .filter((n) => {
               const o = n.filename;
@@ -3398,7 +3569,9 @@
         Object(i.a)(r, a.Delete, "Delete"),
         r);
       function v(e) {
-        const t = e.isNegative, n = e.isHighlighted, r = e.children;
+        const t = e.isNegative,
+          n = e.isHighlighted,
+          r = e.children;
         return Object(o.jsxs)("div", {
           className:
             "jsx-3056961124 " +
@@ -3421,30 +3594,31 @@
       }
       const x = (e, t) => {
         const n = e.isActive,
-              r = e.actions,
-              i = e.onAction,
-              c = e.onOpenChange,
-              u = Object(b.d)({
-                items: r,
-                onSelectedItemChange(e) {
-                  const t = e.selectedItem;
-                  t && (i(t), y());
-                },
-              }),
-              d = u.isOpen,
-              p = u.getToggleButtonProps,
-              j = u.getMenuProps,
-              x = u.highlightedIndex,
-              O = u.getItemProps,
-              m = u.openMenu,
-              y = u.reset;
+          r = e.actions,
+          i = e.onAction,
+          c = e.onOpenChange,
+          u = Object(b.d)({
+            items: r,
+            onSelectedItemChange(e) {
+              const t = e.selectedItem;
+              t && (i(t), y());
+            },
+          }),
+          d = u.isOpen,
+          p = u.getToggleButtonProps,
+          j = u.getMenuProps,
+          x = u.highlightedIndex,
+          O = u.getItemProps,
+          m = u.openMenu,
+          y = u.reset;
         l.useImperativeHandle(t, () => {
           return { open: m };
         }),
           l.useEffect(() => {
             c && c(d);
           }, [d, c]);
-        const w = p(), k = r.includes(a.UploadFile);
+        const w = p(),
+          k = r.includes(a.UploadFile);
         return Object(o.jsxs)("div", {
           className:
             s.a.dynamic([
@@ -3613,7 +3787,9 @@
       n.d(t, "a", () => {
         return s;
       });
-      const r = n("cpVT"), a = n("nKUr"), o = (n("q1tI"), n("pDQI"));
+      const r = n("cpVT"),
+        a = n("nKUr"),
+        o = (n("q1tI"), n("pDQI"));
       function i(e, t) {
         const n = Object.keys(e);
         if (Object.getOwnPropertySymbols) {
@@ -3667,7 +3843,13 @@
       n.d(t, "a", () => {
         return u;
       });
-      const r = n("xvhg"), a = n("q1tI"), o = n("20a2"), i = n("VoYB"), c = n("tZOq"), s = n("Z+Ew"), l = n("zgDP");
+      const r = n("xvhg"),
+        a = n("q1tI"),
+        o = n("20a2"),
+        i = n("VoYB"),
+        c = n("tZOq"),
+        s = n("Z+Ew"),
+        l = n("zgDP");
       function u() {
         let e;
         let t;
@@ -3732,7 +3914,10 @@
       n.d(t, "a", () => {
         return c;
       });
-      const r = n("T/aA"), a = n("8tO+"), o = n("8rE2"), i = n("++Bh");
+      const r = n("T/aA"),
+        a = n("8tO+"),
+        o = n("8rE2"),
+        i = n("++Bh");
       function c(e) {
         return (
           Object(r.a)(e) || Object(a.a)(e) || Object(o.a)(e) || Object(i.a)()

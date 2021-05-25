@@ -254,14 +254,14 @@ const hcaptcha = (() => {
       if ("function" != typeof this)
         throw new TypeError("Function.prototype.bind: Item Can Not Be Bound.");
       const t = Array.prototype.slice.call(arguments, 1),
-            n = this,
-            i = () => {},
-            o = function () {
-              return n.apply(
-                this instanceof i ? this : e,
-                t.concat(Array.prototype.slice.call(arguments))
-              );
-            };
+        n = this,
+        i = () => {},
+        o = function () {
+          return n.apply(
+            this instanceof i ? this : e,
+            t.concat(Array.prototype.slice.call(arguments))
+          );
+        };
       return (
         this.prototype && (i.prototype = this.prototype),
         (o.prototype = new i()),
@@ -302,9 +302,10 @@ const hcaptcha = (() => {
         f);
     }
   else {
-    const v = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
-          w =
-            /^(?:[A-Za-z\d+\/]{4})*?(?:[A-Za-z\d+\/]{2}(?:==)?|[A-Za-z\d+\/]{3}=?)?$/;
+    const v =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
+      w =
+        /^(?:[A-Za-z\d+\/]{4})*?(?:[A-Za-z\d+\/]{2}(?:==)?|[A-Za-z\d+\/]{3}=?)?$/;
     window.atob = (e) => {
       if (((e = String(e).replace(/[\t\n\f\r ]+/g, "")), !w.test(e)))
         throw new TypeError(
@@ -336,50 +337,50 @@ const hcaptcha = (() => {
         this.cancelBubble = !0;
       });
   const b = [],
-        _ = [],
-        x = {
-          add(e) {
-            b.push(e);
-          },
-          remove(e) {
-            for (var t = !1, n = b.length; --n > -1 && !1 === t; )
-              b[n].id === e.id && ((t = b[n]), b.splice(n, 1));
-            return t;
-          },
-          each(e) {
-            for (let t = -1; ++t < b.length; ) e(b[t]);
-          },
-          isValidId(e) {
-            for (var t = !1, n = -1; ++n < b.length && !1 === t; )
-              b[n].id === e && (t = !0);
-            return t;
-          },
-          getByIndex(e) {
-            for (var t = !1, n = -1; ++n < b.length && !1 === t; )
-              n === e && (t = b[n]);
-            return t;
-          },
-          getById(e) {
-            for (var t = !1, n = -1; ++n < b.length && !1 === t; )
-              b[n].id === e && (t = b[n]);
-            return t;
-          },
-          getCaptchaIdList() {
-            const e = [];
-            return (
-              x.each((t) => {
-                e.push(t.id);
-              }),
-              e
-            );
-          },
-          pushSession(e, t) {
-            _.push([e, t]), _.length > 10 && _.splice(0, _.length - 10);
-          },
-          getSession() {
-            return _;
-          },
-        };
+    _ = [],
+    x = {
+      add(e) {
+        b.push(e);
+      },
+      remove(e) {
+        for (var t = !1, n = b.length; --n > -1 && !1 === t; )
+          b[n].id === e.id && ((t = b[n]), b.splice(n, 1));
+        return t;
+      },
+      each(e) {
+        for (let t = -1; ++t < b.length; ) e(b[t]);
+      },
+      isValidId(e) {
+        for (var t = !1, n = -1; ++n < b.length && !1 === t; )
+          b[n].id === e && (t = !0);
+        return t;
+      },
+      getByIndex(e) {
+        for (var t = !1, n = -1; ++n < b.length && !1 === t; )
+          n === e && (t = b[n]);
+        return t;
+      },
+      getById(e) {
+        for (var t = !1, n = -1; ++n < b.length && !1 === t; )
+          b[n].id === e && (t = b[n]);
+        return t;
+      },
+      getCaptchaIdList() {
+        const e = [];
+        return (
+          x.each((t) => {
+            e.push(t.id);
+          }),
+          e
+        );
+      },
+      pushSession(e, t) {
+        _.push([e, t]), _.length > 10 && _.splice(0, _.length - 10);
+      },
+      getSession() {
+        return _;
+      },
+    };
   function C() {
     const e = this;
     (this._bottom = 0),
@@ -390,7 +391,8 @@ const hcaptcha = (() => {
       }),
       (this.remove = () => {
         if (!e.empty()) {
-          const t = e._bottom, n = e.storage[t];
+          const t = e._bottom,
+            n = e.storage[t];
           return (e.storage[t] = null), e._bottom++, n;
         }
       }),
@@ -402,348 +404,348 @@ const hcaptcha = (() => {
       });
   }
   const k = {
-            queue: C,
-            depth: function gt(e, t, n) {
-              if ("object" == typeof e && e[t] && e[t].length > 0)
-                for (let i = e[t].length; --i > -1; ) gt(e[t][i], t, n);
-              e !== undefined && n(e);
-            },
-            breathe(e, t, n) {
-              const i = new C();
-              let o = null;
-              for (i.add(e), o = i.remove(); o; ) {
-                for (let r = 0; r < o[t].length; r++) i.add(o[t][r]);
-                n(o), (o = i.remove());
-              }
-            },
-          },
-        E = [
-          {
-            family: "UC Browser",
-            patterns: ["(UC? ?Browser|UCWEB|U3)[ /]?(\\d+)\\.(\\d+)\\.(\\d+)"],
-          },
-          {
-            family: "Opera",
-            name_replace: "Opera Mobile",
-            patterns: [
-              "(Opera)/.+Opera Mobi.+Version/(\\d+)\\.(\\d+)",
-              "(Opera)/(\\d+)\\.(\\d+).+Opera Mobi",
-              "Opera Mobi.+(Opera)(?:/|\\s+)(\\d+)\\.(\\d+)",
-              "Opera Mobi",
-              "(?:Mobile Safari).*(OPR)/(\\d+)\\.(\\d+)\\.(\\d+)",
-            ],
-          },
-          {
-            family: "Opera",
-            name_replace: "Opera Mini",
-            patterns: [
-              "(Opera Mini)(?:/att|)/?(\\d+|)(?:\\.(\\d+)|)(?:\\.(\\d+)|)",
-              "(OPiOS)/(\\d+).(\\d+).(\\d+)",
-            ],
-          },
-          {
-            family: "Opera",
-            name_replace: "Opera Neon",
-            patterns: ["Chrome/.+( MMS)/(\\d+).(\\d+).(\\d+)"],
-          },
-          {
-            name_replace: "Opera",
-            patterns: [
-              "(Opera)/9.80.*Version/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
-              "(?:Chrome).*(OPR)/(\\d+)\\.(\\d+)\\.(\\d+)",
-            ],
-          },
-          {
-            family: "Firefox",
-            name_replace: "Firefox Mobile",
-            patterns: [
-              "(Fennec)/(\\d+)\\.(\\d+)\\.?([ab]?\\d+[a-z]*)",
-              "(Fennec)/(\\d+)\\.(\\d+)(pre)",
-              "(Fennec)/(\\d+)\\.(\\d+)",
-              "(?:Mobile|Tablet);.*(Firefox)/(\\d+)\\.(\\d+)",
-              "(FxiOS)/(\\d+)\\.(\\d+)(\\.(\\d+)|)(\\.(\\d+)|)",
-            ],
-          },
-          {
-            name_replace: "Coc Coc",
-            patterns: ["(coc_coc_browser)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)"],
-          },
-          {
-            family: "QQ",
-            name_replace: "QQ Mini",
-            patterns: ["(MQQBrowser/Mini)(?:(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)|)"],
-          },
-          {
-            family: "QQ",
-            name_replace: "QQ Mobile",
-            patterns: ["(MQQBrowser)(?:/(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)|)"],
-          },
-          {
-            name_replace: "QQ",
-            patterns: [
-              "(QQBrowser)(?:/(\\d+)(?:\\.(\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)|)",
-            ],
-          },
-          {
-            family: "Edge",
-            name: "Edge Mobile",
-            patterns: [
-              "Windows Phone .*(Edge)/(\\d+)\\.(\\d+)",
-              "(EdgiOS|EdgA)/(\\d+)\\.(\\d+).(\\d+).(\\d+)",
-            ],
-          },
-          { name_replace: "Edge", patterns: ["(Edge|Edg)/(\\d+)(?:\\.(\\d+)|)"] },
-          { patterns: ["(Puffin)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)"] },
-          {
-            family: "Chrome",
-            name_replace: "Chrome Mobile",
-            patterns: [
-              "Version/.+(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
-              "; wv\\).+(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
-              "(CriOS)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
-              "(CrMo)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
-              "(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+) Mobile(?:[ /]|$)",
-              " Mobile .*(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
-            ],
-          },
-          {
-            family: "Yandex",
-            name_replace: "Yandex Mobile",
-            patterns: ["(YaBrowser)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+).*Mobile"],
-          },
-          {
-            name_replace: "Yandex",
-            patterns: ["(YaBrowser)/(\\d+)\\.(\\d+)\\.(\\d+)"],
-          },
-          {
-            patterns: [
-              "(Vivaldi)/(\\d+)\\.(\\d+)",
-              "(Vivaldi)/(\\d+)\\.(\\d+)\\.(\\d+)",
-            ],
-          },
-          {
-            name_replace: "Brave",
-            patterns: ["(brave)/(\\d+)\\.(\\d+)\\.(\\d+) Chrome"],
-          },
-          {
-            family: "Chrome",
-            patterns: [
-              "(Chromium|Chrome)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)",
-            ],
-          },
-          {
-            name_replace: "Internet Explorer Mobile",
-            patterns: ["(IEMobile)[ /](\\d+)\\.(\\d+)"],
-          },
-          {
-            family: "Safari",
-            name_replace: "Safari Mobile",
-            patterns: [
-              "(iPod|iPhone|iPad).+Version/(d+).(d+)(?:.(d+)|).*[ +]Safari",
-              "(iPod|iPod touch|iPhone|iPad);.*CPU.*OS[ +](\\d+)_(\\d+)(?:_(\\d+)|).* AppleNews\\/\\d+\\.\\d+\\.\\d+?",
-              "(iPod|iPhone|iPad).+Version/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
-              "(iPod|iPod touch|iPhone|iPad);.*CPU.*OS[ +](\\d+)_(\\d+)(?:_(\\d+)|).*Mobile.*[ +]Safari",
-              "(iPod|iPod touch|iPhone|iPad);.*CPU.*OS[ +](\\d+)_(\\d+)(?:_(\\d+)|).*Mobile",
-              "(iPod|iPod touch|iPhone|iPad).* Safari",
-              "(iPod|iPod touch|iPhone|iPad)",
-            ],
-          },
-          {
-            name_replace: "Safari",
-            patterns: ["(Version)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|).*Safari/"],
-          },
-          {
-            name_replace: "Internet Explorer",
-            patterns: ["(Trident)/(7|8).(0)"],
-            major_replace: "11",
-          },
-          {
-            name_replace: "Internet Explorer",
-            patterns: ["(Trident)/(6)\\.(0)"],
-            major_replace: "10",
-          },
-          {
-            name_replace: "Internet Explorer",
-            patterns: ["(Trident)/(5)\\.(0)"],
-            major_replace: "9",
-          },
-          {
-            name_replace: "Internet Explorer",
-            patterns: ["(Trident)/(4)\\.(0)"],
-            major_replace: "8",
-          },
-          {
-            family: "Firefox",
-            patterns: [
-              "(Firefox)/(\\d+)\\.(\\d+)\\.(\\d+)",
-              "(Firefox)/(\\d+)\\.(\\d+)(pre|[ab]\\d+[a-z]*|)",
-            ],
-          },
+      queue: C,
+      depth: function gt(e, t, n) {
+        if ("object" == typeof e && e[t] && e[t].length > 0)
+          for (let i = e[t].length; --i > -1; ) gt(e[t][i], t, n);
+        e !== undefined && n(e);
+      },
+      breathe(e, t, n) {
+        const i = new C();
+        let o = null;
+        for (i.add(e), o = i.remove(); o; ) {
+          for (let r = 0; r < o[t].length; r++) i.add(o[t][r]);
+          n(o), (o = i.remove());
+        }
+      },
+    },
+    E = [
+      {
+        family: "UC Browser",
+        patterns: ["(UC? ?Browser|UCWEB|U3)[ /]?(\\d+)\\.(\\d+)\\.(\\d+)"],
+      },
+      {
+        family: "Opera",
+        name_replace: "Opera Mobile",
+        patterns: [
+          "(Opera)/.+Opera Mobi.+Version/(\\d+)\\.(\\d+)",
+          "(Opera)/(\\d+)\\.(\\d+).+Opera Mobi",
+          "Opera Mobi.+(Opera)(?:/|\\s+)(\\d+)\\.(\\d+)",
+          "Opera Mobi",
+          "(?:Mobile Safari).*(OPR)/(\\d+)\\.(\\d+)\\.(\\d+)",
         ],
-        S = [
-          {
-            family: "Windows",
-            name_replace: "Windows Phone",
-            patterns: [
-              "(Windows Phone) (?:OS[ /])?(\\d+)\\.(\\d+)",
-              "^UCWEB.*; (wds) (\\d+)\\.(d+)(?:\\.(\\d+)|);",
-              "^UCWEB.*; (wds) (\\d+)\\.(\\d+)(?:\\.(\\d+)|);",
-            ],
-          },
-          {
-            family: "Windows",
-            name_replace: "Windows Mobile",
-            patterns: ["(Windows ?Mobile)"],
-          },
-          {
-            name_replace: "Android",
-            patterns: [
-              "(Android)[ \\-/](\\d+)(?:\\.(\\d+)|)(?:[.\\-]([a-z0-9]+)|)",
-              "(Android) (d+);",
-              "^UCWEB.*; (Adr) (\\d+)\\.(\\d+)(?:[.\\-]([a-z0-9]+)|);",
-              "^(JUC).*; ?U; ?(?:Android|)(\\d+)\\.(\\d+)(?:[\\.\\-]([a-z0-9]+)|)",
-              "(android)\\s(?:mobile\\/)(\\d+)(?:\\.(\\d+)(?:\\.(\\d+)|)|)",
-              "(Silk-Accelerated=[a-z]{4,5})",
-              "Puffin/[\\d\\.]+AT",
-              "Puffin/[\\d\\.]+AP",
-            ],
-          },
-          {
-            name_replace: "Chrome OS",
-            patterns: [
-              "(x86_64|aarch64)\\ (\\d+)\\.(\\d+)\\.(\\d+).*Chrome.*(?:CitrixChromeApp)$",
-              "(CrOS) [a-z0-9_]+ (\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
-            ],
-          },
-          {
-            name_replace: "Windows",
-            patterns: ["(Windows 10)", "(Windows NT 6\\.4)", "(Windows NT 10\\.0)"],
-            major_replace: "10",
-          },
-          {
-            name_replace: "Windows",
-            patterns: ["(Windows NT 6\\.3; ARM;)", "(Windows NT 6.3)"],
-            major_replace: "8",
-            minor_replace: "1",
-          },
-          {
-            name_replace: "Windows",
-            patterns: ["(Windows NT 6\\.2)"],
-            major_replace: "8",
-          },
-          {
-            name_replace: "Windows",
-            patterns: ["(Windows NT 6\\.1)"],
-            major_replace: "7",
-          },
-          {
-            name_replace: "Windows",
-            patterns: ["(Windows NT 6\\.0)"],
-            major_replace: "Vista",
-          },
-          {
-            name_replace: "Windows",
-            patterns: ["(Windows (?:NT 5\\.2|NT 5\\.1))"],
-            major_replace: "XP",
-          },
-          {
-            name_replace: "Mac OS X",
-            patterns: [
-              "((?:Mac[ +]?|; )OS[ +]X)[\\s+/](?:(\\d+)[_.](\\d+)(?:[_.](\\d+)|)|Mach-O)",
-              "\\w+\\s+Mac OS X\\s+\\w+\\s+(\\d+).(\\d+).(\\d+).*",
-              "(?:PPC|Intel) (Mac OS X)",
-            ],
-          },
-          {
-            name_replace: "Mac OS X",
-            patterns: [" (Dar)(win)/(10).(d+).*((?:i386|x86_64))"],
-            major_replace: "10",
-            minor_replace: "6",
-          },
-          {
-            name_replace: "Mac OS X",
-            patterns: [" (Dar)(win)/(11).(\\d+).*\\((?:i386|x86_64)\\)"],
-            major_replace: "10",
-            minor_replace: "7",
-          },
-          {
-            name_replace: "Mac OS X",
-            patterns: [" (Dar)(win)/(12).(\\d+).*\\((?:i386|x86_64)\\)"],
-            major_replace: "10",
-            minor_replace: "8",
-          },
-          {
-            name_replace: "Mac OS X",
-            patterns: [" (Dar)(win)/(13).(\\d+).*\\((?:i386|x86_64)\\)"],
-            major_replace: "10",
-            minor_replace: "9",
-          },
-          {
-            name_replace: "iOS",
-            patterns: [
-              "^UCWEB.*; (iPad|iPh|iPd) OS (\\d+)_(\\d+)(?:_(\\d+)|);",
-              "(CPU[ +]OS|iPhone[ +]OS|CPU[ +]iPhone|CPU IPhone OS)[ +]+(\\d+)[_\\.](\\d+)(?:[_\\.](\\d+)|)",
-              "(iPhone|iPad|iPod); Opera",
-              "(iPhone|iPad|iPod).*Mac OS X.*Version/(\\d+)\\.(\\d+)",
-              "\\b(iOS[ /]|iOS; |iPhone(?:/| v|[ _]OS[/,]|; | OS : |\\d,\\d/|\\d,\\d; )|iPad/)(\\d{1,2})[_\\.](\\d{1,2})(?:[_\\.](\\d+)|)",
-              "\\((iOS);",
-              "(iPod|iPhone|iPad)",
-              "Puffin/[\\d\\.]+IT",
-              "Puffin/[\\d\\.]+IP",
-            ],
-          },
-          {
-            family: "Chrome",
-            name_replace: "Chromecast",
-            patterns: [
-              "(CrKey -)(?:[ /](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)",
-              "(CrKey[ +]armv7l)(?:[ /](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)",
-              "(CrKey)(?:[/](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)",
-            ],
-          },
-          { name_replace: "Debian", patterns: ["([Dd]ebian)"] },
-          {
-            family: "Linux",
-            name_replace: "Linux",
-            patterns: ["(Linux Mint)(?:/(\\d+)|)"],
-          },
-          {
-            family: "Linux",
-            patterns: [
-              "(Ubuntu|Kubuntu|Arch Linux|CentOS|Slackware|Gentoo|openSUSE|SUSE|Red Hat|Fedora|PCLinuxOS|Mageia|(?:Free|Open|Net|\\b)BSD)",
-              "(Mandriva)(?: Linux|)/(?:[\\d.-]+m[a-z]{2}(\\d+).(\\d)|)",
-              "(Linux)(?:[ /](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)",
-              "\\(linux-gnu\\)",
-            ],
-          },
-          {
-            family: "BlackBerry",
-            name_replace: "BlackBerry OS",
-            patterns: [
-              "(BB10);.+Version/(\\d+)\\.(\\d+)\\.(\\d+)",
-              "(Black[Bb]erry)[0-9a-z]+/(\\d+)\\.(\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
-              "(Black[Bb]erry).+Version/(\\d+)\\.(\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
-              "(Black[Bb]erry)",
-            ],
-          },
-          {
-            patterns: [
-              "(Fedora|Red Hat|PCLinuxOS|Puppy|Ubuntu|Kindle|Bada|Sailfish|Lubuntu|BackTrack|Slackware|(?:Free|Open|Net|\\b)BSD)[/ ](\\d+)\\.(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)",
-            ],
-          },
+      },
+      {
+        family: "Opera",
+        name_replace: "Opera Mini",
+        patterns: [
+          "(Opera Mini)(?:/att|)/?(\\d+|)(?:\\.(\\d+)|)(?:\\.(\\d+)|)",
+          "(OPiOS)/(\\d+).(\\d+).(\\d+)",
         ],
-        O = navigator.userAgent,
-        I = {
-          getAgent() {
-            return O;
-          },
-          getBrowser(e) {
-            return B(e || O, E);
-          },
-          getOS(e) {
-            return B(e || O, S);
-          },
-        };
+      },
+      {
+        family: "Opera",
+        name_replace: "Opera Neon",
+        patterns: ["Chrome/.+( MMS)/(\\d+).(\\d+).(\\d+)"],
+      },
+      {
+        name_replace: "Opera",
+        patterns: [
+          "(Opera)/9.80.*Version/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
+          "(?:Chrome).*(OPR)/(\\d+)\\.(\\d+)\\.(\\d+)",
+        ],
+      },
+      {
+        family: "Firefox",
+        name_replace: "Firefox Mobile",
+        patterns: [
+          "(Fennec)/(\\d+)\\.(\\d+)\\.?([ab]?\\d+[a-z]*)",
+          "(Fennec)/(\\d+)\\.(\\d+)(pre)",
+          "(Fennec)/(\\d+)\\.(\\d+)",
+          "(?:Mobile|Tablet);.*(Firefox)/(\\d+)\\.(\\d+)",
+          "(FxiOS)/(\\d+)\\.(\\d+)(\\.(\\d+)|)(\\.(\\d+)|)",
+        ],
+      },
+      {
+        name_replace: "Coc Coc",
+        patterns: ["(coc_coc_browser)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)"],
+      },
+      {
+        family: "QQ",
+        name_replace: "QQ Mini",
+        patterns: ["(MQQBrowser/Mini)(?:(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)|)"],
+      },
+      {
+        family: "QQ",
+        name_replace: "QQ Mobile",
+        patterns: ["(MQQBrowser)(?:/(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)|)"],
+      },
+      {
+        name_replace: "QQ",
+        patterns: [
+          "(QQBrowser)(?:/(\\d+)(?:\\.(\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)|)",
+        ],
+      },
+      {
+        family: "Edge",
+        name: "Edge Mobile",
+        patterns: [
+          "Windows Phone .*(Edge)/(\\d+)\\.(\\d+)",
+          "(EdgiOS|EdgA)/(\\d+)\\.(\\d+).(\\d+).(\\d+)",
+        ],
+      },
+      { name_replace: "Edge", patterns: ["(Edge|Edg)/(\\d+)(?:\\.(\\d+)|)"] },
+      { patterns: ["(Puffin)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)"] },
+      {
+        family: "Chrome",
+        name_replace: "Chrome Mobile",
+        patterns: [
+          "Version/.+(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
+          "; wv\\).+(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
+          "(CriOS)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
+          "(CrMo)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
+          "(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+) Mobile(?:[ /]|$)",
+          " Mobile .*(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
+        ],
+      },
+      {
+        family: "Yandex",
+        name_replace: "Yandex Mobile",
+        patterns: ["(YaBrowser)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+).*Mobile"],
+      },
+      {
+        name_replace: "Yandex",
+        patterns: ["(YaBrowser)/(\\d+)\\.(\\d+)\\.(\\d+)"],
+      },
+      {
+        patterns: [
+          "(Vivaldi)/(\\d+)\\.(\\d+)",
+          "(Vivaldi)/(\\d+)\\.(\\d+)\\.(\\d+)",
+        ],
+      },
+      {
+        name_replace: "Brave",
+        patterns: ["(brave)/(\\d+)\\.(\\d+)\\.(\\d+) Chrome"],
+      },
+      {
+        family: "Chrome",
+        patterns: [
+          "(Chromium|Chrome)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)",
+        ],
+      },
+      {
+        name_replace: "Internet Explorer Mobile",
+        patterns: ["(IEMobile)[ /](\\d+)\\.(\\d+)"],
+      },
+      {
+        family: "Safari",
+        name_replace: "Safari Mobile",
+        patterns: [
+          "(iPod|iPhone|iPad).+Version/(d+).(d+)(?:.(d+)|).*[ +]Safari",
+          "(iPod|iPod touch|iPhone|iPad);.*CPU.*OS[ +](\\d+)_(\\d+)(?:_(\\d+)|).* AppleNews\\/\\d+\\.\\d+\\.\\d+?",
+          "(iPod|iPhone|iPad).+Version/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
+          "(iPod|iPod touch|iPhone|iPad);.*CPU.*OS[ +](\\d+)_(\\d+)(?:_(\\d+)|).*Mobile.*[ +]Safari",
+          "(iPod|iPod touch|iPhone|iPad);.*CPU.*OS[ +](\\d+)_(\\d+)(?:_(\\d+)|).*Mobile",
+          "(iPod|iPod touch|iPhone|iPad).* Safari",
+          "(iPod|iPod touch|iPhone|iPad)",
+        ],
+      },
+      {
+        name_replace: "Safari",
+        patterns: ["(Version)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|).*Safari/"],
+      },
+      {
+        name_replace: "Internet Explorer",
+        patterns: ["(Trident)/(7|8).(0)"],
+        major_replace: "11",
+      },
+      {
+        name_replace: "Internet Explorer",
+        patterns: ["(Trident)/(6)\\.(0)"],
+        major_replace: "10",
+      },
+      {
+        name_replace: "Internet Explorer",
+        patterns: ["(Trident)/(5)\\.(0)"],
+        major_replace: "9",
+      },
+      {
+        name_replace: "Internet Explorer",
+        patterns: ["(Trident)/(4)\\.(0)"],
+        major_replace: "8",
+      },
+      {
+        family: "Firefox",
+        patterns: [
+          "(Firefox)/(\\d+)\\.(\\d+)\\.(\\d+)",
+          "(Firefox)/(\\d+)\\.(\\d+)(pre|[ab]\\d+[a-z]*|)",
+        ],
+      },
+    ],
+    S = [
+      {
+        family: "Windows",
+        name_replace: "Windows Phone",
+        patterns: [
+          "(Windows Phone) (?:OS[ /])?(\\d+)\\.(\\d+)",
+          "^UCWEB.*; (wds) (\\d+)\\.(d+)(?:\\.(\\d+)|);",
+          "^UCWEB.*; (wds) (\\d+)\\.(\\d+)(?:\\.(\\d+)|);",
+        ],
+      },
+      {
+        family: "Windows",
+        name_replace: "Windows Mobile",
+        patterns: ["(Windows ?Mobile)"],
+      },
+      {
+        name_replace: "Android",
+        patterns: [
+          "(Android)[ \\-/](\\d+)(?:\\.(\\d+)|)(?:[.\\-]([a-z0-9]+)|)",
+          "(Android) (d+);",
+          "^UCWEB.*; (Adr) (\\d+)\\.(\\d+)(?:[.\\-]([a-z0-9]+)|);",
+          "^(JUC).*; ?U; ?(?:Android|)(\\d+)\\.(\\d+)(?:[\\.\\-]([a-z0-9]+)|)",
+          "(android)\\s(?:mobile\\/)(\\d+)(?:\\.(\\d+)(?:\\.(\\d+)|)|)",
+          "(Silk-Accelerated=[a-z]{4,5})",
+          "Puffin/[\\d\\.]+AT",
+          "Puffin/[\\d\\.]+AP",
+        ],
+      },
+      {
+        name_replace: "Chrome OS",
+        patterns: [
+          "(x86_64|aarch64)\\ (\\d+)\\.(\\d+)\\.(\\d+).*Chrome.*(?:CitrixChromeApp)$",
+          "(CrOS) [a-z0-9_]+ (\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
+        ],
+      },
+      {
+        name_replace: "Windows",
+        patterns: ["(Windows 10)", "(Windows NT 6\\.4)", "(Windows NT 10\\.0)"],
+        major_replace: "10",
+      },
+      {
+        name_replace: "Windows",
+        patterns: ["(Windows NT 6\\.3; ARM;)", "(Windows NT 6.3)"],
+        major_replace: "8",
+        minor_replace: "1",
+      },
+      {
+        name_replace: "Windows",
+        patterns: ["(Windows NT 6\\.2)"],
+        major_replace: "8",
+      },
+      {
+        name_replace: "Windows",
+        patterns: ["(Windows NT 6\\.1)"],
+        major_replace: "7",
+      },
+      {
+        name_replace: "Windows",
+        patterns: ["(Windows NT 6\\.0)"],
+        major_replace: "Vista",
+      },
+      {
+        name_replace: "Windows",
+        patterns: ["(Windows (?:NT 5\\.2|NT 5\\.1))"],
+        major_replace: "XP",
+      },
+      {
+        name_replace: "Mac OS X",
+        patterns: [
+          "((?:Mac[ +]?|; )OS[ +]X)[\\s+/](?:(\\d+)[_.](\\d+)(?:[_.](\\d+)|)|Mach-O)",
+          "\\w+\\s+Mac OS X\\s+\\w+\\s+(\\d+).(\\d+).(\\d+).*",
+          "(?:PPC|Intel) (Mac OS X)",
+        ],
+      },
+      {
+        name_replace: "Mac OS X",
+        patterns: [" (Dar)(win)/(10).(d+).*((?:i386|x86_64))"],
+        major_replace: "10",
+        minor_replace: "6",
+      },
+      {
+        name_replace: "Mac OS X",
+        patterns: [" (Dar)(win)/(11).(\\d+).*\\((?:i386|x86_64)\\)"],
+        major_replace: "10",
+        minor_replace: "7",
+      },
+      {
+        name_replace: "Mac OS X",
+        patterns: [" (Dar)(win)/(12).(\\d+).*\\((?:i386|x86_64)\\)"],
+        major_replace: "10",
+        minor_replace: "8",
+      },
+      {
+        name_replace: "Mac OS X",
+        patterns: [" (Dar)(win)/(13).(\\d+).*\\((?:i386|x86_64)\\)"],
+        major_replace: "10",
+        minor_replace: "9",
+      },
+      {
+        name_replace: "iOS",
+        patterns: [
+          "^UCWEB.*; (iPad|iPh|iPd) OS (\\d+)_(\\d+)(?:_(\\d+)|);",
+          "(CPU[ +]OS|iPhone[ +]OS|CPU[ +]iPhone|CPU IPhone OS)[ +]+(\\d+)[_\\.](\\d+)(?:[_\\.](\\d+)|)",
+          "(iPhone|iPad|iPod); Opera",
+          "(iPhone|iPad|iPod).*Mac OS X.*Version/(\\d+)\\.(\\d+)",
+          "\\b(iOS[ /]|iOS; |iPhone(?:/| v|[ _]OS[/,]|; | OS : |\\d,\\d/|\\d,\\d; )|iPad/)(\\d{1,2})[_\\.](\\d{1,2})(?:[_\\.](\\d+)|)",
+          "\\((iOS);",
+          "(iPod|iPhone|iPad)",
+          "Puffin/[\\d\\.]+IT",
+          "Puffin/[\\d\\.]+IP",
+        ],
+      },
+      {
+        family: "Chrome",
+        name_replace: "Chromecast",
+        patterns: [
+          "(CrKey -)(?:[ /](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)",
+          "(CrKey[ +]armv7l)(?:[ /](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)",
+          "(CrKey)(?:[/](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)",
+        ],
+      },
+      { name_replace: "Debian", patterns: ["([Dd]ebian)"] },
+      {
+        family: "Linux",
+        name_replace: "Linux",
+        patterns: ["(Linux Mint)(?:/(\\d+)|)"],
+      },
+      {
+        family: "Linux",
+        patterns: [
+          "(Ubuntu|Kubuntu|Arch Linux|CentOS|Slackware|Gentoo|openSUSE|SUSE|Red Hat|Fedora|PCLinuxOS|Mageia|(?:Free|Open|Net|\\b)BSD)",
+          "(Mandriva)(?: Linux|)/(?:[\\d.-]+m[a-z]{2}(\\d+).(\\d)|)",
+          "(Linux)(?:[ /](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)",
+          "\\(linux-gnu\\)",
+        ],
+      },
+      {
+        family: "BlackBerry",
+        name_replace: "BlackBerry OS",
+        patterns: [
+          "(BB10);.+Version/(\\d+)\\.(\\d+)\\.(\\d+)",
+          "(Black[Bb]erry)[0-9a-z]+/(\\d+)\\.(\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
+          "(Black[Bb]erry).+Version/(\\d+)\\.(\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
+          "(Black[Bb]erry)",
+        ],
+      },
+      {
+        patterns: [
+          "(Fedora|Red Hat|PCLinuxOS|Puppy|Ubuntu|Kindle|Bada|Sailfish|Lubuntu|BackTrack|Slackware|(?:Free|Open|Net|\\b)BSD)[/ ](\\d+)\\.(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)",
+        ],
+      },
+    ],
+    O = navigator.userAgent,
+    I = {
+      getAgent() {
+        return O;
+      },
+      getBrowser(e) {
+        return B(e || O, E);
+      },
+      getOS(e) {
+        return B(e || O, S);
+      },
+    };
   function P(e, t) {
     try {
       const n = new RegExp(t).exec(e);
@@ -775,7 +777,9 @@ const hcaptcha = (() => {
       : { family: "Other", name: "Other", major: "0", minor: "0", patch: "0" };
   }
   function T() {
-    const e = this, t = I.getBrowser(), n = I.getAgent();
+    const e = this,
+      t = I.getBrowser(),
+      n = I.getAgent();
     (this.agent = n.toLowerCase()),
       (this.language =
         window.navigator.userLanguage || window.navigator.language),
@@ -868,90 +872,90 @@ const hcaptcha = (() => {
       }
     });
   const M = {
-            Browser: new T(),
-            System: new (function () {
-              let e;
-              let t;
-              const n = I.getOS();
-              const i = I.getAgent();
-              (this.mobile =
-                ((e = !!(
-                  "ontouchstart" in window ||
-                  navigator.maxTouchPoints > 0 ||
-                  navigator.msMaxTouchPoints > 0
-                )),
-                (t = !1),
-                n &&
-                  (t =
-                    [
-                      "iOS",
-                      "Windows Phone",
-                      "Windows Mobile",
-                      "Android",
-                      "BlackBerry OS",
-                    ].indexOf(n.name) >= 0),
-                e && t)),
-                (this.dpr = () => {
-                  return window.devicePixelRatio || 1;
-                }),
-                this.mobile &&
-                  n &&
-                  "Windows" === n.family &&
-                  i.indexOf("touch") < 0 &&
-                  (this.mobile = !1),
-                (this.os =
-                  "iOS" === n.family
-                    ? "ios"
-                    : "Android" === n.family
-                    ? "android"
-                    : "Mac OS X" === n.family
-                    ? "mac"
-                    : "Windows" === n.family
-                    ? "windows"
-                    : "Linux" === n.family
-                    ? "linux"
-                    : n.family.toLowerCase()),
-                (this.version = (() => {
-                  if (!n) return "unknown";
-                  let e = n.major;
-                  return (
-                    n.minor && (e += "." + n.minor),
-                    n.patch && (e += "." + n.patch),
-                    e
-                  );
-                })());
-            })(),
-          },
-        A = {
-          host: null,
-          file: null,
-          sitekey: null,
-          pingdom:
-            "safari" === M.Browser.type &&
-            "windows" !== M.System.os &&
-            "mac" !== M.System.os &&
-            "ios" !== M.System.os &&
-            "android" !== M.System.os,
-          assetDomain: "https://assets.hcaptcha.com",
-          assetUrl: "https://assets.hcaptcha.com/captcha/v1/523a6ff/static",
-          width: null,
-          height: null,
-          mobile: null,
-        },
-        $ = {
-          tplinks: "on",
-          language: null,
-          reportapi: "https://accounts.hcaptcha.com",
-          endpoint: "https://hcaptcha.com",
-          endpointOverride: null,
-          size: "normal",
-          theme: "light",
-          assethost: null,
-          imghost: null,
-          recaptchacompat: "true",
-        },
-        L =
-          "Please <a style='color:inherit;text-decoration:underline; font: inherit' target='_blank' href='https://www.whatismybrowser.com/guides/how-to-update-your-browser/auto'>upgrade your browser</a> to complete this captcha.";
+      Browser: new T(),
+      System: new (function () {
+        let e;
+        let t;
+        const n = I.getOS();
+        const i = I.getAgent();
+        (this.mobile =
+          ((e = !!(
+            "ontouchstart" in window ||
+            navigator.maxTouchPoints > 0 ||
+            navigator.msMaxTouchPoints > 0
+          )),
+          (t = !1),
+          n &&
+            (t =
+              [
+                "iOS",
+                "Windows Phone",
+                "Windows Mobile",
+                "Android",
+                "BlackBerry OS",
+              ].indexOf(n.name) >= 0),
+          e && t)),
+          (this.dpr = () => {
+            return window.devicePixelRatio || 1;
+          }),
+          this.mobile &&
+            n &&
+            "Windows" === n.family &&
+            i.indexOf("touch") < 0 &&
+            (this.mobile = !1),
+          (this.os =
+            "iOS" === n.family
+              ? "ios"
+              : "Android" === n.family
+              ? "android"
+              : "Mac OS X" === n.family
+              ? "mac"
+              : "Windows" === n.family
+              ? "windows"
+              : "Linux" === n.family
+              ? "linux"
+              : n.family.toLowerCase()),
+          (this.version = (() => {
+            if (!n) return "unknown";
+            let e = n.major;
+            return (
+              n.minor && (e += "." + n.minor),
+              n.patch && (e += "." + n.patch),
+              e
+            );
+          })());
+      })(),
+    },
+    A = {
+      host: null,
+      file: null,
+      sitekey: null,
+      pingdom:
+        "safari" === M.Browser.type &&
+        "windows" !== M.System.os &&
+        "mac" !== M.System.os &&
+        "ios" !== M.System.os &&
+        "android" !== M.System.os,
+      assetDomain: "https://assets.hcaptcha.com",
+      assetUrl: "https://assets.hcaptcha.com/captcha/v1/523a6ff/static",
+      width: null,
+      height: null,
+      mobile: null,
+    },
+    $ = {
+      tplinks: "on",
+      language: null,
+      reportapi: "https://accounts.hcaptcha.com",
+      endpoint: "https://hcaptcha.com",
+      endpointOverride: null,
+      size: "normal",
+      theme: "light",
+      assethost: null,
+      imghost: null,
+      recaptchacompat: "true",
+    },
+    L =
+      "Please <a style='color:inherit;text-decoration:underline; font: inherit' target='_blank' href='https://www.whatismybrowser.com/guides/how-to-update-your-browser/auto'>upgrade your browser</a> to complete this captcha.";
   function j(e, t) {
     (e.style.width = "304px"),
       (e.style.height = "78px"),
@@ -1012,104 +1016,108 @@ const hcaptcha = (() => {
     let i = "attempts" in (t = t || {}) ? t.attempts : 1;
     const o = t.delay || 0;
     const r = t.onFail;
-    return (n = (t, n, a) => {
-      e().then(t, (e) => {
-        let t = i-- > 0;
-        r && (t = !1 !== r(e) && t), t ? setTimeout(a, o) : n(e);
-      });
-    }),
-    new Promise((e, t) => {
-      n(e, t, function i() {
-        n(e, t, i);
-      });
-    })
-  ;
+    return (
+      (n = (t, n, a) => {
+        e().then(t, (e) => {
+          let t = i-- > 0;
+          r && (t = !1 !== r(e) && t), t ? setTimeout(a, o) : n(e);
+        });
+      }),
+      new Promise((e, t) => {
+        n(e, t, function i() {
+          n(e, t, i);
+        });
+      })
+    );
   }
   const F = {
-            eventName(e) {
-              let t = e;
-              return (
-                "down" === e ||
-                "up" === e ||
-                "move" === e ||
-                "over" === e ||
-                "out" === e
-                  ? (t =
-                      !M.System.mobile || ("down" !== e && "up" !== e && "move" !== e)
-                        ? "mouse" + e
-                        : "down" === e
-                        ? "touchstart"
-                        : "up" === e
-                        ? "touchend"
-                        : "touchmove")
-                  : "enter" === e && (t = "keydown"),
-                t
-              );
-            },
-            actionName(e) {
-              let t = e;
-              return (
-                "touchstart" === t || "mousedown" === t
-                  ? (t = "down")
-                  : "touchmove" === t || "mousemove" === t
-                  ? (t = "move")
-                  : "touchend" === t || "mouseup" === t
-                  ? (t = "up")
-                  : "mouseover" === t
-                  ? (t = "over")
-                  : "mouseout" === t && (t = "out"),
-                t
-              );
-            },
-            eventCallback(e, t, n) {
-              const i = F.actionName(e);
-              return (o) => {
-                if (
-                  ((o = o || window.event),
-                  "down" === i ||
-                    "move" === i ||
-                    "up" === i ||
-                    "over" === i ||
-                    "out" === i ||
-                    "click" === i)
-                ) {
-                  const r = F.eventCoords(o), a = n.getBoundingClientRect();
-                  (o.windowX = r.x),
-                    (o.windowY = r.y),
-                    (o.elementX = o.windowX - (a.x || a.left)),
-                    (o.elementY = o.windowY - (a.y || a.top));
-                }
-                (o.keyNum = o.which || o.keyCode || 0),
-                  ("enter" === e && 13 !== o.keyNum && 32 !== o.keyNum) ||
-                    ((o.action = i), (o.targetElement = n), t(o));
-              };
-            },
-            eventCoords(e) {
-              const t = { x: 0, y: 0 };
-              if (e.windowsPointer) return e;
-              if (!e) return t;
-              if (e.touches || e.changedTouches) {
-                const n = (
-                  e.touches && e.touches.length >= 1 ? e.touches : e.changedTouches
-                )[0];
-                (t.x = n.pageX || n.clientX), (t.y = n.pageY || n.clientY);
-              } else (t.x = e.pageX || e.clientX), (t.y = e.pageY || e.clientY);
-              return t;
-            },
-          },
-        q = ["Webkit", "Moz", "ms"],
-        H = document.createElement("div").style,
-        X = {};
+      eventName(e) {
+        let t = e;
+        return (
+          "down" === e ||
+          "up" === e ||
+          "move" === e ||
+          "over" === e ||
+          "out" === e
+            ? (t =
+                !M.System.mobile || ("down" !== e && "up" !== e && "move" !== e)
+                  ? "mouse" + e
+                  : "down" === e
+                  ? "touchstart"
+                  : "up" === e
+                  ? "touchend"
+                  : "touchmove")
+            : "enter" === e && (t = "keydown"),
+          t
+        );
+      },
+      actionName(e) {
+        let t = e;
+        return (
+          "touchstart" === t || "mousedown" === t
+            ? (t = "down")
+            : "touchmove" === t || "mousemove" === t
+            ? (t = "move")
+            : "touchend" === t || "mouseup" === t
+            ? (t = "up")
+            : "mouseover" === t
+            ? (t = "over")
+            : "mouseout" === t && (t = "out"),
+          t
+        );
+      },
+      eventCallback(e, t, n) {
+        const i = F.actionName(e);
+        return (o) => {
+          if (
+            ((o = o || window.event),
+            "down" === i ||
+              "move" === i ||
+              "up" === i ||
+              "over" === i ||
+              "out" === i ||
+              "click" === i)
+          ) {
+            const r = F.eventCoords(o),
+              a = n.getBoundingClientRect();
+            (o.windowX = r.x),
+              (o.windowY = r.y),
+              (o.elementX = o.windowX - (a.x || a.left)),
+              (o.elementY = o.windowY - (a.y || a.top));
+          }
+          (o.keyNum = o.which || o.keyCode || 0),
+            ("enter" === e && 13 !== o.keyNum && 32 !== o.keyNum) ||
+              ((o.action = i), (o.targetElement = n), t(o));
+        };
+      },
+      eventCoords(e) {
+        const t = { x: 0, y: 0 };
+        if (e.windowsPointer) return e;
+        if (!e) return t;
+        if (e.touches || e.changedTouches) {
+          const n = (
+            e.touches && e.touches.length >= 1 ? e.touches : e.changedTouches
+          )[0];
+          (t.x = n.pageX || n.clientX), (t.y = n.pageY || n.clientY);
+        } else (t.x = e.pageX || e.clientX), (t.y = e.pageY || e.clientY);
+        return t;
+      },
+    },
+    q = ["Webkit", "Moz", "ms"],
+    H = document.createElement("div").style,
+    X = {};
   function Y(e) {
     const t = X[e];
-    return t ||
-    (e in H
-      ? e
-      : (X[e] =
-          ((e) => {
-            for (let t = e[0].toUpperCase() + e.slice(1), n = q.length; n--; )
-              if ((e = q[n] + t) in H) return e;
-          })(e) || e));
+    return (
+      t ||
+      (e in H
+        ? e
+        : (X[e] =
+            ((e) => {
+              for (let t = e[0].toUpperCase() + e.slice(1), n = q.length; n--; )
+                if ((e = q[n] + t) in H) return e;
+            })(e) || e))
+    );
   }
   function J(e, t, n) {
     if (
@@ -1253,7 +1261,8 @@ const hcaptcha = (() => {
       return this;
     }),
     (J.prototype.backgroundImage = function (e, t, n, i) {
-      const o = t !== undefined && n !== undefined, r = { "-ms-high-contrast-adjust": "none" };
+      const o = t !== undefined && n !== undefined,
+        r = { "-ms-high-contrast-adjust": "none" };
       if (("object" == typeof t && (i = t), i === undefined && (i = {}), o)) {
         const a = e.width / e.height;
         var s = t;
@@ -1347,7 +1356,8 @@ const hcaptcha = (() => {
     });
   const V = {
     self(e, t) {
-      const n = {}, i = Array.prototype.slice.call(arguments, 2);
+      const n = {},
+        i = Array.prototype.slice.call(arguments, 2);
       for (const o in (t.apply(e, i), e)) n[o] = e[o];
     },
     proto(e, t) {
@@ -1418,7 +1428,8 @@ const hcaptcha = (() => {
     }),
     (Q.prototype.emit = function (e) {
       for (
-        let t = Array.prototype.slice.call(arguments, 1), n = this._events.length;
+        let t = Array.prototype.slice.call(arguments, 1),
+          n = this._events.length;
         --n > -1 && this._events;
 
       )
@@ -1428,117 +1439,117 @@ const hcaptcha = (() => {
     });
 
   const K = {
-      af: "Afrikaans",
-      sq: "Albanian",
-      am: "Amharic",
-      ar: "Arabic",
-      hy: "Armenian",
-      az: "Azerbaijani",
-      eu: "Basque",
-      be: "Belarusian",
-      bn: "Bengali",
-      bg: "Bulgarian",
-      bs: "Bosnian",
-      my: "Burmese",
-      ca: "Catalan",
-      ceb: "Cebuano",
-      zh: "Chinese",
-      "zh-CN": "Chinese Simplified",
-      "zh-TW": "Chinese Traditional",
-      co: "Corsican",
-      hr: "Croatian",
-      cs: "Czech",
-      da: "Danish",
-      nl: "Dutch",
-      en: "English",
-      eo: "Esperanto",
-      et: "Estonian",
-      fa: "Persian",
-      fi: "Finnish",
-      fr: "French",
-      fy: "Frisian",
-      gd: "Gaelic",
-      gl: "Galacian",
-      ka: "Georgian",
-      de: "German",
-      el: "Greek",
-      gu: "Gujurati",
-      ht: "Haitian",
-      ha: "Hausa",
-      haw: "Hawaiian",
-      he: "Hebrew",
-      hi: "Hindi",
-      hmn: "Hmong",
-      hu: "Hungarian",
-      is: "Icelandic",
-      ig: "Igbo",
-      id: "Indonesian",
-      ga: "Irish",
-      it: "Italian",
-      ja: "Japanese",
-      jw: "Javanese",
-      kn: "Kannada",
-      kk: "Kazakh",
-      km: "Khmer",
-      rw: "Kinyarwanda",
-      ky: "Kirghiz",
-      ko: "Korean",
-      ku: "Kurdish",
-      lo: "Lao",
-      la: "Latin",
-      lv: "Latvian",
-      lt: "Lithuanian",
-      lb: "Luxembourgish",
-      mk: "Macedonian",
-      mg: "Malagasy",
-      ms: "Malay",
-      ml: "Malayalam",
-      mt: "Maltese",
-      mi: "Maori",
-      mr: "Marathi",
-      mn: "Mongolian",
-      ne: "Nepali",
-      no: "Norwegian",
-      ny: "Nyanja",
-      or: "Oriya",
-      pl: "Polish",
-      pt: "Portuguese",
-      ps: "Pashto",
-      pa: "Punjabi",
-      ro: "Romanian",
-      ru: "Russian",
-      sm: "Samoan",
-      sn: "Shona",
-      sd: "Sindhi",
-      si: "Singhalese",
-      sr: "Serbian",
-      sk: "Slovak",
-      sl: "Slovenian",
-      so: "Somani",
-      st: "Southern Sotho",
-      es: "Spanish",
-      su: "Sundanese",
-      sw: "Swahili",
-      sv: "Swedish",
-      tl: "Tagalog",
-      tg: "Tajik",
-      ta: "Tamil",
-      tt: "Tatar",
-      te: "Teluga",
-      th: "Thai",
-      tr: "Turkish",
-      tk: "Turkmen",
-      ug: "Uyghur",
-      uk: "Ukrainian",
-      ur: "Urdu",
-      uz: "Uzbek",
-      vi: "Vietnamese",
-      cy: "Welsh",
-      xh: "Xhosa",
-      yi: "Yiddish",
-      yo: "Yoruba",
-      zu: "Zulu",
-    };
+    af: "Afrikaans",
+    sq: "Albanian",
+    am: "Amharic",
+    ar: "Arabic",
+    hy: "Armenian",
+    az: "Azerbaijani",
+    eu: "Basque",
+    be: "Belarusian",
+    bn: "Bengali",
+    bg: "Bulgarian",
+    bs: "Bosnian",
+    my: "Burmese",
+    ca: "Catalan",
+    ceb: "Cebuano",
+    zh: "Chinese",
+    "zh-CN": "Chinese Simplified",
+    "zh-TW": "Chinese Traditional",
+    co: "Corsican",
+    hr: "Croatian",
+    cs: "Czech",
+    da: "Danish",
+    nl: "Dutch",
+    en: "English",
+    eo: "Esperanto",
+    et: "Estonian",
+    fa: "Persian",
+    fi: "Finnish",
+    fr: "French",
+    fy: "Frisian",
+    gd: "Gaelic",
+    gl: "Galacian",
+    ka: "Georgian",
+    de: "German",
+    el: "Greek",
+    gu: "Gujurati",
+    ht: "Haitian",
+    ha: "Hausa",
+    haw: "Hawaiian",
+    he: "Hebrew",
+    hi: "Hindi",
+    hmn: "Hmong",
+    hu: "Hungarian",
+    is: "Icelandic",
+    ig: "Igbo",
+    id: "Indonesian",
+    ga: "Irish",
+    it: "Italian",
+    ja: "Japanese",
+    jw: "Javanese",
+    kn: "Kannada",
+    kk: "Kazakh",
+    km: "Khmer",
+    rw: "Kinyarwanda",
+    ky: "Kirghiz",
+    ko: "Korean",
+    ku: "Kurdish",
+    lo: "Lao",
+    la: "Latin",
+    lv: "Latvian",
+    lt: "Lithuanian",
+    lb: "Luxembourgish",
+    mk: "Macedonian",
+    mg: "Malagasy",
+    ms: "Malay",
+    ml: "Malayalam",
+    mt: "Maltese",
+    mi: "Maori",
+    mr: "Marathi",
+    mn: "Mongolian",
+    ne: "Nepali",
+    no: "Norwegian",
+    ny: "Nyanja",
+    or: "Oriya",
+    pl: "Polish",
+    pt: "Portuguese",
+    ps: "Pashto",
+    pa: "Punjabi",
+    ro: "Romanian",
+    ru: "Russian",
+    sm: "Samoan",
+    sn: "Shona",
+    sd: "Sindhi",
+    si: "Singhalese",
+    sr: "Serbian",
+    sk: "Slovak",
+    sl: "Slovenian",
+    so: "Somani",
+    st: "Southern Sotho",
+    es: "Spanish",
+    su: "Sundanese",
+    sw: "Swahili",
+    sv: "Swedish",
+    tl: "Tagalog",
+    tg: "Tajik",
+    ta: "Tamil",
+    tt: "Tatar",
+    te: "Teluga",
+    th: "Thai",
+    tr: "Turkish",
+    tk: "Turkmen",
+    ug: "Uyghur",
+    uk: "Ukrainian",
+    ur: "Urdu",
+    uz: "Uzbek",
+    vi: "Vietnamese",
+    cy: "Welsh",
+    xh: "Xhosa",
+    yi: "Yiddish",
+    yo: "Yoruba",
+    zu: "Zulu",
+  };
 
   const G = {
     zh: { "I am human": "我是人" },
@@ -1690,9 +1701,7 @@ const hcaptcha = (() => {
         for (
           var t,
             n =
-              e.touches && e.touches.length >= 1
-                ? e.touches
-                : e.changedTouches,
+              e.touches && e.touches.length >= 1 ? e.touches : e.changedTouches,
             i = [],
             o = 0;
           o < n.length;
@@ -1723,14 +1732,14 @@ const hcaptcha = (() => {
     return (e) => {
       null !==
         (i = ((e, t) => {
-        (e.acceleration === undefined ||
-          (e.acceleration && e.acceleration.x === undefined)) &&
-          (e.acceleration = { x: 0, y: 0, z: 0 });
-        (e.rotationRate === undefined ||
-          (e.rotationRate && e.rotationRate.alpha === undefined)) &&
-          (e.rotationRate = { alpha: 0, beta: 0, gamma: 0 });
+          (e.acceleration === undefined ||
+            (e.acceleration && e.acceleration.x === undefined)) &&
+            (e.acceleration = { x: 0, y: 0, z: 0 });
+          (e.rotationRate === undefined ||
+            (e.rotationRate && e.rotationRate.alpha === undefined)) &&
+            (e.rotationRate = { alpha: 0, beta: 0, gamma: 0 });
 
-        const n = [
+          const n = [
             e.acceleration.x,
             e.acceleration.y,
             e.acceleration.z,
@@ -1740,15 +1749,15 @@ const hcaptcha = (() => {
             Date.now(),
           ];
 
-        let i = [];
-        if (0 === t.length) (t = n), (i = n);
-        else {
-          for (var o, r = 0, a = 0; a < 6; a++)
-            (o = t[a] - n[a]), i.push(n[a]), (r += Math.abs(o));
-          if ((i.push(Date.now()), (t = n), r <= 0)) return null;
-        }
-        return { motion: i, prevmotion: t };
-      })(e, o)) && ((o = i.prevmotion), (i = i.motion), t(n, i));
+          let i = [];
+          if (0 === t.length) (t = n), (i = n);
+          else {
+            for (var o, r = 0, a = 0; a < 6; a++)
+              (o = t[a] - n[a]), i.push(n[a]), (r += Math.abs(o));
+            if ((i.push(Date.now()), (t = n), r <= 0)) return null;
+          }
+          return { motion: i, prevmotion: t };
+        })(e, o)) && ((o = i.prevmotion), (i = i.motion), t(n, i));
     };
   };
 
@@ -1932,11 +1941,11 @@ const hcaptcha = (() => {
   }
   function _e(e, t) {
     const n = this,
-          i = {},
-          o = new Promise((e, t) => {
-            (i.resolve = e), (i.reject = t);
-          }),
-          r = { source: "hcaptcha", label: e, id: n.id, promise: null, lookup: t };
+      i = {},
+      o = new Promise((e, t) => {
+        (i.resolve = e), (i.reject = t);
+      }),
+      r = { source: "hcaptcha", label: e, id: n.id, promise: null, lookup: t };
     return (
       o
         .then((e) => {
@@ -1959,14 +1968,14 @@ const hcaptcha = (() => {
           "Chat requires unique id to communicate between windows"
         );
       const n = this,
-            i = Date.now().toString(36),
-            o = {
-              source: "hcaptcha",
-              label: e,
-              id: this.id,
-              promise: "create",
-              lookup: i,
-            };
+        i = Date.now().toString(36),
+        o = {
+          source: "hcaptcha",
+          label: e,
+          id: this.id,
+          promise: "create",
+          lookup: i,
+        };
       if (t) {
         if ("object" != typeof t) throw new Error("Message must be an object.");
         o.contents = t;
@@ -2108,73 +2117,73 @@ const hcaptcha = (() => {
     ? window.addEventListener("message", xe.handle)
     : window.attachEvent("onmessage", xe.handle);
   const Ce = {
-            getCookie(e) {
-              const t = document.cookie.replace(/ /g, "").split(";");
-              try {
-                for (var n = "", i = t.length; i-- && !n; )
-                  t[i].indexOf(e) >= 0 && (n = t[i]);
-                return n;
-              } catch (mt) {
-                return "";
-              }
-            },
-            hasCookie(e) {
-              return !!Ce.getCookie(e);
-            },
-            supportsAPI() {
-              try {
-                return (
-                  "hasStorageAccess" in document && "requestStorageAccess" in document
-                );
-              } catch (mt) {
-                return !1;
-              }
-            },
-            hasAccess() {
-              return new Promise((e) => {
-                document
-                  .hasStorageAccess()
-                  .then(() => {
-                    e(!0);
-                  })
-                  ["catch"](() => {
-                    e(!1);
-                  });
-              });
-            },
-            requestAccess() {
-              try {
-                return document.requestStorageAccess();
-              } catch (mt) {
-                return Promise.resolve();
-              }
-            },
-          },
-        ke = (e) => {
-          for (
-            var t,
-              n,
-              i,
-              o = {},
-              r = e ? (e.indexOf("&") >= 0 ? e.split("&") : [e]) : [],
-              a = 0;
-            a < r.length;
-            a++
-          )
-            r[a].indexOf("=") >= 0 &&
-              ((t = r[a].split("=")),
-              (n = decodeURIComponent(t[0])),
-              ("false" !== (i = decodeURIComponent(t[1])) && "true" !== i) ||
-                (i = "true" === i),
-              (o[n] = i));
-          return o;
-        },
-        Ee = (e) => {
-          const t = [];
-          for (const n in e)
-            t.push([encodeURIComponent(n), encodeURIComponent(e[n])].join("="));
-          return t.join("&");
-        };
+      getCookie(e) {
+        const t = document.cookie.replace(/ /g, "").split(";");
+        try {
+          for (var n = "", i = t.length; i-- && !n; )
+            t[i].indexOf(e) >= 0 && (n = t[i]);
+          return n;
+        } catch (mt) {
+          return "";
+        }
+      },
+      hasCookie(e) {
+        return !!Ce.getCookie(e);
+      },
+      supportsAPI() {
+        try {
+          return (
+            "hasStorageAccess" in document && "requestStorageAccess" in document
+          );
+        } catch (mt) {
+          return !1;
+        }
+      },
+      hasAccess() {
+        return new Promise((e) => {
+          document
+            .hasStorageAccess()
+            .then(() => {
+              e(!0);
+            })
+            ["catch"](() => {
+              e(!1);
+            });
+        });
+      },
+      requestAccess() {
+        try {
+          return document.requestStorageAccess();
+        } catch (mt) {
+          return Promise.resolve();
+        }
+      },
+    },
+    ke = (e) => {
+      for (
+        var t,
+          n,
+          i,
+          o = {},
+          r = e ? (e.indexOf("&") >= 0 ? e.split("&") : [e]) : [],
+          a = 0;
+        a < r.length;
+        a++
+      )
+        r[a].indexOf("=") >= 0 &&
+          ((t = r[a].split("=")),
+          (n = decodeURIComponent(t[0])),
+          ("false" !== (i = decodeURIComponent(t[1])) && "true" !== i) ||
+            (i = "true" === i),
+          (o[n] = i));
+      return o;
+    },
+    Ee = (e) => {
+      const t = [];
+      for (const n in e)
+        t.push([encodeURIComponent(n), encodeURIComponent(e[n])].join("="));
+      return t.join("&");
+    };
   function Se(e, t) {
     (this.id = e),
       (this.width = null),
@@ -2306,7 +2315,8 @@ const hcaptcha = (() => {
       (this.dpr = window.devicePixelRatio || 1),
       (this.clearColor = "#fff"),
       (this.ctx.roundedRect = (t, n, i, o, r) => {
-        const a = i > 0 ? r : -r, s = o > 0 ? r : -r;
+        const a = i > 0 ? r : -r,
+          s = o > 0 ? r : -r;
         e.ctx.beginPath(),
           e.ctx.moveTo(t + a, n),
           e.ctx.lineTo(t + i - a, n),
@@ -2512,11 +2522,9 @@ const hcaptcha = (() => {
           ((h = (i - this.width) / 2), (r = !0));
 
         const c =
-            (t.scrollHeight < t.clientHeight
-              ? t.clientHeight
-              : t.scrollHeight) -
-            this.height -
-            10;
+          (t.scrollHeight < t.clientHeight ? t.clientHeight : t.scrollHeight) -
+          this.height -
+          10;
 
         let l = r
           ? (o - this.height) / 2 + n
@@ -2556,9 +2564,9 @@ const hcaptcha = (() => {
     }),
     (Se.prototype.onReady = function (e) {
       const t = Array.prototype.slice.call(arguments, 1),
-            n = () => {
-              e.apply(null, t);
-            };
+        n = () => {
+          e.apply(null, t);
+        };
       this.ready ? n() : this.listeners.push(n);
     }),
     (Se.prototype.onOverlayClick = function (e) {
@@ -2639,39 +2647,41 @@ const hcaptcha = (() => {
         (clearTimeout(this._responseTimer), (this._responseTimer = null));
     }),
     (Ie.prototype.initChallenge = function (e) {
-    e || (e = {});
-    let t = e.manifest || null;
-    const n = e.charity || null;
-    const i = e.link || null;
-    const o = e.action || "";
-    const r = e.rqdata || null;
-    const a = M.Browser.width();
-    const s = M.Browser.height();
-    this._resetTimer(),
-      t || ((t = Object.create(null)).st = Date.now()),
-      (t.v = 1),
-      (t.topLevel = de.getData()),
-      (t.session = x.getSession()),
-      (t.widgetList = x.getCaptchaIdList()),
-      (t.widgetId = this.id),
-      (t.href = window.location.href),
-      (t.prev = JSON.parse(JSON.stringify(this._state))),
-      this._resetState(),
-      this.checkbox.setResponse(""),
-      this.challenge.setup({
-        manifest: t,
-        width: a,
-        height: s,
-        charity: n,
-        link: i,
-        action: o,
-        rqdata: r,
-      });
-  }),
+      e || (e = {});
+      let t = e.manifest || null;
+      const n = e.charity || null;
+      const i = e.link || null;
+      const o = e.action || "";
+      const r = e.rqdata || null;
+      const a = M.Browser.width();
+      const s = M.Browser.height();
+      this._resetTimer(),
+        t || ((t = Object.create(null)).st = Date.now()),
+        (t.v = 1),
+        (t.topLevel = de.getData()),
+        (t.session = x.getSession()),
+        (t.widgetList = x.getCaptchaIdList()),
+        (t.widgetId = this.id),
+        (t.href = window.location.href),
+        (t.prev = JSON.parse(JSON.stringify(this._state))),
+        this._resetState(),
+        this.checkbox.setResponse(""),
+        this.challenge.setup({
+          manifest: t,
+          width: a,
+          height: s,
+          charity: n,
+          link: i,
+          action: o,
+          rqdata: r,
+        });
+    }),
     (Ie.prototype.displayChallenge = function (e) {
       const t = this;
       this.visible = !0;
-      const n = this.checkbox, i = this.challenge, o = M.Browser.height();
+      const n = this.checkbox,
+        i = this.challenge,
+        o = M.Browser.height();
       if (!("ie" === M.Browser.type && 8 === M.Browser.version)) {
         const r = window
           .getComputedStyle(document.body)
@@ -2707,7 +2717,9 @@ const hcaptcha = (() => {
       });
     }),
     (Ie.prototype.resize = function (e, t, n) {
-      const i = this, o = this.checkbox, r = this.challenge;
+      const i = this,
+        o = this.checkbox,
+        r = this.challenge;
       r.getDimensions(e, t)
         .then((e) => {
           e && r.size(e.width, e.height, e.mobile),
@@ -2724,7 +2736,8 @@ const hcaptcha = (() => {
         });
     }),
     (Ie.prototype.position = function () {
-      const e = this.checkbox, t = this.challenge;
+      const e = this.checkbox,
+        t = this.challenge;
       M.System.mobile ||
         ((e.location.bounding = e.getBounding()), t.position(e.location));
     }),
@@ -2739,7 +2752,9 @@ const hcaptcha = (() => {
     }),
     (Ie.prototype.closeChallenge = function (e) {
       this.visible = !1;
-      const t = this, n = this.checkbox, i = this.challenge;
+      const t = this,
+        n = this.checkbox,
+        i = this.challenge;
       this.overflow.override &&
         (((
           window.document.scrollingElement ||
@@ -2797,7 +2812,8 @@ const hcaptcha = (() => {
       }
     }),
     (Ie.prototype.updateTranslation = function (e) {
-      const t = this.checkbox, n = this.challenge;
+      const t = this.checkbox,
+        n = this.challenge;
       t.sendTranslation(e), n.sendTranslation(e);
     }),
     (Ie.prototype.isReady = function () {
@@ -2810,9 +2826,9 @@ const hcaptcha = (() => {
     }),
     (Ie.prototype.onReady = function (e) {
       const t = Array.prototype.slice.call(arguments, 1),
-            n = () => {
-              e.apply(null, t);
-            };
+        n = () => {
+          e.apply(null, t);
+        };
       this._ready ? n() : this._listeners.push(n);
     }),
     (Ie.prototype.destroy = function () {
@@ -2858,23 +2874,23 @@ const hcaptcha = (() => {
     }),
     (Te.prototype.rotate = function (e, t) {
       const n = ((e) => {
-                return e * (Math.PI / 180);
-              })(t),
-            i = Math.sin(n),
-            o = Math.cos(n),
-            r = this.x - e.x,
-            a = this.y - e.y;
+          return e * (Math.PI / 180);
+        })(t),
+        i = Math.sin(n),
+        o = Math.cos(n),
+        r = this.x - e.x,
+        a = this.y - e.y;
       (this.x = r * o - a * i + e.x), (this.y = r * i + a * o + e.y);
     }),
     (Te.prototype.getDistance = function (e) {
       return Math.sqrt(Math.pow(this.x - e.x, 2) + Math.pow(this.y - e.y, 2));
     }),
     (Te.prototype.getAngle = function (e) {
-    const t = e.x - this.x;
-    const n = e.y - this.y;
-    let i = (180 * Math.atan2(n, t)) / Math.PI;
-    return i < 0 && (i += 360), i;
-  }),
+      const t = e.x - this.x;
+      const n = e.y - this.y;
+      let i = (180 * Math.atan2(n, t)) / Math.PI;
+      return i < 0 && (i += 360), i;
+    }),
     (Te.prototype.hitTest = function (e) {
       return this.radius + this.tolerance >= this.getDistance(e);
     }),
@@ -2909,7 +2925,10 @@ const hcaptcha = (() => {
           : ((this.handleOut.x = n.x), (this.handleOut.y = n.y));
     }),
     (Me.prototype.clone = function () {
-      const e = { x: this.x, y: this.y }, t = { x: this.handleIn.x, y: this.handleIn.y }, n = { x: this.handleOut.x, y: this.handleOut.y }, i = new Me();
+      const e = { x: this.x, y: this.y },
+        t = { x: this.handleIn.x, y: this.handleIn.y },
+        n = { x: this.handleOut.x, y: this.handleOut.y },
+        i = new Me();
       return (
         t.x === n.x && t.y === n.y ? i.set(e) : i.set(e, t, n),
         (i.index = this.index),
@@ -3012,18 +3031,19 @@ const hcaptcha = (() => {
   function Re(e) {
     if (null === e) return "";
     const t = [];
-    return (function n(e, t) {
-      let i, o;
-      if ("object" == typeof e)
-        for (o in e)
-          !0 === ze((i = e[o])) ? n(i, t) : (t[t.length] = We(o, i));
-      else if (!0 === Array.isArray(e))
-        for (let r = 0; r < e.length; r++)
-          !0 === ze((i = e[r])) ? n(e, t) : (t[t.length] = We(o, i));
-      else t[t.length] = We(e);
-    })(e, t),
-    t.join("&")
-  ;
+    return (
+      (function n(e, t) {
+        let i, o;
+        if ("object" == typeof e)
+          for (o in e)
+            !0 === ze((i = e[o])) ? n(i, t) : (t[t.length] = We(o, i));
+        else if (!0 === Array.isArray(e))
+          for (let r = 0; r < e.length; r++)
+            !0 === ze((i = e[r])) ? n(e, t) : (t[t.length] = We(o, i));
+        else t[t.length] = We(e);
+      })(e, t),
+      t.join("&")
+    );
   }
   function ze(e) {
     return !0 === Array.isArray(e) || "object" == typeof e;
@@ -3034,7 +3054,10 @@ const hcaptcha = (() => {
     );
   }
   ($e.prototype.load = function () {
-    const e = this, t = this.attribs, n = this.src, i = this.id;
+    const e = this,
+      t = this.attribs,
+      n = this.src,
+      i = this.id;
     return new Promise((o, r) => {
       const a = new Image();
       (e.element = a),
@@ -3066,7 +3089,10 @@ const hcaptcha = (() => {
         (this.error ? e(this) : this.cb.error.push(e));
     }),
     (je.prototype.load = function () {
-      const e = this, t = this.attribs, n = this.src, i = this.id;
+      const e = this,
+        t = this.attribs,
+        n = this.src,
+        i = this.id;
       return new Promise((o, r) => {
         const a = document.createElement("script");
         (e.element = a),
@@ -3105,22 +3131,22 @@ const hcaptcha = (() => {
         (this.error ? e(this) : this.cb.error.push(e));
     });
   const Ne = {
-            400: "Rate limited or network error. Please retry.",
-            429: "Your computer or network has sent too many requests.",
-            500: "Cannot contact hCaptcha. Check your connection and try again.",
-          },
-        Ue = {
-          getText(e) {
-            try {
-              return ee.translate(Ne[e]);
-            } catch (mt) {
-              return !1;
-            }
-          },
-        },
-        Fe =
-          "undefined" != typeof XDomainRequest &&
-          "withCredentials" in XMLHttpRequest.prototype == !1;
+      400: "Rate limited or network error. Please retry.",
+      429: "Your computer or network has sent too many requests.",
+      500: "Cannot contact hCaptcha. Check your connection and try again.",
+    },
+    Ue = {
+      getText(e) {
+        try {
+          return ee.translate(Ne[e]);
+        } catch (mt) {
+          return !1;
+        }
+      },
+    },
+    Fe =
+      "undefined" != typeof XDomainRequest &&
+      "withCredentials" in XMLHttpRequest.prototype == !1;
   function qe(e, t, n) {
     n = n || {};
     const i = {
@@ -3209,7 +3235,9 @@ const hcaptcha = (() => {
     "error" === t ? (e.load = []) : (e.error = []);
   }
   (Ye.prototype.load = function () {
-    const e = this, t = this.src, n = this.id;
+    const e = this,
+      t = this.src,
+      n = this.id;
     return new Promise((i, o) => {
       const r = {};
       t.indexOf("json") >= 0 && (r.responseType = "json"),
@@ -3232,41 +3260,41 @@ const hcaptcha = (() => {
         (this.error ? e(this) : this.cb.error.push(e));
     });
   const Ve = [],
-        Qe = {
-          add(e, t) {
-            const n = Ae.getType(e);
-            return Qe[n] ? Qe[n](e, t) : Promise.resolve(null);
-          },
-          batch(e, t) {
-            for (var n = [], i = -1; ++i < e.length; ) {
-              const o = e[i];
-              n.push(Qe.add(o, t));
-            }
-            return Promise.all(n)["finally"](() => {
-              n = [];
-            });
-          },
-          image(e, t) {
-            const n = new $e(e, t);
-            return Ve.push(n), n.load();
-          },
-          script(e, t) {
-            const n = new je(e, t);
-            return Ve.push(n), n.load();
-          },
-          file(e, t) {
-            const n = new Ye(e, t);
-            return Ve.push(n), n.load();
-          },
-          retrieve(e) {
-            return new Promise((t, n) => {
-              for (var i = Ve.length, o = !1, r = null; --i > -1 && !o; )
-                o = (r = Ve[i]).id.indexOf(e) >= 0 && r;
-              if (!o) return t(null);
-              r.onload(t), r.onerror(n);
-            });
-          },
-        };
+    Qe = {
+      add(e, t) {
+        const n = Ae.getType(e);
+        return Qe[n] ? Qe[n](e, t) : Promise.resolve(null);
+      },
+      batch(e, t) {
+        for (var n = [], i = -1; ++i < e.length; ) {
+          const o = e[i];
+          n.push(Qe.add(o, t));
+        }
+        return Promise.all(n)["finally"](() => {
+          n = [];
+        });
+      },
+      image(e, t) {
+        const n = new $e(e, t);
+        return Ve.push(n), n.load();
+      },
+      script(e, t) {
+        const n = new je(e, t);
+        return Ve.push(n), n.load();
+      },
+      file(e, t) {
+        const n = new Ye(e, t);
+        return Ve.push(n), n.load();
+      },
+      retrieve(e) {
+        return new Promise((t, n) => {
+          for (var i = Ve.length, o = !1, r = null; --i > -1 && !o; )
+            o = (r = Ve[i]).id.indexOf(e) >= 0 && r;
+          if (!o) return t(null);
+          r.onload(t), r.onerror(n);
+        });
+      },
+    };
   function Ke(e) {
     if ("en" === e) return Promise.resolve();
     const t = e + ".json";
@@ -3339,40 +3367,40 @@ const hcaptcha = (() => {
                 i
               );
             const a = ((e, t) => {
-                      for (
-                        var n = [
-                            "tplinks",
-                            "sitekey",
-                            "theme",
-                            "type",
-                            "size",
-                            "tabindex",
-                            "callback",
-                            "expired-callback",
-                            "chalexpired-callback",
-                            "error-callback",
-                            "open-callback",
-                            "close-callback",
-                            "endpoint",
-                            "challenge-container",
-                          ],
-                          i = {},
-                          o = 0;
-                        o < n.length;
-                        o++
-                      ) {
-                        const r = n[o];
-                        let a = t && t[r];
-                        a || (a = e.getAttribute("data-" + r)), a && (i[r] = a);
-                      }
-                      return i;
-                    })(e, t),
-                  s = Ge++ + Math.random().toString(36).substr(2),
-                  h = {
-                    sentry: D,
-                    reportapi: $.reportapi,
-                    recaptchacompat: $.recaptchacompat,
-                  };
+                for (
+                  var n = [
+                      "tplinks",
+                      "sitekey",
+                      "theme",
+                      "type",
+                      "size",
+                      "tabindex",
+                      "callback",
+                      "expired-callback",
+                      "chalexpired-callback",
+                      "error-callback",
+                      "open-callback",
+                      "close-callback",
+                      "endpoint",
+                      "challenge-container",
+                    ],
+                    i = {},
+                    o = 0;
+                  o < n.length;
+                  o++
+                ) {
+                  const r = n[o];
+                  let a = t && t[r];
+                  a || (a = e.getAttribute("data-" + r)), a && (i[r] = a);
+                }
+                return i;
+              })(e, t),
+              s = Ge++ + Math.random().toString(36).substr(2),
+              h = {
+                sentry: D,
+                reportapi: $.reportapi,
+                recaptchacompat: $.recaptchacompat,
+              };
             $.endpointOverride && (h.endpoint = $.endpointOverride),
               null !== $.language && (h.hl = ee.getLocale()),
               $.assethost && (h.assethost = $.assethost),
@@ -3416,90 +3444,92 @@ const hcaptcha = (() => {
                 void j(e, g)
               );
             }
-            return a.callback && (m.onPass = a.callback),
-            a["expired-callback"] && (m.onExpire = a["expired-callback"]),
-            a["chalexpired-callback"] &&
-              (m.onChalExpire = a["chalexpired-callback"]),
-            a["open-callback"] && (m.onOpen = a["open-callback"]),
-            a["close-callback"] && (m.onClose = a["close-callback"]),
-            a["error-callback"] && (m.onError = a["error-callback"]),
-            de.setData("inv", "invisible" === h.size),
-            m.checkbox.chat.listen("checkbox-selected", (e) => {
-              de.setData("exec", !1), m.onReady(m.initChallenge, e);
-            }),
-            m.checkbox.chat.listen("checkbox-loaded", (e) => {
-              (m.checkbox.location.bounding = m.checkbox.getBounding()),
-                (m.checkbox.location.tick = e),
-                (m.checkbox.location.offset = m.checkbox.getOffset());
-              const t = ee.getLocale();
-              m.checkbox.sendTranslation(t);
-            }),
-            m.checkbox.chat.listen("checkbox-setup", (e) => {
-              m.challenge.onReady(() => {
-                !$.endpointOverride &&
-                  e.endpoint &&
-                  m.challenge.setEndpoint(e.endpoint),
-                  e.c
-                    ? m.challenge.sendProof(e.c).then(() => {
-                        m.setReady(!0);
-                      })
-                    : m.setReady(!0);
-              });
-            }),
-            m.challenge.chat.listen("challenge-loaded", () => {
-              m.challenge.setReady(!0);
-              const e = ee.getLocale();
-              m.challenge.sendTranslation(e);
-            }),
-            m.challenge.chat.answer("challenge-ready", (e, t) => {
-              m.displayChallenge(e).then(t.resolve);
-            }),
-            m.challenge.chat.listen("challenge-resize", () => {
-              const e = M.Browser.width(), t = M.Browser.height();
-              m.resize(e, t);
-            }),
-            m.challenge.chat.listen("challenge-closed", m.closeChallenge),
-            m.challenge.chat.answer("get-url", (e) => {
-              e.resolve(window.location.href);
-            }),
-            m.challenge.chat.answer("check-api", (e) => {
-              e.resolve(de.getData());
-            }),
-            m.challenge.chat.listen("challenge-key", (e) => {
-              x.pushSession(e.key, m.id);
-            }),
-            m.challenge.onOverlayClick(() => {
-              m.closeChallenge({ event: "challenge-escaped" });
-            }),
-            m.challenge.chat.listen("challenge-language", (e) => {
-              const t = e.locale;
-              ee.setLocale(t),
-                Ke(t)
-                  .then((e) => {
-                    x.each((e) => {
-                      if (e)
-                        try {
-                          e.updateTranslation(t);
-                        } catch (ft) {
-                          z(
-                            "Failed to update text translation: " +
-                              JSON.stringify(ft),
-                            "error",
-                            "translation"
-                          );
-                        }
+            return (
+              a.callback && (m.onPass = a.callback),
+              a["expired-callback"] && (m.onExpire = a["expired-callback"]),
+              a["chalexpired-callback"] &&
+                (m.onChalExpire = a["chalexpired-callback"]),
+              a["open-callback"] && (m.onOpen = a["open-callback"]),
+              a["close-callback"] && (m.onClose = a["close-callback"]),
+              a["error-callback"] && (m.onError = a["error-callback"]),
+              de.setData("inv", "invisible" === h.size),
+              m.checkbox.chat.listen("checkbox-selected", (e) => {
+                de.setData("exec", !1), m.onReady(m.initChallenge, e);
+              }),
+              m.checkbox.chat.listen("checkbox-loaded", (e) => {
+                (m.checkbox.location.bounding = m.checkbox.getBounding()),
+                  (m.checkbox.location.tick = e),
+                  (m.checkbox.location.offset = m.checkbox.getOffset());
+                const t = ee.getLocale();
+                m.checkbox.sendTranslation(t);
+              }),
+              m.checkbox.chat.listen("checkbox-setup", (e) => {
+                m.challenge.onReady(() => {
+                  !$.endpointOverride &&
+                    e.endpoint &&
+                    m.challenge.setEndpoint(e.endpoint),
+                    e.c
+                      ? m.challenge.sendProof(e.c).then(() => {
+                          m.setReady(!0);
+                        })
+                      : m.setReady(!0);
+                });
+              }),
+              m.challenge.chat.listen("challenge-loaded", () => {
+                m.challenge.setReady(!0);
+                const e = ee.getLocale();
+                m.challenge.sendTranslation(e);
+              }),
+              m.challenge.chat.answer("challenge-ready", (e, t) => {
+                m.displayChallenge(e).then(t.resolve);
+              }),
+              m.challenge.chat.listen("challenge-resize", () => {
+                const e = M.Browser.width(),
+                  t = M.Browser.height();
+                m.resize(e, t);
+              }),
+              m.challenge.chat.listen("challenge-closed", m.closeChallenge),
+              m.challenge.chat.answer("get-url", (e) => {
+                e.resolve(window.location.href);
+              }),
+              m.challenge.chat.answer("check-api", (e) => {
+                e.resolve(de.getData());
+              }),
+              m.challenge.chat.listen("challenge-key", (e) => {
+                x.pushSession(e.key, m.id);
+              }),
+              m.challenge.onOverlayClick(() => {
+                m.closeChallenge({ event: "challenge-escaped" });
+              }),
+              m.challenge.chat.listen("challenge-language", (e) => {
+                const t = e.locale;
+                ee.setLocale(t),
+                  Ke(t)
+                    .then((e) => {
+                      x.each((e) => {
+                        if (e)
+                          try {
+                            e.updateTranslation(t);
+                          } catch (ft) {
+                            z(
+                              "Failed to update text translation: " +
+                                JSON.stringify(ft),
+                              "error",
+                              "translation"
+                            );
+                          }
+                      });
+                    })
+                    ["catch"]((e) => {
+                      z("Language failed to load: " + t, "error", "api");
                     });
-                  })
-                  ["catch"]((e) => {
-                    z("Language failed to load: " + t, "error", "api");
-                  });
-            }),
-            m.challenge.chat.answer("get-ac", (e) => {
-              e.resolve(Ce.hasCookie("hc_accessibility"));
-            }),
-            x.add(m),
-            s
-          ;
+              }),
+              m.challenge.chat.answer("get-ac", (e) => {
+                e.resolve(Ce.hasCookie("hc_accessibility"));
+              }),
+              x.add(m),
+              s
+            );
           }
           j(e, et);
         } else
@@ -3544,7 +3574,8 @@ const hcaptcha = (() => {
         : new Error("[hCaptcha] no captchas exist.");
     },
     getRespKey(e) {
-      let t = "", n = null;
+      let t = "",
+        n = null;
       n = e ? x.getById(e) : x.getByIndex(0);
       try {
         for (let i = x.getSession(), o = i.length, r = !1; --o > -1 && !r; )
@@ -3586,7 +3617,9 @@ const hcaptcha = (() => {
   let st = M.Browser.width() / M.Browser.height();
   const ht = window.hcaptcha || !1;
   function ct() {
-    const e = M.Browser.width(), t = M.Browser.height(), n = M.System.mobile && st !== e / t;
+    const e = M.Browser.width(),
+      t = M.Browser.height(),
+      n = M.System.mobile && st !== e / t;
     (st = e / t),
       ut(),
       nt.nodes.each((i) => {
@@ -3638,7 +3671,10 @@ const hcaptcha = (() => {
       (!(() => {
         let e;
         e = it ? [it] : document.getElementsByTagName("script");
-        let t = -1, n = !1, i = null, o = null;
+        let t = -1,
+          n = !1,
+          i = null,
+          o = null;
         for (; ++t < e.length && !1 === n; )
           e[t] &&
             e[t].src &&
