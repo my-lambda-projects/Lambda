@@ -56,21 +56,21 @@ There are several ways to accomplish the module pattern. In this first example, 
 
 ```
 (function () {
-  
-  
+
+
   var myGrades = [93, 95, 88, 0, 55, 91];
-  
+
   var average = function() {
     var total = myGrades.reduce(function(accumulator, item) {
       return accumulator + item}, 0);
-    
+
       return 'Your average grade is ' + total / myGrades.length + '.';
   }
 
   var failing = function(){
     var failingGrades = myGrades.filter(function(item) {
       return item < 70;});
-      
+
     return 'You failed ' + failingGrades.length + ' times.';
   }
 
@@ -88,21 +88,21 @@ What’s nice about this approach is that is that you can use local variables in
 var global = 'Hello, I am a global variable :)';
 
 (function () {
-  
-  
+
+
   var myGrades = [93, 95, 88, 0, 55, 91];
-  
+
   var average = function() {
     var total = myGrades.reduce(function(accumulator, item) {
       return accumulator + item}, 0);
-    
+
     return 'Your average grade is ' + total / myGrades.length + '.';
   }
 
   var failing = function(){
     var failingGrades = myGrades.filter(function(item) {
       return item < 70;});
-      
+
     return 'You failed ' + failingGrades.length + ' times.';
   }
 
@@ -121,14 +121,14 @@ Another popular approach used by libraries like [jQuery](https://github.com/jque
 ```
 (function (globalVariable) {
 
-  
+
   var privateFunction = function() {
     console.log('Shhhh, this is private!');
   }
 
-  
-  
-  
+
+
+
 
   globalVariable.each = function(collection, iterator) {
     if (Array.isArray(collection)) {
@@ -177,7 +177,7 @@ Another popular approach used by libraries like [jQuery](https://github.com/jque
   };
 
  }(globalVariable));
-  
+
 ```
 
 In this example, **_globalVariable_** is the only variable that’s global. The benefit of this approach over anonymous closures is that you declare the global variables upfront, making it crystal clear to people reading your code.
@@ -187,19 +187,19 @@ Yet another approach is to create modules using a self-contained object interfac
 
 ```
 var myGradesCalculate = (function () {
-    
-  
+
+
   var myGrades = [93, 95, 88, 0, 55, 91];
 
-  
-  
+
+
 
   return {
     average: function() {
       var total = myGrades.reduce(function(accumulator, item) {
         return accumulator + item;
         }, 0);
-        
+
       return'Your average grade is ' + total / myGrades.length + '.';
     },
 
@@ -213,8 +213,8 @@ var myGradesCalculate = (function () {
   }
 })();
 
-myGradesCalculate.failing(); 
-myGradesCalculate.average(); 
+myGradesCalculate.failing();
+myGradesCalculate.average();
 ```
 
 As you can see, this approach lets us decide what variables/methods we want to keep private (e.g. **_myGrades_**) and what variables/methods we want to expose by putting them in the return statement (e.g. **_average_** & **_failing_**).
@@ -224,15 +224,15 @@ This is very similar to the above approach, except that it ensures all methods a
 
 ```
 var myGradesCalculate = (function () {
-    
-  
+
+
   var myGrades = [93, 95, 88, 0, 55, 91];
-  
+
   var average = function() {
     var total = myGrades.reduce(function(accumulator, item) {
       return accumulator + item;
       }, 0);
-      
+
     return'Your average grade is ' + total / myGrades.length + '.';
   };
 
@@ -244,8 +244,8 @@ var myGradesCalculate = (function () {
     return 'You failed ' + failingGrades.length + ' times.';
   };
 
-  
-  
+
+
 
   return {
     average: average,
@@ -253,15 +253,15 @@ var myGradesCalculate = (function () {
   }
 })();
 
-myGradesCalculate.failing(); 
-myGradesCalculate.average(); 
+myGradesCalculate.failing();
+myGradesCalculate.average();
 ```
 
 That may seem like a lot to take in, but it’s just the tip of the iceberg when it comes to module patterns. Here are a few of the resources I found useful in my own explorations:
 
--   [Learning JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript) by Addy Osmani: a treasure trove of details in an impressively succinct read
--   [Adequately Good by Ben Cherry](http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html): a useful overview with examples of advanced usage of the module pattern
--   [Blog of Carl Danley](https://carldanley.com/js-module-pattern/): module pattern overview and resources for other JavaScript patterns.
+- [Learning JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript) by Addy Osmani: a treasure trove of details in an impressively succinct read
+- [Adequately Good by Ben Cherry](http://www.adequatelygood.com/JavaScript-Module-Pattern-In-Depth.html): a useful overview with examples of advanced usage of the module pattern
+- [Blog of Carl Danley](https://carldanley.com/js-module-pattern/): module pattern overview and resources for other JavaScript patterns.
 
 ### CommonJS and AMD
 
@@ -315,8 +315,8 @@ Then when someone wants to use _myModule_, they can require it in their file, li
 var myModule = require('myModule');
 
 var myModuleInstance = new myModule();
-myModuleInstance.hello(); 
-myModuleInstance.goodbye(); 
+myModuleInstance.hello();
+myModuleInstance.goodbye();
 ```
 
 There are two obvious benefits to this approach over the module patterns we discussed before:
@@ -379,22 +379,22 @@ Here’s a quick taste of how UMD goes about its business:
 ```
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
-      
+
     define(['myModule', 'myOtherModule'], factory);
   } else if (typeof exports === 'object') {
-      
+
     module.exports = factory(require('myModule'), require('myOtherModule'));
   } else {
-    
+
     root.returnExports = factory(root.myModule, root.myOtherModule);
   }
 }(this, function (myModule, myOtherModule) {
-  
-  function notHelloOrGoodbye(){}; 
-  function hello(){}; 
-  function goodbye(){}; 
 
-  
+  function notHelloOrGoodbye(){};
+  function hello(){};
+  function goodbye(){};
+
+
   return {
       hello: hello,
       goodbye: goodbye
@@ -414,8 +414,8 @@ Fortunately, the smart folks at TC39 (the standards body that defines the syntax
 
 ES6 offers up a variety of possibilities for importing and exporting modules which others have done a great job explaining — here are a few of those resources:
 
--   [jsmodules.io](http://jsmodules.io/cjs.html)
--   [exploringjs.com](http://exploringjs.com/es6/ch_modules.html)
+- [jsmodules.io](http://jsmodules.io/cjs.html)
+- [exploringjs.com](http://exploringjs.com/es6/ch_modules.html)
 
 What’s great about ES6 modules relative to CommonJS or AMD is how it manages to offer the best of both worlds: compact and declarative syntax _and_ asynchronous loading, plus added benefits like better support for cyclic dependencies.
 
@@ -448,7 +448,7 @@ module.exports = {
 var counter = require('../../lib/counter');
 
 counter.increment();
-console.log(counter.counter); 
+console.log(counter.counter);
 ```
 
 In this example, we basically make two copies of the module: one when we export it, and one when we require it.
@@ -459,7 +459,7 @@ So, incrementing the counter will increment it in the module, but won’t increm
 
 ```
 counter.counter++;
-console.log(counter.counter); 
+console.log(counter.counter);
 ```
 
 On the other hand, ES6 creates a live read-only view of the modules we import:
@@ -480,9 +480,9 @@ export function decrement() {
 
 import * as counter from '../../counter';
 
-console.log(counter.counter); 
+console.log(counter.counter);
 counter.increment();
-console.log(counter.counter); 
+console.log(counter.counter);
 ```
 
 Cool stuff, huh? What I find really compelling about live read-only views is how they allow you to split your modules into smaller pieces without losing functionality.
@@ -495,13 +495,13 @@ Wow! Where does the time go? That was a wild ride, but I sincerely hope it gave 
 
 In the next section I’ll walk through module bundling, covering core topics including:
 
--   Why we bundle modules
--   Different approaches to bundling
--   ECMAScript’s module loader API
--   …and more. :)
+- Why we bundle modules
+- Different approaches to bundling
+- ECMAScript’s module loader API
+- …and more. :)
 
 _NOTE: To keep things simple, I skipped over some of the nitty-gritty details (think: cyclic dependencies) in this post. If I left out anything important and/or fascinating, please let me know in the comments!_
 
-___
+---
 
 Learn to code for free. freeCodeCamp's open source curriculum has helped more than 40,000 people get jobs as developers. [Get started](https://www.freecodecamp.org/learn/)
