@@ -1,5 +1,0 @@
----
-api: sessions
----
-
-<!-- Intentionally blank -->

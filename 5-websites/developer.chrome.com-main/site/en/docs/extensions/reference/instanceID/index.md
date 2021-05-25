@@ -1,5 +1,0 @@
----
-api: instanceID
----
-
-<!-- Intentionally blank -->

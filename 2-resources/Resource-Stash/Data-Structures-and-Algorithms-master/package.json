@@ -1,0 +1,44 @@
+{
+  "name": "data-structures-and-algorithms",
+  "version": "0.0.1",
+  "description": "Data Structures and Algorithms",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src -d build",
+    "lint": "eslint ./src/*",
+    "test": "jest",
+    "ci": "npm run lint && npm run test -- --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frankfaustino/Data-Structures-and-Algorithms.git"
+  },
+  "keywords": [
+    "algorithms",
+    "data-structures",
+    "javascript",
+    "python",
+    "interview-preparation"
+  ],
+  "author": "Frank Faustino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frankfaustino/Data-Structures-and-Algorithms/issues"
+  },
+  "homepage": "https://github.com/frankfaustino/Data-Structures-and-Algorithms#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/register": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "jest": "^23.6.0"
+  }
+}

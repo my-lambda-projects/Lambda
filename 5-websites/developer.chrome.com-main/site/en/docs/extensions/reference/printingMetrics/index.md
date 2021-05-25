@@ -1,5 +1,0 @@
----
-api: printingMetrics
----
-
-<!-- Intentionally blank -->

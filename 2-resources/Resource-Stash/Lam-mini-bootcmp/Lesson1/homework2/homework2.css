@@ -1,0 +1,41 @@
+/* for use with /Lesson1/2homework/Homework2.html */
+
+body {
+  background: purple;
+}
+
+a {
+  vertical-align: middle;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  /*background: orange;*/
+}
+
+#footer {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 80px;
+  background: green;
+}
+
+#header {
+  position: absolute;
+  top: 0; right: 0;
+  width: 100%; height: 80px;
+  background: red;
+}
+
+#Lsidebar {
+  position: absolute;
+  top:0; bottom:0; left:0;
+  width:200px; height: 100%;
+  background: blue;
+}
+
+#Rsidebar {
+  position: absolute;
+  top:0; bottom:0; right:0;
+  width:200px; height: 100%;
+  background: yellow;
+}

@@ -1,5 +1,0 @@
----
-api: identity
----
-
-<!-- Intentionally blank -->

@@ -1,5 +1,0 @@
----
-api: notifications
----
-
-<!-- Intentionally blank -->

@@ -1,5 +1,0 @@
----
-api: processes
----
-
-<!-- Intentionally blank -->

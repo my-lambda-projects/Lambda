@@ -1,5 +1,0 @@
----
-api: gcm
----
-
-<!-- Intentionally blank -->

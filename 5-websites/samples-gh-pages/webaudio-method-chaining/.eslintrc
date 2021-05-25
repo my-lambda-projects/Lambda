@@ -1,8 +1,0 @@
-{
-  "globals": {
-    "webkitAudioContext": true
-  },
-  "rules": {
-    "new-cap": 0
-  }
-}

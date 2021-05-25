@@ -1,9 +1,0 @@
-{
-  "env": {
-    "worker": true,
-    "serviceworker": true
-  },
-  "rules": {
-    "no-warning-comments": 0
-  }
-}

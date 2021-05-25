@@ -1,5 +1,0 @@
----
-api: platformKeys
----
-
-<!-- Intentionally blank -->

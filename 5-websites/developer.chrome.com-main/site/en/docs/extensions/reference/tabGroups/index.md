@@ -1,5 +1,0 @@
----
-api: tabGroups
----
-
-<!-- Intentionally blank -->

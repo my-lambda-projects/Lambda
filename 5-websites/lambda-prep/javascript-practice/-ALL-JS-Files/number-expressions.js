@@ -1,1 +1,0 @@
-console.log(5),console.log(-5),console.log(0),console.log(12),console.log(3.5),console.log(10),console.log(18),console.log(1),console.log(0),console.log(1),console.log(0),console.log(3),console.log(0),console.log(3),console.log(4),console.log(5),console.log(0);

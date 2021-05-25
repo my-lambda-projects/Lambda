@@ -1,5 +1,0 @@
----
-api: alarms
----
-
-<!-- Intentionally blank -->

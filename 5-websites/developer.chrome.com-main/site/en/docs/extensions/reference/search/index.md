@@ -1,5 +1,0 @@
----
-api: search
----
-
-<!-- Intentionally blank -->

@@ -1,5 +1,0 @@
----
-api: serial
----
-
-<!-- Intentionally blank -->

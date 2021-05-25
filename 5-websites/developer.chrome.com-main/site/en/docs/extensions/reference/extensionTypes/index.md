@@ -1,5 +1,0 @@
----
-api: extensionTypes
----
-
-<!-- Intentionally blank -->

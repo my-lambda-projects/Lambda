@@ -1,0 +1,47 @@
+/* for use with /Lesson4/1homework/index.html */
+/*body {
+  background: #ff0000;
+}*/
+
+/*h1 {
+  background-color: #0000ff;
+}*/
+
+/*body {
+  font-family: sans-serif;
+}*/
+
+/*#nickname:after {
+  content: 'My CSS nickname is Sea Ess Ess Trick.';
+}
+
+#favorites:after {
+  content: 'My dog, "Lucy", analytical philosophy, bass guitar, Korean food.';
+}
+
+#hometown:after {
+  content: 'Kailua, HI.';
+}*/
+
+/*#nickname {
+  color: #ff0000;
+}*/
+
+/*li {*/
+  /* w3c compliance requires b.g. color be declared with (?) text color: */
+  /* https://www.w3schools.com/css/css_text.asp */
+  /*background-color: #0000ff;
+  color: #ff0000;
+}*/
+
+/*.listitem {
+  color: #ff0000;
+}*/
+
+/*img {
+   width: 100%;
+   max-width: 100%;
+   height: auto;
+   transform: rotate(90deg);
+   padding-top: 150px;
+}*/

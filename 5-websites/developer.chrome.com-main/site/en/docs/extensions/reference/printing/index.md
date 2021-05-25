@@ -1,5 +1,0 @@
----
-api: printing
----
-
-<!-- Intentionally blank -->

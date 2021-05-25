@@ -1,5 +1,0 @@
----
-api: loginState
----
-
-<!-- Intentionally blank -->
