@@ -5,9 +5,7 @@
   "minimum_chrome_version": "29",
   "oauth2": {
     "client_id": "696763237280-bkfouv0030la6l9t2g1elim04no836fq.apps.googleusercontent.com",
-    "scopes": [
-      "https://www.googleapis.com/auth/drive"
-    ]
+    "scopes": ["https://www.googleapis.com/auth/drive"]
   },
   "icons": {
     "128": "icon_128.png"

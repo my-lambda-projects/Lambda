@@ -20,5 +20,5 @@
       "features": ["webgl"]
     }
   },
-  "permissions": [ "videoCapture", "syncFileSystem" ]
+  "permissions": ["videoCapture", "syncFileSystem"]
 }

@@ -35,75 +35,78 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var lang = require("../lib/lang");
+  var lang = require("../lib/lang");
 
-var TextHighlightRules = function() {
-
+  var TextHighlightRules = function () {
     // regexp must not have capturing parentheses
     // regexps are ordered -> the first match is used
 
     this.$rules = {
-        "start" : [{
-            token : "empty_line",
-            regex : '^$'
-        }, {
-            token : "text",
-            regex : ".+"
-        }]
+      start: [
+        {
+          token: "empty_line",
+          regex: "^$",
+        },
+        {
+          token: "text",
+          regex: ".+",
+        },
+      ],
     };
-};
+  };
 
-(function() {
-
-    this.addRules = function(rules, prefix) {
-        for (var key in rules) {
-            var state = rules[key];
-            for (var i=0; i<state.length; i++) {
-                var rule = state[i];
-                if (rule.next) {
-                    rule.next = prefix + rule.next;
-                }
-            }
-            this.$rules[prefix + key] = state;
+  (function () {
+    this.addRules = function (rules, prefix) {
+      for (var key in rules) {
+        var state = rules[key];
+        for (var i = 0; i < state.length; i++) {
+          var rule = state[i];
+          if (rule.next) {
+            rule.next = prefix + rule.next;
+          }
         }
+        this.$rules[prefix + key] = state;
+      }
     };
 
-    this.getRules = function() {
-        return this.$rules;
+    this.getRules = function () {
+      return this.$rules;
     };
-    
+
     this.embedRules = function (HighlightRules, prefix, escapeRules, states) {
-        var embedRules = new HighlightRules().getRules();
-        if (states) {
-            for (var i = 0; i < states.length; i++) {
-                states[i] = prefix + states[i];
-            }
-        } else {
-            states = [];
-            for (var key in embedRules) {
-                states.push(prefix + key);
-            }
-        }
-        this.addRules(embedRules, prefix);
-        
+      var embedRules = new HighlightRules().getRules();
+      if (states) {
         for (var i = 0; i < states.length; i++) {
-            Array.prototype.unshift.apply(this.$rules[states[i]], lang.deepCopy(escapeRules));
+          states[i] = prefix + states[i];
         }
-        
-        if (!this.$embeds) {
-            this.$embeds = [];
+      } else {
+        states = [];
+        for (var key in embedRules) {
+          states.push(prefix + key);
         }
-        this.$embeds.push(prefix);
-    }
-    
-    this.getEmbeds = function() {
-        return this.$embeds;
-    }
+      }
+      this.addRules(embedRules, prefix);
 
-}).call(TextHighlightRules.prototype);
+      for (var i = 0; i < states.length; i++) {
+        Array.prototype.unshift.apply(
+          this.$rules[states[i]],
+          lang.deepCopy(escapeRules)
+        );
+      }
 
-exports.TextHighlightRules = TextHighlightRules;
+      if (!this.$embeds) {
+        this.$embeds = [];
+      }
+      this.$embeds.push(prefix);
+    };
+
+    this.getEmbeds = function () {
+      return this.$embeds;
+    };
+  }.call(TextHighlightRules.prototype));
+
+  exports.TextHighlightRules = TextHighlightRules;
 });

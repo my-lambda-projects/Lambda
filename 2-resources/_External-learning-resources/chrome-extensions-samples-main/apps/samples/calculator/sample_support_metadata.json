@@ -1,6 +1,12 @@
 {
   "sample": "calculator",
-  "files_with_snippets": [ ],
-  "android": {"works": true, "comments": "Visual issues caused by fixed-size layout"},
-  "ios": {"works": true, "comments": "Visual issues caused by fixed-size layout"}
+  "files_with_snippets": [],
+  "android": {
+    "works": true,
+    "comments": "Visual issues caused by fixed-size layout"
+  },
+  "ios": {
+    "works": true,
+    "comments": "Visual issues caused by fixed-size layout"
+  }
 }

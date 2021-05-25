@@ -1,5 +1,5 @@
 {
   "sample": "tasks",
-  "files_with_snippets": [ ],
-  "android": {"works": true}
+  "files_with_snippets": [],
+  "android": { "works": true }
 }

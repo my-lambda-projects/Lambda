@@ -34,33 +34,33 @@
  * the terms of any one of the MPL, the GPL or the LGPL.
  *
  * ***** END LICENSE BLOCK ***** */
- 
-define(function(require, exports, module) {
-"use strict";
 
-var oop = require("../lib/oop");
-var Mirror = require("../worker/mirror").Mirror;
-var CSSLint = require("./css/csslint").CSSLint;
+define(function (require, exports, module) {
+  "use strict";
 
-var Worker = exports.Worker = function(sender) {
+  var oop = require("../lib/oop");
+  var Mirror = require("../worker/mirror").Mirror;
+  var CSSLint = require("./css/csslint").CSSLint;
+
+  var Worker = (exports.Worker = function (sender) {
     Mirror.call(this, sender);
     this.setTimeout(200);
-};
+  });
 
-oop.inherits(Worker, Mirror);
+  oop.inherits(Worker, Mirror);
 
-(function() {
-    
-    this.onUpdate = function() {
-        var value = this.doc.getValue();
-        
-        var result = CSSLint.verify(value);
-        this.sender.emit("csslint", result.messages.map(function(msg) {
-            delete msg.rule;
-            return msg;
-        }));
+  (function () {
+    this.onUpdate = function () {
+      var value = this.doc.getValue();
+
+      var result = CSSLint.verify(value);
+      this.sender.emit(
+        "csslint",
+        result.messages.map(function (msg) {
+          delete msg.rule;
+          return msg;
+        })
+      );
     };
-    
-}).call(Worker.prototype);
-
+  }.call(Worker.prototype));
 });

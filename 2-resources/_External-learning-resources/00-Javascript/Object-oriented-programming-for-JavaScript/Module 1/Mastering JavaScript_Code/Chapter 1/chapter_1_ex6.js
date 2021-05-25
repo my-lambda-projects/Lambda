@@ -11,7 +11,7 @@ console.log(today.getTimezoneOffset()); //-330 Minutes
 //Calculating elapsed time
 var start = Date.now();
 // loop for a long time
-for (var i=0;i<100000;i++);
+for (var i = 0; i < 100000; i++);
 var end = Date.now();
 var elapsed = end - start; // elapsed time in milliseconds
 console.log(elapsed); //71

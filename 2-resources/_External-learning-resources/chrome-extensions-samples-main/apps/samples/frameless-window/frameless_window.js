@@ -17,45 +17,63 @@ function updateCheckbox() {
   }
 }
 
-function initCheckbox(checkboxId, titlebar_name, titlebar_icon_url, titlebar_text) {
+function initCheckbox(
+  checkboxId,
+  titlebar_name,
+  titlebar_icon_url,
+  titlebar_text
+) {
   var elem = document.getElementById(checkboxId);
-  if (!elem)
-    return;
-  elem.onclick = function() {
+  if (!elem) return;
+  elem.onclick = function () {
     if (document.getElementById(checkboxId).checked)
       addTitlebar(titlebar_name, titlebar_icon_url, titlebar_text);
-    else
-      removeTitlebar(titlebar_name);
+    else removeTitlebar(titlebar_name);
     focusTitlebars(true);
 
     updateContentStyle();
     updateCheckbox();
-  }
+  };
 }
 
-window.onfocus = function() { 
+window.onfocus = function () {
   console.log("focus");
   focusTitlebars(true);
-}
+};
 
-window.onblur = function() { 
+window.onblur = function () {
   console.log("blur");
   focusTitlebars(false);
-}
+};
 
-window.onresize = function() {
+window.onresize = function () {
   updateContentStyle();
-}
+};
 
-window.onload = function() {
+window.onload = function () {
   initCheckbox("top-box", "top-titlebar", "top-titlebar.png", "Top Titlebar");
-  initCheckbox("bottom-box", "bottom-titlebar", "bottom-titlebar.png", "Bottom Titlebar");
-  initCheckbox("left-box", "left-titlebar", "left-titlebar.png", "Left Titlebar");
-  initCheckbox("right-box", "right-titlebar", "right-titlebar.png", "Right Titlebar");
-  
-  document.getElementById("close-window-button").onclick = function() {
+  initCheckbox(
+    "bottom-box",
+    "bottom-titlebar",
+    "bottom-titlebar.png",
+    "Bottom Titlebar"
+  );
+  initCheckbox(
+    "left-box",
+    "left-titlebar",
+    "left-titlebar.png",
+    "Left Titlebar"
+  );
+  initCheckbox(
+    "right-box",
+    "right-titlebar",
+    "right-titlebar.png",
+    "Right Titlebar"
+  );
+
+  document.getElementById("close-window-button").onclick = function () {
     window.close();
-  }
-  
+  };
+
   updateContentStyle();
-}
+};

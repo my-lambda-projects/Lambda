@@ -1,15 +1,15 @@
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-require("ace/lib/fixoldbrowsers");
-var AsyncTest = require("asyncjs").test;
-var async = require("asyncjs");
+  require("ace/lib/fixoldbrowsers");
+  var AsyncTest = require("asyncjs").test;
+  var async = require("asyncjs");
 
-var passed = 0
-var failed = 0
-var log = document.getElementById("log")
+  var passed = 0;
+  var failed = 0;
+  var log = document.getElementById("log");
 
-var testNames = [
+  var testNames = [
     "ace/anchor_test",
     "ace/commands/command_manager_test",
     "ace/document_test",
@@ -47,78 +47,80 @@ var testNames = [
     "ace/search_test",
     "ace/selection_test",
     "ace/token_iterator_test",
-    "ace/virtual_renderer_test"
-];
+    "ace/virtual_renderer_test",
+  ];
 
-var html = ["<a href='?'>all tests</a><br>"];
-for (var i in testNames) {
+  var html = ["<a href='?'>all tests</a><br>"];
+  for (var i in testNames) {
     var href = testNames[i];
-    html.push("<a href='?", href, "'>", href.replace(/^ace\//, "") ,"</a><br>");
-}
+    html.push("<a href='?", href, "'>", href.replace(/^ace\//, ""), "</a><br>");
+  }
 
-var nav = document.createElement("div");
-nav.innerHTML = html.join("");
-nav.style.cssText = "position:absolute;right:0;top:0"; 
-document.body.appendChild(nav);
+  var nav = document.createElement("div");
+  nav.innerHTML = html.join("");
+  nav.style.cssText = "position:absolute;right:0;top:0";
+  document.body.appendChild(nav);
 
-if (location.search)
-    testNames = location.search.substr(1).split(",")
+  if (location.search) testNames = location.search.substr(1).split(",");
 
-require(testNames, function() {
+  require(testNames, function () {
     var tests = testNames.map(require);
-    
-    async.list(tests)
-        .expand(function(test) {
-            return AsyncTest.testcase(test)
-        }, AsyncTest.TestGenerator)
-        .run()
-        .each(function(test, next) {
-            var node = document.createElement("div");
-            node.className = test.passed ? "passed" : "failed";
 
-            var name = test.name
-            if (test.suiteName)
-                name = test.suiteName + ": " + test.name
+    async
+      .list(tests)
+      .expand(function (test) {
+        return AsyncTest.testcase(test);
+      }, AsyncTest.TestGenerator)
+      .run()
+      .each(function (test, next) {
+        var node = document.createElement("div");
+        node.className = test.passed ? "passed" : "failed";
 
-            var msg = "[" + test.count + "/" + test.index + "] " + name + " " + (test.passed ? "OK" : "FAIL")
-            if (!test.passed) {
-                if (test.err.stack)
-                    var err = test.err.stack
-                else
-                    var err = test.err
+        var name = test.name;
+        if (test.suiteName) name = test.suiteName + ": " + test.name;
 
-                console.error(msg);
-                console.error(err);
-                msg += "<pre class='error'>" + err + "</pre>";
-            } else {
-                console.log(msg);
-            }
+        var msg =
+          "[" +
+          test.count +
+          "/" +
+          test.index +
+          "] " +
+          name +
+          " " +
+          (test.passed ? "OK" : "FAIL");
+        if (!test.passed) {
+          if (test.err.stack) var err = test.err.stack;
+          else var err = test.err;
 
-            node.innerHTML = msg;
-            log.appendChild(node);
+          console.error(msg);
+          console.error(err);
+          msg += "<pre class='error'>" + err + "</pre>";
+        } else {
+          console.log(msg);
+        }
 
-            next()
-        })
-        .each(function(test) {
-            if (test.passed)
-                passed += 1
-            else
-                failed += 1
-        })
-        .end(function() {
-            log.innerHTML += [
-                "<div class='summary'>",
-                "<br>",
-                "Summary: <br>",
-                "<br>",
-                "Total number of tests: " + (passed + failed) + "<br>",
-                (passed ? "Passed tests: " + passed + "<br>" : ""),
-                (failed ? "Failed tests: " + failed + "<br>" : "")
-            ].join("")
-            console.log("Total number of tests: " + (passed + failed));
-            console.log("Passed tests: " + passed);
-            console.log("Failed tests: " + failed);
-        })
-});
+        node.innerHTML = msg;
+        log.appendChild(node);
 
+        next();
+      })
+      .each(function (test) {
+        if (test.passed) passed += 1;
+        else failed += 1;
+      })
+      .end(function () {
+        log.innerHTML += [
+          "<div class='summary'>",
+          "<br>",
+          "Summary: <br>",
+          "<br>",
+          "Total number of tests: " + (passed + failed) + "<br>",
+          passed ? "Passed tests: " + passed + "<br>" : "",
+          failed ? "Failed tests: " + failed + "<br>" : "",
+        ].join("");
+        console.log("Total number of tests: " + (passed + failed));
+        console.log("Passed tests: " + passed);
+        console.log("Failed tests: " + failed);
+      });
+  });
 });

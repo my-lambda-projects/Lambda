@@ -41,21 +41,19 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+define(function (require, exports, module) {
+  // Global variables to hide from the interpreter
+  exports.hiddenHostGlobals = { Narcissus: true };
 
-// Global variables to hide from the interpreter
-exports.hiddenHostGlobals = { Narcissus: true };
+  // Desugar SpiderMonkey language extensions?
+  exports.desugarExtensions = false;
 
-// Desugar SpiderMonkey language extensions?
-exports.desugarExtensions = false;
+  // Allow HTML comments?
+  exports.allowHTMLComments = false;
 
-// Allow HTML comments?
-exports.allowHTMLComments = false;
+  // Allow non-standard Mozilla extensions?
+  exports.mozillaMode = true;
 
-// Allow non-standard Mozilla extensions?
-exports.mozillaMode = true;
-
-// Allow experimental paren-free mode?
-exports.parenFreeMode = false;
-
+  // Allow experimental paren-free mode?
+  exports.parenFreeMode = false;
 });

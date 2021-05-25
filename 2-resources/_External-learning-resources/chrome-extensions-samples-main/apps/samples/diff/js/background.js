@@ -5,12 +5,12 @@
  **/
 
 function onLaunched(launchData) {
-  chrome.app.window.create('main.html', {
-  	id: "diffWinID",
+  chrome.app.window.create("main.html", {
+    id: "diffWinID",
     innerBounds: {
       width: 1270,
-      height: 800
-    }
+      height: 800,
+    },
   });
 }
 

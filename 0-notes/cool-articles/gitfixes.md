@@ -4,7 +4,7 @@
 
 ### Shot yourself in the foot with the world's most popular version control system? Here's how to fix it
 
-Senior Writer, InfoWorld | Jan 15, 2020 3:00 am PST 
+Senior Writer, InfoWorld | Jan 15, 2020 3:00 am PST
 
     ![6 Git mistakes you will make — and how to fix them](https://images.techhive.com/images/article/2017/04/5_fumbling_dumb_mistake-100719968-large.jpg)
 
@@ -20,8 +20,7 @@ Table of Contents
 
 Show More
 
-Git mistake #1: You forgot to add changes to the last commit
-------------------------------------------------------------
+## Git mistake #1: You forgot to add changes to the last commit
 
 This is one of the easiest Git blunders to recover from. Let’s say you committed some work to a local branch, then realized you didn’t stage a number of needed files. Or you forgot to add certain details in the commit message.
 
@@ -31,8 +30,7 @@ If you are just changing files, and you don’t need to amend the commit message
 
 One way to avoid this kind of mistake is to tweak the way you make commits in Git. If you’re working on something where you’re constantly making small commits to track incremental revisions, do them in a throwaway branch. As you do this, document the major changes you’re making somewhere — don’t wait until you’re faced with the `git commit` command line to write it all down. Then, when you reach a major milestone, use `git merge --squash` from your throwaway branch to save the results to the work-in-progress branch as a single, clean commit, and use the notes you’ve taken for the commit message.
 
-Git mistake #2: You committed changes to (local) master
--------------------------------------------------------
+## Git mistake #2: You committed changes to (local) master
 
 Another common goof: You’ve dutifully committed a bunch of changes ... but to the master branch of your repo by mistake. What you _really_ wanted to do was commit them to a _new_ branch, or to that `dev` branch you have specifically for breaking changes.
 
@@ -48,8 +46,7 @@ If you’ve made multiple commits, use `git reset HEAD~<n> --hard`, where `<n>` 
 
 To avoid this mistake, get into the habit of making new branches and switching to them, even if they’re just going to be discarded, whenever you begin _any_ session with your code.
 
-Git mistake #3: You trashed a file or directory
------------------------------------------------
+## Git mistake #3: You trashed a file or directory
 
 Another common disaster is mistakenly trashing the contents of a file ... and only finding out about it many commits to the branch _after_ the fact. Fortunately there is an easy fix.
 
@@ -59,8 +56,7 @@ If you simply want to go back _n_ commits, you don’t need the hash ID. You can
 
 If you want to check out an entire _directory_ of files, then use Git’s wildcard format for file paths. For example, entering `git checkout HEAD~1 -- ./src/**` will take you back one commit and recover everything in the `/src` directory from the root of your project.
 
-Git mistake #4: You accidentally deleted a branch
--------------------------------------------------
+## Git mistake #4: You accidentally deleted a branch
 
 Here’s a scenario we all dread: accidentally deleting an entire branch from our repository. This one can be either very easy to recover from or a little more tricky, depending on the circumstances.
 
@@ -76,8 +72,7 @@ This will dump a list of all the commit hashes for objects that are no longer re
 
 As a general rule, never force-delete a branch by default, as you could easily end up laying waste to an unmerged branch that still has something valuable in it. If you’re habitually force-deleting branches, that’s a sign your work habits with branches need to be less messy.
 
-Git mistake #5: You clobbered the remote branch with `git push`
----------------------------------------------------------------
+## Git mistake #5: You clobbered the remote branch with `git push`
 
 Once I was working on a local copy of a GitHub repository, and mistakenly pushed my master branch to the remote copy with the `--force` option. I ended up with a public copy of a repo that wasn’t in a usable state at the time. Big oops.
 
@@ -95,10 +90,9 @@ One way to prevent this from happening again is to disallow force-pushing. You c
 
 There may come a time when you need to do a force-push, but it’s probably best to toggle this on when you need it and off when you don’t.
 
-Git mistake #6: You committed private information to a public repo
-------------------------------------------------------------------
+## Git mistake #6: You committed private information to a public repo
 
-This may be the worst and most difficult Git problem to deal with. You mistakenly committed sensitive data to a public repo, and you want to surgically excise the files from the repo. You need to make sure the sensitive data can’t be found even by going back to an earlier commit, but you need to do that _without touching anything else._
+This may be the worst and most difficult Git problem to deal with. You mistakenly committed sensitive data to a public repo, and you want to surgically excise the files from the repo. You need to make sure the sensitive data can’t be found even by going back to an earlier commit, but you need to do that *without touching anything else.*
 
 This is doubly hard if the file in question was committed, oh, six weeks ago, and a truckload of other important work has been committed in the meantime. You can’t just roll back to before the file was added; you’ll wreck everything else in the process.
 
@@ -111,6 +105,5 @@ Note that if you clean data from a local branch that has to be synchronized else
 Serdar Yegulalp is a senior writer at InfoWorld, focused on machine learning, containerization, devops, the Python ecosystem, and periodic reviews.
 
 Copyright © 2020 IDG Communications, Inc.
-
 
 [Source](https://www.infoworld.com/article/3512975/6-git-mistakes-you-will-make-and-how-to-fix-them.html)

@@ -1,6 +1,6 @@
-var Geo = function(geo) {
+var Geo = function (geo) {
   this.geo = geo;
-}
+};
 Geo.prototype.area = function (r) {
   return 3.14 * r * r;
 };

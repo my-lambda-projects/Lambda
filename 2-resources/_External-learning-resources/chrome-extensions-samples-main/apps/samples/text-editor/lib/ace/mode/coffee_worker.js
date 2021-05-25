@@ -35,58 +35,54 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var oop = require("../lib/oop");
-var Mirror = require("../worker/mirror").Mirror;
-var coffee = require("../mode/coffee/coffee-script");
+  var oop = require("../lib/oop");
+  var Mirror = require("../worker/mirror").Mirror;
+  var coffee = require("../mode/coffee/coffee-script");
 
-window.addEventListener = function() {};
+  window.addEventListener = function () {};
 
-
-var Worker = exports.Worker = function(sender) {
+  var Worker = (exports.Worker = function (sender) {
     Mirror.call(this, sender);
     this.setTimeout(200);
-};
+  });
 
-oop.inherits(Worker, Mirror);
+  oop.inherits(Worker, Mirror);
 
-(function() {
+  (function () {
+    this.onUpdate = function () {
+      var value = this.doc.getValue();
 
-    this.onUpdate = function() {
-        var value = this.doc.getValue();
-
-        try {
-            coffee.parse(value);
-        } catch(e) {
-            var m = e.message.match(/Parse error on line (\d+): (.*)/);
-            if (m) {
-                this.sender.emit("error", {
-                    row: parseInt(m[1], 10) - 1,
-                    column: null,
-                    text: m[2],
-                    type: "error"
-                });
-                return;
-            }
-
-            if (e instanceof SyntaxError) {
-                var m = e.message.match(/ on line (\d+)/);
-                if (m) {
-                    this.sender.emit("error", {
-                        row: parseInt(m[1], 10) - 1,
-                        column: null,
-                        text: e.message.replace(m[0], ""),
-                        type: "error"
-                    });
-                }
-            }
-            return;
+      try {
+        coffee.parse(value);
+      } catch (e) {
+        var m = e.message.match(/Parse error on line (\d+): (.*)/);
+        if (m) {
+          this.sender.emit("error", {
+            row: parseInt(m[1], 10) - 1,
+            column: null,
+            text: m[2],
+            type: "error",
+          });
+          return;
         }
-        this.sender.emit("ok");
+
+        if (e instanceof SyntaxError) {
+          var m = e.message.match(/ on line (\d+)/);
+          if (m) {
+            this.sender.emit("error", {
+              row: parseInt(m[1], 10) - 1,
+              column: null,
+              text: e.message.replace(m[0], ""),
+              type: "error",
+            });
+          }
+        }
+        return;
+      }
+      this.sender.emit("ok");
     };
-
-}).call(Worker.prototype);
-
+  }.call(Worker.prototype));
 });

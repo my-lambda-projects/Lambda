@@ -35,52 +35,55 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var oop = require("../../lib/oop");
-var MixedFoldMode = require("./mixed").FoldMode;
-var XmlFoldMode = require("./xml").FoldMode;
-var CStyleFoldMode = require("./cstyle").FoldMode;
+  var oop = require("../../lib/oop");
+  var MixedFoldMode = require("./mixed").FoldMode;
+  var XmlFoldMode = require("./xml").FoldMode;
+  var CStyleFoldMode = require("./cstyle").FoldMode;
 
-var FoldMode = exports.FoldMode = function() {
-    MixedFoldMode.call(this, new XmlFoldMode({
+  var FoldMode = (exports.FoldMode = function () {
+    MixedFoldMode.call(
+      this,
+      new XmlFoldMode({
         // void elements
-        "area": 1,
-        "base": 1,
-        "br": 1,
-        "col": 1,
-        "command": 1,
-        "embed": 1,
-        "hr": 1,
-        "img": 1,
-        "input": 1,
-        "keygen": 1,
-        "link": 1,
-        "meta": 1,
-        "param": 1,
-        "source": 1,
-        "track": 1,
-        "wbr": 1,
-        
-        // optional tags 
-        "li": 1,
-        "dt": 1,
-        "dd": 1,
-        "p": 1,
-        "rt": 1,
-        "rp": 1,
-        "optgroup": 1,
-        "option": 1,
-        "colgroup": 1,
-        "td": 1,
-        "th": 1
-    }), {
+        area: 1,
+        base: 1,
+        br: 1,
+        col: 1,
+        command: 1,
+        embed: 1,
+        hr: 1,
+        img: 1,
+        input: 1,
+        keygen: 1,
+        link: 1,
+        meta: 1,
+        param: 1,
+        source: 1,
+        track: 1,
+        wbr: 1,
+
+        // optional tags
+        li: 1,
+        dt: 1,
+        dd: 1,
+        p: 1,
+        rt: 1,
+        rp: 1,
+        optgroup: 1,
+        option: 1,
+        colgroup: 1,
+        td: 1,
+        th: 1,
+      }),
+      {
         "js-": new CStyleFoldMode(),
-        "css-": new CStyleFoldMode()
-    });
-};
+        "css-": new CStyleFoldMode(),
+      }
+    );
+  });
 
-oop.inherits(FoldMode, MixedFoldMode);
-
+  oop.inherits(FoldMode, MixedFoldMode);
 });

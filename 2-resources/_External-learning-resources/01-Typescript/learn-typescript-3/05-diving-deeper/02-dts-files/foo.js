@@ -1,3 +1,3 @@
-function foo () {
-  return Math.random()
+function foo() {
+  return Math.random();
 }

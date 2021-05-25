@@ -35,27 +35,26 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-exports.inherits = (function() {
-    var tempCtor = function() {};
-    return function(ctor, superCtor) {
-        tempCtor.prototype = superCtor.prototype;
-        ctor.super_ = superCtor.prototype;
-        ctor.prototype = new tempCtor();
-        ctor.prototype.constructor = ctor;
+  exports.inherits = (function () {
+    var tempCtor = function () {};
+    return function (ctor, superCtor) {
+      tempCtor.prototype = superCtor.prototype;
+      ctor.super_ = superCtor.prototype;
+      ctor.prototype = new tempCtor();
+      ctor.prototype.constructor = ctor;
     };
-}());
+  })();
 
-exports.mixin = function(obj, mixin) {
+  exports.mixin = function (obj, mixin) {
     for (var key in mixin) {
-        obj[key] = mixin[key];
+      obj[key] = mixin[key];
     }
-};
+  };
 
-exports.implement = function(proto, mixin) {
+  exports.implement = function (proto, mixin) {
     exports.mixin(proto, mixin);
-};
-
+  };
 });

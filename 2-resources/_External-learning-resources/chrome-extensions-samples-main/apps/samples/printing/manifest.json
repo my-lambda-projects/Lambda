@@ -16,10 +16,7 @@
       ]
     }
   },
-  "permissions": [
-    "storage",
-    "system.display"
-  ],
+  "permissions": ["storage", "system.display"],
   "icons": {
     "16": "icon-16x16.png",
     "128": "icon-128x128.png"

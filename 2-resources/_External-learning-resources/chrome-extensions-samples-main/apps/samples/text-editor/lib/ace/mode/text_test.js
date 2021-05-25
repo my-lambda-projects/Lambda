@@ -36,36 +36,34 @@
  * ***** END LICENSE BLOCK ***** */
 
 if (typeof process !== "undefined") {
-    require("amd-loader");
+  require("amd-loader");
 }
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var EditSession = require("../edit_session").EditSession;
-var TextMode = require("./text").Mode;
-var assert = require("../test/assertions");
+  var EditSession = require("../edit_session").EditSession;
+  var TextMode = require("./text").Mode;
+  var assert = require("../test/assertions");
 
-module.exports = {
-    setUp : function() {
-        this.mode = new TextMode();
+  module.exports = {
+    setUp: function () {
+      this.mode = new TextMode();
     },
 
-    "test: toggle comment lines should not do anything" : function() {
-        var session = new EditSession(["  abc", "cde", "fg"]);
+    "test: toggle comment lines should not do anything": function () {
+      var session = new EditSession(["  abc", "cde", "fg"]);
 
-        this.mode.toggleCommentLines("start", session, 0, 1);
-        assert.equal(["  abc", "cde", "fg"].join("\n"), session.toString());
+      this.mode.toggleCommentLines("start", session, 0, 1);
+      assert.equal(["  abc", "cde", "fg"].join("\n"), session.toString());
     },
 
-
-    "text: lines should not be indented" : function() {
-        assert.equal("", this.mode.getNextLineIndent("start", "   abc", "  "));
-    }
-};
-
+    "text: lines should not be indented": function () {
+      assert.equal("", this.mode.getNextLineIndent("start", "   abc", "  "));
+    },
+  };
 });
 
 if (typeof module !== "undefined" && module === require.main) {
-    require("asyncjs").test.testcase(module.exports).exec()
+  require("asyncjs").test.testcase(module.exports).exec();
 }

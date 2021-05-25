@@ -6,6 +6,6 @@
 
 "use strict";
 
-chrome.app.runtime.onLaunched.addListener(function() {
+chrome.app.runtime.onLaunched.addListener(function () {
   Printest.application.create();
 });

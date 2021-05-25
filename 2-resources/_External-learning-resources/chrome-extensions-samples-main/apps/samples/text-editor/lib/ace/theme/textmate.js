@@ -35,12 +35,13 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-exports.isDark = false;
-exports.cssClass = "ace-tm";
-exports.cssText = ".ace-tm .ace_editor {\
+  exports.isDark = false;
+  exports.cssClass = "ace-tm";
+  exports.cssText =
+    ".ace-tm .ace_editor {\
   border: 2px solid rgb(159, 159, 159);\
 }\
 \
@@ -203,6 +204,6 @@ exports.cssText = ".ace-tm .ace_editor {\
   color: rgb(255, 0, 0)\
 }";
 
-var dom = require("../lib/dom");
-dom.importCssString(exports.cssText, exports.cssClass);
+  var dom = require("../lib/dom");
+  dom.importCssString(exports.cssText, exports.cssClass);
 });

@@ -35,59 +35,62 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var oop = require("../lib/oop");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+  var oop = require("../lib/oop");
+  var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 
-var DocCommentHighlightRules = function() {
-
+  var DocCommentHighlightRules = function () {
     this.$rules = {
-        "start" : [ {
-            token : "comment.doc.tag",
-            regex : "@[\\w\\d_]+" // TODO: fix email addresses
-        }, {
-            token : "comment.doc",
-            merge : true,
-            regex : "\\s+"
-        }, {
-            token : "comment.doc",
-            merge : true,
-            regex : "TODO"
-        }, {
-            token : "comment.doc",
-            merge : true,
-            regex : "[^@\\*]+"
-        }, {
-            token : "comment.doc",
-            merge : true,
-            regex : "."
-        }]
+      start: [
+        {
+          token: "comment.doc.tag",
+          regex: "@[\\w\\d_]+", // TODO: fix email addresses
+        },
+        {
+          token: "comment.doc",
+          merge: true,
+          regex: "\\s+",
+        },
+        {
+          token: "comment.doc",
+          merge: true,
+          regex: "TODO",
+        },
+        {
+          token: "comment.doc",
+          merge: true,
+          regex: "[^@\\*]+",
+        },
+        {
+          token: "comment.doc",
+          merge: true,
+          regex: ".",
+        },
+      ],
     };
-};
+  };
 
-oop.inherits(DocCommentHighlightRules, TextHighlightRules);
+  oop.inherits(DocCommentHighlightRules, TextHighlightRules);
 
-DocCommentHighlightRules.getStartRule = function(start) {
+  DocCommentHighlightRules.getStartRule = function (start) {
     return {
-        token : "comment.doc", // doc comment
-        merge : true,
-        regex : "\\/\\*(?=\\*)",
-        next  : start
+      token: "comment.doc", // doc comment
+      merge: true,
+      regex: "\\/\\*(?=\\*)",
+      next: start,
     };
-};
+  };
 
-DocCommentHighlightRules.getEndRule = function (start) {
+  DocCommentHighlightRules.getEndRule = function (start) {
     return {
-        token : "comment.doc", // closing comment
-        merge : true,
-        regex : "\\*\\/",
-        next  : start
+      token: "comment.doc", // closing comment
+      merge: true,
+      regex: "\\*\\/",
+      next: start,
     };
-};
+  };
 
-
-exports.DocCommentHighlightRules = DocCommentHighlightRules;
-
+  exports.DocCommentHighlightRules = DocCommentHighlightRules;
 });

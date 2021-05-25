@@ -1,10 +1,10 @@
 "use strict";
 
-const stream = require('stream');
+const stream = require("stream");
 
 class LimitedParallelStream extends stream.Transform {
   constructor(concurrency, userTransform) {
-    super({objectMode: true});
+    super({ objectMode: true });
     this.concurrency = concurrency;
     this.userTransform = userTransform;
     this.running = 0;
@@ -14,8 +14,13 @@ class LimitedParallelStream extends stream.Transform {
 
   _transform(chunk, enc, done) {
     this.running++;
-    this.userTransform(chunk, enc,  this.push.bind(this), this._onComplete.bind(this));
-    if(this.running < this.concurrency) {
+    this.userTransform(
+      chunk,
+      enc,
+      this.push.bind(this),
+      this._onComplete.bind(this)
+    );
+    if (this.running < this.concurrency) {
       done();
     } else {
       this.continueCallback = done;
@@ -23,7 +28,7 @@ class LimitedParallelStream extends stream.Transform {
   }
 
   _flush(done) {
-    if(this.running > 0) {
+    if (this.running > 0) {
       this.terminateCallback = done;
     } else {
       done();
@@ -32,13 +37,13 @@ class LimitedParallelStream extends stream.Transform {
 
   _onComplete(err) {
     this.running--;
-    if(err) {
-      return this.emit('error', err);
+    if (err) {
+      return this.emit("error", err);
     }
     const tmpCallback = this.continueCallback;
     this.continueCallback = null;
     tmpCallback && tmpCallback();
-    if(this.running === 0) {
+    if (this.running === 0) {
       this.terminateCallback && this.terminateCallback();
     }
   }

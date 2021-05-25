@@ -38,143 +38,160 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var oop = require("../lib/oop");
-var lang = require("../lib/lang");
-var DocCommentHighlightRules = require("./doc_comment_highlight_rules").DocCommentHighlightRules;
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+  var oop = require("../lib/oop");
+  var lang = require("../lib/lang");
+  var DocCommentHighlightRules =
+    require("./doc_comment_highlight_rules").DocCommentHighlightRules;
+  var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 
-var c_cppHighlightRules = function() {
-
+  var c_cppHighlightRules = function () {
     var keywords = lang.arrayToMap(
-        ("and|double|not_eq|throw|and_eq|dynamic_cast|operator|true|" +
+      (
+        "and|double|not_eq|throw|and_eq|dynamic_cast|operator|true|" +
         "asm|else|or|try|auto|enum|or_eq|typedef|bitand|explicit|private|" +
         "typeid|bitor|extern|protected|typename|bool|false|public|union|" +
         "break|float|register|unsigned|case|fro|reinterpret-cast|using|catch|" +
         "friend|return|virtual|char|goto|short|void|class|if|signed|volatile|" +
         "compl|inline|sizeof|wchar_t|const|int|static|while|const-cast|long|" +
         "static_cast|xor|continue|mutable|struct|xor_eq|default|namespace|" +
-        "switch|delete|new|template|do|not|this|for").split("|")
+        "switch|delete|new|template|do|not|this|for"
+      ).split("|")
     );
 
-    var buildinConstants = lang.arrayToMap(
-        ("NULL").split("|")
-    );
+    var buildinConstants = lang.arrayToMap("NULL".split("|"));
 
     // regexp must not have capturing parentheses. Use (?:) instead.
     // regexps are ordered -> the first match is used
 
     this.$rules = {
-        "start" : [
-            {
-                token : "comment",
-                regex : "\\/\\/.*$"
-            },
-            DocCommentHighlightRules.getStartRule("doc-start"),
-            {
-                token : "comment", // multi line comment
-                merge : true,
-                regex : "\\/\\*",
-                next : "comment"
-            }, {
-                token : "string", // single line
-                regex : '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]'
-            }, {
-                token : "string", // multi line string start
-                merge : true,
-                regex : '["].*\\\\$',
-                next : "qqstring"
-            }, {
-                token : "string", // single line
-                regex : "['](?:(?:\\\\.)|(?:[^'\\\\]))*?[']"
-            }, {
-                token : "string", // multi line string start
-                merge : true,
-                regex : "['].*\\\\$",
-                next : "qstring"
-            }, {
-                token : "constant.numeric", // hex
-                regex : "0[xX][0-9a-fA-F]+\\b"
-            }, {
-                token : "constant.numeric", // float
-                regex : "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b"
-            }, {
-              token : "constant", // <CONSTANT>
-              regex : "<[a-zA-Z0-9.]+>"
-            }, {
-              token : "keyword", // pre-compiler directivs
-              regex : "(?:#include|#pragma|#line|#define|#undef|#ifdef|#else|#elif|#endif|#ifndef)"
-          }, {
-                token : function(value) {
-                    if (value == "this")
-                        return "variable.language";
-                    else if (keywords.hasOwnProperty(value))
-                        return "keyword";
-                    else if (buildinConstants.hasOwnProperty(value))
-                        return "constant.language";
-                    else
-                        return "identifier";
-                },
-                regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
-            }, {
-                token : "keyword.operator",
-                regex : "!|\\$|%|&|\\*|\\-\\-|\\-|\\+\\+|\\+|~|==|=|!=|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\\|\\||\\?\\:|\\*=|%=|\\+=|\\-=|&=|\\^=|\\b(?:in|new|delete|typeof|void)"
-            }, {
-              token : "punctuation.operator",
-              regex : "\\?|\\:|\\,|\\;|\\."
-            }, {
-                token : "paren.lparen",
-                regex : "[[({]"
-            }, {
-                token : "paren.rparen",
-                regex : "[\\])}]"
-            }, {
-                token : "text",
-                regex : "\\s+"
-            }
-        ],
-        "comment" : [
-            {
-                token : "comment", // closing comment
-                regex : ".*?\\*\\/",
-                next : "start"
-            }, {
-                token : "comment", // comment spanning whole line
-                merge : true,
-                regex : ".+"
-            }
-        ],
-        "qqstring" : [
-            {
-                token : "string",
-                regex : '(?:(?:\\\\.)|(?:[^"\\\\]))*?"',
-                next : "start"
-            }, {
-                token : "string",
-                merge : true,
-                regex : '.+'
-            }
-        ],
-        "qstring" : [
-            {
-                token : "string",
-                regex : "(?:(?:\\\\.)|(?:[^'\\\\]))*?'",
-                next : "start"
-            }, {
-                token : "string",
-                merge : true,
-                regex : '.+'
-            }
-        ]
+      start: [
+        {
+          token: "comment",
+          regex: "\\/\\/.*$",
+        },
+        DocCommentHighlightRules.getStartRule("doc-start"),
+        {
+          token: "comment", // multi line comment
+          merge: true,
+          regex: "\\/\\*",
+          next: "comment",
+        },
+        {
+          token: "string", // single line
+          regex: '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]',
+        },
+        {
+          token: "string", // multi line string start
+          merge: true,
+          regex: '["].*\\\\$',
+          next: "qqstring",
+        },
+        {
+          token: "string", // single line
+          regex: "['](?:(?:\\\\.)|(?:[^'\\\\]))*?[']",
+        },
+        {
+          token: "string", // multi line string start
+          merge: true,
+          regex: "['].*\\\\$",
+          next: "qstring",
+        },
+        {
+          token: "constant.numeric", // hex
+          regex: "0[xX][0-9a-fA-F]+\\b",
+        },
+        {
+          token: "constant.numeric", // float
+          regex: "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b",
+        },
+        {
+          token: "constant", // <CONSTANT>
+          regex: "<[a-zA-Z0-9.]+>",
+        },
+        {
+          token: "keyword", // pre-compiler directivs
+          regex:
+            "(?:#include|#pragma|#line|#define|#undef|#ifdef|#else|#elif|#endif|#ifndef)",
+        },
+        {
+          token: function (value) {
+            if (value == "this") return "variable.language";
+            else if (keywords.hasOwnProperty(value)) return "keyword";
+            else if (buildinConstants.hasOwnProperty(value))
+              return "constant.language";
+            else return "identifier";
+          },
+          regex: "[a-zA-Z_$][a-zA-Z0-9_$]*\\b",
+        },
+        {
+          token: "keyword.operator",
+          regex:
+            "!|\\$|%|&|\\*|\\-\\-|\\-|\\+\\+|\\+|~|==|=|!=|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\\|\\||\\?\\:|\\*=|%=|\\+=|\\-=|&=|\\^=|\\b(?:in|new|delete|typeof|void)",
+        },
+        {
+          token: "punctuation.operator",
+          regex: "\\?|\\:|\\,|\\;|\\.",
+        },
+        {
+          token: "paren.lparen",
+          regex: "[[({]",
+        },
+        {
+          token: "paren.rparen",
+          regex: "[\\])}]",
+        },
+        {
+          token: "text",
+          regex: "\\s+",
+        },
+      ],
+      comment: [
+        {
+          token: "comment", // closing comment
+          regex: ".*?\\*\\/",
+          next: "start",
+        },
+        {
+          token: "comment", // comment spanning whole line
+          merge: true,
+          regex: ".+",
+        },
+      ],
+      qqstring: [
+        {
+          token: "string",
+          regex: '(?:(?:\\\\.)|(?:[^"\\\\]))*?"',
+          next: "start",
+        },
+        {
+          token: "string",
+          merge: true,
+          regex: ".+",
+        },
+      ],
+      qstring: [
+        {
+          token: "string",
+          regex: "(?:(?:\\\\.)|(?:[^'\\\\]))*?'",
+          next: "start",
+        },
+        {
+          token: "string",
+          merge: true,
+          regex: ".+",
+        },
+      ],
     };
-    
-    this.embedRules(DocCommentHighlightRules, "doc-",
-        [ DocCommentHighlightRules.getEndRule("start") ]);
-};
 
-oop.inherits(c_cppHighlightRules, TextHighlightRules);
+    this.embedRules(DocCommentHighlightRules, "doc-", [
+      DocCommentHighlightRules.getEndRule("start"),
+    ]);
+  };
 
-exports.c_cppHighlightRules = c_cppHighlightRules;
+  oop.inherits(c_cppHighlightRules, TextHighlightRules);
+
+  exports.c_cppHighlightRules = c_cppHighlightRules;
 });

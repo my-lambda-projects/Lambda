@@ -36,37 +36,39 @@
  * ***** END LICENSE BLOCK ***** */
 
 if (typeof process !== "undefined") {
-    require("amd-loader");
+  require("amd-loader");
 }
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var Mode = require("./coffee").Mode;
-var assert = require("../test/assertions");
+  var Mode = require("./coffee").Mode;
+  var assert = require("../test/assertions");
 
-module.exports = {
-    setUp : function() {
-        this.tokenizer = new Mode().getTokenizer();
+  module.exports = {
+    setUp: function () {
+      this.tokenizer = new Mode().getTokenizer();
     },
 
-    "test: tokenize keyword": function() {
-        var tokens = this.tokenizer.getLineTokens("for", "start").tokens;
-        assert.equal(tokens.length, 1);
-        assert.equal(tokens[0].type, "keyword");
+    "test: tokenize keyword": function () {
+      var tokens = this.tokenizer.getLineTokens("for", "start").tokens;
+      assert.equal(tokens.length, 1);
+      assert.equal(tokens[0].type, "keyword");
     },
-    
+
     // TODO: disable. not yet implemented
-    "!test tokenize string with interpolation": function() {
-        var tokens = this.tokenizer.getLineTokens('"#{ 22 / 7 } is a decent approximation of π"', "start").tokens;
-        console.log(tokens);
-        assert.equal(tokens.length, 12);
-        //assert.equal(tokens[0].type, "keyword");
-    }
-};
-
+    "!test tokenize string with interpolation": function () {
+      var tokens = this.tokenizer.getLineTokens(
+        '"#{ 22 / 7 } is a decent approximation of π"',
+        "start"
+      ).tokens;
+      console.log(tokens);
+      assert.equal(tokens.length, 12);
+      //assert.equal(tokens[0].type, "keyword");
+    },
+  };
 });
 
 if (typeof module !== "undefined" && module === require.main) {
-    require("asyncjs").test.testcase(module.exports).exec();
+  require("asyncjs").test.testcase(module.exports).exec();
 }

@@ -1,15 +1,16 @@
 # Getting Started - schema.org
 
 > Schema.org is a set of extensible schemas that enables webmasters to embed
+
     structured data on their web pages for use by search engines and other applications.
 
 Most webmasters are familiar with HTML tags on their pages. Usually, HTML tags tell the browser how to display the information included in the tag. For example, `<h1>Avatar</h1>` tells the browser to display the text string "Avatar" in a heading 1 format. However, the HTML tag doesn't give any information about what that text string means—"Avatar" could refer to the hugely successful 3D movie, or it could refer to a type of profile picture—and this can make it more difficult for search engines to intelligently display relevant content to a user.
 
 Schema.org provides a collection of shared vocabularies webmasters can use to mark up their pages in ways that can be understood by the major search engines: Google, Microsoft, Yandex and Yahoo!
 
-You use the [schema.org](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/) vocabulary along with the [Microdata](http://en.wikipedia.org/wiki/Microdata_(HTML)), [RDFa](http://en.wikipedia.org/wiki/RDFa), or [JSON-LD](http://en.wikipedia.org/wiki/JSON-LD) formats to add information to your Web content. This guide will help get you up to speed with Microdata and schema.org so that you can start adding markup to your web pages.
+You use the [schema.org](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/) vocabulary along with the [Microdata](<http://en.wikipedia.org/wiki/Microdata_(HTML)>), [RDFa](http://en.wikipedia.org/wiki/RDFa), or [JSON-LD](http://en.wikipedia.org/wiki/JSON-LD) formats to add information to your Web content. This guide will help get you up to speed with Microdata and schema.org so that you can start adding markup to your web pages.
 
-Although this guide focuses on [Microdata](http://en.wikipedia.org/wiki/Microdata_(HTML)), most examples on the [schema.org](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/) site show examples in RDFa and JSON-LD too. The basic ideas (types, properties etc.) introduced here are relevant beyond Microdata - take a look at the examples to see how the details compare.
+Although this guide focuses on [Microdata](<http://en.wikipedia.org/wiki/Microdata_(HTML)>), most examples on the [schema.org](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/) site show examples in RDFa and JSON-LD too. The basic ideas (types, properties etc.) introduced here are relevant beyond Microdata - take a look at the examples to see how the details compare.
 
 1.  [How to mark up your content using microdata](#microdata_how)
     1.  [Why use microdata?](#microdata_why)
@@ -26,8 +27,7 @@ Although this guide focuses on [Microdata](http://en.wikipedia.org/wiki/Microdat
     3.  [Missing/implicit information](#advanced_missing)
     4.  [Extending schema.org](#advanced_extending)
 
-1\. How to mark up your content using microdata
------------------------------------------------
+## 1\. How to mark up your content using microdata
 
 ### 1a. Why use microdata?
 
@@ -100,8 +100,7 @@ Sometimes the value of an item property can itself be another item with its own 
 
 [Back to top](#top)
 
-2\. Using the schema.org vocabulary
------------------------------------
+## 2\. Using the schema.org vocabulary
 
 ### 2a. schema.org types and properties
 
@@ -111,14 +110,14 @@ The broadest item type is [Thing](chrome-extension://cjedbglnccaioiolemnfhjncicc
 
 Here's a set of commonly used item types:
 
-*   Creative works: [CreativeWork](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/CreativeWork), [Book](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Book), [Movie](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Movie), [MusicRecording](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/MusicRecording), [Recipe](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Recipe), [TVSeries](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/TVSeries) ...
-*   Embedded non-text objects: [AudioObject](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/AudioObject), [ImageObject](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/ImageObject), [VideoObject](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/VideoObject)
-*   [Event](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Event)
-*   [Organization](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Organization)
-*   [Person](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Person)
-*   [Place](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Place), [LocalBusiness](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/LocalBusiness), [Restaurant](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Restaurant) ...
-*   [Product](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Product), [Offer](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Offer), [AggregateOffer](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/AggregateOffer)
-*   [Review](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Review), [AggregateRating](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/AggregateRating)
+- Creative works: [CreativeWork](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/CreativeWork), [Book](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Book), [Movie](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Movie), [MusicRecording](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/MusicRecording), [Recipe](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Recipe), [TVSeries](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/TVSeries) ...
+- Embedded non-text objects: [AudioObject](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/AudioObject), [ImageObject](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/ImageObject), [VideoObject](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/VideoObject)
+- [Event](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Event)
+- [Organization](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Organization)
+- [Person](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Person)
+- [Place](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Place), [LocalBusiness](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/LocalBusiness), [Restaurant](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Restaurant) ...
+- [Product](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Product), [Offer](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Offer), [AggregateOffer](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/AggregateOffer)
+- [Review](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/Review), [AggregateRating](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/AggregateRating)
 
 You can also see a [full list of all item types](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/full.html), listed on a single page.
 
@@ -128,17 +127,16 @@ You can also see a [full list of all item types](chrome-extension://cjedbglnccai
 
 Here are a few notes to keep in mind when adding schema.org markup to your web pages.
 
-*   **More is better, except for hidden text.** In general, the more content you mark up, the better. However, as a general rule, you should mark up only the content that is visible to people who visit the web page and not content in hidden div's or other hidden page elements.
-*   **Expected types vs text.** When browsing the schema.org types, you will notice that many properties have "expected types". This means that the value of the property can itself be an embedded item (see section 1d: embedded items). But this is not a requirement—it's fine to include just regular text or a URL. In addition, whenever an expected type is specified, it is also fine to embed an item that is a child type of the expected type. For example, if the expected type is Place, it's also OK to embed a LocalBusiness.
-*   **Using the url property.** Some web pages are about a specific item. For example, you may have a web page about a single person, which you could mark up using the Person item type. Other pages have a collection of items described on them. For example, your company site could have a page listing employees, with a link to a profile page for each person. For pages like this with a collection of items, you should mark up each item separately (in this case as a series of Persons) and add the url property to the link to the corresponding page for each item, like this:
-    
-    <div itemscope itemtype="https://schema.org/Person">
-      <a href="alice.html" **itemprop="url"**\>Alice Jones</a>
-    </div>
-    <div itemscope itemtype="https://schema.org/Person">
-      <a href="bob.html" **itemprop="url"**\>Bob Smith</a>
-    </div>
-    
+- **More is better, except for hidden text.** In general, the more content you mark up, the better. However, as a general rule, you should mark up only the content that is visible to people who visit the web page and not content in hidden div's or other hidden page elements.
+- **Expected types vs text.** When browsing the schema.org types, you will notice that many properties have "expected types". This means that the value of the property can itself be an embedded item (see section 1d: embedded items). But this is not a requirement—it's fine to include just regular text or a URL. In addition, whenever an expected type is specified, it is also fine to embed an item that is a child type of the expected type. For example, if the expected type is Place, it's also OK to embed a LocalBusiness.
+- **Using the url property.** Some web pages are about a specific item. For example, you may have a web page about a single person, which you could mark up using the Person item type. Other pages have a collection of items described on them. For example, your company site could have a page listing employees, with a link to a profile page for each person. For pages like this with a collection of items, you should mark up each item separately (in this case as a series of Persons) and add the url property to the link to the corresponding page for each item, like this:
+
+  <div itemscope itemtype="https://schema.org/Person">
+    <a href="alice.html" **itemprop="url"**\>Alice Jones</a>
+  </div>
+  <div itemscope itemtype="https://schema.org/Person">
+    <a href="bob.html" **itemprop="url"**\>Bob Smith</a>
+  </div>
 
 [Back to top](#top)
 
@@ -146,16 +144,15 @@ Here are a few notes to keep in mind when adding schema.org markup to your web p
 
 Much like a web browser is important for testing changes to your web page layout, and a code compiler is important for testing code you write, you should also test your schema.org markup to make sure it is implemented correctly. Google provides a rich snippets testing tool, which you can use to test your markup and identify any errors.
 
-3\. Advanced topic: Machine-understandable versions of information
-------------------------------------------------------------------
+## 3\. Advanced topic: Machine-understandable versions of information
 
 Many pages can be described using only the `itemscope`, `itemtype`, and `itemprop` attributes (described in section 1) along with the types and properties defined on schema.org (described in section 2).
 
 However, sometimes an item property is difficult for a machine to understand without additional disambiguation. This section describes how you can provide machine-understandable versions of information when marking up your pages.
 
-*   Dates, times, and durations: use the `time` tag with `datetime`
-*   Enumerations and canonical references: use the `link` tag with `href`
-*   Missing/implicit information: use the `meta` tag with `content`.
+- Dates, times, and durations: use the `time` tag with `datetime`
+- Enumerations and canonical references: use the `link` tag with `href`
+- Missing/implicit information: use the `meta` tag with `content`.
 
 [Back to top](#top)
 
@@ -268,6 +265,5 @@ This technique should be used sparingly. Only use `meta` with content for inform
 ### 3d. Extending schema.org
 
 Most sites and organizations will not have a reason to extend schema.org. However, schema.org offers the ability to specify additional properties or sub-types to existing types. If you are interested in doing this, read more about the [schema.org extension mechanism](https://schema.org/docs/extension.html).
-
 
 [Source](https://schema.org/docs/gs.html)

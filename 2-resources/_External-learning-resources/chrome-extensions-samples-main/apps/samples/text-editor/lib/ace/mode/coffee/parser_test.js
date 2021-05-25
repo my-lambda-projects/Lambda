@@ -36,33 +36,33 @@
  * ***** END LICENSE BLOCK ***** */
 
 if (typeof process !== "undefined") {
-    require("amd-loader");
+  require("amd-loader");
 }
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var assert = require("../../test/assertions");
-var coffee = require("../coffee/coffee-script");
+  var assert = require("../../test/assertions");
+  var coffee = require("../coffee/coffee-script");
 
-
-module.exports = {
-
-    "test parse valid coffee script": function() {
-        coffee.parse("square = (x) -> x * x");
+  module.exports = {
+    "test parse valid coffee script": function () {
+      coffee.parse("square = (x) -> x * x");
     },
-    
-    "test parse invalid coffee script": function() {
-        try {
-            coffee.parse("a = 12 f");
-        } catch (e) {
-            assert.ok((e + "").indexOf("Parse error on line 1: Unexpected 'IDENTIFIER'") >= 0);
-        }
-    }
-};
 
+    "test parse invalid coffee script": function () {
+      try {
+        coffee.parse("a = 12 f");
+      } catch (e) {
+        assert.ok(
+          (e + "").indexOf("Parse error on line 1: Unexpected 'IDENTIFIER'") >=
+            0
+        );
+      }
+    },
+  };
 });
 
 if (typeof module !== "undefined" && module === require.main) {
-    require("asyncjs").test.testcase(module.exports).exec();
+  require("asyncjs").test.testcase(module.exports).exec();
 }

@@ -1,5 +1,5 @@
 "use strict";
 
-const umdModule = require('./umdModule');
+const umdModule = require("./umdModule");
 
-console.log(umdModule.sayHello('Server!'));
+console.log(umdModule.sayHello("Server!"));

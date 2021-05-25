@@ -11,37 +11,36 @@ function messageReceived(message) {
   // Concatenate all key-value pairs to form a display string.
   var messageString = "";
   for (var key in message.data) {
-    if (messageString != "")
-      messageString += ", "
+    if (messageString != "") messageString += ", ";
     messageString += key + ":" + message.data[key];
   }
   console.log("Message received: " + messageString);
 
   // Pop up a notification to show the GCM message.
-  chrome.notifications.create(getNotificationId(), {
-    title: 'GCM Message',
-    iconUrl: 'gcm_128.png',
-    type: 'basic',
-    message: messageString
-  }, function() {});
+  chrome.notifications.create(
+    getNotificationId(),
+    {
+      title: "GCM Message",
+      iconUrl: "gcm_128.png",
+      type: "basic",
+      message: messageString,
+    },
+    function () {}
+  );
 }
 
 var registerWindowCreated = false;
 
 function firstTimeRegistration() {
-  chrome.storage.local.get("registered", function(result) {
+  chrome.storage.local.get("registered", function (result) {
     // If already registered, bail out.
-    if (result["registered"])
-      return;
+    if (result["registered"]) return;
 
     registerWindowCreated = true;
     chrome.app.window.create(
       "register.html",
-      {  width: 500,
-         height: 400,
-         frame: 'chrome'
-      },
-      function(appWin) {}
+      { width: 500, height: 400, frame: "chrome" },
+      function (appWin) {}
     );
   });
 }

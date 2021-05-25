@@ -15,6 +15,6 @@ val = d.getUTCMilliseconds();
 val = d.getHours(); //local time
 val = d.getUTCHours(); //universal time
 let days = 100;
-const newDate = new Date(Date.now() + (days * 24 * 60 * 60 * 1000));
+const newDate = new Date(Date.now() + days * 24 * 60 * 60 * 1000);
 console.log(newDate);
 console.log(val);

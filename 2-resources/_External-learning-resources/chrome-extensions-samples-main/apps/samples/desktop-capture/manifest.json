@@ -11,7 +11,5 @@
       "scripts": ["background.js"]
     }
   },
-  "permissions": [
-    "desktopCapture"
-  ]
+  "permissions": ["desktopCapture"]
 }

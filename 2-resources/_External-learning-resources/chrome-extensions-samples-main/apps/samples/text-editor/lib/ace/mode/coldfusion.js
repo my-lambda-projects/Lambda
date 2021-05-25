@@ -35,37 +35,36 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var oop = require("../lib/oop");
-var XmlMode = require("./xml").Mode;
-var JavaScriptMode = require("./javascript").Mode;
-var CssMode = require("./css").Mode;
-var Tokenizer = require("../tokenizer").Tokenizer;
-var ColdfusionHighlightRules = require("./coldfusion_highlight_rules").ColdfusionHighlightRules;
+  var oop = require("../lib/oop");
+  var XmlMode = require("./xml").Mode;
+  var JavaScriptMode = require("./javascript").Mode;
+  var CssMode = require("./css").Mode;
+  var Tokenizer = require("../tokenizer").Tokenizer;
+  var ColdfusionHighlightRules =
+    require("./coldfusion_highlight_rules").ColdfusionHighlightRules;
 
-var Mode = function() {
+  var Mode = function () {
     XmlMode.call(this);
-    
+
     var highlighter = new ColdfusionHighlightRules();
     this.$tokenizer = new Tokenizer(highlighter.getRules());
-    
+
     this.$embeds = highlighter.getEmbeds();
     this.createModeDelegates({
       "js-": JavaScriptMode,
-      "css-": CssMode
+      "css-": CssMode,
     });
-};
-oop.inherits(Mode, XmlMode);
+  };
+  oop.inherits(Mode, XmlMode);
 
-(function() {
-
-    this.getNextLineIndent = function(state, line, tab) {
-        return this.$getIndent(line);
+  (function () {
+    this.getNextLineIndent = function (state, line, tab) {
+      return this.$getIndent(line);
     };
+  }.call(Mode.prototype));
 
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
+  exports.Mode = Mode;
 });

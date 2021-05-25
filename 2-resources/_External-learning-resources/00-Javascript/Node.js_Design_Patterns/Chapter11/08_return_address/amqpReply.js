@@ -1,6 +1,6 @@
 "use strict";
 
-const amqp = require('amqplib');
+const amqp = require("amqplib");
 
 class AMQPReply {
   constructor(qName) {
@@ -9,25 +9,24 @@ class AMQPReply {
 
   initialize() {
     return amqp
-      .connect('amqp://localhost')
-      .then(conn => conn.createChannel())
-      .then(channel => {
+      .connect("amqp://localhost")
+      .then((conn) => conn.createChannel())
+      .then((channel) => {
         this.channel = channel;
         return this.channel.assertQueue(this.qName);
       })
-      .then(q => this.queue = q.queue)
-      .catch(err => console.log(err.stack))
-    ;
+      .then((q) => (this.queue = q.queue))
+      .catch((err) => console.log(err.stack));
   }
 
   handleRequest(handler) {
-    return this.channel.consume(this.queue, msg => {
+    return this.channel.consume(this.queue, (msg) => {
       const content = JSON.parse(msg.content.toString());
-      handler(content, reply => {
+      handler(content, (reply) => {
         this.channel.sendToQueue(
           msg.properties.replyTo,
           new Buffer(JSON.stringify(reply)),
-          {correlationId: msg.properties.correlationId}
+          { correlationId: msg.properties.correlationId }
         );
         this.channel.ack(msg);
       });

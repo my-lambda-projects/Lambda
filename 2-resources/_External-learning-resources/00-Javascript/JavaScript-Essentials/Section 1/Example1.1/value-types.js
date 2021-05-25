@@ -13,8 +13,8 @@ myVar = 3.14;
 console.log(myVar);
 
 myVar = {
-    a: 1,
-    b: 2
+  a: 1,
+  b: 2,
 };
 
 console.log(myVar);

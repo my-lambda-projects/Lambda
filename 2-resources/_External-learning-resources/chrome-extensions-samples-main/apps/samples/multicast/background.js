@@ -4,9 +4,9 @@ var chatClient;
 var clientId;
 
 function random_string(length) {
-  var str = '';
+  var str = "";
   for (var i = 0; i < length; i++) {
-    str += (Math.random() * 16 >> 0).toString(16);
+    str += ((Math.random() * 16) >> 0).toString(16);
   }
   return str;
 }
@@ -22,56 +22,66 @@ function rtm(message, callback) {
 function onInitWindow(appWindow) {
   appWindow.show();
   var document = appWindow.contentWindow.document;
-  document.addEventListener('DOMContentLoaded', function () {
-    rtm({
-      "type": 'init',
-      clientId: clientId
-    }, function () {
-      chatClient.enter();
-    });
+  document.addEventListener("DOMContentLoaded", function () {
+    rtm(
+      {
+        type: "init",
+        clientId: clientId,
+      },
+      function () {
+        chatClient.enter();
+      }
+    );
   });
-  appWindow.onClosed.addListener(function(){
+  appWindow.onClosed.addListener(function () {
     chatClient.exit();
   });
 }
 
 function createMainWindow() {
-  chrome.app.window.create('index.html', {
-    id: 'main-window',
-    frame: 'none',
-    innerBounds: {
-      left: 100,
-      top: 100,
-      width: 650,
-      height: 520,
-      minWidth: 400,
-      minHeight: 275
+  chrome.app.window.create(
+    "index.html",
+    {
+      id: "main-window",
+      frame: "none",
+      innerBounds: {
+        left: 100,
+        top: 100,
+        width: 650,
+        height: 520,
+        minWidth: 400,
+        minHeight: 275,
+      },
+      hidden: true,
     },
-    hidden: true
-  }, onInitWindow);
+    onInitWindow
+  );
 }
 
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   if (message) {
     switch (message.type) {
-      case 'set-client-id':
+      case "set-client-id":
         chatClient.renameTo(message.value, function (name) {
-          chrome.storage.local.set({
-            'client_id': message.value
-          }, function(){
-            sendResponse(name);
-            clientId = name;
-            rtm({
-              type: 'refresh-user-list'
-            });
-          });
+          chrome.storage.local.set(
+            {
+              client_id: message.value,
+            },
+            function () {
+              sendResponse(name);
+              clientId = name;
+              rtm({
+                type: "refresh-user-list",
+              });
+            }
+          );
         });
         return true;
         break;
-      case 'query-users':
+      case "query-users":
         sendResponse(chatClient.knownUsers);
         break;
-      case 'send-message':
+      case "send-message":
         chatClient.sendMessage(message.message, function () {
           sendResponse(true);
         });
@@ -86,51 +96,54 @@ function initClient(id) {
   var cc = new ChatClient({
     name: id,
     address: kIP,
-    port: kPort
+    port: kPort,
   });
   cc.onInfo = function (message, level) {
-    level = level || 'info';
+    level = level || "info";
     rtm({
-      type: 'info',
+      type: "info",
       level: level,
-      message: message
+      message: message,
     });
   };
   cc.onAddUser = function (name, ip) {
     rtm({
-      type: 'add-user',
+      type: "add-user",
       name: name,
-      ip: ip
-    })
+      ip: ip,
+    });
   };
   cc.onRemoveUser = function (name, ip) {
     rtm({
-      type: 'remove-user',
+      type: "remove-user",
       name: name,
-      ip: ip
-    })
+      ip: ip,
+    });
   };
   cc.onMessage = function (message, name, ip) {
     rtm({
-      type: 'message',
+      type: "message",
       name: name,
-      message: message
-    })
+      message: message,
+    });
   };
   clientId = id;
   chatClient = cc;
 }
 
-chrome.storage.local.get('client_id', function (result) {
-  if (result && ('client_id' in result)) {
+chrome.storage.local.get("client_id", function (result) {
+  if (result && "client_id" in result) {
     initClient(result.client_id);
   } else {
-    var id = 'client' + random_string(16);
-    chrome.storage.local.set({
-      'client_id': id
-    }, function () {
-      initClient(id);
-    });
+    var id = "client" + random_string(16);
+    chrome.storage.local.set(
+      {
+        client_id: id,
+      },
+      function () {
+        initClient(id);
+      }
+    );
   }
 });
 

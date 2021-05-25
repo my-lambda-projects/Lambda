@@ -19,5 +19,5 @@ console.log(splitStringByWords); //["Hello", "World"]
 var splitStringByChars = "Hello World".split("");
 console.log(splitStringByChars); //["H", "e", "l", "l", "o", " ","W", "o", "r", "l", "d"]
 console.log("lowercasestring".toUpperCase()); //"LOWERCASESTRING"
-console.log("UPPPERCASESTRING".toLowerCase());//"upppercasestring"
-console.log("There are no spaces in the end     ".trim());//"There are no spaces in the end"
+console.log("UPPPERCASESTRING".toLowerCase()); //"upppercasestring"
+console.log("There are no spaces in the end     ".trim()); //"There are no spaces in the end"

@@ -37,151 +37,161 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var dom = require("../lib/dom");
-var oop = require("../lib/oop");
-var EventEmitter = require("../lib/event_emitter").EventEmitter;
+  var dom = require("../lib/dom");
+  var oop = require("../lib/oop");
+  var EventEmitter = require("../lib/event_emitter").EventEmitter;
 
-var Gutter = function(parentEl) {
+  var Gutter = function (parentEl) {
     this.element = dom.createElement("div");
     this.element.className = "ace_layer ace_gutter-layer";
     parentEl.appendChild(this.element);
     this.setShowFoldWidgets(this.$showFoldWidgets);
-    
+
     this.gutterWidth = 0;
 
     this.$breakpoints = [];
     this.$annotations = [];
     this.$decorations = [];
-};
+  };
 
-(function() {
-
+  (function () {
     oop.implement(this, EventEmitter);
-    
-    this.setSession = function(session) {
-        this.session = session;
+
+    this.setSession = function (session) {
+      this.session = session;
     };
 
-    this.addGutterDecoration = function(row, className){
-        if (!this.$decorations[row])
-            this.$decorations[row] = "";
-        this.$decorations[row] += " " + className;
+    this.addGutterDecoration = function (row, className) {
+      if (!this.$decorations[row]) this.$decorations[row] = "";
+      this.$decorations[row] += " " + className;
     };
 
-    this.removeGutterDecoration = function(row, className){
-        this.$decorations[row] = this.$decorations[row].replace(" " + className, "");
+    this.removeGutterDecoration = function (row, className) {
+      this.$decorations[row] = this.$decorations[row].replace(
+        " " + className,
+        ""
+      );
     };
 
-    this.setBreakpoints = function(rows) {
-        this.$breakpoints = rows.concat();
+    this.setBreakpoints = function (rows) {
+      this.$breakpoints = rows.concat();
     };
 
-    this.setAnnotations = function(annotations) {
-        // iterate over sparse array
-        this.$annotations = [];
-        for (var row in annotations) if (annotations.hasOwnProperty(row)) {
-            var rowAnnotations = annotations[row];
-            if (!rowAnnotations)
-                continue;
+    this.setAnnotations = function (annotations) {
+      // iterate over sparse array
+      this.$annotations = [];
+      for (var row in annotations)
+        if (annotations.hasOwnProperty(row)) {
+          var rowAnnotations = annotations[row];
+          if (!rowAnnotations) continue;
 
-            var rowInfo = this.$annotations[row] = {
-                text: []
-            };
-            for (var i=0; i<rowAnnotations.length; i++) {
-                var annotation = rowAnnotations[i];
-                var annoText = annotation.text.replace(/"/g, "&quot;").replace(/'/g, "&#8217;").replace(/</, "&lt;");
-                if (rowInfo.text.indexOf(annoText) === -1)
-                    rowInfo.text.push(annoText);
-                var type = annotation.type;
-                if (type == "error")
-                    rowInfo.className = "ace_error";
-                else if (type == "warning" && rowInfo.className != "ace_error")
-                    rowInfo.className = "ace_warning";
-                else if (type == "info" && (!rowInfo.className))
-                    rowInfo.className = "ace_info";
-            }
+          var rowInfo = (this.$annotations[row] = {
+            text: [],
+          });
+          for (var i = 0; i < rowAnnotations.length; i++) {
+            var annotation = rowAnnotations[i];
+            var annoText = annotation.text
+              .replace(/"/g, "&quot;")
+              .replace(/'/g, "&#8217;")
+              .replace(/</, "&lt;");
+            if (rowInfo.text.indexOf(annoText) === -1)
+              rowInfo.text.push(annoText);
+            var type = annotation.type;
+            if (type == "error") rowInfo.className = "ace_error";
+            else if (type == "warning" && rowInfo.className != "ace_error")
+              rowInfo.className = "ace_warning";
+            else if (type == "info" && !rowInfo.className)
+              rowInfo.className = "ace_info";
+          }
         }
     };
 
-    this.update = function(config) {
-        this.$config = config;
+    this.update = function (config) {
+      this.$config = config;
 
-        var emptyAnno = {className: "", text: []};
-        var html = [];
-        var i = config.firstRow;
-        var lastRow = config.lastRow;
-        var fold = this.session.getNextFoldLine(i);
-        var foldStart = fold ? fold.start.row : Infinity;
-        var foldWidgets = this.$showFoldWidgets && this.session.foldWidgets;
+      var emptyAnno = { className: "", text: [] };
+      var html = [];
+      var i = config.firstRow;
+      var lastRow = config.lastRow;
+      var fold = this.session.getNextFoldLine(i);
+      var foldStart = fold ? fold.start.row : Infinity;
+      var foldWidgets = this.$showFoldWidgets && this.session.foldWidgets;
 
-        while (true) {
-            if(i > foldStart) {
-                i = fold.end.row + 1;
-                fold = this.session.getNextFoldLine(i, fold);
-                foldStart = fold ?fold.start.row :Infinity;
-            }
-            if(i > lastRow)
-                break;
-
-            var annotation = this.$annotations[i] || emptyAnno;
-            html.push("<div class='ace_gutter-cell",
-                this.$decorations[i] || "",
-                this.$breakpoints[i] ? " ace_breakpoint " : " ",
-                annotation.className,
-                "' title='", annotation.text.join("\n"),
-                "' style='height:", config.lineHeight, "px;'>", (i+1));
-
-            if (foldWidgets) {
-                var c = foldWidgets[i];
-                // check if cached value is invalidated and we need to recompute
-                if (c == null)
-                    c = foldWidgets[i] = this.session.getFoldWidget(i);
-                if (c)
-                    html.push(
-                        "<span class='ace_fold-widget ", c,
-                        c == "start" && i == foldStart && i < fold.end.row ? " closed" : " open",
-                        "'></span>"
-                    );
-            }
-
-            var wrappedRowLength = this.session.getRowLength(i) - 1;
-            while (wrappedRowLength--) {
-                html.push("</div><div class='ace_gutter-cell' style='height:", config.lineHeight, "px'>\xA6");
-            }
-
-            html.push("</div>");
-
-            i++;
+      while (true) {
+        if (i > foldStart) {
+          i = fold.end.row + 1;
+          fold = this.session.getNextFoldLine(i, fold);
+          foldStart = fold ? fold.start.row : Infinity;
         }
-        this.element = dom.setInnerHtml(this.element, html.join(""));
-        this.element.style.height = config.minHeight + "px";
-        
-        var gutterWidth = this.element.offsetWidth;
-        if (gutterWidth !== this.gutterWidth) {
-            this.gutterWidth = gutterWidth;
-            this._emit("changeGutterWidth", gutterWidth);
+        if (i > lastRow) break;
+
+        var annotation = this.$annotations[i] || emptyAnno;
+        html.push(
+          "<div class='ace_gutter-cell",
+          this.$decorations[i] || "",
+          this.$breakpoints[i] ? " ace_breakpoint " : " ",
+          annotation.className,
+          "' title='",
+          annotation.text.join("\n"),
+          "' style='height:",
+          config.lineHeight,
+          "px;'>",
+          i + 1
+        );
+
+        if (foldWidgets) {
+          var c = foldWidgets[i];
+          // check if cached value is invalidated and we need to recompute
+          if (c == null) c = foldWidgets[i] = this.session.getFoldWidget(i);
+          if (c)
+            html.push(
+              "<span class='ace_fold-widget ",
+              c,
+              c == "start" && i == foldStart && i < fold.end.row
+                ? " closed"
+                : " open",
+              "'></span>"
+            );
         }
+
+        var wrappedRowLength = this.session.getRowLength(i) - 1;
+        while (wrappedRowLength--) {
+          html.push(
+            "</div><div class='ace_gutter-cell' style='height:",
+            config.lineHeight,
+            "px'>\xA6"
+          );
+        }
+
+        html.push("</div>");
+
+        i++;
+      }
+      this.element = dom.setInnerHtml(this.element, html.join(""));
+      this.element.style.height = config.minHeight + "px";
+
+      var gutterWidth = this.element.offsetWidth;
+      if (gutterWidth !== this.gutterWidth) {
+        this.gutterWidth = gutterWidth;
+        this._emit("changeGutterWidth", gutterWidth);
+      }
     };
 
     this.$showFoldWidgets = true;
-    this.setShowFoldWidgets = function(show) {
-        if (show)
-            dom.addCssClass(this.element, "ace_folding-enabled");
-        else
-            dom.removeCssClass(this.element, "ace_folding-enabled");
+    this.setShowFoldWidgets = function (show) {
+      if (show) dom.addCssClass(this.element, "ace_folding-enabled");
+      else dom.removeCssClass(this.element, "ace_folding-enabled");
 
-        this.$showFoldWidgets = show;
-    };
-    
-    this.getShowFoldWidgets = function() {
-        return this.$showFoldWidgets;
+      this.$showFoldWidgets = show;
     };
 
-}).call(Gutter.prototype);
+    this.getShowFoldWidgets = function () {
+      return this.$showFoldWidgets;
+    };
+  }.call(Gutter.prototype));
 
-exports.Gutter = Gutter;
-
+  exports.Gutter = Gutter;
 });

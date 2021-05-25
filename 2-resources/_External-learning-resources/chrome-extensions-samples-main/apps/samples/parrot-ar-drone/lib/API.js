@@ -8,8 +8,7 @@
  * @see https://github.com/felixge/node-ar-drone
  */
 var DRONE = DRONE || {};
-DRONE.API = (function() {
-
+DRONE.API = (function () {
   var SIMULATE = false;
 
   // Constants
@@ -24,32 +23,32 @@ DRONE.API = (function() {
   var EMERGENCY = BASE + (1 << 8);
 
   // Vars
-  var noop = function() {};
+  var noop = function () {};
   var keepAliveTimeout = 0;
   var CONNECTIONS = 3;
   var connectionsOutstanding = CONNECTIONS;
   var looping = false;
   var sockets = {
-    "nav": {
+    nav: {
       protocol: "udp",
       port: 5554,
       socket: null,
     },
-    "vid": {
+    vid: {
       protocol: "tcp",
       port: 5555,
       socket: null,
     },
-    "at": {
+    at: {
       protocol: "udp",
       port: 5556,
       socket: null,
     },
-    "control": {
+    control: {
       protocol: "tcp",
       port: 5559,
       socket: null,
-    }
+    },
   };
   var status = {
     verticalSpeed: 0,
@@ -57,24 +56,20 @@ DRONE.API = (function() {
     leftRightTilt: 0,
     frontBackTilt: 0,
     enabled: 0,
-    mode: LAND
+    mode: LAND,
   };
 
   callbacks = {
-
     /**
      * Called whenever one of our sockets has connected
      */
-    onConnected: function(connectionResult) {
-
+    onConnected: function (connectionResult) {
       // if we have 0 or higher we're good
-      if(connectionResult >= 0) {
-
+      if (connectionResult >= 0) {
         connectionsOutstanding--;
 
         // if we're all done with our connecting
-        if(connectionsOutstanding === 0 && callbacks.onAllConnected) {
-
+        if (connectionsOutstanding === 0 && callbacks.onAllConnected) {
           // start sending commands
           sendKeepAliveCommand();
           sendFlatTrim();
@@ -83,14 +78,13 @@ DRONE.API = (function() {
           // now enable controls
           status.enabled = 1;
 
-          if(callbacks.onAllConnected) {
+          if (callbacks.onAllConnected) {
             callbacks.onAllConnected();
           }
         }
-
       } else {
         // Flag that there was an issue
-        if(callbacks.onConnectionError) {
+        if (callbacks.onConnectionError) {
           callbacks.onConnectionError();
         }
       }
@@ -99,9 +93,9 @@ DRONE.API = (function() {
     /**
      * Called whenever one of our udp sockets receive messages
      */
-    onReceive: function(info) {
+    onReceive: function (info) {
       if (info.remotePort == 5554) {
-        if(info.data.byteLength > 0) {
+        if (info.data.byteLength > 0) {
           DRONE.NavData.parse(info.data);
         } else {
           shutdown();
@@ -109,34 +103,44 @@ DRONE.API = (function() {
       } else if (info.remotePort == 5556) {
         console.log("at socket receive data of size:" + info.data.byteLength);
       } else if (info.remotePort == 5559) {
-        console.log("control socket receive data of size:" + info.data.byteLength);
+        console.log(
+          "control socket receive data of size:" + info.data.byteLength
+        );
       } else {
         console.log("unexpected data are received by port:" + info.remotePort);
       }
     },
 
-    onReceiveError: function(info) {
-      console.log("network in trouble socketId:" + info.socketId + " resultCode:" + info.resultCode);
+    onReceiveError: function (info) {
+      console.log(
+        "network in trouble socketId:" +
+          info.socketId +
+          " resultCode:" +
+          info.resultCode
+      );
       shutdown();
     },
 
     /* Placeholder callbacks */
     onAllConnected: null,
-    onConnectionError: null
+    onConnectionError: null,
   };
 
   // -- Bootstrap
 
   function bootstrapClientIp() {
     // double check the Client IP (sometimes the Drone assignes 192.168.1.3)
-    chrome.socket.getNetworkList(function(entries) {
+    chrome.socket.getNetworkList(function (entries) {
       if (entries) {
         for (var i = 0; i < entries.length; i++) {
-          if (entries[i] && entries[i].address
-            && entries[i].address.indexOf("192.168.1.") == 0) {
+          if (
+            entries[i] &&
+            entries[i].address &&
+            entries[i].address.indexOf("192.168.1.") == 0
+          ) {
             if (CLIENT_IP != entries[i].address) {
               CLIENT_IP = entries[i].address;
-              log("Client IP changed to "+CLIENT_IP);
+              log("Client IP changed to " + CLIENT_IP);
             }
             connectDrone();
             return;
@@ -151,7 +155,7 @@ DRONE.API = (function() {
    * Initialises client IP
    */
   function init(cbConnected, cbConnectionError) {
-    if (sockets['at'].socket != null) {
+    if (sockets["at"].socket != null) {
       return;
     }
     bootstrapClientIp();
@@ -166,16 +170,16 @@ DRONE.API = (function() {
    */
   function connectDrone() {
     // send the drone AT commands
-    connect(sockets['at']);
+    connect(sockets["at"]);
 
     // get navigation data from the drone
-    connect(sockets['nav']);
+    connect(sockets["nav"]);
 
     // get a video stream from the drone
     // TODO: connect(sockets['vid'], 'tcp');
 
     // send admin commands to the drone
-    connect(sockets['control']);
+    connect(sockets["control"]);
 
     chrome.sockets.tcp.onReceive.addListener(callbacks.onReceive);
     chrome.sockets.tcp.onReceiveError.addListener(callbacks.onReceiveError);
@@ -184,25 +188,24 @@ DRONE.API = (function() {
     log("connection completed.");
   }
 
-
   /**
    * Closes and discards all the socket connections
    */
   function shutdown() {
-  try {
-    connectionsOutstanding = CONNECTIONS;
-    if (keepAliveTimeout) clearTimeout(keepAliveTimeout);
-    status.mode = LAND;
-    status.enabled = 0;
-    disconnect(sockets['at']);
-    disconnect(sockets['nav']);
-    disconnect(sockets['control']);
-  } catch (err) {
-    sockets['at'].socket = null;
-    sockets['nav'].socket = null;
-    sockets['control'].socket = null;
-  }
-  log("disconnected. press X to reconnect");
+    try {
+      connectionsOutstanding = CONNECTIONS;
+      if (keepAliveTimeout) clearTimeout(keepAliveTimeout);
+      status.mode = LAND;
+      status.enabled = 0;
+      disconnect(sockets["at"]);
+      disconnect(sockets["nav"]);
+      disconnect(sockets["control"]);
+    } catch (err) {
+      sockets["at"].socket = null;
+      sockets["nav"].socket = null;
+      sockets["control"].socket = null;
+    }
+    log("disconnected. press X to reconnect");
     // TODO: disconnect(sockets['vid'].socket);
   }
 
@@ -212,7 +215,6 @@ DRONE.API = (function() {
    * @see http://developer.chrome.com/apps/socket.html
    */
   function connect(sockRef) {
-
     // grab the protocol, type, port and IP from
     // the sockRef passed in and use that
     // to create the socket
@@ -220,18 +222,24 @@ DRONE.API = (function() {
       callbacks.onConnected(1);
     } else {
       if (sockRef.protocol === "tcp") {
-        chrome.sockets.tcp.create({}, function(createInfo) {
+        chrome.sockets.tcp.create({}, function (createInfo) {
           sockRef.socket = createInfo.socketId;
-          chrome.sockets.tcp.connect(sockRef.socket,
+          chrome.sockets.tcp.connect(
+            sockRef.socket,
             DRONE_IP,
             sockRef.port,
-            callbacks.onConnected);
+            callbacks.onConnected
+          );
         });
       } else if (sockRef.protocol === "udp") {
-        chrome.sockets.udp.create({}, function(createInfo) {
+        chrome.sockets.udp.create({}, function (createInfo) {
           sockRef.socket = createInfo.socketId;
-          chrome.sockets.udp.bind(sockRef.socket,
-            CLIENT_IP, sockRef.port, callbacks.onConnected);
+          chrome.sockets.udp.bind(
+            sockRef.socket,
+            CLIENT_IP,
+            sockRef.port,
+            callbacks.onConnected
+          );
         });
       }
     }
@@ -243,7 +251,7 @@ DRONE.API = (function() {
   function disconnect(sockRef) {
     if (!SIMULATE) {
       if (sockRef.protocol === "tcp") {
-        chrome.sockets.tcp.disconnect(sockRef.socket, function(result) {
+        chrome.sockets.tcp.disconnect(sockRef.socket, function (result) {
           chrome.sockets.tcp.close(sockRef.socket, noop);
           sockRef.socket = null;
         });
@@ -261,11 +269,11 @@ DRONE.API = (function() {
    * an ArrayBuffer to send over the socket to the drone
    */
   function sendCommands(commands) {
-    var atSock = sockets['at'];
+    var atSock = sockets["at"];
     var commandBuffer = DRONE.Util.stringToArrayBuffer(commands.join(""));
 
     // output the commands
-    log(commands.join("")+"   "+JSON.stringify(status));
+    log(commands.join("") + "   " + JSON.stringify(status));
 
     // send all the commands
     if (!SIMULATE) {
@@ -275,12 +283,13 @@ DRONE.API = (function() {
           commandBuffer,
           DRONE_IP,
           atSock.port,
-          function(sendInfo) {
+          function (sendInfo) {
             if (sendInfo.resultCode < 0) {
               shutdown();
             }
-          });
-      } catch(err) {
+          }
+        );
+      } catch (err) {
         shutdown();
       }
     }
@@ -291,16 +300,22 @@ DRONE.API = (function() {
    * we want. This is quite a high value (min = 0, max = 0.52)
    */
   function setConfigurations() {
-    var outdoor = 'FALSE';
+    var outdoor = "FALSE";
     sendCommands([
       // Set sensitivity; This is quite a high value (min = 0, max = 0.52)
-      new DRONE.Command('CONFIG', ['"control:euler_angle_max"', '"0.11"']),
-      new DRONE.Command('CONFIG', ['"control:indoor_euler_angle_max"', '"0.11"']),
-      new DRONE.Command('CONFIG', ['"control:outdoor_euler_angle_max"', '"0.11"']),
+      new DRONE.Command("CONFIG", ['"control:euler_angle_max"', '"0.11"']),
+      new DRONE.Command("CONFIG", [
+        '"control:indoor_euler_angle_max"',
+        '"0.11"',
+      ]),
+      new DRONE.Command("CONFIG", [
+        '"control:outdoor_euler_angle_max"',
+        '"0.11"',
+      ]),
       // Informs the drone that it is going to be flying outdoors
-      new DRONE.Command('CONFIG', ['"control:outdoor"', '"' + outdoor + '"']),
+      new DRONE.Command("CONFIG", ['"control:outdoor"', '"' + outdoor + '"']),
       // Set navdata_demo to receive navdata
-      new DRONE.Command('CONFIG', ['"general:navdata_demo"', '"TRUE"']),
+      new DRONE.Command("CONFIG", ['"general:navdata_demo"', '"TRUE"']),
     ]);
   }
 
@@ -309,23 +324,23 @@ DRONE.API = (function() {
    * back the latest data from the drone
    */
   function sendKeepAliveCommand() {
-    var navSock = sockets['nav'];
+    var navSock = sockets["nav"];
     if (!SIMULATE) {
       try {
         chrome.sockets.udp.send(
           navSock.socket,
-          (new Uint8Array([1])).buffer,
+          new Uint8Array([1]).buffer,
           DRONE_IP,
           navSock.port,
-          function(sendInfo) {
+          function (sendInfo) {
             if (sendInfo.resultCode < 0) {
               shutdown();
             }
-          });
-      } catch(err) {
+          }
+        );
+      } catch (err) {
         shutdown();
       }
-
     }
 
     // set up a keepalive because The drone does not receive any traffic for more than 2000ms;
@@ -338,7 +353,7 @@ DRONE.API = (function() {
   var previousTakeoffStatus = LAND;
 
   /**
-   * The takeoff loop. This should keep sending the REF command until the 
+   * The takeoff loop. This should keep sending the REF command until the
    * navdata shows that it has taken off, but since we don't yet interpret navdata,
    * let's just keep it doing this for four seconds.
    */
@@ -361,10 +376,7 @@ DRONE.API = (function() {
 
     commands = [
       // Take off
-      new DRONE.Command('REF', [
-        status.mode
-      ])
-
+      new DRONE.Command("REF", [status.mode]),
     ];
 
     // send and reschedule
@@ -383,11 +395,9 @@ DRONE.API = (function() {
 
     commands = [
       // Take off
-      new DRONE.Command('REF', [
-        status.mode
-      ]),
+      new DRONE.Command("REF", [status.mode]),
 
-      new DRONE.Command('PCMD', [
+      new DRONE.Command("PCMD", [
         // Enables/Disables commands
         status.enabled,
         // Left - Right tilt
@@ -397,10 +407,9 @@ DRONE.API = (function() {
         // Vertical Speed
         DRONE.Util.float32ToInt32(status.verticalSpeed),
         // Angular Speed
-        DRONE.Util.float32ToInt32(status.angularSpeed)
-
-      ])
-   ];
+        DRONE.Util.float32ToInt32(status.angularSpeed),
+      ]),
+    ];
 
     // send and schedule the update
     sendCommands(commands);
@@ -423,7 +432,7 @@ DRONE.API = (function() {
   function emergency() {
     // don't want drone to fly immediately after going to normal mode.
     status.mode = LAND;
-    sendCommands([new DRONE.Command('REF', [EMERGENCY])]);
+    sendCommands([new DRONE.Command("REF", [EMERGENCY])]);
   }
 
   function raiseLower(val) {
@@ -447,7 +456,7 @@ DRONE.API = (function() {
   }
 
   function check(val, defaultVal) {
-    if(typeof val === "undefined") {
+    if (typeof val === "undefined") {
       val = defaultVal;
     }
     return val;
@@ -459,32 +468,32 @@ DRONE.API = (function() {
    */
   function sendFlatTrim() {
     if (status.mode == LAND) {
-      sendCommands([new DRONE.Command('FTRIM')]);
+      sendCommands([new DRONE.Command("FTRIM")]);
     }
   }
 
   // from ARDrone_SDK_2_0/ControlEngine/iPhone/Release/ARDroneGeneratedTypes.h
   var ANIMATIONS = [
-    'phiM30Deg',
-    'phi30Deg',
-    'thetaM30Deg',
-    'theta30Deg',
-    'theta20degYaw200deg',
-    'theta20degYawM200deg',
-    'turnaround',
-    'turnaroundGodown',
-    'yawShake',
-    'yawDance',
-    'phiDance',
-    'thetaDance',
-    'vzDance',
-    'wave',
-    'phiThetaMixed',
-    'doublePhiThetaMixed',
-    'flipAhead',
-    'flipBehind',
-    'flipLeft',
-    'flipRight',
+    "phiM30Deg",
+    "phi30Deg",
+    "thetaM30Deg",
+    "theta30Deg",
+    "theta20degYaw200deg",
+    "theta20degYawM200deg",
+    "turnaround",
+    "turnaroundGodown",
+    "yawShake",
+    "yawDance",
+    "phiDance",
+    "thetaDance",
+    "vzDance",
+    "wave",
+    "phiThetaMixed",
+    "doublePhiThetaMixed",
+    "flipAhead",
+    "flipBehind",
+    "flipLeft",
+    "flipRight",
   ];
 
   function flipAnimation() {
@@ -492,8 +501,10 @@ DRONE.API = (function() {
       return;
     }
     looping = false;
-    sendCommands([new DRONE.Command('ANIM', [ANIMATIONS.indexOf('flipLeft'), 500])]);
-    setTimeout(function() {
+    sendCommands([
+      new DRONE.Command("ANIM", [ANIMATIONS.indexOf("flipLeft"), 500]),
+    ]);
+    setTimeout(function () {
       looping = true;
       loop();
     }, 1000);
@@ -511,5 +522,4 @@ DRONE.API = (function() {
     shutdown: shutdown,
     flipAnimation: flipAnimation,
   };
-
 })();

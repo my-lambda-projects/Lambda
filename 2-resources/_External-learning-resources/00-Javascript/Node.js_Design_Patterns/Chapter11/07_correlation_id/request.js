@@ -1,24 +1,26 @@
 "use strict";
 
-const uuid = require('node-uuid');
+const uuid = require("node-uuid");
 
-module.exports = channel => {
-  const idToCallbackMap = {};  // [1]
-  
-  channel.on('message', message => {  // [2]
+module.exports = (channel) => {
+  const idToCallbackMap = {}; // [1]
+
+  channel.on("message", (message) => {
+    // [2]
     const handler = idToCallbackMap[message.inReplyTo];
-    if(handler) {
+    if (handler) {
       handler(message.data);
     }
   });
-  
-  return function sendRequest(req, callback) {  // [3]
+
+  return function sendRequest(req, callback) {
+    // [3]
     const correlationId = uuid.v4();
     idToCallbackMap[correlationId] = callback;
     channel.send({
-      type: 'request',
+      type: "request",
       data: req,
-      id: correlationId
+      id: correlationId,
     });
   };
 };

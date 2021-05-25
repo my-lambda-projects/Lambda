@@ -2,9 +2,8 @@ var myTimer = {};
 
 myTimer.count = 0;
 
-myTimer.sayCount = function() {
+myTimer.sayCount = function () {
   console.log(this.count++);
 };
 
-
-setInterval(myTimer.sayCount, 500)
+setInterval(myTimer.sayCount, 500);

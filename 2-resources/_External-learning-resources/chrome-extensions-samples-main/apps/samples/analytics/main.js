@@ -15,38 +15,38 @@
 var service, tracker, out;
 
 function initAnalyticsConfig(config) {
-  document.getElementById('settings-loading').hidden = true;
-  document.getElementById('settings-loaded').hidden = false;
+  document.getElementById("settings-loading").hidden = true;
+  document.getElementById("settings-loaded").hidden = false;
 
-  var checkbox = document.getElementById('analytics');
+  var checkbox = document.getElementById("analytics");
   checkbox.checked = config.isTrackingPermitted();
-  checkbox.onchange = function() {
+  checkbox.onchange = function () {
     config.setTrackingPermitted(checkbox.checked);
   };
 }
 
 function startApp() {
   // Initialize the Analytics service object with the name of your app.
-  service = analytics.getService('ice_cream_app');
+  service = analytics.getService("ice_cream_app");
   service.getConfig().addCallback(initAnalyticsConfig);
 
   // Get a Tracker using your Google Analytics app Tracking ID.
-  tracker = service.getTracker('UA-XXXXX-X');
+  tracker = service.getTracker("UA-XXXXX-X");
 
   // Record an "appView" each time the user launches your app or goes to a new
   // screen within the app.
-  tracker.sendAppView('MainView');
+  tracker.sendAppView("MainView");
 
-  var button1 = document.getElementById('chocolate');
-  var button2 = document.getElementById('vanilla');
-  out = document.getElementById('out');
+  var button1 = document.getElementById("chocolate");
+  var button2 = document.getElementById("vanilla");
+  out = document.getElementById("out");
   [button1, button2].forEach(addButtonListener);
 }
 
 function addButtonListener(button) {
-  button.addEventListener('click', function() {
-    tracker.sendEvent('Flavor', 'Choose', button.id);
-    out.textContent = 'You chose: ' + button.textContent;
+  button.addEventListener("click", function () {
+    tracker.sendEvent("Flavor", "Choose", button.id);
+    out.textContent = "You chose: " + button.textContent;
   });
 }
 

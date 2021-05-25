@@ -1,12 +1,12 @@
 "use strict";
 
-const fs = require('fs');
-const objectPath = require('object-path');
+const fs = require("fs");
+const objectPath = require("object-path");
 
 class ConfigTemplate {
   read(file) {
     console.log(`Deserializing from ${file}`);
-    this.data = this._deserialize(fs.readFileSync(file, 'utf-8'));
+    this.data = this._deserialize(fs.readFileSync(file, "utf-8"));
   }
 
   save(file) {
@@ -23,11 +23,11 @@ class ConfigTemplate {
   }
 
   _serialize() {
-    throw new Error('_serialize() must be implemented');
+    throw new Error("_serialize() must be implemented");
   }
 
   _deserialize() {
-    throw new Error('_deserialize() must be implemented');
+    throw new Error("_deserialize() must be implemented");
   }
 }
 

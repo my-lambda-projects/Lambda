@@ -1,49 +1,44 @@
 function renderPosts(allEntries) {
-  $('.code-modal').on('show.bs.modal');
-  
+  $(".code-modal").on("show.bs.modal");
+
   if (!Array.isArray(allEntries) || allEntries.length === 0) {
-    return $('#journal').html(`
+    return $("#journal").html(`
       <div class="col-12">
         <h3>No Entries Found</h3>
       </div>
-    `)
+    `);
   }
-  
-  let html = '';
+
+  let html = "";
   for (let i = 0; i < allEntries.length; i++) {
     const entry = allEntries[i];
     html += renderEntryTemplate(entry);
   }
-  
-  $('#journal')
-    .html(html);
-  
-  setupModalEvents('.code-modal');
-}
 
+  $("#journal").html(html);
+
+  setupModalEvents(".code-modal");
+}
 
 function renderEntryTemplate(entry) {
-  
   const prettyDate = moment(entry.date).fromNow();
-  
+
   return `
     <div class="col-md-6 mb-4 mt-2">
-      <h3>${ entry.title }</h3>
+      <h3>${entry.title}</h3>
       <em class="d-block text-right mr-3">
-        <code>${ prettyDate }</code>
+        <code>${prettyDate}</code>
       </em>
       <p>
-        ${ entry.post.join('</p><p>') }
+        ${entry.post.join("</p><p>")}
       </p>
       
-      ${ !entry.codeSrc ? '' : renderCodeSrcModal(entry) }
+      ${!entry.codeSrc ? "" : renderCodeSrcModal(entry)}
     </div>
-  `
+  `;
 }
 
-
 function renderCodeSrcModal(entry) {
-  
   return `
     <p>
       <!-- Button trigger modal -->
@@ -98,19 +93,16 @@ function renderCodeSrcModal(entry) {
         </div>
       </div>
     </p>
-  `
+  `;
 }
 
+function setupModalEvents(selector = ".code-modal") {
+  $(selector).on("show.bs.modal", (evt) => {
+    const $codeContainer = $(".code-container", evt.target);
+    const codeSrcUrl = $codeContainer.data("codeSrc");
 
-function setupModalEvents(selector = '.code-modal') {
-  $(selector)
-    .on('show.bs.modal', evt => {
-      const $codeContainer = $('.code-container', evt.target);
-      const codeSrcUrl = $codeContainer.data('codeSrc')
-      
-      $codeContainer
-        .html(`
+    $codeContainer.html(`
           <iframe height="400px" width="100%" src="${codeSrcUrl}" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
-        `)
-  })
+        `);
+  });
 }

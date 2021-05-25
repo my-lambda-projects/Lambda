@@ -9,8 +9,5 @@
       "scripts": ["main.js"]
     }
   },
-  "permissions": [
-    "identity",
-    "https://github.com/"
-  ]
+  "permissions": ["identity", "https://github.com/"]
 }

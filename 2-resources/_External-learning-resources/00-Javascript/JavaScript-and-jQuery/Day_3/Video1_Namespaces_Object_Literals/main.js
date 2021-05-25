@@ -1,14 +1,12 @@
-
 var michael = {
-  lovesJavaScript: true, 
-  firstName: 'Michael',
-  job: 'Programmer',
-  languages: [ 'English' ],
+  lovesJavaScript: true,
+  firstName: "Michael",
+  job: "Programmer",
+  languages: ["English"],
 };
 
-
-function greets (person) {
+function greets(person) {
   return `\
-    Greetings, my name is ${ person.firstName }!\
+    Greetings, my name is ${person.firstName}!\
   `;
 }

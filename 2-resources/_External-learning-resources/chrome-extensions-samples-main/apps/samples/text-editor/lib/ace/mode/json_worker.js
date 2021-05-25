@@ -35,69 +35,66 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var oop = require("../lib/oop");
-var Mirror = require("../worker/mirror").Mirror;
-var parse = require("./json/json_parse");
+  var oop = require("../lib/oop");
+  var Mirror = require("../worker/mirror").Mirror;
+  var parse = require("./json/json_parse");
 
-var JsonWorker = exports.JsonWorker = function(sender) {
+  var JsonWorker = (exports.JsonWorker = function (sender) {
     Mirror.call(this, sender);
     this.setTimeout(200);
-};
+  });
 
-oop.inherits(JsonWorker, Mirror);
+  oop.inherits(JsonWorker, Mirror);
 
-(function() {
+  (function () {
+    this.onUpdate = function () {
+      var value = this.doc.getValue();
 
-    this.onUpdate = function() {
-        var value = this.doc.getValue();
-
-        try {
-            var result = parse(value);
-        } catch (e) {
-            var pos = this.charToDocumentPosition(e.at-1);
-            this.sender.emit("error", {
-                row: pos.row,
-                column: pos.column,
-                text: e.message,
-                type: "error"
-            });
-            return;
-        }
-        this.sender.emit("ok");
+      try {
+        var result = parse(value);
+      } catch (e) {
+        var pos = this.charToDocumentPosition(e.at - 1);
+        this.sender.emit("error", {
+          row: pos.row,
+          column: pos.column,
+          text: e.message,
+          type: "error",
+        });
+        return;
+      }
+      this.sender.emit("ok");
     };
 
-    this.charToDocumentPosition = function(charPos) {
-        var i = 0;
-        var len = this.doc.getLength();
-        var nl = this.doc.getNewLineCharacter().length;
+    this.charToDocumentPosition = function (charPos) {
+      var i = 0;
+      var len = this.doc.getLength();
+      var nl = this.doc.getNewLineCharacter().length;
 
-        if (!len) {
-            return { row: 0, column: 0};
-        }
+      if (!len) {
+        return { row: 0, column: 0 };
+      }
 
-        var lineStart = 0;
-        while (i < len) {
-            var line = this.doc.getLine(i);
-            var lineLength = line.length + nl;
-            if (lineStart + lineLength > charPos)
-                return {
-                    row: i,
-                    column: charPos - lineStart
-                };
+      var lineStart = 0;
+      while (i < len) {
+        var line = this.doc.getLine(i);
+        var lineLength = line.length + nl;
+        if (lineStart + lineLength > charPos)
+          return {
+            row: i,
+            column: charPos - lineStart,
+          };
 
-            lineStart += lineLength;
-            i += 1;
-        }
+        lineStart += lineLength;
+        i += 1;
+      }
 
-        return {
-            row: i-1,
-            column: line.length
-        };
+      return {
+        row: i - 1,
+        column: line.length,
+      };
     };
-
-}).call(JsonWorker.prototype);
-
+  }.call(JsonWorker.prototype));
 });

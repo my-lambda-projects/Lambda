@@ -8,8 +8,7 @@ In 2013, I decided to write a [web-based game prototyping tool](https://github.c
 
 This is a problem that turns out to be more complicated than it first seems. In this chapter, we'll explore the issues with using HTTP to build this sort of interaction, and then we'll build a _web framework_ in Common Lisp that allows us to solve similar problems in the future.
 
-The Basics of HTTP Servers
---------------------------
+## The Basics of HTTP Servers
 
 At the simplest level, an HTTP exchange is a single request followed by a single response. A _client_ sends a request, which includes a resource identifier, an HTTP version tag, some headers and some parameters. The _server_ parses that request, figures out what to do about it, and sends a response which includes the same HTTP version tag, a response code, some headers and a response body.
 
@@ -45,8 +44,8 @@ The key observation is that an HTTP server hosting a "traditional" web applicati
 
 The consequence of keeping long-lived connections around is that we'll need either:
 
-*   A platform where threads are "cheap" enough that we can use large numbers of them at once.
-*   A server architecture that can handle many connections with a single thread.
+- A platform where threads are "cheap" enough that we can use large numbers of them at once.
+- A server architecture that can handle many connections with a single thread.
 
 There are programming environments such as [Racket](http://racket-lang.org/), [Erlang](http://www.erlang.org/), and [Haskell](http://hackage.haskell.org/package/base-4.7.0.1/docs/Control-Concurrent.html) that provide thread-like constructs that are "lightweight" enough to consider the first option. This approach requires the programmer to explicitly deal with synchronization issues, which are going to be much more prevalent in a system where connections are open for a long time and likely all competing for similar resources. Specifically, if we have some sort of central data shared by several users simultaneously, we will need to coordinate reads and writes of that data in some way.
 
@@ -66,8 +65,7 @@ In addition to the server architecture, we also need to choose which of the thre
 
 Now that we've motivated our architectural decision and decided on a mechanism for simulating bidirectional communication between clients and server, let's get started on building our web framework. We'll start by building a relatively "dumb" server first, and then we'll extend it into a web-application framework that lets us focus on _what_ our heavily-interactive program needs to do, and not _how_ it is doing it.
 
-Building an Event-Driven Web Server
------------------------------------
+## Building an Event-Driven Web Server
 
 Most programs that use a single process to manage concurrent streams of work use a pattern called an _event loop_. Let's look at what an event loop for our web server might look like.
 
@@ -75,25 +73,25 @@ Most programs that use a single process to manage concurrent streams of work use
 
 Our event loop needs to:
 
-*   listen for incoming connections;
-*   handle all new handshakes or incoming data on existing connections;
-*   clean up dangling sockets that are unexpectedly killed (e.g. by an interrupt)
+- listen for incoming connections;
+- handle all new handshakes or incoming data on existing connections;
+- clean up dangling sockets that are unexpectedly killed (e.g. by an interrupt)
 
-    (defmethod start ((port integer))
-      (let ((server (socket-listen
-             usocket:*wildcard-host* port
-             :reuse-address t
-             :element-type 'octet))
-        (conns (make-hash-table)))
-        (unwind-protect
-         (loop (loop for ready
-              in (wait-for-input
-                  (cons server (alexandria:hash-table-keys conns))
-                  :ready-only t)
-              do (process-ready ready conns)))
-          (loop for c being the hash-keys of conns
-         do (loop while (socket-close c)))
-          (loop while (socket-close server)))))
+  (defmethod start ((port integer))
+  (let ((server (socket-listen
+  usocket:_wildcard-host_ port
+  :reuse-address t
+  :element-type 'octet))
+  (conns (make-hash-table)))
+  (unwind-protect
+  (loop (loop for ready
+  in (wait-for-input
+  (cons server (alexandria:hash-table-keys conns))
+  :ready-only t)
+  do (process-ready ready conns)))
+  (loop for c being the hash-keys of conns
+  do (loop while (socket-close c)))
+  (loop while (socket-close server)))))
 
 If you haven't written a Common Lisp program before, this code block requires some explanation. What we have written here is a _method definition_. While Lisp is popularly known as a functional language, it also has its own system for object-oriented programming called "The Common Lisp Object System", which is usually abbreviated as "CLOS".[5](#fn5)
 
@@ -103,8 +101,8 @@ In CLOS, instead of focusing on classes and methods, we write [_generic function
 
 More generally, methods can specialize on more than one argument. When a `method` is called, the runtime:
 
-*   dispatches on the type of its arguments to figure out which method body should be run, and
-*   runs the appropriate function.
+- dispatches on the type of its arguments to figure out which method body should be run, and
+- runs the appropriate function.
 
 ### Processing Sockets
 
@@ -188,9 +186,9 @@ The basis of our approach to processing connections without blocking is the libr
 
 When `buffer!` is called on a `buffer`, it:
 
-*   increments the `tries` count, so that we can evict "needy" buffers in `process-ready`;
-*   loops to read characters from the input stream, and
-*   returns the last character it read if it has read all of the available input.
+- increments the `tries` count, so that we can evict "needy" buffers in `process-ready`;
+- loops to read characters from the input stream, and
+- returns the last character it read if it has read all of the available input.
 
 It also tracks any `\r\n\r\n` sequences so that we can later detect complete requests. Finally, if any error results, it returns an `:eof` to signal that `process-ready` should discard this connection.
 
@@ -209,17 +207,17 @@ The `buffer` type is a CLOS [_class_](http://www.gigamonkeys.com/book/object-reo
 
 Our `buffer` class has seven slots:
 
-*   `tries`, which keeps count of how many times we've tried reading into this buffer
-*   `contents`, which contains what we've read so far
-*   `bi-stream`, which a hack around some of those Common Lisp-specific, non-blocking-I/O annoyances I mentioned earlier
-*   `total-buffered`, which is a count of chars we've read so far
-*   `started`, which is a timestamp that tells us when we created this buffer
-*   `request`, which will eventually contain the request we construct from buffered data
-*   `expecting`, which will signal how many more chars we're expecting (if any) after we buffer the request headers
+- `tries`, which keeps count of how many times we've tried reading into this buffer
+- `contents`, which contains what we've read so far
+- `bi-stream`, which a hack around some of those Common Lisp-specific, non-blocking-I/O annoyances I mentioned earlier
+- `total-buffered`, which is a count of chars we've read so far
+- `started`, which is a timestamp that tells us when we created this buffer
+- `request`, which will eventually contain the request we construct from buffered data
+- `expecting`, which will signal how many more chars we're expecting (if any) after we buffer the request headers
 
 ### Interpreting Requests
 
-  Now that we've seen how we incrementally assemble full requests from bits of data that are pooled into our buffers, what happens when we have a full request ready for handling? This happens in the method `handle-request`.
+Now that we've seen how we incrementally assemble full requests from bits of data that are pooled into our buffers, what happens when we have a full request ready for handling? This happens in the method `handle-request`.
 
     (defmethod handle-request ((socket usocket) (req request))
       (aif (lookup (resource req) *handlers*)
@@ -256,9 +254,9 @@ This high-level method delegates to a specialization of `parse` that works with 
            do (push (cons (->keyword name) value) (headers req)))
         (setf (parameters req) (parse-params parameters))
         req))))
-    
+
     (defmethod parse-params ((params null)) nil)
-    
+
     (defmethod parse-params ((params string))
       (loop for pair in (split "&" params)
          for (name val) = (split "=" pair)
@@ -314,7 +312,7 @@ We'll send an HTTP response whenever we receive a full HTTP request; however, ho
 A simple solution is to register _channels_[7](#fn7), to which we'll subscribe `socket`s as necessary.
 
     (defparameter *channels* (make-hash-table))
-    
+
     (defmethod subscribe! ((channel symbol) (sock usocket))
       (push sock (gethash channel *channels*))
       nil)
@@ -393,19 +391,19 @@ How do we represent errors to the client? Let's define the `4xx` and `5xx`\-clas
        'response :response-code "404 Not Found"
        :content-type "text/plain"
        :body "Resource not found..."))
-    
+
     (defparameter +400+
       (make-instance
        'response :response-code "400 Bad Request"
        :content-type "text/plain"
        :body "Malformed, or slow HTTP request..."))
-    
+
     (defparameter +413+
       (make-instance
        'response :response-code "413 Request Entity Too Large"
        :content-type "text/plain"
        :body "Your request is too long..."))
-    
+
     (defparameter +500+
       (make-instance
        'response :response-code "500 Internal Server Error"
@@ -424,8 +422,7 @@ It takes an error response and a socket, writes the response to the socket and c
 
 And with that, we have an event-driven web server that can respond to HTTP requests or send SSE messages, complete with error handling!
 
-Extending the Server Into a Web Framework
------------------------------------------
+## Extending the Server Into a Web Framework
 
 We have now built a reasonably functional web server that will move requests, responses, and messages to and from clients. The actual work of any web application hosted by this server is done by delegating to handler functions, which were introduced in [Interpreting Requests](#sec.eventsweb.handlerfunc) but left underspecified.
 
@@ -433,12 +430,12 @@ The interface between our server and the hosted application is an important one,
 
     (define-handler (source :is-stream? nil) (room)
       (subscribe! (intern room :keyword) sock))
-    
+
     (define-handler (send-message) (room name message)
       (publish! (intern room :keyword)
             (encode-json-to-string
              `((:name . ,name) (:message . ,message)))))
-    
+
     (define-handler (index) ()
       (with-html-output-to-string (s nil :prologue t :indent t)
         (:html
@@ -453,11 +450,11 @@ One of the concerns I had in mind when writing House was that, like any applicat
 
     (defun len-between (min thing max)
       (>= max (length thing) min))
-    
+
     (define-handler (source :is-stream? nil)
         ((room :string (len-between 0 room 16)))
       (subscribe! (intern room :keyword) sock))
-    
+
     (define-handler (send-message)
         ((room :string (len-between 0 room 16))
          (name :string (len-between 1 name 64))
@@ -465,7 +462,7 @@ One of the concerns I had in mind when writing House was that, like any applicat
       (publish! (intern room :keyword)
             (encode-json-to-string
              `((:name . ,name) (:message . ,message)))))
-    
+
     (define-handler (index) ()
       (with-html-output-to-string (s nil :prologue t :indent t)
         (:html
@@ -494,8 +491,8 @@ What we would like `define-handler` to do here is:
 
 1.  Bind the action `(publish! ...)` to the URI `/send-message` in the handlers table.
 2.  When a request to this URI is made:
-    *   Ensure that the HTTP parameters `room`, `name` and `message` were included.
-    *   Validate that `room` is a string no longer than 16 characters, `name` is a string of between 1 and 64 characters (inclusive) and that `message` is a string of between 5 and 256 characters (also inclusive).
+    - Ensure that the HTTP parameters `room`, `name` and `message` were included.
+    - Validate that `room` is a string no longer than 16 characters, `name` is a string of between 1 and 64 characters (inclusive) and that `message` is a string of between 5 and 256 characters (also inclusive).
 3.  After the response has been returned, close the channel.
 
 While we could write Lisp functions to do all of these things, and then manually assemble the pieces ourselves, a more common approach is to use a Lisp facility called `macros` to _generate_ the Lisp code for us. This allows us to concisely express what we want our DSL to do, without having to maintain a lot of code to do it. You can think of a macro as an "executable template" that will be expanded into Lisp code at runtime.
@@ -659,7 +656,7 @@ This gets us the validation we need for full HTTP request/response cycles. What 
            sock)
           (force-output
            (socket-stream sock))))))
-    
+
     (defmacro assert-http (assertion)
       `(unless ,assertion
          (error (make-instance
@@ -804,19 +801,19 @@ There are cases where `type-assertion` won't need to do anything. For example, s
 
 We did it! We built a web framework on top of an event-driven webserver implementation. Our framework (and handler DSL) defines new applications by:
 
-*   Mapping URLs to handlers;
-*   Defining handlers to enforce the type safety and validation rules on requests;
-*   Optionally specifying new types for handlers as required.
+- Mapping URLs to handlers;
+- Defining handlers to enforce the type safety and validation rules on requests;
+- Optionally specifying new types for handlers as required.
 
 Now we can describe our application like this:
 
     (defun len-between (min thing max)
       (>= max (length thing) min))
-    
+
     (define-handler (source :is-stream? nil)
         ((room :string (len-between 0 room 16)))
       (subscribe! (intern room :keyword) sock))
-    
+
     (define-handler (send-message)
         ((room :string (len-between 0 room 16))
          (name :string (len-between 1 name 64))
@@ -824,7 +821,7 @@ Now we can describe our application like this:
       (publish! (intern room :keyword)
             (encode-json-to-string
              `((:name . ,name) (:message . ,message)))))
-    
+
     (define-handler (index) ()
       (with-html-output-to-string (s nil :prologue t :indent t)
         (:html
@@ -834,10 +831,9 @@ Now we can describe our application like this:
          (:body (:div :id "messages")
             (:textarea :id "input")
             (:button :id "send" "Send")))))
-    
+
     (start 4242)
 
 Once we write `interface.js` to provide the client-side interactivity, this will start an HTTP chat server on port `4242` and listen for incoming connections.
-
 
 [Source](http://aosabook.org/en/500L/an-event-driven-web-framework.html)

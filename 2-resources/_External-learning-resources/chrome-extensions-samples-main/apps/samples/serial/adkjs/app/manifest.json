@@ -9,6 +9,6 @@
   "icons": {
     "128": "img/icon_128.png"
   },
-  "permissions" : ["serial"],
+  "permissions": ["serial"],
   "manifest_version": 2
 }

@@ -9,8 +9,5 @@
     "sourceMap": true,
     "newLine": "LF"
   },
-  "files": [
-    "src/index.ts",
-    "typings/main.d.ts"
-  ]
+  "files": ["src/index.ts", "typings/main.d.ts"]
 }

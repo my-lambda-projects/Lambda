@@ -10,8 +10,8 @@ var booleanValue = false;
 console.log(typeof booleanValue);
 
 var objectValue = {
-    stringValue,
-    numberValue
+  stringValue,
+  numberValue,
 };
 console.log(typeof objectValue);
 
@@ -22,11 +22,11 @@ function doThis() {}
 console.log(typeof doThis);
 
 class User {
-    constructor(firstName, lastName, email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-    }
+  constructor(firstName, lastName, email) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+  }
 }
 console.log(typeof User);
 

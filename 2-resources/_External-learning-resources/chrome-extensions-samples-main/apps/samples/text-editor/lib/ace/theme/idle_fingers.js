@@ -35,11 +35,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-
-exports.isDark = true;
-exports.cssClass = "ace-idle-fingers";
-exports.cssText = "\
+define(function (require, exports, module) {
+  exports.isDark = true;
+  exports.cssClass = "ace-idle-fingers";
+  exports.cssText =
+    "\
 .ace-idle-fingers .ace_editor {\
   border: 2px solid rgb(159, 159, 159);\
 }\
@@ -174,6 +174,6 @@ color:#BC9458;\
 background-color:#FFF980;\
 }";
 
-    var dom = require("../lib/dom");
-    dom.importCssString(exports.cssText, exports.cssClass);
+  var dom = require("../lib/dom");
+  dom.importCssString(exports.cssText, exports.cssClass);
 });

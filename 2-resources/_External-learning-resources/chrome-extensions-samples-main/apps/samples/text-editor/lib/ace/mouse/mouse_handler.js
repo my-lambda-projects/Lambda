@@ -37,87 +37,134 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var event = require("../lib/event");
-var DefaultHandlers = require("./default_handlers").DefaultHandlers;
-var DefaultGutterHandler = require("./default_gutter_handler").GutterHandler;
-var MouseEvent = require("./mouse_event").MouseEvent;
+  var event = require("../lib/event");
+  var DefaultHandlers = require("./default_handlers").DefaultHandlers;
+  var DefaultGutterHandler = require("./default_gutter_handler").GutterHandler;
+  var MouseEvent = require("./mouse_event").MouseEvent;
 
-var MouseHandler = function(editor) {
+  var MouseHandler = function (editor) {
     this.editor = editor;
-    
+
     new DefaultHandlers(editor);
     new DefaultGutterHandler(editor);
-    
-    event.addListener(editor.container, "mousedown", function(e) {
-        editor.focus();
-        return event.preventDefault(e);
+
+    event.addListener(editor.container, "mousedown", function (e) {
+      editor.focus();
+      return event.preventDefault(e);
     });
-    event.addListener(editor.container, "selectstart", function(e) {
-        return event.preventDefault(e);
+    event.addListener(editor.container, "selectstart", function (e) {
+      return event.preventDefault(e);
     });
 
     var mouseTarget = editor.renderer.getMouseEventTarget();
-    event.addListener(mouseTarget, "mousedown", this.onMouseEvent.bind(this, "mousedown"));
-    event.addListener(mouseTarget, "click", this.onMouseEvent.bind(this, "click"));
-    event.addListener(mouseTarget, "mousemove", this.onMouseMove.bind(this, "mousemove"));
-    event.addMultiMouseDownListener(mouseTarget, 0, 2, 500, this.onMouseEvent.bind(this, "dblclick"));
-    event.addMultiMouseDownListener(mouseTarget, 0, 3, 600, this.onMouseEvent.bind(this, "tripleclick"));
-    event.addMultiMouseDownListener(mouseTarget, 0, 4, 600, this.onMouseEvent.bind(this, "quadclick"));
-    event.addMouseWheelListener(editor.container, this.onMouseWheel.bind(this, "mousewheel"));
-    
+    event.addListener(
+      mouseTarget,
+      "mousedown",
+      this.onMouseEvent.bind(this, "mousedown")
+    );
+    event.addListener(
+      mouseTarget,
+      "click",
+      this.onMouseEvent.bind(this, "click")
+    );
+    event.addListener(
+      mouseTarget,
+      "mousemove",
+      this.onMouseMove.bind(this, "mousemove")
+    );
+    event.addMultiMouseDownListener(
+      mouseTarget,
+      0,
+      2,
+      500,
+      this.onMouseEvent.bind(this, "dblclick")
+    );
+    event.addMultiMouseDownListener(
+      mouseTarget,
+      0,
+      3,
+      600,
+      this.onMouseEvent.bind(this, "tripleclick")
+    );
+    event.addMultiMouseDownListener(
+      mouseTarget,
+      0,
+      4,
+      600,
+      this.onMouseEvent.bind(this, "quadclick")
+    );
+    event.addMouseWheelListener(
+      editor.container,
+      this.onMouseWheel.bind(this, "mousewheel")
+    );
+
     var gutterEl = editor.renderer.$gutter;
-    event.addListener(gutterEl, "mousedown", this.onMouseEvent.bind(this, "guttermousedown"));
-    event.addListener(gutterEl, "click", this.onMouseEvent.bind(this, "gutterclick"));
-    event.addListener(gutterEl, "dblclick", this.onMouseEvent.bind(this, "gutterdblclick"));
-    event.addListener(gutterEl, "mousemove", this.onMouseMove.bind(this, "gutter"));
-};
+    event.addListener(
+      gutterEl,
+      "mousedown",
+      this.onMouseEvent.bind(this, "guttermousedown")
+    );
+    event.addListener(
+      gutterEl,
+      "click",
+      this.onMouseEvent.bind(this, "gutterclick")
+    );
+    event.addListener(
+      gutterEl,
+      "dblclick",
+      this.onMouseEvent.bind(this, "gutterdblclick")
+    );
+    event.addListener(
+      gutterEl,
+      "mousemove",
+      this.onMouseMove.bind(this, "gutter")
+    );
+  };
 
-(function() {
-
+  (function () {
     this.$scrollSpeed = 1;
-    this.setScrollSpeed = function(speed) {
-        this.$scrollSpeed = speed;
+    this.setScrollSpeed = function (speed) {
+      this.$scrollSpeed = speed;
     };
 
-    this.getScrollSpeed = function() {
-        return this.$scrollSpeed;
+    this.getScrollSpeed = function () {
+      return this.$scrollSpeed;
     };
 
-    this.onMouseEvent = function(name, e) {
-        this.editor._emit(name, new MouseEvent(e, this.editor));
+    this.onMouseEvent = function (name, e) {
+      this.editor._emit(name, new MouseEvent(e, this.editor));
     };
-    
+
     this.$dragDelay = 250;
-    this.setDragDelay = function(dragDelay) {
-        this.$dragDelay = dragDelay;
+    this.setDragDelay = function (dragDelay) {
+      this.$dragDelay = dragDelay;
     };
 
-    this.getDragDelay = function() {
-        return this.$dragDelay;
+    this.getDragDelay = function () {
+      return this.$dragDelay;
     };
 
-    this.onMouseMove = function(name, e) {
-        // optimization, because mousemove doesn't have a default handler.
-        var listeners = this.editor._eventRegistry && this.editor._eventRegistry.mousemove;
-        if (!listeners || !listeners.length)
-            return;
+    this.onMouseMove = function (name, e) {
+      // optimization, because mousemove doesn't have a default handler.
+      var listeners =
+        this.editor._eventRegistry && this.editor._eventRegistry.mousemove;
+      if (!listeners || !listeners.length) return;
 
-        this.editor._emit(name, new MouseEvent(e, this.editor));
+      this.editor._emit(name, new MouseEvent(e, this.editor));
     };
 
-    this.onMouseWheel = function(name, e) {
-        var mouseEvent = new MouseEvent(e, this.editor);
-        mouseEvent.speed = this.$scrollSpeed * 2;
-        mouseEvent.wheelX = e.wheelX;
-        mouseEvent.wheelY = e.wheelY;
-        
-        this.editor._emit(name, mouseEvent);
+    this.onMouseWheel = function (name, e) {
+      var mouseEvent = new MouseEvent(e, this.editor);
+      mouseEvent.speed = this.$scrollSpeed * 2;
+      mouseEvent.wheelX = e.wheelX;
+      mouseEvent.wheelY = e.wheelY;
+
+      this.editor._emit(name, mouseEvent);
     };
+  }.call(MouseHandler.prototype));
 
-}).call(MouseHandler.prototype);
-
-exports.MouseHandler = MouseHandler;
+  exports.MouseHandler = MouseHandler;
 });

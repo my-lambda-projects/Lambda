@@ -12,6 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-chrome.app.runtime.onLaunched.addListener(function() {
-  chrome.app.window.create('main.html', {"id": "analyticsWinID"}, function() {});
+chrome.app.runtime.onLaunched.addListener(function () {
+  chrome.app.window.create(
+    "main.html",
+    { id: "analyticsWinID" },
+    function () {}
+  );
 });

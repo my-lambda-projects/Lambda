@@ -11,41 +11,58 @@ function MulticastSocket(config) {
 
 MulticastSocket.prototype.onError = function (message) {};
 MulticastSocket.prototype.onConnected = function () {};
-MulticastSocket.prototype.onDiagram = function (arrayBuffer, remote_address, remote_port) {};
+MulticastSocket.prototype.onDiagram = function (
+  arrayBuffer,
+  remote_address,
+  remote_port
+) {};
 MulticastSocket.prototype.onDisconnected = function () {};
 
 MulticastSocket.prototype.connect = function (callback) {
   var me = this;
-  chrome.sockets.udp.create({bufferSize: 1024 * 1024}, function (createInfo) {
+  chrome.sockets.udp.create({ bufferSize: 1024 * 1024 }, function (createInfo) {
     var socketId = createInfo.socketId;
     var ttl = 12;
     chrome.sockets.udp.setMulticastTimeToLive(socketId, ttl, function (result) {
       if (result != 0) {
         me.handleError("Set TTL Error: ", "Unknown error");
       }
-      chrome.sockets.udp.bind(socketId, "0.0.0.0", me.config.port, function (result) {
-        if (result != 0) {
-          chrome.sockets.udp.close(socketId, function () {
-            me.handleError("Error on bind(): ", result);
-          });
-        } else {
-          chrome.sockets.udp.joinGroup(socketId, me.config.address, function (result) {
-            if (result != 0) {
-              chrome.sockets.udp.close(socketId, function () {
-                me.handleError("Error on joinGroup(): ", result);
-              });
-            } else {
-              me.socketId = socketId;
-              chrome.sockets.udp.onReceive.addListener(me.onReceive.bind(me));
-              chrome.sockets.udp.onReceiveError.addListener(me.onReceiveError.bind(me));
-              me.onConnected();
-              if (callback) {
-                callback.call(me);
+      chrome.sockets.udp.bind(
+        socketId,
+        "0.0.0.0",
+        me.config.port,
+        function (result) {
+          if (result != 0) {
+            chrome.sockets.udp.close(socketId, function () {
+              me.handleError("Error on bind(): ", result);
+            });
+          } else {
+            chrome.sockets.udp.joinGroup(
+              socketId,
+              me.config.address,
+              function (result) {
+                if (result != 0) {
+                  chrome.sockets.udp.close(socketId, function () {
+                    me.handleError("Error on joinGroup(): ", result);
+                  });
+                } else {
+                  me.socketId = socketId;
+                  chrome.sockets.udp.onReceive.addListener(
+                    me.onReceive.bind(me)
+                  );
+                  chrome.sockets.udp.onReceiveError.addListener(
+                    me.onReceiveError.bind(me)
+                  );
+                  me.onConnected();
+                  if (callback) {
+                    callback.call(me);
+                  }
+                }
               }
-            }
-          });
+            );
+          }
         }
-      });
+      );
     });
   });
 };
@@ -63,9 +80,12 @@ MulticastSocket.prototype.disconnect = function (callback) {
   });
 };
 
-MulticastSocket.prototype.handleError = function (additionalMessage, alternativeMessage) {
+MulticastSocket.prototype.handleError = function (
+  additionalMessage,
+  alternativeMessage
+) {
   var err = chrome.runtime.lastError;
-  err = err && err.message || alternativeMessage;
+  err = (err && err.message) || alternativeMessage;
   this.onError(additionalMessage + err);
 };
 
@@ -93,8 +113,12 @@ MulticastSocket.prototype.stringToArrayBuffer = function (string) {
   return buf;
 };
 
-MulticastSocket.prototype.sendDiagram = function (message, callback, errCallback) {
-  if (typeof message === 'string') {
+MulticastSocket.prototype.sendDiagram = function (
+  message,
+  callback,
+  errCallback
+) {
+  if (typeof message === "string") {
     message = this.stringToArrayBuffer(message);
   }
   if (!message || message.byteLength == 0 || !this.socketId) {
@@ -104,21 +128,26 @@ MulticastSocket.prototype.sendDiagram = function (message, callback, errCallback
     return;
   }
   var me = this;
-  chrome.sockets.udp.send(me.socketId, message, me.config.address, me.config.port,
-      function (sendInfo) {
-    if (sendInfo.resultCode >= 0 && sendInfo.bytesSent >= 0) {
-      if (callback) {
-        callback.call(me);
-      }
-    } else {
-      if (errCallback) {
-        errCallback();
+  chrome.sockets.udp.send(
+    me.socketId,
+    message,
+    me.config.address,
+    me.config.port,
+    function (sendInfo) {
+      if (sendInfo.resultCode >= 0 && sendInfo.bytesSent >= 0) {
+        if (callback) {
+          callback.call(me);
+        }
       } else {
-        me.handleError("");
-        if (result.bytesSent == -15) {
-          me.disconnect();
+        if (errCallback) {
+          errCallback();
+        } else {
+          me.handleError("");
+          if (result.bytesSent == -15) {
+            me.disconnect();
+          }
         }
       }
     }
-  });
+  );
 };

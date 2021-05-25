@@ -1,6 +1,6 @@
 "use strict";
 
-const EventEmitter = require('events').EventEmitter;
+const EventEmitter = require("events").EventEmitter;
 
 class SubsetSumDefer extends EventEmitter {
   constructor(sum, set) {
@@ -14,14 +14,14 @@ class SubsetSumDefer extends EventEmitter {
     this.runningCombine++;
     setImmediate(() => {
       this._combine(set, subset);
-      if(--this.runningCombine === 0) {
-        this.emit('end');
+      if (--this.runningCombine === 0) {
+        this.emit("end");
       }
     });
   }
 
   _combine(set, subset) {
-    for(let i = 0; i < set.length; i++) {
+    for (let i = 0; i < set.length; i++) {
       let newSubset = subset.concat(set[i]);
       this._combineInterleaved(set.slice(i + 1), newSubset);
       this._processSubset(newSubset);
@@ -29,10 +29,10 @@ class SubsetSumDefer extends EventEmitter {
   }
 
   _processSubset(subset) {
-    console.log('Subset', ++this.totalSubsets, subset);
+    console.log("Subset", ++this.totalSubsets, subset);
     const res = subset.reduce((prev, item) => prev + item, 0);
-    if(res == this.sum) {
-      this.emit('match', subset);
+    if (res == this.sum) {
+      this.emit("match", subset);
     }
   }
 

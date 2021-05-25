@@ -1,3 +1,3 @@
-window.addEventListener('DOMContentLoaded',function(e){
-    console.log('ready');
-})
+window.addEventListener("DOMContentLoaded", function (e) {
+  console.log("ready");
+});

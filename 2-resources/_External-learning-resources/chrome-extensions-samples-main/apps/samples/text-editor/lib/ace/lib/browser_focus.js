@@ -38,68 +38,62 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var oop = require("./oop");
-var event = require("./event");
-var EventEmitter = require("./event_emitter").EventEmitter;
+  var oop = require("./oop");
+  var event = require("./event");
+  var EventEmitter = require("./event_emitter").EventEmitter;
 
-/**
- * This class keeps track of the focus state of the given window.
- * Focus changes for example when the user switches a browser tab,
- * goes to the location bar or switches to another application.
- */ 
-var BrowserFocus = function(win) {
+  /**
+   * This class keeps track of the focus state of the given window.
+   * Focus changes for example when the user switches a browser tab,
+   * goes to the location bar or switches to another application.
+   */
+  var BrowserFocus = function (win) {
     win = win || window;
-    
+
     this.lastFocus = new Date().getTime();
     this._isFocused = true;
-    
+
     var _self = this;
 
     // IE < 9 supports focusin and focusout events
     if ("onfocusin" in win.document) {
-        event.addListener(win.document, "focusin", function(e) {
-            _self._setFocused(true);
-        });
+      event.addListener(win.document, "focusin", function (e) {
+        _self._setFocused(true);
+      });
 
-        event.addListener(win.document, "focusout", function(e) {
-            _self._setFocused(!!e.toElement);
-        });
+      event.addListener(win.document, "focusout", function (e) {
+        _self._setFocused(!!e.toElement);
+      });
+    } else {
+      event.addListener(win, "blur", function (e) {
+        _self._setFocused(false);
+      });
+
+      event.addListener(win, "focus", function (e) {
+        _self._setFocused(true);
+      });
     }
-    else {
-        event.addListener(win, "blur", function(e) {
-            _self._setFocused(false);
-        });
+  };
 
-        event.addListener(win, "focus", function(e) {
-            _self._setFocused(true);
-        });
-    }
-};
-
-(function(){
-
+  (function () {
     oop.implement(this, EventEmitter);
-    
-    this.isFocused = function() {
-        return this._isFocused;
-    };
-    
-    this._setFocused = function(isFocused) {
-        if (this._isFocused == isFocused)
-            return;
-            
-        if (isFocused)
-            this.lastFocus = new Date().getTime();
-            
-        this._isFocused = isFocused;
-        this._emit("changeFocus");
+
+    this.isFocused = function () {
+      return this._isFocused;
     };
 
-}).call(BrowserFocus.prototype);
+    this._setFocused = function (isFocused) {
+      if (this._isFocused == isFocused) return;
 
+      if (isFocused) this.lastFocus = new Date().getTime();
 
-exports.BrowserFocus = BrowserFocus;
+      this._isFocused = isFocused;
+      this._emit("changeFocus");
+    };
+  }.call(BrowserFocus.prototype));
+
+  exports.BrowserFocus = BrowserFocus;
 });

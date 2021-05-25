@@ -1,6 +1,8 @@
-onload = function() {
+onload = function () {
   function update() {
-    ['screenX', 'screenY', 'innerWidth', 'innerHeight'].forEach(function(prop) {
+    ["screenX", "screenY", "innerWidth", "innerHeight"].forEach(function (
+      prop
+    ) {
       document.getElementById(prop).innerText = window[prop];
     });
 
@@ -9,17 +11,17 @@ onload = function() {
 
   update();
 
-  var minimizeNode = document.getElementById('minimize-button');
+  var minimizeNode = document.getElementById("minimize-button");
   if (minimizeNode) {
-    minimizeNode.onclick = function() {
+    minimizeNode.onclick = function () {
       opener.windowingApiDemo.minimizeAll();
     };
   }
 
-  var closeNode = document.getElementById('close');
+  var closeNode = document.getElementById("close");
   if (closeNode) {
-    closeNode.onclick = function() {
+    closeNode.onclick = function () {
       window.close();
     };
   }
-}
+};

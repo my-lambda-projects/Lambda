@@ -36,19 +36,18 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-function GutterHandler(editor) {
-    editor.setDefaultHandler("gutterclick", function(e) {
-        var row = e.getDocumentPosition().row;
-        var selection = editor.session.selection;
-        
-        selection.moveCursorTo(row, 0);
-        selection.selectLine();
+  function GutterHandler(editor) {
+    editor.setDefaultHandler("gutterclick", function (e) {
+      var row = e.getDocumentPosition().row;
+      var selection = editor.session.selection;
+
+      selection.moveCursorTo(row, 0);
+      selection.selectLine();
     });
-}
+  }
 
-exports.GutterHandler = GutterHandler;
-
+  exports.GutterHandler = GutterHandler;
 });

@@ -1,9 +1,9 @@
-chrome.app.runtime.onLaunched.addListener(function() {
-  chrome.app.window.create('main.html', {
-  	id: "appSquareID",
+chrome.app.runtime.onLaunched.addListener(function () {
+  chrome.app.window.create("main.html", {
+    id: "appSquareID",
     innerBounds: {
       width: 300,
-      height: 600
-    }
+      height: 600,
+    },
   });
 });

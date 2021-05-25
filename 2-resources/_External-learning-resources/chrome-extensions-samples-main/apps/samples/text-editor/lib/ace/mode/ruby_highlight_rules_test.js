@@ -37,80 +37,122 @@
  * ***** END LICENSE BLOCK ***** */
 
 if (typeof process !== "undefined") {
-    require("amd-loader");
+  require("amd-loader");
 }
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var RubyMode = require("./ruby").Mode;
-var assert = require("../test/assertions");
+  var RubyMode = require("./ruby").Mode;
+  var assert = require("../test/assertions");
 
-module.exports = {
-    
+  module.exports = {
     name: "Ruby Tokenizer",
-    
-    setUp : function() {
-        this.tokenizer = new RubyMode().getTokenizer();
+
+    setUp: function () {
+      this.tokenizer = new RubyMode().getTokenizer();
     },
 
-    "test: symbol tokenizer" : function() {
-        // https://gist.github.com/1072693
-        assertValidTokens(this.tokenizer, "string",
-          [":@thing", ":$thing", ":_thing", ":thing", ":Thing", ":thing1", ":thing_a",
-              ":THING", ":thing!", ":thing=", ":thing?", ":t?"]);
-        assertInvalidTokens(this.tokenizer, "string",
-          [":", ":@", ":$", ":1", ":1thing", ":th?ing", ":thi=ng", ":1thing",
-            ":th!ing", ":thing#"]);
+    "test: symbol tokenizer": function () {
+      // https://gist.github.com/1072693
+      assertValidTokens(this.tokenizer, "string", [
+        ":@thing",
+        ":$thing",
+        ":_thing",
+        ":thing",
+        ":Thing",
+        ":thing1",
+        ":thing_a",
+        ":THING",
+        ":thing!",
+        ":thing=",
+        ":thing?",
+        ":t?",
+      ]);
+      assertInvalidTokens(this.tokenizer, "string", [
+        ":",
+        ":@",
+        ":$",
+        ":1",
+        ":1thing",
+        ":th?ing",
+        ":thi=ng",
+        ":1thing",
+        ":th!ing",
+        ":thing#",
+      ]);
     },
 
-    "test: namespaces aren't symbols" : function() {
-        var line = "Namespaced::Class";
-        var tokens = this.tokenizer.getLineTokens(line, "start").tokens;
+    "test: namespaces aren't symbols": function () {
+      var line = "Namespaced::Class";
+      var tokens = this.tokenizer.getLineTokens(line, "start").tokens;
 
-        assert.equal(3, tokens.length);
-        assert.equal("variable.class", tokens[0].type);
-        assert.equal("text", tokens[1].type);
-        assert.equal("variable.class", tokens[2].type);
+      assert.equal(3, tokens.length);
+      assert.equal("variable.class", tokens[0].type);
+      assert.equal("text", tokens[1].type);
+      assert.equal("variable.class", tokens[2].type);
     },
 
-    "test: hex tokenizer" : function() {
-        assertValidTokens(this.tokenizer, "constant.numeric",
-            ["0x9a", "0XA1", "0x9_a"]);
-        assertInvalidTokens(this.tokenizer, "constant.numeric",
-            ["0x", "0x_9a", "0x9a_"]);
+    "test: hex tokenizer": function () {
+      assertValidTokens(this.tokenizer, "constant.numeric", [
+        "0x9a",
+        "0XA1",
+        "0x9_a",
+      ]);
+      assertInvalidTokens(this.tokenizer, "constant.numeric", [
+        "0x",
+        "0x_9a",
+        "0x9a_",
+      ]);
     },
 
-    "test: float tokenizer" : function() {
-        assertValidTokens(this.tokenizer, "constant.numeric",
-            ["1", "+1", "-1", "12_345", "0.000_1"]);
-        assertInvalidTokens(this.tokenizer, "constant.numeric",
-            ["_", "_1", "1_", "1_.0", "0._1"]);
-    }
-};
+    "test: float tokenizer": function () {
+      assertValidTokens(this.tokenizer, "constant.numeric", [
+        "1",
+        "+1",
+        "-1",
+        "12_345",
+        "0.000_1",
+      ]);
+      assertInvalidTokens(this.tokenizer, "constant.numeric", [
+        "_",
+        "_1",
+        "1_",
+        "1_.0",
+        "0._1",
+      ]);
+    },
+  };
 
-function assertValidTokens(tokenizer, tokenType, validTokens) {
+  function assertValidTokens(tokenizer, tokenType, validTokens) {
     for (var i = 0, length = validTokens.length; i < length; i++) {
-        var validToken = validTokens[i],
-            tokens = tokenizer.getLineTokens(validToken, "start").tokens;
-        assert.equal(tokens[0].value, validToken,
-          '"' + validToken + '" should be one token');
-        assert.equal(tokens[0].type, tokenType,
-          '"' + validToken + '" should be a "' + tokenType + '" token');
+      var validToken = validTokens[i],
+        tokens = tokenizer.getLineTokens(validToken, "start").tokens;
+      assert.equal(
+        tokens[0].value,
+        validToken,
+        '"' + validToken + '" should be one token'
+      );
+      assert.equal(
+        tokens[0].type,
+        tokenType,
+        '"' + validToken + '" should be a "' + tokenType + '" token'
+      );
     }
-}
+  }
 
-function assertInvalidTokens(tokenizer, tokenType, invalidTokens) {
+  function assertInvalidTokens(tokenizer, tokenType, invalidTokens) {
     for (var i = 0, length = invalidTokens.length; i < length; i++) {
-        var invalidToken = invalidTokens[i],
-            tokens = tokenizer.getLineTokens(invalidToken, "start").tokens;
-        assert.ok(tokens[0].type !== tokenType || tokens[0].value !== invalidToken,
-          '"' + invalidToken + '" is not a valid "' + tokenType + '"');
+      var invalidToken = invalidTokens[i],
+        tokens = tokenizer.getLineTokens(invalidToken, "start").tokens;
+      assert.ok(
+        tokens[0].type !== tokenType || tokens[0].value !== invalidToken,
+        '"' + invalidToken + '" is not a valid "' + tokenType + '"'
+      );
     }
-}
-
+  }
 });
 
 if (typeof module !== "undefined" && module === require.main) {
-    require("asyncjs").test.testcase(module.exports).exec()
+  require("asyncjs").test.testcase(module.exports).exec();
 }

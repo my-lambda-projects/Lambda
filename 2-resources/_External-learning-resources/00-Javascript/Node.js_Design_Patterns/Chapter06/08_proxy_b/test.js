@@ -1,14 +1,14 @@
 "use strict";
 
-const createProxy = require('./createProxy');
+const createProxy = require("./createProxy");
 
 class Greeter {
   hello() {
-    return 'Hello';
+    return "Hello";
   }
 
   goodbye() {
-    return 'Goodbye';
+    return "Goodbye";
   }
 }
 

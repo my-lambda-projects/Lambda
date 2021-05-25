@@ -37,28 +37,28 @@
  *
  */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var oop = require("../lib/oop");
-var lang = require("../lib/lang");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+  var oop = require("../lib/oop");
+  var lang = require("../lib/lang");
+  var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 
-var OcamlHighlightRules = function() {
-
-    var keywords = lang.arrayToMap((
-        "and|as|assert|begin|class|constraint|do|done|downto|else|end|"  +
-        "exception|external|for|fun|function|functor|if|in|include|"     +
-        "inherit|initializer|lazy|let|match|method|module|mutable|new|"  +
+  var OcamlHighlightRules = function () {
+    var keywords = lang.arrayToMap(
+      (
+        "and|as|assert|begin|class|constraint|do|done|downto|else|end|" +
+        "exception|external|for|fun|function|functor|if|in|include|" +
+        "inherit|initializer|lazy|let|match|method|module|mutable|new|" +
         "object|of|open|or|private|rec|sig|struct|then|to|try|type|val|" +
-        "virtual|when|while|with").split("|")
+        "virtual|when|while|with"
+      ).split("|")
     );
 
-    var builtinConstants = lang.arrayToMap(
-        ("true|false").split("|")
-    );
+    var builtinConstants = lang.arrayToMap("true|false".split("|"));
 
-    var builtinFunctions = lang.arrayToMap((
+    var builtinFunctions = lang.arrayToMap(
+      (
         "abs|abs_big_int|abs_float|abs_num|abstract_tag|accept|access|acos|add|" +
         "add_available_units|add_big_int|add_buffer|add_channel|add_char|" +
         "add_initializer|add_int_big_int|add_interfaces|add_num|add_string|" +
@@ -231,7 +231,6 @@ var OcamlHighlightRules = function() {
         "wait|wait|wait|wait_next_event|wait_pid|wait_read|wait_signal|" +
         "wait_timed_read|wait_timed_write|wait_write|waitpid|white|" +
         "widen|window_id|word_size|wrap|wrap_abort|write|yellow|yield|zero|zero_big_int|" +
-
         "Arg|Arith_status|Array|Array1|Array2|Array3|ArrayLabels|Big_int|Bigarray|" +
         "Buffer|Callback|CamlinternalOO|Char|Complex|Condition|Dbm|Digest|Dynlink|" +
         "Event|Filename|Format|Gc|Genarray|Genlex|Graphics|GraphicsX11|Hashtbl|" +
@@ -239,117 +238,129 @@ var OcamlHighlightRules = function() {
         "MoreLabels|Mutex|Nativeint|Num|Obj|Oo|Parsing|Pervasives|Printexc|" +
         "Printf|Queue|Random|Scanf|Scanning|Set|Sort|Stack|State|StdLabels|Str|" +
         "Stream|String|StringLabels|Sys|Thread|ThreadUnix|Tk|Unix|UnixLabels|Weak"
-    ).split("|"));
+      ).split("|")
+    );
 
     var decimalInteger = "(?:(?:[1-9]\\d*)|(?:0))";
     var octInteger = "(?:0[oO]?[0-7]+)";
     var hexInteger = "(?:0[xX][\\dA-Fa-f]+)";
     var binInteger = "(?:0[bB][01]+)";
-    var integer = "(?:" + decimalInteger + "|" + octInteger + "|" + hexInteger + "|" + binInteger + ")";
+    var integer =
+      "(?:" +
+      decimalInteger +
+      "|" +
+      octInteger +
+      "|" +
+      hexInteger +
+      "|" +
+      binInteger +
+      ")";
 
     var exponent = "(?:[eE][+-]?\\d+)";
     var fraction = "(?:\\.\\d+)";
     var intPart = "(?:\\d+)";
-    var pointFloat = "(?:(?:" + intPart + "?" + fraction + ")|(?:" + intPart + "\\.))";
-    var exponentFloat = "(?:(?:" + pointFloat + "|" +  intPart + ")" + exponent + ")";
+    var pointFloat =
+      "(?:(?:" + intPart + "?" + fraction + ")|(?:" + intPart + "\\.))";
+    var exponentFloat =
+      "(?:(?:" + pointFloat + "|" + intPart + ")" + exponent + ")";
     var floatNumber = "(?:" + exponentFloat + "|" + pointFloat + ")";
 
     this.$rules = {
-        "start" : [
-            {
-                token : "comment",
-                regex : '\\(\\*.*?\\*\\)\\s*?$'
-            },
-            {
-                token : "comment",
-                merge : true,
-                regex : '\\(\\*.*',
-                next : "comment"
-            },
-            {
-                token : "string", // single line
-                regex : '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]'
-            },
-            {
-                token : "string", // single char
-                regex : "'.'"
-            },
-            {
-                token : "string", // " string
-                merge : true,
-                regex : '"',
-                next  : "qstring"
-            },
-            {
-                token : "constant.numeric", // imaginary
-                regex : "(?:" + floatNumber + "|\\d+)[jJ]\\b"
-            },
-            {
-                token : "constant.numeric", // float
-                regex : floatNumber
-            },
-            {
-                token : "constant.numeric", // integer
-                regex : integer + "\\b"
-            },
-            {
-                token : function(value) {
-                    if (keywords.hasOwnProperty(value))
-                        return "keyword";
-                    else if (builtinConstants.hasOwnProperty(value))
-                        return "constant.language";
-                    else if (builtinFunctions.hasOwnProperty(value))
-                        return "support.function";
-                    else
-                        return "identifier";
-                },
-                regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
-            },
-            {
-                token : "keyword.operator",
-                regex : "\\+\\.|\\-\\.|\\*\\.|\\/\\.|#|;;|\\+|\\-|\\*|\\*\\*\\/|\\/\\/|%|<<|>>|&|\\||\\^|~|<|>|<=|=>|==|!=|<>|<-|="
-            },
-            {
-                token : "paren.lparen",
-                regex : "[[({]"
-            },
-            {
-                token : "paren.rparen",
-                regex : "[\\])}]"
-            },
-            {
-                token : "text",
-                regex : "\\s+"
-            }
-        ],
-        "comment" : [
-            {
-                token : "comment", // closing comment
-                regex : ".*?\\*\\)",
-                next : "start"
-            },
-            {
-                token : "comment", // comment spanning whole line
-                merge : true,
-                regex : ".+"
-            }
-        ],
+      start: [
+        {
+          token: "comment",
+          regex: "\\(\\*.*?\\*\\)\\s*?$",
+        },
+        {
+          token: "comment",
+          merge: true,
+          regex: "\\(\\*.*",
+          next: "comment",
+        },
+        {
+          token: "string", // single line
+          regex: '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]',
+        },
+        {
+          token: "string", // single char
+          regex: "'.'",
+        },
+        {
+          token: "string", // " string
+          merge: true,
+          regex: '"',
+          next: "qstring",
+        },
+        {
+          token: "constant.numeric", // imaginary
+          regex: "(?:" + floatNumber + "|\\d+)[jJ]\\b",
+        },
+        {
+          token: "constant.numeric", // float
+          regex: floatNumber,
+        },
+        {
+          token: "constant.numeric", // integer
+          regex: integer + "\\b",
+        },
+        {
+          token: function (value) {
+            if (keywords.hasOwnProperty(value)) return "keyword";
+            else if (builtinConstants.hasOwnProperty(value))
+              return "constant.language";
+            else if (builtinFunctions.hasOwnProperty(value))
+              return "support.function";
+            else return "identifier";
+          },
+          regex: "[a-zA-Z_$][a-zA-Z0-9_$]*\\b",
+        },
+        {
+          token: "keyword.operator",
+          regex:
+            "\\+\\.|\\-\\.|\\*\\.|\\/\\.|#|;;|\\+|\\-|\\*|\\*\\*\\/|\\/\\/|%|<<|>>|&|\\||\\^|~|<|>|<=|=>|==|!=|<>|<-|=",
+        },
+        {
+          token: "paren.lparen",
+          regex: "[[({]",
+        },
+        {
+          token: "paren.rparen",
+          regex: "[\\])}]",
+        },
+        {
+          token: "text",
+          regex: "\\s+",
+        },
+      ],
+      comment: [
+        {
+          token: "comment", // closing comment
+          regex: ".*?\\*\\)",
+          next: "start",
+        },
+        {
+          token: "comment", // comment spanning whole line
+          merge: true,
+          regex: ".+",
+        },
+      ],
 
-        "qstring" : [
-            {
-                token : "string",
-                regex : '"',
-                next : "start"
-            }, {
-                token : "string",
-                merge : true,
-                regex : '.+'
-            }
-        ]
+      qstring: [
+        {
+          token: "string",
+          regex: '"',
+          next: "start",
+        },
+        {
+          token: "string",
+          merge: true,
+          regex: ".+",
+        },
+      ],
     };
-};
+  };
 
-oop.inherits(OcamlHighlightRules, TextHighlightRules);
+  oop.inherits(OcamlHighlightRules, TextHighlightRules);
 
-exports.OcamlHighlightRules = OcamlHighlightRules;
+  exports.OcamlHighlightRules = OcamlHighlightRules;
 });

@@ -1,5 +1,5 @@
 var objA = {
-    a: 1
+  a: 1,
 };
 
 var objB = Object.create(objA);

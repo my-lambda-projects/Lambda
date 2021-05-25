@@ -35,47 +35,44 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var Range = require("../range").Range;
+  var Range = require("../range").Range;
 
-var MatchingBraceOutdent = function() {};
+  var MatchingBraceOutdent = function () {};
 
-(function() {
+  (function () {
+    this.checkOutdent = function (line, input) {
+      if (!/^\s+$/.test(line)) return false;
 
-    this.checkOutdent = function(line, input) {
-        if (! /^\s+$/.test(line))
-            return false;
-
-        return /^\s*\}/.test(input);
+      return /^\s*\}/.test(input);
     };
 
-    this.autoOutdent = function(doc, row) {
-        var line = doc.getLine(row);
-        var match = line.match(/^(\s*\})/);
+    this.autoOutdent = function (doc, row) {
+      var line = doc.getLine(row);
+      var match = line.match(/^(\s*\})/);
 
-        if (!match) return 0;
+      if (!match) return 0;
 
-        var column = match[1].length;
-        var openBracePos = doc.findMatchingBracket({row: row, column: column});
+      var column = match[1].length;
+      var openBracePos = doc.findMatchingBracket({ row: row, column: column });
 
-        if (!openBracePos || openBracePos.row == row) return 0;
+      if (!openBracePos || openBracePos.row == row) return 0;
 
-        var indent = this.$getIndent(doc.getLine(openBracePos.row));
-        doc.replace(new Range(row, 0, row, column-1), indent);
+      var indent = this.$getIndent(doc.getLine(openBracePos.row));
+      doc.replace(new Range(row, 0, row, column - 1), indent);
     };
 
-    this.$getIndent = function(line) {
-        var match = line.match(/^(\s+)/);
-        if (match) {
-            return match[1];
-        }
+    this.$getIndent = function (line) {
+      var match = line.match(/^(\s+)/);
+      if (match) {
+        return match[1];
+      }
 
-        return "";
+      return "";
     };
+  }.call(MatchingBraceOutdent.prototype));
 
-}).call(MatchingBraceOutdent.prototype);
-
-exports.MatchingBraceOutdent = MatchingBraceOutdent;
+  exports.MatchingBraceOutdent = MatchingBraceOutdent;
 });

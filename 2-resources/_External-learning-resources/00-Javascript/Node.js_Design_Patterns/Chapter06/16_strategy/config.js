@@ -1,7 +1,7 @@
 "use strict";
 
-const fs = require('fs');
-const objectPath = require('object-path');
+const fs = require("fs");
+const objectPath = require("object-path");
 
 class Config {
   constructor(strategy) {
@@ -19,7 +19,7 @@ class Config {
 
   read(file) {
     console.log(`Deserializing from ${file}`);
-    this.data = this.strategy.deserialize(fs.readFileSync(file, 'utf-8'));
+    this.data = this.strategy.deserialize(fs.readFileSync(file, "utf-8"));
   }
 
   save(file) {

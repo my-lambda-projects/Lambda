@@ -35,104 +35,103 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var StateHandler = require("../state_handler").StateHandler;
-var matchCharacterOnly =  require("../state_handler").matchCharacterOnly;
+  var StateHandler = require("../state_handler").StateHandler;
+  var matchCharacterOnly = require("../state_handler").matchCharacterOnly;
 
-var vimcommand = function(key, exec, then) {
+  var vimcommand = function (key, exec, then) {
     return {
-        regex:  [ "([0-9]*)", key ],
-        exec:   exec,
-        params: [
-            {
-                name:     "times",
-                match:    1,
-                type:     "number",
-                defaultValue:     1
-            }
-        ],
-        then:   then
-    }
-}
+      regex: ["([0-9]*)", key],
+      exec: exec,
+      params: [
+        {
+          name: "times",
+          match: 1,
+          type: "number",
+          defaultValue: 1,
+        },
+      ],
+      then: then,
+    };
+  };
 
-var vimStates = {
+  var vimStates = {
     start: [
-        {
-            key:    "i",
-            then:   "insertMode"
-        },
-        {
-            key:    "d",
-            then:   "deleteMode"
-        },
-        {
-            key:    "a",
-            exec:   "gotoright",
-            then:   "insertMode"
-        },
-        {
-            key:    "shift-i",
-            exec:   "gotolinestart",
-            then:   "insertMode"
-        },
-        {
-            key:    "shift-a",
-            exec:   "gotolineend",
-            then:   "insertMode"
-        },
-        {
-            key:    "shift-c",
-            exec:   "removetolineend",
-            then:   "insertMode"
-        },
-        {
-            key:    "shift-r",
-            exec:   "overwrite",
-            then:   "replaceMode"
-        },
-        vimcommand("(k|up)", "golineup"),
-        vimcommand("(j|down)", "golinedown"),
-        vimcommand("(l|right)", "gotoright"),
-        vimcommand("(h|left)", "gotoleft"),
-        {
-            key:    "shift-g",
-            exec:   "gotoend"
-        },
-        vimcommand("b", "gotowordleft"),
-        vimcommand("e", "gotowordright"),
-        vimcommand("x", "del"),
-        vimcommand("shift-x", "backspace"),
-        vimcommand("shift-d", "removetolineend"),
-        vimcommand("u", "undo"), // [count] on this may/may not work, depending on browser implementation...
-        {
-            comment:    "Catch some keyboard input to stop it here",
-            match:      matchCharacterOnly
-        }
+      {
+        key: "i",
+        then: "insertMode",
+      },
+      {
+        key: "d",
+        then: "deleteMode",
+      },
+      {
+        key: "a",
+        exec: "gotoright",
+        then: "insertMode",
+      },
+      {
+        key: "shift-i",
+        exec: "gotolinestart",
+        then: "insertMode",
+      },
+      {
+        key: "shift-a",
+        exec: "gotolineend",
+        then: "insertMode",
+      },
+      {
+        key: "shift-c",
+        exec: "removetolineend",
+        then: "insertMode",
+      },
+      {
+        key: "shift-r",
+        exec: "overwrite",
+        then: "replaceMode",
+      },
+      vimcommand("(k|up)", "golineup"),
+      vimcommand("(j|down)", "golinedown"),
+      vimcommand("(l|right)", "gotoright"),
+      vimcommand("(h|left)", "gotoleft"),
+      {
+        key: "shift-g",
+        exec: "gotoend",
+      },
+      vimcommand("b", "gotowordleft"),
+      vimcommand("e", "gotowordright"),
+      vimcommand("x", "del"),
+      vimcommand("shift-x", "backspace"),
+      vimcommand("shift-d", "removetolineend"),
+      vimcommand("u", "undo"), // [count] on this may/may not work, depending on browser implementation...
+      {
+        comment: "Catch some keyboard input to stop it here",
+        match: matchCharacterOnly,
+      },
     ],
     insertMode: [
-        {
-            key:      "esc",
-            then:     "start"
-        }
+      {
+        key: "esc",
+        then: "start",
+      },
     ],
     replaceMode: [
-        {
-            key:      "esc",
-            exec:     "overwrite",
-            then:     "start"
-        }
+      {
+        key: "esc",
+        exec: "overwrite",
+        then: "start",
+      },
     ],
     deleteMode: [
-        {
-            key:      "d",
-            exec:     "removeline",
-            then:     "start"
-        }
-    ]
-};
+      {
+        key: "d",
+        exec: "removeline",
+        then: "start",
+      },
+    ],
+  };
 
-exports.Vim = new StateHandler(vimStates);
-
+  exports.Vim = new StateHandler(vimStates);
 });

@@ -35,37 +35,41 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var oop = require("../lib/oop");
-var JavaScriptHighlightRules = require("./javascript_highlight_rules").JavaScriptHighlightRules;
-var XmlHighlightRules = require("./xml_highlight_rules").XmlHighlightRules;
-var xmlUtil = require("./xml_util");
+  var oop = require("../lib/oop");
+  var JavaScriptHighlightRules =
+    require("./javascript_highlight_rules").JavaScriptHighlightRules;
+  var XmlHighlightRules = require("./xml_highlight_rules").XmlHighlightRules;
+  var xmlUtil = require("./xml_util");
 
-var SvgHighlightRules = function() {
+  var SvgHighlightRules = function () {
     XmlHighlightRules.call(this);
 
     this.$rules.start.splice(3, 0, {
-        token : "meta.tag",
-        regex : "<(?=\s*script)",
-        next : "script"
+      token: "meta.tag",
+      regex: "<(?=s*script)",
+      next: "script",
     });
-    
+
     xmlUtil.tag(this.$rules, "script", "js-start");
-    
-    this.embedRules(JavaScriptHighlightRules, "js-", [{
+
+    this.embedRules(JavaScriptHighlightRules, "js-", [
+      {
         token: "comment",
         regex: "\\/\\/.*(?=<\\/script>)",
-        next: "tag"
-    }, {
+        next: "tag",
+      },
+      {
         token: "meta.tag",
         regex: "<\\/(?=script)",
-        next: "tag"
-    }]);
-};
+        next: "tag",
+      },
+    ]);
+  };
 
-oop.inherits(SvgHighlightRules, XmlHighlightRules);
+  oop.inherits(SvgHighlightRules, XmlHighlightRules);
 
-exports.SvgHighlightRules = SvgHighlightRules;
+  exports.SvgHighlightRules = SvgHighlightRules;
 });

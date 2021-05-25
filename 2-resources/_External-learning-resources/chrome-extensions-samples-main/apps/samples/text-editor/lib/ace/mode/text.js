@@ -38,184 +38,194 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var Tokenizer = require("../tokenizer").Tokenizer;
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
-var Behaviour = require("./behaviour").Behaviour;
-var unicode = require("../unicode");
+  var Tokenizer = require("../tokenizer").Tokenizer;
+  var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+  var Behaviour = require("./behaviour").Behaviour;
+  var unicode = require("../unicode");
 
-var Mode = function() {
+  var Mode = function () {
     this.$tokenizer = new Tokenizer(new TextHighlightRules().getRules());
     this.$behaviour = new Behaviour();
-};
+  };
 
-(function() {
-
-    this.tokenRe = new RegExp("^["
-        + unicode.packages.L
-        + unicode.packages.Mn + unicode.packages.Mc
-        + unicode.packages.Nd
-        + unicode.packages.Pc + "\\$_]+", "g"
-    );
-    
-    this.nonTokenRe = new RegExp("^(?:[^"
-        + unicode.packages.L
-        + unicode.packages.Mn + unicode.packages.Mc
-        + unicode.packages.Nd
-        + unicode.packages.Pc + "\\$_]|\s])+", "g"
+  (function () {
+    this.tokenRe = new RegExp(
+      "^[" +
+        unicode.packages.L +
+        unicode.packages.Mn +
+        unicode.packages.Mc +
+        unicode.packages.Nd +
+        unicode.packages.Pc +
+        "\\$_]+",
+      "g"
     );
 
-    this.getTokenizer = function() {
-        return this.$tokenizer;
+    this.nonTokenRe = new RegExp(
+      "^(?:[^" +
+        unicode.packages.L +
+        unicode.packages.Mn +
+        unicode.packages.Mc +
+        unicode.packages.Nd +
+        unicode.packages.Pc +
+        "\\$_]|s])+",
+      "g"
+    );
+
+    this.getTokenizer = function () {
+      return this.$tokenizer;
     };
 
-    this.toggleCommentLines = function(state, doc, startRow, endRow) {
+    this.toggleCommentLines = function (state, doc, startRow, endRow) {};
+
+    this.getNextLineIndent = function (state, line, tab) {
+      return "";
     };
 
-    this.getNextLineIndent = function(state, line, tab) {
-        return "";
+    this.checkOutdent = function (state, line, input) {
+      return false;
     };
 
-    this.checkOutdent = function(state, line, input) {
-        return false;
+    this.autoOutdent = function (state, doc, row) {};
+
+    this.$getIndent = function (line) {
+      var match = line.match(/^(\s+)/);
+      if (match) {
+        return match[1];
+      }
+
+      return "";
     };
 
-    this.autoOutdent = function(state, doc, row) {
+    this.createWorker = function (session) {
+      return null;
     };
 
-    this.$getIndent = function(line) {
-        var match = line.match(/^(\s+)/);
-        if (match) {
-            return match[1];
+    this.highlightSelection = function (editor) {
+      var session = editor.session;
+      if (!session.$selectionOccurrences) session.$selectionOccurrences = [];
+
+      if (session.$selectionOccurrences.length)
+        this.clearSelectionHighlight(editor);
+
+      var selection = editor.getSelectionRange();
+      if (selection.isEmpty() || selection.isMultiLine()) return;
+
+      var startOuter = selection.start.column - 1;
+      var endOuter = selection.end.column + 1;
+      var line = session.getLine(selection.start.row);
+      var lineCols = line.length;
+      var needle = line.substring(
+        Math.max(startOuter, 0),
+        Math.min(endOuter, lineCols)
+      );
+
+      // Make sure the outer characters are not part of the word.
+      if (
+        (startOuter >= 0 && /^[\w\d]/.test(needle)) ||
+        (endOuter <= lineCols && /[\w\d]$/.test(needle))
+      )
+        return;
+
+      needle = line.substring(selection.start.column, selection.end.column);
+      if (!/^[\w\d]+$/.test(needle)) return;
+
+      var cursor = editor.getCursorPosition();
+
+      var newOptions = {
+        wrap: true,
+        wholeWord: true,
+        caseSensitive: true,
+        needle: needle,
+      };
+
+      var currentOptions = editor.$search.getOptions();
+      editor.$search.set(newOptions);
+
+      var ranges = editor.$search.findAll(session);
+      ranges.forEach(function (range) {
+        if (!range.contains(cursor.row, cursor.column)) {
+          var marker = session.addMarker(range, "ace_selected_word", "text");
+          session.$selectionOccurrences.push(marker);
         }
+      });
 
-        return "";
-    };
-    
-    this.createWorker = function(session) {
-        return null;
+      editor.$search.set(currentOptions);
     };
 
-    this.highlightSelection = function(editor) {
-        var session = editor.session;
-        if (!session.$selectionOccurrences)
-            session.$selectionOccurrences = [];
+    this.clearSelectionHighlight = function (editor) {
+      if (!editor.session.$selectionOccurrences) return;
 
-        if (session.$selectionOccurrences.length)
-            this.clearSelectionHighlight(editor);
+      editor.session.$selectionOccurrences.forEach(function (marker) {
+        editor.session.removeMarker(marker);
+      });
 
-        var selection = editor.getSelectionRange();
-        if (selection.isEmpty() || selection.isMultiLine())
-            return;
-
-        var startOuter = selection.start.column - 1;
-        var endOuter = selection.end.column + 1;
-        var line = session.getLine(selection.start.row);
-        var lineCols = line.length;
-        var needle = line.substring(Math.max(startOuter, 0),
-                                    Math.min(endOuter, lineCols));
-
-        // Make sure the outer characters are not part of the word.
-        if ((startOuter >= 0 && /^[\w\d]/.test(needle)) ||
-            (endOuter <= lineCols && /[\w\d]$/.test(needle)))
-            return;
-
-        needle = line.substring(selection.start.column, selection.end.column);
-        if (!/^[\w\d]+$/.test(needle))
-            return;
-
-        var cursor = editor.getCursorPosition();
-
-        var newOptions = {
-            wrap: true,
-            wholeWord: true,
-            caseSensitive: true,
-            needle: needle
-        };
-
-        var currentOptions = editor.$search.getOptions();
-        editor.$search.set(newOptions);
-
-        var ranges = editor.$search.findAll(session);
-        ranges.forEach(function(range) {
-            if (!range.contains(cursor.row, cursor.column)) {
-                var marker = session.addMarker(range, "ace_selected_word", "text");
-                session.$selectionOccurrences.push(marker);
-            }
-        });
-
-        editor.$search.set(currentOptions);
+      editor.session.$selectionOccurrences = [];
     };
 
-    this.clearSelectionHighlight = function(editor) {
-        if (!editor.session.$selectionOccurrences)
-            return;
-
-        editor.session.$selectionOccurrences.forEach(function(marker) {
-            editor.session.removeMarker(marker);
-        });
-
-        editor.session.$selectionOccurrences = [];
-    };
-    
     this.createModeDelegates = function (mapping) {
-        if (!this.$embeds) {
-            return;
+      if (!this.$embeds) {
+        return;
+      }
+      this.$modes = {};
+      for (var i = 0; i < this.$embeds.length; i++) {
+        if (mapping[this.$embeds[i]]) {
+          this.$modes[this.$embeds[i]] = new mapping[this.$embeds[i]]();
         }
-        this.$modes = {};
-        for (var i = 0; i < this.$embeds.length; i++) {
-            if (mapping[this.$embeds[i]]) {
-                this.$modes[this.$embeds[i]] = new mapping[this.$embeds[i]]();
-            }
-        }
-        
-        var delegations = ['toggleCommentLines', 'getNextLineIndent', 'checkOutdent', 'autoOutdent', 'transformAction'];
+      }
 
-        for (var i = 0; i < delegations.length; i++) {
-            (function(scope) {
-              var functionName = delegations[i];
-              var defaultHandler = scope[functionName];
-              scope[delegations[i]] = function() {
-                  return this.$delegator(functionName, arguments, defaultHandler);
-              }
-            } (this));
-        }
-    }
-    
-    this.$delegator = function(method, args, defaultHandler) {
-        var state = args[0];
-        
-        for (var i = 0; i < this.$embeds.length; i++) {
-            if (!this.$modes[this.$embeds[i]]) continue;
-            
-            var split = state.split(this.$embeds[i]);
-            if (!split[0] && split[1]) {
-                args[0] = split[1];
-                var mode = this.$modes[this.$embeds[i]];
-                return mode[method].apply(mode, args);
-            }
-        }
-        var ret = defaultHandler.apply(this, args);
-        return defaultHandler ? ret : undefined;
+      var delegations = [
+        "toggleCommentLines",
+        "getNextLineIndent",
+        "checkOutdent",
+        "autoOutdent",
+        "transformAction",
+      ];
+
+      for (var i = 0; i < delegations.length; i++) {
+        (function (scope) {
+          var functionName = delegations[i];
+          var defaultHandler = scope[functionName];
+          scope[delegations[i]] = function () {
+            return this.$delegator(functionName, arguments, defaultHandler);
+          };
+        })(this);
+      }
     };
-    
-    this.transformAction = function(state, action, editor, session, param) {
-        if (this.$behaviour) {
-            var behaviours = this.$behaviour.getBehaviours();
-            for (var key in behaviours) {
-                if (behaviours[key][action]) {
-                    var ret = behaviours[key][action].apply(this, arguments);
-                    if (ret) {
-                        return ret;
-                    }
-                }
-            }
-        }
-    }
-    
-}).call(Mode.prototype);
 
-exports.Mode = Mode;
+    this.$delegator = function (method, args, defaultHandler) {
+      var state = args[0];
+
+      for (var i = 0; i < this.$embeds.length; i++) {
+        if (!this.$modes[this.$embeds[i]]) continue;
+
+        var split = state.split(this.$embeds[i]);
+        if (!split[0] && split[1]) {
+          args[0] = split[1];
+          var mode = this.$modes[this.$embeds[i]];
+          return mode[method].apply(mode, args);
+        }
+      }
+      var ret = defaultHandler.apply(this, args);
+      return defaultHandler ? ret : undefined;
+    };
+
+    this.transformAction = function (state, action, editor, session, param) {
+      if (this.$behaviour) {
+        var behaviours = this.$behaviour.getBehaviours();
+        for (var key in behaviours) {
+          if (behaviours[key][action]) {
+            var ret = behaviours[key][action].apply(this, arguments);
+            if (ret) {
+              return ret;
+            }
+          }
+        }
+      }
+    };
+  }.call(Mode.prototype));
+
+  exports.Mode = Mode;
 });

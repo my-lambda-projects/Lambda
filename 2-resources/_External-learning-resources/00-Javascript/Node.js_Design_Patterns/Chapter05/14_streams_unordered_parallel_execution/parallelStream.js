@@ -1,10 +1,10 @@
 "use strict";
 
-const stream = require('stream');
+const stream = require("stream");
 
 class ParallelStream extends stream.Transform {
   constructor(userTransform) {
-    super({objectMode: true});
+    super({ objectMode: true });
     this.userTransform = userTransform;
     this.running = 0;
     this.terminateCallback = null;
@@ -12,12 +12,17 @@ class ParallelStream extends stream.Transform {
 
   _transform(chunk, enc, done) {
     this.running++;
-    this.userTransform(chunk, enc, this._onComplete.bind(this), this.push.bind(this));
+    this.userTransform(
+      chunk,
+      enc,
+      this._onComplete.bind(this),
+      this.push.bind(this)
+    );
     done();
   }
 
   _flush(done) {
-    if(this.running > 0) {
+    if (this.running > 0) {
       this.terminateCallback = done;
     } else {
       done();
@@ -26,10 +31,10 @@ class ParallelStream extends stream.Transform {
 
   _onComplete(err) {
     this.running--;
-    if(err) {
-      return this.emit('error', err);
+    if (err) {
+      return this.emit("error", err);
     }
-    if(this.running === 0) {
+    if (this.running === 0) {
       this.terminateCallback && this.terminateCallback();
     }
   }

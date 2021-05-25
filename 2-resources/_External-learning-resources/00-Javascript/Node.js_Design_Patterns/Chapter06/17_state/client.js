@@ -1,8 +1,8 @@
 "use strict";
 
-const createFailsafeSocket = require('./failsafeSocket');
+const createFailsafeSocket = require("./failsafeSocket");
 
-const failsafeSocket = createFailsafeSocket({port: 5000});
+const failsafeSocket = createFailsafeSocket({ port: 5000 });
 
 setInterval(() => {
   //send current memory usage

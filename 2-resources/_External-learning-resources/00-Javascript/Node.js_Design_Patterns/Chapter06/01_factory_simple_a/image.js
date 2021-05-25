@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = class Image {
-    constructor(path) {
-        this.path = path;
-    }
+  constructor(path) {
+    this.path = path;
+  }
 };

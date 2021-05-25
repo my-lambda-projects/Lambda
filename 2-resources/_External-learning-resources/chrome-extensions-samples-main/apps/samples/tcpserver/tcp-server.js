@@ -16,10 +16,9 @@ limitations under the License.
 Author: Renato Mangini (mangini@chromium.org)
 */
 
-const DEFAULT_MAX_CONNECTIONS=5;
+const DEFAULT_MAX_CONNECTIONS = 5;
 
-(function(exports) {
-
+(function (exports) {
   // Define some local variables here.
   var socket = chrome.sockets.tcpServer;
 
@@ -32,30 +31,30 @@ const DEFAULT_MAX_CONNECTIONS=5;
   function TcpServer(addr, port, options) {
     this.addr = addr;
     this.port = port;
-    this.maxConnections = typeof(options) != 'undefined'
-        && options.maxConnections || DEFAULT_MAX_CONNECTIONS;
+    this.maxConnections =
+      (typeof options != "undefined" && options.maxConnections) ||
+      DEFAULT_MAX_CONNECTIONS;
 
     this._onAccept = this._onAccept.bind(this);
     this._onAcceptError = this._onAcceptError.bind(this);
 
     // Callback functions.
     this.callbacks = {
-      listen: null,    // Called when socket is connected.
-      connect: null,    // Called when socket is connected.
+      listen: null, // Called when socket is connected.
+      connect: null, // Called when socket is connected.
       disconnect: null, // Called when socket is disconnected.
-      recv: null,       // Called when client receives data from server.
-      sent: null        // Called when client sends data to server.
+      recv: null, // Called when client receives data from server.
+      sent: null, // Called when client sends data to server.
     };
 
     // Sockets open
-    this.openSockets=[];
+    this.openSockets = [];
 
     // server socket (one server connection, accepts and opens one socket per client)
     this.serverSocketId = null;
 
-    log('initialized tcp server, not listening yet');
+    log("initialized tcp server, not listening yet");
   }
-
 
   /**
    * Static method to return available network interfaces.
@@ -67,13 +66,13 @@ const DEFAULT_MAX_CONNECTIONS=5;
    * {name(string), address(string)} objects. Use the address property of the
    * preferred network as the addr parameter on TcpServer contructor.
    */
-  TcpServer.getNetworkAddresses=function(callback) {
+  TcpServer.getNetworkAddresses = function (callback) {
     chrome.system.network.getNetworkInterfaces(callback);
-  }
+  };
 
-  TcpServer.prototype.isConnected=function() {
+  TcpServer.prototype.isConnected = function () {
     return this.serverSocketId > 0;
-  }
+  };
 
   /**
    * Connects to the TCP socket, and creates an open socket.
@@ -81,33 +80,32 @@ const DEFAULT_MAX_CONNECTIONS=5;
    * @see https://developer.chrome.com/apps/sockets_tcpServer#method-create
    * @param {Function} callback The function to call on connection
    */
-  TcpServer.prototype.listen = function(callback) {
+  TcpServer.prototype.listen = function (callback) {
     // Register connect callback.
     this.callbacks.connect = callback;
     socket.create({}, this._onCreate.bind(this));
   };
-
 
   /**
    * Disconnects from the remote side
    *
    * @see https://developer.chrome.com/apps/sockets_tcpServer#method-disconnect
    */
-  TcpServer.prototype.disconnect = function() {
+  TcpServer.prototype.disconnect = function () {
     if (this.serverSocketId) {
       socket.onAccept.removeListener(this._onAccept);
       socket.onAcceptError.removeListener(this._onAcceptError);
       socket.close(this.serverSocketId);
     }
-    for (var i=0; i<this.openSockets.length; i++) {
+    for (var i = 0; i < this.openSockets.length; i++) {
       try {
         this.openSockets[i].close();
       } catch (ex) {
         console.log(ex);
       }
     }
-    this.openSockets=[];
-    this.serverSocketId=0;
+    this.openSockets = [];
+    this.serverSocketId = 0;
   };
 
   /**
@@ -119,16 +117,21 @@ const DEFAULT_MAX_CONNECTIONS=5;
    * @see https://developer.chrome.com/apps/sockets_tcpServer#method-listen
    * @param {Object} createInfo The socket details
    */
-  TcpServer.prototype._onCreate = function(createInfo) {
+  TcpServer.prototype._onCreate = function (createInfo) {
     this.serverSocketId = createInfo.socketId;
     if (this.serverSocketId > 0) {
       socket.onAccept.addListener(this._onAccept);
       socket.onAcceptError.addListener(this._onAcceptError);
-      socket.listen(this.serverSocketId, this.addr, this.port, 50,
-        this._onListenComplete.bind(this));
+      socket.listen(
+        this.serverSocketId,
+        this.addr,
+        this.port,
+        50,
+        this._onListenComplete.bind(this)
+      );
       this.isListening = true;
     } else {
-      error('Unable to create socket');
+      error("Unable to create socket");
     }
   };
 
@@ -139,15 +142,14 @@ const DEFAULT_MAX_CONNECTIONS=5;
    *
    * @private
    */
-  TcpServer.prototype._onListenComplete = function(resultCode) {
-    if (resultCode !==0) {
-      error('Unable to listen to socket. Resultcode='+resultCode);
+  TcpServer.prototype._onListenComplete = function (resultCode) {
+    if (resultCode !== 0) {
+      error("Unable to listen to socket. Resultcode=" + resultCode);
     }
-  }
+  };
 
   TcpServer.prototype._onAccept = function (info) {
-    if (info.socketId != this.serverSocketId)
-      return;
+    if (info.socketId != this.serverSocketId) return;
 
     if (this.openSockets.length >= this.maxConnections) {
       this._onNoMoreConnectionsAvailable(info.clientSocketId);
@@ -158,31 +160,31 @@ const DEFAULT_MAX_CONNECTIONS=5;
     this.openSockets.push(tcpConnection);
 
     tcpConnection.requestSocketInfo(this._onSocketInfo.bind(this));
-    log('Incoming connection handled.');
-  }
+    log("Incoming connection handled.");
+  };
 
-  TcpServer.prototype._onAcceptError = function(info) {
-    if (info.socketId != this.serverSocketId)
-      return;
+  TcpServer.prototype._onAcceptError = function (info) {
+    if (info.socketId != this.serverSocketId) return;
 
-    error('Unable to accept incoming connection. Error code=' + info.resultCode);
-  }
+    error(
+      "Unable to accept incoming connection. Error code=" + info.resultCode
+    );
+  };
 
-  TcpServer.prototype._onNoMoreConnectionsAvailable = function(socketId) {
-    var msg="No more connections available. Try again later\n";
-    _stringToArrayBuffer(msg, function(arrayBuffer) {
-      chrome.sockets.tcp.send(socketId, arrayBuffer,
-        function() {
-          chrome.sockets.tcp.close(socketId);
-        });
+  TcpServer.prototype._onNoMoreConnectionsAvailable = function (socketId) {
+    var msg = "No more connections available. Try again later\n";
+    _stringToArrayBuffer(msg, function (arrayBuffer) {
+      chrome.sockets.tcp.send(socketId, arrayBuffer, function () {
+        chrome.sockets.tcp.close(socketId);
+      });
     });
-  }
+  };
 
-  TcpServer.prototype._onSocketInfo = function(tcpConnection, socketInfo) {
+  TcpServer.prototype._onSocketInfo = function (tcpConnection, socketInfo) {
     if (this.callbacks.connect) {
       this.callbacks.connect(tcpConnection, socketInfo);
     }
-  }
+  };
 
   /**
    * Holds a connection to a client
@@ -196,21 +198,22 @@ const DEFAULT_MAX_CONNECTIONS=5;
     // Callback functions.
     this.callbacks = {
       disconnect: null, // Called when socket is disconnected.
-      recv: null,       // Called when client receives data from server.
-      sent: null        // Called when client sends data to server.
+      recv: null, // Called when client receives data from server.
+      sent: null, // Called when client sends data to server.
     };
 
-    log('Established client connection. Listening...');
+    log("Established client connection. Listening...");
+  }
 
-  };
-
-  TcpConnection.prototype.setSocketInfo = function(socketInfo) {
+  TcpConnection.prototype.setSocketInfo = function (socketInfo) {
     this.socketInfo = socketInfo;
   };
 
-  TcpConnection.prototype.requestSocketInfo = function(callback) {
-    chrome.sockets.tcp.getInfo(this.socketId,
-      this._onSocketInfo.bind(this, callback));
+  TcpConnection.prototype.requestSocketInfo = function (callback) {
+    chrome.sockets.tcp.getInfo(
+      this.socketId,
+      this._onSocketInfo.bind(this, callback)
+    );
   };
 
   /**
@@ -218,7 +221,7 @@ const DEFAULT_MAX_CONNECTIONS=5;
    *
    * @param {Function} callback The function to call when a message has arrived
    */
-  TcpConnection.prototype.startListening = function(callback) {
+  TcpConnection.prototype.startListening = function (callback) {
     this.callbacks.recv = callback;
 
     // Add receive listeners.
@@ -235,7 +238,7 @@ const DEFAULT_MAX_CONNECTIONS=5;
    *
    * @param {Function} callback The function to call when a message has arrived
    */
-  TcpConnection.prototype.addDataReceivedListener = function(callback) {
+  TcpConnection.prototype.addDataReceivedListener = function (callback) {
     // If this is the first time a callback is set, start listening for incoming data.
     if (!this.callbacks.recv) {
       this.startListening(callback);
@@ -244,7 +247,6 @@ const DEFAULT_MAX_CONNECTIONS=5;
     }
   };
 
-
   /**
    * Sends a message down the wire to the remote side
    *
@@ -252,29 +254,34 @@ const DEFAULT_MAX_CONNECTIONS=5;
    * @param {String} msg The message to send
    * @param {Function} callback The function to call when the message has sent
    */
-  TcpConnection.prototype.sendMessage = function(msg, callback) {
-    _stringToArrayBuffer(msg + '\n', function(arrayBuffer) {
-      chrome.sockets.tcp.send(this.socketId, arrayBuffer, this._onWriteComplete.bind(this));
-    }.bind(this));
+  TcpConnection.prototype.sendMessage = function (msg, callback) {
+    _stringToArrayBuffer(
+      msg + "\n",
+      function (arrayBuffer) {
+        chrome.sockets.tcp.send(
+          this.socketId,
+          arrayBuffer,
+          this._onWriteComplete.bind(this)
+        );
+      }.bind(this)
+    );
 
     // Register sent callback.
     this.callbacks.sent = callback;
   };
-
 
   /**
    * Disconnects from the remote side
    *
    * @see https://developer.chrome.com/apps/sockets_tcp#method-close
    */
-  TcpConnection.prototype.close = function() {
+  TcpConnection.prototype.close = function () {
     if (this.socketId) {
       chrome.sockets.tcp.onReceive.removeListener(this._onReceive);
       chrome.sockets.tcp.onReceiveError.removeListener(this._onReceiveError);
       chrome.sockets.tcp.close(this.socketId);
     }
   };
-
 
   /**
    * Callback function for when socket details (socketInfo) is received.
@@ -283,13 +290,13 @@ const DEFAULT_MAX_CONNECTIONS=5;
    *
    * @private
    */
-  TcpConnection.prototype._onSocketInfo = function(callback, socketInfo) {
-    if (callback && typeof(callback)!='function') {
-      throw "Illegal value for callback: "+callback;
+  TcpConnection.prototype._onSocketInfo = function (callback, socketInfo) {
+    if (callback && typeof callback != "function") {
+      throw "Illegal value for callback: " + callback;
     }
     this.socketInfo = socketInfo;
     callback(this, socketInfo);
-  }
+  };
 
   /**
    * Callback function for when data has been read from the socket.
@@ -301,21 +308,19 @@ const DEFAULT_MAX_CONNECTIONS=5;
    * @see TcpConnection.prototype.addDataReceivedListener
    * @param {Object} readInfo The incoming message
    */
-  TcpConnection.prototype._onReceive = function(info) {
-    if (this.socketId != info.socketId)
-      return;
+  TcpConnection.prototype._onReceive = function (info) {
+    if (this.socketId != info.socketId) return;
 
     // Call received callback if there's data in the response.
     if (this.callbacks.recv) {
-      log('onDataRead');
+      log("onDataRead");
       // Convert ArrayBuffer to string.
       _arrayBufferToString(info.data, this.callbacks.recv.bind(this));
     }
   };
 
   TcpConnection.prototype._onReceiveError = function (info) {
-    if (this.socketId != info.socketId)
-      return;
+    if (this.socketId != info.socketId) return;
     this.close();
   };
 
@@ -326,15 +331,13 @@ const DEFAULT_MAX_CONNECTIONS=5;
    * @private
    * @param {Object} writeInfo The outgoing message
    */
-  TcpConnection.prototype._onWriteComplete = function(writeInfo) {
-    log('onWriteComplete');
+  TcpConnection.prototype._onWriteComplete = function (writeInfo) {
+    log("onWriteComplete");
     // Call sent callback.
     if (this.callbacks.sent) {
       this.callbacks.sent(writeInfo);
     }
   };
-
-
 
   /**
    * Converts an array buffer to a string
@@ -346,7 +349,7 @@ const DEFAULT_MAX_CONNECTIONS=5;
   function _arrayBufferToString(buf, callback) {
     var bb = new Blob([new Uint8Array(buf)]);
     var f = new FileReader();
-    f.onload = function(e) {
+    f.onload = function (e) {
       callback(e.target.result);
     };
     f.readAsText(bb);
@@ -362,12 +365,11 @@ const DEFAULT_MAX_CONNECTIONS=5;
   function _stringToArrayBuffer(str, callback) {
     var bb = new Blob([str]);
     var f = new FileReader();
-    f.onload = function(e) {
-        callback(e.target.result);
+    f.onload = function (e) {
+      callback(e.target.result);
     };
     f.readAsArrayBuffer(bb);
   }
-
 
   /**
    * Wrapper function for logging
@@ -385,5 +387,4 @@ const DEFAULT_MAX_CONNECTIONS=5;
 
   exports.TcpServer = TcpServer;
   exports.TcpConnection = TcpConnection;
-
 })(window);

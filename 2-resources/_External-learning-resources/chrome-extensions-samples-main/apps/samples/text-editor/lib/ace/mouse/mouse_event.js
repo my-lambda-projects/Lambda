@@ -36,109 +36,102 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var event = require("../lib/event");
+  var event = require("../lib/event");
 
-/**
- * Custom Ace mouse event
- */
-var MouseEvent = exports.MouseEvent = function(domEvent, editor) {
+  /**
+   * Custom Ace mouse event
+   */
+  var MouseEvent = (exports.MouseEvent = function (domEvent, editor) {
     this.domEvent = domEvent;
     this.editor = editor;
-    
+
     this.pageX = event.getDocumentX(domEvent);
     this.pageY = event.getDocumentY(domEvent);
-    
+
     this.clientX = domEvent.clientX;
     this.clientY = domEvent.clientY;
 
     this.$pos = null;
     this.$inSelection = null;
-    
+
     this.propagationStopped = false;
     this.defaultPrevented = false;
-};
+  });
 
-(function() {  
-    
-    this.stopPropagation = function() {
-        event.stopPropagation(this.domEvent);
-        this.propagationStopped = true;
+  (function () {
+    this.stopPropagation = function () {
+      event.stopPropagation(this.domEvent);
+      this.propagationStopped = true;
     };
-    
-    this.preventDefault = function() {
-        event.preventDefault(this.domEvent);
-        this.defaultPrevented = true;
+
+    this.preventDefault = function () {
+      event.preventDefault(this.domEvent);
+      this.defaultPrevented = true;
     };
-    
-    this.stop = function() {
-        this.stopPropagation();
-        this.preventDefault();
+
+    this.stop = function () {
+      this.stopPropagation();
+      this.preventDefault();
     };
 
     /**
      * Get the document position below the mouse cursor
-     * 
+     *
      * @return {Object} 'row' and 'column' of the document position
      */
-    this.getDocumentPosition = function() {
-        if (this.$pos)
-            return this.$pos;
-            
-        var pageX = event.getDocumentX(this.domEvent);
-        var pageY = event.getDocumentY(this.domEvent);
-        this.$pos = this.editor.renderer.screenToTextCoordinates(pageX, pageY);
-        return this.$pos;
+    this.getDocumentPosition = function () {
+      if (this.$pos) return this.$pos;
+
+      var pageX = event.getDocumentX(this.domEvent);
+      var pageY = event.getDocumentY(this.domEvent);
+      this.$pos = this.editor.renderer.screenToTextCoordinates(pageX, pageY);
+      return this.$pos;
     };
-    
+
     /**
      * Check if the mouse cursor is inside of the text selection
-     * 
+     *
      * @return {Boolean} whether the mouse cursor is inside of the selection
      */
-    this.inSelection = function() {
-        if (this.$inSelection !== null)
-            return this.$inSelection;
-            
-        var editor = this.editor;
-        
-        if (editor.getReadOnly()) {
-            this.$inSelection = false;
-        }
+    this.inSelection = function () {
+      if (this.$inSelection !== null) return this.$inSelection;
+
+      var editor = this.editor;
+
+      if (editor.getReadOnly()) {
+        this.$inSelection = false;
+      } else {
+        var selectionRange = editor.getSelectionRange();
+        if (selectionRange.isEmpty()) this.$inSelection = false;
         else {
-            var selectionRange = editor.getSelectionRange();
-            if (selectionRange.isEmpty())
-                this.$inSelection = false;
-            else {
-                var pos = this.getDocumentPosition();
-                this.$inSelection = selectionRange.contains(pos.row, pos.column);
-            }
+          var pos = this.getDocumentPosition();
+          this.$inSelection = selectionRange.contains(pos.row, pos.column);
         }
-        return this.$inSelection;
+      }
+      return this.$inSelection;
     };
-    
+
     /**
      * Get the clicked mouse button
-     * 
+     *
      * @return {Number} 0 for left button, 1 for middle button, 2 for right button
      */
-    this.getButton = function() {
-        return event.getButton(this.domEvent);
+    this.getButton = function () {
+      return event.getButton(this.domEvent);
     };
-    
+
     /**
      * @return {Boolean} whether the shift key was pressed when the event was emitted
      */
-    this.getShiftKey = function() {
-        return this.domEvent.shiftKey;
+    this.getShiftKey = function () {
+      return this.domEvent.shiftKey;
     };
-    
-    this.getAccelKey = function() {
-        return this.domEvent.ctrlKey || this.domEvent.metaKey ;
-    };
-    
-}).call(MouseEvent.prototype);
 
+    this.getAccelKey = function () {
+      return this.domEvent.ctrlKey || this.domEvent.metaKey;
+    };
+  }.call(MouseEvent.prototype));
 });

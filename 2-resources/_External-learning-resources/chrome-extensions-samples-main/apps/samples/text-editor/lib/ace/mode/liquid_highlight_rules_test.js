@@ -36,56 +36,52 @@
  * ***** END LICENSE BLOCK ***** */
 
 if (typeof process !== "undefined") {
-    require("amd-loader");
+  require("amd-loader");
 }
 
-define(function(require, exports, module) {
+define(function (require, exports, module) {
+  var LiquidMode = require("./liquid").Mode;
+  var assert = require("../test/assertions");
 
-var LiquidMode = require("./liquid").Mode;
-var assert = require("../test/assertions");
-
-module.exports = {
-
+  module.exports = {
     name: "Liquid Tokenizer",
 
-    setUp : function() {
-        this.tokenizer = new LiquidMode().getTokenizer();
+    setUp: function () {
+      this.tokenizer = new LiquidMode().getTokenizer();
     },
 
-    "test: tokenize tags" : function() {
-        var line = "for one in many";
+    "test: tokenize tags": function () {
+      var line = "for one in many";
 
-        var tokens = this.tokenizer.getLineTokens(line, "liquid_start").tokens;
+      var tokens = this.tokenizer.getLineTokens(line, "liquid_start").tokens;
 
-        assert.equal(7, tokens.length);
-        assert.equal("keyword", tokens[0].type);
-        assert.equal("text", tokens[1].type);
-        assert.equal("identifier", tokens[2].type);
-        assert.equal("text", tokens[3].type);
-        assert.equal("keyword", tokens[4].type);
-        assert.equal("text", tokens[5].type);
-        assert.equal("identifier", tokens[6].type);
+      assert.equal(7, tokens.length);
+      assert.equal("keyword", tokens[0].type);
+      assert.equal("text", tokens[1].type);
+      assert.equal("identifier", tokens[2].type);
+      assert.equal("text", tokens[3].type);
+      assert.equal("keyword", tokens[4].type);
+      assert.equal("text", tokens[5].type);
+      assert.equal("identifier", tokens[6].type);
     },
 
-    "test: tokenize parens" : function() {
-        var line = "[{( )}]";
+    "test: tokenize parens": function () {
+      var line = "[{( )}]";
 
-        var tokens = this.tokenizer.getLineTokens(line, "liquid_start").tokens;
+      var tokens = this.tokenizer.getLineTokens(line, "liquid_start").tokens;
 
-        assert.equal(7, tokens.length);
-        assert.equal("paren.lparen", tokens[0].type);
-        assert.equal("paren.lparen", tokens[1].type);
-        assert.equal("paren.lparen", tokens[2].type);
-        assert.equal("text", tokens[3].type);
-        assert.equal("paren.rparen", tokens[4].type);
-        assert.equal("paren.rparen", tokens[5].type);
-        assert.equal("paren.rparen", tokens[6].type);
-    }
-
-};
-
+      assert.equal(7, tokens.length);
+      assert.equal("paren.lparen", tokens[0].type);
+      assert.equal("paren.lparen", tokens[1].type);
+      assert.equal("paren.lparen", tokens[2].type);
+      assert.equal("text", tokens[3].type);
+      assert.equal("paren.rparen", tokens[4].type);
+      assert.equal("paren.rparen", tokens[5].type);
+      assert.equal("paren.rparen", tokens[6].type);
+    },
+  };
 });
 
 if (typeof module !== "undefined" && module === require.main) {
-    require("asyncjs").test.testcase(module.exports).exec()
+  require("asyncjs").test.testcase(module.exports).exec();
 }

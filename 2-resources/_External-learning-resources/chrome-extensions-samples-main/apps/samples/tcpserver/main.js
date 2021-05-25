@@ -1,4 +1,3 @@
-
 var tcpServer;
 var commandWindow;
 
@@ -8,27 +7,28 @@ var commandWindow;
  * @see https://developer.chrome.com/apps/app_runtime
  * @see https://developer.chrome.com/apps/app_window
  */
-chrome.app.runtime.onLaunched.addListener(function() {
-	if (commandWindow && !commandWindow.contentWindow.closed) {
-		commandWindow.focus();
-	} else {
-		chrome.app.window.create('index.html',
-			{id: "mainwin", innerBounds: {width: 500, height: 309, left: 0}},
-			function(w) {
-				commandWindow = w;
-			});
-	}
+chrome.app.runtime.onLaunched.addListener(function () {
+  if (commandWindow && !commandWindow.contentWindow.closed) {
+    commandWindow.focus();
+  } else {
+    chrome.app.window.create(
+      "index.html",
+      { id: "mainwin", innerBounds: { width: 500, height: 309, left: 0 } },
+      function (w) {
+        commandWindow = w;
+      }
+    );
+  }
 });
 
-
 // event logger
-var log = (function(){
+var log = (function () {
   var logLines = [];
   var logListener = null;
 
-  var output=function(str) {
-    if (str.length>0 && str.charAt(str.length-1)!='\n') {
-      str+='\n'
+  var output = function (str) {
+    if (str.length > 0 && str.charAt(str.length - 1) != "\n") {
+      str += "\n";
     }
     logLines.push(str);
     if (logListener) {
@@ -36,32 +36,41 @@ var log = (function(){
     }
   };
 
-  var addListener=function(listener) {
-    logListener=listener;
+  var addListener = function (listener) {
+    logListener = listener;
     // let's call the new listener with all the old log lines
-    for (var i=0; i<logLines.length; i++) {
+    for (var i = 0; i < logLines.length; i++) {
       logListener(logLines[i]);
     }
   };
 
-  return {output: output, addListener: addListener};
+  return { output: output, addListener: addListener };
 })();
 
-
-
 function onAcceptCallback(tcpConnection, socketInfo) {
-  var info="["+socketInfo.peerAddress+":"+socketInfo.peerPort+"] Connection accepted!";
+  var info =
+    "[" +
+    socketInfo.peerAddress +
+    ":" +
+    socketInfo.peerPort +
+    "] Connection accepted!";
   log.output(info);
   console.log(socketInfo);
-  tcpConnection.addDataReceivedListener(function(data) {
+  tcpConnection.addDataReceivedListener(function (data) {
     var lines = data.split(/[\n\r]+/);
-    for (var i=0; i<lines.length; i++) {
-      var line=lines[i];
-      if (line.length>0) {
-        var info="["+socketInfo.peerAddress+":"+socketInfo.peerPort+"] "+line;
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i];
+      if (line.length > 0) {
+        var info =
+          "[" +
+          socketInfo.peerAddress +
+          ":" +
+          socketInfo.peerPort +
+          "] " +
+          line;
         log.output(info);
 
-        var cmd=line.split(/\s+/);
+        var cmd = line.split(/\s+/);
         try {
           tcpConnection.sendMessage(Commands.run(cmd[0], cmd.slice(1)));
         } catch (ex) {
@@ -70,7 +79,7 @@ function onAcceptCallback(tcpConnection, socketInfo) {
       }
     }
   });
-};
+}
 
 function startServer(addr, port) {
   if (tcpServer) {
@@ -80,20 +89,21 @@ function startServer(addr, port) {
   tcpServer.listen(onAcceptCallback);
 }
 
-
 function stopServer() {
   if (tcpServer) {
     tcpServer.disconnect();
-    tcpServer=null;
+    tcpServer = null;
   }
 }
 
 function getServerState() {
   if (tcpServer) {
-    return {isConnected: tcpServer.isConnected(),
+    return {
+      isConnected: tcpServer.isConnected(),
       addr: tcpServer.addr,
-      port: tcpServer.port};
+      port: tcpServer.port,
+    };
   } else {
-    return {isConnected: false};
+    return { isConnected: false };
   }
 }

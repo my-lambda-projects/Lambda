@@ -18,9 +18,9 @@ Author: Luis Leao (luisleao@gmail.com)
 Author: Ken Rockot (rockot@chromium.org)
 **/
 
-const SENSOR_REFRESH_INTERVAL=200;
+const SENSOR_REFRESH_INTERVAL = 200;
 
-(function() {
+(function () {
   var btnOpen = document.querySelector(".open");
   var btnClose = document.querySelector(".close");
   var logArea = document.querySelector(".log");
@@ -28,26 +28,26 @@ const SENSOR_REFRESH_INTERVAL=200;
   var serialDevices = document.querySelector(".serial_devices");
   var connection = null;
 
-  var logObj = function(obj) {
+  var logObj = function (obj) {
     console.log(obj);
-  }
+  };
 
-  var logSuccess = function(msg) {
+  var logSuccess = function (msg) {
     log("<span style='color: green;'>" + msg + "</span>");
   };
 
-  var logError = function(msg) {
+  var logError = function (msg) {
     statusLine.className = "error";
     statusLine.textContent = msg;
     log("<span style='color: red;'>" + msg + "</span>");
   };
 
-  var log = function(msg) {
+  var log = function (msg) {
     console.log(msg);
     logArea.innerHTML = msg + "<br/>" + logArea.innerHTML;
   };
 
-  var changeTab = function() {
+  var changeTab = function () {
     var _in = document.querySelector("#in");
     var _out = document.querySelector("#out");
     if (window.location.hash === "#outlink") {
@@ -59,9 +59,8 @@ const SENSOR_REFRESH_INTERVAL=200;
     }
   };
 
-  var init = function() {
-    if (!serial_lib)
-      throw "You must include serial.js before";
+  var init = function () {
+    if (!serial_lib) throw "You must include serial.js before";
 
     enableOpenButton(true);
     btnOpen.addEventListener("click", openDevice);
@@ -72,15 +71,23 @@ const SENSOR_REFRESH_INTERVAL=200;
     refreshPorts();
   };
 
-  var initADKListeners = function() {
-    addListenerToElements("change", ".servos input[type='range']", function(e, index) {
+  var initADKListeners = function () {
+    addListenerToElements(
+      "change",
+      ".servos input[type='range']",
+      function (e, index) {
         sendSerial("s" + index + toHexString(parseInt(this.value)));
-    });
-    addListenerToElements("change", ".leds input[type='range']", function(e, index) {
+      }
+    );
+    addListenerToElements(
+      "change",
+      ".leds input[type='range']",
+      function (e, index) {
         this.nextSibling.textContent = this.value;
         sendSerial("c" + index + toHexString(parseInt(this.value)));
-    });
-    addListenerToElements("click", ".relays button", function(e, index) {
+      }
+    );
+    addListenerToElements("click", ".relays button", function (e, index) {
       if (this.classList.contains("on")) {
         // turn it off
         this.classList.remove("on");
@@ -93,12 +100,14 @@ const SENSOR_REFRESH_INTERVAL=200;
         sendSerial("t" + index + "1");
       }
     });
-    setInterval(function() { sendSerial("data"); }, SENSOR_REFRESH_INTERVAL);
+    setInterval(function () {
+      sendSerial("data");
+    }, SENSOR_REFRESH_INTERVAL);
   };
 
-  var addListenerToElements = function(eventType, selector, listener) {
-    var addListener = function(type, element, index) {
-      element.addEventListener(type, function(e) {
+  var addListenerToElements = function (eventType, selector, listener) {
+    var addListener = function (type, element, index) {
+      element.addEventListener(type, function (e) {
         listener.apply(this, [e, index]);
       });
     };
@@ -108,25 +117,24 @@ const SENSOR_REFRESH_INTERVAL=200;
     }
   };
 
-  var toHexString = function(i) {
+  var toHexString = function (i) {
     return ("00" + i.toString(16)).substr(-2);
   };
 
-  var enableOpenButton = function(enable) {
+  var enableOpenButton = function (enable) {
     btnOpen.disabled = !enable;
     btnClose.disabled = enable;
   };
 
-  var refreshPorts = function() {
-    while (serialDevices.options.length > 0)
-      serialDevices.options.remove(0);
+  var refreshPorts = function () {
+    while (serialDevices.options.length > 0) serialDevices.options.remove(0);
 
-    serial_lib.getDevices(function(items) {
+    serial_lib.getDevices(function (items) {
       logSuccess("got " + items.length + " ports");
       for (var i = 0; i < items.length; ++i) {
         var path = items[i].path;
         serialDevices.options.add(new Option(path, path));
-        if (i === 1 || /usb/i.test(path) && /tty/i.test(path)) {
+        if (i === 1 || (/usb/i.test(path) && /tty/i.test(path))) {
           serialDevices.selectionIndex = i;
           logSuccess("auto-selected " + path);
         }
@@ -134,7 +142,7 @@ const SENSOR_REFRESH_INTERVAL=200;
     });
   };
 
-  var openDevice = function() {
+  var openDevice = function () {
     var selection = serialDevices.selectedOptions[0];
     if (!selection) {
       logError("No port selected.");
@@ -147,7 +155,7 @@ const SENSOR_REFRESH_INTERVAL=200;
     serial_lib.openDevice(path, onOpen);
   };
 
-  var onOpen = function(newConnection) {
+  var onOpen = function (newConnection) {
     if (newConnection === null) {
       logError("Failed to open device.");
       return;
@@ -161,7 +169,7 @@ const SENSOR_REFRESH_INTERVAL=200;
     statusLine.textContent = "Connected";
   };
 
-  var sendSerial = function(message) {
+  var sendSerial = function (message) {
     if (connection === null) {
       return;
     }
@@ -169,20 +177,20 @@ const SENSOR_REFRESH_INTERVAL=200;
       logError("Nothing to send!");
       return;
     }
-    if (message.charAt(message.length - 1) !== '\n') {
+    if (message.charAt(message.length - 1) !== "\n") {
       message += "\n";
     }
     connection.send(message);
   };
 
-  var onError = function(errorInfo) {
-    if (errorInfo.error !== 'timeout') {
+  var onError = function (errorInfo) {
+    if (errorInfo.error !== "timeout") {
       logError("Fatal error encounted. Dropping connection.");
       closeDevice();
     }
   };
 
-  var onReceive = function(data) {
+  var onReceive = function (data) {
     if (data.indexOf("log:") >= 0) {
       return;
     }
@@ -203,26 +211,36 @@ const SENSOR_REFRESH_INTERVAL=200;
           log(data);
           break;
         case "js":
-          document.querySelector("#joy .pointer").className = m[2] === "0" ? "pointer" : "pointer on";
+          document.querySelector("#joy .pointer").className =
+            m[2] === "0" ? "pointer" : "pointer on";
           break;
         case "t":
-          document.querySelector("#temp").textContent = convertTemperature(m[2]);
+          document.querySelector("#temp").textContent = convertTemperature(
+            m[2]
+          );
           break;
         case "l":
-          document.querySelector("#light").textContent = Math.round((1000 * parseInt(m[2]) / 1024)) / 10;
+          document.querySelector("#light").textContent =
+            Math.round((1000 * parseInt(m[2])) / 1024) / 10;
           document.querySelector("#lightv1").textContent = m[2];
           break;
         case "jxy":
           var el = document.querySelector("#joy .pointer");
-          el.style.left = ((128 + parseInt(m[2]) * 0.6) / 256.0 * el.parentElement.offsetWidth) + "px";
-          el.style.top = ((128 + parseInt(m[3]) * 0.9) / 256.0 * el.parentElement.offsetHeight) + "px";
+          el.style.left =
+            ((128 + parseInt(m[2]) * 0.6) / 256.0) *
+              el.parentElement.offsetWidth +
+            "px";
+          el.style.top =
+            ((128 + parseInt(m[3]) * 0.9) / 256.0) *
+              el.parentElement.offsetHeight +
+            "px";
           el.textContent = m[2] + "," + m[3];
           break;
       }
     }
   };
 
-  var convertTemperature=function(temperatureFromArduino) {
+  var convertTemperature = function (temperatureFromArduino) {
     // from ADK Android code:
     /*
      * Arduino board contains a 6 channel (8 channels on the Mini and Nano,
@@ -230,7 +248,7 @@ const SENSOR_REFRESH_INTERVAL=200;
      * it will map input voltages between 0 and 5 volts into integer values
      * between 0 and 1023. This yields a resolution between readings of: 5
      * volts / 1024 units or, .0049 volts (4.9 mV) per unit.
-    */
+     */
     var voltagemv = temperatureFromArduino * 4.9;
     /*
      * The change in voltage is scaled to a temperature coefficient of 10.0
@@ -240,25 +258,25 @@ const SENSOR_REFRESH_INTERVAL=200;
      * MCP9701/9701A, respectively. VOUT = TC¥TA+V0degC
      */
     var kVoltageAtZeroCmv = 400,
-        kTemperatureCoefficientmvperC = 19.5;
-    var ambientTemperatureC = (voltagemv - kVoltageAtZeroCmv) / kTemperatureCoefficientmvperC;
+      kTemperatureCoefficientmvperC = 19.5;
+    var ambientTemperatureC =
+      (voltagemv - kVoltageAtZeroCmv) / kTemperatureCoefficientmvperC;
     var temperatureF = (9.0 / 5.0) * ambientTemperatureC + 32.0;
     return Math.round(temperatureF);
   };
 
-  var closeDevice = function() {
-   if (connection !== null) {
-     connection.close();
-   }
+  var closeDevice = function () {
+    if (connection !== null) {
+      connection.close();
+    }
   };
 
-  var onClose = function(result) {
+  var onClose = function (result) {
     connection = null;
     enableOpenButton(true);
     statusLine.textContent = "Hover here to connect";
     statusLine.className = "";
-  }
+  };
 
   init();
 })();
-

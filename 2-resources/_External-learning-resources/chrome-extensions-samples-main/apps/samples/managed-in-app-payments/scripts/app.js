@@ -8,16 +8,16 @@ function init() {
 }
 
 /*****************************************************************************
-* Get the list of available products from the Chrome Web Store
-*****************************************************************************/
+ * Get the list of available products from the Chrome Web Store
+ *****************************************************************************/
 
 function getProductList() {
   console.log("google.payments.inapp.getSkuDetails");
   statusDiv.text("Retreiving list of available products...");
   google.payments.inapp.getSkuDetails({
-    'parameters': {env: "prod"},
-    'success': onSkuDetails,
-    'failure': onSkuDetailsFailed
+    parameters: { env: "prod" },
+    success: onSkuDetails,
+    failure: onSkuDetailsFailed,
   });
 }
 
@@ -35,20 +35,22 @@ function onSkuDetails(response) {
 
 function onSkuDetailsFailed(response) {
   console.log("onSkuDetailsFailed", response);
-  statusDiv.text("Error retreiving product list. (" + response.response.errorType + ")");
+  statusDiv.text(
+    "Error retreiving product list. (" + response.response.errorType + ")"
+  );
 }
 
 /*****************************************************************************
-* Get the list of purchased products from the Chrome Web Store
-*****************************************************************************/
+ * Get the list of purchased products from the Chrome Web Store
+ *****************************************************************************/
 
 function getLicenses() {
   console.log("google.payments.inapp.getPurchases");
   statusDiv.text("Retreiving list of purchased products...");
   google.payments.inapp.getPurchases({
-    'parameters': {env: "prod"},
-    'success': onLicenseUpdate,
-    'failure': onLicenseUpdateFailed
+    parameters: { env: "prod" },
+    success: onLicenseUpdate,
+    failure: onLicenseUpdateFailed,
   });
 }
 
@@ -68,19 +70,18 @@ function onLicenseUpdateFailed(response) {
   statusDiv.text("Error retreiving list of purchased products.");
 }
 
-
 /*****************************************************************************
-* Purchase an item
-*****************************************************************************/
+ * Purchase an item
+ *****************************************************************************/
 
 function buyProduct(sku) {
   console.log("google.payments.inapp.buy", sku);
   statusDiv.text("Kicking off purchase flow for " + sku);
   google.payments.inapp.buy({
-    parameters: {'env': "prod"},
-    'sku': sku,
-    'success': onPurchase,
-    'failure': onPurchaseFailed
+    parameters: { env: "prod" },
+    sku: sku,
+    success: onPurchase,
+    failure: onPurchaseFailed,
   });
 }
 
@@ -100,8 +101,8 @@ function onPurchaseFailed(purchase) {
 }
 
 /*****************************************************************************
-* Update/handle the user interface actions
-*****************************************************************************/
+ * Update/handle the user interface actions
+ *****************************************************************************/
 
 function addProductToUI(product) {
   var row = $("<tr></tr>");
@@ -117,11 +118,7 @@ function addProductToUI(product) {
     .text("Purchase")
     .addClass("btn-success");
   var colBut = $("<td></td>").append(butAct);
-  row
-    .append(colName)
-    .append(colDesc)
-    .append(colPrice)
-    .append(colBut);
+  row.append(colName).append(colDesc).append(colPrice).append(colBut);
   $("tbody").append(row);
 }
 
@@ -150,7 +147,7 @@ function showLicense(license) {
   console.log("showLicense", license);
   var modal = $("#modalLicense");
   modal.find(".license").text(JSON.stringify(license, null, 2));
-  modal.modal('show');
+  modal.modal("show");
 }
 
 init();

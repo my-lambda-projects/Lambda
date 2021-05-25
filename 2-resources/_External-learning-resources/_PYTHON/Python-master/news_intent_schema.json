@@ -22,19 +22,12 @@
         {
           "name": "YesIntent",
           "slots": [],
-          "samples": [
-            "start",
-            "sure",
-            "yes"
-          ]
+          "samples": ["start", "sure", "yes"]
         },
         {
           "name": "NooIntent",
           "slots": [],
-          "samples": [
-            "go away",
-            "no"
-          ]
+          "samples": ["go away", "no"]
         },
         {
           "name": "AMAZON.FallbackIntent",

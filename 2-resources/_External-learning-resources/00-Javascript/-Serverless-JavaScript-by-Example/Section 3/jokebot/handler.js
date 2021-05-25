@@ -1,23 +1,26 @@
-'use strict';
+"use strict";
 
-const axios = require('axios');
-const oneLinerJoke = require('one-liner-joke');
+const axios = require("axios");
+const oneLinerJoke = require("one-liner-joke");
 
 module.exports.webhook = (event, context, callback) => {
-  if (event.method === 'GET') {
+  if (event.method === "GET") {
     // facebook app verification
-    if (event.query['hub.verify_token'] === process.env.VERIFY_TOKEN && event.query['hub.challenge']) {
-      return callback(null, parseInt(event.query['hub.challenge']));
+    if (
+      event.query["hub.verify_token"] === process.env.VERIFY_TOKEN &&
+      event.query["hub.challenge"]
+    ) {
+      return callback(null, parseInt(event.query["hub.challenge"]));
     } else {
-      return callback(new Error('Invalid token'));
+      return callback(new Error("Invalid token"));
     }
   }
 
-  if (event.method === 'POST') {
+  if (event.method === "POST") {
     const entry = event.body.entry[0];
     const messagingItem = entry.messaging[0];
     if (!(messagingItem.message && messagingItem.message.text)) {
-      return callback(new Error('No message.'));
+      return callback(new Error("No message."));
     }
 
     const joke = oneLinerJoke.getRandomJoke();
@@ -25,15 +28,16 @@ module.exports.webhook = (event, context, callback) => {
 
     const payload = {
       recipient: {
-        id: messagingItem.sender.id
+        id: messagingItem.sender.id,
       },
       message: {
-        text: joke.body
-      }
+        text: joke.body,
+      },
     };
 
-    axios.post(url, payload)
-      .then(response => callback(null, response))
-      .catch(err => callback(err));
+    axios
+      .post(url, payload)
+      .then((response) => callback(null, response))
+      .catch((err) => callback(err));
   }
 };

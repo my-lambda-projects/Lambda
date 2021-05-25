@@ -1,6 +1,6 @@
 "use strict";
 
-const profiler = require('./profiler');
+const profiler = require("./profiler");
 
 function getRandomArray(len) {
   const p = profiler(`Generating a ${len} items long array`);
@@ -13,4 +13,4 @@ function getRandomArray(len) {
 }
 
 getRandomArray(1e6);
-console.log('Done');
+console.log("Done");

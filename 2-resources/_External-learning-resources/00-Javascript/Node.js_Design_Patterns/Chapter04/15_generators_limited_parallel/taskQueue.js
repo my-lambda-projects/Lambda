@@ -1,6 +1,6 @@
 "use strict";
 
-const co = require('co');
+const co = require("co");
 
 class TaskQueue {
   constructor(concurrency) {
@@ -21,9 +21,9 @@ class TaskQueue {
 
   spawnWorkers(concurrency) {
     const self = this;
-    for(let i = 0; i < concurrency; i++) {
+    for (let i = 0; i < concurrency; i++) {
       co(function* () {
-        while(true) {
+        while (true) {
           const task = yield self.nextTask();
           yield task;
         }
@@ -32,13 +32,13 @@ class TaskQueue {
   }
 
   nextTask() {
-    return callback => {
-      if(this.taskQueue.length !== 0) {
+    return (callback) => {
+      if (this.taskQueue.length !== 0) {
         return callback(null, this.taskQueue.shift());
       }
 
       this.consumerQueue.push(callback);
-    }
+    };
   }
 }
 

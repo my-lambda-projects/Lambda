@@ -1,20 +1,19 @@
 "use strict";
 
-const amqp = require('amqplib');
+const amqp = require("amqplib");
 
 let channel, queue;
 amqp
-  .connect('amqp://localhost')
-  .then(conn => conn.createChannel())
-  .then(ch => {
+  .connect("amqp://localhost")
+  .then((conn) => conn.createChannel())
+  .then((ch) => {
     channel = ch;
-    return channel.assertQueue('results_queue');
+    return channel.assertQueue("results_queue");
   })
-  .then(q => {
+  .then((q) => {
     queue = q.queue;
-    channel.consume(queue, msg => {
-      console.log('Message from worker: ', msg.content.toString());
+    channel.consume(queue, (msg) => {
+      console.log("Message from worker: ", msg.content.toString());
     });
   })
-  .catch(err => console.log(err.stack))
-;
+  .catch((err) => console.log(err.stack));

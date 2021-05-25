@@ -4,11 +4,9 @@ function ChatClient(config) {
   this.knownUsersCount = 0;
   MulticastSocket.call(this, config);
 }
-function emptyFn() {
-}
+function emptyFn() {}
 var invalidCharRe = /[^\w \(\)'"\.,\\\/\?]/g;
-var proto = ChatClient.prototype =
-  Object.create(MulticastSocket.prototype);
+var proto = (ChatClient.prototype = Object.create(MulticastSocket.prototype));
 proto.connected = false;
 
 proto.onError = function (err) {
@@ -38,27 +36,29 @@ proto.onDiagram = function (message, address) {
     return;
   }
   switch (obj.type) {
-    case 'message':
+    case "message":
       this.onMessage(obj.message, obj.name, address);
       break;
-    case 'hello':
-      this.sendDiagram(JSON.stringify({
-        type: "ack",
-        name: this.name
-      }));
+    case "hello":
+      this.sendDiagram(
+        JSON.stringify({
+          type: "ack",
+          name: this.name,
+        })
+      );
       this.addUser(obj.name, address);
       break;
-    case 'ack':
+    case "ack":
       this.addUser(obj.name, address);
       break;
-    case 'goodbye':
+    case "goodbye":
       this.removeUser(obj.name, address);
       break;
   }
 };
 
 proto.addUser = function (name, ip) {
-  name = name.replace(invalidCharRe, '');
+  name = name.replace(invalidCharRe, "");
   if (this.knownUsers.hasOwnProperty(name)) {
     if (this.knownUsers[name].hasOwnProperty(ip)) {
       return;
@@ -96,29 +96,24 @@ proto.clearUser = function () {
   }
 };
 
-proto.onInfo = function (message, level) {
+proto.onInfo = function (message, level) {};
 
-};
+proto.onAddUser = function (name, ip) {};
 
-proto.onAddUser = function (name, ip) {
+proto.onRemoveUser = function (name, ip) {};
 
-};
-
-proto.onRemoveUser = function (name, ip) {
-
-};
-
-proto.onMessage = function (message, name, ip) {
-
-};
+proto.onMessage = function (message, name, ip) {};
 
 proto.enter = function (callback) {
   if (!this.connected) {
     this.connect(function () {
-      this.sendDiagram(JSON.stringify({
-        type: 'hello',
-        name: this.name
-      }), callback);
+      this.sendDiagram(
+        JSON.stringify({
+          type: "hello",
+          name: this.name,
+        }),
+        callback
+      );
     });
   } else {
     callback.call(this);
@@ -130,33 +125,42 @@ proto.exit = function (callback) {
     callback = emptyFn;
   }
   if (this.connected) {
-    this.sendDiagram(JSON.stringify({
-      type: 'goodbye',
-      name: this.name
-    }), function () {
-      this.disconnect(callback);
-    });
+    this.sendDiagram(
+      JSON.stringify({
+        type: "goodbye",
+        name: this.name,
+      }),
+      function () {
+        this.disconnect(callback);
+      }
+    );
   } else {
     callback.call(this);
   }
 };
 
 proto.renameTo = function (newName, callback) {
-  newName = newName.replace(invalidCharRe, '');
+  newName = newName.replace(invalidCharRe, "");
   if (this.name != newName) {
-    this.sendDiagram(JSON.stringify({
-      type: 'goodbye',
-      name: this.name
-    }), function () {
-      this.name = newName;
-      this.sendDiagram(JSON.stringify({
-        type: 'hello',
-        name: this.name
-      }), function () {
-        this.onInfo("Renamed to [" + newName + "]", "info");
-        callback.call(this, newName);
-      });
-    });
+    this.sendDiagram(
+      JSON.stringify({
+        type: "goodbye",
+        name: this.name,
+      }),
+      function () {
+        this.name = newName;
+        this.sendDiagram(
+          JSON.stringify({
+            type: "hello",
+            name: this.name,
+          }),
+          function () {
+            this.onInfo("Renamed to [" + newName + "]", "info");
+            callback.call(this, newName);
+          }
+        );
+      }
+    );
   } else if (callback) {
     callback.call(this, newName);
   }
@@ -164,15 +168,21 @@ proto.renameTo = function (newName, callback) {
 
 proto.sendMessage = function (message, callback) {
   var me = this;
-  this.sendDiagram(JSON.stringify({
-    type: 'message',
-    name: this.name,
-    message: message
-  }), callback, function() {
-    me.onError("Error sending message (probably too large). Reconnecting soon.");
-    me.disconnect();
-    setTimeout(function() {
-      me.enter(callback);
-    }, 100);
-  });
+  this.sendDiagram(
+    JSON.stringify({
+      type: "message",
+      name: this.name,
+      message: message,
+    }),
+    callback,
+    function () {
+      me.onError(
+        "Error sending message (probably too large). Reconnecting soon."
+      );
+      me.disconnect();
+      setTimeout(function () {
+        me.enter(callback);
+      }, 100);
+    }
+  );
 };

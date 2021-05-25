@@ -36,71 +36,75 @@
  * ***** END LICENSE BLOCK ***** */
 
 if (typeof process !== "undefined") {
-    require("amd-loader");
-    require("../test/mockdom");
+  require("amd-loader");
+  require("../test/mockdom");
 }
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var assert = require("../test/assertions");
-var EditSession = require("../edit_session").EditSession;
-var TextLayer = require("./text").Text;
-var JavaScriptMode = require("../mode/javascript").Mode;
+  var assert = require("../test/assertions");
+  var EditSession = require("../edit_session").EditSession;
+  var TextLayer = require("./text").Text;
+  var JavaScriptMode = require("../mode/javascript").Mode;
 
-module.exports = {
-
-    setUp: function(next) {
-        this.session = new EditSession("");
-        this.session.setMode(new JavaScriptMode());
-        this.textLayer = new TextLayer(document.createElement("div"));
-        this.textLayer.setSession(this.session);
-        this.textLayer.config = {
-            characterWidth: 10,
-            lineHeight: 20
-        };
-        next()
+  module.exports = {
+    setUp: function (next) {
+      this.session = new EditSession("");
+      this.session.setMode(new JavaScriptMode());
+      this.textLayer = new TextLayer(document.createElement("div"));
+      this.textLayer.setSession(this.session);
+      this.textLayer.config = {
+        characterWidth: 10,
+        lineHeight: 20,
+      };
+      next();
     },
 
-    "test: render line with hard tabs should render the same as lines with soft tabs" : function() {
+    "test: render line with hard tabs should render the same as lines with soft tabs":
+      function () {
         this.session.setValue("a\ta\ta\t\na   a   a   \n");
         this.textLayer.$computeTabString();
-        
+
         // row with hard tabs
         var row = 0;
         var tokens = this.session.getTokens(row, row)[0].tokens;
         var stringBuilder = [];
         this.textLayer.$renderLine(stringBuilder, row, tokens);
-        
+
         // row with soft tabs
         row = 1;
         tokens = this.session.getTokens(row, row)[0].tokens;
         var stringBuilder2 = [];
         this.textLayer.$renderLine(stringBuilder2, row, tokens);
         assert.equal(stringBuilder.join(""), stringBuilder2.join(""));
+      },
+
+    "test rendering width of ideographic space (U+3000)": function () {
+      this.session.setValue("\u3000");
+
+      var tokens = this.session.getTokens(0, 0)[0].tokens;
+      var stringBuilder = [];
+      this.textLayer.$renderLine(stringBuilder, 0, tokens, true);
+      assert.equal(
+        stringBuilder.join(""),
+        "<span class='ace_cjk' style='width:20px'></span>"
+      );
+
+      this.textLayer.setShowInvisibles(true);
+      var stringBuilder = [];
+      this.textLayer.$renderLine(stringBuilder, 0, tokens, true);
+      assert.equal(
+        stringBuilder.join(""),
+        "<span class='ace_cjk ace_invisible' style='width:20px'>" +
+          this.textLayer.SPACE_CHAR +
+          "</span>" +
+          "<span class='ace_invisible'>\xB6</span>"
+      );
     },
-    
-    "test rendering width of ideographic space (U+3000)" : function() {
-        this.session.setValue("\u3000");
-        
-        var tokens = this.session.getTokens(0, 0)[0].tokens;
-        var stringBuilder = [];
-        this.textLayer.$renderLine(stringBuilder, 0, tokens, true);
-        assert.equal(stringBuilder.join(""), "<span class='ace_cjk' style='width:20px'></span>");
-
-        this.textLayer.setShowInvisibles(true);
-        var stringBuilder = [];
-        this.textLayer.$renderLine(stringBuilder, 0, tokens, true);
-        assert.equal(
-            stringBuilder.join(""),
-            "<span class='ace_cjk ace_invisible' style='width:20px'>" + this.textLayer.SPACE_CHAR + "</span>"
-            + "<span class='ace_invisible'>\xB6</span>"
-        );
-    }
-};
-
+  };
 });
 
 if (typeof module !== "undefined" && module === require.main) {
-    require("asyncjs").test.testcase(module.exports).exec()
+  require("asyncjs").test.testcase(module.exports).exec();
 }

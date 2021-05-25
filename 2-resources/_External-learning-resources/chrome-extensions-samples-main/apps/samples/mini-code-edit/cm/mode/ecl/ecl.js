@@ -1,7 +1,7 @@
-CodeMirror.defineMode("ecl", function(config) {
-
+CodeMirror.defineMode("ecl", function (config) {
   function words(str) {
-    var obj = {}, words = str.split(" ");
+    var obj = {},
+      words = str.split(" ");
     for (var i = 0; i < words.length; ++i) obj[words[i]] = true;
     return obj;
   }
@@ -24,14 +24,26 @@ CodeMirror.defineMode("ecl", function(config) {
   }
 
   var indentUnit = config.indentUnit;
-  var keyword = words("abs acos allnodes ascii asin asstring atan atan2 ave case choose choosen choosesets clustersize combine correlation cos cosh count covariance cron dataset dedup define denormalize distribute distributed distribution ebcdic enth error evaluate event eventextra eventname exists exp failcode failmessage fetch fromunicode getisvalid global graph group hash hash32 hash64 hashcrc hashmd5 having if index intformat isvalid iterate join keyunicode length library limit ln local log loop map matched matchlength matchposition matchtext matchunicode max merge mergejoin min nolocal nonempty normalize parse pipe power preload process project pull random range rank ranked realformat recordof regexfind regexreplace regroup rejected rollup round roundup row rowdiff sample set sin sinh sizeof soapcall sort sorted sqrt stepped stored sum table tan tanh thisnode topn tounicode transfer trim truncate typeof ungroup unicodeorder variance which workunit xmldecode xmlencode xmltext xmlunicode");
-  var variable = words("apply assert build buildindex evaluate fail keydiff keypatch loadxml nothor notify output parallel sequential soapcall wait");
-  var variable_2 = words("__compressed__ all and any as atmost before beginc++ best between case const counter csv descend encrypt end endc++ endmacro except exclusive expire export extend false few first flat from full function group header heading hole ifblock import in interface joined keep keyed last left limit load local locale lookup macro many maxcount maxlength min skew module named nocase noroot noscan nosort not of only opt or outer overwrite packed partition penalty physicallength pipe quote record relationship repeat return right scan self separator service shared skew skip sql store terminator thor threshold token transform trim true type unicodeorder unsorted validate virtual whole wild within xml xpath");
-  var variable_3 = words("ascii big_endian boolean data decimal ebcdic integer pattern qstring real record rule set of string token udecimal unicode unsigned varstring varunicode");
-  var builtin = words("checkpoint deprecated failcode failmessage failure global independent onwarning persist priority recovery stored success wait when");
-  var blockKeywords = words("catch class do else finally for if switch try while");
+  var keyword = words(
+    "abs acos allnodes ascii asin asstring atan atan2 ave case choose choosen choosesets clustersize combine correlation cos cosh count covariance cron dataset dedup define denormalize distribute distributed distribution ebcdic enth error evaluate event eventextra eventname exists exp failcode failmessage fetch fromunicode getisvalid global graph group hash hash32 hash64 hashcrc hashmd5 having if index intformat isvalid iterate join keyunicode length library limit ln local log loop map matched matchlength matchposition matchtext matchunicode max merge mergejoin min nolocal nonempty normalize parse pipe power preload process project pull random range rank ranked realformat recordof regexfind regexreplace regroup rejected rollup round roundup row rowdiff sample set sin sinh sizeof soapcall sort sorted sqrt stepped stored sum table tan tanh thisnode topn tounicode transfer trim truncate typeof ungroup unicodeorder variance which workunit xmldecode xmlencode xmltext xmlunicode"
+  );
+  var variable = words(
+    "apply assert build buildindex evaluate fail keydiff keypatch loadxml nothor notify output parallel sequential soapcall wait"
+  );
+  var variable_2 = words(
+    "__compressed__ all and any as atmost before beginc++ best between case const counter csv descend encrypt end endc++ endmacro except exclusive expire export extend false few first flat from full function group header heading hole ifblock import in interface joined keep keyed last left limit load local locale lookup macro many maxcount maxlength min skew module named nocase noroot noscan nosort not of only opt or outer overwrite packed partition penalty physicallength pipe quote record relationship repeat return right scan self separator service shared skew skip sql store terminator thor threshold token transform trim true type unicodeorder unsorted validate virtual whole wild within xml xpath"
+  );
+  var variable_3 = words(
+    "ascii big_endian boolean data decimal ebcdic integer pattern qstring real record rule set of string token udecimal unicode unsigned varstring varunicode"
+  );
+  var builtin = words(
+    "checkpoint deprecated failcode failmessage failure global independent onwarning persist priority recovery stored success wait when"
+  );
+  var blockKeywords = words(
+    "catch class do else finally for if switch try while"
+  );
   var atoms = words("true false null");
-  var hooks = {"#": metaHook};
+  var hooks = { "#": metaHook };
   var multiLineStrings;
   var isOperatorChar = /[+\-*&%=<>!?|\/]/;
 
@@ -49,7 +61,7 @@ CodeMirror.defineMode("ecl", function(config) {
     }
     if (/[\[\]{}\(\),;\:\.]/.test(ch)) {
       curPunc = ch;
-      return null
+      return null;
     }
     if (/\d/.test(ch)) {
       stream.eatWhile(/[\w\.]/);
@@ -86,44 +98,50 @@ CodeMirror.defineMode("ecl", function(config) {
     } else if (builtin.propertyIsEnumerable(cur)) {
       if (blockKeywords.propertyIsEnumerable(cur)) curPunc = "newstatement";
       return "builtin";
-    } else { //Data types are of from KEYWORD## 
-		var i = cur.length - 1;
-		while(i >= 0 && (!isNaN(cur[i]) || cur[i] == '_'))
-			--i;
-		
-		if (i > 0) {
-			var cur2 = cur.substr(0, i + 1);
-	    	if (variable_3.propertyIsEnumerable(cur2)) {
-	      		if (blockKeywords.propertyIsEnumerable(cur2)) curPunc = "newstatement";
-	      		return "variable-3";
-	      	}
-	    }
+    } else {
+      //Data types are of from KEYWORD##
+      var i = cur.length - 1;
+      while (i >= 0 && (!isNaN(cur[i]) || cur[i] == "_")) --i;
+
+      if (i > 0) {
+        var cur2 = cur.substr(0, i + 1);
+        if (variable_3.propertyIsEnumerable(cur2)) {
+          if (blockKeywords.propertyIsEnumerable(cur2))
+            curPunc = "newstatement";
+          return "variable-3";
+        }
+      }
     }
     if (atoms.propertyIsEnumerable(cur)) return "atom";
     return "word";
   }
 
   function tokenString(quote) {
-    return function(stream, state) {
-      var escaped = false, next, end = false;
+    return function (stream, state) {
+      var escaped = false,
+        next,
+        end = false;
       while ((next = stream.next()) != null) {
-        if (next == quote && !escaped) {end = true; break;}
+        if (next == quote && !escaped) {
+          end = true;
+          break;
+        }
         escaped = !escaped && next == "\\";
       }
-      if (end || !(escaped || multiLineStrings))
-        state.tokenize = tokenBase;
+      if (end || !(escaped || multiLineStrings)) state.tokenize = tokenBase;
       return "string";
     };
   }
 
   function tokenComment(stream, state) {
-    var maybeEnd = false, ch;
-    while (ch = stream.next()) {
+    var maybeEnd = false,
+      ch;
+    while ((ch = stream.next())) {
       if (ch == "/" && maybeEnd) {
         state.tokenize = tokenBase;
         break;
       }
-      maybeEnd = (ch == "*");
+      maybeEnd = ch == "*";
     }
     return "comment";
   }
@@ -136,28 +154,34 @@ CodeMirror.defineMode("ecl", function(config) {
     this.prev = prev;
   }
   function pushContext(state, col, type) {
-    return state.context = new Context(state.indented, col, type, null, state.context);
+    return (state.context = new Context(
+      state.indented,
+      col,
+      type,
+      null,
+      state.context
+    ));
   }
   function popContext(state) {
     var t = state.context.type;
     if (t == ")" || t == "]" || t == "}")
       state.indented = state.context.indented;
-    return state.context = state.context.prev;
+    return (state.context = state.context.prev);
   }
 
   // Interface
 
   return {
-    startState: function(basecolumn) {
+    startState: function (basecolumn) {
       return {
         tokenize: null,
         context: new Context((basecolumn || 0) - indentUnit, 0, "top", false),
         indented: 0,
-        startOfLine: true
+        startOfLine: true,
       };
     },
 
-    token: function(stream, state) {
+    token: function (stream, state) {
       var ctx = state.context;
       if (stream.sol()) {
         if (ctx.align == null) ctx.align = false;
@@ -170,7 +194,8 @@ CodeMirror.defineMode("ecl", function(config) {
       if (style == "comment" || style == "meta") return style;
       if (ctx.align == null) ctx.align = true;
 
-      if ((curPunc == ";" || curPunc == ":") && ctx.type == "statement") popContext(state);
+      if ((curPunc == ";" || curPunc == ":") && ctx.type == "statement")
+        popContext(state);
       else if (curPunc == "{") pushContext(state, stream.column(), "}");
       else if (curPunc == "[") pushContext(state, stream.column(), "]");
       else if (curPunc == "(") pushContext(state, stream.column(), ")");
@@ -178,25 +203,30 @@ CodeMirror.defineMode("ecl", function(config) {
         while (ctx.type == "statement") ctx = popContext(state);
         if (ctx.type == "}") ctx = popContext(state);
         while (ctx.type == "statement") ctx = popContext(state);
-      }
-      else if (curPunc == ctx.type) popContext(state);
-      else if (ctx.type == "}" || ctx.type == "top" || (ctx.type == "statement" && curPunc == "newstatement"))
+      } else if (curPunc == ctx.type) popContext(state);
+      else if (
+        ctx.type == "}" ||
+        ctx.type == "top" ||
+        (ctx.type == "statement" && curPunc == "newstatement")
+      )
         pushContext(state, stream.column(), "statement");
       state.startOfLine = false;
       return style;
     },
 
-    indent: function(state, textAfter) {
+    indent: function (state, textAfter) {
       if (state.tokenize != tokenBase && state.tokenize != null) return 0;
-      var ctx = state.context, firstChar = textAfter && textAfter.charAt(0);
+      var ctx = state.context,
+        firstChar = textAfter && textAfter.charAt(0);
       if (ctx.type == "statement" && firstChar == "}") ctx = ctx.prev;
       var closing = firstChar == ctx.type;
-      if (ctx.type == "statement") return ctx.indented + (firstChar == "{" ? 0 : indentUnit);
+      if (ctx.type == "statement")
+        return ctx.indented + (firstChar == "{" ? 0 : indentUnit);
       else if (ctx.align) return ctx.column + (closing ? 0 : 1);
       else return ctx.indented + (closing ? 0 : indentUnit);
     },
 
-    electricChars: "{}"
+    electricChars: "{}",
   };
 });
 

@@ -38,44 +38,45 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var JavaScriptMode = require("./javascript").Mode;
-var XmlMode = require("./xml").Mode;
-var HtmlMode = require("./html").Mode;
-var Tokenizer = require("../tokenizer").Tokenizer;
-var MarkdownHighlightRules = require("./markdown_highlight_rules").MarkdownHighlightRules;
+  var oop = require("../lib/oop");
+  var TextMode = require("./text").Mode;
+  var JavaScriptMode = require("./javascript").Mode;
+  var XmlMode = require("./xml").Mode;
+  var HtmlMode = require("./html").Mode;
+  var Tokenizer = require("../tokenizer").Tokenizer;
+  var MarkdownHighlightRules =
+    require("./markdown_highlight_rules").MarkdownHighlightRules;
 
-var Mode = function() {
+  var Mode = function () {
     var highlighter = new MarkdownHighlightRules();
-    
+
     this.$tokenizer = new Tokenizer(highlighter.getRules());
     this.$embeds = highlighter.getEmbeds();
     this.createModeDelegates({
       "js-": JavaScriptMode,
       "xml-": XmlMode,
-      "html-": HtmlMode
+      "html-": HtmlMode,
     });
-};
-oop.inherits(Mode, TextMode);
+  };
+  oop.inherits(Mode, TextMode);
 
-(function() {
-    this.getNextLineIndent = function(state, line, tab) {
-        if (state == "listblock") {
-            var match = /^((?:.+)?)([-+*][ ]+)/.exec(line);
-            if (match) {
-                return new Array(match[1].length + 1).join(" ") + match[2];
-            } else {
-                return "";
-            }
+  (function () {
+    this.getNextLineIndent = function (state, line, tab) {
+      if (state == "listblock") {
+        var match = /^((?:.+)?)([-+*][ ]+)/.exec(line);
+        if (match) {
+          return new Array(match[1].length + 1).join(" ") + match[2];
         } else {
-            return this.$getIndent(line);
+          return "";
         }
+      } else {
+        return this.$getIndent(line);
+      }
     };
-}).call(Mode.prototype);
+  }.call(Mode.prototype));
 
-exports.Mode = Mode;
+  exports.Mode = Mode;
 });

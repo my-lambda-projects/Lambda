@@ -1,18 +1,19 @@
 "use strict";
 
-const jot = require('json-over-tcp');         //[1]
+const jot = require("json-over-tcp"); //[1]
 
 module.exports = class OfflineState {
-
-  constructor (failsafeSocket) {
+  constructor(failsafeSocket) {
     this.failsafeSocket = failsafeSocket;
   }
 
-  send(data) {     //[2]
+  send(data) {
+    //[2]
     this.failsafeSocket.queue.push(data);
   }
 
-  activate() {     //[3]
+  activate() {
+    //[3]
     const retry = () => {
       setTimeout(() => this.activate(), 500);
     };
@@ -20,10 +21,10 @@ module.exports = class OfflineState {
     this.failsafeSocket.socket = jot.connect(
       this.failsafeSocket.options,
       () => {
-        this.failsafeSocket.socket.removeListener('error', retry);
-        this.failsafeSocket.changeState('online');
+        this.failsafeSocket.socket.removeListener("error", retry);
+        this.failsafeSocket.changeState("online");
       }
     );
-    this.failsafeSocket.socket.once('error', retry);
+    this.failsafeSocket.socket.once("error", retry);
   }
 };

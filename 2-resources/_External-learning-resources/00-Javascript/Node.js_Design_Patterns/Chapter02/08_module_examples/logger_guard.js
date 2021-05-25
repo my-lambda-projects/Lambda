@@ -1,9 +1,9 @@
 "use strict";
 
-const LoggerConstructor = require('./logger_constructor');
+const LoggerConstructor = require("./logger_constructor");
 
 function Logger(name) {
-  if(!(this instanceof Logger)) {
+  if (!(this instanceof Logger)) {
     return new LoggerConstructor(name);
   }
   this.name = name;

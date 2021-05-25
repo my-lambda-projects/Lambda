@@ -1,12 +1,10 @@
 let myStr = " Hello World JavaScript 123 this works, I love JavaScript  ";
 
-
-
 let output;
-output = myStr.replace('love','enjoy');
-output = myStr.indexOf('JavaScript');
-output = myStr.lastIndexOf('JavaScript');
-output = myStr.search('JavaScript');
+output = myStr.replace("love", "enjoy");
+output = myStr.indexOf("JavaScript");
+output = myStr.lastIndexOf("JavaScript");
+output = myStr.search("JavaScript");
 console.log(output);
 /*
 console.log(myStr[9]);

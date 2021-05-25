@@ -36,64 +36,62 @@
  * ***** END LICENSE BLOCK ***** */
 
 if (typeof process !== "undefined") {
-    require("amd-loader");
+  require("amd-loader");
 }
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var CssMode = require("./css").Mode;
-var assert = require("../test/assertions");
+  var CssMode = require("./css").Mode;
+  var assert = require("../test/assertions");
 
-module.exports = {
-    
+  module.exports = {
     name: "CSS Tokenizer",
-    
-    setUp : function() {
-        this.tokenizer = new CssMode().getTokenizer();
+
+    setUp: function () {
+      this.tokenizer = new CssMode().getTokenizer();
     },
 
-    "test: tokenize pixel number" : function() {
-        var line = "-12px";
-        var tokens = this.tokenizer.getLineTokens(line, "ruleset").tokens;
+    "test: tokenize pixel number": function () {
+      var line = "-12px";
+      var tokens = this.tokenizer.getLineTokens(line, "ruleset").tokens;
 
-        assert.equal(2, tokens.length);
-        assert.equal("constant.numeric", tokens[0].type);
+      assert.equal(2, tokens.length);
+      assert.equal("constant.numeric", tokens[0].type);
     },
 
-    "test: tokenize hex3 color" : function() {
-        var tokens = this.tokenizer.getLineTokens("#abc", "ruleset").tokens;
+    "test: tokenize hex3 color": function () {
+      var tokens = this.tokenizer.getLineTokens("#abc", "ruleset").tokens;
 
-        assert.equal(1, tokens.length);
-        assert.equal("constant.numeric", tokens[0].type);
+      assert.equal(1, tokens.length);
+      assert.equal("constant.numeric", tokens[0].type);
     },
 
-    "test: tokenize hex6 color" : function() {
-        var tokens = this.tokenizer.getLineTokens("#abc012", "ruleset").tokens;
+    "test: tokenize hex6 color": function () {
+      var tokens = this.tokenizer.getLineTokens("#abc012", "ruleset").tokens;
 
-        assert.equal(1, tokens.length);
-        assert.equal("constant.numeric", tokens[0].type);
+      assert.equal(1, tokens.length);
+      assert.equal("constant.numeric", tokens[0].type);
     },
 
-    "test: tokenize parens" : function() {
-        var tokens = this.tokenizer.getLineTokens("{()}", "start").tokens;
+    "test: tokenize parens": function () {
+      var tokens = this.tokenizer.getLineTokens("{()}", "start").tokens;
 
-        assert.equal(3, tokens.length);
-        assert.equal("paren.lparen", tokens[0].type);
-        assert.equal("text", tokens[1].type);
-        assert.equal("paren.rparen", tokens[2].type);
+      assert.equal(3, tokens.length);
+      assert.equal("paren.lparen", tokens[0].type);
+      assert.equal("text", tokens[1].type);
+      assert.equal("paren.rparen", tokens[2].type);
     },
-    
-    "test for last rule in ruleset to catch capturing group bugs" : function() {
-        var tokens = this.tokenizer.getLineTokens("top", "ruleset").tokens;
-        
-        assert.equal(1, tokens.length);
-        assert.equal("support.type", tokens[0].type);
-    }
-};
 
+    "test for last rule in ruleset to catch capturing group bugs": function () {
+      var tokens = this.tokenizer.getLineTokens("top", "ruleset").tokens;
+
+      assert.equal(1, tokens.length);
+      assert.equal("support.type", tokens[0].type);
+    },
+  };
 });
 
 if (typeof module !== "undefined" && module === require.main) {
-    require("asyncjs").test.testcase(module.exports).exec()
+  require("asyncjs").test.testcase(module.exports).exec();
 }

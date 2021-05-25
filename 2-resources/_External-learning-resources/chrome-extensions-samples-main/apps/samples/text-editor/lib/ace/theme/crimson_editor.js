@@ -35,9 +35,10 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-exports.isDark = false;
-exports.cssText = ".ace-crimson-editor .ace_editor {\
+define(function (require, exports, module) {
+  exports.isDark = false;
+  exports.cssText =
+    ".ace-crimson-editor .ace_editor {\
   border: 2px solid rgb(159, 159, 159);\
 }\
 \
@@ -191,8 +192,8 @@ exports.cssText = ".ace-crimson-editor .ace_editor {\
   color: rgb(192, 0, 192);\
 }";
 
-exports.cssClass = "ace-crimson-editor";
+  exports.cssClass = "ace-crimson-editor";
 
-var dom = require("../lib/dom");
-dom.importCssString(exports.cssText, exports.cssClass);
+  var dom = require("../lib/dom");
+  dom.importCssString(exports.cssText, exports.cssClass);
 });

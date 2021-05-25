@@ -1,15 +1,14 @@
 "use strict";
 
-module.exports = channel =>
-{
+module.exports = (channel) => {
   return function registerHandler(handler) {
-    channel.on('message', message => {
-      if (message.type !== 'request') return;
-      handler(message.data, reply => {
+    channel.on("message", (message) => {
+      if (message.type !== "request") return;
+      handler(message.data, (reply) => {
         channel.send({
-          type: 'response',
+          type: "response",
           data: reply,
-          inReplyTo: message.id
+          inReplyTo: message.id,
         });
       });
     });

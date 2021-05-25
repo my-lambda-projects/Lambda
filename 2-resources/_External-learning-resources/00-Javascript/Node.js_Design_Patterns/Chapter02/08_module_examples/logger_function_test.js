@@ -1,6 +1,6 @@
 "use strict";
 
-const logger = require('./logger_function');
+const logger = require("./logger_function");
 
-logger('This is an informational message');
-logger.verbose('This is a verbose message');
+logger("This is an informational message");
+logger.verbose("This is a verbose message");

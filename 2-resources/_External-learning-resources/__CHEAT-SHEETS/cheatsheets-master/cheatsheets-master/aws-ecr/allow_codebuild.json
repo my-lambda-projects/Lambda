@@ -5,9 +5,7 @@
       "Sid": "CodeBuildAccess",
       "Effect": "Allow",
       "Principal": {
-        "AWS": [
-          "arn:aws:iam::xxxxxxxxxxxx:root"
-        ],
+        "AWS": ["arn:aws:iam::xxxxxxxxxxxx:root"],
         "Service": "codebuild.amazonaws.com"
       },
       "Action": [

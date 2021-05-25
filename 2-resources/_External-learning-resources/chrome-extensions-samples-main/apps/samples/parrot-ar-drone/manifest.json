@@ -7,9 +7,11 @@
       "scripts": ["main.js"]
     }
   },
-  "permissions": [{
-    "socket": ["udp-send-to::*"]
-    }],
+  "permissions": [
+    {
+      "socket": ["udp-send-to::*"]
+    }
+  ],
   "sockets": {
     "tcpServer": { "listen": "" },
     "tcp": { "connect": ["*:5555", "*:5559"] },

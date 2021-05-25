@@ -9,7 +9,5 @@
       "scripts": ["background.js"]
     }
   },
-  "permissions": [
-    "bluetooth"
-  ]
+  "permissions": ["bluetooth"]
 }

@@ -16,23 +16,23 @@ limitations under the License.
 Author: Eric Bidelman (ericbidelman@chromium.org)
 */
 
-var canvas = document.querySelector('canvas');
-var canvasContext = canvas.getContext('2d');
-var chooseFileButton = document.querySelector('#choose_file');
+var canvas = document.querySelector("canvas");
+var canvasContext = canvas.getContext("2d");
+var chooseFileButton = document.querySelector("#choose_file");
 var chosenFileEntry = null;
-var cropButton = document.querySelector('#crop');
-var cropCanvas = document.createElement('canvas');
-var cropCanvasContext = cropCanvas.getContext('2d');
+var cropButton = document.querySelector("#crop");
+var cropCanvas = document.createElement("canvas");
+var cropCanvasContext = cropCanvas.getContext("2d");
 var cropSquare = undefined;
 var cropSquareHandlesSize = 50;
 var displayOffset = undefined;
 var displayScale = undefined;
-var image_display = document.querySelector('#image_display');
+var image_display = document.querySelector("#image_display");
 var img = new Image();
 var mouseMovingCropParameter = undefined;
 var mouseLastCoords = undefined;
-var output = document.querySelector('output');
-var saveFileButton = document.querySelector('#save_file');
+var output = document.querySelector("output");
+var saveFileButton = document.querySelector("#save_file");
 
 function clearState() {
   img.src = "";
@@ -45,7 +45,7 @@ function errorHandler(e) {
 }
 
 function displayText(text) {
-    output.textContent = text;
+  output.textContent = text;
 }
 
 function displayfileEntryPath(fileEntry) {
@@ -57,13 +57,12 @@ function resetCrop() {
     x: 0,
     y: 0,
     w: img.width,
-    h: img.height
+    h: img.height,
   };
 }
 
 function getHandleHoverData(clientX, clientY) {
-  if (!img.width || !img.height)
-    return undefined;
+  if (!img.width || !img.height) return undefined;
 
   var canvasRect = canvas.getBoundingClientRect();
   var x = clientX - canvasRect.left;
@@ -78,25 +77,24 @@ function getHandleHoverData(clientX, clientY) {
     x: x >= outer.x && x <= inner.x && y >= outer.y && y <= outer.b,
     w: x >= inner.r && x <= outer.r && y >= outer.y && y <= outer.b,
     y: y >= outer.y && y <= inner.y && x >= outer.x && x <= outer.r,
-    h: y >= inner.b && y <= outer.b && x >= outer.x && x <= outer.r
+    h: y >= inner.b && y <= outer.b && x >= outer.x && x <= outer.r,
   };
   return movingParams;
 }
 
-function mouseDown (e) {
+function mouseDown(e) {
   mouseLastCoords = { x: e.clientX, y: e.clientY };
   mouseMovingCropParameter = getHandleHoverData(e.clientX, e.clientY);
 }
 
-function stopTrackingMouseDrag () {
+function stopTrackingMouseDrag() {
   mouseLastCoords = undefined;
   mouseMovingCropParameter = undefined;
 }
 
 function mouseMove(e) {
   if (mouseLastCoords) {
-    moveCrop(e.clientX - mouseLastCoords.x,
-             e.clientY - mouseLastCoords.y);
+    moveCrop(e.clientX - mouseLastCoords.x, e.clientY - mouseLastCoords.y);
     mouseLastCoords = { x: e.clientX, y: e.clientY };
   } else {
     // Set mouse cursor.
@@ -104,11 +102,12 @@ function mouseMove(e) {
     var y = false;
     var movingParams = getHandleHoverData(e.clientX, e.clientY);
     var moveParamsString =
-        movingParams === undefined ? "undefined" :
-        (movingParams.y ? "n" : "") +
-        (movingParams.h ? "s" : "") +
-        (movingParams.x ? "w" : "") +
-        (movingParams.w ? "e" : "");
+      movingParams === undefined
+        ? "undefined"
+        : (movingParams.y ? "n" : "") +
+          (movingParams.h ? "s" : "") +
+          (movingParams.x ? "w" : "") +
+          (movingParams.w ? "e" : "");
     switch (moveParamsString) {
       case "n":
       case "nw":
@@ -125,15 +124,14 @@ function mouseMove(e) {
         break;
       default:
         moveParamsString = "move";
-    };
+    }
     canvas.style.cursor = moveParamsString;
   }
 }
 
 // x, y, in canvas coordinates.
 function moveCrop(dx, dy) {
-  if (!displayScale || !cropSquare || !mouseMovingCropParameter)
-    return;
+  if (!displayScale || !cropSquare || !mouseMovingCropParameter) return;
 
   var dxs = dx / displayScale;
   var dys = dy / displayScale;
@@ -162,10 +160,12 @@ function moveCrop(dx, dy) {
   }
 
   // If not moving a particular element, move the whole frame.
-  if (!mouseMovingCropParameter.x &&
-      !mouseMovingCropParameter.y &&
-      !mouseMovingCropParameter.w &&
-      !mouseMovingCropParameter.h) {
+  if (
+    !mouseMovingCropParameter.x &&
+    !mouseMovingCropParameter.y &&
+    !mouseMovingCropParameter.w &&
+    !mouseMovingCropParameter.h
+  ) {
     cropSquare.x += dxs;
     cropSquare.y += dys;
   }
@@ -181,27 +181,25 @@ function updateScaleAndOffset() {
   }
 
   // scale such that image fits on canvas.
-  displayScale = 0.9 * Math.min(
-    canvas.width / img.width,
-    canvas.height / img.height);
+  displayScale =
+    0.9 * Math.min(canvas.width / img.width, canvas.height / img.height);
 
   // offset such that image is centered.
   displayOffset = {
     x: Math.max(0, canvas.width / displayScale - img.width) / 2,
-    y: Math.max(0, canvas.height / displayScale - img.height) / 2
+    y: Math.max(0, canvas.height / displayScale - img.height) / 2,
   };
 }
 
 function getRectInCanvasCoords(rect) {
   updateScaleAndOffset();
-  if (!displayScale || !displayOffset)
-    return rect;
+  if (!displayScale || !displayOffset) return rect;
 
   return {
     x: displayScale * (displayOffset.x + rect.x),
     y: displayScale * (displayOffset.y + rect.y),
     w: displayScale * rect.w,
-    h: displayScale * rect.h
+    h: displayScale * rect.h,
   };
 }
 
@@ -210,7 +208,7 @@ function getRectInverted(rect) {
     x: rect.x,
     y: rect.y + rect.h,
     w: rect.w,
-    h: -rect.h
+    h: -rect.h,
   };
 }
 
@@ -222,10 +220,10 @@ function addRightAndBottomToRect(rect) {
 function getCropSquareHandlesInCanvasCoords() {
   var cropSquareInCanvasCoords = getRectInCanvasCoords(cropSquare);
   return {
-      x: cropSquareInCanvasCoords.x - cropSquareHandlesSize,
-      y: cropSquareInCanvasCoords.y - cropSquareHandlesSize,
-      w: cropSquareInCanvasCoords.w + 2 * cropSquareHandlesSize,
-      h: cropSquareInCanvasCoords.h + 2 * cropSquareHandlesSize
+    x: cropSquareInCanvasCoords.x - cropSquareHandlesSize,
+    y: cropSquareInCanvasCoords.y - cropSquareHandlesSize,
+    w: cropSquareInCanvasCoords.w + 2 * cropSquareHandlesSize,
+    h: cropSquareInCanvasCoords.h + 2 * cropSquareHandlesSize,
   };
 }
 
@@ -239,8 +237,7 @@ function drawCanvas() {
   canvas.height = canvas.clientHeight;
   var cc = canvasContext;
 
-  if (!img.width || !img.height || !canvas.width || !canvas.height)
-    return;  // No img, so just leave canvas cleared.
+  if (!img.width || !img.height || !canvas.width || !canvas.height) return; // No img, so just leave canvas cleared.
 
   // Work in the coordinate space of the image.
   // Scale and translate for optimal display on the canvas.
@@ -249,8 +246,7 @@ function drawCanvas() {
   var imgRectXformed = getRectInCanvasCoords(imgRect);
   var cropXformed = getRectInCanvasCoords(cropSquare);
 
-  if (displayScale >= 1)
-    cc.imageSmoothingEnabled = false;
+  if (displayScale >= 1) cc.imageSmoothingEnabled = false;
   console.log(cc.imageSmoothingEnabled);
 
   // Dim area under image.
@@ -261,7 +257,13 @@ function drawCanvas() {
   cc.fill();
   cc.restore();
 
-  cc.drawImage(img, imgRectXformed.x, imgRectXformed.y, imgRectXformed.w, imgRectXformed.h);
+  cc.drawImage(
+    img,
+    imgRectXformed.x,
+    imgRectXformed.y,
+    imgRectXformed.w,
+    imgRectXformed.h
+  );
 
   // Draw crop window.
   cc.save();
@@ -280,7 +282,7 @@ function drawCanvas() {
 
 window.onresize = function () {
   drawCanvas();
-}
+};
 
 function loadImageFromFile(file) {
   loadImageFromURL(URL.createObjectURL(file));
@@ -307,12 +309,11 @@ function imageHasLoaded() {
 
 function writeFileEntry(writableEntry, opt_blob, callback) {
   if (!writableEntry) {
-    displayText('Nothing selected.');
+    displayText("Nothing selected.");
     return;
   }
 
-  writableEntry.createWriter(function(writer) {
-
+  writableEntry.createWriter(function (writer) {
     writer.onerror = errorHandler;
     writer.onwriteend = callback;
 
@@ -320,14 +321,14 @@ function writeFileEntry(writableEntry, opt_blob, callback) {
     // loaded.
     if (opt_blob) {
       writer.truncate(opt_blob.size);
-      waitForIO(writer, function() {
+      waitForIO(writer, function () {
         writer.seek(0);
         writer.write(opt_blob);
       });
     } else {
-      chosenFileEntry.file(function(file) {
+      chosenFileEntry.file(function (file) {
         writer.truncate(file.fileSize);
-        waitForIO(writer, function() {
+        waitForIO(writer, function () {
           writer.seek(0);
           writer.write(file);
         });
@@ -340,14 +341,18 @@ function waitForIO(writer, callback) {
   // set a watchdog to avoid eventual locking:
   var start = Date.now();
   // wait for a few seconds
-  var reentrant = function() {
-    if (writer.readyState===writer.WRITING && Date.now()-start<4000) {
+  var reentrant = function () {
+    if (writer.readyState === writer.WRITING && Date.now() - start < 4000) {
       setTimeout(reentrant, 100);
       return;
     }
-    if (writer.readyState===writer.WRITING) {
-      console.error("Write operation taking too long, aborting!"+
-        " (current writer readyState is "+writer.readyState+")");
+    if (writer.readyState === writer.WRITING) {
+      console.error(
+        "Write operation taking too long, aborting!" +
+          " (current writer readyState is " +
+          writer.readyState +
+          ")"
+      );
       writer.abort();
     } else {
       callback();
@@ -358,7 +363,7 @@ function waitForIO(writer, callback) {
 
 function loadFileEntry(_chosenFileEntry) {
   chosenFileEntry = _chosenFileEntry;
-  chosenFileEntry.file(function(file) {
+  chosenFileEntry.file(function (file) {
     saveFileButton.disabled = true;
     loadImageFromFile(file);
     displayfileEntryPath(chosenFileEntry);
@@ -369,13 +374,16 @@ function loadInitialFile(launchData) {
   if (launchData && launchData.items && launchData.items[0]) {
     loadFileEntry(launchData.items[0].entry);
   } else {
-    chrome.storage.local.get('chosenFile', function(items) {
+    chrome.storage.local.get("chosenFile", function (items) {
       if (items.chosenFile) {
-        chrome.fileSystem.restoreEntry(items.chosenFile, function(chosenEntry) {
-          if (chosenEntry) {
-            loadFileEntry(chosenEntry);
+        chrome.fileSystem.restoreEntry(
+          items.chosenFile,
+          function (chosenEntry) {
+            if (chosenEntry) {
+              loadFileEntry(chosenEntry);
+            }
           }
-        });
+        );
       }
     });
   }
@@ -387,7 +395,7 @@ function intersectRects(a, b) {
     x: Math.max(a.x, b.x),
     y: Math.max(a.y, b.y),
     w: 0,
-    h: 0
+    h: 0,
   };
   out.w = Math.min(a.x + a.w, b.x + b.w) - out.x;
   out.h = Math.min(a.y + a.h, b.y + b.h) - out.y;
@@ -402,21 +410,26 @@ function copyAsIntegerRect(sourceRect) {
     x: Math.round(sourceRect.x),
     y: Math.round(sourceRect.y),
     w: Math.round(sourceRect.w),
-    h: Math.round(sourceRect.h)
+    h: Math.round(sourceRect.h),
   };
   return out;
 }
 
-function crop () {
-  if (!cropCanvas ||
-      !cropSquare.w || !cropSquare.h ||
-      !img.width || !img.height)
+function crop() {
+  if (
+    !cropCanvas ||
+    !cropSquare.w ||
+    !cropSquare.h ||
+    !img.width ||
+    !img.height
+  )
     return;
   displayText("Cropped.");
   saveFileButton.disabled = false;
   var clippedRect = intersectRects(
-    {x: 0, y: 0, w: img.width, h: img.height },
-    cropSquare);
+    { x: 0, y: 0, w: img.width, h: img.height },
+    cropSquare
+  );
   var intRect = copyAsIntegerRect(clippedRect);
   cropCanvas.width = intRect.w;
   cropCanvas.height = intRect.h;
@@ -424,22 +437,29 @@ function crop () {
   loadImageFromURL(cropCanvas.toDataURL());
 }
 
-function chooseFile () {
-  var accepts = [{
-    mimeTypes: ['image/*'],
-    extensions: ['jpeg', 'png']
-  }];
-  chrome.fileSystem.chooseEntry({type: 'openFile', accepts: accepts}, function(readOnlyEntry) {
-    if (!readOnlyEntry) {
-      displayText('No file selected.');
-      return;
+function chooseFile() {
+  var accepts = [
+    {
+      mimeTypes: ["image/*"],
+      extensions: ["jpeg", "png"],
+    },
+  ];
+  chrome.fileSystem.chooseEntry(
+    { type: "openFile", accepts: accepts },
+    function (readOnlyEntry) {
+      if (!readOnlyEntry) {
+        displayText("No file selected.");
+        return;
+      }
+      try {
+        // TODO remove try once retain is in stable.
+        chrome.storage.local.set({
+          chosenFile: chrome.fileSystem.retainEntry(readOnlyEntry),
+        });
+      } catch (e) {}
+      loadFileEntry(readOnlyEntry);
     }
-    try { // TODO remove try once retain is in stable.
-    chrome.storage.local.set(
-        {'chosenFile': chrome.fileSystem.retainEntry(readOnlyEntry)});
-    } catch (e) {}
-    loadFileEntry(readOnlyEntry);
-  });
+  );
 }
 
 function dataURItoBlob(dataURI) {
@@ -448,35 +468,34 @@ function dataURItoBlob(dataURI) {
 
   // convert base64 to raw binary data held in a string
   // doesn't handle URLEncoded DataURIs
-  var byteString = atob(dataURI.split(',')[1]);
+  var byteString = atob(dataURI.split(",")[1]);
 
   // separate out the mime component
-  var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0]
+  var mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
 
   // write the bytes of the string to an ArrayBuffer
   var ab = new ArrayBuffer(byteString.length);
   var ia = new Uint8Array(ab);
   for (var i = 0; i < byteString.length; i++) {
-      ia[i] = byteString.charCodeAt(i);
+    ia[i] = byteString.charCodeAt(i);
   }
 
   // write the ArrayBuffer to a blob, and you're done
-  var blob = new Blob([ab], { "type": mimeString });
+  var blob = new Blob([ab], { type: mimeString });
   return blob;
-};
+}
 
 function saveFile() {
-  if (!cropCanvas || !img.width || !img.height)
-    return;
+  if (!cropCanvas || !img.width || !img.height) return;
   cropCanvas.width = img.width;
   cropCanvas.height = img.height;
   cropCanvasContext.drawImage(img, 0, 0);
   var blob = dataURItoBlob(cropCanvas.toDataURL());
 
-  var config = {type: 'saveFile', suggestedName: chosenFileEntry.name};
-  chrome.fileSystem.chooseEntry(config, function(writableEntry) {
-    writeFileEntry(writableEntry, blob, function(e) {
-      displayText('Write complete :)');
+  var config = { type: "saveFile", suggestedName: chosenFileEntry.name };
+  chrome.fileSystem.chooseEntry(config, function (writableEntry) {
+    writeFileEntry(writableEntry, blob, function (e) {
+      displayText("Write complete :)");
     });
   });
 }
@@ -487,13 +506,15 @@ function draggedDataDropped(data) {
   chosenFileEntry = null;
   for (var i = 0; i < data.items.length; i++) {
     var item = data.items[i];
-    if (item.kind == 'file' &&
-        item.type.match('image/*') &&
-        item.webkitGetAsEntry()) {
+    if (
+      item.kind == "file" &&
+      item.type.match("image/*") &&
+      item.webkitGetAsEntry()
+    ) {
       chosenFileEntry = item.webkitGetAsEntry();
       break;
     }
-  };
+  }
 
   if (!chosenFileEntry) {
     displayText("Sorry, could not load file.");
@@ -505,16 +526,16 @@ function draggedDataDropped(data) {
   loadFileEntry(chosenFileEntry);
 }
 
-chooseFileButton.addEventListener('click', chooseFile);
+chooseFileButton.addEventListener("click", chooseFile);
 // mousedown on canvas so that interaction only ever starts from the work area.
-canvas.addEventListener('mousedown', mouseDown);
-window.addEventListener('mouseup', stopTrackingMouseDrag);
-window.addEventListener('blur', stopTrackingMouseDrag);
+canvas.addEventListener("mousedown", mouseDown);
+window.addEventListener("mouseup", stopTrackingMouseDrag);
+window.addEventListener("blur", stopTrackingMouseDrag);
 // mousemove on window so that mouse is captured during a drag, keeping
 // updates coming to the window and updating the app.
-window.addEventListener('mousemove', mouseMove);
-cropButton.addEventListener('click', crop);
-saveFileButton.addEventListener('click', saveFile);
-new DnDFileController('body', draggedDataDropped);
+window.addEventListener("mousemove", mouseMove);
+cropButton.addEventListener("click", crop);
+saveFileButton.addEventListener("click", saveFile);
+new DnDFileController("body", draggedDataDropped);
 
 loadInitialFile(launchData);

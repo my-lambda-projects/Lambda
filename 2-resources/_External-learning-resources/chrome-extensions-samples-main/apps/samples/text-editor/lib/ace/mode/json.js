@@ -35,66 +35,69 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var Tokenizer = require("../tokenizer").Tokenizer;
-var HighlightRules = require("./json_highlight_rules").JsonHighlightRules;
-var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
-var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
-var CStyleFoldMode = require("./folding/cstyle").FoldMode;
-var WorkerClient = require("../worker/worker_client").WorkerClient;
+  var oop = require("../lib/oop");
+  var TextMode = require("./text").Mode;
+  var Tokenizer = require("../tokenizer").Tokenizer;
+  var HighlightRules = require("./json_highlight_rules").JsonHighlightRules;
+  var MatchingBraceOutdent =
+    require("./matching_brace_outdent").MatchingBraceOutdent;
+  var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
+  var CStyleFoldMode = require("./folding/cstyle").FoldMode;
+  var WorkerClient = require("../worker/worker_client").WorkerClient;
 
-var Mode = function() {
+  var Mode = function () {
     this.$tokenizer = new Tokenizer(new HighlightRules().getRules());
     this.$outdent = new MatchingBraceOutdent();
     this.$behaviour = new CstyleBehaviour();
     this.foldingRules = new CStyleFoldMode();
-};
-oop.inherits(Mode, TextMode);
+  };
+  oop.inherits(Mode, TextMode);
 
-(function() {
+  (function () {
+    this.getNextLineIndent = function (state, line, tab) {
+      var indent = this.$getIndent(line);
 
-    this.getNextLineIndent = function(state, line, tab) {
-        var indent = this.$getIndent(line);
-
-        if (state == "start") {
-            var match = line.match(/^.*[\{\(\[]\s*$/);
-            if (match) {
-                indent += tab;
-            }
+      if (state == "start") {
+        var match = line.match(/^.*[\{\(\[]\s*$/);
+        if (match) {
+          indent += tab;
         }
+      }
 
-        return indent;
+      return indent;
     };
 
-    this.checkOutdent = function(state, line, input) {
-        return this.$outdent.checkOutdent(line, input);
+    this.checkOutdent = function (state, line, input) {
+      return this.$outdent.checkOutdent(line, input);
     };
 
-    this.autoOutdent = function(state, doc, row) {
-        this.$outdent.autoOutdent(doc, row);
+    this.autoOutdent = function (state, doc, row) {
+      this.$outdent.autoOutdent(doc, row);
     };
 
-    this.createWorker = function(session) {
-        var worker = new WorkerClient(["ace"], "worker-json.js", "ace/mode/json_worker", "JsonWorker");
-        worker.attachToDocument(session.getDocument());
+    this.createWorker = function (session) {
+      var worker = new WorkerClient(
+        ["ace"],
+        "worker-json.js",
+        "ace/mode/json_worker",
+        "JsonWorker"
+      );
+      worker.attachToDocument(session.getDocument());
 
-        worker.on("error", function(e) {
-            session.setAnnotations([e.data]);
-        });
+      worker.on("error", function (e) {
+        session.setAnnotations([e.data]);
+      });
 
-        worker.on("ok", function() {
-            session.clearAnnotations();
-        });
+      worker.on("ok", function () {
+        session.clearAnnotations();
+      });
 
-        return worker;
+      return worker;
     };
+  }.call(Mode.prototype));
 
-
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
+  exports.Mode = Mode;
 });

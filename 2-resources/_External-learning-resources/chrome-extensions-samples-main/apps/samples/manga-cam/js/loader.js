@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
 (function (global) {
-  var scripts = document.querySelectorAll('script');
+  var scripts = document.querySelectorAll("script");
   var script_base_url = scripts[scripts.length - 1].src;
   scripts = null;
   var include_re = /^#include\s*"([\w\.]+?)"\s*$/m;
@@ -26,10 +26,10 @@
       return;
     }
 
-    var nf = file.replace(rel_re, '');
+    var nf = file.replace(rel_re, "");
     while (nf != file) {
       file = nf;
-      nf = file.replace(rel_re, '');
+      nf = file.replace(rel_re, "");
     }
 
     if (root_re.exec(file)) {
@@ -46,10 +46,14 @@
       return;
     }
 
-    if (base_url.charAt(base_url.length - 1) == '/') {
+    if (base_url.charAt(base_url.length - 1) == "/") {
       loadShaderImpl(base_url + file, base_url, callback);
     } else {
-      loadShaderImpl(base_url.substring(0, base_url.lastIndexOf('/') + 1) + file, base_url, callback);
+      loadShaderImpl(
+        base_url.substring(0, base_url.lastIndexOf("/") + 1) + file,
+        base_url,
+        callback
+      );
     }
   }
 
@@ -58,7 +62,8 @@
   }
 
   function loadShaders(files, callback) {
-    var result = [], finished = 0;
+    var result = [],
+      finished = 0;
 
     files.forEach(function (file, i) {
       loadShader(file, function (code) {

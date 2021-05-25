@@ -9,14 +9,12 @@
     }
   },
   "permissions": [
-    {"fileSystem": ["write", "retainEntries", "directory"]},
+    { "fileSystem": ["write", "retainEntries", "directory"] },
     "storage"
   ],
   "file_handlers": {
     "text": {
-      "types": [
-          "text/*"
-      ]
+      "types": ["text/*"]
     }
   }
 }

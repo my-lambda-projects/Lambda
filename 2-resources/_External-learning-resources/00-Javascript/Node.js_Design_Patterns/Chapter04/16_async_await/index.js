@@ -1,6 +1,6 @@
 "use strict";
 
-const request = require('request');
+const request = require("request");
 
 function getPageHtml(url) {
   return new Promise((resolve, reject) => {
@@ -11,9 +11,9 @@ function getPageHtml(url) {
 }
 
 async function main() {
-  const html = await getPageHtml('http://google.com');
+  const html = await getPageHtml("http://google.com");
   console.log(html);
 }
 
 main();
-console.log('Loading...');
+console.log("Loading...");

@@ -36,17 +36,15 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
+define(function (require, exports, module) {
+  var event = require("../lib/event");
 
-var event = require("../lib/event");
-
-
-// mouse
-function isSamePoint(p1, p2) {
+  // mouse
+  function isSamePoint(p1, p2) {
     return p1.row == p2.row && p1.column == p2.column;
-}
+  }
 
-function onMouseDown(e) {
+  function onMouseDown(e) {
     var ev = e.domEvent;
     var alt = ev.altKey;
     var shift = ev.shiftKey;
@@ -54,18 +52,25 @@ function onMouseDown(e) {
     var button = e.getButton();
 
     if (!ctrl && !alt) {
-        if (e.editor.inMultiSelectMode) {
-            if (button == 0) {
-                e.editor.exitMultiSelectMode();
-            } else if (button == 2) {
-                var editor = e.editor;
-                var selectionEmpty = editor.selection.isEmpty();
-                editor.textInput.onContextMenu({x: e.clientX, y: e.clientY}, selectionEmpty);
-                event.capture(editor.container, function(){}, editor.textInput.onContextMenuClose);
-                e.stop();
-            }
+      if (e.editor.inMultiSelectMode) {
+        if (button == 0) {
+          e.editor.exitMultiSelectMode();
+        } else if (button == 2) {
+          var editor = e.editor;
+          var selectionEmpty = editor.selection.isEmpty();
+          editor.textInput.onContextMenu(
+            { x: e.clientX, y: e.clientY },
+            selectionEmpty
+          );
+          event.capture(
+            editor.container,
+            function () {},
+            editor.textInput.onContextMenuClose
+          );
+          e.stop();
         }
-        return;
+      }
+      return;
     }
 
     var editor = e.editor;
@@ -73,95 +78,102 @@ function onMouseDown(e) {
     var isMultiSelect = editor.inMultiSelectMode;
     var pos = e.getDocumentPosition();
     var cursor = selection.getCursor();
-    var inSelection = e.inSelection() || (selection.isEmpty() && isSamePoint(pos, cursor));
+    var inSelection =
+      e.inSelection() || (selection.isEmpty() && isSamePoint(pos, cursor));
 
-
-    var mouseX = e.pageX, mouseY = e.pageY;
-    var onMouseSelection = function(e) {
-        mouseX = event.getDocumentX(e);
-        mouseY = event.getDocumentY(e);
+    var mouseX = e.pageX,
+      mouseY = e.pageY;
+    var onMouseSelection = function (e) {
+      mouseX = event.getDocumentX(e);
+      mouseY = event.getDocumentY(e);
     };
 
-    var blockSelect = function() {
-        var newCursor = editor.renderer.pixelToScreenCoordinates(mouseX, mouseY);
-        var cursor = session.screenToDocumentPosition(newCursor.row, newCursor.column);
+    var blockSelect = function () {
+      var newCursor = editor.renderer.pixelToScreenCoordinates(mouseX, mouseY);
+      var cursor = session.screenToDocumentPosition(
+        newCursor.row,
+        newCursor.column
+      );
 
-        if (isSamePoint(screenCursor, newCursor)
-            && isSamePoint(cursor, selection.selectionLead))
-            return;
-        screenCursor = newCursor;
+      if (
+        isSamePoint(screenCursor, newCursor) &&
+        isSamePoint(cursor, selection.selectionLead)
+      )
+        return;
+      screenCursor = newCursor;
 
-        editor.selection.moveCursorToPosition(cursor);
-        editor.selection.clearSelection();
-        editor.renderer.scrollCursorIntoView();
+      editor.selection.moveCursorToPosition(cursor);
+      editor.selection.clearSelection();
+      editor.renderer.scrollCursorIntoView();
 
-        editor.removeSelectionMarkers(rectSel);
-        rectSel = selection.rectangularRangeBlock(screenCursor, screenAnchor);
-        rectSel.forEach(editor.addSelectionMarker, editor);
-        editor.updateSelectionMarkers();
+      editor.removeSelectionMarkers(rectSel);
+      rectSel = selection.rectangularRangeBlock(screenCursor, screenAnchor);
+      rectSel.forEach(editor.addSelectionMarker, editor);
+      editor.updateSelectionMarkers();
     };
-    
+
     var session = editor.session;
     var screenAnchor = editor.renderer.pixelToScreenCoordinates(mouseX, mouseY);
     var screenCursor = screenAnchor;
 
-    
-
     if (ctrl && !shift && !alt && button == 0) {
-        if (!isMultiSelect && inSelection)
-            return; // dragging
+      if (!isMultiSelect && inSelection) return; // dragging
 
-        if (!isMultiSelect) {
-            var range = selection.toOrientedRange();
-            editor.addSelectionMarker(range);
-        }
+      if (!isMultiSelect) {
+        var range = selection.toOrientedRange();
+        editor.addSelectionMarker(range);
+      }
 
-        var oldRange = selection.rangeList.rangeAtPoint(pos);
+      var oldRange = selection.rangeList.rangeAtPoint(pos);
 
-        event.capture(editor.container, function(){}, function() {
-            var tmpSel = selection.toOrientedRange();
+      event.capture(
+        editor.container,
+        function () {},
+        function () {
+          var tmpSel = selection.toOrientedRange();
 
-            if (oldRange && tmpSel.isEmpty() && isSamePoint(oldRange.cursor, tmpSel.cursor))
-                selection.substractPoint(tmpSel.cursor);
-            else {
-                if (range) {
-                    editor.removeSelectionMarker(range);
-                    selection.addRange(range);
-                }
-                selection.addRange(tmpSel);
+          if (
+            oldRange &&
+            tmpSel.isEmpty() &&
+            isSamePoint(oldRange.cursor, tmpSel.cursor)
+          )
+            selection.substractPoint(tmpSel.cursor);
+          else {
+            if (range) {
+              editor.removeSelectionMarker(range);
+              selection.addRange(range);
             }
-        });
-
+            selection.addRange(tmpSel);
+          }
+        }
+      );
     } else if (!shift && alt && button == 0) {
-        e.stop();
+      e.stop();
 
-        if (isMultiSelect && !ctrl)
-            selection.toSingleRange();
-        else if (!isMultiSelect && ctrl)
-            selection.addRange();
+      if (isMultiSelect && !ctrl) selection.toSingleRange();
+      else if (!isMultiSelect && ctrl) selection.addRange();
 
-        selection.moveCursorToPosition(pos);
-        selection.clearSelection();
+      selection.moveCursorToPosition(pos);
+      selection.clearSelection();
 
-        var rectSel = [];
+      var rectSel = [];
 
-        var onMouseSelectionEnd = function(e) {
-            clearInterval(timerId);
-            editor.removeSelectionMarkers(rectSel);
-            for (var i = 0; i < rectSel.length; i++)
-                selection.addRange(rectSel[i]);
-        };
+      var onMouseSelectionEnd = function (e) {
+        clearInterval(timerId);
+        editor.removeSelectionMarkers(rectSel);
+        for (var i = 0; i < rectSel.length; i++) selection.addRange(rectSel[i]);
+      };
 
-        var onSelectionInterval = blockSelect;
+      var onSelectionInterval = blockSelect;
 
-        event.capture(editor.container, onMouseSelection, onMouseSelectionEnd);
-        var timerId = setInterval(function() {onSelectionInterval();}, 20);
+      event.capture(editor.container, onMouseSelection, onMouseSelectionEnd);
+      var timerId = setInterval(function () {
+        onSelectionInterval();
+      }, 20);
 
-        return e.preventDefault();
+      return e.preventDefault();
     }
-}
+  }
 
-
-exports.onMouseDown = onMouseDown;
-
+  exports.onMouseDown = onMouseDown;
 });

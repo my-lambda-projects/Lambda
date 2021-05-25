@@ -1,6 +1,6 @@
-var logEl = document.getElementById('log');
-var commandLog = document.getElementById('commands');
-var message = document.getElementById('message');
+var logEl = document.getElementById("log");
+var commandLog = document.getElementById("commands");
+var message = document.getElementById("message");
 
 function clearLog() {
   logEl.textContent = "";
@@ -8,7 +8,7 @@ function clearLog() {
 
 function log(msg) {
   logEl.textContent = msg;
-//  logEl.scrollTop = 10000000;
+  //  logEl.scrollTop = 10000000;
 }
 
 function onDroneConnected() {
@@ -21,7 +21,7 @@ function onDroneConnectionFailed() {
   log("Connectioned failed - Are you attached to the Drone's Wifi network?");
 }
 
-DRONE.Gamepad.onConnected = function() {
+DRONE.Gamepad.onConnected = function () {
   commandLog.style.display = "block";
   DRONE.API.init(onDroneConnected, onDroneConnectionFailed);
 };

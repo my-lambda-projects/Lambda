@@ -2,7 +2,7 @@
 
 function* twoWayGenerator() {
   let what = yield null;
-  console.log('Hello ' + what);
+  console.log("Hello " + what);
 }
 
 let twoWay = twoWayGenerator();

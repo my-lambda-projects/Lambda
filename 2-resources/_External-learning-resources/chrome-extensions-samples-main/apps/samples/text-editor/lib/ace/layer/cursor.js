@@ -37,12 +37,12 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var dom = require("../lib/dom");
+  var dom = require("../lib/dom");
 
-var Cursor = function(parentEl) {
+  var Cursor = function (parentEl) {
     this.element = dom.createElement("div");
     this.element.className = "ace_layer ace_cursor-layer";
     parentEl.appendChild(this.element);
@@ -51,149 +51,141 @@ var Cursor = function(parentEl) {
 
     this.cursors = [];
     this.cursor = this.addCursor();
-};
+  };
 
-(function() {
-
+  (function () {
     this.$padding = 0;
-    this.setPadding = function(padding) {
-        this.$padding = padding;
+    this.setPadding = function (padding) {
+      this.$padding = padding;
     };
 
-    this.setSession = function(session) {
-        this.session = session;
+    this.setSession = function (session) {
+      this.session = session;
     };
 
-    this.addCursor = function() {
-        var el = dom.createElement("div");
-        var className = "ace_cursor";
-        if (!this.isVisible)
-            className += " ace_hidden";
-        if (this.overwrite)
-            className += " ace_overwrite";
+    this.addCursor = function () {
+      var el = dom.createElement("div");
+      var className = "ace_cursor";
+      if (!this.isVisible) className += " ace_hidden";
+      if (this.overwrite) className += " ace_overwrite";
 
-        el.className = className;
-        this.element.appendChild(el);
-        this.cursors.push(el);
+      el.className = className;
+      this.element.appendChild(el);
+      this.cursors.push(el);
+      return el;
+    };
+
+    this.removeCursor = function () {
+      if (this.cursors.length > 1) {
+        var el = this.cursors.pop();
+        el.parentNode.removeChild(el);
         return el;
+      }
     };
 
-    this.removeCursor = function() {
-        if (this.cursors.length > 1) {
-            var el = this.cursors.pop();
-            el.parentNode.removeChild(el);
-            return el;
-        }
+    this.hideCursor = function () {
+      this.isVisible = false;
+      for (var i = this.cursors.length; i--; )
+        dom.addCssClass(this.cursors[i], "ace_hidden");
+      clearInterval(this.blinkId);
     };
 
-    this.hideCursor = function() {
-        this.isVisible = false;
-        for (var i = this.cursors.length; i--; )
-            dom.addCssClass(this.cursors[i], "ace_hidden");
-        clearInterval(this.blinkId);
+    this.showCursor = function () {
+      this.isVisible = true;
+      for (var i = this.cursors.length; i--; )
+        dom.removeCssClass(this.cursors[i], "ace_hidden");
+
+      this.element.style.visibility = "";
+      this.restartTimer();
     };
 
-    this.showCursor = function() {
-        this.isVisible = true;
-        for (var i = this.cursors.length; i--; )
-            dom.removeCssClass(this.cursors[i], "ace_hidden");
+    this.restartTimer = function () {
+      clearInterval(this.blinkId);
+      if (!this.isVisible) return;
 
-        this.element.style.visibility = "";
-        this.restartTimer();
+      var element = this.cursors.length == 1 ? this.cursor : this.element;
+      this.blinkId = setInterval(function () {
+        element.style.visibility = "hidden";
+        setTimeout(function () {
+          element.style.visibility = "";
+        }, 400);
+      }, 1000);
     };
 
-    this.restartTimer = function() {
-        clearInterval(this.blinkId);
-        if (!this.isVisible)
-            return;
-
-        var element = this.cursors.length == 1 ? this.cursor : this.element;
-        this.blinkId = setInterval(function() {
-            element.style.visibility = "hidden";
-            setTimeout(function() {
-                element.style.visibility = "";
-            }, 400);
-        }, 1000);
-    };
-
-    this.getPixelPosition = function(position, onScreen) {
-        if (!this.config || !this.session) {
-            return {
-                left : 0,
-                top : 0
-            };
-        }
-
-        if (!position)
-            position = this.session.selection.getCursor();
-        var pos = this.session.documentToScreenPosition(position);
-        var cursorLeft = Math.round(this.$padding +
-                                    pos.column * this.config.characterWidth);
-        var cursorTop = (pos.row - (onScreen ? this.config.firstRowScreen : 0)) *
-            this.config.lineHeight;
-
+    this.getPixelPosition = function (position, onScreen) {
+      if (!this.config || !this.session) {
         return {
-            left : cursorLeft,
-            top : cursorTop
+          left: 0,
+          top: 0,
         };
+      }
+
+      if (!position) position = this.session.selection.getCursor();
+      var pos = this.session.documentToScreenPosition(position);
+      var cursorLeft = Math.round(
+        this.$padding + pos.column * this.config.characterWidth
+      );
+      var cursorTop =
+        (pos.row - (onScreen ? this.config.firstRowScreen : 0)) *
+        this.config.lineHeight;
+
+      return {
+        left: cursorLeft,
+        top: cursorTop,
+      };
     };
 
-    this.update = function(config) {
-        this.config = config;
+    this.update = function (config) {
+      this.config = config;
 
-        if (this.session.selectionMarkerCount > 0) {
-            var selections = this.session.$selectionMarkers;
-            var i = 0, sel, cursorIndex = 0;
+      if (this.session.selectionMarkerCount > 0) {
+        var selections = this.session.$selectionMarkers;
+        var i = 0,
+          sel,
+          cursorIndex = 0;
 
-            for (var i = selections.length; i--; ) {
-                sel = selections[i];
-                var pixelPos = this.getPixelPosition(sel.cursor, true);
+        for (var i = selections.length; i--; ) {
+          sel = selections[i];
+          var pixelPos = this.getPixelPosition(sel.cursor, true);
 
-                var style = (this.cursors[cursorIndex++] || this.addCursor()).style;
+          var style = (this.cursors[cursorIndex++] || this.addCursor()).style;
 
-                style.left = pixelPos.left + "px";
-                style.top = pixelPos.top + "px";
-                style.width = config.characterWidth + "px";
-                style.height = config.lineHeight + "px";
-            }
-            if (cursorIndex > 1)
-                while (this.cursors.length > cursorIndex)
-                    this.removeCursor();
-        } else {
-            var pixelPos = this.getPixelPosition(null, true);
-            var style = this.cursor.style;
-            style.left = pixelPos.left + "px";
-            style.top = pixelPos.top + "px";
-            style.width = config.characterWidth + "px";
-            style.height = config.lineHeight + "px";
-
-            while (this.cursors.length > 1)
-                this.removeCursor();
+          style.left = pixelPos.left + "px";
+          style.top = pixelPos.top + "px";
+          style.width = config.characterWidth + "px";
+          style.height = config.lineHeight + "px";
         }
+        if (cursorIndex > 1)
+          while (this.cursors.length > cursorIndex) this.removeCursor();
+      } else {
+        var pixelPos = this.getPixelPosition(null, true);
+        var style = this.cursor.style;
+        style.left = pixelPos.left + "px";
+        style.top = pixelPos.top + "px";
+        style.width = config.characterWidth + "px";
+        style.height = config.lineHeight + "px";
 
-        var overwrite = this.session.getOverwrite();
-        if (overwrite != this.overwrite)
-            this.$setOverite(overwrite);
+        while (this.cursors.length > 1) this.removeCursor();
+      }
 
-        this.restartTimer();
+      var overwrite = this.session.getOverwrite();
+      if (overwrite != this.overwrite) this.$setOverite(overwrite);
+
+      this.restartTimer();
     };
 
-    this.$setOverite = function(overwrite) {
-        this.overwrite = overwrite;
-        for (var i = this.cursors.length; i--; ) {
-            if (overwrite)
-                dom.addCssClass(this.cursors[i], "ace_overwrite");
-            else
-                dom.removeCssClass(this.cursors[i], "ace_overwrite");
-        }
+    this.$setOverite = function (overwrite) {
+      this.overwrite = overwrite;
+      for (var i = this.cursors.length; i--; ) {
+        if (overwrite) dom.addCssClass(this.cursors[i], "ace_overwrite");
+        else dom.removeCssClass(this.cursors[i], "ace_overwrite");
+      }
     };
 
-    this.destroy = function() {
-        clearInterval(this.blinkId);
-    }
+    this.destroy = function () {
+      clearInterval(this.blinkId);
+    };
+  }.call(Cursor.prototype));
 
-}).call(Cursor.prototype);
-
-exports.Cursor = Cursor;
-
+  exports.Cursor = Cursor;
 });

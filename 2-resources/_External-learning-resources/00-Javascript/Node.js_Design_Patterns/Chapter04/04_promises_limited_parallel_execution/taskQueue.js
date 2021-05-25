@@ -13,7 +13,7 @@ module.exports = class TaskQueue {
   }
 
   next() {
-    while(this.running < this.concurrency && this.queue.length) {
+    while (this.running < this.concurrency && this.queue.length) {
       const task = this.queue.shift();
       task().then(() => {
         this.running--;

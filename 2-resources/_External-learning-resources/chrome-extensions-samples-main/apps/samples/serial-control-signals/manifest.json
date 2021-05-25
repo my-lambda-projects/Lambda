@@ -7,11 +7,9 @@
 
   "app": {
     "background": {
-      "scripts": [ "background.js" ]
+      "scripts": ["background.js"]
     }
   },
 
-  "permissions": [
-    "serial"
-  ]
+  "permissions": ["serial"]
 }

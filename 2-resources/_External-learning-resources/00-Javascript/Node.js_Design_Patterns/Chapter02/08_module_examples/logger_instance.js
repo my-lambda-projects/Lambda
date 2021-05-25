@@ -5,9 +5,9 @@ function Logger(name) {
   this.name = name;
 }
 
-Logger.prototype.log = function(message) {
+Logger.prototype.log = function (message) {
   this.count++;
-  console.log('[' + this.name + '] ' + message);
+  console.log("[" + this.name + "] " + message);
 };
 
-module.exports = new Logger('DEFAULT');
+module.exports = new Logger("DEFAULT");

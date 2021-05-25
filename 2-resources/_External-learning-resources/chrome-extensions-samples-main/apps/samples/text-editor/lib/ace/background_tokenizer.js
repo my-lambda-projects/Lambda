@@ -35,142 +35,149 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var oop = require("./lib/oop");
-var EventEmitter = require("./lib/event_emitter").EventEmitter;
+  var oop = require("./lib/oop");
+  var EventEmitter = require("./lib/event_emitter").EventEmitter;
 
-var BackgroundTokenizer = function(tokenizer, editor) {
-    this.running = false;    
+  var BackgroundTokenizer = function (tokenizer, editor) {
+    this.running = false;
     this.lines = [];
     this.currentLine = 0;
     this.tokenizer = tokenizer;
 
     var self = this;
 
-    this.$worker = function() {
-        if (!self.running) { return; }
+    this.$worker = function () {
+      if (!self.running) {
+        return;
+      }
 
-        var workerStart = new Date();
-        var startLine = self.currentLine;
-        var doc = self.doc;
+      var workerStart = new Date();
+      var startLine = self.currentLine;
+      var doc = self.doc;
 
-        var processedLines = 0;
+      var processedLines = 0;
 
-        var len = doc.getLength();
-        while (self.currentLine < len) {
-            self.lines[self.currentLine] = self.$tokenizeRows(self.currentLine, self.currentLine)[0];
-            self.currentLine++;
+      var len = doc.getLength();
+      while (self.currentLine < len) {
+        self.lines[self.currentLine] = self.$tokenizeRows(
+          self.currentLine,
+          self.currentLine
+        )[0];
+        self.currentLine++;
 
-            // only check every 5 lines
-            processedLines += 1;
-            if ((processedLines % 5 == 0) && (new Date() - workerStart) > 20) {
-                self.fireUpdateEvent(startLine, self.currentLine-1);
-                self.running = setTimeout(self.$worker, 20);
-                return;
-            }
+        // only check every 5 lines
+        processedLines += 1;
+        if (processedLines % 5 == 0 && new Date() - workerStart > 20) {
+          self.fireUpdateEvent(startLine, self.currentLine - 1);
+          self.running = setTimeout(self.$worker, 20);
+          return;
         }
+      }
 
-        self.running = false;
+      self.running = false;
 
-        self.fireUpdateEvent(startLine, len - 1);
+      self.fireUpdateEvent(startLine, len - 1);
     };
-};
+  };
 
-(function(){
-
+  (function () {
     oop.implement(this, EventEmitter);
 
-    this.setTokenizer = function(tokenizer) {
-        this.tokenizer = tokenizer;
-        this.lines = [];
+    this.setTokenizer = function (tokenizer) {
+      this.tokenizer = tokenizer;
+      this.lines = [];
 
-        this.start(0);
+      this.start(0);
     };
 
-    this.setDocument = function(doc) {
-        this.doc = doc;
-        this.lines = [];
+    this.setDocument = function (doc) {
+      this.doc = doc;
+      this.lines = [];
 
-        this.stop();
+      this.stop();
     };
 
-    this.fireUpdateEvent = function(firstRow, lastRow) {
-        var data = {
-            first: firstRow,
-            last: lastRow
-        };
-        this._emit("update", {data: data});
+    this.fireUpdateEvent = function (firstRow, lastRow) {
+      var data = {
+        first: firstRow,
+        last: lastRow,
+      };
+      this._emit("update", { data: data });
     };
 
-    this.start = function(startRow) {
-        this.currentLine = Math.min(startRow || 0, this.currentLine,
-                                    this.doc.getLength());
+    this.start = function (startRow) {
+      this.currentLine = Math.min(
+        startRow || 0,
+        this.currentLine,
+        this.doc.getLength()
+      );
 
-        // remove all cached items below this line
-        this.lines.splice(this.currentLine, this.lines.length);
+      // remove all cached items below this line
+      this.lines.splice(this.currentLine, this.lines.length);
 
-        this.stop();
-        // pretty long delay to prevent the tokenizer from interfering with the user
-        this.running = setTimeout(this.$worker, 700);
+      this.stop();
+      // pretty long delay to prevent the tokenizer from interfering with the user
+      this.running = setTimeout(this.$worker, 700);
     };
 
-    this.stop = function() {
-        if (this.running)
-            clearTimeout(this.running);
-        this.running = false;
+    this.stop = function () {
+      if (this.running) clearTimeout(this.running);
+      this.running = false;
     };
 
-    this.getTokens = function(firstRow, lastRow) {
-        return this.$tokenizeRows(firstRow, lastRow);
+    this.getTokens = function (firstRow, lastRow) {
+      return this.$tokenizeRows(firstRow, lastRow);
     };
 
-    this.getState = function(row) {
-        return this.$tokenizeRows(row, row)[0].state;
+    this.getState = function (row) {
+      return this.$tokenizeRows(row, row)[0].state;
     };
 
-    this.$tokenizeRows = function(firstRow, lastRow) {
-        if (!this.doc || isNaN(firstRow) || isNaN(lastRow))
-            return [{'state':'start','tokens':[]}];
-            
-        var rows = [];
+    this.$tokenizeRows = function (firstRow, lastRow) {
+      if (!this.doc || isNaN(firstRow) || isNaN(lastRow))
+        return [{ state: "start", tokens: [] }];
 
-        // determine start state
-        var state = "start";
-        var doCache = false;
-        if (firstRow > 0 && this.lines[firstRow - 1]) {
-            state = this.lines[firstRow - 1].state;
-            doCache = true;
-        } else if (firstRow == 0) {
-            state = "start";
-            doCache = true;
-        } else if (this.lines.length > 0) {
-            // Guess that we haven't changed state.
-            state = this.lines[this.lines.length-1].state;
+      var rows = [];
+
+      // determine start state
+      var state = "start";
+      var doCache = false;
+      if (firstRow > 0 && this.lines[firstRow - 1]) {
+        state = this.lines[firstRow - 1].state;
+        doCache = true;
+      } else if (firstRow == 0) {
+        state = "start";
+        doCache = true;
+      } else if (this.lines.length > 0) {
+        // Guess that we haven't changed state.
+        state = this.lines[this.lines.length - 1].state;
+      }
+
+      var lines = this.doc.getLines(firstRow, lastRow);
+      for (var row = firstRow; row <= lastRow; row++) {
+        if (!this.lines[row]) {
+          var tokens = this.tokenizer.getLineTokens(
+            lines[row - firstRow] || "",
+            state
+          );
+          var state = tokens.state;
+          rows.push(tokens);
+
+          if (doCache) {
+            this.lines[row] = tokens;
+          }
+        } else {
+          var tokens = this.lines[row];
+          state = tokens.state;
+          rows.push(tokens);
         }
-
-        var lines = this.doc.getLines(firstRow, lastRow);
-        for (var row=firstRow; row<=lastRow; row++) {
-            if (!this.lines[row]) {
-                var tokens = this.tokenizer.getLineTokens(lines[row-firstRow] || "", state);
-                var state = tokens.state;
-                rows.push(tokens);
-
-                if (doCache) {
-                    this.lines[row] = tokens;
-                }
-            }
-            else {
-                var tokens = this.lines[row];
-                state = tokens.state;
-                rows.push(tokens);
-            }
-        }
-        return rows;
+      }
+      return rows;
     };
+  }.call(BackgroundTokenizer.prototype));
 
-}).call(BackgroundTokenizer.prototype);
-
-exports.BackgroundTokenizer = BackgroundTokenizer;
+  exports.BackgroundTokenizer = BackgroundTokenizer;
 });

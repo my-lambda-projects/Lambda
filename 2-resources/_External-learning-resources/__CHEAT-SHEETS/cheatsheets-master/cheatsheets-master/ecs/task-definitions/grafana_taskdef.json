@@ -1,17 +1,17 @@
 {
   "family": "grafana",
-  "executionRoleArn":"arn:aws:iam::000000000000:role/ecs-exec-role",
-  "taskRoleArn":"arn:aws:iam::000000000000:role/ecs-task-role",
+  "executionRoleArn": "arn:aws:iam::000000000000:role/ecs-exec-role",
+  "taskRoleArn": "arn:aws:iam::000000000000:role/ecs-task-role",
   "containerDefinitions": [
     {
       "name": "grafana",
       "image": "grafana/grafana:7.3.4",
       "memoryReservation": 512,
-      "portMappings":[
+      "portMappings": [
         {
-          "protocol":"tcp",
-          "containerPort":3000,
-          "hostPort":0
+          "protocol": "tcp",
+          "containerPort": 3000,
+          "hostPort": 0
         }
       ],
       "environment": [
@@ -79,22 +79,22 @@
     {
       "name": "grafana-data",
       "efsVolumeConfiguration": {
-         "fileSystemId": "fs-00000000",
-         "rootDirectory": "/grafana/data"
+        "fileSystemId": "fs-00000000",
+        "rootDirectory": "/grafana/data"
       }
     },
     {
       "name": "grafana-provisioning",
       "efsVolumeConfiguration": {
-         "fileSystemId": "fs-00000000",
-         "rootDirectory": "/grafana/provisioning"
+        "fileSystemId": "fs-00000000",
+        "rootDirectory": "/grafana/provisioning"
       }
     },
     {
       "name": "grafana-dashboards",
       "efsVolumeConfiguration": {
-         "fileSystemId": "fs-00000000",
-         "rootDirectory": "/grafana/dashboards"
+        "fileSystemId": "fs-00000000",
+        "rootDirectory": "/grafana/dashboards"
       }
     }
   ]

@@ -1,2 +1,2 @@
-var config = require('./geo.js');
+var config = require("./geo.js");
 console.log(config.user);

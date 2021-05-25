@@ -1,45 +1,64 @@
-'use strict';
+"use strict";
 
-var MAPPING_VERTEX_SHADER = "attribute vec3 aPosition;\n" +
-    "varying vec2 vTexCoord;\n" +
-    "void main() {\n" +
-    "  gl_Position = vec4((aPosition - 0.5) * 2.0, 1.0);\n" +
-    "  vTexCoord = aPosition.xy;\n" +
-    "}";
-var MAPPING_FRAGMENT_SHADER = "#ifdef GL_ES\n" +
-    "precision highp float;\n" +
-    "#endif\n" +
-    "uniform sampler2D tex0;\n" +
-    "varying vec2 vTexCoord;\n" +
-    "void main() {\n" +
-    "  gl_FragColor = texture2D(tex0, vTexCoord);\n" +
-    "}";
+var MAPPING_VERTEX_SHADER =
+  "attribute vec3 aPosition;\n" +
+  "varying vec2 vTexCoord;\n" +
+  "void main() {\n" +
+  "  gl_Position = vec4((aPosition - 0.5) * 2.0, 1.0);\n" +
+  "  vTexCoord = aPosition.xy;\n" +
+  "}";
+var MAPPING_FRAGMENT_SHADER =
+  "#ifdef GL_ES\n" +
+  "precision highp float;\n" +
+  "#endif\n" +
+  "uniform sampler2D tex0;\n" +
+  "varying vec2 vTexCoord;\n" +
+  "void main() {\n" +
+  "  gl_FragColor = texture2D(tex0, vTexCoord);\n" +
+  "}";
 
 function PostProcessor(canvas, width, height) {
   this.width = width;
   this.height = height;
   if (!canvas) {
-    canvas = document.createElement('canvas');
+    canvas = document.createElement("canvas");
     canvas.width = width;
     canvas.height = height;
   }
   this.canvas = canvas;
-  var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  var gl =
+    canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
   this.gl = gl;
 
   this.vbo = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, this.vbo);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0]), gl.STATIC_DRAW);
+  gl.bufferData(
+    gl.ARRAY_BUFFER,
+    new Float32Array([0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0]),
+    gl.STATIC_DRAW
+  );
   this.ibo = gl.createBuffer();
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this.ibo);
-  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array([0, 1, 2, 2, 1, 3]), gl.STATIC_DRAW);
-  this.working_textures = [this.createTexture(), this.createTexture(), this.createTexture()];
+  gl.bufferData(
+    gl.ELEMENT_ARRAY_BUFFER,
+    new Uint16Array([0, 1, 2, 2, 1, 3]),
+    gl.STATIC_DRAW
+  );
+  this.working_textures = [
+    this.createTexture(),
+    this.createTexture(),
+    this.createTexture(),
+  ];
   this.frameBuffer = gl.createFramebuffer();
   gl.bindFramebuffer(gl.FRAMEBUFFER, this.frameBuffer);
   this.copyProgram = this.createProgram(MAPPING_FRAGMENT_SHADER);
 }
 
-PostProcessor.prototype.installUniform = function (program, uniformName, uniformType) {
+PostProcessor.prototype.installUniform = function (
+  program,
+  uniformName,
+  uniformType
+) {
   var gl = this.gl;
   var uniformLocation = gl.getUniformLocation(program, uniformName);
   if (uniformLocation) {
@@ -60,14 +79,19 @@ PostProcessor.prototype.createProgram = function (calculation, uniforms) {
     gl.shaderSource(vertexShader, MAPPING_VERTEX_SHADER);
     gl.compileShader(vertexShader);
     if (!gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS)) {
-      throw "Failed to create vertex shader:\n" + gl.getShaderInfoLog(vertexShader);
+      throw (
+        "Failed to create vertex shader:\n" + gl.getShaderInfoLog(vertexShader)
+      );
     }
 
     var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
     gl.shaderSource(fragmentShader, calculation);
     gl.compileShader(fragmentShader);
     if (!gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS)) {
-      throw "Failed to create fragment shader:\n" + gl.getShaderInfoLog(fragmentShader);
+      throw (
+        "Failed to create fragment shader:\n" +
+        gl.getShaderInfoLog(fragmentShader)
+      );
     }
 
     var program = gl.createProgram();
@@ -85,8 +109,8 @@ PostProcessor.prototype.createProgram = function (calculation, uniforms) {
     gl.useProgram(program);
     gl.uniform1i(gl.getUniformLocation(program, "uTexture"), 0);
     program.uniforms = {};
-    this.installUniform(program, 'width', '1i');
-    this.installUniform(program, 'height', '1i');
+    this.installUniform(program, "width", "1i");
+    this.installUniform(program, "height", "1i");
     program.uniforms.width = this.width;
     program.uniforms.height = this.height;
     if (uniforms) {
@@ -127,25 +151,48 @@ PostProcessor.prototype.setupInputImage = function (image, width, height) {
   var gl = this.gl;
   gl.viewport(0, 0, this.width, this.height);
   gl.bindTexture(gl.TEXTURE_2D, this.working_textures[0]);
-  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA,
-      this.width, this.height, 0, gl.RGBA,
-      gl.UNSIGNED_BYTE, null);
+  gl.texImage2D(
+    gl.TEXTURE_2D,
+    0,
+    gl.RGBA,
+    this.width,
+    this.height,
+    0,
+    gl.RGBA,
+    gl.UNSIGNED_BYTE,
+    null
+  );
   gl.bindTexture(gl.TEXTURE_2D, this.working_textures[1]);
-  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
-      gl.UNSIGNED_BYTE, image);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
 };
 
 PostProcessor.prototype.setupInput = function (array) {
   var gl = this.gl;
   gl.viewport(0, 0, this.width, this.height);
   gl.bindTexture(gl.TEXTURE_2D, this.working_textures[0]);
-  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA,
-      this.width, this.height, 0, gl.RGBA,
-      gl.UNSIGNED_BYTE, null);
+  gl.texImage2D(
+    gl.TEXTURE_2D,
+    0,
+    gl.RGBA,
+    this.width,
+    this.height,
+    0,
+    gl.RGBA,
+    gl.UNSIGNED_BYTE,
+    null
+  );
   gl.bindTexture(gl.TEXTURE_2D, this.working_textures[1]);
-  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA,
-      this.width, this.height, 0, gl.RGBA,
-      gl.UNSIGNED_BYTE, new Uint8Array(array.buffer));
+  gl.texImage2D(
+    gl.TEXTURE_2D,
+    0,
+    gl.RGBA,
+    this.width,
+    this.height,
+    0,
+    gl.RGBA,
+    gl.UNSIGNED_BYTE,
+    new Uint8Array(array.buffer)
+  );
 };
 
 PostProcessor.prototype.createInputImage = function (image, width, height) {
@@ -153,8 +200,7 @@ PostProcessor.prototype.createInputImage = function (image, width, height) {
   var texture = this.createTexture();
   gl.viewport(0, 0, this.width, this.height);
   gl.bindTexture(gl.TEXTURE_2D, texture);
-  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
-      gl.UNSIGNED_BYTE, image);
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, image);
   return texture;
 };
 
@@ -168,20 +214,39 @@ PostProcessor.prototype.createInput = function (array) {
   var texture = this.createTexture();
   gl.viewport(0, 0, this.width, this.height);
   gl.bindTexture(gl.TEXTURE_2D, texture);
-  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA,
-      this.width, this.height, 0, gl.RGBA,
-      gl.UNSIGNED_BYTE, array ? new Uint8Array(array.buffer) : null);
+  gl.texImage2D(
+    gl.TEXTURE_2D,
+    0,
+    gl.RGBA,
+    this.width,
+    this.height,
+    0,
+    gl.RGBA,
+    gl.UNSIGNED_BYTE,
+    array ? new Uint8Array(array.buffer) : null
+  );
   return texture;
 };
 
-PostProcessor.prototype.callProgram = function (program, inputs, output, uniforms) {
+PostProcessor.prototype.callProgram = function (
+  program,
+  inputs,
+  output,
+  uniforms
+) {
   var gl = this.gl;
   gl.useProgram(program);
 
   // Output
   gl.viewport(0, 0, this.width, this.height);
   gl.bindFramebuffer(gl.FRAMEBUFFER, this.frameBuffer);
-  gl.framebufferTexture2D(gl.FRAMEBUFFER, gl.COLOR_ATTACHMENT0, gl.TEXTURE_2D, output, 0);
+  gl.framebufferTexture2D(
+    gl.FRAMEBUFFER,
+    gl.COLOR_ATTACHMENT0,
+    gl.TEXTURE_2D,
+    output,
+    0
+  );
 
   // Input
   for (var i = 0; i < inputs.length; i++) {
@@ -196,7 +261,6 @@ PostProcessor.prototype.callProgram = function (program, inputs, output, uniform
     }
   }
   gl.drawElements(gl.TRIANGLES, 6, gl.UNSIGNED_SHORT, 0);
-
 };
 
 PostProcessor.prototype.copyTo = function (output) {
@@ -210,7 +274,12 @@ PostProcessor.prototype.swap = function () {
 };
 
 PostProcessor.prototype.iterate = function (program, uniforms) {
-  this.callProgram(program, [this.working_textures[1]], this.working_textures[0], uniforms);
+  this.callProgram(
+    program,
+    [this.working_textures[1]],
+    this.working_textures[0],
+    uniforms
+  );
   this.swap();
 };
 
@@ -238,5 +307,13 @@ PostProcessor.prototype.readBackTexture = function (texture, array) {
 PostProcessor.prototype.readBack = function (array) {
   var gl = this.gl;
   var buffer = new Uint8Array(array.buffer);
-  gl.readPixels(0, 0, this.width, this.height, gl.RGBA, gl.UNSIGNED_BYTE, buffer);
+  gl.readPixels(
+    0,
+    0,
+    this.width,
+    this.height,
+    gl.RGBA,
+    gl.UNSIGNED_BYTE,
+    buffer
+  );
 };

@@ -1,29 +1,27 @@
-var strNumber = 'two+one';
+var strNumber = "two+one";
 var strValue;
 
 switch (strNumber) {
-  
-  case 'one':
+  case "one":
     strValue = 1;
     break;
-  case 'two':
+  case "two":
     strValue = 2;
     break;
-  
-  case 'two+one':
-  case 'three':
+
+  case "two+one":
+  case "three":
     strValue = 3;
     break;
-  case 'four':
+  case "four":
     strValue = 4;
     break;
   default:
-    strValue = '';
+    strValue = "";
 }
-
 
 console.log(strValue);
 
-if (typeof strValue !== 'number') {
-  console.log('Was not able to convert ' + strNumber + ' to a digit')
+if (typeof strValue !== "number") {
+  console.log("Was not able to convert " + strNumber + " to a digit");
 }

@@ -35,11 +35,11 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-
-exports.isDark = false;
-exports.cssClass = "ace-tomorrow";
-exports.cssText = "\
+define(function (require, exports, module) {
+  exports.isDark = false;
+  exports.cssClass = "ace-tomorrow";
+  exports.cssText =
+    "\
 .ace-tomorrow .ace_editor {\
   border: 2px solid rgb(159, 159, 159);\
 }\
@@ -201,6 +201,6 @@ background-color:#8959A8;\
   color:#718C00;\
 }";
 
-    var dom = require("../lib/dom");
-    dom.importCssString(exports.cssText, exports.cssClass);
+  var dom = require("../lib/dom");
+  dom.importCssString(exports.cssText, exports.cssClass);
 });

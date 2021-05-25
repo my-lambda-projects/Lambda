@@ -4,12 +4,8 @@
   "manifest_version": 2,
   "app": {
     "background": {
-      "scripts": [
-        "background.js"
-      ]
+      "scripts": ["background.js"]
     }
   },
-  "permissions": [
-    "storage"
-  ]
+  "permissions": ["storage"]
 }

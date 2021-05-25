@@ -7,7 +7,7 @@
 
   "app": {
     "background": {
-      "scripts": [ "background.js" ]
+      "scripts": ["background.js"]
     }
   },
 
@@ -16,8 +16,5 @@
     "128": "assets/icon-128x128.jpeg"
   },
 
-  "permissions": [
-    "serial",
-    "videoCapture"
-  ]
+  "permissions": ["serial", "videoCapture"]
 }

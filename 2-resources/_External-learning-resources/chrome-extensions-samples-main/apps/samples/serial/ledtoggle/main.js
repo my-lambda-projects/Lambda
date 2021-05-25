@@ -1,15 +1,15 @@
-const DEVICE_PATH = '/dev/ttyACM0';
+const DEVICE_PATH = "/dev/ttyACM0";
 const serial = chrome.serial;
 
 /* Interprets an ArrayBuffer as UTF-8 encoded string data. */
-var ab2str = function(buf) {
+var ab2str = function (buf) {
   var bufView = new Uint8Array(buf);
   var encodedString = String.fromCharCode.apply(null, bufView);
   return decodeURIComponent(escape(encodedString));
 };
 
 /* Converts a string to UTF-8 encoding in a Uint8Array; returns the array buffer. */
-var str2ab = function(str) {
+var str2ab = function (str) {
   var encodedString = unescape(encodeURIComponent(str));
   var bytes = new Uint8Array(encodedString.length);
   for (var i = 0; i < encodedString.length; ++i) {
@@ -21,7 +21,7 @@ var str2ab = function(str) {
 ////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////
 
-var SerialConnection = function() {
+var SerialConnection = function () {
   this.connectionId = -1;
   this.lineBuffer = "";
   this.boundOnReceive = this.onReceive.bind(this);
@@ -31,7 +31,7 @@ var SerialConnection = function() {
   this.onError = new chrome.Event();
 };
 
-SerialConnection.prototype.onConnectComplete = function(connectionInfo) {
+SerialConnection.prototype.onConnectComplete = function (connectionInfo) {
   if (!connectionInfo) {
     log("Connection failed.");
     return;
@@ -42,7 +42,7 @@ SerialConnection.prototype.onConnectComplete = function(connectionInfo) {
   this.onConnect.dispatch();
 };
 
-SerialConnection.prototype.onReceive = function(receiveInfo) {
+SerialConnection.prototype.onReceive = function (receiveInfo) {
   if (receiveInfo.connectionId !== this.connectionId) {
     return;
   }
@@ -50,35 +50,35 @@ SerialConnection.prototype.onReceive = function(receiveInfo) {
   this.lineBuffer += ab2str(receiveInfo.data);
 
   var index;
-  while ((index = this.lineBuffer.indexOf('\n')) >= 0) {
+  while ((index = this.lineBuffer.indexOf("\n")) >= 0) {
     var line = this.lineBuffer.substr(0, index + 1);
     this.onReadLine.dispatch(line);
     this.lineBuffer = this.lineBuffer.substr(index + 1);
   }
 };
 
-SerialConnection.prototype.onReceiveError = function(errorInfo) {
+SerialConnection.prototype.onReceiveError = function (errorInfo) {
   if (errorInfo.connectionId === this.connectionId) {
     this.onError.dispatch(errorInfo.error);
   }
 };
 
-SerialConnection.prototype.connect = function(path) {
-  serial.connect(path, this.onConnectComplete.bind(this))
+SerialConnection.prototype.connect = function (path) {
+  serial.connect(path, this.onConnectComplete.bind(this));
 };
 
-SerialConnection.prototype.send = function(msg) {
+SerialConnection.prototype.send = function (msg) {
   if (this.connectionId < 0) {
-    throw 'Invalid connection';
+    throw "Invalid connection";
   }
-  serial.send(this.connectionId, str2ab(msg), function() {});
+  serial.send(this.connectionId, str2ab(msg), function () {});
 };
 
-SerialConnection.prototype.disconnect = function() {
+SerialConnection.prototype.disconnect = function () {
   if (this.connectionId < 0) {
-    throw 'Invalid connection';
+    throw "Invalid connection";
   }
-  serial.disconnect(this.connectionId, function() {});
+  serial.disconnect(this.connectionId, function () {});
 };
 
 ////////////////////////////////////////////////////////
@@ -86,25 +86,24 @@ SerialConnection.prototype.disconnect = function() {
 
 var connection = new SerialConnection();
 
-connection.onConnect.addListener(function() {
-  log('connected to: ' + DEVICE_PATH);
+connection.onConnect.addListener(function () {
+  log("connected to: " + DEVICE_PATH);
   connection.send("hello arduino");
 });
 
-connection.onReadLine.addListener(function(line) {
-  log('read line: ' + line);
+connection.onReadLine.addListener(function (line) {
+  log("read line: " + line);
 });
 
 connection.connect(DEVICE_PATH);
 
 function log(msg) {
-  var buffer = document.querySelector('#buffer');
-  buffer.innerHTML += msg + '<br/>';
+  var buffer = document.querySelector("#buffer");
+  buffer.innerHTML += msg + "<br/>";
 }
 
 var is_on = false;
-document.querySelector('button').addEventListener('click', function() {
+document.querySelector("button").addEventListener("click", function () {
   is_on = !is_on;
-  connection.send(is_on ? 'y' : 'n');
+  connection.send(is_on ? "y" : "n");
 });
-

@@ -1,6 +1,6 @@
 "use strict";
 
-const Image = require('./image');
+const Image = require("./image");
 
 module.exports = class ImageJpg extends Image {
   constructor(path) {

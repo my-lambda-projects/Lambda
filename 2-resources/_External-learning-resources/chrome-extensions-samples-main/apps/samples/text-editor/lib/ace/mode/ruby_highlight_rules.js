@@ -36,18 +36,18 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var oop = require("../lib/oop");
-var lang = require("../lib/lang");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+  var oop = require("../lib/oop");
+  var lang = require("../lib/lang");
+  var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 
-var RubyHighlightRules = function() {
-
+  var RubyHighlightRules = function () {
     var builtinFunctions = lang.arrayToMap(
-        ("abort|Array|assert|assert_equal|assert_not_equal|assert_same|assert_not_same|" +
-        "assert_nil|assert_not_nil|assert_match|assert_no_match|assert_in_delta|assert_throws|" + 
+      (
+        "abort|Array|assert|assert_equal|assert_not_equal|assert_same|assert_not_same|" +
+        "assert_nil|assert_not_nil|assert_match|assert_no_match|assert_in_delta|assert_throws|" +
         "assert_raise|assert_nothing_raised|assert_instance_of|assert_kind_of|assert_respond_to|" +
         "assert_operator|assert_send|assert_difference|assert_no_difference|assert_recognizes|" +
         "assert_generates|assert_response|assert_redirected_to|assert_template|assert_select|" +
@@ -75,120 +75,144 @@ var RubyHighlightRules = function() {
         "filter_parameter_logging|match|get|post|resources|redirect|scope|assert_routing|" +
         "translate|localize|extract_locale_from_tld|t|l|caches_page|expire_page|caches_action|expire_action|" +
         "cache|expire_fragment|expire_cache_for|observe|cache_sweeper|" +
-        "has_many|has_one|belongs_to|has_and_belongs_to_many").split("|")
+        "has_many|has_one|belongs_to|has_and_belongs_to_many"
+      ).split("|")
     );
 
     var keywords = lang.arrayToMap(
-        ("alias|and|BEGIN|begin|break|case|class|def|defined|do|else|elsif|END|end|ensure|" +
-        "__FILE__|finally|for|gem|if|in|__LINE__|module|next|not|or|private|protected|public|" + 
-        "redo|rescue|retry|return|super|then|undef|unless|until|when|while|yield").split("|")
+      (
+        "alias|and|BEGIN|begin|break|case|class|def|defined|do|else|elsif|END|end|ensure|" +
+        "__FILE__|finally|for|gem|if|in|__LINE__|module|next|not|or|private|protected|public|" +
+        "redo|rescue|retry|return|super|then|undef|unless|until|when|while|yield"
+      ).split("|")
     );
 
     var buildinConstants = lang.arrayToMap(
-        ("true|TRUE|false|FALSE|nil|NIL|ARGF|ARGV|DATA|ENV|RUBY_PLATFORM|RUBY_RELEASE_DATE|" +
-        "RUBY_VERSION|STDERR|STDIN|STDOUT|TOPLEVEL_BINDING").split("|")
+      (
+        "true|TRUE|false|FALSE|nil|NIL|ARGF|ARGV|DATA|ENV|RUBY_PLATFORM|RUBY_RELEASE_DATE|" +
+        "RUBY_VERSION|STDERR|STDIN|STDOUT|TOPLEVEL_BINDING"
+      ).split("|")
     );
 
     var builtinVariables = lang.arrayToMap(
-        ("\$DEBUG|\$defout|\$FILENAME|\$LOAD_PATH|\$SAFE|\$stdin|\$stdout|\$stderr|\$VERBOSE|" +
-        "$!|root_url|flash|session|cookies|params|request|response|logger").split("|")
+      (
+        "$DEBUG|$defout|$FILENAME|$LOAD_PATH|$SAFE|$stdin|$stdout|$stderr|$VERBOSE|" +
+        "$!|root_url|flash|session|cookies|params|request|response|logger"
+      ).split("|")
     );
 
     // regexp must not have capturing parentheses. Use (?:) instead.
     // regexps are ordered -> the first match is used
 
     this.$rules = {
-        "start" : [
-            {
-                token : "comment",
-                regex : "#.*$"
-            }, {
-                token : "comment", // multi line comment
-                merge : true,
-                regex : "^\=begin$",
-                next : "comment"
-            }, {
-                token : "string.regexp",
-                regex : "[/](?:(?:\\[(?:\\\\]|[^\\]])+\\])|(?:\\\\/|[^\\]/]))*[/]\\w*\\s*(?=[).,;]|$)"
-            }, {
-                token : "string", // single line
-                regex : '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]'
-            }, {
-                token : "string", // single line
-                regex : "['](?:(?:\\\\.)|(?:[^'\\\\]))*?[']"
-            }, {
-                token : "string", // backtick string
-                regex : "[`](?:(?:\\\\.)|(?:[^'\\\\]))*?[`]"
-            }, {
-                token : "text", // namespaces aren't symbols
-                regex : "::"
-            }, {
-                token : "variable.instancce", // instance variable
-                regex : "@{1,2}(?:[a-zA-Z_]|\d)+"
-            }, {
-                token : "variable.class", // class name
-                regex : "[A-Z](?:[a-zA-Z_]|\d)+"
-            }, {
-                token : "string", // symbol
-                regex : "[:](?:[A-Za-z_]|[@$](?=[a-zA-Z0-9_]))[a-zA-Z0-9_]*[!=?]?"
-           }, {
-                token : "constant.numeric", // hex
-                regex : "0[xX][0-9a-fA-F](?:[0-9a-fA-F]|_(?=[0-9a-fA-F]))*\\b"
-            }, {
-                token : "constant.numeric", // float
-                regex : "[+-]?\\d(?:\\d|_(?=\\d))*(?:(?:\\.\\d(?:\\d|_(?=\\d))*)?(?:[eE][+-]?\\d+)?)?\\b"
-            }, {
-                token : "constant.language.boolean",
-                regex : "(?:true|false)\\b"
-            }, {
-                token : function(value) {
-                    if (value == "self")
-                        return "variable.language";
-                    else if (keywords.hasOwnProperty(value))
-                        return "keyword";
-                    else if (buildinConstants.hasOwnProperty(value))
-                        return "constant.language";
-                    else if (builtinVariables.hasOwnProperty(value))
-                        return "variable.language";
-                    else if (builtinFunctions.hasOwnProperty(value))
-                        return "support.function";
-                    else if (value == "debugger")
-                        return "invalid.deprecated";
-                    else
-                        return "identifier";
-                },
-                // TODO: Unicode escape sequences
-                // TODO: Unicode identifiers
-                regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
-            }, {
-                token : "keyword.operator",
-                regex : "!|\\$|%|&|\\*|\\-\\-|\\-|\\+\\+|\\+|~|===|==|=|!=|!==|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\\|\\||\\?\\:|\\*=|%=|\\+=|\\-=|&=|\\^=|\\b(?:in|instanceof|new|delete|typeof|void)"
-            }, {
-                token : "paren.lparen",
-                regex : "[[({]"
-            }, {
-                token : "paren.rparen",
-                regex : "[\\])}]"
-            }, {
-                token : "text",
-                regex : "\\s+"
-            }
-        ],
-        "comment" : [
-            {
-                token : "comment", // closing comment
-                regex : "^\=end$",
-                next : "start"
-            }, {
-                token : "comment", // comment spanning whole line
-                merge : true,
-                regex : ".+"
-            }
-        ]
+      start: [
+        {
+          token: "comment",
+          regex: "#.*$",
+        },
+        {
+          token: "comment", // multi line comment
+          merge: true,
+          regex: "^=begin$",
+          next: "comment",
+        },
+        {
+          token: "string.regexp",
+          regex:
+            "[/](?:(?:\\[(?:\\\\]|[^\\]])+\\])|(?:\\\\/|[^\\]/]))*[/]\\w*\\s*(?=[).,;]|$)",
+        },
+        {
+          token: "string", // single line
+          regex: '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]',
+        },
+        {
+          token: "string", // single line
+          regex: "['](?:(?:\\\\.)|(?:[^'\\\\]))*?[']",
+        },
+        {
+          token: "string", // backtick string
+          regex: "[`](?:(?:\\\\.)|(?:[^'\\\\]))*?[`]",
+        },
+        {
+          token: "text", // namespaces aren't symbols
+          regex: "::",
+        },
+        {
+          token: "variable.instancce", // instance variable
+          regex: "@{1,2}(?:[a-zA-Z_]|d)+",
+        },
+        {
+          token: "variable.class", // class name
+          regex: "[A-Z](?:[a-zA-Z_]|d)+",
+        },
+        {
+          token: "string", // symbol
+          regex: "[:](?:[A-Za-z_]|[@$](?=[a-zA-Z0-9_]))[a-zA-Z0-9_]*[!=?]?",
+        },
+        {
+          token: "constant.numeric", // hex
+          regex: "0[xX][0-9a-fA-F](?:[0-9a-fA-F]|_(?=[0-9a-fA-F]))*\\b",
+        },
+        {
+          token: "constant.numeric", // float
+          regex:
+            "[+-]?\\d(?:\\d|_(?=\\d))*(?:(?:\\.\\d(?:\\d|_(?=\\d))*)?(?:[eE][+-]?\\d+)?)?\\b",
+        },
+        {
+          token: "constant.language.boolean",
+          regex: "(?:true|false)\\b",
+        },
+        {
+          token: function (value) {
+            if (value == "self") return "variable.language";
+            else if (keywords.hasOwnProperty(value)) return "keyword";
+            else if (buildinConstants.hasOwnProperty(value))
+              return "constant.language";
+            else if (builtinVariables.hasOwnProperty(value))
+              return "variable.language";
+            else if (builtinFunctions.hasOwnProperty(value))
+              return "support.function";
+            else if (value == "debugger") return "invalid.deprecated";
+            else return "identifier";
+          },
+          // TODO: Unicode escape sequences
+          // TODO: Unicode identifiers
+          regex: "[a-zA-Z_$][a-zA-Z0-9_$]*\\b",
+        },
+        {
+          token: "keyword.operator",
+          regex:
+            "!|\\$|%|&|\\*|\\-\\-|\\-|\\+\\+|\\+|~|===|==|=|!=|!==|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\\|\\||\\?\\:|\\*=|%=|\\+=|\\-=|&=|\\^=|\\b(?:in|instanceof|new|delete|typeof|void)",
+        },
+        {
+          token: "paren.lparen",
+          regex: "[[({]",
+        },
+        {
+          token: "paren.rparen",
+          regex: "[\\])}]",
+        },
+        {
+          token: "text",
+          regex: "\\s+",
+        },
+      ],
+      comment: [
+        {
+          token: "comment", // closing comment
+          regex: "^=end$",
+          next: "start",
+        },
+        {
+          token: "comment", // comment spanning whole line
+          merge: true,
+          regex: ".+",
+        },
+      ],
     };
-};
+  };
 
-oop.inherits(RubyHighlightRules, TextHighlightRules);
+  oop.inherits(RubyHighlightRules, TextHighlightRules);
 
-exports.RubyHighlightRules = RubyHighlightRules;
+  exports.RubyHighlightRules = RubyHighlightRules;
 });

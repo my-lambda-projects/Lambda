@@ -36,52 +36,50 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var Tokenizer = require("../tokenizer").Tokenizer;
-var LessHighlightRules = require("./less_highlight_rules").LessHighlightRules;
-var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
-var CStyleFoldMode = require("./folding/cstyle").FoldMode;
+  var oop = require("../lib/oop");
+  var TextMode = require("./text").Mode;
+  var Tokenizer = require("../tokenizer").Tokenizer;
+  var LessHighlightRules = require("./less_highlight_rules").LessHighlightRules;
+  var MatchingBraceOutdent =
+    require("./matching_brace_outdent").MatchingBraceOutdent;
+  var CStyleFoldMode = require("./folding/cstyle").FoldMode;
 
-var Mode = function() {
+  var Mode = function () {
     this.$tokenizer = new Tokenizer(new LessHighlightRules().getRules(), "i");
     this.$outdent = new MatchingBraceOutdent();
     this.foldingRules = new CStyleFoldMode();
-};
-oop.inherits(Mode, TextMode);
+  };
+  oop.inherits(Mode, TextMode);
 
-(function() {
-    
-    this.getNextLineIndent = function(state, line, tab) {
-        var indent = this.$getIndent(line);
+  (function () {
+    this.getNextLineIndent = function (state, line, tab) {
+      var indent = this.$getIndent(line);
 
-        // ignore braces in comments
-        var tokens = this.$tokenizer.getLineTokens(line, state).tokens;
-        if (tokens.length && tokens[tokens.length-1].type == "comment") {
-            return indent;
-        }
-
-        var match = line.match(/^.*\{\s*$/);
-        if (match) {
-            indent += tab;
-        }
-
+      // ignore braces in comments
+      var tokens = this.$tokenizer.getLineTokens(line, state).tokens;
+      if (tokens.length && tokens[tokens.length - 1].type == "comment") {
         return indent;
+      }
+
+      var match = line.match(/^.*\{\s*$/);
+      if (match) {
+        indent += tab;
+      }
+
+      return indent;
     };
 
-    this.checkOutdent = function(state, line, input) {
-        return this.$outdent.checkOutdent(line, input);
+    this.checkOutdent = function (state, line, input) {
+      return this.$outdent.checkOutdent(line, input);
     };
 
-    this.autoOutdent = function(state, doc, row) {
-        this.$outdent.autoOutdent(doc, row);
+    this.autoOutdent = function (state, doc, row) {
+      this.$outdent.autoOutdent(doc, row);
     };
+  }.call(Mode.prototype));
 
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
-
+  exports.Mode = Mode;
 });

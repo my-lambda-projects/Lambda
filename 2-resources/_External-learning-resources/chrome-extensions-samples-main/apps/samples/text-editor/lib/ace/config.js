@@ -36,93 +36,97 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"no use strict";
+define(function (require, exports, module) {
+  "no use strict";
 
-var lang = require("./lib/lang");
+  var lang = require("./lib/lang");
 
-var global = (function() {
+  var global = (function () {
     return this;
-})();
+  })();
 
-var options = {
+  var options = {
     packaged: false,
     workerPath: "",
     modePath: "",
     themePath: "",
-    suffix: ".js"
-};
+    suffix: ".js",
+  };
 
-exports.get = function(key) {
+  exports.get = function (key) {
     if (!options.hasOwnProperty(key))
-        throw new Error("Unknown confik key: " + key);
-        
+      throw new Error("Unknown confik key: " + key);
+
     return options[key];
-};
+  };
 
-exports.set = function(key, value) {
+  exports.set = function (key, value) {
     if (!options.hasOwnProperty(key))
-        throw new Error("Unknown confik key: " + key);
-        
+      throw new Error("Unknown confik key: " + key);
+
     options[key] = value;
-};
+  };
 
-exports.all = function() {
+  exports.all = function () {
     return lang.copyObject(options);
-};
+  };
 
-exports.init = function() {
-    options.packaged = require.packaged || module.packaged || (global.define && define.packaged);
+  exports.init = function () {
+    options.packaged =
+      require.packaged || module.packaged || (global.define && define.packaged);
 
-    if (!global.document)
-        return "";
+    if (!global.document) return "";
 
     var scriptOptions = {};
     var scriptUrl = "";
     var suffix;
-    
+
     var scripts = document.getElementsByTagName("script");
-    for (var i=0; i<scripts.length; i++) {
-        var script = scripts[i];
+    for (var i = 0; i < scripts.length; i++) {
+      var script = scripts[i];
 
-        var src = script.src || script.getAttribute("src");
-        if (!src) {
-            continue;
-        }
-        
-        var attributes = script.attributes;
-        for (var j=0, l=attributes.length; j < l; j++) {
-            var attr = attributes[j];
-            if (attr.name.indexOf("data-ace-") === 0) {
-                scriptOptions[deHyphenate(attr.name.replace(/^data-ace-/, ""))] = attr.value;
-            }
-        }
+      var src = script.src || script.getAttribute("src");
+      if (!src) {
+        continue;
+      }
 
-        var m = src.match(/^(?:(.*\/)ace\.js|(.*\/)ace((-uncompressed)?(-noconflict)?\.js))(?:\?|$)/);
-        if (m) {
-            scriptUrl = m[1] || m[2];
-            suffix = m[3];
+      var attributes = script.attributes;
+      for (var j = 0, l = attributes.length; j < l; j++) {
+        var attr = attributes[j];
+        if (attr.name.indexOf("data-ace-") === 0) {
+          scriptOptions[deHyphenate(attr.name.replace(/^data-ace-/, ""))] =
+            attr.value;
         }
+      }
+
+      var m = src.match(
+        /^(?:(.*\/)ace\.js|(.*\/)ace((-uncompressed)?(-noconflict)?\.js))(?:\?|$)/
+      );
+      if (m) {
+        scriptUrl = m[1] || m[2];
+        suffix = m[3];
+      }
     }
-    
+
     if (scriptUrl) {
-        scriptOptions.base = scriptOptions.base || scriptUrl;
-        scriptOptions.packaged = true;
+      scriptOptions.base = scriptOptions.base || scriptUrl;
+      scriptOptions.packaged = true;
     }
-    
+
     scriptOptions.suffix = scriptOptions.suffix || suffix;
     scriptOptions.workerPath = scriptOptions.workerPath || scriptOptions.base;
     scriptOptions.modePath = scriptOptions.modePath || scriptOptions.base;
     scriptOptions.themePath = scriptOptions.themePath || scriptOptions.base;
     delete scriptOptions.base;
-    
+
     for (var key in scriptOptions)
-        if (typeof scriptOptions[key] !== "undefined")
-            exports.set(key, scriptOptions[key]);
-};
+      if (typeof scriptOptions[key] !== "undefined")
+        exports.set(key, scriptOptions[key]);
+  };
 
-function deHyphenate(str) {
-    return str.replace(/-(.)/g, function(m, m1) { return m1.toUpperCase(); });
-}
-
+  function deHyphenate(str) {
+    return str.replace(/-(.)/g, function (m, m1) {
+      return m1.toUpperCase();
+    });
+  }
 });

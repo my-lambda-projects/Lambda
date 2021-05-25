@@ -10,14 +10,13 @@ function createProxy(subject) {
   Proxy.prototype = Object.create(proto);
 
   //proxied method
-  Proxy.prototype.hello = function(){
-    return this.subject.hello() + ' world!';
+  Proxy.prototype.hello = function () {
+    return this.subject.hello() + " world!";
   };
 
   //delegated method
-  Proxy.prototype.goodbye = function(){
-    return this.subject.goodbye
-      .apply(this.subject, arguments);
+  Proxy.prototype.goodbye = function () {
+    return this.subject.goodbye.apply(this.subject, arguments);
   };
 
   return new Proxy(subject);

@@ -35,44 +35,41 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var oop = require("../lib/oop");
-var XmlMode = require("./xml").Mode;
-var JavaScriptMode = require("./javascript").Mode;
-var Tokenizer = require("../tokenizer").Tokenizer;
-var SvgHighlightRules = require("./svg_highlight_rules").SvgHighlightRules;
-var MixedFoldMode = require("./folding/mixed").FoldMode;
-var XmlFoldMode = require("./folding/xml").FoldMode;
-var CStyleFoldMode = require("./folding/cstyle").FoldMode;
+  var oop = require("../lib/oop");
+  var XmlMode = require("./xml").Mode;
+  var JavaScriptMode = require("./javascript").Mode;
+  var Tokenizer = require("../tokenizer").Tokenizer;
+  var SvgHighlightRules = require("./svg_highlight_rules").SvgHighlightRules;
+  var MixedFoldMode = require("./folding/mixed").FoldMode;
+  var XmlFoldMode = require("./folding/xml").FoldMode;
+  var CStyleFoldMode = require("./folding/cstyle").FoldMode;
 
-var Mode = function() {
+  var Mode = function () {
     XmlMode.call(this);
-    
+
     this.highlighter = new SvgHighlightRules();
     this.$tokenizer = new Tokenizer(this.highlighter.getRules());
-    
+
     this.$embeds = this.highlighter.getEmbeds();
     this.createModeDelegates({
-        "js-": JavaScriptMode
+      "js-": JavaScriptMode,
     });
-    
+
     this.foldingRules = new MixedFoldMode(new XmlFoldMode({}), {
-        "js-": new CStyleFoldMode()
+      "js-": new CStyleFoldMode(),
     });
-};
+  };
 
-oop.inherits(Mode, XmlMode);
+  oop.inherits(Mode, XmlMode);
 
-(function() {
-
-    this.getNextLineIndent = function(state, line, tab) {
-        return this.$getIndent(line);
+  (function () {
+    this.getNextLineIndent = function (state, line, tab) {
+      return this.$getIndent(line);
     };
-    
+  }.call(Mode.prototype));
 
-}).call(Mode.prototype);
-
-exports.Mode = Mode;
+  exports.Mode = Mode;
 });

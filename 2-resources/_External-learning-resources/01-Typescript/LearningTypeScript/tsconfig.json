@@ -2,12 +2,10 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "types": [
-      "reflect-metadata"
-    ],
+    "types": ["reflect-metadata"],
     "lib": [
       "es2015.promise",
-      "dom", 
+      "dom",
       "es5",
       "es2015.generator",
       "es2015.iterable",

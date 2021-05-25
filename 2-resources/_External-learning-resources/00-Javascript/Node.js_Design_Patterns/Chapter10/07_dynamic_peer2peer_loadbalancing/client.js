@@ -1,9 +1,9 @@
 "use strict";
 
-const apiRequest = require('./apiRequest');
+const apiRequest = require("./apiRequest");
 
 for (let i = 10; i >= 0; i--) {
-  apiRequest('/api', (err, res, body) => {
+  apiRequest("/api", (err, res, body) => {
     if (err) {
       return console.log(err);
     }

@@ -3,15 +3,17 @@
   "version": "0.2.5",
   "manifest_version": 2,
   "description": "Used to test Media Gallery API",
-  "permissions": [{
+  "permissions": [
+    {
       "mediaGalleries": ["read", "scan", "allAutoDetected"]
-  }],
+    }
+  ],
   "icons": {
     "128": "mga-128color.png"
   },
   "app": {
-     "background": {
-       "scripts": ["runtime.js"]
-     }
+    "background": {
+      "scripts": ["runtime.js"]
+    }
   }
 }

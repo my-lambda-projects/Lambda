@@ -36,82 +36,85 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var TokenIterator = function(session, initialRow, initialColumn) {
+  var TokenIterator = function (session, initialRow, initialColumn) {
     this.$session = session;
     this.$row = initialRow;
     this.$rowTokens = session.getTokens(initialRow, initialRow)[0].tokens;
 
     var token = session.getTokenAt(initialRow, initialColumn);
     this.$tokenIndex = token ? token.index : -1;
-};
+  };
 
-(function() {
-    
-    this.stepBackward = function() {
-        this.$tokenIndex -= 1;
-        
-        while (this.$tokenIndex < 0) {
-            this.$row -= 1;
-            if (this.$row < 0) {
-                this.$row = 0;
-                return null;
-            }
-                
-            this.$rowTokens = this.$session.getTokens(this.$row, this.$row)[0].tokens;
-            this.$tokenIndex = this.$rowTokens.length - 1;
-        }
-            
-        return this.$rowTokens[this.$tokenIndex];
-    };
-    
-    this.stepForward = function() {
-        var rowCount = this.$session.getLength();
-        this.$tokenIndex += 1;
-        
-        while (this.$tokenIndex >= this.$rowTokens.length) {
-            this.$row += 1;
-            if (this.$row >= rowCount) {
-                this.$row = rowCount - 1;
-                return null;
-            }
+  (function () {
+    this.stepBackward = function () {
+      this.$tokenIndex -= 1;
 
-            this.$rowTokens = this.$session.getTokens(this.$row, this.$row)[0].tokens;
-            this.$tokenIndex = 0;
+      while (this.$tokenIndex < 0) {
+        this.$row -= 1;
+        if (this.$row < 0) {
+          this.$row = 0;
+          return null;
         }
-            
-        return this.$rowTokens[this.$tokenIndex];
+
+        this.$rowTokens = this.$session.getTokens(
+          this.$row,
+          this.$row
+        )[0].tokens;
+        this.$tokenIndex = this.$rowTokens.length - 1;
+      }
+
+      return this.$rowTokens[this.$tokenIndex];
     };
-    
+
+    this.stepForward = function () {
+      var rowCount = this.$session.getLength();
+      this.$tokenIndex += 1;
+
+      while (this.$tokenIndex >= this.$rowTokens.length) {
+        this.$row += 1;
+        if (this.$row >= rowCount) {
+          this.$row = rowCount - 1;
+          return null;
+        }
+
+        this.$rowTokens = this.$session.getTokens(
+          this.$row,
+          this.$row
+        )[0].tokens;
+        this.$tokenIndex = 0;
+      }
+
+      return this.$rowTokens[this.$tokenIndex];
+    };
+
     this.getCurrentToken = function () {
-        return this.$rowTokens[this.$tokenIndex];
+      return this.$rowTokens[this.$tokenIndex];
     };
-    
-    this.getCurrentTokenRow = function () {
-        return this.$row;
-    };
-    
-    this.getCurrentTokenColumn = function() {
-        var rowTokens = this.$rowTokens;
-        var tokenIndex = this.$tokenIndex;
-        
-        // If a column was cached by EditSession.getTokenAt, then use it
-        var column = rowTokens[tokenIndex].start;
-        if (column !== undefined)
-            return column;
-            
-        column = 0;
-        while (tokenIndex > 0) {
-            tokenIndex -= 1;
-            column += rowTokens[tokenIndex].value.length;
-        }
-        
-        return column;  
-    };
-            
-}).call(TokenIterator.prototype);
 
-exports.TokenIterator = TokenIterator;
+    this.getCurrentTokenRow = function () {
+      return this.$row;
+    };
+
+    this.getCurrentTokenColumn = function () {
+      var rowTokens = this.$rowTokens;
+      var tokenIndex = this.$tokenIndex;
+
+      // If a column was cached by EditSession.getTokenAt, then use it
+      var column = rowTokens[tokenIndex].start;
+      if (column !== undefined) return column;
+
+      column = 0;
+      while (tokenIndex > 0) {
+        tokenIndex -= 1;
+        column += rowTokens[tokenIndex].value.length;
+      }
+
+      return column;
+    };
+  }.call(TokenIterator.prototype));
+
+  exports.TokenIterator = TokenIterator;
 });

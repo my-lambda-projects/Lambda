@@ -1,7 +1,7 @@
 "use strict";
 
-const React = require('react');
-const Link = require('react-router').Link;
+const React = require("react");
+const Link = require("react-router").Link;
 
 class NotFound extends React.Component {
   render() {

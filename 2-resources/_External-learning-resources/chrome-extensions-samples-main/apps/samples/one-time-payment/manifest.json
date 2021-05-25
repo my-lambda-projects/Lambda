@@ -8,17 +8,12 @@
       "scripts": ["main.js"]
     }
   },
-  "permissions": [
-    "storage",
-    "identity"
-  ],
+  "permissions": ["storage", "identity"],
   "icons": {
     "128": "/images/128.png"
   },
   "oauth2": {
     "client_id": "912609627511-naonel81buqhb6egeqk4r531m75lbsr7.apps.googleusercontent.com",
-    "scopes": [
-      "https://www.googleapis.com/auth/chromewebstore.readonly"
-    ]
+    "scopes": ["https://www.googleapis.com/auth/chromewebstore.readonly"]
   }
 }

@@ -1,4 +1,4 @@
 "use strict";
 
-const toastr = require('toastr');
+const toastr = require("toastr");
 module.exports = toastr.info;

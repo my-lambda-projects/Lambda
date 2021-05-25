@@ -1,28 +1,26 @@
 "use strict";
 
-
 module.exports = class ZmqMiddlewareManager {
   constructor(socket) {
     this.socket = socket;
-    this.inboundMiddleware = [];           //[1]
+    this.inboundMiddleware = []; //[1]
     this.outboundMiddleware = [];
-    socket.on('message', message => {       //[2]
+    socket.on("message", (message) => {
+      //[2]
       this.executeMiddleware(this.inboundMiddleware, {
-        data: message
+        data: message,
       });
     });
   }
 
   send(data) {
     const message = {
-      data: data
+      data: data,
     };
 
-    this.executeMiddleware(this.outboundMiddleware, message,
-      () => {
-        this.socket.send(message.data);
-      }
-    );
+    this.executeMiddleware(this.outboundMiddleware, message, () => {
+      this.socket.send(message.data);
+    });
   }
 
   use(middleware) {
@@ -39,9 +37,9 @@ module.exports = class ZmqMiddlewareManager {
       if (index === middleware.length) {
         return finish && finish();
       }
-      middleware[index].call(this, arg, err => {
+      middleware[index].call(this, arg, (err) => {
         if (err) {
-          return console.log('There was an error: ' + err.message);
+          return console.log("There was an error: " + err.message);
         }
         iterator.call(this, ++index);
       });

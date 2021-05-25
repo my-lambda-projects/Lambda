@@ -7,11 +7,9 @@
 
   "app": {
     "background": {
-      "scripts": [ "main.js" ]
+      "scripts": ["main.js"]
     }
   },
 
-  "optional_permissions": [
-    "serial"
-  ]
+  "optional_permissions": ["serial"]
 }

@@ -35,130 +35,132 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var oop = require("../lib/oop");
-var TextMode = require("./text").Mode;
-var Tokenizer = require("../tokenizer").Tokenizer;
-var JavaScriptHighlightRules = require("./javascript_highlight_rules").JavaScriptHighlightRules;
-var MatchingBraceOutdent = require("./matching_brace_outdent").MatchingBraceOutdent;
-var Range = require("../range").Range;
-var WorkerClient = require("../worker/worker_client").WorkerClient;
-var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
-var CStyleFoldMode = require("./folding/cstyle").FoldMode;
+  var oop = require("../lib/oop");
+  var TextMode = require("./text").Mode;
+  var Tokenizer = require("../tokenizer").Tokenizer;
+  var JavaScriptHighlightRules =
+    require("./javascript_highlight_rules").JavaScriptHighlightRules;
+  var MatchingBraceOutdent =
+    require("./matching_brace_outdent").MatchingBraceOutdent;
+  var Range = require("../range").Range;
+  var WorkerClient = require("../worker/worker_client").WorkerClient;
+  var CstyleBehaviour = require("./behaviour/cstyle").CstyleBehaviour;
+  var CStyleFoldMode = require("./folding/cstyle").FoldMode;
 
-var Mode = function() {
+  var Mode = function () {
     this.$tokenizer = new Tokenizer(new JavaScriptHighlightRules().getRules());
     this.$outdent = new MatchingBraceOutdent();
     this.$behaviour = new CstyleBehaviour();
     this.foldingRules = new CStyleFoldMode();
-};
-oop.inherits(Mode, TextMode);
+  };
+  oop.inherits(Mode, TextMode);
 
-(function() {
+  (function () {
+    this.toggleCommentLines = function (state, doc, startRow, endRow) {
+      var outdent = true;
+      var re = /^(\s*)\/\//;
 
-
-    this.toggleCommentLines = function(state, doc, startRow, endRow) {
-        var outdent = true;
-        var re = /^(\s*)\/\//;
-
-        for (var i=startRow; i<= endRow; i++) {
-            if (!re.test(doc.getLine(i))) {
-                outdent = false;
-                break;
-            }
+      for (var i = startRow; i <= endRow; i++) {
+        if (!re.test(doc.getLine(i))) {
+          outdent = false;
+          break;
         }
+      }
 
-        if (outdent) {
-            var deleteRange = new Range(0, 0, 0, 0);
-            for (var i=startRow; i<= endRow; i++)
-            {
-                var line = doc.getLine(i);
-                var m = line.match(re);
-                deleteRange.start.row = i;
-                deleteRange.end.row = i;
-                deleteRange.end.column = m[0].length;
-                doc.replace(deleteRange, m[1]);
-            }
+      if (outdent) {
+        var deleteRange = new Range(0, 0, 0, 0);
+        for (var i = startRow; i <= endRow; i++) {
+          var line = doc.getLine(i);
+          var m = line.match(re);
+          deleteRange.start.row = i;
+          deleteRange.end.row = i;
+          deleteRange.end.column = m[0].length;
+          doc.replace(deleteRange, m[1]);
         }
-        else {
-            doc.indentRows(startRow, endRow, "//");
-        }
+      } else {
+        doc.indentRows(startRow, endRow, "//");
+      }
     };
 
-    this.getNextLineIndent = function(state, line, tab) {
-        var indent = this.$getIndent(line);
+    this.getNextLineIndent = function (state, line, tab) {
+      var indent = this.$getIndent(line);
 
-        var tokenizedLine = this.$tokenizer.getLineTokens(line, state);
-        var tokens = tokenizedLine.tokens;
-        var endState = tokenizedLine.state;
+      var tokenizedLine = this.$tokenizer.getLineTokens(line, state);
+      var tokens = tokenizedLine.tokens;
+      var endState = tokenizedLine.state;
 
-        if (tokens.length && tokens[tokens.length-1].type == "comment") {
-            return indent;
-        }
-        
-        if (state == "start" || state == "regex_allowed") {
-            var match = line.match(/^.*(?:\bcase\b.*\:|[\{\(\[])\s*$/);
-            if (match) {
-                indent += tab;
-            }
-        } else if (state == "doc-start") {
-            if (endState == "start" || state == "regex_allowed") {
-                return "";
-            }
-            var match = line.match(/^\s*(\/?)\*/);
-            if (match) {
-                if (match[1]) {
-                    indent += " ";
-                }
-                indent += "* ";
-            }
-        }
-
+      if (tokens.length && tokens[tokens.length - 1].type == "comment") {
         return indent;
+      }
+
+      if (state == "start" || state == "regex_allowed") {
+        var match = line.match(/^.*(?:\bcase\b.*\:|[\{\(\[])\s*$/);
+        if (match) {
+          indent += tab;
+        }
+      } else if (state == "doc-start") {
+        if (endState == "start" || state == "regex_allowed") {
+          return "";
+        }
+        var match = line.match(/^\s*(\/?)\*/);
+        if (match) {
+          if (match[1]) {
+            indent += " ";
+          }
+          indent += "* ";
+        }
+      }
+
+      return indent;
     };
 
-    this.checkOutdent = function(state, line, input) {
-        return this.$outdent.checkOutdent(line, input);
+    this.checkOutdent = function (state, line, input) {
+      return this.$outdent.checkOutdent(line, input);
     };
 
-    this.autoOutdent = function(state, doc, row) {
-        this.$outdent.autoOutdent(doc, row);
-    };
-    
-    this.createWorker = function(session) {
-        var worker = new WorkerClient(["ace"], "worker-javascript.js", "ace/mode/javascript_worker", "JavaScriptWorker");
-        worker.attachToDocument(session.getDocument());
-            
-        worker.on("jslint", function(results) {
-            var errors = [];
-            for (var i=0; i<results.data.length; i++) {
-                var error = results.data[i];
-                if (error)
-                    errors.push({
-                        row: error.line-1,
-                        column: error.character-1,
-                        text: error.reason,
-                        type: "warning",
-                        lint: error
-                    });
-            }
-            session.setAnnotations(errors);
-        });
-        
-        worker.on("narcissus", function(e) {
-            session.setAnnotations([e.data]);
-        });
-        
-        worker.on("terminate", function() {
-            session.clearAnnotations();
-        });
-        
-        return worker;
+    this.autoOutdent = function (state, doc, row) {
+      this.$outdent.autoOutdent(doc, row);
     };
 
-}).call(Mode.prototype);
+    this.createWorker = function (session) {
+      var worker = new WorkerClient(
+        ["ace"],
+        "worker-javascript.js",
+        "ace/mode/javascript_worker",
+        "JavaScriptWorker"
+      );
+      worker.attachToDocument(session.getDocument());
 
-exports.Mode = Mode;
+      worker.on("jslint", function (results) {
+        var errors = [];
+        for (var i = 0; i < results.data.length; i++) {
+          var error = results.data[i];
+          if (error)
+            errors.push({
+              row: error.line - 1,
+              column: error.character - 1,
+              text: error.reason,
+              type: "warning",
+              lint: error,
+            });
+        }
+        session.setAnnotations(errors);
+      });
+
+      worker.on("narcissus", function (e) {
+        session.setAnnotations([e.data]);
+      });
+
+      worker.on("terminate", function () {
+        session.clearAnnotations();
+      });
+
+      return worker;
+    };
+  }.call(Mode.prototype));
+
+  exports.Mode = Mode;
 });

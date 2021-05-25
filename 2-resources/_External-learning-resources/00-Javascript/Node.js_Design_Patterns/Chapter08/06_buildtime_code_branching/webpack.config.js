@@ -1,22 +1,22 @@
 "use strict";
 
-const path = require('path');
-const webpack = require('webpack');
+const path = require("path");
+const webpack = require("webpack");
 
 const definePlugin = new webpack.DefinePlugin({
-  "__BROWSER__": "true"
+  __BROWSER__: "true",
 });
 
 const uglify = new webpack.optimize.UglifyJsPlugin({
   beautify: true,
-  dead_code: true
+  dead_code: true,
 });
 
 module.exports = {
-  entry:  path.join(__dirname, "src", "main.js"),
+  entry: path.join(__dirname, "src", "main.js"),
   output: {
     path: path.join(__dirname, "dist"),
-    filename: "bundle.js"
+    filename: "bundle.js",
   },
-  plugins: [definePlugin, uglify]
+  plugins: [definePlugin, uglify],
 };

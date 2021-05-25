@@ -1,6 +1,5 @@
 var DRONE = DRONE || {};
-DRONE.Sequence = (function() {
-
+DRONE.Sequence = (function () {
   var sequence = 0;
 
   function next() {
@@ -14,6 +13,6 @@ DRONE.Sequence = (function() {
 
   return {
     next: next,
-    reset: reset
+    reset: reset,
   };
 })();

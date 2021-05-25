@@ -35,35 +35,35 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-require("./lib/fixoldbrowsers");
+  require("./lib/fixoldbrowsers");
 
-var Dom = require("./lib/dom");
-var Event = require("./lib/event");
+  var Dom = require("./lib/dom");
+  var Event = require("./lib/event");
 
-var Editor = require("./editor").Editor;
-var EditSession = require("./edit_session").EditSession;
-var UndoManager = require("./undomanager").UndoManager;
-var Renderer = require("./virtual_renderer").VirtualRenderer;
-var MultiSelect = require("./multi_select").MultiSelect;
+  var Editor = require("./editor").Editor;
+  var EditSession = require("./edit_session").EditSession;
+  var UndoManager = require("./undomanager").UndoManager;
+  var Renderer = require("./virtual_renderer").VirtualRenderer;
+  var MultiSelect = require("./multi_select").MultiSelect;
 
-// The following require()s are for inclusion in the built ace file
-require("./worker/worker_client");
-require("./keyboard/hash_handler");
-require("./keyboard/state_handler");
-require("./placeholder");
-require("./config").init();
+  // The following require()s are for inclusion in the built ace file
+  require("./worker/worker_client");
+  require("./keyboard/hash_handler");
+  require("./keyboard/state_handler");
+  require("./placeholder");
+  require("./config").init();
 
-exports.edit = function(el) {
-    if (typeof(el) == "string") {
-        el = document.getElementById(el);
+  exports.edit = function (el) {
+    if (typeof el == "string") {
+      el = document.getElementById(el);
     }
 
     var doc = new EditSession(Dom.getInnerText(el));
     doc.setUndoManager(new UndoManager());
-    el.innerHTML = '';
+    el.innerHTML = "";
 
     var editor = new Editor(new Renderer(el, require("./theme/textmate")));
     new MultiSelect(editor);
@@ -73,14 +73,13 @@ exports.edit = function(el) {
     env.document = doc;
     env.editor = editor;
     editor.resize();
-    Event.addListener(window, "resize", function() {
-        editor.resize();
+    Event.addListener(window, "resize", function () {
+      editor.resize();
     });
     el.env = env;
     // Store env on editor such that it can be accessed later on from
     // the returned object.
     editor.env = env;
     return editor;
-};
-
+  };
 });

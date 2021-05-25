@@ -36,36 +36,32 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-function FoldHandler(editor) {
-    
-    editor.on("click", function(e) {
-        var position = e.getDocumentPosition();
-        var session = editor.session;
-        
-        // If the user clicked on a fold, then expand it.
-        var fold = session.getFoldAt(position.row, position.column, 1);
-        if (fold) {
-            if (e.getAccelKey())
-                session.removeFold(fold);
-            else
-                session.expandFold(fold);
-                
-            e.stop();
-        }
+  function FoldHandler(editor) {
+    editor.on("click", function (e) {
+      var position = e.getDocumentPosition();
+      var session = editor.session;
+
+      // If the user clicked on a fold, then expand it.
+      var fold = session.getFoldAt(position.row, position.column, 1);
+      if (fold) {
+        if (e.getAccelKey()) session.removeFold(fold);
+        else session.expandFold(fold);
+
+        e.stop();
+      }
     });
-    
-    editor.on("gutterclick", function(e) {
-        if (e.domEvent.target.className.indexOf("ace_fold-widget") != -1) {
-            var row = e.getDocumentPosition().row;
-            editor.session.onFoldWidgetClick(row, e.domEvent);
-            e.stop();
-        }
+
+    editor.on("gutterclick", function (e) {
+      if (e.domEvent.target.className.indexOf("ace_fold-widget") != -1) {
+        var row = e.getDocumentPosition().row;
+        editor.session.onFoldWidgetClick(row, e.domEvent);
+        e.stop();
+      }
     });
-}
+  }
 
-exports.FoldHandler = FoldHandler;
-
+  exports.FoldHandler = FoldHandler;
 });

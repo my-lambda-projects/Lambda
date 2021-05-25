@@ -35,106 +35,129 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var oop = require("../lib/oop");
-var CssHighlightRules = require("./css_highlight_rules").CssHighlightRules;
-var JavaScriptHighlightRules = require("./javascript_highlight_rules").JavaScriptHighlightRules;
-var xmlUtil = require("./xml_util");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+  var oop = require("../lib/oop");
+  var CssHighlightRules = require("./css_highlight_rules").CssHighlightRules;
+  var JavaScriptHighlightRules =
+    require("./javascript_highlight_rules").JavaScriptHighlightRules;
+  var xmlUtil = require("./xml_util");
+  var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 
-var HtmlHighlightRules = function() {
-
+  var HtmlHighlightRules = function () {
     // regexp must not have capturing parentheses
     // regexps are ordered -> the first match is used
     this.$rules = {
-        start : [{
-            token : "text",
-            merge : true,
-            regex : "<\\!\\[CDATA\\[",
-            next : "cdata"
-        }, {
-            token : "xml_pe",
-            regex : "<\\?.*?\\?>"
-        }, {
-            token : "comment",
-            merge : true,
-            regex : "<\\!--",
-            next : "comment"
-        }, {
-            token : "xml_pe",
-            regex : "<\\!.*?>"
-        }, {
-            token : "meta.tag",
-            regex : "<(?=\s*script\\b)",
-            next : "script"
-        }, {
-            token : "meta.tag",
-            regex : "<(?=\s*style\\b)",
-            next : "style"
-        }, {
-            token : "meta.tag", // opening tag
-            regex : "<\\/?",
-            next : "tag"
-        }, {
-            token : "text",
-            regex : "\\s+"
-        }, {
-            token : "constant.character.entity",
-            regex : "(?:&#[0-9]+;)|(?:&#x[0-9a-fA-F]+;)|(?:&[a-zA-Z0-9_:\\.-]+;)"
-        }, {
-            token : "text",
-            regex : "[^<]+"
-        } ],
-    
-        cdata : [ {
-            token : "text",
-            regex : "\\]\\]>",
-            next : "start"
-        }, {
-            token : "text",
-            merge : true,
-            regex : "\\s+"
-        }, {
-            token : "text",
-            merge : true,
-            regex : ".+"
-        } ],
+      start: [
+        {
+          token: "text",
+          merge: true,
+          regex: "<\\!\\[CDATA\\[",
+          next: "cdata",
+        },
+        {
+          token: "xml_pe",
+          regex: "<\\?.*?\\?>",
+        },
+        {
+          token: "comment",
+          merge: true,
+          regex: "<\\!--",
+          next: "comment",
+        },
+        {
+          token: "xml_pe",
+          regex: "<\\!.*?>",
+        },
+        {
+          token: "meta.tag",
+          regex: "<(?=s*script\\b)",
+          next: "script",
+        },
+        {
+          token: "meta.tag",
+          regex: "<(?=s*style\\b)",
+          next: "style",
+        },
+        {
+          token: "meta.tag", // opening tag
+          regex: "<\\/?",
+          next: "tag",
+        },
+        {
+          token: "text",
+          regex: "\\s+",
+        },
+        {
+          token: "constant.character.entity",
+          regex: "(?:&#[0-9]+;)|(?:&#x[0-9a-fA-F]+;)|(?:&[a-zA-Z0-9_:\\.-]+;)",
+        },
+        {
+          token: "text",
+          regex: "[^<]+",
+        },
+      ],
 
-        comment : [ {
-            token : "comment",
-            regex : ".*?-->",
-            next : "start"
-        }, {
-            token : "comment",
-            merge : true,
-            regex : ".+"
-        } ]
+      cdata: [
+        {
+          token: "text",
+          regex: "\\]\\]>",
+          next: "start",
+        },
+        {
+          token: "text",
+          merge: true,
+          regex: "\\s+",
+        },
+        {
+          token: "text",
+          merge: true,
+          regex: ".+",
+        },
+      ],
+
+      comment: [
+        {
+          token: "comment",
+          regex: ".*?-->",
+          next: "start",
+        },
+        {
+          token: "comment",
+          merge: true,
+          regex: ".+",
+        },
+      ],
     };
-    
+
     xmlUtil.tag(this.$rules, "tag", "start");
     xmlUtil.tag(this.$rules, "style", "css-start");
     xmlUtil.tag(this.$rules, "script", "js-start");
-    
-    this.embedRules(JavaScriptHighlightRules, "js-", [{
+
+    this.embedRules(JavaScriptHighlightRules, "js-", [
+      {
         token: "comment",
         regex: "\\/\\/.*(?=<\\/script>)",
-        next: "tag"
-    }, {
+        next: "tag",
+      },
+      {
         token: "meta.tag",
         regex: "<\\/(?=script)",
-        next: "tag"
-    }]);
-    
-    this.embedRules(CssHighlightRules, "css-", [{
+        next: "tag",
+      },
+    ]);
+
+    this.embedRules(CssHighlightRules, "css-", [
+      {
         token: "meta.tag",
         regex: "<\\/(?=style)",
-        next: "tag"
-    }]);
-};
+        next: "tag",
+      },
+    ]);
+  };
 
-oop.inherits(HtmlHighlightRules, TextHighlightRules);
+  oop.inherits(HtmlHighlightRules, TextHighlightRules);
 
-exports.HtmlHighlightRules = HtmlHighlightRules;
+  exports.HtmlHighlightRules = HtmlHighlightRules;
 });

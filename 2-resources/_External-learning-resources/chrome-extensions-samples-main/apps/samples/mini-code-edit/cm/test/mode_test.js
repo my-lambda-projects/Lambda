@@ -22,7 +22,7 @@ ModeTest.passes = 0;
  *
  * @param token[i] expected value for the i'th token in string
  */
-ModeTest.test = function() {
+ModeTest.test = function () {
   ModeTest.tests += 1;
 
   var mode = CodeMirror.getMode(ModeTest.modeOptions, ModeTest.modeName);
@@ -37,34 +37,35 @@ ModeTest.test = function() {
   var text = arguments[0];
   var expectedOutput = [];
   for (var i = 1; i < arguments.length; i += 2) {
-    expectedOutput.push([arguments[i],arguments[i + 1]]);
+    expectedOutput.push([arguments[i], arguments[i + 1]]);
   }
 
-  var observedOutput = ModeTest.highlight(text, mode)
+  var observedOutput = ModeTest.highlight(text, mode);
 
-  var pass, passStyle = "";
+  var pass,
+    passStyle = "";
   if (expectedOutput.length > 0) {
     pass = ModeTest.highlightOutputsEqual(expectedOutput, observedOutput);
-    passStyle = pass ? 'mt-pass' : 'mt-fail';
+    passStyle = pass ? "mt-pass" : "mt-fail";
     ModeTest.passes += pass ? 1 : 0;
   }
 
-  var s = '';
+  var s = "";
   s += '<div class="mt-test ' + passStyle + '">';
-  s +=   '<pre>' + ModeTest.htmlEscape(text) + '</pre>';
-  s +=   '<div class="cm-s-default">';
+  s += "<pre>" + ModeTest.htmlEscape(text) + "</pre>";
+  s += '<div class="cm-s-default">';
   if (pass || expectedOutput.length == 0) {
-    s +=   ModeTest.prettyPrintOutputTable(observedOutput);
+    s += ModeTest.prettyPrintOutputTable(observedOutput);
   } else {
-    s += 'expected:';
-    s +=   ModeTest.prettyPrintOutputTable(expectedOutput);
-    s += 'observed:';
-    s +=   ModeTest.prettyPrintOutputTable(observedOutput);
+    s += "expected:";
+    s += ModeTest.prettyPrintOutputTable(expectedOutput);
+    s += "observed:";
+    s += ModeTest.prettyPrintOutputTable(observedOutput);
   }
-  s +=   '</div>';
-  s += '</div>';
+  s += "</div>";
+  s += "</div>";
   document.write(s);
-}
+};
 
 /**
  * Emulation of CodeMirror's internal highlight routine for testing. Multi-line
@@ -76,10 +77,10 @@ ModeTest.test = function() {
  *
  * @return array of [style, token] pairs
  */
-ModeTest.highlight = function(string, mode) {
-  var state = mode.startState()
+ModeTest.highlight = function (string, mode) {
+  var state = mode.startState();
 
-  var lines = string.replace(/\r\n/g,'\n').split('\n');
+  var lines = string.replace(/\r\n/g, "\n").split("\n");
   var output = [];
   for (var i = 0; i < lines.length; ++i) {
     var line = lines[i];
@@ -94,7 +95,7 @@ ModeTest.highlight = function(string, mode) {
   }
 
   return output;
-}
+};
 
 /**
  * Compare two arrays of output from ModeTest.highlight.
@@ -105,16 +106,16 @@ ModeTest.highlight = function(string, mode) {
  *
  * @return boolean; true iff outputs equal
  */
-ModeTest.highlightOutputsEqual = function(o1, o2) {
-  var eq = (o1.length == o2.length);
+ModeTest.highlightOutputsEqual = function (o1, o2) {
+  var eq = o1.length == o2.length;
   if (eq) {
     for (var j in o1) {
-      eq = eq &&
-        o1[j].length == 2 && o1[j][0] == o2[j][0] && o1[j][1] == o2[j][1];
+      eq =
+        eq && o1[j].length == 2 && o1[j][0] == o2[j][0] && o1[j][1] == o2[j][1];
     }
   }
   return eq;
-}
+};
 
 /**
  * Print tokens and corresponding styles in a table. Spaces in the token are
@@ -124,41 +125,42 @@ ModeTest.highlightOutputsEqual = function(o1, o2) {
  *
  * @return html string
  */
-ModeTest.prettyPrintOutputTable = function(output) {
+ModeTest.prettyPrintOutputTable = function (output) {
   var s = '<table class="mt-output">';
-  s += '<tr>';
+  s += "<tr>";
   for (var i = 0; i < output.length; ++i) {
     var token = output[i];
     s +=
       '<td class="mt-token">' +
-        '<span class="cm-' + token[0] + '">' +
-          ModeTest.htmlEscape(token[1]).replace(/ /g,'&middot;') +
-        '</span>' +
-      '</td>';
+      '<span class="cm-' +
+      token[0] +
+      '">' +
+      ModeTest.htmlEscape(token[1]).replace(/ /g, "&middot;") +
+      "</span>" +
+      "</td>";
   }
-  s += '</tr><tr>';
+  s += "</tr><tr>";
   for (var i = 0; i < output.length; ++i) {
     var token = output[i];
-    s +=
-      '<td class="mt-style"><span>' + token[0] + '</span></td>';
+    s += '<td class="mt-style"><span>' + token[0] + "</span></td>";
   }
-  s += '</table>';
+  s += "</table>";
   return s;
-}
+};
 
 /**
  * Print how many tests have run so far and how many of those passed.
  */
-ModeTest.printSummary = function() {
-  document.write(ModeTest.passes + ' passes for ' + ModeTest.tests + ' tests');
-}
+ModeTest.printSummary = function () {
+  document.write(ModeTest.passes + " passes for " + ModeTest.tests + " tests");
+};
 
 /**
  * Basic HTML escaping.
  */
-ModeTest.htmlEscape = function(str) {
+ModeTest.htmlEscape = function (str) {
   str = str.toString();
-  return str.replace(/[<&]/g,
-      function(str) {return str == "&" ? "&amp;" : "&lt;";});
-}
-
+  return str.replace(/[<&]/g, function (str) {
+    return str == "&" ? "&amp;" : "&lt;";
+  });
+};

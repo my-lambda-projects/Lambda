@@ -1,4 +1,5 @@
-var CWS_LICENSE_API_URL = 'https://www.googleapis.com/chromewebstore/v1.1/userlicenses/';
+var CWS_LICENSE_API_URL =
+  "https://www.googleapis.com/chromewebstore/v1.1/userlicenses/";
 var TRIAL_PERIOD_DAYS = 2;
 var statusDiv;
 
@@ -8,11 +9,16 @@ function init() {
 }
 
 /*****************************************************************************
-* Call to license server to request the license
-*****************************************************************************/
+ * Call to license server to request the license
+ *****************************************************************************/
 
 function getLicense() {
-  xhrWithAuth('GET', CWS_LICENSE_API_URL + chrome.runtime.id, true, onLicenseFetched);
+  xhrWithAuth(
+    "GET",
+    CWS_LICENSE_API_URL + chrome.runtime.id,
+    true,
+    onLicenseFetched
+  );
 }
 
 function onLicenseFetched(error, status, response) {
@@ -31,12 +37,12 @@ function onLicenseFetched(error, status, response) {
 }
 
 /*****************************************************************************
-* Parse the license and determine if the user should get a free trial
-*  - if license.accessLevel == "FULL", they've paid for the app
-*  - if license.accessLevel == "FREE_TRIAL" they haven't paid
-*    - If they've used the app for less than TRIAL_PERIOD_DAYS days, free trial
-*    - Otherwise, the free trial has expired 
-*****************************************************************************/
+ * Parse the license and determine if the user should get a free trial
+ *  - if license.accessLevel == "FULL", they've paid for the app
+ *  - if license.accessLevel == "FREE_TRIAL" they haven't paid
+ *    - If they've used the app for less than TRIAL_PERIOD_DAYS days, free trial
+ *    - Otherwise, the free trial has expired
+ *****************************************************************************/
 
 function parseLicense(license) {
   var licenseStatus;
@@ -62,15 +68,17 @@ function parseLicense(license) {
     licenseStatusText = "NONE";
     licenseStatus = "alert-danger";
   }
-  $("#dateCreated").text(moment(parseInt(license.createdTime, 10)).format("llll"));
+  $("#dateCreated").text(
+    moment(parseInt(license.createdTime, 10)).format("llll")
+  );
   $("#licenseState").addClass(licenseStatus);
   $("#licenseStatus").text(licenseStatusText);
   statusDiv.html("&nbsp;");
 }
 
 /*****************************************************************************
-* Helper method for making authenticated requests
-*****************************************************************************/
+ * Helper method for making authenticated requests
+ *****************************************************************************/
 
 // Helper Util for making authenticated XHRs
 function xhrWithAuth(method, url, interactive, callback) {
@@ -80,22 +88,25 @@ function xhrWithAuth(method, url, interactive, callback) {
   function getToken() {
     statusDiv.text("Getting auth token...");
     console.log("Calling chrome.identity.getAuthToken", interactive);
-    chrome.identity.getAuthToken({ interactive: interactive }, function(token) {
-      if (chrome.runtime.lastError) {
-        callback(chrome.runtime.lastError);
-        return;
+    chrome.identity.getAuthToken(
+      { interactive: interactive },
+      function (token) {
+        if (chrome.runtime.lastError) {
+          callback(chrome.runtime.lastError);
+          return;
+        }
+        console.log("chrome.identity.getAuthToken returned a token", token);
+        access_token = token;
+        requestStart();
       }
-      console.log("chrome.identity.getAuthToken returned a token", token);
-      access_token = token;
-      requestStart();
-    });
+    );
   }
 
   function requestStart() {
     statusDiv.text("Starting authenticated XHR...");
     var xhr = new XMLHttpRequest();
     xhr.open(method, url);
-    xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
+    xhr.setRequestHeader("Authorization", "Bearer " + access_token);
     xhr.onload = requestComplete;
     xhr.send();
   }
@@ -104,13 +115,11 @@ function xhrWithAuth(method, url, interactive, callback) {
     statusDiv.text("Authenticated XHR completed.");
     if (this.status == 401 && retry) {
       retry = false;
-      chrome.identity.removeCachedAuthToken({ token: access_token },
-                                            getToken);
+      chrome.identity.removeCachedAuthToken({ token: access_token }, getToken);
     } else {
       callback(null, this.status, this.response);
     }
   }
 }
-
 
 init();

@@ -1,12 +1,12 @@
 "use strict";
 
 module.exports = {
-  square (x) {
+  square(x) {
     return x * x;
   },
-  cube (x) {
+  cube(x) {
     return x * x * x;
-  }
+  },
 };
 
 console.log(module.exports);

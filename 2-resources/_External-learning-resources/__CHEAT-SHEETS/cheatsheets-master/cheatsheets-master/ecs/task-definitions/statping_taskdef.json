@@ -1,17 +1,17 @@
 {
   "family": "statping",
-  "executionRoleArn":"arn:aws:iam::000000000000:role/ecs-exec-role",
-  "taskRoleArn":"arn:aws:iam::000000000000:role/ecs-task-role",
+  "executionRoleArn": "arn:aws:iam::000000000000:role/ecs-exec-role",
+  "taskRoleArn": "arn:aws:iam::000000000000:role/ecs-task-role",
   "containerDefinitions": [
     {
       "name": "statping",
       "image": "statping/statping:latest",
       "memoryReservation": 256,
-      "portMappings":[
+      "portMappings": [
         {
-          "protocol":"tcp",
-          "containerPort":8080,
-          "hostPort":0
+          "protocol": "tcp",
+          "containerPort": 8080,
+          "hostPort": 0
         }
       ],
       "environment": [
@@ -73,8 +73,8 @@
     {
       "name": "statping-data",
       "efsVolumeConfiguration": {
-         "fileSystemId": "fs-00000000",
-         "rootDirectory": "/statping/data"
+        "fileSystemId": "fs-00000000",
+        "rootDirectory": "/statping/data"
       }
     }
   ]

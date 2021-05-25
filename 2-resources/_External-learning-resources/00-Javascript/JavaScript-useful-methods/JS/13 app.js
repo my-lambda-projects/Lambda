@@ -1,4 +1,4 @@
-const el = document.querySelector('div');
+const el = document.querySelector("div");
 el.style.width = "100px";
 el.style.height = "123px";
 el.style.position = "absolute";

@@ -34,30 +34,32 @@
  * the terms of any one of the MPL, the GPL or the LGPL.
  *
  * ***** END LICENSE BLOCK ***** */
- 
-define(function(require, exports, module) {
-    
-    var Lexer = require("./lexer").Lexer;
-    var parser = require("./parser");
 
-    var lexer = new Lexer();
-    parser.lexer = {
-        lex: function() {
-            var tag, _ref2;
-            _ref2 = this.tokens[this.pos++] || [''], tag = _ref2[0], this.yytext = _ref2[1], this.yylineno = _ref2[2];
-            return tag;
-        },
-        setInput: function(tokens) {
-            this.tokens = tokens;
-            return this.pos = 0;
-        },
-        upcomingInput: function() {
-            return "";
-        }
-    };
-    parser.yy = require('./nodes');
-    
-    exports.parse = function(code) {
-        return parser.parse(lexer.tokenize(code));
-    };
+define(function (require, exports, module) {
+  var Lexer = require("./lexer").Lexer;
+  var parser = require("./parser");
+
+  var lexer = new Lexer();
+  parser.lexer = {
+    lex: function () {
+      var tag, _ref2;
+      (_ref2 = this.tokens[this.pos++] || [""]),
+        (tag = _ref2[0]),
+        (this.yytext = _ref2[1]),
+        (this.yylineno = _ref2[2]);
+      return tag;
+    },
+    setInput: function (tokens) {
+      this.tokens = tokens;
+      return (this.pos = 0);
+    },
+    upcomingInput: function () {
+      return "";
+    },
+  };
+  parser.yy = require("./nodes");
+
+  exports.parse = function (code) {
+    return parser.parse(lexer.tokenize(code));
+  };
 });

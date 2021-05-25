@@ -37,33 +37,34 @@
  *
  * ***** END LICENSE BLOCK *****
  */
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var oop = require("../lib/oop");
-var lang = require("../lib/lang");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+  var oop = require("../lib/oop");
+  var lang = require("../lib/lang");
+  var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 
-var ShHighlightRules = function() {
-
+  var ShHighlightRules = function () {
     var reservedKeywords = lang.arrayToMap(
-        ('!|{|}|case|do|done|elif|else|'+
-        'esac|fi|for|if|in|then|until|while|'+
-        '&|;|export|local|read|typeset|unset|'+
-        'elif|select|set'
-        ).split('|')
+      (
+        "!|{|}|case|do|done|elif|else|" +
+        "esac|fi|for|if|in|then|until|while|" +
+        "&|;|export|local|read|typeset|unset|" +
+        "elif|select|set"
+      ).split("|")
     );
 
     var languageConstructs = lang.arrayToMap(
-        ('[|]|alias|bg|bind|break|builtin|'+
-         'cd|command|compgen|complete|continue|'+
-         'dirs|disown|echo|enable|eval|exec|'+
-         'exit|fc|fg|getopts|hash|help|history|'+
-         'jobs|kill|let|logout|popd|printf|pushd|'+
-         'pwd|return|set|shift|shopt|source|'+
-         'suspend|test|times|trap|type|ulimit|'+
-         'umask|unalias|wait'
-         ).split('|')
+      (
+        "[|]|alias|bg|bind|break|builtin|" +
+        "cd|command|compgen|complete|continue|" +
+        "dirs|disown|echo|enable|eval|exec|" +
+        "exit|fc|fg|getopts|hash|help|history|" +
+        "jobs|kill|let|logout|popd|printf|pushd|" +
+        "pwd|return|set|shift|shopt|source|" +
+        "suspend|test|times|trap|type|ulimit|" +
+        "umask|unalias|wait"
+      ).split("|")
     );
 
     var integer = "(?:(?:[1-9]\\d*)|(?:0))";
@@ -71,8 +72,9 @@ var ShHighlightRules = function() {
 
     var fraction = "(?:\\.\\d+)";
     var intPart = "(?:\\d+)";
-    var pointFloat = "(?:(?:" + intPart + "?" + fraction + ")|(?:" + intPart + "\\.))";
-    var exponentFloat = "(?:(?:" + pointFloat + "|" +  intPart + ")" + ")";
+    var pointFloat =
+      "(?:(?:" + intPart + "?" + fraction + ")|(?:" + intPart + "\\.))";
+    var exponentFloat = "(?:(?:" + pointFloat + "|" + intPart + ")" + ")";
     var floatNumber = "(?:" + exponentFloat + "|" + pointFloat + ")";
     var fileDescriptor = "(?:&" + intPart + ")";
 
@@ -84,62 +86,74 @@ var ShHighlightRules = function() {
     var func = "(?:" + variableName + "\\s*\\(\\))";
 
     this.$rules = {
-        "start" : [ {
-            token : "comment",
-            regex : "#.*$"
-        }, {
-            token : "string",           // " string
-            regex : '"(?:[^\\\\]|\\\\.)*?"'
-        }, {
-            token : "variable.language",
-            regex : builtinVariable
-        }, {
-            token : "variable",
-            regex : variable
-        }, {
-            token : "support.function",
-            regex : func,
-        }, {
-            token : "support.function",
-            regex : fileDescriptor
-        }, {
-            token : "string",           // ' string
-            regex : "'(?:[^\\\\]|\\\\.)*?'"
-        }, {
-            token : "constant.numeric", // float
-            regex : floatNumber
-        }, {
-            token : "constant.numeric", // integer
-            regex : integer + "\\b"
-        }, {
-            token : function(value) {
-                if (reservedKeywords.hasOwnProperty(value))
-                    return "keyword";
-                else if (languageConstructs.hasOwnProperty(value))
-                    return "constant.language";
-                else if (value == "debugger")
-                    return "invalid.deprecated";
-                else
-                    return "identifier";
-            },
-            regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
-        }, {
-            token : "keyword.operator",
-            regex : "\\+|\\-|\\*|\\*\\*|\\/|\\/\\/|~|<|>|<=|=>|=|!="
-        }, {
-            token : "lparen.paren",
-            regex : "[\\[\\(\\{]"
-        }, {
-            token : "paren.rparen",
-            regex : "[\\]\\)\\}]"
-        }, {
-            token : "text",
-            regex : "\\s+"
-        } ]
+      start: [
+        {
+          token: "comment",
+          regex: "#.*$",
+        },
+        {
+          token: "string", // " string
+          regex: '"(?:[^\\\\]|\\\\.)*?"',
+        },
+        {
+          token: "variable.language",
+          regex: builtinVariable,
+        },
+        {
+          token: "variable",
+          regex: variable,
+        },
+        {
+          token: "support.function",
+          regex: func,
+        },
+        {
+          token: "support.function",
+          regex: fileDescriptor,
+        },
+        {
+          token: "string", // ' string
+          regex: "'(?:[^\\\\]|\\\\.)*?'",
+        },
+        {
+          token: "constant.numeric", // float
+          regex: floatNumber,
+        },
+        {
+          token: "constant.numeric", // integer
+          regex: integer + "\\b",
+        },
+        {
+          token: function (value) {
+            if (reservedKeywords.hasOwnProperty(value)) return "keyword";
+            else if (languageConstructs.hasOwnProperty(value))
+              return "constant.language";
+            else if (value == "debugger") return "invalid.deprecated";
+            else return "identifier";
+          },
+          regex: "[a-zA-Z_$][a-zA-Z0-9_$]*\\b",
+        },
+        {
+          token: "keyword.operator",
+          regex: "\\+|\\-|\\*|\\*\\*|\\/|\\/\\/|~|<|>|<=|=>|=|!=",
+        },
+        {
+          token: "lparen.paren",
+          regex: "[\\[\\(\\{]",
+        },
+        {
+          token: "paren.rparen",
+          regex: "[\\]\\)\\}]",
+        },
+        {
+          token: "text",
+          regex: "\\s+",
+        },
+      ],
     };
-};
+  };
 
-oop.inherits(ShHighlightRules, TextHighlightRules);
+  oop.inherits(ShHighlightRules, TextHighlightRules);
 
-exports.ShHighlightRules = ShHighlightRules;
+  exports.ShHighlightRules = ShHighlightRules;
 });

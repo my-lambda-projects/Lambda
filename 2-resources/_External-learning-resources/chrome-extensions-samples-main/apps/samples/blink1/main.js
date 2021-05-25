@@ -11,11 +11,14 @@ function onAppWindowCreated(appWindow) {
   appWindow.onClosed.addListener(onAppWindowClosed);
 }
 
-chrome.app.runtime.onLaunched.addListener(function() {
+chrome.app.runtime.onLaunched.addListener(function () {
   chrome.app.window.create(
-      "color-picker.html", {
-        id: "blink1",
-        innerBounds: { width: 160, height: 115 },
-        resizable: false
-      }, onAppWindowCreated);
+    "color-picker.html",
+    {
+      id: "blink1",
+      innerBounds: { width: 160, height: 115 },
+      resizable: false,
+    },
+    onAppWindowCreated
+  );
 });

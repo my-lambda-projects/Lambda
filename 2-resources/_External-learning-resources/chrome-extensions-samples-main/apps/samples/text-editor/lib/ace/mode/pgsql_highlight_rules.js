@@ -20,22 +20,22 @@
  *
  */
 
+define(function (require, exports, module) {
+  var oop = require("ace/lib/oop");
+  var lang = require("ace/lib/lang");
+  var DocCommentHighlightRules =
+    require("./doc_comment_highlight_rules").DocCommentHighlightRules;
+  var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+  // Supporting perl and python for now -- both in pg core and ace
+  var PerlHighlightRules = require("./perl_highlight_rules").PerlHighlightRules;
+  var PythonHighlightRules =
+    require("./python_highlight_rules").PythonHighlightRules;
 
-define(function(require, exports, module) {
-
-var oop = require("ace/lib/oop");
-var lang = require("ace/lib/lang");
-var DocCommentHighlightRules = require("./doc_comment_highlight_rules").DocCommentHighlightRules;
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
-// Supporting perl and python for now -- both in pg core and ace
-var PerlHighlightRules = require("./perl_highlight_rules").PerlHighlightRules;
-var PythonHighlightRules = require("./python_highlight_rules").PythonHighlightRules;
-
-var PgsqlHighlightRules = function() {
-    
+  var PgsqlHighlightRules = function () {
     // Keywords, functions, operators last updated for pg 9.1.
     var keywords = lang.arrayToMap(
-        ("abort|absolute|abstime|access|aclitem|action|add|admin|after|aggregate|all|also|alter|always|" +
+      (
+        "abort|absolute|abstime|access|aclitem|action|add|admin|after|aggregate|all|also|alter|always|" +
         "analyse|analyze|and|any|anyarray|anyelement|anyenum|anynonarray|array|as|asc|assertion|" +
         "assignment|asymmetric|at|attribute|authorization|backward|before|begin|between|bigint|" +
         "binary|bit|bool|boolean|both|box|bpchar|by|bytea|cache|called|cascade|cascaded|case|cast|" +
@@ -74,12 +74,13 @@ var PgsqlHighlightRules = function() {
         "unlogged|until|update|user|using|uuid|vacuum|valid|validate|validator|value|values|varbit|" +
         "varchar|variadic|varying|verbose|version|view|void|volatile|when|where|whitespace|window|" +
         "with|without|work|wrapper|write|xid|xml|xmlattributes|xmlconcat|xmlelement|xmlexists|" +
-        "xmlforest|xmlparse|xmlpi|xmlroot|xmlserialize|year|yes|zone").split("|")
+        "xmlforest|xmlparse|xmlpi|xmlroot|xmlserialize|year|yes|zone"
+      ).split("|")
     );
-    
-    
+
     var builtinFunctions = lang.arrayToMap(
-        ("RI_FKey_cascade_del|RI_FKey_cascade_upd|RI_FKey_check_ins|RI_FKey_check_upd|" +
+      (
+        "RI_FKey_cascade_del|RI_FKey_cascade_upd|RI_FKey_check_ins|RI_FKey_check_upd|" +
         "RI_FKey_noaction_del|RI_FKey_noaction_upd|RI_FKey_restrict_del|RI_FKey_restrict_upd|" +
         "RI_FKey_setdefault_del|RI_FKey_setdefault_upd|RI_FKey_setnull_del|" +
         "RI_FKey_setnull_upd|abbrev|abs|abstime|abstimeeq|abstimege|abstimegt|abstimein|abstimele|" +
@@ -392,192 +393,221 @@ var PgsqlHighlightRules = function() {
         "win866_to_mic|win866_to_win1251|win_to_utf8|xideq|xideqint4|xidin|xidout|xidrecv|xidsend|" +
         "xml|xml_in|xml_is_well_formed|xml_is_well_formed_content|xml_is_well_formed_document|" +
         "xml_out|xml_recv|xml_send|xmlagg|xmlcomment|xmlconcat2|xmlexists|xmlvalidate|xpath|" +
-        "xpath_exists").split("|")
+        "xpath_exists"
+      ).split("|")
     );
-    
+
     var sqlRules = [
-        {
-            token : "string", // single line string -- assume dollar strings if multi-line for now
-            regex : "['](?:(?:\\\\.)|(?:[^'\\\\]))*?[']"
-        }, {
-            token : "variable.language", // pg identifier
-            regex : '".*?"'
-        }, {
-            token : "constant.numeric", // float
-            regex : "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b"
-        }, {
-            token : function(value) {
-                value = value.toLowerCase();
-                if (keywords.hasOwnProperty(value)) {
-                    return "keyword";
-                } else if (builtinFunctions.hasOwnProperty(value)) {
-                    return "support.function";
-                } else {
-                    return "identifier";
-                }
-              },
-              regex : "[a-zA-Z_][a-zA-Z0-9_$]*\\b" // TODO - Unicode in identifiers
-          }, {
-              token : "keyword.operator",
-              regex : "!|!!|!~|!~\\*|!~~|!~~\\*|#|##|#<|#<=|#<>|#=|#>|#>=|%|\\&|\\&\\&|\\&<|\\&<\\||\\&>|\\*|\\+|" +
-                      "\\-|/|<|<#>|<\\->|<<|<<=|<<\\||<=|<>|<\\?>|<@|<\\^|=|>|>=|>>|>>=|>\\^|\\?#|\\?\\-|\\?\\-\\||" +
-                      "\\?\\||\\?\\|\\||@|@\\-@|@>|@@|@@@|\\^|\\||\\|\\&>|\\|/|\\|>>|\\|\\||\\|\\|/|~|~\\*|~<=~|~<~|" +
-                      "~=|~>=~|~>~|~~|~~\\*"
-          }, {
-              token : "lparen.paren",
-              regex : "[\\(]"
-          }, {
-              token : "paren.rparen",
-              regex : "[\\)]"
-          }, {
-              token : "text",
-              regex : "\\s+"
+      {
+        token: "string", // single line string -- assume dollar strings if multi-line for now
+        regex: "['](?:(?:\\\\.)|(?:[^'\\\\]))*?[']",
+      },
+      {
+        token: "variable.language", // pg identifier
+        regex: '".*?"',
+      },
+      {
+        token: "constant.numeric", // float
+        regex: "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b",
+      },
+      {
+        token: function (value) {
+          value = value.toLowerCase();
+          if (keywords.hasOwnProperty(value)) {
+            return "keyword";
+          } else if (builtinFunctions.hasOwnProperty(value)) {
+            return "support.function";
+          } else {
+            return "identifier";
           }
+        },
+        regex: "[a-zA-Z_][a-zA-Z0-9_$]*\\b", // TODO - Unicode in identifiers
+      },
+      {
+        token: "keyword.operator",
+        regex:
+          "!|!!|!~|!~\\*|!~~|!~~\\*|#|##|#<|#<=|#<>|#=|#>|#>=|%|\\&|\\&\\&|\\&<|\\&<\\||\\&>|\\*|\\+|" +
+          "\\-|/|<|<#>|<\\->|<<|<<=|<<\\||<=|<>|<\\?>|<@|<\\^|=|>|>=|>>|>>=|>\\^|\\?#|\\?\\-|\\?\\-\\||" +
+          "\\?\\||\\?\\|\\||@|@\\-@|@>|@@|@@@|\\^|\\||\\|\\&>|\\|/|\\|>>|\\|\\||\\|\\|/|~|~\\*|~<=~|~<~|" +
+          "~=|~>=~|~>~|~~|~~\\*",
+      },
+      {
+        token: "lparen.paren",
+        regex: "[\\(]",
+      },
+      {
+        token: "paren.rparen",
+        regex: "[\\)]",
+      },
+      {
+        token: "text",
+        regex: "\\s+",
+      },
     ];
-           
 
     this.$rules = {
-        "start" : [
-            {
-                token : "comment",
-                regex : "--.*$"
-            }, 
-            DocCommentHighlightRules.getStartRule("doc-start"),
-            {
-                token : "comment", // multi-line comment
-                merge : true,
-                regex : "\\/\\*",
-                next : "comment"
-            },{
-                token : "keyword.statementBegin",
-                regex : "^[a-zA-Z]+", // Could enumerate starting keywords but this allows things to work when new statements are added.
-                next : "statement"
-            },{
-                token : "support.buildin", // psql directive
-                regex : "^\\\\[\\S]+.*$"
-            }
-        ],
-        
-        "statement" : [
-            {
-                token : "comment",
-                regex : "--.*$"
-            }, {
-                token : "comment", // multi-line comment
-                merge : true,
-                regex : "\\/\\*",
-                next : "commentStatement"
-            }, {
-                token : "statementEnd",
-                regex : ";",
-                next : "start"
-            }, {
-                token : "string", // perl, python, tcl are in the pg default dist (no tcl highlighter)
-                regex : "\\$perl\\$",
-                next : "perl-start"
-            }, {
-                token : "string",
-                regex : "\\$python\\$",
-                next : "python-start"
-            },{
-                token : "string",
-                regex : "\\$[\\w_0-9]*\\$$", // dollar quote at the end of a line
-                next : "dollarSql"
-            }, {
-                token : "string",
-                regex : "\\$[\\w_0-9]*\\$",
-                next : "dollarStatementString"
-            }
-        ].concat(sqlRules),
-        
-        "dollarSql" : [
-            {
-                token : "comment",
-                regex : "--.*$"
-            }, {
-                token : "comment", // multi-line comment
-                merge : true,
-                regex : "\\/\\*",
-                next : "commentDollarSql"
-            }, {
-                token : "string", // end quoting with dollar at the start of a line
-                regex : "^\\$[\\w_0-9]*\\$",
-                next : "statement"
-            }, {
-                token : "string",
-                regex : "\\$[\\w_0-9]*\\$",
-                next : "dollarSqlString"
-            }
-        ].concat(sqlRules),
-        
-        "comment" : [
-            {
-                token : "comment", // closing comment
-                regex : ".*?\\*\\/",
-                next : "start"
-            }, {
-                token : "comment", // comment spanning whole line
-                merge : true,
-                regex : ".+"
-            }
-        ],
-        
-        "commentStatement" : [
-            {
-                token : "comment", // closing comment
-                regex : ".*?\\*\\/",
-                next : "statement"
-            }, {
-                token : "comment", // comment spanning whole line
-                merge : true,
-                regex : ".+"
-            }
-        ],
-        
-        "commentDollarSql" : [
-            {
-                token : "comment", // closing comment
-                regex : ".*?\\*\\/",
-                next : "dollarSql"
-            }, {
-                token : "comment", // comment spanning whole line
-                merge : true,
-                regex : ".+"
-            }
-        ],
-        
-        "dollarStatementString" : [
-            {
-                token : "string", // closing dollarstring
-                regex : ".*?\\$[\\w_0-9]*\\$",
-                next : "statement"
-            }, {
-                token : "string", // dollarstring spanning whole line
-                merge : true,
-                regex : ".+"
-            }
-        ],
-        
-        "dollarSqlString" : [
-            {
-                token : "string", // closing dollarstring
-                regex : ".*?\\$[\\w_0-9]*\\$",
-                next : "dollarSql"
-            }, {
-                token : "string", // dollarstring spanning whole line
-                merge : true,
-                regex : ".+"
-            }
-        ]
+      start: [
+        {
+          token: "comment",
+          regex: "--.*$",
+        },
+        DocCommentHighlightRules.getStartRule("doc-start"),
+        {
+          token: "comment", // multi-line comment
+          merge: true,
+          regex: "\\/\\*",
+          next: "comment",
+        },
+        {
+          token: "keyword.statementBegin",
+          regex: "^[a-zA-Z]+", // Could enumerate starting keywords but this allows things to work when new statements are added.
+          next: "statement",
+        },
+        {
+          token: "support.buildin", // psql directive
+          regex: "^\\\\[\\S]+.*$",
+        },
+      ],
+
+      statement: [
+        {
+          token: "comment",
+          regex: "--.*$",
+        },
+        {
+          token: "comment", // multi-line comment
+          merge: true,
+          regex: "\\/\\*",
+          next: "commentStatement",
+        },
+        {
+          token: "statementEnd",
+          regex: ";",
+          next: "start",
+        },
+        {
+          token: "string", // perl, python, tcl are in the pg default dist (no tcl highlighter)
+          regex: "\\$perl\\$",
+          next: "perl-start",
+        },
+        {
+          token: "string",
+          regex: "\\$python\\$",
+          next: "python-start",
+        },
+        {
+          token: "string",
+          regex: "\\$[\\w_0-9]*\\$$", // dollar quote at the end of a line
+          next: "dollarSql",
+        },
+        {
+          token: "string",
+          regex: "\\$[\\w_0-9]*\\$",
+          next: "dollarStatementString",
+        },
+      ].concat(sqlRules),
+
+      dollarSql: [
+        {
+          token: "comment",
+          regex: "--.*$",
+        },
+        {
+          token: "comment", // multi-line comment
+          merge: true,
+          regex: "\\/\\*",
+          next: "commentDollarSql",
+        },
+        {
+          token: "string", // end quoting with dollar at the start of a line
+          regex: "^\\$[\\w_0-9]*\\$",
+          next: "statement",
+        },
+        {
+          token: "string",
+          regex: "\\$[\\w_0-9]*\\$",
+          next: "dollarSqlString",
+        },
+      ].concat(sqlRules),
+
+      comment: [
+        {
+          token: "comment", // closing comment
+          regex: ".*?\\*\\/",
+          next: "start",
+        },
+        {
+          token: "comment", // comment spanning whole line
+          merge: true,
+          regex: ".+",
+        },
+      ],
+
+      commentStatement: [
+        {
+          token: "comment", // closing comment
+          regex: ".*?\\*\\/",
+          next: "statement",
+        },
+        {
+          token: "comment", // comment spanning whole line
+          merge: true,
+          regex: ".+",
+        },
+      ],
+
+      commentDollarSql: [
+        {
+          token: "comment", // closing comment
+          regex: ".*?\\*\\/",
+          next: "dollarSql",
+        },
+        {
+          token: "comment", // comment spanning whole line
+          merge: true,
+          regex: ".+",
+        },
+      ],
+
+      dollarStatementString: [
+        {
+          token: "string", // closing dollarstring
+          regex: ".*?\\$[\\w_0-9]*\\$",
+          next: "statement",
+        },
+        {
+          token: "string", // dollarstring spanning whole line
+          merge: true,
+          regex: ".+",
+        },
+      ],
+
+      dollarSqlString: [
+        {
+          token: "string", // closing dollarstring
+          regex: ".*?\\$[\\w_0-9]*\\$",
+          next: "dollarSql",
+        },
+        {
+          token: "string", // dollarstring spanning whole line
+          merge: true,
+          regex: ".+",
+        },
+      ],
     };
-    
-    this.embedRules(DocCommentHighlightRules, "doc-", [ DocCommentHighlightRules.getEndRule("start") ]);
-    this.embedRules(PerlHighlightRules, "perl-", [{token : "string", regex : "\\$perl\\$", next : "statement"}]);
-    this.embedRules(PythonHighlightRules, "python-", [{token : "string", regex : "\\$python\\$", next : "statement"}]);
-};
 
-oop.inherits(PgsqlHighlightRules, TextHighlightRules);
+    this.embedRules(DocCommentHighlightRules, "doc-", [
+      DocCommentHighlightRules.getEndRule("start"),
+    ]);
+    this.embedRules(PerlHighlightRules, "perl-", [
+      { token: "string", regex: "\\$perl\\$", next: "statement" },
+    ]);
+    this.embedRules(PythonHighlightRules, "python-", [
+      { token: "string", regex: "\\$python\\$", next: "statement" },
+    ]);
+  };
 
-exports.PgsqlHighlightRules = PgsqlHighlightRules;
+  oop.inherits(PgsqlHighlightRules, TextHighlightRules);
+
+  exports.PgsqlHighlightRules = PgsqlHighlightRules;
 });
-

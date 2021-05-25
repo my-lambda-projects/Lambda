@@ -10,15 +10,15 @@ var heartyLaugh = /Ha+(Ha+)+/i;
 console.log(heartyLaugh.test("HaHaHaHaHaHaHaaaaaaaaaaa"));
 //true
 
-console.log(/cat/.test('a black cat')); //true
+console.log(/cat/.test("a black cat")); //true
 
-console.log(/\bcat/.test('a black cat')); //true
+console.log(/\bcat/.test("a black cat")); //true
 
-console.log(/\bcat/.test('tomcat')); //false
+console.log(/\bcat/.test("tomcat")); //false
 
-console.log(/cat\b/.test('tomcat')); //true
+console.log(/cat\b/.test("tomcat")); //true
 
-console.log(/\bcat\b/.test('a black cat')); //true
+console.log(/\bcat\b/.test("a black cat")); //true
 
 console.log(/\bcat\b/.test("concatenate")); //false
 var match = /\d+/.exec("There are 100 ways to do this");

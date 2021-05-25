@@ -11,16 +11,10 @@
       "scripts": ["background.js"]
     }
   },
-  "permissions": [
-    {"fileSystem": ["write", "retainEntries"]},
-    "storage"
-  ],
+  "permissions": [{ "fileSystem": ["write", "retainEntries"] }, "storage"],
   "file_handlers": {
     "image": {
-      "types": [
-        "image/png",
-        "image/jpeg"
-      ]
+      "types": ["image/png", "image/jpeg"]
     }
   }
 }

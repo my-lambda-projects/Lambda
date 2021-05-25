@@ -2,9 +2,9 @@
 
 exports.loaded = false;
 
-const a = require('./a');
+const a = require("./a");
 
-module.exports = { 
+module.exports = {
   aWasLoaded: a.loaded,
-  loaded: true
+  loaded: true,
 };

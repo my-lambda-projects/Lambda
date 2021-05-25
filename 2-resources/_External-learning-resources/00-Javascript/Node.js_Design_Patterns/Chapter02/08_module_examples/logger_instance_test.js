@@ -1,5 +1,5 @@
 "use strict";
 
-const logger = require('./logger_instance');
+const logger = require("./logger_instance");
 
-logger.log('This is an informational message');
+logger.log("This is an informational message");

@@ -20,13 +20,13 @@ var Collection = (function () {
   };
 
   Collection.prototype.put = function (key, object) {
-    if (typeof object === 'undefined') {
+    if (typeof object === "undefined") {
       this.remove(key);
     } else if (!this._map.hasOwnProperty(key)) {
       this._map[key] = this._array.length;
       this._array.push({
         value: object,
-        key: key
+        key: key,
       });
       this.length++;
     } else {
@@ -53,7 +53,7 @@ var Collection = (function () {
       thisObject = this;
     }
     for (var i = 0, arr = this._array, ln = arr.length; i < ln; i++) {
-      if (typeof arr[i].value !== 'undefined') {
+      if (typeof arr[i].value !== "undefined") {
         callback.call(thisObject, arr[i].value, i, arr[i].key, this);
       }
     }

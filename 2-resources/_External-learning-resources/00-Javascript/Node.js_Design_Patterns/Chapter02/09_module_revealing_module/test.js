@@ -6,7 +6,7 @@ const mod = (() => {
 
   const exported = {
     publicFoo: () => {},
-    publicBar: () => {}
+    publicBar: () => {},
   };
 
   return exported;

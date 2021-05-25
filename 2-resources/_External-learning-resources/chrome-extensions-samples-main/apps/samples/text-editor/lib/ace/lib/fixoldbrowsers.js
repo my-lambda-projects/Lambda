@@ -10,10 +10,9 @@
     MIT License. http://github.com/280north/narwhal/blob/master/README.md
 */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-require("./regexp");
-require("./es5-shim");
-
+  require("./regexp");
+  require("./es5-shim");
 });

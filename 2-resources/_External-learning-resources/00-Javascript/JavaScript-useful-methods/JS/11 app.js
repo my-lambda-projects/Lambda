@@ -1,7 +1,7 @@
 const myObj = {
-    first: "Laurence"
-    , last: "Svekis"
-}
+  first: "Laurence",
+  last: "Svekis",
+};
 console.log(myObj);
 let myStr = JSON.stringify(myObj);
 console.log(myStr);

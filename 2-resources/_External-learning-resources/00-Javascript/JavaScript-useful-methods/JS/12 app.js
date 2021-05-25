@@ -1,18 +1,17 @@
 const myObj = {
-    first: "Laurence"
-    , last: "Svekis"
-}
+  first: "Laurence",
+  last: "Svekis",
+};
 let temp = JSON.stringify(myObj);
-localStorage.setItem('obj', temp);
-let nObj = JSON.parse(localStorage.getItem('obj'));
+localStorage.setItem("obj", temp);
+let nObj = JSON.parse(localStorage.getItem("obj"));
 console.log(nObj);
-if (localStorage.getItem('num')) {
-    let cnt = localStorage.getItem('num');
-    cnt = Number(cnt);
-    cnt++;
-    localStorage.setItem('num', cnt);
+if (localStorage.getItem("num")) {
+  let cnt = localStorage.getItem("num");
+  cnt = Number(cnt);
+  cnt++;
+  localStorage.setItem("num", cnt);
+} else {
+  localStorage.setItem("num", 1);
 }
-else {
-    localStorage.setItem('num', 1);
-}
-console.log(localStorage.getItem('num'));
+console.log(localStorage.getItem("num"));

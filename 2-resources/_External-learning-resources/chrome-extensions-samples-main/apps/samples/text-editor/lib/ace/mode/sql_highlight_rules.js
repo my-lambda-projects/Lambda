@@ -18,72 +18,78 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var oop = require("../lib/oop");
-var lang = require("../lib/lang");
-var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
+  var oop = require("../lib/oop");
+  var lang = require("../lib/lang");
+  var TextHighlightRules = require("./text_highlight_rules").TextHighlightRules;
 
-var SqlHighlightRules = function() {
-
+  var SqlHighlightRules = function () {
     var keywords = lang.arrayToMap(
-        ("select|from|where|and|or|group|by|order|limit|offset|having|as|case|" +
-        "when|else|end|type|left|right|join|on|outer|desc|asc").split("|")
+      (
+        "select|from|where|and|or|group|by|order|limit|offset|having|as|case|" +
+        "when|else|end|type|left|right|join|on|outer|desc|asc"
+      ).split("|")
     );
 
-    var builtinConstants = lang.arrayToMap(
-        ("true|false|null").split("|")
-    );
+    var builtinConstants = lang.arrayToMap("true|false|null".split("|"));
 
     var builtinFunctions = lang.arrayToMap(
-        ("count|min|max|avg|sum|rank|now|coalesce").split("|")
+      "count|min|max|avg|sum|rank|now|coalesce".split("|")
     );
 
     this.$rules = {
-        "start" : [ {
-            token : "comment",
-            regex : "--.*$"
-        }, {
-            token : "string",           // " string
-            regex : '".*"'
-        }, {
-            token : "string",           // ' string
-            regex : "'.*'"
-        }, {
-            token : "constant.numeric", // float
-            regex : "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b"
-        }, {
-            token : function(value) {
-                value = value.toLowerCase();
-                if (keywords.hasOwnProperty(value))
-                    return "keyword";
-                else if (builtinConstants.hasOwnProperty(value))
-                    return "constant.language";
-                else if (builtinFunctions.hasOwnProperty(value))
-                    return "support.function";
-                else
-                    return "identifier";
-            },
-            regex : "[a-zA-Z_$][a-zA-Z0-9_$]*\\b"
-        }, {
-            token : "keyword.operator",
-            regex : "\\+|\\-|\\/|\\/\\/|%|<@>|@>|<@|&|\\^|~|<|>|<=|=>|==|!=|<>|="
-        }, {
-            token : "lparen.paren",
-            regex : "[\\(]"
-        }, {
-            token : "paren.rparen",
-            regex : "[\\)]"
-        }, {
-            token : "text",
-            regex : "\\s+"
-        } ]
+      start: [
+        {
+          token: "comment",
+          regex: "--.*$",
+        },
+        {
+          token: "string", // " string
+          regex: '".*"',
+        },
+        {
+          token: "string", // ' string
+          regex: "'.*'",
+        },
+        {
+          token: "constant.numeric", // float
+          regex: "[+-]?\\d+(?:(?:\\.\\d*)?(?:[eE][+-]?\\d+)?)?\\b",
+        },
+        {
+          token: function (value) {
+            value = value.toLowerCase();
+            if (keywords.hasOwnProperty(value)) return "keyword";
+            else if (builtinConstants.hasOwnProperty(value))
+              return "constant.language";
+            else if (builtinFunctions.hasOwnProperty(value))
+              return "support.function";
+            else return "identifier";
+          },
+          regex: "[a-zA-Z_$][a-zA-Z0-9_$]*\\b",
+        },
+        {
+          token: "keyword.operator",
+          regex: "\\+|\\-|\\/|\\/\\/|%|<@>|@>|<@|&|\\^|~|<|>|<=|=>|==|!=|<>|=",
+        },
+        {
+          token: "lparen.paren",
+          regex: "[\\(]",
+        },
+        {
+          token: "paren.rparen",
+          regex: "[\\)]",
+        },
+        {
+          token: "text",
+          regex: "\\s+",
+        },
+      ],
     };
-};
+  };
 
-oop.inherits(SqlHighlightRules, TextHighlightRules);
+  oop.inherits(SqlHighlightRules, TextHighlightRules);
 
-exports.SqlHighlightRules = SqlHighlightRules;
+  exports.SqlHighlightRules = SqlHighlightRules;
 });
-

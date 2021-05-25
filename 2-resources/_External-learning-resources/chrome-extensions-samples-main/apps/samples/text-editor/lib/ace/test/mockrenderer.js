@@ -35,166 +35,144 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var MockRenderer = exports.MockRenderer = function(visibleRowCount) {
+  var MockRenderer = (exports.MockRenderer = function (visibleRowCount) {
     this.container = document.createElement("div");
     this.visibleRowCount = visibleRowCount || 20;
 
     this.layerConfig = {
-        firstVisibleRow : 0,
-        lastVisibleRow : this.visibleRowCount
+      firstVisibleRow: 0,
+      lastVisibleRow: this.visibleRowCount,
     };
 
     this.isMockRenderer = true;
 
     this.$gutter = {};
-};
+  });
 
-
-MockRenderer.prototype.getFirstVisibleRow = function() {
+  MockRenderer.prototype.getFirstVisibleRow = function () {
     return this.layerConfig.firstVisibleRow;
-};
+  };
 
-MockRenderer.prototype.getLastVisibleRow = function() {
+  MockRenderer.prototype.getLastVisibleRow = function () {
     return this.layerConfig.lastVisibleRow;
-};
+  };
 
-MockRenderer.prototype.getFirstFullyVisibleRow = function() {
+  MockRenderer.prototype.getFirstFullyVisibleRow = function () {
     return this.layerConfig.firstVisibleRow;
-};
+  };
 
-MockRenderer.prototype.getLastFullyVisibleRow = function() {
+  MockRenderer.prototype.getLastFullyVisibleRow = function () {
     return this.layerConfig.lastVisibleRow;
-};
+  };
 
-MockRenderer.prototype.getContainerElement = function() {
+  MockRenderer.prototype.getContainerElement = function () {
     return this.container;
-};
+  };
 
-MockRenderer.prototype.getMouseEventTarget = function() {
+  MockRenderer.prototype.getMouseEventTarget = function () {
     return this.container;
-};
+  };
 
-MockRenderer.prototype.getTextAreaContainer = function() {
+  MockRenderer.prototype.getTextAreaContainer = function () {
     return this.container;
-};
+  };
 
-MockRenderer.prototype.addGutterDecoration = function() {
-};
+  MockRenderer.prototype.addGutterDecoration = function () {};
 
-MockRenderer.prototype.removeGutterDecoration = function() {
-};
+  MockRenderer.prototype.removeGutterDecoration = function () {};
 
-MockRenderer.prototype.moveTextAreaToCursor = function() {
-};
+  MockRenderer.prototype.moveTextAreaToCursor = function () {};
 
-MockRenderer.prototype.setSession = function(session) {
+  MockRenderer.prototype.setSession = function (session) {
     this.session = session;
-};
+  };
 
-MockRenderer.prototype.getSession = function(session) {
+  MockRenderer.prototype.getSession = function (session) {
     return this.session;
-};
+  };
 
-MockRenderer.prototype.setTokenizer = function() {
-};
+  MockRenderer.prototype.setTokenizer = function () {};
 
-MockRenderer.prototype.on = function() {
-};
+  MockRenderer.prototype.on = function () {};
 
-MockRenderer.prototype.updateCursor = function() {
-};
+  MockRenderer.prototype.updateCursor = function () {};
 
-MockRenderer.prototype.scrollToX = function(scrollTop) {};
-MockRenderer.prototype.scrollToY = function(scrollLeft) {};
+  MockRenderer.prototype.scrollToX = function (scrollTop) {};
+  MockRenderer.prototype.scrollToY = function (scrollLeft) {};
 
-MockRenderer.prototype.scrollToLine = function(line, center) {
+  MockRenderer.prototype.scrollToLine = function (line, center) {
     var lineHeight = { lineHeight: 16 };
     var row = 0;
     for (var l = 1; l < line; l++) {
-        row += this.session.getRowHeight(lineHeight, l-1) / lineHeight.lineHeight;
+      row +=
+        this.session.getRowHeight(lineHeight, l - 1) / lineHeight.lineHeight;
     }
 
     if (center) {
-        row -= this.visibleRowCount / 2;
+      row -= this.visibleRowCount / 2;
     }
     this.scrollToRow(row);
-};
+  };
 
-MockRenderer.prototype.scrollSelectionIntoView = function() {
-};
+  MockRenderer.prototype.scrollSelectionIntoView = function () {};
 
-MockRenderer.prototype.scrollCursorIntoView = function() {
+  MockRenderer.prototype.scrollCursorIntoView = function () {
     var cursor = this.session.getSelection().getCursor();
     if (cursor.row < this.layerConfig.firstVisibleRow) {
-        this.scrollToRow(cursor.row);
+      this.scrollToRow(cursor.row);
+    } else if (cursor.row > this.layerConfig.lastVisibleRow) {
+      this.scrollToRow(cursor.row);
     }
-    else if (cursor.row > this.layerConfig.lastVisibleRow) {
-        this.scrollToRow(cursor.row);
-    }
-};
+  };
 
-MockRenderer.prototype.scrollToRow = function(row) {
-    var row = Math.min(this.session.getLength() - this.visibleRowCount, Math.max(0,
-                                                                          row));
+  MockRenderer.prototype.scrollToRow = function (row) {
+    var row = Math.min(
+      this.session.getLength() - this.visibleRowCount,
+      Math.max(0, row)
+    );
     this.layerConfig.firstVisibleRow = row;
     this.layerConfig.lastVisibleRow = row + this.visibleRowCount;
-};
+  };
 
-MockRenderer.prototype.getScrollTopRow = function() {
-  return this.layerConfig.firstVisibleRow;
-};
+  MockRenderer.prototype.getScrollTopRow = function () {
+    return this.layerConfig.firstVisibleRow;
+  };
 
-MockRenderer.prototype.draw = function() {
-};
+  MockRenderer.prototype.draw = function () {};
 
-MockRenderer.prototype.updateLines = function(startRow, endRow) {
-};
+  MockRenderer.prototype.updateLines = function (startRow, endRow) {};
 
-MockRenderer.prototype.updateBackMarkers = function() {
-};
+  MockRenderer.prototype.updateBackMarkers = function () {};
 
-MockRenderer.prototype.updateFrontMarkers = function() {
-};
+  MockRenderer.prototype.updateFrontMarkers = function () {};
 
-MockRenderer.prototype.setBreakpoints = function() {
-};
+  MockRenderer.prototype.setBreakpoints = function () {};
 
-MockRenderer.prototype.onResize = function() {
-};
+  MockRenderer.prototype.onResize = function () {};
 
-MockRenderer.prototype.updateFull = function() {
-};
+  MockRenderer.prototype.updateFull = function () {};
 
-MockRenderer.prototype.updateText = function() {
-};
+  MockRenderer.prototype.updateText = function () {};
 
-MockRenderer.prototype.showCursor = function() {
-};
+  MockRenderer.prototype.showCursor = function () {};
 
-MockRenderer.prototype.visualizeFocus = function() {
-};
+  MockRenderer.prototype.visualizeFocus = function () {};
 
-MockRenderer.prototype.setAnnotations = function() {
-};
+  MockRenderer.prototype.setAnnotations = function () {};
 
-MockRenderer.prototype.setStyle = function() {
-};
+  MockRenderer.prototype.setStyle = function () {};
 
-MockRenderer.prototype.unsetStyle = function() {
-};
+  MockRenderer.prototype.unsetStyle = function () {};
 
-MockRenderer.prototype.textToScreenCoordinates = function() {
+  MockRenderer.prototype.textToScreenCoordinates = function () {
     return {
-        pageX: 0,
-        pageY: 0
-    }
-};
+      pageX: 0,
+      pageY: 0,
+    };
+  };
 
-MockRenderer.prototype.adjustWrapLimit = function () {
-
-};
-
+  MockRenderer.prototype.adjustWrapLimit = function () {};
 });

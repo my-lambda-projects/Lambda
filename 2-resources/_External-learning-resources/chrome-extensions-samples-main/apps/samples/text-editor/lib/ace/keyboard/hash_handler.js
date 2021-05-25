@@ -36,132 +36,122 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var keyUtil  = require("../lib/keys");
+  var keyUtil = require("../lib/keys");
 
-function HashHandler(config, platform) {
+  function HashHandler(config, platform) {
     this.platform = platform;
     this.commands = {};
     this.commmandKeyBinding = {};
 
     this.addCommands(config);
-};
+  }
 
-(function() {
+  (function () {
+    this.addCommand = function (command) {
+      if (this.commands[command.name]) this.removeCommand(command);
 
-    this.addCommand = function(command) {
-        if (this.commands[command.name])
-            this.removeCommand(command);
+      this.commands[command.name] = command;
 
-        this.commands[command.name] = command;
+      if (command.bindKey) {
+        this._buildKeyHash(command);
+      }
+    };
 
-        if (command.bindKey) {
-            this._buildKeyHash(command);
+    this.removeCommand = function (command) {
+      var name = typeof command === "string" ? command : command.name;
+      command = this.commands[name];
+      delete this.commands[name];
+
+      // exhaustive search is brute force but since removeCommand is
+      // not a performance critical operation this should be OK
+      var ckb = this.commmandKeyBinding;
+      for (var hashId in ckb) {
+        for (var key in ckb[hashId]) {
+          if (ckb[hashId][key] == command) delete ckb[hashId][key];
         }
+      }
     };
 
-    this.removeCommand = function(command) {
-        var name = (typeof command === 'string' ? command : command.name);
-        command = this.commands[name];
-        delete this.commands[name];
+    this.addCommands = function (commands) {
+      commands &&
+        Object.keys(commands).forEach(function (name) {
+          var command = commands[name];
+          if (typeof command === "string") return this.bindKey(command, name);
 
-        // exhaustive search is brute force but since removeCommand is
-        // not a performance critical operation this should be OK
-        var ckb = this.commmandKeyBinding;
-        for (var hashId in ckb) {
-            for (var key in ckb[hashId]) {
-                if (ckb[hashId][key] == command)
-                    delete ckb[hashId][key];
-            }
-        }
-    };
+          if (typeof command === "function") command = { exec: command };
 
-    this.addCommands = function(commands) {
-        commands && Object.keys(commands).forEach(function(name) {
-            var command = commands[name];
-            if (typeof command === "string")
-                return this.bindKey(command, name);
+          if (!command.name) command.name = name;
 
-            if (typeof command === "function")
-                command = { exec: command };
-
-            if (!command.name)
-                command.name = name;
-
-            this.addCommand(command);
+          this.addCommand(command);
         }, this);
     };
 
-    this.removeCommands = function(commands) {
-        Object.keys(commands).forEach(function(name) {
-            this.removeCommand(commands[name]);
-        }, this);
+    this.removeCommands = function (commands) {
+      Object.keys(commands).forEach(function (name) {
+        this.removeCommand(commands[name]);
+      }, this);
     };
 
-    this.bindKey = function(key, command) {
-        if(!key)
-            return;
+    this.bindKey = function (key, command) {
+      if (!key) return;
 
-        var ckb = this.commmandKeyBinding;
-        key.split("|").forEach(function(keyPart) {
-            var binding = parseKeys(keyPart, command);
-            var hashId = binding.hashId;
-            (ckb[hashId] || (ckb[hashId] = {}))[binding.key] = command;
-        });
+      var ckb = this.commmandKeyBinding;
+      key.split("|").forEach(function (keyPart) {
+        var binding = parseKeys(keyPart, command);
+        var hashId = binding.hashId;
+        (ckb[hashId] || (ckb[hashId] = {}))[binding.key] = command;
+      });
     };
 
-    this.bindKeys = function(keyList) {
-        Object.keys(keyList).forEach(function(key) {
-            this.bindKey(key, keyList[key]);
-        }, this);
+    this.bindKeys = function (keyList) {
+      Object.keys(keyList).forEach(function (key) {
+        this.bindKey(key, keyList[key]);
+      }, this);
     };
 
-    this._buildKeyHash = function(command) {
-        var binding = command.bindKey;
-        if (!binding)
-            return;
+    this._buildKeyHash = function (command) {
+      var binding = command.bindKey;
+      if (!binding) return;
 
-        var key = typeof binding == "string" ? binding: binding[this.platform];
-        this.bindKey(key, command);
+      var key = typeof binding == "string" ? binding : binding[this.platform];
+      this.bindKey(key, command);
     };
 
     function parseKeys(keys, val, ret) {
-        var key;
-        var hashId = 0;
-        var parts = splitSafe(keys.toLowerCase());
+      var key;
+      var hashId = 0;
+      var parts = splitSafe(keys.toLowerCase());
 
-        for (var i = 0, l = parts.length; i < l; i++) {
-            if (keyUtil.KEY_MODS[parts[i]])
-                hashId = hashId | keyUtil.KEY_MODS[parts[i]];
-            else
-                key = parts[i] || "-"; //when empty, the splitSafe removed a '-'
-        }
+      for (var i = 0, l = parts.length; i < l; i++) {
+        if (keyUtil.KEY_MODS[parts[i]])
+          hashId = hashId | keyUtil.KEY_MODS[parts[i]];
+        else key = parts[i] || "-"; //when empty, the splitSafe removed a '-'
+      }
 
-        return {
-            key: key,
-            hashId: hashId
-        };
+      return {
+        key: key,
+        hashId: hashId,
+      };
     }
 
     function splitSafe(s) {
-        return (s.trim()
-            .split(new RegExp("[\\s ]*\\-[\\s ]*", "g"), 999));
+      return s.trim().split(new RegExp("[\\s ]*\\-[\\s ]*", "g"), 999);
     }
 
     this.findKeyCommand = function findKeyCommand(hashId, keyString) {
-        var ckbr = this.commmandKeyBinding;
-        return ckbr[hashId] && ckbr[hashId][keyString.toLowerCase()];
-    }
-
-    this.handleKeyboard = function(data, hashId, keyString, keyCode) {
-        return {
-            command: this.findKeyCommand(hashId, keyString)
-        };
+      var ckbr = this.commmandKeyBinding;
+      return ckbr[hashId] && ckbr[hashId][keyString.toLowerCase()];
     };
 
-}).call(HashHandler.prototype)
+    this.handleKeyboard = function (data, hashId, keyString, keyCode) {
+      return {
+        command: this.findKeyCommand(hashId, keyString),
+      };
+    };
+  }.call(HashHandler.prototype));
 
-exports.HashHandler = HashHandler;
+  exports.HashHandler = HashHandler;
 });
