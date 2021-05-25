@@ -1,4 +1,0 @@
-class User {
-    // …
-}
-export = User;

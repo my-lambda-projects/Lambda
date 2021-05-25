@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "variations-stream": "^0.1.3",
-    "zmq": "^2.14.0"
-  }
-}

@@ -1,1 +1,0 @@
-The code bundle contains code files for chapters 2 to 8.
