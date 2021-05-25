@@ -289,9 +289,9 @@
               (l.onload = c),
               (l.onerror = (c) => {
                 const a = (c && c.target && c.target.src) || b,
-                      t = new Error(
-                        "Loading CSS chunk " + e + " failed.\n(" + a + ")"
-                      );
+                  t = new Error(
+                    "Loading CSS chunk " + e + " failed.\n(" + a + ")"
+                  );
                 (t.code = "CSS_CHUNK_LOAD_FAILED"),
                   (t.request = a),
                   delete f[e],
@@ -565,7 +565,8 @@
           const d = b[e];
           if (0 !== d) {
             if (d) {
-              const a = c && ("load" === c.type ? "missing" : c.type), f = c && c.target && c.target.src;
+              const a = c && ("load" === c.type ? "missing" : c.type),
+                f = c && c.target && c.target.src;
               (o.message =
                 "Loading chunk " + e + " failed.\n(" + a + ": " + f + ")"),
                 (o.name = "ChunkLoadError"),
