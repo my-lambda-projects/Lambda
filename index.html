@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -12,6 +13,9 @@
   <meta http-equiv="cookie" content="userid = xyz; expires = Wednesday, 20-05-22 23:59:59 GMT;">
   <title>Lambda Student Resources</title>
   <link type="image/x-icon" href="./favicon.ico" rel="shortcut icon">
+  <link
+    href="https://instructure-uploads-pdx.s3.us-west-2.amazonaws.com/account_168550000000000001/attachments/537/logo-canvas.png"
+    rel="apple-touch-icon">
   <link type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
   <link href="./css/main-style.css" rel="stylesheet">
@@ -27,12 +31,11 @@
   <script src="./js/stats.min.js" async defer>
 
   </script>
-  <script src="./js/text-rotate.js" async>
+  <script src="./js/index.js" async>
 
   </script>
   <!--do not use async defer on this script... it affects the animated title-->
   <!-- <script async defer src="./jQuery-min.js">
-
     </script> -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" async defer>
@@ -50,7 +53,21 @@
     } );
 
   </script>
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css">
+  <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js">
+    </script>
+  <script type="text/javascript">
+    algoliasearchNetlify( {
+      appId: 'SLAX1OP2C4',
+      apiKey: '<YOUR_ALGOLIA_SEARCH_API_KEY>',
+      siteId: '0a9e6d86-b295-4037-b04d-88da85c1f6b5',
+      branch: 'master',
+      selector: 'div#search',
+    } );
 
+  </script>
   <script>
     $( window ).scroll( function () {
       $( "#back" ).stop().animate( {
@@ -93,7 +110,7 @@
 </head>
 
 <body>
- 
+  <iframe id="top-nav" src="https://top-navbar-42.netlify.app/" style=" margin-bottom: 2em; width:100%" name="top-nav"></iframe> 
       <br>
       <br>
       <div style="width:130px !important;background-color:rgb(255, 0, 0); color:red;font-weight:900;border-radius: 10px;box-shadow: 6px solid #fff;">
@@ -234,9 +251,110 @@
   </center>
   <br>
   <!-------===========================-Links=================================================================------->
-  
   <br>
-    <!-------=========================Blog=====================================================================------->
+  <br>
+  <div>
+    <br>
+    <br>
+    <ul style=" margin-bottom: 2em; max-width:725px ;">
+      <li class="btn">
+
+        <a href="./directory.html">🧭NAVIGATION🧭&nbsp;</a>
+
+      </li>
+      <li class="btn">
+
+        <a href="https://links4242.netlify.app/">🧭External Links (most used
+          websites)🧭&nbsp;</a>
+      </li>
+      <li class="btn">
+
+        <a href="">Books&nbsp;</a>
+      </li>
+      <li class="btn">
+
+        <a href="./7-assets/web-dev-utils/lambda-prep/directory.html">🧰Tools🔨&nbsp;</a>
+
+      </li>
+      <li class="btn">
+
+        <a href="https://lambda-prep.netlify.app/">📖Lambda Prep-Resource Site📗&nbsp;</a>
+      </li>
+      <li class="btn">
+
+        <a href="https://code-playground.netlify.app/">🖥️Code Playground🖲️&nbsp;</a>
+
+      </li>
+      <li class="btn">
+
+        <a href="./WEEKS/wk1/0-notes/d2/applied-js-1.html">✨applied-js-1.html✨&nbsp;</a>
+
+      </li>
+      <li class="btn">
+
+        <a href=".5-websites\lambda-prep\one-of-every-tag.html">🧱HTML_PATTERNS🕸️ &nbsp;</a>
+      </li>
+      <li class="btn">
+
+        <a href="./WEEKS/wk1/0-notes/d2/js-fundamentals.html">✨js-fundamentals✨&nbsp;</a>
+
+      </li>
+      <li class="btn">
+
+        <a href="./WEEKS/wk1/0-notes/d2/using-git.html">😺using-git😺&nbsp;</a>
+
+      </li>
+      <li class="btn">
+
+        <a href="https://trusting-dijkstra-4d3b17.netlify.app/">🎄DATA STRUCTURES🌐&nbsp;</a>
+      </li>
+      <li class="btn">
+
+        <a href="./WEEKS\wk1\2-resources\agenda.html">📗Agenda📗&nbsp;</a>
+
+      </li>
+      <li class="btn">
+
+        <a href="./WEEKS\wk1\2-resources\agenda.html">📼Video Previewer📹&nbsp;</a>
+
+      </li>
+      <li class="btn">
+
+        <a href="./about\Using_Canvas.html">📊Using Canvas📊&nbsp;</a>
+
+      </li>
+      <li class="btn">
+
+        <a href="./6-about/BritHemmingCodePen.html">🖋️Brit's Code Pens✏️&nbsp;</a>
+
+      </li>
+      <li class="btn">
+
+        <a href="2-resources/__CHEAT-SHEETS/right.html">Cheat Sheets&nbsp;</a>
+
+      </li>
+      <li class="btn">
+
+        <a href="./networking.html">Networking&nbsp;</a>
+
+      </li>
+      <li class="btn">
+
+        <a
+          href="https://www.notion.so/0c25ca36d2184ea2b7f2aad2e44f7628?v=940dee8552a5455f8f6abf4c270aec57">ToDo&nbsp;</a>
+      </li>
+    </ul>
+  </div>
+  <br>
+  <br>
+
+
+
+
+
+
+
+   <!-------=========================Blog=====================================================================------->
 <h2>Blog</h2>
   <iframe class="embed" src="https://best-celery-b2d7c.netlify.app/" height="800"
     style=" margin-bottom: 2em; width:90%" scrolling="yes" frameborder="no" loading="lazy" allowtransparency="true"
@@ -257,7 +375,7 @@
   </iframe>
 
 
-  <!-------==============================Announcments==================================================================------->
+  <!-------==============================Announcments=========================================------->
   <br>
   <br>
   <h2 style=" margin-bottom: 2em; color:white; align-content:center;"> Announcements </h2>
@@ -270,6 +388,7 @@
   <br>
 
 
+  <!-------=======================================================================------->
 
 
 
@@ -277,7 +396,7 @@
   <br>
   <br>
   <h2 style=" margin-bottom: 2em; align-content:center;"> Recent Material </h2>
-  <iframe class="embed" src="./12-Core-Site/main-pages/current-resources/unit2.1-notes.pdf" height="800"
+  <iframe class="embed" src="./5-Core-Site/main-pages/current-resources/unit2.1-notes.pdf" height="800"
     style=" margin-bottom: 2em; width:90%;background-color:whitesmoke;" scrolling="yes" frameborder="no" loading="lazy"
     allowtransparency="true" allowfullscreen="true" opacity="0.7" box-shaddow="8px white">
 
@@ -293,7 +412,14 @@
   <h2 style=" margin-bottom: 2em; color:white; align-content:center;"> Dev-Tools</h2>
   <br>
   <br>
-  <iframe class="embed" src="./12-Core-Site/iframe-templates/main.html" loading="lazy"
+  <iframe class="embed" src="./5-Core-Site/iframe-templates/main.html" loading="lazy"
+    style=" margin-bottom: 2em; width:90%!important; height:800px;background-color: whitesmoke;zoom:1.7;">
+
+  </iframe>
+ <!-------==============================Paste To Markdown================================------->
+   <h2 style=" margin-bottom: 2em; color:white; align-content:center;"> Paste To Markdown</h2>
+
+  <iframe class="embed" src="https://euangoddard.github.io/clipboard2markdown/" loading="lazy"
     style=" margin-bottom: 2em; width:90%!important; height:800px;background-color: whitesmoke;zoom:1.7;">
 
   </iframe>
@@ -331,7 +457,6 @@
   </iframe>
   <br>
   <br>
-
   <!-------=============================================================================================================------->
   <!-------===============================Snippets===========================================================================------->
   <h2 style=" margin-bottom: 2em; color:white; align-content:center;"> Useful Snippets</h2>
@@ -534,3 +659,8 @@
 </body>
 
 </html>
+
+
+
+
+
