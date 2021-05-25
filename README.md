@@ -1,4 +1,9 @@
 # Lambda Student Resources Site
+
+[![This project is using Percy.io for visual regression testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/974b0b2d/test)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a38fc1bf-b302-46e9-bb86-bb318739462e/deploy-status)](https://app.netlify.com/sites/lambda-resources/deploys)
+
 * [0-notes/](0-notes/)
 * [1-projects/](1-projects/)
 * [2-resources/](2-resources/)
