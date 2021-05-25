@@ -5,8 +5,14 @@
   "icons": {
     "128": "icon_128.png"
   },
-  "permissions": ["storage", "alarms", "notifications",
-                  "<all_urls>", { "fileSystem": ["write"]} , "syncFileSystem" ],
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications",
+    "<all_urls>",
+    { "fileSystem": ["write"] },
+    "syncFileSystem"
+  ],
   "app": {
     "background": {
       "scripts": ["background.js"]

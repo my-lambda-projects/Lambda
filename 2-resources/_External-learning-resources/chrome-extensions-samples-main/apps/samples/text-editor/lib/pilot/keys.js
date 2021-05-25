@@ -36,7 +36,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-    console.warn("DEPRECATED: 'pilot/keys' is deprecated. Use 'ace/lib/keys' instead");
-    module.exports = require("ace/lib/keys");
+define(function (require, exports, module) {
+  console.warn(
+    "DEPRECATED: 'pilot/keys' is deprecated. Use 'ace/lib/keys' instead"
+  );
+  module.exports = require("ace/lib/keys");
 });

@@ -36,7 +36,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-    console.warn("DEPRECATED: 'pilot/event' is deprecated. Use 'ace/lib/event' instead");
-    module.exports = require("ace/lib/event");
+define(function (require, exports, module) {
+  console.warn(
+    "DEPRECATED: 'pilot/event' is deprecated. Use 'ace/lib/event' instead"
+  );
+  module.exports = require("ace/lib/event");
 });

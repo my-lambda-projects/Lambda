@@ -36,7 +36,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-    console.warn("DEPRECATED: 'pilot/fixoldbrowsers' is deprecated. Use 'ace/lib/fixoldbrowsers' instead");
-    module.exports = require("ace/lib/fixoldbrowsers");
+define(function (require, exports, module) {
+  console.warn(
+    "DEPRECATED: 'pilot/fixoldbrowsers' is deprecated. Use 'ace/lib/fixoldbrowsers' instead"
+  );
+  module.exports = require("ace/lib/fixoldbrowsers");
 });

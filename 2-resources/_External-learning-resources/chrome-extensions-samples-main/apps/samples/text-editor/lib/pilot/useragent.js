@@ -36,7 +36,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-    console.warn("DEPRECATED: 'pilot/useragent' is deprecated. Use 'ace/lib/useragent' instead");
-    module.exports = require("ace/lib/useragent");
+define(function (require, exports, module) {
+  console.warn(
+    "DEPRECATED: 'pilot/useragent' is deprecated. Use 'ace/lib/useragent' instead"
+  );
+  module.exports = require("ace/lib/useragent");
 });

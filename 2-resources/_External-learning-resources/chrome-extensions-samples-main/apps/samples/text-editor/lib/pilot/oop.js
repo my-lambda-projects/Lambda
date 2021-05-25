@@ -36,7 +36,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-    console.warn("DEPRECATED: 'pilot/oop' is deprecated. Use 'ace/lib/oop' instead");
-    module.exports = require("ace/lib/oop");
+define(function (require, exports, module) {
+  console.warn(
+    "DEPRECATED: 'pilot/oop' is deprecated. Use 'ace/lib/oop' instead"
+  );
+  module.exports = require("ace/lib/oop");
 });

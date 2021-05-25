@@ -9,5 +9,7 @@
     }
   },
   "permissions": ["usb"],
-  "optional_permissions": [ {"usbDevices": [{"vendorId": 1917, "productId": 1040}]}]
+  "optional_permissions": [
+    { "usbDevices": [{ "vendorId": 1917, "productId": 1040 }] }
+  ]
 }

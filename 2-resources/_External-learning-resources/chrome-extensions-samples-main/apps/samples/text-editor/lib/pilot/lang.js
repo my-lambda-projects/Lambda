@@ -36,7 +36,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-    console.warn("DEPRECATED: 'pilot/lang' is deprecated. Use 'ace/lib/lang' instead");
-    module.exports = require("ace/lib/lang");
+define(function (require, exports, module) {
+  console.warn(
+    "DEPRECATED: 'pilot/lang' is deprecated. Use 'ace/lib/lang' instead"
+  );
+  module.exports = require("ace/lib/lang");
 });

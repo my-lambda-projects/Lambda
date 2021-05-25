@@ -1,17 +1,17 @@
-define(function(require, exports, module) {
-"use strict";
+define(function (require, exports, module) {
+  "use strict";
 
-var Mode = function(name, desc, extensions) {
+  var Mode = function (name, desc, extensions) {
     this.desc = desc;
     this.mode = "ace/mode/" + name;
     this.extRe = new RegExp("^.*\\.(" + extensions.join("|") + ")$", "g");
-};
+  };
 
-Mode.prototype.supportsFile = function(filename) {
+  Mode.prototype.supportsFile = function (filename) {
     return filename.match(this.extRe);
-};
+  };
 
-var modes = [
+  var modes = [
     new Mode("c_cpp", "C/C++", ["c", "cpp", "cc", "cxx", "h", "hpp"]),
     new Mode("clojure", "Clojure", ["clj"]),
     new Mode("coffee", "CoffeeScript", ["coffee"]),
@@ -45,20 +45,19 @@ var modes = [
     new Mode("textile", "Textile", ["textile"]),
     new Mode("xml", "XML", ["xml"]),
     new Mode("sh", "SH", ["sh"]),
-    new Mode("xquery", "XQuery", ["xq"])
-];
+    new Mode("xquery", "XQuery", ["xq"]),
+  ];
 
-function getModeFromBaseName(aBaseName) {
-  var mode = null;
-  for (var i = 0; i < modes.length; i++) {
-    if (modes[i].supportsFile(aBaseName)) {
-      mode = modes[i];
-      break;
+  function getModeFromBaseName(aBaseName) {
+    var mode = null;
+    for (var i = 0; i < modes.length; i++) {
+      if (modes[i].supportsFile(aBaseName)) {
+        mode = modes[i];
+        break;
+      }
     }
+    return mode;
   }
-  return mode;
-}
 
-exports.getModeFromBaseName = getModeFromBaseName;
-
+  exports.getModeFromBaseName = getModeFromBaseName;
 });

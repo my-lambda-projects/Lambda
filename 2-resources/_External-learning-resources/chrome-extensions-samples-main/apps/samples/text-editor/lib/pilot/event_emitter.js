@@ -36,7 +36,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-    console.warn("DEPRECATED: 'pilot/event_emitter' is deprecated. Use 'ace/lib/event_emitter' instead");
-    module.exports = require("ace/lib/event_emitter");
+define(function (require, exports, module) {
+  console.warn(
+    "DEPRECATED: 'pilot/event_emitter' is deprecated. Use 'ace/lib/event_emitter' instead"
+  );
+  module.exports = require("ace/lib/event_emitter");
 });

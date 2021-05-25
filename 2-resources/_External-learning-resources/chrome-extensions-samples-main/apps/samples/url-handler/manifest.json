@@ -6,29 +6,20 @@
 
   "app": {
     "background": {
-      "scripts": [
-        "main.js"
-      ]
+      "scripts": ["main.js"]
     }
   },
 
-  "permissions": [
-    "webview",
-    "storage"
-  ],
+  "permissions": ["webview", "storage"],
 
   "url_handlers": {
     "wiki_article": {
       "title": "View Wikipedia article",
-      "matches": [
-        "*://en.wikipedia.org/wiki/*"
-      ]
+      "matches": ["*://en.wikipedia.org/wiki/*"]
     },
     "mobile_wiki_article": {
       "title": "View Wikipedia article",
-      "matches": [
-        "*://en.m.wikipedia.org/wiki/*"
-      ]
+      "matches": ["*://en.m.wikipedia.org/wiki/*"]
     }
   }
 }

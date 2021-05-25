@@ -36,7 +36,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-    console.warn("DEPRECATED: 'pilot/dom' is deprecated. Use 'ace/lib/dom' instead");
-    module.exports = require("ace/lib/dom");
+define(function (require, exports, module) {
+  console.warn(
+    "DEPRECATED: 'pilot/dom' is deprecated. Use 'ace/lib/dom' instead"
+  );
+  module.exports = require("ace/lib/dom");
 });

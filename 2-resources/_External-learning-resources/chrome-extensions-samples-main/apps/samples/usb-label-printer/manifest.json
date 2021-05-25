@@ -12,6 +12,7 @@
     }
   },
   "permissions": ["usb", "fileSystem", "videoCapture"],
-  "optional_permissions": [ {"usbDevices": [{"vendorId": 2338, "productId": 32}]}]
-
+  "optional_permissions": [
+    { "usbDevices": [{ "vendorId": 2338, "productId": 32 }] }
+  ]
 }

@@ -1,6 +1,6 @@
 /*global Router, $$, $ */
 (function (window) {
-  'use strict';
+  "use strict";
 
   /**
    * Takes a model and view and acts as the controller between them
@@ -16,31 +16,37 @@
     this.ENTER_KEY = 13;
     this.ESCAPE_KEY = 27;
 
-    this.$main = $$('#main');
-    this.$toggleAll = $$('#toggle-all');
-    this.$todoList = $$('#todo-list');
-    this.$todoItemCounter = $$('#todo-count');
-    this.$clearCompleted = $$('#clear-completed');
-    this.$footer = $$('#footer');
+    this.$main = $$("#main");
+    this.$toggleAll = $$("#toggle-all");
+    this.$todoList = $$("#todo-list");
+    this.$todoItemCounter = $$("#todo-count");
+    this.$clearCompleted = $$("#clear-completed");
+    this.$footer = $$("#footer");
 
     this.router = new Router();
     this.router.init();
 
-    window.addEventListener('load', function () {
-      this._updateFilterState();
-    }.bind(this));
+    window.addEventListener(
+      "load",
+      function () {
+        this._updateFilterState();
+      }.bind(this)
+    );
 
     // Couldn't figure out how to get flatiron to run some code on all pages. I
     // tried '*', but then it overwrites ALL handlers for all the other pages
     // and only runs this.
-    window.addEventListener('hashchange', function () {
-      this._updateFilterState();
-    }.bind(this));
+    window.addEventListener(
+      "hashchange",
+      function () {
+        this._updateFilterState();
+      }.bind(this)
+    );
 
     // Make sure on page load we start with a hash to trigger the flatiron and
     // onhashchange routes
-    if (window.location.href.indexOf('#') === -1) {
-      window.location.hash = '#/';
+    if (window.location.href.indexOf("#") === -1) {
+      window.location.hash = "#/";
     }
   }
 
@@ -49,30 +55,38 @@
    * todo-list
    */
   Controller.prototype.showAll = function () {
-    this.model.read(function (data) {
-      this.$todoList.innerHTML = this._parseForURLs(this.view.show(data));
-      this._parseForImageURLs();
-    }.bind(this));
+    this.model.read(
+      function (data) {
+        this.$todoList.innerHTML = this._parseForURLs(this.view.show(data));
+        this._parseForImageURLs();
+      }.bind(this)
+    );
   };
 
   /**
    * Renders all active tasks
    */
   Controller.prototype.showActive = function () {
-    this.model.read({ completed: 0 }, function (data) {
-      this.$todoList.innerHTML = this._parseForURLs(this.view.show(data));
-      this._parseForImageURLs();
-    }.bind(this));
+    this.model.read(
+      { completed: 0 },
+      function (data) {
+        this.$todoList.innerHTML = this._parseForURLs(this.view.show(data));
+        this._parseForImageURLs();
+      }.bind(this)
+    );
   };
 
   /**
    * Renders all completed tasks
    */
   Controller.prototype.showCompleted = function () {
-    this.model.read({ completed: 1 }, function (data) {
-      this.$todoList.innerHTML = this._parseForURLs(this.view.show(data));
-      this._parseForImageURLs();
-    }.bind(this));
+    this.model.read(
+      { completed: 1 },
+      function (data) {
+        this.$todoList.innerHTML = this._parseForURLs(this.view.show(data));
+        this._parseForImageURLs();
+      }.bind(this)
+    );
   };
 
   /**
@@ -82,22 +96,23 @@
    * @param {object} e The event object
    */
   Controller.prototype.addItem = function (e) {
-    var input = $$('#new-todo');
-    var title = title || '';
+    var input = $$("#new-todo");
+    var title = title || "";
 
     if (e.keyCode === this.ENTER_KEY) {
-      if (e.target.value.trim() === '') {
+      if (e.target.value.trim() === "") {
         return;
       }
 
-      this.model.create(e.target.value, function (data) {
-        input.value = '';
-        this._filter(true);
-      }.bind(this));
+      this.model.create(
+        e.target.value,
+        function (data) {
+          input.value = "";
+          this._filter(true);
+        }.bind(this)
+      );
     }
-
   };
-
 
   /**
    * Hides the label text and creates an input to edit the title of the item.
@@ -108,10 +123,10 @@
    * @param {object} label The label you want to edit the text of
    */
   Controller.prototype.editItem = function (id, label) {
-    var li =  label;
+    var li = label;
 
     // This finds the <label>'s parent <li>
-    while (li.nodeName !== 'LI') {
+    while (li.nodeName !== "LI") {
       li = li.parentNode;
     }
 
@@ -126,7 +141,6 @@
         // this piece of it
         label.innerHTML = this._parseForURLs(value);
         this._parseForImageURLs();
-
       } else if (value.length === 0) {
         // No value was entered in the input. We'll remove the todo item.
         this.removeItem(id);
@@ -137,15 +151,14 @@
       li.removeChild(input);
 
       // Remove the editing class
-      li.className = li.className.replace('editing', '');
-
+      li.className = li.className.replace("editing", "");
     }.bind(this);
 
     // Append the editing class
-    li.className = li.className + ' editing';
+    li.className = li.className + " editing";
 
-    var input = document.createElement('input');
-    input.className = 'edit';
+    var input = document.createElement("input");
+    input.className = "edit";
 
     // Get the innerHTML of the label instead of requesting the data from the
     // ORM. If this were a real DB this would save a lot of time and would avoid
@@ -154,21 +167,24 @@
 
     li.appendChild(input);
 
-    input.addEventListener('blur', onSaveHandler);
+    input.addEventListener("blur", onSaveHandler);
 
-    input.addEventListener('keypress', function (e) {
-      if (e.keyCode === this.ENTER_KEY) {
-        // Remove the cursor from the input when you hit enter just like if it
-        // were a real form
-        input.blur();
-      }
+    input.addEventListener(
+      "keypress",
+      function (e) {
+        if (e.keyCode === this.ENTER_KEY) {
+          // Remove the cursor from the input when you hit enter just like if it
+          // were a real form
+          input.blur();
+        }
 
-      if (e.keyCode === this.ESCAPE_KEY) {
-        // Discard the changes
-        input.dataset.discard = true;
-        input.blur();
-      }
-    }.bind(this));
+        if (e.keyCode === this.ESCAPE_KEY) {
+          // Discard the changes
+          input.dataset.discard = true;
+          input.blur();
+        }
+      }.bind(this)
+    );
 
     input.focus();
   };
@@ -181,26 +197,36 @@
    * storage
    */
   Controller.prototype.removeItem = function (id) {
-    this.model.remove(id, function () {
-      var ids = [].concat(id);
-      ids.forEach( function(id) {
-        this.$todoList.removeChild($$('[data-id="' + id + '"]'));
-      }.bind(this));
-      this._filter();
-    }.bind(this));
+    this.model.remove(
+      id,
+      function () {
+        var ids = [].concat(id);
+        ids.forEach(
+          function (id) {
+            this.$todoList.removeChild($$('[data-id="' + id + '"]'));
+          }.bind(this)
+        );
+        this._filter();
+      }.bind(this)
+    );
   };
 
   /**
    * Will remove all completed items from the DOM and storage.
    */
   Controller.prototype.removeCompletedItems = function () {
-    this.model.read({ completed: 1 }, function (data) {
-      var ids = [];
-      data.forEach(function (item) {
-        ids.push(item.id);
-      }.bind(this));
-      this.removeItem(ids);
-    }.bind(this));
+    this.model.read(
+      { completed: 1 },
+      function (data) {
+        var ids = [];
+        data.forEach(
+          function (item) {
+            ids.push(item.id);
+          }.bind(this)
+        );
+        this.removeItem(ids);
+      }.bind(this)
+    );
 
     this._filter();
   };
@@ -217,29 +243,32 @@
   Controller.prototype.toggleComplete = function (ids, checkbox, silent) {
     var completed = checkbox.checked ? 1 : 0;
 
-    this.model.update(ids, { completed: completed }, function () {
-      if ( ids.constructor != Array ) {
-        ids = [ ids ];
-      }
-
-      ids.forEach( function(id) {
-        var listItem = $$('[data-id="' + id + '"]');
-
-        if (!listItem) {
-          return;
+    this.model.update(
+      ids,
+      { completed: completed },
+      function () {
+        if (ids.constructor != Array) {
+          ids = [ids];
         }
 
-        listItem.className = completed ? 'completed' : '';
+        ids.forEach(function (id) {
+          var listItem = $$('[data-id="' + id + '"]');
 
-        // In case it was toggled from an event and not by clicking the checkbox
-        listItem.querySelector('input').checked = completed;
-      });
+          if (!listItem) {
+            return;
+          }
 
-      if (!silent) {
-        this._filter();
-      }
+          listItem.className = completed ? "completed" : "";
 
-    }.bind(this));
+          // In case it was toggled from an event and not by clicking the checkbox
+          listItem.querySelector("input").checked = completed;
+        });
+
+        if (!silent) {
+          this._filter();
+        }
+      }.bind(this)
+    );
   };
 
   /**
@@ -256,14 +285,18 @@
       query = 1;
     }
 
-    this.model.read({ completed: query }, function (data) {
-      var ids = [];
-      data.forEach(function (item) {
-        ids.push(item.id);
-      }.bind(this));
-      this.toggleComplete(ids, e.target, false);
-    }.bind(this));
-
+    this.model.read(
+      { completed: query },
+      function (data) {
+        var ids = [];
+        data.forEach(
+          function (item) {
+            ids.push(item.id);
+          }.bind(this)
+        );
+        this.toggleComplete(ids, e.target, false);
+      }.bind(this)
+    );
   };
 
   /**
@@ -271,17 +304,21 @@
    * number of todos.
    */
   Controller.prototype._updateCount = function () {
-    this.model.getCount(function(todos) {
-      this.$todoItemCounter.innerHTML = this.view.itemCounter(todos.active);
+    this.model.getCount(
+      function (todos) {
+        this.$todoItemCounter.innerHTML = this.view.itemCounter(todos.active);
 
-      this.$clearCompleted.innerHTML = this.view.clearCompletedButton(todos.completed);
-      this.$clearCompleted.style.display = todos.completed > 0 ? 'block' : 'none';
+        this.$clearCompleted.innerHTML = this.view.clearCompletedButton(
+          todos.completed
+        );
+        this.$clearCompleted.style.display =
+          todos.completed > 0 ? "block" : "none";
 
-      this.$toggleAll.checked = todos.completed === todos.total;
+        this.$toggleAll.checked = todos.completed === todos.total;
 
-      this._toggleFrame(todos);
-    }.bind(this));
-
+        this._toggleFrame(todos);
+      }.bind(this)
+    );
   };
 
   /**
@@ -292,16 +329,16 @@
    */
   Controller.prototype._toggleFrame = function (todos) {
     var frameDisplay = this.$main.style.display;
-    var frameVisible = frameDisplay === 'block' || frameDisplay === '';
+    var frameVisible = frameDisplay === "block" || frameDisplay === "";
 
     if (todos.total === 0 && frameVisible) {
-      this.$main.style.display = 'none';
-      this.$footer.style.display = 'none';
+      this.$main.style.display = "none";
+      this.$footer.style.display = "none";
     }
 
     if (todos.total > 0 && !frameVisible) {
-      this.$main.style.display = 'block';
-      this.$footer.style.display = 'block';
+      this.$main.style.display = "block";
+      this.$footer.style.display = "block";
     }
   };
 
@@ -310,7 +347,8 @@
    * @param {boolean|undefined} force  forces a re-painting of todo items.
    */
   Controller.prototype._filter = function (force) {
-    var activeRoute = this._activeRoute.charAt(0).toUpperCase() + this._activeRoute.substr(1);
+    var activeRoute =
+      this._activeRoute.charAt(0).toUpperCase() + this._activeRoute.substr(1);
 
     // Update the elements on the page, which change with each completed todo
     this._updateCount();
@@ -318,8 +356,12 @@
     // If the last active route isn't "All", or we're switching routes, we
     // re-create the todo item elements, calling:
     //   this.show[All|Active|Completed]();
-    if (force || this._lastActiveRoute !== 'All' || this._lastActiveRoute !== activeRoute) {
-      this['show' + activeRoute]();
+    if (
+      force ||
+      this._lastActiveRoute !== "All" ||
+      this._lastActiveRoute !== activeRoute
+    ) {
+      this["show" + activeRoute]();
     }
 
     this._lastActiveRoute = activeRoute;
@@ -329,80 +371,86 @@
    * Simply updates the filter nav's selected states
    */
   Controller.prototype._updateFilterState = function () {
-    var currentPage = this._getCurrentPage() || '';
+    var currentPage = this._getCurrentPage() || "";
 
     // Store a reference to the active route, allowing us to re-filter todo
     // items as they are marked complete or incomplete.
     this._activeRoute = currentPage;
 
-    if (currentPage === '') {
-      this._activeRoute = 'All';
+    if (currentPage === "") {
+      this._activeRoute = "All";
     }
 
     this._filter();
 
     // Remove all other selected states. We loop through all of them in case the
     // UI gets in a funky state with two selected.
-    $('#filters .selected').each(function (item) {
-      item.className = '';
+    $("#filters .selected").each(function (item) {
+      item.className = "";
     });
 
-    $$('#filters [href="#/' + currentPage + '"]').className = 'selected';
+    $$('#filters [href="#/' + currentPage + '"]').className = "selected";
   };
 
-   /**
-    * A getter for getting the current page
-    */
+  /**
+   * A getter for getting the current page
+   */
   Controller.prototype._getCurrentPage = function () {
-    return document.location.hash.split('/')[1];
+    return document.location.hash.split("/")[1];
   };
 
   Controller.prototype._parseForURLs = function (text) {
     var re = /(https?:\/\/[^\s"<>,]+)/g;
-    return text.replace(re, '<a href="$1" target="_blank" data-src="$1">$1</a>');
+    return text.replace(
+      re,
+      '<a href="$1" target="_blank" data-src="$1">$1</a>'
+    );
   };
 
   Controller.prototype._parseForImageURLs = function () {
     // remove old blobs to avoid memory leak:
     this._clearObjectURL();
 
-    var links = this.$todoList.querySelectorAll('a[data-src]:not(.thumbnail)');
+    var links = this.$todoList.querySelectorAll("a[data-src]:not(.thumbnail)");
     var re = /\.(png|jpg|jpeg|svg|gif)$/;
 
-    for (var i = 0; i<links.length; i++) {
-      var url = links[i].getAttribute('data-src');
+    for (var i = 0; i < links.length; i++) {
+      var url = links[i].getAttribute("data-src");
       if (re.test(url)) {
-        links[i].classList.add('thumbnail');
+        links[i].classList.add("thumbnail");
         this._requestRemoteImageAndAppend(url, links[i]);
       }
     }
   };
 
-  Controller.prototype._requestRemoteImageAndAppend = function(imageUrl, element) {
+  Controller.prototype._requestRemoteImageAndAppend = function (
+    imageUrl,
+    element
+  ) {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', imageUrl);
-    xhr.responseType = 'blob';
-    xhr.onload = function() {
-      var img = document.createElement('img');
-      img.setAttribute('data-src', imageUrl);
-      img.className = 'icon';
+    xhr.open("GET", imageUrl);
+    xhr.responseType = "blob";
+    xhr.onload = function () {
+      var img = document.createElement("img");
+      img.setAttribute("data-src", imageUrl);
+      img.className = "icon";
       var objURL = this._createObjectURL(xhr.response);
-      img.setAttribute('src', objURL);
+      img.setAttribute("src", objURL);
       element.appendChild(img);
     }.bind(this);
     xhr.send();
   };
 
-  Controller.prototype._clearObjectURL = function() {
+  Controller.prototype._clearObjectURL = function () {
     if (this.objectURLs) {
-      this.objectURLs.forEach(function(objURL) {
+      this.objectURLs.forEach(function (objURL) {
         URL.revokeObjectURL(objURL);
       });
       this.objectURLs = null;
     }
   };
 
-  Controller.prototype._createObjectURL = function(blob) {
+  Controller.prototype._createObjectURL = function (blob) {
     var objURL = URL.createObjectURL(blob);
     this.objectURLs = this.objectURLs || [];
     this.objectURLs.push(objURL);

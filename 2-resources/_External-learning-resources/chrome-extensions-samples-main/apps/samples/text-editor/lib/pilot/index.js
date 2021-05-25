@@ -36,15 +36,15 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-    require("pilot/browser_focus");
-    require("pilot/dom");
-    require("pilot/event");
-    require("pilot/event_emitter");
-    require("pilot/fixoldbrowsers");
-    require("pilot/keys");
-    require("pilot/lang");
-    require("pilot/oop");
-    require("pilot/useragent");
-    require("pilot/canon");
+define(function (require, exports, module) {
+  require("pilot/browser_focus");
+  require("pilot/dom");
+  require("pilot/event");
+  require("pilot/event_emitter");
+  require("pilot/fixoldbrowsers");
+  require("pilot/keys");
+  require("pilot/lang");
+  require("pilot/oop");
+  require("pilot/useragent");
+  require("pilot/canon");
 });

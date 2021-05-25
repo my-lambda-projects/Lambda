@@ -36,17 +36,21 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-    console.warn("DEPRECATED: 'pilot/canon' is deprecated.");
-    //return require("ace/lib/dom");
-    
-    exports.addCommand = function() {
-        console.warn("DEPRECATED: 'canon.addCommand()' is deprecated. Use 'editor.commands.addCommand(command)' instead.");
-        console.trace();
-    }
-    
-    exports.removeCommand = function() {
-        console.warn("DEPRECATED: 'canon.removeCommand()' is deprecated. Use 'editor.commands.removeCommand(command)' instead.");
-        console.trace();
-    }
+define(function (require, exports, module) {
+  console.warn("DEPRECATED: 'pilot/canon' is deprecated.");
+  //return require("ace/lib/dom");
+
+  exports.addCommand = function () {
+    console.warn(
+      "DEPRECATED: 'canon.addCommand()' is deprecated. Use 'editor.commands.addCommand(command)' instead."
+    );
+    console.trace();
+  };
+
+  exports.removeCommand = function () {
+    console.warn(
+      "DEPRECATED: 'canon.removeCommand()' is deprecated. Use 'editor.commands.removeCommand(command)' instead."
+    );
+    console.trace();
+  };
 });

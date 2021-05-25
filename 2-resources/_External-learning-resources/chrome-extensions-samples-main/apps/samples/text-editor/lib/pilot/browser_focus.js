@@ -36,7 +36,9 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-define(function(require, exports, module) {
-    console.warn("DEPRECATED: 'pilot/browser_focus' is deprecated. Use 'ace/lib/browser_focus' instead");
-    module.exports = require("ace/lib/browser_focus");
+define(function (require, exports, module) {
+  console.warn(
+    "DEPRECATED: 'pilot/browser_focus' is deprecated. Use 'ace/lib/browser_focus' instead"
+  );
+  module.exports = require("ace/lib/browser_focus");
 });
