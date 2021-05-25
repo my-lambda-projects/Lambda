@@ -6,15 +6,13 @@
       n.d(e, "a", () => {
         return s;
       });
-      var r = n("cpVT"),
-        o = n("nKUr"),
-        i = (n("q1tI"), n("pDQI"));
+      const r = n("cpVT"), o = n("nKUr"), i = (n("q1tI"), n("pDQI"));
       function a(t, e) {
-        var n = Object.keys(t);
+        const n = Object.keys(t);
         if (Object.getOwnPropertySymbols) {
-          var r = Object.getOwnPropertySymbols(t);
+          let r = Object.getOwnPropertySymbols(t);
           e &&
-            (r = r.filter(e => {
+            (r = r.filter((e) => {
               return Object.getOwnPropertyDescriptor(t, e).enumerable;
             })),
             n.push.apply(n, r);
@@ -22,15 +20,15 @@
         return n;
       }
       function c(t) {
-        for (var e = 1; e < arguments.length; e++) {
-          var n = null != arguments[e] ? arguments[e] : {};
+        for (let e = 1; e < arguments.length; e++) {
+          const n = null != arguments[e] ? arguments[e] : {};
           e % 2
-            ? a(Object(n), !0).forEach(e => {
+            ? a(Object(n), !0).forEach((e) => {
                 Object(r.a)(t, e, n[e]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(n))
-            : a(Object(n)).forEach(e => {
+            : a(Object(n)).forEach((e) => {
                 Object.defineProperty(
                   t,
                   e,
@@ -80,15 +78,14 @@
     },
     "2URR": function (t, e, n) {
       "use strict";
-      var r = n("nKUr"),
-        o = n("cpVT");
+      const r = n("nKUr"), o = n("cpVT");
       n("q1tI");
       function i(t, e) {
-        var n = Object.keys(t);
+        const n = Object.keys(t);
         if (Object.getOwnPropertySymbols) {
-          var r = Object.getOwnPropertySymbols(t);
+          let r = Object.getOwnPropertySymbols(t);
           e &&
-            (r = r.filter(e => {
+            (r = r.filter((e) => {
               return Object.getOwnPropertyDescriptor(t, e).enumerable;
             })),
             n.push.apply(n, r);
@@ -96,15 +93,15 @@
         return n;
       }
       function a(t) {
-        for (var e = 1; e < arguments.length; e++) {
-          var n = null != arguments[e] ? arguments[e] : {};
+        for (let e = 1; e < arguments.length; e++) {
+          const n = null != arguments[e] ? arguments[e] : {};
           e % 2
-            ? i(Object(n), !0).forEach(e => {
+            ? i(Object(n), !0).forEach((e) => {
                 Object(o.a)(t, e, n[e]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(n))
-            : i(Object(n)).forEach(e => {
+            : i(Object(n)).forEach((e) => {
                 Object.defineProperty(
                   t,
                   e,
@@ -114,7 +111,7 @@
         }
         return t;
       }
-      var c = {
+      const c = {
         progress: {
           base: {
             position: "absolute",
@@ -141,9 +138,8 @@
           },
         },
       };
-      e.a = t => {
-        var e = t.loading,
-          n = c.progress;
+      e.a = (t) => {
+        const e = t.loading, n = c.progress;
         return Object(r.jsx)("div", {
           style: a(a({}, n.base), e ? {} : { opacity: 0 }),
           children: Object(r.jsx)("div", {
@@ -330,39 +326,31 @@
         R = "@@INIT",
         M = "RUN_REPL",
         D = function (t) {
-          var e =
-              arguments.length > 1 && void 0 !== arguments[1]
-                ? arguments[1]
-                : "",
-            n = arguments.length > 2 ? arguments[2] : void 0;
+          const e =
+                    arguments.length > 1 && void 0 !== arguments[1]
+                      ? arguments[1]
+                      : "",
+                n = arguments.length > 2 ? arguments[2] : void 0;
           return { data: t, type: e, kind: e, raw: !!n };
         };
       function V(t) {
-        var e = t.wid,
-          n = t.message,
-          r = t.type,
-          o = void 0 === r ? "" : r,
-          a = t.raw;
+        const e = t.wid, n = t.message, r = t.type, o = void 0 === r ? "" : r, a = t.raw;
         return { wid: e, type: i, message: D(n, o, !!a) };
       }
       function W(t) {
-        var e = t.wid;
+        const e = t.wid;
         return { type: M, wid: e };
       }
       function U(t) {
-        var e = t.wid;
+        const e = t.wid;
         return { type: b, wid: e };
       }
       function F(t) {
-        var e = t.wid,
-          n = t.code,
-          r = t.clean;
+        const e = t.wid, n = t.code, r = t.clean;
         return { type: a, wid: e, code: n, clean: r };
       }
       function z(t) {
-        var e = t.wid,
-          n = t.input,
-          r = t.kind;
+        const e = t.wid, n = t.input, r = t.kind;
         return { type: u, wid: e, input: n, kind: r || "output" };
       }
       function G(t) {
@@ -374,10 +362,7 @@
         };
       }
       function H(t) {
-        var e = t.wid,
-          n = t.path,
-          r = t.to,
-          o = t.property;
+        const e = t.wid, n = t.path, r = t.to, o = t.property;
         return { type: j, wid: e, path: n, to: r, property: o };
       }
       function K(t) {
@@ -390,15 +375,11 @@
         };
       }
       function q(t) {
-        var e = t.wid,
-          n = t.pud;
+        const e = t.wid, n = t.pud;
         return { type: d, wid: e, pud: n };
       }
       function X(t) {
-        var e = t.wid,
-          n = t.cols,
-          r = t.rows,
-          o = t.kind;
+        const e = t.wid, n = t.cols, r = t.rows, o = t.kind;
         return { type: l, wid: e, cols: n, rows: r, kind: o };
       }
       function $(t) {
@@ -410,14 +391,12 @@
         };
       }
       function B(t) {
-        var e = t.wid,
-          n = t.line;
+        const e = t.wid, n = t.line;
         return { type: g, wid: e, line: n };
       }
       function J(t) {
-        var e = t.wid,
-          n = t.line;
-        return t => {
+        const e = t.wid, n = t.line;
+        return (t) => {
           t(B({ wid: e, line: n })),
             setTimeout(() => {
               t(B({ wid: e, line: null }));
@@ -427,10 +406,9 @@
     },
     "5sjI": function (t, e, n) {
       "use strict";
-      var r = n("nKUr"),
-        o = n("2URR");
-      e.a = t => {
-        var e = t.messages;
+      const r = n("nKUr"), o = n("2URR");
+      e.a = (t) => {
+        const e = t.messages;
         return Object(r.jsxs)("div", {
           style: {
             height: "100%",
@@ -485,40 +463,40 @@
         n.d(e, "reducer", () => {
           return _;
         });
-      var r = n("cpVT"),
-        o = n("nKUr"),
-        i = n("z7pX"),
-        a = n("xvhg"),
-        c = n("q1tI"),
-        s = n("/MKj"),
-        u = n("3TIX"),
-        l = n("0gYX"),
-        d = n.n(l),
-        p = t => {
-          var e = t.split("\n");
-          if (0 === e.length) return 0;
-          var n,
-            r = e[e.length - 1].replace(/\s+$/, ""),
-            o = r.match(/^\s*/);
-          return (
-            (n = o ? o[0] : ""),
-            ":" === r[r.length - 1]
-              ? 1
-              : !(!n.length || 0 === r[r.length - 1].length) && 0
-          );
-        },
-        f = t => {
-          return !t.includes(":}") && !!t.includes(":{") && 0;
-        };
+      const r = n("cpVT"),
+            o = n("nKUr"),
+            i = n("z7pX"),
+            a = n("xvhg"),
+            c = n("q1tI"),
+            s = n("/MKj"),
+            u = n("3TIX"),
+            l = n("0gYX"),
+            d = n.n(l),
+            p = (t) => {
+              const e = t.split("\n");
+              if (0 === e.length) return 0;
+              let n;
+              const r = e[e.length - 1].replace(/\s+$/, "");
+              const o = r.match(/^\s*/);
+              return (
+                (n = o ? o[0] : ""),
+                ":" === r[r.length - 1]
+                  ? 1
+                  : !(!n.length || 0 === r[r.length - 1].length) && 0
+              );
+            },
+            f = (t) => {
+              return !t.includes(":}") && !!t.includes(":{") && 0;
+            };
       function b(t, e) {
-        var n;
+        let n;
         if ("undefined" === typeof Symbol || null == t[Symbol.iterator]) {
           if (
             Array.isArray(t) ||
             (n = ((t, e) => {
               if (!t) return;
               if ("string" === typeof t) return h(t, e);
-              var n = Object.prototype.toString.call(t).slice(8, -1);
+              let n = Object.prototype.toString.call(t).slice(8, -1);
               "Object" === n && t.constructor && (n = t.constructor.name);
               if ("Map" === n || "Set" === n) return Array.from(t);
               if (
@@ -530,8 +508,8 @@
             (e && t && "number" === typeof t.length)
           ) {
             n && (t = n);
-            var r = 0,
-              o = () => {};
+            let r = 0;
+            const o = () => {};
             return {
               s: o,
               n() {
@@ -549,15 +527,13 @@
             "Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
           );
         }
-        var i,
-          a = !0,
-          c = !1;
+        let i, a = !0, c = !1;
         return {
           s() {
             n = t[Symbol.iterator]();
           },
           n() {
-            var t = n.next();
+            const t = n.next();
             return (a = t.done), t;
           },
           e(t) {
@@ -577,54 +553,54 @@
         for (var n = 0, r = new Array(e); n < e; n++) r[n] = t[n];
         return r;
       }
-      var v = /"(?:[^"]|\\.)*"|'(?:[^']|\\.)*'|\/(?:[^/]|\\.)*\/|[{}()[\]]/gi,
-        j = t => {
-          var e,
-            n = 0,
-            r = 0,
-            o = 0,
-            i = b(t.match(v) || []);
-          try {
-            for (i.s(); !(e = i.n()).done; ) {
-              switch (e.value) {
-                case "(":
-                  r++;
-                  break;
-                case ")":
-                  r--;
-                  break;
-                case "[":
-                  o++;
-                  break;
-                case "]":
-                  o--;
-                  break;
-                case "{":
-                  n++;
-                  break;
-                case "}":
-                  n--;
+      const v = /"(?:[^"]|\\.)*"|'(?:[^']|\\.)*'|\/(?:[^/]|\\.)*\/|[{}()[\]]/gi,
+            j = (t) => {
+              let e;
+              let n = 0;
+              let r = 0;
+              let o = 0;
+              const i = b(t.match(v) || []);
+              try {
+                for (i.s(); !(e = i.n()).done; ) {
+                  switch (e.value) {
+                    case "(":
+                      r++;
+                      break;
+                    case ")":
+                      r--;
+                      break;
+                    case "[":
+                      o++;
+                      break;
+                    case "]":
+                      o--;
+                      break;
+                    case "{":
+                      n++;
+                      break;
+                    case "}":
+                      n--;
+                  }
+                }
+              } catch (a) {
+                i.e(a);
+              } finally {
+                i.f();
               }
-            }
-          } catch (a) {
-            i.e(a);
-          } finally {
-            i.f();
-          }
-          return (r > 0 || n > 0 || o > 0) && 1;
-        },
-        g = n("5sjI"),
-        O = n("Qbrf"),
-        m = n("OQjE"),
-        y = n("h7rM"),
-        w = n("7lhO"),
-        x = n("tZOq");
+              return (r > 0 || n > 0 || o > 0) && 1;
+            },
+            g = n("5sjI"),
+            O = n("Qbrf"),
+            m = n("OQjE"),
+            y = n("h7rM"),
+            w = n("7lhO"),
+            x = n("tZOq");
       function E(t, e) {
-        var n = Object.keys(t);
+        const n = Object.keys(t);
         if (Object.getOwnPropertySymbols) {
-          var r = Object.getOwnPropertySymbols(t);
+          let r = Object.getOwnPropertySymbols(t);
           e &&
-            (r = r.filter(e => {
+            (r = r.filter((e) => {
               return Object.getOwnPropertyDescriptor(t, e).enumerable;
             })),
             n.push.apply(n, r);
@@ -632,15 +608,15 @@
         return n;
       }
       function k(t) {
-        for (var e = 1; e < arguments.length; e++) {
-          var n = null != arguments[e] ? arguments[e] : {};
+        for (let e = 1; e < arguments.length; e++) {
+          const n = null != arguments[e] ? arguments[e] : {};
           e % 2
-            ? E(Object(n), !0).forEach(e => {
+            ? E(Object(n), !0).forEach((e) => {
                 Object(r.a)(t, e, n[e]);
               })
             : Object.getOwnPropertyDescriptors
             ? Object.defineProperties(t, Object.getOwnPropertyDescriptors(n))
-            : E(Object(n)).forEach(e => {
+            : E(Object(n)).forEach((e) => {
                 Object.defineProperty(
                   t,
                   e,
@@ -668,72 +644,68 @@
           }
       }
       function C(t) {
-        var e = t.wid,
-          r = t.pud,
-          l = t.style,
-          d = Object(w.a)(),
-          p = Object(s.e)(),
-          f = c.useRef(null),
-          b = (() => {
-            var t = c.useState({}),
-              e = Object(a.a)(t, 2)[1];
-            return c.useCallback(() => {
-              e({});
-            }, []);
-          })();
+        const e = t.wid,
+              r = t.pud,
+              l = t.style,
+              d = Object(w.a)(),
+              p = Object(s.e)(),
+              f = c.useRef(null),
+              b = (() => {
+                const t = c.useState({}), e = Object(a.a)(t, 2)[1];
+                return c.useCallback(() => {
+                  e({});
+                }, []);
+              })();
         c.useEffect(() => {
           Promise.all([n.e(40), n.e(44)])
             .then(n.bind(null, "yR2o"))
-            .then(t => {
+            .then((t) => {
               (f.current = t.default), b();
             });
         }, []);
-        var h = Object(y.b)(e, r, "console"),
-          v = Object(a.a)(h, 1)[0],
-          j = v.loadingEngine,
-          O = v.consoleMessages,
-          m = v.runstate,
-          E = v.promptValue,
-          C = Object(x.Hb)({ variables: { replId: d } }).data,
-          _ =
-            "Repl" === (null === C || void 0 === C ? void 0 : C.repl.__typename)
-              ? C.repl
-              : void 0,
-          L = (null === _ || void 0 === _ ? void 0 : _.language) || "",
-          N = null === _ || void 0 === _ ? void 0 : _.lang.header,
-          I = c.useCallback(
-            t => {
-              "stopping" !== m &&
-                p(
-                  "running" !== m
-                    ? Object(u.L)({ wid: e, clean: !1, code: t })
-                    : Object(u.J)({ wid: e, input: t, kind: "console" })
-                );
-            },
-            [p, m, e]
-          ),
-          A = c.useCallback(
-            () => {
-              p(Object(u.I)({ wid: e, pud: r }));
-            },
-            [p, e, r]
-          ),
-          P = c.useCallback(
-            t => {
-              p({ type: "SET_PROMPT_VALUE", wid: e, pud: r, promptValue: t });
-            },
-            [p, e, r]
-          ),
-          T = c.useCallback(
-            (t, e) => {
-              S(L, t, e);
-            },
-            [L]
-          ),
-          R = { data: "".concat(N, "\n"), type: "" },
-          M = N ? [R].concat(Object(i.a)(O)) : O;
+        const h = Object(y.b)(e, r, "console"),
+              v = Object(a.a)(h, 1)[0],
+              j = v.loadingEngine,
+              O = v.consoleMessages,
+              m = v.runstate,
+              E = v.promptValue,
+              C = Object(x.Hb)({ variables: { replId: d } }).data,
+              _ =
+                "Repl" === (null === C || void 0 === C ? void 0 : C.repl.__typename)
+                  ? C.repl
+                  : void 0,
+              L = (null === _ || void 0 === _ ? void 0 : _.language) || "",
+              N = null === _ || void 0 === _ ? void 0 : _.lang.header,
+              I = c.useCallback(
+                (t) => {
+                  "stopping" !== m &&
+                    p(
+                      "running" !== m
+                        ? Object(u.L)({ wid: e, clean: !1, code: t })
+                        : Object(u.J)({ wid: e, input: t, kind: "console" })
+                    );
+                },
+                [p, m, e]
+              ),
+              A = c.useCallback(() => {
+                p(Object(u.I)({ wid: e, pud: r }));
+              }, [p, e, r]),
+              P = c.useCallback(
+                (t) => {
+                  p({ type: "SET_PROMPT_VALUE", wid: e, pud: r, promptValue: t });
+                },
+                [p, e, r]
+              ),
+              T = c.useCallback(
+                (t, e) => {
+                  S(L, t, e);
+                },
+                [L]
+              ),
+              R = { data: "".concat(N, "\n"), type: "" },
+              M = N ? [R].concat(Object(i.a)(O)) : O;
         if (!f.current) return Object(o.jsx)(g.a, { messages: M });
-        var D = f.current;
+        const D = f.current;
         return Object(o.jsx)("div", {
           style: k(
             k({}, l),
@@ -761,17 +733,17 @@
       }
       var _ = Object(O.a)({
         primary() {
-          var t =
-              arguments.length > 0 && void 0 !== arguments[0]
-                ? arguments[0]
-                : {
-                    consoleMessages: [],
-                    loadingEngine: !1,
-                    runstate: "idle",
-                    presetStdin: "",
-                    promptValue: "",
-                  },
-            e = arguments.length > 1 ? arguments[1] : void 0;
+          const t =
+                    arguments.length > 0 && void 0 !== arguments[0]
+                      ? arguments[0]
+                      : {
+                          consoleMessages: [],
+                          loadingEngine: !1,
+                          runstate: "idle",
+                          presetStdin: "",
+                          promptValue: "",
+                        },
+                e = arguments.length > 1 ? arguments[1] : void 0;
           switch (e.type) {
             case u.g:
               return k(k({}, t), e.initialState);
@@ -788,7 +760,7 @@
                     { consoleMessages: t.consoleMessages.concat(e.message) }
                   );
             case u.C:
-              var n = Object(u.K)(
+              const n = Object(u.K)(
                 "\nRepl.it: Stopping... please wait\n",
                 "error"
               );
@@ -810,23 +782,21 @@
     },
     A3V5(t, e, n) {
       "use strict";
-      var r = n("q1tI"),
-        o = n("17x9"),
-        i = Math.sqrt(2);
+      const r = n("q1tI"), o = n("17x9"), i = Math.sqrt(2);
       function a(t) {
-        var e = "top" === t.direction || "bottom" === t.direction,
-          n = "left" === t.direction || "top" === t.direction,
-          o = t.borderWidth * i,
-          a = o / 2,
-          c = 2 * t.size + 2 * o,
-          s = t.size + o,
-          u = n ? s : 0,
-          l = n ? a : s - a,
-          d = c / 2,
-          p = c - a,
-          f = e
-            ? ["M", a, u, "L", d, l, "L", p, u]
-            : ["M", u, a, "L", l, d, "L", u, p];
+        const e = "top" === t.direction || "bottom" === t.direction,
+              n = "left" === t.direction || "top" === t.direction,
+              o = t.borderWidth * i,
+              a = o / 2,
+              c = 2 * t.size + 2 * o,
+              s = t.size + o,
+              u = n ? s : 0,
+              l = n ? a : s - a,
+              d = c / 2,
+              p = c - a,
+              f = e
+                ? ["M", a, u, "L", d, l, "L", p, u]
+                : ["M", u, a, "L", l, d, "L", u, p];
         return r.createElement(
           "svg",
           {
@@ -862,19 +832,18 @@
       n.d(e, "a", () => {
         return i;
       });
-      var r = n("0gYX"),
-        o = n.n(r);
+      const r = n("0gYX"), o = n.n(r);
       function i(t, e) {
-        var n = t.find(t => {
+        const n = t.find((t) => {
           return t.toLowerCase().includes("readme");
         });
         if (n) return n;
-        var r = o.a.getMainFileName(e);
+        const r = o.a.getMainFileName(e);
         if (o.a.usesInterpreter(e) && t.includes(r)) return r;
         if (t.includes("Makefile")) return "Makefile";
         if (t.includes(r)) return r;
         if (t.includes(".replit")) return ".replit";
-        var i = t.find(t => {
+        const i = t.find((t) => {
           return t.endsWith(".md");
         });
         return i || t[0];
@@ -883,14 +852,14 @@
     PG9f(t, e, n) {
       "use strict";
       function r(t, e) {
-        var n;
+        let n;
         if ("undefined" === typeof Symbol || null == t[Symbol.iterator]) {
           if (
             Array.isArray(t) ||
             (n = ((t, e) => {
               if (!t) return;
               if ("string" === typeof t) return o(t, e);
-              var n = Object.prototype.toString.call(t).slice(8, -1);
+              let n = Object.prototype.toString.call(t).slice(8, -1);
               "Object" === n && t.constructor && (n = t.constructor.name);
               if ("Map" === n || "Set" === n) return Array.from(t);
               if (
@@ -902,8 +871,8 @@
             (e && t && "number" === typeof t.length)
           ) {
             n && (t = n);
-            var r = 0,
-              i = () => {};
+            let r = 0;
+            const i = () => {};
             return {
               s: i,
               n() {
@@ -921,15 +890,13 @@
             "Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."
           );
         }
-        var a,
-          c = !0,
-          s = !1;
+        let a, c = !0, s = !1;
         return {
           s() {
             n = t[Symbol.iterator]();
           },
           n() {
-            var t = n.next();
+            const t = n.next();
             return (c = t.done), t;
           },
           e(t) {
@@ -950,22 +917,21 @@
         return r;
       }
       function i(t) {
-        var e,
-          n = {},
-          o = r(t.split(/\n|\r|\r\n/));
+        let e;
+        const n = {};
+        const o = r(t.split(/\n|\r|\r\n/));
         try {
           for (o.s(); !(e = o.n()).done; ) {
-            var i = e.value;
+            let i = e.value;
             if (!a(i)) {
-              var c = (i = s(i)).indexOf("="),
-                l = i.indexOf(":");
+              const c = (i = s(i)).indexOf("="), l = i.indexOf(":");
               if (-1 !== l || -1 !== c) {
-                var d = c;
+                let d = c;
                 -1 !== l && (l < c || -1 === c) && (d = l);
-                var p = i
-                    .slice(0, d)
-                    .replace(/^\s*(?:export\s+)?(.*?)\s*$/, "$1"),
-                  f = u(i.slice(d + 1), n);
+                const p = i
+                          .slice(0, d)
+                          .replace(/^\s*(?:export\s+)?(.*?)\s*$/, "$1"),
+                      f = u(i.slice(d + 1), n);
                 n[p] = f;
               }
             }
@@ -978,7 +944,7 @@
         return n;
       }
       function a(t) {
-        var e = t.trim();
+        const e = t.trim();
         return 0 === e.length || e.startsWith("#");
       }
       function c(t, e) {
@@ -986,13 +952,13 @@
       }
       function s(t) {
         if (!t.includes("#")) return t;
-        var e,
-          n = !1,
-          o = [],
-          i = r(t.split("#"));
+        let e;
+        let n = !1;
+        const o = [];
+        const i = r(t.split("#"));
         try {
           for (i.s(); !(e = i.n()).done; ) {
-            var a = e.value;
+            const a = e.value;
             (1 === c(a, '"') || c(a, "'")) &&
               (n ? ((n = !1), o.push(a)) : (n = !0)),
               (0 === o.length || n) && o.push(a);
@@ -1005,22 +971,20 @@
         return o.join("#");
       }
       function u(t, e) {
-        var n = t.trim();
+        let n = t.trim();
         if (0 === n.length) return n;
-        var r = n.length - 1,
-          o = '"' === n[0] && '"' === n[r],
-          i = "'" === n[0] && "'" === n[r];
+        const r = n.length - 1, o = '"' === n[0] && '"' === n[r], i = "'" === n[0] && "'" === n[r];
         return (i || o) && (n = n.slice(1, -1)),
         o &&
-          (n = (n = n.replace(/\\./g, t => {
+          (n = (n = n.replace(/\\./g, (t) => {
             return "\\n" === t ? "\n" : "\\r" === t ? "\r" : t;
           })).replace(/\\([^$])/g, "$1")),
         i ||
-          (n = n.replace(/(\\)?(\$)(\()?\{?([A-Z0-9_]+)?\}?/g, t => {
-            var n = t.match(/(\\)?(\$)(\()?\{?([A-Z0-9_]+)?\}?/);
+          (n = n.replace(/(\\)?(\$)(\()?\{?([A-Z0-9_]+)?\}?/g, (t) => {
+            const n = t.match(/(\\)?(\$)(\()?\{?([A-Z0-9_]+)?\}?/);
             if (null === n) return t;
             if ("\\" === n[1] || "(" === n[2]) return n[0].slice(1);
-            var r = n[4];
+            const r = n[4];
             return "" !== r ? e[r] || "" : t;
           })),
         n
@@ -1035,199 +999,161 @@
       n.d(e, "a", () => {
         return O;
       });
-      var r,
-        o = n("nKUr"),
-        i = n("vJKn"),
-        a = n.n(i),
-        c = n("rg98"),
-        s = n("xvhg"),
-        u = n("MX0m"),
-        l = n.n(u),
-        d = n("q1tI"),
-        p = n("g7Gn"),
-        f = n("XLFt"),
-        b = n("koLh"),
-        h = n("zgDP"),
-        v = n("PG9f"),
-        j = n("fA4Q");
-      !(t => {
+      let r;
+      const o = n("nKUr");
+      const i = n("vJKn");
+      const a = n.n(i);
+      const c = n("rg98");
+      const s = n("xvhg");
+      const u = n("MX0m");
+      const l = n.n(u);
+      const d = n("q1tI");
+      const p = n("g7Gn");
+      const f = n("XLFt");
+      const b = n("koLh");
+      const h = n("zgDP");
+      const v = n("PG9f");
+      const j = n("fA4Q");
+      !((t) => {
         (t.Connecting = "Connecting"),
           (t.Connected = "Connected"),
           (t.Disconnected = "Disconnected");
       })(r || (r = {}));
-      var g = "VNC_PASSWORD";
+      const g = "VNC_PASSWORD";
       function O(t) {
-        var e = t.fs,
-          i = t.container,
-          u = d.useState(null),
-          O = Object(s.a)(u, 2),
-          m = O[0],
-          y = O[1],
-          w = d.useState(void 0),
-          x = Object(s.a)(w, 2),
-          E = x[0],
-          k = x[1],
-          S = d.useState(r.Connecting),
-          C = Object(s.a)(S, 2),
-          _ = C[0],
-          L = C[1],
-          N = d.useState(null),
-          I = Object(s.a)(N, 2),
-          A = I[0],
-          P = I[1],
-          T = d.useState(!1),
-          R = Object(s.a)(T, 2),
-          M = R[0],
-          D = R[1],
-          V = d.useState(!1),
-          W = Object(s.a)(V, 2),
-          U = W[0],
-          F = W[1],
-          z = d.useState(null),
-          G = Object(s.a)(z, 2),
-          H = G[0],
-          K = G[1];
+        const e = t.fs, i = t.container, u = d.useState(null), O = Object(s.a)(u, 2), m = O[0], y = O[1], w = d.useState(void 0), x = Object(s.a)(w, 2), E = x[0], k = x[1], S = d.useState(r.Connecting), C = Object(s.a)(S, 2), _ = C[0], L = C[1], N = d.useState(null), I = Object(s.a)(N, 2), A = I[0], P = I[1], T = d.useState(!1), R = Object(s.a)(T, 2), M = R[0], D = R[1], V = d.useState(!1), W = Object(s.a)(V, 2), U = W[0], F = W[1], z = d.useState(null), G = Object(s.a)(z, 2), H = G[0], K = G[1];
         Object(h.track)(h.events.VNC_OPENED),
-          d.useEffect(
-            () => {
-              if (i.getConnectionState() !== j.a.CONNECTED)
-                return i.onConnectionStateChanged(t => {
-                  t === j.a.CONNECTED && K(i.getVncUrl());
-                });
-              K(i.getVncUrl());
-            },
-            [i]
-          );
-        var q = d.useState(null),
-          X = Object(s.a)(q, 2),
-          $ = X[0],
-          B = X[1],
-          J = d.useRef(() => {
-            return null;
-          });
-        d.useEffect(
-          () => {
-            J.current();
-          },
-          [$]
-        );
-        var Z = Object(b.a)(
-            t => {
-              return B(
-                t.width && t.height
-                  ? { width: t.width, height: t.height }
-                  : null
-              );
-            },
-            { type: "throttle", wait: 100 }
-          ),
-          Q = d.useRef(t => {});
-        return d.useEffect(
-          () => {
-            Q.current(U);
-          },
-          [U]
-        ),
-        d.useEffect(
-          () => {
-            if (!m) {
-              var t = !1;
-              return n
+          d.useEffect(() => {
+            if (i.getConnectionState() !== j.a.CONNECTED)
+              return i.onConnectionStateChanged((t) => {
+                t === j.a.CONNECTED && K(i.getVncUrl());
+              });
+            K(i.getVncUrl());
+          }, [i]);
+        const q = d.useState(null),
+              X = Object(s.a)(q, 2),
+              $ = X[0],
+              B = X[1],
+              J = d.useRef(() => {
+                return null;
+              });
+        d.useEffect(() => {
+          J.current();
+        }, [$]);
+        const Z = Object(b.a)(
+                  (t) => {
+                    return B(
+                      t.width && t.height
+                        ? { width: t.width, height: t.height }
+                        : null
+                    );
+                  },
+                  { type: "throttle", wait: 100 }
+                ),
+              Q = d.useRef((t) => {});
+        return d.useEffect(() => {
+          Q.current(U);
+        }, [U]),
+        d.useEffect(() => {
+          if (!m) {
+            let t = !1;
+            return (
+              n
                 .e(156)
                 .then(n.t.bind(null, "xWqp", 7))
-                .then(e => {
+                .then((e) => {
                   t || y(e);
                 }),
               () => {
                 t = !0;
               }
-            ;
-            }
-          },
-          [m]
-        ),
-        d.useEffect(
-          () => {
-            if (H && A && m) {
-              var t = !1,
-                n = m.default,
-                o = i.getConnectionMetadata(),
-                s = {
-                  credentials: {
-                    username: null === o || void 0 === o ? void 0 : o.token,
-                    password: E || "",
+            );
+          }
+        }, [m]),
+        d.useEffect(() => {
+          if (H && A && m) {
+            let t = !1;
+            const n = m.default;
+            const o = i.getConnectionMetadata();
+
+            const s = {
+              credentials: {
+                username: null === o || void 0 === o ? void 0 : o.token,
+                password: E || "",
+              },
+            };
+
+            Object(h.track)(h.events.VNC_CONNECTED);
+            const u = new n(A, H, s);
+            (u.scaleViewport = !0), (u.resizeSession = !0);
+            const l = () => {
+                      t || L(r.Connected);
+                    },
+                  d = (t) => {
+                    const e = t.detail.capabilities.audio;
+                    D(void 0 !== window.MediaSource && !!e);
                   },
-                };
-              Object(h.track)(h.events.VNC_CONNECTED);
-              var u = new n(A, H, s);
-              (u.scaleViewport = !0), (u.resizeSession = !0);
-              var l = () => {
-                  t || L(r.Connected);
-                },
-                d = t => {
-                  var e = t.detail.capabilities.audio;
-                  D(void 0 !== window.MediaSource && !!e);
-                },
-                f = () => {
-                  t || L(r.Disconnected);
-                },
-                b = () => {
-                  if (!t) {
-                    var n = () => {
-                      var t = window.prompt(
-                        "The output is password protected, please input it:"
-                      );
-                      t && k(t);
-                    };
-                    (() => {
-                      var r = Object(c.a)(
-                        a.a.mark(function r() {
-                          var o, i, c;
-                          return a.a.wrap(r => {
-                            for (;;)
-                              switch ((r.prev = r.next)) {
-                                case 0:
-                                  return (r.next = 2), e.readFile(".env");
-                                case 2:
-                                  if (((o = r.sent), !t)) {
-                                    r.next = 5;
-                                    break;
-                                  }
-                                  return r.abrupt("return");
-                                case 5:
-                                  if (!o.error) {
-                                    r.next = 8;
-                                    break;
-                                  }
-                                  return n(), r.abrupt("return");
-                                case 8:
-                                  if (
-                                    ((i = o.content.toString("utf8")),
-                                    (c = Object(v.a)(i)),
-                                    g in c)
-                                  ) {
-                                    r.next = 13;
-                                    break;
-                                  }
-                                  return n(), r.abrupt("return");
-                                case 13:
-                                  k(c.VNC_PASSWORD);
-                                case 14:
-                                case "end":
-                                  return r.stop();
-                              }
-                          }, r);
-                        })
-                      );
-                      return function () {
-                        return r.apply(this, arguments);
+                  f = () => {
+                    t || L(r.Disconnected);
+                  },
+                  b = () => {
+                    if (!t) {
+                      const n = () => {
+                        const t = window.prompt(
+                          "The output is password protected, please input it:"
+                        );
+                        t && k(t);
                       };
-                    })()().catch(t => {
-                      return p.c(t);
-                    });
-                  }
-                };
-              return u.addEventListener("connect", l),
+                      (() => {
+                        const r = Object(c.a)(
+                          a.a.mark(function r() {
+                            let o, i, c;
+                            return a.a.wrap((r) => {
+                              for (;;)
+                                switch ((r.prev = r.next)) {
+                                  case 0:
+                                    return (r.next = 2), e.readFile(".env");
+                                  case 2:
+                                    if (((o = r.sent), !t)) {
+                                      r.next = 5;
+                                      break;
+                                    }
+                                    return r.abrupt("return");
+                                  case 5:
+                                    if (!o.error) {
+                                      r.next = 8;
+                                      break;
+                                    }
+                                    return n(), r.abrupt("return");
+                                  case 8:
+                                    if (
+                                      ((i = o.content.toString("utf8")),
+                                      (c = Object(v.a)(i)),
+                                      g in c)
+                                    ) {
+                                      r.next = 13;
+                                      break;
+                                    }
+                                    return n(), r.abrupt("return");
+                                  case 13:
+                                    k(c.VNC_PASSWORD);
+                                  case 14:
+                                  case "end":
+                                    return r.stop();
+                                }
+                            }, r);
+                          })
+                        );
+                        return function () {
+                          return r.apply(this, arguments);
+                        };
+                      })()().catch((t) => {
+                        return p.c(t);
+                      });
+                    }
+                  };
+            return (
+              u.addEventListener("connect", l),
               u.addEventListener("capabilities", d),
               u.addEventListener("disconnect", f),
               u.addEventListener("securityfailure", b),
@@ -1236,7 +1162,7 @@
               }),
               D(!1),
               F(!1),
-              (Q.current = t => {
+              (Q.current = (t) => {
                 t
                   ? (Object(h.track)(h.events.VNC_AUDIO_ENABLED),
                     u.enableAudio(
@@ -1255,18 +1181,16 @@
                   (J.current = () => {
                     return null;
                   }),
-                  (Q.current = t => {}),
+                  (Q.current = (t) => {}),
                   u.disconnect(),
                   u.removeEventListener("securityfailure", b),
                   u.removeEventListener("disconnect", f),
                   u.removeEventListener("capabilities", d),
                   u.removeEventListener("connect", l);
               }
-            ;
-            }
-          },
-          [m, A, i, H, e, E]
-        ),
+            );
+          }
+        }, [m, A, i, H, e, E]),
         Object(o.jsxs)("div", {
           className: "jsx-3872500966 vnc",
           children: [
@@ -1308,7 +1232,8 @@
               ],
             }),
           ],
-        });
+        })
+      ;
       }
     },
     imBe(t, e, n) {
@@ -1316,84 +1241,75 @@
       n.d(e, "a", () => {
         return v;
       });
-      var r = n("nKUr"),
-        o = n("xEHj"),
-        i = n("H+61"),
-        a = n("UlJF"),
-        c = n("7LId"),
-        s = n("VIvw"),
-        u = n("iHvq"),
-        l = n("MX0m"),
-        d = n.n(l),
-        p = n("q1tI"),
-        f = n("A3V5"),
-        b = n.n(f);
+      const r = n("nKUr"), o = n("xEHj"), i = n("H+61"), a = n("UlJF"), c = n("7LId"), s = n("VIvw"), u = n("iHvq"), l = n("MX0m"), d = n.n(l), p = n("q1tI"), f = n("A3V5"), b = n.n(f);
       function h(t) {
-        var e = (() => {
+        const e = (() => {
           if ("undefined" === typeof Reflect || !Reflect.construct) return !1;
           if (Reflect.construct.sham) return !1;
           if ("function" === typeof Proxy) return !0;
           try {
-            return Date.prototype.toString.call(
-              Reflect.construct(Date, [], () => {})
-            ),
-            !0
-          ;
+            return (
+              Date.prototype.toString.call(
+                Reflect.construct(Date, [], () => {})
+              ),
+              !0
+            );
           } catch (t) {
             return !1;
           }
         })();
         return function () {
-          var n,
-            r = Object(u.a)(t);
+          let n;
+          const r = Object(u.a)(t);
           if (e) {
-            var o = Object(u.a)(this).constructor;
+            const o = Object(u.a)(this).constructor;
             n = Reflect.construct(r, arguments, o);
           } else n = r.apply(this, arguments);
           return Object(s.a)(this, n);
         };
       }
-      var v = (t => {
+      var v = ((t) => {
         Object(c.a)(n, t);
-        var e = h(n);
+        const e = h(n);
         function n() {
-          var t;
+          let t;
           Object(i.a)(this, n);
           for (var r = arguments.length, o = new Array(r), a = 0; a < r; a++)
             o[a] = arguments[a];
-          return ((t = e.call.apply(e, [this].concat(o))).state = { hover: !1 }),
-          (t.onMouseEnter = e => {
-            t.props.onMouseEnter && t.props.onMouseEnter(e),
-              t.setState({ hover: !0 });
-          }),
-          (t.onMouseLeave = e => {
-            t.props.onMouseLeave && t.props.onMouseLeave(e),
-              t.setState({ hover: !1 });
-          }),
-          (t.onClick = e => {
-            t.props.onClick && t.props.onClick(e),
-              t.props.hideOnClick && t.setState({ hover: !1 });
-          }),
-          t
-        ;
+          return (
+            ((t = e.call.apply(e, [this].concat(o))).state = { hover: !1 }),
+            (t.onMouseEnter = (e) => {
+              t.props.onMouseEnter && t.props.onMouseEnter(e),
+                t.setState({ hover: !0 });
+            }),
+            (t.onMouseLeave = (e) => {
+              t.props.onMouseLeave && t.props.onMouseLeave(e),
+                t.setState({ hover: !1 });
+            }),
+            (t.onClick = (e) => {
+              t.props.onClick && t.props.onClick(e),
+                t.props.hideOnClick && t.setState({ hover: !1 });
+            }),
+            t
+          );
         }
         return Object(a.a)(n, [
           {
             key: "render",
             value() {
-              var t = this.props.position || "right",
-                e =
-                  !this.props.hideTooltip &&
-                  (this.props.showTooltip || this.state.hover),
-                n = p.Children.toArray(this.props.children),
-                i = Object(o.a)(n),
-                a = i[0],
-                c = i.slice(1),
-                s = p.cloneElement(a, {
-                  key: "tooltip",
-                  className: "tooltip-wrap-tooltip tooltip-wrap-".concat(t),
-                  style: a.props.style,
-                });
+              const t = this.props.position || "right",
+                    e =
+                      !this.props.hideTooltip &&
+                      (this.props.showTooltip || this.state.hover),
+                    n = p.Children.toArray(this.props.children),
+                    i = Object(o.a)(n),
+                    a = i[0],
+                    c = i.slice(1),
+                    s = p.cloneElement(a, {
+                      key: "tooltip",
+                      className: "tooltip-wrap-tooltip tooltip-wrap-".concat(t),
+                      style: a.props.style,
+                    });
               return Object(r.jsxs)("div", {
                 style: this.props.style,
                 onClick: this.onClick,
@@ -1474,18 +1390,9 @@
     },
     uMio(t, e, n) {
       "use strict";
-      var r = n("nKUr"),
-        o = n("MX0m"),
-        i = n.n(o),
-        a = n("3CEA"),
-        c = n("V6K1"),
-        s = n("IdsG"),
-        u = n("up5I"),
-        l = n("xom/"),
-        d = n("8Vt8");
-      e.a = t => {
-        var e = t.sentryEventId,
-          n = t.user;
+      const r = n("nKUr"), o = n("MX0m"), i = n.n(o), a = n("3CEA"), c = n("V6K1"), s = n("IdsG"), u = n("up5I"), l = n("xom/"), d = n("8Vt8");
+      e.a = (t) => {
+        const e = t.sentryEventId, n = t.user;
         t.devHide;
         return Object(r.jsx)(d.a, {
           width: "medium",

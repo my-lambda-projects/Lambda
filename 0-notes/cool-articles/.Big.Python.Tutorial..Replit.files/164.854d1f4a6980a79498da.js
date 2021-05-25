@@ -2,27 +2,30 @@
   [164],
   {
     Mj6V(n, e, t) {
-      var r, o;
+      let r;
+      let o;
       void 0 ===
         (o =
           "function" ===
           typeof (r = () => {
-            var n = { version: "0.2.0" },
-              e = (n.settings = {
-                minimum: 0.08,
-                easing: "ease",
-                positionUsing: "",
-                speed: 200,
-                trickle: !0,
-                trickleRate: 0.02,
-                trickleSpeed: 800,
-                showSpinner: !0,
-                barSelector: '[role="bar"]',
-                spinnerSelector: '[role="spinner"]',
-                parent: "body",
-                template:
-                  '<div class="bar" role="bar"><div class="peg"></div></div><div class="spinner" role="spinner"><div class="spinner-icon"></div></div>',
-              });
+            const n = { version: "0.2.0" };
+
+            const e = (n.settings = {
+              minimum: 0.08,
+              easing: "ease",
+              positionUsing: "",
+              speed: 200,
+              trickle: !0,
+              trickleRate: 0.02,
+              trickleSpeed: 800,
+              showSpinner: !0,
+              barSelector: '[role="bar"]',
+              spinnerSelector: '[role="spinner"]',
+              parent: "body",
+              template:
+                '<div class="bar" role="bar"><div class="peg"></div></div><div class="spinner" role="spinner"><div class="spinner-icon"></div></div>',
+            });
+
             function t(n, e, t) {
               return n < e ? e : n > t ? t : n;
             }
@@ -30,207 +33,221 @@
               return 100 * (-1 + n);
             }
             function o(n, t, o) {
-              var s;
-              return (
-                ((s =
-                  "translate3d" === e.positionUsing
-                    ? { transform: "translate3d(" + r(n) + "%,0,0)" }
-                    : "translate" === e.positionUsing
-                    ? { transform: "translate(" + r(n) + "%,0)" }
-                    : { "margin-left": r(n) + "%" }).transition =
-                  "all " + t + "ms " + o),
-                s
-              );
+              let s;
+              return ((s =
+                "translate3d" === e.positionUsing
+                  ? { transform: `translate3d(${r(n)}%,0,0)` }
+                  : "translate" === e.positionUsing
+                  ? { transform: `translate(${r(n)}%,0)` }
+                  : { "margin-left": `${r(n)}%` }).transition =
+                `all ${t}ms ${o}`),
+              s
+            ;
             }
-            n.configure = function (n) {
-              var t, r;
+            (n.configure = function (n) {
+              let t;
+              let r;
               for (t in n)
                 void 0 !== (r = n[t]) && n.hasOwnProperty(t) && (e[t] = r);
               return this;
-            }, n.status = null, n.set = function (r) {
-                var a = n.isStarted();
-                (r = t(r, e.minimum, 1)), (n.status = 1 === r ? null : r);
-                var u = n.render(!a),
-                  c = u.querySelector(e.barSelector),
-                  l = e.speed,
-                  d = e.easing;
-                return u.offsetWidth,
-                s(t => {
-                  "" === e.positionUsing &&
-                    (e.positionUsing = n.getPositioningCSS()),
-                    i(c, o(r, l, d)),
-                    1 === r
-                      ? (i(u, { transition: "none", opacity: 1 }),
-                        u.offsetWidth,
-                        setTimeout(() => {
-                          i(u, {
-                            transition: "all " + l + "ms linear",
-                            opacity: 0,
-                          }),
-                            setTimeout(() => {
-                              n.remove(), t();
-                            }, l);
-                        }, l))
-                      : setTimeout(t, l);
-                }),
-                this
-              ;
-              }, n.isStarted = () => {
+            }),
+              (n.status = null),
+              (n.set = function (r) {
+              const a = n.isStarted();
+              (r = t(r, e.minimum, 1)), (n.status = 1 === r ? null : r);
+              const u = n.render(!a);
+              const c = u.querySelector(e.barSelector);
+              const l = e.speed;
+              const d = e.easing;
+              return u.offsetWidth,
+              s((t) => {
+                "" === e.positionUsing &&
+                  (e.positionUsing = n.getPositioningCSS()),
+                  i(c, o(r, l, d)),
+                  1 === r
+                    ? (i(u, { transition: "none", opacity: 1 }),
+                      u.offsetWidth,
+                      setTimeout(() => {
+                        i(u, {
+                          transition: `all ${l}ms linear`,
+                          opacity: 0,
+                        }),
+                          setTimeout(() => {
+                            n.remove(), t();
+                          }, l);
+                      }, l))
+                    : setTimeout(t, l);
+              }),
+              this
+            ;
+            }),
+              (n.isStarted = () => {
                 return "number" === typeof n.status;
-              }, n.start = function () {
+              }),
+              (n.start = function () {
                 n.status || n.set(0);
-                var t = () => {
+                const t = () => {
                   setTimeout(() => {
                     n.status && (n.trickle(), t());
                   }, e.trickleSpeed);
                 };
                 return e.trickle && t(), this;
-              }, n.done = function (e) {
+              }),
+              (n.done = function (e) {
                 return e || n.status
                   ? n.inc(0.3 + 0.5 * Math.random()).set(1)
                   : this;
-              }, n.inc = e => {
-                var r = n.status;
+              }),
+              (n.inc = (e) => {
+                let r = n.status;
                 return r
                   ? ("number" !== typeof e &&
                       (e = (1 - r) * t(Math.random() * r, 0.1, 0.95)),
                     (r = t(r + e, 0, 0.994)),
                     n.set(r))
                   : n.start();
-              }, n.trickle = () => {
+              }),
+              (n.trickle = () => {
                 return n.inc(Math.random() * e.trickleRate);
-              }, (() => {
-              var e = 0,
-                t = 0;
-              n.promise = function (r) {
-                return r && "resolved" !== r.state()
-                  ? (0 === t && n.start(),
-                    e++,
-                    t++,
-                    r.always(() => {
-                      0 === --t ? ((e = 0), n.done()) : n.set((e - t) / e);
-                    }),
-                    this)
-                  : this;
-              };
-            })(), n.render = t => {
+              }),
+              (() => {
+                let e = 0;
+                let t = 0;
+                n.promise = function (r) {
+                  return r && "resolved" !== r.state()
+                    ? (0 === t && n.start(),
+                      e++,
+                      t++,
+                      r.always(() => {
+                        0 === --t ? ((e = 0), n.done()) : n.set((e - t) / e);
+                      }),
+                      this)
+                    : this;
+                };
+              })(),
+              (n.render = (t) => {
                 if (n.isRendered()) return document.getElementById("nprogress");
                 u(document.documentElement, "nprogress-busy");
-                var o = document.createElement("div");
+                const o = document.createElement("div");
                 (o.id = "nprogress"), (o.innerHTML = e.template);
-                var s,
-                  a = o.querySelector(e.barSelector),
-                  c = t ? "-100" : r(n.status || 0),
-                  l = document.querySelector(e.parent);
-                return (
-                  i(a, {
-                    transition: "all 0 linear",
-                    transform: "translate3d(" + c + "%,0,0)",
-                  }),
-                  e.showSpinner ||
-                    ((s = o.querySelector(e.spinnerSelector)) && d(s)),
-                  l != document.body && u(l, "nprogress-custom-parent"),
-                  l.appendChild(o),
-                  o
-                );
-              }, n.remove = () => {
+                let s;
+                const a = o.querySelector(e.barSelector);
+                const c = t ? "-100" : r(n.status || 0);
+                const l = document.querySelector(e.parent);
+                return i(a, {
+                  transition: "all 0 linear",
+                  transform: `translate3d(${c}%,0,0)`,
+                }),
+                e.showSpinner ||
+                  ((s = o.querySelector(e.spinnerSelector)) && d(s)),
+                l != document.body && u(l, "nprogress-custom-parent"),
+                l.appendChild(o),
+                o
+              ;
+              }),
+              (n.remove = () => {
                 c(document.documentElement, "nprogress-busy"),
                   c(
                     document.querySelector(e.parent),
                     "nprogress-custom-parent"
                   );
-                var n = document.getElementById("nprogress");
+                const n = document.getElementById("nprogress");
                 n && d(n);
-              }, n.isRendered = () => {
+              }),
+              (n.isRendered = () => {
                 return !!document.getElementById("nprogress");
-              }, n.getPositioningCSS = () => {
-                var n = document.body.style,
-                  e =
-                    "WebkitTransform" in n
-                      ? "Webkit"
-                      : "MozTransform" in n
-                      ? "Moz"
-                      : "msTransform" in n
-                      ? "ms"
-                      : "OTransform" in n
-                      ? "O"
-                      : "";
-                return e + "Perspective" in n
-                  ? "translate3d"
-                  : e + "Transform" in n
-                  ? "translate"
-                  : "margin";
-              };
+              }),
+              (n.getPositioningCSS = () => {
+              const n = document.body.style;
+
+              const e =
+                "WebkitTransform" in n
+                  ? "Webkit"
+                  : "MozTransform" in n
+                  ? "Moz"
+                  : "msTransform" in n
+                  ? "ms"
+                  : "OTransform" in n
+                  ? "O"
+                  : "";
+
+              return `${e}Perspective` in n
+                ? "translate3d"
+                : `${e}Transform` in n
+                ? "translate"
+                : "margin";
+            });
+
             var s = (() => {
-                var n = [];
+                const n = [];
                 function e() {
-                  var t = n.shift();
+                  const t = n.shift();
                   t && t(e);
                 }
-                return t => {
+                return (t) => {
                   n.push(t), 1 == n.length && e();
                 };
-              })(),
-              i = (() => {
-                var n = ["Webkit", "O", "Moz", "ms"],
-                  e = {};
-                function t(n) {
-                  return n
-                    .replace(/^-ms-/, "ms-")
-                    .replace(/-([\da-z])/gi, (n, e) => {
-                      return e.toUpperCase();
-                    });
-                }
-                function r(e) {
-                  var t = document.body.style;
-                  if (e in t) return e;
-                  for (
-                    var r,
-                      o = n.length,
-                      s = e.charAt(0).toUpperCase() + e.slice(1);
-                    o--;
-
-                  )
-                    if ((r = n[o] + s) in t) return r;
-                  return e;
-                }
-                function o(n) {
-                  return (n = t(n)), e[n] || (e[n] = r(n));
-                }
-                function s(n, e, t) {
-                  (e = o(e)), (n.style[e] = t);
-                }
-                return function (n, e) {
-                  var t,
-                    r,
-                    o = arguments;
-                  if (2 == o.length)
-                    for (t in e)
-                      void 0 !== (r = e[t]) &&
-                        e.hasOwnProperty(t) &&
-                        s(n, t, r);
-                  else s(n, o[1], o[2]);
-                };
               })();
+
+            var i = (() => {
+              const n = ["Webkit", "O", "Moz", "ms"],
+                e = {};
+              function t(n) {
+                return n
+                  .replace(/^-ms-/, "ms-")
+                  .replace(/-([\da-z])/gi, (n, e) => {
+                    return e.toUpperCase();
+                  });
+              }
+              function r(e) {
+                const t = document.body.style;
+                if (e in t) return e;
+                for (
+                  let r,
+                    o = n.length,
+                    s = e.charAt(0).toUpperCase() + e.slice(1);
+                  o--;
+
+                )
+                  if ((r = n[o] + s) in t) return r;
+                return e;
+              }
+              function o(n) {
+                return (n = t(n)), e[n] || (e[n] = r(n));
+              }
+              function s(n, e, t) {
+                (e = o(e)), (n.style[e] = t);
+              }
+              return function (n, e) {
+                let t;
+                let r;
+                const o = arguments;
+                if (2 == o.length)
+                  for (t in e)
+                    void 0 !== (r = e[t]) &&
+                      e.hasOwnProperty(t) &&
+                      s(n, t, r);
+                else s(n, o[1], o[2]);
+              };
+            })();
+
             function a(n, e) {
-              return (
-                ("string" == typeof n ? n : l(n)).indexOf(" " + e + " ") >= 0
-              );
+              return ("string" == typeof n ? n : l(n)).indexOf(` ${e} `) >= 0;
             }
             function u(n, e) {
-              var t = l(n),
-                r = t + e;
+              const t = l(n);
+              const r = t + e;
               a(t, e) || (n.className = r.substring(1));
             }
             function c(n, e) {
-              var t,
-                r = l(n);
+              let t;
+              const r = l(n);
               a(n, e) &&
-                ((t = r.replace(" " + e + " ", " ")),
+                ((t = r.replace(` ${e} `, " ")),
                 (n.className = t.substring(1, t.length - 1)));
             }
             function l(n) {
-              return (" " + (n.className || "") + " ").replace(/\s+/gi, " ");
+              return (` ${n.className || ""} `).replace(/\s+/gi, " ");
             }
             function d(n) {
               n && n.parentNode && n.parentNode.removeChild(n);
@@ -246,13 +263,13 @@
         t.d(e, "default", () => {
           return l;
         });
-      var r = t("nKUr"),
-        o = t("MX0m"),
-        s = t.n(o),
-        i = t("20a2"),
-        a = t.n(i),
-        u = t("Mj6V"),
-        c = t.n(u);
+      const r = t("nKUr");
+      const o = t("MX0m");
+      const s = t.n(o);
+      const i = t("20a2");
+      const a = t.n(i);
+      const u = t("Mj6V");
+      const c = t.n(u);
       function l() {
         return Object(r.jsx)(r.Fragment, {
           children: Object(r.jsx)(s.a, {

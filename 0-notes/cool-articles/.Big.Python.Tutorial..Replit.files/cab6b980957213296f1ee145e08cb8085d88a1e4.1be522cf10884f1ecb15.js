@@ -3,29 +3,31 @@
   {
     "+qE3": function (e, t, i) {
       "use strict";
-      var n,
-        r = "object" === typeof Reflect ? Reflect : null,
-        o =
-          r && "function" === typeof r.apply
-            ? r.apply
-            : (e, t, i) => {
-                return Function.prototype.apply.call(e, t, i);
-              };
+      let n;
+      const r = "object" === typeof Reflect ? Reflect : null;
+
+      const o =
+        r && "function" === typeof r.apply
+          ? r.apply
+          : (e, t, i) => {
+              return Function.prototype.apply.call(e, t, i);
+            };
+
       n =
         r && "function" === typeof r.ownKeys
           ? r.ownKeys
           : Object.getOwnPropertySymbols
-          ? e => {
+          ? (e) => {
               return Object.getOwnPropertyNames(e).concat(
                 Object.getOwnPropertySymbols(e)
               );
             }
-          : e => {
+          : (e) => {
               return Object.getOwnPropertyNames(e);
             };
-      var a =
+      const a =
         Number.isNaN ||
-        (e => {
+        ((e) => {
           return e !== e;
         });
       function s() {
@@ -36,14 +38,14 @@
         (s.prototype._events = void 0),
         (s.prototype._eventsCount = 0),
         (s.prototype._maxListeners = void 0);
-      var p = 10;
+      let p = 10;
       function d(e) {
         return void 0 === e._maxListeners
           ? s.defaultMaxListeners
           : e._maxListeners;
       }
       function u(e, t, i, n) {
-        var r, o, a, s;
+        let r, o, a, s;
         if ("function" !== typeof i)
           throw new TypeError(
             'The "listener" argument must be of type Function. Received type ' +
@@ -68,7 +70,7 @@
           (r = d(e)) > 0 && a.length > r && !a.warned)
         ) {
           a.warned = !0;
-          var p = new Error(
+          const p = new Error(
             "Possible EventEmitter memory leak detected. " +
               a.length +
               " " +
@@ -92,30 +94,31 @@
           o(this.listener, this.target, e));
       }
       function c(e, t, i) {
-        var n = { fired: !1, wrapFn: void 0, target: e, type: t, listener: i },
-          r = m.bind(n);
+        const n = { fired: !1, wrapFn: void 0, target: e, type: t, listener: i }, r = m.bind(n);
         return (r.listener = i), (n.wrapFn = r), r;
       }
       function v(e, t, i) {
-        var n = e._events;
+        const n = e._events;
         if (void 0 === n) return [];
-        var r = n[t];
+        const r = n[t];
         return void 0 === r
           ? []
           : "function" === typeof r
           ? i
             ? [r.listener || r]
             : [r]
-          : i ? (e => {
+          : i
+          ? ((e) => {
               for (var t = new Array(e.length), i = 0; i < t.length; ++i)
                 t[i] = e[i].listener || e[i];
               return t;
-            })(r) : l(r, r.length);
+            })(r)
+          : l(r, r.length);
       }
       function f(e) {
-        var t = this._events;
+        const t = this._events;
         if (void 0 !== t) {
-          var i = t[e];
+          const i = t[e];
           if ("function" === typeof i) return 1;
           if (void 0 !== i) return i.length;
         }
@@ -159,30 +162,29 @@
           return d(this);
         }),
         (s.prototype.emit = function (e) {
-          for (var t = [], i = 1; i < arguments.length; i++)
-            t.push(arguments[i]);
-          var n = "error" === e,
-            r = this._events;
-          if (void 0 !== r) n = n && void 0 === r.error;
-          else if (!n) return !1;
-          if (n) {
-            var a;
-            if ((t.length > 0 && (a = t[0]), a instanceof Error)) throw a;
-            var s = new Error(
-              "Unhandled error." + (a ? " (" + a.message + ")" : "")
-            );
-            throw ((s.context = a), s);
-          }
-          var p = r[e];
-          if (void 0 === p) return !1;
-          if ("function" === typeof p) o(p, this, t);
-          else {
-            var d = p.length,
-              u = l(p, d);
-            for (i = 0; i < d; ++i) o(u[i], this, t);
-          }
-          return !0;
-        }),
+        for (var t = [], i = 1; i < arguments.length; i++)
+          t.push(arguments[i]);
+        let n = "error" === e;
+        const r = this._events;
+        if (void 0 !== r) n = n && void 0 === r.error;
+        else if (!n) return !1;
+        if (n) {
+          let a;
+          if ((t.length > 0 && (a = t[0]), a instanceof Error)) throw a;
+          const s = new Error(
+            "Unhandled error." + (a ? " (" + a.message + ")" : "")
+          );
+          throw ((s.context = a), s);
+        }
+        const p = r[e];
+        if (void 0 === p) return !1;
+        if ("function" === typeof p) o(p, this, t);
+        else {
+          const d = p.length, u = l(p, d);
+          for (i = 0; i < d; ++i) o(u[i], this, t);
+        }
+        return !0;
+      }),
         (s.prototype.addListener = function (e, t) {
           return u(this, e, t, !1);
         }),
@@ -207,7 +209,7 @@
           return this.prependListener(e, c(this, e, t)), this;
         }),
         (s.prototype.removeListener = function (e, t) {
-          var i, n, r, o, a;
+          let i, n, r, o, a;
           if ("function" !== typeof t)
             throw new TypeError(
               'The "listener" argument must be of type Function. Received type ' +
@@ -228,7 +230,9 @@
                 break;
               }
             if (r < 0) return this;
-            0 === r ? i.shift() : ((e, t) => {
+            0 === r
+              ? i.shift()
+              : ((e, t) => {
                   for (; t + 1 < e.length; t++) e[t] = e[t + 1];
                   e.pop();
                 })(i, r),
@@ -240,7 +244,7 @@
         }),
         (s.prototype.off = s.prototype.removeListener),
         (s.prototype.removeAllListeners = function (e) {
-          var t, i, n;
+          let t, i, n;
           if (void 0 === (i = this._events)) return this;
           if (void 0 === i.removeListener)
             return (
@@ -254,8 +258,8 @@
               this
             );
           if (0 === arguments.length) {
-            var r,
-              o = Object.keys(i);
+            let r;
+            const o = Object.keys(i);
             for (n = 0; n < o.length; ++n)
               "removeListener" !== (r = o[n]) && this.removeAllListeners(r);
             return (
@@ -288,7 +292,7 @@
     },
     "4JlD": function (e, t, i) {
       "use strict";
-      var n = e => {
+      const n = (e) => {
         switch (typeof e) {
           case "string":
             return e;
@@ -305,10 +309,10 @@
         (i = i || "="),
         null === e && (e = void 0),
         "object" === typeof e
-          ? o(a(e), a => {
-              var s = encodeURIComponent(n(a)) + i;
+          ? o(a(e), (a) => {
+              const s = encodeURIComponent(n(a)) + i;
               return r(e[a])
-                ? o(e[a], e => {
+                ? o(e[a], (e) => {
                     return s + encodeURIComponent(n(e));
                   }).join(t)
                 : s + encodeURIComponent(n(e[a]));
@@ -320,7 +324,7 @@
       };
       var r =
         Array.isArray ||
-        (e => {
+        ((e) => {
           return "[object Array]" === Object.prototype.toString.call(e);
         });
       function o(e, t) {
@@ -330,30 +334,32 @@
       }
       var a =
         Object.keys ||
-        (e => {
-          var t = [];
-          for (var i in e)
+        ((e) => {
+          const t = [];
+          for (const i in e)
             Object.prototype.hasOwnProperty.call(e, i) && t.push(i);
           return t;
         });
     },
     QmWs(e, t, i) {
-      var n,
-        r =
-          (n = i("s4NR")) && "object" == typeof n && "default" in n
-            ? n.default
-            : n,
-        o = /https?|ftp|gopher|file/;
+      let n;
+
+      const r =
+        (n = i("s4NR")) && "object" == typeof n && "default" in n
+          ? n.default
+          : n;
+
+      const o = /https?|ftp|gopher|file/;
       function a(e) {
         "string" == typeof e && (e = y(e));
-        var t = ((e, t, i) => {
-          var n = e.auth,
-            r = e.hostname,
-            o = e.protocol || "",
-            a = e.pathname || "",
-            s = e.hash || "",
-            p = e.query || "",
-            d = !1;
+        const t = ((e, t, i) => {
+          let n = e.auth;
+          const r = e.hostname;
+          let o = e.protocol || "";
+          let a = e.pathname || "";
+          let s = e.hash || "";
+          let p = e.query || "";
+          let d = !1;
           (n = n ? encodeURIComponent(n).replace(/%3A/i, ":") + "@" : ""),
             e.host
               ? (d = n + e.host)
@@ -361,7 +367,7 @@
                 ((d = n + (~r.indexOf(":") ? "[" + r + "]" : r)),
                 e.port && (d += ":" + e.port)),
             p && "object" == typeof p && (p = t.encode(p));
-          var u = e.search || (p && "?" + p) || "";
+          let u = e.search || (p && "?" + p) || "";
           return (
             o && ":" !== o.substr(-1) && (o += ":"),
             e.slashes || ((!o || i.test(o)) && !1 !== d)
@@ -380,16 +386,12 @@
         })(e, r, o);
         return "" + t.protocol + t.host + t.pathname + t.search + t.hash;
       }
-      var s = "http://",
-        p = "w.w",
-        d = s + p,
-        u = /^([a-z0-9.+-]*:\/\/\/)([a-z0-9.+-]:\/*)?/i,
-        m = /https?|ftp|gopher|file/;
+      const s = "http://", p = "w.w", d = s + p, u = /^([a-z0-9.+-]*:\/\/\/)([a-z0-9.+-]:\/*)?/i, m = /https?|ftp|gopher|file/;
       function c(e, t) {
-        var i = "string" == typeof e ? y(e) : e;
+        const i = "string" == typeof e ? y(e) : e;
         e = "object" == typeof e ? a(e) : e;
-        var n = y(t),
-          r = "";
+        const n = y(t);
+        let r = "";
         i.protocol &&
           !i.slashes &&
           ((r = i.protocol),
@@ -399,14 +401,14 @@
             n.protocol &&
             ((r = ""),
             n.slashes || ((r = n.protocol), (t = t.replace(n.protocol, ""))));
-        var o = e.match(u);
+        const o = e.match(u);
         o &&
           !n.protocol &&
           ((e = e.substr((r = o[1] + (o[2] || "")).length)),
           /^\/\/[^/]/.test(t) && (r = r.slice(0, -1)));
-        var p = new URL(e, d + "/"),
-          c = new URL(t, p).toString().replace(d, ""),
-          v = n.protocol || i.protocol;
+        const p = new URL(e, d + "/");
+        let c = new URL(t, p).toString().replace(d, "");
+        let v = n.protocol || i.protocol;
         return (
           (v += i.slashes || n.slashes ? "//" : ""),
           !r && v ? (c = c.replace(s, v)) : r && (c = c.replace(s, "")),
@@ -425,11 +427,7 @@
         (v.prototype.format = a),
         (v.prototype.resolve = c),
         (v.prototype.resolveObject = c);
-      var f = /^https?|ftp|gopher|file/,
-        l = /^(.*?)([#?].*)/,
-        h = /^([a-z0-9.+-]*:)(\/{0,3})(.*)/i,
-        g = /^([a-z0-9.+-]*:)?\/\/\/*/i,
-        x = /^([a-z0-9.+-]*:)(\/{0,2})\[(.*)\]$/i;
+      const f = /^https?|ftp|gopher|file/, l = /^(.*?)([#?].*)/, h = /^([a-z0-9.+-]*:)(\/{0,3})(.*)/i, g = /^([a-z0-9.+-]*:)?\/\/\/*/i, x = /^([a-z0-9.+-]*:)(\/{0,2})\[(.*)\]$/i;
       function y(e, t, i) {
         if (
           (void 0 === t && (t = !1),
@@ -437,12 +435,12 @@
           e && "object" == typeof e && e instanceof v)
         )
           return e;
-        var n = (e = e.trim()).match(l);
+        const n = (e = e.trim()).match(l);
         (e = n ? n[1].replace(/\\/g, "/") + n[2] : e.replace(/\\/g, "/")),
           x.test(e) && "/" !== e.slice(-1) && (e += "/");
-        var o = !/(^javascript)/.test(e) && e.match(h),
-          s = g.test(e),
-          u = "";
+        const o = !/(^javascript)/.test(e) && e.match(h);
+        let s = g.test(e);
+        let u = "";
         o &&
           (f.test(o[1]) || ((u = o[1].toLowerCase()), (e = "" + o[2] + o[3])),
           o[2] ||
@@ -450,12 +448,12 @@
             f.test(o[1]) ? ((u = o[1]), (e = "" + o[3])) : (e = "//" + o[3])),
           (3 !== o[2].length && 1 !== o[2].length) ||
             ((u = o[1]), (e = "/" + o[3])));
-        var m,
-          c = (n ? n[1] : e).match(/^https?:\/\/[^/]+(:[0-9]+)(?=\/|$)/),
-          y = c && c[1],
-          b = new v(),
-          j = "",
-          w = "";
+        let m;
+        const c = (n ? n[1] : e).match(/^https?:\/\/[^/]+(:[0-9]+)(?=\/|$)/);
+        const y = c && c[1];
+        const b = new v();
+        let j = "";
+        let w = "";
         try {
           m = new URL(e);
         } catch (r) {
@@ -478,23 +476,24 @@
           (b.protocol = j ? u || null : m.protocol),
           (b.search = m.search.replace(/\\/g, "%5C")),
           (b.hash = m.hash.replace(/\\/g, "%5C"));
-        var _ = e.split("#");
+        const _ = e.split("#");
         !b.search && ~_[0].indexOf("?") && (b.search = "?"),
           b.hash || "" !== _[1] || (b.hash = "#"),
           (b.query = t ? r.decode(m.search.substr(1)) : b.search.substr(1)),
           (b.pathname =
             w +
-            (o ? (e => {
+            (o
+              ? ((e) => {
                   return e
-                    .replace(/['^|`]/g, e => {
+                    .replace(/['^|`]/g, (e) => {
                       return "%" + e.charCodeAt().toString(16).toUpperCase();
                     })
                     .replace(/((?:%[0-9A-F]{2})+)/g, (e, t) => {
                       try {
                         return decodeURIComponent(t)
                           .split("")
-                          .map(e => {
-                            var t = e.charCodeAt();
+                          .map((e) => {
+                            const t = e.charCodeAt();
                             return t > 256 || /^[a-z0-9]$/i.test(e)
                               ? e
                               : "%" + t.toString(16).toUpperCase();
@@ -504,7 +503,8 @@
                         return t;
                       }
                     });
-                })(m.pathname) : m.pathname)),
+                })(m.pathname)
+              : m.pathname)),
           "about:" === b.protocol &&
             "blank" === b.pathname &&
             ((b.protocol = ""), (b.pathname = "")),
@@ -522,12 +522,13 @@
           (b.port = m.port),
           y && !b.host.endsWith(y) && ((b.host += y), (b.port = y.slice(1))),
           (b.href = w ? "" + b.pathname + b.search + b.hash : a(b));
-        var L = /^(file)/.test(b.href) ? ["host", "hostname"] : [];
-        return Object.keys(b).forEach(e => {
-          ~L.indexOf(e) || (b[e] = b[e] || null);
-        }),
-        b
-      ;
+        const L = /^(file)/.test(b.href) ? ["host", "hostname"] : [];
+        return (
+          Object.keys(b).forEach((e) => {
+            ~L.indexOf(e) || (b[e] = b[e] || null);
+          }),
+          b
+        );
       }
       (t.parse = y),
         (t.format = a),
@@ -575,213 +576,213 @@
         i.d(t, "h", () => {
           return x;
         });
-      var n = i("tpqs"),
-        r = {
-          pdf: "application/pdf",
-          "3gpp": "video/3gpp",
-          adp: "audio/adpcm",
-          au: "audio/basic",
-          snd: "audio/basic",
-          mid: "audio/midi",
-          midi: "audio/midi",
-          kar: "audio/midi",
-          rmi: "audio/midi",
-          mp3: "audio/mpeg",
-          m4a: "audio/mp4",
-          mp4a: "audio/mp4",
-          mpga: "audio/mpeg",
-          mp2: "audio/mpeg",
-          mp2a: "audio/mpeg",
-          m2a: "audio/mpeg",
-          m3a: "audio/mpeg",
-          oga: "audio/ogg",
-          ogg: "audio/ogg",
-          spx: "audio/ogg",
-          s3m: "audio/s3m",
-          sil: "audio/silk",
-          uva: "audio/vnd.dece.audio",
-          uvva: "audio/vnd.dece.audio",
-          eol: "audio/vnd.digital-winds",
-          dra: "audio/vnd.dra",
-          dts: "audio/vnd.dts",
-          dtshd: "audio/vnd.dts.hd",
-          lvp: "audio/vnd.lucent.voice",
-          pya: "audio/vnd.ms-playready.media.pya",
-          ecelp4800: "audio/vnd.nuera.ecelp4800",
-          ecelp7470: "audio/vnd.nuera.ecelp7470",
-          ecelp9600: "audio/vnd.nuera.ecelp9600",
-          rip: "audio/vnd.rip",
-          wav: "audio/wave",
-          weba: "audio/webm",
-          aac: "audio/x-aac",
-          aif: "audio/x-aiff",
-          aiff: "audio/x-aiff",
-          aifc: "audio/x-aiff",
-          caf: "audio/x-caf",
-          flac: "audio/x-flac",
-          mka: "audio/x-matroska",
-          m3u: "audio/x-mpegurl",
-          wax: "audio/x-ms-wax",
-          wma: "audio/x-ms-wma",
-          ram: "audio/x-pn-realaudio",
-          ra: "audio/x-pn-realaudio",
-          rmp: "audio/x-pn-realaudio-plugin",
-          xm: "audio/xm",
-          exr: "image/aces",
-          apng: "image/apng",
-          bmp: "image/bmp",
-          cgm: "image/cgm",
-          drle: "image/dicom-rle",
-          emf: "image/emf",
-          fits: "image/fits",
-          g3: "image/g3fax",
-          gif: "image/gif",
-          heic: "image/heic",
-          heics: "image/heic-sequence",
-          heif: "image/heif",
-          heifs: "image/heif-sequence",
-          hej2: "image/hej2k",
-          hsj2: "image/hsj2",
-          ief: "image/ief",
-          jls: "image/jls",
-          jp2: "image/jp2",
-          jpg2: "image/jp2",
-          jpeg: "image/jpeg",
-          jpg: "image/jpeg",
-          jpe: "image/jpeg",
-          jph: "image/jph",
-          jhc: "image/jphc",
-          jpm: "image/jpm",
-          jpx: "image/jpx",
-          jpf: "image/jpx",
-          jxr: "image/jxr",
-          jxra: "image/jxra",
-          jxrs: "image/jxrs",
-          jxs: "image/jxs",
-          jxsc: "image/jxsc",
-          jxsi: "image/jxsi",
-          jxss: "image/jxss",
-          ktx: "image/ktx",
-          png: "image/png",
-          btif: "image/prs.btif",
-          pti: "image/prs.pti",
-          sgi: "image/sgi",
-          svg: "image/svg+xml",
-          svgz: "image/svg+xml",
-          t38: "image/t38",
-          tif: "image/tiff",
-          tiff: "image/tiff",
-          tfx: "image/tiff-fx",
-          psd: "image/vnd.adobe.photoshop",
-          azv: "image/vnd.airzip.accelerator.azv",
-          uvi: "image/vnd.dece.graphic",
-          uvvi: "image/vnd.dece.graphic",
-          uvg: "image/vnd.dece.graphic",
-          uvvg: "image/vnd.dece.graphic",
-          djvu: "image/vnd.djvu",
-          djv: "image/vnd.djvu",
-          sub: "image/vnd.dvb.subtitle",
-          dwg: "image/vnd.dwg",
-          dxf: "image/vnd.dxf",
-          fbs: "image/vnd.fastbidsheet",
-          fpx: "image/vnd.fpx",
-          fst: "image/vnd.fst",
-          mmr: "image/vnd.fujixerox.edmics-mmr",
-          rlc: "image/vnd.fujixerox.edmics-rlc",
-          ico: "image/vnd.microsoft.icon",
-          dds: "image/vnd.ms-dds",
-          mdi: "image/vnd.ms-modi",
-          wdp: "image/vnd.ms-photo",
-          npx: "image/vnd.net-fpx",
-          tap: "image/vnd.tencent.tap",
-          vtf: "image/vnd.valve.source.texture",
-          wbmp: "image/vnd.wap.wbmp",
-          xif: "image/vnd.xiff",
-          pcx: "image/vnd.zbrush.pcx",
-          webp: "image/webp",
-          wmf: "image/wmf",
-          "3ds": "image/x-3ds",
-          ras: "image/x-cmu-raster",
-          cmx: "image/x-cmx",
-          fh: "image/x-freehand",
-          fhc: "image/x-freehand",
-          fh4: "image/x-freehand",
-          fh5: "image/x-freehand",
-          fh7: "image/x-freehand",
-          jng: "image/x-jng",
-          sid: "image/x-mrsid-image",
-          pic: "image/x-pict",
-          pct: "image/x-pict",
-          pnm: "image/x-portable-anymap",
-          pbm: "image/x-portable-bitmap",
-          pgm: "image/x-portable-graymap",
-          ppm: "image/x-portable-pixmap",
-          rgb: "image/x-rgb",
-          tga: "image/x-tga",
-          xbm: "image/x-xbitmap",
-          xpm: "image/x-xpixmap",
-          xwd: "image/x-xwindowdump",
-          "3gp": "video/3gpp",
-          "3g2": "video/3gpp2",
-          h261: "video/h261",
-          h263: "video/h263",
-          h264: "video/h264",
-          jpgv: "video/jpeg",
-          jpgm: "video/jpm",
-          mj2: "video/mj2",
-          mjp2: "video/mj2",
-          ts: "video/mp2t",
-          mp4: "video/mp4",
-          mp4v: "video/mp4",
-          mpg4: "video/mp4",
-          mpeg: "video/mpeg",
-          mpg: "video/mpeg",
-          mpe: "video/mpeg",
-          m1v: "video/mpeg",
-          m2v: "video/mpeg",
-          ogv: "video/ogg",
-          qt: "video/quicktime",
-          mov: "video/quicktime",
-          uvh: "video/vnd.dece.hd",
-          uvvh: "video/vnd.dece.hd",
-          uvm: "video/vnd.dece.mobile",
-          uvvm: "video/vnd.dece.mobile",
-          uvp: "video/vnd.dece.pd",
-          uvvp: "video/vnd.dece.pd",
-          uvs: "video/vnd.dece.sd",
-          uvvs: "video/vnd.dece.sd",
-          uvv: "video/vnd.dece.video",
-          uvvv: "video/vnd.dece.video",
-          dvb: "video/vnd.dvb.file",
-          fvt: "video/vnd.fvt",
-          mxu: "video/vnd.mpegurl",
-          m4u: "video/vnd.mpegurl",
-          pyv: "video/vnd.ms-playready.media.pyv",
-          uvu: "video/vnd.uvvu.mp4",
-          uvvu: "video/vnd.uvvu.mp4",
-          viv: "video/vnd.vivo",
-          webm: "video/webm",
-          f4v: "video/x-f4v",
-          fli: "video/x-fli",
-          flv: "video/x-flv",
-          m4v: "video/x-m4v",
-          mkv: "video/x-matroska",
-          mk3d: "video/x-matroska",
-          mks: "video/x-matroska",
-          mng: "video/x-mng",
-          asf: "video/x-ms-asf",
-          asx: "video/x-ms-asf",
-          vob: "video/x-ms-vob",
-          wm: "video/x-ms-wm",
-          wmv: "video/x-ms-wmv",
-          wmx: "video/x-ms-wmx",
-          wvx: "video/x-ms-wvx",
-          avi: "video/x-msvideo",
-          movie: "video/x-sgi-movie",
-          smv: "video/x-smv",
-        },
-        o = i("tSgl"),
-        a = i.n(o);
+      const n = i("tpqs"),
+            r = {
+              pdf: "application/pdf",
+              "3gpp": "video/3gpp",
+              adp: "audio/adpcm",
+              au: "audio/basic",
+              snd: "audio/basic",
+              mid: "audio/midi",
+              midi: "audio/midi",
+              kar: "audio/midi",
+              rmi: "audio/midi",
+              mp3: "audio/mpeg",
+              m4a: "audio/mp4",
+              mp4a: "audio/mp4",
+              mpga: "audio/mpeg",
+              mp2: "audio/mpeg",
+              mp2a: "audio/mpeg",
+              m2a: "audio/mpeg",
+              m3a: "audio/mpeg",
+              oga: "audio/ogg",
+              ogg: "audio/ogg",
+              spx: "audio/ogg",
+              s3m: "audio/s3m",
+              sil: "audio/silk",
+              uva: "audio/vnd.dece.audio",
+              uvva: "audio/vnd.dece.audio",
+              eol: "audio/vnd.digital-winds",
+              dra: "audio/vnd.dra",
+              dts: "audio/vnd.dts",
+              dtshd: "audio/vnd.dts.hd",
+              lvp: "audio/vnd.lucent.voice",
+              pya: "audio/vnd.ms-playready.media.pya",
+              ecelp4800: "audio/vnd.nuera.ecelp4800",
+              ecelp7470: "audio/vnd.nuera.ecelp7470",
+              ecelp9600: "audio/vnd.nuera.ecelp9600",
+              rip: "audio/vnd.rip",
+              wav: "audio/wave",
+              weba: "audio/webm",
+              aac: "audio/x-aac",
+              aif: "audio/x-aiff",
+              aiff: "audio/x-aiff",
+              aifc: "audio/x-aiff",
+              caf: "audio/x-caf",
+              flac: "audio/x-flac",
+              mka: "audio/x-matroska",
+              m3u: "audio/x-mpegurl",
+              wax: "audio/x-ms-wax",
+              wma: "audio/x-ms-wma",
+              ram: "audio/x-pn-realaudio",
+              ra: "audio/x-pn-realaudio",
+              rmp: "audio/x-pn-realaudio-plugin",
+              xm: "audio/xm",
+              exr: "image/aces",
+              apng: "image/apng",
+              bmp: "image/bmp",
+              cgm: "image/cgm",
+              drle: "image/dicom-rle",
+              emf: "image/emf",
+              fits: "image/fits",
+              g3: "image/g3fax",
+              gif: "image/gif",
+              heic: "image/heic",
+              heics: "image/heic-sequence",
+              heif: "image/heif",
+              heifs: "image/heif-sequence",
+              hej2: "image/hej2k",
+              hsj2: "image/hsj2",
+              ief: "image/ief",
+              jls: "image/jls",
+              jp2: "image/jp2",
+              jpg2: "image/jp2",
+              jpeg: "image/jpeg",
+              jpg: "image/jpeg",
+              jpe: "image/jpeg",
+              jph: "image/jph",
+              jhc: "image/jphc",
+              jpm: "image/jpm",
+              jpx: "image/jpx",
+              jpf: "image/jpx",
+              jxr: "image/jxr",
+              jxra: "image/jxra",
+              jxrs: "image/jxrs",
+              jxs: "image/jxs",
+              jxsc: "image/jxsc",
+              jxsi: "image/jxsi",
+              jxss: "image/jxss",
+              ktx: "image/ktx",
+              png: "image/png",
+              btif: "image/prs.btif",
+              pti: "image/prs.pti",
+              sgi: "image/sgi",
+              svg: "image/svg+xml",
+              svgz: "image/svg+xml",
+              t38: "image/t38",
+              tif: "image/tiff",
+              tiff: "image/tiff",
+              tfx: "image/tiff-fx",
+              psd: "image/vnd.adobe.photoshop",
+              azv: "image/vnd.airzip.accelerator.azv",
+              uvi: "image/vnd.dece.graphic",
+              uvvi: "image/vnd.dece.graphic",
+              uvg: "image/vnd.dece.graphic",
+              uvvg: "image/vnd.dece.graphic",
+              djvu: "image/vnd.djvu",
+              djv: "image/vnd.djvu",
+              sub: "image/vnd.dvb.subtitle",
+              dwg: "image/vnd.dwg",
+              dxf: "image/vnd.dxf",
+              fbs: "image/vnd.fastbidsheet",
+              fpx: "image/vnd.fpx",
+              fst: "image/vnd.fst",
+              mmr: "image/vnd.fujixerox.edmics-mmr",
+              rlc: "image/vnd.fujixerox.edmics-rlc",
+              ico: "image/vnd.microsoft.icon",
+              dds: "image/vnd.ms-dds",
+              mdi: "image/vnd.ms-modi",
+              wdp: "image/vnd.ms-photo",
+              npx: "image/vnd.net-fpx",
+              tap: "image/vnd.tencent.tap",
+              vtf: "image/vnd.valve.source.texture",
+              wbmp: "image/vnd.wap.wbmp",
+              xif: "image/vnd.xiff",
+              pcx: "image/vnd.zbrush.pcx",
+              webp: "image/webp",
+              wmf: "image/wmf",
+              "3ds": "image/x-3ds",
+              ras: "image/x-cmu-raster",
+              cmx: "image/x-cmx",
+              fh: "image/x-freehand",
+              fhc: "image/x-freehand",
+              fh4: "image/x-freehand",
+              fh5: "image/x-freehand",
+              fh7: "image/x-freehand",
+              jng: "image/x-jng",
+              sid: "image/x-mrsid-image",
+              pic: "image/x-pict",
+              pct: "image/x-pict",
+              pnm: "image/x-portable-anymap",
+              pbm: "image/x-portable-bitmap",
+              pgm: "image/x-portable-graymap",
+              ppm: "image/x-portable-pixmap",
+              rgb: "image/x-rgb",
+              tga: "image/x-tga",
+              xbm: "image/x-xbitmap",
+              xpm: "image/x-xpixmap",
+              xwd: "image/x-xwindowdump",
+              "3gp": "video/3gpp",
+              "3g2": "video/3gpp2",
+              h261: "video/h261",
+              h263: "video/h263",
+              h264: "video/h264",
+              jpgv: "video/jpeg",
+              jpgm: "video/jpm",
+              mj2: "video/mj2",
+              mjp2: "video/mj2",
+              ts: "video/mp2t",
+              mp4: "video/mp4",
+              mp4v: "video/mp4",
+              mpg4: "video/mp4",
+              mpeg: "video/mpeg",
+              mpg: "video/mpeg",
+              mpe: "video/mpeg",
+              m1v: "video/mpeg",
+              m2v: "video/mpeg",
+              ogv: "video/ogg",
+              qt: "video/quicktime",
+              mov: "video/quicktime",
+              uvh: "video/vnd.dece.hd",
+              uvvh: "video/vnd.dece.hd",
+              uvm: "video/vnd.dece.mobile",
+              uvvm: "video/vnd.dece.mobile",
+              uvp: "video/vnd.dece.pd",
+              uvvp: "video/vnd.dece.pd",
+              uvs: "video/vnd.dece.sd",
+              uvvs: "video/vnd.dece.sd",
+              uvv: "video/vnd.dece.video",
+              uvvv: "video/vnd.dece.video",
+              dvb: "video/vnd.dvb.file",
+              fvt: "video/vnd.fvt",
+              mxu: "video/vnd.mpegurl",
+              m4u: "video/vnd.mpegurl",
+              pyv: "video/vnd.ms-playready.media.pyv",
+              uvu: "video/vnd.uvvu.mp4",
+              uvvu: "video/vnd.uvvu.mp4",
+              viv: "video/vnd.vivo",
+              webm: "video/webm",
+              f4v: "video/x-f4v",
+              fli: "video/x-fli",
+              flv: "video/x-flv",
+              m4v: "video/x-m4v",
+              mkv: "video/x-matroska",
+              mk3d: "video/x-matroska",
+              mks: "video/x-matroska",
+              mng: "video/x-mng",
+              asf: "video/x-ms-asf",
+              asx: "video/x-ms-asf",
+              vob: "video/x-ms-vob",
+              wm: "video/x-ms-wm",
+              wmv: "video/x-ms-wmv",
+              wmx: "video/x-ms-wmx",
+              wvx: "video/x-ms-wvx",
+              avi: "video/x-msvideo",
+              movie: "video/x-sgi-movie",
+              smv: "video/x-smv",
+            },
+            o = i("tSgl"),
+            a = i.n(o);
       function s(e) {
         return e.split("/")[0];
       }
@@ -797,14 +798,14 @@
       function m(e) {
         return Object(n.extname)(e).slice(1);
       }
-      var c = e => {
+      var c = (e) => {
           for (var t = e.split("/"), i = [], n = 0; n < t.length; n++) {
-            var r = t.slice(0, n + 1).join("/");
+            const r = t.slice(0, n + 1).join("/");
             i.push(r);
           }
           return i;
         },
-        v = e => {
+        v = (e) => {
           return e.split("/").length;
         };
       function f(e) {
@@ -817,10 +818,7 @@
         return e.split("/").slice(0, -1).join("/");
       }
       function g(e) {
-        var t = e.files,
-          i = e.fileName,
-          n = e.initialValue,
-          r = e.disallowDotEnv;
+        const t = e.files, i = e.fileName, n = e.initialValue, r = e.disallowDotEnv;
         return i.includes("/")
           ? "File names cannot include forward slashes"
           : "." === i || ".." === i
@@ -838,7 +836,7 @@
           : "";
       }
       function x(e) {
-        var t = window["flag-excalidraw"];
+        const t = window["flag-excalidraw"];
         return e.endsWith(".draw") && t;
       }
     },
@@ -849,21 +847,21 @@
       }
       e.exports = (e, t, i, o) => {
         (t = t || "&"), (i = i || "=");
-        var a = {};
+        const a = {};
         if ("string" !== typeof e || 0 === e.length) return a;
-        var s = /\+/g;
+        const s = /\+/g;
         e = e.split(t);
-        var p = 1e3;
+        let p = 1e3;
         o && "number" === typeof o.maxKeys && (p = o.maxKeys);
-        var d = e.length;
+        let d = e.length;
         p > 0 && d > p && (d = p);
-        for (var u = 0; u < d; ++u) {
-          var m,
-            c,
-            v,
-            f,
-            l = e[u].replace(s, "%20"),
-            h = l.indexOf(i);
+        for (let u = 0; u < d; ++u) {
+          let m;
+          let c;
+          let v;
+          let f;
+          const l = e[u].replace(s, "%20");
+          const h = l.indexOf(i);
           h >= 0
             ? ((m = l.substr(0, h)), (c = l.substr(h + 1)))
             : ((m = l), (c = "")),
@@ -879,7 +877,7 @@
       };
       var r =
         Array.isArray ||
-        (e => {
+        ((e) => {
           return "[object Array]" === Object.prototype.toString.call(e);
         });
     },
@@ -888,7 +886,7 @@
       (t.decode = t.parse = i("kd2E")), (t.encode = t.stringify = i("4JlD"));
     },
     tSgl(e, t) {
-      e.exports = e => {
+      e.exports = (e) => {
         return /^(\.config|\.npm$|\.npm\/|__pycache__|\.cache|\.git$|\.git\/|\.upm$|\.upm\/|node_modules$|node_modules\/|_test_runner)/.test(
           e
         );

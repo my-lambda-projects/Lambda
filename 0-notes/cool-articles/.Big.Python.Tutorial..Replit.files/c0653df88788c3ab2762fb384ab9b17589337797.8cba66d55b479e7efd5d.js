@@ -4,7 +4,7 @@
     "+0Jc": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (
             (0, a.default)(e),
             e
@@ -18,20 +18,20 @@
               .replace(/&#96;/g, "`")
           );
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       (e.exports = t.default), (e.exports.default = t.default);
     },
     "+G+R": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), l.fullWidth.test(e) && o.halfWidth.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u },
-        l = r("3D9P"),
-        o = r("j+5W");
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      var l = r("3D9P");
+      var o = r("j+5W");
       (e.exports = t.default), (e.exports.default = t.default);
     },
     "+QwO": function (e, t, r) {
@@ -39,10 +39,10 @@
       function u(e) {
         return (u =
           "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
-            ? e => {
+            ? (e) => {
                 return typeof e;
               }
-            : e => {
+            : (e) => {
                 return e &&
                   "function" === typeof Symbol &&
                   e.constructor === Symbol &&
@@ -53,111 +53,27 @@
       }
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = void 0);
-      var a = we(r("RQtV")),
-        l = we(r("mIlm")),
-        o = we(r("fo/I")),
-        n = we(r("EFtU")),
-        d = we(r("uwHo")),
-        f = we(r("wzbs")),
-        s = we(r("DO/+")),
-        i = we(r("eWa3")),
-        c = we(r("bM/q")),
-        p = we(r("ioLy")),
-        _ = we(r("hHZz")),
-        v = we(r("keew")),
-        A = we(r("f2Qg")),
-        $ = we(r("9+9c")),
-        m = we(r("O24X")),
-        M = je(r("UrG+")),
-        h = je(r("u8/g")),
-        b = we(r("2JKs")),
-        y = we(r("ErBW")),
-        x = we(r("oIoB")),
-        g = we(r("HpFX")),
-        O = we(r("JJH+")),
-        I = we(r("T6ea")),
-        S = we(r("3D9P")),
-        Z = we(r("j+5W")),
-        P = we(r("+G+R")),
-        R = we(r("z/bg")),
-        F = we(r("bzqU")),
-        E = we(r("b6et")),
-        L = we(r("jq9p")),
-        C = je(r("1J+o")),
-        T = we(r("XmUC")),
-        j = we(r("UqDR")),
-        w = we(r("nPKI")),
-        B = we(r("T92C")),
-        N = we(r("RSp8")),
-        U = we(r("k6TV")),
-        G = we(r("JbVE")),
-        D = we(r("7UCG")),
-        K = we(r("OPR6")),
-        H = we(r("h61a")),
-        k = we(r("a4yE")),
-        z = we(r("3iRO")),
-        W = we(r("HNc6")),
-        V = we(r("TCPB")),
-        Y = we(r("lL5U")),
-        J = we(r("DdlK")),
-        X = we(r("91Rb")),
-        Q = we(r("lTe1")),
-        q = we(r("WYc2")),
-        ee = we(r("oC6C")),
-        te = we(r("jzpV")),
-        re = we(r("sRd9")),
-        ue = we(r("ep6D")),
-        ae = we(r("YAXW")),
-        le = we(r("gL+o")),
-        oe = we(r("8xe9")),
-        ne = we(r("OzCQ")),
-        de = we(r("MAX4")),
-        fe = je(r("bZbt")),
-        se = we(r("0Ibz")),
-        ie = we(r("Kydv")),
-        ce = we(r("538l")),
-        pe = we(r("iDGw")),
-        _e = we(r("wnSO")),
-        ve = we(r("PBn2")),
-        Ae = we(r("fsKV")),
-        $e = we(r("uiY1")),
-        me = we(r("kV3J")),
-        Me = we(r("Tz/F")),
-        he = we(r("fFTU")),
-        be = we(r("EAgE")),
-        ye = we(r("FtRZ")),
-        xe = je(r("eX7M")),
-        ge = we(r("cx81")),
-        Oe = we(r("2yzk")),
-        Ie = we(r("pkq8")),
-        Se = we(r("J75B")),
-        Ze = we(r("+0Jc")),
-        Pe = we(r("h5fY")),
-        Re = we(r("PKOW")),
-        Fe = we(r("iUSg")),
-        Ee = we(r("XaH3")),
-        Le = we(r("/Cot")),
-        Ce = we(r("D/nH"));
+      const a = we(r("RQtV")), l = we(r("mIlm")), o = we(r("fo/I")), n = we(r("EFtU")), d = we(r("uwHo")), f = we(r("wzbs")), s = we(r("DO/+")), i = we(r("eWa3")), c = we(r("bM/q")), p = we(r("ioLy")), _ = we(r("hHZz")), v = we(r("keew")), A = we(r("f2Qg")), $ = we(r("9+9c")), m = we(r("O24X")), M = je(r("UrG+")), h = je(r("u8/g")), b = we(r("2JKs")), y = we(r("ErBW")), x = we(r("oIoB")), g = we(r("HpFX")), O = we(r("JJH+")), I = we(r("T6ea")), S = we(r("3D9P")), Z = we(r("j+5W")), P = we(r("+G+R")), R = we(r("z/bg")), F = we(r("bzqU")), E = we(r("b6et")), L = we(r("jq9p")), C = je(r("1J+o")), T = we(r("XmUC")), j = we(r("UqDR")), w = we(r("nPKI")), B = we(r("T92C")), N = we(r("RSp8")), U = we(r("k6TV")), G = we(r("JbVE")), D = we(r("7UCG")), K = we(r("OPR6")), H = we(r("h61a")), k = we(r("a4yE")), z = we(r("3iRO")), W = we(r("HNc6")), V = we(r("TCPB")), Y = we(r("lL5U")), J = we(r("DdlK")), X = we(r("91Rb")), Q = we(r("lTe1")), q = we(r("WYc2")), ee = we(r("oC6C")), te = we(r("jzpV")), re = we(r("sRd9")), ue = we(r("ep6D")), ae = we(r("YAXW")), le = we(r("gL+o")), oe = we(r("8xe9")), ne = we(r("OzCQ")), de = we(r("MAX4")), fe = je(r("bZbt")), se = we(r("0Ibz")), ie = we(r("Kydv")), ce = we(r("538l")), pe = we(r("iDGw")), _e = we(r("wnSO")), ve = we(r("PBn2")), Ae = we(r("fsKV")), $e = we(r("uiY1")), me = we(r("kV3J")), Me = we(r("Tz/F")), he = we(r("fFTU")), be = we(r("EAgE")), ye = we(r("FtRZ")), xe = je(r("eX7M")), ge = we(r("cx81")), Oe = we(r("2yzk")), Ie = we(r("pkq8")), Se = we(r("J75B")), Ze = we(r("+0Jc")), Pe = we(r("h5fY")), Re = we(r("PKOW")), Fe = we(r("iUSg")), Ee = we(r("XaH3")), Le = we(r("/Cot")), Ce = we(r("D/nH"));
       function Te() {
         if ("function" !== typeof WeakMap) return null;
-        var e = new WeakMap();
-        return (Te = () => {
-          return e;
-        }),
-        e
-      ;
+        const e = new WeakMap();
+        return (
+          (Te = () => {
+            return e;
+          }),
+          e
+        );
       }
       function je(e) {
         if (e && e.__esModule) return e;
         if (null === e || ("object" !== u(e) && "function" !== typeof e))
           return { default: e };
-        var t = Te();
+        const t = Te();
         if (t && t.has(e)) return t.get(e);
-        var r = {},
-          a = Object.defineProperty && Object.getOwnPropertyDescriptor;
-        for (var l in e)
+        const r = {}, a = Object.defineProperty && Object.getOwnPropertyDescriptor;
+        for (const l in e)
           if (Object.prototype.hasOwnProperty.call(e, l)) {
-            var o = a ? Object.getOwnPropertyDescriptor(e, l) : null;
+            const o = a ? Object.getOwnPropertyDescriptor(e, l) : null;
             o && (o.get || o.set)
               ? Object.defineProperty(r, l, o)
               : (r[l] = e[l]);
@@ -167,7 +83,7 @@
       function we(e) {
         return e && e.__esModule ? e : { default: e };
       }
-      var Be = {
+      const Be = {
         version: "13.0.0",
         toDate: a.default,
         toFloat: l.default,
@@ -269,11 +185,11 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = function (e) {
-          var t =
-              arguments.length > 1 && void 0 !== arguments[1]
-                ? arguments[1]
-                : "",
-            r = e.join("");
+          const t =
+                    arguments.length > 1 && void 0 !== arguments[1]
+                      ? arguments[1]
+                      : "",
+                r = e.join("");
           return new RegExp(r, t);
         }),
         (e.exports = t.default),
@@ -284,9 +200,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = (e, t) => {
           t = (0, a.default)(t, l);
-          var r = e.split("@"),
-            u = r.pop(),
-            i = [r.join("@"), u];
+          const r = e.split("@"), u = r.pop(), i = [r.join("@"), u];
           if (
             ((i[1] = i[1].toLowerCase()),
             "gmail.com" === i[1] || "googlemail.com" === i[1])
@@ -318,7 +232,7 @@
               (i[0] = i[0].toLowerCase());
           } else if (d.indexOf(i[1]) >= 0) {
             if (t.yahoo_remove_subaddress) {
-              var c = i[0].split("-");
+              const c = i[0].split("-");
               i[0] = c.length > 1 ? c.slice(0, -1).join("-") : c[0];
             }
             if (!i[0].length) return !1;
@@ -332,8 +246,8 @@
               : t.all_lowercase && (i[0] = i[0].toLowerCase());
           return i.join("@");
         });
-      var u,
-        a = (u = r("5AlR")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("5AlR")) && u.__esModule ? u : { default: u };
       var l = {
           all_lowercase: !0,
           gmail_lowercase: !0,
@@ -460,11 +374,11 @@
     "0Ibz": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), l.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^(0x)[0-9a-f]{40}$/i;
       (e.exports = t.default), (e.exports.default = t.default);
     },
@@ -473,14 +387,14 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = (e, t) => {
           (0, a.default)(e), (t = t || {});
-          var r = new RegExp(
+          const r = new RegExp(
             "^(?:[-+])?(?:[0-9]+)?(?:\\".concat(
               t.locale ? l.decimal[t.locale] : ".",
               "[0-9]*)?(?:[eE][\\+\\-]?(?:[0-9]+))?$"
             )
           );
           if ("" === e || "." === e || "-" === e || "+" === e) return !1;
-          var u = parseFloat(e.replace(",", "."));
+          const u = parseFloat(e.replace(",", "."));
           return (
             r.test(e) &&
             (!t.hasOwnProperty("min") || u >= t.min) &&
@@ -490,10 +404,10 @@
           );
         }),
         (t.locales = void 0);
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u },
-        l = r("Jaob");
-      var o = Object.keys(l.decimal);
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      var l = r("Jaob");
+      const o = Object.keys(l.decimal);
       t.locales = o;
     },
     "2Idn": function (e, t, r) {
@@ -501,10 +415,10 @@
       function u(e) {
         return (u =
           "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
-            ? e => {
+            ? (e) => {
                 return typeof e;
               }
-            : e => {
+            : (e) => {
                 return e &&
                   "function" === typeof Symbol &&
                   e.constructor === Symbol &&
@@ -514,9 +428,9 @@
               })(e);
       }
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           if (!("string" === typeof e || e instanceof String)) {
-            var t;
+            let t;
             throw (
               ((t =
                 null === e
@@ -540,8 +454,8 @@
           if (((0, a.default)(e), t && t.no_symbols)) return o.test(e);
           return l.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^[+-]?([0-9]*[.])?[0-9]+$/,
         o = /^[0-9]+$/;
       (e.exports = t.default), (e.exports.default = t.default);
@@ -551,7 +465,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = (e, t) => {
           (0, a.default)(e);
-          var r = t
+          const r = t
             ? new RegExp(
                 "[".concat(t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "]+$"),
                 "g"
@@ -559,19 +473,19 @@
             : /\s+$/g;
           return e.replace(r, "");
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       (e.exports = t.default), (e.exports.default = t.default);
     },
     "3D9P": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), l.test(e);
         }),
         (t.fullWidth = void 0);
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l =
         /[^\u0020-\u007E\uFF61-\uFF9F\uFFA0-\uFFDC\uFFE8-\uFFEE0-9a-zA-Z]/;
       t.fullWidth = l;
@@ -585,8 +499,8 @@
             new RegExp("^[a-fA-F0-9]{".concat(l[t], "}$")).test(e)
           );
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = {
         md5: 32,
         md4: 32,
@@ -607,11 +521,11 @@
     "538l": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), l.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^(bc1|[13])[a-zA-HJ-NP-Z0-9]{25,39}$/;
       (e.exports = t.default), (e.exports.default = t.default);
     },
@@ -619,12 +533,12 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = function () {
-          var e =
-              arguments.length > 0 && void 0 !== arguments[0]
-                ? arguments[0]
-                : {},
-            t = arguments.length > 1 ? arguments[1] : void 0;
-          for (var r in t) "undefined" === typeof e[r] && (e[r] = t[r]);
+          const e =
+                    arguments.length > 0 && void 0 !== arguments[0]
+                      ? arguments[0]
+                      : {},
+                t = arguments.length > 1 ? arguments[1] : void 0;
+          for (const r in t) "undefined" === typeof e[r] && (e[r] = t[r]);
           return e;
         }),
         (e.exports = t.default),
@@ -633,23 +547,23 @@
     "7UCG": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), l.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^[A-Z]{2}[0-9A-Z]{3}\d{2}\d{5}$/;
       (e.exports = t.default), (e.exports.default = t.default);
     },
     "8xe9": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           if (((0, a.default)(e), !l.test(e))) return !1;
           for (
             var t,
               r,
-              u = e.replace(/[A-Z]/g, e => {
+              u = e.replace(/[A-Z]/g, (e) => {
                 return parseInt(e, 36);
               }),
               o = 0,
@@ -664,42 +578,42 @@
               (n = !n);
           return parseInt(e.substr(e.length - 1), 10) === (1e4 - o) % 10;
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^[A-Z]{2}[0-9A-Z]{9}[0-9]$/;
       (e.exports = t.default), (e.exports.default = t.default);
     },
     "9+9c": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), ["true", "false", "1", "0"].indexOf(e) >= 0;
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       (e.exports = t.default), (e.exports.default = t.default);
     },
     "91Rb": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = function (e, t) {
-          var r, u;
+          let r, u;
           (0, a.default)(e),
             "object" === l(t)
               ? ((r = t.min || 0), (u = t.max))
               : ((r = arguments[1]), (u = arguments[2]));
-          var o = encodeURI(e).split(/%..|./).length - 1;
+          const o = encodeURI(e).split(/%..|./).length - 1;
           return o >= r && ("undefined" === typeof u || o <= u);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       function l(e) {
         return (l =
           "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
-            ? e => {
+            ? (e) => {
                 return typeof e;
               }
-            : e => {
+            : (e) => {
                 return e &&
                   "function" === typeof Symbol &&
                   e.constructor === Symbol &&
@@ -713,11 +627,11 @@
     "D/nH": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), l.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^[^-_](?!.*?[-_]{2,})([a-z0-9\\-]{1,}).*[^-_]$/;
       (e.exports = t.default), (e.exports.default = t.default);
     },
@@ -730,32 +644,31 @@
               (t = new RegExp(t, r));
           return t.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       (e.exports = t.default), (e.exports.default = t.default);
     },
     DdlK(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = function (e, t) {
-          var r, u;
+          let r, u;
           (0, a.default)(e),
             "object" === l(t)
               ? ((r = t.min || 0), (u = t.max))
               : ((r = arguments[1] || 0), (u = arguments[2]));
-          var o = e.match(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g) || [],
-            n = e.length - o.length;
+          const o = e.match(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g) || [], n = e.length - o.length;
           return n >= r && ("undefined" === typeof u || n <= u);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       function l(e) {
         return (l =
           "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
-            ? e => {
+            ? (e) => {
                 return typeof e;
               }
-            : e => {
+            : (e) => {
                 return e &&
                   "function" === typeof Symbol &&
                   e.constructor === Symbol &&
@@ -769,11 +682,11 @@
     EAgE(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), l.test(e) || o.test(e) || n.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l =
           /^(application|audio|font|image|message|model|multipart|text|video)\/[a-zA-Z0-9\.\-\+]{1,100}$/i,
         o =
@@ -789,15 +702,15 @@
           if (((0, a.default)(e), t)) return "1" === e || /^true$/i.test(e);
           return "0" !== e && !/^false$/i.test(e) && "" !== e;
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       (e.exports = t.default), (e.exports.default = t.default);
     },
     ErBW(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = (e, t) => {
-          var r = e.replace(/\s/g, "").toUpperCase();
+          const r = e.replace(/\s/g, "").toUpperCase();
           return t.toUpperCase() in u && u[t].test(r);
         });
       var u = {
@@ -848,9 +761,9 @@
     FtRZ(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           if (((0, a.default)(e), !e.includes(","))) return !1;
-          var t = e.split(",");
+          const t = e.split(",");
           return (
             !(
               (t[0].startsWith("(") && !t[1].endsWith(")")) ||
@@ -860,8 +773,8 @@
             o.test(t[1])
           );
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^\(?[+-]?(90(\.0+)?|[1-8]?\d(\.\d+)?)$/,
         o = /^\s?[+-]?(180(\.0+)?|1[0-7]\d(\.\d+)?|\d{1,2}(\.\d+)?)\)?$/;
       (e.exports = t.default), (e.exports.default = t.default);
@@ -870,8 +783,8 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = void 0);
-      var u = (e, t) => {
-        return e.some(e => {
+      const u = (e, t) => {
+        return e.some((e) => {
           return t === e;
         });
       };
@@ -880,11 +793,11 @@
     HNc6(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), l.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l =
         /^([A-Za-z0-9\-_~+\/]+[=]{0,2})\.([A-Za-z0-9\-_~+\/]+[=]{0,2})(?:\.([A-Za-z0-9\-_~+\/]+[=]{0,2}))?$/;
       (e.exports = t.default), (e.exports.default = t.default);
@@ -892,17 +805,17 @@
     HpFX(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), e === e.toLowerCase();
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       (e.exports = t.default), (e.exports.default = t.default);
     },
     J75B(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (
             (0, a.default)(e),
             e
@@ -916,18 +829,18 @@
               .replace(/`/g, "&#96;")
           );
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       (e.exports = t.default), (e.exports.default = t.default);
     },
     "JJH+": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), e === e.toUpperCase();
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       (e.exports = t.default), (e.exports.default = t.default);
     },
     Jaob(e, t, r) {
@@ -941,7 +854,7 @@
           t.alphanumeric =
           t.alpha =
             void 0);
-      var u = {
+      const u = {
         "en-US": /^[A-Z]+$/i,
         "bg-BG": /^[\u0410-\u042f]+$/i,
         "cs-CZ":
@@ -979,7 +892,7 @@
           /^['\u0622\u0627\u0628\u067e\u062a\u062b\u062c\u0686\u0647\u062e\u062f\u0630\u0631\u0632\u0698\u0633\u0634\u0635\u0636\u0637\u0638\u0639\u063a\u0641\u0642\u06a9\u06af\u0644\u0645\u0646\u0648\u0647\u06cc']+$/i,
       };
       t.alpha = u;
-      var a = {
+      const a = {
         "en-US": /^[0-9A-Z]+$/i,
         "bg-BG": /^[0-9\u0410-\u042f]+$/i,
         "cs-CZ":
@@ -1017,15 +930,15 @@
           /^['0-9\u0622\u0627\u0628\u067e\u062a\u062b\u062c\u0686\u0647\u062e\u062f\u0630\u0631\u0632\u0698\u0633\u0634\u0635\u0636\u0637\u0638\u0639\u063a\u0641\u0642\u06a9\u06af\u0644\u0645\u0646\u0648\u0647\u06cc\u06f1\u06f2\u06f3\u06f4\u06f5\u06f6\u06f7\u06f8\u06f9\u06f0']+$/i,
       };
       t.alphanumeric = a;
-      var l = { "en-US": ".", ar: "\u066b" };
+      const l = { "en-US": ".", ar: "\u066b" };
       t.decimal = l;
-      var o = ["AU", "GB", "HK", "IN", "NZ", "ZA", "ZM"];
+      const o = ["AU", "GB", "HK", "IN", "NZ", "ZA", "ZM"];
       t.englishLocales = o;
-      for (var n, d = 0; d < o.length; d++)
+      for (let n, d = 0; d < o.length; d++)
         (u[(n = "en-".concat(o[d]))] = u["en-US"]),
           (a[n] = a["en-US"]),
           (l[n] = l["en-US"]);
-      var f = [
+      const f = [
         "AE",
         "BH",
         "DZ",
@@ -1045,11 +958,11 @@
         "YE",
       ];
       t.arabicLocales = f;
-      for (var s, i = 0; i < f.length; i++)
+      for (let s, i = 0; i < f.length; i++)
         (u[(s = "ar-".concat(f[i]))] = u.ar), (a[s] = a.ar), (l[s] = l.ar);
-      var c = ["ar-EG", "ar-LB", "ar-LY"];
+      const c = ["ar-EG", "ar-LB", "ar-LY"];
       t.dotDecimal = c;
-      var p = [
+      const p = [
         "bg-BG",
         "cs-CZ",
         "da-DK",
@@ -1075,8 +988,8 @@
         "uk-UA",
       ];
       t.commaDecimal = p;
-      for (var _ = 0; _ < c.length; _++) l[c[_]] = l["en-US"];
-      for (var v = 0; v < p.length; v++) l[p[v]] = ",";
+      for (let _ = 0; _ < c.length; _++) l[c[_]] = l["en-US"];
+      for (let v = 0; v < p.length; v++) l[p[v]] = ",";
       (u["pt-BR"] = u["pt-PT"]),
         (a["pt-BR"] = a["pt-PT"]),
         (l["pt-BR"] = l["pt-PT"]),
@@ -1087,11 +1000,11 @@
     JbVE(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), l.test(e) || o.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l =
           /^(hsl)a?\(\s*((\+|\-)?([0-9]+(\.[0-9]+)?(e(\+|\-)?[0-9]+)?|\.[0-9]+(e(\+|\-)?[0-9]+)?))(deg|grad|rad|turn|\s*)(\s*,\s*(\+|\-)?([0-9]+(\.[0-9]+)?(e(\+|\-)?[0-9]+)?|\.[0-9]+(e(\+|\-)?[0-9]+)?)%){2}\s*(,\s*((\+|\-)?([0-9]+(\.[0-9]+)?(e(\+|\-)?[0-9]+)?|\.[0-9]+(e(\+|\-)?[0-9]+)?)%?)\s*)?\)$/i,
         o =
@@ -1103,25 +1016,31 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = (e, t) => {
           return (0, a.default)(e),
-          (e => {
-            var t = "\\d{".concat(e.digits_after_decimal[0], "}");
+          ((e) => {
+            let t = "\\d{".concat(e.digits_after_decimal[0], "}");
             e.digits_after_decimal.forEach((e, r) => {
               0 !== r && (t = "".concat(t, "|\\d{").concat(e, "}"));
             });
-            var r = "(\\"
+
+            const r = "(\\"
                 .concat(e.symbol.replace(/\./g, "\\."), ")")
-                .concat(e.require_symbol ? "" : "?"),
-              u = "-?",
-              a = "[1-9]\\d{0,2}(\\".concat(
-                e.thousands_separator,
-                "\\d{3})*"
-              ),
-              l = "(".concat(["0", "[1-9]\\d*", a].join("|"), ")?"),
-              o = "(\\"
-                .concat(e.decimal_separator, "(")
-                .concat(t, "))")
-                .concat(e.require_decimal ? "" : "?"),
-              n = l + (e.allow_decimal || e.require_decimal ? o : "");
+                .concat(e.require_symbol ? "" : "?");
+
+            const u = "-?";
+
+            const a = "[1-9]\\d{0,2}(\\".concat(
+              e.thousands_separator,
+              "\\d{3})*"
+            );
+
+            const l = "(".concat(["0", "[1-9]\\d*", a].join("|"), ")?");
+
+            const o = "(\\"
+              .concat(e.decimal_separator, "(")
+              .concat(t, "))")
+              .concat(e.require_decimal ? "" : "?");
+
+            let n = l + (e.allow_decimal || e.require_decimal ? o : "");
             e.allow_negatives &&
               !e.parens_for_negatives &&
               (e.negative_sign_after_digits
@@ -1140,7 +1059,7 @@
                   e.negative_sign_after_digits ||
                   (n = u + n));
             return new RegExp("^(?!-? )(?=.*\\d)".concat(n, "$"));
-          })(t = (0, u.default)(t, o)).test(e)
+          })((t = (0, u.default)(t, o))).test(e)
         ;
         });
       var u = l(r("5AlR")),
@@ -1171,10 +1090,10 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = function (e) {
-          var t =
+          const t =
             arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
           (0, a.default)(e);
-          var r = l;
+          let r = l;
           if (
             ((r = t.require_hyphen ? r.replace("?", "") : r),
             !(r = t.case_sensitive ? new RegExp(r) : new RegExp(r, "i")).test(
@@ -1187,56 +1106,58 @@
             n < u.length;
             n++
           ) {
-            var d = u[n];
+            const d = u[n];
             o += ("X" === d ? 10 : +d) * (8 - n);
           }
           return o % 11 === 0;
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = "^\\d{4}-?\\d{3}[\\dX]$";
       (e.exports = t.default), (e.exports.default = t.default);
     },
     O24X(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           if (
             ((0, a.default)(e), "en_US_POSIX" === e || "ca_ES_VALENCIA" === e)
           )
             return !0;
           return l.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^[A-z]{2,4}([_-]([A-z]{4}|[\d]{3}))?([_-]([A-z]{2}|[\d]{3}))?$/;
       (e.exports = t.default), (e.exports.default = t.default);
     },
     OPR6(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e),
-          (e => {
-            var t = e.replace(/[\s\-]+/gi, "").toUpperCase(),
-              r = t.slice(0, 2).toUpperCase();
+          ((e) => {
+            const t = e.replace(/[\s\-]+/gi, "").toUpperCase(), r = t.slice(0, 2).toUpperCase();
             return r in l && l[r].test(t);
-          })(e) && (e => {
-            var t = e.replace(/[^A-Z0-9]+/gi, "").toUpperCase();
-            return 1 ===
-            (t.slice(4) + t.slice(0, 4))
-              .replace(/[A-Z]/g, e => {
-                return e.charCodeAt(0) - 55;
-              })
-              .match(/\d{1,7}/g)
-              .reduce((e, t) => {
-                return Number(e + t) % 97;
-              }, "");
-          })(e)
+          })(e) &&
+            ((e) => {
+              const t = e.replace(/[^A-Z0-9]+/gi, "").toUpperCase();
+              return (
+                1 ===
+                (t.slice(4) + t.slice(0, 4))
+                  .replace(/[A-Z]/g, (e) => {
+                    return e.charCodeAt(0) - 55;
+                  })
+                  .match(/\d{1,7}/g)
+                  .reduce((e, t) => {
+                    return Number(e + t) % 97;
+                  }, "")
+              );
+            })(e)
         ;
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = {
         AD: /^(AD[0-9]{2})\d{8}[A-Z0-9]{12}$/,
         AE: /^(AE[0-9]{2})\d{3}\d{16}$/,
@@ -1319,30 +1240,30 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = function e(t) {
-          var r =
-            arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "";
-          if (((0, a.default)(t), !(r = String(r))))
-            return e(t, 10) || e(t, 13);
-          var u,
-            d = t.replace(/[\s-]+/g, ""),
-            f = 0;
-          if ("10" === r) {
-            if (!l.test(d)) return !1;
-            for (u = 0; u < 9; u++) f += (u + 1) * d.charAt(u);
-            if (
-              ("X" === d.charAt(9) ? (f += 100) : (f += 10 * d.charAt(9)),
-              f % 11 === 0)
-            )
-              return !!d;
-          } else if ("13" === r) {
-            if (!o.test(d)) return !1;
-            for (u = 0; u < 12; u++) f += n[u % 2] * d.charAt(u);
-            if (d.charAt(12) - ((10 - (f % 10)) % 10) === 0) return !!d;
-          }
-          return !1;
-        });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+        let r =
+          arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "";
+        if (((0, a.default)(t), !(r = String(r))))
+          return e(t, 10) || e(t, 13);
+        let u;
+        const d = t.replace(/[\s-]+/g, "");
+        let f = 0;
+        if ("10" === r) {
+          if (!l.test(d)) return !1;
+          for (u = 0; u < 9; u++) f += (u + 1) * d.charAt(u);
+          if (
+            ("X" === d.charAt(9) ? (f += 100) : (f += 10 * d.charAt(9)),
+            f % 11 === 0)
+          )
+            return !!d;
+        } else if ("13" === r) {
+          if (!o.test(d)) return !1;
+          for (u = 0; u < 12; u++) f += n[u % 2] * d.charAt(u);
+          if (d.charAt(12) - ((10 - (f % 10)) % 10) === 0) return !!d;
+        }
+        return !1;
+      });
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^(?:[0-9]{9}X|[0-9]{10})$/,
         o = /^(?:[0-9]{13})$/,
         n = [1, 3];
@@ -1351,7 +1272,7 @@
     PBn2(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, u.default)(e), (0, a.default)(o, e.toUpperCase());
         });
       var u = l(r("2Idn")),
@@ -1621,93 +1542,95 @@
             e.replace(new RegExp("[^".concat(t, "]+"), "g"), "")
           );
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       (e.exports = t.default), (e.exports.default = t.default);
     },
     QKoY(e, t, r) {
       "use strict";
-      var u = r("vJKn"),
-        a = r.n(u),
-        l = r("rg98"),
-        o = r("+QwO"),
-        n = r("G5Ub");
+      const u = r("vJKn"), a = r.n(u), l = r("rg98"), o = r("+QwO"), n = r("G5Ub");
       t.a = {
         isEmail: [[o.isEmail, "Invalid email address"]],
         email: [
           [o.isEmail, "Invalid email address"],
-          [(() => {
-            var e = Object(l.a)(
-              a.a.mark(function e(t) {
-                var r, u;
-                return a.a.wrap(e => {
-                  for (;;)
-                    switch ((e.prev = e.next)) {
-                      case 0:
-                        return (
-                          (e.next = 2),
-                          Object(n.d)("/data/user/exists", { email: t })
-                        );
-                      case 2:
-                        return (
-                          (r = e.sent), (u = r.exists), e.abrupt("return", !u)
-                        );
-                      case 5:
-                      case "end":
-                        return e.stop();
-                    }
-                }, e);
-              })
-            );
-            return function (t) {
-              return e.apply(this, arguments);
-            };
-          })(), "Email already in use"],
+          [
+            (() => {
+              const e = Object(l.a)(
+                a.a.mark(function e(t) {
+                  let r, u;
+                  return a.a.wrap((e) => {
+                    for (;;)
+                      switch ((e.prev = e.next)) {
+                        case 0:
+                          return (
+                            (e.next = 2),
+                            Object(n.d)("/data/user/exists", { email: t })
+                          );
+                        case 2:
+                          return (
+                            (r = e.sent), (u = r.exists), e.abrupt("return", !u)
+                          );
+                        case 5:
+                        case "end":
+                          return e.stop();
+                      }
+                  }, e);
+                })
+              );
+              return function (t) {
+                return e.apply(this, arguments);
+              };
+            })(),
+            "Email already in use",
+          ],
         ],
         username: [
           [
-            e => {
+            (e) => {
               return Object(o.isByteLength)(e, 2, 15);
             },
             "Your username must be between 2 and 15 characters",
           ],
           [
-            e => {
+            (e) => {
               return !!e.match(/^[0-9a-zA-Z]+$/);
             },
             "Your username can only contain alphanumeric characters (letters A-Z, numbers 0-9)",
           ],
-          [(() => {
-            var e = Object(l.a)(
-              a.a.mark(function e(t) {
-                var r, u;
-                return a.a.wrap(e => {
-                  for (;;)
-                    switch ((e.prev = e.next)) {
-                      case 0:
-                        return (
-                          (e.next = 2),
-                          Object(n.d)("/data/user/exists", { username: t })
-                        );
-                      case 2:
-                        return (
-                          (r = e.sent), (u = r.exists), e.abrupt("return", !u)
-                        );
-                      case 5:
-                      case "end":
-                        return e.stop();
-                    }
-                }, e);
-              })
-            );
-            return function (t) {
-              return e.apply(this, arguments);
-            };
-          })(), "Username is taken"],
+          [
+            (() => {
+              const e = Object(l.a)(
+                a.a.mark(function e(t) {
+                  let r, u;
+                  return a.a.wrap((e) => {
+                    for (;;)
+                      switch ((e.prev = e.next)) {
+                        case 0:
+                          return (
+                            (e.next = 2),
+                            Object(n.d)("/data/user/exists", { username: t })
+                          );
+                        case 2:
+                          return (
+                            (r = e.sent), (u = r.exists), e.abrupt("return", !u)
+                          );
+                        case 5:
+                        case "end":
+                          return e.stop();
+                      }
+                  }, e);
+                })
+              );
+              return function (t) {
+                return e.apply(this, arguments);
+              };
+            })(),
+            "Username is taken",
+          ],
         ],
         name: [
           [
-            e => {
+            (e) => {
               return Object(o.isByteLength)(e, 1, 255);
             },
             "Your name must be at least 1 character long",
@@ -1715,7 +1638,7 @@
         ],
         password: [
           [
-            e => {
+            (e) => {
               return Object(o.isByteLength)(e, 6, 255);
             },
             "Your password must be at least 6 characters long",
@@ -1723,7 +1646,7 @@
         ],
         classroomName: [
           [
-            e => {
+            (e) => {
               return Object(o.isByteLength)(e, 1, 255);
             },
             "Classroom name must be at least 1 character long",
@@ -1731,7 +1654,7 @@
         ],
         replTitle: [
           [
-            e => {
+            (e) => {
               return Object(o.isByteLength)(e, 1, 60);
             },
             "Titles must be between 1 and 60 characters",
@@ -1739,7 +1662,7 @@
         ],
         replDescription: [
           [
-            e => {
+            (e) => {
               return Object(o.isByteLength)(e, 0, 255);
             },
             "Description should not be longer than 255 characters",
@@ -1747,7 +1670,7 @@
         ],
         notEmpty: [
           [
-            e => {
+            (e) => {
               return !Object(o.isEmpty)(e);
             },
             "Cannot be empty",
@@ -1755,7 +1678,7 @@
         ],
         postTitle: [
           [
-            e => {
+            (e) => {
               return (
                 Object(o.isByteLength)(e, 1, 100) && !!e.match(/[0-9a-zA-Z]+/)
               );
@@ -1765,13 +1688,13 @@
         ],
         replTag: [
           [
-            e => {
+            (e) => {
               return Object(o.isByteLength)(e, 2, 15);
             },
             "Tag must be between 2 and 15 characters",
           ],
           [
-            e => {
+            (e) => {
               return !!e.match(/^[0-9a-zA-Z_]+$/);
             },
             "Tag must be alphanumeric characters",
@@ -1779,13 +1702,13 @@
         ],
         replFolderName: [
           [
-            e => {
+            (e) => {
               return Object(o.isByteLength)(e.trim(), 1, 60);
             },
             "Folder name must be between 1 and 60 characters",
           ],
           [
-            e => {
+            (e) => {
               return !e.match(/[/*?"\\]+/);
             },
             'Folder name cannot contain /, *, ", ? \\',
@@ -1796,36 +1719,36 @@
     RQtV(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (
             (0, a.default)(e),
             (e = Date.parse(e)),
             isNaN(e) ? null : new Date(e)
           );
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       (e.exports = t.default), (e.exports.default = t.default);
     },
     RSp8(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), l.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^#?([0-9A-F]{3}|[0-9A-F]{4}|[0-9A-F]{6}|[0-9A-F]{8})$/i;
       (e.exports = t.default), (e.exports.default = t.default);
     },
     T6ea(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), l.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^[\x00-\x7F]+$/;
       (e.exports = t.default), (e.exports.default = t.default);
     },
@@ -1845,23 +1768,23 @@
     TCPB(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           (0, a.default)(e);
           try {
-            var t = JSON.parse(e);
+            const t = JSON.parse(e);
             return !!t && "object" === l(t);
           } catch (r) {}
           return !1;
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       function l(e) {
         return (l =
           "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
-            ? e => {
+            ? (e) => {
                 return typeof e;
               }
-            : e => {
+            : (e) => {
                 return e &&
                   "function" === typeof Symbol &&
                   e.constructor === Symbol &&
@@ -1875,23 +1798,22 @@
     "Tz/F": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           (0, a.default)(e);
-          var t = e.split(",");
+          const t = e.split(",");
           if (t.length < 2) return !1;
-          var r = t.shift().trim().split(";"),
-            u = r.shift();
+          const r = t.shift().trim().split(";"), u = r.shift();
           if ("data:" !== u.substr(0, 5)) return !1;
-          var d = u.substr(5);
+          const d = u.substr(5);
           if ("" !== d && !l.test(d)) return !1;
-          for (var f = 0; f < r.length; f++)
+          for (let f = 0; f < r.length; f++)
             if (f === r.length - 1 && "base64" === r[f].toLowerCase());
             else if (!o.test(r[f])) return !1;
-          for (var s = 0; s < t.length; s++) if (!n.test(t[s])) return !1;
+          for (let s = 0; s < t.length; s++) if (!n.test(t[s])) return !1;
           return !0;
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^[a-z]+\/[a-z0-9\-\+]+$/i,
         o = /^[a-z\-]+=[a-z0-9\-]+$/i,
         n = /^[a-z0-9!\$&'\(\)\*\+,;=\-\._~:@\/\?%\s]*$/i;
@@ -1900,11 +1822,11 @@
     UqDR(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), l.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^(0x|0h)?[0-9A-F]+$/i;
       (e.exports = t.default), (e.exports.default = t.default);
     },
@@ -1912,7 +1834,7 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = function (e) {
-          var t =
+          const t =
             arguments.length > 1 && void 0 !== arguments[1]
               ? arguments[1]
               : "en-US";
@@ -1920,16 +1842,16 @@
           throw new Error("Invalid locale '".concat(t, "'"));
         }),
         (t.locales = void 0);
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u },
-        l = r("Jaob");
-      var o = Object.keys(l.alpha);
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      var l = r("Jaob");
+      const o = Object.keys(l.alpha);
       t.locales = o;
     },
     WYc2(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, u.default)(e), (0, a.default)(e) && 24 === e.length;
         });
       var u = l(r("2Idn")),
@@ -1944,12 +1866,12 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = (e, t) => {
           (0, a.default)(e);
-          for (var r = e.length - 1; r >= 0; r--)
+          for (let r = e.length - 1; r >= 0; r--)
             if (-1 === t.indexOf(e[r])) return !1;
           return !0;
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       (e.exports = t.default), (e.exports.default = t.default);
     },
     XmUC(e, t, r) {
@@ -1959,15 +1881,17 @@
           if (
             ((0, a.default)(e), (t = (0, u.default)(t, d)).locale in o.decimal)
           )
-            return !(0, l.default)(f, e.replace(/ /g, "")) &&
-            (e => {
-              return new RegExp(
-                "^[-+]?([0-9]+)?(\\"
-                  .concat(o.decimal[e.locale], "[0-9]{")
-                  .concat(e.decimal_digits, "})")
-                  .concat(e.force_decimal ? "" : "?", "$")
-              );
-            })(t).test(e);
+            return (
+              !(0, l.default)(f, e.replace(/ /g, "")) &&
+              ((e) => {
+                return new RegExp(
+                  "^[-+]?([0-9]+)?(\\"
+                    .concat(o.decimal[e.locale], "[0-9]{")
+                    .concat(e.decimal_digits, "})")
+                    .concat(e.force_decimal ? "" : "?", "$")
+                );
+              })(t).test(e)
+            );
           throw new Error("Invalid locale '".concat(t.locale, "'"));
         });
       var u = n(r("5AlR")),
@@ -1987,22 +1911,21 @@
         (t.default = (e, t) => {
           if (((0, a.default)(e), t in l)) return l[t](e);
           if ("any" === t) {
-            for (var r in l) {
+            for (const r in l) {
               if (l.hasOwnProperty(r)) if ((0, l[r])(e)) return !0;
             }
             return !1;
           }
           throw new Error("Invalid locale '".concat(t, "'"));
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = {
         ES(e) {
           (0, a.default)(e);
-          var t = { X: 0, Y: 1, Z: 2 },
-            r = e.trim().toUpperCase();
+          const t = { X: 0, Y: 1, Z: 2 }, r = e.trim().toUpperCase();
           if (!/^[0-9X-Z][0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKE]$/.test(r)) return !1;
-          var u = r.slice(0, -1).replace(/[X,Y,Z]/g, e => {
+          const u = r.slice(0, -1).replace(/[X,Y,Z]/g, (e) => {
             return t[e];
           });
           return r.endsWith(
@@ -2034,46 +1957,46 @@
           );
         },
         "he-IL": function (e) {
-          var t = e.trim();
+          const t = e.trim();
           if (!/^\d{9}$/.test(t)) return !1;
           for (var r, u = t, a = 0, l = 0; l < u.length; l++)
             a += (r = Number(u[l]) * ((l % 2) + 1)) > 9 ? r - 9 : r;
           return a % 10 === 0;
         },
         "zh-TW": function (e) {
-          var t = {
-              A: 10,
-              B: 11,
-              C: 12,
-              D: 13,
-              E: 14,
-              F: 15,
-              G: 16,
-              H: 17,
-              I: 34,
-              J: 18,
-              K: 19,
-              L: 20,
-              M: 21,
-              N: 22,
-              O: 35,
-              P: 23,
-              Q: 24,
-              R: 25,
-              S: 26,
-              T: 27,
-              U: 28,
-              V: 29,
-              W: 32,
-              X: 30,
-              Y: 31,
-              Z: 33,
-            },
-            r = e.trim().toUpperCase();
+          const t = {
+                    A: 10,
+                    B: 11,
+                    C: 12,
+                    D: 13,
+                    E: 14,
+                    F: 15,
+                    G: 16,
+                    H: 17,
+                    I: 34,
+                    J: 18,
+                    K: 19,
+                    L: 20,
+                    M: 21,
+                    N: 22,
+                    O: 35,
+                    P: 23,
+                    Q: 24,
+                    R: 25,
+                    S: 26,
+                    T: 27,
+                    U: 28,
+                    V: 29,
+                    W: 32,
+                    X: 30,
+                    Y: 31,
+                    Z: 33,
+                  },
+                r = e.trim().toUpperCase();
           return !!/^[A-Z][0-9]{9}$/.test(r) &&
           Array.from(r).reduce((e, r, u) => {
             if (0 === u) {
-              var a = t[r];
+              const a = t[r];
               return (a % 10) * 9 + Math.floor(a / 10);
             }
             return 9 === u
@@ -2087,11 +2010,11 @@
     a4yE(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), l.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^[a-f0-9]{32}$/;
       (e.exports = t.default), (e.exports.default = t.default);
     },
@@ -2100,10 +2023,10 @@
       function u(e) {
         return (u =
           "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
-            ? e => {
+            ? (e) => {
                 return typeof e;
               }
-            : e => {
+            : (e) => {
                 return e &&
                   "function" === typeof Symbol &&
                   e.constructor === Symbol &&
@@ -2113,7 +2036,7 @@
               })(e);
       }
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           "object" === u(e) && null !== e
             ? (e =
                 "function" === typeof e.toString
@@ -2131,11 +2054,11 @@
     b6et(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), l.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /[\uD800-\uDBFF][\uDC00-\uDFFF]/;
       (e.exports = t.default), (e.exports.default = t.default);
     },
@@ -2146,7 +2069,7 @@
           if (((0, u.default)(e), !e || e.length >= 2083 || /[\s<>]/.test(e)))
             return !1;
           if (0 === e.indexOf("mailto:")) return !1;
-          var r, n, i, c, p, _, v, A;
+          let r, n, i, c, p, _, v, A;
           if (
             ((t = (0, o.default)(t, d)),
             (v = e.split("#")),
@@ -2176,7 +2099,7 @@
               return !1;
           }
           (c = v.join("@")), (_ = null), (A = null);
-          var $ = c.match(f);
+          const $ = c.match(f);
           $
             ? ((i = ""), (A = $[1]), (_ = $[2] || null))
             : ((v = c.split(":")),
@@ -2217,8 +2140,8 @@
         },
         f = /^\[([^\]]+)\](?::([0-9]+))?$/;
       function s(e, t) {
-        for (var r = 0; r < t.length; r++) {
-          var u = t[r];
+        for (let r = 0; r < t.length; r++) {
+          const u = t[r];
           if (
             e === u ||
             ((a = u),
@@ -2239,13 +2162,13 @@
           if (((0, a.default)(e), r && r.strictMode && !e.startsWith("+")))
             return !1;
           if (Array.isArray(t))
-            return t.some(t => {
+            return t.some((t) => {
               if (l.hasOwnProperty(t) && l[t].test(e)) return !0;
               return !1;
             });
           if (t in l) return l[t].test(e);
           if (!t || "any" === t) {
-            for (var u in l) {
+            for (const u in l) {
               if (l.hasOwnProperty(u)) if (l[u].test(e)) return !0;
             }
             return !1;
@@ -2253,8 +2176,8 @@
           throw new Error("Invalid locale '".concat(t, "'"));
         }),
         (t.locales = void 0);
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = {
         "am-AM": /^(\+?374|0)((10|[9|7][0-9])\d{6}$|[2-4]\d{7}$)/,
         "ar-AE": /^((\+?971)|0)?5[024568]\d{7}$/,
@@ -2357,13 +2280,13 @@
         (l["fr-BE"] = l["nl-BE"]),
         (l["zh-HK"] = l["en-HK"]),
         (l["zh-MO"] = l["en-MO"]);
-      var o = Object.keys(l);
+      const o = Object.keys(l);
       t.locales = o;
     },
     bzqU(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, u.default)(e), l.test(e);
         });
       var u = a(r("2Idn"));
@@ -2382,7 +2305,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = (e, t) => {
           (0, a.default)(e);
-          var r = t
+          const r = t
             ? new RegExp(
                 "^[".concat(t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "]+"),
                 "g"
@@ -2390,119 +2313,122 @@
             : /^\s+/g;
           return e.replace(r, "");
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       (e.exports = t.default), (e.exports.default = t.default);
     },
     eWa3(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = (e, t) => {
-          if (
-            ((0, u.default)(e),
-            (t = (0, a.default)(t, f)).require_display_name ||
-              t.allow_display_name)
-          ) {
-            var r = e.match(s);
-            if (r) {
-              var d,
-                A = ((e, t) => {
-                  return (e => {
-                    if (Array.isArray(e)) return e;
-                  })(e) || ((e, t) => {
-                    if (
-                      !(Symbol.iterator in Object(e)) &&
-                      "[object Arguments]" !==
-                        Object.prototype.toString.call(e)
-                    )
-                      return;
-                    var r = [],
-                      u = !0,
-                      a = !1,
-                      l = void 0;
-                    try {
-                      for (
-                        var o, n = e[Symbol.iterator]();
-                        !(u = (o = n.next()).done) &&
-                        (r.push(o.value), !t || r.length !== t);
-                        u = !0
-                      );
-                    } catch (d) {
-                      (a = !0), (l = d);
-                    } finally {
-                      try {
-                        u || null == n.return || n.return();
-                      } finally {
-                        if (a) throw l;
-                      }
-                    }
-                    return r;
-                  })(e, t) || (() => {
-                    throw new TypeError(
-                      "Invalid attempt to destructure non-iterable instance"
-                    );
-                  })();
-                })(r, 3);
-              if (
-                ((d = A[1]),
-                (e = A[2]),
-                d.endsWith(" ") && (d = d.substr(0, d.length - 1)),
-                !(e => {
-                  var t = e.match(/^"(.+)"$/i),
-                    r = t ? t[1] : e;
-                  if (!r.trim()) return !1;
-                  if (/[\.";<>]/.test(r)) {
-                    if (!t) return !1;
-                    if (!(r.split('"').length === r.split('\\"').length))
-                      return !1;
+        if (
+          ((0, u.default)(e),
+          (t = (0, a.default)(t, f)).require_display_name ||
+            t.allow_display_name)
+        ) {
+          const r = e.match(s);
+          if (r) {
+            let d;
+
+            const A = ((e, t) => {
+              return ((e) => {
+                if (Array.isArray(e)) return e;
+              })(e) ||
+              ((e, t) => {
+                if (
+                  !(Symbol.iterator in Object(e)) &&
+                  "[object Arguments]" !==
+                    Object.prototype.toString.call(e)
+                )
+                  return;
+                const r = [];
+                let u = !0;
+                let a = !1;
+                let l = void 0;
+                try {
+                  for (
+                    var o, n = e[Symbol.iterator]();
+                    !(u = (o = n.next()).done) &&
+                    (r.push(o.value), !t || r.length !== t);
+                    u = !0
+                  );
+                } catch (d) {
+                  (a = !0), (l = d);
+                } finally {
+                  try {
+                    u || null == n.return || n.return();
+                  } finally {
+                    if (a) throw l;
                   }
-                  return !0;
-                })(d))
-              )
-                return !1;
-            } else if (t.require_display_name) return !1;
-          }
-          if (!t.ignore_max_length && e.length > 254) return !1;
-          var $ = e.split("@"),
-            m = $.pop(),
-            M = $.join("@"),
-            h = m.toLowerCase();
-          if (
-            t.domain_specific_validation &&
-            ("gmail.com" === h || "googlemail.com" === h)
-          ) {
-            var b = (M = M.toLowerCase()).split("+")[0];
-            if (!(0, l.default)(b.replace(".", ""), { min: 6, max: 30 }))
+                }
+                return r;
+              })(e, t) ||
+              (() => {
+                throw new TypeError(
+                  "Invalid attempt to destructure non-iterable instance"
+                );
+              })();
+            })(r, 3);
+
+            if (
+              ((d = A[1]),
+              (e = A[2]),
+              d.endsWith(" ") && (d = d.substr(0, d.length - 1)),
+              !((e) => {
+                const t = e.match(/^"(.+)"$/i), r = t ? t[1] : e;
+                if (!r.trim()) return !1;
+                if (/[\.";<>]/.test(r)) {
+                  if (!t) return !1;
+                  if (!(r.split('"').length === r.split('\\"').length))
+                    return !1;
+                }
+                return !0;
+              })(d))
+            )
               return !1;
-            for (var y = b.split("."), x = 0; x < y.length; x++)
-              if (!c.test(y[x])) return !1;
-          }
-          if (
-            !(0, l.default)(M, { max: 64 }) ||
-            !(0, l.default)(m, { max: 254 })
-          )
+          } else if (t.require_display_name) return !1;
+        }
+        if (!t.ignore_max_length && e.length > 254) return !1;
+        const $ = e.split("@");
+        const m = $.pop();
+        let M = $.join("@");
+        const h = m.toLowerCase();
+        if (
+          t.domain_specific_validation &&
+          ("gmail.com" === h || "googlemail.com" === h)
+        ) {
+          const b = (M = M.toLowerCase()).split("+")[0];
+          if (!(0, l.default)(b.replace(".", ""), { min: 6, max: 30 }))
             return !1;
-          if (!(0, o.default)(m, { require_tld: t.require_tld })) {
-            if (!t.allow_ip_domain) return !1;
-            if (!(0, n.default)(m)) {
-              if (!m.startsWith("[") || !m.endsWith("]")) return !1;
-              var g = m.substr(1, m.length - 2);
-              if (0 === g.length || !(0, n.default)(g)) return !1;
-            }
+          for (let y = b.split("."), x = 0; x < y.length; x++)
+            if (!c.test(y[x])) return !1;
+        }
+        if (
+          !(0, l.default)(M, { max: 64 }) ||
+          !(0, l.default)(m, { max: 254 })
+        )
+          return !1;
+        if (!(0, o.default)(m, { require_tld: t.require_tld })) {
+          if (!t.allow_ip_domain) return !1;
+          if (!(0, n.default)(m)) {
+            if (!m.startsWith("[") || !m.endsWith("]")) return !1;
+            const g = m.substr(1, m.length - 2);
+            if (0 === g.length || !(0, n.default)(g)) return !1;
           }
-          if ('"' === M[0])
-            return (
-              (M = M.slice(1, M.length - 1)),
-              t.allow_utf8_local_part ? v.test(M) : p.test(M)
-            );
-          for (
-            var O = t.allow_utf8_local_part ? _ : i, I = M.split("."), S = 0;
-            S < I.length;
-            S++
-          )
-            if (!O.test(I[S])) return !1;
-          return !0;
-        });
+        }
+        if ('"' === M[0])
+          return (
+            (M = M.slice(1, M.length - 1)),
+            t.allow_utf8_local_part ? v.test(M) : p.test(M)
+          );
+        for (
+          let O = t.allow_utf8_local_part ? _ : i, I = M.split("."), S = 0;
+          S < I.length;
+          S++
+        )
+          if (!O.test(I[S])) return !1;
+        return !0;
+      });
       var u = d(r("2Idn")),
         a = d(r("5AlR")),
         l = d(r("91Rb")),
@@ -2534,7 +2460,7 @@
         (t.default = (e, t) => {
           if (((0, a.default)(e), t in d)) return d[t].test(e);
           if ("any" === t) {
-            for (var r in d) {
+            for (const r in d) {
               if (d.hasOwnProperty(r)) if (d[r].test(e)) return !0;
             }
             return !1;
@@ -2542,74 +2468,76 @@
           throw new Error("Invalid locale '".concat(t, "'"));
         }),
         (t.locales = void 0);
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
-      var l = /^\d{4}$/,
-        o = /^\d{5}$/,
-        n = /^\d{6}$/,
-        d = {
-          AD: /^AD\d{3}$/,
-          AT: l,
-          AU: l,
-          BE: l,
-          BG: l,
-          BR: /^\d{5}-\d{3}$/,
-          CA: /^[ABCEGHJKLMNPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][\s\-]?\d[ABCEGHJ-NPRSTV-Z]\d$/i,
-          CH: l,
-          CZ: /^\d{3}\s?\d{2}$/,
-          DE: o,
-          DK: l,
-          DZ: o,
-          EE: o,
-          ES: o,
-          FI: o,
-          FR: /^\d{2}\s?\d{3}$/,
-          GB: /^(gir\s?0aa|[a-z]{1,2}\d[\da-z]?\s?(\d[a-z]{2})?)$/i,
-          GR: /^\d{3}\s?\d{2}$/,
-          HR: /^([1-5]\d{4}$)/,
-          HU: l,
-          ID: o,
-          IE: /^(?!.*(?:o))[A-z]\d[\dw]\s\w{4}$/i,
-          IL: o,
-          IN: /^((?!10|29|35|54|55|65|66|86|87|88|89)[1-9][0-9]{5})$/,
-          IS: /^\d{3}$/,
-          IT: o,
-          JP: /^\d{3}\-\d{4}$/,
-          KE: o,
-          LI: /^(948[5-9]|949[0-7])$/,
-          LT: /^LT\-\d{5}$/,
-          LU: l,
-          LV: /^LV\-\d{4}$/,
-          MX: o,
-          MT: /^[A-Za-z]{3}\s{0,1}\d{4}$/,
-          NL: /^\d{4}\s?[a-z]{2}$/i,
-          NO: l,
-          NZ: l,
-          PL: /^\d{2}\-\d{3}$/,
-          PR: /^00[679]\d{2}([ -]\d{4})?$/,
-          PT: /^\d{4}\-\d{3}?$/,
-          RO: n,
-          RU: n,
-          SA: o,
-          SE: /^[1-9]\d{2}\s?\d{2}$/,
-          SI: l,
-          SK: /^\d{3}\s?\d{2}$/,
-          TN: l,
-          TW: /^\d{3}(\d{2})?$/,
-          UA: o,
-          US: /^\d{5}(-\d{4})?$/,
-          ZA: l,
-          ZM: o,
-        },
-        f = Object.keys(d);
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      const l = /^\d{4}$/;
+      const o = /^\d{5}$/;
+      const n = /^\d{6}$/;
+
+      var d = {
+        AD: /^AD\d{3}$/,
+        AT: l,
+        AU: l,
+        BE: l,
+        BG: l,
+        BR: /^\d{5}-\d{3}$/,
+        CA: /^[ABCEGHJKLMNPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][\s\-]?\d[ABCEGHJ-NPRSTV-Z]\d$/i,
+        CH: l,
+        CZ: /^\d{3}\s?\d{2}$/,
+        DE: o,
+        DK: l,
+        DZ: o,
+        EE: o,
+        ES: o,
+        FI: o,
+        FR: /^\d{2}\s?\d{3}$/,
+        GB: /^(gir\s?0aa|[a-z]{1,2}\d[\da-z]?\s?(\d[a-z]{2})?)$/i,
+        GR: /^\d{3}\s?\d{2}$/,
+        HR: /^([1-5]\d{4}$)/,
+        HU: l,
+        ID: o,
+        IE: /^(?!.*(?:o))[A-z]\d[\dw]\s\w{4}$/i,
+        IL: o,
+        IN: /^((?!10|29|35|54|55|65|66|86|87|88|89)[1-9][0-9]{5})$/,
+        IS: /^\d{3}$/,
+        IT: o,
+        JP: /^\d{3}\-\d{4}$/,
+        KE: o,
+        LI: /^(948[5-9]|949[0-7])$/,
+        LT: /^LT\-\d{5}$/,
+        LU: l,
+        LV: /^LV\-\d{4}$/,
+        MX: o,
+        MT: /^[A-Za-z]{3}\s{0,1}\d{4}$/,
+        NL: /^\d{4}\s?[a-z]{2}$/i,
+        NO: l,
+        NZ: l,
+        PL: /^\d{2}\-\d{3}$/,
+        PR: /^00[679]\d{2}([ -]\d{4})?$/,
+        PT: /^\d{4}\-\d{3}?$/,
+        RO: n,
+        RU: n,
+        SA: o,
+        SE: /^[1-9]\d{2}\s?\d{2}$/,
+        SI: l,
+        SK: /^\d{3}\s?\d{2}$/,
+        TN: l,
+        TW: /^\d{3}(\d{2})?$/,
+        UA: o,
+        US: /^\d{5}(-\d{4})?$/,
+        ZA: l,
+        ZM: o,
+      };
+
+      const f = Object.keys(d);
       t.locales = f;
     },
     ep6D(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           (0, a.default)(e);
-          var t = e.replace(/[- ]+/g, "");
+          const t = e.replace(/[- ]+/g, "");
           if (!l.test(t)) return !1;
           for (var r, u, o, n = 0, d = t.length - 1; d >= 0; d--)
             (r = t.substring(d, d + 1)),
@@ -2618,8 +2546,8 @@
               (o = !o);
           return !(n % 10 !== 0 || !t);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l =
         /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|(222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11}|6[27][0-9]{14})$/;
       (e.exports = t.default), (e.exports.default = t.default);
@@ -2635,7 +2563,7 @@
           for (var r = e.split("."), l = 0; l < r.length; l++)
             if (r[l].length > 63) return !1;
           if (t.require_tld) {
-            var n = r.pop();
+            const n = r.pop();
             if (
               !r.length ||
               !/^([a-z\u00a1-\uffff]{2,}|xn[a-z0-9-]{2,})$/i.test(n)
@@ -2644,7 +2572,7 @@
             if (/[\s\u2002-\u200B\u202F\u205F\u3000\uFEFF\uDB40\uDC20]/.test(n))
               return !1;
           }
-          for (var d, f = 0; f < r.length; f++) {
+          for (let d, f = 0; f < r.length; f++) {
             if (
               ((d = r[f]),
               t.allow_underscores && (d = d.replace(/_/g, "")),
@@ -2671,11 +2599,11 @@
     fFTU(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), l.test(e.trim());
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^magnet:\?xt=urn:[a-z0-9]+:[a-z0-9]{32,40}&dn=.+&tr=.+$/i;
       (e.exports = t.default), (e.exports.default = t.default);
     },
@@ -2685,14 +2613,14 @@
         (t.default = (e, t) => {
           return (0, a.default)(e), parseInt(e, t || 10);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       (e.exports = t.default), (e.exports.default = t.default);
     },
     fsKV(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, u.default)(e), (0, a.default)(o, e.toUpperCase());
         });
       var u = l(r("2Idn")),
@@ -2956,31 +2884,35 @@
     "gL+o": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           (0, a.default)(e);
-          var t = Number(e.slice(-1));
+          const t = Number(e.slice(-1));
           return l.test(e) &&
-          t === (e => {
-            var t =
-              10 -
-              (e
-                .slice(0, -1)
-                .split("")
-                .map((t, r) => {
-                  return Number(t) * ((e, t) => {
-                    if (8 === e) return t % 2 === 0 ? 3 : 1;
-                    return t % 2 === 0 ? 1 : 3;
-                  })(e.length, r);
-                })
-                .reduce((e, t) => {
-                  return e + t;
-                }, 0) %
-                10);
-            return t < 10 ? t : 0;
-          })(e);
+          t ===
+            ((e) => {
+              const t =
+                10 -
+                (e
+                  .slice(0, -1)
+                  .split("")
+                  .map((t, r) => {
+                    return (
+                      Number(t) *
+                      ((e, t) => {
+                        if (8 === e) return t % 2 === 0 ? 3 : 1;
+                        return t % 2 === 0 ? 1 : 3;
+                      })(e.length, r)
+                    );
+                  })
+                  .reduce((e, t) => {
+                    return e + t;
+                  }, 0) %
+                  10);
+              return t < 10 ? t : 0;
+            })(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^(\d{8}|\d{13})$/;
       (e.exports = t.default), (e.exports.default = t.default);
     },
@@ -2989,7 +2921,7 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = (e, t) => {
           (0, u.default)(e);
-          var r = t
+          const r = t
             ? "\\x00-\\x09\\x0B\\x0C\\x0E-\\x1F\\x7F"
             : "\\x00-\\x1F\\x7F";
           return (0, a.default)(e, r);
@@ -3004,11 +2936,11 @@
     h61a(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), l.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^[A-z]{4}[A-z]{2}\w{2}(\w{3})?$/;
       (e.exports = t.default), (e.exports.default = t.default);
     },
@@ -3016,33 +2948,33 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = function e(t) {
-          var r =
+          let r =
             arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "";
           if (((0, a.default)(t), !(r = String(r)))) return e(t, 4) || e(t, 6);
           if ("4" === r) {
             if (!l.test(t)) return !1;
-            var u = t.split(".").sort((e, t) => {
+            const u = t.split(".").sort((e, t) => {
               return e - t;
             });
             return u[3] <= 255;
           }
           if ("6" === r) {
-            var n = [t];
+            let n = [t];
             if (t.includes("%")) {
               if (2 !== (n = t.split("%")).length) return !1;
               if (!n[0].includes(":")) return !1;
               if ("" === n[1]) return !1;
             }
-            var d = n[0].split(":"),
-              f = !1,
-              s = e(d[d.length - 1], 4),
-              i = s ? 7 : 8;
+            const d = n[0].split(":");
+            let f = !1;
+            const s = e(d[d.length - 1], 4);
+            const i = s ? 7 : 8;
             if (d.length > i) return !1;
             if ("::" === t) return !0;
             "::" === t.substr(0, 2)
               ? (d.shift(), d.shift(), (f = !0))
               : "::" === t.substr(t.length - 2) && (d.pop(), d.pop(), (f = !0));
-            for (var c = 0; c < d.length; ++c)
+            for (let c = 0; c < d.length; ++c)
               if ("" === d[c] && c > 0 && c < d.length - 1) {
                 if (f) return !1;
                 f = !0;
@@ -3052,8 +2984,8 @@
           }
           return !1;
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l =
           /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/,
         o = /^[0-9A-F]{1,4}$/i;
@@ -3064,28 +2996,28 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = (e, t) => {
           (0, a.default)(e);
-          var r = l.test(e);
-          return t && r && t.strict ? (e => {
-                var t = e.match(/^(\d{4})-?(\d{3})([ T]{1}\.*|$)/);
+          const r = l.test(e);
+          return t && r && t.strict
+            ? ((e) => {
+                const t = e.match(/^(\d{4})-?(\d{3})([ T]{1}\.*|$)/);
                 if (t) {
-                  var r = Number(t[1]),
-                    u = Number(t[2]);
+                  const r = Number(t[1]), u = Number(t[2]);
                   return (r % 4 === 0 && r % 100 !== 0) || r % 400 === 0
                     ? u <= 366
                     : u <= 365;
                 }
-                var a = e.match(/(\d{4})-?(\d{0,2})-?(\d*)/).map(Number),
-                  l = a[1],
-                  o = a[2],
-                  n = a[3],
-                  d = o ? "0".concat(o).slice(-2) : o,
-                  f = n ? "0".concat(n).slice(-2) : n,
-                  s = new Date(
-                    ""
-                      .concat(l, "-")
-                      .concat(d || "01", "-")
-                      .concat(f || "01")
-                  );
+                const a = e.match(/(\d{4})-?(\d{0,2})-?(\d*)/).map(Number),
+                      l = a[1],
+                      o = a[2],
+                      n = a[3],
+                      d = o ? "0".concat(o).slice(-2) : o,
+                      f = n ? "0".concat(n).slice(-2) : n,
+                      s = new Date(
+                        ""
+                          .concat(l, "-")
+                          .concat(d || "01", "-")
+                          .concat(f || "01")
+                      );
                 if (o && n)
                   return (
                     s.getUTCFullYear() === l &&
@@ -3093,10 +3025,11 @@
                     s.getUTCDate() === n
                   );
                 return !0;
-              })(e) : r;
+              })(e)
+            : r;
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l =
         /^([\+-]?\d{4}(?!\d{2}\b))((-?)((0[1-9]|1[0-2])(\3([12]\d|0[1-9]|3[01]))?|W([0-4]\d|5[0-3])(-?[1-7])?|(00[1-9]|0[1-9]\d|[12]\d{2}|3([0-5]\d|6[1-6])))([T\s]((([01]\d|2[0-3])((:?)[0-5]\d)?|24:?00)([\.,]\d+(?!:))?)?(\17[0-5]\d([\.,]\d+)?)?([zZ]|([\+-])([01]\d|2[0-3]):?([0-5]\d)?)?)?)?$/;
       (e.exports = t.default), (e.exports.default = t.default);
@@ -3110,8 +3043,8 @@
             e.replace(new RegExp("[".concat(t, "]+"), "g"), "")
           );
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       (e.exports = t.default), (e.exports.default = t.default);
     },
     ioLy(e, t, r) {
@@ -3121,8 +3054,8 @@
           if (((0, a.default)(e), t && t.no_colons)) return o.test(e);
           return l.test(e) || n.test(e) || d.test(e) || f.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F])$/,
         o = /^([0-9a-fA-F]){12}$/,
         n = /^([0-9a-fA-F][0-9a-fA-F]-){5}([0-9a-fA-F][0-9a-fA-F])$/,
@@ -3133,12 +3066,12 @@
     "j+5W": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), l.test(e);
         }),
         (t.halfWidth = void 0);
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /[\u0020-\u007E\uFF61-\uFF9F\uFFA0-\uFFDC\uFFE8-\uFFEE0-9a-zA-Z]/;
       t.halfWidth = l;
     },
@@ -3147,19 +3080,19 @@
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = (e, t) => {
           (0, a.default)(e);
-          var r =
-              (t = t || {}).hasOwnProperty("allow_leading_zeroes") &&
-              !t.allow_leading_zeroes
-                ? l
-                : o,
-            u = !t.hasOwnProperty("min") || e >= t.min,
-            n = !t.hasOwnProperty("max") || e <= t.max,
-            d = !t.hasOwnProperty("lt") || e < t.lt,
-            f = !t.hasOwnProperty("gt") || e > t.gt;
+          const r =
+                    (t = t || {}).hasOwnProperty("allow_leading_zeroes") &&
+                    !t.allow_leading_zeroes
+                      ? l
+                      : o,
+                u = !t.hasOwnProperty("min") || e >= t.min,
+                n = !t.hasOwnProperty("max") || e <= t.max,
+                d = !t.hasOwnProperty("lt") || e < t.lt,
+                f = !t.hasOwnProperty("gt") || e > t.gt;
           return r.test(e) && u && n && d && f;
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^(?:[-+]?(?:0|[1-9][0-9]*))$/,
         o = /^[-+]?[0-9]+$/;
       (e.exports = t.default), (e.exports.default = t.default);
@@ -3168,13 +3101,12 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = function (e) {
-          var t =
+          const t =
             arguments.length > 1 && void 0 !== arguments[1]
               ? arguments[1]
               : String(new Date());
           (0, u.default)(e);
-          var r = (0, a.default)(t),
-            l = (0, a.default)(e);
+          const r = (0, a.default)(t), l = (0, a.default)(e);
           return !!(l && r && l < r);
         });
       var u = l(r("2Idn")),
@@ -3188,13 +3120,13 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = function (e) {
-          var t =
+          const t =
             !(arguments.length > 1 && void 0 !== arguments[1]) || arguments[1];
           if (((0, a.default)(e), !t)) return l.test(e) || o.test(e);
           return l.test(e) || o.test(e) || n.test(e) || d.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l =
           /^rgb\((([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]),){2}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\)$/,
         o =
@@ -3206,24 +3138,24 @@
     kV3J(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           (0, a.default)(e);
-          var t = e.length;
+          const t = e.length;
           if (!t || t % 4 !== 0 || l.test(e)) return !1;
-          var r = e.indexOf("=");
+          const r = e.indexOf("=");
           return -1 === r || r === t - 1 || (r === t - 2 && "=" === e[t - 1]);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /[^A-Z0-9+\/=]/i;
       (e.exports = t.default), (e.exports.default = t.default);
     },
     keew(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           (0, u.default)(e);
-          var t = e.split("/");
+          const t = e.split("/");
           if (2 !== t.length) return !1;
           if (!o.test(t[1])) return !1;
           if (t[1].length > 1 && t[1].startsWith("0")) return !1;
@@ -3261,16 +3193,16 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = function (e) {
-          var t =
+          const t =
             arguments.length > 1 && void 0 !== arguments[1]
               ? arguments[1]
               : "all";
           (0, a.default)(e);
-          var r = l[t];
+          const r = l[t];
           return r && r.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = {
         3: /^[0-9A-F]{8}-[0-9A-F]{4}-3[0-9A-F]{3}-[0-9A-F]{4}-[0-9A-F]{12}$/i,
         4: /^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i,
@@ -3282,21 +3214,21 @@
     mIlm(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e) ? parseFloat(e) : NaN;
         });
-      var u,
-        a = (u = r("1J+o")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("1J+o")) && u.__esModule ? u : { default: u };
       (e.exports = t.default), (e.exports.default = t.default);
     },
     nPKI(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), l.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^(0o)?[0-7]+$/i;
       (e.exports = t.default), (e.exports.default = t.default);
     },
@@ -3304,13 +3236,12 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = function (e) {
-          var t =
+          const t =
             arguments.length > 1 && void 0 !== arguments[1]
               ? arguments[1]
               : String(new Date());
           (0, u.default)(e);
-          var r = (0, a.default)(t),
-            l = (0, a.default)(e);
+          const r = (0, a.default)(t), l = (0, a.default)(e);
           return !!(l && r && l > r);
         });
       var u = l(r("2Idn")),
@@ -3323,11 +3254,11 @@
     oIoB(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e, { min: 0, max: 65535 });
         });
-      var u,
-        a = (u = r("jq9p")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("jq9p")) && u.__esModule ? u : { default: u };
       (e.exports = t.default), (e.exports.default = t.default);
     },
     pkq8(e, t, r) {
@@ -3347,12 +3278,12 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = (e, t) => {
-          var r;
+          let r;
           if (
             ((0, u.default)(e),
             "[object Array]" === Object.prototype.toString.call(t))
           ) {
-            var l = [];
+            const l = [];
             for (r in t)
               ({}.hasOwnProperty.call(t, r) && (l[r] = (0, a.default)(t[r])));
             return l.indexOf(e) >= 0;
@@ -3369,10 +3300,10 @@
       function o(e) {
         return (o =
           "function" === typeof Symbol && "symbol" === typeof Symbol.iterator
-            ? e => {
+            ? (e) => {
                 return typeof e;
               }
-            : e => {
+            : (e) => {
                 return e &&
                   "function" === typeof Symbol &&
                   e.constructor === Symbol &&
@@ -3387,7 +3318,7 @@
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
         (t.default = function (e) {
-          var t =
+          const t =
             arguments.length > 1 && void 0 !== arguments[1]
               ? arguments[1]
               : "en-US";
@@ -3396,23 +3327,23 @@
           throw new Error("Invalid locale '".concat(t, "'"));
         }),
         (t.locales = void 0);
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u },
-        l = r("Jaob");
-      var o = Object.keys(l.alphanumeric);
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      var l = r("Jaob");
+      const o = Object.keys(l.alphanumeric);
       t.locales = o;
     },
     uiY1(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           (0, a.default)(e);
-          var t = e.length;
+          const t = e.length;
           if (t > 0 && t % 8 === 0 && l.test(e)) return !0;
           return !1;
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /^[A-Z2-7]+=*$/;
       (e.exports = t.default), (e.exports.default = t.default);
     },
@@ -3422,37 +3353,40 @@
         (t.default = (e, t) => {
           return (0, a.default)(e), e === t;
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       (e.exports = t.default), (e.exports.default = t.default);
     },
     wnSO(e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), c.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
-      var l = /([01][0-9]|2[0-3])/,
-        o = /[0-5][0-9]/,
-        n = new RegExp("[-+]".concat(l.source, ":").concat(o.source)),
-        d = new RegExp("([zZ]|".concat(n.source, ")")),
-        f = new RegExp(
-          ""
-            .concat(l.source, ":")
-            .concat(o.source, ":")
-            .concat(/([0-5][0-9]|60)/.source)
-            .concat(/(\.[0-9]+)?/.source)
-        ),
-        s = new RegExp(
-          ""
-            .concat(/[0-9]{4}/.source, "-")
-            .concat(/(0[1-9]|1[0-2])/.source, "-")
-            .concat(/([12]\d|0[1-9]|3[01])/.source)
-        ),
-        i = new RegExp("".concat(f.source).concat(d.source)),
-        c = new RegExp("".concat(s.source, "[ tT]").concat(i.source));
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      const l = /([01][0-9]|2[0-3])/;
+      const o = /[0-5][0-9]/;
+      const n = new RegExp("[-+]".concat(l.source, ":").concat(o.source));
+      const d = new RegExp("([zZ]|".concat(n.source, ")"));
+
+      const f = new RegExp(
+        ""
+          .concat(l.source, ":")
+          .concat(o.source, ":")
+          .concat(/([0-5][0-9]|60)/.source)
+          .concat(/(\.[0-9]+)?/.source)
+      );
+
+      const s = new RegExp(
+        ""
+          .concat(/[0-9]{4}/.source, "-")
+          .concat(/(0[1-9]|1[0-2])/.source, "-")
+          .concat(/([12]\d|0[1-9]|3[01])/.source)
+      );
+
+      const i = new RegExp("".concat(f.source).concat(d.source));
+      var c = new RegExp("".concat(s.source, "[ tT]").concat(i.source));
       (e.exports = t.default), (e.exports.default = t.default);
     },
     wzbs(e, t, r) {
@@ -3471,11 +3405,11 @@
     "z/bg": function (e, t, r) {
       "use strict";
       Object.defineProperty(t, "__esModule", { value: !0 }),
-        (t.default = e => {
+        (t.default = (e) => {
           return (0, a.default)(e), l.test(e);
         });
-      var u,
-        a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
+      let u;
+      var a = (u = r("2Idn")) && u.__esModule ? u : { default: u };
       var l = /[^\x00-\x7F]/;
       (e.exports = t.default), (e.exports.default = t.default);
     },

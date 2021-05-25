@@ -2,26 +2,23 @@
   [16],
   {
     "5/z4": function (e, t, n) {
-      var r, o, i;
+      let r, o, i;
       (o = [n("VDtp")]),
         void 0 ===
           (i =
             "function" ===
             typeof (r = e => {
               "use strict";
-              var t = e.Reader,
-                n = e.Writer,
-                r = e.util,
-                o = e.roots.default || (e.roots.default = {});
+              const t = e.Reader, n = e.Writer, r = e.util, o = e.roots.default || (e.roots.default = {});
               return (o.api = (() => {
-                var i = {};
+                const i = {};
                 return (i.Command = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
-                  var a;
+                  let a;
                   return (i.prototype.channel = 0),
                   (i.prototype.session = 0),
                   (i.prototype.openChan = null),
@@ -896,7 +893,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.channel = e.int32();
@@ -1404,7 +1401,7 @@
                   (i.verify = e => {
                     if ("object" !== typeof e || null === e)
                       return "object expected";
-                    var t = {};
+                    const t = {};
                     if (
                       null != e.channel &&
                       e.hasOwnProperty("channel") &&
@@ -2416,7 +2413,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.Command) return e;
-                    var t = new o.api.Command();
+                    const t = new o.api.Command();
                     if (
                       (null != e.channel && (t.channel = 0 | e.channel),
                       null != e.session && (t.session = 0 | e.session),
@@ -3230,7 +3227,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.channel = 0), (n.session = 0), (n.ref = "")),
@@ -3883,13 +3880,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.Audio = (() => {
                   function i(e) {
                     if (((this.data = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.data = r.emptyArray),
@@ -3902,7 +3898,7 @@
                       null != e.data && e.data.length)
                     ) {
                       t.uint32(10).fork();
-                      for (var r = 0; r < e.data.length; ++r)
+                      for (let r = 0; r < e.data.length; ++r)
                         t.int32(e.data[r]);
                       t.ldelim();
                     }
@@ -3919,14 +3915,14 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           if (
                             ((i.data && i.data.length) || (i.data = []),
                             2 === (7 & a))
                           )
-                            for (var s = e.uint32() + e.pos; e.pos < s; )
+                            for (const s = e.uint32() + e.pos; e.pos < s; )
                               i.data.push(e.int32());
                           else i.data.push(e.int32());
                           break;
@@ -3948,7 +3944,7 @@
                     if (null != e.data && e.hasOwnProperty("data")) {
                       if (!Array.isArray(e.data))
                         return "data: array expected";
-                      for (var t = 0; t < e.data.length; ++t)
+                      for (let t = 0; t < e.data.length; ++t)
                         if (!r.isInteger(e.data[t]))
                           return "data: integer[] expected";
                     }
@@ -3956,27 +3952,27 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.Audio) return e;
-                    var t = new o.api.Audio();
+                    const t = new o.api.Audio();
                     if (e.data) {
                       if (!Array.isArray(e.data))
                         throw TypeError(
                           ".api.Audio.data: array expected"
                         );
                       t.data = [];
-                      for (var n = 0; n < e.data.length; ++n)
+                      for (let n = 0; n < e.data.length; ++n)
                         t.data[n] = 0 | e.data[n];
                     }
                     return t;
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.data = []),
                       e.data && e.data.length)
                     ) {
                       n.data = [];
-                      for (var r = 0; r < e.data.length; ++r)
+                      for (let r = 0; r < e.data.length; ++r)
                         n.data[r] = e.data[r];
                     }
                     return n;
@@ -3987,13 +3983,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.Audio2 = (() => {
                   function i(e) {
                     if (((this.data = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.data = r.emptyArray),
@@ -4009,7 +4004,7 @@
                       null != e.data && e.data.length)
                     ) {
                       t.uint32(10).fork();
-                      for (var r = 0; r < e.data.length; ++r)
+                      for (let r = 0; r < e.data.length; ++r)
                         t.sint32(e.data[r]);
                       t.ldelim();
                     }
@@ -4031,14 +4026,14 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           if (
                             ((i.data && i.data.length) || (i.data = []),
                             2 === (7 & a))
                           )
-                            for (var s = e.uint32() + e.pos; e.pos < s; )
+                            for (const s = e.uint32() + e.pos; e.pos < s; )
                               i.data.push(e.sint32());
                           else i.data.push(e.sint32());
                           break;
@@ -4063,7 +4058,7 @@
                     if (null != e.data && e.hasOwnProperty("data")) {
                       if (!Array.isArray(e.data))
                         return "data: array expected";
-                      for (var t = 0; t < e.data.length; ++t)
+                      for (let t = 0; t < e.data.length; ++t)
                         if (!r.isInteger(e.data[t]))
                           return "data: integer[] expected";
                     }
@@ -4078,14 +4073,14 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.Audio2) return e;
-                    var t = new o.api.Audio2();
+                    const t = new o.api.Audio2();
                     if (e.data) {
                       if (!Array.isArray(e.data))
                         throw TypeError(
                           ".api.Audio2.data: array expected"
                         );
                       t.data = [];
-                      for (var n = 0; n < e.data.length; ++n)
+                      for (let n = 0; n < e.data.length; ++n)
                         t.data[n] = 0 | e.data[n];
                     }
                     return (
@@ -4108,13 +4103,13 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.data = []),
                       t.defaults)
                     )
                       if (r.Long) {
-                        var o = new r.Long(0, 0, !1);
+                        const o = new r.Long(0, 0, !1);
                         n.samples =
                           t.longs === String
                             ? o.toString()
@@ -4124,7 +4119,7 @@
                       } else n.samples = t.longs === String ? "0" : 0;
                     if (e.data && e.data.length) {
                       n.data = [];
-                      for (var i = 0; i < e.data.length; ++i)
+                      for (let i = 0; i < e.data.length; ++i)
                         n.data[i] = e.data[i];
                     }
                     return (
@@ -4155,13 +4150,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.ReadMeta = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.key = ""),
@@ -4196,7 +4190,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.key = e.string();
@@ -4241,7 +4235,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.ReadMeta) return e;
-                    var t = new o.api.ReadMeta();
+                    const t = new o.api.ReadMeta();
                     return (
                       null != e.key && (t.key = String(e.key)),
                       null != e.exists && (t.exists = Boolean(e.exists)),
@@ -4260,7 +4254,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.key = ""),
@@ -4293,13 +4287,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.WriteMeta = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.key = ""),
@@ -4330,7 +4323,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.key = e.string();
@@ -4368,7 +4361,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.WriteMeta) return e;
-                    var t = new o.api.WriteMeta();
+                    const t = new o.api.WriteMeta();
                     return (
                       null != e.key && (t.key = String(e.key)),
                       null != e.data &&
@@ -4386,7 +4379,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.key = ""),
@@ -4415,13 +4408,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.AppendMeta = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.key = ""),
@@ -4452,7 +4444,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.key = e.string();
@@ -4490,7 +4482,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.AppendMeta) return e;
-                    var t = new o.api.AppendMeta();
+                    const t = new o.api.AppendMeta();
                     return (
                       null != e.key && (t.key = String(e.key)),
                       null != e.data &&
@@ -4508,7 +4500,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.key = ""),
@@ -4537,13 +4529,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.BootStatus = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.stage = 0),
@@ -4578,7 +4569,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.stage = e.int32();
@@ -4628,7 +4619,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.BootStatus) return e;
-                    var t = new o.api.BootStatus();
+                    const t = new o.api.BootStatus();
                     switch (e.stage) {
                       case "HANDSHAKE":
                       case 0:
@@ -4667,7 +4658,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.stage = t.enums === String ? "HANDSHAKE" : 0),
@@ -4695,8 +4686,7 @@
                     );
                   }),
                   (i.Stage = (() => {
-                    var e = {},
-                      t = Object.create(e);
+                    const e = {}, t = Object.create(e);
                     return (
                       (t[(e[0] = "HANDSHAKE")] = 0),
                       (t[(e[3] = "ACQUIRING")] = 3),
@@ -4708,13 +4698,12 @@
                       t
                     );
                   })()),
-                  i
-                ;
+                  i;
                 })()),
                 (i.Pid1Config = (() => {
                   function i(e) {
                     if (((this.env = {}), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.cwd = ""),
@@ -4736,7 +4725,7 @@
                         Object.hasOwnProperty.call(e, "env"))
                     )
                       for (
-                        var r = Object.keys(e.env), o = 0;
+                        let r = Object.keys(e.env), o = 0;
                         o < r.length;
                         ++o
                       )
@@ -4762,7 +4751,7 @@
                       e.pos < s;
 
                     ) {
-                      var c = e.uint32();
+                      const c = e.uint32();
                       switch (c >>> 3) {
                         case 1:
                           l.cwd = e.string();
@@ -4772,9 +4761,9 @@
                           break;
                         case 3:
                           l.env === r.emptyObject && (l.env = {});
-                          var u = e.uint32() + e.pos;
+                          const u = e.uint32() + e.pos;
                           for (i = "", a = ""; e.pos < u; ) {
-                            var p = e.uint32();
+                            const p = e.uint32();
                             switch (p >>> 3) {
                               case 1:
                                 i = e.string();
@@ -4819,7 +4808,7 @@
                       if (!r.isObject(e.env))
                         return "env: object expected";
                       for (
-                        var t = Object.keys(e.env), n = 0;
+                        let t = Object.keys(e.env), n = 0;
                         n < t.length;
                         ++n
                       )
@@ -4830,7 +4819,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.Pid1Config) return e;
-                    var t = new o.api.Pid1Config();
+                    const t = new o.api.Pid1Config();
                     if (
                       (null != e.cwd && (t.cwd = String(e.cwd)),
                       null != e.language &&
@@ -4843,7 +4832,7 @@
                         );
                       t.env = {};
                       for (
-                        var n = Object.keys(e.env), r = 0;
+                        let n = Object.keys(e.env), r = 0;
                         r < n.length;
                         ++r
                       )
@@ -4853,8 +4842,8 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n,
-                      r = {};
+                    let n;
+                    const r = {};
                     if (
                       ((t.objects || t.defaults) && (r.env = {}),
                       t.defaults && ((r.cwd = ""), (r.language = "")),
@@ -4867,7 +4856,7 @@
                       e.env && (n = Object.keys(e.env)).length)
                     ) {
                       r.env = {};
-                      for (var o = 0; o < n.length; ++o)
+                      for (let o = 0; o < n.length; ++o)
                         r.env[n[o]] = e.env[n[o]];
                     }
                     return r;
@@ -4878,13 +4867,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.FSLock = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.name = ""),
@@ -4911,7 +4899,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.name = e.string();
@@ -4939,12 +4927,12 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.FSLock) return e;
-                    var t = new o.api.FSLock();
+                    const t = new o.api.FSLock();
                     return null != e.name && (t.name = String(e.name)), t;
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && (n.name = ""),
                       null != e.name &&
@@ -4959,13 +4947,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.FSSnapshot = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.create = e => {
@@ -4985,7 +4972,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       e.skipType(7 & a);
                     }
                     return i;
@@ -5015,13 +5002,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.SubscribeFile = (() => {
                   function i(e) {
                     if (((this.files = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.files = r.emptyArray),
@@ -5033,7 +5019,7 @@
                       (t || (t = n.create()),
                       null != e.files && e.files.length)
                     )
-                      for (var r = 0; r < e.files.length; ++r)
+                      for (let r = 0; r < e.files.length; ++r)
                         o.api.File.encode(
                           e.files[r],
                           t.uint32(10).fork()
@@ -5051,7 +5037,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           (i.files && i.files.length) || (i.files = []),
@@ -5077,8 +5063,8 @@
                     if (null != e.files && e.hasOwnProperty("files")) {
                       if (!Array.isArray(e.files))
                         return "files: array expected";
-                      for (var t = 0; t < e.files.length; ++t) {
-                        var n = o.api.File.verify(e.files[t]);
+                      for (let t = 0; t < e.files.length; ++t) {
+                        const n = o.api.File.verify(e.files[t]);
                         if (n) return "files." + n;
                       }
                     }
@@ -5086,14 +5072,14 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.SubscribeFile) return e;
-                    var t = new o.api.SubscribeFile();
+                    const t = new o.api.SubscribeFile();
                     if (e.files) {
                       if (!Array.isArray(e.files))
                         throw TypeError(
                           ".api.SubscribeFile.files: array expected"
                         );
                       t.files = [];
-                      for (var n = 0; n < e.files.length; ++n) {
+                      for (let n = 0; n < e.files.length; ++n) {
                         if ("object" !== typeof e.files[n])
                           throw TypeError(
                             ".api.SubscribeFile.files: object expected"
@@ -5105,13 +5091,13 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.files = []),
                       e.files && e.files.length)
                     ) {
                       n.files = [];
-                      for (var r = 0; r < e.files.length; ++r)
+                      for (let r = 0; r < e.files.length; ++r)
                         n.files[r] = o.api.File.toObject(e.files[r], t);
                     }
                     return n;
@@ -5122,13 +5108,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.FileEvent = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.prototype.file = null),
@@ -5169,7 +5154,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.file = o.api.File.decode(e, e.uint32());
@@ -5195,7 +5180,7 @@
                   (r.verify = e => {
                     if ("object" !== typeof e || null === e)
                       return "object expected";
-                    var t;
+                    let t;
                     if (
                       null != e.file &&
                       e.hasOwnProperty("file") &&
@@ -5221,7 +5206,7 @@
                   }),
                   (r.fromObject = e => {
                     if (e instanceof o.api.FileEvent) return e;
-                    var t = new o.api.FileEvent();
+                    const t = new o.api.FileEvent();
                     if (null != e.file) {
                       if ("object" !== typeof e.file)
                         throw TypeError(
@@ -5257,7 +5242,7 @@
                   }),
                   (r.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.file = null),
@@ -5285,8 +5270,7 @@
                     );
                   }),
                   (r.Op = (() => {
-                    var e = {},
-                      t = Object.create(e);
+                    const e = {}, t = Object.create(e);
                     return (
                       (t[(e[0] = "Create")] = 0),
                       (t[(e[1] = "Move")] = 1),
@@ -5295,13 +5279,12 @@
                       t
                     );
                   })()),
-                  r
-                ;
+                  r;
                 })()),
                 (i.Flush = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.create = e => {
@@ -5321,7 +5304,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       e.skipType(7 & a);
                     }
                     return i;
@@ -5351,13 +5334,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.OTLinkFile = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.prototype.file = null),
@@ -5401,7 +5383,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.file = o.api.File.decode(e, e.uint32());
@@ -5428,7 +5410,7 @@
                     if ("object" !== typeof e || null === e)
                       return "object expected";
                     if (null != e.file && e.hasOwnProperty("file")) {
-                      var t = o.api.File.verify(e.file);
+                      const t = o.api.File.verify(e.file);
                       if (t) return "file." + t;
                     }
                     return null != e.highConsistency &&
@@ -5443,7 +5425,7 @@
                   }),
                   (r.fromObject = e => {
                     if (e instanceof o.api.OTLinkFile) return e;
-                    var t = new o.api.OTLinkFile();
+                    const t = new o.api.OTLinkFile();
                     if (null != e.file) {
                       if ("object" !== typeof e.file)
                         throw TypeError(
@@ -5463,7 +5445,7 @@
                   }),
                   (r.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.file = null),
@@ -5487,13 +5469,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.Auth = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.token = ""),
@@ -5524,7 +5505,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.token = e.string();
@@ -5559,7 +5540,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.Auth) return e;
-                    var t = new o.api.Auth();
+                    const t = new o.api.Auth();
                     return (
                       null != e.token && (t.token = String(e.token)),
                       null != e.containerID &&
@@ -5569,7 +5550,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.token = ""), (n.containerID = "")),
@@ -5588,13 +5569,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.VCREntry = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.timestamp = r.Long
@@ -5642,7 +5622,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.timestamp = e.uint64();
@@ -5699,7 +5679,7 @@
                       null != e.command &&
                       e.hasOwnProperty("command")
                     ) {
-                      var t = o.api.Command.verify(e.command);
+                      const t = o.api.Command.verify(e.command);
                       if (t) return "command." + t;
                     }
                     return null != e.uid &&
@@ -5714,7 +5694,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.VCREntry) return e;
-                    var t = new o.api.VCREntry();
+                    const t = new o.api.VCREntry();
                     switch (
                       (null != e.timestamp &&
                         (r.Long
@@ -5755,10 +5735,10 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (t.defaults) {
                       if (r.Long) {
-                        var i = new r.Long(0, 0, !0);
+                        const i = new r.Long(0, 0, !0);
                         n.timestamp =
                           t.longs === String
                             ? i.toString()
@@ -5818,19 +5798,17 @@
                     );
                   }),
                   (i.Direction = (() => {
-                    var e = {},
-                      t = Object.create(e);
+                    const e = {}, t = Object.create(e);
                     return (
                       (t[(e[0] = "IN")] = 0), (t[(e[1] = "OUT")] = 1), t
                     );
                   })()),
-                  i
-                ;
+                  i;
                 })()),
                 (i.StartVCR = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.create = e => {
@@ -5850,7 +5828,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       e.skipType(7 & a);
                     }
                     return i;
@@ -5880,13 +5858,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.ReadVCR = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.create = e => {
@@ -5906,7 +5883,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       e.skipType(7 & a);
                     }
                     return i;
@@ -5936,13 +5913,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.VCRLog = (() => {
                   function i(e) {
                     if (((this.log = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.log = r.emptyArray),
@@ -5955,7 +5931,7 @@
                       (t || (t = n.create()),
                       null != e.log && e.log.length)
                     )
-                      for (var r = 0; r < e.log.length; ++r)
+                      for (let r = 0; r < e.log.length; ++r)
                         o.api.VCREntry.encode(
                           e.log[r],
                           t.uint32(10).fork()
@@ -5981,7 +5957,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           (i.log && i.log.length) || (i.log = []),
@@ -6010,7 +5986,7 @@
                     if (null != e.log && e.hasOwnProperty("log")) {
                       if (!Array.isArray(e.log))
                         return "log: array expected";
-                      for (var t = 0; t < e.log.length; ++t)
+                      for (let t = 0; t < e.log.length; ++t)
                         if ((n = o.api.VCREntry.verify(e.log[t])))
                           return "log." + n;
                     }
@@ -6023,14 +5999,14 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.VCRLog) return e;
-                    var t = new o.api.VCRLog();
+                    const t = new o.api.VCRLog();
                     if (e.log) {
                       if (!Array.isArray(e.log))
                         throw TypeError(
                           ".api.VCRLog.log: array expected"
                         );
                       t.log = [];
-                      for (var n = 0; n < e.log.length; ++n) {
+                      for (let n = 0; n < e.log.length; ++n) {
                         if ("object" !== typeof e.log[n])
                           throw TypeError(
                             ".api.VCRLog.log: object expected"
@@ -6049,14 +6025,14 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.log = []),
                       t.defaults && (n.logfile = null),
                       e.log && e.log.length)
                     ) {
                       n.log = [];
-                      for (var r = 0; r < e.log.length; ++r)
+                      for (let r = 0; r < e.log.length; ++r)
                         n.log[r] = o.api.VCREntry.toObject(e.log[r], t);
                     }
                     return (
@@ -6072,13 +6048,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.ExecInfo = (() => {
                   function i(e) {
                     if (((this.command = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.command = r.emptyArray),
@@ -6091,7 +6066,7 @@
                       (t || (t = n.create()),
                       null != e.command && e.command.length)
                     )
-                      for (var r = 0; r < e.command.length; ++r)
+                      for (let r = 0; r < e.command.length; ++r)
                         t.uint32(10).string(e.command[r]);
                     return (
                       null != e.reason &&
@@ -6111,7 +6086,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           (i.command && i.command.length) ||
@@ -6142,7 +6117,7 @@
                     ) {
                       if (!Array.isArray(e.command))
                         return "command: array expected";
-                      for (var t = 0; t < e.command.length; ++t)
+                      for (let t = 0; t < e.command.length; ++t)
                         if (!r.isString(e.command[t]))
                           return "command: string[] expected";
                     }
@@ -6154,14 +6129,14 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.ExecInfo) return e;
-                    var t = new o.api.ExecInfo();
+                    const t = new o.api.ExecInfo();
                     if (e.command) {
                       if (!Array.isArray(e.command))
                         throw TypeError(
                           ".api.ExecInfo.command: array expected"
                         );
                       t.command = [];
-                      for (var n = 0; n < e.command.length; ++n)
+                      for (let n = 0; n < e.command.length; ++n)
                         t.command[n] = String(e.command[n]);
                     }
                     return (
@@ -6170,14 +6145,14 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.command = []),
                       t.defaults && (n.reason = ""),
                       e.command && e.command.length)
                     ) {
                       n.command = [];
-                      for (var r = 0; r < e.command.length; ++r)
+                      for (let r = 0; r < e.command.length; ++r)
                         n.command[r] = e.command[r];
                     }
                     return (
@@ -6193,13 +6168,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.Debug = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.text = ""),
@@ -6226,7 +6200,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.text = e.string();
@@ -6254,12 +6228,12 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.Debug) return e;
-                    var t = new o.api.Debug();
+                    const t = new o.api.Debug();
                     return null != e.text && (t.text = String(e.text)), t;
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && (n.text = ""),
                       null != e.text &&
@@ -6274,12 +6248,10 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.FileAuthMethod = (() => {
-                  var e = {},
-                    t = Object.create(e);
+                  const e = {}, t = Object.create(e);
                   return (
                     (t[(e[0] = "GET")] = 0),
                     (t[(e[1] = "HEAD")] = 1),
@@ -6291,7 +6263,7 @@
                 (i.FileAuthReq = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.prototype.file = null),
@@ -6325,7 +6297,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.file = o.api.File.decode(e, e.uint32());
@@ -6349,7 +6321,7 @@
                     if ("object" !== typeof e || null === e)
                       return "object expected";
                     if (null != e.file && e.hasOwnProperty("file")) {
-                      var t = o.api.File.verify(e.file);
+                      const t = o.api.File.verify(e.file);
                       if (t) return "file." + t;
                     }
                     if (null != e.method && e.hasOwnProperty("method"))
@@ -6365,7 +6337,7 @@
                   }),
                   (r.fromObject = e => {
                     if (e instanceof o.api.FileAuthReq) return e;
-                    var t = new o.api.FileAuthReq();
+                    const t = new o.api.FileAuthReq();
                     if (null != e.file) {
                       if ("object" !== typeof e.file)
                         throw TypeError(
@@ -6394,7 +6366,7 @@
                   }),
                   (r.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.file = null),
@@ -6417,13 +6389,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.MultiFileAuthRes = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.prototype.put = null),
@@ -6467,7 +6438,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.put = o.api.FileAuthRes.decode(e, e.uint32());
@@ -6510,7 +6481,7 @@
                   }),
                   (r.fromObject = e => {
                     if (e instanceof o.api.MultiFileAuthRes) return e;
-                    var t = new o.api.MultiFileAuthRes();
+                    const t = new o.api.MultiFileAuthRes();
                     if (null != e.put) {
                       if ("object" !== typeof e.put)
                         throw TypeError(
@@ -6536,7 +6507,7 @@
                   }),
                   (r.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.put = null), (n.del = null), (n.get = null)),
@@ -6558,13 +6529,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.FileAuthRes = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.file = null),
@@ -6612,7 +6582,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.file = o.api.File.decode(e, e.uint32());
@@ -6645,7 +6615,7 @@
                     if ("object" !== typeof e || null === e)
                       return "object expected";
                     if (null != e.file && e.hasOwnProperty("file")) {
-                      var t = o.api.File.verify(e.file);
+                      const t = o.api.File.verify(e.file);
                       if (t) return "file." + t;
                     }
                     if (
@@ -6678,7 +6648,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.FileAuthRes) return e;
-                    var t = new o.api.FileAuthRes();
+                    const t = new o.api.FileAuthRes();
                     if (null != e.file) {
                       if ("object" !== typeof e.file)
                         throw TypeError(
@@ -6726,7 +6696,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (t.defaults) {
                       if (
                         ((n.file = null),
@@ -6734,7 +6704,7 @@
                         (n.method = t.enums === String ? "GET" : 0),
                         r.Long)
                       ) {
-                        var i = new r.Long(0, 0, !1);
+                        const i = new r.Long(0, 0, !1);
                         n.expire =
                           t.longs === String
                             ? i.toString()
@@ -6785,13 +6755,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.ListObjects = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.prefix = ""),
@@ -6818,7 +6787,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.prefix = e.string();
@@ -6846,14 +6815,14 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.ListObjects) return e;
-                    var t = new o.api.ListObjects();
+                    const t = new o.api.ListObjects();
                     return (
                       null != e.prefix && (t.prefix = String(e.prefix)), t
                     );
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && (n.prefix = ""),
                       null != e.prefix &&
@@ -6868,13 +6837,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.ListObjectsResp = (() => {
                   function i(e) {
                     if (((this.objects = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.objects = r.emptyArray),
@@ -6886,7 +6854,7 @@
                       (t || (t = n.create()),
                       null != e.objects && e.objects.length)
                     )
-                      for (var r = 0; r < e.objects.length; ++r)
+                      for (let r = 0; r < e.objects.length; ++r)
                         t.uint32(10).string(e.objects[r]);
                     return t;
                   }),
@@ -6901,7 +6869,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           (i.objects && i.objects.length) ||
@@ -6929,7 +6897,7 @@
                     ) {
                       if (!Array.isArray(e.objects))
                         return "objects: array expected";
-                      for (var t = 0; t < e.objects.length; ++t)
+                      for (let t = 0; t < e.objects.length; ++t)
                         if (!r.isString(e.objects[t]))
                           return "objects: string[] expected";
                     }
@@ -6937,27 +6905,27 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.ListObjectsResp) return e;
-                    var t = new o.api.ListObjectsResp();
+                    const t = new o.api.ListObjectsResp();
                     if (e.objects) {
                       if (!Array.isArray(e.objects))
                         throw TypeError(
                           ".api.ListObjectsResp.objects: array expected"
                         );
                       t.objects = [];
-                      for (var n = 0; n < e.objects.length; ++n)
+                      for (let n = 0; n < e.objects.length; ++n)
                         t.objects[n] = String(e.objects[n]);
                     }
                     return t;
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.objects = []),
                       e.objects && e.objects.length)
                     ) {
                       n.objects = [];
-                      for (var r = 0; r < e.objects.length; ++r)
+                      for (let r = 0; r < e.objects.length; ++r)
                         n.objects[r] = e.objects[r];
                     }
                     return n;
@@ -6968,13 +6936,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.Disconnect = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.error = ""),
@@ -7001,7 +6968,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.error = e.string();
@@ -7029,14 +6996,14 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.Disconnect) return e;
-                    var t = new o.api.Disconnect();
+                    const t = new o.api.Disconnect();
                     return (
                       null != e.error && (t.error = String(e.error)), t
                     );
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && (n.error = ""),
                       null != e.error &&
@@ -7051,13 +7018,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.Send = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.buff = r.newBuffer([])),
@@ -7084,7 +7050,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.buff = e.bytes();
@@ -7115,7 +7081,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.Send) return e;
-                    var t = new o.api.Send();
+                    const t = new o.api.Send();
                     return (
                       null != e.buff &&
                         ("string" === typeof e.buff
@@ -7132,7 +7098,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         (t.bytes === String
@@ -7157,13 +7123,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.Recv = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.buff = r.newBuffer([])),
@@ -7190,7 +7155,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.buff = e.bytes();
@@ -7221,7 +7186,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.Recv) return e;
-                    var t = new o.api.Recv();
+                    const t = new o.api.Recv();
                     return (
                       null != e.buff &&
                         ("string" === typeof e.buff
@@ -7238,7 +7203,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         (t.bytes === String
@@ -7263,13 +7228,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.Connect = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.proto = ""),
@@ -7300,7 +7264,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.proto = e.string();
@@ -7335,7 +7299,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.Connect) return e;
-                    var t = new o.api.Connect();
+                    const t = new o.api.Connect();
                     return (
                       null != e.proto && (t.proto = String(e.proto)),
                       null != e.addr && (t.addr = String(e.addr)),
@@ -7344,7 +7308,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && ((n.proto = ""), (n.addr = "")),
                       null != e.proto &&
@@ -7362,13 +7326,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.Hint = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.text = ""),
@@ -7395,7 +7358,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.text = e.string();
@@ -7423,12 +7386,12 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.Hint) return e;
-                    var t = new o.api.Hint();
+                    const t = new o.api.Hint();
                     return null != e.text && (t.text = String(e.text)), t;
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && (n.text = ""),
                       null != e.text &&
@@ -7443,13 +7406,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.Ping = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.create = e => {
@@ -7469,7 +7431,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       e.skipType(7 & a);
                     }
                     return i;
@@ -7497,13 +7459,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.Pong = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.create = e => {
@@ -7523,7 +7484,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       e.skipType(7 & a);
                     }
                     return i;
@@ -7551,13 +7512,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.Hello = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.userid = 0),
@@ -7592,7 +7552,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.userid = e.uint32();
@@ -7634,7 +7594,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.Hello) return e;
-                    var t = new o.api.Hello();
+                    const t = new o.api.Hello();
                     return (
                       null != e.userid && (t.userid = e.userid >>> 0),
                       null != e.username &&
@@ -7645,7 +7605,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.userid = 0),
@@ -7669,13 +7629,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.Goodbye = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.create = e => {
@@ -7695,7 +7654,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       e.skipType(7 & a);
                     }
                     return i;
@@ -7725,12 +7684,10 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.State = (() => {
-                  var e = {},
-                    t = Object.create(e);
+                  const e = {}, t = Object.create(e);
                   return (
                     (t[(e[0] = "Stopped")] = 0),
                     (t[(e[1] = "Running")] = 1),
@@ -7740,7 +7697,7 @@
                 (i.CheckChanges = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.create = e => {
@@ -7760,7 +7717,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       e.skipType(7 & a);
                     }
                     return i;
@@ -7790,13 +7747,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.EnsurePackages = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.prototype.install = !1),
@@ -7830,7 +7786,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.install = e.bool();
@@ -7860,14 +7816,14 @@
                     )
                       return "install: boolean expected";
                     if (null != e.file && e.hasOwnProperty("file")) {
-                      var t = o.api.File.verify(e.file);
+                      const t = o.api.File.verify(e.file);
                       if (t) return "file." + t;
                     }
                     return null;
                   }),
                   (r.fromObject = e => {
                     if (e instanceof o.api.EnsurePackages) return e;
-                    var t = new o.api.EnsurePackages();
+                    const t = new o.api.EnsurePackages();
                     if (
                       (null != e.install &&
                         (t.install = Boolean(e.install)),
@@ -7883,7 +7839,7 @@
                   }),
                   (r.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && ((n.install = !1), (n.file = null)),
                       null != e.install &&
@@ -7901,13 +7857,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.Start = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.create = e => {
@@ -7927,7 +7882,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       e.skipType(7 & a);
                     }
                     return i;
@@ -7957,13 +7912,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.DebugStatus = (() => {
                   function i(e) {
                     if (((this.stack = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.done = !1),
@@ -7979,7 +7933,7 @@
                         t.uint32(8).bool(e.done),
                       null != e.stack && e.stack.length)
                     )
-                      for (var r = 0; r < e.stack.length; ++r)
+                      for (let r = 0; r < e.stack.length; ++r)
                         o.api.StackFrame.encode(
                           e.stack[r],
                           t.uint32(18).fork()
@@ -7997,7 +7951,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.done = e.bool();
@@ -8032,8 +7986,8 @@
                     if (null != e.stack && e.hasOwnProperty("stack")) {
                       if (!Array.isArray(e.stack))
                         return "stack: array expected";
-                      for (var t = 0; t < e.stack.length; ++t) {
-                        var n = o.api.StackFrame.verify(e.stack[t]);
+                      for (let t = 0; t < e.stack.length; ++t) {
+                        const n = o.api.StackFrame.verify(e.stack[t]);
                         if (n) return "stack." + n;
                       }
                     }
@@ -8041,7 +7995,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.DebugStatus) return e;
-                    var t = new o.api.DebugStatus();
+                    const t = new o.api.DebugStatus();
                     if (
                       (null != e.done && (t.done = Boolean(e.done)),
                       e.stack)
@@ -8051,7 +8005,7 @@
                           ".api.DebugStatus.stack: array expected"
                         );
                       t.stack = [];
-                      for (var n = 0; n < e.stack.length; ++n) {
+                      for (let n = 0; n < e.stack.length; ++n) {
                         if ("object" !== typeof e.stack[n])
                           throw TypeError(
                             ".api.DebugStatus.stack: object expected"
@@ -8065,7 +8019,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.stack = []),
                       t.defaults && (n.done = !1),
@@ -8075,7 +8029,7 @@
                       e.stack && e.stack.length)
                     ) {
                       n.stack = [];
-                      for (var r = 0; r < e.stack.length; ++r)
+                      for (let r = 0; r < e.stack.length; ++r)
                         n.stack[r] = o.api.StackFrame.toObject(
                           e.stack[r],
                           t
@@ -8089,13 +8043,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.StackFrame = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.function = ""),
@@ -8126,7 +8079,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.function = e.string();
@@ -8161,7 +8114,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.StackFrame) return e;
-                    var t = new o.api.StackFrame();
+                    const t = new o.api.StackFrame();
                     return (
                       null != e.function &&
                         (t.function = String(e.function)),
@@ -8171,7 +8124,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && ((n.function = ""), (n.line = 0)),
                       null != e.function &&
@@ -8189,13 +8142,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.ContainedTest = (() => {
                   function i(e) {
                     if (((this.project = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.suite = null),
@@ -8214,7 +8166,7 @@
                         ).ldelim(),
                       null != e.project && e.project.length)
                     )
-                      for (var r = 0; r < e.project.length; ++r)
+                      for (let r = 0; r < e.project.length; ++r)
                         o.api.File.encode(
                           e.project[r],
                           t.uint32(18).fork()
@@ -8232,7 +8184,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.suite = o.api.File.decode(e, e.uint32());
@@ -8271,7 +8223,7 @@
                     ) {
                       if (!Array.isArray(e.project))
                         return "project: array expected";
-                      for (var t = 0; t < e.project.length; ++t) {
+                      for (let t = 0; t < e.project.length; ++t) {
                         var n;
                         if ((n = o.api.File.verify(e.project[t])))
                           return "project." + n;
@@ -8281,7 +8233,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.ContainedTest) return e;
-                    var t = new o.api.ContainedTest();
+                    const t = new o.api.ContainedTest();
                     if (null != e.suite) {
                       if ("object" !== typeof e.suite)
                         throw TypeError(
@@ -8295,7 +8247,7 @@
                           ".api.ContainedTest.project: array expected"
                         );
                       t.project = [];
-                      for (var n = 0; n < e.project.length; ++n) {
+                      for (let n = 0; n < e.project.length; ++n) {
                         if ("object" !== typeof e.project[n])
                           throw TypeError(
                             ".api.ContainedTest.project: object expected"
@@ -8309,7 +8261,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.project = []),
                       t.defaults && (n.suite = null),
@@ -8319,7 +8271,7 @@
                       e.project && e.project.length)
                     ) {
                       n.project = [];
-                      for (var r = 0; r < e.project.length; ++r)
+                      for (let r = 0; r < e.project.length; ++r)
                         n.project[r] = o.api.File.toObject(
                           e.project[r],
                           t
@@ -8333,13 +8285,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.TestResult = (() => {
                   function i(e) {
                     if (((this.fails = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.passed = !1),
@@ -8359,7 +8310,7 @@
                         t.uint32(18).string(e.stderr),
                       null != e.fails && e.fails.length)
                     )
-                      for (var r = 0; r < e.fails.length; ++r)
+                      for (let r = 0; r < e.fails.length; ++r)
                         o.api.TestFailure.encode(
                           e.fails[r],
                           t.uint32(26).fork()
@@ -8377,7 +8328,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.passed = e.bool();
@@ -8421,8 +8372,8 @@
                     if (null != e.fails && e.hasOwnProperty("fails")) {
                       if (!Array.isArray(e.fails))
                         return "fails: array expected";
-                      for (var t = 0; t < e.fails.length; ++t) {
-                        var n = o.api.TestFailure.verify(e.fails[t]);
+                      for (let t = 0; t < e.fails.length; ++t) {
+                        const n = o.api.TestFailure.verify(e.fails[t]);
                         if (n) return "fails." + n;
                       }
                     }
@@ -8430,7 +8381,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.TestResult) return e;
-                    var t = new o.api.TestResult();
+                    const t = new o.api.TestResult();
                     if (
                       (null != e.passed && (t.passed = Boolean(e.passed)),
                       null != e.stderr && (t.stderr = String(e.stderr)),
@@ -8441,7 +8392,7 @@
                           ".api.TestResult.fails: array expected"
                         );
                       t.fails = [];
-                      for (var n = 0; n < e.fails.length; ++n) {
+                      for (let n = 0; n < e.fails.length; ++n) {
                         if ("object" !== typeof e.fails[n])
                           throw TypeError(
                             ".api.TestResult.fails: object expected"
@@ -8455,7 +8406,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.fails = []),
                       t.defaults && ((n.passed = !1), (n.stderr = "")),
@@ -8468,7 +8419,7 @@
                       e.fails && e.fails.length)
                     ) {
                       n.fails = [];
-                      for (var r = 0; r < e.fails.length; ++r)
+                      for (let r = 0; r < e.fails.length; ++r)
                         n.fails[r] = o.api.TestFailure.toObject(
                           e.fails[r],
                           t
@@ -8482,13 +8433,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.TestFailure = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.name = ""),
@@ -8519,7 +8469,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.name = e.string();
@@ -8554,7 +8504,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.TestFailure) return e;
-                    var t = new o.api.TestFailure();
+                    const t = new o.api.TestFailure();
                     return (
                       null != e.name && (t.name = String(e.name)),
                       null != e.trace && (t.trace = String(e.trace)),
@@ -8563,7 +8513,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && ((n.name = ""), (n.trace = "")),
                       null != e.name &&
@@ -8581,13 +8531,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.ResizeTerm = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.rows = 0),
@@ -8618,7 +8567,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.rows = e.uint32();
@@ -8653,7 +8602,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.ResizeTerm) return e;
-                    var t = new o.api.ResizeTerm();
+                    const t = new o.api.ResizeTerm();
                     return (
                       null != e.rows && (t.rows = e.rows >>> 0),
                       null != e.cols && (t.cols = e.cols >>> 0),
@@ -8662,7 +8611,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && ((n.rows = 0), (n.cols = 0)),
                       null != e.rows &&
@@ -8680,13 +8629,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.SaneTerm = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.create = e => {
@@ -8706,7 +8654,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       e.skipType(7 & a);
                     }
                     return i;
@@ -8736,13 +8684,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.LintResults = (() => {
                   function i(e) {
                     if (((this.results = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.results = r.emptyArray),
@@ -8754,7 +8701,7 @@
                       (t || (t = n.create()),
                       null != e.results && e.results.length)
                     )
-                      for (var r = 0; r < e.results.length; ++r)
+                      for (let r = 0; r < e.results.length; ++r)
                         o.api.LintResult.encode(
                           e.results[r],
                           t.uint32(10).fork()
@@ -8772,7 +8719,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           (i.results && i.results.length) ||
@@ -8802,8 +8749,8 @@
                     ) {
                       if (!Array.isArray(e.results))
                         return "results: array expected";
-                      for (var t = 0; t < e.results.length; ++t) {
-                        var n = o.api.LintResult.verify(e.results[t]);
+                      for (let t = 0; t < e.results.length; ++t) {
+                        const n = o.api.LintResult.verify(e.results[t]);
                         if (n) return "results." + n;
                       }
                     }
@@ -8811,14 +8758,14 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.LintResults) return e;
-                    var t = new o.api.LintResults();
+                    const t = new o.api.LintResults();
                     if (e.results) {
                       if (!Array.isArray(e.results))
                         throw TypeError(
                           ".api.LintResults.results: array expected"
                         );
                       t.results = [];
-                      for (var n = 0; n < e.results.length; ++n) {
+                      for (let n = 0; n < e.results.length; ++n) {
                         if ("object" !== typeof e.results[n])
                           throw TypeError(
                             ".api.LintResults.results: object expected"
@@ -8832,13 +8779,13 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.results = []),
                       e.results && e.results.length)
                     ) {
                       n.results = [];
-                      for (var r = 0; r < e.results.length; ++r)
+                      for (let r = 0; r < e.results.length; ++r)
                         n.results[r] = o.api.LintResult.toObject(
                           e.results[r],
                           t
@@ -8852,13 +8799,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.LintResult = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.text = ""),
@@ -8897,7 +8843,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.text = e.string();
@@ -8946,7 +8892,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.LintResult) return e;
-                    var t = new o.api.LintResult();
+                    const t = new o.api.LintResult();
                     return (
                       null != e.text && (t.text = String(e.text)),
                       null != e.row && (t.row = 0 | e.row),
@@ -8957,7 +8903,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.text = ""),
@@ -8985,13 +8931,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.OK = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.create = e => {
@@ -9011,7 +8956,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       e.skipType(7 & a);
                     }
                     return i;
@@ -9039,13 +8984,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.Move = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.oldPath = ""),
@@ -9076,7 +9020,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.oldPath = e.string();
@@ -9111,7 +9055,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.Move) return e;
-                    var t = new o.api.Move();
+                    const t = new o.api.Move();
                     return (
                       null != e.oldPath &&
                         (t.oldPath = String(e.oldPath)),
@@ -9122,7 +9066,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && ((n.oldPath = ""), (n.newPath = "")),
                       null != e.oldPath &&
@@ -9140,13 +9084,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.Files = (() => {
                   function i(e) {
                     if (((this.files = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.files = r.emptyArray),
@@ -9158,7 +9101,7 @@
                       (t || (t = n.create()),
                       null != e.files && e.files.length)
                     )
-                      for (var r = 0; r < e.files.length; ++r)
+                      for (let r = 0; r < e.files.length; ++r)
                         o.api.File.encode(
                           e.files[r],
                           t.uint32(10).fork()
@@ -9176,7 +9119,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           (i.files && i.files.length) || (i.files = []),
@@ -9202,8 +9145,8 @@
                     if (null != e.files && e.hasOwnProperty("files")) {
                       if (!Array.isArray(e.files))
                         return "files: array expected";
-                      for (var t = 0; t < e.files.length; ++t) {
-                        var n = o.api.File.verify(e.files[t]);
+                      for (let t = 0; t < e.files.length; ++t) {
+                        const n = o.api.File.verify(e.files[t]);
                         if (n) return "files." + n;
                       }
                     }
@@ -9211,14 +9154,14 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.Files) return e;
-                    var t = new o.api.Files();
+                    const t = new o.api.Files();
                     if (e.files) {
                       if (!Array.isArray(e.files))
                         throw TypeError(
                           ".api.Files.files: array expected"
                         );
                       t.files = [];
-                      for (var n = 0; n < e.files.length; ++n) {
+                      for (let n = 0; n < e.files.length; ++n) {
                         if ("object" !== typeof e.files[n])
                           throw TypeError(
                             ".api.Files.files: object expected"
@@ -9230,13 +9173,13 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.files = []),
                       e.files && e.files.length)
                     ) {
                       n.files = [];
-                      for (var r = 0; r < e.files.length; ++r)
+                      for (let r = 0; r < e.files.length; ++r)
                         n.files[r] = o.api.File.toObject(e.files[r], t);
                     }
                     return n;
@@ -9247,13 +9190,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.StatResult = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.exists = !1),
@@ -9300,7 +9242,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.exists = e.bool();
@@ -9367,7 +9309,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.StatResult) return e;
-                    var t = new o.api.StatResult();
+                    const t = new o.api.StatResult();
                     switch (
                       (null != e.exists && (t.exists = Boolean(e.exists)),
                       e.type)
@@ -9416,7 +9358,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (t.defaults) {
                       if (
                         ((n.exists = !1),
@@ -9498,13 +9440,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.File = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.path = ""),
@@ -9539,7 +9480,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.path = e.string();
@@ -9590,7 +9531,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.File) return e;
-                    var t = new o.api.File();
+                    const t = new o.api.File();
                     switch (
                       (null != e.path && (t.path = String(e.path)),
                       e.type)
@@ -9619,7 +9560,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.path = ""),
@@ -9660,21 +9601,19 @@
                     );
                   }),
                   (i.Type = (() => {
-                    var e = {},
-                      t = Object.create(e);
+                    const e = {}, t = Object.create(e);
                     return (
                       (t[(e[0] = "REGULAR")] = 0),
                       (t[(e[1] = "DIRECTORY")] = 1),
                       t
                     );
                   })()),
-                  i
-                ;
+                  i;
                 })()),
                 (i.Clear = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.create = e => {
@@ -9694,7 +9633,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       e.skipType(7 & a);
                     }
                     return i;
@@ -9724,13 +9663,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.Toast = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.text = ""),
@@ -9757,7 +9695,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.text = e.string();
@@ -9785,12 +9723,12 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.Toast) return e;
-                    var t = new o.api.Toast();
+                    const t = new o.api.Toast();
                     return null != e.text && (t.text = String(e.text)), t;
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && (n.text = ""),
                       null != e.text &&
@@ -9805,13 +9743,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.Redirect = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.url = ""),
@@ -9838,7 +9775,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.url = e.string();
@@ -9866,12 +9803,12 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.Redirect) return e;
-                    var t = new o.api.Redirect();
+                    const t = new o.api.Redirect();
                     return null != e.url && (t.url = String(e.url)), t;
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && (n.url = ""),
                       null != e.url &&
@@ -9886,13 +9823,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.AlwaysOn = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.prototype.enable = !1),
@@ -9919,7 +9855,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.enable = e.bool();
@@ -9947,7 +9883,7 @@
                   }),
                   (r.fromObject = e => {
                     if (e instanceof o.api.AlwaysOn) return e;
-                    var t = new o.api.AlwaysOn();
+                    const t = new o.api.AlwaysOn();
                     return (
                       null != e.enable && (t.enable = Boolean(e.enable)),
                       t
@@ -9955,7 +9891,7 @@
                   }),
                   (r.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && (n.enable = !1),
                       null != e.enable &&
@@ -9970,13 +9906,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.RunMain = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.create = e => {
@@ -9996,7 +9931,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       e.skipType(7 & a);
                     }
                     return i;
@@ -10026,13 +9961,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.OpenChannel = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.service = ""),
@@ -10071,7 +10005,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.service = e.string();
@@ -10128,7 +10062,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.OpenChannel) return e;
-                    var t = new o.api.OpenChannel();
+                    const t = new o.api.OpenChannel();
                     switch (
                       (null != e.service &&
                         (t.service = String(e.service)),
@@ -10151,7 +10085,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.service = ""),
@@ -10183,8 +10117,7 @@
                     );
                   }),
                   (i.Action = (() => {
-                    var e = {},
-                      t = Object.create(e);
+                    const e = {}, t = Object.create(e);
                     return (
                       (t[(e[0] = "CREATE")] = 0),
                       (t[(e[1] = "ATTACH")] = 1),
@@ -10192,13 +10125,12 @@
                       t
                     );
                   })()),
-                  i
-                ;
+                  i;
                 })()),
                 (i.OpenChannelRes = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.id = 0),
@@ -10233,7 +10165,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.id = e.int32();
@@ -10281,7 +10213,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.OpenChannelRes) return e;
-                    var t = new o.api.OpenChannelRes();
+                    const t = new o.api.OpenChannelRes();
                     switch (
                       (null != e.id && (t.id = 0 | e.id), e.state)
                     ) {
@@ -10303,7 +10235,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.id = 0),
@@ -10331,8 +10263,7 @@
                     );
                   }),
                   (i.State = (() => {
-                    var e = {},
-                      t = Object.create(e);
+                    const e = {}, t = Object.create(e);
                     return (
                       (t[(e[0] = "CREATED")] = 0),
                       (t[(e[1] = "ATTACHED")] = 1),
@@ -10340,13 +10271,12 @@
                       t
                     );
                   })()),
-                  i
-                ;
+                  i;
                 })()),
                 (i.CloseChannel = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.id = 0),
@@ -10377,7 +10307,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.id = e.int32();
@@ -10418,7 +10348,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.CloseChannel) return e;
-                    var t = new o.api.CloseChannel();
+                    const t = new o.api.CloseChannel();
                     switch (
                       (null != e.id && (t.id = 0 | e.id), e.action)
                     ) {
@@ -10438,7 +10368,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.id = 0),
@@ -10463,8 +10393,7 @@
                     );
                   }),
                   (i.Action = (() => {
-                    var e = {},
-                      t = Object.create(e);
+                    const e = {}, t = Object.create(e);
                     return (
                       (t[(e[0] = "DISCONNECT")] = 0),
                       (t[(e[1] = "TRY_CLOSE")] = 1),
@@ -10472,13 +10401,12 @@
                       t
                     );
                   })()),
-                  i
-                ;
+                  i;
                 })()),
                 (i.CloseChannelRes = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.id = 0),
@@ -10509,7 +10437,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.id = e.int32();
@@ -10550,7 +10478,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.CloseChannelRes) return e;
-                    var t = new o.api.CloseChannelRes();
+                    const t = new o.api.CloseChannelRes();
                     switch (
                       (null != e.id && (t.id = 0 | e.id), e.status)
                     ) {
@@ -10570,7 +10498,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.id = 0),
@@ -10595,8 +10523,7 @@
                     );
                   }),
                   (i.Status = (() => {
-                    var e = {},
-                      t = Object.create(e);
+                    const e = {}, t = Object.create(e);
                     return (
                       (t[(e[0] = "DISCONNECT")] = 0),
                       (t[(e[1] = "CLOSE")] = 1),
@@ -10604,13 +10531,12 @@
                       t
                     );
                   })()),
-                  i
-                ;
+                  i;
                 })()),
                 (i.ContainerState = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.prototype.state = 0),
@@ -10637,7 +10563,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.state = e.int32();
@@ -10668,7 +10594,7 @@
                   }),
                   (r.fromObject = e => {
                     if (e instanceof o.api.ContainerState) return e;
-                    var t = new o.api.ContainerState();
+                    const t = new o.api.ContainerState();
                     switch (e.state) {
                       case "SLEEP":
                       case 0:
@@ -10682,7 +10608,7 @@
                   }),
                   (r.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         (n.state = t.enums === String ? "SLEEP" : 0),
@@ -10702,21 +10628,19 @@
                     );
                   }),
                   (r.State = (() => {
-                    var e = {},
-                      t = Object.create(e);
+                    const e = {}, t = Object.create(e);
                     return (
                       (t[(e[0] = "SLEEP")] = 0),
                       (t[(e[1] = "READY")] = 1),
                       t
                     );
                   })()),
-                  r
-                ;
+                  r;
                 })()),
                 (i.PortOpen = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.forwarded = !1),
@@ -10751,7 +10675,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.forwarded = e.bool();
@@ -10793,7 +10717,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.PortOpen) return e;
-                    var t = new o.api.PortOpen();
+                    const t = new o.api.PortOpen();
                     return (
                       null != e.forwarded &&
                         (t.forwarded = Boolean(e.forwarded)),
@@ -10805,7 +10729,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.forwarded = !1),
@@ -10829,13 +10753,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.OTFetchRequest = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.versionFrom = 0),
@@ -10866,7 +10789,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.versionFrom = e.uint32();
@@ -10901,7 +10824,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.OTFetchRequest) return e;
-                    var t = new o.api.OTFetchRequest();
+                    const t = new o.api.OTFetchRequest();
                     return (
                       null != e.versionFrom &&
                         (t.versionFrom = e.versionFrom >>> 0),
@@ -10912,7 +10835,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.versionFrom = 0), (n.versionTo = 0)),
@@ -10931,13 +10854,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.OTFetchResponse = (() => {
                   function i(e) {
                     if (((this.packets = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.packets = r.emptyArray),
@@ -10949,7 +10871,7 @@
                       (t || (t = n.create()),
                       null != e.packets && e.packets.length)
                     )
-                      for (var r = 0; r < e.packets.length; ++r)
+                      for (let r = 0; r < e.packets.length; ++r)
                         o.api.OTPacket.encode(
                           e.packets[r],
                           t.uint32(10).fork()
@@ -10967,7 +10889,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           (i.packets && i.packets.length) ||
@@ -10997,8 +10919,8 @@
                     ) {
                       if (!Array.isArray(e.packets))
                         return "packets: array expected";
-                      for (var t = 0; t < e.packets.length; ++t) {
-                        var n = o.api.OTPacket.verify(e.packets[t]);
+                      for (let t = 0; t < e.packets.length; ++t) {
+                        const n = o.api.OTPacket.verify(e.packets[t]);
                         if (n) return "packets." + n;
                       }
                     }
@@ -11006,14 +10928,14 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.OTFetchResponse) return e;
-                    var t = new o.api.OTFetchResponse();
+                    const t = new o.api.OTFetchResponse();
                     if (e.packets) {
                       if (!Array.isArray(e.packets))
                         throw TypeError(
                           ".api.OTFetchResponse.packets: array expected"
                         );
                       t.packets = [];
-                      for (var n = 0; n < e.packets.length; ++n) {
+                      for (let n = 0; n < e.packets.length; ++n) {
                         if ("object" !== typeof e.packets[n])
                           throw TypeError(
                             ".api.OTFetchResponse.packets: object expected"
@@ -11027,13 +10949,13 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.packets = []),
                       e.packets && e.packets.length)
                     ) {
                       n.packets = [];
-                      for (var r = 0; r < e.packets.length; ++r)
+                      for (let r = 0; r < e.packets.length; ++r)
                         n.packets[r] = o.api.OTPacket.toObject(
                           e.packets[r],
                           t
@@ -11047,13 +10969,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.OTPacket = (() => {
                   function i(e) {
                     if (((this.ops = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.spookyVersion = 0),
@@ -11073,7 +10994,7 @@
                         t.uint32(8).uint32(e.spookyVersion),
                       null != e.ops && e.ops.length)
                     )
-                      for (var r = 0; r < e.ops.length; ++r)
+                      for (let r = 0; r < e.ops.length; ++r)
                         o.api.OTRuneTransformOp.encode(
                           e.ops[r],
                           t.uint32(18).fork()
@@ -11108,7 +11029,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.spookyVersion = e.uint32();
@@ -11168,7 +11089,7 @@
                     if (null != e.ops && e.hasOwnProperty("ops")) {
                       if (!Array.isArray(e.ops))
                         return "ops: array expected";
-                      for (var t = 0; t < e.ops.length; ++t)
+                      for (let t = 0; t < e.ops.length; ++t)
                         if (
                           (n = o.api.OTRuneTransformOp.verify(e.ops[t]))
                         )
@@ -11193,7 +11114,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.OTPacket) return e;
-                    var t = new o.api.OTPacket();
+                    const t = new o.api.OTPacket();
                     if (
                       (null != e.spookyVersion &&
                         (t.spookyVersion = e.spookyVersion >>> 0),
@@ -11205,7 +11126,7 @@
                           ".api.OTPacket.ops: array expected"
                         );
                       t.ops = [];
-                      for (var n = 0; n < e.ops.length; ++n) {
+                      for (let n = 0; n < e.ops.length; ++n) {
                         if ("object" !== typeof e.ops[n])
                           throw TypeError(
                             ".api.OTPacket.ops: object expected"
@@ -11234,7 +11155,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.ops = []),
                       t.defaults &&
@@ -11249,7 +11170,7 @@
                       e.ops && e.ops.length)
                     ) {
                       n.ops = [];
-                      for (var r = 0; r < e.ops.length; ++r)
+                      for (let r = 0; r < e.ops.length; ++r)
                         n.ops[r] = o.api.OTRuneTransformOp.toObject(
                           e.ops[r],
                           t
@@ -11281,16 +11202,15 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.OTRuneTransformOp = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
-                  var a;
+                  let a;
                   return (i.prototype.skip = 0),
                   (i.prototype.delete = 0),
                   (i.prototype.insert = ""),
@@ -11329,7 +11249,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.skip = e.uint32();
@@ -11355,7 +11275,7 @@
                   (i.verify = e => {
                     if ("object" !== typeof e || null === e)
                       return "object expected";
-                    var t = {};
+                    const t = {};
                     if (
                       null != e.skip &&
                       e.hasOwnProperty("skip") &&
@@ -11376,7 +11296,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.OTRuneTransformOp) return e;
-                    var t = new o.api.OTRuneTransformOp();
+                    const t = new o.api.OTRuneTransformOp();
                     return (
                       null != e.skip && (t.skip = e.skip >>> 0),
                       null != e.delete && (t.delete = e.delete >>> 0),
@@ -11386,7 +11306,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       null != e.skip &&
                         e.hasOwnProperty("skip") &&
@@ -11408,13 +11328,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.OTStatus = (() => {
                   function i(e) {
                     if (((this.cursors = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.contents = ""),
@@ -11441,7 +11360,7 @@
                         ).ldelim(),
                       null != e.cursors && e.cursors.length)
                     )
-                      for (var r = 0; r < e.cursors.length; ++r)
+                      for (let r = 0; r < e.cursors.length; ++r)
                         o.api.OTCursor.encode(
                           e.cursors[r],
                           t.uint32(34).fork()
@@ -11459,7 +11378,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.contents = e.string();
@@ -11516,7 +11435,7 @@
                     ) {
                       if (!Array.isArray(e.cursors))
                         return "cursors: array expected";
-                      for (var t = 0; t < e.cursors.length; ++t) {
+                      for (let t = 0; t < e.cursors.length; ++t) {
                         var n;
                         if ((n = o.api.OTCursor.verify(e.cursors[t])))
                           return "cursors." + n;
@@ -11526,7 +11445,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.OTStatus) return e;
-                    var t = new o.api.OTStatus();
+                    const t = new o.api.OTStatus();
                     if (
                       (null != e.contents &&
                         (t.contents = String(e.contents)),
@@ -11545,7 +11464,7 @@
                           ".api.OTStatus.cursors: array expected"
                         );
                       t.cursors = [];
-                      for (var n = 0; n < e.cursors.length; ++n) {
+                      for (let n = 0; n < e.cursors.length; ++n) {
                         if ("object" !== typeof e.cursors[n])
                           throw TypeError(
                             ".api.OTStatus.cursors: object expected"
@@ -11559,7 +11478,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.cursors = []),
                       t.defaults &&
@@ -11581,7 +11500,7 @@
                       e.cursors && e.cursors.length)
                     ) {
                       n.cursors = [];
-                      for (var r = 0; r < e.cursors.length; ++r)
+                      for (let r = 0; r < e.cursors.length; ++r)
                         n.cursors[r] = o.api.OTCursor.toObject(
                           e.cursors[r],
                           t
@@ -11595,13 +11514,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.OTCursor = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.position = 0),
@@ -11647,7 +11565,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.position = e.uint32();
@@ -11698,7 +11616,7 @@
                     )
                       return "selectionEnd: integer expected";
                     if (null != e.user && e.hasOwnProperty("user")) {
-                      var t = o.api.User.verify(e.user);
+                      const t = o.api.User.verify(e.user);
                       if (t) return "user." + t;
                     }
                     return null != e.id &&
@@ -11709,7 +11627,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.OTCursor) return e;
-                    var t = new o.api.OTCursor();
+                    const t = new o.api.OTCursor();
                     if (
                       (null != e.position &&
                         (t.position = e.position >>> 0),
@@ -11729,7 +11647,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.position = 0),
@@ -11761,13 +11679,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.ChatMessage = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.username = ""),
@@ -11798,7 +11715,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.username = e.string();
@@ -11833,7 +11750,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.ChatMessage) return e;
-                    var t = new o.api.ChatMessage();
+                    const t = new o.api.ChatMessage();
                     return (
                       null != e.username &&
                         (t.username = String(e.username)),
@@ -11843,7 +11760,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && ((n.username = ""), (n.text = "")),
                       null != e.username &&
@@ -11861,13 +11778,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.ChatTyping = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.username = ""),
@@ -11898,7 +11814,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.username = e.string();
@@ -11933,7 +11849,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.ChatTyping) return e;
-                    var t = new o.api.ChatTyping();
+                    const t = new o.api.ChatTyping();
                     return (
                       null != e.username &&
                         (t.username = String(e.username)),
@@ -11943,7 +11859,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && ((n.username = ""), (n.typing = !1)),
                       null != e.username &&
@@ -11961,13 +11877,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.User = (() => {
                   function i(e) {
                     if (((this.roles = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.id = 0),
@@ -11988,7 +11903,7 @@
                         t.uint32(18).string(e.name),
                       null != e.roles && e.roles.length)
                     )
-                      for (var r = 0; r < e.roles.length; ++r)
+                      for (let r = 0; r < e.roles.length; ++r)
                         t.uint32(26).string(e.roles[r]);
                     return (
                       null != e.session &&
@@ -12008,7 +11923,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.id = e.uint32();
@@ -12053,7 +11968,7 @@
                     if (null != e.roles && e.hasOwnProperty("roles")) {
                       if (!Array.isArray(e.roles))
                         return "roles: array expected";
-                      for (var t = 0; t < e.roles.length; ++t)
+                      for (let t = 0; t < e.roles.length; ++t)
                         if (!r.isString(e.roles[t]))
                           return "roles: string[] expected";
                     }
@@ -12065,7 +11980,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.User) return e;
-                    var t = new o.api.User();
+                    const t = new o.api.User();
                     if (
                       (null != e.id && (t.id = e.id >>> 0),
                       null != e.name && (t.name = String(e.name)),
@@ -12076,7 +11991,7 @@
                           ".api.User.roles: array expected"
                         );
                       t.roles = [];
-                      for (var n = 0; n < e.roles.length; ++n)
+                      for (let n = 0; n < e.roles.length; ++n)
                         t.roles[n] = String(e.roles[n]);
                     }
                     return (
@@ -12085,7 +12000,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.roles = []),
                       t.defaults &&
@@ -12099,7 +12014,7 @@
                       e.roles && e.roles.length)
                     ) {
                       n.roles = [];
-                      for (var r = 0; r < e.roles.length; ++r)
+                      for (let r = 0; r < e.roles.length; ++r)
                         n.roles[r] = e.roles[r];
                     }
                     return (
@@ -12115,13 +12030,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.Roster = (() => {
                   function i(e) {
                     if (((this.user = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.user = r.emptyArray),
@@ -12133,7 +12047,7 @@
                       (t || (t = n.create()),
                       null != e.user && e.user.length)
                     )
-                      for (var r = 0; r < e.user.length; ++r)
+                      for (let r = 0; r < e.user.length; ++r)
                         o.api.User.encode(
                           e.user[r],
                           t.uint32(10).fork()
@@ -12151,7 +12065,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           (i.user && i.user.length) || (i.user = []),
@@ -12175,8 +12089,8 @@
                     if (null != e.user && e.hasOwnProperty("user")) {
                       if (!Array.isArray(e.user))
                         return "user: array expected";
-                      for (var t = 0; t < e.user.length; ++t) {
-                        var n = o.api.User.verify(e.user[t]);
+                      for (let t = 0; t < e.user.length; ++t) {
+                        const n = o.api.User.verify(e.user[t]);
                         if (n) return "user." + n;
                       }
                     }
@@ -12184,14 +12098,14 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.Roster) return e;
-                    var t = new o.api.Roster();
+                    const t = new o.api.Roster();
                     if (e.user) {
                       if (!Array.isArray(e.user))
                         throw TypeError(
                           ".api.Roster.user: array expected"
                         );
                       t.user = [];
-                      for (var n = 0; n < e.user.length; ++n) {
+                      for (let n = 0; n < e.user.length; ++n) {
                         if ("object" !== typeof e.user[n])
                           throw TypeError(
                             ".api.Roster.user: object expected"
@@ -12203,13 +12117,13 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.user = []),
                       e.user && e.user.length)
                     ) {
                       n.user = [];
-                      for (var r = 0; r < e.user.length; ++r)
+                      for (let r = 0; r < e.user.length; ++r)
                         n.user[r] = o.api.User.toObject(e.user[r], t);
                     }
                     return n;
@@ -12220,13 +12134,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.Exec = (() => {
                   function i(e) {
                     if (((this.args = []), (this.env = {}), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.args = r.emptyArray),
@@ -12246,7 +12159,7 @@
                       null != e.env &&
                       Object.hasOwnProperty.call(e, "env")
                     ) {
-                      var o = Object.keys(e.env);
+                      const o = Object.keys(e.env);
                       for (r = 0; r < o.length; ++r)
                         t.uint32(18)
                           .fork()
@@ -12276,7 +12189,7 @@
                       e.pos < s;
 
                     ) {
-                      var c = e.uint32();
+                      const c = e.uint32();
                       switch (c >>> 3) {
                         case 1:
                           (l.args && l.args.length) || (l.args = []),
@@ -12284,9 +12197,9 @@
                           break;
                         case 2:
                           l.env === r.emptyObject && (l.env = {});
-                          var u = e.uint32() + e.pos;
+                          const u = e.uint32() + e.pos;
                           for (i = "", a = ""; e.pos < u; ) {
-                            var p = e.uint32();
+                            const p = e.uint32();
                             switch (p >>> 3) {
                               case 1:
                                 i = e.string();
@@ -12328,7 +12241,7 @@
                     if (null != e.env && e.hasOwnProperty("env")) {
                       if (!r.isObject(e.env))
                         return "env: object expected";
-                      var n = Object.keys(e.env);
+                      const n = Object.keys(e.env);
                       for (t = 0; t < n.length; ++t)
                         if (!r.isString(e.env[n[t]]))
                           return "env: string{k:string} expected";
@@ -12341,7 +12254,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.Exec) return e;
-                    var t = new o.api.Exec();
+                    const t = new o.api.Exec();
                     if (e.args) {
                       if (!Array.isArray(e.args))
                         throw TypeError(".api.Exec.args: array expected");
@@ -12353,7 +12266,7 @@
                       if ("object" !== typeof e.env)
                         throw TypeError(".api.Exec.env: object expected");
                       t.env = {};
-                      var r = Object.keys(e.env);
+                      const r = Object.keys(e.env);
                       for (n = 0; n < r.length; ++n)
                         t.env[r[n]] = String(e.env[r[n]]);
                     }
@@ -12365,8 +12278,8 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n,
-                      r = {};
+                    let n;
+                    const r = {};
                     if (
                       ((t.arrays || t.defaults) && (r.args = []),
                       (t.objects || t.defaults) && (r.env = {}),
@@ -12393,13 +12306,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.Package = (() => {
                   function i(e) {
                     if (((this.dependencies = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.name = ""),
@@ -12454,7 +12366,7 @@
                         t.uint32(138).string(e.license),
                       null != e.dependencies && e.dependencies.length)
                     )
-                      for (var r = 0; r < e.dependencies.length; ++r)
+                      for (let r = 0; r < e.dependencies.length; ++r)
                         o.api.Package.encode(
                           e.dependencies[r],
                           t.uint32(146).fork()
@@ -12472,7 +12384,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.name = e.string();
@@ -12592,8 +12504,8 @@
                     ) {
                       if (!Array.isArray(e.dependencies))
                         return "dependencies: array expected";
-                      for (var t = 0; t < e.dependencies.length; ++t) {
-                        var n = o.api.Package.verify(e.dependencies[t]);
+                      for (let t = 0; t < e.dependencies.length; ++t) {
+                        const n = o.api.Package.verify(e.dependencies[t]);
                         if (n) return "dependencies." + n;
                       }
                     }
@@ -12601,7 +12513,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.Package) return e;
-                    var t = new o.api.Package();
+                    const t = new o.api.Package();
                     if (
                       (null != e.name && (t.name = String(e.name)),
                       null != e.spec && (t.spec = String(e.spec)),
@@ -12627,7 +12539,7 @@
                           ".api.Package.dependencies: array expected"
                         );
                       t.dependencies = [];
-                      for (var n = 0; n < e.dependencies.length; ++n) {
+                      for (let n = 0; n < e.dependencies.length; ++n) {
                         if ("object" !== typeof e.dependencies[n])
                           throw TypeError(
                             ".api.Package.dependencies: object expected"
@@ -12641,7 +12553,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.dependencies = []),
                       t.defaults &&
@@ -12688,7 +12600,7 @@
                       e.dependencies && e.dependencies.length)
                     ) {
                       n.dependencies = [];
-                      for (var r = 0; r < e.dependencies.length; ++r)
+                      for (let r = 0; r < e.dependencies.length; ++r)
                         n.dependencies[r] = o.api.Package.toObject(
                           e.dependencies[r],
                           t
@@ -12702,13 +12614,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.PackageSearch = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.query = ""),
@@ -12735,7 +12646,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.query = e.string();
@@ -12763,14 +12674,14 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.PackageSearch) return e;
-                    var t = new o.api.PackageSearch();
+                    const t = new o.api.PackageSearch();
                     return (
                       null != e.query && (t.query = String(e.query)), t
                     );
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && (n.query = ""),
                       null != e.query &&
@@ -12785,13 +12696,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.PackageSearchResp = (() => {
                   function i(e) {
                     if (((this.results = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.results = r.emptyArray),
@@ -12803,7 +12713,7 @@
                       (t || (t = n.create()),
                       null != e.results && e.results.length)
                     )
-                      for (var r = 0; r < e.results.length; ++r)
+                      for (let r = 0; r < e.results.length; ++r)
                         o.api.Package.encode(
                           e.results[r],
                           t.uint32(10).fork()
@@ -12821,7 +12731,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           (i.results && i.results.length) ||
@@ -12851,8 +12761,8 @@
                     ) {
                       if (!Array.isArray(e.results))
                         return "results: array expected";
-                      for (var t = 0; t < e.results.length; ++t) {
-                        var n = o.api.Package.verify(e.results[t]);
+                      for (let t = 0; t < e.results.length; ++t) {
+                        const n = o.api.Package.verify(e.results[t]);
                         if (n) return "results." + n;
                       }
                     }
@@ -12860,14 +12770,14 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.PackageSearchResp) return e;
-                    var t = new o.api.PackageSearchResp();
+                    const t = new o.api.PackageSearchResp();
                     if (e.results) {
                       if (!Array.isArray(e.results))
                         throw TypeError(
                           ".api.PackageSearchResp.results: array expected"
                         );
                       t.results = [];
-                      for (var n = 0; n < e.results.length; ++n) {
+                      for (let n = 0; n < e.results.length; ++n) {
                         if ("object" !== typeof e.results[n])
                           throw TypeError(
                             ".api.PackageSearchResp.results: object expected"
@@ -12881,13 +12791,13 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.results = []),
                       e.results && e.results.length)
                     ) {
                       n.results = [];
-                      for (var r = 0; r < e.results.length; ++r)
+                      for (let r = 0; r < e.results.length; ++r)
                         n.results[r] = o.api.Package.toObject(
                           e.results[r],
                           t
@@ -12901,13 +12811,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.PackageInfo = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.prototype.pkg = null),
@@ -12937,7 +12846,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.pkg = o.api.Package.decode(e, e.uint32());
@@ -12958,14 +12867,14 @@
                     if ("object" !== typeof e || null === e)
                       return "object expected";
                     if (null != e.pkg && e.hasOwnProperty("pkg")) {
-                      var t = o.api.Package.verify(e.pkg);
+                      const t = o.api.Package.verify(e.pkg);
                       if (t) return "pkg." + t;
                     }
                     return null;
                   }),
                   (r.fromObject = e => {
                     if (e instanceof o.api.PackageInfo) return e;
-                    var t = new o.api.PackageInfo();
+                    const t = new o.api.PackageInfo();
                     if (null != e.pkg) {
                       if ("object" !== typeof e.pkg)
                         throw TypeError(
@@ -12977,7 +12886,7 @@
                   }),
                   (r.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && (n.pkg = null),
                       null != e.pkg &&
@@ -12992,13 +12901,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.PackageInfoResp = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.prototype.pkg = null),
@@ -13028,7 +12936,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.pkg = o.api.Package.decode(e, e.uint32());
@@ -13049,14 +12957,14 @@
                     if ("object" !== typeof e || null === e)
                       return "object expected";
                     if (null != e.pkg && e.hasOwnProperty("pkg")) {
-                      var t = o.api.Package.verify(e.pkg);
+                      const t = o.api.Package.verify(e.pkg);
                       if (t) return "pkg." + t;
                     }
                     return null;
                   }),
                   (r.fromObject = e => {
                     if (e instanceof o.api.PackageInfoResp) return e;
-                    var t = new o.api.PackageInfoResp();
+                    const t = new o.api.PackageInfoResp();
                     if (null != e.pkg) {
                       if ("object" !== typeof e.pkg)
                         throw TypeError(
@@ -13068,7 +12976,7 @@
                   }),
                   (r.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && (n.pkg = null),
                       null != e.pkg &&
@@ -13083,13 +12991,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.PackageAdd = (() => {
                   function i(e) {
                     if (((this.pkgs = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.pkgs = r.emptyArray),
@@ -13101,7 +13008,7 @@
                       (t || (t = n.create()),
                       null != e.pkgs && e.pkgs.length)
                     )
-                      for (var r = 0; r < e.pkgs.length; ++r)
+                      for (let r = 0; r < e.pkgs.length; ++r)
                         o.api.Package.encode(
                           e.pkgs[r],
                           t.uint32(10).fork()
@@ -13119,7 +13026,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           (i.pkgs && i.pkgs.length) || (i.pkgs = []),
@@ -13145,8 +13052,8 @@
                     if (null != e.pkgs && e.hasOwnProperty("pkgs")) {
                       if (!Array.isArray(e.pkgs))
                         return "pkgs: array expected";
-                      for (var t = 0; t < e.pkgs.length; ++t) {
-                        var n = o.api.Package.verify(e.pkgs[t]);
+                      for (let t = 0; t < e.pkgs.length; ++t) {
+                        const n = o.api.Package.verify(e.pkgs[t]);
                         if (n) return "pkgs." + n;
                       }
                     }
@@ -13154,14 +13061,14 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.PackageAdd) return e;
-                    var t = new o.api.PackageAdd();
+                    const t = new o.api.PackageAdd();
                     if (e.pkgs) {
                       if (!Array.isArray(e.pkgs))
                         throw TypeError(
                           ".api.PackageAdd.pkgs: array expected"
                         );
                       t.pkgs = [];
-                      for (var n = 0; n < e.pkgs.length; ++n) {
+                      for (let n = 0; n < e.pkgs.length; ++n) {
                         if ("object" !== typeof e.pkgs[n])
                           throw TypeError(
                             ".api.PackageAdd.pkgs: object expected"
@@ -13173,13 +13080,13 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.pkgs = []),
                       e.pkgs && e.pkgs.length)
                     ) {
                       n.pkgs = [];
-                      for (var r = 0; r < e.pkgs.length; ++r)
+                      for (let r = 0; r < e.pkgs.length; ++r)
                         n.pkgs[r] = o.api.Package.toObject(e.pkgs[r], t);
                     }
                     return n;
@@ -13190,13 +13097,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.PackageRemove = (() => {
                   function i(e) {
                     if (((this.pkgs = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.pkgs = r.emptyArray),
@@ -13208,7 +13114,7 @@
                       (t || (t = n.create()),
                       null != e.pkgs && e.pkgs.length)
                     )
-                      for (var r = 0; r < e.pkgs.length; ++r)
+                      for (let r = 0; r < e.pkgs.length; ++r)
                         o.api.Package.encode(
                           e.pkgs[r],
                           t.uint32(10).fork()
@@ -13226,7 +13132,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           (i.pkgs && i.pkgs.length) || (i.pkgs = []),
@@ -13252,8 +13158,8 @@
                     if (null != e.pkgs && e.hasOwnProperty("pkgs")) {
                       if (!Array.isArray(e.pkgs))
                         return "pkgs: array expected";
-                      for (var t = 0; t < e.pkgs.length; ++t) {
-                        var n = o.api.Package.verify(e.pkgs[t]);
+                      for (let t = 0; t < e.pkgs.length; ++t) {
+                        const n = o.api.Package.verify(e.pkgs[t]);
                         if (n) return "pkgs." + n;
                       }
                     }
@@ -13261,14 +13167,14 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.PackageRemove) return e;
-                    var t = new o.api.PackageRemove();
+                    const t = new o.api.PackageRemove();
                     if (e.pkgs) {
                       if (!Array.isArray(e.pkgs))
                         throw TypeError(
                           ".api.PackageRemove.pkgs: array expected"
                         );
                       t.pkgs = [];
-                      for (var n = 0; n < e.pkgs.length; ++n) {
+                      for (let n = 0; n < e.pkgs.length; ++n) {
                         if ("object" !== typeof e.pkgs[n])
                           throw TypeError(
                             ".api.PackageRemove.pkgs: object expected"
@@ -13280,13 +13186,13 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.pkgs = []),
                       e.pkgs && e.pkgs.length)
                     ) {
                       n.pkgs = [];
-                      for (var r = 0; r < e.pkgs.length; ++r)
+                      for (let r = 0; r < e.pkgs.length; ++r)
                         n.pkgs[r] = o.api.Package.toObject(e.pkgs[r], t);
                     }
                     return n;
@@ -13297,13 +13203,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.PackageInstall = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.create = e => {
@@ -13323,7 +13228,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       e.skipType(7 & a);
                     }
                     return i;
@@ -13353,13 +13258,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.PackageListSpecfile = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.create = e => {
@@ -13379,7 +13283,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       e.skipType(7 & a);
                     }
                     return i;
@@ -13409,13 +13313,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.PackageListSpecfileResp = (() => {
                   function i(e) {
                     if (((this.pkgs = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.pkgs = r.emptyArray),
@@ -13427,7 +13330,7 @@
                       (t || (t = n.create()),
                       null != e.pkgs && e.pkgs.length)
                     )
-                      for (var r = 0; r < e.pkgs.length; ++r)
+                      for (let r = 0; r < e.pkgs.length; ++r)
                         o.api.Package.encode(
                           e.pkgs[r],
                           t.uint32(10).fork()
@@ -13445,7 +13348,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           (i.pkgs && i.pkgs.length) || (i.pkgs = []),
@@ -13471,8 +13374,8 @@
                     if (null != e.pkgs && e.hasOwnProperty("pkgs")) {
                       if (!Array.isArray(e.pkgs))
                         return "pkgs: array expected";
-                      for (var t = 0; t < e.pkgs.length; ++t) {
-                        var n = o.api.Package.verify(e.pkgs[t]);
+                      for (let t = 0; t < e.pkgs.length; ++t) {
+                        const n = o.api.Package.verify(e.pkgs[t]);
                         if (n) return "pkgs." + n;
                       }
                     }
@@ -13481,14 +13384,14 @@
                   (i.fromObject = e => {
                     if (e instanceof o.api.PackageListSpecfileResp)
                       return e;
-                    var t = new o.api.PackageListSpecfileResp();
+                    const t = new o.api.PackageListSpecfileResp();
                     if (e.pkgs) {
                       if (!Array.isArray(e.pkgs))
                         throw TypeError(
                           ".api.PackageListSpecfileResp.pkgs: array expected"
                         );
                       t.pkgs = [];
-                      for (var n = 0; n < e.pkgs.length; ++n) {
+                      for (let n = 0; n < e.pkgs.length; ++n) {
                         if ("object" !== typeof e.pkgs[n])
                           throw TypeError(
                             ".api.PackageListSpecfileResp.pkgs: object expected"
@@ -13500,13 +13403,13 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.pkgs = []),
                       e.pkgs && e.pkgs.length)
                     ) {
                       n.pkgs = [];
-                      for (var r = 0; r < e.pkgs.length; ++r)
+                      for (let r = 0; r < e.pkgs.length; ++r)
                         n.pkgs[r] = o.api.Package.toObject(e.pkgs[r], t);
                     }
                     return n;
@@ -13517,13 +13420,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.PackageCacheSave = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.create = e => {
@@ -13543,7 +13445,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       e.skipType(7 & a);
                     }
                     return i;
@@ -13573,13 +13475,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.ChatScrollback = (() => {
                   function i(e) {
                     if (((this.scrollback = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.scrollback = r.emptyArray),
@@ -13591,7 +13492,7 @@
                       (t || (t = n.create()),
                       null != e.scrollback && e.scrollback.length)
                     )
-                      for (var r = 0; r < e.scrollback.length; ++r)
+                      for (let r = 0; r < e.scrollback.length; ++r)
                         o.api.ChatMessage.encode(
                           e.scrollback[r],
                           t.uint32(10).fork()
@@ -13609,7 +13510,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           (i.scrollback && i.scrollback.length) ||
@@ -13639,8 +13540,8 @@
                     ) {
                       if (!Array.isArray(e.scrollback))
                         return "scrollback: array expected";
-                      for (var t = 0; t < e.scrollback.length; ++t) {
-                        var n = o.api.ChatMessage.verify(e.scrollback[t]);
+                      for (let t = 0; t < e.scrollback.length; ++t) {
+                        const n = o.api.ChatMessage.verify(e.scrollback[t]);
                         if (n) return "scrollback." + n;
                       }
                     }
@@ -13648,14 +13549,14 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.ChatScrollback) return e;
-                    var t = new o.api.ChatScrollback();
+                    const t = new o.api.ChatScrollback();
                     if (e.scrollback) {
                       if (!Array.isArray(e.scrollback))
                         throw TypeError(
                           ".api.ChatScrollback.scrollback: array expected"
                         );
                       t.scrollback = [];
-                      for (var n = 0; n < e.scrollback.length; ++n) {
+                      for (let n = 0; n < e.scrollback.length; ++n) {
                         if ("object" !== typeof e.scrollback[n])
                           throw TypeError(
                             ".api.ChatScrollback.scrollback: object expected"
@@ -13669,13 +13570,13 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.scrollback = []),
                       e.scrollback && e.scrollback.length)
                     ) {
                       n.scrollback = [];
-                      for (var r = 0; r < e.scrollback.length; ++r)
+                      for (let r = 0; r < e.scrollback.length; ++r)
                         n.scrollback[r] = o.api.ChatMessage.toObject(
                           e.scrollback[r],
                           t
@@ -13689,13 +13590,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.Metrics = (() => {
                   function i(e) {
                     if (((this.prometheusMetricFamilies = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.prometheusMetricFamilies = r.emptyArray),
@@ -13709,7 +13609,7 @@
                         e.prometheusMetricFamilies.length)
                     )
                       for (
-                        var r = 0;
+                        let r = 0;
                         r < e.prometheusMetricFamilies.length;
                         ++r
                       )
@@ -13727,7 +13627,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           (i.prometheusMetricFamilies &&
@@ -13757,7 +13657,7 @@
                       if (!Array.isArray(e.prometheusMetricFamilies))
                         return "prometheusMetricFamilies: array expected";
                       for (
-                        var t = 0;
+                        let t = 0;
                         t < e.prometheusMetricFamilies.length;
                         ++t
                       )
@@ -13776,7 +13676,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.Metrics) return e;
-                    var t = new o.api.Metrics();
+                    const t = new o.api.Metrics();
                     if (e.prometheusMetricFamilies) {
                       if (!Array.isArray(e.prometheusMetricFamilies))
                         throw TypeError(
@@ -13784,7 +13684,7 @@
                         );
                       t.prometheusMetricFamilies = [];
                       for (
-                        var n = 0;
+                        let n = 0;
                         n < e.prometheusMetricFamilies.length;
                         ++n
                       )
@@ -13807,7 +13707,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) &&
                         (n.prometheusMetricFamilies = []),
@@ -13816,7 +13716,7 @@
                     ) {
                       n.prometheusMetricFamilies = [];
                       for (
-                        var o = 0;
+                        let o = 0;
                         o < e.prometheusMetricFamilies.length;
                         ++o
                       )
@@ -13841,16 +13741,15 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.PprofRequest = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
-                  var a;
+                  let a;
                   return (i.prototype.id = ""),
                   (i.prototype.pprofCpuProfileRequest = null),
                   (i.prototype.pprofHeapProfileRequest = null),
@@ -13937,7 +13836,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.id = e.string();
@@ -13992,7 +13891,7 @@
                   (i.verify = e => {
                     if ("object" !== typeof e || null === e)
                       return "object expected";
-                    var t = {};
+                    const t = {};
                     if (
                       null != e.id &&
                       e.hasOwnProperty("id") &&
@@ -14065,7 +13964,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.PprofRequest) return e;
-                    var t = new o.api.PprofRequest();
+                    const t = new o.api.PprofRequest();
                     if (
                       (null != e.id && (t.id = String(e.id)),
                       null != e.pprofCpuProfileRequest)
@@ -14123,7 +14022,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && (n.id = ""),
                       null != e.id &&
@@ -14181,13 +14080,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.PprofAllocsProfileRequest = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.prototype.debug = !1),
@@ -14214,7 +14112,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.debug = e.bool();
@@ -14243,14 +14141,14 @@
                   (r.fromObject = e => {
                     if (e instanceof o.api.PprofAllocsProfileRequest)
                       return e;
-                    var t = new o.api.PprofAllocsProfileRequest();
+                    const t = new o.api.PprofAllocsProfileRequest();
                     return (
                       null != e.debug && (t.debug = Boolean(e.debug)), t
                     );
                   }),
                   (r.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && (n.debug = !1),
                       null != e.debug &&
@@ -14265,13 +14163,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.PprofBlockProfileRequest = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.prototype.debug = !1),
@@ -14298,7 +14195,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.debug = e.bool();
@@ -14327,14 +14224,14 @@
                   (r.fromObject = e => {
                     if (e instanceof o.api.PprofBlockProfileRequest)
                       return e;
-                    var t = new o.api.PprofBlockProfileRequest();
+                    const t = new o.api.PprofBlockProfileRequest();
                     return (
                       null != e.debug && (t.debug = Boolean(e.debug)), t
                     );
                   }),
                   (r.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && (n.debug = !1),
                       null != e.debug &&
@@ -14349,13 +14246,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.PprofCpuProfileRequest = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.seconds = r.Long
@@ -14384,7 +14280,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.seconds = e.int64();
@@ -14416,7 +14312,7 @@
                   (i.fromObject = e => {
                     if (e instanceof o.api.PprofCpuProfileRequest)
                       return e;
-                    var t = new o.api.PprofCpuProfileRequest();
+                    const t = new o.api.PprofCpuProfileRequest();
                     return (
                       null != e.seconds &&
                         (r.Long
@@ -14437,10 +14333,10 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (t.defaults)
                       if (r.Long) {
-                        var o = new r.Long(0, 0, !1);
+                        const o = new r.Long(0, 0, !1);
                         n.seconds =
                           t.longs === String
                             ? o.toString()
@@ -14476,13 +14372,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.PprofHeapProfileRequest = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.prototype.gc = !1),
@@ -14513,7 +14408,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.gc = e.bool();
@@ -14549,7 +14444,7 @@
                   (r.fromObject = e => {
                     if (e instanceof o.api.PprofHeapProfileRequest)
                       return e;
-                    var t = new o.api.PprofHeapProfileRequest();
+                    const t = new o.api.PprofHeapProfileRequest();
                     return (
                       null != e.gc && (t.gc = Boolean(e.gc)),
                       null != e.debug && (t.debug = Boolean(e.debug)),
@@ -14558,7 +14453,7 @@
                   }),
                   (r.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && ((n.gc = !1), (n.debug = !1)),
                       null != e.gc &&
@@ -14576,13 +14471,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.PprofMutexProfileRequest = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.prototype.debug = !1),
@@ -14609,7 +14503,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.debug = e.bool();
@@ -14638,14 +14532,14 @@
                   (r.fromObject = e => {
                     if (e instanceof o.api.PprofMutexProfileRequest)
                       return e;
-                    var t = new o.api.PprofMutexProfileRequest();
+                    const t = new o.api.PprofMutexProfileRequest();
                     return (
                       null != e.debug && (t.debug = Boolean(e.debug)), t
                     );
                   }),
                   (r.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && (n.debug = !1),
                       null != e.debug &&
@@ -14660,13 +14554,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.PprofResponse = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.id = ""),
@@ -14697,7 +14590,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.id = e.string();
@@ -14736,7 +14629,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.PprofResponse) return e;
-                    var t = new o.api.PprofResponse();
+                    const t = new o.api.PprofResponse();
                     return (
                       null != e.id && (t.id = String(e.id)),
                       null != e.profile &&
@@ -14754,7 +14647,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.id = ""),
@@ -14787,13 +14680,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.PTYConfig = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.prototype.pipeMode = !1),
@@ -14820,7 +14712,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.pipeMode = e.bool();
@@ -14848,7 +14740,7 @@
                   }),
                   (r.fromObject = e => {
                     if (e instanceof o.api.PTYConfig) return e;
-                    var t = new o.api.PTYConfig();
+                    const t = new o.api.PTYConfig();
                     return (
                       null != e.pipeMode &&
                         (t.pipeMode = Boolean(e.pipeMode)),
@@ -14857,7 +14749,7 @@
                   }),
                   (r.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && (n.pipeMode = !1),
                       null != e.pipeMode &&
@@ -14872,13 +14764,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.Repl = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.id = ""),
@@ -14925,7 +14816,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.id = e.string();
@@ -14988,7 +14879,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.Repl) return e;
-                    var t = new o.api.Repl();
+                    const t = new o.api.Repl();
                     return (
                       null != e.id && (t.id = String(e.id)),
                       null != e.language &&
@@ -15003,7 +14894,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults &&
                         ((n.id = ""),
@@ -15039,13 +14930,12 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
                 (i.ResourceLimits = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.net = !1),
@@ -15096,7 +14986,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.net = e.bool();
@@ -15183,7 +15073,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.ResourceLimits) return e;
-                    var t = new o.api.ResourceLimits();
+                    const t = new o.api.ResourceLimits();
                     switch (
                       (null != e.net && (t.net = Boolean(e.net)),
                       null != e.memory &&
@@ -15235,7 +15125,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (t.defaults) {
                       if (((n.net = !1), r.Long)) {
                         var i = new r.Long(0, 0, !1);
@@ -15323,8 +15213,7 @@
                     );
                   }),
                   (i.Cachability = (() => {
-                    var e = {},
-                      t = Object.create(e);
+                    const e = {}, t = Object.create(e);
                     return (
                       (t[(e[0] = "NONE")] = 0),
                       (t[(e[1] = "USER")] = 1),
@@ -15332,13 +15221,12 @@
                       t
                     );
                   })()),
-                  i
-                ;
+                  i;
                 })()),
                 (i.Permissions = (() => {
                   function r(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (r.prototype.toggleAlwaysOn = !1),
@@ -15365,7 +15253,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.toggleAlwaysOn = e.bool();
@@ -15393,7 +15281,7 @@
                   }),
                   (r.fromObject = e => {
                     if (e instanceof o.api.Permissions) return e;
-                    var t = new o.api.Permissions();
+                    const t = new o.api.Permissions();
                     return (
                       null != e.toggleAlwaysOn &&
                         (t.toggleAlwaysOn = Boolean(e.toggleAlwaysOn)),
@@ -15402,7 +15290,7 @@
                   }),
                   (r.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && (n.toggleAlwaysOn = !1),
                       null != e.toggleAlwaysOn &&
@@ -15417,16 +15305,15 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  r
-                ;
+                  r;
                 })()),
                 (i.ReplToken = (() => {
                   function i(e) {
                     if (((this.flags = []), e))
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
-                  var a;
+                  let a;
                   return (i.prototype.iat = null),
                   (i.prototype.exp = null),
                   (i.prototype.salt = ""),
@@ -15506,7 +15393,7 @@
                         ).ldelim(),
                       null != e.flags && e.flags.length)
                     )
-                      for (var r = 0; r < e.flags.length; ++r)
+                      for (let r = 0; r < e.flags.length; ++r)
                         t.uint32(114).string(e.flags[r]);
                     return (
                       null != e.permissions &&
@@ -15529,7 +15416,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.iat = o.google.protobuf.Timestamp.decode(
@@ -15608,7 +15495,7 @@
                   (i.verify = e => {
                     if ("object" !== typeof e || null === e)
                       return "object expected";
-                    var t = {};
+                    const t = {};
                     if (
                       null != e.iat &&
                       e.hasOwnProperty("iat") &&
@@ -15696,7 +15583,7 @@
                     if (null != e.flags && e.hasOwnProperty("flags")) {
                       if (!Array.isArray(e.flags))
                         return "flags: array expected";
-                      for (var i = 0; i < e.flags.length; ++i)
+                      for (let i = 0; i < e.flags.length; ++i)
                         if (!r.isString(e.flags[i]))
                           return "flags: string[] expected";
                     }
@@ -15708,7 +15595,7 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.ReplToken) return e;
-                    var t = new o.api.ReplToken();
+                    const t = new o.api.ReplToken();
                     if (null != e.iat) {
                       if ("object" !== typeof e.iat)
                         throw TypeError(
@@ -15802,7 +15689,7 @@
                           ".api.ReplToken.flags: array expected"
                         );
                       t.flags = [];
-                      for (var n = 0; n < e.flags.length; ++n)
+                      for (let n = 0; n < e.flags.length; ++n)
                         t.flags[n] = String(e.flags[n]);
                     }
                     if (null != e.permissions) {
@@ -15818,7 +15705,7 @@
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     if (
                       ((t.arrays || t.defaults) && (n.flags = []),
                       t.defaults &&
@@ -15896,7 +15783,7 @@
                       e.flags && e.flags.length)
                     ) {
                       n.flags = [];
-                      for (var r = 0; r < e.flags.length; ++r)
+                      for (let r = 0; r < e.flags.length; ++r)
                         n.flags[r] = e.flags[r];
                     }
                     return (
@@ -15916,8 +15803,7 @@
                     );
                   }),
                   (i.Persistence = (() => {
-                    var e = {},
-                      t = Object.create(e);
+                    const e = {}, t = Object.create(e);
                     return (
                       (t[(e[0] = "PERSISTENT")] = 0),
                       (t[(e[1] = "EPHEMERAL")] = 1),
@@ -15929,7 +15815,7 @@
                     function i(e) {
                       if (e)
                         for (
-                          var t = Object.keys(e), n = 0;
+                          let t = Object.keys(e), n = 0;
                           n < t.length;
                           ++n
                         )
@@ -15963,7 +15849,7 @@
                         e.pos < r;
 
                       ) {
-                        var a = e.uint32();
+                        const a = e.uint32();
                         switch (a >>> 3) {
                           case 1:
                             i.id = e.string();
@@ -16001,7 +15887,7 @@
                         e instanceof o.api.ReplToken.ClassroomMetadata
                       )
                         return e;
-                      var t = new o.api.ReplToken.ClassroomMetadata();
+                      const t = new o.api.ReplToken.ClassroomMetadata();
                       return (
                         null != e.id && (t.id = String(e.id)),
                         null != e.language &&
@@ -16011,7 +15897,7 @@
                     }),
                     (i.toObject = (e, t) => {
                       t || (t = {});
-                      var n = {};
+                      const n = {};
                       return (
                         t.defaults && ((n.id = ""), (n.language = "")),
                         null != e.id &&
@@ -16029,14 +15915,13 @@
                         e.util.toJSONOptions
                       );
                     }),
-                    i
-                  ;
+                    i;
                   })()),
                   (i.ReplID = (() => {
                     function i(e) {
                       if (e)
                         for (
-                          var t = Object.keys(e), n = 0;
+                          let t = Object.keys(e), n = 0;
                           n < t.length;
                           ++n
                         )
@@ -16070,7 +15955,7 @@
                         e.pos < r;
 
                       ) {
-                        var a = e.uint32();
+                        const a = e.uint32();
                         switch (a >>> 3) {
                           case 1:
                             i.id = e.string();
@@ -16105,7 +15990,7 @@
                     }),
                     (i.fromObject = e => {
                       if (e instanceof o.api.ReplToken.ReplID) return e;
-                      var t = new o.api.ReplToken.ReplID();
+                      const t = new o.api.ReplToken.ReplID();
                       return (
                         null != e.id && (t.id = String(e.id)),
                         null != e.sourceRepl &&
@@ -16115,7 +16000,7 @@
                     }),
                     (i.toObject = (e, t) => {
                       t || (t = {});
-                      var n = {};
+                      const n = {};
                       return (
                         t.defaults &&
                           ((n.id = ""), (n.sourceRepl = "")),
@@ -16134,12 +16019,10 @@
                         e.util.toJSONOptions
                       );
                     }),
-                    i
-                  ;
+                    i;
                   })()),
                   (i.WireFormat = (() => {
-                    var e = {},
-                      t = Object.create(e);
+                    const e = {}, t = Object.create(e);
                     return (
                       (t[(e[0] = "PROTOBUF")] = 0),
                       (t[(e[1] = "JSON")] = 1),
@@ -16150,7 +16033,7 @@
                     function i(e) {
                       if (e)
                         for (
-                          var t = Object.keys(e), n = 0;
+                          let t = Object.keys(e), n = 0;
                           n < t.length;
                           ++n
                         )
@@ -16184,7 +16067,7 @@
                         e.pos < r;
 
                       ) {
-                        var a = e.uint32();
+                        const a = e.uint32();
                         switch (a >>> 3) {
                           case 1:
                             i.bearerID = e.uint32();
@@ -16220,7 +16103,7 @@
                     (i.fromObject = e => {
                       if (e instanceof o.api.ReplToken.Presenced)
                         return e;
-                      var t = new o.api.ReplToken.Presenced();
+                      const t = new o.api.ReplToken.Presenced();
                       return (
                         null != e.bearerID &&
                           (t.bearerID = e.bearerID >>> 0),
@@ -16231,7 +16114,7 @@
                     }),
                     (i.toObject = (e, t) => {
                       t || (t = {});
-                      var n = {};
+                      const n = {};
                       return (
                         t.defaults &&
                           ((n.bearerID = 0), (n.bearerName = "")),
@@ -16250,16 +16133,14 @@
                         e.util.toJSONOptions
                       );
                     }),
-                    i
-                  ;
+                    i;
                   })()),
-                  i
-                ;
+                  i;
                 })()),
                 (i.GovalTokenMetadata = (() => {
                   function i(e) {
                     if (e)
-                      for (var t = Object.keys(e), n = 0; n < t.length; ++n)
+                      for (let t = Object.keys(e), n = 0; n < t.length; ++n)
                         null != e[t[n]] && (this[t[n]] = e[t[n]]);
                   }
                   return (i.prototype.keyId = ""),
@@ -16286,7 +16167,7 @@
                       e.pos < r;
 
                     ) {
-                      var a = e.uint32();
+                      const a = e.uint32();
                       switch (a >>> 3) {
                         case 1:
                           i.keyId = e.string();
@@ -16314,14 +16195,14 @@
                   }),
                   (i.fromObject = e => {
                     if (e instanceof o.api.GovalTokenMetadata) return e;
-                    var t = new o.api.GovalTokenMetadata();
+                    const t = new o.api.GovalTokenMetadata();
                     return (
                       null != e.keyId && (t.keyId = String(e.keyId)), t
                     );
                   }),
                   (i.toObject = (e, t) => {
                     t || (t = {});
-                    var n = {};
+                    const n = {};
                     return (
                       t.defaults && (n.keyId = ""),
                       null != e.keyId &&
@@ -16336,21 +16217,19 @@
                       e.util.toJSONOptions
                     );
                   }),
-                  i
-                ;
+                  i;
                 })()),
-                i
-              ;
+                i;
               })()),
               (o.google = (() => {
-                var i = {};
+                const i = {};
                 return (i.protobuf = (() => {
-                  var i = {};
+                  const i = {};
                   return (i.Timestamp = (() => {
                     function i(e) {
                       if (e)
                         for (
-                          var t = Object.keys(e), n = 0;
+                          let t = Object.keys(e), n = 0;
                           n < t.length;
                           ++n
                         )
@@ -16386,7 +16265,7 @@
                         e.pos < r;
 
                       ) {
-                        var a = e.uint32();
+                        const a = e.uint32();
                         switch (a >>> 3) {
                           case 1:
                             i.seconds = e.int64();
@@ -16425,7 +16304,7 @@
                     (i.fromObject = e => {
                       if (e instanceof o.google.protobuf.Timestamp)
                         return e;
-                      var t = new o.google.protobuf.Timestamp();
+                      const t = new o.google.protobuf.Timestamp();
                       return (
                         null != e.seconds &&
                           (r.Long
@@ -16447,10 +16326,10 @@
                     }),
                     (i.toObject = (e, t) => {
                       t || (t = {});
-                      var n = {};
+                      const n = {};
                       if (t.defaults) {
                         if (r.Long) {
-                          var o = new r.Long(0, 0, !1);
+                          const o = new r.Long(0, 0, !1);
                           n.seconds =
                             t.longs === String
                               ? o.toString()
@@ -16491,17 +16370,13 @@
                         e.util.toJSONOptions
                       );
                     }),
-                    i
-                  ;
+                    i;
                   })()),
-                  i
-                ;
+                  i;
                 })()),
-                i
-              ;
+                i;
               })()),
-              o
-            ;
+              o;
             })
               ? r.apply(t, o)
               : r) || (e.exports = i);

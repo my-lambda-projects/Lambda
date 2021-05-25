@@ -1,21 +1,21 @@
-var hcaptcha = (() => {
+const hcaptcha = (() => {
   "use strict";
   function e(e) {
-    var t = this.constructor;
+    const t = this.constructor;
     return this.then(
-      n => {
+      (n) => {
         return t.resolve(e()).then(() => {
           return n;
         });
       },
-      n => {
+      (n) => {
         return t.resolve(e()).then(() => {
           return t.reject(n);
         });
       }
     );
   }
-  var t = setTimeout;
+  const t = setTimeout;
   function n() {}
   function i(e) {
     if (!(this instanceof i))
@@ -32,9 +32,9 @@ var hcaptcha = (() => {
     0 !== e._state
       ? ((e._handled = !0),
         i._immediateFn(() => {
-          var n = 1 === e._state ? t.onFulfilled : t.onRejected;
+          const n = 1 === e._state ? t.onFulfilled : t.onRejected;
           if (null !== n) {
-            var i;
+            let i;
             try {
               i = n(e._value);
             } catch (o) {
@@ -50,7 +50,7 @@ var hcaptcha = (() => {
       if (t === e)
         throw new TypeError("A promise cannot be resolved with itself.");
       if (t && ("object" == typeof t || "function" == typeof t)) {
-        var n = t.then;
+        const n = t.then;
         if (t instanceof i) return (e._state = 3), (e._value = t), void s(e);
         if ("function" == typeof n)
           return void c(
@@ -77,7 +77,7 @@ var hcaptcha = (() => {
       i._immediateFn(() => {
         e._handled || i._unhandledRejectionFn(e._value);
       });
-    for (var t = 0, n = e._deferreds.length; t < n; t++) o(e, e._deferreds[t]);
+    for (let t = 0, n = e._deferreds.length; t < n; t++) o(e, e._deferreds[t]);
     e._deferreds = null;
   }
   function h(e, t, n) {
@@ -86,13 +86,13 @@ var hcaptcha = (() => {
       (this.promise = n);
   }
   function c(e, t) {
-    var n = !1;
+    let n = !1;
     try {
       e(
-        e => {
+        (e) => {
           n || ((n = !0), r(t, e));
         },
-        e => {
+        (e) => {
           n || ((n = !0), a(t, e));
         }
       );
@@ -105,25 +105,25 @@ var hcaptcha = (() => {
     return this.then(null, e);
   }),
     (i.prototype.then = function (e, t) {
-      var i = new this.constructor(n);
+      const i = new this.constructor(n);
       return o(this, new h(e, t, i)), i;
     }),
     (i.prototype["finally"] = e),
-    (i.all = e => {
+    (i.all = (e) => {
       return new i((t, n) => {
         if (!e || "undefined" == typeof e.length)
           throw new TypeError("Promise.all accepts an array");
-        var i = Array.prototype.slice.call(e);
+        const i = Array.prototype.slice.call(e);
         if (0 === i.length) return t([]);
-        var o = i.length;
+        let o = i.length;
         function r(e, a) {
           try {
             if (a && ("object" == typeof a || "function" == typeof a)) {
-              var s = a.then;
+              const s = a.then;
               if ("function" == typeof s)
                 return void s.call(
                   a,
-                  t => {
+                  (t) => {
                     r(e, t);
                   },
                   n
@@ -134,59 +134,61 @@ var hcaptcha = (() => {
             n(h);
           }
         }
-        for (var a = 0; a < i.length; a++) r(a, i[a]);
+        for (let a = 0; a < i.length; a++) r(a, i[a]);
       });
     }),
-    (i.resolve = e => {
+    (i.resolve = (e) => {
       return e && "object" == typeof e && e.constructor === i
         ? e
-        : new i(t => {
+        : new i((t) => {
             t(e);
           });
     }),
-    (i.reject = e => {
+    (i.reject = (e) => {
       return new i((t, n) => {
         n(e);
       });
     }),
-    (i.race = e => {
+    (i.race = (e) => {
       return new i((t, n) => {
-        for (var i = 0, o = e.length; i < o; i++) e[i].then(t, n);
+        for (let i = 0, o = e.length; i < o; i++) e[i].then(t, n);
       });
     }),
     (i._immediateFn =
       ("function" == typeof setImmediate &&
-        (e => {
+        ((e) => {
           setImmediate(e);
         })) ||
-      (e => {
+      ((e) => {
         t(e, 0);
       })),
-    (i._unhandledRejectionFn = e => {
+    (i._unhandledRejectionFn = (e) => {
       "undefined" != typeof console &&
         console &&
         console.warn("Possible Unhandled Promise Rejection:", e);
     });
-  var l,
-    d = (() => {
-      if ("undefined" != typeof self) return self;
-      if ("undefined" != typeof window) return window;
-      if ("undefined" != typeof global) return global;
-      throw new Error("unable to locate global object");
-    })();
+  let l;
+
+  const d = (() => {
+    if ("undefined" != typeof self) return self;
+    if ("undefined" != typeof window) return window;
+    if ("undefined" != typeof global) return global;
+    throw new Error("unable to locate global object");
+  })();
+
   "Promise" in d
     ? d.Promise.prototype["finally"] || (d.Promise.prototype["finally"] = e)
     : (d.Promise = i),
     Array.prototype.indexOf ||
-      (Array.prototype.indexOf = (e => {
+      (Array.prototype.indexOf = ((e) => {
         return function (t, n) {
           if (null === this || this === undefined)
             throw TypeError(
               "Array.prototype.indexOf called on null or undefined"
             );
-          var i = e(this),
-            o = i.length >>> 0,
-            r = Math.min(0 | n, o);
+          const i = e(this);
+          const o = i.length >>> 0;
+          let r = Math.min(0 | n, o);
           if (r < 0) r = Math.max(0, o + r);
           else if (r >= o) return -1;
           if (void 0 === t) {
@@ -198,13 +200,13 @@ var hcaptcha = (() => {
         };
       })(Object)),
     Array.isArray ||
-      (Array.isArray = e => {
+      (Array.isArray = (e) => {
         return "[object Array]" === Object.prototype.toString.call(e);
       }),
     document.getElementsByClassName ||
       (window.Element.prototype.getElementsByClassName =
         document.constructor.prototype.getElementsByClassName =
-          e => {
+          (e) => {
             if (document.querySelectorAll)
               return document.querySelectorAll("." + e);
             for (
@@ -236,7 +238,7 @@ var hcaptcha = (() => {
       Object.getOwnPropertyDescriptor(Element.prototype, "textContent") &&
       !Object.getOwnPropertyDescriptor(Element.prototype, "textContent").get
     ) {
-      var u = Object.getOwnPropertyDescriptor(Element.prototype, "innerText");
+      const u = Object.getOwnPropertyDescriptor(Element.prototype, "innerText");
       Object.defineProperty(Element.prototype, "textContent", {
         get() {
           return u.get.call(this);
@@ -251,15 +253,15 @@ var hcaptcha = (() => {
     (Function.prototype.bind = function (e) {
       if ("function" != typeof this)
         throw new TypeError("Function.prototype.bind: Item Can Not Be Bound.");
-      var t = Array.prototype.slice.call(arguments, 1),
-        n = this,
-        i = () => {},
-        o = function () {
-          return n.apply(
-            this instanceof i ? this : e,
-            t.concat(Array.prototype.slice.call(arguments))
-          );
-        };
+      const t = Array.prototype.slice.call(arguments, 1),
+            n = this,
+            i = () => {},
+            o = function () {
+              return n.apply(
+                this instanceof i ? this : e,
+                t.concat(Array.prototype.slice.call(arguments))
+              );
+            };
       return (
         this.prototype && (i.prototype = this.prototype),
         (o.prototype = new i()),
@@ -270,7 +272,7 @@ var hcaptcha = (() => {
       (Object.create = (e, t) => {
         function n() {}
         if (((n.prototype = e), "object" == typeof t))
-          for (var i in t) t.hasOwnProperty(i) && (n[i] = t[i]);
+          for (const i in t) t.hasOwnProperty(i) && (n[i] = t[i]);
         return new n();
       }),
     Date.now ||
@@ -282,7 +284,7 @@ var hcaptcha = (() => {
     var p,
       f,
       m = ["error", "info", "log", "show", "table", "trace", "warn"],
-      g = e => {},
+      g = (e) => {},
       y = m.length;
     --y > -1;
 
@@ -294,21 +296,21 @@ var hcaptcha = (() => {
     } catch (mt) {
       window.atob =
         ((p = window.atob),
-        ((f = e => {
+        ((f = (e) => {
           return p(String(e).replace(/[\t\n\f\r ]+/g, ""));
         }).original = p),
         f);
     }
   else {
-    var v = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
-      w =
-        /^(?:[A-Za-z\d+\/]{4})*?(?:[A-Za-z\d+\/]{2}(?:==)?|[A-Za-z\d+\/]{3}=?)?$/;
-    window.atob = e => {
+    const v = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
+          w =
+            /^(?:[A-Za-z\d+\/]{4})*?(?:[A-Za-z\d+\/]{2}(?:==)?|[A-Za-z\d+\/]{3}=?)?$/;
+    window.atob = (e) => {
       if (((e = String(e).replace(/[\t\n\f\r ]+/g, "")), !w.test(e)))
         throw new TypeError(
           "Failed to execute 'atob' on 'Window': The string to be decoded is not correctly encoded."
         );
-      var t, n, i;
+      let t, n, i;
       e += "==".slice(2 - (3 & e.length));
       for (var o = "", r = 0; r < e.length; )
         (t =
@@ -333,62 +335,62 @@ var hcaptcha = (() => {
       (Event.prototype.stopPropagation = function () {
         this.cancelBubble = !0;
       });
-  var b = [],
-    _ = [],
-    x = {
-      add(e) {
-        b.push(e);
-      },
-      remove(e) {
-        for (var t = !1, n = b.length; --n > -1 && !1 === t; )
-          b[n].id === e.id && ((t = b[n]), b.splice(n, 1));
-        return t;
-      },
-      each(e) {
-        for (var t = -1; ++t < b.length; ) e(b[t]);
-      },
-      isValidId(e) {
-        for (var t = !1, n = -1; ++n < b.length && !1 === t; )
-          b[n].id === e && (t = !0);
-        return t;
-      },
-      getByIndex(e) {
-        for (var t = !1, n = -1; ++n < b.length && !1 === t; )
-          n === e && (t = b[n]);
-        return t;
-      },
-      getById(e) {
-        for (var t = !1, n = -1; ++n < b.length && !1 === t; )
-          b[n].id === e && (t = b[n]);
-        return t;
-      },
-      getCaptchaIdList() {
-        var e = [];
-        return x.each(t => {
-          e.push(t.id);
-        }),
-        e
-      ;
-      },
-      pushSession(e, t) {
-        _.push([e, t]), _.length > 10 && _.splice(0, _.length - 10);
-      },
-      getSession() {
-        return _;
-      },
-    };
+  const b = [],
+        _ = [],
+        x = {
+          add(e) {
+            b.push(e);
+          },
+          remove(e) {
+            for (var t = !1, n = b.length; --n > -1 && !1 === t; )
+              b[n].id === e.id && ((t = b[n]), b.splice(n, 1));
+            return t;
+          },
+          each(e) {
+            for (let t = -1; ++t < b.length; ) e(b[t]);
+          },
+          isValidId(e) {
+            for (var t = !1, n = -1; ++n < b.length && !1 === t; )
+              b[n].id === e && (t = !0);
+            return t;
+          },
+          getByIndex(e) {
+            for (var t = !1, n = -1; ++n < b.length && !1 === t; )
+              n === e && (t = b[n]);
+            return t;
+          },
+          getById(e) {
+            for (var t = !1, n = -1; ++n < b.length && !1 === t; )
+              b[n].id === e && (t = b[n]);
+            return t;
+          },
+          getCaptchaIdList() {
+            const e = [];
+            return (
+              x.each((t) => {
+                e.push(t.id);
+              }),
+              e
+            );
+          },
+          pushSession(e, t) {
+            _.push([e, t]), _.length > 10 && _.splice(0, _.length - 10);
+          },
+          getSession() {
+            return _;
+          },
+        };
   function C() {
-    var e = this;
+    const e = this;
     (this._bottom = 0),
       (this._top = 0),
       (this.storage = {}),
-      (this.add = t => {
+      (this.add = (t) => {
         return (e.storage[e._top] = t), e._top++, t;
       }),
       (this.remove = () => {
         if (!e.empty()) {
-          var t = e._bottom,
-            n = e.storage[t];
+          const t = e._bottom, n = e.storage[t];
           return (e.storage[t] = null), e._bottom++, n;
         }
       }),
@@ -399,352 +401,352 @@ var hcaptcha = (() => {
         return e._top - e._bottom;
       });
   }
-  var k = {
-      queue: C,
-      depth: function gt(e, t, n) {
-        if ("object" == typeof e && e[t] && e[t].length > 0)
-          for (var i = e[t].length; --i > -1; ) gt(e[t][i], t, n);
-        e !== undefined && n(e);
-      },
-      breathe(e, t, n) {
-        var i = new C(),
-          o = null;
-        for (i.add(e), o = i.remove(); o; ) {
-          for (var r = 0; r < o[t].length; r++) i.add(o[t][r]);
-          n(o), (o = i.remove());
-        }
-      },
-    },
-    E = [
-      {
-        family: "UC Browser",
-        patterns: ["(UC? ?Browser|UCWEB|U3)[ /]?(\\d+)\\.(\\d+)\\.(\\d+)"],
-      },
-      {
-        family: "Opera",
-        name_replace: "Opera Mobile",
-        patterns: [
-          "(Opera)/.+Opera Mobi.+Version/(\\d+)\\.(\\d+)",
-          "(Opera)/(\\d+)\\.(\\d+).+Opera Mobi",
-          "Opera Mobi.+(Opera)(?:/|\\s+)(\\d+)\\.(\\d+)",
-          "Opera Mobi",
-          "(?:Mobile Safari).*(OPR)/(\\d+)\\.(\\d+)\\.(\\d+)",
+  const k = {
+            queue: C,
+            depth: function gt(e, t, n) {
+              if ("object" == typeof e && e[t] && e[t].length > 0)
+                for (let i = e[t].length; --i > -1; ) gt(e[t][i], t, n);
+              e !== undefined && n(e);
+            },
+            breathe(e, t, n) {
+              const i = new C();
+              let o = null;
+              for (i.add(e), o = i.remove(); o; ) {
+                for (let r = 0; r < o[t].length; r++) i.add(o[t][r]);
+                n(o), (o = i.remove());
+              }
+            },
+          },
+        E = [
+          {
+            family: "UC Browser",
+            patterns: ["(UC? ?Browser|UCWEB|U3)[ /]?(\\d+)\\.(\\d+)\\.(\\d+)"],
+          },
+          {
+            family: "Opera",
+            name_replace: "Opera Mobile",
+            patterns: [
+              "(Opera)/.+Opera Mobi.+Version/(\\d+)\\.(\\d+)",
+              "(Opera)/(\\d+)\\.(\\d+).+Opera Mobi",
+              "Opera Mobi.+(Opera)(?:/|\\s+)(\\d+)\\.(\\d+)",
+              "Opera Mobi",
+              "(?:Mobile Safari).*(OPR)/(\\d+)\\.(\\d+)\\.(\\d+)",
+            ],
+          },
+          {
+            family: "Opera",
+            name_replace: "Opera Mini",
+            patterns: [
+              "(Opera Mini)(?:/att|)/?(\\d+|)(?:\\.(\\d+)|)(?:\\.(\\d+)|)",
+              "(OPiOS)/(\\d+).(\\d+).(\\d+)",
+            ],
+          },
+          {
+            family: "Opera",
+            name_replace: "Opera Neon",
+            patterns: ["Chrome/.+( MMS)/(\\d+).(\\d+).(\\d+)"],
+          },
+          {
+            name_replace: "Opera",
+            patterns: [
+              "(Opera)/9.80.*Version/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
+              "(?:Chrome).*(OPR)/(\\d+)\\.(\\d+)\\.(\\d+)",
+            ],
+          },
+          {
+            family: "Firefox",
+            name_replace: "Firefox Mobile",
+            patterns: [
+              "(Fennec)/(\\d+)\\.(\\d+)\\.?([ab]?\\d+[a-z]*)",
+              "(Fennec)/(\\d+)\\.(\\d+)(pre)",
+              "(Fennec)/(\\d+)\\.(\\d+)",
+              "(?:Mobile|Tablet);.*(Firefox)/(\\d+)\\.(\\d+)",
+              "(FxiOS)/(\\d+)\\.(\\d+)(\\.(\\d+)|)(\\.(\\d+)|)",
+            ],
+          },
+          {
+            name_replace: "Coc Coc",
+            patterns: ["(coc_coc_browser)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)"],
+          },
+          {
+            family: "QQ",
+            name_replace: "QQ Mini",
+            patterns: ["(MQQBrowser/Mini)(?:(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)|)"],
+          },
+          {
+            family: "QQ",
+            name_replace: "QQ Mobile",
+            patterns: ["(MQQBrowser)(?:/(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)|)"],
+          },
+          {
+            name_replace: "QQ",
+            patterns: [
+              "(QQBrowser)(?:/(\\d+)(?:\\.(\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)|)",
+            ],
+          },
+          {
+            family: "Edge",
+            name: "Edge Mobile",
+            patterns: [
+              "Windows Phone .*(Edge)/(\\d+)\\.(\\d+)",
+              "(EdgiOS|EdgA)/(\\d+)\\.(\\d+).(\\d+).(\\d+)",
+            ],
+          },
+          { name_replace: "Edge", patterns: ["(Edge|Edg)/(\\d+)(?:\\.(\\d+)|)"] },
+          { patterns: ["(Puffin)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)"] },
+          {
+            family: "Chrome",
+            name_replace: "Chrome Mobile",
+            patterns: [
+              "Version/.+(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
+              "; wv\\).+(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
+              "(CriOS)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
+              "(CrMo)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
+              "(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+) Mobile(?:[ /]|$)",
+              " Mobile .*(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
+            ],
+          },
+          {
+            family: "Yandex",
+            name_replace: "Yandex Mobile",
+            patterns: ["(YaBrowser)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+).*Mobile"],
+          },
+          {
+            name_replace: "Yandex",
+            patterns: ["(YaBrowser)/(\\d+)\\.(\\d+)\\.(\\d+)"],
+          },
+          {
+            patterns: [
+              "(Vivaldi)/(\\d+)\\.(\\d+)",
+              "(Vivaldi)/(\\d+)\\.(\\d+)\\.(\\d+)",
+            ],
+          },
+          {
+            name_replace: "Brave",
+            patterns: ["(brave)/(\\d+)\\.(\\d+)\\.(\\d+) Chrome"],
+          },
+          {
+            family: "Chrome",
+            patterns: [
+              "(Chromium|Chrome)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)",
+            ],
+          },
+          {
+            name_replace: "Internet Explorer Mobile",
+            patterns: ["(IEMobile)[ /](\\d+)\\.(\\d+)"],
+          },
+          {
+            family: "Safari",
+            name_replace: "Safari Mobile",
+            patterns: [
+              "(iPod|iPhone|iPad).+Version/(d+).(d+)(?:.(d+)|).*[ +]Safari",
+              "(iPod|iPod touch|iPhone|iPad);.*CPU.*OS[ +](\\d+)_(\\d+)(?:_(\\d+)|).* AppleNews\\/\\d+\\.\\d+\\.\\d+?",
+              "(iPod|iPhone|iPad).+Version/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
+              "(iPod|iPod touch|iPhone|iPad);.*CPU.*OS[ +](\\d+)_(\\d+)(?:_(\\d+)|).*Mobile.*[ +]Safari",
+              "(iPod|iPod touch|iPhone|iPad);.*CPU.*OS[ +](\\d+)_(\\d+)(?:_(\\d+)|).*Mobile",
+              "(iPod|iPod touch|iPhone|iPad).* Safari",
+              "(iPod|iPod touch|iPhone|iPad)",
+            ],
+          },
+          {
+            name_replace: "Safari",
+            patterns: ["(Version)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|).*Safari/"],
+          },
+          {
+            name_replace: "Internet Explorer",
+            patterns: ["(Trident)/(7|8).(0)"],
+            major_replace: "11",
+          },
+          {
+            name_replace: "Internet Explorer",
+            patterns: ["(Trident)/(6)\\.(0)"],
+            major_replace: "10",
+          },
+          {
+            name_replace: "Internet Explorer",
+            patterns: ["(Trident)/(5)\\.(0)"],
+            major_replace: "9",
+          },
+          {
+            name_replace: "Internet Explorer",
+            patterns: ["(Trident)/(4)\\.(0)"],
+            major_replace: "8",
+          },
+          {
+            family: "Firefox",
+            patterns: [
+              "(Firefox)/(\\d+)\\.(\\d+)\\.(\\d+)",
+              "(Firefox)/(\\d+)\\.(\\d+)(pre|[ab]\\d+[a-z]*|)",
+            ],
+          },
         ],
-      },
-      {
-        family: "Opera",
-        name_replace: "Opera Mini",
-        patterns: [
-          "(Opera Mini)(?:/att|)/?(\\d+|)(?:\\.(\\d+)|)(?:\\.(\\d+)|)",
-          "(OPiOS)/(\\d+).(\\d+).(\\d+)",
+        S = [
+          {
+            family: "Windows",
+            name_replace: "Windows Phone",
+            patterns: [
+              "(Windows Phone) (?:OS[ /])?(\\d+)\\.(\\d+)",
+              "^UCWEB.*; (wds) (\\d+)\\.(d+)(?:\\.(\\d+)|);",
+              "^UCWEB.*; (wds) (\\d+)\\.(\\d+)(?:\\.(\\d+)|);",
+            ],
+          },
+          {
+            family: "Windows",
+            name_replace: "Windows Mobile",
+            patterns: ["(Windows ?Mobile)"],
+          },
+          {
+            name_replace: "Android",
+            patterns: [
+              "(Android)[ \\-/](\\d+)(?:\\.(\\d+)|)(?:[.\\-]([a-z0-9]+)|)",
+              "(Android) (d+);",
+              "^UCWEB.*; (Adr) (\\d+)\\.(\\d+)(?:[.\\-]([a-z0-9]+)|);",
+              "^(JUC).*; ?U; ?(?:Android|)(\\d+)\\.(\\d+)(?:[\\.\\-]([a-z0-9]+)|)",
+              "(android)\\s(?:mobile\\/)(\\d+)(?:\\.(\\d+)(?:\\.(\\d+)|)|)",
+              "(Silk-Accelerated=[a-z]{4,5})",
+              "Puffin/[\\d\\.]+AT",
+              "Puffin/[\\d\\.]+AP",
+            ],
+          },
+          {
+            name_replace: "Chrome OS",
+            patterns: [
+              "(x86_64|aarch64)\\ (\\d+)\\.(\\d+)\\.(\\d+).*Chrome.*(?:CitrixChromeApp)$",
+              "(CrOS) [a-z0-9_]+ (\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
+            ],
+          },
+          {
+            name_replace: "Windows",
+            patterns: ["(Windows 10)", "(Windows NT 6\\.4)", "(Windows NT 10\\.0)"],
+            major_replace: "10",
+          },
+          {
+            name_replace: "Windows",
+            patterns: ["(Windows NT 6\\.3; ARM;)", "(Windows NT 6.3)"],
+            major_replace: "8",
+            minor_replace: "1",
+          },
+          {
+            name_replace: "Windows",
+            patterns: ["(Windows NT 6\\.2)"],
+            major_replace: "8",
+          },
+          {
+            name_replace: "Windows",
+            patterns: ["(Windows NT 6\\.1)"],
+            major_replace: "7",
+          },
+          {
+            name_replace: "Windows",
+            patterns: ["(Windows NT 6\\.0)"],
+            major_replace: "Vista",
+          },
+          {
+            name_replace: "Windows",
+            patterns: ["(Windows (?:NT 5\\.2|NT 5\\.1))"],
+            major_replace: "XP",
+          },
+          {
+            name_replace: "Mac OS X",
+            patterns: [
+              "((?:Mac[ +]?|; )OS[ +]X)[\\s+/](?:(\\d+)[_.](\\d+)(?:[_.](\\d+)|)|Mach-O)",
+              "\\w+\\s+Mac OS X\\s+\\w+\\s+(\\d+).(\\d+).(\\d+).*",
+              "(?:PPC|Intel) (Mac OS X)",
+            ],
+          },
+          {
+            name_replace: "Mac OS X",
+            patterns: [" (Dar)(win)/(10).(d+).*((?:i386|x86_64))"],
+            major_replace: "10",
+            minor_replace: "6",
+          },
+          {
+            name_replace: "Mac OS X",
+            patterns: [" (Dar)(win)/(11).(\\d+).*\\((?:i386|x86_64)\\)"],
+            major_replace: "10",
+            minor_replace: "7",
+          },
+          {
+            name_replace: "Mac OS X",
+            patterns: [" (Dar)(win)/(12).(\\d+).*\\((?:i386|x86_64)\\)"],
+            major_replace: "10",
+            minor_replace: "8",
+          },
+          {
+            name_replace: "Mac OS X",
+            patterns: [" (Dar)(win)/(13).(\\d+).*\\((?:i386|x86_64)\\)"],
+            major_replace: "10",
+            minor_replace: "9",
+          },
+          {
+            name_replace: "iOS",
+            patterns: [
+              "^UCWEB.*; (iPad|iPh|iPd) OS (\\d+)_(\\d+)(?:_(\\d+)|);",
+              "(CPU[ +]OS|iPhone[ +]OS|CPU[ +]iPhone|CPU IPhone OS)[ +]+(\\d+)[_\\.](\\d+)(?:[_\\.](\\d+)|)",
+              "(iPhone|iPad|iPod); Opera",
+              "(iPhone|iPad|iPod).*Mac OS X.*Version/(\\d+)\\.(\\d+)",
+              "\\b(iOS[ /]|iOS; |iPhone(?:/| v|[ _]OS[/,]|; | OS : |\\d,\\d/|\\d,\\d; )|iPad/)(\\d{1,2})[_\\.](\\d{1,2})(?:[_\\.](\\d+)|)",
+              "\\((iOS);",
+              "(iPod|iPhone|iPad)",
+              "Puffin/[\\d\\.]+IT",
+              "Puffin/[\\d\\.]+IP",
+            ],
+          },
+          {
+            family: "Chrome",
+            name_replace: "Chromecast",
+            patterns: [
+              "(CrKey -)(?:[ /](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)",
+              "(CrKey[ +]armv7l)(?:[ /](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)",
+              "(CrKey)(?:[/](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)",
+            ],
+          },
+          { name_replace: "Debian", patterns: ["([Dd]ebian)"] },
+          {
+            family: "Linux",
+            name_replace: "Linux",
+            patterns: ["(Linux Mint)(?:/(\\d+)|)"],
+          },
+          {
+            family: "Linux",
+            patterns: [
+              "(Ubuntu|Kubuntu|Arch Linux|CentOS|Slackware|Gentoo|openSUSE|SUSE|Red Hat|Fedora|PCLinuxOS|Mageia|(?:Free|Open|Net|\\b)BSD)",
+              "(Mandriva)(?: Linux|)/(?:[\\d.-]+m[a-z]{2}(\\d+).(\\d)|)",
+              "(Linux)(?:[ /](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)",
+              "\\(linux-gnu\\)",
+            ],
+          },
+          {
+            family: "BlackBerry",
+            name_replace: "BlackBerry OS",
+            patterns: [
+              "(BB10);.+Version/(\\d+)\\.(\\d+)\\.(\\d+)",
+              "(Black[Bb]erry)[0-9a-z]+/(\\d+)\\.(\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
+              "(Black[Bb]erry).+Version/(\\d+)\\.(\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
+              "(Black[Bb]erry)",
+            ],
+          },
+          {
+            patterns: [
+              "(Fedora|Red Hat|PCLinuxOS|Puppy|Ubuntu|Kindle|Bada|Sailfish|Lubuntu|BackTrack|Slackware|(?:Free|Open|Net|\\b)BSD)[/ ](\\d+)\\.(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)",
+            ],
+          },
         ],
-      },
-      {
-        family: "Opera",
-        name_replace: "Opera Neon",
-        patterns: ["Chrome/.+( MMS)/(\\d+).(\\d+).(\\d+)"],
-      },
-      {
-        name_replace: "Opera",
-        patterns: [
-          "(Opera)/9.80.*Version/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
-          "(?:Chrome).*(OPR)/(\\d+)\\.(\\d+)\\.(\\d+)",
-        ],
-      },
-      {
-        family: "Firefox",
-        name_replace: "Firefox Mobile",
-        patterns: [
-          "(Fennec)/(\\d+)\\.(\\d+)\\.?([ab]?\\d+[a-z]*)",
-          "(Fennec)/(\\d+)\\.(\\d+)(pre)",
-          "(Fennec)/(\\d+)\\.(\\d+)",
-          "(?:Mobile|Tablet);.*(Firefox)/(\\d+)\\.(\\d+)",
-          "(FxiOS)/(\\d+)\\.(\\d+)(\\.(\\d+)|)(\\.(\\d+)|)",
-        ],
-      },
-      {
-        name_replace: "Coc Coc",
-        patterns: ["(coc_coc_browser)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)"],
-      },
-      {
-        family: "QQ",
-        name_replace: "QQ Mini",
-        patterns: ["(MQQBrowser/Mini)(?:(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)|)"],
-      },
-      {
-        family: "QQ",
-        name_replace: "QQ Mobile",
-        patterns: ["(MQQBrowser)(?:/(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)|)"],
-      },
-      {
-        name_replace: "QQ",
-        patterns: [
-          "(QQBrowser)(?:/(\\d+)(?:\\.(\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)|)",
-        ],
-      },
-      {
-        family: "Edge",
-        name: "Edge Mobile",
-        patterns: [
-          "Windows Phone .*(Edge)/(\\d+)\\.(\\d+)",
-          "(EdgiOS|EdgA)/(\\d+)\\.(\\d+).(\\d+).(\\d+)",
-        ],
-      },
-      { name_replace: "Edge", patterns: ["(Edge|Edg)/(\\d+)(?:\\.(\\d+)|)"] },
-      { patterns: ["(Puffin)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)"] },
-      {
-        family: "Chrome",
-        name_replace: "Chrome Mobile",
-        patterns: [
-          "Version/.+(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
-          "; wv\\).+(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
-          "(CriOS)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
-          "(CrMo)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
-          "(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+) Mobile(?:[ /]|$)",
-          " Mobile .*(Chrome)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)",
-        ],
-      },
-      {
-        family: "Yandex",
-        name_replace: "Yandex Mobile",
-        patterns: ["(YaBrowser)/(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+).*Mobile"],
-      },
-      {
-        name_replace: "Yandex",
-        patterns: ["(YaBrowser)/(\\d+)\\.(\\d+)\\.(\\d+)"],
-      },
-      {
-        patterns: [
-          "(Vivaldi)/(\\d+)\\.(\\d+)",
-          "(Vivaldi)/(\\d+)\\.(\\d+)\\.(\\d+)",
-        ],
-      },
-      {
-        name_replace: "Brave",
-        patterns: ["(brave)/(\\d+)\\.(\\d+)\\.(\\d+) Chrome"],
-      },
-      {
-        family: "Chrome",
-        patterns: [
-          "(Chromium|Chrome)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)",
-        ],
-      },
-      {
-        name_replace: "Internet Explorer Mobile",
-        patterns: ["(IEMobile)[ /](\\d+)\\.(\\d+)"],
-      },
-      {
-        family: "Safari",
-        name_replace: "Safari Mobile",
-        patterns: [
-          "(iPod|iPhone|iPad).+Version/(d+).(d+)(?:.(d+)|).*[ +]Safari",
-          "(iPod|iPod touch|iPhone|iPad);.*CPU.*OS[ +](\\d+)_(\\d+)(?:_(\\d+)|).* AppleNews\\/\\d+\\.\\d+\\.\\d+?",
-          "(iPod|iPhone|iPad).+Version/(\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
-          "(iPod|iPod touch|iPhone|iPad);.*CPU.*OS[ +](\\d+)_(\\d+)(?:_(\\d+)|).*Mobile.*[ +]Safari",
-          "(iPod|iPod touch|iPhone|iPad);.*CPU.*OS[ +](\\d+)_(\\d+)(?:_(\\d+)|).*Mobile",
-          "(iPod|iPod touch|iPhone|iPad).* Safari",
-          "(iPod|iPod touch|iPhone|iPad)",
-        ],
-      },
-      {
-        name_replace: "Safari",
-        patterns: ["(Version)/(\\d+)\\.(\\d+)(?:\\.(\\d+)|).*Safari/"],
-      },
-      {
-        name_replace: "Internet Explorer",
-        patterns: ["(Trident)/(7|8).(0)"],
-        major_replace: "11",
-      },
-      {
-        name_replace: "Internet Explorer",
-        patterns: ["(Trident)/(6)\\.(0)"],
-        major_replace: "10",
-      },
-      {
-        name_replace: "Internet Explorer",
-        patterns: ["(Trident)/(5)\\.(0)"],
-        major_replace: "9",
-      },
-      {
-        name_replace: "Internet Explorer",
-        patterns: ["(Trident)/(4)\\.(0)"],
-        major_replace: "8",
-      },
-      {
-        family: "Firefox",
-        patterns: [
-          "(Firefox)/(\\d+)\\.(\\d+)\\.(\\d+)",
-          "(Firefox)/(\\d+)\\.(\\d+)(pre|[ab]\\d+[a-z]*|)",
-        ],
-      },
-    ],
-    S = [
-      {
-        family: "Windows",
-        name_replace: "Windows Phone",
-        patterns: [
-          "(Windows Phone) (?:OS[ /])?(\\d+)\\.(\\d+)",
-          "^UCWEB.*; (wds) (\\d+)\\.(d+)(?:\\.(\\d+)|);",
-          "^UCWEB.*; (wds) (\\d+)\\.(\\d+)(?:\\.(\\d+)|);",
-        ],
-      },
-      {
-        family: "Windows",
-        name_replace: "Windows Mobile",
-        patterns: ["(Windows ?Mobile)"],
-      },
-      {
-        name_replace: "Android",
-        patterns: [
-          "(Android)[ \\-/](\\d+)(?:\\.(\\d+)|)(?:[.\\-]([a-z0-9]+)|)",
-          "(Android) (d+);",
-          "^UCWEB.*; (Adr) (\\d+)\\.(\\d+)(?:[.\\-]([a-z0-9]+)|);",
-          "^(JUC).*; ?U; ?(?:Android|)(\\d+)\\.(\\d+)(?:[\\.\\-]([a-z0-9]+)|)",
-          "(android)\\s(?:mobile\\/)(\\d+)(?:\\.(\\d+)(?:\\.(\\d+)|)|)",
-          "(Silk-Accelerated=[a-z]{4,5})",
-          "Puffin/[\\d\\.]+AT",
-          "Puffin/[\\d\\.]+AP",
-        ],
-      },
-      {
-        name_replace: "Chrome OS",
-        patterns: [
-          "(x86_64|aarch64)\\ (\\d+)\\.(\\d+)\\.(\\d+).*Chrome.*(?:CitrixChromeApp)$",
-          "(CrOS) [a-z0-9_]+ (\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
-        ],
-      },
-      {
-        name_replace: "Windows",
-        patterns: ["(Windows 10)", "(Windows NT 6\\.4)", "(Windows NT 10\\.0)"],
-        major_replace: "10",
-      },
-      {
-        name_replace: "Windows",
-        patterns: ["(Windows NT 6\\.3; ARM;)", "(Windows NT 6.3)"],
-        major_replace: "8",
-        minor_replace: "1",
-      },
-      {
-        name_replace: "Windows",
-        patterns: ["(Windows NT 6\\.2)"],
-        major_replace: "8",
-      },
-      {
-        name_replace: "Windows",
-        patterns: ["(Windows NT 6\\.1)"],
-        major_replace: "7",
-      },
-      {
-        name_replace: "Windows",
-        patterns: ["(Windows NT 6\\.0)"],
-        major_replace: "Vista",
-      },
-      {
-        name_replace: "Windows",
-        patterns: ["(Windows (?:NT 5\\.2|NT 5\\.1))"],
-        major_replace: "XP",
-      },
-      {
-        name_replace: "Mac OS X",
-        patterns: [
-          "((?:Mac[ +]?|; )OS[ +]X)[\\s+/](?:(\\d+)[_.](\\d+)(?:[_.](\\d+)|)|Mach-O)",
-          "\\w+\\s+Mac OS X\\s+\\w+\\s+(\\d+).(\\d+).(\\d+).*",
-          "(?:PPC|Intel) (Mac OS X)",
-        ],
-      },
-      {
-        name_replace: "Mac OS X",
-        patterns: [" (Dar)(win)/(10).(d+).*((?:i386|x86_64))"],
-        major_replace: "10",
-        minor_replace: "6",
-      },
-      {
-        name_replace: "Mac OS X",
-        patterns: [" (Dar)(win)/(11).(\\d+).*\\((?:i386|x86_64)\\)"],
-        major_replace: "10",
-        minor_replace: "7",
-      },
-      {
-        name_replace: "Mac OS X",
-        patterns: [" (Dar)(win)/(12).(\\d+).*\\((?:i386|x86_64)\\)"],
-        major_replace: "10",
-        minor_replace: "8",
-      },
-      {
-        name_replace: "Mac OS X",
-        patterns: [" (Dar)(win)/(13).(\\d+).*\\((?:i386|x86_64)\\)"],
-        major_replace: "10",
-        minor_replace: "9",
-      },
-      {
-        name_replace: "iOS",
-        patterns: [
-          "^UCWEB.*; (iPad|iPh|iPd) OS (\\d+)_(\\d+)(?:_(\\d+)|);",
-          "(CPU[ +]OS|iPhone[ +]OS|CPU[ +]iPhone|CPU IPhone OS)[ +]+(\\d+)[_\\.](\\d+)(?:[_\\.](\\d+)|)",
-          "(iPhone|iPad|iPod); Opera",
-          "(iPhone|iPad|iPod).*Mac OS X.*Version/(\\d+)\\.(\\d+)",
-          "\\b(iOS[ /]|iOS; |iPhone(?:/| v|[ _]OS[/,]|; | OS : |\\d,\\d/|\\d,\\d; )|iPad/)(\\d{1,2})[_\\.](\\d{1,2})(?:[_\\.](\\d+)|)",
-          "\\((iOS);",
-          "(iPod|iPhone|iPad)",
-          "Puffin/[\\d\\.]+IT",
-          "Puffin/[\\d\\.]+IP",
-        ],
-      },
-      {
-        family: "Chrome",
-        name_replace: "Chromecast",
-        patterns: [
-          "(CrKey -)(?:[ /](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)",
-          "(CrKey[ +]armv7l)(?:[ /](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)",
-          "(CrKey)(?:[/](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)",
-        ],
-      },
-      { name_replace: "Debian", patterns: ["([Dd]ebian)"] },
-      {
-        family: "Linux",
-        name_replace: "Linux",
-        patterns: ["(Linux Mint)(?:/(\\d+)|)"],
-      },
-      {
-        family: "Linux",
-        patterns: [
-          "(Ubuntu|Kubuntu|Arch Linux|CentOS|Slackware|Gentoo|openSUSE|SUSE|Red Hat|Fedora|PCLinuxOS|Mageia|(?:Free|Open|Net|\\b)BSD)",
-          "(Mandriva)(?: Linux|)/(?:[\\d.-]+m[a-z]{2}(\\d+).(\\d)|)",
-          "(Linux)(?:[ /](\\d+)\\.(\\d+)(?:\\.(\\d+)|)|)",
-          "\\(linux-gnu\\)",
-        ],
-      },
-      {
-        family: "BlackBerry",
-        name_replace: "BlackBerry OS",
-        patterns: [
-          "(BB10);.+Version/(\\d+)\\.(\\d+)\\.(\\d+)",
-          "(Black[Bb]erry)[0-9a-z]+/(\\d+)\\.(\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
-          "(Black[Bb]erry).+Version/(\\d+)\\.(\\d+)\\.(\\d+)(?:\\.(\\d+)|)",
-          "(Black[Bb]erry)",
-        ],
-      },
-      {
-        patterns: [
-          "(Fedora|Red Hat|PCLinuxOS|Puppy|Ubuntu|Kindle|Bada|Sailfish|Lubuntu|BackTrack|Slackware|(?:Free|Open|Net|\\b)BSD)[/ ](\\d+)\\.(\\d+)(?:\\.(\\d+)|)(?:\\.(\\d+)|)",
-        ],
-      },
-    ],
-    O = navigator.userAgent,
-    I = {
-      getAgent() {
-        return O;
-      },
-      getBrowser(e) {
-        return B(e || O, E);
-      },
-      getOS(e) {
-        return B(e || O, S);
-      },
-    };
+        O = navigator.userAgent,
+        I = {
+          getAgent() {
+            return O;
+          },
+          getBrowser(e) {
+            return B(e || O, E);
+          },
+          getOS(e) {
+            return B(e || O, S);
+          },
+        };
   function P(e, t) {
     try {
-      var n = new RegExp(t).exec(e);
+      const n = new RegExp(t).exec(e);
       return n
         ? {
             name: n[1] || "Other",
@@ -760,7 +762,7 @@ var hcaptcha = (() => {
   function B(e, t) {
     for (var n = null, i = null, o = -1, r = !1; ++o < t.length && !r; ) {
       n = t[o];
-      for (var a = -1; ++a < n.patterns.length && !r; )
+      for (let a = -1; ++a < n.patterns.length && !r; )
         r = null !== (i = P(e, n.patterns[a]));
     }
     return r
@@ -773,9 +775,7 @@ var hcaptcha = (() => {
       : { family: "Other", name: "Other", major: "0", minor: "0", patch: "0" };
   }
   function T() {
-    var e = this,
-      t = I.getBrowser(),
-      n = I.getAgent();
+    const e = this, t = I.getBrowser(), n = I.getAgent();
     (this.agent = n.toLowerCase()),
       (this.language =
         window.navigator.userLanguage || window.navigator.language),
@@ -827,13 +827,13 @@ var hcaptcha = (() => {
     return "on" + e in (t || document.createElement("div"));
   }),
     (T.prototype.getScreenDimensions = () => {
-      var e = {};
-      for (var t in window.screen) e[t] = window.screen[t];
+      const e = {};
+      for (const t in window.screen) e[t] = window.screen[t];
       return delete e.orientation, e;
     }),
     (T.prototype.interrogateNavigator = () => {
-      var e = {};
-      for (var t in window.navigator)
+      const e = {};
+      for (const t in window.navigator)
         try {
           e[t] = window.navigator[t];
         } catch (ft) {}
@@ -843,12 +843,12 @@ var hcaptcha = (() => {
         (e.plugins = []),
         window.navigator.plugins)
       )
-        for (var n = 0; n < window.navigator.plugins.length; n++)
+        for (let n = 0; n < window.navigator.plugins.length; n++)
           e.plugins[n] = window.navigator.plugins[n].filename;
       return e;
     }),
     (T.prototype.supportsCanvas = () => {
-      var e = document.createElement("canvas");
+      const e = document.createElement("canvas");
       return !(!e.getContext || !e.getContext("2d"));
     }),
     (T.prototype.supportsWebAssembly = () => {
@@ -857,7 +857,7 @@ var hcaptcha = (() => {
           "object" == typeof WebAssembly &&
           "function" == typeof WebAssembly.instantiate
         ) {
-          var e = new WebAssembly.Module(
+          const e = new WebAssembly.Module(
             Uint8Array.of(0, 97, 115, 109, 1, 0, 0, 0)
           );
           if (e instanceof WebAssembly.Module)
@@ -867,98 +867,98 @@ var hcaptcha = (() => {
         return !1;
       }
     });
-  var M = {
-      Browser: new T(),
-      System: new (function () {
-        var e,
-          t,
-          n = I.getOS(),
-          i = I.getAgent();
-        (this.mobile =
-          ((e = !!(
-            "ontouchstart" in window ||
-            navigator.maxTouchPoints > 0 ||
-            navigator.msMaxTouchPoints > 0
-          )),
-          (t = !1),
-          n &&
-            (t =
-              [
-                "iOS",
-                "Windows Phone",
-                "Windows Mobile",
-                "Android",
-                "BlackBerry OS",
-              ].indexOf(n.name) >= 0),
-          e && t)),
-          (this.dpr = () => {
-            return window.devicePixelRatio || 1;
-          }),
-          this.mobile &&
-            n &&
-            "Windows" === n.family &&
-            i.indexOf("touch") < 0 &&
-            (this.mobile = !1),
-          (this.os =
-            "iOS" === n.family
-              ? "ios"
-              : "Android" === n.family
-              ? "android"
-              : "Mac OS X" === n.family
-              ? "mac"
-              : "Windows" === n.family
-              ? "windows"
-              : "Linux" === n.family
-              ? "linux"
-              : n.family.toLowerCase()),
-          (this.version = (() => {
-            if (!n) return "unknown";
-            var e = n.major;
-            return (
-              n.minor && (e += "." + n.minor),
-              n.patch && (e += "." + n.patch),
-              e
-            );
-          })());
-      })(),
-    },
-    A = {
-      host: null,
-      file: null,
-      sitekey: null,
-      pingdom:
-        "safari" === M.Browser.type &&
-        "windows" !== M.System.os &&
-        "mac" !== M.System.os &&
-        "ios" !== M.System.os &&
-        "android" !== M.System.os,
-      assetDomain: "https://assets.hcaptcha.com",
-      assetUrl: "https://assets.hcaptcha.com/captcha/v1/523a6ff/static",
-      width: null,
-      height: null,
-      mobile: null,
-    },
-    $ = {
-      tplinks: "on",
-      language: null,
-      reportapi: "https://accounts.hcaptcha.com",
-      endpoint: "https://hcaptcha.com",
-      endpointOverride: null,
-      size: "normal",
-      theme: "light",
-      assethost: null,
-      imghost: null,
-      recaptchacompat: "true",
-    },
-    L =
-      "Please <a style='color:inherit;text-decoration:underline; font: inherit' target='_blank' href='https://www.whatismybrowser.com/guides/how-to-update-your-browser/auto'>upgrade your browser</a> to complete this captcha.";
+  const M = {
+            Browser: new T(),
+            System: new (function () {
+              let e;
+              let t;
+              const n = I.getOS();
+              const i = I.getAgent();
+              (this.mobile =
+                ((e = !!(
+                  "ontouchstart" in window ||
+                  navigator.maxTouchPoints > 0 ||
+                  navigator.msMaxTouchPoints > 0
+                )),
+                (t = !1),
+                n &&
+                  (t =
+                    [
+                      "iOS",
+                      "Windows Phone",
+                      "Windows Mobile",
+                      "Android",
+                      "BlackBerry OS",
+                    ].indexOf(n.name) >= 0),
+                e && t)),
+                (this.dpr = () => {
+                  return window.devicePixelRatio || 1;
+                }),
+                this.mobile &&
+                  n &&
+                  "Windows" === n.family &&
+                  i.indexOf("touch") < 0 &&
+                  (this.mobile = !1),
+                (this.os =
+                  "iOS" === n.family
+                    ? "ios"
+                    : "Android" === n.family
+                    ? "android"
+                    : "Mac OS X" === n.family
+                    ? "mac"
+                    : "Windows" === n.family
+                    ? "windows"
+                    : "Linux" === n.family
+                    ? "linux"
+                    : n.family.toLowerCase()),
+                (this.version = (() => {
+                  if (!n) return "unknown";
+                  let e = n.major;
+                  return (
+                    n.minor && (e += "." + n.minor),
+                    n.patch && (e += "." + n.patch),
+                    e
+                  );
+                })());
+            })(),
+          },
+        A = {
+          host: null,
+          file: null,
+          sitekey: null,
+          pingdom:
+            "safari" === M.Browser.type &&
+            "windows" !== M.System.os &&
+            "mac" !== M.System.os &&
+            "ios" !== M.System.os &&
+            "android" !== M.System.os,
+          assetDomain: "https://assets.hcaptcha.com",
+          assetUrl: "https://assets.hcaptcha.com/captcha/v1/523a6ff/static",
+          width: null,
+          height: null,
+          mobile: null,
+        },
+        $ = {
+          tplinks: "on",
+          language: null,
+          reportapi: "https://accounts.hcaptcha.com",
+          endpoint: "https://hcaptcha.com",
+          endpointOverride: null,
+          size: "normal",
+          theme: "light",
+          assethost: null,
+          imghost: null,
+          recaptchacompat: "true",
+        },
+        L =
+          "Please <a style='color:inherit;text-decoration:underline; font: inherit' target='_blank' href='https://www.whatismybrowser.com/guides/how-to-update-your-browser/auto'>upgrade your browser</a> to complete this captcha.";
   function j(e, t) {
     (e.style.width = "304px"),
       (e.style.height = "78px"),
       (e.style.backgroundColor = "#f9e5e5"),
       (e.style.position = "relative"),
       (e.innerHTML = "");
-    var n = document.createElement("div");
+    const n = document.createElement("div");
     (n.style.width = "284px"),
       (n.style.position = "absolute"),
       (n.style.top = "12px"),
@@ -971,9 +971,9 @@ var hcaptcha = (() => {
       (n.innerHTML = t || L),
       e.appendChild(n);
   }
-  var D = !0;
+  let D = !0;
   function R(e) {
-    var t = { message: e.name + ": " + e.message };
+    const t = { message: e.name + ": " + e.message };
     e.stack && (t.stack_trace = { trace: e.stack }),
       W("report error", "internal", "debug", t),
       z("internal error", "error", A.file);
@@ -989,7 +989,7 @@ var hcaptcha = (() => {
   function N() {
     try {
       (function (e) {
-        var t = [].slice.call(arguments, 1);
+        const t = [].slice.call(arguments, 1);
         "string" == typeof e
           ? window[e]
             ? "function" == typeof window[e]
@@ -1008,13 +1008,13 @@ var hcaptcha = (() => {
     }
   }
   function U(e, t) {
-    var n,
-      i = "attempts" in (t = t || {}) ? t.attempts : 1,
-      o = t.delay || 0,
-      r = t.onFail;
+    let n;
+    let i = "attempts" in (t = t || {}) ? t.attempts : 1;
+    const o = t.delay || 0;
+    const r = t.onFail;
     return (n = (t, n, a) => {
-      e().then(t, e => {
-        var t = i-- > 0;
+      e().then(t, (e) => {
+        let t = i-- > 0;
         r && (t = !1 !== r(e) && t), t ? setTimeout(a, o) : n(e);
       });
     }),
@@ -1025,90 +1025,89 @@ var hcaptcha = (() => {
     })
   ;
   }
-  var F = {
-      eventName(e) {
-        var t = e;
-        return (
-          "down" === e ||
-          "up" === e ||
-          "move" === e ||
-          "over" === e ||
-          "out" === e
-            ? (t =
-                !M.System.mobile || ("down" !== e && "up" !== e && "move" !== e)
-                  ? "mouse" + e
-                  : "down" === e
-                  ? "touchstart"
-                  : "up" === e
-                  ? "touchend"
-                  : "touchmove")
-            : "enter" === e && (t = "keydown"),
-          t
-        );
-      },
-      actionName(e) {
-        var t = e;
-        return (
-          "touchstart" === t || "mousedown" === t
-            ? (t = "down")
-            : "touchmove" === t || "mousemove" === t
-            ? (t = "move")
-            : "touchend" === t || "mouseup" === t
-            ? (t = "up")
-            : "mouseover" === t
-            ? (t = "over")
-            : "mouseout" === t && (t = "out"),
-          t
-        );
-      },
-      eventCallback(e, t, n) {
-        var i = F.actionName(e);
-        return o => {
-          if (
-            ((o = o || window.event),
-            "down" === i ||
-              "move" === i ||
-              "up" === i ||
-              "over" === i ||
-              "out" === i ||
-              "click" === i)
-          ) {
-            var r = F.eventCoords(o),
-              a = n.getBoundingClientRect();
-            (o.windowX = r.x),
-              (o.windowY = r.y),
-              (o.elementX = o.windowX - (a.x || a.left)),
-              (o.elementY = o.windowY - (a.y || a.top));
-          }
-          (o.keyNum = o.which || o.keyCode || 0),
-            ("enter" === e && 13 !== o.keyNum && 32 !== o.keyNum) ||
-              ((o.action = i), (o.targetElement = n), t(o));
-        };
-      },
-      eventCoords(e) {
-        var t = { x: 0, y: 0 };
-        if (e.windowsPointer) return e;
-        if (!e) return t;
-        if (e.touches || e.changedTouches) {
-          var n = (
-            e.touches && e.touches.length >= 1 ? e.touches : e.changedTouches
-          )[0];
-          (t.x = n.pageX || n.clientX), (t.y = n.pageY || n.clientY);
-        } else (t.x = e.pageX || e.clientX), (t.y = e.pageY || e.clientY);
-        return t;
-      },
-    },
-    q = ["Webkit", "Moz", "ms"],
-    H = document.createElement("div").style,
-    X = {};
+  const F = {
+            eventName(e) {
+              let t = e;
+              return (
+                "down" === e ||
+                "up" === e ||
+                "move" === e ||
+                "over" === e ||
+                "out" === e
+                  ? (t =
+                      !M.System.mobile || ("down" !== e && "up" !== e && "move" !== e)
+                        ? "mouse" + e
+                        : "down" === e
+                        ? "touchstart"
+                        : "up" === e
+                        ? "touchend"
+                        : "touchmove")
+                  : "enter" === e && (t = "keydown"),
+                t
+              );
+            },
+            actionName(e) {
+              let t = e;
+              return (
+                "touchstart" === t || "mousedown" === t
+                  ? (t = "down")
+                  : "touchmove" === t || "mousemove" === t
+                  ? (t = "move")
+                  : "touchend" === t || "mouseup" === t
+                  ? (t = "up")
+                  : "mouseover" === t
+                  ? (t = "over")
+                  : "mouseout" === t && (t = "out"),
+                t
+              );
+            },
+            eventCallback(e, t, n) {
+              const i = F.actionName(e);
+              return (o) => {
+                if (
+                  ((o = o || window.event),
+                  "down" === i ||
+                    "move" === i ||
+                    "up" === i ||
+                    "over" === i ||
+                    "out" === i ||
+                    "click" === i)
+                ) {
+                  const r = F.eventCoords(o), a = n.getBoundingClientRect();
+                  (o.windowX = r.x),
+                    (o.windowY = r.y),
+                    (o.elementX = o.windowX - (a.x || a.left)),
+                    (o.elementY = o.windowY - (a.y || a.top));
+                }
+                (o.keyNum = o.which || o.keyCode || 0),
+                  ("enter" === e && 13 !== o.keyNum && 32 !== o.keyNum) ||
+                    ((o.action = i), (o.targetElement = n), t(o));
+              };
+            },
+            eventCoords(e) {
+              const t = { x: 0, y: 0 };
+              if (e.windowsPointer) return e;
+              if (!e) return t;
+              if (e.touches || e.changedTouches) {
+                const n = (
+                  e.touches && e.touches.length >= 1 ? e.touches : e.changedTouches
+                )[0];
+                (t.x = n.pageX || n.clientX), (t.y = n.pageY || n.clientY);
+              } else (t.x = e.pageX || e.clientX), (t.y = e.pageY || e.clientY);
+              return t;
+            },
+          },
+        q = ["Webkit", "Moz", "ms"],
+        H = document.createElement("div").style,
+        X = {};
   function Y(e) {
-    var t = X[e];
+    const t = X[e];
     return t ||
     (e in H
       ? e
       : (X[e] =
-          (e => {
-            for (var t = e[0].toUpperCase() + e.slice(1), n = q.length; n--; )
+          ((e) => {
+            for (let t = e[0].toUpperCase() + e.slice(1), n = q.length; n--; )
               if ((e = q[n] + t) in H) return e;
           })(e) || e));
   }
@@ -1122,10 +1121,10 @@ var hcaptcha = (() => {
       "object" == typeof e)
     ) {
       this.dom = e;
-      var i = [],
-        o = [];
+      const i = [];
+      let o = [];
       e.className && (o = e.className.split(" "));
-      for (var r = 0; r < o.length; r++)
+      for (let r = 0; r < o.length; r++)
         "" !== o[r] && " " !== o[r] && i.push(o[r]);
       this._clss = i;
     } else
@@ -1145,7 +1144,7 @@ var hcaptcha = (() => {
       this._frag.appendChild(this.dom));
   }
   (J.prototype.createElement = function (e, t) {
-    var n = new J(e, t, !1);
+    const n = new J(e, t, !1);
     return this.appendElement.call(this, n), this._nodes.push(n), n;
   }),
     (J.prototype.appendElement = function (e) {
@@ -1154,7 +1153,7 @@ var hcaptcha = (() => {
           name: "DomElement Add Child",
           message: "Child Element is undefined",
         });
-      var t;
+      let t;
       t =
         e._frag !== undefined && null !== e._frag
           ? e._frag
@@ -1170,14 +1169,14 @@ var hcaptcha = (() => {
     }),
     (J.prototype.removeElement = function (e) {
       try {
-        var t = e;
+        let t = e;
         if (e.dom) {
           t = t.dom;
-          for (var n = e._nodes.length; --n > -1; )
+          for (let n = e._nodes.length; --n > -1; )
             e.dom.removeChild(e._nodes[n].dom || e._nodes[n]),
               e._nodes.splice(n, 1);
         } else
-          for (var i = this._nodes.length; --i > -1; )
+          for (let i = this._nodes.length; --i > -1; )
             this._nodes[i] === t && this._nodes.splice(i, 1);
         t.parentNode === this.dom && this.dom.removeChild(t);
       } catch (mt) {
@@ -1204,7 +1203,7 @@ var hcaptcha = (() => {
       return t;
     }),
     (J.prototype.removeClass = function (e) {
-      for (var t = this._clss.length; --t > -1; )
+      for (let t = this._clss.length; --t > -1; )
         this._clss[t] === e && this._clss.splice(t, 1);
       return (this.dom.className = this._clss.join(" ")), this;
     }),
@@ -1212,7 +1211,7 @@ var hcaptcha = (() => {
       if (this && this.dom) {
         if (!e) return this.dom.textContent;
         for (
-          var t, n, i, o, r = /&(.*?);/g, a = /<[a-z][\s\S]*>/i;
+          let t, n, i, o, r = /&(.*?);/g, a = /<[a-z][\s\S]*>/i;
           null !== (t = r.exec(e));
 
         ) {
@@ -1229,8 +1228,8 @@ var hcaptcha = (() => {
     }),
     (J.prototype.content = J.prototype.text),
     (J.prototype.css = function (e) {
-      var t;
-      for (var n in e) {
+      let t;
+      for (const n in e) {
         t = e[n];
         try {
           if (
@@ -1246,7 +1245,7 @@ var hcaptcha = (() => {
           )
             this.dom.style.filter = "alpha(opacity=" + 100 * t + ")";
           else {
-            var i = Y(n);
+            const i = Y(n);
             this.dom.style[i] = t;
           }
         } catch (ft) {}
@@ -1254,12 +1253,11 @@ var hcaptcha = (() => {
       return this;
     }),
     (J.prototype.backgroundImage = function (e, t, n, i) {
-      var o = t !== undefined && n !== undefined,
-        r = { "-ms-high-contrast-adjust": "none" };
+      const o = t !== undefined && n !== undefined, r = { "-ms-high-contrast-adjust": "none" };
       if (("object" == typeof t && (i = t), i === undefined && (i = {}), o)) {
-        var a = e.width / e.height,
-          s = t,
-          h = s / a;
+        const a = e.width / e.height;
+        var s = t;
+        var h = s / a;
         i.cover && h < n && (s = (h = n) * a),
           i.contain && h > n && (s = (h = n) * a),
           (r.width = s),
@@ -1290,19 +1288,19 @@ var hcaptcha = (() => {
         this.css.call(this, r);
     }),
     (J.prototype.setAttribute = function (e, t) {
-      var n;
+      let n;
       if ("object" == typeof e)
-        for (var i in e) (n = e[i]), this.dom.setAttribute(i, n);
+        for (const i in e) (n = e[i]), this.dom.setAttribute(i, n);
       else this.dom.setAttribute(e, t);
     }),
     (J.prototype.removeAttribute = function (e, t) {
-      var n;
+      let n;
       if ("object" == typeof e)
-        for (var i in e) (n = e[i]), this.dom.removeAttribute(i, n);
+        for (const i in e) (n = e[i]), this.dom.removeAttribute(i, n);
       else this.dom.removeAttribute(e, t);
     }),
     (J.prototype.addEventListener = function (e, t, n) {
-      var i = {
+      const i = {
         event: F.eventName(e),
         handler: F.eventCallback(e, t, this.dom),
         callback: t,
@@ -1313,7 +1311,7 @@ var hcaptcha = (() => {
           : this.dom.attachEvent("on" + i.event, i.handler);
     }),
     (J.prototype.removeEventListener = function (e, t, n) {
-      for (var i, o = this._listeners.length; --o > -1; )
+      for (let i, o = this._listeners.length; --o > -1; )
         (i = this._listeners[o]).event === e &&
           i.callback === t &&
           (this._listeners.splice(o, 1),
@@ -1347,11 +1345,10 @@ var hcaptcha = (() => {
         null
       );
     });
-  var V = {
+  const V = {
     self(e, t) {
-      var n = {},
-        i = Array.prototype.slice.call(arguments, 2);
-      for (var o in (t.apply(e, i), e)) n[o] = e[o];
+      const n = {}, i = Array.prototype.slice.call(arguments, 2);
+      for (const o in (t.apply(e, i), e)) n[o] = e[o];
     },
     proto(e, t) {
       (e.prototype = Object.create(t.prototype)), (e.prototype.constructor = e);
@@ -1362,7 +1359,7 @@ var hcaptcha = (() => {
   }
   V.proto(Q, J),
     (Q.prototype.initComponent = function (e, t, n) {
-      var i = new e(t);
+      const i = new e(t);
       return (
         (i._parent = this),
         this.children.push(i),
@@ -1374,11 +1371,11 @@ var hcaptcha = (() => {
       );
     }),
     (Q.prototype.destroy = function () {
-      var e = this;
+      const e = this;
       try {
-        k.depth(this, "children", t => {
+        k.depth(this, "children", (t) => {
           if (e !== t)
-            for (var n = e.children.length; --n > -1; )
+            for (let n = e.children.length; --n > -1; )
               e.children[n] === t && e.children.splice(n, 1);
           t._destroy && t._destroy(), (t = null);
         });
@@ -1391,7 +1388,7 @@ var hcaptcha = (() => {
       try {
         this.onDestroy && this.onDestroy(),
           this._parent.removeElement && this._parent.removeElement(this);
-        for (var e = this._events.length; --e > -1; ) this._events.splice(e, 1);
+        for (let e = this._events.length; --e > -1; ) this._events.splice(e, 1);
         (this.children = null),
           (this._destroy = null),
           (this._events = null),
@@ -1411,9 +1408,9 @@ var hcaptcha = (() => {
         i.listeners.push(t);
     }),
     (Q.prototype.off = function (e, t) {
-      for (var n = this._events.length; --n > -1; )
+      for (let n = this._events.length; --n > -1; )
         if (this._events[n].event === e) {
-          for (var i = this._events[n].listeners.length; --i > -1; )
+          for (let i = this._events[n].listeners.length; --i > -1; )
             this._events[n].listeners[i] === t &&
               this._events[n].listeners.splice(i, 1);
           0 === this._events[n].listeners.length && this._events.splice(n, 1);
@@ -1421,16 +1418,16 @@ var hcaptcha = (() => {
     }),
     (Q.prototype.emit = function (e) {
       for (
-        var t = Array.prototype.slice.call(arguments, 1),
-          n = this._events.length;
+        let t = Array.prototype.slice.call(arguments, 1), n = this._events.length;
         --n > -1 && this._events;
 
       )
         if (this._events[n].event === e)
-          for (var i = this._events[n].listeners.length; --i > -1; )
+          for (let i = this._events[n].listeners.length; --i > -1; )
             this._events[n].listeners[i].apply(this, t);
     });
-  var K = {
+
+  const K = {
       af: "Afrikaans",
       sq: "Albanian",
       am: "Amharic",
@@ -1541,208 +1538,220 @@ var hcaptcha = (() => {
       yi: "Yiddish",
       yo: "Yoruba",
       zu: "Zulu",
-    },
-    G = {
-      zh: { "I am human": "我是人" },
-      ar: { "I am human": "أنا الإنسان" },
-      af: { "I am human": "Ek is menslike" },
-      am: { "I am human": "እኔ ሰው ነኝ" },
-      hy: { "I am human": "Ես մարդ եմ" },
-      az: { "I am human": "Mən insanam" },
-      eu: { "I am human": "Gizakia naiz" },
-      bn: { "I am human": "আমি মানব নই" },
-      bg: { "I am human": "Аз съм човек" },
-      ca: { "I am human": "Sóc humà" },
-      hr: { "I am human": "Ja sam čovjek" },
-      cs: { "I am human": "Jsem člověk" },
-      da: { "I am human": "Jeg er et menneske" },
-      nl: { "I am human": "Ik ben een mens" },
-      et: { "I am human": "Ma olen inimeste" },
-      fi: { "I am human": "Olen ihminen" },
-      fr: { "I am human": "Je suis humain" },
-      gl: { "I am human": "Eu son humano" },
-      ka: { "I am human": "მე ვარ ადამიანი" },
-      de: { "I am human": "Ich bin ein Mensch" },
-      el: { "I am human": "Είμαι άνθρωπος" },
-      gu: { "I am human": "હું માનવ છું" },
-      iw: { "I am human": ". אני אנושי" },
-      hi: { "I am human": "मैं मानव हूं" },
-      hu: { "I am human": "Nem vagyok robot" },
-      is: { "I am human": "Ég er manneskja" },
-      id: { "I am human": "Aku manusia" },
-      it: { "I am human": "Sono un essere umano" },
-      ja: { "I am human": "私は人間です" },
-      kn: { "I am human": "ನಾನು ಮಾನವನು" },
-      ko: { "I am human": "사람입니다" },
-      lo: { "I am human": "ຂ້ອຍເປັນມະນຸດ" },
-      lv: { "I am human": "Es esmu cilvēks" },
-      lt: { "I am human": "Aš esu žmogaus" },
-      ms: { "I am human": "Saya manusia" },
-      ml: { "I am human": "ഞാൻ മനുഷ്യനാണ്" },
-      mr: { "I am human": "मी मानवी आहे" },
-      mn: { "I am human": "Би бол хүн" },
-      no: { "I am human": "Jeg er menneskelig" },
-      fa: { "I am human": "من انسانی هستم" },
-      pl: { "I am human": "Jestem człowiekiem" },
-      pt: { "I am human": "Sou humano" },
-      ro: { "I am human": "Eu sunt om" },
-      ru: { "I am human": "Я человек" },
-      sr: { "I am human": "Ja sam ljudski" },
-      si: { "I am human": "මම මිනිස්සු" },
-      sk: { "I am human": "Ja som človek" },
-      sl: { "I am human": "Jaz sem človeški" },
-      es: { "I am human": "Soy humano" },
-      sw: { "I am human": "Mimi ni binadamu" },
-      sv: { "I am human": "Jag är människa" },
-      ta: { "I am human": "நான் மனித" },
-      te: { "I am human": "నేను మనిషిని" },
-      th: { "I am human": "ผมมนุษย์" },
-      tr: { "I am human": "Ben bir insanım" },
-      uk: { "I am human": "Я людини" },
-      ur: { "I am human": "میں انسان ہوں" },
-      vi: { "I am human": "Tôi là con người" },
-      zu: { "I am human": "Ngingumuntu" },
-    },
-    Z = null,
-    ee = {
-      translate(e) {
-        var t = ee.getBestTrans(G);
-        return (t && t[e]) || e;
-      },
-      getBestTrans(e) {
-        var t = ee.getLocale();
-        return t in e
-          ? e[t]
-          : ee.getShortLocale(t) in e
-          ? e[ee.getShortLocale(t)]
-          : "en" in e
-          ? e.en
-          : null;
-      },
-      getLocale() {
-        var e = Z || window.navigator.userLanguage || window.navigator.language,
-          t = ee.getShortLocale(e);
-        return (
-          "in" === t && (e = "id"),
-          "iw" === t && (e = "he"),
-          "nb" === t && (e = "no"),
-          "ji" === t && (e = "yi"),
-          "zh-CN" === e && (e = "zh"),
-          "jv" === t && (e = "jw"),
-          K[e] ? e : K[t] ? t : "en"
-        );
-      },
-      setLocale(e) {
-        Z = e;
-      },
-      getShortLocale(e) {
-        return e.indexOf("-") >= 0 ? e.substring(0, e.indexOf("-")) : e;
-      },
-      isShortLocale(e) {
-        return 2 === e.length || 3 === e.length;
-      },
-      addTable(e, t) {
-        if ((t || (t = Object.create(null)), G[e])) {
-          var n = G[e];
-          for (var i in t) n[i] = t[i];
-        } else G[e] = t;
-        return G[e];
-      },
-      getTable(e) {
-        return G[e];
-      },
-      addTables(e) {
-        for (var t in e) ee.addTable(t, e[t]);
-        return G;
-      },
-      getTables() {
-        return G;
-      },
-    },
-    te = {
-      touchstart: "ts",
-      touchend: "te",
-      touchmove: "tm",
-      touchcancel: "tc",
-    },
-    ne = { mousedown: "md", mouseup: "mu", mousemove: "mm" },
-    ie = { keydown: "kd", keyup: "ku" },
-    oe = { devicemotion: "dm" },
-    re = (e, t) => {
-      var n = ne[e],
-        i = null;
-      return e => {
-        (i = (e => {
-          return [e.windowX, e.windowY, Date.now()];
-        })(e)),
-          t(n, i);
-      };
-    },
-    ae = (e, t) => {
-      var n = te[e],
-        i = null;
-      return e => {
-        (i = (e => {
-          for (
-            var t,
-              n =
-                e.touches && e.touches.length >= 1
-                  ? e.touches
-                  : e.changedTouches,
-              i = [],
-              o = 0;
-            o < n.length;
-            o++
-          )
-            (t = F.eventCoords(n[o])), i.push([n[o].identifier, t.x, t.y]);
-          return i.push(Date.now()), i;
-        })(e)),
-          t(n, i);
-      };
-    },
-    se = (e, t) => {
-      var n = ie[e],
-        i = null;
-      return e => {
-        (i = (e => {
-          return [e.keyNum, Date.now()];
-        })(e)),
-          t(n, i);
-      };
-    },
-    he = (e, t) => {
-      var n = oe[e],
-        i = null,
-        o = [];
-      return e => {
-        null !==
-          (i = ((e, t) => {
-            (e.acceleration === undefined ||
-              (e.acceleration && e.acceleration.x === undefined)) &&
-              (e.acceleration = { x: 0, y: 0, z: 0 });
-            (e.rotationRate === undefined ||
-              (e.rotationRate && e.rotationRate.alpha === undefined)) &&
-              (e.rotationRate = { alpha: 0, beta: 0, gamma: 0 });
-            var n = [
-                e.acceleration.x,
-                e.acceleration.y,
-                e.acceleration.z,
-                e.rotationRate.alpha,
-                e.rotationRate.beta,
-                e.rotationRate.gamma,
-                Date.now(),
-              ],
-              i = [];
-            if (0 === t.length) (t = n), (i = n);
-            else {
-              for (var o, r = 0, a = 0; a < 6; a++)
-                (o = t[a] - n[a]), i.push(n[a]), (r += Math.abs(o));
-              if ((i.push(Date.now()), (t = n), r <= 0)) return null;
-            }
-            return { motion: i, prevmotion: t };
-          })(e, o)) && ((o = i.prevmotion), (i = i.motion), t(n, i));
-      };
     };
+
+  const G = {
+    zh: { "I am human": "我是人" },
+    ar: { "I am human": "أنا الإنسان" },
+    af: { "I am human": "Ek is menslike" },
+    am: { "I am human": "እኔ ሰው ነኝ" },
+    hy: { "I am human": "Ես մարդ եմ" },
+    az: { "I am human": "Mən insanam" },
+    eu: { "I am human": "Gizakia naiz" },
+    bn: { "I am human": "আমি মানব নই" },
+    bg: { "I am human": "Аз съм човек" },
+    ca: { "I am human": "Sóc humà" },
+    hr: { "I am human": "Ja sam čovjek" },
+    cs: { "I am human": "Jsem člověk" },
+    da: { "I am human": "Jeg er et menneske" },
+    nl: { "I am human": "Ik ben een mens" },
+    et: { "I am human": "Ma olen inimeste" },
+    fi: { "I am human": "Olen ihminen" },
+    fr: { "I am human": "Je suis humain" },
+    gl: { "I am human": "Eu son humano" },
+    ka: { "I am human": "მე ვარ ადამიანი" },
+    de: { "I am human": "Ich bin ein Mensch" },
+    el: { "I am human": "Είμαι άνθρωπος" },
+    gu: { "I am human": "હું માનવ છું" },
+    iw: { "I am human": ". אני אנושי" },
+    hi: { "I am human": "मैं मानव हूं" },
+    hu: { "I am human": "Nem vagyok robot" },
+    is: { "I am human": "Ég er manneskja" },
+    id: { "I am human": "Aku manusia" },
+    it: { "I am human": "Sono un essere umano" },
+    ja: { "I am human": "私は人間です" },
+    kn: { "I am human": "ನಾನು ಮಾನವನು" },
+    ko: { "I am human": "사람입니다" },
+    lo: { "I am human": "ຂ້ອຍເປັນມະນຸດ" },
+    lv: { "I am human": "Es esmu cilvēks" },
+    lt: { "I am human": "Aš esu žmogaus" },
+    ms: { "I am human": "Saya manusia" },
+    ml: { "I am human": "ഞാൻ മനുഷ്യനാണ്" },
+    mr: { "I am human": "मी मानवी आहे" },
+    mn: { "I am human": "Би бол хүн" },
+    no: { "I am human": "Jeg er menneskelig" },
+    fa: { "I am human": "من انسانی هستم" },
+    pl: { "I am human": "Jestem człowiekiem" },
+    pt: { "I am human": "Sou humano" },
+    ro: { "I am human": "Eu sunt om" },
+    ru: { "I am human": "Я человек" },
+    sr: { "I am human": "Ja sam ljudski" },
+    si: { "I am human": "මම මිනිස්සු" },
+    sk: { "I am human": "Ja som človek" },
+    sl: { "I am human": "Jaz sem človeški" },
+    es: { "I am human": "Soy humano" },
+    sw: { "I am human": "Mimi ni binadamu" },
+    sv: { "I am human": "Jag är människa" },
+    ta: { "I am human": "நான் மனித" },
+    te: { "I am human": "నేను మనిషిని" },
+    th: { "I am human": "ผมมนุษย์" },
+    tr: { "I am human": "Ben bir insanım" },
+    uk: { "I am human": "Я людини" },
+    ur: { "I am human": "میں انسان ہوں" },
+    vi: { "I am human": "Tôi là con người" },
+    zu: { "I am human": "Ngingumuntu" },
+  };
+
+  let Z = null;
+
+  const ee = {
+    translate(e) {
+      const t = ee.getBestTrans(G);
+      return (t && t[e]) || e;
+    },
+    getBestTrans(e) {
+      const t = ee.getLocale();
+      return t in e
+        ? e[t]
+        : ee.getShortLocale(t) in e
+        ? e[ee.getShortLocale(t)]
+        : "en" in e
+        ? e.en
+        : null;
+    },
+    getLocale() {
+      let e = Z || window.navigator.userLanguage || window.navigator.language;
+      const t = ee.getShortLocale(e);
+      return (
+        "in" === t && (e = "id"),
+        "iw" === t && (e = "he"),
+        "nb" === t && (e = "no"),
+        "ji" === t && (e = "yi"),
+        "zh-CN" === e && (e = "zh"),
+        "jv" === t && (e = "jw"),
+        K[e] ? e : K[t] ? t : "en"
+      );
+    },
+    setLocale(e) {
+      Z = e;
+    },
+    getShortLocale(e) {
+      return e.indexOf("-") >= 0 ? e.substring(0, e.indexOf("-")) : e;
+    },
+    isShortLocale(e) {
+      return 2 === e.length || 3 === e.length;
+    },
+    addTable(e, t) {
+      if ((t || (t = Object.create(null)), G[e])) {
+        const n = G[e];
+        for (const i in t) n[i] = t[i];
+      } else G[e] = t;
+      return G[e];
+    },
+    getTable(e) {
+      return G[e];
+    },
+    addTables(e) {
+      for (const t in e) ee.addTable(t, e[t]);
+      return G;
+    },
+    getTables() {
+      return G;
+    },
+  };
+
+  const te = {
+    touchstart: "ts",
+    touchend: "te",
+    touchmove: "tm",
+    touchcancel: "tc",
+  };
+
+  const ne = { mousedown: "md", mouseup: "mu", mousemove: "mm" };
+  const ie = { keydown: "kd", keyup: "ku" };
+  const oe = { devicemotion: "dm" };
+
+  const re = (e, t) => {
+    const n = ne[e];
+    let i = null;
+    return (e) => {
+      (i = ((e) => {
+        return [e.windowX, e.windowY, Date.now()];
+      })(e)),
+        t(n, i);
+    };
+  };
+
+  const ae = (e, t) => {
+    const n = te[e];
+    let i = null;
+    return (e) => {
+      (i = ((e) => {
+        for (
+          var t,
+            n =
+              e.touches && e.touches.length >= 1
+                ? e.touches
+                : e.changedTouches,
+            i = [],
+            o = 0;
+          o < n.length;
+          o++
+        )
+          (t = F.eventCoords(n[o])), i.push([n[o].identifier, t.x, t.y]);
+        return i.push(Date.now()), i;
+      })(e)),
+        t(n, i);
+    };
+  };
+
+  const se = (e, t) => {
+    const n = ie[e];
+    let i = null;
+    return (e) => {
+      (i = ((e) => {
+        return [e.keyNum, Date.now()];
+      })(e)),
+        t(n, i);
+    };
+  };
+
+  const he = (e, t) => {
+    const n = oe[e];
+    let i = null;
+    let o = [];
+    return (e) => {
+      null !==
+        (i = ((e, t) => {
+        (e.acceleration === undefined ||
+          (e.acceleration && e.acceleration.x === undefined)) &&
+          (e.acceleration = { x: 0, y: 0, z: 0 });
+        (e.rotationRate === undefined ||
+          (e.rotationRate && e.rotationRate.alpha === undefined)) &&
+          (e.rotationRate = { alpha: 0, beta: 0, gamma: 0 });
+
+        const n = [
+            e.acceleration.x,
+            e.acceleration.y,
+            e.acceleration.z,
+            e.rotationRate.alpha,
+            e.rotationRate.beta,
+            e.rotationRate.gamma,
+            Date.now(),
+          ];
+
+        let i = [];
+        if (0 === t.length) (t = n), (i = n);
+        else {
+          for (var o, r = 0, a = 0; a < 6; a++)
+            (o = t[a] - n[a]), i.push(n[a]), (r += Math.abs(o));
+          if ((i.push(Date.now()), (t = n), r <= 0)) return null;
+        }
+        return { motion: i, prevmotion: t };
+      })(e, o)) && ((o = i.prevmotion), (i = i.motion), t(n, i));
+    };
+  };
+
   function ce(e, t) {
     (this._period = e),
       (this._interval = t),
@@ -1768,13 +1777,13 @@ var hcaptcha = (() => {
     }),
     (ce.prototype.push = function (e, t) {
       this._cleanStaleData();
-      var n = 0 === this._date.length;
+      const n = 0 === this._date.length;
       if (
         (e - (this._date[this._date.length - 1] || 0) >= this._period &&
           (this._date.push(e), this._data.push(t)),
         !n)
       ) {
-        var i = e - this._prevTimestamp;
+        const i = e - this._prevTimestamp;
         (this._meanPeriod =
           (this._meanPeriod * this._meanCounter + i) / (this._meanCounter + 1)),
           this._meanCounter++;
@@ -1782,7 +1791,7 @@ var hcaptcha = (() => {
       this._prevTimestamp = e;
     }),
     (ce.prototype._cleanStaleData = function () {
-      for (var e = Date.now(), t = this._date.length - 1; t >= 0; t--) {
+      for (let e = Date.now(), t = this._date.length - 1; t >= 0; t--) {
         if (e - this._date[t] >= this._interval) {
           this._date.splice(0, t + 1), this._data.splice(0, t + 1);
           break;
@@ -1810,7 +1819,7 @@ var hcaptcha = (() => {
         i === undefined ? this.state.record.motion : i),
       !1 === this.state.initRecord)
     ) {
-      var o = new J(document.body);
+      const o = new J(document.body);
       this.state.record.mouse &&
         (o.addEventListener("mousedown", re("mousedown", this._recordEvent)),
         o.addEventListener("mousemove", re("mousemove", this._recordEvent)),
@@ -1843,7 +1852,7 @@ var hcaptcha = (() => {
       return this.state.loadTime;
     }),
     (le.prototype.getData = function () {
-      for (var e in this.state.timeBuffers)
+      for (const e in this.state.timeBuffers)
         (this._manifest[e] = this.state.timeBuffers[e].getData()),
           (this._manifest[e + "-mp"] =
             this.state.timeBuffers[e].getMeanPeriod());
@@ -1861,7 +1870,7 @@ var hcaptcha = (() => {
     (le.prototype._recordEvent = function (e, t) {
       if (!1 !== this.state.recording)
         try {
-          var n = t[t.length - 1];
+          const n = t[t.length - 1];
           this.state.timeBuffers[e] ||
             (this.state.timeBuffers[e] = new ce(16, 15e3)),
             this.state.timeBuffers[e].push(n, t);
@@ -1869,10 +1878,10 @@ var hcaptcha = (() => {
           z("Event recording error: " + JSON.stringify(mt), "error", "motion");
         }
     });
-  var de = new le(),
-    ue = [],
-    pe = !1,
-    fe = !1;
+  const de = new le();
+  let ue = [];
+  let pe = !1;
+  let fe = !1;
   function me() {
     ("interactive" !== document.readyState &&
       "loaded" !== document.readyState &&
@@ -1881,7 +1890,7 @@ var hcaptcha = (() => {
   }
   function ge() {
     if (!1 === fe) {
-      for (var e = 0; e < ue.length; e++) ue[e].fn.apply(null, ue[e].args);
+      for (let e = 0; e < ue.length; e++) ue[e].fn.apply(null, ue[e].args);
       ue = [];
     }
     (fe = !0),
@@ -1892,9 +1901,9 @@ var hcaptcha = (() => {
           window.detachEvent("onload", ge));
   }
   new J(document);
-  var ye = new J(window);
+  const ye = new J(window);
   function ve(e, t) {
-    var n;
+    let n;
     if (
       ("object" != typeof e || t || ((t = e), (e = null)),
       !(n = e ? x.getById(e) : x.getByIndex(0)))
@@ -1905,7 +1914,7 @@ var hcaptcha = (() => {
     de.setData("exec", !0), n.onReady(n.initChallenge, t);
   }
   function we(e, t) {
-    var n = e instanceof HTMLIFrameElement;
+    const n = e instanceof HTMLIFrameElement;
     try {
       n
         ? e.parentNode && e.contentWindow.postMessage(JSON.stringify(t), "*")
@@ -1922,23 +1931,24 @@ var hcaptcha = (() => {
       (this.waiting = []);
   }
   function _e(e, t) {
-    var n = this,
-      i = {},
-      o = new Promise((e, t) => {
-        (i.resolve = e), (i.reject = t);
-      }),
-      r = { source: "hcaptcha", label: e, id: n.id, promise: null, lookup: t };
-    return o
-      .then(e => {
-        (r.promise = "resolve"),
-          null !== e && (r.contents = e),
-          we(n.target, r);
-      })
-      ["catch"](e => {
-        (r.promise = "reject"), null !== e && (r.error = e), we(n.target, r);
-      }),
-    i
-  ;
+    const n = this,
+          i = {},
+          o = new Promise((e, t) => {
+            (i.resolve = e), (i.reject = t);
+          }),
+          r = { source: "hcaptcha", label: e, id: n.id, promise: null, lookup: t };
+    return (
+      o
+        .then((e) => {
+          (r.promise = "resolve"),
+            null !== e && (r.contents = e),
+            we(n.target, r);
+        })
+        ["catch"]((e) => {
+          (r.promise = "reject"), null !== e && (r.error = e), we(n.target, r);
+        }),
+      i
+    );
   }
   (be.prototype.setID = function (e) {
     this.id = e;
@@ -1948,15 +1958,15 @@ var hcaptcha = (() => {
         throw new Error(
           "Chat requires unique id to communicate between windows"
         );
-      var n = this,
-        i = Date.now().toString(36),
-        o = {
-          source: "hcaptcha",
-          label: e,
-          id: this.id,
-          promise: "create",
-          lookup: i,
-        };
+      const n = this,
+            i = Date.now().toString(36),
+            o = {
+              source: "hcaptcha",
+              label: e,
+              id: this.id,
+              promise: "create",
+              lookup: i,
+            };
       if (t) {
         if ("object" != typeof t) throw new Error("Message must be an object.");
         o.contents = t;
@@ -1991,7 +2001,7 @@ var hcaptcha = (() => {
         throw new Error(
           "Chat requires unique id to communicate between windows"
         );
-      var n = { source: "hcaptcha", label: e, id: this.id };
+      const n = { source: "hcaptcha", label: e, id: this.id };
       if (t) {
         if ("object" != typeof t) throw new Error("Message must be an object.");
         n.contents = t;
@@ -2027,7 +2037,7 @@ var hcaptcha = (() => {
       )
         if (r[i].label === e.label) {
           if (e.lookup && r[i].lookup && e.lookup !== r[i].lookup) continue;
-          var a = [];
+          const a = [];
           if (
             ((t = r[i]),
             e.error && a.push(e.error),
@@ -2035,7 +2045,7 @@ var hcaptcha = (() => {
             e.promise && "create" !== e.promise)
           ) {
             t[e.promise].apply(t[e.promise], a);
-            for (var s = this.waiting.length, h = !1; --s > -1 && !1 === h; )
+            for (let s = this.waiting.length, h = !1; --s > -1 && !1 === h; )
               this.waiting[s].label === t.label &&
                 this.waiting[s].lookup === t.lookup &&
                 ((h = !0), this.waiting.splice(s, 1));
@@ -2043,7 +2053,7 @@ var hcaptcha = (() => {
           }
           for (o = 0; o < t.listeners.length; o++) {
             if (((n = t.listeners[o]), "create" === e.promise)) {
-              var c = _e.call(this, t.label, e.lookup);
+              const c = _e.call(this, t.label, e.lookup);
               a.push(c);
             }
             n.apply(n, a);
@@ -2059,13 +2069,13 @@ var hcaptcha = (() => {
         null
       );
     });
-  var xe = {
+  const xe = {
     chats: [],
     isSupported() {
       return !!window.postMessage;
     },
     createChat(e, t) {
-      var n = new be(e, t);
+      const n = new be(e, t);
       return xe.chats.push(n), n;
     },
     addChat(e) {
@@ -2079,12 +2089,12 @@ var hcaptcha = (() => {
       return t;
     },
     handle(e) {
-      var t = e.data;
+      let t = e.data;
       if ("string" == typeof t)
         try {
           if (!(t.indexOf("hcaptcha") >= 0)) return;
           t = JSON.parse(t);
-          for (var n, i = xe.chats, o = -1; ++o < i.length; )
+          for (let n, i = xe.chats, o = -1; ++o < i.length; )
             (n = i[o]).id === t.id && n.respond(t);
         } catch (ft) {
           W("postMessage handler error", "postMessage", "debug", {
@@ -2097,74 +2107,74 @@ var hcaptcha = (() => {
   window.addEventListener
     ? window.addEventListener("message", xe.handle)
     : window.attachEvent("onmessage", xe.handle);
-  var Ce = {
-      getCookie(e) {
-        var t = document.cookie.replace(/ /g, "").split(";");
-        try {
-          for (var n = "", i = t.length; i-- && !n; )
-            t[i].indexOf(e) >= 0 && (n = t[i]);
-          return n;
-        } catch (mt) {
-          return "";
-        }
-      },
-      hasCookie(e) {
-        return !!Ce.getCookie(e);
-      },
-      supportsAPI() {
-        try {
-          return (
-            "hasStorageAccess" in document && "requestStorageAccess" in document
-          );
-        } catch (mt) {
-          return !1;
-        }
-      },
-      hasAccess() {
-        return new Promise(e => {
-          document
-            .hasStorageAccess()
-            .then(() => {
-              e(!0);
-            })
-            ["catch"](() => {
-              e(!1);
-            });
-        });
-      },
-      requestAccess() {
-        try {
-          return document.requestStorageAccess();
-        } catch (mt) {
-          return Promise.resolve();
-        }
-      },
-    },
-    ke = e => {
-      for (
-        var t,
-          n,
-          i,
-          o = {},
-          r = e ? (e.indexOf("&") >= 0 ? e.split("&") : [e]) : [],
-          a = 0;
-        a < r.length;
-        a++
-      )
-        r[a].indexOf("=") >= 0 &&
-          ((t = r[a].split("=")),
-          (n = decodeURIComponent(t[0])),
-          ("false" !== (i = decodeURIComponent(t[1])) && "true" !== i) ||
-            (i = "true" === i),
-          (o[n] = i));
-      return o;
-    },
-    Ee = e => {
-      var t = [];
-      for (var n in e)
-        t.push([encodeURIComponent(n), encodeURIComponent(e[n])].join("="));
-      return t.join("&");
-    };
+  const Ce = {
+            getCookie(e) {
+              const t = document.cookie.replace(/ /g, "").split(";");
+              try {
+                for (var n = "", i = t.length; i-- && !n; )
+                  t[i].indexOf(e) >= 0 && (n = t[i]);
+                return n;
+              } catch (mt) {
+                return "";
+              }
+            },
+            hasCookie(e) {
+              return !!Ce.getCookie(e);
+            },
+            supportsAPI() {
+              try {
+                return (
+                  "hasStorageAccess" in document && "requestStorageAccess" in document
+                );
+              } catch (mt) {
+                return !1;
+              }
+            },
+            hasAccess() {
+              return new Promise((e) => {
+                document
+                  .hasStorageAccess()
+                  .then(() => {
+                    e(!0);
+                  })
+                  ["catch"](() => {
+                    e(!1);
+                  });
+              });
+            },
+            requestAccess() {
+              try {
+                return document.requestStorageAccess();
+              } catch (mt) {
+                return Promise.resolve();
+              }
+            },
+          },
+        ke = (e) => {
+          for (
+            var t,
+              n,
+              i,
+              o = {},
+              r = e ? (e.indexOf("&") >= 0 ? e.split("&") : [e]) : [],
+              a = 0;
+            a < r.length;
+            a++
+          )
+            r[a].indexOf("=") >= 0 &&
+              ((t = r[a].split("=")),
+              (n = decodeURIComponent(t[0])),
+              ("false" !== (i = decodeURIComponent(t[1])) && "true" !== i) ||
+                (i = "true" === i),
+              (o[n] = i));
+          return o;
+        },
+        Ee = (e) => {
+          const t = [];
+          for (const n in e)
+            t.push([encodeURIComponent(n), encodeURIComponent(e[n])].join("="));
+          return t.join("&");
+        };
   function Se(e, t) {
     (this.id = e),
       (this.width = null),
@@ -2177,7 +2187,7 @@ var hcaptcha = (() => {
       (this._selected = !1),
       (this.$iframe = new J("iframe")),
       (this._host = A.host || window.location.hostname);
-    var n = A.assetUrl;
+    let n = A.assetUrl;
     $.assethost && (n = $.assethost + A.assetUrl.replace(A.assetDomain, "")),
       (this.$iframe.dom.src =
         n +
@@ -2213,7 +2223,7 @@ var hcaptcha = (() => {
       (this.$container = e instanceof J ? e : new J(e)),
       (this._host = A.host || window.location.hostname),
       (this.$iframe = new J("iframe"));
-    var i = A.assetUrl;
+    let i = A.assetUrl;
     $.assethost && (i = $.assethost + A.assetUrl.replace(A.assetDomain, "")),
       (this.$iframe.dom.src =
         i +
@@ -2281,7 +2291,7 @@ var hcaptcha = (() => {
       (this.displayChallenge = this.displayChallenge.bind(this));
   }
   function Pe(e, t) {
-    var n = "[hCaptcha] " + e;
+    let n = "[hCaptcha] " + e;
     t && (n += " - " + t),
       (this.message =
         "hCaptcha has failed to initialize. Please see the developer tools console for more information."),
@@ -2289,15 +2299,14 @@ var hcaptcha = (() => {
   }
   function Be() {
     V.self(this, J, "canvas");
-    var e = this;
+    const e = this;
     (this.element = this.dom),
       (this.ctx = this.element.getContext("2d")),
       (this.scale = 1),
       (this.dpr = window.devicePixelRatio || 1),
       (this.clearColor = "#fff"),
       (this.ctx.roundedRect = (t, n, i, o, r) => {
-        var a = i > 0 ? r : -r,
-          s = o > 0 ? r : -r;
+        const a = i > 0 ? r : -r, s = o > 0 ? r : -r;
         e.ctx.beginPath(),
           e.ctx.moveTo(t + a, n),
           e.ctx.lineTo(t + i - a, n),
@@ -2334,15 +2343,15 @@ var hcaptcha = (() => {
       (this.index = 0);
   }
   (Se.prototype.setupParentContainer = function (e) {
-    var t,
-      n = e["challenge-container"];
+    let t;
+    const n = e["challenge-container"];
     n && (t = "string" == typeof n ? document.getElementById(n) : n),
       t
         ? ((this._hasCustomContainer = !0), (this._parent = t))
         : ((this._hasCustomContainer = !1), (this._parent = document.body));
   }),
     (Se.prototype._hideIframe = function () {
-      var e = {};
+      const e = {};
       "ie" !== M.Browser.type ||
       ("ie" === M.Browser.type && 8 !== M.Browser.version)
         ? ((e.opacity = 0), (e.visibility = "hidden"))
@@ -2351,7 +2360,7 @@ var hcaptcha = (() => {
         this.$iframe.css(e);
     }),
     (Se.prototype._showIframe = function () {
-      var e = {};
+      const e = {};
       "ie" !== M.Browser.type ||
       ("ie" === M.Browser.type && 8 !== M.Browser.version)
         ? ((e.opacity = 1), (e.visibility = "visible"))
@@ -2367,7 +2376,7 @@ var hcaptcha = (() => {
           backgroundColor: "#fff",
         });
       else {
-        var e = {
+        const e = {
           backgroundColor: "#fff",
           border: "1px solid rgb(208, 208, 208)",
           boxShadow: "rgba(0, 0, 0, 0.1) 0px 0px 4px",
@@ -2432,7 +2441,7 @@ var hcaptcha = (() => {
       return this.chat.contact("solve-proof", e);
     }),
     (Se.prototype.sendTranslation = function (e) {
-      var t = { locale: e, table: ee.getTable(e) || {} };
+      const t = { locale: e, table: ee.getTable(e) || {} };
       this.chat && this.chat.send("challenge-translate", t);
     }),
     (Se.prototype.isVisible = function () {
@@ -2448,7 +2457,7 @@ var hcaptcha = (() => {
         if (((this._visible = !0), this._hasCustomContainer))
           this._showIframe();
         else {
-          var e = { zIndex: 9999999999999 };
+          const e = { zIndex: 9999999999999 };
           "ie" !== M.Browser.type ||
           ("ie" === M.Browser.type && 8 !== M.Browser.version)
             ? ((e.opacity = 1), (e.visibility = "visible"))
@@ -2462,7 +2471,7 @@ var hcaptcha = (() => {
     (Se.prototype.close = function () {
       if (((this._visible = !1), this._hasCustomContainer))
         return this._hideIframe(), void this.chat.send("close-challenge");
-      var e = { left: -1e4, top: -1e4, zIndex: -9999999999999 };
+      const e = { left: -1e4, top: -1e4, zIndex: -9999999999999 };
       "ie" !== M.Browser.type ||
       ("ie" === M.Browser.type && 8 !== M.Browser.version)
         ? ((e.opacity = 0), (e.visibility = "hidden"))
@@ -2486,33 +2495,38 @@ var hcaptcha = (() => {
     }),
     (Se.prototype.position = function (e) {
       if (!this._hasCustomContainer && e) {
-        var t = window.document.documentElement,
-          n = M.Browser.scrollY(),
-          i = M.Browser.width(),
-          o = M.Browser.height(),
-          r =
-            this.mobile ||
-            "invisible" === this.config.size ||
-            e.offset.left + e.tick.x <= e.tick.width / 2,
-          a = Math.round(e.bounding.top) + n !== e.offset.top,
-          s = this.height > t.clientHeight,
-          h = r ? (i - this.width) / 2 : e.bounding.left + e.tick.right + 10;
+        const t = window.document.documentElement;
+        const n = M.Browser.scrollY();
+        const i = M.Browser.width();
+        const o = M.Browser.height();
+
+        let r =
+          this.mobile ||
+          "invisible" === this.config.size ||
+          e.offset.left + e.tick.x <= e.tick.width / 2;
+
+        const a = Math.round(e.bounding.top) + n !== e.offset.top;
+        const s = this.height > t.clientHeight;
+        let h = r ? (i - this.width) / 2 : e.bounding.left + e.tick.right + 10;
         (h + this.width + 10 > i || h < 0) &&
           ((h = (i - this.width) / 2), (r = !0));
-        var c =
+
+        const c =
             (t.scrollHeight < t.clientHeight
               ? t.clientHeight
               : t.scrollHeight) -
             this.height -
-            10,
-          l = r
-            ? (o - this.height) / 2 + n
-            : e.bounding.top + e.tick.y + n - this.height / 2;
+            10;
+
+        let l = r
+          ? (o - this.height) / 2 + n
+          : e.bounding.top + e.tick.y + n - this.height / 2;
+
         a && l < n && (l = n + 10),
           a && l + this.height >= n + o && (l = n + o - (this.height + 10)),
           (l = Math.max(Math.min(l, c), 10));
-        var d = e.bounding.top + e.tick.y + n - l - 10,
-          u = this.height - 10 - 30;
+        let d = e.bounding.top + e.tick.y + n - l - 10;
+        const u = this.height - 10 - 30;
         return (
           (d = Math.max(Math.min(d, u), 10)),
           this.$container.css({ left: h, top: l }),
@@ -2537,14 +2551,14 @@ var hcaptcha = (() => {
     }),
     (Se.prototype.setReady = function (e) {
       if (((this.ready = e), this.ready))
-        for (var t, n = this.listeners.length; --n > -1; )
+        for (let t, n = this.listeners.length; --n > -1; )
           (t = this.listeners[n]), this.listeners.splice(n, 1), t();
     }),
     (Se.prototype.onReady = function (e) {
-      var t = Array.prototype.slice.call(arguments, 1),
-        n = () => {
-          e.apply(null, t);
-        };
+      const t = Array.prototype.slice.call(arguments, 1),
+            n = () => {
+              e.apply(null, t);
+            };
       this.ready ? n() : this.listeners.push(n);
     }),
     (Se.prototype.onOverlayClick = function (e) {
@@ -2581,7 +2595,7 @@ var hcaptcha = (() => {
       this.chat && this.chat.send("checkbox-clear");
     }),
     (Oe.prototype.sendTranslation = function (e) {
-      var t = { locale: e, table: ee.getTable(e) || {} };
+      const t = { locale: e, table: ee.getTable(e) || {} };
       this.chat && this.chat.send("checkbox-translate", t);
     }),
     (Oe.prototype.status = function (e, t) {
@@ -2598,7 +2612,7 @@ var hcaptcha = (() => {
       return this.chat.contact("checkbox-location");
     }),
     (Oe.prototype.getOffset = function () {
-      var e = this.$iframe.dom;
+      let e = this.$iframe.dom;
       e.offsetParent || (e = e.parentElement);
       for (var t = 0, n = 0; e; )
         (t += e.offsetLeft), (n += e.offsetTop), (e = e.offsetParent);
@@ -2625,43 +2639,41 @@ var hcaptcha = (() => {
         (clearTimeout(this._responseTimer), (this._responseTimer = null));
     }),
     (Ie.prototype.initChallenge = function (e) {
-      e || (e = {});
-      var t = e.manifest || null,
-        n = e.charity || null,
-        i = e.link || null,
-        o = e.action || "",
-        r = e.rqdata || null,
-        a = M.Browser.width(),
-        s = M.Browser.height();
-      this._resetTimer(),
-        t || ((t = Object.create(null)).st = Date.now()),
-        (t.v = 1),
-        (t.topLevel = de.getData()),
-        (t.session = x.getSession()),
-        (t.widgetList = x.getCaptchaIdList()),
-        (t.widgetId = this.id),
-        (t.href = window.location.href),
-        (t.prev = JSON.parse(JSON.stringify(this._state))),
-        this._resetState(),
-        this.checkbox.setResponse(""),
-        this.challenge.setup({
-          manifest: t,
-          width: a,
-          height: s,
-          charity: n,
-          link: i,
-          action: o,
-          rqdata: r,
-        });
-    }),
+    e || (e = {});
+    let t = e.manifest || null;
+    const n = e.charity || null;
+    const i = e.link || null;
+    const o = e.action || "";
+    const r = e.rqdata || null;
+    const a = M.Browser.width();
+    const s = M.Browser.height();
+    this._resetTimer(),
+      t || ((t = Object.create(null)).st = Date.now()),
+      (t.v = 1),
+      (t.topLevel = de.getData()),
+      (t.session = x.getSession()),
+      (t.widgetList = x.getCaptchaIdList()),
+      (t.widgetId = this.id),
+      (t.href = window.location.href),
+      (t.prev = JSON.parse(JSON.stringify(this._state))),
+      this._resetState(),
+      this.checkbox.setResponse(""),
+      this.challenge.setup({
+        manifest: t,
+        width: a,
+        height: s,
+        charity: n,
+        link: i,
+        action: o,
+        rqdata: r,
+      });
+  }),
     (Ie.prototype.displayChallenge = function (e) {
-      var t = this;
+      const t = this;
       this.visible = !0;
-      var n = this.checkbox,
-        i = this.challenge,
-        o = M.Browser.height();
+      const n = this.checkbox, i = this.challenge, o = M.Browser.height();
       if (!("ie" === M.Browser.type && 8 === M.Browser.version)) {
-        var r = window
+        const r = window
           .getComputedStyle(document.body)
           .getPropertyValue("overflow-y");
         (this.overflow.override = "hidden" === r),
@@ -2674,9 +2686,9 @@ var hcaptcha = (() => {
             (this.overflow.scroll = M.Browser.scrollY()),
             (document.body.style.overflowY = "auto"));
       }
-      return new Promise(t => {
+      return new Promise((t) => {
         n.status(),
-          n.getTickLocation().then(r => {
+          n.getTickLocation().then((r) => {
             (i.size(e.width, e.height, e.mobile),
             i.show(),
             n.clearLoading(),
@@ -2695,17 +2707,15 @@ var hcaptcha = (() => {
       });
     }),
     (Ie.prototype.resize = function (e, t, n) {
-      var i = this,
-        o = this.checkbox,
-        r = this.challenge;
+      const i = this, o = this.checkbox, r = this.challenge;
       r.getDimensions(e, t)
-        .then(e => {
+        .then((e) => {
           e && r.size(e.width, e.height, e.mobile),
             (o.location.bounding = o.getBounding()),
             (o.location.offset = o.getOffset()),
             (M.System.mobile && !n) || r.position(o.location);
         })
-        ["catch"](e => {
+        ["catch"]((e) => {
           i.closeChallenge.call(i, {
             event: "challenge-error",
             message: "Captcha resize caused error.",
@@ -2714,8 +2724,7 @@ var hcaptcha = (() => {
         });
     }),
     (Ie.prototype.position = function () {
-      var e = this.checkbox,
-        t = this.challenge;
+      const e = this.checkbox, t = this.challenge;
       M.System.mobile ||
         ((e.location.bounding = e.getBounding()), t.position(e.location));
     }),
@@ -2726,13 +2735,11 @@ var hcaptcha = (() => {
         this._resetState();
     }),
     (Ie.prototype._resetState = function () {
-      for (var e in this._state) this._state[e] = !1;
+      for (const e in this._state) this._state[e] = !1;
     }),
     (Ie.prototype.closeChallenge = function (e) {
       this.visible = !1;
-      var t = this,
-        n = this.checkbox,
-        i = this.challenge;
+      const t = this, n = this.checkbox, i = this.challenge;
       this.overflow.override &&
         (((
           window.document.scrollingElement ||
@@ -2743,7 +2750,7 @@ var hcaptcha = (() => {
         (document.body.style.overflowY = this.overflow.cssUsed
           ? null
           : this.overflow.value));
-      var o = e.response || "";
+      const o = e.response || "";
       switch ((n.setResponse(o), i.close(), n.$iframe.dom.focus(), e.event)) {
         case "challenge-escaped":
           (this._state.escaped = !0), n.reset(), t.onClose && N(t.onClose);
@@ -2790,8 +2797,7 @@ var hcaptcha = (() => {
       }
     }),
     (Ie.prototype.updateTranslation = function (e) {
-      var t = this.checkbox,
-        n = this.challenge;
+      const t = this.checkbox, n = this.challenge;
       t.sendTranslation(e), n.sendTranslation(e);
     }),
     (Ie.prototype.isReady = function () {
@@ -2799,14 +2805,14 @@ var hcaptcha = (() => {
     }),
     (Ie.prototype.setReady = function (e) {
       if (((this._ready = e), this._ready))
-        for (var t, n = this._listeners.length; --n > -1; )
+        for (let t, n = this._listeners.length; --n > -1; )
           (t = this._listeners[n]), this._listeners.splice(n, 1), t();
     }),
     (Ie.prototype.onReady = function (e) {
-      var t = Array.prototype.slice.call(arguments, 1),
-        n = () => {
-          e.apply(null, t);
-        };
+      const t = Array.prototype.slice.call(arguments, 1),
+            n = () => {
+              e.apply(null, t);
+            };
       this._ready ? n() : this._listeners.push(n);
     }),
     (Ie.prototype.destroy = function () {
@@ -2851,24 +2857,24 @@ var hcaptcha = (() => {
         (this.height = null);
     }),
     (Te.prototype.rotate = function (e, t) {
-      var n = (e => {
-          return e * (Math.PI / 180);
-        })(t),
-        i = Math.sin(n),
-        o = Math.cos(n),
-        r = this.x - e.x,
-        a = this.y - e.y;
+      const n = ((e) => {
+                return e * (Math.PI / 180);
+              })(t),
+            i = Math.sin(n),
+            o = Math.cos(n),
+            r = this.x - e.x,
+            a = this.y - e.y;
       (this.x = r * o - a * i + e.x), (this.y = r * i + a * o + e.y);
     }),
     (Te.prototype.getDistance = function (e) {
       return Math.sqrt(Math.pow(this.x - e.x, 2) + Math.pow(this.y - e.y, 2));
     }),
     (Te.prototype.getAngle = function (e) {
-      var t = e.x - this.x,
-        n = e.y - this.y,
-        i = (180 * Math.atan2(n, t)) / Math.PI;
-      return i < 0 && (i += 360), i;
-    }),
+    const t = e.x - this.x;
+    const n = e.y - this.y;
+    let i = (180 * Math.atan2(n, t)) / Math.PI;
+    return i < 0 && (i += 360), i;
+  }),
     (Te.prototype.hitTest = function (e) {
       return this.radius + this.tolerance >= this.getDistance(e);
     }),
@@ -2903,10 +2909,7 @@ var hcaptcha = (() => {
           : ((this.handleOut.x = n.x), (this.handleOut.y = n.y));
     }),
     (Me.prototype.clone = function () {
-      var e = { x: this.x, y: this.y },
-        t = { x: this.handleIn.x, y: this.handleIn.y },
-        n = { x: this.handleOut.x, y: this.handleOut.y },
-        i = new Me();
+      const e = { x: this.x, y: this.y }, t = { x: this.handleIn.x, y: this.handleIn.y }, n = { x: this.handleOut.x, y: this.handleOut.y }, i = new Me();
       return (
         t.x === n.x && t.y === n.y ? i.set(e) : i.set(e, t, n),
         (i.index = this.index),
@@ -2939,7 +2942,7 @@ var hcaptcha = (() => {
           this.handleOut.draw(e),
         this.draw(e);
     });
-  var Ae = {
+  const Ae = {
     getType(e) {
       return e.toLowerCase().match(/\.(?:jpg|gif|png|jpeg|svg)$/g)
         ? "image"
@@ -2951,7 +2954,7 @@ var hcaptcha = (() => {
       if ($.assethost && e.indexOf(A.assetDomain) >= 0)
         return $.assethost + e.replace(A.assetDomain, "");
       if ($.imghost && e.indexOf("imgs") >= 0) {
-        var t =
+        const t =
           e.indexOf(".ai") >= 0 ? e.indexOf(".ai") + 3 : e.indexOf(".com") + 4;
         return $.imghost + e.substr(t, e.length);
       }
@@ -2959,8 +2962,8 @@ var hcaptcha = (() => {
     },
   };
   function $e(e, t) {
-    var n = e,
-      i = n.substr(n.lastIndexOf(".") + 1, n.length);
+    let n = e;
+    const i = n.substr(n.lastIndexOf(".") + 1, n.length);
     t || (t = {}),
       t.fallback &&
         "svg" === i &&
@@ -2981,12 +2984,12 @@ var hcaptcha = (() => {
       (this.cb = { load: [], error: [] });
   }
   function Le(e, t, n) {
-    for (var i = e[t], o = i.length, r = null; --o > -1; )
+    for (let i = e[t], o = i.length, r = null; --o > -1; )
       (r = i[o]), i.splice(o, 1), r(n);
     "error" === t ? (e.load = []) : (e.error = []);
   }
   function je(e, t) {
-    var n = e;
+    let n = e;
     t || (t = {}),
       t.prefix && (n = t.prefix + "/" + e),
       (this.attribs = {
@@ -3002,26 +3005,25 @@ var hcaptcha = (() => {
       (this.cb = { load: [], error: [] });
   }
   function De(e, t, n) {
-    for (var i = e[t], o = i.length, r = null; --o > -1; )
+    for (let i = e[t], o = i.length, r = null; --o > -1; )
       (r = i[o]), i.splice(o, 1), r(n);
     "error" === t ? (e.load = []) : (e.error = []);
   }
   function Re(e) {
     if (null === e) return "";
-    var t = [];
-    return (
-      (function n(e, t) {
-        var i, o;
-        if ("object" == typeof e)
-          for (o in e)
-            !0 === ze((i = e[o])) ? n(i, t) : (t[t.length] = We(o, i));
-        else if (!0 === Array.isArray(e))
-          for (var r = 0; r < e.length; r++)
-            !0 === ze((i = e[r])) ? n(e, t) : (t[t.length] = We(o, i));
-        else t[t.length] = We(e);
-      })(e, t),
-      t.join("&")
-    );
+    const t = [];
+    return (function n(e, t) {
+      let i, o;
+      if ("object" == typeof e)
+        for (o in e)
+          !0 === ze((i = e[o])) ? n(i, t) : (t[t.length] = We(o, i));
+      else if (!0 === Array.isArray(e))
+        for (let r = 0; r < e.length; r++)
+          !0 === ze((i = e[r])) ? n(e, t) : (t[t.length] = We(o, i));
+      else t[t.length] = We(e);
+    })(e, t),
+    t.join("&")
+  ;
   }
   function ze(e) {
     return !0 === Array.isArray(e) || "object" == typeof e;
@@ -3032,17 +3034,14 @@ var hcaptcha = (() => {
     );
   }
   ($e.prototype.load = function () {
-    var e = this,
-      t = this.attribs,
-      n = this.src,
-      i = this.id;
+    const e = this, t = this.attribs, n = this.src, i = this.id;
     return new Promise((o, r) => {
-      var a = new Image();
+      const a = new Image();
       (e.element = a),
         t.crossOrigin && (a.crossOrigin = t.crossOrigin),
-        (a.onerror = t => {
+        (a.onerror = (t) => {
           (e.error = !0), (a.onload = a.onerror = null);
-          var n = (t && t.message ? t.message : "Loading Error") + ": " + i;
+          const n = (t && t.message ? t.message : "Loading Error") + ": " + i;
           Le(e.cb, "error", n), r(n);
         }),
         (a.onload = () => {
@@ -3067,17 +3066,14 @@ var hcaptcha = (() => {
         (this.error ? e(this) : this.cb.error.push(e));
     }),
     (je.prototype.load = function () {
-      var e = this,
-        t = this.attribs,
-        n = this.src,
-        i = this.id;
+      const e = this, t = this.attribs, n = this.src, i = this.id;
       return new Promise((o, r) => {
-        var a = document.createElement("script");
+        const a = document.createElement("script");
         (e.element = a),
-          (a.onerror = t => {
+          (a.onerror = (t) => {
             (e.error = !0),
               (a.onload = a.onreadystatechange = a.onerror = null);
-            var n = (t.message || "Loading Error") + ": " + i;
+            const n = (t.message || "Loading Error") + ": " + i;
             De(e.cb, "error", n), r(n);
           }),
           (a.onload = a.onreadystatechange =
@@ -3108,26 +3104,26 @@ var hcaptcha = (() => {
       (this.loaded && !this.error) ||
         (this.error ? e(this) : this.cb.error.push(e));
     });
-  var Ne = {
-      400: "Rate limited or network error. Please retry.",
-      429: "Your computer or network has sent too many requests.",
-      500: "Cannot contact hCaptcha. Check your connection and try again.",
-    },
-    Ue = {
-      getText(e) {
-        try {
-          return ee.translate(Ne[e]);
-        } catch (mt) {
-          return !1;
-        }
-      },
-    },
-    Fe =
-      "undefined" != typeof XDomainRequest &&
-      "withCredentials" in XMLHttpRequest.prototype == !1;
+  const Ne = {
+            400: "Rate limited or network error. Please retry.",
+            429: "Your computer or network has sent too many requests.",
+            500: "Cannot contact hCaptcha. Check your connection and try again.",
+          },
+        Ue = {
+          getText(e) {
+            try {
+              return ee.translate(Ne[e]);
+            } catch (mt) {
+              return !1;
+            }
+          },
+        },
+        Fe =
+          "undefined" != typeof XDomainRequest &&
+          "withCredentials" in XMLHttpRequest.prototype == !1;
   function qe(e, t, n) {
     n = n || {};
-    var i = {
+    const i = {
       url: t,
       method: e.toUpperCase(),
       responseType: n.responseType || "string",
@@ -3136,43 +3132,46 @@ var hcaptcha = (() => {
       headers: n.headers || null,
       data: n.data || null,
     };
-    return (i.legacy = i.withCredentials && Fe),
-    i.data &&
-      ("json" === i.dataType &&
-        "object" == typeof i.data &&
-        (i.data = JSON.stringify(i.data)),
-      "query" === i.dataType && (i.data = Re(i.data))),
-    n.retry
-      ? U(() => {
-          return He(i);
-        }, n.retry)
-      : He(i)
-  ;
+    return (
+      (i.legacy = i.withCredentials && Fe),
+      i.data &&
+        ("json" === i.dataType &&
+          "object" == typeof i.data &&
+          (i.data = JSON.stringify(i.data)),
+        "query" === i.dataType && (i.data = Re(i.data))),
+      n.retry
+        ? U(() => {
+            return He(i);
+          }, n.retry)
+        : He(i)
+    );
   }
   function He(e) {
-    var t = e.legacy ? new XDomainRequest() : new XMLHttpRequest();
+    const t = e.legacy ? new XDomainRequest() : new XMLHttpRequest();
     return new Promise((n, i) => {
-      var o,
-        r = o => {
-          return r => {
-            var a = t.response || t.responseText,
-              s = t.statusText || "",
-              h = t.status,
-              c = t.readyState;
-            if (4 === c || e.legacy) {
-              if ("error" === o || (h >= 400 && h <= 511))
-                return void i({
-                  event: "network-error",
-                  endpoint: e.url,
-                  state: c,
-                  status: h,
-                  message: Ue.getText(h || 400) || s,
-                });
-              "json" === e.responseType && a && (a = JSON.parse(a)),
-                n({ state: c, status: h, body: a, message: s });
-            }
-          };
+      let o;
+
+      const r = (o) => {
+        return (r) => {
+          let a = t.response || t.responseText;
+          const s = t.statusText || "";
+          const h = t.status;
+          const c = t.readyState;
+          if (4 === c || e.legacy) {
+            if ("error" === o || (h >= 400 && h <= 511))
+              return void i({
+                event: "network-error",
+                endpoint: e.url,
+                state: c,
+                status: h,
+                message: Ue.getText(h || 400) || s,
+              });
+            "json" === e.responseType && a && (a = JSON.parse(a)),
+              n({ state: c, status: h, body: a, message: s });
+          }
         };
+      };
+
       if (
         ((t.onload = r("complete")),
         (t.onerror = t.ontimeout = r("error")),
@@ -3180,13 +3179,13 @@ var hcaptcha = (() => {
         !e.legacy) &&
         ((t.withCredentials = e.withCredentials), e.headers)
       )
-        for (var a in e.headers) (o = e.headers[a]), t.setRequestHeader(a, o);
+        for (const a in e.headers) (o = e.headers[a]), t.setRequestHeader(a, o);
       setTimeout(() => {
         t.send(e.data);
       }, 0);
     });
   }
-  var Xe = (e, t) => {
+  const Xe = (e, t) => {
     if (
       ("object" == typeof e && t === undefined && (e = (t = e).url), null === e)
     )
@@ -3194,7 +3193,7 @@ var hcaptcha = (() => {
     return qe("GET", e, t);
   };
   function Ye(e, t) {
-    var n = e;
+    let n = e;
     t || (t = {}),
       t.prefix && (n = t.prefix + "/" + e),
       (this.id = n),
@@ -3205,24 +3204,22 @@ var hcaptcha = (() => {
       (this.data = null);
   }
   function Je(e, t, n) {
-    for (var i = e[t], o = i.length, r = null; --o > -1; )
+    for (let i = e[t], o = i.length, r = null; --o > -1; )
       (r = i[o]), i.splice(o, 1), r(n);
     "error" === t ? (e.load = []) : (e.error = []);
   }
   (Ye.prototype.load = function () {
-    var e = this,
-      t = this.src,
-      n = this.id;
+    const e = this, t = this.src, n = this.id;
     return new Promise((i, o) => {
-      var r = {};
+      const r = {};
       t.indexOf("json") >= 0 && (r.responseType = "json"),
         Xe(t, r)
-          .then(t => {
+          .then((t) => {
             (e.loaded = !0), (e.data = t.body), Je(e.cb, "load", e), i(e);
           })
-          ["catch"](t => {
+          ["catch"]((t) => {
             e.error = !0;
-            var i = (t && t.message ? t.message : "Loading Error") + ": " + n;
+            const i = (t && t.message ? t.message : "Loading Error") + ": " + n;
             Je(e.cb, "error", i), o(i);
           });
     });
@@ -3234,91 +3231,99 @@ var hcaptcha = (() => {
       (this.loaded && !this.error) ||
         (this.error ? e(this) : this.cb.error.push(e));
     });
-  var Ve = [],
-    Qe = {
-      add(e, t) {
-        var n = Ae.getType(e);
-        return Qe[n] ? Qe[n](e, t) : Promise.resolve(null);
-      },
-      batch(e, t) {
-        for (var n = [], i = -1; ++i < e.length; ) {
-          var o = e[i];
-          n.push(Qe.add(o, t));
-        }
-        return Promise.all(n)["finally"](() => {
-          n = [];
-        });
-      },
-      image(e, t) {
-        var n = new $e(e, t);
-        return Ve.push(n), n.load();
-      },
-      script(e, t) {
-        var n = new je(e, t);
-        return Ve.push(n), n.load();
-      },
-      file(e, t) {
-        var n = new Ye(e, t);
-        return Ve.push(n), n.load();
-      },
-      retrieve(e) {
-        return new Promise((t, n) => {
-          for (var i = Ve.length, o = !1, r = null; --i > -1 && !o; )
-            o = (r = Ve[i]).id.indexOf(e) >= 0 && r;
-          if (!o) return t(null);
-          r.onload(t), r.onerror(n);
-        });
-      },
-    };
+  const Ve = [],
+        Qe = {
+          add(e, t) {
+            const n = Ae.getType(e);
+            return Qe[n] ? Qe[n](e, t) : Promise.resolve(null);
+          },
+          batch(e, t) {
+            for (var n = [], i = -1; ++i < e.length; ) {
+              const o = e[i];
+              n.push(Qe.add(o, t));
+            }
+            return Promise.all(n)["finally"](() => {
+              n = [];
+            });
+          },
+          image(e, t) {
+            const n = new $e(e, t);
+            return Ve.push(n), n.load();
+          },
+          script(e, t) {
+            const n = new je(e, t);
+            return Ve.push(n), n.load();
+          },
+          file(e, t) {
+            const n = new Ye(e, t);
+            return Ve.push(n), n.load();
+          },
+          retrieve(e) {
+            return new Promise((t, n) => {
+              for (var i = Ve.length, o = !1, r = null; --i > -1 && !o; )
+                o = (r = Ve[i]).id.indexOf(e) >= 0 && r;
+              if (!o) return t(null);
+              r.onload(t), r.onerror(n);
+            });
+          },
+        };
   function Ke(e) {
     if ("en" === e) return Promise.resolve();
-    var t = e + ".json";
+    const t = e + ".json";
     return new Promise((n, i) => {
       Qe.retrieve(t)
-        .then(n => {
-          return n ||
-          Qe.file(t, {
-            prefix:
-              "https://assets.hcaptcha.com/captcha/v1/523a6ff/static/i18n",
-          }).then(t => {
-            return ee.addTable(e, t.data), t;
-          });
+        .then((n) => {
+          return (
+            n ||
+            Qe.file(t, {
+              prefix:
+                "https://assets.hcaptcha.com/captcha/v1/523a6ff/static/i18n",
+            }).then((t) => {
+              return ee.addTable(e, t.data), t;
+            })
+          );
         })
-        .then(e => {
+        .then((e) => {
           n(e.data);
         })
-        ["catch"](e => {
+        ["catch"]((e) => {
           i(e);
         });
     });
   }
-  var Ge = 0,
-    Ze = [
-      "tplinks",
-      "sitekey",
-      "theme",
-      "size",
-      "tabindex",
-      "challenge-container",
-    ],
-    et =
-      "Your browser is missing or has disabled Cross-Window Messaging. Please <a style='color:inherit;text-decoration:underline; font: inherit' target='_blank' href='https://www.whatismybrowser.com/guides/how-to-update-your-browser/auto'>upgrade your browser</a> or enable it for hCaptcha.com",
-    tt =
-      "Your browser plugins or privacy policies are blocking the hCaptcha service. Please disable them for hCaptcha.com";
-  var nt = {
+  let Ge = 0;
+
+  const Ze = [
+    "tplinks",
+    "sitekey",
+    "theme",
+    "size",
+    "tabindex",
+    "challenge-container",
+  ];
+
+  const et =
+    "Your browser is missing or has disabled Cross-Window Messaging. Please <a style='color:inherit;text-decoration:underline; font: inherit' target='_blank' href='https://www.whatismybrowser.com/guides/how-to-update-your-browser/auto'>upgrade your browser</a> or enable it for hCaptcha.com";
+
+  const tt =
+    "Your browser plugins or privacy policies are blocking the hCaptcha service. Please disable them for hCaptcha.com";
+
+  const nt = {
     render(e, t) {
       if (
         ("string" == typeof e && (e = document.getElementById(e)),
         e && 1 === e.nodeType)
       )
-        if ((e => {
-          if (!(e && "challenge-container" in e)) return !0;
-          var t = e["challenge-container"];
-          return (
-            "string" == typeof t && (t = document.getElementById(t)),
-            !!t && 1 === t.nodeType
-          );
-        })(t)) {
+        if (
+          ((e) => {
+            if (!(e && "challenge-container" in e)) return !0;
+            let t = e["challenge-container"];
+            return (
+              "string" == typeof t && (t = document.getElementById(t)),
+              !!t && 1 === t.nodeType
+            );
+          })(t)
+        ) {
           if (!1 !== xe.isSupported()) {
             for (
               var n, i, o = e.getElementsByTagName("iframe"), r = -1;
@@ -3333,60 +3338,60 @@ var hcaptcha = (() => {
                 ),
                 i
               );
-            var a = ((e, t) => {
-                for (
-                  var n = [
-                      "tplinks",
-                      "sitekey",
-                      "theme",
-                      "type",
-                      "size",
-                      "tabindex",
-                      "callback",
-                      "expired-callback",
-                      "chalexpired-callback",
-                      "error-callback",
-                      "open-callback",
-                      "close-callback",
-                      "endpoint",
-                      "challenge-container",
-                    ],
-                    i = {},
-                    o = 0;
-                  o < n.length;
-                  o++
-                ) {
-                  var r = n[o],
-                    a = t && t[r];
-                  a || (a = e.getAttribute("data-" + r)), a && (i[r] = a);
-                }
-                return i;
-              })(e, t),
-              s = Ge++ + Math.random().toString(36).substr(2),
-              h = {
-                sentry: D,
-                reportapi: $.reportapi,
-                recaptchacompat: $.recaptchacompat,
-              };
+            const a = ((e, t) => {
+                      for (
+                        var n = [
+                            "tplinks",
+                            "sitekey",
+                            "theme",
+                            "type",
+                            "size",
+                            "tabindex",
+                            "callback",
+                            "expired-callback",
+                            "chalexpired-callback",
+                            "error-callback",
+                            "open-callback",
+                            "close-callback",
+                            "endpoint",
+                            "challenge-container",
+                          ],
+                          i = {},
+                          o = 0;
+                        o < n.length;
+                        o++
+                      ) {
+                        const r = n[o];
+                        let a = t && t[r];
+                        a || (a = e.getAttribute("data-" + r)), a && (i[r] = a);
+                      }
+                      return i;
+                    })(e, t),
+                  s = Ge++ + Math.random().toString(36).substr(2),
+                  h = {
+                    sentry: D,
+                    reportapi: $.reportapi,
+                    recaptchacompat: $.recaptchacompat,
+                  };
             $.endpointOverride && (h.endpoint = $.endpointOverride),
               null !== $.language && (h.hl = ee.getLocale()),
               $.assethost && (h.assethost = $.assethost),
               $.imghost && (h.imghost = $.imghost),
               $.tplinks && (h.tplinks = $.tplinks);
-            for (var c = 0; c < Ze.length; c++) {
-              var l = Ze[c];
+            for (let c = 0; c < Ze.length; c++) {
+              const l = Ze[c];
               l in a && (h[l] = a[l]);
             }
             if (
               e instanceof HTMLButtonElement ||
               e instanceof HTMLInputElement
             ) {
-              var d = new J("div", ".h-captcha");
+              const d = new J("div", ".h-captcha");
               d.css({ display: "none" });
-              for (var u = null, p = 0; p < e.attributes.length; p++)
+              for (let u = null, p = 0; p < e.attributes.length; p++)
                 (u = e.attributes[p]).name.startsWith("data-") &&
                   d.setAttribute(u.name, u.value);
-              var f =
+              const f =
                 e.tagName.toLowerCase() +
                 "[data-hcaptcha-widget-id='" +
                 s +
@@ -3394,7 +3399,7 @@ var hcaptcha = (() => {
               e.setAttribute("data-hcaptcha-widget-id", s),
                 d.setAttribute("data-hcaptcha-source-id", f),
                 e.parentNode.insertBefore(d.dom, e),
-                (e.onclick = e => {
+                (e.onclick = (e) => {
                   return e.preventDefault(), ve(s);
                 }),
                 (e = d),
@@ -3404,7 +3409,7 @@ var hcaptcha = (() => {
               var m = new Ie(e, s, h);
               m.challenge.style(), m.checkbox.style();
             } catch (ft) {
-              var g = tt;
+              let g = tt;
               return (
                 ft instanceof Pe &&
                   ((g = ft.message), console.error(ft.reason)),
@@ -3419,17 +3424,17 @@ var hcaptcha = (() => {
             a["close-callback"] && (m.onClose = a["close-callback"]),
             a["error-callback"] && (m.onError = a["error-callback"]),
             de.setData("inv", "invisible" === h.size),
-            m.checkbox.chat.listen("checkbox-selected", e => {
+            m.checkbox.chat.listen("checkbox-selected", (e) => {
               de.setData("exec", !1), m.onReady(m.initChallenge, e);
             }),
-            m.checkbox.chat.listen("checkbox-loaded", e => {
+            m.checkbox.chat.listen("checkbox-loaded", (e) => {
               (m.checkbox.location.bounding = m.checkbox.getBounding()),
                 (m.checkbox.location.tick = e),
                 (m.checkbox.location.offset = m.checkbox.getOffset());
-              var t = ee.getLocale();
+              const t = ee.getLocale();
               m.checkbox.sendTranslation(t);
             }),
-            m.checkbox.chat.listen("checkbox-setup", e => {
+            m.checkbox.chat.listen("checkbox-setup", (e) => {
               m.challenge.onReady(() => {
                 !$.endpointOverride &&
                   e.endpoint &&
@@ -3443,36 +3448,35 @@ var hcaptcha = (() => {
             }),
             m.challenge.chat.listen("challenge-loaded", () => {
               m.challenge.setReady(!0);
-              var e = ee.getLocale();
+              const e = ee.getLocale();
               m.challenge.sendTranslation(e);
             }),
             m.challenge.chat.answer("challenge-ready", (e, t) => {
               m.displayChallenge(e).then(t.resolve);
             }),
             m.challenge.chat.listen("challenge-resize", () => {
-              var e = M.Browser.width(),
-                t = M.Browser.height();
+              const e = M.Browser.width(), t = M.Browser.height();
               m.resize(e, t);
             }),
             m.challenge.chat.listen("challenge-closed", m.closeChallenge),
-            m.challenge.chat.answer("get-url", e => {
+            m.challenge.chat.answer("get-url", (e) => {
               e.resolve(window.location.href);
             }),
-            m.challenge.chat.answer("check-api", e => {
+            m.challenge.chat.answer("check-api", (e) => {
               e.resolve(de.getData());
             }),
-            m.challenge.chat.listen("challenge-key", e => {
+            m.challenge.chat.listen("challenge-key", (e) => {
               x.pushSession(e.key, m.id);
             }),
             m.challenge.onOverlayClick(() => {
               m.closeChallenge({ event: "challenge-escaped" });
             }),
-            m.challenge.chat.listen("challenge-language", e => {
-              var t = e.locale;
+            m.challenge.chat.listen("challenge-language", (e) => {
+              const t = e.locale;
               ee.setLocale(t),
                 Ke(t)
-                  .then(e => {
-                    x.each(e => {
+                  .then((e) => {
+                    x.each((e) => {
                       if (e)
                         try {
                           e.updateTranslation(t);
@@ -3486,11 +3490,11 @@ var hcaptcha = (() => {
                         }
                     });
                   })
-                  ["catch"](e => {
+                  ["catch"]((e) => {
                     z("Language failed to load: " + t, "error", "api");
                   });
             }),
-            m.challenge.chat.answer("get-ac", e => {
+            m.challenge.chat.answer("get-ac", (e) => {
               e.resolve(Ce.hasCookie("hc_accessibility"));
             }),
             x.add(m),
@@ -3498,15 +3502,16 @@ var hcaptcha = (() => {
           ;
           }
           j(e, et);
-        } else console.log(
-          "[hCaptcha] render: invalid challenge container '" +
-            t["challenge-container"] +
-            "'."
-        );
+        } else
+          console.log(
+            "[hCaptcha] render: invalid challenge container '" +
+              t["challenge-container"] +
+              "'."
+          );
       else console.log("[hCaptcha] render: invalid container '" + e + "'.");
     },
     reset(e) {
-      var t;
+      let t;
       if (e) {
         if (!(t = x.getById(e)))
           throw Error("[hCaptcha] invalid captcha id: " + e);
@@ -3518,7 +3523,7 @@ var hcaptcha = (() => {
       }
     },
     remove(e) {
-      var t = e ? x.getById(e) : x.getByIndex(0);
+      let t = e ? x.getById(e) : x.getByIndex(0);
       if (!t)
         throw e
           ? Error("[hCaptcha] invalid captcha id: " + e)
@@ -3527,7 +3532,7 @@ var hcaptcha = (() => {
     },
     execute: ve,
     getResponse(e) {
-      var t, n;
+      let t, n;
       if (
         ((n = e ? x.getById(e) : x.getByIndex(0)) &&
           (t = n.checkbox.response || ""),
@@ -3539,11 +3544,10 @@ var hcaptcha = (() => {
         : new Error("[hCaptcha] no captchas exist.");
     },
     getRespKey(e) {
-      var t = "",
-        n = null;
+      let t = "", n = null;
       n = e ? x.getById(e) : x.getByIndex(0);
       try {
-        for (var i = x.getSession(), o = i.length, r = !1; --o > -1 && !r; )
+        for (let i = x.getSession(), o = i.length, r = !1; --o > -1 && !r; )
           (r = i[o][1] === n.id) && (t = i[o][0]);
       } catch (a) {
         t = "";
@@ -3551,7 +3555,7 @@ var hcaptcha = (() => {
       return t;
     },
     close(e) {
-      var t = !1;
+      let t = !1;
       if (!(t = e ? x.getById(e) : x.getByIndex(0)))
         throw e
           ? Error("[hCaptcha] invalid captcha id: " + e)
@@ -3564,37 +3568,35 @@ var hcaptcha = (() => {
         !t || "object" != typeof t)
       )
         throw Error("[hCaptcha] invalid data supplied");
-      var n = !1;
+      let n = !1;
       if (!(n = e ? x.getById(e) : x.getByIndex(0)))
         throw e
           ? Error("[hCaptcha] invalid captcha id: " + e)
           : Error("[hCaptcha] no captchas exist.");
-      var i = n.challenge.setData.bind(n.challenge);
+      const i = n.challenge.setData.bind(n.challenge);
       n.onReady(i, t);
     },
     nodes: x,
   };
   A.file = "hcaptcha";
-  var it = document.currentScript,
-    ot = !1,
-    rt = !1,
-    at = "on",
-    st = M.Browser.width() / M.Browser.height(),
-    ht = window.hcaptcha || !1;
+  const it = document.currentScript;
+  let ot = !1;
+  let rt = !1;
+  let at = "on";
+  let st = M.Browser.width() / M.Browser.height();
+  const ht = window.hcaptcha || !1;
   function ct() {
-    var e = M.Browser.width(),
-      t = M.Browser.height(),
-      n = M.System.mobile && st !== e / t;
+    const e = M.Browser.width(), t = M.Browser.height(), n = M.System.mobile && st !== e / t;
     (st = e / t),
       ut(),
-      nt.nodes.each(i => {
+      nt.nodes.each((i) => {
         i.visible && i.resize(e, t, n);
       });
   }
   function lt(e) {
     e.preventDefault && e.preventDefault(),
       dt(),
-      nt.nodes.each(e => {
+      nt.nodes.each((e) => {
         e.visible && e.position();
       });
   }
@@ -3615,7 +3617,7 @@ var hcaptcha = (() => {
     ]);
   }
   !(function (e) {
-    var t = Array.prototype.slice.call(arguments, 1);
+    const t = Array.prototype.slice.call(arguments, 1);
     !0 !== fe &&
     "interactive" !== document.readyState &&
     "loaded" !== document.readyState &&
@@ -3634,12 +3636,9 @@ var hcaptcha = (() => {
   })(() => {
     ht ||
       (!(() => {
-        var e;
+        let e;
         e = it ? [it] : document.getElementsByTagName("script");
-        var t = -1,
-          n = !1,
-          i = null,
-          o = null;
+        let t = -1, n = !1, i = null, o = null;
         for (; ++t < e.length && !1 === n; )
           e[t] &&
             e[t].src &&
@@ -3647,7 +3646,7 @@ var hcaptcha = (() => {
             (o = i[0]),
             /\/(hcaptcha|1\/api)\.js$/.test(o) && (n = e[t]));
         if (!1 === n) return;
-        var r = ke(i[1]);
+        const r = ke(i[1]);
         (ot = r.onload || !1),
           (rt = r.render || !1),
           "off" === r.tplinks && (at = "off");
@@ -3670,63 +3669,71 @@ var hcaptcha = (() => {
             ? console.log("recaptchacompat disabled")
             : (window.grecaptcha = pt);
         var a;
-      })(), (() => {
-      var e = ee.getLocale();
-      if (e.indexOf("en") >= 0) return;
-      Ke(e)
-        .then(t => {
-          nt.nodes.each(t => {
-            if (t)
-              try {
-                t.updateTranslation(e);
-              } catch (ft) {
-                z(
-                  "Failed to update text translation: " + JSON.stringify(ft),
-                  "error",
-                  "translation"
-                );
-              }
+      })(),
+      (() => {
+        const e = ee.getLocale();
+        if (e.indexOf("en") >= 0) return;
+        Ke(e)
+          .then((t) => {
+            nt.nodes.each((t) => {
+              if (t)
+                try {
+                  t.updateTranslation(e);
+                } catch (ft) {
+                  z(
+                    "Failed to update text translation: " + JSON.stringify(ft),
+                    "error",
+                    "translation"
+                  );
+                }
+            });
+          })
+          ["catch"]((t) => {
+            z("Language failed to load: " + e, "error", "api");
           });
-        })
-        ["catch"](t => {
-          z("Language failed to load: " + e, "error", "api");
-        });
-    })(), !1 === rt || "onload" === rt ? (e => {
-          for (
-            var t = document.getElementsByClassName("h-captcha"),
-              n = [],
-              i = 0;
-            i < t.length;
-            i++
-          )
-            n.push(t[i]);
-          var o = [];
-          if ("off" !== $.recaptchacompat)
+      })(),
+      !1 === rt || "onload" === rt
+        ? ((e) => {
             for (
-              var r = document.getElementsByClassName("g-recaptcha"), a = 0;
-              a < r.length;
-              a++
+              var t = document.getElementsByClassName("h-captcha"),
+                n = [],
+                i = 0;
+              i < t.length;
+              i++
             )
-              o.push(r[a]);
-          for (var s = [].concat(n, o), h = 0; h < s.length; h++) e(s[h]);
-        })(nt.render) : "explicit" !== rt &&
-        console.log(
-          "hcaptcha: invalid render parameter '" +
-            rt +
-            "', using 'explicit' instead."
-        ), ot &&
-      setTimeout(() => {
-        N(ot);
-      }, 1), (() => {
-      try {
-        de.record(),
-          de.setData("sc", M.Browser.getScreenDimensions()),
-          de.setData("nv", M.Browser.interrogateNavigator()),
-          de.setData("dr", document.referrer),
-          ut(),
-          dt();
-      } catch (ft) {}
-    })(), ye.addEventListener("resize", ct), ye.addEventListener("scroll", lt));
+              n.push(t[i]);
+            const o = [];
+            if ("off" !== $.recaptchacompat)
+              for (
+                let r = document.getElementsByClassName("g-recaptcha"), a = 0;
+                a < r.length;
+                a++
+              )
+                o.push(r[a]);
+            for (let s = [].concat(n, o), h = 0; h < s.length; h++) e(s[h]);
+          })(nt.render)
+        : "explicit" !== rt &&
+          console.log(
+            "hcaptcha: invalid render parameter '" +
+              rt +
+              "', using 'explicit' instead."
+          ),
+      ot &&
+        setTimeout(() => {
+          N(ot);
+        }, 1),
+      (() => {
+        try {
+          de.record(),
+            de.setData("sc", M.Browser.getScreenDimensions()),
+            de.setData("nv", M.Browser.interrogateNavigator()),
+            de.setData("dr", document.referrer),
+            ut(),
+            dt();
+        } catch (ft) {}
+      })(),
+      ye.addEventListener("resize", ct),
+      ye.addEventListener("scroll", lt));
   });
   var pt = {
     render: nt.render,

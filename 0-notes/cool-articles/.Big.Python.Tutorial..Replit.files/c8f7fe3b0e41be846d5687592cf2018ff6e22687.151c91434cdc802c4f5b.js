@@ -58,11 +58,7 @@
         n.d(e, "startCompletion", () => {
           return F;
         });
-      var i = n("4eob"),
-        r = n("uZp5"),
-        s = n("AtEE"),
-        o = n("fK0Z"),
-        l = n("yqQ+");
+      const i = n("4eob"), r = n("uZp5"), s = n("AtEE"), o = n("fK0Z"), l = n("yqQ+");
       class a {
         constructor(t, e, n) {
           (this.state = t),
@@ -106,7 +102,9 @@
       }
       function c(t) {
         let e = t.map((t) => ("string" == typeof t ? { label: t } : t)),
-          [n, i] = e.every((t) => /^\w+$/.test(t.label)) ? [/\w*$/, /\w+$/] : (t => {
+          [n, i] = e.every((t) => /^\w+$/.test(t.label))
+            ? [/\w*$/, /\w+$/]
+            : ((t) => {
                 let e = Object.create(null),
                   n = Object.create(null);
                 for (let { label: r } of t) {
@@ -143,7 +141,7 @@
         return t.selection.main.head;
       }
       function p(t, e) {
-        var n;
+        let n;
         let { source: i } = t,
           r = e && "^" != i[0],
           s = "$" != i[i.length - 1];
@@ -497,27 +495,29 @@
             this.info && (this.info.remove(), (this.info = null));
             let t = e.options[e.selected];
             t.completion.info &&
-              ((this.info = this.dom.appendChild(((t, e) => {
-              let n = document.createElement("div");
-              n.className = "cm-tooltip cm-completionInfo";
-              let { info: i } = t.completion;
-              if ("string" == typeof i) n.textContent = i;
-              else {
-                let r = i(t.completion);
-                r.then
-                  ? r.then(
-                      (t) => n.appendChild(t),
-                      (t) =>
-                        Object(s.logException)(
-                          e.state,
-                          t,
-                          "completion info"
+              ((this.info = this.dom.appendChild(
+                ((t, e) => {
+                  let n = document.createElement("div");
+                  n.className = "cm-tooltip cm-completionInfo";
+                  let { info: i } = t.completion;
+                  if ("string" == typeof i) n.textContent = i;
+                  else {
+                    let r = i(t.completion);
+                    r.then
+                      ? r.then(
+                          (t) => n.appendChild(t),
+                          (t) =>
+                            Object(s.logException)(
+                              e.state,
+                              t,
+                              "completion info"
+                            )
                         )
-                    )
-                  : n.appendChild(r);
-              }
-              return n;
-            })(t, this.view))),
+                      : n.appendChild(r);
+                  }
+                  return n;
+                })(t, this.view)
+              )),
               this.view.requestMeasure(this.placeInfo));
           }
         }
@@ -533,15 +533,17 @@
                 (n.setAttribute("aria-selected", "true"), (e = n))
               : n.hasAttribute("aria-selected") &&
                 n.removeAttribute("aria-selected");
-          return e && ((t, e) => {
-            let n = t.getBoundingClientRect(),
-              i = e.getBoundingClientRect();
-            i.top < n.top
-              ? (t.scrollTop -= n.top - i.top)
-              : i.bottom > n.bottom && (t.scrollTop += i.bottom - n.bottom);
-          })(this.list, e),
-          e
-        ;
+          return (
+            e &&
+              ((t, e) => {
+                let n = t.getBoundingClientRect(),
+                  i = e.getBoundingClientRect();
+                i.top < n.top
+                  ? (t.scrollTop -= n.top - i.top)
+                  : i.bottom > n.bottom && (t.scrollTop += i.bottom - n.bottom);
+              })(this.list, e),
+            e
+          );
         }
         measureInfo() {
           let t = this.dom.querySelector("[aria-selected]");
@@ -1260,7 +1262,7 @@
           : null;
       }
       function mt(t) {
-        var e;
+        let e;
         let n = null === (e = t.field(j, !1)) || void 0 === e ? void 0 : e.open;
         return n ? n.options.map((t) => t.completion) : [];
       }
@@ -1274,332 +1276,334 @@
         n.d(e, "language", () => {
           return s;
         });
-      var i = "undefined" === typeof monaco ? self.monaco : monaco,
-        r = {
-          wordPattern:
-            /(-?\d*\.\d\w*)|([^\`\~\!\@\#\%\^\&\*\(\)\-\=\+\[\{\]\}\\\|\;\:\'\"\,\.\<\>\/\?\s]+)/g,
-          comments: { lineComment: "//", blockComment: ["/*", "*/"] },
-          brackets: [
-            ["{", "}"],
-            ["[", "]"],
-            ["(", ")"],
-          ],
-          onEnterRules: [
-            {
-              beforeText: /^\s*\/\*\*(?!\/)([^\*]|\*(?!\/))*$/,
-              afterText: /^\s*\*\/$/,
-              action: {
-                indentAction: i.languages.IndentAction.IndentOutdent,
-                appendText: " * ",
-              },
+      const i = "undefined" === typeof monaco ? self.monaco : monaco;
+
+      var r = {
+        wordPattern:
+          /(-?\d*\.\d\w*)|([^\`\~\!\@\#\%\^\&\*\(\)\-\=\+\[\{\]\}\\\|\;\:\'\"\,\.\<\>\/\?\s]+)/g,
+        comments: { lineComment: "//", blockComment: ["/*", "*/"] },
+        brackets: [
+          ["{", "}"],
+          ["[", "]"],
+          ["(", ")"],
+        ],
+        onEnterRules: [
+          {
+            beforeText: /^\s*\/\*\*(?!\/)([^\*]|\*(?!\/))*$/,
+            afterText: /^\s*\*\/$/,
+            action: {
+              indentAction: i.languages.IndentAction.IndentOutdent,
+              appendText: " * ",
             },
-            {
-              beforeText: /^\s*\/\*\*(?!\/)([^\*]|\*(?!\/))*$/,
-              action: {
-                indentAction: i.languages.IndentAction.None,
-                appendText: " * ",
-              },
+          },
+          {
+            beforeText: /^\s*\/\*\*(?!\/)([^\*]|\*(?!\/))*$/,
+            action: {
+              indentAction: i.languages.IndentAction.None,
+              appendText: " * ",
             },
-            {
-              beforeText: /^(\t|(\ \ ))*\ \*(\ ([^\*]|\*(?!\/))*)?$/,
-              action: {
-                indentAction: i.languages.IndentAction.None,
-                appendText: "* ",
-              },
+          },
+          {
+            beforeText: /^(\t|(\ \ ))*\ \*(\ ([^\*]|\*(?!\/))*)?$/,
+            action: {
+              indentAction: i.languages.IndentAction.None,
+              appendText: "* ",
             },
-            {
-              beforeText: /^(\t|(\ \ ))*\ \*\/\s*$/,
-              action: {
-                indentAction: i.languages.IndentAction.None,
-                removeText: 1,
-              },
+          },
+          {
+            beforeText: /^(\t|(\ \ ))*\ \*\/\s*$/,
+            action: {
+              indentAction: i.languages.IndentAction.None,
+              removeText: 1,
             },
-          ],
-          autoClosingPairs: [
-            { open: "{", close: "}" },
-            { open: "[", close: "]" },
-            { open: "(", close: ")" },
-            { open: '"', close: '"', notIn: ["string"] },
-            { open: "'", close: "'", notIn: ["string", "comment"] },
-            { open: "`", close: "`", notIn: ["string", "comment"] },
-            { open: "/**", close: " */", notIn: ["string"] },
-          ],
-          folding: {
-            markers: {
-              start: new RegExp("^\\s*//\\s*#?region\\b"),
-              end: new RegExp("^\\s*//\\s*#?endregion\\b"),
-            },
+          },
+        ],
+        autoClosingPairs: [
+          { open: "{", close: "}" },
+          { open: "[", close: "]" },
+          { open: "(", close: ")" },
+          { open: '"', close: '"', notIn: ["string"] },
+          { open: "'", close: "'", notIn: ["string", "comment"] },
+          { open: "`", close: "`", notIn: ["string", "comment"] },
+          { open: "/**", close: " */", notIn: ["string"] },
+        ],
+        folding: {
+          markers: {
+            start: new RegExp("^\\s*//\\s*#?region\\b"),
+            end: new RegExp("^\\s*//\\s*#?endregion\\b"),
           },
         },
-        s = {
-          defaultToken: "invalid",
-          tokenPostfix: ".ts",
-          keywords: [
-            "abstract",
-            "as",
-            "break",
-            "case",
-            "catch",
-            "class",
-            "continue",
-            "const",
-            "constructor",
-            "debugger",
-            "declare",
-            "default",
-            "delete",
-            "do",
-            "else",
-            "enum",
-            "export",
-            "extends",
-            "false",
-            "finally",
-            "for",
-            "from",
-            "function",
-            "get",
-            "if",
-            "implements",
-            "import",
-            "in",
-            "infer",
-            "instanceof",
-            "interface",
-            "is",
-            "keyof",
-            "let",
-            "module",
-            "namespace",
-            "new",
-            "null",
-            "package",
-            "private",
-            "protected",
-            "public",
-            "readonly",
-            "require",
-            "global",
-            "return",
-            "set",
-            "static",
-            "super",
-            "switch",
-            "symbol",
-            "this",
-            "throw",
-            "true",
-            "try",
-            "type",
-            "typeof",
-            "unique",
-            "var",
-            "void",
-            "while",
-            "with",
-            "yield",
-            "async",
-            "await",
-            "of",
-          ],
-          typeKeywords: [
-            "any",
-            "boolean",
-            "number",
-            "object",
-            "string",
-            "undefined",
-            "bigint",
-            "never",
-            "unknown",
-          ],
-          operators: [
-            "<=",
-            ">=",
-            "==",
-            "!=",
-            "===",
-            "!==",
-            "=>",
-            "+",
-            "-",
-            "**",
-            "*",
-            "/",
-            "%",
-            "++",
-            "--",
-            "<<",
-            "</",
-            ">>",
-            ">>>",
-            "&",
-            "|",
-            "^",
-            "!",
-            "~",
-            "&&",
-            "||",
-            "??",
-            "?",
-            ":",
-            "=",
-            "+=",
-            "-=",
-            "*=",
-            "**=",
-            "/=",
-            "%=",
-            "<<=",
-            ">>=",
-            ">>>=",
-            "&=",
-            "|=",
-            "^=",
-            "@",
-            "#",
-          ],
-          symbols: /[=><!~?:&|+\-*\/\^%#]+/,
-          escapes:
-            /\\(?:[abfnrtv\\"']|x[0-9A-Fa-f]{1,4}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})/,
-          digits: /\d+(_+\d+)*/,
-          octaldigits: /[0-7]+(_+[0-7]+)*/,
-          binarydigits: /[0-1]+(_+[0-1]+)*/,
-          hexdigits: /[[0-9a-fA-F]+(_+[0-9a-fA-F]+)*/,
-          regexpctl: /[(){}\[\]\$\^|\-*+?\.]/,
-          regexpesc:
-            /\\(?:[bBdDfnrstvwWn0\\\/]|@regexpctl|c[A-Z]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4})/,
-          tokenizer: {
-            root: [[/[{}]/, "delimiter.bracket"], { include: "common" }],
-            common: [
-              [
-                /[a-z_$][\w$]*/,
-                {
-                  cases: {
-                    "@typeKeywords": "keyword",
-                    "@keywords": "keyword",
-                    "@default": "identifier",
-                  },
+      };
+
+      var s = {
+        defaultToken: "invalid",
+        tokenPostfix: ".ts",
+        keywords: [
+          "abstract",
+          "as",
+          "break",
+          "case",
+          "catch",
+          "class",
+          "continue",
+          "const",
+          "constructor",
+          "debugger",
+          "declare",
+          "default",
+          "delete",
+          "do",
+          "else",
+          "enum",
+          "export",
+          "extends",
+          "false",
+          "finally",
+          "for",
+          "from",
+          "function",
+          "get",
+          "if",
+          "implements",
+          "import",
+          "in",
+          "infer",
+          "instanceof",
+          "interface",
+          "is",
+          "keyof",
+          "let",
+          "module",
+          "namespace",
+          "new",
+          "null",
+          "package",
+          "private",
+          "protected",
+          "public",
+          "readonly",
+          "require",
+          "global",
+          "return",
+          "set",
+          "static",
+          "super",
+          "switch",
+          "symbol",
+          "this",
+          "throw",
+          "true",
+          "try",
+          "type",
+          "typeof",
+          "unique",
+          "var",
+          "void",
+          "while",
+          "with",
+          "yield",
+          "async",
+          "await",
+          "of",
+        ],
+        typeKeywords: [
+          "any",
+          "boolean",
+          "number",
+          "object",
+          "string",
+          "undefined",
+          "bigint",
+          "never",
+          "unknown",
+        ],
+        operators: [
+          "<=",
+          ">=",
+          "==",
+          "!=",
+          "===",
+          "!==",
+          "=>",
+          "+",
+          "-",
+          "**",
+          "*",
+          "/",
+          "%",
+          "++",
+          "--",
+          "<<",
+          "</",
+          ">>",
+          ">>>",
+          "&",
+          "|",
+          "^",
+          "!",
+          "~",
+          "&&",
+          "||",
+          "??",
+          "?",
+          ":",
+          "=",
+          "+=",
+          "-=",
+          "*=",
+          "**=",
+          "/=",
+          "%=",
+          "<<=",
+          ">>=",
+          ">>>=",
+          "&=",
+          "|=",
+          "^=",
+          "@",
+          "#",
+        ],
+        symbols: /[=><!~?:&|+\-*\/\^%#]+/,
+        escapes:
+          /\\(?:[abfnrtv\\"']|x[0-9A-Fa-f]{1,4}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})/,
+        digits: /\d+(_+\d+)*/,
+        octaldigits: /[0-7]+(_+[0-7]+)*/,
+        binarydigits: /[0-1]+(_+[0-1]+)*/,
+        hexdigits: /[[0-9a-fA-F]+(_+[0-9a-fA-F]+)*/,
+        regexpctl: /[(){}\[\]\$\^|\-*+?\.]/,
+        regexpesc:
+          /\\(?:[bBdDfnrstvwWn0\\\/]|@regexpctl|c[A-Z]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4})/,
+        tokenizer: {
+          root: [[/[{}]/, "delimiter.bracket"], { include: "common" }],
+          common: [
+            [
+              /[a-z_$][\w$]*/,
+              {
+                cases: {
+                  "@typeKeywords": "keyword",
+                  "@keywords": "keyword",
+                  "@default": "identifier",
                 },
-              ],
-              [/[A-Z][\w\$]*/, "type.identifier"],
-              { include: "@whitespace" },
+              },
+            ],
+            [/[A-Z][\w\$]*/, "type.identifier"],
+            { include: "@whitespace" },
+            [
+              /\/(?=([^\\\/]|\\.)+\/([gimsuy]*)(\s*)(\.|;|,|\)|\]|\}|$))/,
+              { token: "regexp", bracket: "@open", next: "@regexp" },
+            ],
+            [/[()\[\]]/, "@brackets"],
+            [/[<>](?!@symbols)/, "@brackets"],
+            [/!(?=([^=]|$))/, "delimiter"],
+            [
+              /@symbols/,
+              { cases: { "@operators": "delimiter", "@default": "" } },
+            ],
+            [/(@digits)[eE]([\-+]?(@digits))?/, "number.float"],
+            [/(@digits)\.(@digits)([eE][\-+]?(@digits))?/, "number.float"],
+            [/0[xX](@hexdigits)n?/, "number.hex"],
+            [/0[oO]?(@octaldigits)n?/, "number.octal"],
+            [/0[bB](@binarydigits)n?/, "number.binary"],
+            [/(@digits)n?/, "number"],
+            [/[;,.]/, "delimiter"],
+            [/"([^"\\]|\\.)*$/, "string.invalid"],
+            [/'([^'\\]|\\.)*$/, "string.invalid"],
+            [/"/, "string", "@string_double"],
+            [/'/, "string", "@string_single"],
+            [/`/, "string", "@string_backtick"],
+          ],
+          whitespace: [
+            [/[ \t\r\n]+/, ""],
+            [/\/\*\*(?!\/)/, "comment.doc", "@jsdoc"],
+            [/\/\*/, "comment", "@comment"],
+            [/\/\/.*$/, "comment"],
+          ],
+          comment: [
+            [/[^\/*]+/, "comment"],
+            [/\*\//, "comment", "@pop"],
+            [/[\/*]/, "comment"],
+          ],
+          jsdoc: [
+            [/[^\/*]+/, "comment.doc"],
+            [/\*\//, "comment.doc", "@pop"],
+            [/[\/*]/, "comment.doc"],
+          ],
+          regexp: [
+            [
+              /(\{)(\d+(?:,\d*)?)(\})/,
               [
-                /\/(?=([^\\\/]|\\.)+\/([gimsuy]*)(\s*)(\.|;|,|\)|\]|\}|$))/,
-                { token: "regexp", bracket: "@open", next: "@regexp" },
+                "regexp.escape.control",
+                "regexp.escape.control",
+                "regexp.escape.control",
               ],
-              [/[()\[\]]/, "@brackets"],
-              [/[<>](?!@symbols)/, "@brackets"],
-              [/!(?=([^=]|$))/, "delimiter"],
+            ],
+            [
+              /(\[)(\^?)(?=(?:[^\]\\\/]|\\.)+)/,
               [
-                /@symbols/,
-                { cases: { "@operators": "delimiter", "@default": "" } },
+                "regexp.escape.control",
+                { token: "regexp.escape.control", next: "@regexrange" },
               ],
-              [/(@digits)[eE]([\-+]?(@digits))?/, "number.float"],
-              [/(@digits)\.(@digits)([eE][\-+]?(@digits))?/, "number.float"],
-              [/0[xX](@hexdigits)n?/, "number.hex"],
-              [/0[oO]?(@octaldigits)n?/, "number.octal"],
-              [/0[bB](@binarydigits)n?/, "number.binary"],
-              [/(@digits)n?/, "number"],
-              [/[;,.]/, "delimiter"],
-              [/"([^"\\]|\\.)*$/, "string.invalid"],
-              [/'([^'\\]|\\.)*$/, "string.invalid"],
-              [/"/, "string", "@string_double"],
-              [/'/, "string", "@string_single"],
-              [/`/, "string", "@string_backtick"],
             ],
-            whitespace: [
-              [/[ \t\r\n]+/, ""],
-              [/\/\*\*(?!\/)/, "comment.doc", "@jsdoc"],
-              [/\/\*/, "comment", "@comment"],
-              [/\/\/.*$/, "comment"],
+            [
+              /(\()(\?:|\?=|\?!)/,
+              ["regexp.escape.control", "regexp.escape.control"],
             ],
-            comment: [
-              [/[^\/*]+/, "comment"],
-              [/\*\//, "comment", "@pop"],
-              [/[\/*]/, "comment"],
-            ],
-            jsdoc: [
-              [/[^\/*]+/, "comment.doc"],
-              [/\*\//, "comment.doc", "@pop"],
-              [/[\/*]/, "comment.doc"],
-            ],
-            regexp: [
+            [/[()]/, "regexp.escape.control"],
+            [/@regexpctl/, "regexp.escape.control"],
+            [/[^\\\/]/, "regexp"],
+            [/@regexpesc/, "regexp.escape"],
+            [/\\\./, "regexp.invalid"],
+            [
+              /(\/)([gimsuy]*)/,
               [
-                /(\{)(\d+(?:,\d*)?)(\})/,
-                [
-                  "regexp.escape.control",
-                  "regexp.escape.control",
-                  "regexp.escape.control",
-                ],
-              ],
-              [
-                /(\[)(\^?)(?=(?:[^\]\\\/]|\\.)+)/,
-                [
-                  "regexp.escape.control",
-                  { token: "regexp.escape.control", next: "@regexrange" },
-                ],
-              ],
-              [
-                /(\()(\?:|\?=|\?!)/,
-                ["regexp.escape.control", "regexp.escape.control"],
-              ],
-              [/[()]/, "regexp.escape.control"],
-              [/@regexpctl/, "regexp.escape.control"],
-              [/[^\\\/]/, "regexp"],
-              [/@regexpesc/, "regexp.escape"],
-              [/\\\./, "regexp.invalid"],
-              [
-                /(\/)([gimsuy]*)/,
-                [
-                  { token: "regexp", bracket: "@close", next: "@pop" },
-                  "keyword.other",
-                ],
+                { token: "regexp", bracket: "@close", next: "@pop" },
+                "keyword.other",
               ],
             ],
-            regexrange: [
-              [/-/, "regexp.escape.control"],
-              [/\^/, "regexp.invalid"],
-              [/@regexpesc/, "regexp.escape"],
-              [/[^\]]/, "regexp"],
-              [
-                /\]/,
-                {
-                  token: "regexp.escape.control",
-                  next: "@pop",
-                  bracket: "@close",
-                },
-              ],
+          ],
+          regexrange: [
+            [/-/, "regexp.escape.control"],
+            [/\^/, "regexp.invalid"],
+            [/@regexpesc/, "regexp.escape"],
+            [/[^\]]/, "regexp"],
+            [
+              /\]/,
+              {
+                token: "regexp.escape.control",
+                next: "@pop",
+                bracket: "@close",
+              },
             ],
-            string_double: [
-              [/[^\\"]+/, "string"],
-              [/@escapes/, "string.escape"],
-              [/\\./, "string.escape.invalid"],
-              [/"/, "string", "@pop"],
+          ],
+          string_double: [
+            [/[^\\"]+/, "string"],
+            [/@escapes/, "string.escape"],
+            [/\\./, "string.escape.invalid"],
+            [/"/, "string", "@pop"],
+          ],
+          string_single: [
+            [/[^\\']+/, "string"],
+            [/@escapes/, "string.escape"],
+            [/\\./, "string.escape.invalid"],
+            [/'/, "string", "@pop"],
+          ],
+          string_backtick: [
+            [
+              /\$\{/,
+              { token: "delimiter.bracket", next: "@bracketCounting" },
             ],
-            string_single: [
-              [/[^\\']+/, "string"],
-              [/@escapes/, "string.escape"],
-              [/\\./, "string.escape.invalid"],
-              [/'/, "string", "@pop"],
-            ],
-            string_backtick: [
-              [
-                /\$\{/,
-                { token: "delimiter.bracket", next: "@bracketCounting" },
-              ],
-              [/[^\\`$]+/, "string"],
-              [/@escapes/, "string.escape"],
-              [/\\./, "string.escape.invalid"],
-              [/`/, "string", "@pop"],
-            ],
-            bracketCounting: [
-              [/\{/, "delimiter.bracket", "@bracketCounting"],
-              [/\}/, "delimiter.bracket", "@pop"],
-              { include: "common" },
-            ],
-          },
-        };
+            [/[^\\`$]+/, "string"],
+            [/@escapes/, "string.escape"],
+            [/\\./, "string.escape.invalid"],
+            [/`/, "string", "@pop"],
+          ],
+          bracketCounting: [
+            [/\{/, "delimiter.bracket", "@bracketCounting"],
+            [/\}/, "delimiter.bracket", "@pop"],
+            { include: "common" },
+          ],
+        },
+      };
     },
     S0tx(t, e, n) {
       "use strict";
@@ -1622,13 +1626,13 @@
         n.d(e, "markdownLanguage", () => {
           return Pt;
         });
-      var i,
-        r = n("uZp5"),
-        s = n("4eob"),
-        o = n("AtEE"),
-        l = n("yqQ+"),
-        a = n("ubVE"),
-        h = n("WQMp");
+      let i;
+      const r = n("uZp5");
+      const s = n("4eob");
+      const o = n("AtEE");
+      const l = n("yqQ+");
+      const a = n("ubVE");
+      const h = n("WQMp");
       class c {
         constructor(t, e, n, i, r, s, o) {
           (this.type = t),
@@ -1669,7 +1673,7 @@
           );
         }
       }
-      !(t => {
+      !((t) => {
         (t[(t.Document = 1)] = "Document"),
           (t[(t.CodeBlock = 2)] = "CodeBlock"),
           (t[(t.FencedCode = 3)] = "FencedCode"),
@@ -3219,7 +3223,9 @@
                   92 == e && n++;
                 }
                 return !1;
-              })(e.content, 0) ? new kt() : null,
+              })(e.content, 0)
+                ? new kt()
+                : null,
             before: "SetextHeading",
           },
         ],
@@ -3304,7 +3310,7 @@
             },
           ],
         };
-      var Tt = n("PQU8");
+      const Tt = n("PQU8");
       const Et = Object(l.defineLanguageFacet)({
           block: { open: "\x3c!--", close: "--\x3e" },
         }),
@@ -3447,29 +3453,30 @@
                         )),
                         "OrderedList" == n.node.parent.name &&
                           l == e.from &&
-                          (n.string = n.string.replace(/\d+/, (t) => +t + 1), ((t, e, n) => {
-                          for (let i = -1, r = t; ; ) {
-                            if ("ListItem" == r.name) {
-                              let t = /^(\s*)(\d+)(?=[.)])/.exec(
-                                e.sliceString(r.from, r.from + 10)
-                              );
-                              if (!t) return;
-                              let s = +t[2];
-                              if (i >= 0) {
-                                if (s != i + 1) return;
-                                n.push({
-                                  from: r.from + t[1].length,
-                                  to: r.from + t[0].length,
-                                  insert: String(i + 2),
-                                });
+                          ((n.string = n.string.replace(/\d+/, (t) => +t + 1)),
+                          ((t, e, n) => {
+                            for (let i = -1, r = t; ; ) {
+                              if ("ListItem" == r.name) {
+                                let t = /^(\s*)(\d+)(?=[.)])/.exec(
+                                  e.sliceString(r.from, r.from + 10)
+                                );
+                                if (!t) return;
+                                let s = +t[2];
+                                if (i >= 0) {
+                                  if (s != i + 1) return;
+                                  n.push({
+                                    from: r.from + t[1].length,
+                                    to: r.from + t[0].length,
+                                    insert: String(i + 2),
+                                  });
+                                }
+                                i = s;
                               }
-                              i = s;
+                              let t = r.nextSibling;
+                              if (!t) break;
+                              r = t;
                             }
-                            let t = r.nextSibling;
-                            if (!t) break;
-                            r = t;
-                          }
-                        })(n.node, t.doc, a))));
+                          })(n.node, t.doc, a))));
                 }
                 let h = o.map((t) => t.string).join("");
                 return (
@@ -3543,7 +3550,7 @@
           throw new RangeError(
             "Base parser provided to `markdown` should be a Markdown parser"
           );
-        var h, c;
+        let h, c;
         return (
           (e || n) &&
             a.push(
@@ -3780,8 +3787,8 @@
               );
         }
         static build(t) {
-          return (t => {
-            var e;
+          return ((t) => {
+            let e;
             let {
                 buffer: n,
                 nodeSet: r,
@@ -4522,8 +4529,7 @@
         n.d(e, "tooltips", () => {
           return h;
         });
-      var i = n("AtEE"),
-        r = n("4eob");
+      const i = n("AtEE"), r = n("4eob");
       const s =
           "undefined" != typeof navigator &&
           !/Edge\/(\d+)/.exec(navigator.userAgent) &&
@@ -4747,14 +4753,14 @@
           } else a && this.view.dispatch({ effects: this.setHover.of(a) });
         }
         mousemove(t) {
-          var e;
+          let e;
           (this.lastMouseMove = t),
             this.hoverTimeout < 0 &&
               (this.hoverTimeout = setTimeout(this.checkHover, 750));
           let n = this.active;
           if (
             (n &&
-              !(t => {
+              !((t) => {
                 for (let e = t; e; e = e.parentNode)
                   if (1 == e.nodeType && e.classList.contains("cm-tooltip"))
                     return !0;
@@ -4768,7 +4774,9 @@
                 void 0 !== e
                   ? e
                   : i;
-            (i == r ? this.view.posAtCoords({ x: t.clientX, y: t.clientY }) == i : ((t, e, n, i, r, s) => {
+            (i == r
+              ? this.view.posAtCoords({ x: t.clientX, y: t.clientY }) == i
+              : ((t, e, n, i, r, s) => {
                   let o = document.createRange(),
                     l = t.domAtPos(e),
                     a = t.domAtPos(n);
@@ -4854,12 +4862,7 @@
         n.d(e, "tags", () => {
           return z;
         });
-      var i = n("WQMp"),
-        r = n("rknV"),
-        s = n("AtEE"),
-        o = n("4eob"),
-        l = n("yqQ+"),
-        a = n("wG49");
+      const i = n("WQMp"), r = n("rknV"), s = n("AtEE"), o = n("4eob"), l = n("yqQ+"), a = n("wG49");
       let h = 0;
       class c {
         constructor(t, e, n) {
@@ -5365,10 +5368,7 @@
         n.d(e, "syntaxTree", () => {
           return f;
         });
-      var i = n("WQMp"),
-        r = n("uZp5"),
-        s = n("4eob"),
-        o = n("AtEE");
+      const i = n("WQMp"), r = n("uZp5"), s = n("4eob"), o = n("AtEE");
       const l = new i.b();
       function a(t) {
         return s.Facet.define({ combine: t ? (e) => e.concat(t) : void 0 });
@@ -5468,7 +5468,7 @@
         return e ? e.tree : i.e.empty;
       }
       function d(t, e, n = 50) {
-        var i;
+        let i;
         let r =
           null === (i = t.field(h.state, !1)) || void 0 === i
             ? void 0
@@ -5838,7 +5838,8 @@
           if (null != n) return n;
         }
         let n = f(t.state);
-        return n ? ((t, e, n) => {
+        return n
+          ? ((t, e, n) => {
               let i = e.resolve(n);
               for (let r = i, s = n; ; ) {
                 let t = r.childBefore(s);
@@ -5848,14 +5849,15 @@
                   : ((r = t), (s = r.to + 1));
               }
               return B(i, n, t);
-            })(t, n, e) : null;
+            })(t, n, e)
+          : null;
       }
       class I {
         constructor(t, e = {}) {
           (this.state = t), (this.options = e), (this.unit = L(t));
         }
         textAfterPos(t) {
-          var e, n;
+          let e, n;
           let i =
             null === (e = this.options) || void 0 === e
               ? void 0
@@ -5875,7 +5877,7 @@
               );
         }
         column(t) {
-          var e;
+          let e;
           let n = this.state.doc.lineAt(t),
             i = n.text.slice(0, t - n.from),
             r = this.countColumn(i, t - n.from),
@@ -5920,8 +5922,8 @@
               1,
               void 0,
               i &&
-                !(t => {
-                  var e, n;
+                !((t) => {
+                  let e, n;
                   return (
                     t.pos ==
                       (null === (e = t.options) || void 0 === e
@@ -5984,8 +5986,9 @@
         let s = t.textAfter,
           o = s.match(/^\s*/)[0].length,
           l = (i && s.slice(o, o + i.length) == i) || r == t.pos + o,
-          a = e ? (t => {
-                var e;
+          a = e
+            ? ((t) => {
+                let e;
                 let n = t.node,
                   i = n.childAfter(n.from),
                   r = n.lastChild;
@@ -6002,7 +6005,8 @@
                   if (!t.type.isSkipped) return t.from < l ? i : null;
                   a = t.to;
                 }
-              })(t) : null;
+              })(t)
+            : null;
         return a
           ? l
             ? t.column(a.from)

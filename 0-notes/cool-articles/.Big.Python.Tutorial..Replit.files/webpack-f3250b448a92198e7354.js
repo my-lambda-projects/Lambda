@@ -1,4 +1,4 @@
-!(function (e) {
+!((e) => {
   function c(c) {
     for (
       var a, f, r = c[0], n = c[1], o = c[2], u = 0, l = [];
@@ -15,21 +15,21 @@
   function d() {
     for (var e, c = 0; c < t.length; c++) {
       for (var d = t[c], a = !0, f = 1; f < d.length; f++) {
-        var n = d[f];
+        const n = d[f];
         0 !== b[n] && (a = !1);
       }
       a && (t.splice(c--, 1), (e = r((r.s = d[0]))));
     }
     return e;
   }
-  var a = {},
-    f = { 2: 0 },
-    b = { 2: 0 },
-    t = [];
+  const a = {};
+  const f = { 2: 0 };
+  var b = { 2: 0 };
+  var t = [];
   function r(c) {
     if (a[c]) return a[c].exports;
-    var d = (a[c] = { i: c, l: !1, exports: {} }),
-      f = !0;
+    const d = (a[c] = { i: c, l: !1, exports: {} });
+    let f = !0;
     try {
       e[c].call(d.exports, d, d.exports, r), (f = !1);
     } finally {
@@ -37,14 +37,14 @@
     }
     return (d.l = !0), d.exports;
   }
-  (r.e = function (e) {
-    var c = [];
+  (r.e = (e) => {
+    const c = [];
     f[e]
       ? c.push(f[e])
       : 0 !== f[e] &&
         { 41: 1 }[e] &&
         c.push(
-          (f[e] = new Promise(function (c, d) {
+          (f[e] = new Promise((c, d) => {
             for (
               var a =
                   "static/css/" +
@@ -277,21 +277,21 @@
                 (i = t[n]).getAttribute("data-href") || i.getAttribute("href");
               if ("stylesheet" === i.rel && (o === a || o === b)) return c();
             }
-            var u = document.getElementsByTagName("style");
+            const u = document.getElementsByTagName("style");
             for (n = 0; n < u.length; n++) {
               var i;
               if ((o = (i = u[n]).getAttribute("data-href")) === a || o === b)
                 return c();
             }
-            var l = document.createElement("link");
+            const l = document.createElement("link");
             (l.rel = "stylesheet"),
               (l.type = "text/css"),
               (l.onload = c),
-              (l.onerror = function (c) {
-                var a = (c && c.target && c.target.src) || b,
-                  t = new Error(
-                    "Loading CSS chunk " + e + " failed.\n(" + a + ")"
-                  );
+              (l.onerror = (c) => {
+                const a = (c && c.target && c.target.src) || b,
+                      t = new Error(
+                        "Loading CSS chunk " + e + " failed.\n(" + a + ")"
+                      );
                 (t.code = "CSS_CHUNK_LOAD_FAILED"),
                   (t.request = a),
                   delete f[e],
@@ -300,24 +300,24 @@
               }),
               (l.href = b),
               document.getElementsByTagName("head")[0].appendChild(l);
-          }).then(function () {
+          }).then(() => {
             f[e] = 0;
           }))
         );
-    var d = b[e];
+    let d = b[e];
     if (0 !== d)
       if (d) c.push(d[2]);
       else {
-        var a = new Promise(function (c, a) {
+        const a = new Promise((c, a) => {
           d = b[e] = [c, a];
         });
         c.push((d[2] = a));
-        var t,
-          n = document.createElement("script");
+        let t;
+        const n = document.createElement("script");
         (n.charset = "utf-8"),
           (n.timeout = 120),
           r.nc && n.setAttribute("nonce", r.nc),
-          (n.src = (function (e) {
+          (n.src = ((e) => {
             return (
               r.p +
               "static/chunks/" +
@@ -559,14 +559,13 @@
               ".js"
             );
           })(e));
-        var o = new Error();
-        t = function (c) {
+        const o = new Error();
+        t = (c) => {
           (n.onerror = n.onload = null), clearTimeout(u);
-          var d = b[e];
+          const d = b[e];
           if (0 !== d) {
             if (d) {
-              var a = c && ("load" === c.type ? "missing" : c.type),
-                f = c && c.target && c.target.src;
+              const a = c && ("load" === c.type ? "missing" : c.type), f = c && c.target && c.target.src;
               (o.message =
                 "Loading chunk " + e + " failed.\n(" + a + ": " + f + ")"),
                 (o.name = "ChunkLoadError"),
@@ -577,7 +576,7 @@
             b[e] = void 0;
           }
         };
-        var u = setTimeout(function () {
+        var u = setTimeout(() => {
           t({ type: "timeout", target: n });
         }, 12e4);
         (n.onerror = n.onload = t), document.head.appendChild(n);
@@ -586,56 +585,56 @@
   }),
     (r.m = e),
     (r.c = a),
-    (r.d = function (e, c, d) {
+    (r.d = (e, c, d) => {
       r.o(e, c) || Object.defineProperty(e, c, { enumerable: !0, get: d });
     }),
-    (r.r = function (e) {
+    (r.r = (e) => {
       "undefined" !== typeof Symbol &&
         Symbol.toStringTag &&
         Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }),
         Object.defineProperty(e, "__esModule", { value: !0 });
     }),
-    (r.t = function (e, c) {
+    (r.t = (e, c) => {
       if ((1 & c && (e = r(e)), 8 & c)) return e;
       if (4 & c && "object" === typeof e && e && e.__esModule) return e;
-      var d = Object.create(null);
+      const d = Object.create(null);
       if (
         (r.r(d),
         Object.defineProperty(d, "default", { enumerable: !0, value: e }),
         2 & c && "string" != typeof e)
       )
-        for (var a in e)
+        for (const a in e)
           r.d(
             d,
             a,
-            function (c) {
+            ((c) => {
               return e[c];
-            }.bind(null, a)
+            }).bind(null, a)
           );
       return d;
     }),
-    (r.n = function (e) {
-      var c =
+    (r.n = (e) => {
+      const c =
         e && e.__esModule
-          ? function () {
+          ? () => {
               return e.default;
             }
-          : function () {
+          : () => {
               return e;
             };
       return r.d(c, "a", c), c;
     }),
-    (r.o = function (e, c) {
+    (r.o = (e, c) => {
       return Object.prototype.hasOwnProperty.call(e, c);
     }),
     (r.p = ""),
-    (r.oe = function (e) {
+    (r.oe = (e) => {
       throw (console.error(e), e);
     });
-  var n = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []),
-    o = n.push.bind(n);
+  let n = (window.webpackJsonp_N_E = window.webpackJsonp_N_E || []);
+  const o = n.push.bind(n);
   (n.push = c), (n = n.slice());
-  for (var u = 0; u < n.length; u++) c(n[u]);
+  for (let u = 0; u < n.length; u++) c(n[u]);
   var i = o;
   d();
 })([]);
