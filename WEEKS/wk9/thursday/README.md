@@ -17,3 +17,26 @@ Alternative Lecture Video: [Dustin Myers](https://youtu.be/KcpbY22WqP8) | [Jo
 **Stretch Tutorials:**
 
 -   Model Custom Hook - <https://upmostly.com/tutorials/modal-components-react-custom-hooks>
+
+
+---
+
+[wed lecture](https://www.youtube.com/watch?v=b--jKWmIA8A)
+
+---
+
+Here are your setup instructions for module 4:
+
+1.  Clone without forking the following repo: <https://github.com/LambdaSchool/web-guided-project-testing-web-apps>
+2.  Navigate into the root folder and run npm i to load dependences.
+
+![:point_right:](https://slack-imgs.com/?c=1&o1=gu&url=https%3A%2F%2Fa.slack-edge.com%2Fproduction-standard-emoji-assets%2F13.0%2Fgoogle-medium%2F1f449%402x.png) Technical issues spinning up the project? Please head over to the help channel!\
+![:point_right:](https://slack-imgs.com/?c=1&o1=gu&url=https%3A%2F%2Fa.slack-edge.com%2Fproduction-standard-emoji-assets%2F13.0%2Fgoogle-medium%2F1f449%402x.png) If you fall behind during lecture and wish to catch up:\
+`git fetch && git reset --hard origin/lecture`\
+![:point_right:](https://slack-imgs.com/?c=1&o1=gu&url=https%3A%2F%2Fa.slack-edge.com%2Fproduction-standard-emoji-assets%2F13.0%2Fgoogle-medium%2F1f449%402x.png) Slido event: <https://app.sli.do/event/msea4w8q>
+
+LambdaSchool/web-guided-project-testing-web-apps
+
+Language
+
+JavaScript
